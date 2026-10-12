@@ -65,7 +65,8 @@ jobs:
     timeout-minutes: 15
     services:
       postgres:
-        image: postgres:17
+        # postgres:17, digest diambil dari run CI 12 Oktober 2026. Naikkan bersama tag-nya.
+        image: postgres:17@sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3
         env:
           POSTGRES_PASSWORD: ci-superuser-only
         ports:
@@ -99,8 +100,6 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Digest image Postgres (sementara, untuk pin)
-        run: echo "::notice title=postgres-digest::$(docker image inspect postgres:17 --format '{{join .RepoDigests " "}}')"
       - name: Buat database dan role Kira
         run: sh deploy/db/init/00-roles.sh
       - name: Migrasi (role kira_owner)
