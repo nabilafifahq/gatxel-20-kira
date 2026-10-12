@@ -3,10 +3,11 @@ import { and, eq, inArray, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, modeAllowsHints, modeShowsFeedback, questCompletionXp, scoreWithPreset, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
-import { checkAnswer, keyOf, type Item } from '@kira/content'
+import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
 import type { AnswerPayload, AnswerResult, RunnerDTO, RunnerItem, SavedResponse, Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
+import { labelPerm, runnerSeed } from '../labels'
 import { resolveItems, skill, toClient } from './content'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
@@ -67,12 +68,14 @@ export function latestByPosition(rows: ResponseRow[]): Map<number, ResponseRow> 
 
 /**
  * `markOpened`: halaman runner benar-benar dibuka oleh learner (bukan prefetch atau simpan offline
- * oleh service worker). Pembukaan pertama mencatat opened_at sehingga jam tes berwaktu mulai di sini.
+ * oleh service worker). Pembukaan pertama mencatat opened_at sehingga jam mulai di sini.
+ * Attempt berwaktu selalu mulai pada render pertama: header simpan offline bisa dikirim siapa saja,
+ * jadi soal tes berwaktu tidak pernah terkirim tanpa jam berjalan (dan tidak masuk simpanan offline).
  */
 export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true }> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status !== 'in_progress') return { submitted: true }
-  if (!a.openedAt && opts.markOpened) {
+  if (!a.openedAt && (opts.markOpened || a.timeLimitS)) {
     const [o] = await tx
       .update(attempt)
       .set({ openedAt: new Date() })
@@ -86,22 +89,31 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
   const mode = a.mode as Mode
   const feedback = modeShowsFeedback(mode)
   const hints = modeAllowsHints(mode)
+  // Mode tanpa umpan balik: urutan tampil dan label pilihan dihitung dari KIRA_SECRET (lihat server/labels.ts).
+  const hidden = HIDDEN_MODES.has(a.mode)
+  const seed = hidden ? runnerSeed(a.id) : a.id
+  const byPosition = new Map<number, { item: Item; perm: LabelPerm | null }>()
   const runnerItems: RunnerItem[] = []
   for (const it of items) {
     const item = resolved.get(it.ref)
     if (!item) continue
-    runnerItems.push({ ...toClient(item, { ref: it.ref, seed: a.id, includeKey: feedback, includeHints: hints }), position: it.position, section: it.section })
+    const perm = hidden ? labelPerm(a.id, it.ref, labelCount(item)) : null
+    byPosition.set(it.position, { item, perm })
+    runnerItems.push({ ...toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }), position: it.position, section: it.section })
   }
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)
-  const saved: SavedResponse[] = [...latest.values()].map((r) => ({
-    position: r.position,
-    answer: r.answer,
-    status: HIDDEN_MODES.has(a.mode) ? 'answered' : r.status,
-    hintsUsed: r.hintsUsed,
-    attemptNo: r.attemptNo,
-    flagged: r.flagged,
-  }))
+  const saved: SavedResponse[] = [...latest.values()].map((r) => {
+    const at = byPosition.get(r.position)
+    return {
+      position: r.position,
+      answer: (at ? answerToLabels(at.item, r.answer, at.perm) : r.answer) as SavedResponse['answer'],
+      status: HIDDEN_MODES.has(a.mode) ? 'answered' : r.status,
+      hintsUsed: r.hintsUsed,
+      attemptNo: r.attemptNo,
+      flagged: r.flagged,
+    }
+  })
   // Belum pernah dibuka (misalnya halaman dari simpanan offline): jam mulai dari nol di perangkat.
   const elapsed = a.openedAt ? Math.max(0, Math.floor((Date.now() - a.openedAt.getTime()) / 1000)) : 0
   return {
@@ -199,13 +211,15 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
   if (!slot) throw invalid('Nomor soal tidak ada di attempt ini.')
   const item = (await resolveItems(tx, [slot.ref])).get(slot.ref)
   if (!item) throw notFound('Soal tidak ditemukan.')
-  if (!validAnswer(item, p.answer)) throw invalid('Bentuk jawaban tidak sesuai soal.')
-  if ((item.type === 'speak' || item.type === 'draw') && p.answer) {
-    const mediaId = (p.answer as { mediaId: string }).mediaId
+  // Mode tanpa umpan balik: perangkat mengirim label rahasia, basis data menyimpan indeks asli.
+  const answer = answerFromLabels(item, p.answer, HIDDEN_MODES.has(a.mode) ? labelPerm(a.id, slot.ref, labelCount(item)) : null) as AnswerPayload['answer']
+  if (!validAnswer(item, answer)) throw invalid('Bentuk jawaban tidak sesuai soal.')
+  if ((item.type === 'speak' || item.type === 'draw') && answer) {
+    const mediaId = (answer as { mediaId: string }).mediaId
     const m = await tx.select({ id: media.id }).from(media).where(and(eq(media.id, mediaId), eq(media.learnerId, learnerId))).limit(1)
     if (!m[0]) throw invalid('Rekaman atau gambar tidak ditemukan.')
   }
-  const check = checkAnswer(keyOf(item), p.answer)
+  const check = checkAnswer(keyOf(item), answer)
   const date = jakartaDate()
   const base = {
     orgId: ctx.orgId,
@@ -217,7 +231,7 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
     subject: a.subject,
     itemType: item.type,
     difficulty: item.difficulty,
-    answer: p.answer ?? null,
+    answer: answer ?? null,
     status: check.status,
     score: check.score,
     maxScore: 1,
@@ -226,7 +240,7 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
     flagged: p.flagged,
     clientId: p.clientId,
     answeredAt: new Date(p.answeredAt),
-    mediaId: item.type === 'speak' || item.type === 'draw' ? ((p.answer as { mediaId?: string } | null)?.mediaId ?? null) : null,
+    mediaId: item.type === 'speak' || item.type === 'draw' ? ((answer as { mediaId?: string } | null)?.mediaId ?? null) : null,
   }
   if (HIDDEN_MODES.has(a.mode)) {
     // Tes: jawaban boleh diganti sampai dikumpulkan; mesin belajar diperbarui saat kumpul.

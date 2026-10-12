@@ -125,7 +125,7 @@ export function QuestIntroScreen({
                   ) : null}
                 </>
               ) : (
-                <ButtonLink href={data.startHref} iconAfter="arrow-right" className="px-7">
+                <ButtonLink href={data.startHref} prefetch={false} iconAfter="arrow-right" className="px-7">
                   Start
                 </ButtonLink>
               )}

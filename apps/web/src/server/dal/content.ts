@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, inArray, isNull } from 'drizzle-orm'
 import { tables } from '@kira/db'
-import { answerText, itemSchema, MANUAL_TYPES, presentItem, skillGrade, skillSubject, STRAND_NAMES, type ClientItem, type Item, type Lesson, type Passage, type Preset, type Skill, type Subject } from '@kira/content'
+import { answerText, itemSchema, MANUAL_TYPES, presentItem, skillGrade, skillSubject, STRAND_NAMES, type ClientItem, type Item, type LabelPerm, type Lesson, type Passage, type Preset, type Skill, type Subject } from '@kira/content'
 import { GENERATORS, generateItem, isGenRef } from '@kira/content/math'
 import { loadContent, type ContentIndex } from '@kira/content/load'
 import type { Tx } from '../db'
@@ -103,12 +103,13 @@ function lessonCheckItem(ref: string): Item | undefined {
 }
 
 /** Soal untuk perangkat learner. includeKey hanya untuk mode latihan. */
-export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean }): ClientItem {
+export function toClient(item: Item, opts: { ref: string; seed: string; includeKey: boolean; includeHints: boolean; labels?: LabelPerm | null }): ClientItem {
   return presentItem(item, {
     ref: opts.ref,
     seed: opts.seed,
     includeKey: opts.includeKey,
     includeHints: opts.includeHints,
+    ...(opts.labels ? { labels: opts.labels } : {}),
     answerText: answerText(item),
     ...(item.passage && passage(item.passage) ? { passage: passage(item.passage)! } : {}),
   })

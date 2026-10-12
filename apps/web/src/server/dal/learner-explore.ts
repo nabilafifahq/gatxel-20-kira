@@ -212,10 +212,13 @@ export async function completeLesson(tx: Tx, ctx: OrgContext, learnerId: string,
     .insert(skillState)
     .values({ orgId: ctx.orgId, learnerId, skillId, lessonDoneAt: new Date() })
     .onConflictDoUpdate({ target: [skillState.learnerId, skillState.skillId], set: { lessonDoneAt: new Date() } })
+  // XP pelajaran sekali per skill per hari (indeks unik xp_event_lesson_once); panggilan ulang tidak menambah XP.
   if (correct > 0) {
-    await tx.insert(tables.xpEvent).values({ orgId: ctx.orgId, learnerId, amount: Math.min(10, correct * 5), reason: 'lesson', ref: skillId, date: jakartaDate() })
+    await tx
+      .insert(tables.xpEvent)
+      .values({ orgId: ctx.orgId, learnerId, amount: Math.min(10, Math.min(correct, total) * 5), reason: 'lesson', ref: skillId, date: jakartaDate() })
+      .onConflictDoNothing()
   }
-  void total
 }
 
 export function randomFor(key: string) {

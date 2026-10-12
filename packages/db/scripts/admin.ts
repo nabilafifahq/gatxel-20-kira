@@ -39,7 +39,20 @@ async function status(): Promise<void> {
       (select count(*)::int from outbox_email where status = 'no-smtp') as email_no_smtp`
   const schedules = await sql`select name, last_run_at, last_result from schedule_state order by name`
   const migrations = await sql`select name, applied_at from kira_migration order by name`.catch(() => [])
-  console.log(JSON.stringify({ ...counts, schedules, migrations: migrations.map((m) => m.name) }, null, 2))
+  // Hak tabel penting, terutama setelah memulihkan cadangan: consent_event dan audit_log harus append-only.
+  const problems = await sql<{ problem: string }[]>`
+    select problem from (
+      select format('%s punya %s di %s', r, p, t) as problem
+      from unnest(array['kira_app', 'kira_worker']) r, unnest(array['consent_event', 'audit_log']) t, unnest(array['UPDATE', 'DELETE']) p
+      where has_table_privilege(r, t, p)
+      union all
+      select 'kira_app bisa membaca schedule_state' where has_table_privilege('kira_app', 'schedule_state', 'SELECT')
+      union all
+      select 'hak bawaan masih ada (' || defaclobjtype::text || ')' from pg_default_acl
+    ) x`
+  const privileges = problems.length === 0 ? 'sesuai migrasi' : problems.map((p) => p.problem)
+  console.log(JSON.stringify({ ...counts, schedules, migrations: migrations.map((m) => m.name), privileges }, null, 2))
+  if (problems.length > 0) process.exitCode = 1
 }
 
 async function resetLink(emailRaw: string | undefined): Promise<void> {

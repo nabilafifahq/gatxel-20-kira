@@ -81,3 +81,13 @@ test('unggahan dari tablet diterima dari alamat Kira dan ditolak dari situs lain
   })
   expect(evil.status()).toBe(403)
 })
+
+test('hasil dan pembahasan tes tidak bisa dibuka sebelum dikumpulkan', async ({ page }) => {
+  await registerTablet(page, ['Aisha'])
+  await pinLogin(page, 'Aisha')
+  const attemptId = await createPracticeAttempt('Aisha', mcqItems('e2.', 2), { mode: 'tes' })
+  for (const path of [`/results/${attemptId}`, `/results/${attemptId}/review`]) {
+    await page.goto(path)
+    await expect(page, path).toHaveURL(new RegExp(`/run/${attemptId}$`))
+  }
+})

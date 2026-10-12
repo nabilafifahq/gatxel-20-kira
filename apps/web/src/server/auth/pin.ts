@@ -1,5 +1,5 @@
 import 'server-only'
-import { eq } from 'drizzle-orm'
+import { and, eq, isNull, lte, or, sql } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { PIN_PICTURES } from '@kira/figures/spec'
 import { authDb } from '../db'
@@ -29,31 +29,39 @@ export type PinCheck =
   | { ok: false; reason: 'locked'; lockedUntil: Date }
 
 export async function checkPin(userId: string, pin: readonly string[]): Promise<PinCheck> {
-  const rows = await authDb().select().from(tables.learnerSecret).where(eq(tables.learnerSecret.userId, userId)).limit(1)
-  const secret = rows[0]
-  if (!secret) return { ok: false, reason: 'wrong', attemptsLeft: 0 }
-  if (secret.lockedUntil && secret.lockedUntil.getTime() > Date.now()) return { ok: false, reason: 'locked', lockedUntil: secret.lockedUntil }
+  const t = tables.learnerSecret
+  // Hitung percobaan lebih dulu dalam satu UPDATE atomik, sebelum Argon2. Permintaan paralel mendapat nomor
+  // berbeda, percobaan ke-5 langsung memasang kunci, dan permintaan berikutnya ditolak tanpa memeriksa PIN.
+  // Kunci yang sudah lewat memulai hitungan dari 1 lagi.
+  const next = sql<number>`case when ${t.lockedUntil} is not null then 1 else ${t.failedPins} + 1 end`
+  const reserved = await authDb()
+    .update(t)
+    .set({
+      failedPins: next,
+      lockedUntil: sql`case when (${next}) >= ${PIN_MAX_FAILS} then now() + make_interval(secs => ${PIN_LOCK_MS / 1000}) else null end`,
+    })
+    .where(and(eq(t.userId, userId), or(isNull(t.lockedUntil), lte(t.lockedUntil, sql`now()`))))
+    .returning({ pinHash: t.pinHash, failedPins: t.failedPins, lockedUntil: t.lockedUntil })
+  const row = reserved[0]
+  if (!row) {
+    const rows = await authDb().select({ lockedUntil: t.lockedUntil }).from(t).where(eq(t.userId, userId)).limit(1)
+    const lockedUntil = rows[0]?.lockedUntil
+    if (!rows[0] || !lockedUntil) return { ok: false, reason: 'wrong', attemptsLeft: 0 }
+    return { ok: false, reason: 'locked', lockedUntil }
+  }
   let candidate: string
   try {
     candidate = pinString(pin)
   } catch {
     candidate = 'invalid'
   }
-  const ok = await verifySecret(secret.pinHash, candidate)
+  const ok = await verifySecret(row.pinHash, candidate)
   if (ok) {
-    if (secret.failedPins > 0 || secret.lockedUntil) {
-      await authDb().update(tables.learnerSecret).set({ failedPins: 0, lockedUntil: null }).where(eq(tables.learnerSecret.userId, userId))
-    }
+    await authDb().update(t).set({ failedPins: 0, lockedUntil: null }).where(eq(t.userId, userId))
     return { ok: true }
   }
-  const fails = secret.failedPins + 1
-  if (fails >= PIN_MAX_FAILS) {
-    const lockedUntil = new Date(Date.now() + PIN_LOCK_MS)
-    await authDb().update(tables.learnerSecret).set({ failedPins: 0, lockedUntil }).where(eq(tables.learnerSecret.userId, userId))
-    return { ok: false, reason: 'locked', lockedUntil }
-  }
-  await authDb().update(tables.learnerSecret).set({ failedPins: fails, lockedUntil: null }).where(eq(tables.learnerSecret.userId, userId))
-  return { ok: false, reason: 'wrong', attemptsLeft: PIN_MAX_FAILS - fails }
+  if (row.lockedUntil) return { ok: false, reason: 'locked', lockedUntil: row.lockedUntil }
+  return { ok: false, reason: 'wrong', attemptsLeft: Math.max(0, PIN_MAX_FAILS - row.failedPins) }
 }
 
 export async function pinState(userIds: string[]): Promise<Map<string, { lockedUntil: Date | null; failed: number }>> {

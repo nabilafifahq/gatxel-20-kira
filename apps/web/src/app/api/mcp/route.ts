@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { env, origin } from '@/server/env'
 import { newReference } from '@/server/errors'
 import { log } from '@/server/log'
+import { readTextCapped } from '@/server/http'
 import { createRateLimiter, handleMcpPost } from '@/server/dal/mcp'
 import { authenticateMcpToken, callKiraTool } from '@/server/dal/mcp-tools'
 
@@ -23,11 +24,8 @@ function disabled(): NextResponse | null {
 export async function POST(req: Request) {
   const off = disabled()
   if (off) return off
-  if (Number(req.headers.get('content-length') ?? '0') > MAX_BODY) {
-    return NextResponse.json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request body is too large.' } }, { status: 413 })
-  }
-  const body = await req.text()
-  if (body.length > MAX_BODY) return NextResponse.json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request body is too large.' } }, { status: 413 })
+  const body = await readTextCapped(req, MAX_BODY)
+  if (body === null) return NextResponse.json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Request body is too large.' } }, { status: 413 })
   try {
     const out = await handleMcpPost(
       { headers: req.headers, body },

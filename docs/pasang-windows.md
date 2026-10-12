@@ -19,10 +19,12 @@ Yang berjalan di Docker:
 2. Buka PowerShell sebagai Administrator, jalankan `wsl --install`, lalu restart.
 3. Pasang [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) dengan backend WSL 2. Di Settings, General, centang Start Docker Desktop when you sign in.
 4. Pasang [Git for Windows](https://git-scm.com/download/win) dan [GitHub CLI](https://cli.github.com/), lalu masuk: `gh auth login`.
-5. Pasang [Tailscale untuk Windows](https://tailscale.com/download/windows) dan masuk dengan akun tailnet keluarga.
-6. Di [konsol admin Tailscale](https://login.tailscale.com/admin/dns), aktifkan MagicDNS dan HTTPS Certificates.
-7. Atur daya supaya server tidak tidur: Settings, System, Power, Screen and sleep, set When plugged in, put my device to sleep ke Never. Atur Active hours di Windows Update supaya restart otomatis terjadi di luar jam belajar.
-8. Disarankan: aktifkan BitLocker di drive data (Settings, Privacy and security, Device encryption atau BitLocker), karena folder data berisi rekaman dan foto jawaban anak.
+5. Pasang Node.js LTS, dipakai sekali untuk membuat token Claude di bagian 5: `winget install OpenJS.NodeJS.LTS`. Tutup lalu buka lagi PowerShell supaya `node` dan `npm` dikenali.
+6. Izinkan skrip lokal sekali (untuk `kira.ps1`, `npm`, dan `claude`): `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+7. Pasang [Tailscale untuk Windows](https://tailscale.com/download/windows) dan masuk dengan akun tailnet keluarga.
+8. Di [konsol admin Tailscale](https://login.tailscale.com/admin/dns), aktifkan MagicDNS dan HTTPS Certificates.
+9. Atur daya supaya server tidak tidur: Settings, System, Power, Screen and sleep, set When plugged in, put my device to sleep ke Never. Atur Active hours di Windows Update supaya restart otomatis terjadi di luar jam belajar.
+10. Disarankan: aktifkan BitLocker di drive data (Settings, Privacy and security, Device encryption atau BitLocker), karena folder data berisi rekaman dan foto jawaban anak.
 
 Opsional, batasi memori WSL supaya Windows tetap lega. Buat `C:\Users\<nama>\.wslconfig`:
 
@@ -40,10 +42,10 @@ Lalu jalankan `wsl --shutdown` dan buka Docker Desktop lagi.
 git clone https://github.com/nabilafifahq/gatxel-20-kira.git C:\Kira\app
 New-Item -ItemType Directory -Force D:\Kira\data, D:\Kira\backups | Out-Null
 cd C:\Kira\app
-Copy-Item .env.example .env
+.\deploy\windows\kira.ps1 init
 ```
 
-Kalau drive D tidak ada, pakai folder lain dan ubah `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` di `.env`.
+`init` membuat `.env` dari `.env.example` dan mengisi semua rahasia bertanda `GANTI` dengan nilai acak 48 karakter. Kalau drive D tidak ada, pakai folder lain dan ubah `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` di `.env`.
 
 ## 3. Alamat Tailscale
 
@@ -56,15 +58,17 @@ Perintah kedua menampilkan alamat seperti `https://kira-server.tail1234.ts.net`.
 
 ## 4. Isi `.env`
 
-Buka `C:\Kira\app\.env` di Notepad. Untuk setiap nilai `GANTI`, buat string acak di PowerShell:
+Buka `C:\Kira\app\.env` di Notepad. `KIRA_SECRET`, `KIRA_INTERNAL_TOKEN`, `KIRA_SETUP_TOKEN`, dan lima password database sudah diisi acak oleh `kira.ps1 init`. Yang diisi sendiri:
+
+- `KIRA_ORIGIN`: alamat dari bagian 3.
+- `KIRA_LEGAL_NAME`, `KIRA_LEGAL_ADDRESS`, `KIRA_LEGAL_EMAIL`: identitas pengelola. Nilai ini muncul di halaman Kebijakan Privasi dan Ketentuan (`/privasi`, `/ketentuan`) yang wajib dibaca orang tua sebelum memberi persetujuan.
+- `CLAUDE_CODE_OAUTH_TOKEN`: bagian 5.
+
+Untuk mengganti satu rahasia nanti, buat nilai acak 48 karakter di PowerShell:
 
 ```powershell
--join ((48..57)+(97..102) | Get-Random -Count 48 | ForEach-Object {[char]$_})
+$b = New-Object byte[] 24; [Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($b); -join ($b | ForEach-Object { $_.ToString('x2') })
 ```
-
-Jalankan sekali untuk setiap variabel: `KIRA_SECRET`, `KIRA_INTERNAL_TOKEN`, `KIRA_SETUP_TOKEN`, `POSTGRES_PASSWORD`, `KIRA_OWNER_PASSWORD`, `KIRA_APP_PASSWORD`, `KIRA_AUTH_PASSWORD`, `KIRA_WORKER_PASSWORD`. Setiap nilai harus berbeda.
-
-Isi juga identitas pengelola (`KIRA_LEGAL_NAME`, `KIRA_LEGAL_ADDRESS`, `KIRA_LEGAL_EMAIL`). Nilai ini muncul di halaman Kebijakan Privasi dan Ketentuan (`/privasi`, `/ketentuan`) yang wajib dibaca orang tua sebelum memberi persetujuan.
 
 Simpan salinan `.env` di pengelola kata sandi. Tanpa file ini, cadangan database tetap bisa dipulihkan, tetapi semua password database dan rahasia harus dibuat ulang.
 
@@ -100,7 +104,7 @@ docker compose up -d --build
 docker compose ps
 ```
 
-Build pertama sekitar 5 sampai 10 menit. Setelah selesai, `web`, `worker`, `db`, dan `backup` berstatus running atau healthy, sedangkan `certs` dan `migrate` berstatus exited (0). Kalau ada yang gagal, lihat lognya: `docker compose logs --tail 100 web`.
+Build pertama sekitar 5 sampai 10 menit. Setelah selesai, `docker compose ps -a` menampilkan `web`, `worker`, `db`, dan `backup` berstatus running atau healthy, sedangkan `certs` dan `migrate` berstatus exited (0). Tanpa `-a`, layanan yang sudah selesai tidak ditampilkan. Kalau ada yang gagal, lihat lognya: `docker compose logs --tail 100 web`.
 
 Perintah singkat ada di `deploy\windows\kira.ps1`:
 
@@ -113,7 +117,7 @@ Perintah singkat ada di `deploy\windows\kira.ps1`:
 .\deploy\windows\kira.ps1 admin reset-link alamat@email.com
 ```
 
-Kalau PowerShell menolak skrip, jalankan sekali: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
+Kalau PowerShell menolak skrip, jalankan langkah 6 di bagian 1.
 
 ## 7. Setup pertama
 
@@ -171,11 +175,11 @@ Memulihkan database dari satu cadangan:
 ```powershell
 cd C:\Kira\app
 docker compose stop web worker
-docker compose exec -e PGSSLMODE=verify-full -e PGSSLROOTCERT=/certs/ca.crt backup sh -c 'pg_restore --clean --if-exists --no-owner --exit-on-error -d "$DATABASE_URL_OWNER" /backups/daily/kira-20261012-0200.dump'
+docker compose exec -e PGSSLMODE=verify-full -e PGSSLROOTCERT=/certs/ca.crt backup sh -c 'pg_restore --clean --if-exists --no-owner --single-transaction -d "$DATABASE_URL_OWNER" /backups/daily/kira-20261012-0200.dump'
 docker compose start web worker
 ```
 
-Ganti nama berkas dengan cadangan yang dipilih (`dir D:\Kira\backups\daily`). Uji pemulihan sekali setelah pemasangan supaya langkahnya sudah dikenal sebelum dibutuhkan.
+Ganti nama berkas dengan cadangan yang dipilih (`dir D:\Kira\backups\daily`). `--single-transaction` membuat pemulihan berhasil seluruhnya atau tidak mengubah apa pun. Setelah itu jalankan `.\deploy\windows\kira.ps1 status`: baris `privileges` harus berisi `sesuai migrasi`. Uji pemulihan sekali setelah pemasangan supaya langkahnya sudah dikenal sebelum dibutuhkan.
 
 ## 12. Pembaruan
 
@@ -198,6 +202,7 @@ Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan 
 | PIN anak terkunci | Konsol, Learner, Buka kunci, atau `admin pin-unlock <nama>`. |
 | Studio AI menulis "AI belum diatur" | Isi provider di `.env`, lalu `docker compose up -d worker web`, lalu Koneksi Claude, Tes koneksi. |
 | `web` tidak sehat setelah update | `docker compose logs --tail 100 migrate web`. Pesan konfigurasi menyebut nama variabel `.env` yang kurang. |
+| `certs`, `db`, atau `backup` gagal dengan `syntax error` atau `$'\r'` | Clone lama berakhiran baris CRLF. Hapus `C:\Kira\app` (setelah menyalin `.env`), clone ulang, lalu kembalikan `.env`. Repo sekarang memaksa LF lewat `.gitattributes`. |
 | Docker Desktop tidak menyala setelah restart | Buka Docker Desktop sekali, cek Start Docker Desktop when you sign in, dan pastikan akun Windows otomatis masuk atau Docker diatur sebagai layanan. |
 
 ## 14. Keamanan

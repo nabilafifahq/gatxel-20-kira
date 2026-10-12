@@ -1,6 +1,7 @@
 import { createRng } from '@kira/core/rng'
 import type { FigureSpec } from '@kira/figures/spec'
 import { keyOf, type AnswerKey } from './check'
+import type { LabelPerm } from './labels'
 import type { Item, Passage, SolutionStep } from './schema'
 
 /**
@@ -57,6 +58,11 @@ export type PresentOptions = {
   includeHints: boolean
   passage?: Passage
   answerText?: string
+  /**
+   * Label rahasia untuk mode tanpa umpan balik (lihat labels.ts). Urutan tampil dikocok dengan indeks asli,
+   * baru setelah itu `i` diganti label. Tidak boleh dipakai bersama includeKey, karena kunci memakai indeks asli.
+   */
+  labels?: LabelPerm
 }
 
 const EXPECTED: Record<Item['type'], number> = {
@@ -65,7 +71,10 @@ const EXPECTED: Record<Item['type'], number> = {
 }
 
 export function presentItem(item: Item, opt: PresentOptions): ClientItem {
+  if (opt.labels && opt.includeKey) throw new Error('presentItem: labels tidak boleh dipakai bersama kunci')
   const rng = createRng(`${opt.seed}:${item.id}`)
+  const perm = opt.labels
+  const relabel = <T extends { i: number }>(list: T[]): T[] => (perm ? list.map((x) => ({ ...x, i: perm[x.i] ?? x.i })) : list)
   const out: ClientItem = {
     ref: opt.ref ?? item.id,
     type: item.type,
@@ -86,20 +95,20 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
       const opts = item.options.map((o, i) => ({ i, ...(o.text ? { text: o.text } : {}), ...(o.figure ? { figure: o.figure } : {}) }))
       // Opsi A sampai E di soal lomba tidak diacak supaya sama dengan kertas.
       const keepOrder = item.tags.some((t) => t === 'keep-order' || t === 'esmo' || t === 'ikmc' || t === 'sasmo')
-      out.options = keepOrder ? opts : rng.shuffle(opts)
+      out.options = relabel(keepOrder ? opts : rng.shuffle(opts))
       if (item.type === 'multi') out.multiCount = item.answers.length
       break
     }
     case 'order':
-      out.orderItems = shuffleNotIdentity(item.items.map((text, i) => ({ i, text })), rng)
+      out.orderItems = relabel(shuffleNotIdentity(item.items.map((text, i) => ({ i, text })), rng))
       break
     case 'match':
       out.matchLeft = item.pairs.map(([l]) => l)
-      out.matchRight = shuffleNotIdentity(item.pairs.map(([, r], i) => ({ i, text: r })), rng)
+      out.matchRight = relabel(shuffleNotIdentity(item.pairs.map(([, r], i) => ({ i, text: r })), rng))
       break
     case 'sort':
       out.sortGroups = item.groups
-      out.sortItems = rng.shuffle(item.items.map((it, i) => ({ i, text: it.text })))
+      out.sortItems = relabel(rng.shuffle(item.items.map((it, i) => ({ i, text: it.text }))))
       break
     case 'numeric':
       if (item.unit) out.unit = item.unit

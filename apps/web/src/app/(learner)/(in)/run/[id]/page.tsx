@@ -14,7 +14,7 @@ export default async function RunPage({ params }: { params: Promise<{ id: string
   const { id } = await params
   if (!z.string().uuid().safeParse(id).success) notFound()
   // Service worker menyimpan halaman ini untuk offline (x-kira-precache) dan router bisa prefetch:
-  // keduanya bukan pembukaan oleh learner, jadi jam tes berwaktu belum mulai.
+  // keduanya bukan pembukaan oleh learner. Untuk attempt berwaktu runnerDTO tetap memulai jam.
   const h = await headers()
   const markOpened = h.get('x-kira-precache') !== '1' && !h.has('next-router-prefetch')
   const data = await load(() => inOrg(orgCtx(actor), (tx) => runnerDTO(tx, actor.userId, id, { markOpened })))

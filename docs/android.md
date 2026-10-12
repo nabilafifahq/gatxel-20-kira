@@ -32,7 +32,26 @@ Urutan langkah: Java 21 (Temurin), Android SDK platform 36 dan build-tools 36.0.
 
 ## 3. Kunci rilis yang tetap
 
-APK debug dari CI ditandatangani kunci debug baru setiap run. Android menolak memasang APK dengan kunci berbeda di atas aplikasi yang sudah ada, jadi setiap pembaruan debug butuh copot pasang dan pendaftaran tablet ulang. Untuk pemakaian harian, buat satu kunci rilis sekali saja:
+APK debug dari CI ditandatangani kunci debug baru setiap run. Android menolak memasang APK dengan kunci berbeda di atas aplikasi yang sudah ada, jadi setiap pembaruan debug butuh copot pasang dan pendaftaran tablet ulang. Untuk pemakaian harian, buat satu kunci rilis sekali saja.
+
+Di Windows (PowerShell). `keytool` ada di JDK, jadi pasang dulu JDK 21 lalu buka PowerShell baru:
+
+```powershell
+winget install EclipseAdoptium.Temurin.21.JDK
+cd $HOME\Documents
+keytool -genkeypair -v -storetype PKCS12 -keystore kira-release.jks -alias kira `
+  -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=Kira, O=Gatxel, C=ID"
+
+gh secret set KIRA_KEYSTORE_BASE64 --repo nabilafifahq/gatxel-20-kira --body ([Convert]::ToBase64String([IO.File]::ReadAllBytes("$PWD\kira-release.jks")))
+gh secret set KIRA_KEYSTORE_PASSWORD --repo nabilafifahq/gatxel-20-kira
+gh secret set KIRA_KEY_ALIAS --repo nabilafifahq/gatxel-20-kira --body kira
+gh secret set KIRA_KEY_PASSWORD --repo nabilafifahq/gatxel-20-kira
+
+gh workflow run android-apk --repo nabilafifahq/gatxel-20-kira `
+  -f kira_url=https://kira-server.nama-tailnet.ts.net -f release=true
+```
+
+Di Linux atau macOS:
 
 ```sh
 keytool -genkeypair -v -storetype PKCS12 -keystore kira-release.jks -alias kira \

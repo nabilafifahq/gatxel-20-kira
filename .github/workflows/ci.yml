@@ -221,6 +221,21 @@ jobs:
           ls -l ci-backups/daily
           docker compose -f docker-compose.yml -f deploy/ci/compose.ci.yml run --rm migrate node tools/admin.mjs status
           docker compose ps worker | grep -q "healthy" || (docker compose logs --no-color --tail=80 worker; exit 1)
+      # Perintah pemulihan yang sama dengan docs/pasang-windows.md bagian 11, lalu hak tabel diperiksa
+      # (consent_event dan audit_log append-only) dan aplikasi harus sehat lagi.
+      - name: Pulihkan cadangan seperti panduan
+        run: |
+          docker compose stop web worker
+          f=$(basename "$(ls -1 ci-backups/daily/*.dump | tail -n 1)")
+          docker compose exec -T -e PGSSLMODE=verify-full -e PGSSLROOTCERT=/certs/ca.crt backup \
+            sh -c "pg_restore --clean --if-exists --no-owner --single-transaction -d \"\$DATABASE_URL_OWNER\" /backups/daily/$f"
+          docker compose exec -T -e PGSSLMODE=verify-full -e PGSSLROOTCERT=/certs/ca.crt backup sh -s < deploy/ci/privileges-check.sh
+          docker compose start web worker
+          for i in $(seq 1 60); do
+            if curl -fsS http://localhost:3000/api/health >/dev/null; then echo "web sehat setelah pemulihan"; exit 0; fi
+            sleep 3
+          done
+          exit 1
       - name: Log stack bila gagal
         if: failure()
         run: |

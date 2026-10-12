@@ -45,6 +45,7 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 10. Data contoh ditandai `__GTX_SEED__` dan tidak pernah masuk ke database produksi.
 11. Teks yang dibaca pengguna: tanpa em dash, tanpa kosakata terlarang GTX, tanpa bingkai antitesis.
 12. AI hanya dipanggil dari worker. Prompt tidak memuat nama, email, atau data identitas anak. Hasil AI menjadi draf yang harus disetujui tutor sebelum dipakai.
+13. Migrasi yang membuat tabel atau sequence baru menulis GRANT eksplisit untuk role yang butuh (`kira_app`, `kira_worker`, atau `kira_auth` di skema `auth`). Hak bawaan (`ALTER DEFAULT PRIVILEGES`) sengaja tidak dipakai (migrasi 0005), supaya pemulihan cadangan tidak membuka hak yang dicabut.
 
 ## Konten soal
 

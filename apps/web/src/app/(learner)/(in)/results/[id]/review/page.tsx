@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { z } from 'zod'
 import { ReviewScreen } from '@/screens/learner'
 import { inOrg } from '@/server/db'
@@ -15,5 +15,6 @@ export default async function ReviewPage({ params, searchParams }: { params: Pro
   if (!z.string().uuid().safeParse(id).success) notFound()
   const open = q && /^\d{1,3}$/.test(q) ? Number(q) : null
   const data = await load(() => inOrg(orgCtx(actor), (tx) => reviewDTO(tx, actor.userId, id, open)))
+  if ('inProgress' in data) redirect(`/run/${id}`)
   return <ReviewScreen data={data} />
 }

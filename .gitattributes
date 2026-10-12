@@ -1,0 +1,19 @@
+# Semua berkas teks memakai akhir baris LF, juga di clone Windows. Git for Windows memakai core.autocrlf=true
+# secara bawaan, dan skrip shell yang di-mount ke container Linux (certs.sh, backup.sh, deploy/db/*.sh)
+# gagal dijalankan bila berakhiran CRLF.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary
+*.apk binary
+*.jks binary
+*.keystore binary
+*.dump binary

@@ -46,3 +46,27 @@ test('orang tua masuk ke halaman keluarga dan tidak bisa membuka konsol', async 
   await page.goto('/cetak/paper/00000000-0000-4000-8000-000000000000')
   await expect(page).toHaveURL(/\/keluarga/)
 })
+
+test('passkey: tutor membuat passkey lalu masuk tanpa password', async ({ page }) => {
+  const errors = watchErrors(page)
+  // Autentikator virtual Chromium: sidik jari atau PIN perangkat disetujui otomatis.
+  const cdp = await page.context().newCDPSession(page)
+  await cdp.send('WebAuthn.enable')
+  await cdp.send('WebAuthn.addVirtualAuthenticator', {
+    options: { protocol: 'ctap2', transport: 'internal', hasResidentKey: true, hasUserVerification: true, isUserVerified: true, automaticPresenceSimulation: true },
+  })
+  await loginAdult(page, TUTOR)
+  await page.goto('/konsol/pengaturan')
+  await page.getByRole('button', { name: 'Tambah passkey' }).click()
+  const dialog = page.getByRole('dialog', { name: 'Tambah passkey' })
+  await dialog.getByLabel('Nama passkey').fill('Laptop e2e')
+  await dialog.getByRole('button', { name: 'Buat passkey' }).click()
+  await expect(page.getByText('Passkey Laptop e2e tersimpan.')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Keluar' }).first().click()
+  await waitForPath(page, (p) => p === '/masuk')
+  await page.getByRole('button', { name: 'Masuk dengan passkey' }).click()
+  await waitForPath(page, (p) => p.startsWith('/konsol'))
+  await expect(page.getByRole('heading', { level: 1, name: 'Hari ini' })).toBeVisible()
+  expect(errors.filter((e) => !e.includes('favicon'))).toEqual([])
+})

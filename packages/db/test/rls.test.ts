@@ -131,6 +131,15 @@ describe.skipIf(!ready)('RLS dan role database', () => {
     ).rejects.toThrow(/permission denied/)
   })
 
+  it('tidak ada hak bawaan, jadi pemulihan cadangan tidak membuka consent_event dan audit_log', async () => {
+    const defaults = await owner`select defaclrole::regrole::text as role, defaclobjtype as kind from pg_default_acl`
+    expect(defaults).toEqual([])
+    const open = await owner`
+      select r, t, p from unnest(array['kira_app', 'kira_worker']) r, unnest(array['consent_event', 'audit_log']) t, unnest(array['UPDATE', 'DELETE']) p
+      where has_table_privilege(r, t, p)`
+    expect(open).toEqual([])
+  })
+
   it('kira_app tidak bisa memanggil fungsi definer worker', async () => {
     await expect(app`select * from kira_claim_jobs(null, 5)`).rejects.toThrow(/permission denied/)
   })

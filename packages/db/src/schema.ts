@@ -474,7 +474,11 @@ export const xpEvent = pgTable(
     date: date('date').notNull(),
     createdAt: createdAt(),
   },
-  (t) => [index('xp_event_learner_idx').on(t.learnerId, t.date)],
+  (t) => [
+    index('xp_event_learner_idx').on(t.learnerId, t.date),
+    // Migrasi 0004: XP pelajaran sekali per learner, skill, dan tanggal.
+    uniqueIndex('xp_event_lesson_once').on(t.learnerId, t.ref, t.date).where(sql`${t.reason} = 'lesson'`),
+  ],
 )
 
 export const dayRecord = pgTable(

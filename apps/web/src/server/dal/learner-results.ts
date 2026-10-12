@@ -62,8 +62,16 @@ function headlineFor(pct: number, pending: number): { headline: string; detail: 
   return { headline: 'You kept going', detail: 'These were hard. We will practise them again soon.', tone: 'low' }
 }
 
-export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): Promise<ResultsDTO> {
+/** Attempt yang belum dikumpulkan tidak punya hasil: halaman hasil kembali ke runner. */
+export type NotSubmitted = { inProgress: true }
+
+/*
+ * Mode Tes, Simulasi, dan Kertas menilai jawaban diam-diam selama attempt berjalan. Hasil per soal dan kunci
+ * hanya dikirim setelah attempt dikumpulkan, supaya learner tidak bisa membuka /results/<id> di tengah tes.
+ */
+export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): Promise<ResultsDTO | NotSubmitted> {
   const a = await loadAttempt(tx, learnerId, attemptId)
+  if (a.status === 'in_progress') return { inProgress: true }
   const learner = await loadLearner(tx, learnerId)
   const items = (a.items as AttemptItem[]) ?? []
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
@@ -119,8 +127,9 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   }
 }
 
-export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, open: number | null): Promise<ReviewDTO> {
+export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, open: number | null): Promise<ReviewDTO | NotSubmitted> {
   const a = await loadAttempt(tx, learnerId, attemptId)
+  if (a.status === 'in_progress') return { inProgress: true }
   const learner = await loadLearner(tx, learnerId)
   const items = (a.items as AttemptItem[]) ?? []
   const resolved = await resolveItems(tx, items.map((i) => i.ref))

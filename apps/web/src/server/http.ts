@@ -73,3 +73,26 @@ export function seeOther(path: string): Response {
     throw new Error('seeOther hanya menerima path lokal')
   return new Response(null, { status: 303, headers: { Location: path, 'Cache-Control': 'no-store' } })
 }
+
+/**
+ * Baca isi permintaan sebagai teks dan berhenti begitu melebihi `max` byte, juga untuk body chunked
+ * tanpa Content-Length. Mengembalikan null bila terlalu besar.
+ */
+export async function readTextCapped(req: Request, max: number): Promise<string | null> {
+  if (Number(req.headers.get('content-length') ?? '0') > max) return null
+  if (!req.body) return ''
+  const reader = req.body.getReader()
+  const chunks: Uint8Array[] = []
+  let size = 0
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    size += value.byteLength
+    if (size > max) {
+      await reader.cancel().catch(() => {})
+      return null
+    }
+    chunks.push(value)
+  }
+  return Buffer.concat(chunks).toString('utf8')
+}

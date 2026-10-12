@@ -15,6 +15,7 @@ import { endCurrentSession, startSession } from '../auth/session'
 import { registerDevice } from '../auth/device'
 import { clientIp, throttleIp } from '../auth/ratelimit'
 import { ipHash } from '../auth/crypto'
+import { readAuthenticationResponse, readRegistrationResponse } from '../auth/webauthn-input'
 
 const email = z.string().trim().email('Format email belum benar.').max(200)
 const password = z.string().min(1, 'Isi password.').max(128)
@@ -40,8 +41,9 @@ export async function passkeyVerifyAction(input: { challengeId: string; response
   return runAction('passkeyVerify', async () => {
     await throttleIp('passkey', 30)
     const challengeId = z.string().uuid().parse(input.challengeId)
-    if (!input.response || typeof input.response !== 'object' || typeof input.response.id !== 'string') throw invalid('Respons passkey tidak lengkap.')
-    const user = await verifyAuthentication(challengeId, input.response)
+    const response = readAuthenticationResponse(input.response)
+    if (!response) throw invalid('Respons passkey tidak lengkap.')
+    const user = await verifyAuthentication(challengeId, response)
     await startSession({ id: user.id, orgId: user.orgId, kind: 'adult' })
     const actor = await requireAdult()
     await audit(orgCtx(actor), 'login.passkey', user.id)
@@ -61,7 +63,9 @@ export async function passkeyRegisterVerifyAction(input: { challengeId: string; 
     const actor = await requireAdult()
     const challengeId = z.string().uuid().parse(input.challengeId)
     const name = z.string().trim().min(1).max(60).parse(input.name)
-    await verifyRegistration({ id: actor.userId }, challengeId, input.response, name)
+    const response = readRegistrationResponse(input.response)
+    if (!response) throw invalid('Respons passkey tidak lengkap.')
+    await verifyRegistration({ id: actor.userId }, challengeId, response, name)
     await audit(orgCtx(actor), 'passkey.added', actor.userId)
     return undefined
   })

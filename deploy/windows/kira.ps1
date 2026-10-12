@@ -1,7 +1,7 @@
 <#
   Perintah singkat untuk server Kira di Windows (Docker Desktop).
   Jalankan dari folder repo atau dari mana saja: .\deploy\windows\kira.ps1 <perintah>
-  Perintah: start, stop, update, status, logs [layanan], backup, admin <argumen>, apk, help
+  Perintah: init, start, stop, update, status, logs [layanan], backup, admin <argumen>, apk, help
 #>
 param(
   [Parameter(Position = 0)][string]$Command = 'help',
@@ -20,6 +20,34 @@ function Get-EnvValue([string]$Name, [string]$Default) {
 }
 
 switch ($Command) {
+  'init' {
+    # Buat .env dari .env.example bila belum ada, lalu isi setiap nilai GANTI dengan 48 karakter hex acak
+    # (24 byte dari RandomNumberGenerator). Nilai yang sudah diisi tidak diubah, jadi aman dijalankan ulang.
+    if (-not (Test-Path .env)) {
+      Copy-Item .env.example .env
+      Write-Host 'File .env dibuat dari .env.example.'
+    }
+    $rng = [Security.Cryptography.RandomNumberGenerator]::Create()
+    $filled = New-Object System.Collections.Generic.List[string]
+    $envPath = Join-Path (Get-Location) '.env'
+    $lines = foreach ($line in [IO.File]::ReadAllLines($envPath, [Text.Encoding]::UTF8)) {
+      if ($line -match '^([A-Z0-9_]+)=GANTI') {
+        $name = $Matches[1]
+        $bytes = New-Object byte[] 24
+        $rng.GetBytes($bytes)
+        $filled.Add($name)
+        $name + '=' + (($bytes | ForEach-Object { $_.ToString('x2') }) -join '')
+      } else {
+        $line
+      }
+    }
+    # UTF-8 tanpa BOM dan akhir baris LF, sama dengan .env.example: BOM merusak nama variabel pertama
+    # saat Docker Compose membaca .env.
+    [IO.File]::WriteAllText($envPath, (([string[]]$lines) -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
+    if ($filled.Count -gt 0) { Write-Host ('Diisi acak: ' + ($filled -join ', ')) } else { Write-Host 'Tidak ada nilai GANTI yang tersisa.' }
+    Write-Host 'Isi sendiri di Notepad: KIRA_ORIGIN (alamat tailscale serve), KIRA_LEGAL_NAME, KIRA_LEGAL_ADDRESS, KIRA_LEGAL_EMAIL, CLAUDE_CODE_OAUTH_TOKEN.'
+    Write-Host 'Token untuk halaman /setup ada di baris KIRA_SETUP_TOKEN.'
+  }
   'start' {
     docker compose up -d --build
     docker compose ps
@@ -51,8 +79,10 @@ switch ($Command) {
     $tmp = Join-Path $env:TEMP ("kira-apk-" + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $tmp | Out-Null
     try {
-      # Rilis bertanda tangan dulu (kunci tetap), lalu artefak build terbaru.
-      gh release download --repo $Repo --pattern 'kira-*.apk' --dir $tmp 2>$null
+      # Rilis bertanda tangan dulu (kunci tetap), lalu artefak build terbaru. Windows PowerShell 5.1 mengubah
+      # stderr yang dialihkan menjadi error, dan 'Stop' akan menghentikan skrip saat belum ada rilis. Karena itu
+      # perintah ini berjalan dengan 'Continue'; hasilnya dicek dari berkas yang terunduh.
+      & { $ErrorActionPreference = 'Continue'; gh release download --repo $Repo --pattern 'kira-*.apk' --dir $tmp 2>$null } | Out-Null
       if (-not (Get-ChildItem $tmp -Filter *.apk -Recurse)) {
         gh run download --repo $Repo --name kira-apk --dir $tmp
       }
@@ -71,6 +101,7 @@ switch ($Command) {
   }
   default {
     Write-Host 'Perintah Kira:'
+    Write-Host '  init                buat .env dan isi semua rahasia GANTI dengan nilai acak'
     Write-Host '  start               build dan nyalakan semua layanan'
     Write-Host '  stop                hentikan semua layanan'
     Write-Host '  update              git pull, build ulang, migrasi otomatis'

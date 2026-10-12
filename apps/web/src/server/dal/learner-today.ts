@@ -464,12 +464,14 @@ export async function doneTodayDTO(tx: Tx, ctx: OrgContext, learnerId: string): 
  */
 export async function offlineUrlsForToday(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
   const rows = await tx
-    .select({ id: quest.id, attemptId: quest.attemptId, status: quest.status, skillId: quest.skillId, mode: quest.mode })
+    .select({ id: quest.id, attemptId: quest.attemptId, status: quest.status, skillId: quest.skillId, mode: quest.mode, timeLimitS: attempt.timeLimitS })
     .from(quest)
+    .leftJoin(attempt, eq(attempt.id, quest.attemptId))
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
   const urls = ['/today', '/map', '/review']
   for (const q of rows) {
-    if (q.status === 'done' || !q.attemptId) continue
+    // Tes berwaktu tidak disimpan offline: jam mulai saat halaman runner pertama kali dimuat.
+    if (q.status === 'done' || !q.attemptId || q.timeLimitS) continue
     urls.push(`/quest/${q.id}`, `/run/${q.attemptId}`)
     if (q.skillId && q.mode === 'belajar' && lesson(q.skillId)) urls.push(`/lesson/${q.skillId}?then=${encodeURIComponent(`/run/${q.attemptId}`)}`)
   }
