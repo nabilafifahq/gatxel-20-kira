@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { isPrefetch, prefetchRefused } from '@/server/http'
 import { inOrg } from '@/server/db'
 import { getActor, orgCtx } from '@/server/auth/actor'
 import { startPractice } from '@/server/dal/learner-explore'
@@ -6,6 +7,7 @@ import { startPractice } from '@/server/dal/learner-explore'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: Request, { params }: { params: Promise<{ skill: string }> }) {
+  if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return NextResponse.redirect(new URL('/', req.url), 303)
   const { skill } = await params

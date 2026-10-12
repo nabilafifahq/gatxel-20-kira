@@ -14,7 +14,7 @@ import { shellIn, type ShellLearner } from './console-shell'
 import { attemptProgress } from './learner-today'
 import { isRestDay, loadLearner } from './learner-core'
 
-const { skillState, response, attempt, quest, planSlot, planWeek, competitionEvent, problemReport, aiDraft, learnerProfile } = tables
+const { skillState, response, attempt, quest, planSlot, planWeek, paper, competitionEvent, problemReport, aiDraft, learnerProfile } = tables
 
 export type TodaySection = 'attention' | 'today' | 'trend'
 export type TutorTodayResult = { data: TutorTodayDTO; failed: { section: TodaySection; reference: string }[] }
@@ -209,8 +209,9 @@ async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<S
     ? await tx.select({ id: attempt.id, s: attempt.elapsedS }).from(attempt).where(inArray(attempt.id, attemptIds))
     : []
   const slots = await tx
-    .select({ subject: planSlot.subject, skillId: planSlot.skillId })
+    .select({ subject: planSlot.subject, skillId: planSlot.skillId, mode: planSlot.mode, paperTitle: paper.title })
     .from(planSlot)
+    .leftJoin(paper, eq(paper.id, planSlot.paperId))
     .innerJoin(planWeek, eq(planWeek.id, planSlot.planWeekId))
     .where(and(eq(planSlot.learnerId, learnerId), eq(planSlot.date, today), eq(planSlot.kind, 'quest'), eq(planWeek.status, 'published')))
 
@@ -218,7 +219,11 @@ async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<S
     const q = quests.find((x) => x.subject === subject)
     if (!q) {
       const slot = slots.find((s) => s.subject === subject)
-      return { subject, questTitle: slot ? skillTitle(slot.skillId) : null, state: 'not-started', answered: 0, total: 0, accuracy: null, minutes: 0, syncedAt: null }
+      // Paper Kertas tidak punya quest tablet; nilainya masuk lewat Input LJK.
+      if (slot?.mode === 'kertas') {
+        return { subject, questTitle: `${slot.paperTitle ?? 'Paper'}, dikerjakan di kertas`, state: 'not-planned', answered: 0, total: 0, accuracy: null, minutes: 0, syncedAt: null }
+      }
+      return { subject, questTitle: slot ? (slot.paperTitle ?? skillTitle(slot.skillId)) : null, state: 'not-started', answered: 0, total: 0, accuracy: null, minutes: 0, syncedAt: null }
     }
     const p = q.attemptId ? progress.get(q.attemptId) : undefined
     const st = stats.find((s) => s.attemptId === q.attemptId)

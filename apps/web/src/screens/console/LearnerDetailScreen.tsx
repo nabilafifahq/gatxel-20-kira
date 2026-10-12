@@ -108,7 +108,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
     }
     const r = await save.run(learner.id, body)
     if (r.ok) {
-      setNotes((list) => [{ id: `baru-${Date.now()}`, author: data.shell.userName, date: new Date().toISOString(), body }, ...list])
+      // Catatan baru datang dari data server yang dimuat ulang oleh action (refresh), jadi tidak ditambah di sini.
       setNote('')
       toast({ tone: 'success', title: 'Catatan tersimpan.' })
     }

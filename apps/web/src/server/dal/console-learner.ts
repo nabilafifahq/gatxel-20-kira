@@ -300,7 +300,7 @@ export async function attemptDetailDTO(actor: Actor, learnerId: string, attemptI
         prompt: item ? promptPreview(item, 120) : `Soal ${it.ref} tidak ada lagi di bank soal.`,
         type: item?.type ?? 'mcq',
         answer: item && latest ? clip(answerTextId(yourAnswerText(item, latest.answer))) : 'Tidak dijawab',
-        key: item ? answerText(item) : 'Tidak tersedia',
+        key: item ? answerText(item, 'id') : 'Tidak tersedia',
         status,
         tries: tries.length,
         hintsUsed: tries.reduce((m, r) => Math.max(m, r.hintsUsed), 0),

@@ -123,7 +123,7 @@ function SubjectColumn({ col, actions }: { col: Column; actions: EsmoActions }):
               Start
             </Button>
           ) : (
-            <ButtonLink href={pack.href} iconAfter="arrow-right">
+            <ButtonLink href={pack.href} prefetch={false} iconAfter="arrow-right">
               {pack.status === 'done' ? 'See answers' : 'Continue'}
             </ButtonLink>
           )}

@@ -1,0 +1,17 @@
+{
+  "name": "@kira/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test -c playwright.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "22.20.5",
+    "postgres": "3.4.9",
+    "typescript": "5.9.3"
+  }
+}

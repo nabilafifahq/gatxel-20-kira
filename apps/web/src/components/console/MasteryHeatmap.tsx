@@ -177,7 +177,7 @@ export function MasteryHeatmap({
                     ? `${Math.round(last.accuracy ?? 0)}% di ${weeks[lastIdx]?.label ?? ''}, ${LEVEL_WORD[levelOf(last)]}${
                         diff == null ? '' : diff === 0 ? ', sama dengan minggu sebelumnya' : diff > 0 ? `, naik ${diff} poin` : `, turun ${-diff} poin`
                       }. ${s.stars} bintang.`
-                    : 'belum ada soal dalam empat minggu ini.'}
+                    : 'belum ada soal di minggu yang ditampilkan.'}
                 </li>
               )
             }),

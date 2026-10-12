@@ -121,9 +121,7 @@ export function InlineAlert({
 export function ActionError({ error, className }: { error: { message: string; reference: string } | null; className?: string }) {
   if (!error) return null
   return (
-    <InlineAlert tone="danger" title={error.message} reference={error.reference} className={className}>
-      Coba lagi sebentar lagi. Kalau masih gagal, catat kode di bawah.
-    </InlineAlert>
+    <InlineAlert tone="danger" title={error.message} reference={error.reference} className={className} />
   )
 }
 

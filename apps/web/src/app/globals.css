@@ -135,6 +135,10 @@
     color: var(--color-accent);
     text-underline-offset: 3px;
   }
+  /* Tautan di tengah kalimat harus bisa dibedakan tanpa warna (WCAG 1.4.1, axe link-in-text-block). */
+  p a {
+    text-decoration-line: underline;
+  }
   @media (hover: hover) {
     a:hover {
       color: var(--color-fg);

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { isPrefetch, prefetchRefused } from '@/server/http'
 import { inOrg } from '@/server/db'
 import { getActor, orgCtx } from '@/server/auth/actor'
 import { startEsmoPack } from '@/server/dal/learner-competition'
@@ -6,6 +7,7 @@ import { startEsmoPack } from '@/server/dal/learner-competition'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return NextResponse.redirect(new URL('/', req.url), 303)
   const id = decodeURIComponent((await params).id)

@@ -46,6 +46,8 @@ export function skillKey(subject: Subject, grade: number): string {
 export function findContentDir(start = process.cwd()): string {
   const env = process.env.KIRA_CONTENT_DIR
   if (env && existsSync(env)) return env
+  // Di produksi folder konten selalu diberikan lewat KIRA_CONTENT_DIR (image Docker menyalinnya ke /app/content).
+  if (process.env.NODE_ENV === 'production') throw new Error(`Folder konten tidak ditemukan. Set KIRA_CONTENT_DIR (sekarang: ${env ?? 'kosong'}).`)
   let dir = start
   for (let i = 0; i < 6; i++) {
     const candidate = join(dir, 'content')

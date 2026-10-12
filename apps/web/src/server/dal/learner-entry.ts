@@ -7,6 +7,7 @@ import type { AvatarName, PickLearnerDTO, PinPicture, PinScreenDTO } from '@/lib
 import { inOrg } from '../db'
 import { systemCtx } from '../audit'
 import type { DeviceInfo } from '../auth/device'
+import { orgCtx, type Actor } from '../auth/actor'
 import { pinState } from '../auth/pin'
 
 const { learnerProfile, dayRecord } = tables
@@ -104,4 +105,21 @@ export async function learnerNames(orgId: string, ids: string[]): Promise<{ id: 
   return inOrg(systemCtx(orgId), async (tx) =>
     (await tx.select({ id: learnerProfile.userId, name: learnerProfile.name, avatar: learnerProfile.avatar }).from(learnerProfile).where(inArray(learnerProfile.userId, ids))).map((r) => ({ ...r, avatar: r.avatar as AvatarName })),
   )
+}
+
+/** Learner yang boleh didaftarkan ke tablet oleh orang dewasa ini (orang tua hanya anak yang tertaut). */
+export async function registerableLearners(actor: Actor): Promise<{ id: string; name: string; avatar: AvatarName }[]> {
+  return inOrg(orgCtx(actor), async (tx) => {
+    const { guardianLink } = tables
+    let ids: string[] | null = null
+    if (actor.role === 'guardian') {
+      ids = (await tx.select({ id: guardianLink.learnerId }).from(guardianLink).where(eq(guardianLink.guardianId, actor.userId))).map((l) => l.id)
+      if (ids.length === 0) return []
+    }
+    const rows = await tx
+      .select({ id: learnerProfile.userId, name: learnerProfile.name, avatar: learnerProfile.avatar })
+      .from(learnerProfile)
+      .where(ids ? and(inArray(learnerProfile.userId, ids), isNull(learnerProfile.deletedAt)) : isNull(learnerProfile.deletedAt))
+    return rows.map((r) => ({ ...r, avatar: r.avatar as AvatarName }))
+  })
 }

@@ -67,21 +67,35 @@ export function keyOf(item: Item): AnswerKey {
 }
 
 /** "1,5" dan "1.5" sama-sama 1,5. Spasi ribuan dan titik ribuan gaya Indonesia ditolak bila ambigu. */
-export function parseNumber(raw: string): number | null {
+/**
+ * Semua bacaan angka yang masuk akal dari jawaban anak. "12.500" bisa berarti 12,5 (titik desimal gaya
+ * Inggris) atau 12500 (titik ribuan gaya Indonesia), jadi keduanya dikembalikan dan pemeriksa jawaban
+ * menerima bila salah satunya cocok dengan kunci.
+ */
+export function parseNumberCandidates(raw: string): number[] {
   const s = raw.trim().replace(/\s+/g, '').replace(/^\+/, '')
-  if (s === '' || s === '-' || s === '.' || s === ',') return null
+  if (s === '' || s === '-' || s === '.' || s === ',') return []
   // 1/2 sebagai pecahan sederhana
   const frac = /^(-?\d+)\/(\d+)$/.exec(s)
   if (frac) {
     const den = Number(frac[2])
-    return den === 0 ? null : Number(frac[1]) / den
+    return den === 0 ? [] : [Number(frac[1]) / den]
   }
+  if (/^-?\d+$/.test(s)) return [Number(s)]
+  const out: number[] = []
   // Satu koma atau satu titik sebagai pemisah desimal.
-  if (/^-?\d+[.,]\d+$/.test(s)) return Number(s.replace(',', '.'))
-  if (/^-?\d+$/.test(s)) return Number(s)
-  // 12.500 atau 12,500 sebagai ribuan (tiga digit setelah pemisah, lebih dari satu kelompok)
-  if (/^-?\d{1,3}([.,]\d{3})+$/.test(s)) return Number(s.replace(/[.,]/g, ''))
-  return null
+  if (/^-?\d+[.,]\d+$/.test(s)) out.push(Number(s.replace(',', '.')))
+  // 12.500, 1,234 atau 1.234.567 sebagai ribuan (kelompok tiga digit).
+  if (/^-?\d{1,3}([.,]\d{3})+$/.test(s)) out.push(Number(s.replace(/[.,]/g, '')))
+  // 1.234,5 (ribuan titik, desimal koma) dan 1,234.5 (ribuan koma, desimal titik).
+  if (/^-?\d{1,3}(\.\d{3})+,\d+$/.test(s)) out.push(Number(s.replace(/\./g, '').replace(',', '.')))
+  if (/^-?\d{1,3}(,\d{3})+\.\d+$/.test(s)) out.push(Number(s.replace(/,/g, '')))
+  return [...new Set(out)]
+}
+
+/** Bacaan pertama (desimal bila ambigu), atau null bila bukan angka. */
+export function parseNumber(raw: string): number | null {
+  return parseNumberCandidates(raw)[0] ?? null
 }
 
 export function normaliseText(s: string, caseSensitive: boolean): string {
@@ -127,9 +141,9 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       return verdict(chosen.length === key.answers.length && chosen.every((c, i) => c === key.answers[i]))
     }
     case 'numeric': {
-      const v = typeof a.value === 'string' ? parseNumber(a.value) : typeof a.value === 'number' ? a.value : null
-      if (v === null) return { status: 'wrong', score: 0 }
-      const ok = close(v, key.answer, key.tolerance) || (key.acceptAlt ?? []).some((alt) => close(v, alt, key.tolerance))
+      const vs = typeof a.value === 'string' ? parseNumberCandidates(a.value) : typeof a.value === 'number' ? [a.value] : []
+      if (vs.length === 0) return { status: 'wrong', score: 0 }
+      const ok = vs.some((v) => close(v, key.answer, key.tolerance) || (key.acceptAlt ?? []).some((alt) => close(v, alt, key.tolerance)))
       return verdict(ok)
     }
     case 'text': {
@@ -174,7 +188,7 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
 }
 
 /** Teks kunci untuk pembahasan dan kertas kunci. */
-export function answerText(item: Item): string {
+export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
   const letter = (i: number) => String.fromCharCode(65 + i)
   switch (item.type) {
     case 'mcq': {
@@ -202,7 +216,7 @@ export function answerText(item: Item): string {
     case 'write':
     case 'speak':
     case 'draw':
-      return 'Dinilai tutor'
+      return lang === 'id' ? 'Dinilai tutor' : 'Marked by your tutor'
   }
 }
 

@@ -123,16 +123,22 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
         <Avatar name={avatar} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
         <div className="flex min-w-0 flex-col items-start gap-1.5">
           <h1 className="m-0 text-h1 font-bold break-words">{data.shell.name}</h1>
-          <Button
-            variant="secondary"
-            size="M"
-            onClick={() => {
-              setOpenCount((c) => c + 1)
-              setPicking(true)
-            }}
-          >
-            Change avatar
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="secondary"
+              size="M"
+              onClick={() => {
+                setOpenCount((c) => c + 1)
+                setPicking(true)
+              }}
+            >
+              Change avatar
+            </Button>
+            {/* Tablet bersama: anak lain bisa masuk setelah sesi ini diakhiri. */}
+            <ButtonLink href={LEARNER_ROUTES.switchLearner} variant="secondary" size="M" prefetch={false}>
+              Switch learner
+            </ButtonLink>
+          </div>
         </div>
         <div className="flex w-full items-center gap-5 rounded-card border border-divider bg-surface px-6 py-3.5 lg:ml-auto lg:w-auto">
           <div className="flex flex-col">

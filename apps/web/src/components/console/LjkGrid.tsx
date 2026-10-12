@@ -99,7 +99,7 @@ export function LjkGrid({
               inputMode="numeric"
               autoComplete="off"
               value={v ?? ''}
-              onChange={(e) => onChange(i, e.target.value.trim() === '' ? null : e.target.value.slice(0, 12))}
+              onChange={(e) => onChange(i, e.target.value.trim() === '' ? null : e.target.value.slice(0, 40))}
               className="h-11 w-full min-w-0 max-w-[140px] rounded-control border-2 border-border bg-surface px-3 text-body font-bold tabular hover:border-fg"
             />
             <span className="text-small text-fg-muted">isian</span>

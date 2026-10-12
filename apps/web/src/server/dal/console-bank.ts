@@ -265,7 +265,7 @@ export async function itemBankDTO(actor: Actor, p: { learner: string | null; fil
       preview = {
         row: withStats(sel.row, sel.statKey, bank.stats),
         item: presentForConsole(item, { ref: item.id, seed: 'bank', withKey: true }),
-        answerText: answerText(item),
+        answerText: answerText(item, 'id'),
         explanation: item.explanation,
         hints: item.hints,
       }

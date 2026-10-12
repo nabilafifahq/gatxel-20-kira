@@ -389,6 +389,8 @@ export const attempt = pgTable(
     title: text('title').notNull(),
     items: jsonb('items').notNull(),
     startedAt: ts('started_at').notNull().defaultNow(),
+    /** Pertama kali dibuka di runner; jam tes berwaktu mulai dari sini (lihat migrasi 0003). */
+    openedAt: ts('opened_at'),
     submittedAt: ts('submitted_at'),
     timeLimitS: integer('time_limit_s'),
     elapsedS: integer('elapsed_s').notNull().default(0),

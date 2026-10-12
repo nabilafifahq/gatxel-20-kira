@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, eq, inArray } from 'drizzle-orm'
+import { and, eq, inArray, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, modeAllowsHints, modeShowsFeedback, questCompletionXp, scoreWithPreset, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
@@ -51,6 +51,11 @@ export async function loadAttempt(tx: Tx, learnerId: string, attemptId: string):
   return rows[0]
 }
 
+/** Awal jam attempt: saat pertama dibuka di runner, atau saat dibuat bila belum pernah dibuka. */
+export function clockStart(a: Pick<AttemptRow, 'openedAt' | 'startedAt'>): Date {
+  return a.openedAt ?? a.startedAt
+}
+
 export function latestByPosition(rows: ResponseRow[]): Map<number, ResponseRow> {
   const m = new Map<number, ResponseRow>()
   for (const r of rows) {
@@ -60,9 +65,21 @@ export function latestByPosition(rows: ResponseRow[]): Map<number, ResponseRow> 
   return m
 }
 
-export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string): Promise<RunnerDTO | { submitted: true }> {
+/**
+ * `markOpened`: halaman runner benar-benar dibuka oleh learner (bukan prefetch atau simpan offline
+ * oleh service worker). Pembukaan pertama mencatat opened_at sehingga jam tes berwaktu mulai di sini.
+ */
+export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true }> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status !== 'in_progress') return { submitted: true }
+  if (!a.openedAt && opts.markOpened) {
+    const [o] = await tx
+      .update(attempt)
+      .set({ openedAt: new Date() })
+      .where(and(eq(attempt.id, a.id), isNull(attempt.openedAt)))
+      .returning({ openedAt: attempt.openedAt })
+    if (o?.openedAt) a.openedAt = o.openedAt
+  }
   const learner = await loadLearner(tx, learnerId)
   const items = (a.items as AttemptItem[]) ?? []
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
@@ -85,7 +102,8 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string): P
     attemptNo: r.attemptNo,
     flagged: r.flagged,
   }))
-  const elapsed = Math.max(0, Math.floor((Date.now() - a.startedAt.getTime()) / 1000))
+  // Belum pernah dibuka (misalnya halaman dari simpanan offline): jam mulai dari nol di perangkat.
+  const elapsed = a.openedAt ? Math.max(0, Math.floor((Date.now() - a.openedAt.getTime()) / 1000)) : 0
   return {
     shell: await learnerShell(tx, learner),
     attemptId: a.id,
@@ -96,7 +114,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string): P
     items: runnerItems,
     saved,
     timeLimitSec: a.timeLimitS,
-    startedAt: a.startedAt.toISOString(),
+    startedAt: clockStart(a).toISOString(),
     elapsedSec: a.timeLimitS ? Math.min(elapsed, a.timeLimitS) : elapsed,
     showFeedback: feedback,
     allowHints: hints,
@@ -167,7 +185,14 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
   const a = await loadAttempt(tx, learnerId, p.attemptId)
   if (a.status !== 'in_progress') return { status: 'answered', xp: 0 }
   if (a.timeLimitS) {
-    const deadline = a.startedAt.getTime() + (a.timeLimitS + 30) * 1000
+    if (!a.openedAt) {
+      // Jawaban pertama datang sebelum runner tercatat dibuka (halaman offline): perkirakan awal jam
+      // dari waktu jawaban dikurangi lama mengerjakan soal itu, tidak lebih awal dari attempt dibuat.
+      const guess = new Date(Math.max(a.startedAt.getTime(), Math.min(Date.now(), Date.parse(p.answeredAt)) - p.timeMs))
+      const [o] = await tx.update(attempt).set({ openedAt: guess }).where(and(eq(attempt.id, a.id), isNull(attempt.openedAt))).returning({ openedAt: attempt.openedAt })
+      a.openedAt = o?.openedAt ?? guess
+    }
+    const deadline = clockStart(a).getTime() + (a.timeLimitS + 30) * 1000
     if (Date.parse(p.answeredAt) > deadline || Date.now() > deadline + 10 * 60 * 1000) return { status: 'answered', xp: 0 }
   }
   const slot = ((a.items as AttemptItem[]) ?? []).find((i) => i.position === p.position)
@@ -289,7 +314,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     byTopic.set(label, t)
   }
   const total = items.length
-  const elapsed = Math.max(1, Math.floor((Date.now() - a.startedAt.getTime()) / 1000))
+  const elapsed = Math.max(1, Math.floor((Date.now() - clockStart(a).getTime()) / 1000))
   const timeUsed = a.timeLimitS ? Math.min(elapsed, a.timeLimitS) : elapsed
 
   let scoreRaw: number = correct

@@ -99,7 +99,14 @@ function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<Return
   return chooseSkill(progress, createRng(seedKey))
 }
 
-async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: LearnerRow, q: { id: string; subject: Subject; skillId: string | null; paperId: string | null; mode: string; title: string; kind: string; date: IsoDate }): Promise<string> {
+async function createAttemptFor(
+  tx: Tx,
+  ctx: OrgContext,
+  learner: LearnerRow,
+  q: { id: string; subject: Subject; skillId: string | null; paperId: string | null; mode: string; title: string; kind: string; date: IsoDate },
+  /** Jumlah soal dari slot rencana tutor; tanpa nilai ini panjang quest mengikuti mode. */
+  plannedLength?: number,
+): Promise<string> {
   let items: AttemptItem[] = []
   let timeLimit: number | null = null
   let mode = q.mode
@@ -122,7 +129,7 @@ async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: LearnerRow, q:
       mode: q.mode === 'belajar' ? 'belajar' : 'latihan',
       date: q.date,
       seedKey: `${learner.userId}:${q.date}:${q.subject}:${q.kind}`,
-      ...(q.kind === 'bonus' ? { length: 6 } : {}),
+      ...(q.kind === 'bonus' ? { length: 6 } : plannedLength ? { length: plannedLength } : {}),
     })
   }
   const [row] = await tx
@@ -152,7 +159,7 @@ export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: Learne
   }
   if (await isRestDay(tx, learner, date)) return existing
   const slots = await tx
-    .select({ subject: planSlot.subject, kind: planSlot.kind, skillId: planSlot.skillId, paperId: planSlot.paperId, mode: planSlot.mode })
+    .select({ subject: planSlot.subject, kind: planSlot.kind, skillId: planSlot.skillId, paperId: planSlot.paperId, mode: planSlot.mode, questionCount: planSlot.questionCount })
     .from(planSlot)
     .innerJoin(planWeek, eq(planSlot.planWeekId, planWeek.id))
     .where(and(eq(planSlot.learnerId, learner.userId), eq(planSlot.date, date), eq(planWeek.status, 'published')))
@@ -181,7 +188,7 @@ export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: Learne
       .values({ orgId: ctx.orgId, learnerId: learner.userId, date, subject, kind: 'daily', skillId, paperId: slot?.paperId ?? null, mode, title })
       .onConflictDoNothing()
       .returning()
-    if (q) await createAttemptFor(tx, ctx, learner, { ...q, date })
+    if (q) await createAttemptFor(tx, ctx, learner, { ...q, date }, slot && !slot.paperId ? slot.questionCount : undefined)
   }
   await refreshDayRecord(tx, ctx, learner.userId, date)
   return tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
@@ -448,4 +455,23 @@ export async function doneTodayDTO(tx: Tx, ctx: OrgContext, learnerId: string): 
     answersHref: atts.find((a) => a.submittedAt)?.id ? `/results/${atts.find((a) => a.submittedAt)!.id}` : null,
     streak: await streakDTO(tx, learner, date),
   }
+}
+
+/**
+ * Halaman yang disimpan service worker supaya quest hari ini tetap bisa dikerjakan saat internet
+ * rumah putus: Today, pembuka dan runner setiap quest yang belum selesai, pelajarannya, peta, Review.
+ * Halaman Me tidak ikut karena membukanya menandai lencana sudah dilihat.
+ */
+export async function offlineUrlsForToday(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
+  const rows = await tx
+    .select({ id: quest.id, attemptId: quest.attemptId, status: quest.status, skillId: quest.skillId, mode: quest.mode })
+    .from(quest)
+    .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
+  const urls = ['/today', '/map', '/review']
+  for (const q of rows) {
+    if (q.status === 'done' || !q.attemptId) continue
+    urls.push(`/quest/${q.id}`, `/run/${q.attemptId}`)
+    if (q.skillId && q.mode === 'belajar' && lesson(q.skillId)) urls.push(`/lesson/${q.skillId}?then=${encodeURIComponent(`/run/${q.attemptId}`)}`)
+  }
+  return urls
 }

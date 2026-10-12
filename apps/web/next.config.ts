@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants'
 import { fileURLToPath } from 'node:url'
 
 /**
@@ -25,9 +26,18 @@ const securityHeaders = [
   { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
 ]
 
-const nextConfig: NextConfig = {
+const baseConfig: NextConfig = {
   output: 'standalone',
   outputFileTracingRoot: fileURLToPath(new URL('../../', import.meta.url)),
+  // Pencarian folder content/ di packages/content/src/load.ts membuat pelacak berkas menyalin seluruh repo.
+  // Server standalone hanya butuh hasil build dan node_modules; konten disalin terpisah ke image Docker.
+  outputFileTracingExcludes: {
+    '**': [
+      './src/**/*', './test/**/*', './.env*', '../../content/**/*', '../../docs/**/*', '../../apps/worker/**/*',
+      '../../apps/android/**/*', '../../e2e/**/*', '../../scripts/**/*', '../../.kira-local/**/*', '../../.git/**/*',
+      '../../packages/*/test/**/*', '../../packages/*/scripts/**/*', '../../deploy/**/*', '../../.github/**/*',
+    ],
+  },
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
@@ -36,7 +46,8 @@ const nextConfig: NextConfig = {
   logging: { serverFunctions: false, incomingRequests: { ignore: [/\/api\/heartbeat/] } },
   transpilePackages: ['@kira/core', '@kira/content', '@kira/figures', '@kira/db'],
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
-  experimental: { serverActions: { bodySizeLimit: '12mb' }, globalNotFound: true },
+  // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
+  experimental: { serverActions: { bodySizeLimit: '61mb' }, globalNotFound: true },
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },
@@ -45,4 +56,11 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+/**
+ * Galeri pengembangan di app/(dev) memakai berkas page.dev.tsx dan layout.dev.tsx. Ekstensi itu hanya
+ * dikenali oleh server pengembangan, jadi build produksi tidak memuat galeri dan data contohnya.
+ */
+export default function nextConfig(phase: string): NextConfig {
+  const dev = phase === PHASE_DEVELOPMENT_SERVER
+  return { ...baseConfig, pageExtensions: dev ? ['tsx', 'ts', 'dev.tsx'] : ['tsx', 'ts'] }
+}

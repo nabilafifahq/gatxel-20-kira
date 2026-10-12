@@ -156,7 +156,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
 
       <div className="flex flex-none flex-wrap items-center gap-3">
         {q.similarHref && !ok ? (
-          <ButtonLink href={q.similarHref} variant="secondary" icon="replay">
+          <ButtonLink href={q.similarHref} prefetch={false} variant="secondary" icon="replay">
             Try a similar one
           </ButtonLink>
         ) : null}

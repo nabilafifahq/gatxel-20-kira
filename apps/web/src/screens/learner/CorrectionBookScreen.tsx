@@ -55,7 +55,7 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today }:
           {empty ? null : <p className="m-0 text-body-lg text-fg-muted">{plural(data.dueCount, 'card', 'cards')} today.</p>}
         </div>
         {!empty && data.startHref ? (
-          <ButtonLink href={data.startHref} iconAfter="arrow-right" className="w-full px-6.5 md:w-auto">
+          <ButtonLink href={data.startHref} prefetch={false} iconAfter="arrow-right" className="w-full px-6.5 md:w-auto">
             Start review
           </ButtonLink>
         ) : null}

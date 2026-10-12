@@ -29,11 +29,11 @@ export type ImportScreenProps = { data: ImportDTO; actions: ImportActions }
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 /**
- * Batas efektif unggah dari browser: Server Action menerima paling banyak 12 MB
- * (experimental.serverActions.bodySizeLimit di next.config.ts), dikurangi ruang untuk kolom
- * formulir lain. Server sendiri menerima PDF sampai 60 MB (limitFor('pdf')).
+ * Batas unggah PDF 60 MB, sama dengan server (limitFor('pdf')). Server Action menerima paling banyak
+ * 61 MB (experimental.serverActions.bodySizeLimit di next.config.ts), cukup untuk berkas dan kolom
+ * formulir lain.
  */
-const MAX_PDF_MB = 12
+const MAX_PDF_MB = 60
 const MAX_PDF_BYTES = MAX_PDF_MB * 1024 * 1024 - 64 * 1024
 /** Sama dengan itemSchema: teks soal 900 karakter, opsi 160 karakter. */
 const PROMPT_MAX = 900
