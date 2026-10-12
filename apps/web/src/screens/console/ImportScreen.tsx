@@ -180,7 +180,9 @@ function BatchRow({ batch: b }: { batch: ImportDTO['batches'][number] }) {
           {b.itemCount > 0 ? `. ${b.approved} dari ${b.itemCount} soal disetujui` : ''}
         </span>
         {b.status === 'failed' ? (
-          <span className="text-small">PDF ini tidak bisa dibaca. Unggah ulang file aslinya, atau ketik soalnya lewat Bank soal.</span>
+          <span className="text-small">
+            {b.error ? `${b.error} ` : 'PDF ini tidak bisa dibaca. '}Unggah ulang file aslinya, atau ketik soalnya lewat Bank soal.
+          </span>
         ) : null}
         {b.status === 'parsing' || b.status === 'uploaded' ? (
           <span className="text-small">Membaca PDF biasanya selesai dalam beberapa menit. Muat ulang status untuk melihat hasilnya.</span>

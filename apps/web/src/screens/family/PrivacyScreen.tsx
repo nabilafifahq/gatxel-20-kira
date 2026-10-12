@@ -245,7 +245,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
             <div className="flex flex-col gap-0.5">
               <span className="text-body font-bold">Hapus akun {name}</span>
               <span className="text-body">
-                Profil dan data belajar dihapus 7 hari setelah permintaan, sesuai Kebijakan Privasi. Bukti persetujuan tetap disimpan sesuai kewajiban hukum.
+                Profil, data belajar, dan riwayat persetujuan dihapus 7 hari setelah permintaan, sesuai Kebijakan Privasi. Catatan audit tentang perubahan persetujuan dan penghapusan ini disimpan 12 bulan.
               </span>
             </div>
             {deletion.scheduledFor ? (

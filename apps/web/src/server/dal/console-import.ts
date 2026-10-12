@@ -243,6 +243,7 @@ export async function importDTO(actor: Actor, paket: string | null): Promise<Imp
         id: importBatch.id,
         title: importBatch.title,
         status: importBatch.status,
+        error: importBatch.error,
         createdAt: importBatch.createdAt,
         itemCount: sql<number>`case when jsonb_typeof(${importBatch.items}) = 'array' then jsonb_array_length(${importBatch.items}) else 0 end`,
         approved: sql<number>`case when jsonb_typeof(${importBatch.items}) = 'array' then (select count(*)::int from jsonb_array_elements(${importBatch.items}) as e(v) where (e.v->>'approved') = 'true') else 0 end`,
@@ -282,7 +283,7 @@ export async function importDTO(actor: Actor, paket: string | null): Promise<Imp
     }
     return {
       shell,
-      batches: rows.map((r) => ({ id: r.id, title: r.title, status: r.status, createdAt: r.createdAt.toISOString(), itemCount: Number(r.itemCount), approved: Number(r.approved) })),
+      batches: rows.map((r) => ({ id: r.id, title: r.title, status: r.status, createdAt: r.createdAt.toISOString(), itemCount: Number(r.itemCount), approved: Number(r.approved), error: r.status === 'failed' ? (r.error ?? null) : null })),
       selected,
     }
   })

@@ -659,7 +659,8 @@ export type ImportItemDTO = {
 }
 export type ImportDTO = {
   shell: ConsoleShell
-  batches: { id: string; title: string; status: 'uploaded' | 'parsing' | 'review' | 'done' | 'failed'; createdAt: string; itemCount: number; approved: number }[]
+  /** `error`: pesan worker (bahasa Indonesia) bila paket gagal dibaca. */
+  batches: { id: string; title: string; status: 'uploaded' | 'parsing' | 'review' | 'done' | 'failed'; createdAt: string; itemCount: number; approved: number; error?: string | null }[]
   selected: { id: string; title: string; subject: Subject; grade: number; tags: string[]; pages: string[]; items: ImportItemDTO[] } | null
 }
 export type ImportActions = {
