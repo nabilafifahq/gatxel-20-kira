@@ -59,7 +59,17 @@ pnpm content:check   # semua soal, pelajaran, generator
 pnpm e2e             # Playwright dan axe terhadap server di :3000, butuh DATABASE_URL_OWNER
 ```
 
-Tes offline butuh build produksi: `pnpm --filter @kira/web build`, jalankan `KIRA_ORIGIN=http://localhost:3100 npx next start -p 3100` di `apps/web`, lalu `E2E_PROD=1 E2E_BASE_URL=http://localhost:3100 pnpm e2e`. Tes e2e membuat ulang data contoh setiap kali jalan.
+Tes offline butuh build produksi. Jalankan server standalone yang sama dengan image Docker, karena `next start` menyembunyikan satu jenis bug: di standalone, `req.url` berisi `http://0.0.0.0:3000`, bukan alamat browser. Route Handler memakai `sameOrigin()` dan `seeOther()` dari `src/server/http.ts`, tidak pernah `req.url`.
+
+```sh
+cd apps/web && KIRA_ORIGIN=http://localhost:3100 pnpm build
+cp -r .next/static .next/standalone/apps/web/.next/static && cp -r public .next/standalone/apps/web/public
+cd .next/standalone/apps/web && KIRA_ORIGIN=http://localhost:3100 PORT=3100 HOSTNAME=0.0.0.0 AI_PROVIDER=none node server.js
+# terminal lain, dari root repo:
+E2E_PROD=1 E2E_BASE_URL=http://localhost:3100 pnpm e2e
+```
+
+Server standalone tidak membaca `apps/web/.env.local`; ekspor variabelnya dulu (`set -a; . apps/web/.env.local; set +a`). Tes e2e membuat ulang data contoh setiap kali jalan.
 
 CI GitHub Actions menjalankan semua di atas, ditambah build image Docker, menyalakan seluruh stack Compose (database TLS, migrasi, web, worker, backup), dan tes e2e terhadap stack itu.
 

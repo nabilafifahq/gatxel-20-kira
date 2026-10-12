@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server'
-import { isPrefetch, prefetchRefused } from '@/server/http'
+import { isPrefetch, prefetchRefused, seeOther } from '@/server/http'
 import { inOrg } from '@/server/db'
 import { getActor, orgCtx } from '@/server/auth/actor'
 import { startEsmoMock } from '@/server/dal/learner-competition'
@@ -9,13 +8,13 @@ export const dynamic = 'force-dynamic'
 export async function GET(req: Request, { params }: { params: Promise<{ subject: string }> }) {
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
-  if (!actor || actor.role !== 'learner') return NextResponse.redirect(new URL('/', req.url), 303)
+  if (!actor || actor.role !== 'learner') return seeOther('/')
   const { subject } = await params
-  if (subject !== 'math' && subject !== 'english') return NextResponse.redirect(new URL('/esmo', req.url), 303)
+  if (subject !== 'math' && subject !== 'english') return seeOther('/esmo')
   try {
     const attemptId = await inOrg(orgCtx(actor), (tx) => startEsmoMock(tx, orgCtx(actor), actor.userId, subject))
-    return NextResponse.redirect(new URL(`/run/${attemptId}`, req.url), 303)
+    return seeOther(`/run/${attemptId}`)
   } catch {
-    return NextResponse.redirect(new URL('/esmo', req.url), 303)
+    return seeOther('/esmo')
   }
 }

@@ -343,52 +343,68 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
             <h2 id="minta-draf" className="m-0 text-h3 font-bold">
               Minta draf
             </h2>
-            <fieldset disabled={formOff} className="m-0 flex min-w-0 flex-col gap-4 border-0 p-0 disabled:opacity-60">
-              <RadioGroup name="jenis-draf" legend="Jenis draf" value={kind} onChange={setKind} options={(Object.keys(KIND_LABEL) as Kind[]).map((k) => ({ value: k, label: KIND_LABEL[k] }))} />
-              <SkillPicker
-                skills={data.skills.map((s) => ({ ...s }))}
-                value={skillId}
-                onChange={(id) => (setSkillId(id), setErrors((x) => ({ ...x, skill: undefined })))}
-                error={errors.skill}
-                showSubject
-              />
-              {needsRef ? (
-                <TextField
-                  label="ID soal asal"
-                  value={itemRef}
-                  onChange={(e) => (setItemRef(e.target.value), setErrors((x) => ({ ...x, ref: undefined })))}
-                  error={errors.ref}
-                  hint="Skill draf mengikuti soal asal."
-                  placeholder="m2.oly-patterns.003"
-                  autoCapitalize="none"
-                  autoComplete="off"
-                  spellCheck={false}
-                />
-              ) : null}
-              <div className="grid grid-cols-2 gap-3">
-                <TextField label="Jumlah draf" inputMode="numeric" value={count} onChange={(e) => setCount(e.target.value)} error={errors.count} autoComplete="off" />
-                <Select label="Kesulitan" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} options={[1, 2, 3, 4, 5].map((n) => ({ value: String(n), label: `${n} dari 5` }))} />
-              </div>
-              <TextArea
-                label="Instruksi tambahan, boleh kosong"
-                rows={3}
-                maxLength={500}
-                value={instructions}
-                onChange={(e) => setInstructions(e.target.value)}
-                error={errors.text}
-                hint="Contoh: pakai konteks pasar dan uang rupiah. Jangan tulis nama atau data anak."
-              />
-            </fieldset>
-            <p className="m-0 text-small text-fg-muted">Contoh soal dari bank dikirim tanpa data anak. Hasil masuk antrean tinjau.</p>
-            <ActionError error={request.error} />
-            <Button variant="primary" onClick={submit} loading={request.pending} disabled={formOff} aria-describedby={formOff ? 'alasan-mati' : undefined}>
-              Kirim permintaan
-            </Button>
+            {/* Formulir yang tidak bisa dipakai diganti penjelasan, bukan dimatikan: tombol mati tidak bisa difokus dan
+                daftar skill di dalam fieldset mati tidak bisa digulir dengan keyboard. */}
             {formOff ? (
-              <span id="alasan-mati" className="text-small text-fg-muted">
-                {limited ? 'Formulir mati karena batas job bulan ini tercapai.' : 'Formulir mati sampai Claude tersambung.'}
-              </span>
-            ) : null}
+              <div className="flex flex-col gap-2">
+                <p className="m-0 text-body">
+                  {limited
+                    ? 'Permintaan baru berhenti sampai tanggal 1 bulan depan. Draf yang sudah masuk tetap bisa ditinjau di antrean.'
+                    : 'Formulir permintaan terbuka setelah Claude tersambung. Jenis draf yang bisa diminta:'}
+                </p>
+                {!limited ? (
+                  <ul className="m-0 flex flex-col gap-1 pl-5 text-body text-fg-muted">
+                    {(Object.keys(KIND_LABEL) as Kind[]).map((k) => (
+                      <li key={k}>{KIND_LABEL[k]}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            ) : (
+              <>
+                <fieldset className="m-0 flex min-w-0 flex-col gap-4 border-0 p-0">
+                  <RadioGroup name="jenis-draf" legend="Jenis draf" value={kind} onChange={setKind} options={(Object.keys(KIND_LABEL) as Kind[]).map((k) => ({ value: k, label: KIND_LABEL[k] }))} />
+                  <SkillPicker
+                    skills={data.skills.map((s) => ({ ...s }))}
+                    value={skillId}
+                    onChange={(id) => (setSkillId(id), setErrors((x) => ({ ...x, skill: undefined })))}
+                    error={errors.skill}
+                    showSubject
+                  />
+                  {needsRef ? (
+                    <TextField
+                      label="ID soal asal"
+                      value={itemRef}
+                      onChange={(e) => (setItemRef(e.target.value), setErrors((x) => ({ ...x, ref: undefined })))}
+                      error={errors.ref}
+                      hint="Skill draf mengikuti soal asal."
+                      placeholder="m2.oly-patterns.003"
+                      autoCapitalize="none"
+                      autoComplete="off"
+                      spellCheck={false}
+                    />
+                  ) : null}
+                  <div className="grid grid-cols-2 gap-3">
+                    <TextField label="Jumlah draf" inputMode="numeric" value={count} onChange={(e) => setCount(e.target.value)} error={errors.count} autoComplete="off" />
+                    <Select label="Kesulitan" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} options={[1, 2, 3, 4, 5].map((n) => ({ value: String(n), label: `${n} dari 5` }))} />
+                  </div>
+                  <TextArea
+                    label="Instruksi tambahan, boleh kosong"
+                    rows={3}
+                    maxLength={500}
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
+                    error={errors.text}
+                    hint="Contoh: pakai konteks pasar dan uang rupiah. Jangan tulis nama atau data anak."
+                  />
+                </fieldset>
+                <p className="m-0 text-small text-fg-muted">Contoh soal dari bank dikirim tanpa data anak. Hasil masuk antrean tinjau.</p>
+                <ActionError error={request.error} />
+                <Button variant="primary" onClick={submit} loading={request.pending}>
+                  Kirim permintaan
+                </Button>
+              </>
+            )}
           </section>
 
           <section aria-labelledby="job-terakhir" className="flex flex-col gap-2.5">

@@ -5,6 +5,7 @@ import { insertMedia, learnerConsent, openAttemptOfLearner } from '@/server/dal/
 import { newReference } from '@/server/errors'
 import { log } from '@/server/log'
 import { allowedFor, limitFor, sniff, storeFile, type MediaKind } from '@/server/media'
+import { sameOrigin } from '@/server/http'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,8 +19,7 @@ const fields = z.object({
 export async function POST(req: Request) {
   const actor = await getActor()
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
-  const origin = req.headers.get('origin')
-  if (origin && origin !== new URL(req.url).origin) return NextResponse.json({ error: 'origin' }, { status: 403 })
+  if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
   const len = Number(req.headers.get('content-length') ?? '0')
   if (len > 62 * 1024 * 1024) return NextResponse.json({ error: 'too-large' }, { status: 413 })
   let form: FormData

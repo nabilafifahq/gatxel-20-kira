@@ -6,6 +6,7 @@ import { AppError, newReference } from '@/server/errors'
 import { log } from '@/server/log'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '@/server/dal/learner-runner'
 import type { AnswerPayload } from '@/lib/dto'
+import { sameOrigin } from '@/server/http'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,8 +21,7 @@ const body = z
 export async function POST(req: Request) {
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
-  const origin = req.headers.get('origin')
-  if (origin && origin !== new URL(req.url).origin) return NextResponse.json({ error: 'origin' }, { status: 403 })
+  if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
   const len = Number(req.headers.get('content-length') ?? '0')
   if (len > 1_500_000) return NextResponse.json({ error: 'too-large' }, { status: 413 })
   const parsed = body.safeParse(await req.json().catch(() => null))

@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, pinLogin, registerTablet } from './helpers'
+import { closeDb, createPracticeAttempt, mcqItems, pinLogin, registerTablet } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -51,4 +51,33 @@ test('tautan ganti learner yang di-prefetch tidak mengakhiri sesi', async ({ pag
   expect(res.status()).toBe(204)
   await page.goto('/today')
   await expect(page).toHaveURL(/\/today$/)
+})
+
+// PNG 1 x 1 piksel untuk menguji unggahan gambar.
+const PNG_1PX = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+
+test('unggahan dari tablet diterima dari alamat Kira dan ditolak dari situs lain', async ({ page }) => {
+  await registerTablet(page, ['Aisha'])
+  await pinLogin(page, 'Aisha')
+  const attemptId = await createPracticeAttempt('Aisha', mcqItems('e2.', 2))
+  // Dari halaman Kira sendiri browser mengirim Origin yang sama dengan alamat yang dibuka.
+  const status = await page.evaluate(
+    async ({ attemptId, b64 }) => {
+      const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0))
+      const form = new FormData()
+      form.set('kind', 'drawing')
+      form.set('attemptId', attemptId)
+      form.set('position', '1')
+      form.set('file', new Blob([bytes], { type: 'image/png' }), 'gambar.png')
+      return (await fetch('/api/media', { method: 'POST', body: form, credentials: 'same-origin' })).status
+    },
+    { attemptId, b64: PNG_1PX },
+  )
+  expect(status).toBe(200)
+  // Origin situs lain ditolak walau cookie sesi ikut terkirim.
+  const evil = await page.request.post('/api/media', {
+    headers: { Origin: 'https://contoh-jahat.test' },
+    multipart: { kind: 'drawing', attemptId, position: '1', file: { name: 'gambar.png', mimeType: 'image/png', buffer: Buffer.from(PNG_1PX, 'base64') } },
+  })
+  expect(evil.status()).toBe(403)
 })

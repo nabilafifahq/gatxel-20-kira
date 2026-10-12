@@ -1,5 +1,4 @@
-import { NextResponse } from 'next/server'
-import { isPrefetch, prefetchRefused } from '@/server/http'
+import { isPrefetch, prefetchRefused, seeOther } from '@/server/http'
 import { endCurrentSession } from '@/server/auth/session'
 
 export const dynamic = 'force-dynamic'
@@ -8,5 +7,5 @@ export const dynamic = 'force-dynamic'
 export async function GET(req: Request) {
   if (isPrefetch(req)) return prefetchRefused()
   await endCurrentSession()
-  return NextResponse.redirect(new URL('/', req.url), 303)
+  return seeOther('/')
 }
