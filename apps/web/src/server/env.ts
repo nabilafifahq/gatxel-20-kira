@@ -21,6 +21,14 @@ const schema = z.object({
   AI_MONTHLY_JOB_LIMIT: z.coerce.number().int().min(0).default(400),
   KIRA_HIBP: z.enum(['on', 'off']).default('on'),
   KIRA_MAX_LEARNERS: z.coerce.number().int().min(1).max(50).default(10),
+  /** Rahasia bersama web dan worker untuk /api/internal/*. Tanpa nilai ini endpoint internal menolak semua permintaan. */
+  KIRA_INTERNAL_TOKEN: z.string().min(32, 'KIRA_INTERNAL_TOKEN minimal 32 karakter').optional(),
+  /** Endpoint MCP di /api/mcp untuk Claude (Claude Code atau Claude Desktop) dengan token dari konsol. */
+  KIRA_MCP: z.enum(['on', 'off']).default('on'),
+  /** Folder cadangan yang dipasang read-only ke container web (berisi status.json dari layanan backup). */
+  KIRA_BACKUP_DIR: z.string().optional(),
+  /** Nama folder cadangan yang ditampilkan di konsol, misalnya D:\\Kira\\backups. */
+  KIRA_BACKUP_LABEL: z.string().max(200).optional(),
 })
 
 export type Env = z.infer<typeof schema>
