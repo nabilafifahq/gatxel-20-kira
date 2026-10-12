@@ -1,0 +1,173 @@
+# CI Kira (GTX-ENG-001 v1.7).
+# check: ESLint, pemeriksa teks GTX, typecheck, tes unit, validasi konten.
+# db:    migrasi dan tes RLS di Postgres 17 sungguhan dengan empat role Kira.
+# build: build web dan worker tanpa database, lalu pastikan bundle klien bersih dari rahasia.
+# Action dipin ke SHA commit; tag rilisnya ada di komentar.
+name: CI
+
+on:
+  push:
+    branches: [main, 'ci/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+  NEXT_TELEMETRY_DISABLED: '1'
+
+jobs:
+  check:
+    name: Lint, typecheck, tes unit, konten
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - id: install
+        run: pnpm install --frozen-lockfile
+
+      # `pnpm lint` dijalankan sebagai dua langkah supaya temuan pemeriksa teks tetap terlihat
+      # walaupun ESLint gagal. Langkah berikutnya juga tetap jalan; job gagal bila salah satu gagal.
+      - name: ESLint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm exec eslint . --max-warnings=0
+      - name: Pemeriksa teks GTX
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm lint:copy
+      - name: Tes pemeriksa teks
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node --test scripts/check-copy.test.mjs
+      - name: Typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm typecheck
+      - name: Tes unit
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm test
+      - name: Validasi konten
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: pnpm content:check
+
+  db:
+    name: Migrasi dan RLS (Postgres 17)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: ci-superuser-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      # Database sekali pakai di runner ini. Password hanya berlaku di service container job ini.
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGPASSWORD: ci-superuser-only
+      POSTGRES_USER: postgres
+      KIRA_OWNER_PASSWORD: ci-owner
+      KIRA_APP_PASSWORD: ci-app
+      KIRA_AUTH_PASSWORD: ci-auth
+      KIRA_WORKER_PASSWORD: ci-worker
+      DATABASE_URL_OWNER: postgres://kira_owner:ci-owner@127.0.0.1:5432/kira
+      DATABASE_URL_APP: postgres://kira_app:ci-app@127.0.0.1:5432/kira
+      DATABASE_URL_AUTH: postgres://kira_auth:ci-auth@127.0.0.1:5432/kira
+      DATABASE_URL_WORKER: postgres://kira_worker:ci-worker@127.0.0.1:5432/kira
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Digest image Postgres (sementara, untuk pin)
+        run: docker image inspect postgres:17 --format '{{join .RepoDigests " "}}'
+      - name: Buat database dan role Kira
+        run: sh deploy/db/init/00-roles.sh
+      - name: Migrasi (role kira_owner)
+        run: pnpm db:migrate
+      - name: Tes RLS dan role
+        run: pnpm test:db --reporter=default --reporter=json --outputFile=vitest-db.json
+      # Tes db melewati dirinya sendiri bila URL database kosong; di CI itu harus dianggap gagal.
+      - name: Tidak ada tes db yang terlewati
+        run: jq -e '.numTotalTests > 0 and .numPendingTests == 0 and .numTodoTests == 0' vitest-db.json
+
+  build:
+    name: Build web dan worker
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      NODE_ENV: production
+      # Nilai palsu. Build tidak boleh butuh database; alamat ini menolak koneksi.
+      KIRA_ORIGIN: https://kira.ci.invalid
+      DATABASE_URL_APP: postgres://ci:ci@127.0.0.1:9/kira
+      DATABASE_URL_AUTH: postgres://ci:ci@127.0.0.1:9/kira
+      DATABASE_URL_WORKER: postgres://ci:ci@127.0.0.1:9/kira
+      KIRA_DATA_DIR: /tmp/kira-data
+      # Nilai penanda: kalau muncul di bundle klien, ada rahasia server yang bocor.
+      KIRA_SECRET: ci-canary-secret-3f9d1c7b5a2e8f4d6b0c
+      KIRA_INTERNAL_TOKEN: ci-canary-internal-6e1b9d3f7a5c2e8b4d0f
+      KIRA_SETUP_TOKEN: ci-canary-setup-8c2f
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Bundle klien tanpa rahasia
+        run: |
+          test -d apps/web/.next/static
+          pattern='postgres(ql)?://|DATABASE_URL|KIRA_SECRET|KIRA_INTERNAL_TOKEN|ci-canary-|(^|[^A-Za-z0-9_-])sk-[A-Za-z0-9_-]{20,}'
+          if grep -rInE "$pattern" apps/web/.next/static; then
+            echo "::error::Bundle klien (apps/web/.next/static) memuat URL database, nama rahasia, atau kunci API."
+            exit 1
+          fi
+          echo "Bundle klien bersih."
+      # GTX seed-and-demo-data: data contoh tidak boleh sampai ke browser.
+      - name: Bundle klien tanpa data contoh
+        run: |
+          pattern='__GTX_SEED__|lorem ipsum|john doe|example\.com|picsum\.photos|placehold\.co'
+          if grep -rIniE "$pattern" apps/web/.next/static; then
+            echo "::error::Bundle klien memuat data contoh atau placeholder. Persempit pola bila ini positif palsu, jangan dihapus."
+            exit 1
+          fi
+          echo "Bundle klien tanpa data contoh."
+
+  # e2e:
+  #   name: Playwright dan axe
+  #   needs: [build]
+  #   runs-on: ubuntu-24.04
+  #   timeout-minutes: 30
+  #   services:
+  #     postgres: (sama dengan job db)
+  #   steps:
+  #     - checkout, pnpm, setup-node, pnpm install --frozen-lockfile (sama dengan job lain)
+  #     - buat role, pnpm db:migrate, lalu KIRA_ALLOW_SEED=1 pnpm db:seed (data __GTX_SEED__)
+  #     - pnpm exec playwright install --with-deps chromium
+  #     - pnpm build, jalankan server, lalu pnpm e2e
+  #     - unggah playwright-report sebagai artifact bila gagal

@@ -45,7 +45,6 @@ import {
   sum,
   textItem,
   uniq,
-  units,
   withTags,
   WP,
   deg,
@@ -2366,7 +2365,6 @@ const fdpEquivalence: Generator = {
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
     const [n, d] = rng.pick(FDP6)
-    const f = { n, d }
     const decv = (n * 1000) / d / 1000
     const pctv = (n * 1000) / d / 10
     if (level === 1) {
@@ -2949,7 +2947,7 @@ const areaTriangles: Generator = {
   generate({ rng, level }) {
     if (level <= 2) {
       let b = rng.int(4, 20)
-      let h = rng.int(3, 16)
+      const h = rng.int(3, 16)
       if ((b * h) % 2 !== 0) b += 1
       const right = level === 1
       const area = (b * h) / 2
@@ -2988,7 +2986,7 @@ const areaTriangles: Generator = {
       })
     }
     if (level === 4) {
-      let b = rng.int(4, 16)
+      const b = rng.int(4, 16)
       let h = rng.int(3, 14)
       if ((b * h) % 2 !== 0) h += 1
       const area = (b * h) / 2
@@ -3537,7 +3535,7 @@ const averages: Generator = {
     if (level === 1) {
       const n = rng.int(4, 6)
       const mean = rng.int(8, 40)
-      let fixed: number[] = []
+      let fixed: number[]
       do {
         fixed = Array.from({ length: n - 1 }, () => mean + rng.int(-7, 7))
         fixed.push(mean * n - sum(fixed))

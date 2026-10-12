@@ -84,7 +84,7 @@ function zodMessage(e: z.ZodError): string {
     .join('; ')
 }
 
-const BANNED_CHARS = /[—–]/
+const BANNED_CHARS = /[\u2014\u2013]/
 const BANNED_WORDS = /\b(leverag\w*|seamless\w*|robust|delv\w*|unlock\w*|empower\w*|crucial|pivotal|holistic|tapestry|testament|utiliz\w*|utilis\w*)\b/i
 
 function textsOf(item: Item): string[] {

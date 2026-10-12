@@ -143,7 +143,7 @@ Setiap skill: sebaran tingkat 1 sampai 4, dengan beberapa tingkat 5 untuk anak y
 - Konteks Indonesia boleh dan disarankan (Rupiah, pasar, hujan, mangga, sekolah), tetap netral agama dan bebas merek.
 - Aman untuk anak: tanpa kekerasan, horor, diet, penampilan tubuh, atau hal yang membuat anak merasa bersalah.
 - Panjang instruksi per jenjang: kelas 1 sampai 2 paling banyak 12 kata per kalimat instruksi, kelas 3 sampai 4 paling banyak 16, kelas 5 sampai 6 paling banyak 20. Bacaan boleh lebih panjang.
-- Gaya GTX: tanpa em dash dan en dash (pakai koma, titik dua, titik, atau kurung), tanpa kata terlarang (leverage, seamless, robust, delve, unlock, empower, crucial, pivotal, holistic, utilise).
+- Gaya GTX: tanpa em dash dan en dash (pakai koma, titik dua, titik, atau kurung), tanpa kata terlarang (`leverage`, `seamless`, `robust`, `delve`, `unlock`, `empower`, `crucial`, `pivotal`, `holistic`, `utilise`).
 - Science harus benar secara ilmiah dan memakai kosakata Cambridge Primary (living things, habitat, material, property, force, push, pull, magnetic, conductor, insulator, evaporation, condensation). Hindari miskonsepsi (misalnya "tumbuhan mengambil makanan dari tanah").
 - Figur wajib punya `alt` yang menyebut informasi yang dibutuhkan untuk menjawab.
 - Jawaban yang diketik (text, numeric) harus tidak ambigu. Kalau ada beberapa jawaban yang benar, masukkan semuanya.

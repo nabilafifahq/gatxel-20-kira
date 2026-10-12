@@ -30,8 +30,15 @@ function textsOf(c: Obj): string[] {
   push(c.model)
   push(c.readText)
   for (const h of Array.isArray(c.hints) ? c.hints : []) push(h)
-  for (const o of Array.isArray(c.options) ? c.options : []) if (isObj(o)) (push(o.text), push(o.why))
-  for (const i of Array.isArray(c.items) ? c.items : []) (push(i), isObj(i) && push(i.text))
+  for (const o of Array.isArray(c.options) ? c.options : []) {
+    if (!isObj(o)) continue
+    push(o.text)
+    push(o.why)
+  }
+  for (const i of Array.isArray(c.items) ? c.items : []) {
+    push(i)
+    if (isObj(i)) push(i.text)
+  }
   for (const g of Array.isArray(c.groups) ? c.groups : []) push(g)
   for (const p of Array.isArray(c.pairs) ? c.pairs : []) if (Array.isArray(p)) p.forEach(push)
   for (const b of Array.isArray(c.blanks) ? c.blanks : []) if (isObj(b) && Array.isArray(b.answers)) b.answers.forEach(push)

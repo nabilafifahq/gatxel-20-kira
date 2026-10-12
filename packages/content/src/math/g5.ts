@@ -595,7 +595,7 @@ const placeValueMillions: Generator = {
 
     // level 5
     if (rng.chance(0.5)) {
-      let digits: number[] = []
+      let digits: number[]
       do digits = rng.sample([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 6)
       while (!digits.some((d) => d % 2 === 0) || !digits.some((d) => d % 2 === 1))
       const kind = rng.pick(['largest even', 'smallest odd', 'largest odd', 'smallest even'] as const)
@@ -5468,7 +5468,7 @@ const statistics: Generator = {
   generate({ rng, level }) {
     if (level === 1) {
       if (rng.chance(0.5)) {
-        let list: number[] = []
+        let list: number[]
         do list = Array.from({ length: rng.int(7, 9) }, () => rng.int(30, 37))
         while (modeOf(list).length !== 1)
         const mo = at(modeOf(list), 0)
