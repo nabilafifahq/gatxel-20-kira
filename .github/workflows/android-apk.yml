@@ -3,9 +3,10 @@
 # workflow_dispatch: isi kira_url (alamat Tailscale server Kira). release: true membuat GitHub Release
 #   apk-<versi> dan butuh empat secret kunci rilis (KIRA_KEYSTORE_BASE64, KIRA_KEYSTORE_PASSWORD,
 #   KIRA_KEY_ALIAS, KIRA_KEY_PASSWORD).
-# push ke main atau ci/android-*: build uji dengan alamat dari variabel repo KIRA_URL, atau alamat contoh.
+# push ke main atau ci/android-*: build uji APK debug dengan alamat dari variabel repo KIRA_URL,
+#   atau alamat contoh bila variabel itu kosong.
 #
-# Tanpa secret, hasilnya APK debug yang ditandatangani kunci debug acak dari runner.
+# APK debug ditandatangani kunci debug acak dari runner, jadi tidak bisa dipasang menimpa versi lain.
 # Action dipatok ke commit SHA; tag ada di komentar.
 
 name: android-apk
@@ -89,7 +90,9 @@ jobs:
           zip="$RUNNER_TEMP/.gradle-actions/gradle-installations/downloads/gradle-$GRADLE_VERSION-bin.zip"
           if [ -f "$zip" ]; then
             echo "$GRADLE_SHA256  $zip" | sha256sum --check --strict
+            echo "::notice title=gradle-checksum::zip verified at $zip"
           else
+            echo "::notice title=gradle-checksum::no zip, runner image gradle: $(gradle --version | grep '^Gradle')"
             # setup-gradle tidak mengunduh bila Gradle versi yang sama sudah ada di image runner.
             [[ "$(gradle --version)" == *"Gradle $GRADLE_VERSION"* ]]
             echo "Gradle $GRADLE_VERSION dari image runner."
@@ -110,13 +113,14 @@ jobs:
           fi
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
+      # Secret hanya dibaca saat dijalankan manual. Build dari push selalu debug.
       - name: Signing key
         id: signing
         env:
-          KEYSTORE_BASE64: ${{ secrets.KIRA_KEYSTORE_BASE64 }}
-          KEYSTORE_PASSWORD: ${{ secrets.KIRA_KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KIRA_KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KIRA_KEY_PASSWORD }}
+          KEYSTORE_BASE64: ${{ github.event_name == 'workflow_dispatch' && secrets.KIRA_KEYSTORE_BASE64 || '' }}
+          KEYSTORE_PASSWORD: ${{ github.event_name == 'workflow_dispatch' && secrets.KIRA_KEYSTORE_PASSWORD || '' }}
+          KEY_ALIAS: ${{ github.event_name == 'workflow_dispatch' && secrets.KIRA_KEY_ALIAS || '' }}
+          KEY_PASSWORD: ${{ github.event_name == 'workflow_dispatch' && secrets.KIRA_KEY_PASSWORD || '' }}
           WANT_RELEASE: ${{ github.event_name == 'workflow_dispatch' && inputs.release }}
         run: |
           if [ -n "$KEYSTORE_BASE64" ] && [ -n "$KEYSTORE_PASSWORD" ] && [ -n "$KEY_ALIAS" ] && [ -n "$KEY_PASSWORD" ]; then
@@ -156,6 +160,10 @@ jobs:
               chunk = '\n'.join(out[i:i+60])
               print('::error title=gradle %d::%s' % (i // 60, chunk.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')))
           PY
+
+      - name: Remove signing key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/kira-release.jks"
 
       - name: Verify APK
         id: apk
