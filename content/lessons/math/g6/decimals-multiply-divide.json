@@ -1,0 +1,100 @@
+{
+  "skill": "m6.decimals-multiply-divide",
+  "title": "Multiplying and dividing decimals",
+  "steps": [
+    {
+      "say": "To multiply a decimal by a whole number, multiply without the point, then put the point back.",
+      "show": "314 × 6 = 1,884, so 3.14 × 6 = 18.84"
+    },
+    {
+      "say": "The answer has the same number of decimal places as the decimal you started with.",
+      "show": "3.14 and 18.84 both have 2 decimal places"
+    },
+    {
+      "say": "Estimate first to place the point. 3.14 × 6 is about 3 × 6 = 18.",
+      "show": "18.84 is close to 18"
+    },
+    {
+      "say": "To divide a decimal by a whole number, use short division. Keep the decimal point in line.",
+      "show": "7.56 ÷ 3 = 2.52",
+      "figure": {
+        "kind": "table",
+        "caption": "7.56 ÷ 3",
+        "head": [
+          "Ones",
+          "Tenths",
+          "Hundredths"
+        ],
+        "rows": [
+          [
+            "7",
+            "5",
+            "6"
+          ],
+          [
+            "2",
+            "5",
+            "2"
+          ]
+        ],
+        "alt": "A place value chart: 7.56 divided by 3 gives 2.52, digit by digit."
+      }
+    },
+    {
+      "say": "Divide each digit in turn, and carry any remainder to the next place.",
+      "show": "7 ÷ 3 = 2 r 1, 15 ÷ 3 = 5, 6 ÷ 3 = 2"
+    },
+    {
+      "say": "Sometimes you write a zero on the end to keep dividing. 4.6 ÷ 4 becomes 4.60 ÷ 4.",
+      "show": "4.60 ÷ 4 = 1.15"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.decimals-multiply-divide.901",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 2.7 × 8.",
+      "hints": [
+        "Work out 27 × 8 first.",
+        "Count the decimal places in 2.7.",
+        "27 × 8 = 216."
+      ],
+      "explanation": "27 × 8 = 216, so 2.7 × 8 = 21.6.",
+      "answer": 21.6,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.decimals-multiply-divide.902",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 9.45 ÷ 5.",
+      "hints": [
+        "Use short division.",
+        "Keep the decimal point in line.",
+        "9 ÷ 5 = 1 remainder 4."
+      ],
+      "explanation": "9.45 ÷ 5 = 1.89. Check: 1.89 × 5 = 9.45.",
+      "answer": 1.89,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.decimals-multiply-divide.903",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A 6.3 kg bag of rice is shared equally between 4 families. How much does each family get?",
+      "hints": [
+        "Work out 6.3 ÷ 4.",
+        "Write 6.3 as 6.300 so you can keep dividing.",
+        "6 ÷ 4 = 1 remainder 2."
+      ],
+      "explanation": "6.300 ÷ 4 = 1.575, so each family gets 1.575 kg.",
+      "answer": 1.575,
+      "unit": "kg",
+      "allowDecimal": true
+    }
+  ]
+}

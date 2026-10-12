@@ -1,0 +1,76 @@
+{
+  "skill": "m4.factors-multiples",
+  "title": "Factors and multiples",
+  "steps": [
+    {
+      "say": "The multiples of 6 are the numbers in the 6 times table.",
+      "show": "6, 12, 18, 24, 30"
+    },
+    {
+      "say": "A factor divides into a number exactly. 4 is a factor of 12.",
+      "show": "12 ÷ 4 = 3"
+    },
+    {
+      "say": "Find factors in pairs. Each pair multiplies to make the number.",
+      "figure": {
+        "kind": "array",
+        "rows": 3,
+        "cols": 4,
+        "icon": "dot",
+        "alt": "3 rows of 4 dots, which make 12."
+      },
+      "show": "1 × 12, 2 × 6, 3 × 4"
+    },
+    {
+      "say": "So the factors of 12 are 1, 2, 3, 4, 6 and 12.",
+      "show": "1, 2, 3, 4, 6, 12"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.factors-multiples.901",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is a factor of 20?",
+      "options": [
+        {
+          "text": "6",
+          "why": "20 ÷ 6 leaves a remainder of 2."
+        },
+        {
+          "text": "40",
+          "why": "40 is a multiple of 20. A factor of 20 cannot be bigger than 20."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "3",
+          "why": "20 ÷ 3 leaves a remainder of 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A factor divides into 20 exactly.",
+        "Try dividing 20 by each number.",
+        "Look for a division with no remainder."
+      ],
+      "explanation": "20 ÷ 5 = 4 exactly, so 5 is a factor of 20."
+    },
+    {
+      "id": "m4.factors-multiples.902",
+      "skill": "m4.factors-multiples",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "What is the smallest number that is a multiple of both 4 and 6?",
+      "answer": 12,
+      "hints": [
+        "List the multiples of 4.",
+        "List the multiples of 6.",
+        "Find the first number in both lists."
+      ],
+      "explanation": "Multiples of 4: 4, 8, 12. Multiples of 6: 6, 12. The first number in both lists is 12."
+    }
+  ]
+}

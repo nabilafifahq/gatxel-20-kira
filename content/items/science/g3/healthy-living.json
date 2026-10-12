@@ -1,0 +1,413 @@
+{
+  "skill": "s3.healthy-living",
+  "items": [
+    {
+      "id": "s3.healthy-living.001",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What happens to your heartbeat when you run fast?",
+      "options": [
+        {
+          "text": "It stops.",
+          "why": "Your heart never stops while you exercise. It works harder."
+        },
+        {
+          "text": "It gets faster."
+        },
+        {
+          "text": "It gets slower.",
+          "why": "Your muscles need more oxygen, so your heart beats faster, not slower."
+        },
+        {
+          "text": "It stays exactly the same.",
+          "why": "Running makes your heart work harder, so the beat changes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Put your hand on your chest after running.",
+        "Your muscles need more blood when they work hard.",
+        "Think about how your heartbeat feels after a race."
+      ],
+      "explanation": "When you run, your muscles need more oxygen and food. Your heart beats faster to pump more blood to them."
+    },
+    {
+      "id": "s3.healthy-living.002",
+      "skill": "s3.healthy-living",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 habits that help keep you healthy.",
+      "options": [
+        {
+          "text": "washing hands with soap"
+        },
+        {
+          "text": "staying up late every night",
+          "why": "Children need about 9 to 12 hours of sleep to grow and learn."
+        },
+        {
+          "text": "playing actively every day"
+        },
+        {
+          "text": "drinking sweet drinks instead of water",
+          "why": "Water is the best everyday drink. Sweet drinks are for sometimes."
+        },
+        {
+          "text": "sleeping about 10 hours each night"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about sleep, exercise and keeping clean.",
+        "Cross out habits that could make you tired or harm your teeth.",
+        "Look for the three habits a doctor would praise."
+      ],
+      "explanation": "Washing hands removes germs, active play makes your heart and muscles stronger and good sleep helps you grow. Late nights and lots of sweet drinks do not help."
+    },
+    {
+      "id": "s3.healthy-living.003",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why should you wash your hands with soap before eating?",
+      "options": [
+        {
+          "text": "Soap makes food taste better.",
+          "why": "Soap does not change the taste of food."
+        },
+        {
+          "text": "Washing makes your hands stronger.",
+          "why": "Washing cleans hands. It does not make them stronger."
+        },
+        {
+          "text": "Soap helps wash away germs that can make you ill."
+        },
+        {
+          "text": "Water alone removes all germs.",
+          "why": "Water helps, but soap removes many more germs."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about tiny living things you cannot see.",
+        "Your hands touch many things during the day.",
+        "What does soap remove from your skin?"
+      ],
+      "explanation": "Your hands pick up germs from things you touch. Soap and water wash the germs away, so they do not get into your food."
+    },
+    {
+      "id": "s3.healthy-living.004",
+      "skill": "s3.healthy-living",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The chart shows Tono's pulse after different activities. How many more beats per minute after running than resting?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "resting",
+          "walking",
+          "skipping",
+          "running"
+        ],
+        "values": [
+          80,
+          95,
+          120,
+          140
+        ],
+        "axisMax": 160,
+        "step": 20,
+        "yLabel": "Beats per minute",
+        "tone": "science",
+        "alt": "Bar chart of pulse in beats per minute: resting 80, walking 95, skipping 120, running 140."
+      },
+      "answer": 60,
+      "hints": [
+        "Find the bar for running and the bar for resting.",
+        "How many more means find the difference.",
+        "Take the resting number away from the running number."
+      ],
+      "explanation": "Running gave 140 beats per minute and resting gave 80. 140 take away 80 is 60.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.healthy-living.005",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How many hours of sleep do most 8-year-olds need each night?",
+      "options": [
+        {
+          "text": "about 3 to 4 hours",
+          "why": "That is far too little. Your body grows and rests while you sleep."
+        },
+        {
+          "text": "about 5 to 6 hours",
+          "why": "That is still too little for a child."
+        },
+        {
+          "text": "about 9 to 12 hours"
+        },
+        {
+          "text": "about 14 to 17 hours",
+          "why": "That is about how much a newborn baby sleeps."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Children need more sleep than adults.",
+        "Adults need about 7 to 9 hours.",
+        "Think about going to bed at 8 p.m. and waking at 6 a.m."
+      ],
+      "explanation": "Children aged 6 to 12 need about 9 to 12 hours of sleep. Sleep helps the body grow and the brain learn.",
+      "tags": [
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s3.healthy-living.006",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "After playing football in the hot sun, what is the best drink?",
+      "options": [
+        {
+          "text": "a fizzy, sugary drink",
+          "why": "Sugary drinks have lots of sugar. Water is best for replacing lost water."
+        },
+        {
+          "text": "nothing until dinner time",
+          "why": "You lose water when you sweat. You need to drink soon."
+        },
+        {
+          "text": "salty sea water",
+          "why": "Sea water is far too salty and makes you thirstier."
+        },
+        {
+          "text": "plain water"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Your body loses water when you sweat.",
+        "Think about the healthiest way to put that water back.",
+        "Choose the drink with nothing added."
+      ],
+      "explanation": "When you sweat, your body loses water. Plain water puts it back without extra sugar.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.healthy-living.007",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Lina finds some tablets in a drawer. What should she do?",
+      "options": [
+        {
+          "text": "Leave them and tell a trusted adult."
+        },
+        {
+          "text": "Take one to see what it does.",
+          "why": "Medicines can harm you if they are not meant for you."
+        },
+        {
+          "text": "Share them with her brother.",
+          "why": "Medicine should only be given by a trusted adult, like a parent or doctor."
+        },
+        {
+          "text": "Hide them in her school bag.",
+          "why": "Hiding medicine is not safe. A trusted adult should know."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Medicines can help, but they can also harm.",
+        "Think about who should decide if someone takes medicine.",
+        "What is the safest thing a child can do?"
+      ],
+      "explanation": "Medicines are only safe when a trusted adult, like a parent or doctor, gives them. Never take tablets you find."
+    },
+    {
+      "id": "s3.healthy-living.008",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why do you breathe faster when you exercise?",
+      "options": [
+        {
+          "text": "Your lungs get smaller.",
+          "why": "Your lungs do not shrink. You breathe faster to take in more oxygen."
+        },
+        {
+          "text": "Your muscles need more oxygen."
+        },
+        {
+          "text": "The air becomes thinner.",
+          "why": "The air is the same. Your body needs more oxygen."
+        },
+        {
+          "text": "Your body needs to cool your feet.",
+          "why": "Breathing faster is about oxygen, not cooling your feet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Breathing brings air into your lungs.",
+        "Air contains a gas your muscles use.",
+        "What do working muscles need more of?"
+      ],
+      "explanation": "Working muscles need more oxygen. You breathe faster and deeper to take in more oxygen from the air.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.healthy-living.009",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bagus needs to sneeze. What is the best thing to do?",
+      "options": [
+        {
+          "text": "Sneeze into his hands and keep playing.",
+          "why": "Germs stay on hands and spread to things he touches."
+        },
+        {
+          "text": "Sneeze towards a friend.",
+          "why": "This spreads germs to the friend."
+        },
+        {
+          "text": "Sneeze into a tissue or his elbow, then wash his hands."
+        },
+        {
+          "text": "Hold the sneeze in for an hour.",
+          "why": "Nobody can hold a sneeze for that long."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Sneezes spray tiny drops that carry germs.",
+        "Think about how to catch the drops.",
+        "What should you do with your hands afterwards?"
+      ],
+      "explanation": "A tissue or elbow catches the tiny drops from a sneeze. Washing hands afterwards stops germs spreading."
+    },
+    {
+      "id": "s3.healthy-living.010",
+      "skill": "s3.healthy-living",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the steps for washing your hands in order.",
+      "items": [
+        "Wet your hands with water.",
+        "Rub soap all over your hands.",
+        "Scrub for about 20 seconds.",
+        "Rinse off the soap.",
+        "Dry your hands with a clean towel."
+      ],
+      "hints": [
+        "You need water before soap can lather.",
+        "Think about what comes right before drying.",
+        "Start with wet hands."
+      ],
+      "explanation": "Wet your hands, add soap and scrub for about 20 seconds. Then rinse and dry them with a clean towel."
+    },
+    {
+      "id": "s3.healthy-living.011",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Tono measures his pulse before, just after and 5 minutes after running. What do his results show?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "When",
+          "Pulse (beats per minute)"
+        ],
+        "rows": [
+          [
+            "before running",
+            "80"
+          ],
+          [
+            "just after running",
+            "140"
+          ],
+          [
+            "5 minutes later",
+            "95"
+          ]
+        ],
+        "alt": "Table of Tono's pulse: before running 80, just after running 140, 5 minutes later 95 beats per minute."
+      },
+      "options": [
+        {
+          "text": "Exercise makes the pulse stay high all day.",
+          "why": "After 5 minutes it had already dropped to 95."
+        },
+        {
+          "text": "Running slows the heart down.",
+          "why": "His pulse went up from 80 to 140 when he ran."
+        },
+        {
+          "text": "The pulse is highest when resting.",
+          "why": "Resting gave the lowest pulse, 80."
+        },
+        {
+          "text": "The pulse rises with exercise, then slowly falls back."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the three numbers in order.",
+        "What happened to the pulse during running?",
+        "What happened during the 5 minutes of rest?"
+      ],
+      "explanation": "Tono's pulse went up from 80 to 140 when he ran. After resting it fell to 95, on its way back to normal."
+    },
+    {
+      "id": "s3.healthy-living.012",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "After the same race, Ari's pulse is back to normal in 2 minutes. Budi's takes 6 minutes. What might this tell us?",
+      "options": [
+        {
+          "text": "Ari's heart may be fitter from regular exercise."
+        },
+        {
+          "text": "Budi ran a longer race.",
+          "why": "They ran the same race."
+        },
+        {
+          "text": "Budi's heart is stronger because it works longer.",
+          "why": "A fitter heart usually recovers faster, not slower."
+        },
+        {
+          "text": "Pulse has nothing to do with fitness.",
+          "why": "How fast the pulse recovers is one sign of a fit heart."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Both boys ran the same race.",
+        "Regular exercise trains the heart.",
+        "Which heart got back to normal more quickly?"
+      ],
+      "explanation": "A fitter heart usually returns to its resting rate more quickly. Regular exercise helps the heart get fitter.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

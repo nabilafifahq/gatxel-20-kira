@@ -1,0 +1,93 @@
+{
+  "skill": "m6.angles",
+  "title": "Calculating angles",
+  "steps": [
+    {
+      "say": "Angles on a straight line add up to 180°. Angles around a point add up to 360°.",
+      "show": "140° + 40° = 180°",
+      "figure": {
+        "kind": "angle",
+        "degrees": 140,
+        "label": "140°",
+        "alt": "An angle of 140 degrees."
+      }
+    },
+    {
+      "say": "The angles in a triangle add up to 180°.",
+      "show": "a + b + c = 180°",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle with three angles."
+      }
+    },
+    {
+      "say": "The angles in a quadrilateral add up to 360°, because it splits into two triangles.",
+      "show": "2 × 180° = 360°",
+      "figure": {
+        "kind": "shape",
+        "shape": "trapezium",
+        "alt": "A quadrilateral with four angles."
+      }
+    },
+    {
+      "say": "Vertically opposite angles are equal. They sit across from each other where two lines cross.",
+      "show": "If one angle is 65°, the opposite angle is 65°"
+    },
+    {
+      "say": "To find a missing angle, add the angles you know and subtract from the total.",
+      "show": "360° − (90° + 110° + 75°) = 85°"
+    },
+    {
+      "say": "An isosceles triangle has two equal angles. If the top angle is 40°, the other two share 140°.",
+      "show": "140° ÷ 2 = 70°"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.angles.901",
+      "skill": "m6.angles",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Three angles meet at a point. Two of them are 120° and 150°. What is the third?",
+      "hints": [
+        "Angles around a point add up to 360°.",
+        "Add the two angles you know.",
+        "120 + 150 = 270."
+      ],
+      "explanation": "120° + 150° = 270°. 360° − 270° = 90°.",
+      "answer": 90,
+      "unit": "°"
+    },
+    {
+      "id": "m6.angles.902",
+      "skill": "m6.angles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A quadrilateral has angles of 85°, 95° and 110°. What is the fourth angle?",
+      "hints": [
+        "Angles in a quadrilateral add up to 360°.",
+        "Add the three angles you know.",
+        "85 + 95 = 180."
+      ],
+      "explanation": "85° + 95° + 110° = 290°. 360° − 290° = 70°.",
+      "answer": 70,
+      "unit": "°"
+    },
+    {
+      "id": "m6.angles.903",
+      "skill": "m6.angles",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "An isosceles triangle has one angle of 30°. The other two angles are equal. What is each of them?",
+      "hints": [
+        "Angles in a triangle add up to 180°.",
+        "Take 30° away from 180°.",
+        "The two equal angles share what is left."
+      ],
+      "explanation": "180° − 30° = 150°. 150° ÷ 2 = 75°.",
+      "answer": 75,
+      "unit": "°"
+    }
+  ]
+}

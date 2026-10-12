@@ -1,0 +1,34 @@
+{
+  "skill": "e4.prefixes",
+  "title": "Before and wrongly",
+  "steps": [
+    { "say": "A prefix goes at the front of a word and changes its meaning. The root word keeps its spelling.", "show": "pre + view = preview" },
+    { "say": "Pre- means before.", "show": "preheat, prepay, preview, prehistoric" },
+    { "say": "Mis- means wrongly or badly.", "show": "misspell, mishear, misbehave, misplace" },
+    { "say": "Remember the Grade 3 prefixes too. Un- and dis- mean not, and re- means again.", "show": "unfair, disagree, rebuild" },
+    { "say": "Keep every letter when you join the parts. That is why misspell has two s letters.", "show": "mis + spell = misspell" },
+    { "say": "Some words only look as if they have a prefix. Cover the start and check that the rest is a word.", "show": "pretty: tty is not a word" }
+  ],
+  "check": [
+    {
+      "id": "e4.prefixes.901", "skill": "e4.prefixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word means hear wrongly?",
+      "options": [
+        { "text": "prehear", "why": "Pre- means before, and prehear is not a word." },
+        { "text": "rehear", "why": "Re- means again." },
+        { "text": "mishear" },
+        { "text": "unhear", "why": "Unhear is not a word." }
+      ],
+      "answer": 2,
+      "hints": ["Which prefix means wrongly?", "Look at the start of each word.", "Cover hear in each word and compare the prefixes."],
+      "explanation": "Mis- means wrongly, so mishear means hear wrongly."
+    },
+    {
+      "id": "e4.prefixes.902", "skill": "e4.prefixes", "type": "text", "difficulty": 2,
+      "prompt": "Add pre- to heat.\nMum will ___ the oven before she bakes the cake.",
+      "blanks": [{ "answers": ["preheat"] }],
+      "hints": ["Pre- means before.", "The oven is heated before the baking starts.", "Write the prefix, then the whole word heat."],
+      "explanation": "Pre- means before, so preheat means heat before. Mum heats the oven before baking."
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+{
+  "skill": "e5.editing-proofreading",
+  "items": [
+    {
+      "id": "e5.editing-proofreading.001",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt wrongly? We went to the libary to find a book about volcanoes.",
+      "options": [
+        {
+          "text": "went",
+          "why": "Went is spelt correctly."
+        },
+        {
+          "text": "libary"
+        },
+        {
+          "text": "volcanoes",
+          "why": "Volcanoes is spelt correctly. Volcano adds -es in the plural."
+        },
+        {
+          "text": "about",
+          "why": "About is spelt correctly."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read each word slowly, sound by sound.",
+        "Some words have a letter that people forget when they speak quickly.",
+        "Say library slowly: li-brar-y. How many r sounds do you hear?"
+      ],
+      "explanation": "The correct spelling is library, with an r after the b. It is easy to miss when you say the word quickly."
+    },
+    {
+      "id": "e5.editing-proofreading.002",
+      "skill": "e5.editing-proofreading",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "One word is spelt wrongly. Write it correctly. I recieved a letter from my penfriend.",
+      "blanks": [
+        {
+          "answers": [
+            "received"
+          ]
+        }
+      ],
+      "hints": [
+        "Look carefully at the order of the vowels in each word.",
+        "Remember the rule: i before e, except after c.",
+        "Find the word with ie or ei in it."
+      ],
+      "explanation": "Received follows the rule i before e except after c: re-c-ei-ved."
+    },
+    {
+      "id": "e5.editing-proofreading.003",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "The children was playing outside.",
+          "why": "Children is plural, so it needs were, not was."
+        },
+        {
+          "text": "The children is playing outside.",
+          "why": "Is is for one person or thing."
+        },
+        {
+          "text": "The childrens were playing outside.",
+          "why": "Children is already plural, so it does not need an s."
+        },
+        {
+          "text": "The children were playing outside."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Children means more than one child.",
+        "A plural subject needs a plural verb.",
+        "Choose between was and were for a plural subject."
+      ],
+      "explanation": "Children is plural, so the verb must be plural too: the children were playing."
+    },
+    {
+      "id": "e5.editing-proofreading.004",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence keeps the same tense all the way through?",
+      "options": [
+        {
+          "text": "Yesterday we visited the zoo and saw the elephants."
+        },
+        {
+          "text": "Yesterday we visit the zoo and saw the elephants.",
+          "why": "Visit is present tense, but yesterday needs the past."
+        },
+        {
+          "text": "Yesterday we visited the zoo and see the elephants.",
+          "why": "See is present tense, but the sentence is about yesterday."
+        },
+        {
+          "text": "Yesterday we will visit the zoo and saw the elephants.",
+          "why": "Will visit is the future, which does not fit yesterday."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Yesterday tells you when this happened.",
+        "Both verbs need to be in the same tense.",
+        "Find the two verbs in each sentence. Are they both past tense?"
+      ],
+      "explanation": "Yesterday means the past, so both verbs are in the past tense: visited and saw."
+    },
+    {
+      "id": "e5.editing-proofreading.005",
+      "skill": "e5.editing-proofreading",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "One word is the wrong homophone. Write the correct word. The team lost there match on Saturday.",
+      "blanks": [
+        {
+          "answers": [
+            "their"
+          ]
+        }
+      ],
+      "hints": [
+        "One word sounds right but is spelt for a different meaning.",
+        "Ask whose match it was.",
+        "Find the word that should show belonging."
+      ],
+      "explanation": "The match belongs to the team, so it should be their. There is about a place."
+    },
+    {
+      "id": "e5.editing-proofreading.006",
+      "skill": "e5.editing-proofreading",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words: spelt correctly or spelt wrongly.",
+      "groups": [
+        "Spelt correctly",
+        "Spelt wrongly"
+      ],
+      "items": [
+        {
+          "text": "necessary",
+          "group": 0
+        },
+        {
+          "text": "seperate",
+          "group": 1
+        },
+        {
+          "text": "definitely",
+          "group": 0
+        },
+        {
+          "text": "beleive",
+          "group": 1
+        },
+        {
+          "text": "tomorrow",
+          "group": 0
+        },
+        {
+          "text": "wierd",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "These are words that many people find tricky.",
+        "Check double letters and the order of vowels carefully.",
+        "Start with necessary. Remember: one collar and two sleeves, one c and two s."
+      ],
+      "explanation": "Necessary, definitely and tomorrow are correct. The correct spellings of the others are separate, believe and weird."
+    },
+    {
+      "id": "e5.editing-proofreading.007",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which change makes this sentence better? The food was nice and the music was nice too.",
+      "options": [
+        {
+          "text": "Change food to foods.",
+          "why": "This does not improve the sentence and is not needed."
+        },
+        {
+          "text": "Change the second nice to lively."
+        },
+        {
+          "text": "Remove the word and.",
+          "why": "Without and, the two parts would not be joined properly."
+        },
+        {
+          "text": "Change was to is.",
+          "why": "The sentence is about the past, so was is correct."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Notice which word is used twice.",
+        "Good writers avoid repeating a dull word and choose a more precise one.",
+        "Think of a word that describes music better than nice."
+      ],
+      "explanation": "Nice is repeated and does not say much. Lively tells the reader exactly what the music was like."
+    },
+    {
+      "id": "e5.editing-proofreading.008",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the best way to correct this sentence? The storm was loud we hid under the blanket.",
+      "options": [
+        {
+          "text": "The storm was loud, we hid under the blanket.",
+          "why": "A comma alone cannot join two sentences."
+        },
+        {
+          "text": "The storm was loud, so we hid under the blanket."
+        },
+        {
+          "text": "The storm was loud we, hid under the blanket.",
+          "why": "The comma splits we from hid."
+        },
+        {
+          "text": "The storm, was loud we hid under the blanket.",
+          "why": "The comma splits the storm from was loud."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are two complete sentences joined together with nothing between them.",
+        "You can fix this with a full stop, or with a comma and a joining word.",
+        "Find where the first complete sentence ends."
+      ],
+      "explanation": "Two complete sentences need a full stop between them or a joining word. A comma with so joins them correctly."
+    },
+    {
+      "id": "e5.editing-proofreading.009",
+      "skill": "e5.editing-proofreading",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Proofread: every saturday my freind and I goes to the market. Choose all the mistakes.",
+      "options": [
+        {
+          "text": "Every needs a capital letter."
+        },
+        {
+          "text": "Saturday needs a capital letter."
+        },
+        {
+          "text": "Freind should be spelt friend."
+        },
+        {
+          "text": "Goes should be go."
+        },
+        {
+          "text": "Market needs a capital letter.",
+          "why": "Market is a common noun, so it does not need a capital letter."
+        },
+        {
+          "text": "I should be me.",
+          "why": "I is correct here, because my friend and I are doing the action."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "hints": [
+        "Check capital letters, spelling and grammar one at a time.",
+        "Sentences and days of the week start with capital letters. The verb must agree with my friend and I.",
+        "Start with the first word of the sentence."
+      ],
+      "explanation": "The correct sentence is: Every Saturday my friend and I go to the market. My friend and I is plural, so go is right."
+    },
+    {
+      "id": "e5.editing-proofreading.010",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which version of the sentence is fully correct?",
+      "options": [
+        {
+          "text": "Me and Arif went to the beach, where we found three shells.",
+          "why": "Me cannot be the subject of a sentence. Use Arif and I."
+        },
+        {
+          "text": "Arif and I went to the beech, where we found three shells.",
+          "why": "A beech is a tree. The seaside is a beach."
+        },
+        {
+          "text": "Arif and I went to the beach, where we found three shells."
+        },
+        {
+          "text": "Arif and me went to the beach, where we found three shell.",
+          "why": "Me should be I, and three needs the plural shells."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Each wrong version has at least one small mistake.",
+        "Check the people at the start, the homophone and the plural one at a time.",
+        "Try saying each sentence with only the word I or me. Which sounds right: I went or me went?"
+      ],
+      "explanation": "Arif and I is the subject, beach is the seaside and three shells is plural. The other versions each have a mistake.",
+      "tags": [
+        "iklc"
+      ]
+    }
+  ]
+}

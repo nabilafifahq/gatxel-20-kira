@@ -1,0 +1,264 @@
+{
+  "skill": "s6.food-webs",
+  "items": [
+    {
+      "id": "s6.food-webs.001",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a food web?",
+      "options": [
+        { "text": "many food chains in one habitat that link together" },
+        { "text": "a spider's web used to catch food", "why": "In science, a food web is a diagram of feeding links, not a real web." },
+        { "text": "a list of the foods people like to eat", "why": "A food web shows what eats what in a habitat." },
+        { "text": "one single line of what eats what", "why": "One line is a food chain. A web joins many chains together." }
+      ],
+      "answer": 0,
+      "hints": [
+        "A food chain shows one line of feeding, but most animals eat more than one thing.",
+        "Think about how many different chains you could draw for a rice field.",
+        "Cross out the choices about real spider webs and favourite foods."
+      ],
+      "explanation": "A food web shows many food chains in one habitat and how they link together. Most animals eat more than one kind of food, so their chains cross.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.food-webs.002",
+      "skill": "s6.food-webs",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Look at the rice field food web. Choose all the animals that eat grasshoppers.",
+      "figure": {
+        "kind": "table",
+        "caption": "A rice field food web",
+        "head": ["Living thing", "Is eaten by"],
+        "rows": [
+          ["rice plant", "grasshopper, rat"],
+          ["grasshopper", "frog, sparrow"],
+          ["rat", "snake, owl"],
+          ["frog", "snake"],
+          ["sparrow", "owl"],
+          ["snake", "eagle"]
+        ],
+        "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
+      },
+      "options": [
+        { "text": "frog" },
+        { "text": "sparrow" },
+        { "text": "rat", "why": "In this food web, rats eat rice plants." },
+        { "text": "eagle", "why": "In this food web, eagles eat snakes." },
+        { "text": "snake", "why": "In this food web, snakes eat rats and frogs." }
+      ],
+      "answers": [0, 1],
+      "hints": [
+        "Find the row for grasshopper in the table.",
+        "The second column lists the animals that eat it.",
+        "Read across the grasshopper row and check each choice."
+      ],
+      "explanation": "The table shows that grasshoppers are eaten by frogs and sparrows. Rats eat rice plants, while eagles and snakes eat other animals in this web.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.food-webs.003",
+      "skill": "s6.food-webs",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Fungi and bacteria that break down dead plants and animals are called ___.",
+      "blanks": [{ "answers": ["decomposers", "decomposer"] }],
+      "hints": [
+        "These living things recycle dead material back into the soil.",
+        "When leaves fall in a forest, these tiny living things make them rot away.",
+        "The word starts with de- and ends with -ers."
+      ],
+      "explanation": "Decomposers such as fungi and bacteria break down dead plants and animals. This returns minerals to the soil, which plants then use to grow.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.food-webs.004",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at the rice field food web. Farmers catch all the frogs. What will most likely happen to the number of grasshoppers?",
+      "figure": {
+        "kind": "table",
+        "caption": "A rice field food web",
+        "head": ["Living thing", "Is eaten by"],
+        "rows": [
+          ["rice plant", "grasshopper, rat"],
+          ["grasshopper", "frog, sparrow"],
+          ["rat", "snake, owl"],
+          ["frog", "snake"],
+          ["sparrow", "owl"],
+          ["snake", "eagle"]
+        ],
+        "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
+      },
+      "options": [
+        { "text": "It will go down, because frogs help grasshoppers.", "why": "Frogs eat grasshoppers. Without frogs, fewer grasshoppers are eaten." },
+        { "text": "It will go up, because fewer grasshoppers are eaten." },
+        { "text": "It will stay exactly the same, because sparrows eat them too.", "why": "Sparrows still eat some grasshoppers, but with no frogs, fewer are eaten overall." },
+        { "text": "Grasshoppers will start to eat snakes.", "why": "Grasshoppers eat plants. Animals do not suddenly change what they eat like this." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find what eats grasshoppers in the food web.",
+        "If one predator disappears, ask whether more or fewer grasshoppers are eaten.",
+        "Cross the frogs out of the table and read the grasshopper row again."
+      ],
+      "explanation": "Frogs eat grasshoppers, so with no frogs, fewer grasshoppers are eaten and their number rises. Sparrows still eat some, but not enough to make up for the frogs.",
+      "tags": ["osn-sd", "checkpoint"]
+    },
+    {
+      "id": "s6.food-webs.005",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at the rice field food web. If all the frogs disappear, what is likely to happen to the rice plants?",
+      "figure": {
+        "kind": "table",
+        "caption": "A rice field food web",
+        "head": ["Living thing", "Is eaten by"],
+        "rows": [
+          ["rice plant", "grasshopper, rat"],
+          ["grasshopper", "frog, sparrow"],
+          ["rat", "snake, owl"],
+          ["frog", "snake"],
+          ["sparrow", "owl"],
+          ["snake", "eagle"]
+        ],
+        "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
+      },
+      "options": [
+        { "text": "More rice plants will grow, because frogs eat rice.", "why": "Frogs do not eat rice. They eat grasshoppers, which eat rice." },
+        { "text": "Nothing will happen, because frogs do not eat plants.", "why": "Frogs do not eat rice, but they control the grasshoppers that do." },
+        { "text": "There may be fewer rice plants, because more grasshoppers will eat them." },
+        { "text": "The rice plants will grow taller to escape the grasshoppers.", "why": "Plants cannot grow away from the animals that eat them." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the feeding links from the frogs to what they eat.",
+        "Frogs eat grasshoppers, and grasshoppers eat rice plants.",
+        "First decide what happens to the grasshoppers. Then decide what they do to the rice."
+      ],
+      "explanation": "Without frogs, more grasshoppers survive. More grasshoppers eat more rice plants, so the farmers may lose some of their crop.",
+      "tags": ["osn-sd", "checkpoint", "imso"]
+    },
+    {
+      "id": "s6.food-webs.006",
+      "skill": "s6.food-webs",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these actions into ones that help a habitat and ones that harm it.",
+      "groups": ["Helps a habitat", "Harms a habitat"],
+      "items": [
+        { "text": "replanting mangroves on the coast", "group": 0 },
+        { "text": "making a national park", "group": 0 },
+        { "text": "recycling plastic bottles", "group": 0 },
+        { "text": "planting native trees", "group": 0 },
+        { "text": "dropping plastic on the beach", "group": 1 },
+        { "text": "cutting down rainforest for farms", "group": 1 },
+        { "text": "catching too many fish", "group": 1 },
+        { "text": "pouring oil into a river", "group": 1 }
+      ],
+      "hints": [
+        "Think about what each action does to the plants and animals that live there.",
+        "Actions that protect homes and food help. Actions that destroy or pollute them harm.",
+        "Start with the mangroves. Think about the fish and crabs that live among their roots."
+      ],
+      "explanation": "Replanting mangroves, protecting parks, recycling and planting native trees all help habitats. Littering, clearing rainforest, overfishing and pouring oil into rivers damage habitats and the food webs in them.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.food-webs.007",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sea turtles sometimes swallow floating plastic bags. Why?",
+      "options": [
+        { "text": "Plastic bags taste like seaweed.", "why": "Turtles are tricked by how bags look in the water, not by their taste." },
+        { "text": "Turtles use plastic to build nests.", "why": "Sea turtles dig their nests in the sand on beaches." },
+        { "text": "Plastic is good food for turtles.", "why": "Plastic cannot be digested and can block a turtle's gut." },
+        { "text": "Floating bags look like jellyfish, which turtles eat." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Many sea turtles hunt for soft, floating animals.",
+        "Picture a clear plastic bag drifting in the sea.",
+        "Ask which sea animal a drifting bag looks like."
+      ],
+      "explanation": "A floating plastic bag looks like a jellyfish, which many sea turtles eat. Swallowed plastic cannot be digested and can block the turtle's gut.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s6.food-webs.008",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Large areas of rainforest in Sumatra and Borneo have been cleared. Why does this put orangutans in danger?",
+      "options": [
+        { "text": "They lose their habitat and the fruit trees they feed on." },
+        { "text": "Orangutans can only live in cold places.", "why": "Orangutans live in warm rainforests. The problem is that their forest home is gone." },
+        { "text": "The new farms are too noisy for orangutans to sleep.", "why": "Noise is not the main problem. They lose their food and shelter." },
+        { "text": "Orangutans need to eat the soil under the trees.", "why": "Orangutans eat mostly fruit, with some leaves, bark and insects. They need the trees." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Orangutans spend most of their lives up in the trees.",
+        "A habitat gives an animal food, shelter and a place to raise its young.",
+        "Ask what an orangutan loses when its trees are cut down."
+      ],
+      "explanation": "Orangutans live high in the rainforest and feed mainly on fruit from the trees. When the forest is cleared, they lose their homes and their food.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.food-webs.009",
+      "skill": "s6.food-webs",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "A company plans to cut down a mangrove forest to build a shrimp farm. Describe two effects on living things. Then suggest one way to reduce the harm.",
+      "rubric": {
+        "criteria": [
+          { "label": "Describes one effect on animals that live or breed in mangroves", "points": 2 },
+          { "label": "Describes a second effect, such as coast erosion or fewer fish", "points": 2 },
+          { "label": "Suggests a sensible way to reduce the harm", "points": 1 },
+          { "label": "Writes clear sentences with scientific words", "points": 1 }
+        ]
+      },
+      "minWords": 40,
+      "maxWords": 150,
+      "planning": [
+        "Which animals live among mangrove roots?",
+        "What do mangroves do for the coast?",
+        "How could people farm shrimp and still protect some mangroves?"
+      ],
+      "model": "Many young fish, crabs and shrimps live and grow among the mangrove roots, so they would lose their home and their numbers would fall. Birds that feed on them would lose food too. Without mangroves, waves would wash away the muddy coast more easily. The company could keep a wide strip of mangroves along the shore and replant mangroves around the farm.",
+      "hints": [
+        "Think about the animals that use mangrove roots as a nursery.",
+        "Mangroves also protect the coast from waves."
+      ],
+      "explanation": "Mangroves are nurseries for young fish, crabs and shrimps, and they protect coasts from waves. Keeping or replanting a strip of mangroves reduces the harm.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.food-webs.010",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In 1962, Rachel Carson wrote about a pesticide called DDT. Insects held small amounts of it, but eagles and other birds of prey held large amounts. Why did the top predators have the most DDT?",
+      "options": [
+        { "text": "Eagles sprayed DDT on their nests.", "why": "Birds do not spray pesticides. People sprayed DDT on crops and land." },
+        { "text": "Birds of prey breathe in more DDT from the air.", "why": "Most of the DDT entered their bodies through the food they ate." },
+        { "text": "Each predator ate many animals that each held a little DDT, so it built up." },
+        { "text": "Top predators make DDT in their own bodies.", "why": "DDT is made by people. Animals cannot make it." }
+      ],
+      "answer": 2,
+      "hints": [
+        "DDT stays in an animal's body instead of being broken down or passed out.",
+        "A bird of prey eats many smaller animals, which each ate many insects.",
+        "Follow the DDT up the food chain and add it up at each step."
+      ],
+      "explanation": "DDT stayed in the bodies of animals that took it in. Each predator ate many prey animals, so the DDT built up to large amounts at the top of the food chain.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "skill": "s4.changing-state",
+  "items": [
+    {
+      "id": "s4.changing-state.001",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is it called when a solid turns into a liquid?",
+      "options": [
+        {
+          "text": "freezing",
+          "why": "Freezing is a liquid turning into a solid."
+        },
+        {
+          "text": "evaporating",
+          "why": "Evaporating is a liquid turning into a gas."
+        },
+        {
+          "text": "melting"
+        },
+        {
+          "text": "condensing",
+          "why": "Condensing is a gas turning into a liquid."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about ice on a hot day.",
+        "The solid gets warm and becomes runny.",
+        "What happens to ice cream in the sun?"
+      ],
+      "explanation": "Melting is when a solid is heated and turns into a liquid, like ice turning into water."
+    },
+    {
+      "id": "s4.changing-state.002",
+      "skill": "s4.changing-state",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each change to its name.",
+      "pairs": [
+        [
+          "solid to liquid",
+          "melting"
+        ],
+        [
+          "liquid to solid",
+          "freezing"
+        ],
+        [
+          "liquid to gas",
+          "evaporating"
+        ],
+        [
+          "gas to liquid",
+          "condensing"
+        ]
+      ],
+      "hints": [
+        "Two changes need heating and two need cooling.",
+        "Freezing happens in a freezer.",
+        "Think of a puddle drying up for liquid to gas."
+      ],
+      "explanation": "Melting is solid to liquid and freezing is liquid to solid. Evaporating is liquid to gas and condensing is gas to liquid."
+    },
+    {
+      "id": "s4.changing-state.003",
+      "skill": "s4.changing-state",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The thermometer is in melting ice. What temperature does it show?",
+      "figure": {
+        "kind": "thermometer",
+        "min": -10,
+        "max": 20,
+        "value": 0,
+        "step": 5,
+        "alt": "A thermometer from minus 10 to 20 °C. The liquid is level with the 0 °C mark."
+      },
+      "answer": 0,
+      "unit": "°C",
+      "hints": [
+        "Find the top of the liquid.",
+        "Read the number next to it.",
+        "Ice melts at the same temperature that water freezes."
+      ],
+      "explanation": "Ice melts at 0 °C, which is also the temperature at which water freezes.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.changing-state.004",
+      "skill": "s4.changing-state",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "This thermometer is inside a freezer. What temperature does it show?",
+      "figure": {
+        "kind": "thermometer",
+        "min": -20,
+        "max": 20,
+        "value": -15,
+        "step": 5,
+        "alt": "A thermometer from minus 20 to 20 °C, marked every 5 degrees. The liquid stops at the line for minus 15 °C, below zero."
+      },
+      "answer": -15,
+      "unit": "°C",
+      "allowNegative": true,
+      "hints": [
+        "The liquid is below zero.",
+        "Numbers below zero are negative.",
+        "Count down in 5s from 0."
+      ],
+      "explanation": "The liquid stops three marks below zero, and each mark is 5 degrees. The freezer is at minus 15 °C."
+    },
+    {
+      "id": "s4.changing-state.005",
+      "skill": "s4.changing-state",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Ice is heated in a pan. Put the changes in order.",
+      "items": [
+        "solid ice",
+        "ice melting into water",
+        "water getting hotter",
+        "water boiling and turning into water vapour"
+      ],
+      "hints": [
+        "Start with the coldest state.",
+        "The ice must melt before the water can boil.",
+        "Boiling happens at the hottest point."
+      ],
+      "explanation": "Heating melts the ice into water. The water gets hotter until it boils at about 100 °C and turns into water vapour."
+    },
+    {
+      "id": "s4.changing-state.006",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Wet clothes dry on a washing line. Where does the water go?",
+      "options": [
+        {
+          "text": "It soaks into the washing line.",
+          "why": "A line is thin. It cannot hold all that water."
+        },
+        {
+          "text": "It disappears forever.",
+          "why": "The water is not destroyed. It becomes a gas in the air."
+        },
+        {
+          "text": "It turns into dust.",
+          "why": "Water cannot turn into dust."
+        },
+        {
+          "text": "It evaporates into the air as water vapour."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The water leaves the clothes slowly.",
+        "Liquid water can change into a gas.",
+        "What do we call a liquid turning into a gas?"
+      ],
+      "explanation": "The water evaporates. It turns into water vapour, an invisible gas that mixes with the air.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.changing-state.007",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why do clothes dry faster on a hot, windy day?",
+      "options": [
+        {
+          "text": "Warmth and wind both make water evaporate faster."
+        },
+        {
+          "text": "Wind blows water back into the clothes.",
+          "why": "Wind carries water vapour away from the clothes."
+        },
+        {
+          "text": "Clothes dry at the same speed on any day.",
+          "why": "Weather changes how fast water evaporates."
+        },
+        {
+          "text": "Cold air makes water evaporate faster.",
+          "why": "Water evaporates faster when it is warm, not cold."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Drying means the water evaporates.",
+        "Think about drying clothes on a cold, still day.",
+        "What do heat and wind each do to evaporation?"
+      ],
+      "explanation": "Warmth gives water the energy to evaporate faster. Wind carries the water vapour away, so more water can evaporate."
+    },
+    {
+      "id": "s4.changing-state.008",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A cold glass of iced tea sits on a table. Soon, water drops form on the outside. Where do they come from?",
+      "options": [
+        {
+          "text": "Tea leaks through the glass.",
+          "why": "Glass is waterproof. The drops come from the air."
+        },
+        {
+          "text": "Water vapour in the air condenses on the cold glass."
+        },
+        {
+          "text": "The ice melts through the glass.",
+          "why": "Ice cannot pass through glass."
+        },
+        {
+          "text": "The table makes the water.",
+          "why": "Tables do not make water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The drops are on the outside of the glass.",
+        "Air contains invisible water vapour.",
+        "What happens to water vapour when it touches something cold?"
+      ],
+      "explanation": "The air has water vapour in it. When it touches the cold glass, it cools and condenses into drops of water.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.changing-state.009",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which change can be easily reversed?",
+      "options": [
+        {
+          "text": "baking a cake",
+          "why": "You cannot unbake a cake. The change is permanent."
+        },
+        {
+          "text": "burning paper",
+          "why": "Burnt paper cannot turn back into paper."
+        },
+        {
+          "text": "melting chocolate"
+        },
+        {
+          "text": "frying an egg",
+          "why": "A fried egg cannot become raw again."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A reversible change can be undone.",
+        "Think about cooling something back down.",
+        "Which one can be cooled to get the same material back?"
+      ],
+      "explanation": "Melted chocolate becomes solid again when it cools, so melting is reversible. Baking, burning and frying make new materials.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.changing-state.010",
+      "skill": "s4.changing-state",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "The table shows melting points. The room is 45 °C. Choose 2 materials that will be melted.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Material",
+          "Melting point (°C)"
+        ],
+        "rows": [
+          [
+            "ice",
+            "0"
+          ],
+          [
+            "chocolate",
+            "35"
+          ],
+          [
+            "candle wax",
+            "60"
+          ],
+          [
+            "iron",
+            "1538"
+          ]
+        ],
+        "alt": "Table of melting points: ice 0 °C, chocolate 35 °C, candle wax 60 °C, iron 1538 °C."
+      },
+      "options": [
+        {
+          "text": "ice"
+        },
+        {
+          "text": "chocolate"
+        },
+        {
+          "text": "candle wax",
+          "why": "Candle wax needs 60 °C to melt. The room is cooler than that."
+        },
+        {
+          "text": "iron",
+          "why": "Iron needs over 1500 °C to melt."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "A material melts when it is hotter than its melting point.",
+        "Compare each melting point with 45 °C.",
+        "Which melting points are lower than the room temperature?"
+      ],
+      "explanation": "Ice melts at 0 °C and chocolate at 35 °C, so both are melted at 45 °C. Wax needs 60 °C and iron needs much more.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.changing-state.011",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The same amount of water is put in a wide plate and a narrow cup. Both sit in the sun. Which loses water faster?",
+      "options": [
+        {
+          "text": "the cup, because it is taller",
+          "why": "Being taller does not help water evaporate."
+        },
+        {
+          "text": "both the same, because they hold the same amount",
+          "why": "The amount is the same, but the surface is different."
+        },
+        {
+          "text": "neither, because water only evaporates when it boils",
+          "why": "Water evaporates at any temperature, just faster when warm."
+        },
+        {
+          "text": "the plate, because more of the water's surface touches the air"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Water evaporates from its surface.",
+        "Which container spreads the water out more?",
+        "Compare the size of the water's surface in each."
+      ],
+      "explanation": "Water evaporates from its surface. The plate spreads the water out, so more surface touches the air and it evaporates faster.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.changing-state.012",
+      "skill": "s4.changing-state",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "When water vapour cools and turns back into a liquid, it ___.",
+      "blanks": [
+        {
+          "answers": [
+            "condenses",
+            "condense",
+            "condensing"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about a cold mirror in a steamy bathroom.",
+        "This is the opposite of evaporating.",
+        "The word starts with con."
+      ],
+      "explanation": "Water vapour condenses when it cools, turning back into liquid water."
+    }
+  ]
+}

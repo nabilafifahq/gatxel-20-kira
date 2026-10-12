@@ -1,0 +1,93 @@
+{
+  "skill": "e1.letter-sounds",
+  "title": "Hear the sounds in a word",
+  "steps": [
+    {
+      "say": "Every word is made of sounds. Cat has three sounds.",
+      "show": "c, a, t",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          }
+        ],
+        "alt": "A picture of a cat."
+      }
+    },
+    {
+      "say": "Say the first sound of cat. It is c.",
+      "show": "c"
+    },
+    {
+      "say": "The middle sound is a. The last sound is t.",
+      "show": "c  a  t"
+    },
+    {
+      "say": "Now blend them. Say them fast and you hear cat.",
+      "show": "cat"
+    },
+    {
+      "say": "Change the first sound to h. Now the word is hat!",
+      "show": "hat"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.letter-sounds.901",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word starts with p?",
+      "hints": [
+        "Look at the first letter of each word.",
+        "P makes a puff of air: p, p, p.",
+        "Find the word whose first letter is p."
+      ],
+      "explanation": "Pig starts with p. Big starts with b and dig starts with d.",
+      "options": [
+        {
+          "text": "big",
+          "why": "Big starts with b."
+        },
+        {
+          "text": "pig"
+        },
+        {
+          "text": "dig",
+          "why": "Dig starts with d."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.902",
+      "skill": "e1.letter-sounds",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the word for this picture.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun"
+          }
+        ],
+        "alt": "The sun."
+      },
+      "hints": [
+        "Say the word slowly.",
+        "There are three sounds.",
+        "The first sound is s."
+      ],
+      "explanation": "Sun has three sounds: s, u, n.",
+      "blanks": [
+        {
+          "answers": [
+            "sun"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill": "s2.rocks-soil",
+  "title": "Rocks and soil",
+  "steps": [
+    { "say": "Rocks are natural and hard. They are found in the ground.", "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "rock" }, { "icon": "mountain", "label": "mountain" }], "alt": "A rock and a rocky mountain." } },
+    { "say": "People use rock to build walls, roads and temples like Borobudur.", "show": "building with stone" },
+    { "say": "Sand is tiny bits of rock. Wind and water break rocks over a very long time.", "figure": { "kind": "icons", "items": [{ "icon": "sand", "label": "sand" }], "alt": "A pile of sand." } },
+    { "say": "Soil is tiny bits of rock mixed with dead plants, water and air.", "figure": { "kind": "icons", "items": [{ "icon": "soil", "label": "soil" }, { "icon": "leaf", "label": "dead leaves" }, { "icon": "water-drop", "label": "water" }], "alt": "Soil with dead leaves and water in it." } },
+    { "say": "Worms live in soil. Their tunnels let in air and water.", "figure": { "kind": "icons", "items": [{ "icon": "worm", "label": "worm" }], "alt": "An earthworm in the soil." } }
+  ],
+  "check": [
+    {
+      "id": "s2.rocks-soil.901", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 1,
+      "prompt": "What is sand made of?",
+      "options": [
+        { "text": "tiny bits of rock" },
+        { "text": "sugar", "why": "Sand is not food. It is made of tiny bits of rock." },
+        { "text": "dried water", "why": "Water cannot dry into sand." },
+        { "text": "salt", "why": "Sand is made of tiny bits of rock." }
+      ],
+      "answer": 0,
+      "hints": ["Look closely at a grain of sand.", "Each grain is hard, like a tiny stone.", "Ask: what breaks into tiny pieces over a long time?"],
+      "explanation": "Sand is made of tiny bits of rock that wind and water have broken off."
+    },
+    {
+      "id": "s2.rocks-soil.902", "skill": "s2.rocks-soil", "type": "text", "difficulty": 1,
+      "prompt": "Plants grow in ___.",
+      "blanks": [{ "answers": ["soil", "the soil", "earth", "the ground"] }],
+      "hints": ["Think about what fills a plant pot.", "It is brown and you can dig in it.", "Worms live in it."],
+      "explanation": "Plants grow in soil. Their roots take in water from it."
+    }
+  ]
+}

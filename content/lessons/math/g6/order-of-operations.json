@@ -1,0 +1,109 @@
+{
+  "skill": "m6.order-of-operations",
+  "title": "Order of operations",
+  "steps": [
+    {
+      "say": "When a calculation has more than one operation, the order matters. Brackets come first.",
+      "show": "(4 + 6) × 3 = 10 × 3 = 30"
+    },
+    {
+      "say": "After brackets, multiply and divide. Then add and subtract.",
+      "show": "4 + 6 × 3 = 4 + 18 = 22"
+    },
+    {
+      "say": "Multiplication and division have equal priority. Work them from left to right.",
+      "show": "24 ÷ 4 × 2 = 6 × 2 = 12"
+    },
+    {
+      "say": "Addition and subtraction also go from left to right.",
+      "show": "15 − 6 + 2 = 9 + 2 = 11"
+    },
+    {
+      "say": "So the order is brackets, then multiply and divide, then add and subtract.",
+      "show": "Brackets, × and ÷, + and −",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Order",
+          "What to do"
+        ],
+        "rows": [
+          [
+            "1st",
+            "Brackets"
+          ],
+          [
+            "2nd",
+            "× and ÷, left to right"
+          ],
+          [
+            "3rd",
+            "+ and −, left to right"
+          ]
+        ],
+        "alt": "A table of the order of operations: brackets first, then multiply and divide, then add and subtract."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.order-of-operations.901",
+      "skill": "m6.order-of-operations",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 5 + 3 × 4.",
+      "hints": [
+        "Look for multiplication first.",
+        "Work out 3 × 4 before you add.",
+        "3 × 4 = 12."
+      ],
+      "explanation": "3 × 4 = 12, then 5 + 12 = 17.",
+      "answer": 17
+    },
+    {
+      "id": "m6.order-of-operations.902",
+      "skill": "m6.order-of-operations",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out (20 − 8) ÷ 3 + 2.",
+      "hints": [
+        "Brackets come first.",
+        "Then divide.",
+        "20 − 8 = 12."
+      ],
+      "explanation": "20 − 8 = 12, 12 ÷ 3 = 4, then 4 + 2 = 6.",
+      "answer": 6
+    },
+    {
+      "id": "m6.order-of-operations.903",
+      "skill": "m6.order-of-operations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where do the brackets go to make 7 + 5 × 2 = 24 true?",
+      "hints": [
+        "Work out 7 + 5 × 2 without brackets first.",
+        "24 is 12 × 2.",
+        "Which part must be done first to make 12?"
+      ],
+      "explanation": "(7 + 5) × 2 = 12 × 2 = 24.",
+      "options": [
+        {
+          "text": "No brackets are needed",
+          "why": "Without brackets you multiply first, so the answer is 17."
+        },
+        {
+          "text": "(7 + 5) × 2"
+        },
+        {
+          "text": "7 + (5 × 2)",
+          "why": "That still gives 7 + 10 = 17."
+        },
+        {
+          "text": "(7) + 5 × 2",
+          "why": "Brackets round one number change nothing. The answer is still 17."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

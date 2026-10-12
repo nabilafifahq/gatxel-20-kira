@@ -1,0 +1,34 @@
+{
+  "skill": "e4.subject-verb",
+  "title": "Making verbs agree",
+  "steps": [
+    { "say": "The subject is who or what does the action. The verb must agree with it.", "show": "The cat sleeps. The cats sleep." },
+    { "say": "With one person or thing in the present, the verb often ends in -s.", "show": "He runs. She plays. It shines." },
+    { "say": "With more than one, the verb has no -s.", "show": "They run. The girls play." },
+    { "say": "Learn the pairs for one and for more than one.", "show": "is / are, was / were, has / have, does / do" },
+    { "say": "Two subjects joined with and count as more than one.", "show": "Ana and Kofi were late." },
+    { "say": "Find the main word in the subject. In the box of crayons, the main word is box.", "show": "The box of crayons is on the table." }
+  ],
+  "check": [
+    {
+      "id": "e4.subject-verb.901", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 1,
+      "prompt": "The children ___ in the playground.",
+      "options": [
+        { "text": "is", "why": "Is goes with one. Children means more than one." },
+        { "text": "are" },
+        { "text": "was", "why": "Was goes with one. Children means more than one." },
+        { "text": "has", "why": "Has does not fit this sentence." }
+      ],
+      "answer": 1,
+      "hints": ["How many children are there?", "Children means more than one child.", "Swap the children for they."],
+      "explanation": "Children is plural, like they, so we use are."
+    },
+    {
+      "id": "e4.subject-verb.902", "skill": "e4.subject-verb", "type": "text", "difficulty": 2,
+      "prompt": "Write has or have.\nMy sister ___ a red bicycle.",
+      "blanks": [{ "answers": ["has"] }],
+      "hints": ["My sister is one person.", "Swap my sister for she.", "Which word goes with she?"],
+      "explanation": "My sister is one person, like she, so we use has."
+    }
+  ]
+}

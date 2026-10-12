@@ -1,0 +1,461 @@
+{
+  "skill": "m4.oly-geometry",
+  "items": [
+    {
+      "id": "m4.oly-geometry.001",
+      "skill": "m4.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A square has a perimeter of 36 cm. What is its area?",
+      "options": [
+        {
+          "text": "81 cm²"
+        },
+        {
+          "text": "90 cm²",
+          "why": "90 = 9 × 10. Each side is 9 cm, so use 9 × 9."
+        },
+        {
+          "text": "108 cm²",
+          "why": "108 = 36 × 3. Find the length of a side first."
+        },
+        {
+          "text": "144 cm²",
+          "why": "144 = 12 × 12. Each side is 36 ÷ 4 = 9 cm."
+        },
+        {
+          "text": "324 cm²",
+          "why": "324 = 36 × 9. Multiply side by side."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the length of one side.",
+        "A square has 4 equal sides.",
+        "Each side is 36 ÷ 4 cm."
+      ],
+      "explanation": "Each side is 36 ÷ 4 = 9 cm, so the area is 9 × 9 = 81 cm².",
+      "solution": [
+        {
+          "say": "Side.",
+          "show": "36 ÷ 4 = 9 cm"
+        },
+        {
+          "say": "Area.",
+          "show": "9 × 9 = 81 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-geometry.002",
+      "skill": "m4.oly-geometry",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A rectangle is 12 cm long and 8 cm wide. The midpoints of its four sides are joined to make a rhombus. What is the area of the rhombus?",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "sideLabels": [
+          "12 cm",
+          "8 cm"
+        ],
+        "alt": "A rectangle 12 cm long and 8 cm wide. The middle points of its four sides are joined to make a rhombus inside it."
+      },
+      "options": [
+        {
+          "text": "24 cm²",
+          "why": "24 cm² is only a quarter of the rectangle."
+        },
+        {
+          "text": "40 cm²",
+          "why": "Cut the rectangle into 4 smaller rectangles and look at each one."
+        },
+        {
+          "text": "48 cm²"
+        },
+        {
+          "text": "64 cm²",
+          "why": "64 cm² is 8 × 8. The rhombus is exactly half the rectangle."
+        },
+        {
+          "text": "96 cm²",
+          "why": "96 cm² is the whole rectangle."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Draw the two lines that join opposite midpoints.",
+        "They cut the rectangle into 4 small rectangles.",
+        "Each side of the rhombus cuts one small rectangle exactly in half."
+      ],
+      "explanation": "Joining opposite midpoints makes 4 small rectangles, and the rhombus takes exactly half of each one. So the rhombus is half the rectangle: 12 × 8 ÷ 2 = 48 cm².",
+      "solution": [
+        {
+          "say": "Area of the rectangle.",
+          "show": "12 × 8 = 96 cm²"
+        },
+        {
+          "say": "The rhombus covers half of each quarter.",
+          "show": "half of 96"
+        },
+        {
+          "say": "Area of the rhombus.",
+          "show": "96 ÷ 2 = 48 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-geometry.003",
+      "skill": "m4.oly-geometry",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A 4 × 4 × 4 cube is painted on the outside. It is cut into 64 small cubes. How many small cubes have no paint at all?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "label": "4 × 4 × 4",
+        "alt": "A big cube made of 64 small cubes, 4 along each edge, painted on the outside."
+      },
+      "options": [
+        {
+          "text": "0",
+          "why": "The cubes deep inside are never touched by the paint."
+        },
+        {
+          "text": "1",
+          "why": "1 centre cube is the answer for a 3 × 3 × 3 cube. This cube is bigger."
+        },
+        {
+          "text": "4",
+          "why": "The unpainted cubes form a cube 2 small cubes along each edge."
+        },
+        {
+          "text": "6",
+          "why": "6 is the number of faces, not of hidden cubes."
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Unpainted cubes are hidden inside.",
+        "Remove the outside layer from every face.",
+        "Each edge of the hidden cube is 4 - 2 small cubes long."
+      ],
+      "explanation": "Taking away the outside layer on every face leaves an inner cube 2 small cubes along each edge. It has 2 × 2 × 2 = 8 small cubes, none painted.",
+      "solution": [
+        {
+          "say": "Remove 1 layer from both ends of each edge.",
+          "show": "4 - 2 = 2"
+        },
+        {
+          "say": "The inner cube.",
+          "show": "2 × 2 × 2"
+        },
+        {
+          "say": "Unpainted cubes.",
+          "show": "8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-geometry.004",
+      "skill": "m4.oly-geometry",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the angle between the hands of a clock at 2:30?",
+      "figure": {
+        "kind": "clock",
+        "h": 2,
+        "m": 30,
+        "alt": "A clock showing 2:30. The minute hand points to 6. The hour hand is halfway between 2 and 3."
+      },
+      "options": [
+        {
+          "text": "90°",
+          "why": "The hour hand is not on 3. It is halfway between 2 and 3."
+        },
+        {
+          "text": "100°",
+          "why": "Each hour mark is 30°, so half a mark is 15°."
+        },
+        {
+          "text": "105°"
+        },
+        {
+          "text": "120°",
+          "why": "120° is the angle from 2 to 6, but the hour hand has moved past 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Each hour mark is 30°.",
+        "At 2:30 the hour hand is halfway between 2 and 3.",
+        "From the hour hand to the 6 is three and a half hour marks."
+      ],
+      "explanation": "The minute hand is on 6. The hour hand is halfway between 2 and 3, which is 3.5 hour marks from the 6. The angle is 3.5 × 30° = 105°.",
+      "solution": [
+        {
+          "say": "Minute hand.",
+          "show": "on 6"
+        },
+        {
+          "say": "Hour hand.",
+          "show": "halfway between 2 and 3"
+        },
+        {
+          "say": "Hour marks between them.",
+          "show": "3.5"
+        },
+        {
+          "say": "Angle.",
+          "show": "3.5 × 30° = 105°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-geometry.005",
+      "skill": "m4.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rectangle has an area of 36 cm². Its sides are whole numbers of centimetres. What is the largest possible perimeter?",
+      "answer": 74,
+      "unit": "cm",
+      "hints": [
+        "List the pairs of whole numbers that multiply to 36.",
+        "The pairs are 1 and 36, 2 and 18, 3 and 12, 4 and 9, 6 and 6.",
+        "A long, thin rectangle has the biggest perimeter."
+      ],
+      "explanation": "The longest, thinnest rectangle is 36 cm by 1 cm. Its perimeter is 36 + 1 + 36 + 1 = 74 cm.",
+      "solution": [
+        {
+          "say": "Pairs with area 36.",
+          "show": "1×36, 2×18, 3×12, 4×9, 6×6"
+        },
+        {
+          "say": "Their perimeters.",
+          "show": "74, 40, 30, 26, 24"
+        },
+        {
+          "say": "The largest.",
+          "show": "74 cm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-geometry.006",
+      "skill": "m4.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A box is 30 cm long, 20 cm wide and 10 cm tall. How many cubes with sides of 10 cm fit exactly inside it?",
+      "options": [
+        {
+          "text": "6"
+        },
+        {
+          "text": "12",
+          "why": "The box is only 10 cm tall, so there is just one layer."
+        },
+        {
+          "text": "60",
+          "why": "60 is 30 + 20 + 10. Count how many cubes fit along each edge."
+        },
+        {
+          "text": "600",
+          "why": "600 is the volume divided by 10. Each cube is 10 × 10 × 10."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find how many cubes fit along each edge.",
+        "Along 30 cm fit 3 cubes. Along 20 cm fit 2 cubes.",
+        "The box is 10 cm tall, so how many layers are there?"
+      ],
+      "explanation": "3 cubes fit along the length, 2 along the width and 1 up the height. That is 3 × 2 × 1 = 6 cubes.",
+      "solution": [
+        {
+          "say": "Along the length.",
+          "show": "30 ÷ 10 = 3"
+        },
+        {
+          "say": "Along the width.",
+          "show": "20 ÷ 10 = 2"
+        },
+        {
+          "say": "Up the height.",
+          "show": "10 ÷ 10 = 1"
+        },
+        {
+          "say": "Total.",
+          "show": "3 × 2 × 1 = 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-geometry.007",
+      "skill": "m4.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A square is cut into 3 equal rectangles. Each rectangle has a perimeter of 24 cm. What is the perimeter of the square?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "A square cut into 3 equal thin rectangles by 2 straight lines."
+      },
+      "answer": 36,
+      "unit": "cm",
+      "hints": [
+        "Call the side of the square 3 parts.",
+        "Each rectangle is 3 parts long and 1 part wide.",
+        "The perimeter of one rectangle is 3 + 1 + 3 + 1 = 8 parts."
+      ],
+      "explanation": "Each rectangle is 3 parts long and 1 part wide, so its perimeter is 8 parts = 24 cm. One part is 3 cm, the square's side is 9 cm, and its perimeter is 36 cm.",
+      "solution": [
+        {
+          "say": "A rectangle in parts.",
+          "show": "3 parts by 1 part"
+        },
+        {
+          "say": "Perimeter of a rectangle.",
+          "show": "8 parts = 24 cm"
+        },
+        {
+          "say": "One part.",
+          "show": "24 ÷ 8 = 3 cm"
+        },
+        {
+          "say": "Side of the square.",
+          "show": "3 × 3 = 9 cm"
+        },
+        {
+          "say": "Perimeter of the square.",
+          "show": "4 × 9 = 36 cm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-geometry.008",
+      "skill": "m4.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A rectangle 6 squares long and 4 squares high is drawn on squared paper. A straight line goes from one corner to the opposite corner. How many squares does the line pass through?",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 6,
+        "alt": "A grid 6 squares long and 4 squares high. A straight line goes from the bottom left corner to the top right corner."
+      },
+      "answer": 8,
+      "hints": [
+        "The line passes through a grid corner exactly halfway along.",
+        "Look at one half: a 3 by 2 rectangle with its own diagonal.",
+        "In a 3 by 2 rectangle, count the squares the diagonal crosses."
+      ],
+      "explanation": "The diagonal passes through the grid corner at the centre, so it splits into two diagonals of 3 by 2 rectangles. Each of those crosses 4 squares, so the whole line crosses 4 + 4 = 8 squares.",
+      "solution": [
+        {
+          "say": "The line passes the grid corner at the middle, 3 across and 2 up.",
+          "show": "two halves"
+        },
+        {
+          "say": "In a 3 by 2 rectangle the line starts in 1 square and enters a new one at each grid line it crosses.",
+          "show": "1 + 2 + 1 = 4 squares"
+        },
+        {
+          "say": "Two halves.",
+          "show": "4 + 4 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-geometry.009",
+      "skill": "m4.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A garden is 20 m long and 12 m wide. A path 1 m wide runs all the way round the inside edge. What is the area of the path?",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "sideLabels": [
+          "20 m",
+          "12 m"
+        ],
+        "alt": "A rectangular garden 20 m long and 12 m wide, with a path 1 m wide along the inside of its edge."
+      },
+      "answer": 60,
+      "unit": "m²",
+      "hints": [
+        "Find the area of the whole garden.",
+        "Inside the path is a smaller rectangle. Each side is 2 m shorter.",
+        "The inner rectangle is 18 m by 10 m."
+      ],
+      "explanation": "The garden is 20 × 12 = 240 m². Inside the path is 18 × 10 = 180 m². So the path is 240 - 180 = 60 m².",
+      "solution": [
+        {
+          "say": "Whole garden.",
+          "show": "20 × 12 = 240 m²"
+        },
+        {
+          "say": "Inside the path: 1 m off each end.",
+          "show": "18 m by 10 m = 180 m²"
+        },
+        {
+          "say": "Path.",
+          "show": "240 - 180 = 60 m²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

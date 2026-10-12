@@ -1,0 +1,79 @@
+{
+  "skill": "e2.irregular-past",
+  "title": "Past words that change",
+  "steps": [
+    {
+      "say": "Some verbs do not add -ed in the past. They change.",
+      "show": "go, went"
+    },
+    {
+      "say": "Some change a vowel in the middle.",
+      "show": "sit, sat / run, ran / swim, swam"
+    },
+    {
+      "say": "Some change more of the word.",
+      "show": "buy, bought / catch, caught / think, thought"
+    },
+    {
+      "say": "A few stay the same.",
+      "show": "put, put / cut, cut"
+    },
+    {
+      "say": "Say it in a sentence to check: Yesterday I ...",
+      "show": "Yesterday I went home."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.irregular-past.901",
+      "skill": "e2.irregular-past",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the missing word. 'Yesterday I ___ an apple.'",
+      "hints": [
+        "Yesterday means the past.",
+        "Eat changes in the past.",
+        "The word rhymes with late."
+      ],
+      "explanation": "The past of eat is ate.",
+      "options": [
+        {
+          "text": "eated",
+          "why": "Eat does not add -ed."
+        },
+        {
+          "text": "ate"
+        },
+        {
+          "text": "eat",
+          "why": "Eat is for now."
+        },
+        {
+          "text": "eating",
+          "why": "Eating needs a helper word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.irregular-past.902",
+      "skill": "e2.irregular-past",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the past tense of run.",
+      "hints": [
+        "Run changes in the past.",
+        "Only the vowel changes.",
+        "Change u to a."
+      ],
+      "explanation": "The past of run is ran.",
+      "blanks": [
+        {
+          "answers": [
+            "ran"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "skill": "s3.plant-parts",
+  "title": "The parts of a plant",
+  "steps": [
+    {
+      "say": "A flowering plant has four main parts: roots, stem, leaves and flowers. Each part has a job.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "plant",
+            "label": "flowering plant"
+          }
+        ],
+        "alt": "A flowering plant with roots, a stem, leaves and a flower."
+      }
+    },
+    {
+      "say": "Roots grow down into the soil. They hold the plant still and take in water and minerals.",
+      "show": "roots: hold and take in water"
+    },
+    {
+      "say": "The stem holds the plant up towards the light. Tiny tubes inside carry water to the leaves.",
+      "show": "stem: holds up and carries water"
+    },
+    {
+      "say": "Leaves are wide and flat to catch light. They use light, air and water to make food.",
+      "show": "leaves: make food"
+    },
+    {
+      "say": "Flowers attract insects with colour and smell. They make seeds that can grow into new plants.",
+      "show": "flower: makes seeds",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "flower",
+            "label": "flower"
+          },
+          {
+            "icon": "bee",
+            "label": "bee"
+          },
+          {
+            "icon": "seed",
+            "label": "seed"
+          }
+        ],
+        "alt": "A flower, a bee and a seed."
+      }
+    },
+    {
+      "say": "Plants make their own food in their leaves. Roots take in water, not food.",
+      "show": "Roots take in water. Leaves make food."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.plant-parts.901",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of a plant makes food?",
+      "options": [
+        {
+          "text": "the roots",
+          "why": "Roots take in water. They are in the dark soil."
+        },
+        {
+          "text": "the leaves"
+        },
+        {
+          "text": "the stem",
+          "why": "The stem holds the plant up and carries water."
+        },
+        {
+          "text": "the soil",
+          "why": "Soil is not part of the plant. Plants make their own food."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Food is made using light.",
+        "Which part spreads out to catch the light?",
+        "Think of a part that is wide, flat and green."
+      ],
+      "explanation": "Leaves use light to make food for the plant."
+    },
+    {
+      "id": "s3.plant-parts.902",
+      "skill": "s3.plant-parts",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Flowers make ___ that can grow into new plants.",
+      "blanks": [
+        {
+          "answers": [
+            "seeds",
+            "seed"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what you plant in the ground.",
+        "Fruits often have these inside.",
+        "Mango and chilli plants grow from these."
+      ],
+      "explanation": "Flowers make seeds. A seed can grow into a new plant."
+    }
+  ]
+}

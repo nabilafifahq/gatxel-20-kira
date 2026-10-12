@@ -1,0 +1,536 @@
+{
+  "skill": "s4.classification-keys",
+  "items": [
+    {
+      "id": "s4.classification-keys.001",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal is an invertebrate, with no backbone?",
+      "options": [
+        {
+          "text": "fish",
+          "why": "Fish have a backbone."
+        },
+        {
+          "text": "bird",
+          "why": "Birds have a backbone."
+        },
+        {
+          "text": "snail"
+        },
+        {
+          "text": "cat",
+          "why": "Cats have a backbone."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Invertebrates have no bones inside.",
+        "Think about which animal is soft with a shell.",
+        "Which animal could you not feel a backbone in?"
+      ],
+      "explanation": "A snail has no backbone, so it is an invertebrate. Fish, birds and cats are vertebrates."
+    },
+    {
+      "id": "s4.classification-keys.002",
+      "skill": "s4.classification-keys",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the animals into vertebrates and invertebrates.",
+      "groups": [
+        "Vertebrate",
+        "Invertebrate"
+      ],
+      "items": [
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "snake",
+          "group": 0
+        },
+        {
+          "text": "duck",
+          "group": 0
+        },
+        {
+          "text": "shark",
+          "group": 0
+        },
+        {
+          "text": "spider",
+          "group": 1
+        },
+        {
+          "text": "butterfly",
+          "group": 1
+        },
+        {
+          "text": "earthworm",
+          "group": 1
+        },
+        {
+          "text": "crab",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Vertebrates have a backbone.",
+        "Insects, spiders and crabs have an exoskeleton instead.",
+        "Start with the shark. Does it have a backbone?"
+      ],
+      "explanation": "Frogs, snakes, ducks and sharks have backbones. Spiders, butterflies, earthworms and crabs are invertebrates."
+    },
+    {
+      "id": "s4.classification-keys.003",
+      "skill": "s4.classification-keys",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each vertebrate group to its features.",
+      "pairs": [
+        [
+          "fish",
+          "gills, fins and scales"
+        ],
+        [
+          "amphibians",
+          "moist skin; live in water and on land"
+        ],
+        [
+          "reptiles",
+          "dry, scaly skin"
+        ],
+        [
+          "birds",
+          "feathers and a beak"
+        ],
+        [
+          "mammals",
+          "hair or fur; feed babies milk"
+        ]
+      ],
+      "hints": [
+        "Think of one example animal for each group.",
+        "A frog is an amphibian and a snake is a reptile.",
+        "Which group feeds its babies milk?"
+      ],
+      "explanation": "Fish have gills, fins and scales, and amphibians have moist skin. Reptiles have dry scales, birds have feathers and mammals have hair and feed their babies milk.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.classification-keys.004",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the key. An animal has no legs and no shell. What is it?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to four minibeasts",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "go to 3"
+          ],
+          [
+            "2. Does it have 6 legs?",
+            "ant",
+            "spider"
+          ],
+          [
+            "3. Does it have a shell?",
+            "snail",
+            "earthworm"
+          ]
+        ],
+        "alt": "A key. Question 1: Does it have legs? Yes, go to 2. No, go to 3. Question 2: Does it have 6 legs? Yes, ant. No, spider. Question 3: Does it have a shell? Yes, snail. No, earthworm."
+      },
+      "options": [
+        {
+          "text": "ant",
+          "why": "An ant has 6 legs."
+        },
+        {
+          "text": "spider",
+          "why": "A spider has 8 legs."
+        },
+        {
+          "text": "snail",
+          "why": "A snail has a shell."
+        },
+        {
+          "text": "earthworm"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Start at question 1 every time.",
+        "No legs sends you to question 3.",
+        "Now answer question 3 for this animal."
+      ],
+      "explanation": "No legs takes you to question 3. No shell gives the answer: an earthworm."
+    },
+    {
+      "id": "s4.classification-keys.005",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the key. A bird cannot fly. What is it?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to five animals",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have feathers?",
+            "go to 2",
+            "go to 3"
+          ],
+          [
+            "2. Can it fly?",
+            "owl",
+            "penguin"
+          ],
+          [
+            "3. Does it have fur?",
+            "rabbit",
+            "go to 4"
+          ],
+          [
+            "4. Does it have fins?",
+            "fish",
+            "frog"
+          ]
+        ],
+        "alt": "A key. 1: Does it have feathers? Yes, go to 2. No, go to 3. 2: Can it fly? Yes, owl. No, penguin. 3: Does it have fur? Yes, rabbit. No, go to 4. 4: Does it have fins? Yes, fish. No, frog."
+      },
+      "options": [
+        {
+          "text": "penguin"
+        },
+        {
+          "text": "owl",
+          "why": "An owl can fly."
+        },
+        {
+          "text": "rabbit",
+          "why": "A rabbit has fur, not feathers."
+        },
+        {
+          "text": "frog",
+          "why": "A frog has no feathers."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "All birds have feathers.",
+        "Feathers send you to question 2.",
+        "Answer question 2 for a bird that cannot fly."
+      ],
+      "explanation": "Feathers take you to question 2. It cannot fly, so the key gives penguin."
+    },
+    {
+      "id": "s4.classification-keys.006",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which question in the key tells a frog apart from a fish?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to five animals",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have feathers?",
+            "go to 2",
+            "go to 3"
+          ],
+          [
+            "2. Can it fly?",
+            "owl",
+            "penguin"
+          ],
+          [
+            "3. Does it have fur?",
+            "rabbit",
+            "go to 4"
+          ],
+          [
+            "4. Does it have fins?",
+            "fish",
+            "frog"
+          ]
+        ],
+        "alt": "A key. 1: Does it have feathers? Yes, go to 2. No, go to 3. 2: Can it fly? Yes, owl. No, penguin. 3: Does it have fur? Yes, rabbit. No, go to 4. 4: Does it have fins? Yes, fish. No, frog."
+      },
+      "options": [
+        {
+          "text": "Question 1",
+          "why": "Neither a frog nor a fish has feathers, so question 1 does not split them."
+        },
+        {
+          "text": "Question 2",
+          "why": "Question 2 is only for animals with feathers."
+        },
+        {
+          "text": "Question 3",
+          "why": "Neither has fur, so question 3 does not split them."
+        },
+        {
+          "text": "Question 4"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Follow the key for a frog, then for a fish.",
+        "Find the first question where their answers are different.",
+        "A fish has fins. Does a frog?"
+      ],
+      "explanation": "A frog and a fish both answer no to questions 1 and 3. Question 4 splits them, because only the fish has fins.",
+      "tags": [
+        "keep-order",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.classification-keys.007",
+      "skill": "s4.classification-keys",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Animals without a backbone are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "invertebrates",
+            "invertebrate"
+          ]
+        }
+      ],
+      "hints": [
+        "Snails, worms and insects belong to this group.",
+        "In- at the start of a word can mean not.",
+        "The word starts with in."
+      ],
+      "explanation": "Animals without a backbone are invertebrates. Insects, spiders, snails and worms are invertebrates."
+    },
+    {
+      "id": "s4.classification-keys.008",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Bats fly and have wings, but they are mammals. Why?",
+      "options": [
+        {
+          "text": "They lay eggs in nests.",
+          "why": "Bats give birth to live babies."
+        },
+        {
+          "text": "They have fur and feed their babies milk."
+        },
+        {
+          "text": "They have feathers.",
+          "why": "Bats have no feathers. Their wings are made of skin."
+        },
+        {
+          "text": "They live in caves.",
+          "why": "Where an animal lives does not decide its group."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Flying does not decide the group.",
+        "Remember the features of mammals.",
+        "What covers a bat's body?"
+      ],
+      "explanation": "Bats have fur and feed their babies milk, so they are mammals. Their wings are made of skin, not feathers.",
+      "tags": [
+        "osn-sd",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.classification-keys.009",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at the Carroll diagram. Where does a crab belong?",
+      "figure": {
+        "kind": "carroll",
+        "cols": [
+          "Has legs",
+          "No legs"
+        ],
+        "rows": [
+          "Vertebrate",
+          "Invertebrate"
+        ],
+        "cells": [
+          [
+            "cat",
+            "frog"
+          ],
+          [
+            "fish",
+            "snake"
+          ],
+          [
+            "spider",
+            "ant"
+          ],
+          [
+            "earthworm",
+            "snail"
+          ]
+        ],
+        "alt": "Carroll diagram. Vertebrates with legs: cat, frog. Vertebrates with no legs: fish, snake. Invertebrates with legs: spider, ant. Invertebrates with no legs: earthworm, snail."
+      },
+      "options": [
+        {
+          "text": "vertebrate with legs",
+          "why": "A crab has no backbone. Its skeleton is on the outside."
+        },
+        {
+          "text": "invertebrate with no legs",
+          "why": "A crab has ten legs, counting its claws."
+        },
+        {
+          "text": "invertebrate with legs"
+        },
+        {
+          "text": "vertebrate with no legs",
+          "why": "A crab has legs and no backbone."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Answer two questions about a crab.",
+        "Does a crab have a backbone?",
+        "Does a crab have legs?"
+      ],
+      "explanation": "A crab has an exoskeleton and no backbone, so it is an invertebrate. It has legs, so it goes with the spider and the ant."
+    },
+    {
+      "id": "s4.classification-keys.010",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which question splits spider, ant, fish and cat into two groups of two?",
+      "options": [
+        {
+          "text": "Does it have legs?",
+          "why": "Only the fish has no legs, so you get groups of 3 and 1."
+        },
+        {
+          "text": "Does it have 8 legs?",
+          "why": "Only the spider has 8 legs."
+        },
+        {
+          "text": "Is it a living thing?",
+          "why": "All four are living things, so this does not split them."
+        },
+        {
+          "text": "Does it have a backbone?"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Try each question on all four animals.",
+        "Count the yes answers for each question.",
+        "You need exactly two yes answers."
+      ],
+      "explanation": "Fish and cats have backbones, and spiders and ants do not. So this question makes two groups of two.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.classification-keys.011",
+      "skill": "s4.classification-keys",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 animals that are mammals.",
+      "options": [
+        {
+          "text": "whale"
+        },
+        {
+          "text": "penguin",
+          "why": "Penguins have feathers and lay eggs. They are birds."
+        },
+        {
+          "text": "bat"
+        },
+        {
+          "text": "shark",
+          "why": "Sharks are fish. They breathe with gills."
+        },
+        {
+          "text": "monkey"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Mammals have hair or fur and feed their babies milk.",
+        "Some mammals live in the sea or fly.",
+        "Do not be tricked by where an animal lives."
+      ],
+      "explanation": "Whales, bats and monkeys are mammals because they feed their babies milk. Penguins are birds and sharks are fish.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.classification-keys.012",
+      "skill": "s4.classification-keys",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a key with yes or no questions. It must identify a snail, a spider and a bird.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Uses questions that can be answered yes or no",
+            "points": 1
+          },
+          {
+            "label": "The first question splits the animals into two groups",
+            "points": 1
+          },
+          {
+            "label": "Each animal ends up on its own",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 10,
+      "maxWords": 60,
+      "model": "1. Does it have feathers? Yes: bird. No: go to 2. 2. Does it have legs? Yes: spider. No: snail.",
+      "hints": [
+        "Find one feature that only one animal has.",
+        "Each question should split a group into smaller groups."
+      ],
+      "explanation": "A good key splits the animals step by step. For example, ask: Does it have feathers? Then ask: Does it have legs?"
+    }
+  ]
+}

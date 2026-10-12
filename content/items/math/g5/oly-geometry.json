@@ -1,0 +1,492 @@
+{
+  "skill": "m5.oly-geometry",
+  "items": [
+    {
+      "id": "m5.oly-geometry.001",
+      "skill": "m5.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two angles of a triangle are 40° and 75°. What is the third angle?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle with two angles marked 40° and 75°. The third angle is unknown."
+      },
+      "options": [
+        {
+          "text": "55°",
+          "why": "Check: 40 + 75 + 55 = 170, not 180."
+        },
+        {
+          "text": "65°"
+        },
+        {
+          "text": "75°",
+          "why": "Check: 40 + 75 + 75 = 190, not 180."
+        },
+        {
+          "text": "85°",
+          "why": "Check: 40 + 75 + 85 = 200, not 180."
+        },
+        {
+          "text": "115°",
+          "why": "115° is 40° + 75°. The three angles add up to 180°."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The angles in a triangle always add up to the same amount.",
+        "The three angles of a triangle add up to 180°.",
+        "First add the two angles you know."
+      ],
+      "explanation": "The angles of a triangle add up to 180°. 40° + 75° = 115°, so the third angle is 180° - 115° = 65°.",
+      "solution": [
+        {
+          "say": "Add the known angles.",
+          "show": "40° + 75° = 115°"
+        },
+        {
+          "say": "Take from 180°.",
+          "show": "180° - 115° = 65°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-geometry.002",
+      "skill": "m5.oly-geometry",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A square has sides of 10 cm. A triangle is drawn using one side of the square and the midpoint of the opposite side. What is the area of the triangle?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "sideLabels": [
+          "10 cm"
+        ],
+        "alt": "A square with sides of 10 cm. A triangle has the bottom side of the square as its base and its top corner at the middle of the top side."
+      },
+      "options": [
+        {
+          "text": "25 cm²",
+          "why": "25 cm² is a quarter of the square. The triangle is half."
+        },
+        {
+          "text": "40 cm²",
+          "why": "The triangle's base is 10 cm and its height is 10 cm."
+        },
+        {
+          "text": "50 cm²"
+        },
+        {
+          "text": "60 cm²",
+          "why": "The triangle is exactly half of the square."
+        },
+        {
+          "text": "100 cm²",
+          "why": "100 cm² is the whole square."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The triangle's base is a side of the square.",
+        "Its height is the distance from the base to the opposite side.",
+        "Area of a triangle = base × height ÷ 2."
+      ],
+      "explanation": "The triangle has a base of 10 cm and a height of 10 cm. Its area is 10 × 10 ÷ 2 = 50 cm², half of the square.",
+      "solution": [
+        {
+          "say": "Base.",
+          "show": "10 cm"
+        },
+        {
+          "say": "Height.",
+          "show": "10 cm"
+        },
+        {
+          "say": "Area.",
+          "show": "10 × 10 ÷ 2 = 50 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.003",
+      "skill": "m5.oly-geometry",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A rectangle is split into 4 smaller rectangles by one straight line across and one straight line down. The top left has area 12 cm² and the top right 18 cm². The bottom left has area 20 cm². What is the area of the bottom right?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Part",
+          "Left",
+          "Right"
+        ],
+        "rows": [
+          [
+            "Top",
+            "12 cm²",
+            "18 cm²"
+          ],
+          [
+            "Bottom",
+            "20 cm²",
+            "?"
+          ]
+        ],
+        "alt": "A rectangle split into 4 parts. Top left: 12 cm². Top right: 18 cm². Bottom left: 20 cm². Bottom right: unknown."
+      },
+      "options": [
+        {
+          "text": "24 cm²",
+          "why": "In the top row the right part is 1.5 times the left part. Use that in the bottom row too."
+        },
+        {
+          "text": "26 cm²",
+          "why": "Both rows are split at the same place, so the right part is always 1.5 times the left."
+        },
+        {
+          "text": "28 cm²",
+          "why": "The right column is 1.5 times as wide as the left one."
+        },
+        {
+          "text": "30 cm²"
+        },
+        {
+          "text": "32 cm²",
+          "why": "The right column is 1.5 times as wide, so work out 20 × 1.5."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Both rectangles in the top row have the same height.",
+        "So their areas compare like their widths: 18 is 1.5 times 12.",
+        "The bottom row has the same two widths."
+      ],
+      "explanation": "In the top row the right part is 18 ÷ 12 = 1.5 times the left part, because they share a height. The bottom row has the same widths, so the bottom right is 20 × 1.5 = 30 cm².",
+      "solution": [
+        {
+          "say": "Top row: same height, so the areas compare like the widths.",
+          "show": "18 ÷ 12 = 1.5"
+        },
+        {
+          "say": "Bottom row: same widths as the top.",
+          "show": "right = 1.5 × left"
+        },
+        {
+          "say": "Bottom right.",
+          "show": "20 × 1.5 = 30 cm²"
+        },
+        {
+          "say": "Check.",
+          "show": "12 × 30 = 18 × 20 = 360"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-geometry.004",
+      "skill": "m5.oly-geometry",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the size of each angle inside a regular hexagon?",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "A regular hexagon: 6 equal sides and 6 equal angles."
+      },
+      "options": [
+        {
+          "text": "60°",
+          "why": "60° is the angle in each of the 6 triangles at the centre."
+        },
+        {
+          "text": "90°",
+          "why": "90° is the angle of a square, which has only 4 sides."
+        },
+        {
+          "text": "108°",
+          "why": "108° is the angle of a regular pentagon."
+        },
+        {
+          "text": "120°"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Split the hexagon into triangles from one corner.",
+        "From one corner, a hexagon splits into 4 triangles.",
+        "The angles of 4 triangles add up to 4 × 180°."
+      ],
+      "explanation": "A hexagon splits into 4 triangles, so its angles add up to 4 × 180° = 720°. Shared equally by 6 angles, each is 720° ÷ 6 = 120°.",
+      "solution": [
+        {
+          "say": "Triangles inside a hexagon from one corner.",
+          "show": "4"
+        },
+        {
+          "say": "Sum of the angles.",
+          "show": "4 × 180° = 720°"
+        },
+        {
+          "say": "Each angle.",
+          "show": "720° ÷ 6 = 120°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.005",
+      "skill": "m5.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A box is 4 cm long, 3 cm wide and 2 cm tall. What is the total area of its six faces?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cuboid",
+        "label": "4 cm × 3 cm × 2 cm",
+        "alt": "A cuboid 4 cm long, 3 cm wide and 2 cm tall."
+      },
+      "answer": 52,
+      "unit": "cm²",
+      "hints": [
+        "The faces come in 3 matching pairs.",
+        "The pairs are 4 by 3, 4 by 2 and 3 by 2.",
+        "Find the area of one face from each pair, then double the total."
+      ],
+      "explanation": "The three different faces have areas 4 × 3 = 12, 4 × 2 = 8 and 3 × 2 = 6. Each appears twice, so the total is 2 × (12 + 8 + 6) = 52 cm².",
+      "solution": [
+        {
+          "say": "Face areas.",
+          "show": "12, 8, 6"
+        },
+        {
+          "say": "One of each.",
+          "show": "12 + 8 + 6 = 26"
+        },
+        {
+          "say": "Each face has a twin.",
+          "show": "2 × 26 = 52 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.006",
+      "skill": "m5.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Kolam renang berbentuk balok. Panjangnya 25 m, lebarnya 10 m, dan dalamnya 2 m. Berapa meter kubik air untuk mengisi kolam sampai penuh?",
+      "options": [
+        {
+          "text": "37 m³",
+          "why": "37 adalah 25 + 10 + 2. Volume dihitung dengan mengalikan."
+        },
+        {
+          "text": "250 m³",
+          "why": "250 adalah 25 × 10, yaitu luas dasar kolam. Kalikan juga dengan dalamnya."
+        },
+        {
+          "text": "500 m³"
+        },
+        {
+          "text": "5.000 m³",
+          "why": "Hitung lagi: 25 × 10 × 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Volume balok adalah panjang × lebar × tinggi.",
+        "Di kolam ini, tingginya adalah dalamnya kolam.",
+        "Hitung dulu 25 × 10."
+      ],
+      "explanation": "Volume air = 25 × 10 × 2 = 500 m³.",
+      "solution": [
+        {
+          "say": "Luas dasar.",
+          "show": "25 × 10 = 250 m²"
+        },
+        {
+          "say": "Kalikan dengan dalamnya.",
+          "show": "250 × 2 = 500 m³"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "kolam renang",
+          "en": "swimming pool"
+        },
+        {
+          "term": "balok",
+          "en": "cuboid"
+        },
+        {
+          "term": "panjang",
+          "en": "length"
+        },
+        {
+          "term": "lebar",
+          "en": "width"
+        },
+        {
+          "term": "dalam",
+          "en": "depth, deep"
+        },
+        {
+          "term": "meter kubik",
+          "en": "cubic metre"
+        },
+        {
+          "term": "penuh",
+          "en": "full"
+        }
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-geometry.007",
+      "skill": "m5.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rectangle has a perimeter of 40 cm. Its length is 4 cm more than its width. What is its area?",
+      "answer": 96,
+      "unit": "cm²",
+      "hints": [
+        "Half the perimeter is one length plus one width.",
+        "Length + width = 20 cm, and length - width = 4 cm.",
+        "Take away the 4 cm difference and share the rest equally."
+      ],
+      "explanation": "Length + width = 20 cm. Taking away the difference of 4 leaves 16, so the width is 8 cm and the length is 12 cm. The area is 12 × 8 = 96 cm².",
+      "solution": [
+        {
+          "say": "Half the perimeter.",
+          "show": "40 ÷ 2 = 20 cm"
+        },
+        {
+          "say": "Width.",
+          "show": "(20 - 4) ÷ 2 = 8 cm"
+        },
+        {
+          "say": "Length.",
+          "show": "8 + 4 = 12 cm"
+        },
+        {
+          "say": "Area.",
+          "show": "12 × 8 = 96 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.008",
+      "skill": "m5.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "What is the smaller angle between the hands of a clock at 3:40?",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 40,
+        "alt": "A clock showing 3:40. The minute hand points to 8. The hour hand is two thirds of the way from 3 to 4."
+      },
+      "answer": 130,
+      "unit": "°",
+      "hints": [
+        "The minute hand at 40 minutes points to 8.",
+        "In 60 minutes the hour hand moves 30°, so in 40 minutes it moves 20°.",
+        "Measure each hand's angle from 12."
+      ],
+      "explanation": "From 12, the minute hand is at 8 × 30° = 240°. The hour hand is at 3 × 30° + 20° = 110°. The angle between them is 240° - 110° = 130°.",
+      "solution": [
+        {
+          "say": "Minute hand from 12.",
+          "show": "8 × 30° = 240°"
+        },
+        {
+          "say": "Hour hand from 12.",
+          "show": "3 × 30° + 20° = 110°"
+        },
+        {
+          "say": "Difference.",
+          "show": "240° - 110° = 130°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-geometry.009",
+      "skill": "m5.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A square and an equilateral triangle have the same perimeter. Each side of the triangle is 16 cm. What is the area of the square?",
+      "answer": 144,
+      "unit": "cm²",
+      "hints": [
+        "Find the triangle's perimeter.",
+        "An equilateral triangle has 3 equal sides: 3 × 16 cm.",
+        "The square has the same perimeter, shared between 4 sides."
+      ],
+      "explanation": "The perimeter is 3 × 16 = 48 cm. Each side of the square is 48 ÷ 4 = 12 cm, so its area is 12 × 12 = 144 cm².",
+      "solution": [
+        {
+          "say": "Perimeter.",
+          "show": "3 × 16 = 48 cm"
+        },
+        {
+          "say": "Side of the square.",
+          "show": "48 ÷ 4 = 12 cm"
+        },
+        {
+          "say": "Area.",
+          "show": "12 × 12 = 144 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

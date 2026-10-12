@@ -1,0 +1,235 @@
+{
+  "skill": "s5.food-chains",
+  "items": [
+    {
+      "id": "s5.food-chains.001",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the food chain. Which living thing is the producer?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          { "icon": "plant", "label": "rice plant" },
+          { "icon": "mouse", "label": "rat" },
+          { "icon": "snake", "label": "snake" },
+          { "icon": "bird", "label": "eagle" }
+        ],
+        "arrows": "chain",
+        "alt": "A food chain: rice plant, then rat, then snake, then eagle. The rat eats the rice plant, the snake eats the rat and the eagle eats the snake."
+      },
+      "options": [
+        { "text": "rat", "why": "The rat eats the rice plant, so it is a consumer." },
+        { "text": "rice plant" },
+        { "text": "snake", "why": "The snake eats rats, so it is a consumer." },
+        { "text": "eagle", "why": "The eagle is at the end of the chain. It is the top predator." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A food chain always starts with the living thing that makes its own food.",
+        "Producers use energy from sunlight to make food. Animals cannot do this.",
+        "Look at the start of the chain, before the first arrow."
+      ],
+      "explanation": "The rice plant is the producer because it makes its own food using energy from sunlight. Every other living thing in the chain is a consumer."
+    },
+    {
+      "id": "s5.food-chains.002",
+      "skill": "s5.food-chains",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Green plants are called ___ because they make their own food.",
+      "blanks": [{ "answers": ["producers", "producer"] }],
+      "hints": [
+        "Plants do not eat other living things. They make food in their leaves.",
+        "Animals are called consumers because they consume, or eat, food.",
+        "Think of a word that means makers. It starts with the letter p."
+      ],
+      "explanation": "Green plants are producers. They use light energy from the Sun to make their own food, and that food feeds every animal in the chain."
+    },
+    {
+      "id": "s5.food-chains.003",
+      "skill": "s5.food-chains",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these living things in order to make a food chain. Start with the producer.",
+      "items": ["leaf", "caterpillar", "sparrow", "snake", "eagle"],
+      "hints": [
+        "Start with the living thing that makes its own food.",
+        "Each living thing is eaten by the next one in the chain.",
+        "Ask what eats leaves. That animal comes second."
+      ],
+      "explanation": "The leaf is the producer. A caterpillar eats the leaf, a sparrow eats the caterpillar, a snake eats the sparrow and an eagle eats the snake."
+    },
+    {
+      "id": "s5.food-chains.004",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In a food chain, what does an arrow show?",
+      "options": [
+        { "text": "It points from a predator to its prey.", "why": "The arrow goes the other way, from the food to the animal that eats it." },
+        { "text": "It shows which animal is the biggest.", "why": "Arrows show feeding, not size." },
+        { "text": "It points from the food to the animal that eats it." },
+        { "text": "It shows where the animal lives.", "why": "Arrows show feeding and energy, not homes." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Arrows in a food chain show how energy moves from one living thing to another.",
+        "In a chain with grass and a cow, think about which one gets energy from the other.",
+        "Check which way the arrow must point for the energy to travel that way."
+      ],
+      "explanation": "An arrow points from the food to the animal that eats it. It shows energy passing along the chain, so an arrow from grass to a cow means the cow eats the grass."
+    },
+    {
+      "id": "s5.food-chains.005",
+      "skill": "s5.food-chains",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the animals into herbivores, carnivores and omnivores.",
+      "groups": ["Herbivore (plants only)", "Carnivore (animals only)", "Omnivore (plants and animals)"],
+      "items": [
+        { "text": "cow", "group": 0 },
+        { "text": "rabbit", "group": 0 },
+        { "text": "caterpillar", "group": 0 },
+        { "text": "lion", "group": 1 },
+        { "text": "shark", "group": 1 },
+        { "text": "eagle", "group": 1 },
+        { "text": "hen", "group": 2 },
+        { "text": "long-tailed macaque", "group": 2 },
+        { "text": "sun bear", "group": 2 }
+      ],
+      "hints": [
+        "Herbivores eat only plants, carnivores eat only animals, and omnivores eat both.",
+        "Think about what each animal eats in the wild, not what it looks like.",
+        "Start with the animals that hunt other animals for all of their food."
+      ],
+      "explanation": "Cows, rabbits and caterpillars eat only plants, so they are herbivores. Lions, sharks and eagles eat only animals, while hens, macaques and sun bears eat both, so they are omnivores.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.food-chains.006",
+      "skill": "s5.food-chains",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Look at the food chain. Match each word to the living thing it describes.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          { "icon": "leaf", "label": "leaf" },
+          { "icon": "caterpillar", "label": "caterpillar" },
+          { "icon": "frog", "label": "frog" },
+          { "icon": "snake", "label": "snake" }
+        ],
+        "arrows": "chain",
+        "alt": "A food chain: leaf, then caterpillar, then frog, then snake. The caterpillar eats the leaf, the frog eats the caterpillar and the snake eats the frog."
+      },
+      "pairs": [
+        ["producer", "leaf"],
+        ["herbivore", "caterpillar"],
+        ["predator and prey", "frog"],
+        ["top predator", "snake"]
+      ],
+      "hints": [
+        "Each word describes a place in the food chain.",
+        "A herbivore eats only plants. A top predator is not eaten by anything in the chain.",
+        "Start with the producer. It is the first link, the one that makes its own food."
+      ],
+      "explanation": "The leaf makes food, so it is the producer, and the caterpillar that eats it is a herbivore. The frog eats and is eaten, so it is a predator and prey, and the snake is the top predator.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.food-chains.007",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where does the energy in every food chain come from first?",
+      "options": [
+        { "text": "the soil", "why": "Plants take water and minerals from the soil, but their energy comes from sunlight." },
+        { "text": "water", "why": "Plants need water, but water does not give them energy." },
+        { "text": "the top predator", "why": "Energy passes up the chain to the top predator. It does not start there." },
+        { "text": "the Sun" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Every food chain starts with a green plant.",
+        "Think about what a plant needs to make its own food.",
+        "Ask where the plant's energy comes from before anything eats it."
+      ],
+      "explanation": "Green plants capture energy from sunlight to make food. When animals eat the plants, and other animals eat them, that energy passes along the chain.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.food-chains.008",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a rice field, the food chain is rice plant, rat, barn owl. Farmers get rid of all the owls. What is most likely to happen first?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          { "icon": "plant", "label": "rice plant" },
+          { "icon": "mouse", "label": "rat" },
+          { "icon": "owl", "label": "barn owl" }
+        ],
+        "arrows": "chain",
+        "alt": "A food chain: rice plant, then rat, then barn owl."
+      },
+      "options": [
+        { "text": "The number of rats goes down.", "why": "Owls eat rats. With no owls, fewer rats are eaten." },
+        { "text": "The rice plants grow better.", "why": "More rats will eat more rice, so the rice plants suffer." },
+        { "text": "The number of rats goes up." },
+        { "text": "Nothing changes in the field.", "why": "Each living thing in a chain depends on the others, so removing one changes the rest." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Owls are predators. Think about what they eat.",
+        "If a predator disappears, its prey is no longer being eaten.",
+        "Follow the arrow from the rat to the owl. Decide what happens to the rats first."
+      ],
+      "explanation": "Barn owls eat rats, so with no owls, fewer rats are eaten and their numbers rise. More rats then eat more rice, which is why some farmers put up nest boxes for barn owls.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.food-chains.009",
+      "skill": "s5.food-chains",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a food chain from a rice field or a rainforest with at least four living things. Use arrows, and label the producer and the top predator.",
+      "rubric": {
+        "criteria": [
+          { "label": "Starts the chain with a producer", "points": 1 },
+          { "label": "Arrows point from the food to the eater", "points": 2 },
+          { "label": "Has at least four living things in a sensible order", "points": 2 },
+          { "label": "Labels the producer and the top predator", "points": 1 }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "Begin with a plant, because every food chain starts with a producer.",
+        "Ask what eats your plant, then what eats that animal."
+      ],
+      "explanation": "A food chain starts with a producer, and each arrow points to the animal that eats it. One example is rice plant, rat, snake, eagle."
+    },
+    {
+      "id": "s5.food-chains.010",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A habitat usually has far fewer top predators than plants. Which is the best explanation?",
+      "options": [
+        { "text": "At each step, most energy is used for moving and keeping warm, so little passes on." },
+        { "text": "Top predators only eat plants.", "why": "Top predators eat other animals." },
+        { "text": "Plants are eaten by top predators first.", "why": "Plants are eaten by herbivores, at the start of the chain." },
+        { "text": "Top predators are always small animals.", "why": "Many top predators, such as sharks and eagles, are large." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Energy passes along a food chain from plants to animals.",
+        "Animals use most of the energy from their food to move, grow and keep warm.",
+        "Ask how much energy is left over to pass to the next animal in the chain."
+      ],
+      "explanation": "Each living thing uses most of the energy from its food to stay alive, so only a small part passes to the next link. By the top of the chain, there is only enough energy to feed a few predators.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

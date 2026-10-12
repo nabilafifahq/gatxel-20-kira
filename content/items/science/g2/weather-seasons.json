@@ -1,0 +1,220 @@
+{
+  "skill": "s2.weather-seasons",
+  "items": [
+    {
+      "id": "s2.weather-seasons.001", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 1,
+      "prompt": "Water is falling from the clouds. What is the weather?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cloud", "label": "cloud" }, { "icon": "rain", "label": "falling water" }], "alt": "A grey cloud with water falling from it." },
+      "options": [
+        { "text": "sunny", "why": "On a sunny day the sky is mostly clear." },
+        { "text": "rainy" },
+        { "text": "windy", "why": "Wind is moving air. Nothing has to fall from the clouds." },
+        { "text": "foggy", "why": "Fog is a cloud close to the ground. Nothing falls from it." }
+      ],
+      "answer": 1,
+      "hints": ["Look at what is coming out of the cloud.", "What do you call water falling from the sky?", "Think about the weather when you need an umbrella."],
+      "explanation": "When drops of water fall from the clouds, the weather is rainy."
+    },
+    {
+      "id": "s2.weather-seasons.002", "skill": "s2.weather-seasons", "type": "match", "difficulty": 1,
+      "prompt": "Match each kind of weather to something useful.",
+      "figure": { "kind": "icons", "items": [{ "icon": "rain", "label": "rainy" }, { "icon": "sun", "label": "sunny" }, { "icon": "snowflake", "label": "snowy" }, { "icon": "wind", "label": "windy" }], "alt": "Weather symbols: rain, sun, snowflake and wind." },
+      "pairs": [["rainy", "a raincoat"], ["hot and sunny", "a sun hat"], ["cold and snowy", "warm gloves"], ["windy", "a kite to fly"]],
+      "hints": ["Think about what you would wear or take outside.", "Match the ones you are sure of first.", "Start with rainy. What keeps you dry?"],
+      "explanation": "A raincoat keeps you dry in the rain, a sun hat shades you on hot days, gloves keep hands warm in snow and a windy day is good for kites."
+    },
+    {
+      "id": "s2.weather-seasons.003", "skill": "s2.weather-seasons", "type": "sort", "difficulty": 2,
+      "prompt": "Rainy season or dry season? Sort the cards.",
+      "groups": ["Rainy season", "Dry season"],
+      "items": [
+        { "text": "puddles everywhere", "group": 0 },
+        { "text": "rivers are full", "group": 0 },
+        { "text": "frogs croak at night", "group": 0 },
+        { "text": "dusty roads", "group": 1 },
+        { "text": "dry, brown grass", "group": 1 },
+        { "text": "farmers water their fields", "group": 1 }
+      ],
+      "hints": ["Think about what lots of rain does to the land.", "In the dry season, little rain falls for months.", "Start with the puddles. When do you see many of them?"],
+      "explanation": "Puddles, full rivers and croaking frogs come with the rainy season. Dusty roads, dry grass and watering fields happen in the dry season."
+    },
+    {
+      "id": "s2.weather-seasons.004", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 2,
+      "prompt": "Which tool measures how hot the air is?",
+      "options": [
+        { "text": "a rain gauge", "why": "A rain gauge measures how much rain falls." },
+        { "text": "a windsock", "why": "A windsock shows which way the wind blows." },
+        { "text": "a thermometer" },
+        { "text": "a ruler", "why": "A ruler measures length." }
+      ],
+      "answer": 2,
+      "hints": ["How hot something is, is called its temperature.", "Which tool has numbers and degrees on it?", "Think about the tool a nurse uses when you feel ill."],
+      "explanation": "A thermometer measures temperature, which is how hot or cold something is. We measure it in degrees Celsius."
+    },
+    {
+      "id": "s2.weather-seasons.005", "skill": "s2.weather-seasons", "type": "numeric", "difficulty": 3,
+      "prompt": "What temperature does the thermometer show?",
+      "figure": { "kind": "thermometer", "min": 20, "max": 40, "value": 32, "step": 2, "alt": "A thermometer from 20 to 40 degrees Celsius, marked every 2 degrees. The red line stops at 32." },
+      "answer": 32,
+      "unit": "°C",
+      "hints": ["Find the top of the red line.", "Each mark goes up by 2.", "Start at 30 and count up the marks to the red line."],
+      "explanation": "The red line stops at 32, so it is 32 °C. That is a hot day.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.006", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 2,
+      "prompt": "What does a rain gauge measure?",
+      "options": [
+        { "text": "how much rain falls" },
+        { "text": "how hot it is", "why": "A thermometer measures how hot it is." },
+        { "text": "which way the wind blows", "why": "A windsock shows which way the wind blows." },
+        { "text": "how long the day is", "why": "A clock measures time." }
+      ],
+      "answer": 0,
+      "hints": ["Look at the word rain in its name.", "It is a container with marks on the side.", "Ask: what would it collect if you left it outside in a storm?"],
+      "explanation": "A rain gauge collects rain. The marks on its side show how much rain fell, in millimetres."
+    },
+    {
+      "id": "s2.weather-seasons.007", "skill": "s2.weather-seasons", "type": "numeric", "difficulty": 4,
+      "prompt": "How much more rain fell on Wednesday than on Thursday?",
+      "figure": { "kind": "bars", "title": "Rain in one week", "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"], "values": [10, 0, 25, 15, 5], "step": 5, "yLabel": "Rain in mm", "alt": "Bar chart of rain in one week: Monday 10 mm, Tuesday 0 mm, Wednesday 25 mm, Thursday 15 mm, Friday 5 mm." },
+      "answer": 10,
+      "unit": "mm",
+      "hints": ["Find the Wednesday and Thursday bars.", "Read the number at the top of each bar.", "Wednesday is 25 mm. Take away Thursday's rain."],
+      "explanation": "25 mm fell on Wednesday and 15 mm on Thursday. 25 take away 15 is 10, so 10 mm more fell on Wednesday.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.008", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 3,
+      "prompt": "When can we see a rainbow?",
+      "figure": { "kind": "icons", "items": [{ "icon": "rainbow", "label": "rainbow" }], "alt": "A rainbow in the sky." },
+      "options": [
+        { "text": "only at night", "why": "We need sunlight to see a rainbow." },
+        { "text": "when it is very cold", "why": "Cold is not needed. Rainbows need sunlight and raindrops." },
+        { "text": "when there is no rain at all", "why": "We need raindrops in the air to see a rainbow." },
+        { "text": "when the Sun shines while it rains" }
+      ],
+      "answer": 3,
+      "hints": ["A rainbow needs two things in the sky.", "One gives light and the other is made of water.", "Ask: what weather has both sunshine and raindrops?"],
+      "explanation": "We see a rainbow when sunlight shines through raindrops. Stand with the Sun behind you and the rain in front of you.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.weather-seasons.009", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 3,
+      "prompt": "A thunderstorm starts while Rizky plays football in a field. What should he do?",
+      "figure": { "kind": "icons", "items": [{ "icon": "lightning", "label": "lightning" }, { "icon": "park", "label": "open field" }], "alt": "Lightning over an open field." },
+      "options": [
+        { "text": "Stand under a tall tree.", "why": "Lightning often strikes tall things like trees. It is not safe." },
+        { "text": "Keep playing in the open field.", "why": "An open field is dangerous in a thunderstorm." },
+        { "text": "Hold a metal pole.", "why": "Never hold metal in a thunderstorm." },
+        { "text": "Go inside a building quickly." }
+      ],
+      "answer": 3,
+      "hints": ["Lightning is very dangerous.", "Tall things and open spaces are not safe.", "Ask: where would you be safest from the storm?"],
+      "explanation": "In a thunderstorm, go inside a building quickly. Stay away from tall trees, open fields and metal poles.",
+      "tip": "When thunder roars, go indoors.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.010", "skill": "s2.weather-seasons", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the things that are true about clouds.",
+      "options": [
+        { "text": "Clouds are made of tiny drops of water." },
+        { "text": "Rain falls from clouds." },
+        { "text": "Clouds move with the wind." },
+        { "text": "Clouds are made of cotton wool.", "why": "Clouds look fluffy, but they are made of tiny drops of water." },
+        { "text": "Clouds are living things.", "why": "Clouds move and change, but they do not eat, grow or have young." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about where rain comes from.", "Watch clouds on a windy day. What do they do?", "Start with tiny drops of water. What falls when clouds get heavy?"],
+      "explanation": "Clouds are made of tiny drops of water. The wind moves them, and when the drops join and get heavy, they fall as rain."
+    },
+    {
+      "id": "s2.weather-seasons.011", "skill": "s2.weather-seasons", "type": "order", "difficulty": 3,
+      "prompt": "Some countries have four seasons. Put them in order, starting with spring.",
+      "items": ["spring", "summer", "autumn", "winter"],
+      "hints": ["Spring comes after the coldest season.", "The hottest season comes after spring.", "Put spring first. Which season is warmest?"],
+      "explanation": "The four seasons go spring, summer, autumn and winter, then spring again. Much of Indonesia has a rainy season and a dry season instead."
+    },
+    {
+      "id": "s2.weather-seasons.012", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 4,
+      "prompt": "In much of Indonesia, when is the rainy season?",
+      "options": [
+        { "text": "about June to August", "why": "June to August is usually in the dry season." },
+        { "text": "every day of the year", "why": "There is a rainy season and a dry season." },
+        { "text": "about November to March" },
+        { "text": "only in December", "why": "The rainy season lasts for several months." }
+      ],
+      "answer": 2,
+      "hints": ["The rainy season lasts for a few months.", "Think about when floods and puddles happen near you.", "Ask: is the end of the year wet or dry where you live?"],
+      "explanation": "In much of Indonesia, the rainy season is about November to March, and the dry season is about May to September. It is a little different in each place.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.013", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 3,
+      "prompt": "Dimas's town had sunny days for months. The rivers were low. Which season was it?",
+      "options": [
+        { "text": "rainy season", "why": "In the rainy season, rivers are full." },
+        { "text": "dry season" },
+        { "text": "winter", "why": "Most of Indonesia has no cold winter." },
+        { "text": "spring", "why": "Indonesia has a rainy season and a dry season. Spring is a season in other countries." }
+      ],
+      "answer": 1,
+      "hints": ["Months of sunshine means very little rain.", "Low rivers have not had much rain.", "Ask: which of Indonesia's two seasons has little rain?"],
+      "explanation": "Months of sun and low rivers show it was the dry season. Little rain falls in the dry season.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.014", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 5,
+      "prompt": "A windsock points the way the wind is going. It points towards the sea. Where is the wind blowing from?",
+      "figure": { "kind": "icons", "items": [{ "icon": "wind", "label": "windsock" }, { "icon": "sea", "label": "sea" }], "alt": "A windsock on the beach pointing towards the sea." },
+      "options": [
+        { "text": "from the sea", "why": "The windsock points where the wind is going, which is towards the sea." },
+        { "text": "from the land" },
+        { "text": "There is no wind.", "why": "A windsock only sticks out when the wind blows." },
+        { "text": "from straight above", "why": "Wind blows across the land and sea, so the windsock sticks out sideways." }
+      ],
+      "answer": 1,
+      "hints": ["The wind fills the windsock and pushes it.", "The sock points where the wind is going.", "If the wind is going towards the sea, where did it start?"],
+      "explanation": "The windsock points towards the sea, so the wind is going towards the sea. That means it is blowing from the land.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.weather-seasons.015", "skill": "s2.weather-seasons", "type": "sort", "difficulty": 3,
+      "prompt": "Is it a kind of weather or a season? Sort the cards.",
+      "groups": ["Weather", "Season"],
+      "items": [
+        { "text": "sunny", "group": 0 },
+        { "text": "windy", "group": 0 },
+        { "text": "stormy", "group": 0 },
+        { "text": "dry season", "group": 1 },
+        { "text": "rainy season", "group": 1 },
+        { "text": "winter", "group": 1 }
+      ],
+      "hints": ["Weather can change from day to day.", "A season lasts for months.", "Start with sunny. Can it change by tomorrow?"],
+      "explanation": "Sunny, windy and stormy describe the weather, which changes day by day. The dry season, the rainy season and winter each last for months."
+    },
+    {
+      "id": "s2.weather-seasons.016", "skill": "s2.weather-seasons", "type": "draw", "difficulty": 2,
+      "prompt": "Draw today's weather. Write one word to describe it.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws a picture of today's weather", "points": 2 },
+        { "label": "Writes a weather word, such as sunny or rainy", "points": 1 },
+        { "label": "The picture and the word match", "points": 1 }
+      ] },
+      "hints": ["Look out of the window first.", "Use symbols, like a sun, a cloud or raindrops."],
+      "explanation": "Weather is what the air outside is like each day. It can be sunny, rainy, cloudy, windy or stormy."
+    },
+    {
+      "id": "s2.weather-seasons.017", "skill": "s2.weather-seasons", "type": "numeric", "difficulty": 4,
+      "prompt": "Ayu records the weather each day in September. How many sunny days were there?",
+      "figure": { "kind": "pictogram", "title": "Weather in September", "rows": [{ "label": "Sunny", "count": 9 }, { "label": "Rainy", "count": 4 }, { "label": "Cloudy", "count": 2 }], "icon": "sun", "key": 2, "alt": "Pictogram of weather in September. Each symbol means 2 days. Sunny 9 symbols, rainy 4 symbols, cloudy 2 symbols." },
+      "answer": 18,
+      "unit": "days",
+      "hints": ["Read the key first. Each symbol means 2 days.", "Count the symbols in the sunny row.", "Count in 2s for each symbol: 2, 4, 6."],
+      "explanation": "The sunny row has 9 symbols. Each symbol means 2 days, so 9 lots of 2 is 18 sunny days.",
+      "tags": ["ksnr"]
+    }
+  ]
+}

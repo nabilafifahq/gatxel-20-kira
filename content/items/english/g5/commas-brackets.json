@@ -1,0 +1,298 @@
+{
+  "skill": "e5.commas-brackets",
+  "items": [
+    {
+      "id": "e5.commas-brackets.001",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence uses commas correctly in a list?",
+      "options": [
+        {
+          "text": "We bought, rice eggs chillies and bananas.",
+          "why": "The comma should separate the items, not come after bought."
+        },
+        {
+          "text": "We bought rice, eggs, chillies and bananas."
+        },
+        {
+          "text": "We bought rice eggs, chillies, and, bananas.",
+          "why": "There should be a comma after rice, and no comma after and."
+        },
+        {
+          "text": "We bought rice, eggs, chillies, and, bananas.",
+          "why": "There should be no comma after and."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the items in the list.",
+        "Commas go between the items. The last two items are joined by and.",
+        "Say the list aloud and pause where each comma is. Does it sound right?"
+      ],
+      "explanation": "In a list, commas separate the items, and the last two are joined with and: rice, eggs, chillies and bananas."
+    },
+    {
+      "id": "e5.commas-brackets.002",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Where should the comma go? After lunch we played football.",
+      "options": [
+        {
+          "text": "after lunch"
+        },
+        {
+          "text": "after we",
+          "why": "We is part of the main clause, so it should not be separated from played."
+        },
+        {
+          "text": "after played",
+          "why": "Played and football belong together."
+        },
+        {
+          "text": "after football",
+          "why": "The sentence ends after football, so it needs a full stop."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The sentence starts with words that tell us when.",
+        "A comma usually follows a fronted adverbial, the phrase at the start that tells when, where or how.",
+        "Find the words that tell you when. Where do they end?"
+      ],
+      "explanation": "After lunch is a fronted adverbial telling us when, so a comma follows it: After lunch, we played football."
+    },
+    {
+      "id": "e5.commas-brackets.003",
+      "skill": "e5.commas-brackets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Which words could go in brackets? My cousin Raka who is ten plays the drums. Write them.",
+      "blanks": [
+        {
+          "answers": [
+            "who is ten",
+            "(who is ten)"
+          ]
+        }
+      ],
+      "hints": [
+        "Brackets hold extra information that the sentence could manage without.",
+        "Try reading the sentence and leaving out a group of words. Does it still make sense?",
+        "Read the sentence without three of its words. Which three can you take out?"
+      ],
+      "explanation": "Who is ten is extra information. The sentence still makes sense without it: My cousin Raka (who is ten) plays the drums."
+    },
+    {
+      "id": "e5.commas-brackets.004",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence uses brackets correctly?",
+      "options": [
+        {
+          "text": "Borobudur (a huge temple) in Central Java) is visited by many people.",
+          "why": "There is one opening bracket but two closing brackets."
+        },
+        {
+          "text": "Borobudur a huge temple (in Central Java is visited by many people.)",
+          "why": "The brackets should go around the extra information only."
+        },
+        {
+          "text": "(Borobudur) a huge temple in Central Java is visited by many people.",
+          "why": "Borobudur is the main subject, so it should not be in brackets."
+        },
+        {
+          "text": "Borobudur (a huge temple in Central Java) is visited by many people."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Brackets come in pairs, around extra information.",
+        "Read each sentence without the words in brackets. It should still make sense.",
+        "Check that each sentence has one opening bracket and one closing bracket."
+      ],
+      "explanation": "The extra information a huge temple in Central Java sits inside one pair of brackets, and the sentence makes sense without it."
+    },
+    {
+      "id": "e5.commas-brackets.005",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why are brackets used in this sentence? The Komodo dragon (the largest lizard in the world) lives on a few islands in Indonesia.",
+      "options": [
+        {
+          "text": "to show that someone is speaking",
+          "why": "Speech marks show speech."
+        },
+        {
+          "text": "to separate the items in a list",
+          "why": "Commas separate items in a list."
+        },
+        {
+          "text": "to add extra information that the sentence could manage without"
+        },
+        {
+          "text": "to show the most important idea",
+          "why": "The words in brackets are extra, not the main idea."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read the sentence without the words in brackets.",
+        "Does the sentence still make sense? Then think about what the brackets add.",
+        "Ask: is the information in brackets needed, or is it a bonus fact?"
+      ],
+      "explanation": "Brackets add extra information. The sentence makes sense without the words inside them."
+    },
+    {
+      "id": "e5.commas-brackets.006",
+      "skill": "e5.commas-brackets",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 sentences that use commas correctly to mark extra information.",
+      "options": [
+        {
+          "text": "Mr Tan, our new neighbour, grows chillies."
+        },
+        {
+          "text": "The mango which, was very ripe fell from the tree.",
+          "why": "The commas should go before which and after ripe."
+        },
+        {
+          "text": "The mango, which was very ripe, fell from the tree."
+        },
+        {
+          "text": "Mr Tan our new, neighbour grows chillies.",
+          "why": "The commas should go around our new neighbour."
+        },
+        {
+          "text": "My bag, is under the desk.",
+          "why": "There is no extra information here, so no comma is needed."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Extra information needs a comma before it and a comma after it.",
+        "Find the extra information in each sentence, then check where the commas are.",
+        "Read each sentence without the words between the commas. Does it still make sense?"
+      ],
+      "explanation": "In the correct sentences, the extra information our new neighbour and which was very ripe has a comma before it and a comma after it."
+    },
+    {
+      "id": "e5.commas-brackets.007",
+      "skill": "e5.commas-brackets",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences: commas used correctly or needs fixing.",
+      "groups": [
+        "Correct",
+        "Needs fixing"
+      ],
+      "items": [
+        {
+          "text": "Although it was late, we kept reading.",
+          "group": 0
+        },
+        {
+          "text": "Suddenly, the lights went out.",
+          "group": 0
+        },
+        {
+          "text": "The cat, sat on the mat.",
+          "group": 1
+        },
+        {
+          "text": "Rudi, who loves maths, won a prize.",
+          "group": 0
+        },
+        {
+          "text": "We had rice, fish, and, fruit.",
+          "group": 1
+        },
+        {
+          "text": "If you are cold put on, a jumper.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Look at where each comma is and why it is there.",
+        "Commas go after an opening clause or adverbial, around extra information and between list items.",
+        "Read each sentence aloud and pause at each comma. Does the pause make sense?"
+      ],
+      "explanation": "The correct sentences use a comma after an opening clause or adverbial and around extra information. The others put commas in places that split words that belong together."
+    },
+    {
+      "id": "e5.commas-brackets.008",
+      "skill": "e5.commas-brackets",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A comma is missing. Write the word that the comma should come after. Although the road was flooded the bus kept going.",
+      "blanks": [
+        {
+          "answers": [
+            "flooded"
+          ]
+        }
+      ],
+      "hints": [
+        "The sentence starts with a subordinate clause.",
+        "When a subordinate clause comes first, a comma goes at the end of it.",
+        "Find where the although part ends and the main clause begins."
+      ],
+      "explanation": "Although the road was flooded is a subordinate clause at the start, so a comma comes after flooded."
+    },
+    {
+      "id": "e5.commas-brackets.009",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence shows clearly that the children washed themselves, and then the dog went for a walk?",
+      "options": [
+        {
+          "text": "After the children had washed the dog went for a walk.",
+          "why": "Without a comma, it sounds as if the children washed the dog."
+        },
+        {
+          "text": "After, the children had washed the dog went for a walk.",
+          "why": "A comma after After does not make sense here."
+        },
+        {
+          "text": "After the children had washed, the dog went for a walk."
+        },
+        {
+          "text": "After the children, had washed the dog went for a walk.",
+          "why": "The comma splits the children from what they did."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read each sentence aloud, pausing at each comma.",
+        "A comma can show where one idea ends and the next begins.",
+        "Ask in each sentence: who or what did the washing?"
+      ],
+      "explanation": "The comma after washed shows that the first idea ends there. Without it, readers may think the children washed the dog."
+    },
+    {
+      "id": "e5.commas-brackets.010",
+      "skill": "e5.commas-brackets",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many commas does this sentence need? On Saturday morning Bu Rina who is our school nurse bought rice and chillies.",
+      "answer": 3,
+      "hints": [
+        "Look for an opening phrase and for extra information.",
+        "An opening phrase needs one comma. Extra information needs a comma on each side.",
+        "Start with On Saturday morning. Where does it end?"
+      ],
+      "explanation": "The sentence needs three commas: On Saturday morning, Bu Rina, who is our school nurse, bought rice and chillies.",
+      "tags": [
+        "iklc"
+      ]
+    }
+  ]
+}

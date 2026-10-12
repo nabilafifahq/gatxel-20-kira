@@ -1,0 +1,88 @@
+{
+  "skill": "s6.graphs-evidence",
+  "title": "Graphs and evidence",
+  "steps": [
+    {
+      "say": "A line graph shows how one variable changes with another, such as temperature over time."
+    },
+    {
+      "say": "The variable you change goes on the horizontal axis. The variable you measure goes on the vertical axis."
+    },
+    {
+      "say": "Label both axes with units, and use even scales. Plot each point carefully, then join the points."
+    },
+    {
+      "say": "Look for a pattern, such as: the longer the time, the cooler the tea. Use it to estimate values between points."
+    },
+    {
+      "say": "An anomalous result does not fit the pattern. Check it by repeating the measurement."
+    },
+    {
+      "say": "Good evidence needs enough results. Two things rising together does not always mean one causes the other."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.graphs-evidence.901",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is an anomalous result?",
+      "options": [
+        {
+          "text": "the first result in a table",
+          "why": "The first result can fit the pattern perfectly well."
+        },
+        {
+          "text": "a result that does not fit the pattern"
+        },
+        {
+          "text": "the biggest result",
+          "why": "The biggest result can still fit the pattern."
+        },
+        {
+          "text": "a prediction made before the test",
+          "why": "A prediction comes before any results."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Most results in a good test follow a pattern.",
+        "One odd result can stand out from the rest.",
+        "Cross out the choices about order, size and predictions."
+      ],
+      "explanation": "An anomalous result is one that does not fit the pattern of the others. It should be checked by repeating the measurement."
+    },
+    {
+      "id": "s6.graphs-evidence.902",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "On a line graph of temperature against time, where does time go?",
+      "options": [
+        {
+          "text": "the horizontal axis"
+        },
+        {
+          "text": "the vertical axis",
+          "why": "The vertical axis is for the variable you measure, the temperature."
+        },
+        {
+          "text": "the title",
+          "why": "The title names the graph. Time needs its own axis."
+        },
+        {
+          "text": "the key",
+          "why": "A key explains symbols or colours, not a variable."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Time is the variable you choose when to measure.",
+        "The variable you measure goes up the side of the graph.",
+        "Cross out the parts of a graph that are not axes."
+      ],
+      "explanation": "Time goes along the horizontal axis because it is the variable you choose. Temperature, which you measure, goes on the vertical axis."
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "skill": "s4.pitch-and-volume",
+  "items": [
+    {
+      "id": "s4.pitch-and-volume.001",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does pitch mean?",
+      "options": [
+        {
+          "text": "how loud or quiet a sound is",
+          "why": "That is volume."
+        },
+        {
+          "text": "how fast a sound travels",
+          "why": "Pitch is not about how fast sound travels."
+        },
+        {
+          "text": "how high or low a sound is"
+        },
+        {
+          "text": "how long a sound lasts",
+          "why": "Pitch is not about how long a sound lasts."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A bird's tweet and a lion's roar are very different.",
+        "One is squeaky and one is deep.",
+        "Think of notes going up a piano."
+      ],
+      "explanation": "Pitch is how high or low a sound is. A mouse squeak has a high pitch and a lion's roar has a low pitch."
+    },
+    {
+      "id": "s4.pitch-and-volume.002",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How can you make a drum sound louder?",
+      "options": [
+        {
+          "text": "Hit it more gently.",
+          "why": "Gentle hits make smaller vibrations and quieter sounds."
+        },
+        {
+          "text": "Make the drum skin looser.",
+          "why": "A looser skin changes the pitch. It makes the note lower."
+        },
+        {
+          "text": "Paint it a brighter colour.",
+          "why": "Colour does not change sound."
+        },
+        {
+          "text": "Hit it harder."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Volume depends on the size of the vibrations.",
+        "Bigger vibrations make louder sounds.",
+        "How do you make the skin vibrate more?"
+      ],
+      "explanation": "Hitting harder makes the drum skin vibrate more. Bigger vibrations make a louder sound."
+    },
+    {
+      "id": "s4.pitch-and-volume.003",
+      "skill": "s4.pitch-and-volume",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the changes. Do they change the pitch or the volume?",
+      "groups": [
+        "Changes the pitch",
+        "Changes the volume"
+      ],
+      "items": [
+        {
+          "text": "using a shorter string",
+          "group": 0
+        },
+        {
+          "text": "tightening a string",
+          "group": 0
+        },
+        {
+          "text": "using a thinner string",
+          "group": 0
+        },
+        {
+          "text": "plucking a string harder",
+          "group": 1
+        },
+        {
+          "text": "hitting a drum softly",
+          "group": 1
+        },
+        {
+          "text": "shouting instead of whispering",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Pitch is high or low. Volume is loud or quiet.",
+        "Changes to the string itself change how fast it vibrates.",
+        "Changes to how hard you play change how big the vibrations are."
+      ],
+      "explanation": "Shorter, tighter or thinner strings vibrate faster, which changes the pitch. Playing harder or softer changes the size of the vibrations, which changes the volume.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.004",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which change makes a guitar string play a higher note?",
+      "options": [
+        {
+          "text": "making it tighter"
+        },
+        {
+          "text": "making it looser",
+          "why": "A looser string vibrates more slowly and gives a lower note."
+        },
+        {
+          "text": "making it longer",
+          "why": "A longer string gives a lower note."
+        },
+        {
+          "text": "plucking it harder",
+          "why": "Plucking harder makes it louder, not higher."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Higher notes come from faster vibrations.",
+        "Think about tuning a guitar.",
+        "Which change makes the string vibrate faster?"
+      ],
+      "explanation": "A tighter string vibrates faster, so it plays a higher note."
+    },
+    {
+      "id": "s4.pitch-and-volume.005",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "You blow across the tops of four bottles. Which bottle gives the highest note?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Bottle",
+          "Water inside"
+        ],
+        "rows": [
+          [
+            "A",
+            "almost empty"
+          ],
+          [
+            "B",
+            "a quarter full"
+          ],
+          [
+            "C",
+            "half full"
+          ],
+          [
+            "D",
+            "almost full"
+          ]
+        ],
+        "alt": "Table of four identical glass bottles: A is almost empty, B is a quarter full, C is half full and D is almost full of water."
+      },
+      "options": [
+        {
+          "text": "Bottle A",
+          "why": "A has the most air. A long column of air gives a low note."
+        },
+        {
+          "text": "Bottle B",
+          "why": "B has lots of air, so its note is quite low."
+        },
+        {
+          "text": "Bottle C",
+          "why": "C has less air than A or B, but one bottle has even less."
+        },
+        {
+          "text": "Bottle D"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "When you blow, the air inside the bottle vibrates.",
+        "A shorter column of air vibrates faster.",
+        "Which bottle has the least air?"
+      ],
+      "explanation": "Blowing makes the air inside vibrate. Bottle D has the shortest column of air, which vibrates fastest and gives the highest note.",
+      "tags": [
+        "iksc",
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.006",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "You tap these four bottles with a spoon. Which bottle gives the highest note?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Bottle",
+          "Water inside"
+        ],
+        "rows": [
+          [
+            "A",
+            "almost empty"
+          ],
+          [
+            "B",
+            "a quarter full"
+          ],
+          [
+            "C",
+            "half full"
+          ],
+          [
+            "D",
+            "almost full"
+          ]
+        ],
+        "alt": "Table of four identical glass bottles: A is almost empty, B is a quarter full, C is half full and D is almost full of water."
+      },
+      "options": [
+        {
+          "text": "Bottle A"
+        },
+        {
+          "text": "Bottle B",
+          "why": "B has more water than A, so it gives a lower note."
+        },
+        {
+          "text": "Bottle C",
+          "why": "C has more water than A and B."
+        },
+        {
+          "text": "Bottle D",
+          "why": "When tapped, the glass and water vibrate. More water makes a lower note."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Tapping is different from blowing.",
+        "When you tap, the glass and the water vibrate.",
+        "More water vibrates more slowly."
+      ],
+      "explanation": "When you tap a bottle, the glass and the water vibrate. Bottle A has the least water, so it vibrates fastest and gives the highest note.",
+      "tags": [
+        "iksc",
+        "olympiad",
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.007",
+      "skill": "s4.pitch-and-volume",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each sound to its pitch and volume.",
+      "pairs": [
+        [
+          "a bird singing in a tree",
+          "high and quiet"
+        ],
+        [
+          "thunder",
+          "low and loud"
+        ],
+        [
+          "a whistle blast",
+          "high and loud"
+        ],
+        [
+          "a cat purring",
+          "low and quiet"
+        ]
+      ],
+      "hints": [
+        "Decide high or low first.",
+        "Then decide loud or quiet.",
+        "Start with thunder."
+      ],
+      "explanation": "Bird song is high and quiet, and thunder is low and loud. A whistle blast is high and loud, and a purr is low and quiet."
+    },
+    {
+      "id": "s4.pitch-and-volume.008",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In a set of angklung, which one plays the lowest note?",
+      "options": [
+        {
+          "text": "the one with the smallest tubes",
+          "why": "Small tubes vibrate fast and give high notes."
+        },
+        {
+          "text": "the one with the biggest, longest bamboo tubes"
+        },
+        {
+          "text": "the one shaken the hardest",
+          "why": "Shaking harder makes it louder, not lower."
+        },
+        {
+          "text": "the one painted darkest",
+          "why": "Colour does not change the note."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Angklung tubes vibrate when shaken.",
+        "Big things vibrate more slowly.",
+        "Do slow vibrations make low or high notes?"
+      ],
+      "explanation": "Bigger, longer tubes vibrate more slowly. Slow vibrations make low notes, so the biggest angklung plays the lowest note.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.009",
+      "skill": "s4.pitch-and-volume",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Big vibrations make a ___ sound.",
+      "blanks": [
+        {
+          "answers": [
+            "loud",
+            "louder",
+            "big",
+            "strong"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about hitting a drum hard.",
+        "This is about volume.",
+        "It is the opposite of quiet."
+      ],
+      "explanation": "Bigger vibrations make louder sounds. Smaller vibrations make quieter sounds."
+    },
+    {
+      "id": "s4.pitch-and-volume.010",
+      "skill": "s4.pitch-and-volume",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A sound meter reads 35 dB in a library and 85 dB in a busy canteen. How many decibels louder is the canteen?",
+      "answer": 50,
+      "unit": "dB",
+      "hints": [
+        "Find both readings.",
+        "Louder by how much means find the difference.",
+        "Take the smaller reading away from the bigger one."
+      ],
+      "explanation": "85 take away 35 is 50, so the canteen is 50 dB louder. A higher decibel reading means a louder sound.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.011",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Lia holds a ruler over the edge of a table and twangs it. She makes the overhanging part shorter. What happens to the note?",
+      "options": [
+        {
+          "text": "It gets lower.",
+          "why": "A shorter part vibrates faster, so the note gets higher."
+        },
+        {
+          "text": "It stays the same.",
+          "why": "Changing the length changes how fast it vibrates."
+        },
+        {
+          "text": "It gets higher."
+        },
+        {
+          "text": "It stops completely.",
+          "why": "The ruler can still vibrate and make a sound."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The part over the edge is what vibrates.",
+        "Shorter things vibrate faster.",
+        "Do faster vibrations give higher or lower notes?"
+      ],
+      "explanation": "A shorter part of the ruler vibrates faster. Faster vibrations make a higher note.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.012",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why do workers wear ear defenders near very loud machines?",
+      "options": [
+        {
+          "text": "To hear the machines better.",
+          "why": "Ear defenders make sounds quieter, not easier to hear."
+        },
+        {
+          "text": "To keep their ears warm.",
+          "why": "Ear defenders are for protecting hearing."
+        },
+        {
+          "text": "Because loud sounds are always high-pitched.",
+          "why": "Loud sounds can be high or low."
+        },
+        {
+          "text": "Very loud sounds can damage hearing."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ear defenders cover the ears.",
+        "They make sounds quieter.",
+        "Why would quieter be better near a loud machine?"
+      ],
+      "explanation": "Very loud sounds can damage the inside of your ears. Ear defenders absorb sound and protect hearing.",
+      "tags": [
+        "osn-sd"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "skill": "s5.mass-weight",
+  "title": "Mass, weight and gravity",
+  "steps": [
+    {
+      "say": "Gravity is a force that pulls things towards the Earth. It is why things fall when you drop them."
+    },
+    {
+      "say": "Mass is the amount of matter in an object. It is measured in kilograms (kg) or grams (g)."
+    },
+    {
+      "say": "Weight is the pull of gravity on a mass. Weight is a force, so it is measured in newtons (N)."
+    },
+    {
+      "say": "On Earth, every 1 kg has a weight of about 10 N. So a 5 kg bag weighs about 50 N.",
+      "show": "5 × 10 N = 50 N"
+    },
+    {
+      "say": "The Moon's gravity is about one sixth of Earth's. Mass stays the same there, but weight is much smaller."
+    },
+    {
+      "say": "We measure weight with a forcemeter. The newton is named after Isaac Newton, who explained gravity."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.mass-weight.901",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool measures weight in newtons?",
+      "options": [
+        {
+          "text": "a ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "a thermometer",
+          "why": "A thermometer measures temperature."
+        },
+        {
+          "text": "a forcemeter"
+        },
+        {
+          "text": "a measuring jug",
+          "why": "A measuring jug measures the volume of a liquid."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Weight is a force.",
+        "The tool has a spring that stretches when you hang something on it.",
+        "Its name tells you that it measures forces."
+      ],
+      "explanation": "A forcemeter measures forces, such as weight, in newtons. Its spring stretches more when the pull is bigger."
+    },
+    {
+      "id": "s5.mass-weight.902",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "On Earth, each 1 kg weighs about 10 N. What does a 7 kg bag of rice weigh?",
+      "answer": 70,
+      "unit": "N",
+      "hints": [
+        "Weight depends on mass.",
+        "Each kilogram weighs about 10 N.",
+        "Multiply the mass in kilograms by 10."
+      ],
+      "explanation": "7 kg × 10 N for each kilogram = 70 N."
+    }
+  ]
+}

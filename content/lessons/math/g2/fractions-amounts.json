@@ -1,0 +1,73 @@
+{
+  "skill": "m2.fractions-amounts",
+  "title": "Fractions of numbers",
+  "steps": [
+    {
+      "say": "To find half of 12, share 12 into 2 equal groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          6,
+          6
+        ],
+        "icon": "apple",
+        "container": "plate",
+        "alt": "2 plates with 6 apples on each."
+      },
+      "show": "half of 12 = 6"
+    },
+    {
+      "say": "To find a third, share into 3 equal groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          4,
+          4,
+          4
+        ],
+        "icon": "apple",
+        "container": "plate",
+        "alt": "3 plates with 4 apples on each."
+      },
+      "show": "one third of 12 = 4"
+    },
+    {
+      "say": "To find a quarter, share into 4 equal groups.",
+      "show": "a quarter of 12 = 3"
+    },
+    {
+      "say": "Three quarters is 3 of the 4 groups.",
+      "show": "three quarters of 12 = 3 + 3 + 3 = 9"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.fractions-amounts.901",
+      "skill": "m2.fractions-amounts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is one third of 15?",
+      "hints": [
+        "One third means 3 equal groups.",
+        "Share 15 into 3 equal groups.",
+        "Think: 3 × ? = 15."
+      ],
+      "explanation": "15 shared into 3 equal groups is 5 in each.",
+      "answer": 5
+    },
+    {
+      "id": "m2.fractions-amounts.902",
+      "skill": "m2.fractions-amounts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "What is three quarters of 8?",
+      "hints": [
+        "First find one quarter of 8.",
+        "Share 8 into 4 equal groups.",
+        "One group is 2. Now take 3 groups."
+      ],
+      "explanation": "One quarter of 8 is 2, so three quarters is 3 × 2 = 6.",
+      "answer": 6
+    }
+  ]
+}

@@ -1,0 +1,487 @@
+{
+  "skill": "s4.food-chains",
+  "items": [
+    {
+      "id": "s4.food-chains.001",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In this food chain, what does the caterpillar eat?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          },
+          {
+            "icon": "caterpillar",
+            "label": "caterpillar"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Food chain: leaf, arrow, caterpillar, arrow, bird."
+      },
+      "options": [
+        {
+          "text": "the leaf"
+        },
+        {
+          "text": "the bird",
+          "why": "The arrow goes from the caterpillar to the bird, so the bird eats the caterpillar."
+        },
+        {
+          "text": "the soil",
+          "why": "The chain shows the caterpillar eating something else."
+        },
+        {
+          "text": "nothing at all",
+          "why": "Every animal must eat. The arrow shows what it eats."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Arrows point from the food to the eater.",
+        "Find the arrow that points to the caterpillar.",
+        "Where does that arrow start?"
+      ],
+      "explanation": "The arrow points from the leaf to the caterpillar. This means the caterpillar eats the leaf."
+    },
+    {
+      "id": "s4.food-chains.002",
+      "skill": "s4.food-chains",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Every food chain starts with a green plant. A plant is called a ___ because it makes its own food.",
+      "blanks": [
+        {
+          "answers": [
+            "producer",
+            "producers"
+          ]
+        }
+      ],
+      "hints": [
+        "Plants make their own food.",
+        "Animals that eat are called consumers.",
+        "The word starts with p."
+      ],
+      "explanation": "Plants are producers because they make their own food using light. Every food chain begins with a producer."
+    },
+    {
+      "id": "s4.food-chains.003",
+      "skill": "s4.food-chains",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put this rice field food chain in order, starting with the producer.",
+      "items": [
+        "rice plant",
+        "rat",
+        "snake",
+        "eagle"
+      ],
+      "hints": [
+        "The producer is the plant.",
+        "What eats rice plants in a field?",
+        "Which animal hunts the snake?"
+      ],
+      "explanation": "Rats eat rice plants, snakes eat rats and eagles eat snakes. So the chain is rice plant, rat, snake, eagle.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.food-chains.004",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does an arrow in a food chain show?",
+      "options": [
+        {
+          "text": "which animal is bigger",
+          "why": "Arrows have nothing to do with size."
+        },
+        {
+          "text": "the direction the food and energy go"
+        },
+        {
+          "text": "which animals live next to each other",
+          "why": "Arrows do not show where animals live."
+        },
+        {
+          "text": "which way the animal is facing",
+          "why": "Arrows do not show which way an animal faces."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An arrow points from one living thing to another.",
+        "It points from the food to the eater.",
+        "What moves along the chain when one thing eats another?"
+      ],
+      "explanation": "An arrow points from the food to the eater. It shows food and energy passing along the chain."
+    },
+    {
+      "id": "s4.food-chains.005",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at this food chain. Which animal is both a predator and prey?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "seed",
+            "label": "seeds"
+          },
+          {
+            "icon": "mouse",
+            "label": "mouse"
+          },
+          {
+            "icon": "snake",
+            "label": "snake"
+          },
+          {
+            "icon": "owl",
+            "label": "owl"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Food chain: seeds, arrow, mouse, arrow, snake, arrow, owl."
+      },
+      "options": [
+        {
+          "text": "owl",
+          "why": "Nothing eats the owl in this chain. It is the top predator."
+        },
+        {
+          "text": "mouse",
+          "why": "The mouse is prey, but it does not hunt animals here."
+        },
+        {
+          "text": "snake"
+        },
+        {
+          "text": "seeds",
+          "why": "Seeds come from a plant. They are the producer."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A predator hunts other animals.",
+        "Prey is hunted by another animal.",
+        "Find an animal that eats an animal and is eaten too."
+      ],
+      "explanation": "The snake hunts the mouse, so it is a predator. The owl eats the snake, so the snake is also prey."
+    },
+    {
+      "id": "s4.food-chains.006",
+      "skill": "s4.food-chains",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "producer",
+          "makes its own food using light"
+        ],
+        [
+          "consumer",
+          "gets energy by eating other living things"
+        ],
+        [
+          "predator",
+          "hunts and eats other animals"
+        ],
+        [
+          "prey",
+          "an animal that is hunted and eaten"
+        ]
+      ],
+      "hints": [
+        "Two words are about how a living thing gets food.",
+        "Two words are about hunting.",
+        "Start with producer. What does a plant make?"
+      ],
+      "explanation": "Producers make food using light and consumers eat other living things. Predators hunt prey, and prey are the animals that get eaten."
+    },
+    {
+      "id": "s4.food-chains.007",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at the food chain grass → rabbit → fox. What happens first if all the foxes disappear?",
+      "options": [
+        {
+          "text": "The number of rabbits goes down.",
+          "why": "Foxes eat rabbits. With no foxes, fewer rabbits are eaten."
+        },
+        {
+          "text": "The grass disappears at once.",
+          "why": "Grass would be eaten more over time, but not all at once."
+        },
+        {
+          "text": "Nothing changes.",
+          "why": "Removing one living thing affects the others in its chain."
+        },
+        {
+          "text": "The number of rabbits goes up."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Foxes eat rabbits.",
+        "Think about what stops eating the rabbits.",
+        "Would more or fewer rabbits survive?"
+      ],
+      "explanation": "With no foxes, fewer rabbits get eaten, so their numbers go up. Later, more rabbits would eat more grass.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.food-chains.008",
+      "skill": "s4.food-chains",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose 2 producers.",
+      "options": [
+        {
+          "text": "mango tree"
+        },
+        {
+          "text": "goat",
+          "why": "Goats eat plants. They are consumers."
+        },
+        {
+          "text": "mushroom",
+          "why": "Mushrooms cannot make food from light, so they are not producers."
+        },
+        {
+          "text": "seaweed"
+        },
+        {
+          "text": "frog",
+          "why": "Frogs eat insects. They are consumers."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Producers make their own food using light.",
+        "Producers are usually green.",
+        "Check each one: could it make food in sunlight?"
+      ],
+      "explanation": "Mango trees and seaweed use light to make food, so they are producers. Mushrooms, goats and frogs must get food from other living things.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.food-chains.009",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where does the energy in every food chain first come from?",
+      "options": [
+        {
+          "text": "the Sun"
+        },
+        {
+          "text": "the soil",
+          "why": "Soil gives plants water and minerals. The energy comes from sunlight."
+        },
+        {
+          "text": "the top predator",
+          "why": "The top predator is at the end of the chain, not the start."
+        },
+        {
+          "text": "water",
+          "why": "Living things need water, but it does not give them energy."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Every food chain starts with a plant.",
+        "Plants need something to make their food.",
+        "What do leaves catch?"
+      ],
+      "explanation": "Plants use energy from sunlight to make food. That energy passes along the chain when animals eat.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.food-chains.010",
+      "skill": "s4.food-chains",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many consumers are in this food chain?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "plant",
+            "label": "pond weed"
+          },
+          {
+            "icon": "tadpole",
+            "label": "tadpole"
+          },
+          {
+            "icon": "fish",
+            "label": "fish"
+          },
+          {
+            "icon": "bird",
+            "label": "heron"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Food chain: pond weed, arrow, tadpole, arrow, fish, arrow, heron."
+      },
+      "answer": 3,
+      "hints": [
+        "Consumers eat other living things.",
+        "The pond weed is a producer.",
+        "Count every living thing after the pond weed."
+      ],
+      "explanation": "The tadpole, fish and heron all eat other living things, so there are 3 consumers. The pond weed is the producer."
+    },
+    {
+      "id": "s4.food-chains.011",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a rice field, snakes eat rats and rats eat rice. People catch all the snakes. What happens to the rice?",
+      "options": [
+        {
+          "text": "The rice grows better, because snakes ate rice.",
+          "why": "Snakes do not eat rice. They eat rats."
+        },
+        {
+          "text": "More rice is eaten, because there are more rats."
+        },
+        {
+          "text": "Nothing happens to the rice.",
+          "why": "Removing snakes changes the number of rats, which affects the rice."
+        },
+        {
+          "text": "All the rats leave the field.",
+          "why": "With no snakes, rats are safer, so they stay."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Snakes eat rats.",
+        "Without snakes, what happens to the number of rats?",
+        "What do rats eat?"
+      ],
+      "explanation": "With no snakes, more rats survive. More rats eat more rice, so farmers lose more of their crop.",
+      "tags": [
+        "ksnr",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.food-chains.012",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The table shows what each animal eats. If all the grasshoppers die, which animal loses food first?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Animal",
+          "Eats"
+        ],
+        "rows": [
+          [
+            "grasshopper",
+            "grass"
+          ],
+          [
+            "rabbit",
+            "grass"
+          ],
+          [
+            "frog",
+            "grasshoppers"
+          ],
+          [
+            "snake",
+            "frogs and rabbits"
+          ],
+          [
+            "eagle",
+            "snakes"
+          ]
+        ],
+        "alt": "Table of what animals eat: grasshopper eats grass, rabbit eats grass, frog eats grasshoppers, snake eats frogs and rabbits, eagle eats snakes."
+      },
+      "options": [
+        {
+          "text": "rabbit",
+          "why": "Rabbits eat grass, not grasshoppers."
+        },
+        {
+          "text": "eagle",
+          "why": "Eagles eat snakes. They may be affected later, not first."
+        },
+        {
+          "text": "frog"
+        },
+        {
+          "text": "snake",
+          "why": "Snakes eat frogs and rabbits. They are affected later."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the animals that eat grasshoppers.",
+        "Read the Eats column.",
+        "Which animal eats only grasshoppers?"
+      ],
+      "explanation": "Frogs eat grasshoppers, so they lose their food first. Snakes might be affected later, but they can still eat rabbits.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.food-chains.013",
+      "skill": "s4.food-chains",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a food chain with a producer and three consumers. Draw the arrows the right way.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with a producer (a plant)",
+            "points": 1
+          },
+          {
+            "label": "Arrows point from the food to the eater",
+            "points": 2
+          },
+          {
+            "label": "Labels the producer and the consumers",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Start with a green plant.",
+        "Each arrow means is eaten by."
+      ],
+      "explanation": "A food chain starts with a plant. Each arrow points from the living thing that is eaten to the one that eats it."
+    }
+  ]
+}

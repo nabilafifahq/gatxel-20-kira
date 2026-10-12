@@ -1,0 +1,148 @@
+{
+  "skill": "s1.sounds",
+  "items": [
+    {
+      "id": "s1.sounds.001", "skill": "s1.sounds", "type": "mcq", "difficulty": 1,
+      "prompt": "Which musical instrument do you hit to play?",
+      "figure": { "kind": "icons", "items": [{ "icon": "whistle", "label": "whistle" }, { "icon": "guitar", "label": "guitar" }, { "icon": "drum", "label": "drum" }], "alt": "Three instruments: a whistle, a guitar and a drum." },
+      "options": [
+        { "text": "a whistle", "why": "You blow into a whistle." },
+        { "text": "a guitar", "why": "You pluck the strings of a guitar." },
+        { "text": "a drum" }
+      ],
+      "answer": 2,
+      "hints": ["Think about how each one is played.", "Which one has a tight skin on top?", "Act out playing each one with your hands."],
+      "explanation": "We hit a drum to make a sound. A whistle is blown and a guitar is plucked."
+    },
+    {
+      "id": "s1.sounds.002", "skill": "s1.sounds", "type": "mcq", "difficulty": 1,
+      "prompt": "Which body part do we hear with?",
+      "options": [
+        { "text": "eyes", "why": "Eyes help us see." },
+        { "text": "ears" },
+        { "text": "hands", "why": "Hands help us hold and touch things." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what you cover when a sound is too loud.", "Which parts are on the sides of your head?", "Put your hands over them and listen."],
+      "explanation": "We hear sounds with our ears."
+    },
+    {
+      "id": "s1.sounds.003", "skill": "s1.sounds", "type": "sort", "difficulty": 2,
+      "prompt": "Is the sound loud or quiet? Sort the cards.",
+      "groups": ["Loud", "Quiet"],
+      "items": [
+        { "text": "thunder", "group": 0 },
+        { "text": "a car horn", "group": 0 },
+        { "text": "a siren", "group": 0 },
+        { "text": "a whisper", "group": 1 },
+        { "text": "a ticking clock", "group": 1 },
+        { "text": "leaves rustling", "group": 1 }
+      ],
+      "hints": ["Loud sounds are easy to hear from far away.", "Imagine each sound in your classroom.", "Start with the thunder. Is it loud or quiet?"],
+      "explanation": "Thunder, a car horn and a siren are loud. A whisper, a ticking clock and rustling leaves are quiet."
+    },
+    {
+      "id": "s1.sounds.004", "skill": "s1.sounds", "type": "match", "difficulty": 2,
+      "prompt": "Match each sound to its source.",
+      "figure": { "kind": "icons", "items": [{ "icon": "cow", "label": "cow" }, { "icon": "duck", "label": "duck" }, { "icon": "bell", "label": "bell" }, { "icon": "dog", "label": "dog" }], "alt": "Four sound sources: a cow, a duck, a bell and a dog." },
+      "pairs": [["moo", "cow"], ["quack", "duck"], ["ding dong", "bell"], ["woof", "dog"]],
+      "hints": ["Say each sound aloud.", "Think about which animal or object makes it.", "Start with moo. Which farm animal says it?"],
+      "explanation": "A cow moos, a duck quacks, a bell goes ding dong and a dog woofs. Each sound comes from a source."
+    },
+    {
+      "id": "s1.sounds.005", "skill": "s1.sounds", "type": "mcq", "difficulty": 2,
+      "prompt": "Lily walks far away from the school bell. How does it sound?",
+      "figure": { "kind": "icons", "items": [{ "icon": "bell", "label": "bell" }, { "icon": "school", "label": "school" }], "alt": "A school bell." },
+      "options": [
+        { "text": "louder", "why": "Sounds get quieter as you move away from them." },
+        { "text": "quieter" },
+        { "text": "the same as close up", "why": "Sounds change with distance. Further away means quieter." }
+      ],
+      "answer": 1,
+      "hints": ["Think about hearing a sound close up and far away.", "Does a sound get weaker as it travels?", "Picture a friend calling you from across a field."],
+      "explanation": "Sounds get quieter the further you are from the source. Close up, the bell sounds louder."
+    },
+    {
+      "id": "s1.sounds.006", "skill": "s1.sounds", "type": "text", "difficulty": 2,
+      "prompt": "Anything that makes a sound is called a sound ___.",
+      "blanks": [{ "answers": ["source", "sources"] }],
+      "hints": ["It is the place where the sound comes from.", "A drum is one of these when you hit it.", "The word starts with s and rhymes with horse."],
+      "explanation": "Anything that makes a sound is a sound source. A bell, a drum and a dog are all sound sources."
+    },
+    {
+      "id": "s1.sounds.007", "skill": "s1.sounds", "type": "mcq", "difficulty": 3,
+      "prompt": "Why should you cover your ears near very loud sounds?",
+      "options": [
+        { "text": "to hear better", "why": "Covering your ears makes sounds quieter." },
+        { "text": "to keep them warm", "why": "The reason is the noise. Loud sounds can hurt ears." },
+        { "text": "to protect your ears" }
+      ],
+      "answer": 2,
+      "hints": ["Very loud sounds can harm our ears.", "Do covered ears let in more sound or less?", "Think about why workers wear ear covers near big machines."],
+      "explanation": "Very loud sounds can hurt our ears. Covering them lets in less sound and keeps them safe.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.sounds.008", "skill": "s1.sounds", "type": "mcq", "difficulty": 3,
+      "prompt": "How can you make a drum sound louder?",
+      "figure": { "kind": "icons", "items": [{ "icon": "drum", "label": "drum" }], "alt": "A drum with a tight skin on top." },
+      "options": [
+        { "text": "hit it harder" },
+        { "text": "hit it more gently", "why": "A gentle tap makes a quieter sound." },
+        { "text": "paint it red", "why": "The colour of a drum does not change its sound." }
+      ],
+      "answer": 0,
+      "hints": ["Think about tapping softly and hitting hard.", "Which makes a bigger sound?", "Tap your desk softly, then a little harder."],
+      "explanation": "Hitting a drum harder makes a louder sound. A gentle tap makes a quieter sound."
+    },
+    {
+      "id": "s1.sounds.009", "skill": "s1.sounds", "type": "order", "difficulty": 3,
+      "prompt": "Order the sounds from quietest to loudest.",
+      "items": ["a whisper", "talking", "shouting", "thunder"],
+      "hints": ["Start with the sound that is hardest to hear.", "Think about how far away you could hear each one.", "Put the whisper first. Which one is a bit louder?"],
+      "explanation": "A whisper is the quietest, then talking, then shouting. Thunder is the loudest."
+    },
+    {
+      "id": "s1.sounds.010", "skill": "s1.sounds", "type": "mcq", "difficulty": 4,
+      "prompt": "Leo cannot see the bird in the tree. How can he tell it is there?",
+      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "tree" }, { "icon": "bird", "label": "bird singing" }], "alt": "A tree with a bird hidden in the leaves, singing." },
+      "options": [
+        { "text": "by tasting the leaves", "why": "Never taste leaves you find. It would not help him find the bird." },
+        { "text": "by hearing it sing" },
+        { "text": "by touching the tree trunk", "why": "Touch tells him the bark is rough. It cannot find the bird." }
+      ],
+      "answer": 1,
+      "hints": ["Birds make sounds.", "Which sense works even when things are hidden?", "Close your eyes. What can you still notice in a garden?"],
+      "explanation": "Leo can hear the bird singing. The sound travels from the bird to his ears, even when he cannot see it.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.sounds.011", "skill": "s1.sounds", "type": "mcq", "difficulty": 4,
+      "prompt": "Hana's baby brother is asleep. How should she play her guitar?",
+      "figure": { "kind": "icons", "items": [{ "icon": "guitar", "label": "guitar" }, { "icon": "bed", "label": "sleeping baby" }], "alt": "A guitar and a baby asleep in bed." },
+      "options": [
+        { "text": "loudly, next to his bed", "why": "A loud sound close by would wake him up." },
+        { "text": "loudly, in his room", "why": "A loud sound in his room would reach his ears and wake him." },
+        { "text": "quietly, in another room" }
+      ],
+      "answer": 2,
+      "hints": ["A sleeping baby needs quiet.", "Think about two ways to make a sound quieter where he is.", "Remember what happens to sounds when you move further away."],
+      "explanation": "Playing quietly makes a smaller sound. Moving to another room means less sound reaches her brother's ears.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.sounds.012", "skill": "s1.sounds", "type": "mcq", "difficulty": 5,
+      "prompt": "Kenji touches his drum gently while it makes a sound. What does he feel?",
+      "figure": { "kind": "icons", "items": [{ "icon": "drum", "label": "drum" }, { "icon": "hand", "label": "hand" }], "alt": "A hand resting gently on a drum." },
+      "options": [
+        { "text": "It feels hot.", "why": "Playing a drum does not make it hot." },
+        { "text": "It shakes a little." },
+        { "text": "It feels wet.", "why": "A drum skin stays dry when it is played." }
+      ],
+      "answer": 1,
+      "hints": ["Sounds are made when things move very quickly.", "Think about touching a speaker that is playing music.", "Picture resting your fingers lightly on the drum."],
+      "explanation": "When a drum makes a sound, its skin shakes very fast. This shaking is called vibrating, and it makes the sound.",
+      "tags": ["iksc"]
+    }
+  ]
+}

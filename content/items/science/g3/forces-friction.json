@@ -1,0 +1,407 @@
+{
+  "skill": "s3.forces-friction",
+  "items": [
+    {
+      "id": "s3.forces-friction.001",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which force do you use to open a drawer?",
+      "options": [
+        {
+          "text": "a push",
+          "why": "You push to close a drawer. Opening it needs a pull."
+        },
+        {
+          "text": "a pull"
+        },
+        {
+          "text": "no force",
+          "why": "Anything that starts to move needs a force."
+        },
+        {
+          "text": "a magnetic force",
+          "why": "Your hand moves the drawer, not a magnet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about which way the drawer moves.",
+        "Does the drawer move towards you or away from you?",
+        "Moving something towards you is one kind of force."
+      ],
+      "explanation": "To open a drawer, you pull it towards you. A pull is a force."
+    },
+    {
+      "id": "s3.forces-friction.002",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is friction?",
+      "options": [
+        {
+          "text": "a force that pulls things down to the ground",
+          "why": "That is gravity, a different force."
+        },
+        {
+          "text": "a force made only by magnets",
+          "why": "Magnets make magnetic forces. Friction comes from surfaces rubbing."
+        },
+        {
+          "text": "a force between two surfaces that slows movement"
+        },
+        {
+          "text": "a kind of light",
+          "why": "Friction is a force, not light."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about rubbing your hands together.",
+        "Friction happens when surfaces touch and slide.",
+        "Does friction help things move or slow them down?"
+      ],
+      "explanation": "Friction is a force between two surfaces that rub together. It acts against movement and slows things down."
+    },
+    {
+      "id": "s3.forces-friction.003",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A toy car rolls down a ramp onto different surfaces. On which surface was friction greatest?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "carpet",
+          "wood",
+          "tiles",
+          "sandpaper"
+        ],
+        "values": [
+          60,
+          150,
+          190,
+          30
+        ],
+        "axisMax": 200,
+        "step": 50,
+        "yLabel": "Distance (cm)",
+        "tone": "science",
+        "alt": "Bar chart of distance travelled: carpet 60 cm, wood 150 cm, tiles 190 cm, sandpaper 30 cm."
+      },
+      "options": [
+        {
+          "text": "tiles",
+          "why": "The car went furthest on tiles, so friction was smallest there."
+        },
+        {
+          "text": "carpet",
+          "why": "The car went 60 cm on carpet. It stopped even sooner on another surface."
+        },
+        {
+          "text": "wood",
+          "why": "The car went 150 cm on wood, so friction was quite small."
+        },
+        {
+          "text": "sandpaper"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "More friction slows the car down sooner.",
+        "So the surface with most friction gives the shortest distance.",
+        "Find the shortest bar."
+      ],
+      "explanation": "The car stopped soonest on sandpaper, after only 30 cm. Rough sandpaper gave the most friction.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.forces-friction.004",
+      "skill": "s3.forces-friction",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How much further did the car travel on tiles than on carpet?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "carpet",
+          "wood",
+          "tiles",
+          "sandpaper"
+        ],
+        "values": [
+          60,
+          150,
+          190,
+          30
+        ],
+        "axisMax": 200,
+        "step": 50,
+        "yLabel": "Distance (cm)",
+        "tone": "science",
+        "alt": "Bar chart of distance travelled: carpet 60 cm, wood 150 cm, tiles 190 cm, sandpaper 30 cm."
+      },
+      "answer": 130,
+      "unit": "cm",
+      "hints": [
+        "Find the bars for tiles and carpet.",
+        "How much further means find the difference.",
+        "Take the carpet distance away from the tiles distance."
+      ],
+      "explanation": "The car went 190 cm on tiles and 60 cm on carpet. 190 take away 60 is 130 cm."
+    },
+    {
+      "id": "s3.forces-friction.005",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "After mopping, a shop puts out a Wet floor sign. Why is a wet floor slippery?",
+      "options": [
+        {
+          "text": "Water reduces the friction between shoes and the floor."
+        },
+        {
+          "text": "Water pushes your feet forwards.",
+          "why": "Water does not push your feet. It makes the floor slippery."
+        },
+        {
+          "text": "Water makes your shoes heavier.",
+          "why": "A little water hardly changes the weight of your shoes."
+        },
+        {
+          "text": "Wet floors have more friction.",
+          "why": "Water makes the surface slippery, so there is less friction."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Slippery means it is easy to slide.",
+        "Sliding is easier when friction is small.",
+        "Does water make friction bigger or smaller?"
+      ],
+      "explanation": "Water makes a thin slippery layer between shoes and the floor. This reduces friction, so feet can slide.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.forces-friction.006",
+      "skill": "s3.forces-friction",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 examples where friction is useful.",
+      "options": [
+        {
+          "text": "bike brakes rubbing on the wheels to stop"
+        },
+        {
+          "text": "oil helping a bike chain move smoothly",
+          "why": "Oil reduces friction. Here we want less friction, not more."
+        },
+        {
+          "text": "shoe soles gripping a path"
+        },
+        {
+          "text": "a child sliding fast down a smooth slide",
+          "why": "Here the fun comes from small friction."
+        },
+        {
+          "text": "ice skates gliding on ice",
+          "why": "Skaters glide because there is very little friction."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Useful friction helps you grip or stop.",
+        "Think about times when you do not want to slip.",
+        "Cross out examples where sliding is the aim."
+      ],
+      "explanation": "Brakes use friction to slow a bike down, and shoe soles use friction to grip. In the other examples, people want less friction."
+    },
+    {
+      "id": "s3.forces-friction.007",
+      "skill": "s3.forces-friction",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 things a force can do.",
+      "options": [
+        {
+          "text": "make something start moving"
+        },
+        {
+          "text": "change the colour of something",
+          "why": "Pushing or pulling does not change colour."
+        },
+        {
+          "text": "make something stop"
+        },
+        {
+          "text": "turn wood into metal",
+          "why": "A force cannot change one material into another."
+        },
+        {
+          "text": "change the shape of something"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about kicking a ball, catching it and squashing it.",
+        "Forces change how things move.",
+        "Forces can also squash or stretch."
+      ],
+      "explanation": "Forces can start or stop movement, speed things up, slow them down and change direction. They can also change shape by squashing, bending or stretching."
+    },
+    {
+      "id": "s3.forces-friction.008",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Sita pulls a brick across carpet with a forcemeter. It reads 6 N. On a smooth table it reads 2 N. Why?",
+      "options": [
+        {
+          "text": "The brick is lighter on the table.",
+          "why": "The brick has not changed. Only the surface changed."
+        },
+        {
+          "text": "There is less friction on the smooth table."
+        },
+        {
+          "text": "The forcemeter is broken.",
+          "why": "The readings make sense: different surfaces give different friction."
+        },
+        {
+          "text": "Carpet has no friction.",
+          "why": "The carpet needed the most force, so it has the most friction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The same brick was used both times.",
+        "What changed between the two pulls?",
+        "A bigger reading means more force was needed."
+      ],
+      "explanation": "Smooth surfaces give less friction than rough ones. Less force was needed on the table, so the reading was smaller.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.forces-friction.009",
+      "skill": "s3.forces-friction",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Forces are measured in units called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "newtons",
+            "newton"
+          ]
+        }
+      ],
+      "hints": [
+        "The unit is named after a famous scientist.",
+        "We use a forcemeter to measure it.",
+        "Its symbol is a capital N."
+      ],
+      "explanation": "Forces are measured in newtons (N). A forcemeter measures force."
+    },
+    {
+      "id": "s3.forces-friction.010",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why does a parachute fall slowly?",
+      "options": [
+        {
+          "text": "Parachutes are lighter than air.",
+          "why": "A parachute with a person is heavy. Air resistance slows it."
+        },
+        {
+          "text": "Gravity stops pulling on parachutes.",
+          "why": "Gravity still pulls it down. Air pushes up against it."
+        },
+        {
+          "text": "Air pushes up against its big surface."
+        },
+        {
+          "text": "The wind always blows upwards.",
+          "why": "Parachutes slow down even when there is no wind."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the shape of a parachute.",
+        "Air resistance is a kind of friction with the air.",
+        "What does a big surface catch as it falls?"
+      ],
+      "explanation": "A parachute has a big surface that pushes against lots of air. This air resistance slows the fall.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.forces-friction.011",
+      "skill": "s3.forces-friction",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the surfaces from most friction to least friction.",
+      "items": [
+        "sandpaper",
+        "carpet",
+        "wooden floor",
+        "ice"
+      ],
+      "hints": [
+        "Rough surfaces have more friction.",
+        "Think about which surface would be hardest to slide on.",
+        "Start with the roughest surface."
+      ],
+      "explanation": "Sandpaper is roughest, so it has most friction. Ice is smoothest and most slippery, so it has least."
+    },
+    {
+      "id": "s3.forces-friction.012",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Car tyres have deep grooves. How do the grooves help on a wet road?",
+      "options": [
+        {
+          "text": "They make the tyres lighter.",
+          "why": "Grooves remove only a little rubber. Weight is not the reason."
+        },
+        {
+          "text": "They reduce friction so the car goes faster.",
+          "why": "On wet roads we need more grip, not less."
+        },
+        {
+          "text": "They make the tyres look nicer.",
+          "why": "Grooves have a real job to do."
+        },
+        {
+          "text": "They let water escape so the rubber can grip the road."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "On a wet road, water can get between the tyre and the road.",
+        "Water makes surfaces slippery.",
+        "Where could the water go if there were channels in the tyre?"
+      ],
+      "explanation": "The grooves give water somewhere to go. More rubber touches the road, so there is enough friction to grip.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

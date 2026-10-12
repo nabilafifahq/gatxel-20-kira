@@ -1,0 +1,236 @@
+{
+  "skill": "s2.habitats",
+  "items": [
+    {
+      "id": "s2.habitats.001", "skill": "s2.habitats", "type": "mcq", "difficulty": 1,
+      "prompt": "What is a habitat?",
+      "options": [
+        { "text": "a kind of food", "why": "Food is something a habitat gives an animal. A habitat is a place." },
+        { "text": "the place where a plant or animal lives" },
+        { "text": "a baby animal", "why": "A baby animal is called its young." },
+        { "text": "a type of weather", "why": "Weather is rain, sun or wind. A habitat is a place." }
+      ],
+      "answer": 1,
+      "hints": ["A habitat is a kind of home.", "Think about where a fish or a camel lives.", "Ask: is a pond a food, a place or a type of weather?"],
+      "explanation": "A habitat is the place where a plant or animal lives. It gives the living thing food, water and shelter."
+    },
+    {
+      "id": "s2.habitats.002", "skill": "s2.habitats", "type": "match", "difficulty": 2,
+      "prompt": "Match each animal to its habitat.",
+      "figure": { "kind": "icons", "items": [{ "icon": "camel", "label": "camel" }, { "icon": "polar-bear", "label": "polar bear" }, { "icon": "fish", "label": "fish" }, { "icon": "monkey", "label": "monkey" }, { "icon": "crab", "label": "crab" }], "alt": "Five animals: a camel, a polar bear, a fish, a monkey and a crab." },
+      "pairs": [["camel", "desert"], ["polar bear", "icy Arctic"], ["fish", "pond"], ["monkey", "rainforest"], ["crab", "seashore"]],
+      "hints": ["Think about where you have seen each animal on TV or in books.", "Match the ones you are sure about first.", "Start with the camel. Is its home hot and sandy or cold and icy?"],
+      "explanation": "Camels live in deserts, polar bears in the icy Arctic, fish in ponds, monkeys in rainforests and crabs on the seashore."
+    },
+    {
+      "id": "s2.habitats.003", "skill": "s2.habitats", "type": "sort", "difficulty": 2,
+      "prompt": "Pond or desert? Sort the living things.",
+      "figure": { "kind": "icons", "items": [{ "icon": "pond", "label": "pond" }, { "icon": "desert", "label": "desert" }], "alt": "A pond habitat and a desert habitat." },
+      "groups": ["Pond", "Desert"],
+      "items": [
+        { "text": "frog", "group": 0 },
+        { "text": "duck", "group": 0 },
+        { "text": "tadpole", "group": 0 },
+        { "text": "camel", "group": 1 },
+        { "text": "cactus", "group": 1 },
+        { "text": "desert lizard", "group": 1 }
+      ],
+      "hints": ["A pond is wet. A desert is very dry.", "Ask: does this living thing need lots of water around it?", "Start with the tadpole. Can it live out of water?"],
+      "explanation": "Frogs, ducks and tadpoles live in or near ponds. Camels, cactuses and desert lizards are suited to the hot, dry desert."
+    },
+    {
+      "id": "s2.habitats.004", "skill": "s2.habitats", "type": "mcq", "difficulty": 2,
+      "prompt": "Which animal is best suited to a hot, dry desert?",
+      "options": [
+        { "text": "a polar bear", "why": "A polar bear has thick fur for icy places. It would get too hot." },
+        { "text": "a whale", "why": "A whale needs to live in the sea." },
+        { "text": "a camel" },
+        { "text": "a frog", "why": "A frog needs damp places and water for its eggs." }
+      ],
+      "answer": 2,
+      "hints": ["Think about which animal can go a long time without water.", "Which animal has wide feet for walking on sand?", "Ask: which animal is often shown in pictures of sand dunes?"],
+      "explanation": "A camel is suited to the desert. It can go a long time without drinking, and its wide feet do not sink in the sand."
+    },
+    {
+      "id": "s2.habitats.005", "skill": "s2.habitats", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the ways a camel is suited to the desert.",
+      "figure": { "kind": "icons", "items": [{ "icon": "camel", "label": "camel" }, { "icon": "desert", "label": "desert" }], "alt": "A camel walking in a sandy desert." },
+      "options": [
+        { "text": "wide feet that do not sink in sand" },
+        { "text": "long eyelashes to keep sand out" },
+        { "text": "can go a long time without drinking" },
+        { "text": "thick white fur for the snow", "why": "Deserts are hot and sandy. Thick white fur suits polar bears in the snow." },
+        { "text": "gills to breathe underwater", "why": "Camels breathe air with lungs. Gills are for fish." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about what is hard about living in a desert.", "Deserts are hot, sandy and dry.", "Start with the wide feet. How would they help on soft sand?"],
+      "explanation": "Wide feet stop a camel sinking in sand, long eyelashes keep sand out of its eyes and it can go a long time without water."
+    },
+    {
+      "id": "s2.habitats.006", "skill": "s2.habitats", "type": "mcq", "difficulty": 4,
+      "prompt": "What does a camel store in its hump?",
+      "options": [
+        { "text": "water", "why": "Many people think so, but the hump stores fat." },
+        { "text": "fat" },
+        { "text": "sand", "why": "Sand stays outside the camel." },
+        { "text": "air", "why": "Camels breathe air into their lungs. The hump is fat." }
+      ],
+      "answer": 1,
+      "hints": ["Many people get this one wrong.", "The camel uses what is in the hump when food is hard to find.", "Ask: what store helps an animal when there is little food?"],
+      "explanation": "A camel's hump stores fat. The camel can use this fat when there is little food in the desert.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.habitats.007", "skill": "s2.habitats", "type": "text", "difficulty": 2,
+      "prompt": "A polar bear has thick ___ to keep it warm.",
+      "figure": { "kind": "icons", "items": [{ "icon": "polar-bear", "label": "polar bear" }, { "icon": "arctic", "label": "Arctic" }], "alt": "A polar bear in the icy Arctic." },
+      "blanks": [{ "answers": ["fur", "white fur", "thick fur", "fat", "fur and fat"] }],
+      "hints": ["Look at what covers the polar bear's body.", "It is white and soft, like a warm coat.", "Think about what keeps a cat warm."],
+      "explanation": "A polar bear has thick fur and a layer of fat under its skin. They keep it warm in the icy Arctic."
+    },
+    {
+      "id": "s2.habitats.008", "skill": "s2.habitats", "type": "mcq", "difficulty": 3,
+      "prompt": "Why do fish not need to come up for air?",
+      "figure": { "kind": "icons", "items": [{ "icon": "fish", "label": "fish" }], "alt": "A fish swimming under water." },
+      "options": [
+        { "text": "They hold their breath all day.", "why": "Fish breathe all the time, using their gills." },
+        { "text": "They breathe through their fins.", "why": "Fins help fish swim. Gills help them breathe." },
+        { "text": "They breathe with gills under water." },
+        { "text": "They never need air.", "why": "Fish do need air. Their gills take in air that is mixed into the water." }
+      ],
+      "answer": 2,
+      "hints": ["Look at the sides of a fish's head.", "Fish have special body parts for breathing in water.", "Ask: which body part takes air from the water?"],
+      "explanation": "Fish breathe with gills. Gills take in the air that is mixed into the water, so fish can stay under water."
+    },
+    {
+      "id": "s2.habitats.009", "skill": "s2.habitats", "type": "sort", "difficulty": 3,
+      "prompt": "Where would you find each animal? Sort the cards.",
+      "groups": ["Under a log or stone", "Up in a tree"],
+      "items": [
+        { "text": "worm", "group": 0 },
+        { "text": "woodlouse", "group": 0 },
+        { "text": "centipede", "group": 0 },
+        { "text": "bird", "group": 1 },
+        { "text": "monkey", "group": 1 },
+        { "text": "owl", "group": 1 }
+      ],
+      "hints": ["Some small animals like damp, dark places.", "Other animals need branches to climb, rest or nest.", "Start with the worm. Does it like dark, damp soil?"],
+      "explanation": "Worms, woodlice and centipedes like the damp, dark places under logs and stones. Birds, monkeys and owls live up in trees."
+    },
+    {
+      "id": "s2.habitats.010", "skill": "s2.habitats", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the animals you might find in a flooded rice field.",
+      "figure": { "kind": "icons", "items": [{ "icon": "farm", "label": "rice field" }, { "icon": "water-drop", "label": "water" }], "alt": "A flooded rice field with shallow water." },
+      "options": [
+        { "text": "frogs" },
+        { "text": "ducks" },
+        { "text": "snails" },
+        { "text": "camels", "why": "Camels live in dry deserts." },
+        { "text": "polar bears", "why": "Polar bears live in the icy Arctic." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["A rice field is warm, wet and muddy.", "Think about animals that like shallow water.", "Start with the frogs. Do they like wet places?"],
+      "explanation": "Frogs, ducks and snails all live in flooded rice fields. The shallow, warm water gives them food and shelter."
+    },
+    {
+      "id": "s2.habitats.011", "skill": "s2.habitats", "type": "mcq", "difficulty": 4,
+      "prompt": "An owl hunts at night. Which feature helps it most?",
+      "figure": { "kind": "icons", "items": [{ "icon": "owl", "label": "owl" }, { "icon": "moon", "label": "night" }], "alt": "An owl at night." },
+      "options": [
+        { "text": "webbed feet", "why": "Webbed feet help ducks swim." },
+        { "text": "a hump", "why": "A hump helps a camel in the desert." },
+        { "text": "gills", "why": "Gills help fish breathe in water." },
+        { "text": "big eyes for seeing in dim light" }
+      ],
+      "answer": 3,
+      "hints": ["Night is dark. What is hard about hunting then?", "Think about which sense the owl needs most at night.", "Look at the owl's face. What is very big?"],
+      "explanation": "An owl has big eyes that help it see in dim light. It also has very good hearing to find animals in the dark.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.habitats.012", "skill": "s2.habitats", "type": "mcq", "difficulty": 3,
+      "prompt": "A cactus lives in the desert. How is it suited to living there?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cactus", "label": "cactus" }], "alt": "A cactus with a thick stem and spines." },
+      "options": [
+        { "text": "It stores water in its thick stem." },
+        { "text": "It has big, thin leaves.", "why": "Big thin leaves would lose water quickly. A cactus has spines." },
+        { "text": "It needs rain every day.", "why": "Deserts get very little rain." },
+        { "text": "It grows in deep water.", "why": "Deserts have very little water." }
+      ],
+      "answer": 0,
+      "hints": ["Deserts get very little rain.", "Think about how the cactus keeps water for dry days.", "Look at the thickest part of the cactus."],
+      "explanation": "A cactus stores water in its thick stem. Its spines lose very little water and keep thirsty animals away."
+    },
+    {
+      "id": "s2.habitats.013", "skill": "s2.habitats", "type": "mcq", "difficulty": 5,
+      "prompt": "Polar bears and penguins can both live in icy places. Which is true?",
+      "figure": { "kind": "icons", "items": [{ "icon": "polar-bear", "label": "polar bear" }, { "icon": "penguin", "label": "penguin" }, { "icon": "earth", "label": "Earth" }], "alt": "A polar bear, a penguin and the Earth." },
+      "options": [
+        { "text": "They live together near the North Pole.", "why": "Penguins live in the south of the world, so wild penguins and polar bears never meet." },
+        { "text": "Polar bears live in the north and most penguins live in the south." },
+        { "text": "Both of them live in hot deserts.", "why": "Both are suited to cold water and ice." },
+        { "text": "Penguins are a kind of bear.", "why": "Penguins are birds. They have feathers and lay eggs." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the top and the bottom of a globe.", "Polar bears live in the Arctic. Is that in the north or the south?", "Ask: do you ever see polar bears and penguins in the same wild place?"],
+      "explanation": "Polar bears live in the Arctic, near the North Pole. Most penguins live in the far south, near Antarctica. They never meet in the wild.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.habitats.014", "skill": "s2.habitats", "type": "mcq", "difficulty": 5,
+      "prompt": "Look at the food chain. What would happen to the birds if all the caterpillars disappeared?",
+      "figure": { "kind": "icons", "items": [{ "icon": "leaf", "label": "leaf" }, { "icon": "caterpillar", "label": "caterpillar" }, { "icon": "bird", "label": "bird" }], "arrows": "chain", "alt": "Food chain: a leaf is eaten by a caterpillar, and the caterpillar is eaten by a bird." },
+      "options": [
+        { "text": "They would have more food.", "why": "The birds eat caterpillars, so they would have less food." },
+        { "text": "Nothing would change.", "why": "The birds need the caterpillars for food." },
+        { "text": "They would have less food." },
+        { "text": "The leaves would disappear too.", "why": "With no caterpillars eating them, there might be more leaves." }
+      ],
+      "answer": 2,
+      "hints": ["Follow the arrows. Who eats whom?", "The arrow points from the food to the animal that eats it.", "Ask: what does the bird eat in this chain?"],
+      "explanation": "In this food chain the birds eat caterpillars. Without caterpillars, the birds would have less food and would need to find other food.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.habitats.015", "skill": "s2.habitats", "type": "mcq", "difficulty": 3,
+      "prompt": "Orangutans live in rainforests in Sumatra and Borneo. Why do they need the forest?",
+      "figure": { "kind": "icons", "items": [{ "icon": "monkey", "label": "orangutan" }, { "icon": "forest", "label": "rainforest" }], "alt": "An orangutan in a rainforest tree." },
+      "options": [
+        { "text": "They like cold snow.", "why": "Rainforests are warm and wet, with no snow." },
+        { "text": "They need the sea to swim in.", "why": "Orangutans live in the trees. They do not swim in the sea." },
+        { "text": "Rainforests have no other animals.", "why": "Rainforests are full of many kinds of animals." },
+        { "text": "The trees give them food and shelter." }
+      ],
+      "answer": 3,
+      "hints": ["Think about what every habitat gives an animal.", "Orangutans eat fruit and sleep in nests high up.", "Ask: where do they find fruit and build their nests?"],
+      "explanation": "The rainforest trees give orangutans fruit to eat and branches to build nests for sleeping. The forest is their habitat.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.habitats.016", "skill": "s2.habitats", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a pond habitat. Show and label three living things.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws the water and plants of a pond", "points": 1 },
+        { "label": "Draws three living things that live in or near a pond", "points": 2 },
+        { "label": "Labels the living things", "points": 1 }
+      ] },
+      "hints": ["Frogs, fish, ducks and water plants live in or near ponds.", "Add plants at the edge and in the water."],
+      "explanation": "A pond is a habitat. Fish, frogs, ducks, snails and water plants find food, water and shelter there."
+    },
+    {
+      "id": "s2.habitats.017", "skill": "s2.habitats", "type": "multi", "difficulty": 1,
+      "prompt": "Choose the three things a habitat gives an animal.",
+      "options": [
+        { "text": "food" },
+        { "text": "water" },
+        { "text": "shelter" },
+        { "text": "toys", "why": "Wild animals do not need toys." },
+        { "text": "money", "why": "Animals do not use money." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about what an animal needs to stay alive.", "Animals need to eat, drink and stay safe.", "Start with food. Does every animal need it?"],
+      "explanation": "A habitat gives an animal food, water and shelter, a safe place to rest and raise its young."
+    }
+  ]
+}

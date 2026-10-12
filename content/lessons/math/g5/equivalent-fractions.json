@@ -1,0 +1,120 @@
+{
+  "skill": "m5.equivalent-fractions",
+  "title": "Equivalent fractions",
+  "steps": [
+    {
+      "say": "Equivalent fractions are the same amount written in different ways. Here is one half.",
+      "show": "1/2",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 2,
+        "shaded": 1,
+        "label": "1/2",
+        "alt": "A bar split into 2 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Cut each half into 4 equal pieces. Now 4 of the 8 pieces are shaded, which is the same amount.",
+      "show": "1/2 = 4/8",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 4,
+        "label": "4/8",
+        "alt": "A bar split into 8 equal parts with 4 parts shaded."
+      }
+    },
+    {
+      "say": "Multiply the numerator and denominator by the same number to make an equivalent fraction.",
+      "show": "2/3 = (2 × 4)/(3 × 4) = 8/12"
+    },
+    {
+      "say": "Divide both by the same number to simplify. Use the highest common factor to do it in one step.",
+      "show": "12/18 = (12 ÷ 6)/(18 ÷ 6) = 2/3"
+    },
+    {
+      "say": "A fraction is in its simplest form when 1 is the only common factor of the numerator and denominator.",
+      "show": "2/3 is in its simplest form"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.equivalent-fractions.901",
+      "skill": "m5.equivalent-fractions",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Find the missing number: 3/4 = ?/20",
+      "hints": [
+        "How do you get from 4 to 20?",
+        "Multiply the numerator by the same number.",
+        "4 × 5 = 20."
+      ],
+      "explanation": "4 × 5 = 20, so multiply 3 by 5 too. 3/4 = 15/20.",
+      "answer": 15
+    },
+    {
+      "id": "m5.equivalent-fractions.902",
+      "skill": "m5.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is 18/24 in its simplest form?",
+      "hints": [
+        "Find a number that divides into both 18 and 24.",
+        "Use the highest common factor to simplify in one step.",
+        "The factors of 18 are 1, 2, 3, 6, 9 and 18."
+      ],
+      "explanation": "The highest common factor of 18 and 24 is 6. 18 ÷ 6 = 3 and 24 ÷ 6 = 4, so 18/24 = 3/4.",
+      "options": [
+        {
+          "text": "9/12",
+          "why": "9/12 is equal, but 9 and 12 can both still be divided by 3."
+        },
+        {
+          "text": "6/8",
+          "why": "6/8 can still be simplified by dividing by 2."
+        },
+        {
+          "text": "2/3",
+          "why": "2/3 is the same as 16/24, not 18/24."
+        },
+        {
+          "text": "3/4"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.equivalent-fractions.903",
+      "skill": "m5.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which fraction is equivalent to 2/5?",
+      "hints": [
+        "Equivalent fractions come from multiplying the top and bottom by the same number.",
+        "Check each option to see what 2 and 5 were multiplied by.",
+        "Does the same number take 2 to the new numerator and 5 to the new denominator?"
+      ],
+      "explanation": "2 × 3 = 6 and 5 × 3 = 15, so 6/15 is equivalent to 2/5.",
+      "options": [
+        {
+          "text": "6/15"
+        },
+        {
+          "text": "4/7",
+          "why": "Adding 2 to both numbers changes the fraction. Multiply instead."
+        },
+        {
+          "text": "2/10",
+          "why": "Only the denominator was multiplied. Multiply both numbers."
+        },
+        {
+          "text": "5/2",
+          "why": "That fraction is upside down, and it is more than 1."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

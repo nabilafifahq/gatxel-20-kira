@@ -1,0 +1,120 @@
+{
+  "skill": "m3.pictograms-bars",
+  "title": "Pictograms and bar charts",
+  "steps": [
+    {
+      "say": "A pictogram uses symbols. The key tells you what one symbol means.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Books read",
+        "rows": [
+          {
+            "label": "Monday",
+            "count": 3
+          },
+          {
+            "label": "Tuesday",
+            "count": 5
+          }
+        ],
+        "icon": "book",
+        "key": 2,
+        "alt": "Pictogram of books read. Each symbol means 2 books. Monday: 3 symbols. Tuesday: 5 symbols."
+      }
+    },
+    {
+      "say": "Each symbol means 2 books. Monday has 3 symbols.",
+      "show": "3 × 2 = 6 books"
+    },
+    {
+      "say": "A bar chart uses bars. Read across from the top of a bar to the scale.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Red",
+          "Blue",
+          "Green"
+        ],
+        "values": [
+          6,
+          10,
+          4
+        ],
+        "step": 2,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite colours: Red 6, Blue 10, Green 4."
+      }
+    },
+    {
+      "say": "The Blue bar reaches 10, so 10 children chose blue.",
+      "show": "Blue: 10"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.pictograms-bars.901",
+      "skill": "m3.pictograms-bars",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Each symbol means 2 children. How many children chose cats?",
+      "answer": 8,
+      "hints": [
+        "Look at the key first.",
+        "Count the symbols in the Cats row.",
+        "Count in 2s, one step for each symbol."
+      ],
+      "explanation": "Cats has 4 symbols. 4 × 2 = 8 children.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite pets",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 4
+          },
+          {
+            "label": "Fish",
+            "count": 2
+          },
+          {
+            "label": "Birds",
+            "count": 3
+          }
+        ],
+        "icon": "cat",
+        "key": 2,
+        "alt": "Pictogram of favourite pets. Each symbol means 2 children. Cats: 4 symbols. Fish: 2 symbols. Birds: 3 symbols."
+      }
+    },
+    {
+      "id": "m3.pictograms-bars.902",
+      "skill": "m3.pictograms-bars",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more children chose football than swimming?",
+      "answer": 6,
+      "hints": [
+        "Read the Football bar and the Swimming bar.",
+        "Take the smaller number away from the bigger one.",
+        "The Swimming bar reaches 8."
+      ],
+      "explanation": "Football has 14 and swimming has 8. 14 - 8 = 6.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Football",
+          "Swimming",
+          "Badminton"
+        ],
+        "values": [
+          14,
+          8,
+          10
+        ],
+        "step": 2,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite sports: Football 14, Swimming 8, Badminton 10."
+      }
+    }
+  ]
+}

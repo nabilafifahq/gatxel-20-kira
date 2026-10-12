@@ -1,0 +1,95 @@
+{
+  "skill": "s4.muscles-joints",
+  "title": "How muscles move bones",
+  "steps": [
+    {
+      "say": "Bones cannot move by themselves. Muscles pull on them to move them.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bone",
+            "label": "bone"
+          },
+          {
+            "icon": "muscle",
+            "label": "muscle"
+          }
+        ],
+        "alt": "A bone and a muscle."
+      }
+    },
+    {
+      "say": "A joint is where two bones meet. Your elbow, knee and shoulder are joints.",
+      "show": "joint = where bones meet"
+    },
+    {
+      "say": "Tendons join muscles to bones. When a muscle contracts, it gets shorter and pulls the bone.",
+      "show": "contract = get shorter and pull"
+    },
+    {
+      "say": "Muscles can only pull, so they work in pairs. One pulls a bone one way, and the other pulls it back."
+    },
+    {
+      "say": "To bend your arm, the biceps contracts and the triceps relaxes. To straighten it, the triceps contracts.",
+      "show": "bend: biceps. straighten: triceps."
+    },
+    {
+      "say": "Elbows and knees are hinge joints. Shoulders and hips are ball-and-socket joints."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.muscles-joints.901",
+      "skill": "s4.muscles-joints",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which muscle contracts to bend your arm?",
+      "options": [
+        {
+          "text": "the biceps"
+        },
+        {
+          "text": "the triceps",
+          "why": "The triceps straightens the arm."
+        },
+        {
+          "text": "the heart",
+          "why": "The heart pumps blood."
+        },
+        {
+          "text": "the tongue",
+          "why": "The tongue helps you eat and talk."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "This muscle is on the front of your upper arm.",
+        "It bulges when you curl your arm.",
+        "It is the partner of the triceps."
+      ],
+      "explanation": "The biceps contracts and pulls the lower arm up, so the arm bends."
+    },
+    {
+      "id": "s4.muscles-joints.902",
+      "skill": "s4.muscles-joints",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A muscle can only ___ a bone. It can never push it.",
+      "blanks": [
+        {
+          "answers": [
+            "pull",
+            "pulls"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what a shorter muscle does to a bone.",
+        "It is the opposite of push.",
+        "It rhymes with full."
+      ],
+      "explanation": "Muscles pull on bones by contracting. They cannot push."
+    }
+  ]
+}

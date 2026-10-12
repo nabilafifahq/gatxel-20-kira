@@ -1,0 +1,85 @@
+{
+  "skill": "e1.word-endings",
+  "title": "Endings: -s, -es and -ing",
+  "steps": [
+    {
+      "say": "For more than one, we usually add s.",
+      "show": "one cat, two cats",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "cat",
+            "count": 2
+          }
+        ],
+        "alt": "Two cats."
+      }
+    },
+    {
+      "say": "Words that end in s, x, sh or ch add es.",
+      "show": "bus, buses / box, boxes / dish, dishes"
+    },
+    {
+      "say": "Say it aloud. You can hear the extra sound in boxes.",
+      "show": "box, boxes"
+    },
+    {
+      "say": "Add ing to a doing word to show it is happening now.",
+      "show": "jump, jumping"
+    },
+    {
+      "say": "We use is or are before the ing word.",
+      "show": "The baby is sleeping."
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.word-endings.901",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the missing word. 'One cup, two ___.'",
+      "hints": [
+        "Two means more than one.",
+        "Cup does not end in s, x, sh or ch.",
+        "Add one letter."
+      ],
+      "explanation": "For more than one cup, add s: cups.",
+      "options": [
+        {
+          "text": "cupes",
+          "why": "Cup just adds s."
+        },
+        {
+          "text": "cup",
+          "why": "Cup is for one."
+        },
+        {
+          "text": "cups"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-endings.902",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the word for more than one fox.",
+      "hints": [
+        "Fox ends with x.",
+        "Words that end with x add -es.",
+        "Write fox first."
+      ],
+      "explanation": "Fox ends with x, so it adds -es: foxes.",
+      "blanks": [
+        {
+          "answers": [
+            "foxes"
+          ]
+        }
+      ]
+    }
+  ]
+}

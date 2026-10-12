@@ -1,0 +1,122 @@
+{
+  "skill": "m3.position-direction",
+  "title": "North, south, east and west",
+  "steps": [
+    {
+      "say": "A compass shows four directions: north, east, south and west.",
+      "show": "N, E, S, W"
+    },
+    {
+      "say": "On a map, north is usually at the top and south is at the bottom."
+    },
+    {
+      "say": "East is on the right and west is on the left.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 2,
+            "y": 3,
+            "label": "H"
+          },
+          {
+            "x": 5,
+            "y": 3,
+            "label": "S"
+          }
+        ],
+        "alt": "A grid with point H and point S, 3 squares to the right of H."
+      },
+      "show": "S is 3 squares east of H"
+    },
+    {
+      "say": "Clockwise turns go the same way as the hands of a clock.",
+      "show": "north, east, south, west"
+    },
+    {
+      "say": "A quarter turn clockwise from north faces east."
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.position-direction.901",
+      "skill": "m3.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Nadia faces north and makes a quarter turn clockwise. Which way does Nadia face now?",
+      "options": [
+        {
+          "text": "South",
+          "why": "South is a half turn from north."
+        },
+        {
+          "text": "West",
+          "why": "West is a quarter turn anticlockwise from north."
+        },
+        {
+          "text": "East"
+        },
+        {
+          "text": "North",
+          "why": "Nadia faces north again only after a whole turn."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Clockwise goes the same way as clock hands.",
+        "Picture the compass with north at the top.",
+        "Turn one quarter of the way round."
+      ],
+      "explanation": "A quarter turn clockwise from north faces east."
+    },
+    {
+      "id": "m3.position-direction.902",
+      "skill": "m3.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "North is at the top of the grid. In which direction is S from H?",
+      "options": [
+        {
+          "text": "West",
+          "why": "West is to the left. S is straight above H."
+        },
+        {
+          "text": "East",
+          "why": "East is to the right. S is straight above H."
+        },
+        {
+          "text": "South",
+          "why": "South is down the grid. S is above H."
+        },
+        {
+          "text": "North"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "North is at the top of the grid.",
+        "Start at H and move to S.",
+        "Do you move up, down, left or right?"
+      ],
+      "explanation": "S is straight above H. Up is north, so S is north of H.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 2,
+            "y": 1,
+            "label": "H"
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "label": "S"
+          }
+        ],
+        "alt": "A grid with point H and point S, 3 squares above H."
+      }
+    }
+  ]
+}

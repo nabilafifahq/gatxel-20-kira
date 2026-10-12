@@ -1,0 +1,617 @@
+{
+  "skill": "e2.vowel-spellings",
+  "items": [
+    {
+      "id": "e2.vowel-spellings.001",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which letters finish the word? sp ___ n",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "spoon"
+          }
+        ],
+        "alt": "A spoon."
+      },
+      "hints": [
+        "Say the picture name slowly.",
+        "Listen to the long sound in the middle.",
+        "It is the same sound as in moon."
+      ],
+      "explanation": "Spoon is spelt s, p, oo, n. The oo makes the long sound you hear in moon.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "oo"
+        },
+        {
+          "text": "oa",
+          "why": "That spells spoan, which is not a word. Say the picture name again."
+        },
+        {
+          "text": "ow",
+          "why": "That spells spown, which is not a word."
+        },
+        {
+          "text": "ee",
+          "why": "That spells speen, which is not a word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.vowel-spellings.002",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word finishes the sentence? 'Can you come out to ___?'",
+      "hints": [
+        "All four words try to spell the same word.",
+        "The long a sound comes at the end of this word.",
+        "At the end of a word, long a is often spelt with a and y."
+      ],
+      "explanation": "Play is spelt p, l, ay. At the end of a word, the long a sound is usually spelt ay.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "plai",
+          "why": "Long a at the end of a word is usually spelt ay."
+        },
+        {
+          "text": "play"
+        },
+        {
+          "text": "pley",
+          "why": "This is not how we spell it."
+        },
+        {
+          "text": "plae",
+          "why": "This is not how we spell it."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.vowel-spellings.003",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which letters are missing? l ___ f",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "leaf"
+          }
+        ],
+        "alt": "A green leaf."
+      },
+      "hints": [
+        "Say the picture name.",
+        "The middle sound is a long e.",
+        "Long e can be ee or ea. Try both and look at them."
+      ],
+      "explanation": "Leaf is spelt l, ea, f. Ea is one way to spell the long e sound.",
+      "options": [
+        {
+          "text": "ee",
+          "why": "Leef is not the right spelling."
+        },
+        {
+          "text": "ai",
+          "why": "Laif is not a word."
+        },
+        {
+          "text": "ea"
+        },
+        {
+          "text": "oa",
+          "why": "Loaf is a word, but it means bread, not this picture."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.vowel-spellings.004",
+      "skill": "e2.vowel-spellings",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort by the vowel sound. Does it sound like rain or like tree?",
+      "hints": [
+        "Say each word out loud.",
+        "Listen to the long vowel sound, not the letters.",
+        "Start with play. Does it sound like rain?"
+      ],
+      "explanation": "Play, tail and stay have the long a sound, like rain. Sea, green and beach have the long e sound, like tree.",
+      "groups": [
+        "Sounds like rain",
+        "Sounds like tree"
+      ],
+      "items": [
+        {
+          "text": "play",
+          "group": 0
+        },
+        {
+          "text": "sea",
+          "group": 1
+        },
+        {
+          "text": "tail",
+          "group": 0
+        },
+        {
+          "text": "green",
+          "group": 1
+        },
+        {
+          "text": "stay",
+          "group": 0
+        },
+        {
+          "text": "beach",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.005",
+      "skill": "e2.vowel-spellings",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the word for this animal.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "snail"
+          }
+        ],
+        "alt": "A snail with a shell on its back."
+      },
+      "hints": [
+        "Say the word slowly.",
+        "The long a sound is in the middle of the word.",
+        "In the middle of a word, long a is often spelt ai."
+      ],
+      "explanation": "Snail is spelt s, n, ai, l. The long a in the middle is spelt ai.",
+      "blanks": [
+        {
+          "answers": [
+            "snail"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.006",
+      "skill": "e2.vowel-spellings",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match the words that have the same vowel sound.",
+      "hints": [
+        "Say each word out loud.",
+        "Listen to the long vowel sound, not the letters.",
+        "Start with rain. Which word has the same long sound?"
+      ],
+      "explanation": "Rain and play share long a, and sea and tree share long e. Night and pie share long i, and boat and snow share long o.",
+      "pairs": [
+        [
+          "rain",
+          "play"
+        ],
+        [
+          "sea",
+          "tree"
+        ],
+        [
+          "night",
+          "pie"
+        ],
+        [
+          "boat",
+          "snow"
+        ]
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.007",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word has the same vowel sound as boat?",
+      "hints": [
+        "Say boat slowly.",
+        "The long o sound can be spelt in different ways.",
+        "Be careful: ow can make two different sounds."
+      ],
+      "explanation": "Snow and boat both have the long o sound. In cow, ow makes a different sound.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "snow"
+        },
+        {
+          "text": "cow",
+          "why": "In cow, ow sounds like the ow in ouch."
+        },
+        {
+          "text": "book",
+          "why": "Book has a short oo sound."
+        },
+        {
+          "text": "bat",
+          "why": "Bat has a short a sound."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.vowel-spellings.008",
+      "skill": "e2.vowel-spellings",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words with the long e sound, like tree.",
+      "hints": [
+        "Three words are right.",
+        "Say each word. Do not just look at the letters.",
+        "Ea can make a long e or a short e. Listen carefully."
+      ],
+      "explanation": "Beach, seed and leaf have the long e sound. Bed and bread have a short e sound.",
+      "options": [
+        {
+          "text": "beach"
+        },
+        {
+          "text": "seed"
+        },
+        {
+          "text": "bed",
+          "why": "Bed has a short e sound."
+        },
+        {
+          "text": "leaf"
+        },
+        {
+          "text": "bread",
+          "why": "In bread, ea makes a short e sound, like in bed."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.009",
+      "skill": "e2.vowel-spellings",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the missing letters. 'The cat sleeps at n___t.'",
+      "hints": [
+        "Read the sentence. What is the word?",
+        "The middle sound is a long i.",
+        "Long i in the middle of a word can be three letters."
+      ],
+      "explanation": "Night is spelt n, igh, t. The letters igh make the long i sound.",
+      "blanks": [
+        {
+          "answers": [
+            "igh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.010",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word means the opposite of low?",
+      "hints": [
+        "Think of a word that sounds like the letter i.",
+        "Two of the words sound the same but mean different things.",
+        "Low means near the ground. What means far up?"
+      ],
+      "explanation": "High is the opposite of low. Hi sounds the same, but it is a greeting.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "hi",
+          "why": "Hi is a greeting, like hello. It sounds the same but means something else."
+        },
+        {
+          "text": "hie",
+          "why": "This is not a word in English."
+        },
+        {
+          "text": "high"
+        },
+        {
+          "text": "hy",
+          "why": "This is not a word in English."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.vowel-spellings.011",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Oo can sound like moon or like book. Which word sounds like book?",
+      "hints": [
+        "Say book. The oo is short.",
+        "Say each word and listen to the oo.",
+        "Which word has a short, quick oo?"
+      ],
+      "explanation": "Foot and book have a short oo sound. Food, spoon and boot have a long oo sound, like moon.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "food",
+          "why": "Food has the long oo sound, like moon."
+        },
+        {
+          "text": "spoon",
+          "why": "Spoon has the long oo sound, like moon."
+        },
+        {
+          "text": "boot",
+          "why": "Boot has the long oo sound, like moon."
+        },
+        {
+          "text": "foot"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.vowel-spellings.012",
+      "skill": "e2.vowel-spellings",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort the oo words. Do they sound like moon or like book?",
+      "hints": [
+        "Say each word out loud.",
+        "Long oo sounds like moon. Short oo sounds like book.",
+        "Start with food. Is the oo long or short?"
+      ],
+      "explanation": "Food, zoo and pool have a long oo. Look, good and wood have a short oo, like book.",
+      "groups": [
+        "oo as in moon",
+        "oo as in book"
+      ],
+      "items": [
+        {
+          "text": "food",
+          "group": 0
+        },
+        {
+          "text": "look",
+          "group": 1
+        },
+        {
+          "text": "zoo",
+          "group": 0
+        },
+        {
+          "text": "good",
+          "group": 1
+        },
+        {
+          "text": "pool",
+          "group": 0
+        },
+        {
+          "text": "wood",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.013",
+      "skill": "e2.vowel-spellings",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "It is white and cold, and it falls from the sky. It rhymes with grow. Write the word.",
+      "hints": [
+        "Think of very cold weather.",
+        "It rhymes with grow, so it may end the same way.",
+        "At the end of a word, long o is often spelt ow."
+      ],
+      "explanation": "Snow rhymes with grow. Both end with ow, which makes the long o sound.",
+      "blanks": [
+        {
+          "answers": [
+            "snow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.vowel-spellings.014",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is spelt correctly?",
+      "hints": [
+        "Check every word, not just one.",
+        "See and sea sound the same but mean different things.",
+        "See is with your eyes. Which one is the water?"
+      ],
+      "explanation": "See means look with your eyes. Sea is the big salty water. Boat is spelt with oa.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I can see a bote on the see.",
+          "why": "Boat is spelt with oa, and the water is sea."
+        },
+        {
+          "text": "I can see a boat on the see.",
+          "why": "See is what you do with your eyes. The water is sea."
+        },
+        {
+          "text": "I can sea a boat on the sea.",
+          "why": "The first word should be see, with your eyes."
+        },
+        {
+          "text": "I can see a boat on the sea."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.vowel-spellings.015",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "You can drink this hot. It rhymes with sea. Which word is it?",
+      "hints": [
+        "Think of a hot drink.",
+        "It sounds like the letter t.",
+        "Sea is spelt with ea. Try the same spelling."
+      ],
+      "explanation": "Tea is a hot drink. It rhymes with sea and uses the same ea spelling.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "tea"
+        },
+        {
+          "text": "tee",
+          "why": "A tee is used in golf. The drink is spelt with ea."
+        },
+        {
+          "text": "tie",
+          "why": "A tie is worn with a shirt."
+        },
+        {
+          "text": "toe",
+          "why": "A toe is on your foot."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.vowel-spellings.016",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Add one letter to the start of 'rain'. Make something that runs on tracks.",
+      "hints": [
+        "All four words add one letter to rain.",
+        "Think about tracks. What goes on them?",
+        "Which one do you ride to go a long way?"
+      ],
+      "explanation": "T plus rain makes train. A train runs on tracks.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "brain",
+          "why": "A brain is in your head."
+        },
+        {
+          "text": "drain",
+          "why": "A drain takes away water."
+        },
+        {
+          "text": "train"
+        },
+        {
+          "text": "grain",
+          "why": "Grain is seeds, like rice."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.vowel-spellings.017",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word has a different vowel sound?",
+      "hints": [
+        "Say all four words.",
+        "Three words share the same long vowel sound.",
+        "Listen to the end of each word."
+      ],
+      "explanation": "Night, pie and fly have the long i sound, spelt in three different ways. Tree has the long e sound.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "night",
+          "why": "Night has the long i sound."
+        },
+        {
+          "text": "tree"
+        },
+        {
+          "text": "pie",
+          "why": "Pie has the long i sound."
+        },
+        {
+          "text": "fly",
+          "why": "Fly has the long i sound."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.vowel-spellings.018",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is spelt correctly?",
+      "hints": [
+        "The word is the water that falls from clouds.",
+        "The long a sound is in the middle.",
+        "In the middle of a word, long a is often spelt ai."
+      ],
+      "explanation": "Rain is spelt r, ai, n. Ai often spells long a in the middle of a word.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "rane",
+          "why": "Long a in the middle of this word is spelt ai."
+        },
+        {
+          "text": "rayn",
+          "why": "Ay usually comes at the end of a word."
+        },
+        {
+          "text": "ran",
+          "why": "Ran is a different word with a short a."
+        },
+        {
+          "text": "rain"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

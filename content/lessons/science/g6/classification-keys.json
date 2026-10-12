@@ -1,0 +1,142 @@
+{
+  "skill": "s6.classification-keys",
+  "title": "Using a key",
+  "steps": [
+    {
+      "say": "Scientists classify living things into groups by their features. Plants, animals and fungi are three big groups."
+    },
+    {
+      "say": "Fungi, such as mushrooms, are not plants. They cannot make their own food."
+    },
+    {
+      "say": "A key helps you name a living thing. Each question has two answers, yes or no."
+    },
+    {
+      "say": "Good questions are about features you can see, such as wings or legs. Avoid opinions, such as pretty or big."
+    },
+    {
+      "say": "Start at question 1. Each answer sends you to a name or to the next question.",
+      "figure": {
+        "kind": "table",
+        "caption": "A key to four small animals",
+        "head": [
+          "Question",
+          "If yes",
+          "If no"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "snail"
+          ],
+          [
+            "2. Does it have 8 legs?",
+            "spider",
+            "go to 3"
+          ],
+          [
+            "3. Does it have wings?",
+            "bee",
+            "ant"
+          ]
+        ],
+        "alt": "A key. Question 1: does it have legs? If no, it is a snail; if yes, go to question 2. Question 2: does it have 8 legs? If yes, it is a spider; if no, go to question 3. Question 3: does it have wings? If yes, it is a bee; if no, it is an ant."
+      }
+    },
+    {
+      "say": "Carl Linnaeus started the two-part scientific names we still use. The Komodo dragon is Varanus komodoensis."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.classification-keys.901",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which question could go in a branching key?",
+      "options": [
+        {
+          "text": "Is it cute?",
+          "why": "People disagree about what is cute."
+        },
+        {
+          "text": "Does it have six legs?"
+        },
+        {
+          "text": "Is it my favourite?",
+          "why": "Everyone has a different favourite."
+        },
+        {
+          "text": "Is it big?",
+          "why": "Big compared with what? Use a feature you can count or see."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Everyone must give the same answer to a key question.",
+        "Good questions are about features you can count or see.",
+        "Cross out the questions that depend on opinions."
+      ],
+      "explanation": "A question about six legs has a clear yes or no answer that everyone agrees on. Cute, favourite and big depend on opinions."
+    },
+    {
+      "id": "s6.classification-keys.902",
+      "skill": "s6.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use the key. An animal has no legs. What is it?",
+      "figure": {
+        "kind": "table",
+        "caption": "A key to four small animals",
+        "head": [
+          "Question",
+          "If yes",
+          "If no"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "snail"
+          ],
+          [
+            "2. Does it have 8 legs?",
+            "spider",
+            "go to 3"
+          ],
+          [
+            "3. Does it have wings?",
+            "bee",
+            "ant"
+          ]
+        ],
+        "alt": "A key. Question 1: does it have legs? If no, it is a snail; if yes, go to question 2. Question 2: does it have 8 legs? If yes, it is a spider; if no, go to question 3. Question 3: does it have wings? If yes, it is a bee; if no, it is an ant."
+      },
+      "options": [
+        {
+          "text": "ant",
+          "why": "An ant has six legs."
+        },
+        {
+          "text": "spider",
+          "why": "A spider has eight legs."
+        },
+        {
+          "text": "snail"
+        },
+        {
+          "text": "bee",
+          "why": "A bee has six legs."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Start at question 1.",
+        "Question 1 asks about legs.",
+        "Follow the answer for an animal that has no legs."
+      ],
+      "explanation": "Question 1 asks if it has legs. The answer is no, so the key gives snail."
+    }
+  ]
+}

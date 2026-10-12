@@ -1,0 +1,125 @@
+{
+  "skill": "m1.measure-compare",
+  "title": "Longer, heavier, fuller",
+  "steps": [
+    {
+      "say": "Compare lengths by lining up the ends.",
+      "figure": {
+        "kind": "bars",
+        "title": "Ribbons",
+        "categories": [
+          "Red ribbon",
+          "Blue ribbon"
+        ],
+        "values": [
+          8,
+          5
+        ],
+        "horizontal": true,
+        "step": 1,
+        "yLabel": "Length in cubes",
+        "alt": "The red ribbon is 8 cubes long. The blue ribbon is 5 cubes long."
+      }
+    },
+    {
+      "say": "On a balance, the heavier side goes down.",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "book"
+        ],
+        "right": [
+          "feather"
+        ],
+        "tilt": "left",
+        "alt": "A balance with a book on the left and a feather on the right. The left side is lower."
+      }
+    },
+    {
+      "say": "A full jug has water to the top. An empty jug has none.",
+      "figure": {
+        "kind": "jug",
+        "capacity": 1000,
+        "value": 1000,
+        "step": 100,
+        "unit": "ml",
+        "alt": "A jug filled with water right to the top."
+      }
+    },
+    {
+      "say": "A ruler measures length in centimetres. Start at 0.",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 9,
+        "objectStartCm": 0,
+        "object": "pencil",
+        "alt": "A pencil next to a ruler. It starts at 0 and ends at 9 cm."
+      },
+      "show": "9 cm"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.measure-compare.901",
+      "skill": "m1.measure-compare",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is heavier?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "apple"
+        ],
+        "right": [
+          "melon"
+        ],
+        "tilt": "right",
+        "alt": "A balance with an apple on the left and a melon on the right. The right side is lower."
+      },
+      "hints": [
+        "Look at which side goes down.",
+        "The heavier side goes down.",
+        "Find the lower side first."
+      ],
+      "explanation": "The melon side is lower, so the melon is heavier.",
+      "options": [
+        {
+          "text": "The apple",
+          "why": "The apple side is higher, so the apple is lighter."
+        },
+        {
+          "text": "The melon"
+        },
+        {
+          "text": "They weigh the same",
+          "why": "The balance is not level."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.measure-compare.902",
+      "skill": "m1.measure-compare",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How long is the crayon?",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 6,
+        "objectStartCm": 0,
+        "object": "crayon",
+        "alt": "A crayon next to a ruler. It starts at 0 and ends at 6 cm."
+      },
+      "hints": [
+        "Check that the crayon starts at 0.",
+        "Look where the end of the crayon is.",
+        "Follow the end of the crayon down to the ruler."
+      ],
+      "explanation": "The crayon starts at 0 and ends at 6, so it is 6 cm long.",
+      "answer": 6,
+      "unit": "cm"
+    }
+  ]
+}

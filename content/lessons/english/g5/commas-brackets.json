@@ -1,0 +1,78 @@
+{
+  "skill": "e5.commas-brackets",
+  "title": "Commas and brackets for clear meaning",
+  "steps": [
+    {
+      "say": "Use commas to separate items in a list. The last two items are joined by and.",
+      "show": "mangoes, papayas and bananas"
+    },
+    {
+      "say": "Put a comma after a fronted adverbial or an opening clause.",
+      "show": "After school, we went swimming."
+    },
+    {
+      "say": "Put commas around extra information in the middle of a sentence.",
+      "show": "Pak Joko, our gardener, grows chillies."
+    },
+    {
+      "say": "Brackets can also hold extra information. The sentence must make sense without it.",
+      "show": "Lake Toba (in Sumatra) is huge."
+    },
+    {
+      "say": "A comma in the right place can change the meaning, so read your sentence aloud."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.commas-brackets.901",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence uses brackets correctly?",
+      "options": [
+        {
+          "text": "My brother (who is six loves dinosaurs).",
+          "why": "The brackets should close after six."
+        },
+        {
+          "text": "My brother (who is six) loves dinosaurs."
+        },
+        {
+          "text": "(My brother) who is six loves dinosaurs.",
+          "why": "My brother is the main subject, so it should not be in brackets."
+        },
+        {
+          "text": "My (brother who is six) loves dinosaurs.",
+          "why": "The brackets should hold only the extra information."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Brackets go around extra information.",
+        "Read each sentence without the bracketed words. Does it still make sense?",
+        "Find the extra information first: how old is the brother?"
+      ],
+      "explanation": "Who is six is extra information, so it goes in brackets. My brother loves dinosaurs still makes sense without it."
+    },
+    {
+      "id": "e5.commas-brackets.902",
+      "skill": "e5.commas-brackets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A comma is missing. Write the word that the comma should come after. Before the bell rang we packed our bags.",
+      "blanks": [
+        {
+          "answers": [
+            "rang"
+          ]
+        }
+      ],
+      "hints": [
+        "The sentence starts with a subordinate clause.",
+        "The comma goes where the opening clause ends.",
+        "Find the main clause: who packed their bags?"
+      ],
+      "explanation": "Before the bell rang is the opening clause, so the comma comes after rang."
+    }
+  ]
+}

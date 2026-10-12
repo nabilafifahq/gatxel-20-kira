@@ -1,0 +1,100 @@
+{
+  "skill": "m1.oclock-half-past",
+  "title": "O'clock and half past",
+  "steps": [
+    {
+      "say": "The short hand shows the hour. The long hand shows the minutes.",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 0,
+        "alt": "A clock. The short hour hand points to 3. The long minute hand points to 12."
+      }
+    },
+    {
+      "say": "When the long hand points to 12, it is o'clock.",
+      "show": "3 o'clock"
+    },
+    {
+      "say": "When the long hand points to 6, it is half past.",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 30,
+        "alt": "A clock. The long minute hand points to 6. The short hour hand is between 3 and 4."
+      },
+      "show": "half past 3"
+    },
+    {
+      "say": "At half past, the short hand is halfway to the next number."
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.oclock-half-past.901",
+      "skill": "m1.oclock-half-past",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What time does the clock show?",
+      "figure": {
+        "kind": "clock",
+        "h": 7,
+        "m": 0,
+        "alt": "A clock. The short hour hand points to 7. The long minute hand points to 12."
+      },
+      "hints": [
+        "The short hand shows the hour.",
+        "When the long hand points to 12, it is o'clock.",
+        "Look at the short hand. Which number does it point to?"
+      ],
+      "explanation": "The long hand points to 12 and the short hand points to 7, so it is 7 o'clock.",
+      "options": [
+        {
+          "text": "12 o'clock",
+          "why": "The long hand shows the minutes. Read the short hand for the hour."
+        },
+        {
+          "text": "half past 7",
+          "why": "At half past, the long hand points down to 6."
+        },
+        {
+          "text": "7 o'clock"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m1.oclock-half-past.902",
+      "skill": "m1.oclock-half-past",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What time does the clock show?",
+      "figure": {
+        "kind": "clock",
+        "h": 4,
+        "m": 30,
+        "alt": "A clock. The long minute hand points to 6. The short hour hand is between 4 and 5."
+      },
+      "hints": [
+        "Look at the long hand first.",
+        "When the long hand points to 6, it is half past.",
+        "Which number has the short hand just gone past?"
+      ],
+      "explanation": "The long hand points to 6 and the short hand is just past 4, so it is half past 4.",
+      "options": [
+        {
+          "text": "half past 4"
+        },
+        {
+          "text": "half past 5",
+          "why": "The short hand has gone past 4, but not past 5."
+        },
+        {
+          "text": "6 o'clock",
+          "why": "The long hand on 6 means half past, not 6 o'clock."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

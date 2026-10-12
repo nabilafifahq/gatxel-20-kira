@@ -1,0 +1,562 @@
+{
+  "skill": "e2.joining-words",
+  "items": [
+    {
+      "id": "e2.joining-words.001",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the joining word. 'I like apples ___ pears.'",
+      "hints": [
+        "You like both fruits.",
+        "We need a word that adds more.",
+        "Which word joins two things you like?"
+      ],
+      "explanation": "And adds more: I like apples and pears.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "and"
+        },
+        {
+          "text": "but",
+          "why": "But shows something different. Here we add more."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "so",
+          "why": "So tells what happens next."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.joining-words.002",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the joining word. 'I was hungry, ___ I ate a banana.'",
+      "hints": [
+        "Being hungry made something happen.",
+        "The second part is the result.",
+        "Which word means: and that is why?"
+      ],
+      "explanation": "So tells us what happened because of the first part: I was hungry, so I ate a banana.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "but",
+          "why": "But shows a surprise or a change."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason. Here the reason comes first."
+        },
+        {
+          "text": "so"
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.joining-words.003",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the best joining word. 'I wanted to play outside, ___ it was raining.'",
+      "hints": [
+        "The two ideas do not go well together.",
+        "Wanting to play outside and rain make a problem.",
+        "Which word shows a change or a problem?"
+      ],
+      "explanation": "But joins two ideas that clash: I wanted to play outside, but it was raining.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "so",
+          "why": "So would mean the rain happened because you wanted to play."
+        },
+        {
+          "text": "but"
+        },
+        {
+          "text": "because",
+          "why": "Because would mean the rain was the reason you wanted to play."
+        },
+        {
+          "text": "and",
+          "why": "And adds more, but these two ideas clash."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.joining-words.004",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the joining word. 'We took umbrellas ___ it was raining.'",
+      "hints": [
+        "Why did we take umbrellas?",
+        "The second part gives a reason.",
+        "Which word answers the question why?"
+      ],
+      "explanation": "Because gives a reason: We took umbrellas because it was raining.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "but",
+          "why": "But shows a clash."
+        },
+        {
+          "text": "so",
+          "why": "So would mean the rain came because of the umbrellas."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "because"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.joining-words.005",
+      "skill": "e2.joining-words",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match the two halves of each sentence.",
+      "hints": [
+        "Read each start, then try each ending.",
+        "Check that the joining word makes sense.",
+        "Start with: I put on my coat. Why?"
+      ],
+      "explanation": "Because gives a reason, so gives a result, but shows a difference and and adds more.",
+      "pairs": [
+        [
+          "I put on my coat",
+          "because it was cold."
+        ],
+        [
+          "The sun came out,",
+          "so we went to the beach."
+        ],
+        [
+          "I like cats,",
+          "but my sister likes dogs."
+        ],
+        [
+          "Sam has a pen",
+          "and a ruler."
+        ]
+      ]
+    },
+    {
+      "id": "e2.joining-words.006",
+      "skill": "e2.joining-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write so or because. 'The shop was closed, ___ we went home.'",
+      "hints": [
+        "Did we go home because of the closed shop?",
+        "The second part is what happened next.",
+        "Which word shows a result?"
+      ],
+      "explanation": "So shows a result: The shop was closed, so we went home.",
+      "blanks": [
+        {
+          "answers": [
+            "so"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.joining-words.007",
+      "skill": "e2.joining-words",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 sentences that use because correctly.",
+      "hints": [
+        "Two sentences are right.",
+        "Because must give a real reason.",
+        "Ask why for each one. Does the answer make sense?"
+      ],
+      "explanation": "Being happy is a reason to smile, and water is a reason a plant grows.",
+      "options": [
+        {
+          "text": "I am smiling because I am happy."
+        },
+        {
+          "text": "I am happy because I am sad.",
+          "why": "Being sad is not a reason to be happy."
+        },
+        {
+          "text": "The plant grew because we watered it."
+        },
+        {
+          "text": "It is sunny because I have a hat.",
+          "why": "Your hat does not make it sunny."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "e2.joining-words.008",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word joins these? 'Rina likes to sing. She does not like to dance.'",
+      "hints": [
+        "Rina likes one thing and not the other.",
+        "The ideas are different.",
+        "Which word shows a difference?"
+      ],
+      "explanation": "But joins two different ideas: Rina likes to sing, but she does not like to dance.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "so",
+          "why": "So shows a result."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "but"
+        },
+        {
+          "text": "and",
+          "why": "And adds more, but these ideas are different."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.joining-words.009",
+      "skill": "e2.joining-words",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "End with the word that has a full stop.",
+        "The joining word goes in the middle, before the reason."
+      ],
+      "explanation": "We stayed inside because it was raining. Because joins the reason to what happened.",
+      "items": [
+        "We",
+        "stayed",
+        "inside",
+        "because",
+        "it",
+        "was",
+        "raining."
+      ]
+    },
+    {
+      "id": "e2.joining-words.010",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which ending makes sense? 'I was tired, so ...'",
+      "hints": [
+        "So tells what happened next.",
+        "What do you do when you are tired?",
+        "Find the ending that is a result of being tired."
+      ],
+      "explanation": "So shows a result. Being tired can make you go to bed early.",
+      "options": [
+        {
+          "text": "I went to bed early."
+        },
+        {
+          "text": "I ran a long race.",
+          "why": "Running a race is not a result of being tired."
+        },
+        {
+          "text": "I was not sleepy.",
+          "why": "This does not follow from being tired."
+        },
+        {
+          "text": "I had lots of energy.",
+          "why": "Tired means you do not have lots of energy."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.joining-words.011",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which ending makes sense? 'Ben fell over because ...'",
+      "hints": [
+        "Because gives the reason.",
+        "The reason happens before the fall.",
+        "What could make someone fall?"
+      ],
+      "explanation": "Because gives the reason. Tripping on a stone made Ben fall.",
+      "options": [
+        {
+          "text": "he got a plaster.",
+          "why": "Getting a plaster happened after he fell."
+        },
+        {
+          "text": "he tripped on a stone."
+        },
+        {
+          "text": "he was crying.",
+          "why": "Crying happened after he fell."
+        },
+        {
+          "text": "he went home.",
+          "why": "Going home happened after he fell."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.joining-words.012",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the best joining word. 'The cake smelled good, ___ it tasted bad.'",
+      "hints": [
+        "Smelled good and tasted bad are different.",
+        "The second part is a surprise.",
+        "Which word shows a surprise or a change?"
+      ],
+      "explanation": "But joins two ideas that do not match: smelled good, but tasted bad.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "and",
+          "why": "And adds more. These ideas clash."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "so",
+          "why": "So shows a result."
+        },
+        {
+          "text": "but"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.joining-words.013",
+      "skill": "e2.joining-words",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort the endings. Do they go after because or after so?",
+      "hints": [
+        "Because gives a reason. So gives a result.",
+        "Did it happen before the road got wet, or after?",
+        "Start with: it rained all night. Did that make the road wet?"
+      ],
+      "explanation": "Rain and a broken pipe are reasons, so they go after because. Driving slowly and wearing boots are results, so they go after so.",
+      "groups": [
+        "The road was wet because ...",
+        "The road was wet, so ..."
+      ],
+      "items": [
+        {
+          "text": "it rained all night.",
+          "group": 0
+        },
+        {
+          "text": "Dad drove slowly.",
+          "group": 1
+        },
+        {
+          "text": "a water pipe broke.",
+          "group": 0
+        },
+        {
+          "text": "we wore our boots.",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.joining-words.014",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the joining word. 'Pak Ahmad was late ___ his car would not start.'",
+      "hints": [
+        "Why was Pak Ahmad late?",
+        "The second part is a reason.",
+        "Which word answers why?"
+      ],
+      "explanation": "Because gives the reason: he was late because his car would not start.",
+      "options": [
+        {
+          "text": "because"
+        },
+        {
+          "text": "so",
+          "why": "So would mean the car broke because he was late."
+        },
+        {
+          "text": "but",
+          "why": "But shows a clash."
+        },
+        {
+          "text": "and",
+          "why": "And adds more. Here we need a reason."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.joining-words.015",
+      "skill": "e2.joining-words",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write so or because. 'The dog was dirty, ___ we gave it a bath.'",
+      "hints": [
+        "Which happened first: dirty or bath?",
+        "The bath is what we did next.",
+        "Which word shows a result?"
+      ],
+      "explanation": "So shows a result: The dog was dirty, so we gave it a bath.",
+      "blanks": [
+        {
+          "answers": [
+            "so"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.joining-words.016",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence does NOT make sense?",
+      "hints": [
+        "Three sentences make sense.",
+        "Check that because gives a real reason.",
+        "Does a jumper make you cold?"
+      ],
+      "explanation": "A jumper does not make you cold, so that sentence does not make sense.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "I was cold, so I put on a jumper.",
+          "why": "This makes sense."
+        },
+        {
+          "text": "I put on a jumper because I was cold.",
+          "why": "This makes sense."
+        },
+        {
+          "text": "I was cold because I put on a jumper."
+        },
+        {
+          "text": "I was cold, but I did not have a jumper.",
+          "why": "This makes sense."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.joining-words.017",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Choose the two joining words. 'I wanted a snack, ___ the tin was empty, ___ I ate an apple.'",
+      "hints": [
+        "Do the gaps one at a time.",
+        "The empty tin is a problem.",
+        "Eating an apple is what happened next."
+      ],
+      "explanation": "But shows the problem, and so shows what happened next.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "so / but",
+          "why": "So and but are in the wrong places."
+        },
+        {
+          "text": "but / so"
+        },
+        {
+          "text": "because / and",
+          "why": "Because does not fit the first gap."
+        },
+        {
+          "text": "and / because",
+          "why": "Because does not fit the second gap."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.joining-words.018",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a joining word?",
+      "hints": [
+        "A joining word links two words or ideas.",
+        "It can join: cats ___ dogs.",
+        "Which word could go in the gap?"
+      ],
+      "explanation": "And is a joining word. It links words and ideas together.",
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat is a naming word."
+        },
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "and"
+        },
+        {
+          "text": "big",
+          "why": "Big is a describing word."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

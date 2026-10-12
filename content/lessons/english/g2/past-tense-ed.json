@@ -1,0 +1,79 @@
+{
+  "skill": "e2.past-tense-ed",
+  "title": "Past tense with -ed",
+  "steps": [
+    {
+      "say": "We use the past tense for things that already happened.",
+      "show": "Yesterday I played."
+    },
+    {
+      "say": "Most verbs add -ed.",
+      "show": "play, played / jump, jumped"
+    },
+    {
+      "say": "If the verb ends in e, just add d.",
+      "show": "smile, smiled / bake, baked"
+    },
+    {
+      "say": "Short words with one vowel double the last letter.",
+      "show": "hop, hopped / stop, stopped"
+    },
+    {
+      "say": "If the verb ends in a consonant and y, change the y to i and add -ed.",
+      "show": "cry, cried / carry, carried"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.past-tense-ed.901",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add -ed to play. 'Last Sunday we ___ football.'",
+      "hints": [
+        "Last Sunday is in the past.",
+        "Add -ed.",
+        "Play does not change before -ed."
+      ],
+      "explanation": "Play becomes played.",
+      "options": [
+        {
+          "text": "play",
+          "why": "Play is for now."
+        },
+        {
+          "text": "played"
+        },
+        {
+          "text": "plaied",
+          "why": "Play just adds -ed."
+        },
+        {
+          "text": "playing",
+          "why": "Playing needs a helper word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.past-tense-ed.902",
+      "skill": "e2.past-tense-ed",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the past tense of stop.",
+      "hints": [
+        "Stop is a short word with one vowel.",
+        "Double the last letter.",
+        "Then add -ed."
+      ],
+      "explanation": "Stop doubles the p: stopped.",
+      "blanks": [
+        {
+          "answers": [
+            "stopped"
+          ]
+        }
+      ]
+    }
+  ]
+}

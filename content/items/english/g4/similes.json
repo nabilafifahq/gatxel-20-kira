@@ -1,0 +1,158 @@
+{
+  "skill": "e4.similes",
+  "items": [
+    {
+      "id": "e4.similes.001", "skill": "e4.similes", "type": "mcq", "difficulty": 1,
+      "prompt": "Finish the simile: as quiet as a ___.",
+      "options": [
+        { "text": "mouse" },
+        { "text": "lion", "why": "Lions roar. They are known for being loud." },
+        { "text": "drum", "why": "Drums are loud." },
+        { "text": "storm", "why": "Storms are noisy." }
+      ],
+      "answer": 0,
+      "hints": ["A simile compares two things using like or as.", "Think of a small animal that makes almost no sound.", "Which of these would you hardly hear?"],
+      "explanation": "The simile is as quiet as a mouse, because mice are small and make very little noise.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.similes.002", "skill": "e4.similes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sentence has a simile?",
+      "options": [
+        { "text": "The cat is black.", "why": "This describes the cat, but it does not compare it to anything." },
+        { "text": "The cat sleeps a lot.", "why": "There is no comparison here." },
+        { "text": "The cat is as black as coal." },
+        { "text": "My cat is called Coal.", "why": "This is the cat's name, not a comparison." }
+      ],
+      "answer": 2,
+      "hints": ["A simile compares one thing to another.", "Look for the words like or as.", "Which sentence says the cat is like something else?"],
+      "explanation": "As black as coal compares the cat's colour to coal, using as. That makes it a simile.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.similes.003", "skill": "e4.similes", "type": "match", "difficulty": 2,
+      "prompt": "Match the simile beginnings to their endings.",
+      "pairs": [["as light as", "a feather"], ["as cold as", "ice"], ["as busy as", "a bee"], ["as slow as", "a snail"], ["as brave as", "a lion"]],
+      "hints": ["Each simile compares something to a thing that is famous for that quality.", "Which thing is very light? Which is very slow?", "Start with as cold as. What is the coldest thing in the list?"],
+      "explanation": "These similes compare a quality to something well known for it: a feather is light and a snail is slow."
+    },
+    {
+      "id": "e4.similes.004", "skill": "e4.similes", "type": "mcq", "difficulty": 2,
+      "prompt": "Which two things are being compared?\nThe moon was like a silver coin.",
+      "options": [
+        { "text": "the moon and the sky", "why": "The sky is not in this sentence." },
+        { "text": "silver and gold", "why": "Gold is not mentioned." },
+        { "text": "a coin and a purse", "why": "A purse is not mentioned." },
+        { "text": "the moon and a coin" }
+      ],
+      "answer": 3,
+      "hints": ["Find the word like.", "What comes before like? What comes after it?", "Those are the two things being compared."],
+      "explanation": "The word like compares the moon with a silver coin, because both are round and shiny."
+    },
+    {
+      "id": "e4.similes.005", "skill": "e4.similes", "type": "multi", "difficulty": 3,
+      "prompt": "Choose 2 sentences that contain a simile.",
+      "options": [
+        { "text": "Her hands were as cold as ice." },
+        { "text": "The road was long and dusty.", "why": "This describes the road, but it does not compare it." },
+        { "text": "He ran like the wind." },
+        { "text": "I like mangoes.", "why": "Here like means enjoy. Nothing is being compared." },
+        { "text": "The river was wide.", "why": "There is no comparison here." }
+      ],
+      "answers": [0, 2],
+      "hints": ["A simile compares two things with like or as.", "Careful: like can also mean enjoy.", "Check each sentence. Is one thing being compared to another?"],
+      "explanation": "As cold as ice and like the wind are similes. In I like mangoes, like means enjoy, so it is not a simile."
+    },
+    {
+      "id": "e4.similes.006", "skill": "e4.similes", "type": "mcq", "difficulty": 2,
+      "prompt": "What does as quick as a flash mean?",
+      "options": [
+        { "text": "very bright", "why": "A flash is bright, but this simile is about speed." },
+        { "text": "very fast" },
+        { "text": "very loud", "why": "This simile is about speed, not sound." },
+        { "text": "very slowly", "why": "It means the opposite of slowly." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the word quick.", "A flash of light lasts for a tiny moment.", "So what is the simile really telling you?"],
+      "explanation": "A flash happens in an instant, so as quick as a flash means very fast."
+    },
+    {
+      "id": "e4.similes.007", "skill": "e4.similes", "type": "mcq", "difficulty": 3,
+      "prompt": "Which simile best describes a very hot day?",
+      "options": [
+        { "text": "The air was as hot as an oven." },
+        { "text": "The air was as cool as a cucumber.", "why": "Cool is the opposite of hot." },
+        { "text": "The air was as fresh as a daisy.", "why": "Fresh does not describe heat." },
+        { "text": "The air was like a soft feather.", "why": "A feather is soft and light, not hot." }
+      ],
+      "answer": 0,
+      "hints": ["You need a simile about heat.", "Think of something in the kitchen that is very hot.", "Cross out the similes that are about something else."],
+      "explanation": "An oven is very hot, so as hot as an oven describes a very hot day."
+    },
+    {
+      "id": "e4.similes.008", "skill": "e4.similes", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the phrases: simile or not a simile?",
+      "groups": ["Simile", "Not a simile"],
+      "items": [
+        { "text": "as tall as a giraffe", "group": 0 }, { "text": "like a sleeping cat", "group": 0 }, { "text": "as white as snow", "group": 0 }, { "text": "as red as a tomato", "group": 0 },
+        { "text": "a tall giraffe", "group": 1 }, { "text": "I like cats", "group": 1 }, { "text": "the snow was white", "group": 1 }, { "text": "she likes to sing", "group": 1 }
+      ],
+      "hints": ["A simile compares two things.", "Look for as ... as, or like used to compare.", "Like can also mean enjoy. Check how it is used."],
+      "explanation": "Similes compare, like as white as snow. I like cats and she likes to sing use like to mean enjoy, so they are not similes."
+    },
+    {
+      "id": "e4.similes.009", "skill": "e4.similes", "type": "mcq", "difficulty": 4,
+      "prompt": "The children's voices buzzed like bees in the classroom. Why did the writer use this simile?",
+      "options": [
+        { "text": "to show that there were bees in the room", "why": "There were no real bees. The voices only sounded like bees." },
+        { "text": "to show that the children were scared", "why": "Buzzing bees suggest busy noise, not fear." },
+        { "text": "to show that the room was noisy and busy" },
+        { "text": "to show that it was very quiet", "why": "Buzzing is a noisy sound." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the sound a group of bees makes.", "Is it loud or quiet? Is it calm or busy?", "Now picture a classroom that sounds like that."],
+      "explanation": "Bees make a busy humming noise. The simile shows the classroom was full of busy, noisy chatter.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.similes.010", "skill": "e4.similes", "type": "mcq", "difficulty": 4,
+      "prompt": "Choose the best simile to show that Lina was very nervous.",
+      "options": [
+        { "text": "Lina was as happy as a lark.", "why": "This shows happiness, not nerves." },
+        { "text": "Lina ran like a cheetah.", "why": "This shows speed, not nerves." },
+        { "text": "Lina's legs were long.", "why": "This is not a simile." },
+        { "text": "Lina's legs felt like jelly." }
+      ],
+      "answer": 3,
+      "hints": ["Think about how your body feels when you are nervous.", "When you are nervous, your knees may feel weak and wobbly.", "Which simile compares Lina's body to something wobbly?"],
+      "explanation": "Legs that feel like jelly are wobbly and weak. This simile shows that Lina was very nervous."
+    },
+    {
+      "id": "e4.similes.011", "skill": "e4.similes", "type": "mcq", "difficulty": 4,
+      "prompt": "Which sentence is NOT a simile?",
+      "options": [
+        { "text": "The clouds were like cotton wool.", "why": "This compares clouds to cotton wool using like." },
+        { "text": "The lake was as flat as a mirror.", "why": "This compares the lake to a mirror using as." },
+        { "text": "The wind howled all night." },
+        { "text": "Her smile was as bright as the sun.", "why": "This compares a smile to the sun using as." }
+      ],
+      "answer": 2,
+      "hints": ["Three of the sentences compare two things.", "Look for like or as in each sentence.", "Which sentence describes something without comparing it?"],
+      "explanation": "The wind howled all night describes the wind, but it does not compare it to anything with like or as.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.similes.012", "skill": "e4.similes", "type": "mcq", "difficulty": 5,
+      "prompt": "The old bridge creaked and groaned like a ship in a storm. What does this simile suggest about the bridge?",
+      "options": [
+        { "text": "It was new and strong.", "why": "Creaking and groaning suggest it is old and under strain." },
+        { "text": "It was old and not very steady." },
+        { "text": "It was floating on water.", "why": "The bridge is compared to a ship's sound, not its place." },
+        { "text": "It was painted like a ship.", "why": "The simile is about the sound, not the colour." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the sounds a ship makes in a storm.", "Creaking and groaning are the sounds of wood under strain.", "How might you feel walking across this bridge?"],
+      "explanation": "A ship in a storm creaks because it is pushed and strained. The simile suggests the bridge is old and not very steady."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "skill": "m3.place-value",
+  "title": "Hundreds, tens and ones",
+  "steps": [
+    {
+      "say": "A 3-digit number is made of hundreds, tens and ones.",
+      "figure": {
+        "kind": "basetens",
+        "hundreds": 3,
+        "tens": 4,
+        "ones": 6,
+        "alt": "Base ten blocks: 3 hundreds, 4 tens and 6 ones."
+      }
+    },
+    {
+      "say": "Count the hundreds first. 3 hundreds make 300.",
+      "show": "300"
+    },
+    {
+      "say": "4 tens make 40, and 6 ones make 6.",
+      "show": "40 and 6"
+    },
+    {
+      "say": "Put the parts together to make the number.",
+      "show": "300 + 40 + 6 = 346"
+    },
+    {
+      "say": "In 346, the digit 4 is in the tens place, so it is worth 40.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            "3",
+            "4",
+            "6"
+          ]
+        ],
+        "alt": "A place value table: 3 in the hundreds, 4 in the tens, 6 in the ones."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.place-value.901",
+      "skill": "m3.place-value",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the digit 7 worth in 572?",
+      "answer": 70,
+      "hints": [
+        "Find which place the 7 is in.",
+        "Is it in the hundreds, the tens or the ones place?",
+        "A digit in the tens place is worth that many tens."
+      ],
+      "explanation": "In 572, the 7 is in the tens place, so it is worth 70."
+    },
+    {
+      "id": "m3.place-value.902",
+      "skill": "m3.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number has 6 hundreds, 0 tens and 8 ones?",
+      "options": [
+        {
+          "text": "68",
+          "why": "68 has no hundreds."
+        },
+        {
+          "text": "608"
+        },
+        {
+          "text": "680",
+          "why": "680 has 8 tens and 0 ones."
+        },
+        {
+          "text": "806",
+          "why": "806 has 8 hundreds and 6 ones."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Write the hundreds digit first.",
+        "There are no tens, so the tens digit is 0.",
+        "Then write the ones digit."
+      ],
+      "explanation": "6 hundreds, 0 tens and 8 ones make 608.",
+      "figure": {
+        "kind": "basetens",
+        "hundreds": 6,
+        "tens": 0,
+        "ones": 8,
+        "alt": "Base ten blocks: 6 hundreds and 8 ones."
+      }
+    }
+  ]
+}

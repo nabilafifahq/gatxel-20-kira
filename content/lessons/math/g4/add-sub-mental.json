@@ -1,0 +1,72 @@
+{
+  "skill": "m4.add-sub-mental",
+  "title": "Mental addition and subtraction",
+  "steps": [
+    {
+      "say": "To add a number close to 100, add the hundred, then adjust.",
+      "show": "345 + 198 = 345 + 200 - 2 = 543"
+    },
+    {
+      "say": "Subtract a number close to 100 in the same way.",
+      "show": "632 - 299 = 632 - 300 + 1 = 333"
+    },
+    {
+      "say": "For numbers that are close together, count up instead.",
+      "figure": {
+        "kind": "numberline",
+        "min": 4995,
+        "max": 5005,
+        "step": 1,
+        "labels": "ends",
+        "jumps": [
+          {
+            "from": 4996,
+            "to": 5000,
+            "label": "+4"
+          },
+          {
+            "from": 5000,
+            "to": 5003,
+            "label": "+3"
+          }
+        ],
+        "alt": "A number line from 4,995 to 5,005 with a jump of 4 from 4,996 to 5,000 and a jump of 3 to 5,003."
+      },
+      "show": "5,003 - 4,996 = 4 + 3 = 7"
+    },
+    {
+      "say": "Number bonds to 100 help with bonds to 1,000.",
+      "show": "35 + 65 = 100, so 350 + 650 = 1,000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.add-sub-mental.901",
+      "skill": "m4.add-sub-mental",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 476 + 299.",
+      "answer": 775,
+      "hints": [
+        "299 is 1 less than 300.",
+        "Add 300, then take away 1.",
+        "476 + 300 = 776."
+      ],
+      "explanation": "476 + 300 = 776. 776 - 1 = 775."
+    },
+    {
+      "id": "m4.add-sub-mental.902",
+      "skill": "m4.add-sub-mental",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 2,004 - 1,997.",
+      "answer": 7,
+      "hints": [
+        "The numbers are close together.",
+        "Count up from 1,997 to 2,000.",
+        "Then count on from 2,000 to 2,004."
+      ],
+      "explanation": "1,997 to 2,000 is 3, and 2,000 to 2,004 is 4. 3 + 4 = 7."
+    }
+  ]
+}

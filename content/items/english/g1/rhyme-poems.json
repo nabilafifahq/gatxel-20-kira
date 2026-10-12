@@ -1,0 +1,464 @@
+{
+  "skill": "e1.rhyme-poems",
+  "items": [
+    {
+      "id": "e1.rhyme-poems.001",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word in the poem rhymes with play?",
+      "passage": "e1.p.rain-on-the-roof",
+      "hints": [
+        "Rhyming words sound the same at the end.",
+        "Say play, then say each word.",
+        "Look at the end of the first part of the poem."
+      ],
+      "explanation": "Today and play rhyme. They both end with the sound ay.",
+      "options": [
+        {
+          "text": "rain",
+          "why": "Rain does not sound like play at the end."
+        },
+        {
+          "text": "roof",
+          "why": "Roof ends with a different sound."
+        },
+        {
+          "text": "today"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.002",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where does the rain fall at the start of the poem?",
+      "passage": "e1.p.rain-on-the-roof",
+      "hints": [
+        "Read the first line.",
+        "Find the word on.",
+        "Read the words after Pitter, patter."
+      ],
+      "explanation": "The first line says the rain falls on the roof.",
+      "options": [
+        {
+          "text": "on the roof"
+        },
+        {
+          "text": "on the frogs",
+          "why": "The frogs are in the puddle later."
+        },
+        {
+          "text": "on the sun",
+          "why": "Rain does not fall on the sun."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.003",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which words sound like rain?",
+      "passage": "e1.p.rain-on-the-roof",
+      "hints": [
+        "Some words sound like the noise they name.",
+        "Say each one out loud.",
+        "Which one sounds like water falling?"
+      ],
+      "explanation": "Drip, drop sounds like rain falling. Pitter, patter does too.",
+      "options": [
+        {
+          "text": "run and shout",
+          "why": "These are things the child will do."
+        },
+        {
+          "text": "drip, drop"
+        },
+        {
+          "text": "comes back",
+          "why": "These words do not sound like rain."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.004",
+      "skill": "e1.rhyme-poems",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match the rhyming words from the poem.",
+      "passage": "e1.p.rain-on-the-roof",
+      "hints": [
+        "Say the words out loud.",
+        "Rhyming words sound the same at the end.",
+        "Start with today. Which word sounds like it?"
+      ],
+      "explanation": "Today rhymes with play, and about rhymes with shout.",
+      "pairs": [
+        [
+          "today",
+          "play"
+        ],
+        [
+          "about",
+          "shout"
+        ]
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.005",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How does the child feel at the end of the poem?",
+      "passage": "e1.p.rain-on-the-roof",
+      "hints": [
+        "Read the last two lines.",
+        "What will the child do when the sun comes back?",
+        "How do you feel when you run and shout?"
+      ],
+      "explanation": "When the sun comes back, the child will run and shout. That shows the child is excited.",
+      "options": [
+        {
+          "text": "sad",
+          "why": "The child is sad when it rains. Look at the end."
+        },
+        {
+          "text": "scared",
+          "why": "Nothing in the poem is scary."
+        },
+        {
+          "text": "excited"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.006",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does the child dig with?",
+      "passage": "e1.p.at-the-beach",
+      "hints": [
+        "Find the word dig.",
+        "Read the rest of that line.",
+        "Look in the middle part of the poem."
+      ],
+      "explanation": "The poem says: I dig with my spade.",
+      "options": [
+        {
+          "text": "a spade"
+        },
+        {
+          "text": "a shell",
+          "why": "The poem does not say a shell."
+        },
+        {
+          "text": "a stick",
+          "why": "The poem does not say a stick."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.007",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word rhymes with feet?",
+      "passage": "e1.p.at-the-beach",
+      "hints": [
+        "Find the word feet in the poem.",
+        "Look at the next line.",
+        "Say feet, then say the last word of the next line."
+      ],
+      "explanation": "Feet and heat rhyme because they end with the same sound.",
+      "options": [
+        {
+          "text": "sand",
+          "why": "Sand ends with a different sound."
+        },
+        {
+          "text": "sun",
+          "why": "Sun ends with a different sound."
+        },
+        {
+          "text": "heat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.008",
+      "skill": "e1.rhyme-poems",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 animals in the poem.",
+      "passage": "e1.p.at-the-beach",
+      "hints": [
+        "Two answers are right.",
+        "Read the poem slowly.",
+        "Look for living things that move."
+      ],
+      "explanation": "The poem has a crab and some birds.",
+      "options": [
+        {
+          "text": "crab"
+        },
+        {
+          "text": "fish",
+          "why": "There are no fish in the poem."
+        },
+        {
+          "text": "birds"
+        },
+        {
+          "text": "dog",
+          "why": "There is no dog in the poem."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.009",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why does the crab run away?",
+      "passage": "e1.p.at-the-beach",
+      "hints": [
+        "Find the word crab.",
+        "Read the line after the crab runs away.",
+        "What does the poem say the crab wants?"
+      ],
+      "explanation": "The poem says the crab runs away because it does not want to play.",
+      "options": [
+        {
+          "text": "It is hungry.",
+          "why": "The poem does not say this."
+        },
+        {
+          "text": "It does not want to play."
+        },
+        {
+          "text": "It is cold.",
+          "why": "The poem says the sun gives heat."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.010",
+      "skill": "e1.rhyme-poems",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Finish the line from the poem. 'When the day is done, I wave to the ___.'",
+      "passage": "e1.p.at-the-beach",
+      "hints": [
+        "Look at the last part of the poem.",
+        "The missing word rhymes with done.",
+        "It is something hot in the sky."
+      ],
+      "explanation": "The poem ends: I wave to the sun. Sun rhymes with done.",
+      "blanks": [
+        {
+          "answers": [
+            "sun"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.011",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with cat?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          }
+        ],
+        "alt": "A picture of a cat."
+      },
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say cat, then say each word.",
+        "Listen to the end: at."
+      ],
+      "explanation": "Cat and hat rhyme. They both end with at.",
+      "options": [
+        {
+          "text": "hat"
+        },
+        {
+          "text": "cup",
+          "why": "Cup ends with a different sound."
+        },
+        {
+          "text": "dog",
+          "why": "Dog ends with a different sound."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.012",
+      "skill": "e1.rhyme-poems",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Does it rhyme with bee? Sort the words.",
+      "hints": [
+        "Say bee, then say each word.",
+        "Listen to the end sound.",
+        "Start with tree. Does it end like bee?"
+      ],
+      "explanation": "Tree, sea and three rhyme with bee. Bed, bag and cup do not.",
+      "groups": [
+        "Rhymes with bee",
+        "Does not rhyme"
+      ],
+      "items": [
+        {
+          "text": "tree",
+          "group": 0
+        },
+        {
+          "text": "bed",
+          "group": 1
+        },
+        {
+          "text": "sea",
+          "group": 0
+        },
+        {
+          "text": "bag",
+          "group": 1
+        },
+        {
+          "text": "three",
+          "group": 0
+        },
+        {
+          "text": "cup",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.013",
+      "skill": "e1.rhyme-poems",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the words that rhyme with cake.",
+      "hints": [
+        "Three words are right.",
+        "Say cake, then say each word.",
+        "Listen for the ake sound at the end."
+      ],
+      "explanation": "Lake, make and snake rhyme with cake.",
+      "options": [
+        {
+          "text": "lake"
+        },
+        {
+          "text": "make"
+        },
+        {
+          "text": "cat",
+          "why": "Cat ends with a different sound."
+        },
+        {
+          "text": "snake"
+        },
+        {
+          "text": "kite",
+          "why": "Kite ends with a different sound."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.014",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word does NOT rhyme with the others?",
+      "hints": [
+        "Say all four words.",
+        "Three words end the same way.",
+        "Listen to the middle sound too."
+      ],
+      "explanation": "Ball, tall and wall rhyme. Bell has an e sound in the middle, so it does not rhyme with them.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "ball",
+          "why": "Ball rhymes with tall and wall."
+        },
+        {
+          "text": "bell"
+        },
+        {
+          "text": "tall",
+          "why": "Tall rhymes with ball and wall."
+        },
+        {
+          "text": "wall",
+          "why": "Wall rhymes with ball and tall."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.015",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which pair rhymes, but ends with different letters?",
+      "hints": [
+        "All four pairs rhyme.",
+        "Now look at the spelling at the end of each word.",
+        "Find the pair where the last letters are not the same."
+      ],
+      "explanation": "Blue and shoe rhyme, but blue ends with ue and shoe ends with oe.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "cat, hat",
+          "why": "These end with the same letters, at."
+        },
+        {
+          "text": "pig, wig",
+          "why": "These end with the same letters, ig."
+        },
+        {
+          "text": "sun, fun",
+          "why": "These end with the same letters, un."
+        },
+        {
+          "text": "blue, shoe"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

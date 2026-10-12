@@ -1,0 +1,150 @@
+{
+  "skill": "m5.compare-decimals",
+  "title": "Comparing and ordering decimals",
+  "steps": [
+    {
+      "say": "To compare decimals, line up the decimal points. Then compare the digits from the left.",
+      "show": "3.45 and 3.5",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ones",
+          "Tenths",
+          "Hundredths"
+        ],
+        "rows": [
+          [
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "3",
+            "5",
+            "0"
+          ]
+        ],
+        "alt": "A place value chart with 3.45 above 3.50, lined up by place."
+      }
+    },
+    {
+      "say": "The ones are the same, so look at the tenths. 5 tenths is more than 4 tenths.",
+      "show": "3.5 > 3.45"
+    },
+    {
+      "say": "A decimal with more digits can still be the smaller number. Write a zero in the gap so both have the same number of places.",
+      "show": "3.5 = 3.50, and 3.50 > 3.45"
+    },
+    {
+      "say": "On a number line, the bigger number is further to the right.",
+      "show": "3.45 < 3.5",
+      "figure": {
+        "kind": "numberline",
+        "min": 3.4,
+        "max": 3.6,
+        "step": 0.05,
+        "marks": [
+          {
+            "at": 3.45,
+            "label": "3.45"
+          },
+          {
+            "at": 3.5,
+            "label": "3.5"
+          }
+        ],
+        "alt": "A number line from 3.4 to 3.6 with 3.45 and 3.5 marked. 3.5 is further right."
+      }
+    },
+    {
+      "say": "To order a list, compare the ones first, then the tenths, then the hundredths.",
+      "show": "0.7, 0.75, 1.09, 1.2"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.compare-decimals.901",
+      "skill": "m5.compare-decimals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is the greatest?",
+      "hints": [
+        "All the numbers have 0 ones.",
+        "Compare the tenths digits.",
+        "Write each number with two decimal places, like 0.40."
+      ],
+      "explanation": "0.8 has 8 tenths, more than any of the other numbers, so 0.8 is the greatest.",
+      "options": [
+        {
+          "text": "0.4",
+          "why": "0.4 has only 4 tenths."
+        },
+        {
+          "text": "0.8"
+        },
+        {
+          "text": "0.75",
+          "why": "0.75 has 7 tenths, and 0.8 has 8 tenths."
+        },
+        {
+          "text": "0.09",
+          "why": "0.09 has 0 tenths, so it is the smallest."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.compare-decimals.902",
+      "skill": "m5.compare-decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which list is in order from smallest to largest?",
+      "hints": [
+        "All the numbers have 2 ones.",
+        "Compare the tenths, then the hundredths.",
+        "Write 2.3 as 2.30 and 2.5 as 2.50."
+      ],
+      "explanation": "2.30 < 2.35 < 2.50 < 2.53, so the order is 2.3, 2.35, 2.5, 2.53.",
+      "options": [
+        {
+          "text": "2.53, 2.5, 2.35, 2.3",
+          "why": "This list goes from largest to smallest."
+        },
+        {
+          "text": "2.5, 2.3, 2.53, 2.35",
+          "why": "Compare the tenths first. 2.3 and 2.35 have only 3 tenths."
+        },
+        {
+          "text": "2.3, 2.35, 2.5, 2.53"
+        },
+        {
+          "text": "2.3, 2.5, 2.35, 2.53",
+          "why": "2.35 has 3 tenths, so it comes before 2.5."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.compare-decimals.903",
+      "skill": "m5.compare-decimals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the sign <, > or = to make this true. 4.06 ___ 4.6",
+      "hints": [
+        "Line up the decimal points.",
+        "Compare the tenths digits.",
+        "4.06 has 0 tenths. How many tenths does 4.6 have?"
+      ],
+      "explanation": "4.06 has 0 tenths and 4.6 has 6 tenths, so 4.06 < 4.6.",
+      "blanks": [
+        {
+          "answers": [
+            "<",
+            "less than",
+            "is less than"
+          ]
+        }
+      ]
+    }
+  ]
+}

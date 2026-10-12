@@ -1,0 +1,141 @@
+{
+  "skill": "e3.synonyms-antonyms",
+  "items": [
+    {
+      "id": "e3.synonyms-antonyms.001", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word means the same as big?",
+      "options": [
+        { "text": "large" },
+        { "text": "tiny", "why": "Tiny means very small. That is the opposite." },
+        { "text": "slow", "why": "Slow is about speed, not size." },
+        { "text": "short", "why": "Short means not tall or not long." }
+      ],
+      "answer": 0,
+      "hints": ["A word that means the same is called a synonym.", "Think of another word for something huge.", "Read the sentence: The elephant is very ___. Which word fits as well as big?"],
+      "explanation": "Large means the same as big, so it is a synonym of big.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.synonyms-antonyms.002", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word is the opposite of empty?",
+      "options": [
+        { "text": "open", "why": "Open is the opposite of closed." },
+        { "text": "hollow", "why": "Hollow means empty inside. That is not the opposite." },
+        { "text": "full" },
+        { "text": "clean", "why": "Clean is the opposite of dirty." }
+      ],
+      "answer": 2,
+      "hints": ["A word that means the opposite is called an antonym.", "Think of a glass with no water in it. What is it like after you fill it?", "Say: The box was empty. Then it was ___."],
+      "explanation": "Full is the opposite of empty. An empty box has nothing in it, and a full box has no room left.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.synonyms-antonyms.003", "skill": "e3.synonyms-antonyms", "type": "match", "difficulty": 2,
+      "prompt": "Match each word to a synonym.",
+      "pairs": [["quick", "fast"], ["shout", "yell"], ["glad", "happy"], ["begin", "start"], ["tiny", "small"]],
+      "hints": ["A synonym means the same or nearly the same.", "Try each pair in a sentence. Does the meaning stay the same?", "Start with begin. Which word could you swap it for?"],
+      "explanation": "Synonyms mean the same or nearly the same, like begin and start."
+    },
+    {
+      "id": "e3.synonyms-antonyms.004", "skill": "e3.synonyms-antonyms", "type": "match", "difficulty": 2,
+      "prompt": "Match each word to its antonym.",
+      "pairs": [["early", "late"], ["noisy", "quiet"], ["float", "sink"], ["push", "pull"], ["ancient", "modern"]],
+      "hints": ["An antonym means the opposite.", "Think of a word that changes the meaning completely.", "Start with push. What is the opposite thing you can do to a door?"],
+      "explanation": "Antonyms are opposites, like push and pull, or ancient (very old) and modern (new)."
+    },
+    {
+      "id": "e3.synonyms-antonyms.005", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 2,
+      "prompt": "Which word means said very loudly?",
+      "options": [
+        { "text": "whispered", "why": "Whispered means said very quietly." },
+        { "text": "mumbled", "why": "Mumbled means said in a way that is hard to hear." },
+        { "text": "asked", "why": "Asked means said a question." },
+        { "text": "shouted" }
+      ],
+      "answer": 3,
+      "hints": ["Many words can be used instead of said.", "Think about how loud each word is.", "Which word would you use for calling a friend across a big field?"],
+      "explanation": "Shouted means said very loudly. It is a stronger synonym for said.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.synonyms-antonyms.006", "skill": "e3.synonyms-antonyms", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the words by meaning.",
+      "groups": ["Means the same as happy", "Means the opposite of happy"],
+      "items": [
+        { "text": "cheerful", "group": 0 }, { "text": "joyful", "group": 0 }, { "text": "glad", "group": 0 }, { "text": "delighted", "group": 0 },
+        { "text": "sad", "group": 1 }, { "text": "miserable", "group": 1 }, { "text": "gloomy", "group": 1 }, { "text": "upset", "group": 1 }
+      ],
+      "hints": ["Read each word and think about how it feels.", "Would you smile or frown if you felt this way?", "Start with joyful. Is it a smiling word?"],
+      "explanation": "Cheerful, joyful, glad and delighted are synonyms of happy. Sad, miserable, gloomy and upset are antonyms."
+    },
+    {
+      "id": "e3.synonyms-antonyms.007", "skill": "e3.synonyms-antonyms", "type": "text", "difficulty": 3,
+      "prompt": "Write the antonym of shallow.\nThe pool is ___ at this end, so only strong swimmers can go here.",
+      "blanks": [{ "answers": ["deep"] }],
+      "hints": ["An antonym is the opposite.", "Shallow water does not go down very far.", "What do we call water that goes down a long way?"],
+      "explanation": "Deep is the opposite of shallow. Deep water goes down a long way."
+    },
+    {
+      "id": "e3.synonyms-antonyms.008", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 3,
+      "prompt": "Which word could replace walked to show that Bayu was very tired?",
+      "options": [
+        { "text": "dashed", "why": "Dashed means ran fast. A tired person moves slowly." },
+        { "text": "trudged" },
+        { "text": "skipped", "why": "Skipping is a happy, bouncy way to move." },
+        { "text": "raced", "why": "Raced means moved very fast." }
+      ],
+      "answer": 1,
+      "hints": ["Think about how a tired person moves.", "All the words are ways of moving. Some are fast and some are slow.", "Which word sounds slow and heavy?"],
+      "explanation": "Trudged means walked slowly with heavy steps, like someone who is very tired.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.synonyms-antonyms.009", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 2,
+      "prompt": "Which pair of words are antonyms?",
+      "options": [
+        { "text": "hot and warm", "why": "Hot and warm are close in meaning." },
+        { "text": "cold and chilly", "why": "Cold and chilly are synonyms." },
+        { "text": "warm and sunny", "why": "These words often go together. They are not opposites." },
+        { "text": "hot and cold" }
+      ],
+      "answer": 3,
+      "hints": ["Antonyms are opposites.", "Look for a pair that mean completely different things.", "Picture each pair. Which pair are at two ends, like day and night?"],
+      "explanation": "Hot and cold are opposites, so they are antonyms."
+    },
+    {
+      "id": "e3.synonyms-antonyms.010", "skill": "e3.synonyms-antonyms", "type": "multi", "difficulty": 4,
+      "prompt": "Choose all the words that mean the same as look.",
+      "options": [
+        { "text": "glance" },
+        { "text": "listen", "why": "Listen is what you do with your ears." },
+        { "text": "stare" },
+        { "text": "shout", "why": "Shout is about your voice." },
+        { "text": "peek" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Look is something you do with your eyes.", "Some of these words are quick looks and some are long looks.", "For each word, ask: do you use your eyes to do it?"],
+      "explanation": "Glance, stare and peek are all ways of looking. Listen and shout are not."
+    },
+    {
+      "id": "e3.synonyms-antonyms.011", "skill": "e3.synonyms-antonyms", "type": "text", "difficulty": 4,
+      "prompt": "Write the antonym of arrive.\nThe train will ___ at six o'clock and reach the city at nine.",
+      "blanks": [{ "answers": ["leave", "depart", "go"] }],
+      "hints": ["An antonym is the opposite.", "Arrive means come to a place.", "What does the train do at the very start of its trip?"],
+      "explanation": "Leave is the opposite of arrive. The train leaves at six and arrives at nine. Depart works too."
+    },
+    {
+      "id": "e3.synonyms-antonyms.012", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 5,
+      "prompt": "In which sentence does light mean the opposite of heavy?",
+      "options": [
+        { "text": "Please turn on the light.", "why": "Here light means a lamp." },
+        { "text": "It gets light at six o'clock.", "why": "Here light is the opposite of dark." },
+        { "text": "My bag is light today." },
+        { "text": "The light was too bright.", "why": "Here light means brightness from a lamp or the sun." }
+      ],
+      "answer": 2,
+      "hints": ["Light has more than one meaning.", "Find the sentence that is about how much something weighs.", "Try saying heavy instead of light. In which sentence does heavy make sense?"],
+      "explanation": "In My bag is light today, light means not heavy. In the other sentences, light is about lamps, the sun or not being dark.",
+      "tags": ["iklc"]
+    }
+  ]
+}

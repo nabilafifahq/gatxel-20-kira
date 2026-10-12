@@ -1,0 +1,34 @@
+{
+  "skill": "s2.forces-motion",
+  "title": "Forces make things move",
+  "steps": [
+    { "say": "A force is a push or a pull.", "show": "push or pull" },
+    { "say": "Forces can start things moving, stop them or change their direction.", "show": "start, stop, turn" },
+    { "say": "A bigger force makes a bigger change. A strong kick sends a ball further.", "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "ball" }], "alt": "A football." } },
+    { "say": "Rough surfaces slow things down more than smooth surfaces.", "show": "rough surface: slows more" },
+    { "say": "Gravity pulls things down to the Earth. Air pushes up on a parachute and slows it.", "figure": { "kind": "icons", "items": [{ "icon": "parachute", "label": "parachute" }], "alt": "A parachute falling slowly." } },
+    { "say": "Magnets pull iron and steel, even without touching them.", "figure": { "kind": "icons", "items": [{ "icon": "magnet", "label": "magnet" }, { "icon": "paperclip", "label": "steel paperclip" }], "alt": "A magnet pulling a steel paperclip." } }
+  ],
+  "check": [
+    {
+      "id": "s2.forces-motion.901", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 2,
+      "prompt": "A goalkeeper catches a ball. What does the catch do?",
+      "options": [
+        { "text": "starts it moving", "why": "The ball was already moving." },
+        { "text": "stops it" },
+        { "text": "changes its colour", "why": "Forces do not change colour." },
+        { "text": "makes it bigger", "why": "Catching does not change the size of the ball." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the ball before and after the catch.", "Is the ball still moving in the goalkeeper's hands?", "Ask: what can a push or pull do to a moving ball?"],
+      "explanation": "The goalkeeper's hands push against the ball and stop it."
+    },
+    {
+      "id": "s2.forces-motion.902", "skill": "s2.forces-motion", "type": "text", "difficulty": 3,
+      "prompt": "The pull that makes things fall to the ground is called ___.",
+      "blanks": [{ "answers": ["gravity"] }],
+      "hints": ["It pulls everything towards the Earth.", "It is why a dropped cup falls down.", "The word starts with g."],
+      "explanation": "Gravity pulls things down towards the Earth."
+    }
+  ]
+}

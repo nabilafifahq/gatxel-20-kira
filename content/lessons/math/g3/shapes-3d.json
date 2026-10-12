@@ -1,0 +1,99 @@
+{
+  "skill": "m3.shapes-3d",
+  "title": "Faces, edges and vertices",
+  "steps": [
+    {
+      "say": "3D shapes are solid. They have faces, edges and vertices.",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A picture of a cube."
+      }
+    },
+    {
+      "say": "A face is a flat surface. A cube has 6 square faces.",
+      "show": "6 faces"
+    },
+    {
+      "say": "An edge is where two faces meet. A cube has 12 edges.",
+      "show": "12 edges"
+    },
+    {
+      "say": "A vertex is a corner where edges meet. A cube has 8 vertices.",
+      "show": "8 vertices"
+    },
+    {
+      "say": "Shapes with a curved surface can roll.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "sphere",
+            "label": "Sphere"
+          },
+          {
+            "shape": "cylinder",
+            "label": "Cylinder"
+          },
+          {
+            "shape": "cone",
+            "label": "Cone"
+          }
+        ],
+        "alt": "A sphere, a cylinder and a cone."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.shapes-3d.901",
+      "skill": "m3.shapes-3d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many faces does a square-based pyramid have?",
+      "answer": 5,
+      "hints": [
+        "Count the base first.",
+        "Then count the triangle faces around it.",
+        "The base is a square."
+      ],
+      "explanation": "1 square base and 4 triangle faces make 5 faces.",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A picture of a square-based pyramid."
+      }
+    },
+    {
+      "id": "m3.shapes-3d.902",
+      "skill": "m3.shapes-3d",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which 3D shape can roll?",
+      "options": [
+        {
+          "text": "Cylinder"
+        },
+        {
+          "text": "Cube",
+          "why": "A cube has only flat faces, so it slides."
+        },
+        {
+          "text": "Square-based pyramid",
+          "why": "A pyramid has only flat faces, so it slides."
+        },
+        {
+          "text": "Cuboid",
+          "why": "A cuboid has only flat faces, so it slides."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A shape needs a curved surface to roll.",
+        "Look for a shape with a round part.",
+        "Picture each shape on a slope."
+      ],
+      "explanation": "A cylinder has a curved surface, so it can roll."
+    }
+  ]
+}

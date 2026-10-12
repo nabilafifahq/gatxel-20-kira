@@ -1,0 +1,231 @@
+{
+  "skill": "s5.fair-tests",
+  "items": [
+    {
+      "id": "s5.fair-tests.001",
+      "skill": "s5.fair-tests",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each piece of equipment to what it measures.",
+      "pairs": [
+        ["thermometer", "temperature"],
+        ["forcemeter", "force"],
+        ["stopwatch", "time"],
+        ["measuring cylinder", "volume of a liquid"],
+        ["ruler", "length"]
+      ],
+      "hints": [
+        "Each tool measures one kind of quantity.",
+        "Think about the units each tool shows: °C, N, seconds, ml or cm.",
+        "Start with the stopwatch. Think about what you use it for in a race."
+      ],
+      "explanation": "A thermometer measures temperature, a forcemeter measures force and a stopwatch measures time. A measuring cylinder measures the volume of a liquid, and a ruler measures length."
+    },
+    {
+      "id": "s5.fair-tests.002",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In a fair test, how many variables should you change?",
+      "options": [
+        { "text": "two", "why": "If you change two things, you cannot tell which one caused the result." },
+        { "text": "only one" },
+        { "text": "all of them", "why": "If you change everything, you cannot tell what made the difference." },
+        { "text": "none", "why": "You need to change one thing to see what effect it has." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A fair test finds out what effect one thing has.",
+        "Think about racing two toy cars. Decide what would make the race unfair.",
+        "Cross out the choices that would mix up the cause of the result."
+      ],
+      "explanation": "In a fair test you change only one variable and keep the others the same. Then any difference in the results must be caused by the one thing you changed."
+    },
+    {
+      "id": "s5.fair-tests.003",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sari tests whether the temperature of water changes how fast sugar dissolves. What should she change?",
+      "options": [
+        { "text": "the amount of sugar", "why": "Keep the amount of sugar the same, so the test is fair." },
+        { "text": "the size of the cup", "why": "Keep the cup size the same, so only one thing changes." },
+        { "text": "the temperature of the water" },
+        { "text": "the type of spoon", "why": "The spoon does not matter here, so keep it the same." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Her question tells you what Sari wants to find out.",
+        "The variable she changes is the one named in her question.",
+        "Read her question again and underline the variable she is testing."
+      ],
+      "explanation": "Sari wants to know about the temperature of the water, so that is the variable she changes. She keeps the amount of sugar, the cup and the stirring the same."
+    },
+    {
+      "id": "s5.fair-tests.004",
+      "skill": "s5.fair-tests",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Budi tests whether more water makes bean plants grow taller. Sort each variable into the right group.",
+      "groups": ["Change", "Measure", "Keep the same"],
+      "items": [
+        { "text": "amount of water each day", "group": 0 },
+        { "text": "height of the plant", "group": 1 },
+        { "text": "type of bean seed", "group": 2 },
+        { "text": "amount of soil", "group": 2 },
+        { "text": "size of the pot", "group": 2 },
+        { "text": "amount of light", "group": 2 }
+      ],
+      "hints": [
+        "There is one variable to change and one to measure. Everything else stays the same.",
+        "His question names the variable he changes and the result he measures.",
+        "Start with the variable named first in his question."
+      ],
+      "explanation": "Budi changes the amount of water and measures the height of the plants. He keeps the seeds, soil, pot and light the same, so the test is fair."
+    },
+    {
+      "id": "s5.fair-tests.005",
+      "skill": "s5.fair-tests",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Tomás times a paper helicopter falling three times: 2.4 s, 2.6 s and 2.5 s. What is the mean time?",
+      "answer": 2.5,
+      "unit": "s",
+      "allowDecimal": true,
+      "hints": [
+        "The mean is a kind of average.",
+        "Add up all the times, then divide by how many times there are.",
+        "Start by adding the three times together."
+      ],
+      "explanation": "2.4 + 2.6 + 2.5 = 7.5, and 7.5 ÷ 3 = 2.5. The mean time is 2.5 seconds.",
+      "solution": [
+        { "say": "Add the three times together.", "show": "2.4 + 2.6 + 2.5 = 7.5" },
+        { "say": "There are three times, so divide the total by 3.", "show": "7.5 ÷ 3 = 2.5" },
+        { "say": "The mean time is 2.5 seconds.", "show": "2.5 s" }
+      ],
+      "tags": ["imso"]
+    },
+    {
+      "id": "s5.fair-tests.006",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Yuki rolls a toy car down the same ramp four times. Which result does not fit the pattern?",
+      "figure": {
+        "kind": "table",
+        "caption": "Distance the car rolled",
+        "head": ["Trial", "Distance (cm)"],
+        "rows": [
+          ["1", "30"],
+          ["2", "31"],
+          ["3", "52"],
+          ["4", "29"]
+        ],
+        "alt": "Table of results: trial 1, 30 cm; trial 2, 31 cm; trial 3, 52 cm; trial 4, 29 cm."
+      },
+      "options": [
+        { "text": "trial 1", "why": "30 cm is close to the other results." },
+        { "text": "trial 2", "why": "31 cm is close to the other results." },
+        { "text": "trial 3" },
+        { "text": "trial 4", "why": "29 cm is close to the other results." }
+      ],
+      "answer": 2,
+      "hints": [
+        "In a good test, repeated results should be close to each other.",
+        "Look for the one result that is far away from the rest.",
+        "Compare each distance with 30 cm."
+      ],
+      "explanation": "Trials 1, 2 and 4 are all about 30 cm, but trial 3 is 52 cm. This anomalous result should be checked by repeating the trial.",
+      "tags": ["imso"]
+    },
+    {
+      "id": "s5.fair-tests.007",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Before her test, Wulan writes that ice will melt fastest on the metal tray, because metal conducts heat well. What has Wulan written?",
+      "options": [
+        { "text": "a prediction with a reason" },
+        { "text": "a conclusion", "why": "A conclusion comes after the test, from the results." },
+        { "text": "a result", "why": "Results are the measurements you make during the test." },
+        { "text": "an equipment list", "why": "She has not listed any equipment." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at when Wulan wrote this: before or after the test.",
+        "She says what she thinks will happen and gives a reason.",
+        "Cross out the choices that can only be written after the test."
+      ],
+      "explanation": "Wulan says what she thinks will happen before testing, and she gives a scientific reason. That is a prediction with a reason."
+    },
+    {
+      "id": "s5.fair-tests.008",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Aditya tests which ball bounces highest. He drops a tennis ball from 1 m and a rubber ball from 2 m. Why is his test unfair?",
+      "options": [
+        { "text": "He used two different balls.", "why": "Changing the type of ball is the point of the test. The drop height should stay the same." },
+        { "text": "He did not use a thermometer.", "why": "Temperature is not part of this test." },
+        { "text": "He should have used heavier balls.", "why": "The mass of the balls is not the problem. Two variables were changed." },
+        { "text": "He changed the drop height as well as the type of ball." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the one variable Aditya wants to test.",
+        "Check whether anything else changed between the two drops.",
+        "Compare the heights each ball was dropped from."
+      ],
+      "explanation": "The test is unfair because he changed the drop height as well as the type of ball. He should drop both balls from the same height."
+    },
+    {
+      "id": "s5.fair-tests.009",
+      "skill": "s5.fair-tests",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Plan a fair test to find which material makes the best umbrella. Say what you will change, what you will measure and what you will keep the same.",
+      "rubric": {
+        "criteria": [
+          { "label": "Names the variable to change: the type of material", "points": 1 },
+          { "label": "Says what to measure and how, for example water through in 1 minute", "points": 2 },
+          { "label": "Lists at least two variables to keep the same", "points": 2 },
+          { "label": "Mentions repeating the test or a safety point", "points": 1 }
+        ]
+      },
+      "minWords": 40,
+      "maxWords": 150,
+      "planning": [
+        "What will you change?",
+        "How will you measure which material keeps water out best?",
+        "What must stay the same for every material?"
+      ],
+      "model": "I will test four materials: cotton, plastic, paper and wool. I will stretch each one over a cup and pour 50 ml of water on it. I will use a measuring cylinder to measure how much water drips into the cup after one minute. I will keep the amount of water, the size of the material and the time the same. I will repeat each test three times.",
+      "hints": [
+        "Start with the one thing you will change.",
+        "Think of a way to measure how much water gets through each material."
+      ],
+      "explanation": "A fair umbrella test changes only the material and measures how much water gets through. Everything else stays the same, and repeating the test makes the results more reliable."
+    },
+    {
+      "id": "s5.fair-tests.010",
+      "skill": "s5.fair-tests",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Leo puts sugar in Cup A with hot water and stirs it. He puts sugar in Cup B with cold water and does not stir it. The sugar in Cup A dissolves faster. Leo says stirring makes sugar dissolve faster. Why is his conclusion not reliable?",
+      "options": [
+        { "text": "He changed two variables, so he cannot tell which one made the difference." },
+        { "text": "Stirring never helps sugar dissolve.", "why": "Stirring does help, but this test cannot show it, because the temperature changed too." },
+        { "text": "He should have used salt instead.", "why": "Using salt would not fix the problem of changing two things at once." },
+        { "text": "He did not use enough sugar.", "why": "The amount of sugar is not the problem. Two variables were changed." }
+      ],
+      "answer": 0,
+      "hints": [
+        "List every difference between Cup A and Cup B.",
+        "If two things are different, either one could have caused the result.",
+        "Count how many variables Leo changed between the two cups."
+      ],
+      "explanation": "Leo changed both the temperature and the stirring, so either one could have made Cup A faster. To test stirring, he must keep the water temperature the same in both cups.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

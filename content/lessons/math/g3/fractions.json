@@ -1,0 +1,92 @@
+{
+  "skill": "m3.fractions",
+  "title": "Unit and non-unit fractions",
+  "steps": [
+    {
+      "say": "A fraction is part of a whole. The whole is cut into equal parts.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 1,
+        "alt": "A circle cut into 4 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "1 part out of 4 equal parts is one quarter.",
+      "show": "1/4"
+    },
+    {
+      "say": "The bottom number tells how many equal parts. The top number tells how many we take.",
+      "show": "3/4 means 3 parts out of 4"
+    },
+    {
+      "say": "This bar has 5 equal parts and 3 are shaded.",
+      "show": "3/5",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 5,
+        "shaded": 3,
+        "alt": "A bar cut into 5 equal parts with 3 parts shaded."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.fractions.901",
+      "skill": "m3.fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What fraction is shaded?",
+      "options": [
+        {
+          "text": "8/3",
+          "why": "The number of equal parts goes on the bottom."
+        },
+        {
+          "text": "3/8"
+        },
+        {
+          "text": "5/8",
+          "why": "5/8 is the white part."
+        },
+        {
+          "text": "3/5",
+          "why": "Count all the parts, shaded and white. There are 8."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count all the equal parts.",
+        "Count the shaded parts.",
+        "Shaded parts go on top. All the parts go on the bottom."
+      ],
+      "explanation": "3 out of 8 equal parts are shaded, so 3/8 is shaded.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 3,
+        "alt": "A bar cut into 8 equal parts with 3 parts shaded."
+      }
+    },
+    {
+      "id": "m3.fractions.902",
+      "skill": "m3.fractions",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A cake is cut into 5 equal pieces. 2 pieces are eaten. How many fifths are left?",
+      "answer": 3,
+      "hints": [
+        "Each piece is one fifth of the cake.",
+        "Take away the pieces that are eaten.",
+        "Work out 5 - 2."
+      ],
+      "explanation": "5 - 2 = 3 pieces are left. That is 3/5 of the cake.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "skill": "s5.keeping-healthy",
+  "title": "Food, exercise and hygiene",
+  "steps": [
+    {
+      "say": "Food gives your body energy and the materials it needs to grow. Different foods do different jobs."
+    },
+    {
+      "say": "Carbohydrates such as rice give energy. Proteins such as fish, eggs and tempeh help you grow and repair.",
+      "show": "carbohydrates for energy, proteins for growth"
+    },
+    {
+      "say": "Fruit and vegetables give vitamins, minerals and fibre. A balanced meal has food from several groups.",
+      "show": "rice + fish + vegetables + fruit"
+    },
+    {
+      "say": "Exercise makes your heart, lungs and muscles stronger. Sleep helps your body grow and repair itself."
+    },
+    {
+      "say": "Some microorganisms cause illness. Washing your hands with soap removes most of them.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "hand",
+            "label": "hands"
+          },
+          {
+            "icon": "soap",
+            "label": "soap"
+          }
+        ],
+        "alt": "A pair of hands and a bar of soap."
+      }
+    },
+    {
+      "say": "Other microorganisms are useful. Yeasts and moulds help us make bread, tempeh and tapai."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.keeping-healthy.901",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which food group gives us most of our energy?",
+      "options": [
+        {
+          "text": "proteins",
+          "why": "Proteins mainly help the body grow and repair itself."
+        },
+        {
+          "text": "carbohydrates"
+        },
+        {
+          "text": "vitamins",
+          "why": "Vitamins help keep the body working well, but they do not give energy."
+        },
+        {
+          "text": "fibre",
+          "why": "Fibre helps food move through the gut."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what rice, bread and noodles give you.",
+        "This food group is found in grains and potatoes.",
+        "Cross out the groups for growing and for digestion."
+      ],
+      "explanation": "Carbohydrates, found in foods such as rice, bread and noodles, give us most of our energy."
+    },
+    {
+      "id": "s5.keeping-healthy.902",
+      "skill": "s5.keeping-healthy",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Washing your hands with ___ removes most microorganisms.",
+      "blanks": [
+        {
+          "answers": [
+            "soap",
+            "soap and water"
+          ]
+        }
+      ],
+      "hints": [
+        "Water alone is not enough.",
+        "It makes bubbles and lather on your hands.",
+        "You use it with water at the sink."
+      ],
+      "explanation": "Soap lifts microorganisms off your skin so that water can wash them away."
+    }
+  ]
+}

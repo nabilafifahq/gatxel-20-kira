@@ -1,0 +1,354 @@
+{
+  "skill": "s5.sound",
+  "items": [
+    {
+      "id": "s5.sound.001",
+      "skill": "s5.sound",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Every sound is made by something ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vibrating",
+            "that vibrates",
+            "vibrates",
+            "moving backwards and forwards"
+          ]
+        }
+      ],
+      "hints": [
+        "Touch your throat gently while you hum.",
+        "Pluck a stretched rubber band and watch it closely.",
+        "The word means moving quickly backwards and forwards. It starts with the letter v."
+      ],
+      "explanation": "Every sound is made by something vibrating, which means moving quickly backwards and forwards. The vibrations travel through the air to our ears."
+    },
+    {
+      "id": "s5.sound.002",
+      "skill": "s5.sound",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each instrument to the part that vibrates to make its sound.",
+      "pairs": [
+        [
+          "guitar",
+          "the strings"
+        ],
+        [
+          "drum",
+          "the drum skin"
+        ],
+        [
+          "flute",
+          "the air inside the tube"
+        ],
+        [
+          "angklung",
+          "the bamboo tubes"
+        ],
+        [
+          "gong",
+          "the metal gong"
+        ]
+      ],
+      "hints": [
+        "Ask which part of each instrument you pluck, hit, blow into or shake.",
+        "In a wind instrument, it is the air that vibrates.",
+        "Start with the guitar. Think about what you pluck with your fingers."
+      ],
+      "explanation": "Guitar strings, drum skins and metal gongs vibrate when they are plucked or struck. In a flute the air inside the tube vibrates, and an angklung's bamboo tubes vibrate when it is shaken."
+    },
+    {
+      "id": "s5.sound.003",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ari puts his ear on one end of a table. Beni gently taps the other end. Ari hears the tap clearly. What does this show?",
+      "options": [
+        {
+          "text": "Sound can only travel through air.",
+          "why": "Ari's ear was pressed on the table, so the sound came through the wood."
+        },
+        {
+          "text": "Tables make their own sounds.",
+          "why": "The table only carried the vibrations from Beni's tap."
+        },
+        {
+          "text": "Sound can travel through solids."
+        },
+        {
+          "text": "Sound can only travel through water.",
+          "why": "Sound travels through solids, liquids and gases."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ari's ear is touching the table, not open to the air.",
+        "The tap makes the wood vibrate.",
+        "Ask what the vibrations travelled through to reach Ari's ear."
+      ],
+      "explanation": "The tap makes the table vibrate, and the vibrations travel through the solid wood to Ari's ear. Sound can travel through solids, liquids and gases."
+    },
+    {
+      "id": "s5.sound.004",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How can you make a drum sound louder?",
+      "options": [
+        {
+          "text": "Hit it more gently.",
+          "why": "Gentle taps make small vibrations and quieter sounds."
+        },
+        {
+          "text": "Tighten the skin.",
+          "why": "Tightening the skin makes the pitch higher. It does not make the drum louder."
+        },
+        {
+          "text": "Put a cloth on the skin.",
+          "why": "A cloth muffles the drum and makes it quieter."
+        },
+        {
+          "text": "Hit it harder, so the skin makes bigger vibrations."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Loudness depends on the size of the vibrations.",
+        "Bigger vibrations carry more energy to your ears.",
+        "Think about what you do with the stick to make a big vibration."
+      ],
+      "explanation": "Hitting the drum harder makes the skin vibrate with bigger movements, so the sound is louder. Changing how tight the skin is changes the pitch instead."
+    },
+    {
+      "id": "s5.sound.005",
+      "skill": "s5.sound",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort these into higher pitch and lower pitch.",
+      "groups": [
+        "Higher pitch",
+        "Lower pitch"
+      ],
+      "items": [
+        {
+          "text": "a short angklung tube",
+          "group": 0
+        },
+        {
+          "text": "a long angklung tube",
+          "group": 1
+        },
+        {
+          "text": "a tight guitar string",
+          "group": 0
+        },
+        {
+          "text": "a loose guitar string",
+          "group": 1
+        },
+        {
+          "text": "a thin guitar string",
+          "group": 0
+        },
+        {
+          "text": "a thick guitar string",
+          "group": 1
+        },
+        {
+          "text": "a small saron bar",
+          "group": 0
+        },
+        {
+          "text": "a large gong",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Pitch means how high or low a note sounds.",
+        "Faster vibrations make higher notes. Short, thin or tight things vibrate faster.",
+        "Compare the two angklung tubes first."
+      ],
+      "explanation": "Short, thin, tight or small things vibrate faster and make higher notes. Long, thick, loose or large things vibrate more slowly and make lower notes.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.sound.006",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Nina has four identical bottles with different amounts of water. She blows across the top of each one. Which bottle makes the highest note?",
+      "options": [
+        {
+          "text": "the bottle with the least water",
+          "why": "That bottle has the longest column of air, which vibrates slowly and gives a low note."
+        },
+        {
+          "text": "the bottle with the most water"
+        },
+        {
+          "text": "the bottle that is half full",
+          "why": "It has more air inside than the fullest bottle, so its note is lower."
+        },
+        {
+          "text": "all four bottles make the same note",
+          "why": "The column of air is a different length in each bottle, so the notes are different."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "When you blow across a bottle, the air inside it vibrates.",
+        "A shorter column of air vibrates faster and makes a higher note.",
+        "Find the bottle with the smallest space of air above the water."
+      ],
+      "explanation": "Blowing makes the air in the bottle vibrate. The bottle with the most water has the shortest column of air, which vibrates fastest and gives the highest note.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s5.sound.007",
+      "skill": "s5.sound",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the materials that would help to muffle sound in a music room.",
+      "options": [
+        {
+          "text": "thick curtains"
+        },
+        {
+          "text": "carpet"
+        },
+        {
+          "text": "foam panels"
+        },
+        {
+          "text": "glass windows",
+          "why": "Hard, smooth glass reflects sound instead of soaking it up."
+        },
+        {
+          "text": "metal sheets",
+          "why": "Hard metal reflects sound, so the room would echo more."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Muffling means soaking up sound so less of it bounces around.",
+        "Soft materials with lots of tiny air gaps absorb sound well.",
+        "For each material, ask whether it is soft and squashy or hard and smooth."
+      ],
+      "explanation": "Soft materials such as curtains, carpet and foam absorb sound, so they muffle it. Hard, smooth surfaces such as glass and metal reflect sound back into the room."
+    },
+    {
+      "id": "s5.sound.008",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Many small bats hunt insects in the dark. How do they find the insects?",
+      "options": [
+        {
+          "text": "They make high sounds and listen for the echoes that bounce back."
+        },
+        {
+          "text": "They see light given out by every insect.",
+          "why": "Most insects do not glow, so the bats use sound to find them."
+        },
+        {
+          "text": "They smell each insect from far away.",
+          "why": "These bats find flying insects using echoes of their own calls."
+        },
+        {
+          "text": "They feel the insects with their wings.",
+          "why": "The insects are too far away to touch until the bat catches them."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "An echo is a sound that bounces back off a surface.",
+        "These bats make calls that are too high for people to hear.",
+        "Think about what happens when a bat's call hits an insect in front of it."
+      ],
+      "explanation": "Insect-eating bats make very high sounds that bounce off insects as echoes. By listening to the echoes, the bats can tell where the insects are, even in the dark.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s5.sound.009",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Astronauts on a spacewalk use radios to talk to each other. Why can they not hear each other shout?",
+      "options": [
+        {
+          "text": "Space is too cold for sound to work.",
+          "why": "Temperature is not the problem. Sound needs a material to travel through."
+        },
+        {
+          "text": "Sound travels too fast in space to hear.",
+          "why": "Sound cannot travel through empty space at all."
+        },
+        {
+          "text": "Space is almost empty, so nothing carries the sound vibrations."
+        },
+        {
+          "text": "Shouting makes no vibrations in a spacesuit.",
+          "why": "Their voices still vibrate, but nothing outside the suits passes the vibrations on."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Sound travels as vibrations passed from particle to particle.",
+        "Think about what fills the space between two astronauts outside a spacecraft.",
+        "Ask what sound needs to travel through, and whether space has it."
+      ],
+      "explanation": "Sound needs a material, such as air, water or a solid, to pass its vibrations along. Space is almost empty, so sound cannot travel through it, but radio signals can.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.sound.010",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Nina has four identical glass bottles with different amounts of water. She taps each one with a metal spoon. Which bottle makes the highest note?",
+      "options": [
+        {
+          "text": "the bottle with the most water",
+          "why": "When you tap, the glass and the water vibrate together. More water makes slower vibrations and a lower note."
+        },
+        {
+          "text": "all four bottles make the same note",
+          "why": "Each bottle holds a different amount of water, so each one vibrates differently."
+        },
+        {
+          "text": "the bottle that is half full",
+          "why": "It has more water than the emptiest bottle, so its note is lower."
+        },
+        {
+          "text": "the bottle with the least water"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Tapping makes the glass vibrate, together with the water inside it.",
+        "More water makes the vibrating bottle heavier, so it vibrates more slowly.",
+        "Compare this with blowing across the bottles, where the column of air vibrates."
+      ],
+      "explanation": "When you tap a bottle, the glass and the water inside it vibrate. Less water means faster vibrations, so the bottle with the least water gives the highest note, the opposite of blowing.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "skill": "m2.times-tables",
+  "title": "The 2, 5 and 10 times tables",
+  "steps": [
+    {
+      "say": "Multiplication means equal groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          5,
+          5,
+          5
+        ],
+        "icon": "sweet",
+        "container": "bag",
+        "alt": "3 bags with 5 sweets in each."
+      },
+      "show": "3 × 5 = 15"
+    },
+    {
+      "say": "3 × 5 means 3 groups of 5. Count in 5s.",
+      "show": "5, 10, 15"
+    },
+    {
+      "say": "The 2 times table counts in 2s.",
+      "show": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20"
+    },
+    {
+      "say": "The 10 times table counts in 10s.",
+      "show": "10, 20, 30, 40, 50, 60, 70, 80, 90, 100"
+    },
+    {
+      "say": "You can multiply in any order. The answer stays the same.",
+      "figure": {
+        "kind": "array",
+        "rows": 2,
+        "cols": 5,
+        "icon": "dot",
+        "alt": "An array of dots with 2 rows of 5."
+      },
+      "show": "2 × 5 = 5 × 2 = 10"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.times-tables.901",
+      "skill": "m2.times-tables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "6 × 5 = ___",
+      "hints": [
+        "Use the 5 times table.",
+        "Count in 5s, 6 times.",
+        "Count in 5s on your fingers. Stop when 6 fingers are up."
+      ],
+      "explanation": "6 × 5 = 30. Counting in 5s six times gives 30.",
+      "answer": 30
+    },
+    {
+      "id": "m2.times-tables.902",
+      "skill": "m2.times-tables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the same as 4 × 10?",
+      "hints": [
+        "Multiplying can be done in any order.",
+        "4 groups of 10 has the same total as 10 groups of 4.",
+        "Look for the same two numbers being multiplied."
+      ],
+      "explanation": "4 × 10 and 10 × 4 both make 40.",
+      "options": [
+        {
+          "text": "4 + 10",
+          "why": "4 + 10 = 14, but 4 × 10 = 40."
+        },
+        {
+          "text": "10 × 4"
+        },
+        {
+          "text": "10 + 10",
+          "why": "10 + 10 is only 2 lots of 10."
+        },
+        {
+          "text": "4 × 4",
+          "why": "4 × 4 = 16."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

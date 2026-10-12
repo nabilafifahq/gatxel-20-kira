@@ -1,0 +1,55 @@
+{
+  "skill": "e1.question-marks",
+  "title": "Questions and big feelings",
+  "steps": [
+    {
+      "say": "A question asks something. It ends with a question mark.",
+      "show": "Where is my hat?"
+    },
+    {
+      "say": "Many questions start with who, what, where or when.",
+      "show": "Who? What? Where? When?"
+    },
+    {
+      "say": "Some questions start with can, do or is.",
+      "show": "Can you swim?"
+    },
+    {
+      "say": "An exclamation mark shows a big feeling or a shout.",
+      "show": "Wow! Help! Look out!"
+    },
+    {
+      "say": "A calm telling sentence ends with a full stop.",
+      "show": "I can swim."
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.question-marks.901",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one is a question?",
+      "hints": [
+        "A question asks something.",
+        "Look at the end marks.",
+        "Find the curly mark."
+      ],
+      "explanation": "Do you like fish? asks something and ends with a question mark.",
+      "options": [
+        {
+          "text": "I like fish.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Look out!",
+          "why": "This is a shout."
+        },
+        {
+          "text": "Do you like fish?"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "skill": "m1.ordinal",
+  "title": "First, second, third",
+  "steps": [
+    {
+      "say": "Ordinal numbers tell us the place in a line.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat",
+            "label": "cat"
+          },
+          {
+            "icon": "dog",
+            "label": "dog"
+          },
+          {
+            "icon": "rabbit",
+            "label": "rabbit"
+          },
+          {
+            "icon": "duck",
+            "label": "duck"
+          }
+        ],
+        "alt": "A line of animals from left to right: cat, dog, rabbit, duck."
+      }
+    },
+    {
+      "say": "Counting from the left, the cat is 1st and the dog is 2nd.",
+      "show": "1st, 2nd, 3rd, 4th"
+    },
+    {
+      "say": "We also say first, second, third and fourth.",
+      "show": "1st = first, 2nd = second, 3rd = third"
+    },
+    {
+      "say": "After 4th, most places end in th.",
+      "show": "5th, 6th, 7th, 8th, 9th, 10th"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.ordinal.901",
+      "skill": "m1.ordinal",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "The 1st animal is on the left. Which animal is 3rd?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "frog",
+            "label": "frog"
+          },
+          {
+            "icon": "cow",
+            "label": "cow"
+          },
+          {
+            "icon": "owl",
+            "label": "owl"
+          },
+          {
+            "icon": "bee",
+            "label": "bee"
+          }
+        ],
+        "alt": "A line of animals from left to right: frog, cow, owl, bee."
+      },
+      "hints": [
+        "Start counting from the left.",
+        "Point to each animal in turn and say its place.",
+        "Put your finger on the animal on the far left to start."
+      ],
+      "explanation": "Counting from the left: 1st frog, 2nd cow, 3rd owl.",
+      "options": [
+        {
+          "text": "cow",
+          "why": "The cow is 2nd. Count again from the left."
+        },
+        {
+          "text": "owl"
+        },
+        {
+          "text": "bee",
+          "why": "The bee is 4th. Count again from the left."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.ordinal.902",
+      "skill": "m1.ordinal",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Budi is 4th in a race. Maya is just after Budi. Maya is ___.",
+      "hints": [
+        "Just after means the very next place.",
+        "Count on one place from 4th.",
+        "Budi is 4th. Which place comes next?"
+      ],
+      "explanation": "The place after 4th is 5th, so Maya is 5th.",
+      "tags": [
+        "word-problem"
+      ],
+      "blanks": [
+        {
+          "answers": [
+            "5th",
+            "fifth"
+          ]
+        }
+      ]
+    }
+  ]
+}

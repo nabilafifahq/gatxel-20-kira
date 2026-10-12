@@ -1,0 +1,81 @@
+{
+  "skill": "m3.money-rupiah",
+  "title": "Totals and change in rupiah",
+  "steps": [
+    {
+      "say": "Rupiah notes and coins have different values.",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 10000,
+            "count": 1
+          },
+          {
+            "value": 5000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 2
+          }
+        ],
+        "alt": "One Rp10.000 note, one Rp5.000 note and two Rp2.000 notes."
+      }
+    },
+    {
+      "say": "Start with the note worth the most, then add the rest.",
+      "show": "Rp10.000 + Rp5.000 = Rp15.000"
+    },
+    {
+      "say": "Two Rp2.000 notes make Rp4.000.",
+      "show": "Rp15.000 + Rp4.000 = Rp19.000"
+    },
+    {
+      "say": "Change is the money you get back. Take the price away from the money you pay.",
+      "show": "Rp20.000 - Rp17.000 = Rp3.000"
+    },
+    {
+      "say": "You can also count up from the price to the money paid.",
+      "show": "Rp17.000 + Rp3.000 = Rp20.000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.money-rupiah.901",
+      "skill": "m3.money-rupiah",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A pencil costs Rp3.500 and an eraser costs Rp2.000. How much do they cost altogether?",
+      "answer": 5500,
+      "hints": [
+        "Add the two prices.",
+        "Add the thousands first, then the hundreds.",
+        "Rp3.000 + Rp2.000 = Rp5.000."
+      ],
+      "explanation": "Rp3.500 + Rp2.000 = Rp5.500.",
+      "unit": "rupiah",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m3.money-rupiah.902",
+      "skill": "m3.money-rupiah",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Dewi buys a drink for Rp7.000 and pays with Rp10.000. How much change does Dewi get?",
+      "answer": 3000,
+      "hints": [
+        "Change is the money paid take away the price.",
+        "Count up from Rp7.000 to Rp10.000.",
+        "Count in thousands: Rp8.000, Rp9.000, and so on."
+      ],
+      "explanation": "Rp10.000 - Rp7.000 = Rp3.000.",
+      "unit": "rupiah",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

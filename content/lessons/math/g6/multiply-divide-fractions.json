@@ -1,0 +1,103 @@
+{
+  "skill": "m6.multiply-divide-fractions",
+  "title": "Multiplying and dividing fractions",
+  "steps": [
+    {
+      "say": "To multiply a fraction by a whole number, multiply the numerator.",
+      "show": "2/5 × 3 = 6/5 = 1 1/5",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 5,
+        "shaded": 2,
+        "label": "2/5",
+        "alt": "A bar split into 5 equal parts with 2 parts shaded."
+      }
+    },
+    {
+      "say": "It is the same as adding the fraction again and again.",
+      "show": "2/5 + 2/5 + 2/5 = 6/5"
+    },
+    {
+      "say": "To divide a fraction by a whole number, multiply the denominator.",
+      "show": "3/4 ÷ 2 = 3/8"
+    },
+    {
+      "say": "Picture it. Half of 3 quarters is 3 eighths.",
+      "show": "3/4 ÷ 2 = 3/8",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 3,
+        "label": "3/8",
+        "alt": "A bar split into 8 equal parts with 3 parts shaded."
+      }
+    },
+    {
+      "say": "If the numerator divides exactly, you can divide it instead.",
+      "show": "6/7 ÷ 3 = 2/7"
+    },
+    {
+      "say": "Fractions of amounts use the same ideas. To find 3/8 of 40, divide by 8, then multiply by 3.",
+      "show": "40 ÷ 8 × 3 = 15"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.multiply-divide-fractions.901",
+      "skill": "m6.multiply-divide-fractions",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Work out 3/10 × 3.",
+      "hints": [
+        "Multiply the numerator by 3.",
+        "The denominator stays the same.",
+        "Think of it as 3/10 + 3/10 + 3/10."
+      ],
+      "explanation": "3/10 × 3 = 9/10.",
+      "blanks": [
+        {
+          "answers": [
+            "9/10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.multiply-divide-fractions.902",
+      "skill": "m6.multiply-divide-fractions",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Work out 2/3 ÷ 4. Give your answer in its simplest form.",
+      "hints": [
+        "Dividing by 4 is the same as finding a quarter.",
+        "Multiply the denominator by 4.",
+        "Then simplify the fraction you get."
+      ],
+      "explanation": "2/3 ÷ 4 = 2/12, which simplifies to 1/6.",
+      "blanks": [
+        {
+          "answers": [
+            "1/6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.multiply-divide-fractions.903",
+      "skill": "m6.multiply-divide-fractions",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A rope is 3/4 m long. It is cut into 3 equal pieces. How long is each piece in centimetres?",
+      "hints": [
+        "Work out 3/4 ÷ 3.",
+        "Then change metres to centimetres.",
+        "3/4 m = 75 cm."
+      ],
+      "explanation": "3/4 ÷ 3 = 1/4, and 1/4 of 100 cm is 25 cm.",
+      "answer": 25,
+      "unit": "cm"
+    }
+  ]
+}

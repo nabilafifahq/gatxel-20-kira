@@ -1,0 +1,118 @@
+{
+  "skill": "m5.divide-written",
+  "title": "Written division",
+  "steps": [
+    {
+      "say": "To divide, take away big chunks of the divisor. Start with 100 or 10 lots of it.",
+      "show": "852 ÷ 6"
+    },
+    {
+      "say": "6 × 100 = 600. Take 600 away from 852.",
+      "show": "852 − 600 = 252"
+    },
+    {
+      "say": "6 × 40 = 240. Take 240 away from 252.",
+      "show": "252 − 240 = 12"
+    },
+    {
+      "say": "6 × 2 = 12, and nothing is left. Add the chunks: 100 + 40 + 2.",
+      "show": "852 ÷ 6 = 142",
+      "figure": {
+        "kind": "table",
+        "caption": "852 ÷ 6",
+        "head": [
+          "Chunk",
+          "Take away",
+          "Left"
+        ],
+        "rows": [
+          [
+            "6 × 100",
+            "600",
+            "252"
+          ],
+          [
+            "6 × 40",
+            "240",
+            "12"
+          ],
+          [
+            "6 × 2",
+            "12",
+            "0"
+          ]
+        ],
+        "alt": "A table of chunks for 852 ÷ 6: 6 × 100, then 6 × 40, then 6 × 2."
+      }
+    },
+    {
+      "say": "Sometimes there is a remainder. 6 × 8 = 48, so 50 ÷ 6 is 8 with 2 left over.",
+      "show": "50 ÷ 6 = 8 r 2"
+    },
+    {
+      "say": "Think about what the remainder means. To pack 50 eggs in boxes of 6, you need 9 boxes for all of them.",
+      "show": "8 full boxes and 1 more box for 2 eggs"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.divide-written.901",
+      "skill": "m5.divide-written",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 738 ÷ 6.",
+      "hints": [
+        "Take away 6 × 100 first.",
+        "Then find how many 6s are in what is left.",
+        "738 − 600 = 138."
+      ],
+      "explanation": "6 × 100 = 600, 6 × 20 = 120 and 6 × 3 = 18. 100 + 20 + 3 = 123.",
+      "answer": 123
+    },
+    {
+      "id": "m5.divide-written.902",
+      "skill": "m5.divide-written",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is 75 ÷ 4?",
+      "hints": [
+        "The remainder must be less than 4.",
+        "Find the biggest multiple of 4 that is not more than 75.",
+        "4 × 20 = 80 is too big, so try a little less than 20."
+      ],
+      "explanation": "4 × 18 = 72 and 75 − 72 = 3, so 75 ÷ 4 = 18 remainder 3.",
+      "options": [
+        {
+          "text": "19",
+          "why": "4 × 19 = 76, which is more than 75."
+        },
+        {
+          "text": "18 remainder 2",
+          "why": "4 × 18 = 72, and 75 − 72 is 3, not 2."
+        },
+        {
+          "text": "18 remainder 3"
+        },
+        {
+          "text": "17 remainder 7",
+          "why": "The remainder must be smaller than 4. Take away one more 4."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.divide-written.903",
+      "skill": "m5.divide-written",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A minibus holds 9 children. How many minibuses are needed for 60 children?",
+      "hints": [
+        "Work out 60 ÷ 9.",
+        "There is a remainder. Those children still need seats.",
+        "9 × 6 = 54."
+      ],
+      "explanation": "60 ÷ 9 = 6 remainder 6. The 6 children left over need one more minibus, so 7 minibuses are needed.",
+      "answer": 7
+    }
+  ]
+}

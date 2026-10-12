@@ -1,0 +1,93 @@
+{
+  "skill": "m1.quarters",
+  "title": "Quarters",
+  "steps": [
+    {
+      "say": "A quarter is one of four equal parts.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "square",
+        "parts": 4,
+        "shaded": 1,
+        "alt": "A square cut into 4 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Four quarters make one whole.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 4,
+        "alt": "A circle cut into 4 equal parts with 4 parts shaded."
+      },
+      "show": "4 quarters = 1 whole"
+    },
+    {
+      "say": "A quarter of 8 is 2. Share 8 into 4 equal groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "icon": "strawberry",
+        "container": "bag",
+        "alt": "4 bags with 2 strawberries in each."
+      },
+      "show": "2 + 2 + 2 + 2 = 8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.quarters.901",
+      "skill": "m1.quarters",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is a quarter of 12?",
+      "hints": [
+        "A quarter means 4 equal groups.",
+        "Share 12 one at a time into 4 groups.",
+        "Put 1 in each of the 4 groups. Keep going."
+      ],
+      "explanation": "12 shared into 4 equal groups gives 3 in each.",
+      "answer": 3
+    },
+    {
+      "id": "m1.quarters.902",
+      "skill": "m1.quarters",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How many quarters make one whole?",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 4,
+        "alt": "A circle cut into 4 equal parts with 4 parts shaded."
+      },
+      "hints": [
+        "A quarter is one of four equal parts.",
+        "Look at a shape cut into quarters.",
+        "Count the parts in the whole shape."
+      ],
+      "explanation": "A whole cut into quarters has 4 equal parts.",
+      "options": [
+        {
+          "text": "2",
+          "why": "2 halves make a whole. A quarter is smaller."
+        },
+        {
+          "text": "3",
+          "why": "3 quarters leave one part missing."
+        },
+        {
+          "text": "4"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

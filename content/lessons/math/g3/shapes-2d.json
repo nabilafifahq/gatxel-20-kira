@@ -1,0 +1,104 @@
+{
+  "skill": "m3.shapes-2d",
+  "title": "2D shapes and their properties",
+  "steps": [
+    {
+      "say": "2D shapes are flat. We name them by counting their sides.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "triangle",
+            "label": "Triangle"
+          },
+          {
+            "shape": "square",
+            "label": "Square"
+          },
+          {
+            "shape": "pentagon",
+            "label": "Pentagon"
+          },
+          {
+            "shape": "hexagon",
+            "label": "Hexagon"
+          }
+        ],
+        "alt": "A triangle, a square, a pentagon and a hexagon."
+      }
+    },
+    {
+      "say": "A vertex is a corner. A shape has the same number of vertices as sides.",
+      "show": "pentagon: 5 sides, 5 vertices"
+    },
+    {
+      "say": "A right angle is a square corner. A rectangle has 4 right angles.",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "showRightAngles": true,
+        "alt": "A rectangle with its 4 right angles marked."
+      }
+    },
+    {
+      "say": "An octagon has 8 sides and 8 vertices.",
+      "figure": {
+        "kind": "shape",
+        "shape": "octagon",
+        "alt": "An octagon with 8 sides."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.shapes-2d.901",
+      "skill": "m3.shapes-2d",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many vertices does a hexagon have?",
+      "answer": 6,
+      "hints": [
+        "A vertex is a corner.",
+        "Count the corners one by one.",
+        "A shape has as many corners as sides."
+      ],
+      "explanation": "A hexagon has 6 sides and 6 vertices.",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "A picture of a hexagon."
+      }
+    },
+    {
+      "id": "m3.shapes-2d.902",
+      "skill": "m3.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape has exactly 4 right angles?",
+      "options": [
+        {
+          "text": "Rectangle"
+        },
+        {
+          "text": "Hexagon",
+          "why": "A regular hexagon has 6 corners, and none of them are right angles."
+        },
+        {
+          "text": "Triangle",
+          "why": "A triangle has only 3 corners."
+        },
+        {
+          "text": "Pentagon",
+          "why": "A regular pentagon has 5 corners, and none of them are right angles."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A right angle is a square corner.",
+        "The shape must have exactly 4 corners.",
+        "Check each corner against the corner of a book."
+      ],
+      "explanation": "A rectangle has 4 corners, and every corner is a right angle."
+    }
+  ]
+}

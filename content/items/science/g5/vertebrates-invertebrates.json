@@ -1,0 +1,233 @@
+{
+  "skill": "s5.vertebrates-invertebrates",
+  "items": [
+    {
+      "id": "s5.vertebrates-invertebrates.001",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the animals into vertebrates and invertebrates.",
+      "groups": ["Vertebrate (has a backbone)", "Invertebrate (no backbone)"],
+      "items": [
+        { "text": "frog", "group": 0 },
+        { "text": "snake", "group": 0 },
+        { "text": "owl", "group": 0 },
+        { "text": "whale", "group": 0 },
+        { "text": "shark", "group": 0 },
+        { "text": "spider", "group": 1 },
+        { "text": "snail", "group": 1 },
+        { "text": "crab", "group": 1 },
+        { "text": "earthworm", "group": 1 },
+        { "text": "butterfly", "group": 1 }
+      ],
+      "hints": [
+        "A vertebrate has a backbone inside its body. An invertebrate has none.",
+        "Animals with a skeleton of bones inside, like yours, are vertebrates.",
+        "Start with the animals that have soft bodies or hard outer shells, such as the snail."
+      ],
+      "explanation": "Frogs, snakes, owls, whales and sharks all have a backbone, so they are vertebrates. Spiders, snails, crabs, earthworms and butterflies have no backbone, so they are invertebrates."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.002",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does every vertebrate have?",
+      "options": [
+        { "text": "wings", "why": "Only some vertebrates, such as birds and bats, have wings." },
+        { "text": "a backbone" },
+        { "text": "fur", "why": "Only mammals have fur or hair." },
+        { "text": "six legs", "why": "Six legs is a feature of insects, which are invertebrates." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what a fish, a frog, a lizard, a bird and a cat all share.",
+        "Some features, such as feathers or fur, belong to only one group. Look for one that every group has.",
+        "Cross out the features that only birds, mammals or insects have."
+      ],
+      "explanation": "Every vertebrate has a backbone made of many small bones. Wings, fur and six legs belong only to some groups of animals."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.003",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each vertebrate group to its features.",
+      "pairs": [
+        ["fish", "gills, fins and scales"],
+        ["amphibians", "moist skin, with young that live in water"],
+        ["reptiles", "dry, scaly skin and leathery eggs"],
+        ["birds", "feathers, a beak and wings"],
+        ["mammals", "hair or fur, and they feed young on milk"]
+      ],
+      "hints": [
+        "Each group has one or two features that no other group has.",
+        "Think of an example for each group: a tuna, a frog, a gecko, a sparrow and a cat.",
+        "Start with birds. Only one group has feathers."
+      ],
+      "explanation": "Fish have gills, fins and scales, and amphibians have moist skin with young that live in water. Reptiles have dry, scaly skin, birds have feathers, and mammals have hair and feed their young on milk."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.004",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A Komodo dragon has dry, scaly skin and lays eggs with leathery shells. Which vertebrate group does it belong to?",
+      "blanks": [{ "answers": ["reptiles", "reptile", "a reptile", "the reptiles"] }],
+      "hints": [
+        "Look at the clues: dry skin, scales and leathery eggs.",
+        "Amphibians have moist skin, so this group must be a different one.",
+        "Think of other animals with dry, scaly skin, such as geckos and crocodiles. Name their group."
+      ],
+      "explanation": "The Komodo dragon is a reptile, and it is the largest lizard in the world. Reptiles have dry, scaly skin and most lay eggs with leathery shells on land.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.005",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is a spider not an insect?",
+      "options": [
+        { "text": "It has no backbone.", "why": "Insects have no backbone either, so this does not tell them apart." },
+        { "text": "It can make silk.", "why": "Some insects, such as silkworm caterpillars, make silk too." },
+        { "text": "It has eight legs and two main body parts." },
+        { "text": "It is smaller than most insects.", "why": "Size does not decide the group. Many spiders are bigger than many insects." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the legs on a spider and on an ant.",
+        "Insects have three main body parts. Count the main parts of a spider.",
+        "Cross out any feature that spiders and insects both share."
+      ],
+      "explanation": "Insects have six legs and three main body parts. Spiders have eight legs and two main body parts, so they belong to a different group called arachnids.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.006",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which box of the Carroll diagram should a snail go in?",
+      "figure": {
+        "kind": "carroll",
+        "cols": ["Has a backbone", "No backbone"],
+        "rows": ["Has legs", "No legs"],
+        "cells": [["frog", "eagle"], ["ant", "crab"], ["snake"], ["earthworm"]],
+        "alt": "Carroll diagram. Columns: has a backbone, no backbone. Rows: has legs, no legs. Backbone and legs: frog, eagle. No backbone with legs: ant, crab. Backbone with no legs: snake. No backbone and no legs: earthworm."
+      },
+      "options": [
+        { "text": "has a backbone and has legs", "why": "A snail has no bones at all and moves on one muscular foot." },
+        { "text": "no backbone and has legs", "why": "A snail moves on one muscular foot, which is not a leg." },
+        { "text": "has a backbone and no legs", "why": "A snail has a soft body with no bones, so it has no backbone." },
+        { "text": "no backbone and no legs" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ask two questions about the snail: does it have a backbone, and does it have legs?",
+        "A snail's soft body slides along on one large, muscular foot.",
+        "Decide the column first by thinking about bones. Then decide the row."
+      ],
+      "explanation": "A snail is an invertebrate with a soft body and no backbone. It moves on one muscular foot, not on legs, so it goes in the box for no backbone and no legs."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.007",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the mammals.",
+      "options": [
+        { "text": "bat" },
+        { "text": "dolphin" },
+        { "text": "penguin", "why": "A penguin has feathers and lays eggs. It is a bird that cannot fly." },
+        { "text": "orangutan" },
+        { "text": "whale shark", "why": "A whale shark breathes with gills and has fins. It is the biggest fish in the sea." },
+        { "text": "sea turtle", "why": "A sea turtle has dry, scaly skin and lays eggs on beaches. It is a reptile." }
+      ],
+      "answers": [0, 1, 3],
+      "hints": [
+        "Mammals have hair or fur and feed their young on milk.",
+        "Some mammals fly and some swim, so do not judge by where an animal lives.",
+        "Check each animal for hair and milk. Start with the ones that live in the sea."
+      ],
+      "explanation": "Bats, dolphins and orangutans have hair and feed their young on milk, so they are mammals. Penguins are birds, whale sharks are fish and sea turtles are reptiles.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.008",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Scientists find an animal with a backbone and moist skin with no scales. Its young hatch from eggs in a pond and breathe with gills. Which group is it in?",
+      "options": [
+        { "text": "amphibians" },
+        { "text": "fish", "why": "Young fish have gills too, but fish have scales. Moist skin with no scales points to another group." },
+        { "text": "reptiles", "why": "Reptiles have dry, scaly skin and lay their eggs on land." },
+        { "text": "mammals", "why": "Mammals have hair and feed their young on milk." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Underline every clue: backbone, moist skin, no scales, eggs in a pond, young with gills.",
+        "Young with gills that later live on land is a clue to a life cycle like a frog's.",
+        "Cross out the groups with dry skin, scales or fur."
+      ],
+      "explanation": "Moist skin without scales, eggs laid in water and young with gills are features of amphibians. Frogs, toads and salamanders are amphibians.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.009",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which two animals are in the same vertebrate group?",
+      "options": [
+        { "text": "a bat and an eagle", "why": "A bat is a mammal with fur. An eagle is a bird with feathers." },
+        { "text": "a penguin and an ostrich" },
+        { "text": "a whale and a shark", "why": "A whale is a mammal that breathes air. A shark is a fish with gills." },
+        { "text": "a turtle and a frog", "why": "A turtle is a reptile with dry, scaly skin. A frog is an amphibian." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Animals can look alike or live in the same place but still be in different groups.",
+        "For each pair, check for feathers, fur, gills, or dry scaly skin.",
+        "Check each pair in turn. Write the group of each animal next to its name."
+      ],
+      "explanation": "Penguins and ostriches both have feathers, beaks and wings and lay hard-shelled eggs, so both are birds, even though neither can fly.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.010",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A platypus has fur, feeds its young on milk and lays eggs. Where does it go in this Venn diagram?",
+      "figure": {
+        "kind": "venn",
+        "sets": ["Lays eggs", "Has a backbone"],
+        "items": [
+          { "text": "butterfly", "region": "a" },
+          { "text": "snail", "region": "a" },
+          { "text": "crocodile", "region": "both" },
+          { "text": "hen", "region": "both" },
+          { "text": "cat", "region": "b" },
+          { "text": "cow", "region": "b" }
+        ],
+        "alt": "Venn diagram with two circles: lays eggs, and has a backbone. Butterfly and snail are only in lays eggs. Crocodile and hen are in the overlap. Cat and cow are only in has a backbone."
+      },
+      "options": [
+        { "text": "only in the circle for laying eggs", "why": "A platypus is a mammal, so it has a backbone as well." },
+        { "text": "only in the circle for having a backbone", "why": "A platypus is unusual because it lays eggs, so it also belongs in the other circle." },
+        { "text": "in the overlap of both circles" },
+        { "text": "outside both circles", "why": "A platypus has a backbone and lays eggs, so it belongs inside the circles." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ask two questions: does a platypus lay eggs, and does it have a backbone?",
+        "All mammals have a backbone, even the unusual ones.",
+        "Write yes or no for each circle. Then find the region that matches your two answers."
+      ],
+      "explanation": "A platypus is a mammal, so it has a backbone, and it is one of very few mammals that lay eggs. It belongs in the overlap, with the crocodile and the hen.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

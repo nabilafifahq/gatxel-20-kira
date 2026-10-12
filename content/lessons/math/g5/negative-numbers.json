@@ -1,0 +1,139 @@
+{
+  "skill": "m5.negative-numbers",
+  "title": "Negative numbers",
+  "steps": [
+    {
+      "say": "Numbers below zero are negative. We write them with a minus sign, like −3.",
+      "show": "−3 °C is 3 degrees below zero",
+      "figure": {
+        "kind": "thermometer",
+        "min": -10,
+        "max": 10,
+        "value": -3,
+        "step": 2,
+        "alt": "A thermometer showing −3 degrees."
+      }
+    },
+    {
+      "say": "On a number line, numbers get smaller as you go left. −8 is less than −2.",
+      "show": "−8 < −2",
+      "figure": {
+        "kind": "numberline",
+        "min": -10,
+        "max": 5,
+        "step": 1,
+        "labels": [
+          -10,
+          -5,
+          0,
+          5
+        ],
+        "marks": [
+          {
+            "at": -8,
+            "label": "−8"
+          },
+          {
+            "at": -2,
+            "label": "−2"
+          }
+        ],
+        "alt": "A number line from −10 to 5 with −8 and −2 marked."
+      }
+    },
+    {
+      "say": "To count across zero, count the steps to zero first. Then count on from zero.",
+      "show": "−4 to 0 is 4 steps, 0 to 3 is 3 steps"
+    },
+    {
+      "say": "So from −4 to 3 is 7 steps in total.",
+      "show": "4 + 3 = 7",
+      "figure": {
+        "kind": "numberline",
+        "min": -5,
+        "max": 5,
+        "step": 1,
+        "jumps": [
+          {
+            "from": -4,
+            "to": 0,
+            "label": "4"
+          },
+          {
+            "from": 0,
+            "to": 3,
+            "label": "3"
+          }
+        ],
+        "alt": "A number line with a jump of 4 from −4 to 0 and a jump of 3 from 0 to 3."
+      }
+    },
+    {
+      "say": "Temperatures work the same way. If it is −2 °C and it gets 5 degrees warmer, it becomes 3 °C.",
+      "show": "−2 + 5 = 3"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.negative-numbers.901",
+      "skill": "m5.negative-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which temperature is the coldest?",
+      "hints": [
+        "Colder temperatures are lower on a thermometer.",
+        "Negative numbers further from zero are smaller.",
+        "Put the numbers on a number line."
+      ],
+      "explanation": "−9 is the furthest below zero, so −9 °C is the coldest.",
+      "options": [
+        {
+          "text": "3 °C",
+          "why": "3 °C is above zero."
+        },
+        {
+          "text": "−9 °C"
+        },
+        {
+          "text": "−4 °C",
+          "why": "−4 °C is closer to zero, so it is warmer than −9 °C."
+        },
+        {
+          "text": "0 °C",
+          "why": "0 °C is warmer than any temperature below zero."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.negative-numbers.902",
+      "skill": "m5.negative-numbers",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many steps is it from −6 to 4 on a number line?",
+      "hints": [
+        "Count the steps from −6 to 0 first.",
+        "Then count the steps from 0 to 4.",
+        "From −6 to 0 is 6 steps."
+      ],
+      "explanation": "6 steps to zero and 4 more steps make 10 steps.",
+      "answer": 10
+    },
+    {
+      "id": "m5.negative-numbers.903",
+      "skill": "m5.negative-numbers",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The temperature is 3 °C. It falls by 7 degrees. What is the new temperature?",
+      "hints": [
+        "Falling means the temperature goes down.",
+        "Count down 3 degrees to reach zero first.",
+        "After 0 °C, keep counting down below zero."
+      ],
+      "explanation": "3 degrees down reaches 0 °C, and 4 more degrees down reaches −4 °C.",
+      "answer": -4,
+      "unit": "°C",
+      "allowNegative": true
+    }
+  ]
+}

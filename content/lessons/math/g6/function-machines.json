@@ -1,0 +1,110 @@
+{
+  "skill": "m6.function-machines",
+  "title": "Function machines and simple equations",
+  "steps": [
+    {
+      "say": "A function machine takes an input, follows a rule and gives an output.",
+      "show": "4 × 3 + 5 = 17",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "4",
+          "× 3",
+          "+ 5",
+          "17"
+        ],
+        "style": "boxes",
+        "alt": "A function machine: input 4, then × 3, then + 5, giving the output 17."
+      }
+    },
+    {
+      "say": "To find an input, work backwards from the output. Use the inverse of each step, in reverse order.",
+      "show": "Output 29: 29 − 5 = 24, then 24 ÷ 3 = 8"
+    },
+    {
+      "say": "The inverse of add is subtract. The inverse of multiply is divide.",
+      "show": "+ and − undo each other, × and ÷ undo each other"
+    },
+    {
+      "say": "An equation is like a balance. Both sides have the same value.",
+      "show": "3n + 4 = 19",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "n",
+          "n",
+          "n",
+          "4"
+        ],
+        "right": [
+          "19"
+        ],
+        "tilt": "level",
+        "alt": "A level balance with three n blocks and a 4 block on the left and 19 on the right."
+      }
+    },
+    {
+      "say": "Undo each step to find n. Take 4 from both sides, then divide both sides by 3.",
+      "show": "3n = 15, so n = 5"
+    },
+    {
+      "say": "Check by putting the value back into the equation.",
+      "show": "3 × 5 + 4 = 19"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.function-machines.901",
+      "skill": "m6.function-machines",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "The input 7 goes into a machine that does × 4, then − 3. What is the output?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "7",
+          "× 4",
+          "− 3",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A function machine: input 7, then × 4, then − 3, with the output missing."
+      },
+      "hints": [
+        "Do the steps in order.",
+        "Multiply 7 by 4 first.",
+        "7 × 4 = 28."
+      ],
+      "explanation": "7 × 4 = 28 and 28 − 3 = 25.",
+      "answer": 25
+    },
+    {
+      "id": "m6.function-machines.902",
+      "skill": "m6.function-machines",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A machine does × 2, then + 9. The output is 31. What was the input?",
+      "hints": [
+        "Work backwards from the output.",
+        "Undo the + 9 first by subtracting 9.",
+        "31 − 9 = 22."
+      ],
+      "explanation": "31 − 9 = 22 and 22 ÷ 2 = 11, so the input was 11.",
+      "answer": 11
+    },
+    {
+      "id": "m6.function-machines.903",
+      "skill": "m6.function-machines",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Solve 4n − 7 = 29. What is n?",
+      "hints": [
+        "Undo the − 7 first.",
+        "Add 7 to both sides.",
+        "That gives 4n = 36."
+      ],
+      "explanation": "4n − 7 = 29, so 4n = 36 and n = 36 ÷ 4 = 9.",
+      "answer": 9
+    }
+  ]
+}

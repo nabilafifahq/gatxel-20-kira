@@ -1,0 +1,152 @@
+{
+  "skill": "e4.prefixes",
+  "items": [
+    {
+      "id": "e4.prefixes.001", "skill": "e4.prefixes", "type": "mcq", "difficulty": 1,
+      "prompt": "The prefix pre- means before. What does preheat mean?",
+      "options": [
+        { "text": "heat again", "why": "Again is the meaning of re-." },
+        { "text": "heat before" },
+        { "text": "not heat", "why": "Not is the meaning of un- or dis-." },
+        { "text": "heat wrongly", "why": "Wrongly is the meaning of mis-." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the two parts of the word.", "Cover pre- and read what is left.", "Put the meaning of pre- together with heat."],
+      "explanation": "Pre- means before. To preheat an oven means to heat it before you start cooking.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.002", "skill": "e4.prefixes", "type": "mcq", "difficulty": 1,
+      "prompt": "The prefix mis- means wrongly. What does misspell mean?",
+      "options": [
+        { "text": "spell again", "why": "Again is the meaning of re-." },
+        { "text": "spell before", "why": "Before is the meaning of pre-." },
+        { "text": "spell wrongly" },
+        { "text": "never spell", "why": "Mis- means wrongly, not never." }
+      ],
+      "answer": 2,
+      "hints": ["Find the prefix at the start of the word.", "Cover mis- and read what is left.", "Put the meaning of mis- together with spell."],
+      "explanation": "Mis- means wrongly, so misspell means spell a word wrongly.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.003", "skill": "e4.prefixes", "type": "text", "difficulty": 2,
+      "prompt": "Add mis- or pre- to counted.\nTom ___ the eggs, so he thought there were seven, not six.",
+      "blanks": [{ "answers": ["miscounted"] }],
+      "hints": ["Did Tom get the right number?", "Which prefix means wrongly?", "Write the prefix, then the whole word counted."],
+      "explanation": "Tom counted wrongly, so he miscounted. Mis- means wrongly."
+    },
+    {
+      "id": "e4.prefixes.004", "skill": "e4.prefixes", "type": "match", "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [["preview", "see before"], ["mishear", "hear wrongly"], ["prepay", "pay before"], ["misbehave", "behave badly"], ["preschool", "a school before primary school"]],
+      "hints": ["Find the prefix in each word.", "Pre- means before. Mis- means wrongly or badly.", "Start with prepay. Which meaning has before in it and is about money?"],
+      "explanation": "Pre- means before, so prepay means pay before. Mis- means wrongly or badly, so misbehave means behave badly."
+    },
+    {
+      "id": "e4.prefixes.005", "skill": "e4.prefixes", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the words. Which prefix makes a real word?",
+      "groups": ["pre-", "mis-", "un-", "dis-"],
+      "items": [
+        { "text": "heat", "group": 0 }, { "text": "view", "group": 0 },
+        { "text": "spell", "group": 1 }, { "text": "behave", "group": 1 },
+        { "text": "fair", "group": 2 }, { "text": "lucky", "group": 2 },
+        { "text": "agree", "group": 3 }, { "text": "obey", "group": 3 }
+      ],
+      "hints": ["Say each word with each prefix in front of it.", "Only one of these prefixes makes a real word each time.", "Start with spell. Is it prespell, misspell, unspell or disspell?"],
+      "explanation": "We say preheat and preview, misspell and misbehave, unfair and unlucky, disagree and disobey."
+    },
+    {
+      "id": "e4.prefixes.006", "skill": "e4.prefixes", "type": "mcq", "difficulty": 2,
+      "prompt": "Before the film, our teacher showed us a short ___ so we knew what it was about.",
+      "options": [
+        { "text": "preview" },
+        { "text": "misview", "why": "Misview is not a word." },
+        { "text": "unview", "why": "Unview is not a word." },
+        { "text": "disview", "why": "Disview is not a word." }
+      ],
+      "answer": 0,
+      "hints": ["The teacher showed it before the film.", "Which prefix means before?", "Try each prefix in front of view. Which one is a word you have heard?"],
+      "explanation": "Pre- means before. A preview is a short look at something before you see all of it.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.007", "skill": "e4.prefixes", "type": "mcq", "difficulty": 3,
+      "prompt": "Kemal ___ the question, so his answer was about the wrong thing.",
+      "options": [
+        { "text": "reread", "why": "Reread means read again. That would help him get it right!" },
+        { "text": "preread", "why": "Preread is not a word we use." },
+        { "text": "unread", "why": "Unread means not read yet." },
+        { "text": "misread" }
+      ],
+      "answer": 3,
+      "hints": ["What went wrong with Kemal's answer?", "He read the question, but not in the right way.", "Which prefix means wrongly?"],
+      "explanation": "Misread means read wrongly. Kemal misread the question, so his answer was about the wrong thing.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.008", "skill": "e4.prefixes", "type": "text", "difficulty": 2,
+      "prompt": "Add mis- or pre- to behave.\nPlease do not ___ in the library.",
+      "blanks": [{ "answers": ["misbehave"] }],
+      "hints": ["How should you act in a library?", "You need a word that means behave badly.", "Which prefix means wrongly or badly?"],
+      "explanation": "Misbehave means behave badly. Mis- means wrongly or badly."
+    },
+    {
+      "id": "e4.prefixes.009", "skill": "e4.prefixes", "type": "multi", "difficulty": 4,
+      "prompt": "Choose all the words where pre- means before.",
+      "options": [
+        { "text": "preheat" },
+        { "text": "pretty", "why": "Pre is just part of pretty. Tty is not a word." },
+        { "text": "preview" },
+        { "text": "press", "why": "Press is one whole word. Ss is not a word." },
+        { "text": "prehistoric" },
+        { "text": "prey", "why": "Prey is an animal hunted by another. Y is not a word." }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Cover pre at the start of each word.", "Is the rest a real word?", "If it is, check that before makes sense with it."],
+      "explanation": "Preheat means heat before, preview means see before, and prehistoric means before history was written down. In pretty, press and prey, pre is just part of the word."
+    },
+    {
+      "id": "e4.prefixes.010", "skill": "e4.prefixes", "type": "mcq", "difficulty": 4,
+      "prompt": "Ella ___ her keys and could not find them anywhere.",
+      "options": [
+        { "text": "replaced", "why": "Replaced means put back, or swapped for a new one." },
+        { "text": "misplaced" },
+        { "text": "preplaced", "why": "Preplaced is not a word we use." },
+        { "text": "displaced", "why": "Displaced means pushed out of its place. We need a word for lost." }
+      ],
+      "answer": 1,
+      "hints": ["What happened to Ella's keys?", "She put them somewhere, but in the wrong place.", "Which prefix means wrongly?"],
+      "explanation": "Misplaced means put in the wrong place and lost. Mis- means wrongly.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.011", "skill": "e4.prefixes", "type": "mcq", "difficulty": 3,
+      "prompt": "Which word has a prefix that means wrongly?",
+      "options": [
+        { "text": "mist", "why": "Mist is one whole word. T is not a word." },
+        { "text": "miss", "why": "Miss is one whole word." },
+        { "text": "mishear" },
+        { "text": "mister", "why": "Mister is one whole word. Ter is not a word." }
+      ],
+      "answer": 2,
+      "hints": ["Cover mis at the start of each word.", "Is the rest a real word?", "If the rest is a word, does wrongly make sense with it?"],
+      "explanation": "Mishear is mis + hear, and it means hear wrongly. In mist, miss and mister, the letters mis are just part of the word.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.prefixes.012", "skill": "e4.prefixes", "type": "mcq", "difficulty": 5,
+      "prompt": "Which word is spelt correctly?",
+      "options": [
+        { "text": "misspell" },
+        { "text": "mispell", "why": "Keep all of mis- and all of spell: mis + spell." },
+        { "text": "misspel", "why": "Spell ends with a double l." },
+        { "text": "misppell", "why": "There is only one p in spell." }
+      ],
+      "answer": 0,
+      "hints": ["Think about the two parts of the word.", "Write the prefix, then the root word, without dropping any letters.", "Count the letter s where the two parts join."],
+      "explanation": "Mis + spell = misspell. The prefix keeps its s and spell keeps its s, so there are two s letters together.",
+      "tags": ["iklc"]
+    }
+  ]
+}

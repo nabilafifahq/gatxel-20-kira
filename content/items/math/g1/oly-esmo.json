@@ -1,0 +1,810 @@
+{
+  "skill": "m1.oly-esmo",
+  "items": [
+    {
+      "id": "m1.oly-esmo.001",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Lihat pola bilangan ini. Bilangan berapa yang datang berikutnya?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "5",
+          "10",
+          "15",
+          "20",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Pola bilangan: 5, 10, 15, 20, lalu satu kotak kosong."
+      },
+      "options": [
+        {
+          "text": "25"
+        },
+        {
+          "text": "26",
+          "why": "Pola ini selalu tambah 5, bukan tambah 6."
+        },
+        {
+          "text": "30",
+          "why": "30 datang sesudah 25. Itu dua langkah lagi."
+        },
+        {
+          "text": "35",
+          "why": "35 datang tiga langkah lagi."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Lihat selisih dua bilangan yang berdekatan.",
+        "Dari 5 ke 10 bertambah 5. Dari 10 ke 15 juga bertambah 5.",
+        "Tambahkan selisih yang sama ke 20."
+      ],
+      "explanation": "Setiap bilangan bertambah 5. Jadi sesudah 20 adalah 20 + 5 = 25.",
+      "solution": [
+        {
+          "say": "Cari aturannya.",
+          "show": "5, 10, 15, 20 (tambah 5)"
+        },
+        {
+          "say": "Tambahkan 5 ke 20.",
+          "show": "20 + 5 = 25"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "pola bilangan",
+          "en": "number pattern"
+        },
+        {
+          "term": "bilangan",
+          "en": "number"
+        },
+        {
+          "term": "berikutnya",
+          "en": "next"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.002",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Gambar ini disusun menurut pola. Gambar apa yang mengisi tempat kosong?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "icon": "star"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "star"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "star"
+          },
+          null
+        ],
+        "alt": "Pola gambar: bintang, hati, hati, bintang, hati, hati, bintang, lalu tempat kosong."
+      },
+      "options": [
+        {
+          "text": "Bulan",
+          "why": "Bulan tidak ada dalam pola ini."
+        },
+        {
+          "text": "Bintang",
+          "why": "Sesudah bintang selalu ada hati."
+        },
+        {
+          "text": "Bunga",
+          "why": "Bunga tidak ada dalam pola ini."
+        },
+        {
+          "text": "Hati"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Cari bagian yang berulang.",
+        "Bagian yang berulang adalah bintang, hati, hati.",
+        "Gambar terakhir adalah bintang. Gambar apa yang selalu datang sesudah bintang?"
+      ],
+      "explanation": "Polanya bintang, hati, hati, lalu berulang. Sesudah bintang selalu ada hati.",
+      "solution": [
+        {
+          "say": "Bagian yang berulang ada 3 gambar.",
+          "show": "bintang, hati, hati"
+        },
+        {
+          "say": "Gambar terakhir adalah bintang, awal kelompok baru.",
+          "show": "bintang, ?"
+        },
+        {
+          "say": "Sesudah bintang datang hati."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "gambar",
+          "en": "picture"
+        },
+        {
+          "term": "pola",
+          "en": "pattern"
+        },
+        {
+          "term": "tempat kosong",
+          "en": "empty space"
+        },
+        {
+          "term": "bintang",
+          "en": "star"
+        },
+        {
+          "term": "hati",
+          "en": "heart"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.003",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Jam ini menunjukkan waktu sekarang. Pukul berapa 2 jam lagi?",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 0,
+        "alt": "Jam dinding. Jarum pendek menunjuk angka 3 dan jarum panjang menunjuk angka 12. Sekarang pukul 3."
+      },
+      "options": [
+        {
+          "text": "Pukul 1",
+          "why": "Itu 2 jam yang lalu. Soal ini menanyakan 2 jam lagi."
+        },
+        {
+          "text": "Pukul 4",
+          "why": "Itu baru 1 jam lagi."
+        },
+        {
+          "text": "Pukul 5"
+        },
+        {
+          "text": "Pukul 6",
+          "why": "Itu 3 jam lagi."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Lihat dulu pukul berapa sekarang.",
+        "Jarum pendek menunjuk jam. Majukan satu angka untuk setiap jam.",
+        "Sekarang pukul 3. Satu jam lagi pukul 4."
+      ],
+      "explanation": "Sekarang pukul 3. Dua jam lagi adalah pukul 3 + 2, yaitu pukul 5.",
+      "solution": [
+        {
+          "say": "Jarum pendek di angka 3 dan jarum panjang di angka 12. Sekarang pukul 3.",
+          "show": "pukul 3"
+        },
+        {
+          "say": "Maju 2 jam.",
+          "show": "3 + 2 = 5"
+        },
+        {
+          "say": "Jadi pukul 5."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "jam",
+          "en": "clock, hour"
+        },
+        {
+          "term": "pukul",
+          "en": "o'clock"
+        },
+        {
+          "term": "2 jam lagi",
+          "en": "2 hours from now"
+        },
+        {
+          "term": "jarum pendek",
+          "en": "hour hand"
+        },
+        {
+          "term": "jarum panjang",
+          "en": "minute hand"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.004",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Hari ini hari Senin. Hari apakah 3 hari lagi?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+          "Minggu"
+        ],
+        "rows": [
+          [
+            "hari ini",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "alt": "Tabel nama hari: Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu. Senin ditandai hari ini."
+      },
+      "options": [
+        {
+          "text": "Rabu",
+          "why": "Rabu baru 2 hari lagi."
+        },
+        {
+          "text": "Kamis"
+        },
+        {
+          "text": "Jumat",
+          "why": "Jumat adalah 4 hari lagi."
+        },
+        {
+          "text": "Sabtu",
+          "why": "Sabtu adalah 5 hari lagi."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ingat urutan hari: Senin, Selasa, Rabu, dan seterusnya.",
+        "Hitung maju satu hari demi satu hari dari Senin.",
+        "Satu hari lagi adalah Selasa."
+      ],
+      "explanation": "Dari Senin, 1 hari lagi Selasa, 2 hari lagi Rabu, dan 3 hari lagi Kamis.",
+      "solution": [
+        {
+          "say": "Tulis urutan hari mulai dari Senin.",
+          "show": "Senin, Selasa, Rabu, Kamis"
+        },
+        {
+          "say": "Hitung maju 3 hari: Selasa (1), Rabu (2), Kamis (3).",
+          "show": "Kamis"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "hari ini",
+          "en": "today"
+        },
+        {
+          "term": "3 hari lagi",
+          "en": "3 days from now"
+        },
+        {
+          "term": "Senin",
+          "en": "Monday"
+        },
+        {
+          "term": "Kamis",
+          "en": "Thursday"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.005",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Dina punya 2 segitiga dan 1 persegi. Berapa banyak semua sudutnya?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          }
+        ],
+        "alt": "Dua segitiga dan satu persegi."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "Itu baru sudut kedua segitiga. Tambahkan sudut persegi."
+        },
+        {
+          "text": "7",
+          "why": "Persegi punya 4 sudut, bukan 1."
+        },
+        {
+          "text": "9",
+          "why": "Persegi punya 4 sudut, bukan 3."
+        },
+        {
+          "text": "10"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ingat berapa sudut segitiga dan berapa sudut persegi.",
+        "Segitiga punya 3 sudut. Persegi punya 4 sudut.",
+        "Hitung dulu sudut kedua segitiga: 3 + 3."
+      ],
+      "explanation": "Dua segitiga punya 3 + 3 = 6 sudut. Persegi punya 4 sudut. Semuanya 6 + 4 = 10 sudut.",
+      "solution": [
+        {
+          "say": "Sudut 2 segitiga.",
+          "show": "3 + 3 = 6"
+        },
+        {
+          "say": "Sudut 1 persegi.",
+          "show": "4"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "6 + 4 = 10"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "segitiga",
+          "en": "triangle"
+        },
+        {
+          "term": "persegi",
+          "en": "square"
+        },
+        {
+          "term": "sudut",
+          "en": "corner"
+        },
+        {
+          "term": "semua",
+          "en": "all"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.006",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Aku bilangan dua angka. Angka puluhanku 3. Angka satuanku 2 lebih besar dari angka puluhanku. Siapakah aku?",
+      "options": [
+        {
+          "text": "32",
+          "why": "Angka satuan 32 adalah 2. Angka satuanku 2 lebih besar dari 3."
+        },
+        {
+          "text": "35"
+        },
+        {
+          "text": "53",
+          "why": "53 punya angka puluhan 5, bukan 3."
+        },
+        {
+          "text": "55",
+          "why": "55 punya angka puluhan 5, bukan 3."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Bilangan dua angka punya angka puluhan dan angka satuan.",
+        "Angka puluhannya sudah diketahui, yaitu 3.",
+        "Angka satuannya adalah 3 + 2."
+      ],
+      "explanation": "Angka puluhannya 3 dan angka satuannya 3 + 2 = 5. Jadi bilangannya 35.",
+      "solution": [
+        {
+          "say": "Angka puluhan: 3.",
+          "show": "3 puluhan"
+        },
+        {
+          "say": "Angka satuan: 3 + 2 = 5.",
+          "show": "35"
+        },
+        {
+          "say": "Jadi aku adalah 35."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "bilangan dua angka",
+          "en": "two-digit number"
+        },
+        {
+          "term": "angka puluhan",
+          "en": "tens digit"
+        },
+        {
+          "term": "angka satuan",
+          "en": "ones digit"
+        },
+        {
+          "term": "lebih besar dari",
+          "en": "greater than"
+        },
+        {
+          "term": "siapakah aku",
+          "en": "who am I"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.007",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Berapa jumlah semua uang pada gambar?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 2000,
+            "count": 2
+          },
+          {
+            "value": 1000,
+            "count": 1
+          },
+          {
+            "value": 500,
+            "count": 1
+          }
+        ],
+        "alt": "Dua lembar uang Rp2.000, satu koin Rp1.000, dan satu koin Rp500."
+      },
+      "options": [
+        {
+          "text": "Rp4.500",
+          "why": "Jangan lupa koin Rp1.000."
+        },
+        {
+          "text": "Rp5.000",
+          "why": "Jangan lupa koin Rp500."
+        },
+        {
+          "text": "Rp5.500"
+        },
+        {
+          "text": "Rp6.000",
+          "why": "Koin terakhir Rp500, bukan Rp1.000."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Mulai dari uang yang paling besar.",
+        "Dua lembar Rp2.000 sama dengan Rp4.000.",
+        "Tambahkan koin Rp1.000 ke Rp4.000."
+      ],
+      "explanation": "Rp2.000 + Rp2.000 = Rp4.000. Ditambah Rp1.000 menjadi Rp5.000. Ditambah Rp500 menjadi Rp5.500.",
+      "solution": [
+        {
+          "say": "Jumlahkan uang kertas.",
+          "show": "Rp2.000 + Rp2.000 = Rp4.000"
+        },
+        {
+          "say": "Tambahkan koin Rp1.000.",
+          "show": "Rp4.000 + Rp1.000 = Rp5.000"
+        },
+        {
+          "say": "Tambahkan koin Rp500.",
+          "show": "Rp5.000 + Rp500 = Rp5.500"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "jumlah",
+          "en": "total"
+        },
+        {
+          "term": "uang",
+          "en": "money"
+        },
+        {
+          "term": "lembar",
+          "en": "note (paper money)"
+        },
+        {
+          "term": "koin",
+          "en": "coin"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.008",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Berapa hasil dari 8 + 7 - 5?",
+      "options": [
+        {
+          "text": "10"
+        },
+        {
+          "text": "11",
+          "why": "Hitung lagi: 15 - 5."
+        },
+        {
+          "text": "15",
+          "why": "Itu baru 8 + 7. Kurangi lagi dengan 5."
+        },
+        {
+          "text": "20",
+          "why": "Tanda kedua adalah kurang, bukan tambah."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Kerjakan dari kiri ke kanan.",
+        "Hitung 8 + 7 dulu, baru dikurangi.",
+        "8 + 7 = 15. Langkah berikutnya adalah mengurangi 5."
+      ],
+      "explanation": "8 + 7 = 15, lalu 15 - 5 = 10.",
+      "solution": [
+        {
+          "say": "Tambahkan dulu.",
+          "show": "8 + 7 = 15"
+        },
+        {
+          "say": "Lalu kurangi.",
+          "show": "15 - 5 = 10"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "hasil",
+          "en": "result, answer"
+        },
+        {
+          "term": "tambah",
+          "en": "plus"
+        },
+        {
+          "term": "kurang",
+          "en": "minus"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.009",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Rina punya 12 kelereng. Ia memberi 5 kelereng kepada adiknya. Lalu ia membeli 3 kelereng lagi. Berapa kelereng Rina sekarang?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "marble",
+            "count": 12
+          }
+        ],
+        "alt": "12 kelereng milik Rina sebelum ia memberi dan membeli."
+      },
+      "options": [
+        {
+          "text": "4",
+          "why": "Rina membeli 3 kelereng, jadi kelerengnya bertambah, bukan berkurang."
+        },
+        {
+          "text": "7",
+          "why": "Itu sesudah memberi. Rina lalu membeli 3 kelereng lagi."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "20",
+          "why": "Memberi berarti kelereng Rina berkurang."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ikuti ceritanya satu per satu.",
+        "Memberi berarti dikurangi. Membeli berarti ditambah.",
+        "Sesudah memberi, kelereng Rina 12 - 5."
+      ],
+      "explanation": "Sesudah memberi, Rina punya 12 - 5 = 7 kelereng. Sesudah membeli, ia punya 7 + 3 = 10 kelereng.",
+      "solution": [
+        {
+          "say": "Rina memberi 5 kelereng.",
+          "show": "12 - 5 = 7"
+        },
+        {
+          "say": "Rina membeli 3 kelereng.",
+          "show": "7 + 3 = 10"
+        },
+        {
+          "say": "Kelereng Rina sekarang 10."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "kelereng",
+          "en": "marble"
+        },
+        {
+          "term": "memberi",
+          "en": "to give"
+        },
+        {
+          "term": "adik",
+          "en": "younger brother or sister"
+        },
+        {
+          "term": "membeli",
+          "en": "to buy"
+        },
+        {
+          "term": "sekarang",
+          "en": "now"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-esmo.010",
+      "skill": "m1.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Bilangan berapa yang tepat untuk kotak kosong? 4 + ☐ = 13 - 2",
+      "options": [
+        {
+          "text": "4",
+          "why": "Periksa: 4 + 4 = 8, belum 11."
+        },
+        {
+          "text": "5",
+          "why": "Periksa: 4 + 5 = 9, belum 11."
+        },
+        {
+          "text": "6",
+          "why": "Periksa: 4 + 6 = 10, masih kurang 1."
+        },
+        {
+          "text": "7"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Kedua sisi tanda sama dengan harus bernilai sama.",
+        "Hitung dulu sisi kanan: 13 - 2.",
+        "Sisi kanan bernilai 11. Bilangan berapa yang ditambah 4 menjadi 11?"
+      ],
+      "explanation": "13 - 2 = 11. Karena 4 + 7 = 11, bilangan di kotak adalah 7.",
+      "solution": [
+        {
+          "say": "Hitung sisi kanan.",
+          "show": "13 - 2 = 11"
+        },
+        {
+          "say": "Cari bilangan yang ditambah 4 menjadi 11.",
+          "show": "11 - 4 = 7"
+        },
+        {
+          "say": "Periksa: 4 + 7 = 11.",
+          "show": "4 + 7 = 11"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "kotak kosong",
+          "en": "empty box"
+        },
+        {
+          "term": "tepat",
+          "en": "correct, right"
+        },
+        {
+          "term": "sama dengan",
+          "en": "equals"
+        },
+        {
+          "term": "sisi",
+          "en": "side"
+        }
+      ],
+      "expectedSeconds": 75
+    }
+  ]
+}

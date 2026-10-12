@@ -1,0 +1,99 @@
+{
+  "skill": "s4.earth-sun-moon",
+  "title": "Day, night and the Moon",
+  "steps": [
+    {
+      "say": "The Sun is a star. The Earth is a planet that orbits the Sun once a year.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "earth",
+            "label": "Earth"
+          },
+          {
+            "icon": "moon",
+            "label": "Moon"
+          }
+        ],
+        "alt": "The Sun, the Earth and the Moon."
+      }
+    },
+    {
+      "say": "The Earth spins on its axis once every 24 hours.",
+      "show": "1 spin = 24 hours"
+    },
+    {
+      "say": "The side facing the Sun has day. The side facing away has night.",
+      "show": "facing the Sun = day"
+    },
+    {
+      "say": "As the Earth spins, the Sun seems to rise in the east. Later it seems to set in the west.",
+      "show": "rise: east. set: west."
+    },
+    {
+      "say": "The Moon orbits the Earth about once every 4 weeks. It reflects light from the Sun."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.earth-sun-moon.901",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Why do we have night?",
+      "options": [
+        {
+          "text": "The Sun goes out at night.",
+          "why": "The Sun shines all the time."
+        },
+        {
+          "text": "Our side of the Earth faces away from the Sun."
+        },
+        {
+          "text": "The Moon covers the Sun.",
+          "why": "The Moon does not cause night."
+        },
+        {
+          "text": "The Earth stops spinning.",
+          "why": "The Earth never stops spinning."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Earth spins all the time.",
+        "Only half of the Earth faces the Sun.",
+        "Where is your side facing at night?"
+      ],
+      "explanation": "At night, our side of the Earth has turned to face away from the Sun."
+    },
+    {
+      "id": "s4.earth-sun-moon.902",
+      "skill": "s4.earth-sun-moon",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The Earth takes about 365 days to ___ the Sun once.",
+      "blanks": [
+        {
+          "answers": [
+            "orbit",
+            "go around",
+            "go round",
+            "travel around",
+            "circle"
+          ]
+        }
+      ],
+      "hints": [
+        "The Earth travels in a big loop.",
+        "The loop goes all the way past the Sun and back.",
+        "The science word starts with o."
+      ],
+      "explanation": "The Earth orbits the Sun once every year, which is about 365 days."
+    }
+  ]
+}

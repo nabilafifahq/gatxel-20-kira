@@ -1,0 +1,132 @@
+{
+  "skill": "m6.factors-multiples-primes",
+  "title": "Factors, multiples and primes",
+  "steps": [
+    {
+      "say": "Every whole number bigger than 1 is either prime or can be made by multiplying primes.",
+      "show": "60 = 2 × 2 × 3 × 5"
+    },
+    {
+      "say": "A factor tree splits a number into factor pairs until every branch ends in a prime.",
+      "show": "60 = 6 × 10 = 2 × 3 × 2 × 5",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Number",
+          "Split into"
+        ],
+        "rows": [
+          [
+            "60",
+            "6 × 10"
+          ],
+          [
+            "6",
+            "2 × 3"
+          ],
+          [
+            "10",
+            "2 × 5"
+          ]
+        ],
+        "alt": "A table showing 60 split into 6 × 10, then 6 into 2 × 3 and 10 into 2 × 5."
+      }
+    },
+    {
+      "say": "Write the primes in order. This is the prime factorisation.",
+      "show": "60 = 2 × 2 × 3 × 5"
+    },
+    {
+      "say": "The highest common factor (HCF) is the biggest number that divides into both numbers.",
+      "show": "The HCF of 18 and 24 is 6",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Number",
+          "Factors"
+        ],
+        "rows": [
+          [
+            "18",
+            "1, 2, 3, 6, 9, 18"
+          ],
+          [
+            "24",
+            "1, 2, 3, 4, 6, 8, 12, 24"
+          ]
+        ],
+        "alt": "A table of the factors of 18 and of 24. The biggest factor in both lists is 6."
+      }
+    },
+    {
+      "say": "The lowest common multiple (LCM) is the smallest number in both times tables.",
+      "show": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. LCM = 24"
+    },
+    {
+      "say": "Buses that leave every 6 minutes and every 8 minutes leave together again after 24 minutes.",
+      "show": "LCM of 6 and 8 = 24"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.factors-multiples-primes.901",
+      "skill": "m6.factors-multiples-primes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is the prime factorisation of 36?",
+      "hints": [
+        "Split 36 into any factor pair.",
+        "Keep splitting until every number is prime.",
+        "36 = 4 × 9."
+      ],
+      "explanation": "36 = 4 × 9, and 4 = 2 × 2 and 9 = 3 × 3. So 36 = 2 × 2 × 3 × 3.",
+      "options": [
+        {
+          "text": "2 × 3 × 6",
+          "why": "6 is not prime. Split it into 2 × 3."
+        },
+        {
+          "text": "2 × 2 × 9",
+          "why": "9 is not prime. Split it into 3 × 3."
+        },
+        {
+          "text": "2 × 2 × 3 × 3"
+        },
+        {
+          "text": "4 × 9",
+          "why": "4 and 9 are not prime numbers."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.factors-multiples-primes.902",
+      "skill": "m6.factors-multiples-primes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the highest common factor of 28 and 42?",
+      "hints": [
+        "List the factors of 28.",
+        "List the factors of 42.",
+        "Find the biggest number in both lists."
+      ],
+      "explanation": "The factors of 28 are 1, 2, 4, 7, 14 and 28. The factors of 42 are 1, 2, 3, 6, 7, 14, 21 and 42. The HCF is 14.",
+      "answer": 14
+    },
+    {
+      "id": "m6.factors-multiples-primes.903",
+      "skill": "m6.factors-multiples-primes",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "One light flashes every 4 seconds and another every 10 seconds. They flash together now. When will they next flash together?",
+      "hints": [
+        "This is a lowest common multiple problem.",
+        "List the multiples of 4.",
+        "Check which multiple of 4 is also a multiple of 10."
+      ],
+      "explanation": "Multiples of 4 are 4, 8, 12, 16, 20. Multiples of 10 are 10, 20. They flash together again after 20 seconds.",
+      "answer": 20,
+      "unit": "seconds"
+    }
+  ]
+}

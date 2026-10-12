@@ -1,0 +1,66 @@
+{
+  "skill": "e1.word-meanings",
+  "title": "Opposites and word groups",
+  "steps": [
+    {
+      "say": "Opposites mean very different things. Hot and cold are opposites.",
+      "show": "hot, cold"
+    },
+    {
+      "say": "Big and small are opposites too. So are up and down.",
+      "show": "big, small / up, down"
+    },
+    {
+      "say": "Some words go together in a group. Apple, banana and orange are all fruit.",
+      "show": "apple, banana, orange",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "banana"
+          },
+          {
+            "icon": "orange"
+          }
+        ],
+        "alt": "An apple, a banana and an orange."
+      }
+    },
+    {
+      "say": "If one word does not fit the group, it is the odd one out.",
+      "show": "apple, banana, bus"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.word-meanings.901",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the opposite of big?",
+      "hints": [
+        "Opposites are very different.",
+        "Think of an elephant and a mouse.",
+        "Which word describes a mouse?"
+      ],
+      "explanation": "Small is the opposite of big.",
+      "options": [
+        {
+          "text": "large",
+          "why": "Large means the same as big."
+        },
+        {
+          "text": "small"
+        },
+        {
+          "text": "tall",
+          "why": "Tall is about height."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

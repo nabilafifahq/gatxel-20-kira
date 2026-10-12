@@ -1,0 +1,135 @@
+{
+  "skill": "m2.number-bonds",
+  "title": "Bonds to 20 and 100",
+  "steps": [
+    {
+      "say": "Bonds to 10 help with bonds to 20.",
+      "show": "3 + 7 = 10, so 13 + 7 = 20"
+    },
+    {
+      "say": "13 boxes are filled and 7 are empty. Together they make 20.",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 10,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "alt": "A twenty frame with 13 of the 20 boxes filled."
+      }
+    },
+    {
+      "say": "Bonds to 10 help with tens too.",
+      "show": "3 + 7 = 10, so 30 + 70 = 100"
+    },
+    {
+      "say": "To make 100 from 46, jump to 50 first, then to 100.",
+      "figure": {
+        "kind": "numberline",
+        "min": 40,
+        "max": 100,
+        "step": 10,
+        "labels": [
+          40,
+          50,
+          100
+        ],
+        "jumps": [
+          {
+            "from": 46,
+            "to": 50,
+            "label": "+4"
+          },
+          {
+            "from": 50,
+            "to": 100,
+            "label": "+50"
+          }
+        ],
+        "alt": "A jump from 46 to 50, then a jump from 50 to 100."
+      },
+      "show": "4 + 50 = 54"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.number-bonds.901",
+      "skill": "m2.number-bonds",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "16 + ___ = 20",
+      "hints": [
+        "Think of 16 as 10 and 6.",
+        "What goes with 6 to make 10?",
+        "Count on from 16 to 20."
+      ],
+      "explanation": "16 + 4 = 20, because 6 + 4 = 10.",
+      "answer": 4
+    },
+    {
+      "id": "m2.number-bonds.902",
+      "skill": "m2.number-bonds",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "40 + ___ = 100",
+      "hints": [
+        "Use a bond to 10.",
+        "4 + 6 = 10, so think in tens.",
+        "Count on in 10s from 40 to 100."
+      ],
+      "explanation": "4 tens and 6 tens make 10 tens, so 40 + 60 = 100.",
+      "answer": 60
+    }
+  ]
+}

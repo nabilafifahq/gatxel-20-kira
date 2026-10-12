@@ -1,0 +1,554 @@
+{
+  "skill": "m1.oly-shapes",
+  "items": [
+    {
+      "id": "m1.oly-shapes.001",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Tara has a paper square. She cuts it in a straight line. The cut goes from one corner to the opposite corner. What does she get?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "A square. A cut line goes from the top left corner to the bottom right corner."
+      },
+      "options": [
+        {
+          "text": "2 triangles"
+        },
+        {
+          "text": "2 squares",
+          "why": "A square has 4 sides. Each piece has only 3 sides."
+        },
+        {
+          "text": "2 rectangles",
+          "why": "A rectangle has 4 sides. Each piece has only 3 sides."
+        },
+        {
+          "text": "1 triangle and 1 square",
+          "why": "Both pieces are the same shape."
+        },
+        {
+          "text": "4 triangles",
+          "why": "There is only one cut, so there are only 2 pieces."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many pieces does one straight cut make?",
+        "Count the sides of each piece.",
+        "Each piece keeps 2 sides of the square and gets 1 new side from the cut."
+      ],
+      "explanation": "One cut makes 2 pieces. Each piece has 2 sides from the square and 1 side from the cut, so each piece is a triangle.",
+      "solution": [
+        {
+          "say": "One straight cut makes 2 pieces.",
+          "show": "2 pieces"
+        },
+        {
+          "say": "Each piece has 2 sides of the square plus the cut line.",
+          "show": "2 + 1 = 3 sides"
+        },
+        {
+          "say": "A shape with 3 straight sides is a triangle. So she gets 2 triangles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 60
+    },
+    {
+      "id": "m1.oly-shapes.002",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which letter can you fold down the middle so both halves match?",
+      "options": [
+        {
+          "text": "F",
+          "why": "Fold F down the middle. Its arms are only on one side."
+        },
+        {
+          "text": "J",
+          "why": "The hook of J is only on one side."
+        },
+        {
+          "text": "L",
+          "why": "The foot of L points only one way."
+        },
+        {
+          "text": "M"
+        },
+        {
+          "text": "R",
+          "why": "The round part of R is only on one side."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Imagine a line going straight down the middle of each letter.",
+        "Both sides of the line must look the same, like a picture in a mirror.",
+        "Look for a letter that has the same shape on its left and its right."
+      ],
+      "explanation": "A line straight down the middle of M splits it into two halves that match. The other letters look different on each side.",
+      "solution": [
+        {
+          "say": "Draw a line straight down the middle of each letter.",
+          "show": "F J L M R"
+        },
+        {
+          "say": "Check if the left half is a mirror picture of the right half."
+        },
+        {
+          "say": "Only M matches on both sides.",
+          "show": "M"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-shapes.003",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Amir draws a big triangle. Then he draws a line from the top corner to the bottom. How many triangles can you see now?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A big triangle with one straight line from the top corner down to the bottom side. The line splits it into a left part and a right part."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "Count the big triangle too."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "There are only 2 small triangles inside."
+        },
+        {
+          "text": "5",
+          "why": "Count again. Only one line is inside the big triangle."
+        },
+        {
+          "text": "6",
+          "why": "There is only one line inside, so there are not that many."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the small triangles first.",
+        "Do not forget the triangle made of both small ones together.",
+        "The line makes 2 small triangles. Is the whole shape a triangle too?"
+      ],
+      "explanation": "The line makes 2 small triangles. The big triangle is still there too. So there are 2 + 1 = 3 triangles.",
+      "solution": [
+        {
+          "say": "The line splits the big triangle into 2 small triangles.",
+          "show": "2 small"
+        },
+        {
+          "say": "The whole shape is also a triangle.",
+          "show": "1 big"
+        },
+        {
+          "say": "Add them.",
+          "show": "2 + 1 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-shapes.004",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "This grid has 3 rows of 3 small squares. How many squares of any size can you find?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 3,
+        "alt": "A grid of 3 rows and 3 columns, 9 small squares in all."
+      },
+      "options": [
+        {
+          "text": "9",
+          "why": "There are bigger squares too, made of small squares."
+        },
+        {
+          "text": "10",
+          "why": "You found the small squares and the biggest one. Look for middle-sized squares."
+        },
+        {
+          "text": "14"
+        },
+        {
+          "text": "16",
+          "why": "Some shapes made of 2 or 3 small squares are rectangles, not squares."
+        },
+        {
+          "text": "18",
+          "why": "Count each square only once."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Squares can be small, middle-sized or big.",
+        "Count each size by itself: 1 by 1, then 2 by 2, then 3 by 3.",
+        "A 2 by 2 square uses 4 small squares. Look for one in each corner."
+      ],
+      "explanation": "There are 9 small squares, 4 squares made of 2 by 2 small squares, and 1 big square. That makes 9 + 4 + 1 = 14 squares.",
+      "solution": [
+        {
+          "say": "Small squares: 3 rows of 3.",
+          "show": "9"
+        },
+        {
+          "say": "2 by 2 squares: one in each corner of the grid.",
+          "show": "4"
+        },
+        {
+          "say": "The whole grid is 1 big square.",
+          "show": "1"
+        },
+        {
+          "say": "Add them up.",
+          "show": "9 + 4 + 1 = 14"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-shapes.005",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Kak Lina punya roti berbentuk persegi. Ia memotong roti sekali dari atas ke bawah. Lalu ia memotong sekali dari kiri ke kanan. Jadi ada berapa potong roti?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "Sepotong roti berbentuk persegi sebelum dipotong."
+      },
+      "options": [
+        {
+          "text": "1",
+          "why": "Roti sudah dipotong dua kali, jadi pasti lebih dari 1 potong."
+        },
+        {
+          "text": "2",
+          "why": "Itu sesudah potongan pertama saja. Masih ada potongan kedua."
+        },
+        {
+          "text": "3",
+          "why": "Potongan kedua memotong kedua bagian sekaligus."
+        },
+        {
+          "text": "4"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Bayangkan atau gambar rotinya.",
+        "Potongan pertama membuat 2 bagian. Potongan kedua melewati kedua bagian itu.",
+        "Gambar garis dari atas ke bawah, lalu garis dari kiri ke kanan."
+      ],
+      "explanation": "Potongan pertama membagi roti menjadi 2. Potongan kedua memotong kedua bagian itu, jadi masing-masing menjadi 2. Ada 4 potong roti.",
+      "solution": [
+        {
+          "say": "Potongan dari atas ke bawah membuat 2 bagian.",
+          "show": "2 bagian"
+        },
+        {
+          "say": "Potongan dari kiri ke kanan melewati kedua bagian. Setiap bagian terbelah dua.",
+          "show": "2 + 2 = 4",
+          "figure": {
+            "kind": "grid",
+            "rows": 2,
+            "cols": 2,
+            "alt": "Persegi terbagi menjadi 4 bagian sama besar oleh dua garis yang bersilangan di tengah."
+          }
+        },
+        {
+          "say": "Jadi ada 4 potong roti."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "roti",
+          "en": "bread"
+        },
+        {
+          "term": "berbentuk persegi",
+          "en": "square-shaped"
+        },
+        {
+          "term": "memotong",
+          "en": "to cut"
+        },
+        {
+          "term": "sekali",
+          "en": "once"
+        },
+        {
+          "term": "dari atas ke bawah",
+          "en": "from top to bottom"
+        },
+        {
+          "term": "dari kiri ke kanan",
+          "en": "from left to right"
+        },
+        {
+          "term": "potong",
+          "en": "piece"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-shapes.006",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A floor has 3 rows of 4 square tiles. All the tiles at the edge are blue. The other tiles are white. How many tiles are blue?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 4,
+        "alt": "A floor of square tiles: 3 rows with 4 tiles in each row, 12 tiles in all."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "Count every tile that touches the edge, corners too."
+        },
+        {
+          "text": "8",
+          "why": "The top and bottom rows have 8 tiles. Add the end tiles of the middle row."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "The middle tiles do not touch the edge."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Some tiles touch the edge and some are in the middle.",
+        "Count the tiles that are not at the edge, then take them away from 12.",
+        "The middle row has 4 tiles. How many of them are not at the edge?"
+      ],
+      "explanation": "Only the 2 middle tiles of the middle row are away from the edge. So 12 - 2 = 10 tiles are blue.",
+      "solution": [
+        {
+          "say": "There are 4 + 4 + 4 = 12 tiles.",
+          "show": "4 + 4 + 4 = 12"
+        },
+        {
+          "say": "The top and bottom rows are all at the edge.",
+          "show": "4 + 4 = 8"
+        },
+        {
+          "say": "In the middle row, only the 2 end tiles are at the edge.",
+          "show": "8 + 2 = 10",
+          "figure": {
+            "kind": "grid",
+            "rows": 3,
+            "cols": 4,
+            "shaded": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "alt": "The 3 by 4 floor with the 10 edge tiles shaded. The 2 middle tiles of the middle row are white."
+          }
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-shapes.007",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Two squares sit side by side. An ant starts at the bottom left corner. It walks along the lines to the top right corner. It only walks right or up. How many different paths can it take?",
+      "figure": {
+        "kind": "grid",
+        "rows": 1,
+        "cols": 2,
+        "alt": "Two squares side by side, making a rectangle 2 squares long and 1 square high. The ant starts at the bottom left corner and ends at the top right corner."
+      },
+      "answer": 3,
+      "hints": [
+        "The ant must go up once somewhere on its way.",
+        "In every path the ant goes right 2 times and up 1 time.",
+        "Try a path that goes up first. Then try one that goes right first."
+      ],
+      "explanation": "The ant goes right twice and up once. It can go up at the start, in the middle or at the end, so there are 3 paths.",
+      "solution": [
+        {
+          "say": "Every path goes right 2 times and up 1 time.",
+          "show": "right, right, up"
+        },
+        {
+          "say": "The up step can be first, second or third.",
+          "show": "U R R, R U R, R R U"
+        },
+        {
+          "say": "So there are 3 paths.",
+          "show": "3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-shapes.008",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Start at the cow. Move 2 squares up. Then move 1 square right. Which animal are you on?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Column 1",
+          "Column 2",
+          "Column 3"
+        ],
+        "rows": [
+          [
+            "cat",
+            "dog",
+            "fish"
+          ],
+          [
+            "bird",
+            "frog",
+            "duck"
+          ],
+          [
+            "cow",
+            "hen",
+            "bee"
+          ]
+        ],
+        "alt": "A 3 by 3 grid of animals. Top row: cat, dog, fish. Middle row: bird, frog, duck. Bottom row: cow, hen, bee."
+      },
+      "options": [
+        {
+          "text": "bird",
+          "why": "You moved up only 1 square and did not move right."
+        },
+        {
+          "text": "dog"
+        },
+        {
+          "text": "frog",
+          "why": "You moved up only 1 square before going right."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the cow first. It is in the bottom row.",
+        "Moving up takes you to the row above.",
+        "Two squares up from the cow is in the top row."
+      ],
+      "explanation": "From the cow, 2 squares up is the cat. 1 square right of the cat is the dog.",
+      "solution": [
+        {
+          "say": "The cow is in the bottom left corner.",
+          "show": "cow"
+        },
+        {
+          "say": "Move up 2 squares: bird, then cat.",
+          "show": "cow, bird, cat"
+        },
+        {
+          "say": "Move 1 square right: dog.",
+          "show": "cat, dog"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 90
+    }
+  ]
+}

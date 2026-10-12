@@ -1,0 +1,103 @@
+{
+  "skill": "m1.shapes-3d",
+  "title": "Solid shapes",
+  "steps": [
+    {
+      "say": "Solid shapes are called 3D shapes. You can hold them.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "cube",
+            "label": "cube"
+          },
+          {
+            "shape": "sphere",
+            "label": "sphere"
+          },
+          {
+            "shape": "cylinder",
+            "label": "cylinder"
+          },
+          {
+            "shape": "cone",
+            "label": "cone"
+          }
+        ],
+        "alt": "A cube, a sphere, a cylinder and a cone."
+      }
+    },
+    {
+      "say": "A sphere is round all over, like a ball. It can roll.",
+      "figure": {
+        "kind": "solid",
+        "solid": "sphere",
+        "alt": "A solid round shape with one curved face and no flat faces."
+      }
+    },
+    {
+      "say": "A cube has 6 flat square faces. It cannot roll.",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A solid shape with 6 flat square faces, all the same size."
+      }
+    },
+    {
+      "say": "A cylinder has 2 flat faces and 1 curved face. It can roll and stack.",
+      "figure": {
+        "kind": "solid",
+        "solid": "cylinder",
+        "alt": "A solid shape with 2 flat circle faces and 1 curved face."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.shapes-3d.901",
+      "skill": "m1.shapes-3d",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A ball is shaped like which 3D shape?",
+      "hints": [
+        "Think about the shape of a ball.",
+        "Is it round all over?",
+        "Imagine holding a ball. Does it have flat faces?"
+      ],
+      "explanation": "A ball is round all over, so it is shaped like a sphere.",
+      "options": [
+        {
+          "text": "sphere"
+        },
+        {
+          "text": "cube",
+          "why": "A cube has 6 flat square faces."
+        },
+        {
+          "text": "cone",
+          "why": "A cone has a flat face and a point."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m1.shapes-3d.902",
+      "skill": "m1.shapes-3d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many faces does a cube have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A solid shape with 6 flat square faces, all the same size."
+      },
+      "hints": [
+        "A face is a flat side of the shape.",
+        "Count top, bottom, front, back and the two sides.",
+        "Count the faces you can see. Then think about the ones behind."
+      ],
+      "explanation": "A cube has 6 square faces.",
+      "answer": 6
+    }
+  ]
+}

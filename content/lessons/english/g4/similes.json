@@ -1,0 +1,39 @@
+{
+  "skill": "e4.similes",
+  "title": "Comparing with like and as",
+  "steps": [
+    { "say": "A simile compares one thing to another, using like or as.", "show": "as cold as ice; ran like the wind" },
+    { "say": "Writers use similes to help readers picture something.", "show": "The moon was like a silver coin." },
+    { "say": "Many similes use as, then a describing word, then as again.", "show": "as busy as a bee, as slow as a snail" },
+    { "say": "Careful: like does not always make a simile. In I like mangoes, nothing is compared.", "show": "I like mangoes. (not a simile)" },
+    { "say": "When you read a simile, ask what two things are compared, and why.", "show": "voices buzzed like bees → noisy and busy" }
+  ],
+  "check": [
+    {
+      "id": "e4.similes.901", "skill": "e4.similes", "type": "mcq", "difficulty": 1,
+      "prompt": "Finish the simile: as busy as a ___.",
+      "options": [
+        { "text": "bee" },
+        { "text": "sloth", "why": "Sloths are famous for being slow and sleepy." },
+        { "text": "rock", "why": "A rock does not move at all." },
+        { "text": "pillow", "why": "A pillow is soft, not busy." }
+      ],
+      "answer": 0,
+      "hints": ["Think of a creature that never seems to stop working.", "It flies from flower to flower.", "It makes honey."],
+      "explanation": "Bees fly from flower to flower all day, so we say as busy as a bee."
+    },
+    {
+      "id": "e4.similes.902", "skill": "e4.similes", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence has a simile?",
+      "options": [
+        { "text": "I like rice.", "why": "Here like means enjoy. Nothing is compared." },
+        { "text": "The baby slept like a log." },
+        { "text": "The log was heavy.", "why": "This describes the log, but does not compare it." },
+        { "text": "We sat on a log.", "why": "There is no comparison here." }
+      ],
+      "answer": 1,
+      "hints": ["A simile compares two things.", "Look for like or as used to compare.", "In which sentence is someone compared to something else?"],
+      "explanation": "Slept like a log compares how the baby slept to a log that does not move. That is a simile."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "skill": "m3.times-tables",
+  "title": "Times tables",
+  "steps": [
+    {
+      "say": "Times tables are equal groups. 4 × 3 means 4 groups of 3.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "icon": "apple",
+        "container": "plate",
+        "alt": "4 plates with 3 apples on each."
+      }
+    },
+    {
+      "say": "Count in 3s: 3, 6, 9, 12.",
+      "show": "4 × 3 = 12"
+    },
+    {
+      "say": "You can swap the numbers round. 3 × 4 is also 12.",
+      "show": "3 × 4 = 4 × 3",
+      "figure": {
+        "kind": "array",
+        "rows": 3,
+        "cols": 4,
+        "icon": "star",
+        "alt": "3 rows of 4 stars."
+      }
+    },
+    {
+      "say": "Double a 2 times fact to get the 4 times fact.",
+      "show": "2 × 7 = 14, so 4 × 7 = 28"
+    },
+    {
+      "say": "Double a 4 times fact to get the 8 times fact.",
+      "show": "4 × 6 = 24, so 8 × 6 = 48"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.times-tables.901",
+      "skill": "m3.times-tables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 6 × 8?",
+      "answer": 48,
+      "hints": [
+        "Think of 6 groups of 8.",
+        "You could double 3 × 8.",
+        "3 × 8 = 24."
+      ],
+      "explanation": "3 × 8 = 24. Double 24 is 48, so 6 × 8 = 48."
+    },
+    {
+      "id": "m3.times-tables.902",
+      "skill": "m3.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the same as 9 × 4?",
+      "options": [
+        {
+          "text": "9 × 5",
+          "why": "9 × 5 is 45, one more group of 9."
+        },
+        {
+          "text": "3 × 4",
+          "why": "3 × 4 is 12."
+        },
+        {
+          "text": "4 × 9"
+        },
+        {
+          "text": "9 + 4",
+          "why": "9 + 4 is 13. 9 × 4 is 36."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out 9 × 4 first.",
+        "Then work out each option.",
+        "Times facts can be swapped round."
+      ],
+      "explanation": "You can swap the numbers in a times fact. 9 × 4 = 36 and 4 × 9 = 36."
+    }
+  ]
+}

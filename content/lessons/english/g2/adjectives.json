@@ -1,0 +1,79 @@
+{
+  "skill": "e2.adjectives",
+  "title": "Describing words",
+  "steps": [
+    {
+      "say": "A describing word tells us more about a noun. It is called an adjective.",
+      "show": "a fluffy cat"
+    },
+    {
+      "say": "Adjectives can tell size, colour, shape, feel, sound, taste or number.",
+      "show": "big, red, round, soft, loud, sour, three"
+    },
+    {
+      "say": "Add -er to compare two things.",
+      "show": "tall, taller"
+    },
+    {
+      "say": "Add -est to compare more than two things.",
+      "show": "tall, taller, tallest"
+    },
+    {
+      "say": "Some words change before the ending. Big becomes bigger, and happy becomes happier.",
+      "show": "big, bigger / happy, happier"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.adjectives.901",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a describing word?",
+      "hints": [
+        "A describing word tells us more about a noun.",
+        "Try each in: a ___ coin.",
+        "Which one tells what the coin looks like?"
+      ],
+      "explanation": "Shiny describes how something looks.",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "shiny"
+        },
+        {
+          "text": "cup",
+          "why": "Cup is a naming word."
+        },
+        {
+          "text": "under",
+          "why": "Under tells where."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.902",
+      "skill": "e2.adjectives",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add -est to tall. 'He is the ___ boy in the class.'",
+      "hints": [
+        "-est compares more than two.",
+        "Tall does not change.",
+        "Write tall, then add the ending."
+      ],
+      "explanation": "Tall plus -est makes tallest.",
+      "blanks": [
+        {
+          "answers": [
+            "tallest"
+          ]
+        }
+      ]
+    }
+  ]
+}

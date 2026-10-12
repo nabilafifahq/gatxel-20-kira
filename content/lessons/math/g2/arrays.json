@@ -1,0 +1,89 @@
+{
+  "skill": "m2.arrays",
+  "title": "Rows and columns",
+  "steps": [
+    {
+      "say": "An array is things in rows. Every row has the same number.",
+      "figure": {
+        "kind": "array",
+        "rows": 3,
+        "cols": 4,
+        "icon": "muffin",
+        "alt": "3 rows of 4 muffins."
+      }
+    },
+    {
+      "say": "Count one row first. This row has 4.",
+      "show": "4"
+    },
+    {
+      "say": "Now skip count in 4s: 4, 8, 12.",
+      "show": "4 + 4 + 4 = 12"
+    },
+    {
+      "say": "3 rows of 4 make 12. We write 3 × 4 = 12.",
+      "show": "3 × 4 = 12"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.arrays.901",
+      "skill": "m2.arrays",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "2 rows of 5 stars. How many stars?",
+      "figure": {
+        "kind": "array",
+        "rows": 2,
+        "cols": 5,
+        "icon": "star",
+        "alt": "2 rows of 5 stars."
+      },
+      "hints": [
+        "Count the stars in one row.",
+        "Count in 5s, one row at a time.",
+        "The first row makes 5. Add the next row."
+      ],
+      "explanation": "2 rows of 5 make 10.",
+      "answer": 10
+    },
+    {
+      "id": "m2.arrays.902",
+      "skill": "m2.arrays",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which number sentence matches this array?",
+      "figure": {
+        "kind": "array",
+        "rows": 3,
+        "cols": 6,
+        "icon": "apple",
+        "alt": "3 rows of 6 apples."
+      },
+      "hints": [
+        "Look at one row first. How many are in it?",
+        "Count the rows.",
+        "Rows × number in each row."
+      ],
+      "explanation": "There are 3 rows with 6 in each row, so the array shows 3 × 6 = 18.",
+      "options": [
+        {
+          "text": "3 + 6",
+          "why": "Adding the rows and the columns does not count every item."
+        },
+        {
+          "text": "3 × 6"
+        },
+        {
+          "text": "3 × 7",
+          "why": "Count the items in one row again."
+        },
+        {
+          "text": "4 × 6",
+          "why": "Count the rows again."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

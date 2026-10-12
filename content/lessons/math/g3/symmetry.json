@@ -1,0 +1,92 @@
+{
+  "skill": "m3.symmetry",
+  "title": "Lines of symmetry",
+  "steps": [
+    {
+      "say": "A line of symmetry splits a shape into two halves that match.",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "lineOfSymmetry": "vertical",
+        "alt": "A rectangle with a vertical line of symmetry."
+      }
+    },
+    {
+      "say": "Fold along the line. If the halves fit on top of each other, it is a line of symmetry."
+    },
+    {
+      "say": "Some shapes also have a horizontal line of symmetry.",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "lineOfSymmetry": "horizontal",
+        "alt": "A rectangle with a horizontal line of symmetry."
+      }
+    },
+    {
+      "say": "Letters can be symmetrical too. A has a vertical line and B has a horizontal line.",
+      "show": "A, B"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.symmetry.901",
+      "skill": "m3.symmetry",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which letter has a vertical line of symmetry?",
+      "options": [
+        {
+          "text": "F",
+          "why": "F has no line of symmetry."
+        },
+        {
+          "text": "T"
+        },
+        {
+          "text": "R",
+          "why": "R has no line of symmetry."
+        },
+        {
+          "text": "L",
+          "why": "L has no line of symmetry."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A vertical line goes straight up and down.",
+        "Picture folding each letter down the middle.",
+        "Do the left and right halves match?"
+      ],
+      "explanation": "Fold T down the middle and the two halves match."
+    },
+    {
+      "id": "m3.symmetry.902",
+      "skill": "m3.symmetry",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Does this shape have a vertical line of symmetry?",
+      "options": [
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No",
+          "why": "Fold it down the middle: the left and right halves match."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Picture a line straight down the middle.",
+        "Fold the shape along that line.",
+        "Check if the left half matches the right half."
+      ],
+      "explanation": "The trapezium is the same on both sides, so a vertical line down the middle is a line of symmetry.",
+      "figure": {
+        "kind": "shape",
+        "shape": "trapezium",
+        "alt": "A trapezium with a long bottom side and a shorter top side."
+      }
+    }
+  ]
+}

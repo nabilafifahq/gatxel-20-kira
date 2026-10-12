@@ -1,0 +1,206 @@
+{
+  "skill": "s6.simple-machines",
+  "items": [
+    {
+      "id": "s6.simple-machines.001",
+      "skill": "s6.simple-machines",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each simple machine to an example.",
+      "pairs": [
+        ["lever", "a crowbar lifting a heavy stone"],
+        ["pulley", "a bucket raised from a well on a rope"],
+        ["ramp (inclined plane)", "a sloping plank for pushing a cart up"],
+        ["gears", "toothed wheels on a bicycle"],
+        ["wheel and axle", "a doorknob turning a latch"]
+      ],
+      "hints": [
+        "Each simple machine makes a job easier in its own way.",
+        "Some machines turn, some lift with a rope, and some use a slope or a bar.",
+        "Start with the pulley. Think about a rope running over a wheel at the top of a well."
+      ],
+      "explanation": "A crowbar is a lever and a well bucket uses a pulley. A sloping plank is a ramp, a bicycle uses gears, and a doorknob is a wheel and axle.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.002",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "On a seesaw, what is the point in the middle that it turns on called?",
+      "options": [
+        { "text": "the load", "why": "The load is the weight that is being lifted." },
+        { "text": "the effort", "why": "The effort is the force you put in." },
+        { "text": "the pivot" },
+        { "text": "the axle", "why": "An axle is the rod in the centre of a wheel." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Every lever turns around one fixed point.",
+        "The three lever words are load, effort and pivot.",
+        "Cross out the words for the forces."
+      ],
+      "explanation": "The pivot, also called the fulcrum, is the fixed point that a lever turns on. On a seesaw, it is the support in the middle.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.003",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dimas uses a long metal bar to lift a heavy rock. The pivot is a small stone near the rock. Where should he push to need the least effort?",
+      "options": [
+        { "text": "right next to the pivot", "why": "Pushing close to the pivot needs a much bigger effort." },
+        { "text": "at the end furthest from the pivot" },
+        { "text": "on the rock itself", "why": "The rock is the load. Push on the other end of the bar." },
+        { "text": "in the middle of the bar", "why": "That works, but pushing further from the pivot needs even less effort." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about opening a heavy door: is it easier to push near the hinges or near the handle?",
+        "The hinges of a door act like a pivot.",
+        "Compare pushing close to the small stone with pushing far from it."
+      ],
+      "explanation": "Pushing at the end furthest from the pivot gives the biggest turning effect, so less effort is needed. This is why long levers make heavy loads easier to lift.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.004",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How does a single pulley at the top of a well help you lift a bucket of water?",
+      "options": [
+        { "text": "It makes the bucket weigh less.", "why": "The bucket's weight does not change. The pulley changes the direction of your pull." },
+        { "text": "It lifts the bucket by itself.", "why": "You still have to pull the rope. A machine does not do the work for you." },
+        { "text": "It halves the force you need.", "why": "A single fixed pulley does not reduce the force. It only changes its direction." },
+        { "text": "It lets you pull down to lift the bucket up, which is easier." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Notice which way you pull the rope and which way the bucket moves.",
+        "Pulling down lets you use your own weight to help.",
+        "Ask whether a single pulley changes the size of the force or only its direction."
+      ],
+      "explanation": "A single fixed pulley changes the direction of your force: you pull down and the bucket goes up. Pulling down is easier because you can use your body weight.",
+      "tags": ["osn-sd", "imso"]
+    },
+    {
+      "id": "s6.simple-machines.005",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Gear A turns clockwise. Its teeth mesh with the teeth of gear B. Which way does gear B turn?",
+      "options": [
+        { "text": "anticlockwise" },
+        { "text": "clockwise", "why": "Meshing teeth push each other the opposite way." },
+        { "text": "It does not turn.", "why": "Gear A's teeth push on gear B's teeth, so gear B must turn." },
+        { "text": "back and forth", "why": "Gear B turns smoothly in one direction, the opposite way to gear A." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where the two gears touch, their teeth push each other.",
+        "Hold your two fists together like gears and roll them to watch the directions.",
+        "Picture the teeth where the gears meet, and follow which way gear A pushes them."
+      ],
+      "explanation": "When two gears mesh, the teeth push each other, so the second gear turns the opposite way. Gear B turns anticlockwise.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.006",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A big gear with 30 teeth turns a small gear with 10 teeth. When the big gear turns once, how many times does the small gear turn?",
+      "answer": 3,
+      "unit": "turns",
+      "hints": [
+        "Each tooth of the big gear pushes one tooth of the small gear.",
+        "One turn of the big gear moves 30 teeth past the small gear.",
+        "Work out how many lots of 10 teeth are in 30 teeth."
+      ],
+      "explanation": "One turn of the big gear moves 30 teeth, and the small gear needs 10 teeth for one turn. So it turns 30 ÷ 10 = 3 times.",
+      "tags": ["imso", "osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.007",
+      "skill": "s6.simple-machines",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the tools that use a lever.",
+      "options": [
+        { "text": "scissors" },
+        { "text": "a bottle opener" },
+        { "text": "a wheelbarrow" },
+        { "text": "a ramp", "why": "A ramp is an inclined plane. It has no pivot." },
+        { "text": "a flagpole rope over a wheel", "why": "A rope over a wheel is a pulley." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": [
+        "A lever is a bar that turns on a pivot.",
+        "Look for the pivot in each tool.",
+        "Start with scissors. Find the screw that the two blades turn on."
+      ],
+      "explanation": "Scissors, bottle openers and wheelbarrows all turn on a pivot, so they are levers. A ramp is an inclined plane, and a flagpole uses a pulley.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.008",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A ruler balances on a pivot at its middle. A 6 N weight hangs 20 cm to the left of the pivot. How far to the right must a 4 N weight hang to balance it?",
+      "answer": 30,
+      "unit": "cm",
+      "hints": [
+        "The ruler balances when the turning effect on each side is the same.",
+        "Turning effect = force × distance from the pivot.",
+        "Work out the turning effect on the left first: 6 N × 20 cm."
+      ],
+      "explanation": "The left side has a turning effect of 6 × 20 = 120. The right side needs 4 × distance = 120, so the distance is 120 ÷ 4 = 30 cm.",
+      "solution": [
+        { "say": "Find the turning effect on the left: the force times its distance from the pivot.", "show": "6 N × 20 cm = 120" },
+        { "say": "The right side must have the same turning effect. Divide by the 4 N force.", "show": "120 ÷ 4 = 30" },
+        { "say": "The 4 N weight must hang 30 cm to the right of the pivot.", "show": "30 cm" }
+      ],
+      "tags": ["imso", "osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.009",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Workers push the same heavy box into a truck. Which ramp needs the smallest push?",
+      "options": [
+        { "text": "a short ramp with a steep slope", "why": "A steep ramp needs a bigger push, even though the distance is shorter." },
+        { "text": "no ramp: lifting the box straight up", "why": "Lifting straight up needs the biggest force, equal to the box's whole weight." },
+        { "text": "a long ramp with a gentle slope" },
+        { "text": "a ramp covered in sand", "why": "Sand adds friction, which makes pushing harder." }
+      ],
+      "answer": 2,
+      "hints": [
+        "A ramp lets you raise a load a little at a time.",
+        "A gentler slope spreads the lift over a longer distance.",
+        "Compare a gentle ramp with lifting the box straight up."
+      ],
+      "explanation": "A long, gentle ramp needs the smallest push, but you must push the box further. Simple machines trade a smaller force for a longer distance.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.simple-machines.010",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A pulley system lets a builder lift a 400 N load with an effort of only 100 N. How many metres of rope must the builder pull to lift the load by 1 m?",
+      "answer": 4,
+      "unit": "m",
+      "hints": [
+        "A machine that makes your force smaller makes you move further.",
+        "Compare the load with the effort: how many times smaller is the effort?",
+        "Multiply the 1 m lift by that number."
+      ],
+      "explanation": "The effort is 4 times smaller than the load, so the rope must be pulled 4 times as far. To lift the load 1 m, the builder pulls 4 m of rope.",
+      "tags": ["imso"]
+    }
+  ]
+}

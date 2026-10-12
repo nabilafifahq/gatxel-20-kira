@@ -1,0 +1,93 @@
+{
+  "skill": "m2.length",
+  "title": "Measuring length",
+  "steps": [
+    {
+      "say": "We measure short lengths in centimetres. We write cm.",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 12,
+        "objectStartCm": 0,
+        "object": "pencil",
+        "alt": "A pencil next to a ruler. It starts at 0 and ends at 12 cm."
+      },
+      "show": "12 cm"
+    },
+    {
+      "say": "Line the start up with 0. Read the number at the end."
+    },
+    {
+      "say": "If it does not start at 0, take the start away from the end.",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 7,
+        "objectStartCm": 2,
+        "object": "key",
+        "alt": "A key next to a ruler. It starts at 2 cm and ends at 9 cm."
+      },
+      "show": "9 - 2 = 7 cm"
+    },
+    {
+      "say": "We measure long lengths in metres. We write m.",
+      "show": "1 m = 100 cm"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.length.901",
+      "skill": "m2.length",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How long is the crayon?",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 6,
+        "objectStartCm": 0,
+        "object": "crayon",
+        "alt": "A crayon next to a ruler. It starts at 0 and ends at 6 cm."
+      },
+      "hints": [
+        "Check where the crayon starts.",
+        "It starts at 0. Read the number at the other end.",
+        "Follow the end of the crayon down to the ruler."
+      ],
+      "explanation": "The crayon goes from 0 to 6, so it is 6 cm long.",
+      "answer": 6,
+      "unit": "cm"
+    },
+    {
+      "id": "m2.length.902",
+      "skill": "m2.length",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which unit is best for measuring a swimming pool?",
+      "hints": [
+        "Length is measured in centimetres or metres.",
+        "Is a swimming pool longer than you are tall?",
+        "Big lengths use metres."
+      ],
+      "explanation": "A swimming pool is long, so we measure it in metres.",
+      "options": [
+        {
+          "text": "centimetres",
+          "why": "Centimetres are too small for something this long."
+        },
+        {
+          "text": "kilograms",
+          "why": "Kilograms measure mass, not length."
+        },
+        {
+          "text": "metres"
+        },
+        {
+          "text": "litres",
+          "why": "Litres measure capacity, not length."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

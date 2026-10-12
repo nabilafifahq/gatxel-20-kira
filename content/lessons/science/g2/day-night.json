@@ -1,0 +1,34 @@
+{
+  "skill": "s2.day-night",
+  "title": "Day and night",
+  "steps": [
+    { "say": "The Earth spins round once every 24 hours.", "figure": { "kind": "icons", "items": [{ "icon": "earth", "label": "Earth" }], "alt": "The spinning Earth." } },
+    { "say": "The side facing the Sun has day. The side facing away has night.", "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "earth", "label": "Earth" }], "alt": "The Sun lighting up one side of the Earth." } },
+    { "say": "The Sun seems to move across the sky. Really, the Earth is spinning.", "show": "The Sun rises in the east and sets in the west." },
+    { "say": "Shadows are long in the morning and evening. They are short at midday.", "show": "long, short, long" },
+    { "say": "Some animals are nocturnal. Owls and bats are active at night.", "figure": { "kind": "icons", "items": [{ "icon": "owl", "label": "owl" }, { "icon": "bat", "label": "bat" }], "alt": "An owl and a bat, which are active at night." } }
+  ],
+  "check": [
+    {
+      "id": "s2.day-night.901", "skill": "s2.day-night", "type": "mcq", "difficulty": 2,
+      "prompt": "Why do we have day and night?",
+      "options": [
+        { "text": "The Sun moves around the Earth.", "why": "The Sun only seems to move. The Earth spins." },
+        { "text": "The Earth spins." },
+        { "text": "The Sun switches off.", "why": "The Sun always shines." },
+        { "text": "Clouds cover the Sun.", "why": "Night comes even when there are no clouds." }
+      ],
+      "answer": 1,
+      "hints": ["The Sun is always shining.", "Something turns our side towards and away from it.", "Ask: which one spins, the Earth or the Sun?"],
+      "explanation": "The Earth spins. Our side faces the Sun for day and turns away for night."
+    },
+    {
+      "id": "s2.day-night.902", "skill": "s2.day-night", "type": "numeric", "difficulty": 2,
+      "prompt": "How many hours does the Earth take to spin round once?",
+      "answer": 24,
+      "unit": "hours",
+      "hints": ["One spin gives one day and one night.", "Think about how many hours are in a whole day.", "A clock goes round twice in a day: 12 hours each time."],
+      "explanation": "The Earth takes about 24 hours to spin round once. That is one day and one night."
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "skill": "e2.writing",
+  "items": [
+    {
+      "id": "e2.writing.001",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word starts the first step in instructions?",
+      "hints": [
+        "Instructions go in order.",
+        "Think about the very start.",
+        "Which word means number one?"
+      ],
+      "explanation": "First starts the first step. Next and then come in the middle, and finally comes last.",
+      "options": [
+        {
+          "text": "First"
+        },
+        {
+          "text": "Finally",
+          "why": "Finally starts the last step."
+        },
+        {
+          "text": "Next",
+          "why": "Next comes after the first step."
+        },
+        {
+          "text": "Then",
+          "why": "Then comes after the first step."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.writing.002",
+      "skill": "e2.writing",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the instructions in order.",
+      "hints": [
+        "Look at the first word of each step.",
+        "The time words go First, Next, Then, Finally.",
+        "Start with the step that begins with First."
+      ],
+      "explanation": "The time words show the order: first, next, then and finally.",
+      "items": [
+        "First, wet your toothbrush.",
+        "Next, put toothpaste on the brush.",
+        "Then brush all of your teeth.",
+        "Finally, rinse your mouth with water."
+      ]
+    },
+    {
+      "id": "e2.writing.003",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Write a recount of something you did last weekend. Write at least three sentences.",
+      "hints": [
+        "Start with when and where.",
+        "Use first, then and after that.",
+        "End with how you felt."
+      ],
+      "explanation": "A recount tells real events in the order they happened. It uses past tense verbs and time words.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells what happened in order",
+            "points": 2
+          },
+          {
+            "label": "Uses past tense verbs, like went and played",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          },
+          {
+            "label": "Uses time words, like first, then and after that",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 25,
+      "maxWords": 120,
+      "planning": [
+        "Where did you go?",
+        "Who was with you?",
+        "What happened first, next and last?",
+        "How did you feel?"
+      ],
+      "model": "Last Saturday, I went to the beach with my family. First, we built a sandcastle. Then we swam in the sea. After that, we ate fried rice under a tree. I felt happy and tired when we went home."
+    },
+    {
+      "id": "e2.writing.004",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is the best start for a recount?",
+      "hints": [
+        "A recount tells about something that really happened to you.",
+        "It says when and where.",
+        "Look for a sentence about the past that says when and who."
+      ],
+      "explanation": "A recount starts by saying when, where and who. Last Sunday, I went to the zoo with my family does that.",
+      "options": [
+        {
+          "text": "First, mix the eggs.",
+          "why": "This is a step in instructions."
+        },
+        {
+          "text": "Last Sunday, I went to the zoo with my family."
+        },
+        {
+          "text": "Zoos have many animals.",
+          "why": "This is a fact, not a recount."
+        },
+        {
+          "text": "Once upon a time, a lion was sad.",
+          "why": "This is the start of a story."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.writing.005",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Write instructions for washing your hands. Use first, next, then and finally.",
+      "hints": [
+        "Think about washing your hands right now.",
+        "Start each step with a time word.",
+        "Then add a bossy verb, like wet or rub."
+      ],
+      "explanation": "Instructions use time words and bossy verbs so the reader can follow each step.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Steps are in the right order",
+            "points": 2
+          },
+          {
+            "label": "Uses first, next, then and finally",
+            "points": 2
+          },
+          {
+            "label": "Each step starts with a bossy verb, like wet or rub",
+            "points": 1
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 100,
+      "planning": [
+        "What do you need?",
+        "What do you do first?",
+        "What do you do last?"
+      ],
+      "model": "First, wet your hands with water. Next, rub soap all over your hands. Then scrub between your fingers and under your nails. Finally, rinse your hands and dry them with a clean towel."
+    },
+    {
+      "id": "e2.writing.006",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Recounts are about the past. Which sentence fits a recount?",
+      "hints": [
+        "A recount tells what already happened.",
+        "Look at the doing words.",
+        "Which doing word is in the past?"
+      ],
+      "explanation": "Ate is the past of eat, so We ate noodles for dinner fits a recount.",
+      "options": [
+        {
+          "text": "We eat noodles for dinner.",
+          "why": "This is about now."
+        },
+        {
+          "text": "Eat the noodles.",
+          "why": "This is an instruction."
+        },
+        {
+          "text": "Will we eat noodles?",
+          "why": "This is about later."
+        },
+        {
+          "text": "We ate noodles for dinner."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.writing.007",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is the best last step for planting a seed?",
+      "hints": [
+        "The last step comes at the end.",
+        "Look at the first word of each choice.",
+        "Which time word means last?"
+      ],
+      "explanation": "Finally shows the last step: put the pot in a sunny place.",
+      "options": [
+        {
+          "text": "First, find a pot.",
+          "why": "This is the first step."
+        },
+        {
+          "text": "Next, make a hole.",
+          "why": "This is a middle step."
+        },
+        {
+          "text": "Finally, put the pot in a sunny place."
+        },
+        {
+          "text": "Once upon a time, there was a seed.",
+          "why": "This is how a story starts."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.writing.008",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Describe your favourite place. What can you see, hear and smell there?",
+      "hints": [
+        "Close your eyes and picture the place.",
+        "Write one sentence for each sense."
+      ],
+      "explanation": "Good description uses the senses and describing words, so the reader can picture the place.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names the place",
+            "points": 1
+          },
+          {
+            "label": "Uses at least three describing words",
+            "points": 2
+          },
+          {
+            "label": "Writes about two or more senses",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 25,
+      "maxWords": 120,
+      "planning": [
+        "Where is your favourite place?",
+        "What can you see there?",
+        "What can you hear?",
+        "What can you smell?"
+      ],
+      "model": "My favourite place is my grandma's kitchen. I can see big pots and bright green vegetables. I can hear oil sizzling in the pan. It smells of garlic and sweet fried bananas. It is warm, busy and happy."
+    },
+    {
+      "id": "e2.writing.009",
+      "skill": "e2.writing",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the recount in order.",
+      "hints": [
+        "Look at the time words.",
+        "Morning comes before lunchtime.",
+        "Evening comes last."
+      ],
+      "explanation": "The time words show the order: in the morning, then, at lunchtime and in the evening.",
+      "items": [
+        "In the morning, we packed a picnic.",
+        "Then we drove to the beach.",
+        "At lunchtime, we ate our sandwiches.",
+        "In the evening, we went home tired and happy."
+      ]
+    },
+    {
+      "id": "e2.writing.010",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Read the start of the story. Write what happens next and how it ends. 'Tika found a tiny key in the sand. She looked around. Then she saw a little wooden box.'",
+      "hints": [
+        "Start with what Tika does with the key.",
+        "Decide what is inside the box.",
+        "Finish with how Tika feels."
+      ],
+      "explanation": "A good ending follows on from the start, solves the mystery and finishes clearly.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "The story follows on from the start",
+            "points": 2
+          },
+          {
+            "label": "Has a clear ending",
+            "points": 2
+          },
+          {
+            "label": "Uses joining words: and, but, so, because",
+            "points": 1
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 150,
+      "planning": [
+        "What is in the box?",
+        "What does Tika do?",
+        "How does the story end?"
+      ],
+      "model": "Tika picked up the box and tried the key. It turned with a click! Inside, there was a shiny shell and a note. The note said, 'Keep this safe for the next person.' Tika smiled. She added her own shell to the box and buried it again for someone else to find."
+    },
+    {
+      "id": "e2.writing.011",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which title is best for a recount about a farm trip?",
+      "hints": [
+        "A recount tells about something you did.",
+        "Look for a title about a real trip.",
+        "Which title sounds like it tells what you did?"
+      ],
+      "explanation": "Our trip to the farm tells the reader this is a recount of a real trip.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "Our trip to the farm"
+        },
+        {
+          "text": "How to milk a cow",
+          "why": "This sounds like instructions."
+        },
+        {
+          "text": "Cows",
+          "why": "This sounds like a fact text."
+        },
+        {
+          "text": "The magic cow",
+          "why": "This sounds like a made-up story."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.writing.012",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write a thank-you note to someone who helped you.",
+      "hints": [
+        "Start with Dear and the name.",
+        "Say what they did and why it helped."
+      ],
+      "explanation": "A thank-you note says who it is for, what you are thankful for and who it is from.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with Dear and a name",
+            "points": 1
+          },
+          {
+            "label": "Says thank you and what for",
+            "points": 2
+          },
+          {
+            "label": "Ends with From and a name",
+            "points": 1
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 80,
+      "planning": [
+        "Who helped you?",
+        "What did they do?",
+        "How did it help you?"
+      ],
+      "model": "Dear Aunt Mira,\nThank you for helping me fix my bike. Now I can ride to the park with my friends. You are very kind.\nFrom Rafi"
+    },
+    {
+      "id": "e2.writing.013",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is the most interesting?",
+      "hints": [
+        "Interesting sentences have details.",
+        "Look for describing words.",
+        "Which sentence helps you picture it?"
+      ],
+      "explanation": "Tiny, brown and round and round help us picture the puppy.",
+      "options": [
+        {
+          "text": "The dog ran.",
+          "why": "This is correct, but it has few details."
+        },
+        {
+          "text": "There is a dog.",
+          "why": "This tells us very little."
+        },
+        {
+          "text": "I see a dog.",
+          "why": "This tells us very little."
+        },
+        {
+          "text": "The tiny brown puppy chased its tail round and round."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.writing.014",
+      "skill": "e2.writing",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 bossy (command) sentences.",
+      "hints": [
+        "Two sentences are right.",
+        "A bossy sentence tells you what to do.",
+        "Which ones start with a doing word?"
+      ],
+      "explanation": "Cut the bread and Wash your hands tell you what to do. They start with bossy verbs.",
+      "options": [
+        {
+          "text": "Cut the bread."
+        },
+        {
+          "text": "The bread is soft.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Wash your hands."
+        },
+        {
+          "text": "I like bread.",
+          "why": "This tells us something."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "e2.writing.015",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write instructions for making a fruit salad. Start with a list of what you need.",
+      "hints": [
+        "Write the list first, with commas.",
+        "Use first, next, then and finally.",
+        "Knives are sharp, so ask an adult to help."
+      ],
+      "explanation": "Instructions list what you need first. Then they give clear steps in order.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Has a list of what you need, with commas",
+            "points": 1
+          },
+          {
+            "label": "Steps in order with time words",
+            "points": 2
+          },
+          {
+            "label": "Each step starts with a bossy verb",
+            "points": 2
+          },
+          {
+            "label": "Asks an adult to help with cutting",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 120,
+      "planning": [
+        "Which fruits will you use?",
+        "What tools do you need?",
+        "What are the steps?"
+      ],
+      "model": "You will need: a banana, a mango, some grapes, a bowl and a spoon.\nFirst, wash the fruit. Next, ask an adult to help you cut the banana and the mango. Then put all the fruit in the bowl. Finally, mix it gently with a spoon and enjoy!"
+    },
+    {
+      "id": "e2.writing.016",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Look at the pictures. Write a recount of a class trip to a farm.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bus"
+          },
+          {
+            "icon": "farm"
+          },
+          {
+            "icon": "cow"
+          },
+          {
+            "icon": "house"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Four pictures joined by arrows: a bus, a farm, a cow and a house."
+      },
+      "hints": [
+        "Start with when the trip was.",
+        "Write about each picture in order.",
+        "End with how the day felt."
+      ],
+      "explanation": "A recount tells the events in order. The pictures show the order: bus, farm, cows, home.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "A sentence or more for each picture",
+            "points": 2
+          },
+          {
+            "label": "Past tense verbs",
+            "points": 2
+          },
+          {
+            "label": "Time words to show the order",
+            "points": 1
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 150,
+      "planning": [
+        "How did you get there?",
+        "What did you see and do at the farm?",
+        "When did you go home?"
+      ],
+      "model": "On Monday, our class went on a trip to a farm. We rode there on a big yellow bus. At the farm, we fed the cows and watched the hens. In the afternoon, we got back on the bus and went home. It was a brilliant day."
+    },
+    {
+      "id": "e2.writing.017",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 5,
+      "prompt": "Write a short story with a problem and a happy ending. Use at least two joining words.",
+      "hints": [
+        "Plan the problem first.",
+        "Use because or so to explain what happens.",
+        "Finish with a happy ending."
+      ],
+      "explanation": "A good story has a clear problem that gets solved. Joining words help link the ideas.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Has a beginning, a problem and an ending",
+            "points": 2
+          },
+          {
+            "label": "Uses two joining words: and, but, so, because",
+            "points": 1
+          },
+          {
+            "label": "Uses past tense verbs",
+            "points": 1
+          },
+          {
+            "label": "Capital letters, full stops and other end marks",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 50,
+      "maxWords": 200,
+      "planning": [
+        "Who is in your story?",
+        "What goes wrong?",
+        "How is the problem fixed?",
+        "How does everyone feel at the end?"
+      ],
+      "model": "One morning, Bayu's little cat, Kiki, climbed up the mango tree. She was stuck, and she cried, 'Meow!' Bayu could not reach her because the branch was too high. So he ran to get his dad. Dad brought a ladder and lifted Kiki down gently. Bayu gave her a big hug. 'No more climbing!' he laughed."
+    }
+  ]
+}

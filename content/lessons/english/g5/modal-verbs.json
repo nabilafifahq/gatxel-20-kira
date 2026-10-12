@@ -1,0 +1,77 @@
+{
+  "skill": "e5.modal-verbs",
+  "title": "Modal verbs",
+  "steps": [
+    {
+      "say": "Modal verbs go before a main verb. They show how likely or necessary something is.",
+      "show": "can, could, may, might, must, shall, should, will, would"
+    },
+    {
+      "say": "Will shows that something is certain. Might, may and could show that it is possible.",
+      "show": "It will rain. It might rain."
+    },
+    {
+      "say": "Must shows a rule or something necessary. Should gives advice.",
+      "show": "You must stop. You should rest."
+    },
+    {
+      "say": "Can shows ability, and may can ask for permission.",
+      "show": "I can swim. May I go?"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.modal-verbs.901",
+      "skill": "e5.modal-verbs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence gives advice?",
+      "options": [
+        {
+          "text": "You should wear sunscreen at the beach."
+        },
+        {
+          "text": "You must wear a seatbelt.",
+          "why": "Must shows a rule."
+        },
+        {
+          "text": "You can swim well.",
+          "why": "Can shows ability."
+        },
+        {
+          "text": "You will be late.",
+          "why": "Will shows certainty."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Advice is a suggestion about what would be a good idea.",
+        "Look at the modal verb in each sentence.",
+        "Find the modal verb that a friend might use to make a suggestion."
+      ],
+      "explanation": "Should gives advice. It suggests a good idea without making it a rule."
+    },
+    {
+      "id": "e5.modal-verbs.902",
+      "skill": "e5.modal-verbs",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Write a modal verb that shows possibility. It ___ rain this afternoon.",
+      "blanks": [
+        {
+          "answers": [
+            "might",
+            "may",
+            "could"
+          ]
+        }
+      ],
+      "hints": [
+        "Possibility means it is not certain.",
+        "Will would mean you are sure.",
+        "Choose a modal verb that means perhaps."
+      ],
+      "explanation": "Might, may and could show that rain is possible but not certain."
+    }
+  ]
+}

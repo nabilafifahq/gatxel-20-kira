@@ -1,0 +1,33 @@
+{
+  "skill": "s1.senses",
+  "title": "My five senses",
+  "steps": [
+    { "say": "We find out about the world with our senses. We have five senses.", "show": "sight, hearing, smell, taste, touch" },
+    { "say": "We see with our eyes. We hear with our ears.", "figure": { "kind": "icons", "items": [{ "icon": "eye", "label": "sight" }, { "icon": "ear", "label": "hearing" }], "alt": "An eye for sight and an ear for hearing." } },
+    { "say": "We smell with our nose. We taste with our tongue.", "figure": { "kind": "icons", "items": [{ "icon": "nose", "label": "smell" }, { "icon": "tongue", "label": "taste" }], "alt": "A nose for smell and a tongue for taste." } },
+    { "say": "We feel with our skin. Touch tells us if things are hot, cold, rough or smooth.", "figure": { "kind": "icons", "items": [{ "icon": "hand", "label": "touch" }], "alt": "A hand for touch." } },
+    { "say": "Senses keep us safe. A smoke alarm warns us with a loud sound.", "show": "Senses keep us safe." },
+    { "say": "Only taste food when an adult says it is safe.", "show": "Ask before you taste." }
+  ],
+  "check": [
+    {
+      "id": "s1.senses.901", "skill": "s1.senses", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sense do you use to smell a flower?",
+      "options": [
+        { "text": "hearing", "why": "A flower makes no sound." },
+        { "text": "smell" },
+        { "text": "sight", "why": "Sight tells you its colour. It does not tell you its smell." }
+      ],
+      "answer": 1,
+      "hints": ["Think about breathing in near a flower.", "Which body part do you use?", "Point to your nose. Which sense goes with it?"],
+      "explanation": "We smell a flower with our nose. This sense is called smell."
+    },
+    {
+      "id": "s1.senses.902", "skill": "s1.senses", "type": "text", "difficulty": 1,
+      "prompt": "We hear with our ___.",
+      "blanks": [{ "answers": ["ears", "ear"] }],
+      "hints": ["Think about listening to music.", "They are on the sides of your head.", "Cover them with your hands. What gets quieter?"],
+      "explanation": "We hear with our ears. Sounds travel into our ears."
+    }
+  ]
+}

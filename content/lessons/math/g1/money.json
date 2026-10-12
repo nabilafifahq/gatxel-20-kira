@@ -1,0 +1,106 @@
+{
+  "skill": "m1.money",
+  "title": "Rupiah coins and notes",
+  "steps": [
+    {
+      "say": "Rupiah comes as coins and notes. The number shows what each one is worth.",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 500,
+            "count": 1
+          },
+          {
+            "value": 1000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 1
+          }
+        ],
+        "alt": "One Rp500 coin, one Rp1.000 coin and one Rp2.000 note."
+      }
+    },
+    {
+      "say": "A bigger number is worth more money.",
+      "show": "Rp2.000 is worth more than Rp500"
+    },
+    {
+      "say": "To find a total, add the values. Start with the biggest.",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 2000,
+            "count": 1
+          },
+          {
+            "value": 1000,
+            "count": 2
+          }
+        ],
+        "alt": "One Rp2.000 note and two Rp1.000 coins."
+      }
+    },
+    {
+      "say": "Think in thousands: 2 thousand and 1 and 1 more.",
+      "show": "Rp2.000 + Rp1.000 + Rp1.000 = Rp4.000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.money.901",
+      "skill": "m1.money",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is worth the most?",
+      "hints": [
+        "Read the number on each one.",
+        "A bigger number is worth more money.",
+        "Compare two of them first. Keep the bigger one."
+      ],
+      "explanation": "Rp5.000 is worth the most.",
+      "options": [
+        {
+          "text": "Rp500",
+          "why": "Rp500 is worth less than Rp5.000."
+        },
+        {
+          "text": "Rp5.000"
+        },
+        {
+          "text": "Rp2.000",
+          "why": "Rp2.000 is worth less than Rp5.000."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.money.902",
+      "skill": "m1.money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How much money is this altogether?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 1000,
+            "count": 3
+          }
+        ],
+        "alt": "Three Rp1.000 coins."
+      },
+      "hints": [
+        "Each coin is worth Rp1.000.",
+        "Count in thousands, one for each coin.",
+        "Start with Rp1.000 for the first coin."
+      ],
+      "explanation": "3 coins of Rp1.000 make Rp3.000.",
+      "answer": 3000,
+      "unit": "rupiah"
+    }
+  ]
+}

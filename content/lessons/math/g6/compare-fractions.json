@@ -1,0 +1,135 @@
+{
+  "skill": "m6.compare-fractions",
+  "title": "Simplifying and comparing fractions",
+  "steps": [
+    {
+      "say": "To simplify, divide the numerator and denominator by their highest common factor.",
+      "show": "24/36: the HCF is 12, so 24/36 = 2/3"
+    },
+    {
+      "say": "To compare fractions, give them a common denominator. Use a common multiple of the denominators.",
+      "show": "5/6 and 7/9: common denominator 18"
+    },
+    {
+      "say": "5/6 = 15/18 and 7/9 = 14/18, so 5/6 is bigger.",
+      "show": "15/18 > 14/18"
+    },
+    {
+      "say": "A number line helps you see the order.",
+      "show": "3/8 < 1/2 < 3/4",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 1,
+        "step": 0.125,
+        "labels": [
+          0,
+          1
+        ],
+        "marks": [
+          {
+            "at": 0.375,
+            "label": "3/8"
+          },
+          {
+            "at": 0.5,
+            "label": "1/2"
+          },
+          {
+            "at": 0.75,
+            "label": "3/4"
+          }
+        ],
+        "alt": "A number line from 0 to 1 in eighths with 3/8, 1/2 and 3/4 marked."
+      }
+    },
+    {
+      "say": "One half is a useful benchmark. Compare each fraction with one half first.",
+      "show": "3/7 < 1/2 < 4/7"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.compare-fractions.901",
+      "skill": "m6.compare-fractions",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Simplify 15/25.",
+      "hints": [
+        "Find a number that divides into both 15 and 25.",
+        "Both numbers are in the 5 times table.",
+        "15 ÷ 5 = 3."
+      ],
+      "explanation": "15 ÷ 5 = 3 and 25 ÷ 5 = 5, so 15/25 = 3/5.",
+      "blanks": [
+        {
+          "answers": [
+            "3/5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.compare-fractions.902",
+      "skill": "m6.compare-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which fraction is the largest?",
+      "hints": [
+        "Compare each fraction with one half first.",
+        "Use a common denominator to compare the close ones.",
+        "You can also change each fraction to a decimal by dividing."
+      ],
+      "explanation": "5/8 = 0.625, 3/5 = 0.6, 7/12 is about 0.58 and 1/2 = 0.5. The largest is 5/8.",
+      "options": [
+        {
+          "text": "7/12",
+          "why": "7/12 = 14/24 and 5/8 = 15/24, so 7/12 is smaller."
+        },
+        {
+          "text": "1/2",
+          "why": "All the other fractions are more than one half."
+        },
+        {
+          "text": "5/8"
+        },
+        {
+          "text": "3/5",
+          "why": "3/5 = 24/40 and 5/8 = 25/40, so 3/5 is smaller."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.compare-fractions.903",
+      "skill": "m6.compare-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which list is in order from smallest to largest?",
+      "hints": [
+        "Find a common denominator for 3, 4 and 6.",
+        "12 is a multiple of 3, 4 and 6.",
+        "Change each fraction to twelfths."
+      ],
+      "explanation": "2/3 = 8/12, 3/4 = 9/12 and 5/6 = 10/12. So the order is 2/3, 3/4, 5/6.",
+      "options": [
+        {
+          "text": "3/4, 2/3, 5/6",
+          "why": "2/3 = 8/12 and 3/4 = 9/12, so 2/3 comes first."
+        },
+        {
+          "text": "5/6, 3/4, 2/3",
+          "why": "This list goes from largest to smallest."
+        },
+        {
+          "text": "2/3, 5/6, 3/4",
+          "why": "5/6 = 10/12 and 3/4 = 9/12, so 3/4 comes before 5/6."
+        },
+        {
+          "text": "2/3, 3/4, 5/6"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

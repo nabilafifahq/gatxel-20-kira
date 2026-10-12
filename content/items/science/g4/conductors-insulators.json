@@ -1,0 +1,477 @@
+{
+  "skill": "s4.conductors-insulators",
+  "items": [
+    {
+      "id": "s4.conductors-insulators.001",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Three spoons stand in hot soup. Which handle gets hot fastest?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "spoon",
+            "label": "metal spoon"
+          },
+          {
+            "icon": "wooden-spoon",
+            "label": "wooden spoon"
+          },
+          {
+            "icon": "spoon",
+            "label": "plastic spoon"
+          }
+        ],
+        "alt": "A metal spoon, a wooden spoon and a plastic spoon standing in a bowl of hot soup."
+      },
+      "options": [
+        {
+          "text": "the wooden spoon",
+          "why": "Wood is a thermal insulator. Heat moves through it slowly."
+        },
+        {
+          "text": "the plastic spoon",
+          "why": "Plastic is a thermal insulator. Heat moves through it slowly."
+        },
+        {
+          "text": "the metal spoon"
+        },
+        {
+          "text": "They all heat up at the same speed.",
+          "why": "Different materials let heat through at different speeds."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Heat travels up the spoon from the soup.",
+        "Some materials let heat through quickly.",
+        "Which material are cooking pans made of?"
+      ],
+      "explanation": "Metal is a good thermal conductor, so heat travels up the metal spoon quickly. Wood and plastic are thermal insulators."
+    },
+    {
+      "id": "s4.conductors-insulators.002",
+      "skill": "s4.conductors-insulators",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the materials. Do they conduct electricity?",
+      "groups": [
+        "Electrical conductor",
+        "Electrical insulator"
+      ],
+      "items": [
+        {
+          "text": "copper wire",
+          "group": 0
+        },
+        {
+          "text": "steel key",
+          "group": 0
+        },
+        {
+          "text": "aluminium foil",
+          "group": 0
+        },
+        {
+          "text": "plastic ruler",
+          "group": 1
+        },
+        {
+          "text": "rubber band",
+          "group": 1
+        },
+        {
+          "text": "wooden stick",
+          "group": 1
+        },
+        {
+          "text": "glass marble",
+          "group": 1
+        },
+        {
+          "text": "paper",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Most metals conduct electricity.",
+        "Plastic, rubber and wood do not.",
+        "Ask of each one: is it a metal?"
+      ],
+      "explanation": "Copper, steel and aluminium are metals, and metals conduct electricity. Plastic, rubber, wood, glass and paper are electrical insulators."
+    },
+    {
+      "id": "s4.conductors-insulators.003",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why are electric wires covered in plastic?",
+      "options": [
+        {
+          "text": "Plastic makes electricity flow faster.",
+          "why": "Plastic does not carry electricity at all."
+        },
+        {
+          "text": "Plastic is a good conductor.",
+          "why": "Plastic is an insulator, not a conductor."
+        },
+        {
+          "text": "Plastic makes the wires magnetic.",
+          "why": "Plastic is not magnetic."
+        },
+        {
+          "text": "Plastic is an electrical insulator, so it keeps us safe."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The metal inside the wire carries electricity.",
+        "The covering stops electricity reaching your hand.",
+        "Is plastic a conductor or an insulator?"
+      ],
+      "explanation": "The metal inside carries the electricity. The plastic covering is an electrical insulator, so it stops electricity reaching us."
+    },
+    {
+      "id": "s4.conductors-insulators.004",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Many cooking pots have plastic or wooden handles. Why?",
+      "options": [
+        {
+          "text": "Plastic and wood are thermal insulators, so the handle stays cool."
+        },
+        {
+          "text": "They make the pot heat up faster.",
+          "why": "The handle does not touch the flame. It is there for holding."
+        },
+        {
+          "text": "Plastic and wood are good thermal conductors.",
+          "why": "They are poor conductors of heat. That is why they are used."
+        },
+        {
+          "text": "They make the pot heavier.",
+          "why": "Weight is not the reason. Keeping hands safe is."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The pot itself gets very hot.",
+        "You need to hold the handle safely.",
+        "Which materials let heat through slowly?"
+      ],
+      "explanation": "Plastic and wood are thermal insulators, so heat moves through them slowly. The handle stays cool enough to hold.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.005",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A metal bench and a wooden bench stand in the same shade. The metal one feels colder to touch. Why?",
+      "options": [
+        {
+          "text": "The metal bench is at a lower temperature.",
+          "why": "Both benches are in the same shade at the same temperature."
+        },
+        {
+          "text": "Metal conducts heat away from your hand faster."
+        },
+        {
+          "text": "Wood makes its own heat.",
+          "why": "Wood does not make heat."
+        },
+        {
+          "text": "Metal is always wet.",
+          "why": "The metal bench is dry."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Both benches are in the same place.",
+        "Your hand is warmer than both benches.",
+        "Which material takes heat from your hand faster?"
+      ],
+      "explanation": "Both benches are at the same temperature. Metal is a good thermal conductor, so it carries heat away from your hand quickly and feels colder.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.006",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ice cubes were wrapped in different materials. Which material is the best thermal insulator?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Wrapping",
+          "Time to melt (minutes)"
+        ],
+        "rows": [
+          [
+            "no wrapping",
+            "20"
+          ],
+          [
+            "foil",
+            "25"
+          ],
+          [
+            "newspaper",
+            "40"
+          ],
+          [
+            "wool",
+            "60"
+          ]
+        ],
+        "alt": "Table of melting times: no wrapping 20 minutes, foil 25 minutes, newspaper 40 minutes, wool 60 minutes."
+      },
+      "options": [
+        {
+          "text": "foil",
+          "why": "Foil kept the ice only 5 minutes longer than no wrapping."
+        },
+        {
+          "text": "newspaper",
+          "why": "Newspaper helped, but another material kept the ice longer."
+        },
+        {
+          "text": "wool"
+        },
+        {
+          "text": "no wrapping",
+          "why": "With no wrapping, the ice melted fastest."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A good insulator slows heat getting to the ice.",
+        "So the best insulator gives the longest time.",
+        "Find the biggest number."
+      ],
+      "explanation": "The ice wrapped in wool took 60 minutes to melt, the longest time. Wool slowed heat reaching the ice the most.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.007",
+      "skill": "s4.conductors-insulators",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 good thermal insulators.",
+      "options": [
+        {
+          "text": "wool"
+        },
+        {
+          "text": "copper",
+          "why": "Copper is a metal and a good conductor of heat."
+        },
+        {
+          "text": "plastic foam"
+        },
+        {
+          "text": "steel",
+          "why": "Steel is a metal and conducts heat well."
+        },
+        {
+          "text": "aluminium",
+          "why": "Aluminium is a metal and conducts heat well."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Thermal insulators let heat through slowly.",
+        "Metals are good conductors of heat.",
+        "Cross out the metals."
+      ],
+      "explanation": "Wool and plastic foam trap air and let heat through slowly. They are good thermal insulators."
+    },
+    {
+      "id": "s4.conductors-insulators.008",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A thick wool jumper keeps you warm. How does it do this?",
+      "options": [
+        {
+          "text": "Wool makes heat.",
+          "why": "Wool does not make heat. Your body makes it."
+        },
+        {
+          "text": "It lets cold air in.",
+          "why": "A jumper keeps cold air out, not in."
+        },
+        {
+          "text": "Wool is a thermal conductor.",
+          "why": "Wool is a thermal insulator."
+        },
+        {
+          "text": "It traps air and slows down heat leaving your body."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Your body makes heat all the time.",
+        "Something must slow down the heat escaping.",
+        "What is trapped between the woolly fibres?"
+      ],
+      "explanation": "Your body makes heat. Wool traps air between its fibres, and this slows down the heat escaping from your body.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.009",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Pencil lead is made of graphite. In a circuit, it makes a bulb glow dimly. What does this show?",
+      "options": [
+        {
+          "text": "Graphite conducts electricity, even though it is not a metal."
+        },
+        {
+          "text": "Graphite is a metal.",
+          "why": "Graphite is a form of carbon. It is not a metal."
+        },
+        {
+          "text": "The bulb is broken.",
+          "why": "The bulb glows, so it works."
+        },
+        {
+          "text": "Wood conducts electricity.",
+          "why": "The wood around the lead is an insulator. The graphite conducts."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The bulb glows, so electricity is flowing.",
+        "The electricity flows through the lead.",
+        "Is graphite a metal?"
+      ],
+      "explanation": "Graphite conducts electricity, even though it is not a metal. It is a weak conductor, so the bulb glows dimly.",
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.conductors-insulators.010",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bayu puts objects in the gap of this circuit. Which one makes the bulb light?",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "gap"
+        ],
+        "alt": "A circuit with a battery, a bulb and a gap where an object can be placed."
+      },
+      "options": [
+        {
+          "text": "a plastic straw",
+          "why": "Plastic is an electrical insulator."
+        },
+        {
+          "text": "a steel paperclip"
+        },
+        {
+          "text": "a rubber band",
+          "why": "Rubber is an electrical insulator."
+        },
+        {
+          "text": "a strip of paper",
+          "why": "Paper is an electrical insulator."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The object must let electricity through.",
+        "Electrical conductors are usually metals.",
+        "Which object is made of metal?"
+      ],
+      "explanation": "Steel is a metal, so it conducts electricity. The paperclip closes the gap and the bulb lights."
+    },
+    {
+      "id": "s4.conductors-insulators.011",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ice cream is carried home in a box made of plastic foam. Why?",
+      "options": [
+        {
+          "text": "The foam makes the ice cream colder.",
+          "why": "Foam does not make cold. It slows heat getting in."
+        },
+        {
+          "text": "The foam is a good thermal conductor.",
+          "why": "Foam is a thermal insulator."
+        },
+        {
+          "text": "The foam is a thermal insulator, so the ice cream melts slowly."
+        },
+        {
+          "text": "The foam keeps the ice cream dry.",
+          "why": "Ice cream is in its own tub. The foam is there to slow heat."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Heat from the warm air can melt ice cream.",
+        "The box must slow down the heat getting in.",
+        "Is foam a conductor or an insulator of heat?"
+      ],
+      "explanation": "Plastic foam is a thermal insulator. It slows heat moving from the warm air to the ice cream, so it melts slowly."
+    },
+    {
+      "id": "s4.conductors-insulators.012",
+      "skill": "s4.conductors-insulators",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "A saucepan has a metal base and a plastic handle. Explain why. Use the words conductor and insulator.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says the metal base is a thermal conductor",
+            "points": 1
+          },
+          {
+            "label": "Says heat moves quickly through the base to the food",
+            "points": 1
+          },
+          {
+            "label": "Says the plastic handle is a thermal insulator",
+            "points": 1
+          },
+          {
+            "label": "Says the handle stays cool and safe to hold",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 70,
+      "model": "The base is metal because metal is a good thermal conductor, so heat moves quickly to cook the food. The handle is plastic because plastic is a thermal insulator, so it stays cool and safe to hold.",
+      "hints": [
+        "Write one sentence about the base and one about the handle.",
+        "Say where you want heat to go, and where you do not."
+      ],
+      "explanation": "The metal base is a thermal conductor, so heat moves quickly to the food. The plastic handle is a thermal insulator, so it stays cool to hold."
+    }
+  ]
+}

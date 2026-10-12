@@ -1,34 +1,40 @@
-import type { ReactElement } from 'react'
+import { useId, type ReactElement } from 'react'
 import type { FigureSpec } from '../spec'
-import { DIVIDER, FONT_LABEL, INK, MUTED, WHITE } from '../palette'
+import { FONT_LABEL } from '../palette'
+import { draw } from './draw'
 
 /** Ukuran intrinsik figur (viewBox) untuk tata letak. */
 export function figureBox(spec: FigureSpec): { width: number; height: number } {
-  void spec
-  return { width: 320, height: 200 }
+  const d = draw(spec, { uid: 'kbox' })
+  return { width: Math.ceil(d.w), height: Math.ceil(d.h) }
 }
 
 /**
- * Render FigureSpec ke SVG. Sementara: bingkai dengan teks alt sampai renderer
- * per jenis selesai di src/render/<kind>.tsx.
+ * Render FigureSpec ke satu <svg>. viewBox mengikuti isi, lebar mengalir 100% sampai
+ * `maxWidth` (bawaan: lebar alami), tinggi mengikuti rasio. Nama aksesibel dari `alt`.
  */
 export function Figure({ spec, className, maxWidth }: { spec: FigureSpec; className?: string; maxWidth?: number }): ReactElement {
-  const { width, height } = figureBox(spec)
+  // awalan id untuk <defs>; huruf k supaya tidak pernah terbaca sebagai warna hex
+  const uid = `k${useId().replace(/[^A-Za-z0-9_-]/g, '')}`
+  const d = draw(spec, { uid })
+  const w = Math.ceil(d.w)
+  const h = Math.ceil(d.h)
   return (
     <svg
-      viewBox={`0 0 ${width} ${height}`}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${w} ${h}`}
+      width={w}
+      height={h}
       role="img"
       aria-label={spec.alt}
       className={className}
-      style={{ width: '100%', maxWidth: maxWidth ?? width, height: 'auto', display: 'block' }}
+      fontFamily={FONT_LABEL}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ width: '100%', maxWidth: maxWidth ?? w, height: 'auto', display: 'block', fontVariantNumeric: 'tabular-nums' }}
     >
-      <rect x="1" y="1" width={width - 2} height={height - 2} rx="12" fill={WHITE} stroke={DIVIDER} strokeWidth="2" />
-      <text x={width / 2} y={height / 2} textAnchor="middle" fontFamily={FONT_LABEL} fontSize="14" fill={MUTED}>
-        {spec.kind}
-      </text>
       <title>{spec.alt}</title>
-      <desc>{spec.alt}</desc>
-      <rect x="0" y="0" width="0" height="0" fill={INK} />
+      {d.el}
     </svg>
   )
 }

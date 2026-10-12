@@ -1,0 +1,76 @@
+{
+  "skill": "e5.editing-proofreading",
+  "title": "Editing and proofreading your work",
+  "steps": [
+    {
+      "say": "Editing means improving your writing. Proofreading means checking for mistakes."
+    },
+    {
+      "say": "Read your work aloud. If a sentence sounds wrong, look at it again."
+    },
+    {
+      "say": "Check one thing at a time: capital letters, then full stops, then spelling."
+    },
+    {
+      "say": "Make sure verbs agree with their subjects and stay in the same tense.",
+      "show": "The children were...     Yesterday we visited..."
+    },
+    {
+      "say": "Swap dull or repeated words for precise ones.",
+      "show": "nice: delicious, lively, peaceful"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.editing-proofreading.901",
+      "skill": "e5.editing-proofreading",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "One word is spelt wrongly. Write it correctly. We will go to the beach tommorow.",
+      "blanks": [
+        {
+          "answers": [
+            "tomorrow"
+          ]
+        }
+      ],
+      "hints": [
+        "Look closely at the double letters in each word.",
+        "One word has a double letter in the wrong place.",
+        "Say the word slowly in three parts. Which part has a double letter?"
+      ],
+      "explanation": "Tomorrow has one m and two r letters."
+    },
+    {
+      "id": "e5.editing-proofreading.902",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "My sister and I went to the market."
+        },
+        {
+          "text": "Me and my sister went to the market.",
+          "why": "Me cannot be the subject. Use My sister and I."
+        },
+        {
+          "text": "My sister and me went to the market.",
+          "why": "Me should be I here."
+        },
+        {
+          "text": "My sister and I goes to the market.",
+          "why": "Goes does not agree with My sister and I."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check who is doing the action.",
+        "Try the sentence with only one person: I went or me went?",
+        "Then check that the verb agrees with two people."
+      ],
+      "explanation": "My sister and I is the subject, and went agrees with it."
+    }
+  ]
+}

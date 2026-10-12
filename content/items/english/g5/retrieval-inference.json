@@ -1,0 +1,324 @@
+{
+  "skill": "e5.retrieval-inference",
+  "items": [
+    {
+      "id": "e5.retrieval-inference.001",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What did Bu Ratna tell Dimas to look for?",
+      "passage": "e5.p.borrowed-telescope",
+      "options": [
+        {
+          "text": "a bright star that does not twinkle"
+        },
+        {
+          "text": "a star that twinkles brightly",
+          "why": "Bu Ratna said the planet is the bright light that does not twinkle."
+        },
+        {
+          "text": "a golden ring above the mango tree",
+          "why": "The ring is what Dimas saw through the telescope at the end."
+        },
+        {
+          "text": "a cloud moving westwards",
+          "why": "The clouds moving is something that happened later in the story."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the part where Bu Ratna first speaks to Dimas.",
+        "Look for the word look in what she says.",
+        "Read the second paragraph again, slowly."
+      ],
+      "explanation": "Bu Ratna says, “Look for a bright star that does not twinkle. That will be the planet.”",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.002",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Dimas take the telescope next door on Friday?",
+      "passage": "e5.p.borrowed-telescope",
+      "options": [
+        {
+          "text": "He wanted Bu Ratna to mend the lens.",
+          "why": "The story does not say anything was wrong with the lens."
+        },
+        {
+          "text": "He had given up hope of seeing Saturn, so he was returning it."
+        },
+        {
+          "text": "His mother told him to give it back.",
+          "why": "His mother only called him in for dinner."
+        },
+        {
+          "text": "He had already seen Saturn.",
+          "why": "He sees Saturn later that night, after Bu Ratna tells him to wait."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the paragraph that begins By Friday.",
+        "Think about how Dimas felt after almost a week of clouds.",
+        "Find the words Dimas had given up. What had he given up on?"
+      ],
+      "explanation": "After days of cloud, Dimas had given up, so he wrapped the telescope to return it. The words By Friday, Dimas had given up are the clue.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.retrieval-inference.003",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Who found the skull of the ichthyosaur in 1811?",
+      "passage": "e5.p.mary-anning",
+      "blanks": [
+        {
+          "answers": [
+            "Joseph",
+            "Joseph Anning",
+            "her brother",
+            "her brother Joseph",
+            "Mary's brother",
+            "Mary's brother Joseph",
+            "her brother, Joseph",
+            "Joseph, her brother"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the year 1811 in the text.",
+        "Read the sentence that contains the year.",
+        "The answer is a person in Mary’s family."
+      ],
+      "explanation": "The text says: In 1811, Joseph found the skull of a strange creature. Joseph was Mary’s brother.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.004",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Mary search the shore after storms?",
+      "passage": "e5.p.mary-anning",
+      "options": [
+        {
+          "text": "The beach was empty, so she could work alone.",
+          "why": "The text does not say this."
+        },
+        {
+          "text": "Storms washed fossils in from the sea.",
+          "why": "The text says the fresh rock fell from the cliffs."
+        },
+        {
+          "text": "Storms brought down fresh rock, which could uncover new fossils."
+        },
+        {
+          "text": "Visitors bought more fossils after storms.",
+          "why": "The text does not link visitors to storms."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the word storms in the text.",
+        "Read the rest of that sentence. What had happened to the cliffs?",
+        "Think: if new rock falls from cliffs full of fossils, what might be inside it?"
+      ],
+      "explanation": "After storms, fresh rock had fallen from the cliffs. The cliffs were full of fossils, so new rock could mean new fossils to find.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.retrieval-inference.005",
+      "skill": "e5.retrieval-inference",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "About how old was Mary when she found the first complete plesiosaur skeleton?",
+      "passage": "e5.p.mary-anning",
+      "answer": 24,
+      "acceptAlt": [
+        23
+      ],
+      "hints": [
+        "You need two facts from different paragraphs.",
+        "Find the year Mary was born and the year she found the plesiosaur.",
+        "Take the year she was born away from the year of the discovery."
+      ],
+      "explanation": "Mary was born in 1799 and found the plesiosaur in 1823. 1823 take away 1799 is 24, so she was about 24 years old.",
+      "tags": [
+        "reading",
+        "iklc"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.006",
+      "skill": "e5.retrieval-inference",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many new parking spaces does the town council want to make?",
+      "passage": "e5.p.save-the-banyan-tree",
+      "answer": 40,
+      "hints": [
+        "Look in the first paragraph after Dear Editor.",
+        "Find the words parking spaces.",
+        "Read the number just before parking spaces."
+      ],
+      "explanation": "The letter says the council plans to cut the tree down to make room for forty new parking spaces.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.007",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the reasons the writer gives for keeping the tree.",
+      "passage": "e5.p.save-the-banyan-tree",
+      "options": [
+        {
+          "text": "It is part of the town’s history."
+        },
+        {
+          "text": "It keeps the square cool."
+        },
+        {
+          "text": "It produces fruit to sell at the market.",
+          "why": "Fruit bats eat its figs, but the letter does not mention selling fruit."
+        },
+        {
+          "text": "It is home to birds and fruit bats."
+        },
+        {
+          "text": "It is the tallest tree in Indonesia.",
+          "why": "The letter does not say this."
+        },
+        {
+          "text": "It stops cars from driving into the square.",
+          "why": "The letter does not say this."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "The writer gives one main reason in each of the middle paragraphs.",
+        "Look for the words First of all, Secondly and also.",
+        "Read the first sentence of each middle paragraph."
+      ],
+      "explanation": "The writer argues that the tree is part of the town’s history, keeps the square cool and is home to wildlife.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.008",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why do some mangroves have roots that poke up out of the mud?",
+      "passage": "e5.p.how-mangroves-protect-the-coast",
+      "options": [
+        {
+          "text": "to catch small fish and crabs",
+          "why": "Young sea creatures hide among the roots, but the roots do not catch them."
+        },
+        {
+          "text": "to push salt out of the plant",
+          "why": "The text says salt is pushed out through the leaves."
+        },
+        {
+          "text": "to take in air, because the mud has very little air"
+        },
+        {
+          "text": "to stop people walking through the forest",
+          "why": "The text does not say this."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the roots that poke up like pencils.",
+        "Read the sentence before and the sentence after that part.",
+        "Look for the word air."
+      ],
+      "explanation": "The mud contains very little air, so these roots poke up and take in air when the tide is low.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.009",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In Poem B, why does the speaker count the boat lights in the bay?",
+      "passage": "e5.p.two-sea-poems",
+      "options": [
+        {
+          "text": "to practise counting",
+          "why": "The speaker is worried, not practising."
+        },
+        {
+          "text": "because the electricity has gone off",
+          "why": "The poem does not say this."
+        },
+        {
+          "text": "to find the way to the lighthouse",
+          "why": "There is no lighthouse in the poem."
+        },
+        {
+          "text": "to see whether Father’s boat is coming home"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the line that comes after the counting.",
+        "Find the line that tells you what the fourth light is.",
+        "Think about who is out at sea during the storm."
+      ],
+      "explanation": "The speaker counts only three lights. Father’s boat is the fourth light, so the speaker is checking whether Father is safe.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.retrieval-inference.010",
+      "skill": "e5.retrieval-inference",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many seedlings did the school pay for?",
+      "passage": "e5.p.pupils-plant-mangroves",
+      "answer": 500,
+      "hints": [
+        "The report gives the total number of seedlings planted.",
+        "Some seedlings were a gift, so the school did not pay for those.",
+        "Find the total in the first paragraph, then find the number given as a gift."
+      ],
+      "explanation": "The pupils planted 600 seedlings and 100 were a gift from the nursery. 600 take away 100 is 500.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    }
+  ]
+}

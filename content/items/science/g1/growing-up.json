@@ -1,0 +1,147 @@
+{
+  "skill": "s1.growing-up",
+  "items": [
+    {
+      "id": "s1.growing-up.001", "skill": "s1.growing-up", "type": "match", "difficulty": 1,
+      "prompt": "Match each young animal to its parent.",
+      "figure": { "kind": "icons", "items": [{ "icon": "cat", "label": "cat" }, { "icon": "dog", "label": "dog" }, { "icon": "hen", "label": "hen" }, { "icon": "cow", "label": "cow" }], "alt": "Four adult animals: a cat, a dog, a hen and a cow." },
+      "pairs": [["kitten", "cat"], ["puppy", "dog"], ["chick", "hen"], ["calf", "cow"]],
+      "hints": ["Young animals grow into adults like their parents.", "Do the ones you know first.", "Start with the kitten. What does it grow into?"],
+      "explanation": "A kitten grows into a cat, a puppy into a dog, a chick into a hen and a calf into a cow."
+    },
+    {
+      "id": "s1.growing-up.002", "skill": "s1.growing-up", "type": "mcq", "difficulty": 1,
+      "prompt": "A baby grows into a child. What does a child grow into?",
+      "options": [
+        { "text": "a baby", "why": "Babies are younger than children. Children grow older." },
+        { "text": "a puppy", "why": "A puppy is a young dog." },
+        { "text": "an adult" }
+      ],
+      "answer": 2,
+      "hints": ["People get older every year.", "Think of your family. Who is older than a child?", "Put them in order: baby, child, then who?"],
+      "explanation": "A child grows into a teenager and then an adult. People grow and change as they get older."
+    },
+    {
+      "id": "s1.growing-up.003", "skill": "s1.growing-up", "type": "order", "difficulty": 2,
+      "prompt": "Put the stages in order, youngest first.",
+      "items": ["baby", "toddler", "child", "teenager", "adult"],
+      "hints": ["Start with the youngest person.", "Ask: who is a little older each time?", "Put the baby first, then think who comes next."],
+      "explanation": "People grow from a baby to a toddler, then a child, a teenager and an adult."
+    },
+    {
+      "id": "s1.growing-up.004", "skill": "s1.growing-up", "type": "mcq", "difficulty": 2,
+      "prompt": "What is a young duck called?",
+      "figure": { "kind": "icons", "items": [{ "icon": "duck", "label": "duck" }], "alt": "A grown-up duck." },
+      "options": [
+        { "text": "a kitten", "why": "A kitten is a young cat." },
+        { "text": "a duckling" },
+        { "text": "a cub", "why": "A cub is a young lion or bear." }
+      ],
+      "answer": 1,
+      "hints": ["The name sounds a bit like its parent.", "Many young animal names end in -ling or -let.", "Say each word. Which one has duck inside it?"],
+      "explanation": "A young duck is called a duckling. It grows into a duck."
+    },
+    {
+      "id": "s1.growing-up.005", "skill": "s1.growing-up", "type": "mcq", "difficulty": 2,
+      "prompt": "Which young animal looks very different from its parent?",
+      "figure": { "kind": "icons", "items": [{ "icon": "tadpole", "label": "tadpole" }, { "icon": "frog", "label": "frog" }], "alt": "A tadpole with a long tail and no legs, and a frog." },
+      "options": [
+        { "text": "a tadpole" },
+        { "text": "a puppy", "why": "A puppy looks like a small dog." },
+        { "text": "a kitten", "why": "A kitten looks like a small cat." }
+      ],
+      "answer": 0,
+      "hints": ["Some young animals look like small adults.", "Think about which young animal lives in water.", "Picture a frog. Does its young one have legs at first?"],
+      "explanation": "A tadpole looks very different from a frog. It has a tail and no legs at first, then it changes into a frog."
+    },
+    {
+      "id": "s1.growing-up.006", "skill": "s1.growing-up", "type": "sort", "difficulty": 3,
+      "prompt": "Does the young animal look like its parent? Sort the cards.",
+      "groups": ["Looks like its parent", "Looks different"],
+      "items": [
+        { "text": "kitten", "group": 0 },
+        { "text": "calf", "group": 0 },
+        { "text": "puppy", "group": 0 },
+        { "text": "lion cub", "group": 0 },
+        { "text": "caterpillar", "group": 1 },
+        { "text": "tadpole", "group": 1 }
+      ],
+      "hints": ["Picture each young animal next to its parent.", "Two of these change a lot as they grow.", "Start with the caterpillar. What does it become?"],
+      "explanation": "Kittens, calves, puppies and lion cubs look like small adults. A caterpillar becomes a butterfly and a tadpole becomes a frog, so they look very different."
+    },
+    {
+      "id": "s1.growing-up.007", "skill": "s1.growing-up", "type": "mcq", "difficulty": 3,
+      "prompt": "What do babies need to grow?",
+      "options": [
+        { "text": "homework", "why": "Babies are too young for homework." },
+        { "text": "food, sleep and care" },
+        { "text": "a bicycle", "why": "Babies cannot ride bicycles. They need food, sleep and care." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what a baby does all day.", "What do all living things need?", "Picture a baby at home. What do the adults give it?"],
+      "explanation": "Babies need food, such as milk, lots of sleep and care from adults to grow."
+    },
+    {
+      "id": "s1.growing-up.008", "skill": "s1.growing-up", "type": "text", "difficulty": 2,
+      "prompt": "A young dog is called a ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "dog", "label": "dog" }], "alt": "A grown-up dog." },
+      "blanks": [{ "answers": ["puppy", "pup"] }],
+      "hints": ["Think about young dogs you have seen.", "A kitten is a young cat. A young dog has its own name.", "The word starts with p."],
+      "explanation": "A young dog is called a puppy. It grows into a dog."
+    },
+    {
+      "id": "s1.growing-up.009", "skill": "s1.growing-up", "type": "mcq", "difficulty": 3,
+      "prompt": "Nadia measures her height on each birthday. What do you notice?",
+      "figure": { "kind": "table", "caption": "Nadia's height", "head": ["Age", "Height"], "rows": [["4 years", "100 cm"], ["5 years", "107 cm"], ["6 years", "113 cm"]], "alt": "Table of Nadia's height: 100 cm at 4 years, 107 cm at 5 years and 113 cm at 6 years." },
+      "options": [
+        { "text": "Her height stays the same.", "why": "The numbers change each year." },
+        { "text": "She gets shorter each year.", "why": "The numbers get bigger, so she is getting taller." },
+        { "text": "She gets taller each year." }
+      ],
+      "answer": 2,
+      "hints": ["Look at the height numbers.", "Are the numbers getting bigger or smaller?", "Compare 100 cm and 107 cm first."],
+      "explanation": "Her height goes from 100 cm to 107 cm to 113 cm. The numbers get bigger, so Nadia gets taller as she grows.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.growing-up.010", "skill": "s1.growing-up", "type": "mcq", "difficulty": 4,
+      "prompt": "Which young animal hatches from an egg?",
+      "options": [
+        { "text": "a chick" },
+        { "text": "a kitten", "why": "Kittens are born from their mother. They do not hatch." },
+        { "text": "a calf", "why": "A calf is born from its mother, a cow." }
+      ],
+      "answer": 0,
+      "hints": ["Think about which parent lays eggs.", "Birds lay eggs. Which young animal is a baby bird?", "Picture a hen sitting on her eggs."],
+      "explanation": "A chick hatches from an egg laid by a hen. Kittens and calves grow inside their mothers and are born.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.growing-up.011", "skill": "s1.growing-up", "type": "mcq", "difficulty": 5,
+      "prompt": "Wulan finds frogspawn in a pond. What will hatch from it?",
+      "options": [
+        { "text": "fish", "why": "Frogspawn is frog eggs. Fish lay their own eggs." },
+        { "text": "snails", "why": "Snail eggs look different. Frogspawn is frog eggs." },
+        { "text": "tadpoles" }
+      ],
+      "answer": 2,
+      "hints": ["Frogspawn has the word frog in its name.", "Think about what a young frog is called.", "Ask: what lives in a pond and has a tail at first?"],
+      "explanation": "Frogspawn is a group of frog eggs. Tadpoles hatch from it, and the tadpoles grow into frogs.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.growing-up.012", "skill": "s1.growing-up", "type": "mcq", "difficulty": 4,
+      "prompt": "A caterpillar eats leaves and grows. What will it turn into?",
+      "figure": { "kind": "icons", "items": [{ "icon": "caterpillar", "label": "caterpillar" }, { "icon": "leaf", "label": "leaf" }], "alt": "A caterpillar on a leaf." },
+      "options": [
+        { "text": "a worm", "why": "A caterpillar is a young butterfly or moth. It does not turn into a worm." },
+        { "text": "a butterfly" },
+        { "text": "a bird", "why": "Birds hatch from eggs laid by birds." }
+      ],
+      "answer": 1,
+      "hints": ["A caterpillar is a young insect.", "Think about what flies near flowers in a garden.", "Remember: a caterpillar makes a chrysalis first."],
+      "explanation": "A caterpillar grows, makes a chrysalis and then comes out as a butterfly.",
+      "tags": ["iksc"]
+    }
+  ]
+}

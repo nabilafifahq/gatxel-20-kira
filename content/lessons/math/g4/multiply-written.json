@@ -1,0 +1,72 @@
+{
+  "skill": "m4.multiply-written",
+  "title": "Multiply by a 1-digit number",
+  "steps": [
+    {
+      "say": "To multiply 243 × 4, split 243 into hundreds, tens and ones.",
+      "show": "243 = 200 + 40 + 3"
+    },
+    {
+      "say": "Multiply each part by 4.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "×",
+          "200",
+          "40",
+          "3"
+        ],
+        "rows": [
+          [
+            "4",
+            "800",
+            "160",
+            "12"
+          ]
+        ],
+        "alt": "A grid: 200 times 4 is 800, 40 times 4 is 160, and 3 times 4 is 12."
+      }
+    },
+    {
+      "say": "Add the parts together.",
+      "show": "800 + 160 + 12 = 972"
+    },
+    {
+      "say": "Estimate to check. 243 is about 250, and 250 × 4 = 1,000.",
+      "show": "about 1,000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.multiply-written.901",
+      "skill": "m4.multiply-written",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 156 × 3.",
+      "answer": 468,
+      "hints": [
+        "Split 156 into 100, 50 and 6.",
+        "Multiply each part by 3.",
+        "100 × 3 = 300."
+      ],
+      "explanation": "100 × 3 = 300, 50 × 3 = 150 and 6 × 3 = 18. 300 + 150 + 18 = 468."
+    },
+    {
+      "id": "m4.multiply-written.902",
+      "skill": "m4.multiply-written",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "One bus holds 48 people. How many people fit in 6 buses?",
+      "answer": 288,
+      "hints": [
+        "Multiply 48 by 6.",
+        "Split 48 into 40 and 8.",
+        "40 × 6 = 240."
+      ],
+      "explanation": "40 × 6 = 240 and 8 × 6 = 48. 240 + 48 = 288 people.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

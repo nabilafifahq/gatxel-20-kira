@@ -1,0 +1,78 @@
+{
+  "skill": "m2.sequences",
+  "title": "Counting in steps",
+  "steps": [
+    {
+      "say": "A number pattern goes up or down by the same jump.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "12",
+          "14",
+          "16",
+          "18",
+          null
+        ],
+        "style": "stones",
+        "alt": "Stones in a row: 12, 14, 16, 18, a blank stone."
+      }
+    },
+    {
+      "say": "Find the jump by comparing two numbers next to each other.",
+      "show": "14 - 12 = 2"
+    },
+    {
+      "say": "Add the jump to the last number to keep going.",
+      "show": "18 + 2 = 20"
+    },
+    {
+      "say": "Adding 10 changes the tens digit. The ones stay the same.",
+      "show": "46, 56, 66, 76"
+    },
+    {
+      "say": "Patterns can count back too.",
+      "show": "50, 45, 40, 35, 30"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.sequences.901",
+      "skill": "m2.sequences",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What comes next?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "35",
+          "40",
+          "45",
+          null
+        ],
+        "style": "stones",
+        "alt": "Stones in a row: 35, 40, 45, a blank stone."
+      },
+      "hints": [
+        "How much do the numbers go up each time?",
+        "The pattern counts on in 5s.",
+        "Add the jump to 45."
+      ],
+      "explanation": "The pattern counts on in 5s. 45 + 5 = 50.",
+      "answer": 50
+    },
+    {
+      "id": "m2.sequences.902",
+      "skill": "m2.sequences",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 10 less than 72?",
+      "hints": [
+        "Which digit changes when you take away 10?",
+        "The tens digit goes down by 1. The ones stay the same.",
+        "72 has 7 tens. Take away one ten."
+      ],
+      "explanation": "72 has 7 tens. One less ten makes 62.",
+      "answer": 62
+    }
+  ]
+}

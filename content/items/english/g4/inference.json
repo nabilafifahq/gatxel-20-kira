@@ -1,0 +1,185 @@
+{
+  "skill": "e4.inference",
+  "items": [
+    {
+      "id": "e4.inference.001", "skill": "e4.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.the-last-note",
+      "prompt": "How did Raka feel at the start of the story?",
+      "options": [
+        { "text": "bored", "why": "Nothing shows that he is bored. He is holding on very tightly." },
+        { "text": "nervous" },
+        { "text": "angry", "why": "There are no clues that he is angry." },
+        { "text": "sleepy", "why": "There are no clues that he is sleepy." }
+      ],
+      "answer": 1,
+      "hints": ["Read the first sentence again.", "How do you hold something when you are worried?", "What does it tell you if your knuckles turn white?"],
+      "explanation": "Raka holds his angklung so tightly that his knuckles turn white. This clue shows that he is nervous.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.002", "skill": "e4.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.the-last-note",
+      "prompt": "Why was Raka's note so important?",
+      "options": [
+        { "text": "It was the loudest note.", "why": "The story does not say it was the loudest." },
+        { "text": "It was the first note of the song.", "why": "His note came at the very end." },
+        { "text": "Nenek asked him to play it.", "why": "The story does not say this." },
+        { "text": "Without it, the song would have no ending." }
+      ],
+      "answer": 3,
+      "hints": ["Find the part that tells you when Raka's note comes.", "Read the sentence that starts with If he missed it.", "What would a song sound like without its last note?"],
+      "explanation": "Raka's note was the last note of the song. If he missed it, the song would have no ending.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.inference.003", "skill": "e4.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.the-last-note",
+      "prompt": "How did Mei help Raka?",
+      "options": [
+        { "text": "She tapped her foot in time, so he could find the beat again." },
+        { "text": "She whispered the music to him.", "why": "Mei does not speak. She helps without words." },
+        { "text": "She played his note for him.", "why": "Raka plays his own note at the end." },
+        { "text": "She pointed at him when it was time.", "why": "Bu Sari points at him, not Mei." }
+      ],
+      "answer": 0,
+      "hints": ["Find the part where Raka notices Mei.", "What is Mei doing with her foot?", "How does that help Raka after he lost his place?"],
+      "explanation": "Mei tapped her foot gently in time with the music. Raka copied her, and the song began to make sense again.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.inference.004", "skill": "e4.inference", "type": "mcq", "difficulty": 4,
+      "passage": "e4.p.refill-station-letter",
+      "prompt": "Why did the class write about the cake sale?",
+      "options": [
+        { "text": "to invite Mrs Wulan to buy a cake", "why": "The letter does not invite her to the sale." },
+        { "text": "to show they can help pay, so the cost is less of a problem" },
+        { "text": "because they like baking", "why": "The letter does not say they like baking." },
+        { "text": "to ask for money for a party", "why": "The money is for the refill station." }
+      ],
+      "answer": 1,
+      "hints": ["Read the paragraph that begins Some people might say.", "What problem does that paragraph mention?", "How would a cake sale help with that problem?"],
+      "explanation": "Some people might say the refill station costs too much. The cake sale shows the class has a plan to help pay, which makes the letter more persuasive.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.005", "skill": "e4.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.komodo-dragons",
+      "prompt": "Its long yellow tongue is forked at the end. What does forked mean?",
+      "options": [
+        { "text": "very sticky", "why": "Forked describes the shape, not how sticky it is." },
+        { "text": "shaped like a spoon", "why": "A spoon is round, not split." },
+        { "text": "split into two points" },
+        { "text": "very short", "why": "The text says the tongue is long." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the shape of a fork.", "A fork has prongs at the end.", "Picture a tongue with that kind of end."],
+      "explanation": "Forked means split into two points, like the prongs of a fork. A Komodo dragon's tongue splits into two tips.",
+      "tags": ["reading", "iklc"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.006", "skill": "e4.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.sunrise-diary",
+      "prompt": "Why did Tia forget about the cold?",
+      "options": [
+        { "text": "She put on Dad's gloves.", "why": "Lintang wore Dad's gloves, not Tia." },
+        { "text": "The sun made it hot straight away.", "why": "The diary does not say it got hot." },
+        { "text": "She fell asleep in the jeep.", "why": "Tia is awake, staring at the view." },
+        { "text": "She was amazed by the view." }
+      ],
+      "answer": 3,
+      "hints": ["Read what was happening when Tia forgot the cold.", "What was Tia doing with her mouth?", "When do people stare with their mouths open?"],
+      "explanation": "Tia stared at the sunrise with her mouth open. She was so amazed by the view that she forgot she was cold.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.007", "skill": "e4.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.sunrise-diary",
+      "prompt": "Lintang writes: My legs were burning by the time we reached the top! What does she mean?",
+      "options": [
+        { "text": "Her legs were on fire.", "why": "This is not meant to be real. It describes a feeling." },
+        { "text": "Her legs were very tired and sore from climbing." },
+        { "text": "The steps were very hot.", "why": "It was freezing cold that morning." },
+        { "text": "She had a sunburn.", "why": "The diary does not mention sunburn." }
+      ],
+      "answer": 1,
+      "hints": ["Lintang has just climbed more than two hundred steps.", "Is she talking about real fire?", "How do your legs feel after a very long climb?"],
+      "explanation": "Burning legs is a way of saying that her legs felt very tired and achy after climbing so many steps.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.inference.008", "skill": "e4.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.the-rice-field",
+      "prompt": "The poem says: A croaking choir in the mud below. Who is the choir?",
+      "options": [
+        { "text": "the farmers", "why": "The farmers are not singing in the mud." },
+        { "text": "the egrets", "why": "Egrets do not croak." },
+        { "text": "the frogs" },
+        { "text": "the children", "why": "The children are on the path, waving." }
+      ],
+      "answer": 2,
+      "hints": ["Read the whole verse.", "Which animal croaks?", "Read the line just before croaking choir."],
+      "explanation": "The line before says frogs sing loudly. The frogs croak together, so the poet calls them a choir.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.009", "skill": "e4.inference", "type": "mcq", "difficulty": 1,
+      "passage": "e4.p.the-rice-field",
+      "prompt": "Why do the farmers hang tin cans on strings?",
+      "options": [
+        { "text": "to scare away birds that eat the rice" },
+        { "text": "to make music for the farmers", "why": "The poem says the cans keep the sparrows away." },
+        { "text": "to collect rainwater", "why": "The cans rattle. They are not for water." },
+        { "text": "to show where the path is", "why": "The poem does not say this." }
+      ],
+      "answer": 0,
+      "hints": ["Read the verse about the tin cans.", "What are the cans trying to keep away?", "What do the sparrows want to eat?"],
+      "explanation": "The rattling cans keep the hungry sparrows away from the grain, so the birds do not eat the rice.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.inference.010", "skill": "e4.inference", "type": "mcq", "difficulty": 4,
+      "passage": "e4.p.beach-clean-up",
+      "prompt": "How does Dani change during the play?",
+      "options": [
+        { "text": "He starts out excited and ends up bored.", "why": "Dani is not bored at the end. He wants to write the sign." },
+        { "text": "At first he thinks someone else should clean up, but then he decides to help." },
+        { "text": "He starts out helping and then goes home.", "why": "Dani stays and helps." },
+        { "text": "He does not change at all.", "why": "His words at the start and at the end are very different." }
+      ],
+      "answer": 1,
+      "hints": ["Read what Dani says at the start.", "Then read what Dani does after Pak Made's story.", "Compare his first lines with his last lines."],
+      "explanation": "At first Dani says somebody else should clean it up. After hearing about the turtle, he picks up the bottle and wants to help.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.inference.011", "skill": "e4.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.beach-clean-up",
+      "prompt": "Pak Made found a turtle tangled up in an old net. What does tangled up mean?",
+      "options": [
+        { "text": "swimming fast", "why": "A turtle caught in a net cannot swim away." },
+        { "text": "hiding", "why": "The turtle was not hiding. It was stuck." },
+        { "text": "sleeping", "why": "The turtle was stuck, not sleeping." },
+        { "text": "caught and twisted up" }
+      ],
+      "answer": 3,
+      "hints": ["Think about what an old net can do to an animal.", "Pak Made had to cut the turtle free.", "What would you need to do if string was wrapped around your hands?"],
+      "explanation": "Tangled up means caught and twisted in something. Pak Made had to cut the net to set the turtle free.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.inference.012", "skill": "e4.inference", "type": "mcq", "difficulty": 5,
+      "passage": "e4.p.school-garden-news",
+      "prompt": "The report does not say why the pupils use rainwater from barrels. What is the most likely reason?",
+      "options": [
+        { "text": "Rainwater tastes sweeter to the pupils.", "why": "The pupils do not drink it. They water plants with it." },
+        { "text": "The judges told them to.", "why": "The judges visited after the garden was made." },
+        { "text": "It saves tap water and uses rain that would be wasted." },
+        { "text": "There is no tap at their school.", "why": "The report does not say this." }
+      ],
+      "answer": 2,
+      "hints": ["You need to infer the reason, because the report does not tell you.", "Think about where rain goes if nobody collects it.", "Why might a school that cares about the planet want to collect it?"],
+      "explanation": "Collecting rain saves tap water and makes use of rain that would run away. That fits a garden that won a Green Schools prize.",
+      "tags": ["reading"], "expectedSeconds": 150
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "skill": "m4.decimals",
+  "title": "Tenths and hundredths",
+  "steps": [
+    {
+      "say": "Split one whole into 10 equal parts. Each part is one tenth, or 0.1.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 3,
+        "alt": "A bar in 10 equal parts with 3 parts shaded."
+      },
+      "show": "3/10 = 0.3"
+    },
+    {
+      "say": "Split one whole into 100 equal parts. Each part is one hundredth, or 0.01.",
+      "show": "1/100 = 0.01"
+    },
+    {
+      "say": "Here 45 hundredths are shaded.",
+      "figure": {
+        "kind": "grid",
+        "rows": 10,
+        "cols": 10,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "alt": "A 10 by 10 grid with 45 squares shaded: 4 full rows and 5 more squares."
+      },
+      "show": "0.45"
+    },
+    {
+      "say": "In 2.37, the 3 means 3 tenths and the 7 means 7 hundredths.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ones",
+          ".",
+          "Tenths",
+          "Hundredths"
+        ],
+        "rows": [
+          [
+            "2",
+            ".",
+            "3",
+            "7"
+          ]
+        ],
+        "alt": "A place value table: 2 ones, 3 tenths and 7 hundredths."
+      }
+    },
+    {
+      "say": "To compare decimals, compare the ones, then the tenths, then the hundredths.",
+      "show": "0.6 > 0.45"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.decimals.901",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is the same as 7 tenths?",
+      "options": [
+        {
+          "text": "7.0",
+          "why": "7.0 is 7 ones."
+        },
+        {
+          "text": "0.7"
+        },
+        {
+          "text": "70",
+          "why": "70 is 7 tens."
+        },
+        {
+          "text": "0.07",
+          "why": "0.07 is 7 hundredths."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Tenths are the first digit after the point.",
+        "Write the ones digit, then the point.",
+        "There are no ones here."
+      ],
+      "explanation": "7 tenths is 0 ones and 7 tenths, which is written 0.7."
+    },
+    {
+      "id": "m4.decimals.902",
+      "skill": "m4.decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is bigger, 0.5 or 0.38?",
+      "options": [
+        {
+          "text": "0.38",
+          "why": "0.38 has 3 tenths. 0.5 has 5 tenths."
+        },
+        {
+          "text": "They are equal",
+          "why": "0.5 is 50 hundredths and 0.38 is 38 hundredths."
+        },
+        {
+          "text": "0.5"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the tenths digits first.",
+        "How many tenths does each number have?",
+        "You can write 0.5 as 0.50."
+      ],
+      "explanation": "0.5 = 0.50, which is 50 hundredths. That is more than 38 hundredths, so 0.5 is bigger."
+    }
+  ]
+}

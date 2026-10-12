@@ -1,0 +1,110 @@
+{
+  "skill": "s6.earth-space",
+  "title": "Earth, Moon and Sun",
+  "steps": [
+    {
+      "say": "The Sun is a star at the centre of our Solar System. Eight planets orbit it.",
+      "show": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune"
+    },
+    {
+      "say": "The Earth spins once every 24 hours, which gives us day and night. It orbits the Sun once a year."
+    },
+    {
+      "say": "The Moon orbits the Earth in about a month. The Sun always lights up half of it.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "earth",
+            "label": "Earth"
+          },
+          {
+            "icon": "moon",
+            "label": "Moon"
+          }
+        ],
+        "alt": "The Sun, the Earth and the Moon."
+      }
+    },
+    {
+      "say": "As the Moon moves, we see different amounts of its lit half. These are the phases of the Moon."
+    },
+    {
+      "say": "The Earth's axis is tilted. When your half leans towards the Sun, it is summer; when it leans away, it is winter."
+    },
+    {
+      "say": "Near the equator, in Indonesia, it is warm all year. Our seasons are the rainy season and the dry season."
+    },
+    {
+      "say": "Venus is the hottest planet, even though Mercury is closer to the Sun. Its thick layer of gases traps heat."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.earth-space.901",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How long does the Earth take to orbit the Sun once?",
+      "options": [
+        {
+          "text": "one day",
+          "why": "One day is one spin of the Earth on its axis."
+        },
+        {
+          "text": "one month",
+          "why": "About a month is how long the Moon takes to orbit the Earth."
+        },
+        {
+          "text": "about one year"
+        },
+        {
+          "text": "one week",
+          "why": "A week is not linked to any orbit."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Orbiting means travelling all the way around.",
+        "One spin on the axis takes one day.",
+        "Think about how often your birthday comes round."
+      ],
+      "explanation": "The Earth takes about 365 days, one year, to orbit the Sun once."
+    },
+    {
+      "id": "s6.earth-space.902",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which planet is closest to the Sun?",
+      "options": [
+        {
+          "text": "Venus",
+          "why": "Venus is the second planet from the Sun."
+        },
+        {
+          "text": "Mercury"
+        },
+        {
+          "text": "Earth",
+          "why": "Earth is the third planet from the Sun."
+        },
+        {
+          "text": "Mars",
+          "why": "Mars is the fourth planet from the Sun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is the smallest of the eight planets.",
+        "It is named after a fast messenger in old Roman stories.",
+        "Think of the first word in My Very Easy Method Just Speeds Up Naming."
+      ],
+      "explanation": "Mercury is the closest planet to the Sun, followed by Venus, Earth and Mars."
+    }
+  ]
+}

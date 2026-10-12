@@ -1,0 +1,105 @@
+{
+  "skill": "s3.food-groups",
+  "title": "Food groups and what they do",
+  "steps": [
+    {
+      "say": "Food gives your body energy and helps it grow and stay healthy. Different foods do different jobs.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "rice",
+            "label": "rice"
+          },
+          {
+            "icon": "egg",
+            "label": "egg"
+          },
+          {
+            "icon": "carrot",
+            "label": "carrot"
+          },
+          {
+            "icon": "milk",
+            "label": "milk"
+          }
+        ],
+        "alt": "Rice, an egg, a carrot and milk."
+      }
+    },
+    {
+      "say": "Carbohydrates, like rice, bread and noodles, give you energy.",
+      "show": "carbohydrates: energy"
+    },
+    {
+      "say": "Proteins, like fish, eggs, tempeh and tofu, help your body grow and repair.",
+      "show": "proteins: growth and repair"
+    },
+    {
+      "say": "Fruit and vegetables give vitamins, minerals and fibre. These keep you healthy and help food move through your gut.",
+      "show": "vitamins, minerals, fibre"
+    },
+    {
+      "say": "Fats, like oil and butter, store energy and keep you warm. We need only small amounts.",
+      "show": "fats: small amounts"
+    },
+    {
+      "say": "A balanced meal mixes foods from different groups. Drink water every day too.",
+      "show": "rice + fish + vegetables + fruit"
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.food-groups.901",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which food group gives you energy?",
+      "options": [
+        {
+          "text": "carbohydrates"
+        },
+        {
+          "text": "proteins",
+          "why": "Proteins help you grow and repair."
+        },
+        {
+          "text": "fibre",
+          "why": "Fibre helps food move through your gut."
+        },
+        {
+          "text": "minerals",
+          "why": "Minerals, like calcium, help keep you healthy."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about rice and bread.",
+        "This group is the body's main fuel.",
+        "It is a long word starting with c."
+      ],
+      "explanation": "Carbohydrates, like rice and bread, give your body energy."
+    },
+    {
+      "id": "s3.food-groups.902",
+      "skill": "s3.food-groups",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Fish, eggs and tempeh are rich in ___.",
+      "blanks": [
+        {
+          "answers": [
+            "protein",
+            "proteins"
+          ]
+        }
+      ],
+      "hints": [
+        "These foods help you grow.",
+        "They also help repair cuts and bruises.",
+        "The word starts with p."
+      ],
+      "explanation": "Fish, eggs and tempeh are rich in protein, which helps the body grow and repair."
+    }
+  ]
+}

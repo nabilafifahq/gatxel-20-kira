@@ -1,0 +1,215 @@
+{
+  "skill": "s5.plant-life-cycle",
+  "items": [
+    {
+      "id": "s5.plant-life-cycle.001",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is pollination?",
+      "options": [
+        { "text": "pollen moving from an anther to a stigma" },
+        { "text": "a seed starting to grow", "why": "That is germination." },
+        { "text": "seeds being carried away from the parent plant", "why": "That is seed dispersal." },
+        { "text": "a plant making food in its leaves", "why": "That is how a plant makes its food, called photosynthesis." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Pollination is the step that comes just before seeds start to form.",
+        "Pollen is made in one part of a flower and must reach another part.",
+        "Cross out the choices that describe germination and seed dispersal."
+      ],
+      "explanation": "Pollination is the movement of pollen from an anther to a stigma. It often happens when insects visit flowers or when the wind blows pollen."
+    },
+    {
+      "id": "s5.plant-life-cycle.002",
+      "skill": "s5.plant-life-cycle",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each part of a flower to its job.",
+      "pairs": [
+        ["petal", "attracts insects with its colour"],
+        ["sepal", "protects the flower when it is a bud"],
+        ["anther", "makes pollen"],
+        ["stigma", "catches pollen"],
+        ["ovary", "holds the ovules that become seeds"]
+      ],
+      "hints": [
+        "A flower has parts for attracting insects, protecting the bud, making pollen and making seeds.",
+        "The stamen is the male part (anther and filament). The carpel is the female part (stigma, style and ovary).",
+        "Start with the petal. Think about why so many petals are brightly coloured."
+      ],
+      "explanation": "Petals attract insects and sepals protect the bud. The anther makes pollen, the stigma catches pollen, and the ovary holds the ovules that become seeds."
+    },
+    {
+      "id": "s5.plant-life-cycle.003",
+      "skill": "s5.plant-life-cycle",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the stages of a flowering plant's life cycle in order, starting with the seed.",
+      "items": ["seed", "germination", "seedling", "flowering", "pollination", "fertilisation", "seed dispersal"],
+      "hints": [
+        "A life cycle goes round in a circle. Here it starts and ends with seeds.",
+        "A plant must grow and make flowers before any pollen can move.",
+        "After the seed comes the moment it first starts to grow."
+      ],
+      "explanation": "A seed germinates and grows into a seedling, then into an adult plant that flowers. After pollination and fertilisation, new seeds form and are dispersed, ready to start again.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.plant-life-cycle.004",
+      "skill": "s5.plant-life-cycle",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these features into insect-pollinated or wind-pollinated flowers.",
+      "groups": ["Insect-pollinated", "Wind-pollinated"],
+      "items": [
+        { "text": "bright, coloured petals", "group": 0 },
+        { "text": "sweet scent", "group": 0 },
+        { "text": "sugary nectar", "group": 0 },
+        { "text": "sticky pollen", "group": 0 },
+        { "text": "small, dull flowers", "group": 1 },
+        { "text": "light, smooth pollen", "group": 1 },
+        { "text": "feathery stigmas outside", "group": 1 },
+        { "text": "anthers dangling outside", "group": 1 }
+      ],
+      "hints": [
+        "Insect-pollinated flowers need to attract insects. Wind-pollinated flowers do not.",
+        "Wind carries pollen best when it is light and the flower parts hang out in the air.",
+        "Start with the bright petals. Ask yourself who they are meant to attract."
+      ],
+      "explanation": "Insect-pollinated flowers have bright petals, scent and nectar to attract insects, with sticky pollen that clings to them. Wind-pollinated flowers are small and dull, with light pollen and parts that hang in the wind.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.plant-life-cycle.005",
+      "skill": "s5.plant-life-cycle",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each seed or fruit to the way its seeds are dispersed.",
+      "pairs": [
+        ["dandelion seed with a fluffy parachute", "carried by the wind"],
+        ["seed covered in tiny hooks", "sticks to animal fur"],
+        ["sweet, juicy guava fruit", "eaten by animals"],
+        ["balsam (pacar air) pod that bursts", "thrown out when the pod splits"],
+        ["coconut with air in its husk", "carried by water"]
+      ],
+      "hints": [
+        "Look at the special feature of each seed or fruit: fluff, hooks, juice, a pod or air inside.",
+        "Ask how that feature could help the seed travel away from the parent plant.",
+        "Start with the fluffy parachute. Think about what can lift something so light."
+      ],
+      "explanation": "Fluffy seeds are blown by the wind, hooked seeds stick to fur, and juicy fruits are eaten by animals that later drop the seeds. Balsam pods burst to throw out seeds, and coconuts float on water.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.plant-life-cycle.006",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is it better for seeds to be carried away from the parent plant?",
+      "options": [
+        { "text": "Seeds can only grow in a different country.", "why": "Seeds can grow near or far. Moving away just gives them more space." },
+        { "text": "The young plants do not compete with the parent for light, water and space." },
+        { "text": "The parent plant needs its seeds to make food.", "why": "The parent plant makes its own food in its leaves." },
+        { "text": "Travelling a long way makes seeds grow faster.", "why": "Travelling does not speed up growth. Having less competition helps the seedling survive." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a young plant growing right under a big parent tree.",
+        "Plants need light, water and space. Think about what happens when many plants share them.",
+        "Picture the shade under a mango tree. Decide what a seedling there would be short of."
+      ],
+      "explanation": "Seedlings that grow far from the parent plant get more light, water and space. If they grew underneath it, they would compete with the parent and many would not survive."
+    },
+    {
+      "id": "s5.plant-life-cycle.007",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Laras puts mung bean seeds on wet or dry cotton wool in four dishes. The table shows her results after five days. What do the results show?",
+      "figure": {
+        "kind": "table",
+        "caption": "Mung bean seeds after five days",
+        "head": ["Dish", "Water", "Place", "Germinated?"],
+        "rows": [
+          ["A", "wet", "warm, dark cupboard", "yes"],
+          ["B", "dry", "warm, dark cupboard", "no"],
+          ["C", "wet", "cold fridge, dark", "no"],
+          ["D", "wet", "warm, sunny window", "yes"]
+        ],
+        "alt": "Table of results. Dish A: wet, warm and dark, germinated. Dish B: dry, warm and dark, did not germinate. Dish C: wet, cold fridge, did not germinate. Dish D: wet, warm and light, germinated."
+      },
+      "options": [
+        { "text": "Seeds need light to germinate.", "why": "Dish A was in a dark cupboard and its seeds still germinated." },
+        { "text": "Seeds germinate best in the cold.", "why": "The seeds in the cold fridge did not germinate." },
+        { "text": "Seeds need water and warmth to germinate, but they do not need light." },
+        { "text": "Seeds need soil to germinate.", "why": "None of the dishes had soil, yet the seeds in two dishes germinated." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare two dishes that are the same in every way except one.",
+        "Compare A with B for water, A with C for warmth, and A with D for light.",
+        "Start with A and B. Only the water is different. Check whether both germinated."
+      ],
+      "explanation": "Dishes B and C did not germinate, so seeds need water and warmth. Dish A germinated in the dark, so light is not needed for germination, although the seedling needs light later to grow well.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.plant-life-cycle.008",
+      "skill": "s5.plant-life-cycle",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "After pollination, a male cell from a pollen grain joins with an ovule inside the ovary. This is called ___.",
+      "blanks": [{ "answers": ["fertilisation", "fertilization"] }],
+      "hints": [
+        "This step comes after pollination and before a seed forms.",
+        "Pollination only moves pollen. In the next step, the male and female cells join together.",
+        "Look back at the life cycle. The word after pollination begins with the letter f."
+      ],
+      "explanation": "Fertilisation happens when the male cell from a pollen grain joins with the female cell in an ovule. The fertilised ovule grows into a seed, and the ovary often becomes a fruit."
+    },
+    {
+      "id": "s5.plant-life-cycle.009",
+      "skill": "s5.plant-life-cycle",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a flower cut in half. Label the petal, sepal, anther, filament, stigma, style and ovary.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws petals and sepals in the right places", "points": 1 },
+          { "label": "Draws stamens with anthers on filaments", "points": 2 },
+          { "label": "Draws the carpel: stigma, style and ovary", "points": 2 },
+          { "label": "Labels each part with a straight line", "points": 1 }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "Start with the stalk, then add the sepals and petals around the outside.",
+        "Put the carpel in the middle and the stamens in a ring around it."
+      ],
+      "explanation": "A flower has sepals and petals on the outside. Stamens (anther and filament) surround the carpel (stigma, style and ovary) in the centre."
+    },
+    {
+      "id": "s5.plant-life-cycle.010",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A plant has small green flowers with no scent. Its anthers hang outside on long filaments, and it makes huge amounts of pollen. Which statement is most likely true?",
+      "options": [
+        { "text": "Bees visit it often for its nectar.", "why": "Wind-pollinated flowers usually have no nectar or bright petals to attract bees." },
+        { "text": "Its pollen is large and sticky.", "why": "Wind-pollinated plants make light, smooth pollen that blows easily." },
+        { "text": "Its seeds must be spread by the wind too.", "why": "The way a flower is pollinated does not decide how its seeds are spread." },
+        { "text": "It is pollinated by the wind, like maize and grasses." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about who would visit this flower. Check whether anything attracts insects.",
+        "Lots of light pollen is useful when the pollen is carried by something that cannot aim.",
+        "List the features: green, no scent, dangling anthers, lots of pollen. Match them to a type of pollination."
+      ],
+      "explanation": "Small green flowers with no scent do not attract insects. Dangling anthers and huge amounts of pollen are signs of wind pollination, as in maize and grasses.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

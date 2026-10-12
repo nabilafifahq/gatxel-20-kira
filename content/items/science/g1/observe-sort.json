@@ -1,0 +1,138 @@
+{
+  "skill": "s1.observe-sort",
+  "items": [
+    {
+      "id": "s1.observe-sort.001", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 1,
+      "prompt": "Which tool helps you look closely at a tiny ant?",
+      "options": [
+        { "text": "a ruler", "why": "A ruler measures how long something is." },
+        { "text": "a magnifying glass" },
+        { "text": "a spoon", "why": "A spoon is for eating. It does not make things look bigger." }
+      ],
+      "answer": 1,
+      "hints": ["The ant is very small.", "Which tool makes things look bigger?", "Think about what a scientist holds over a tiny bug."],
+      "explanation": "A magnifying glass makes small things look bigger, so we can observe the ant closely."
+    },
+    {
+      "id": "s1.observe-sort.002", "skill": "s1.observe-sort", "type": "sort", "difficulty": 2,
+      "prompt": "Does it have wheels? Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "car", "label": "car" }, { "icon": "bicycle", "label": "bicycle" }, { "icon": "bus", "label": "bus" }, { "icon": "boat", "label": "boat" }, { "icon": "kite", "label": "kite" }, { "icon": "ball", "label": "ball" }], "alt": "Six pictures: a car, a bicycle, a bus, a boat, a kite and a ball." },
+      "groups": ["Has wheels", "No wheels"],
+      "items": [
+        { "text": "car", "group": 0 },
+        { "text": "bicycle", "group": 0 },
+        { "text": "bus", "group": 0 },
+        { "text": "boat", "group": 1 },
+        { "text": "kite", "group": 1 },
+        { "text": "ball", "group": 1 }
+      ],
+      "hints": ["Look for round parts that turn and roll.", "Check each picture for wheels.", "Start with the car. How many wheels can you see?"],
+      "explanation": "Cars, bicycles and buses have wheels. Boats, kites and balls do not."
+    },
+    {
+      "id": "s1.observe-sort.003", "skill": "s1.observe-sort", "type": "numeric", "difficulty": 1,
+      "prompt": "Children chose their favourite fruit. How many chose mango?",
+      "figure": { "kind": "tally", "rows": [{ "label": "Mango", "count": 7 }, { "label": "Banana", "count": 4 }, { "label": "Papaya", "count": 5 }], "alt": "Tally chart of favourite fruit: mango 7, banana 4, papaya 5." },
+      "answer": 7,
+      "hints": ["Find the row for mango.", "Each line stands for one child. A gate shape is a group of 5.", "Count the group of 5 first, then count on."],
+      "explanation": "The mango row has one group of 5 and 2 more lines. 5 and 2 make 7."
+    },
+    {
+      "id": "s1.observe-sort.004", "skill": "s1.observe-sort", "type": "numeric", "difficulty": 2,
+      "prompt": "Bayu records the weather for two weeks. How many days were rainy?",
+      "figure": { "kind": "pictogram", "title": "Weather for two weeks", "rows": [{ "label": "Sunny", "count": 6 }, { "label": "Rainy", "count": 5 }, { "label": "Cloudy", "count": 3 }], "icon": "square", "key": 1, "alt": "Pictogram of weather for two weeks: sunny 6 days, rainy 5 days, cloudy 3 days. Each square means 1 day." },
+      "answer": 5,
+      "unit": "days",
+      "hints": ["Find the row for rainy days.", "Each square stands for 1 day.", "Point to each square in the rainy row and count."],
+      "explanation": "The rainy row has 5 squares. Each square is 1 day, so 5 days were rainy."
+    },
+    {
+      "id": "s1.observe-sort.005", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 3,
+      "prompt": "Ayu sorted animals into two groups. What was her rule?",
+      "figure": { "kind": "table", "head": ["Group 1", "Group 2"], "rows": [["fish", "cat"], ["crab", "camel"], ["whale", "lion"]], "alt": "Table of two groups. Group 1: fish, crab, whale. Group 2: cat, camel, lion." },
+      "options": [
+        { "text": "how many legs they have", "why": "Group 1 has animals with no legs and a crab with many legs." },
+        { "text": "where they live" },
+        { "text": "what colour they are", "why": "Both groups have animals of many colours." }
+      ],
+      "answer": 1,
+      "hints": ["Look for what all the Group 1 animals share.", "Think about where each animal lives.", "Start with the fish and the whale. Where do they live?"],
+      "explanation": "The Group 1 animals live in water. The Group 2 animals live on land. Her rule was where they live.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.observe-sort.006", "skill": "s1.observe-sort", "type": "match", "difficulty": 2,
+      "prompt": "Match each tool to what it helps you do.",
+      "pairs": [["magnifying glass", "see small things"], ["ruler", "measure how long"], ["thermometer", "find out how hot"], ["timer", "measure time"]],
+      "hints": ["Think about what each tool is used for.", "Do the one you have used before first.", "Start with the ruler. What do you do with it?"],
+      "explanation": "A magnifying glass helps us see small things. A ruler measures length, a thermometer shows how hot something is and a timer measures time."
+    },
+    {
+      "id": "s1.observe-sort.007", "skill": "s1.observe-sort", "type": "numeric", "difficulty": 2,
+      "prompt": "Sari puts blocks along her desk. How many blocks long is it?",
+      "figure": { "kind": "objects", "items": [{ "icon": "block", "count": 8 }], "alt": "8 blocks in a line, as long as the desk." },
+      "answer": 8,
+      "unit": "blocks",
+      "hints": ["Count each block once.", "Touch each block as you count.", "Start at one end and count 1, 2, 3."],
+      "explanation": "There are 8 blocks along the desk, so the desk is 8 blocks long."
+    },
+    {
+      "id": "s1.observe-sort.008", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 4,
+      "prompt": "Tom and Aisha measure the same table with hand spans. Tom counts 6. Aisha counts 8. Why are the numbers different?",
+      "figure": { "kind": "icons", "items": [{ "icon": "hand", "label": "Tom: 6 spans" }, { "icon": "hand", "label": "Aisha: 8 spans" }], "alt": "Tom measured 6 hand spans. Aisha measured 8 hand spans on the same table." },
+      "options": [
+        { "text": "The table grew.", "why": "It is the same table. Tables do not grow." },
+        { "text": "Aisha counted wrongly.", "why": "Both counts can be right. Aisha needs more spans because her hand is smaller." },
+        { "text": "Their hands are different sizes." }
+      ],
+      "answer": 2,
+      "hints": ["The table is the same each time.", "Think about what they used to measure.", "Compare a big hand and a small hand on the same table."],
+      "explanation": "Aisha's hand span is smaller than Tom's, so she needs more spans to cover the table. A ruler gives the same answer for everyone.",
+      "tags": ["iksc", "ksnr"]
+    },
+    {
+      "id": "s1.observe-sort.009", "skill": "s1.observe-sort", "type": "order", "difficulty": 2,
+      "prompt": "Order the animals from smallest to biggest.",
+      "figure": { "kind": "icons", "items": [{ "icon": "cow", "label": "cow" }, { "icon": "ant", "label": "ant" }, { "icon": "elephant", "label": "elephant" }, { "icon": "cat", "label": "cat" }, { "icon": "mouse", "label": "mouse" }], "alt": "Five animals: a cow, an ant, an elephant, a cat and a mouse." },
+      "items": ["ant", "mouse", "cat", "cow", "elephant"],
+      "hints": ["Start with the tiniest animal.", "Picture each animal standing next to you.", "Put the ant first, then find the next smallest."],
+      "explanation": "The ant is smallest, then the mouse, the cat and the cow. The elephant is the biggest."
+    },
+    {
+      "id": "s1.observe-sort.010", "skill": "s1.observe-sort", "type": "numeric", "difficulty": 3,
+      "prompt": "How many more children have a cat than a dog?",
+      "figure": { "kind": "bars", "title": "Our pets", "categories": ["Cat", "Dog", "Fish", "Rabbit"], "values": [6, 4, 3, 2], "step": 1, "yLabel": "Children", "alt": "Bar chart of pets: cat 6 children, dog 4 children, fish 3 children, rabbit 2 children." },
+      "answer": 2,
+      "hints": ["Find the cat bar and the dog bar.", "Read the number at the top of each bar.", "The cat bar reaches 6. Now find the top of the dog bar."],
+      "explanation": "6 children have a cat and 4 have a dog. 6 take away 4 is 2, so 2 more children have a cat."
+    },
+    {
+      "id": "s1.observe-sort.011", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 4,
+      "prompt": "Which animal can fly and has 6 legs?",
+      "figure": { "kind": "venn", "sets": ["Can fly", "Has 6 legs"], "items": [{ "text": "bird", "region": "a" }, { "text": "bee", "region": "both" }, { "text": "ant", "region": "b" }, { "text": "cat", "region": "none" }], "alt": "Venn diagram with two circles, can fly and has 6 legs. Bird is in can fly only. Bee is where the circles overlap. Ant is in has 6 legs only. Cat is outside both circles." },
+      "options": [
+        { "text": "bird", "why": "A bird can fly, but it has 2 legs." },
+        { "text": "ant", "why": "An ant has 6 legs. Most ants cannot fly." },
+        { "text": "bee" }
+      ],
+      "answer": 2,
+      "hints": ["Look at where the two circles overlap.", "The middle part is for animals that match both labels.", "Find the word written in the overlap."],
+      "explanation": "A bee can fly and has 6 legs, so it goes in the middle, where the circles overlap.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.observe-sort.012", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 5,
+      "prompt": "Mei sorted these things into two groups. What was her rule?",
+      "figure": { "kind": "table", "head": ["Group A", "Group B"], "rows": [["ice cube", "steam"], ["snowflake", "the Sun"], ["ice cream", "candle flame"]], "alt": "Table of two groups. Group A: ice cube, snowflake, ice cream. Group B: steam, the Sun, candle flame." },
+      "options": [
+        { "text": "cold or hot" },
+        { "text": "hard or soft", "why": "An ice cube is hard and ice cream is soft, but both are in Group A." },
+        { "text": "natural or made", "why": "A snowflake is natural and ice cream is made, but both are in Group A." }
+      ],
+      "answer": 0,
+      "hints": ["Look for something every Group A thing shares.", "Ask: would you find each one in a freezer or near heat?", "Start with the ice cube and the snowflake. What are they like?"],
+      "explanation": "Everything in Group A is cold and everything in Group B is hot. Her rule was cold or hot.",
+      "tags": ["iksc"]
+    }
+  ]
+}

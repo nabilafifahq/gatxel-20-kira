@@ -1,0 +1,95 @@
+{
+  "skill": "s6.earth-structure",
+  "title": "Inside the Earth",
+  "steps": [
+    {
+      "say": "The Earth has layers. From the outside in, they are the crust, mantle, outer core and inner core.",
+      "show": "crust, mantle, outer core, inner core"
+    },
+    {
+      "say": "The crust is thin solid rock. The mantle is hot rock that flows very slowly."
+    },
+    {
+      "say": "The core is made of iron and nickel. The outer core is liquid, and the inner core is solid because of huge pressure."
+    },
+    {
+      "say": "The crust is broken into tectonic plates. They move a few centimetres each year."
+    },
+    {
+      "say": "Where plates meet, there are earthquakes and volcanoes. Indonesia sits where several plates meet.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "volcano",
+            "label": "volcano"
+          },
+          {
+            "icon": "mountain",
+            "label": "mountain"
+          }
+        ],
+        "alt": "A volcano and a mountain, formed where tectonic plates meet."
+      }
+    },
+    {
+      "say": "Molten rock underground is called magma. When it erupts, it is called lava."
+    },
+    {
+      "say": "In an earthquake, drop, cover and hold on. On the coast, move to high ground in case of a tsunami."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.earth-structure.901",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which layer of the Earth do we live on?",
+      "options": [
+        {
+          "text": "the mantle",
+          "why": "The mantle is below the crust."
+        },
+        {
+          "text": "the outer core",
+          "why": "The outer core is deep inside the Earth."
+        },
+        {
+          "text": "the inner core",
+          "why": "The inner core is at the very centre."
+        },
+        {
+          "text": "the crust"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "We live on the outermost layer.",
+        "It is a thin layer of solid rock.",
+        "Think about the layer that is like the shell of an egg."
+      ],
+      "explanation": "We live on the crust, the thin outer layer of solid rock."
+    },
+    {
+      "id": "s6.earth-structure.902",
+      "skill": "s6.earth-structure",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Molten rock that is still underground is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "magma"
+          ]
+        }
+      ],
+      "hints": [
+        "Molten rock has a different name when it reaches the surface.",
+        "On the surface, molten rock is called lava.",
+        "This word has five letters and starts with the letter m."
+      ],
+      "explanation": "Molten rock underground is magma. Once it erupts onto the surface, it is called lava."
+    }
+  ]
+}

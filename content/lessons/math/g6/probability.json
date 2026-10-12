@@ -1,0 +1,146 @@
+{
+  "skill": "m6.probability",
+  "title": "Probability as a number",
+  "steps": [
+    {
+      "say": "Probability can be written as a number from 0 to 1. 0 means impossible and 1 means certain.",
+      "show": "0 = impossible, 0.5 = even chance, 1 = certain",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 1,
+        "step": 0.1,
+        "labels": [
+          0,
+          0.5,
+          1
+        ],
+        "marks": [
+          {
+            "at": 0,
+            "label": "impossible"
+          },
+          {
+            "at": 0.5,
+            "label": "even chance"
+          },
+          {
+            "at": 1,
+            "label": "certain"
+          }
+        ],
+        "alt": "A probability scale from 0 to 1 with impossible at 0, even chance at 0.5 and certain at 1."
+      }
+    },
+    {
+      "say": "When outcomes are equally likely, the probability is the number of wanted outcomes over the number of all outcomes.",
+      "show": "P(rolling a 5) = 1/6"
+    },
+    {
+      "say": "A bag has 3 red and 5 blue counters. The probability of picking red is 3 out of 8.",
+      "show": "P(red) = 3/8",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          }
+        ],
+        "alt": "3 red counters and 5 blue counters."
+      }
+    },
+    {
+      "say": "You can write it as a decimal or a percentage too.",
+      "show": "3/8 = 0.375 = 37.5%"
+    },
+    {
+      "say": "To predict, multiply the probability by the number of tries.",
+      "show": "Roll a dice 60 times: expect about 60 × 1/6 = 10 fives"
+    },
+    {
+      "say": "Real results are often a little different from the prediction, especially with only a few tries.",
+      "show": "Expect about 10 fives, give or take a few"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.probability.901",
+      "skill": "m6.probability",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A spinner has 5 equal parts, and 2 are green. What is the probability of landing on green? Write it as a fraction.",
+      "hints": [
+        "Count the green parts.",
+        "Count all the parts.",
+        "Write the green parts over all the parts."
+      ],
+      "explanation": "2 of the 5 equal parts are green, so the probability is 2/5.",
+      "blanks": [
+        {
+          "answers": [
+            "2/5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.probability.902",
+      "skill": "m6.probability",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A bag has 7 white beads and 3 black beads. What is the probability of picking black? Write it as a decimal.",
+      "hints": [
+        "Find the total number of beads.",
+        "Write the number of black beads over the total.",
+        "There are 10 beads in total."
+      ],
+      "explanation": "3 of the 10 beads are black. 3/10 = 0.3.",
+      "answer": 0.3,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.probability.903",
+      "skill": "m6.probability",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The probability of rain on any day is 0.2. About how many days will it rain in 30 days?",
+      "hints": [
+        "Multiply the probability by the number of days.",
+        "0.2 is the same as 2/10.",
+        "Find 1/10 of 30 first."
+      ],
+      "explanation": "0.2 × 30 = 6, so expect rain on about 6 days.",
+      "answer": 6,
+      "unit": "days"
+    }
+  ]
+}

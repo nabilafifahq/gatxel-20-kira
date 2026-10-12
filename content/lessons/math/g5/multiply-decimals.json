@@ -1,0 +1,124 @@
+{
+  "skill": "m5.multiply-decimals",
+  "title": "Multiplying decimals by whole numbers",
+  "steps": [
+    {
+      "say": "You can multiply a decimal by counting in tenths. 0.3 × 4 is 3 tenths, four times.",
+      "show": "0.3 × 4 = 12 tenths = 1.2",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 1.5,
+        "step": 0.1,
+        "labels": [
+          0,
+          0.5,
+          1,
+          1.5
+        ],
+        "jumps": [
+          {
+            "from": 0,
+            "to": 0.3,
+            "label": "0.3"
+          },
+          {
+            "from": 0.3,
+            "to": 0.6,
+            "label": "0.3"
+          },
+          {
+            "from": 0.6,
+            "to": 0.9,
+            "label": "0.3"
+          },
+          {
+            "from": 0.9,
+            "to": 1.2,
+            "label": "0.3"
+          }
+        ],
+        "alt": "A number line from 0 to 1.5 with 4 jumps of 0.3 from 0 to 1.2."
+      }
+    },
+    {
+      "say": "Or multiply without the point, then put it back. For 2.6 × 3, work out 26 × 3 first.",
+      "show": "26 × 3 = 78"
+    },
+    {
+      "say": "2.6 has one decimal place, so the answer has one decimal place too.",
+      "show": "2.6 × 3 = 7.8"
+    },
+    {
+      "say": "Estimate to check. 2.6 is about 3, and 3 × 3 = 9, so 7.8 is sensible.",
+      "show": "7.8 is close to 9"
+    },
+    {
+      "say": "Splitting the decimal works too. Split 4.7 into 4 and 0.7.",
+      "show": "4.7 × 6 = 4 × 6 + 0.7 × 6 = 24 + 4.2 = 28.2"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.multiply-decimals.901",
+      "skill": "m5.multiply-decimals",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 0.6 × 5.",
+      "hints": [
+        "0.6 is 6 tenths.",
+        "Work out 6 tenths × 5.",
+        "6 × 5 = 30."
+      ],
+      "explanation": "6 tenths × 5 = 30 tenths, which is 3.",
+      "answer": 3,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-decimals.902",
+      "skill": "m5.multiply-decimals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 3.4 × 7.",
+      "hints": [
+        "Work out 34 × 7 first.",
+        "Count the decimal places in 3.4.",
+        "Split 34 into 30 and 4."
+      ],
+      "explanation": "34 × 7 = 238. 3.4 has one decimal place, so 3.4 × 7 = 23.8.",
+      "answer": 23.8,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-decimals.903",
+      "skill": "m5.multiply-decimals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "One cup holds 0.4 litres. How much do 8 cups hold?",
+      "hints": [
+        "Multiply 0.4 by 8.",
+        "0.4 is 4 tenths.",
+        "Work out 4 × 8 first."
+      ],
+      "explanation": "4 tenths × 8 = 32 tenths = 3.2, so 8 cups hold 3.2 litres.",
+      "options": [
+        {
+          "text": "8.4 litres",
+          "why": "That adds 0.4 and 8. You need to multiply."
+        },
+        {
+          "text": "3.2 litres"
+        },
+        {
+          "text": "32 litres",
+          "why": "Put the decimal point back: 0.4 has one decimal place."
+        },
+        {
+          "text": "0.32 litres",
+          "why": "4 tenths × 8 is 32 tenths, not 32 hundredths."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

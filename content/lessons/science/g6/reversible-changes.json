@@ -1,0 +1,96 @@
+{
+  "skill": "s6.reversible-changes",
+  "title": "Changes you can and cannot undo",
+  "steps": [
+    {
+      "say": "Some changes can be undone. These are reversible changes, such as melting, freezing and dissolving."
+    },
+    {
+      "say": "Melted chocolate sets again when it cools. Salt can be got back from salty water by evaporation."
+    },
+    {
+      "say": "Other changes make new materials. These are irreversible changes, such as burning, cooking and rusting."
+    },
+    {
+      "say": "Signs of a new material include bubbles of gas, a new colour, a new smell, or heat and light."
+    },
+    {
+      "say": "Burning needs fuel, heat and oxygen. Take one of them away and the fire goes out.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "candle",
+            "label": "fuel"
+          },
+          {
+            "icon": "sun",
+            "label": "heat"
+          },
+          {
+            "icon": "wind",
+            "label": "oxygen from air"
+          }
+        ],
+        "alt": "The three things burning needs: fuel, heat and oxygen from the air."
+      }
+    },
+    {
+      "say": "Iron rusts when it meets both water and oxygen. Paint and oil keep them away."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.reversible-changes.901",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which change is irreversible?",
+      "options": [
+        {
+          "text": "melting ice",
+          "why": "Melted ice can be frozen again."
+        },
+        {
+          "text": "frying an egg"
+        },
+        {
+          "text": "dissolving sugar",
+          "why": "The sugar can be got back by evaporating the water."
+        },
+        {
+          "text": "freezing juice",
+          "why": "Frozen juice melts back into juice."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An irreversible change makes a new material.",
+        "Ask which change you could never undo by cooling or heating.",
+        "Cross out the changes of state and the dissolving."
+      ],
+      "explanation": "Frying an egg makes new materials, so it cannot be undone. Melting, dissolving and freezing are reversible."
+    },
+    {
+      "id": "s6.reversible-changes.902",
+      "skill": "s6.reversible-changes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Iron needs water and ___ to rust.",
+      "blanks": [
+        {
+          "answers": [
+            "oxygen",
+            "air"
+          ]
+        }
+      ],
+      "hints": [
+        "Rust forms on bicycles left outside.",
+        "The second thing is a gas that fires also need.",
+        "It is the same gas we need to breathe."
+      ],
+      "explanation": "Iron rusts when it reacts with water and oxygen from the air."
+    }
+  ]
+}

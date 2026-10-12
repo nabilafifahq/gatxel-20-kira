@@ -1,0 +1,34 @@
+{
+  "skill": "e3.tenses",
+  "title": "Then, now and later",
+  "steps": [
+    { "say": "Verbs can show when something happens: in the past, the present or the future.", "show": "I played. I play. I will play." },
+    { "say": "Many past tense verbs end in -ed.", "show": "walk → walked, jump → jumped" },
+    { "say": "Some verbs change in a different way. We have to learn these ones.", "show": "go → went, eat → ate, see → saw" },
+    { "say": "The present tense is for now, or for things that happen often. Add -s after he, she or it.", "show": "I run. She runs." },
+    { "say": "Use will with a verb to talk about the future.", "show": "Tomorrow we will swim." },
+    { "say": "Time words help you choose the tense: yesterday, every day and tomorrow.", "show": "Yesterday I swam. Tomorrow I will swim." }
+  ],
+  "check": [
+    {
+      "id": "e3.tenses.901", "skill": "e3.tenses", "type": "mcq", "difficulty": 1,
+      "prompt": "Last week, Joko ___ a kite.",
+      "options": [
+        { "text": "makes", "why": "Makes is the present tense. Last week is in the past." },
+        { "text": "made" },
+        { "text": "will make", "why": "Will make is for the future." },
+        { "text": "making", "why": "Making needs a helper word, like was making." }
+      ],
+      "answer": 1,
+      "hints": ["Last week tells you when.", "Last week is in the past.", "Make is irregular. It does not take -ed."],
+      "explanation": "Last week is in the past, and the past tense of make is made."
+    },
+    {
+      "id": "e3.tenses.902", "skill": "e3.tenses", "type": "text", "difficulty": 2,
+      "prompt": "Write the missing word to show the future.\nNext year, I ___ be nine.",
+      "blanks": [{ "answers": ["will", "shall"] }],
+      "hints": ["Next year is in the future.", "One small word goes in front of a verb to show the future.", "Think of Tomorrow we ___ swim."],
+      "explanation": "We use will to talk about the future: Next year, I will be nine."
+    }
+  ]
+}

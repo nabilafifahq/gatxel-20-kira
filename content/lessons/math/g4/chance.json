@@ -1,0 +1,102 @@
+{
+  "skill": "m4.chance",
+  "title": "Likelihood and even chance",
+  "steps": [
+    {
+      "say": "We can put chance on a scale from impossible to certain.",
+      "show": "impossible, unlikely, even chance, likely, certain"
+    },
+    {
+      "say": "Even chance means it is just as likely to happen as not to happen.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 2,
+        "shaded": 1,
+        "alt": "A spinner with 2 equal parts, 1 part shaded."
+      }
+    },
+    {
+      "say": "A coin landing on heads is an even chance. It lands on heads or tails.",
+      "show": "1 out of 2"
+    },
+    {
+      "say": "6 out of 8 parts are shaded, so landing on a shaded part is likely.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 8,
+        "shaded": 6,
+        "alt": "A spinner with 8 equal parts, 6 parts shaded."
+      }
+    },
+    {
+      "say": "A dice has 6 numbers. Rolling an even number is an even chance.",
+      "show": "2, 4 or 6: 3 out of 6"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.chance.901",
+      "skill": "m4.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A bag has 4 red counters and 4 blue counters. How likely is picking red?",
+      "options": [
+        {
+          "text": "Likely",
+          "why": "There are not more red counters than blue ones."
+        },
+        {
+          "text": "Unlikely",
+          "why": "There are not fewer red counters than blue ones."
+        },
+        {
+          "text": "Even chance"
+        },
+        {
+          "text": "Certain",
+          "why": "Some counters are blue, so red is not certain."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the red counters and the blue counters.",
+        "Are there more of one colour?",
+        "Compare the two numbers."
+      ],
+      "explanation": "There are 4 red and 4 blue counters, the same number of each. So picking red is an even chance."
+    },
+    {
+      "id": "m4.chance.902",
+      "skill": "m4.chance",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A normal dice is rolled. Which is most likely?",
+      "options": [
+        {
+          "text": "Rolling a 6",
+          "why": "Only 1 number out of 6 works."
+        },
+        {
+          "text": "Rolling an even number",
+          "why": "3 numbers out of 6 work: 2, 4 and 6."
+        },
+        {
+          "text": "Rolling a 7",
+          "why": "A normal dice has no 7, so it is impossible."
+        },
+        {
+          "text": "Rolling a number less than 5"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "List the dice numbers that make each one happen.",
+        "More numbers that work means more likely.",
+        "Less than 5 means 1, 2, 3 or 4."
+      ],
+      "explanation": "A number less than 5 works for 4 numbers out of 6. That is more than any of the others."
+    }
+  ]
+}

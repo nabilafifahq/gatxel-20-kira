@@ -1,0 +1,33 @@
+{
+  "skill": "s2.habitats",
+  "title": "Habitats",
+  "steps": [
+    { "say": "A habitat is where a plant or animal lives. It gives food, water and shelter.", "show": "food, water, shelter" },
+    { "say": "A pond is a habitat for frogs, fish and ducks.", "figure": { "kind": "icons", "items": [{ "icon": "pond", "label": "pond" }, { "icon": "frog", "label": "frog" }, { "icon": "fish", "label": "fish" }, { "icon": "duck", "label": "duck" }], "alt": "A pond with a frog, a fish and a duck." } },
+    { "say": "A desert is hot and dry. Camels and cactuses are suited to it.", "figure": { "kind": "icons", "items": [{ "icon": "desert", "label": "desert" }, { "icon": "camel", "label": "camel" }, { "icon": "cactus", "label": "cactus" }], "alt": "A desert with a camel and a cactus." } },
+    { "say": "The icy Arctic is very cold. Polar bears have thick fur and fat.", "figure": { "kind": "icons", "items": [{ "icon": "arctic", "label": "Arctic" }, { "icon": "polar-bear", "label": "polar bear" }], "alt": "The icy Arctic and a polar bear." } },
+    { "say": "Living things have features that suit their habitat.", "show": "suited to its habitat" }
+  ],
+  "check": [
+    {
+      "id": "s2.habitats.901", "skill": "s2.habitats", "type": "mcq", "difficulty": 1,
+      "prompt": "Which animal lives in the icy Arctic?",
+      "options": [
+        { "text": "camel", "why": "Camels live in hot deserts." },
+        { "text": "polar bear" },
+        { "text": "monkey", "why": "Monkeys live in warm forests." },
+        { "text": "frog", "why": "Frogs live in warm, damp places near water." }
+      ],
+      "answer": 1,
+      "hints": ["The Arctic is icy and very cold.", "Which animal has thick white fur?", "Ask: which animal would stay warm in the snow?"],
+      "explanation": "Polar bears live in the icy Arctic. Thick fur and fat keep them warm."
+    },
+    {
+      "id": "s2.habitats.902", "skill": "s2.habitats", "type": "text", "difficulty": 2,
+      "prompt": "The place where an animal lives is its ___.",
+      "blanks": [{ "answers": ["habitat", "home"] }],
+      "hints": ["It gives the animal food, water and shelter.", "A pond is one for frogs.", "The science word starts with h."],
+      "explanation": "The place where an animal lives is its habitat."
+    }
+  ]
+}

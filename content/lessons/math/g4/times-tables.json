@@ -1,0 +1,63 @@
+{
+  "skill": "m4.times-tables",
+  "title": "Times tables up to 10 × 10",
+  "steps": [
+    {
+      "say": "You can build a hard fact from easier facts.",
+      "figure": {
+        "kind": "array",
+        "rows": 7,
+        "cols": 8,
+        "icon": "dot",
+        "alt": "7 rows of 8 dots."
+      },
+      "show": "7 × 8 = 5 × 8 + 2 × 8"
+    },
+    {
+      "say": "5 × 8 = 40 and 2 × 8 = 16.",
+      "show": "40 + 16 = 56"
+    },
+    {
+      "say": "For the 9 times table, work out 10 times, then take away one group.",
+      "show": "9 × 6 = 60 - 6 = 54"
+    },
+    {
+      "say": "Use a fact you know to work with tens.",
+      "show": "7 × 8 = 56, so 70 × 8 = 560"
+    },
+    {
+      "say": "Every times fact gives you division facts too.",
+      "show": "56 ÷ 8 = 7"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.times-tables.901",
+      "skill": "m4.times-tables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 7 × 9?",
+      "answer": 63,
+      "hints": [
+        "Think of 7 × 10 first.",
+        "Then take away one group of 7.",
+        "7 × 10 = 70."
+      ],
+      "explanation": "7 × 10 = 70. 70 - 7 = 63."
+    },
+    {
+      "id": "m4.times-tables.902",
+      "skill": "m4.times-tables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 48 ÷ 6?",
+      "answer": 8,
+      "hints": [
+        "Think of the 6 times table.",
+        "What times 6 makes 48?",
+        "6 × 5 = 30. Keep counting in 6s."
+      ],
+      "explanation": "6 × 8 = 48, so 48 ÷ 6 = 8."
+    }
+  ]
+}

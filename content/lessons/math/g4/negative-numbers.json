@@ -1,0 +1,89 @@
+{
+  "skill": "m4.negative-numbers",
+  "title": "Negative numbers and temperature",
+  "steps": [
+    {
+      "say": "Numbers below zero are negative. We write them with a minus sign, like -3.",
+      "figure": {
+        "kind": "numberline",
+        "min": -5,
+        "max": 5,
+        "step": 1,
+        "labels": "all",
+        "alt": "A number line from -5 to 5."
+      }
+    },
+    {
+      "say": "On a thermometer, temperatures below 0 °C are negative.",
+      "figure": {
+        "kind": "thermometer",
+        "min": -10,
+        "max": 10,
+        "value": -4,
+        "step": 2,
+        "alt": "A thermometer from -10 °C to 10 °C. The liquid stops at -4 °C."
+      },
+      "show": "-4 °C"
+    },
+    {
+      "say": "-4 °C is colder than -1 °C, because it is further below zero.",
+      "show": "-4 < -1"
+    },
+    {
+      "say": "To count across zero, count to 0 first, then keep going.",
+      "show": "-3 to 5: 3 + 5 = 8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.negative-numbers.901",
+      "skill": "m4.negative-numbers",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The temperature is -2 °C. It rises by 6 degrees. What is the temperature now?",
+      "answer": 4,
+      "hints": [
+        "Rising means the temperature goes up.",
+        "Count up to 0 first.",
+        "-2 to 0 is 2 degrees."
+      ],
+      "explanation": "From -2 up to 0 is 2 degrees. 4 more degrees makes 4 °C.",
+      "unit": "°C",
+      "allowNegative": true,
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.negative-numbers.902",
+      "skill": "m4.negative-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which temperature is the coldest?",
+      "options": [
+        {
+          "text": "0 °C",
+          "why": "0 °C is warmer than any temperature below zero."
+        },
+        {
+          "text": "2 °C",
+          "why": "2 °C is above zero, so it is warmer."
+        },
+        {
+          "text": "-3 °C",
+          "why": "-3 °C is closer to zero, so it is warmer than -7 °C."
+        },
+        {
+          "text": "-7 °C"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Negative temperatures are below zero.",
+        "The further below zero, the colder it is.",
+        "Picture the temperatures on a number line."
+      ],
+      "explanation": "-7 °C is the furthest below zero, so it is the coldest."
+    }
+  ]
+}

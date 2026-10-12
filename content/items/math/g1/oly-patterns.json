@@ -1,0 +1,569 @@
+{
+  "skill": "m1.oly-patterns",
+  "items": [
+    {
+      "id": "m1.oly-patterns.001",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The fruit pattern keeps going. Which fruit comes next?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "banana"
+          },
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "banana"
+          },
+          {
+            "icon": "apple"
+          },
+          null
+        ],
+        "alt": "A row of fruit: apple, apple, banana, apple, apple, banana, apple, then an empty space."
+      },
+      "options": [
+        {
+          "text": "Apple"
+        },
+        {
+          "text": "Banana",
+          "why": "A banana comes after two apples. The new group has only one apple so far."
+        },
+        {
+          "text": "Pear",
+          "why": "There are no pears in this pattern."
+        },
+        {
+          "text": "Orange",
+          "why": "There are no oranges in this pattern."
+        },
+        {
+          "text": "Cherry",
+          "why": "There are no cherries in this pattern."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for the part that repeats.",
+        "Say the fruits aloud in groups of three: apple, apple, banana.",
+        "The 7th fruit starts a new group. Which fruit is second in every group?"
+      ],
+      "explanation": "The part that repeats is apple, apple, banana. The 7th fruit is the first apple of a new group, so the next fruit is the second apple.",
+      "solution": [
+        {
+          "say": "The pattern repeats in groups of three.",
+          "show": "apple, apple, banana"
+        },
+        {
+          "say": "Split the row into groups.",
+          "show": "apple, apple, banana | apple, apple, banana | apple, ?"
+        },
+        {
+          "say": "Every group has two apples before the banana. The new group has one apple so far, so the next fruit is an apple."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 60
+    },
+    {
+      "id": "m1.oly-patterns.002",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Mia threads beads in this pattern. She threads 12 beads in all. How many beads are blue?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          }
+        ],
+        "alt": "Beads on a string: red, blue, blue, red, blue, blue. The pattern repeats: 1 red bead, then 2 blue beads."
+      },
+      "options": [
+        {
+          "text": "4",
+          "why": "4 is the number of red beads."
+        },
+        {
+          "text": "6",
+          "why": "6 is half of 12, but each group has more blue beads than red ones."
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "9",
+          "why": "Count the groups again. 12 beads make 4 groups of 3."
+        },
+        {
+          "text": "12",
+          "why": "Not every bead is blue. Each group has 1 red bead."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the group of beads that repeats.",
+        "Each group is red, blue, blue. Count how many groups fit in 12 beads.",
+        "Count in 3s up to 12: 3, 6, 9, 12."
+      ],
+      "explanation": "12 beads make 4 groups of red, blue, blue. Each group has 2 blue beads, so there are 2 + 2 + 2 + 2 = 8 blue beads.",
+      "solution": [
+        {
+          "say": "One group is red, blue, blue. That is 3 beads.",
+          "show": "red, blue, blue"
+        },
+        {
+          "say": "Count in 3s to 12: 3, 6, 9, 12. So there are 4 groups.",
+          "show": "4 groups"
+        },
+        {
+          "say": "Each group has 2 blue beads.",
+          "show": "2 + 2 + 2 + 2 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-patterns.003",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Tom builds staircases with blocks. A staircase with 1 step uses 1 block. With 2 steps it uses 3 blocks. With 3 steps it uses 6 blocks. With 4 steps it uses 10 blocks. How many blocks does a staircase with 5 steps use?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "3",
+          "6",
+          "10",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Blocks needed for staircases with 1, 2, 3 and 4 steps: 1, 3, 6 and 10. The number for 5 steps is missing."
+      },
+      "options": [
+        {
+          "text": "11",
+          "why": "11 adds only 1. The jumps get bigger each time."
+        },
+        {
+          "text": "12",
+          "why": "12 adds 2. The jumps get bigger each time."
+        },
+        {
+          "text": "13",
+          "why": "13 adds 3, but the last jump was already 4."
+        },
+        {
+          "text": "14",
+          "why": "14 adds 4, the same as the last jump. Each jump is 1 more than the one before."
+        },
+        {
+          "text": "15"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Look at how much the number grows each time.",
+        "Write down the jumps: from 1 to 3, from 3 to 6, from 6 to 10.",
+        "The jumps are +2, +3 and +4. What will the next jump be?"
+      ],
+      "explanation": "The numbers grow by 2, then 3, then 4, so the next jump is 5. A staircase with 5 steps uses 10 + 5 = 15 blocks.",
+      "solution": [
+        {
+          "say": "Find how much each staircase grows.",
+          "show": "1, 3, 6, 10"
+        },
+        {
+          "say": "The jumps are 2, 3 and 4. Each jump is 1 more than the one before.",
+          "show": "+2, +3, +4"
+        },
+        {
+          "say": "The next jump is 5.",
+          "show": "10 + 5 = 15"
+        },
+        {
+          "say": "You can also see it as a new column of 5 blocks for the new step."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-patterns.004",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Ani menyusun jeruk dalam beberapa baris. Baris pertama ada 2 jeruk. Baris kedua ada 4 jeruk. Baris ketiga ada 6 jeruk. Berapa jeruk di baris ke-5?",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          4,
+          6
+        ],
+        "icon": "orange",
+        "container": "circle",
+        "alt": "Tiga baris jeruk: baris pertama 2 jeruk, baris kedua 4 jeruk, baris ketiga 6 jeruk."
+      },
+      "options": [
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "12 jeruk ada di baris ke-6."
+        },
+        {
+          "text": "20",
+          "why": "20 adalah jumlah jeruk di 4 baris pertama."
+        },
+        {
+          "text": "30",
+          "why": "30 adalah jumlah semua jeruk di 5 baris."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Lihat berapa jeruk bertambah dari satu baris ke baris berikutnya.",
+        "Setiap baris bertambah 2 jeruk. Lanjutkan polanya.",
+        "Hitung dulu isi baris ke-4, yaitu 6 + 2."
+      ],
+      "explanation": "Setiap baris bertambah 2 jeruk: 2, 4, 6, 8, 10. Jadi baris ke-5 berisi 10 jeruk.",
+      "solution": [
+        {
+          "say": "Cari aturannya. Dari 2 ke 4 tambah 2, dari 4 ke 6 tambah 2.",
+          "show": "+2"
+        },
+        {
+          "say": "Lanjutkan sampai baris ke-5.",
+          "show": "2, 4, 6, 8, 10"
+        },
+        {
+          "say": "Baris ke-5 berisi 10 jeruk."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "menyusun",
+          "en": "to arrange"
+        },
+        {
+          "term": "jeruk",
+          "en": "orange (fruit)"
+        },
+        {
+          "term": "baris",
+          "en": "row"
+        },
+        {
+          "term": "pertama",
+          "en": "first"
+        },
+        {
+          "term": "kedua",
+          "en": "second"
+        },
+        {
+          "term": "ketiga",
+          "en": "third"
+        },
+        {
+          "term": "ke-5",
+          "en": "fifth"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-patterns.005",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A frog starts at 0 on a number line. It jumps 3 each time. Which number will the frog land on?",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "labels": "all",
+        "jumps": [
+          {
+            "from": 0,
+            "to": 3
+          },
+          {
+            "from": 3,
+            "to": 6
+          },
+          {
+            "from": 6,
+            "to": 9
+          }
+        ],
+        "alt": "A number line from 0 to 20. The frog jumps from 0 to 3, then from 3 to 6, then from 6 to 9."
+      },
+      "options": [
+        {
+          "text": "10",
+          "why": "10 is 9 + 1. The frog always jumps 3, not 1."
+        },
+        {
+          "text": "14",
+          "why": "Count on in 3s from 9: 12, 15. The frog jumps over 14."
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "17",
+          "why": "Count in 3s from 0. 17 is not on the list."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The frog only lands on some numbers.",
+        "Count in 3s from 0: 0, 3, 6, 9 and keep going.",
+        "After 9 the frog lands on 12. Keep counting in 3s."
+      ],
+      "explanation": "The frog lands on 0, 3, 6, 9, 12, 15 and 18. Of the four numbers, only 15 is on this list.",
+      "solution": [
+        {
+          "say": "The frog jumps 3 each time, so it lands on the numbers you say when you count in 3s.",
+          "show": "0, 3, 6, 9"
+        },
+        {
+          "say": "Keep going.",
+          "show": "9, 12, 15, 18"
+        },
+        {
+          "say": "15 is on the list. 10, 14 and 17 are not.",
+          "show": "15"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-patterns.006",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the missing number in this pattern?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "2",
+          "4",
+          "7",
+          "11",
+          null,
+          "22"
+        ],
+        "style": "stones",
+        "alt": "Stones with the numbers 1, 2, 4, 7, 11, then a blank stone, then 22."
+      },
+      "answer": 16,
+      "hints": [
+        "Look at the jumps between the numbers.",
+        "From 1 to 2 is +1. From 2 to 4 is +2. Keep going.",
+        "The jumps are +1, +2, +3, +4. What is the next jump?"
+      ],
+      "explanation": "The jumps grow by 1 each time: +1, +2, +3, +4, +5, +6. So the missing number is 11 + 5 = 16, and 16 + 6 = 22 checks out.",
+      "solution": [
+        {
+          "say": "Write the jump between each pair of numbers.",
+          "show": "1, 2, 4, 7, 11"
+        },
+        {
+          "say": "The jumps are +1, +2, +3, +4.",
+          "show": "+1, +2, +3, +4"
+        },
+        {
+          "say": "The next jump is +5.",
+          "show": "11 + 5 = 16"
+        },
+        {
+          "say": "Check: the jump after that is +6.",
+          "show": "16 + 6 = 22"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-patterns.007",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ken writes 1, 2, 3 again and again. He writes 10 numbers in all. What do the 10 numbers add up to?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "2",
+          "3",
+          "1",
+          "2",
+          "3",
+          null,
+          null,
+          null,
+          null
+        ],
+        "style": "circles",
+        "alt": "Ten circles. The first six show 1, 2, 3, 1, 2, 3. The last four are empty."
+      },
+      "answer": 19,
+      "hints": [
+        "Find the group that repeats and its total.",
+        "1 + 2 + 3 = 6. How many full groups fit in 10 numbers?",
+        "Three full groups use 9 numbers. What is the 10th number?"
+      ],
+      "explanation": "Ten numbers are 3 full groups of 1, 2, 3 and then one more 1. That is 6 + 6 + 6 + 1 = 19.",
+      "solution": [
+        {
+          "say": "One group is 1, 2, 3. Its total is 6.",
+          "show": "1 + 2 + 3 = 6"
+        },
+        {
+          "say": "Three groups use 9 numbers. The 10th number starts a new group, so it is 1.",
+          "show": "1, 2, 3 | 1, 2, 3 | 1, 2, 3 | 1"
+        },
+        {
+          "say": "Add it all up.",
+          "show": "6 + 6 + 6 + 1 = 19"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-patterns.008",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Lila makes squares in a row with sticks. 1 square uses 4 sticks. 2 squares use 7 sticks. 3 squares use 10 sticks. How many sticks does she need for 5 squares?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Squares in a row",
+          "Sticks"
+        ],
+        "rows": [
+          [
+            "1",
+            "4"
+          ],
+          [
+            "2",
+            "7"
+          ],
+          [
+            "3",
+            "10"
+          ],
+          [
+            "5",
+            "?"
+          ]
+        ],
+        "alt": "A table: 1 square uses 4 sticks, 2 squares use 7 sticks, 3 squares use 10 sticks. The number of sticks for 5 squares is unknown."
+      },
+      "answer": 16,
+      "hints": [
+        "How many more sticks does each new square need?",
+        "From 4 to 7 is +3, and from 7 to 10 is +3. A new square shares one side.",
+        "Find the number of sticks for 4 squares first."
+      ],
+      "explanation": "Each new square shares a side with the square before it, so it needs only 3 more sticks. 4 squares use 13 sticks and 5 squares use 16 sticks.",
+      "solution": [
+        {
+          "say": "Each new square needs 3 more sticks because one side is shared.",
+          "show": "4, 7, 10"
+        },
+        {
+          "say": "Add 3 for the 4th square.",
+          "show": "10 + 3 = 13"
+        },
+        {
+          "say": "Add 3 again for the 5th square.",
+          "show": "13 + 3 = 16"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "skill": "s5.water-cycle",
+  "title": "Changing state and the water cycle",
+  "steps": [
+    {
+      "say": "Matter can be a solid, a liquid or a gas. Water can be all three: ice, water and water vapour.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ice-cube",
+            "label": "ice (solid)"
+          },
+          {
+            "icon": "water-drop",
+            "label": "water (liquid)"
+          },
+          {
+            "icon": "steam",
+            "label": "water vapour (gas)"
+          }
+        ],
+        "alt": "Ice as a solid, water as a liquid and water vapour as a gas."
+      }
+    },
+    {
+      "say": "Ice melts at 0 °C. Water boils at 100 °C.",
+      "show": "melts at 0 °C, boils at 100 °C"
+    },
+    {
+      "say": "Water can also evaporate below 100 °C. That is how puddles and wet clothes dry."
+    },
+    {
+      "say": "When water vapour cools, it condenses back into liquid water. That is how drops form on a cold glass."
+    },
+    {
+      "say": "In the water cycle, the Sun heats the sea and water evaporates. The water vapour rises, cools and condenses into clouds.",
+      "figure": {
+        "kind": "icons",
+        "arrows": "cycle",
+        "items": [
+          {
+            "icon": "sea",
+            "label": "sea"
+          },
+          {
+            "icon": "steam",
+            "label": "evaporation"
+          },
+          {
+            "icon": "cloud",
+            "label": "condensation"
+          },
+          {
+            "icon": "rain",
+            "label": "precipitation"
+          },
+          {
+            "icon": "river",
+            "label": "collection"
+          }
+        ],
+        "alt": "The water cycle: water evaporates from the sea, condenses into clouds, falls as rain and flows back in rivers."
+      }
+    },
+    {
+      "say": "Rain falls and flows in rivers back to the sea. Then the cycle starts again."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.water-cycle.901",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is it called when water vapour cools and turns into liquid water?",
+      "options": [
+        {
+          "text": "condensing"
+        },
+        {
+          "text": "evaporating",
+          "why": "Evaporating turns a liquid into a gas, the opposite change."
+        },
+        {
+          "text": "melting",
+          "why": "Melting turns a solid into a liquid."
+        },
+        {
+          "text": "freezing",
+          "why": "Freezing turns a liquid into a solid."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "This change goes from a gas to a liquid.",
+        "It happens on a cold glass or a cold window.",
+        "Cross out the changes that start with a solid or a liquid."
+      ],
+      "explanation": "Condensing is the change from a gas to a liquid. Water vapour condenses when it cools."
+    },
+    {
+      "id": "s5.water-cycle.902",
+      "skill": "s5.water-cycle",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "At what temperature does pure water boil at sea level?",
+      "answer": 100,
+      "unit": "°C",
+      "hints": [
+        "Boiling is when water bubbles and turns into a gas quickly.",
+        "It is much hotter than a hot bath.",
+        "Think of the water in a kettle when it starts to bubble hard."
+      ],
+      "explanation": "Pure water boils at 100 °C at sea level and freezes at 0 °C."
+    }
+  ]
+}

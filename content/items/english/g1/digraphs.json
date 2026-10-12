@@ -1,0 +1,397 @@
+{
+  "skill": "e1.digraphs",
+  "items": [
+    {
+      "id": "e1.digraphs.001",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which two letters make the last sound?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish"
+          }
+        ],
+        "alt": "A picture of a fish."
+      },
+      "hints": [
+        "Say the picture name.",
+        "Listen to the end of the word.",
+        "Say the word and hold the last sound. Is it sh, ch or th?"
+      ],
+      "explanation": "Fish ends with sh. The two letters s and h make one sound.",
+      "options": [
+        {
+          "text": "ch",
+          "why": "Ch is the sound at the start of chip. Listen to the end of the word again."
+        },
+        {
+          "text": "sh"
+        },
+        {
+          "text": "th",
+          "why": "Th is the sound at the start of thin. Listen to the end of the word again."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.digraphs.002",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word starts with ch?",
+      "hints": [
+        "Look at the first two letters.",
+        "Ch is the sound at the start of cheese.",
+        "Find c and h next to each other at the start."
+      ],
+      "explanation": "Chip starts with c and h. They make one sound: ch.",
+      "options": [
+        {
+          "text": "chip"
+        },
+        {
+          "text": "ship",
+          "why": "Ship starts with sh."
+        },
+        {
+          "text": "tip",
+          "why": "Tip starts with t."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.digraphs.003",
+      "skill": "e1.digraphs",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing letters: ___ ell",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "shell"
+          }
+        ],
+        "alt": "A seashell."
+      },
+      "hints": [
+        "Say the picture name slowly.",
+        "Two letters make the first sound.",
+        "It is the same sound as the start of shop."
+      ],
+      "explanation": "Shell starts with sh. S and h work together to make one sound.",
+      "blanks": [
+        {
+          "answers": [
+            "sh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.digraphs.004",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word ends with ng?",
+      "hints": [
+        "Look at the last two letters.",
+        "Ng is the sound at the end of sing.",
+        "Find n and g together at the end."
+      ],
+      "explanation": "King ends with n and g. Together they make the sound ng.",
+      "options": [
+        {
+          "text": "kid",
+          "why": "Kid ends with d."
+        },
+        {
+          "text": "kick",
+          "why": "Kick ends with ck."
+        },
+        {
+          "text": "king"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.digraphs.005",
+      "skill": "e1.digraphs",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words by their first sound.",
+      "hints": [
+        "Look at the first two letters of each word.",
+        "Sh sounds like the start of shoe. Ch sounds like the start of cheese.",
+        "Read shop. Which two letters start it?"
+      ],
+      "explanation": "Shop, ship and shed start with sh. Chin, chop and chat start with ch.",
+      "groups": [
+        "sh",
+        "ch"
+      ],
+      "items": [
+        {
+          "text": "shop",
+          "group": 0
+        },
+        {
+          "text": "chin",
+          "group": 1
+        },
+        {
+          "text": "ship",
+          "group": 0
+        },
+        {
+          "text": "chop",
+          "group": 1
+        },
+        {
+          "text": "shed",
+          "group": 0
+        },
+        {
+          "text": "chat",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.digraphs.006",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which letters start the number word? ___ree (3)",
+      "hints": [
+        "Say the number 3 in English.",
+        "Listen to the first sound. Your tongue peeks out between your teeth.",
+        "Which pair of letters makes that tongue sound?"
+      ],
+      "explanation": "Three starts with th. When you say th, your tongue touches your top teeth.",
+      "options": [
+        {
+          "text": "th"
+        },
+        {
+          "text": "sh",
+          "why": "Shree is not a word. Say the number 3 slowly."
+        },
+        {
+          "text": "ch",
+          "why": "Chree is not a word. Say the number 3 slowly."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.digraphs.007",
+      "skill": "e1.digraphs",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to the sound at its end.",
+      "hints": [
+        "Look at the last two letters of each word.",
+        "Two letters make one sound at the end.",
+        "Start with fish. Which two letters end it?"
+      ],
+      "explanation": "Fish ends with sh, much with ch, bath with th and sing with ng.",
+      "pairs": [
+        [
+          "fish",
+          "sh"
+        ],
+        [
+          "much",
+          "ch"
+        ],
+        [
+          "bath",
+          "th"
+        ],
+        [
+          "sing",
+          "ng"
+        ]
+      ]
+    },
+    {
+      "id": "e1.digraphs.008",
+      "skill": "e1.digraphs",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Put sh in front of op. Write the new word.",
+      "hints": [
+        "Sh goes at the very start.",
+        "Then add the letters o and p.",
+        "Blend it: sh, o, p."
+      ],
+      "explanation": "Sh and op make shop, a place where you buy things.",
+      "blanks": [
+        {
+          "answers": [
+            "shop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.digraphs.009",
+      "skill": "e1.digraphs",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the words with sh.",
+      "hints": [
+        "Look for s and h next to each other.",
+        "Sh can be at the start or at the end of a word.",
+        "Check the first two and the last two letters of each word."
+      ],
+      "explanation": "Shop, fish and wish all have sh. Chip has ch and thin has th.",
+      "options": [
+        {
+          "text": "shop"
+        },
+        {
+          "text": "chip",
+          "why": "Chip has ch, not sh."
+        },
+        {
+          "text": "fish"
+        },
+        {
+          "text": "thin",
+          "why": "Thin has th, not sh."
+        },
+        {
+          "text": "wish"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e1.digraphs.010",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word starts with the same sound as cheese?",
+      "hints": [
+        "What are the first two letters of cheese?",
+        "Find a word that starts with the same two letters.",
+        "Say cheese, then say each word. Do they start the same?"
+      ],
+      "explanation": "Cheese and chair both start with ch.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "shoe",
+          "why": "Shoe starts with sh. Cheese starts with ch."
+        },
+        {
+          "text": "chair"
+        },
+        {
+          "text": "cat",
+          "why": "Cat starts with c. Cheese starts with two letters, ch."
+        },
+        {
+          "text": "three",
+          "why": "Three starts with th."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.digraphs.011",
+      "skill": "e1.digraphs",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Change sh to ch. What does ship become?",
+      "hints": [
+        "Keep the end of the word the same.",
+        "Take away the s and h at the start.",
+        "Put c and h at the start, then read it."
+      ],
+      "explanation": "Ship with ch instead of sh is chip.",
+      "blanks": [
+        {
+          "answers": [
+            "chip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.digraphs.012",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word has sh, ch, th or ng at both ends?",
+      "hints": [
+        "Look at the start and the end of each word.",
+        "The two-letter sounds are sh, ch, th and ng.",
+        "Check each word: two letters at the start? Two letters at the end?"
+      ],
+      "explanation": "Thing starts with th and ends with ng. Both sounds use two letters.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "fish",
+          "why": "Fish has sh at the end, but the f at the start is one letter."
+        },
+        {
+          "text": "chin",
+          "why": "Chin has ch at the start, but the n at the end is one letter."
+        },
+        {
+          "text": "thing"
+        },
+        {
+          "text": "ring",
+          "why": "Ring has ng at the end, but the r at the start is one letter."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.digraphs.013",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the last sound in long?",
+      "hints": [
+        "Say long slowly.",
+        "Some sounds are made by two letters.",
+        "Hum the end of the word. Is it one letter or two letters together?"
+      ],
+      "explanation": "Long ends with ng. N and g together make one sound, like in sing.",
+      "options": [
+        {
+          "text": "g",
+          "why": "In long, n and g work together to make one sound."
+        },
+        {
+          "text": "ng"
+        },
+        {
+          "text": "n",
+          "why": "Listen again. The n and g join to make one sound."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

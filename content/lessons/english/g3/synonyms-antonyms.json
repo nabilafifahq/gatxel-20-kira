@@ -1,0 +1,33 @@
+{
+  "skill": "e3.synonyms-antonyms",
+  "title": "Same and opposite",
+  "steps": [
+    { "say": "Synonyms are words that mean the same, or nearly the same.", "show": "big, large, huge" },
+    { "say": "A synonym can make your writing more interesting. Instead of said, try shouted or whispered.", "show": "said → whispered, shouted, replied" },
+    { "say": "Antonyms are words that mean the opposite.", "show": "hot and cold, up and down" },
+    { "say": "Some antonyms are made with a prefix, like happy and unhappy.", "show": "happy and unhappy, agree and disagree" },
+    { "say": "To check, put the new word in the sentence. A synonym keeps the meaning, and an antonym flips it.", "show": "The soup was hot. The soup was cold." }
+  ],
+  "check": [
+    {
+      "id": "e3.synonyms-antonyms.901", "skill": "e3.synonyms-antonyms", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word is a synonym of small?",
+      "options": [
+        { "text": "huge", "why": "Huge means very big. That is the opposite." },
+        { "text": "little" },
+        { "text": "tall", "why": "Tall is about height, and it does not mean small." },
+        { "text": "loud", "why": "Loud is about sound." }
+      ],
+      "answer": 1,
+      "hints": ["A synonym means the same.", "Think of another word for a tiny kitten.", "Try each word in the sentence: The mouse is ___."],
+      "explanation": "Little means the same as small, so it is a synonym."
+    },
+    {
+      "id": "e3.synonyms-antonyms.902", "skill": "e3.synonyms-antonyms", "type": "text", "difficulty": 2,
+      "prompt": "Write the antonym of open.\nPlease ___ the door when you leave.",
+      "blanks": [{ "answers": ["close", "shut"] }],
+      "hints": ["An antonym is the opposite.", "What do you do to a door after you walk through it?", "Think of a word that means the door is not open any more."],
+      "explanation": "Close, or shut, is the opposite of open."
+    }
+  ]
+}

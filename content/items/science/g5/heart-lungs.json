@@ -1,0 +1,219 @@
+{
+  "skill": "s5.heart-lungs",
+  "items": [
+    {
+      "id": "s5.heart-lungs.001",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which organ pumps blood around your body?",
+      "options": [
+        { "text": "lungs", "why": "The lungs take oxygen from the air. They do not pump blood." },
+        { "text": "stomach", "why": "The stomach breaks down food. It does not pump blood." },
+        { "text": "heart" },
+        { "text": "brain", "why": "The brain controls the body, but it does not pump blood." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which organ keeps beating all day and all night.",
+        "A pump pushes a liquid along tubes. Which organ pushes blood through blood vessels?",
+        "Press two fingers gently on your wrist. The beat you feel comes from this organ."
+      ],
+      "explanation": "The heart is a strong muscle that squeezes many times every minute. Each squeeze pumps blood through the blood vessels to every part of the body."
+    },
+    {
+      "id": "s5.heart-lungs.002",
+      "skill": "s5.heart-lungs",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each part of the body to its job.",
+      "pairs": [
+        ["heart", "pumps blood around the body"],
+        ["lungs", "take oxygen from the air into the blood"],
+        ["blood vessels", "carry blood to every part of the body"],
+        ["ribs", "protect the heart and lungs"]
+      ],
+      "hints": [
+        "Each part has one main job. Some move blood, one takes in air and one protects.",
+        "Think about what each part is made of: a muscle, spongy bags, tubes or bones.",
+        "Find the job that needs a pump first, because only one part is a muscle that squeezes."
+      ],
+      "explanation": "The heart pumps blood and the lungs take in oxygen. Blood vessels carry the blood, and the ribs form a bony cage that protects the heart and lungs."
+    },
+    {
+      "id": "s5.heart-lungs.003",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do veins do?",
+      "options": [
+        { "text": "carry blood away from the heart", "why": "That is the job of arteries." },
+        { "text": "carry blood back to the heart" },
+        { "text": "pump blood around the body", "why": "Pumping is the job of the heart. Veins are tubes." },
+        { "text": "carry air into the lungs", "why": "Air reaches the lungs through the windpipe, not through blood vessels." }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are two main kinds of blood vessel. Each kind carries blood in one direction.",
+        "Blood travels in a loop: out from the heart and then home again.",
+        "Cross out the choice that describes the heart's job, then the choice about air."
+      ],
+      "explanation": "Veins carry blood back to the heart and arteries carry blood away from it. Together they make a loop called the circulation.",
+      "tip": "Arteries carry blood Away from the heart: both words start with A."
+    },
+    {
+      "id": "s5.heart-lungs.004",
+      "skill": "s5.heart-lungs",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these parts into the circulatory system or the breathing system.",
+      "groups": ["Circulatory system", "Breathing system"],
+      "items": [
+        { "text": "heart", "group": 0 },
+        { "text": "artery", "group": 0 },
+        { "text": "vein", "group": 0 },
+        { "text": "blood", "group": 0 },
+        { "text": "lungs", "group": 1 },
+        { "text": "windpipe", "group": 1 },
+        { "text": "nose", "group": 1 },
+        { "text": "diaphragm", "group": 1 }
+      ],
+      "hints": [
+        "The circulatory system moves blood. The breathing system moves air.",
+        "For each part, ask yourself whether blood or air passes through it.",
+        "Place the heart and the lungs first, then sort the tubes and the rest."
+      ],
+      "explanation": "The heart, arteries, veins and blood make up the circulatory system. The nose, windpipe, lungs and the diaphragm muscle below them work together for breathing."
+    },
+    {
+      "id": "s5.heart-lungs.005",
+      "skill": "s5.heart-lungs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Wayan counts 18 beats at his wrist in 15 seconds. What is his pulse rate in beats per minute?",
+      "answer": 72,
+      "unit": "beats per minute",
+      "hints": [
+        "A pulse rate tells you how many beats happen in one whole minute.",
+        "Work out how many 15-second blocks fit into one minute.",
+        "One minute is 60 seconds and 60 ÷ 15 = 4. Multiply his count by that number."
+      ],
+      "explanation": "There are four lots of 15 seconds in a minute, so 18 × 4 = 72 beats per minute. Each beat you feel is one squeeze of the heart.",
+      "solution": [
+        { "say": "One minute has 60 seconds. 60 divided by 15 is 4, so a minute has four 15-second blocks.", "show": "60 ÷ 15 = 4" },
+        { "say": "Wayan felt 18 beats in one block. Multiply by 4 to find the beats in a whole minute.", "show": "18 × 4 = 72" },
+        { "say": "His pulse rate is 72 beats per minute.", "show": "72 beats per minute" }
+      ],
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.heart-lungs.006",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The bar chart shows Citra's heart rate at rest, after walking and after running. Why is it highest after running?",
+      "figure": {
+        "kind": "bars",
+        "categories": ["At rest", "After walking", "After running"],
+        "values": [80, 100, 145],
+        "axisMax": 160,
+        "step": 20,
+        "yLabel": "Heart rate (beats per minute)",
+        "tone": "science",
+        "alt": "Bar chart of Citra's heart rate: at rest 80, after walking 100 and after running 145 beats per minute."
+      },
+      "options": [
+        { "text": "A tired heart beats more slowly.", "why": "The chart shows the heart rate going up after running, so the heart did not slow down." },
+        { "text": "Running uses less energy than walking.", "why": "Running uses more energy than walking, so the muscles need more oxygen." },
+        { "text": "The lungs stop working while you run.", "why": "The lungs keep working. You breathe faster and deeper when you run." },
+        { "text": "Running muscles need more oxygen, so the heart pumps faster." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Compare the three bars. Which activity is the hardest work for your muscles?",
+        "Muscles need oxygen and food to release energy, and blood brings both.",
+        "Ask yourself what the heart must do if the muscles need more oxygen quickly."
+      ],
+      "explanation": "Running muscles use a lot of energy, so they need more oxygen. The heart beats faster to carry more oxygen-rich blood to them.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.heart-lungs.007",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In the lungs, which gas passes from the air into the blood?",
+      "options": [
+        { "text": "carbon dioxide", "why": "Carbon dioxide moves the other way, from the blood into the lungs, and you breathe it out." },
+        { "text": "nitrogen", "why": "Most of the air is nitrogen, but your body does not use it, so you breathe it back out." },
+        { "text": "oxygen" },
+        { "text": "water vapour", "why": "You breathe out some water vapour. The gas your blood takes in is a different one." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which gas every cell in your body needs to release energy.",
+        "Your body takes in one gas and gets rid of a waste gas. Find each one.",
+        "Cross out the waste gas first. Then cross out the gas your body does not use."
+      ],
+      "explanation": "Oxygen passes from the air in the lungs into the blood. At the same time, carbon dioxide passes from the blood into the lungs and is breathed out.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.heart-lungs.008",
+      "skill": "s5.heart-lungs",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the parts in order to show the path oxygen takes from the air to your leg muscles.",
+      "items": ["nose", "windpipe", "lungs", "heart", "arteries", "leg muscles"],
+      "hints": [
+        "Oxygen starts in the air outside your body and ends in your leg muscles.",
+        "First follow the air into your body. Then follow the blood that picks up the oxygen.",
+        "Air goes in through your nose first. Decide which tube it goes down next."
+      ],
+      "explanation": "Air goes through the nose and down the windpipe into the lungs, where oxygen enters the blood. The blood goes to the heart, which pumps it through arteries to the muscles.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.heart-lungs.009",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How is the air you breathe out different from the air you breathe in?",
+      "options": [
+        { "text": "It has less oxygen and more carbon dioxide." },
+        { "text": "It has no oxygen at all.", "why": "Breathed-out air still has some oxygen, just less than before." },
+        { "text": "It is only carbon dioxide.", "why": "Most breathed-out air is nitrogen. It also has some oxygen and more carbon dioxide than before." },
+        { "text": "It has more oxygen than breathed-in air.", "why": "Your body takes oxygen out of the air, so less is left." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Your body keeps some gas from each breath and adds another gas to it.",
+        "Think about which gas your blood takes out and which waste gas it puts back.",
+        "Picture one breath going in and coming out. Decide which gas goes down and which goes up."
+      ],
+      "explanation": "Your blood takes some oxygen from each breath and adds carbon dioxide. So breathed-out air has less oxygen and more carbon dioxide, but it still contains some oxygen.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.heart-lungs.010",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Climbers high on a mountain breathe faster, even when they are resting. Which is the best explanation?",
+      "options": [
+        { "text": "Gravity is stronger high up, so breathing is harder.", "why": "Gravity is very slightly weaker high up, and it does not change how fast you breathe." },
+        { "text": "Cold air makes the lungs smaller.", "why": "Your lungs stay the same size. The problem is what each breath contains." },
+        { "text": "The air is warmer, so the body needs to cool down.", "why": "Air high on a mountain is colder than air lower down." },
+        { "text": "Each breath holds less oxygen, so they breathe faster to get enough." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Air gets thinner the higher you go.",
+        "Think about what your body needs from each breath, and whether thin air gives enough of it.",
+        "Compare one breath at the beach with one breath on a high mountain. Decide which holds more oxygen."
+      ],
+      "explanation": "High up, the air is thinner, so each breath contains less oxygen. The body breathes faster, and the heart beats faster, to take in and carry enough oxygen.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

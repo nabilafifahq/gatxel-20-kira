@@ -1,0 +1,34 @@
+{
+  "skill": "e4.apostrophes",
+  "title": "Showing who owns it",
+  "steps": [
+    { "say": "An apostrophe and s can show that something belongs to someone.", "show": "the dog's bone = the bone that belongs to the dog" },
+    { "say": "For one owner, add an apostrophe and s.", "show": "Rina's hat, the teacher's desk" },
+    { "say": "For more than one owner, add just an apostrophe after the plural s.", "show": "the girls' bags, the teachers' room" },
+    { "say": "If the plural does not end in s, add an apostrophe and s.", "show": "the children's toys, the men's coats" },
+    { "say": "Plurals that do not own anything need no apostrophe.", "show": "I bought two apples." },
+    { "say": "Its shows belonging and has no apostrophe. It's means it is.", "show": "The dog wagged its tail. It's raining." }
+  ],
+  "check": [
+    {
+      "id": "e4.apostrophes.901", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which shows that the ball belongs to Sam?",
+      "options": [
+        { "text": "Sams ball", "why": "There is no apostrophe, so it does not show belonging." },
+        { "text": "Sam's ball" },
+        { "text": "Sams' ball", "why": "Sam is one person, so the apostrophe goes before the s." },
+        { "text": "Sam ball's", "why": "The apostrophe goes on the owner, not on ball." }
+      ],
+      "answer": 1,
+      "hints": ["Sam is the owner.", "For one owner, add an apostrophe and s.", "Write Sam first, then the apostrophe."],
+      "explanation": "Sam is one owner, so we add 's: Sam's ball."
+    },
+    {
+      "id": "e4.apostrophes.902", "skill": "e4.apostrophes", "type": "text", "difficulty": 2,
+      "prompt": "Write it a shorter way, with an apostrophe.\nthe nests of the birds",
+      "blanks": [{ "answers": ["the birds' nests", "birds' nests"] }],
+      "hints": ["There is more than one bird.", "The plural birds ends in s.", "Add just an apostrophe after the s, then write nests."],
+      "explanation": "Birds is a plural ending in s, so we add just an apostrophe: the birds' nests."
+    }
+  ]
+}

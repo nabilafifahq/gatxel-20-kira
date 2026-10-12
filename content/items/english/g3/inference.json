@@ -1,0 +1,185 @@
+{
+  "skill": "e3.inference",
+  "items": [
+    {
+      "id": "e3.inference.001", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e3.p.rain-at-the-market",
+      "prompt": "How did Grandma feel about Dewi's idea?",
+      "options": [
+        { "text": "proud" },
+        { "text": "cross", "why": "Grandma hugs Dewi, so she is not cross." },
+        { "text": "bored", "why": "Nothing in the story shows that Grandma is bored." },
+        { "text": "scared", "why": "Grandma is worried about the rain at first, but not about the idea." }
+      ],
+      "answer": 0,
+      "hints": ["Look at the end of the story.", "What does Grandma do and say to Dewi?", "Think about how you feel when you hug someone and call their idea clever."],
+      "explanation": "Grandma gives Dewi a big hug, calls it a clever idea and says Dewi can be the boss. These clues show she is proud.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.002", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e3.p.rain-at-the-market",
+      "prompt": "The rain drummed on the leaves. What does drummed mean here?",
+      "options": [
+        { "text": "played music on a drum", "why": "There is no real drum. The rain only sounded like one." },
+        { "text": "fell very softly", "why": "Pouring rain is heavy, not soft." },
+        { "text": "made a loud tapping sound" },
+        { "text": "stopped suddenly", "why": "The rain kept falling while it drummed." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the sound a drum makes.", "The rain was pouring down on the wide leaves.", "Imagine heavy raindrops hitting a big leaf. What would you hear?"],
+      "explanation": "Drummed means the rain made a loud tapping sound on the leaves, like someone playing a drum.",
+      "tags": ["reading", "iklc"], "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.003", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e3.p.green-sea-turtles",
+      "prompt": "Why can bright lights near a beach be a problem for baby turtles?",
+      "options": [
+        { "text": "The lights make the sand too hot.", "why": "The text does not say lights heat the sand." },
+        { "text": "The babies might head towards the lights instead of the sea." },
+        { "text": "The lights wake up the mother turtle.", "why": "The text is about the babies, not the mother." },
+        { "text": "The babies are scared of the dark.", "why": "The text does not say this." }
+      ],
+      "answer": 1,
+      "hints": ["Find the section called Helping turtles.", "How do baby turtles find their way to the sea?", "What would happen if a building was brighter than the sky over the water?"],
+      "explanation": "Baby turtles head for the brightest part of the sky. If a building is brighter, they might walk towards it and away from the sea.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.004", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e3.p.green-sea-turtles",
+      "prompt": "The baby turtles scurry down to the water. What does scurry mean?",
+      "options": [
+        { "text": "swim slowly", "why": "They are on the sand, not in the water yet." },
+        { "text": "fall asleep", "why": "Falling asleep would not get them to the water." },
+        { "text": "dig a hole", "why": "The mother digs. The babies are going to the sea." },
+        { "text": "move quickly with small steps" }
+      ],
+      "answer": 3,
+      "hints": ["Think about what tiny new turtles do when they hatch.", "They are going from the nest to the sea.", "Try each answer in the sentence instead of scurry."],
+      "explanation": "Scurry means to move quickly with short, small steps, like the baby turtles hurrying to the sea.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.005", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "passage": "e3.p.kite-day",
+      "prompt": "Why would the kite not fly at first?",
+      "options": [
+        { "text": "The string was broken.", "why": "The poet could tug the string, so it was not broken." },
+        { "text": "It was raining.", "why": "The poem says the air was hot, not rainy." },
+        { "text": "There was no wind." },
+        { "text": "The kite was too heavy.", "why": "The poem does not say the kite was heavy." }
+      ],
+      "answer": 2,
+      "hints": ["Read the second verse.", "The poem says the air was hot and still.", "What does a kite need to lift it into the sky?"],
+      "explanation": "The air was still, which means there was no wind. A kite needs wind to fly.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.006", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "passage": "e3.p.kite-day",
+      "prompt": "Why does the poet say thank you to the wind?",
+      "options": [
+        { "text": "The wind helped the kite fly high." },
+        { "text": "The wind blew the kite away.", "why": "The poet winds the kite in safely at the end." },
+        { "text": "The wind cooled the poet down.", "why": "The poem does not say this." },
+        { "text": "The wind stopped the rain.", "why": "There is no rain in the poem." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what the breeze did in the middle of the poem.", "Why was the poet happy by the end?", "Find the lines about the breeze lifting the kite."],
+      "explanation": "The breeze lifted the kite high above the town. The poet is thankful and wants the wind to come back tomorrow.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.007", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e3.p.missing-library-book",
+      "prompt": "Why did Lucy think of the table by the window?",
+      "options": [
+        { "text": "Mrs Lim told her to look there.", "why": "Mrs Lim comes in after the book is found." },
+        { "text": "Amir said they had art after reading, and they painted at that table." },
+        { "text": "She saw the yellow book from the door.", "why": "She only finds it when she lifts the paper." },
+        { "text": "She always sits at that table.", "why": "The play does not say this." }
+      ],
+      "answer": 1,
+      "hints": ["Read what Amir says when Lucy asks about the morning.", "What did the class do after quiet reading time?", "Where did the class do that?"],
+      "explanation": "Amir remembered they had art after reading. Lucy knew they painted at the big table, so the book could be under the painting paper.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.008", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "passage": "e3.p.letter-to-grandad",
+      "prompt": "Bima writes: I picked a whole basket! Well, half a basket. What does this show?",
+      "options": [
+        { "text": "Bima lost half of his tea.", "why": "Nothing in the letter says he lost any tea." },
+        { "text": "Bima did not like picking tea.", "why": "He sounds excited, not unhappy." },
+        { "text": "Bima's basket was broken.", "why": "The letter does not say this." },
+        { "text": "Bima is being honest, and it is a little joke." }
+      ],
+      "answer": 3,
+      "hints": ["Read the two sentences together.", "Did Bima really pick a whole basket?", "Why would someone change what they have just said?"],
+      "explanation": "Bima first says a whole basket, then tells the truth: only half. He is being honest in a funny way, and the next sentence says it was harder than it looked.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.009", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "passage": "e3.p.letter-to-grandad",
+      "prompt": "Bima says the tea was mild. What does mild mean here?",
+      "options": [
+        { "text": "very strong and bitter", "why": "Bima expected bitter, but it was mild instead." },
+        { "text": "not strong" },
+        { "text": "very cold", "why": "Mild here describes the taste, not the temperature." },
+        { "text": "very sweet", "why": "The letter does not say the tea was sweet." }
+      ],
+      "answer": 1,
+      "hints": ["Read the whole sentence about the tea.", "The word but shows a difference from what Bima expected.", "If it was not bitter, what was it like?"],
+      "explanation": "Bima thought the tea would be bitter, but it was mild. Mild means gentle and not strong.",
+      "tags": ["reading", "iklc"], "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.010", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "passage": "e3.p.paper-boat",
+      "prompt": "What could go wrong if you skipped step 2?",
+      "options": [
+        { "text": "The paper would get soggy.", "why": "Soggy paper comes from water, not from folding." },
+        { "text": "You would not need the crayon.", "why": "The crayon is for the outside, not for step 2." },
+        { "text": "You would have no crease to show the middle for step 3." },
+        { "text": "The boat would be too big.", "why": "Step 2 does not change the size of the paper." }
+      ],
+      "answer": 2,
+      "hints": ["Read step 2 and then step 3.", "What does step 2 make?", "What does step 3 need you to find?"],
+      "explanation": "Step 2 makes the middle crease. Step 3 says to fold the corners to meet at that crease. Without it, the corners might not meet in the right place.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.011", "skill": "e3.inference", "type": "mcq", "difficulty": 5,
+      "passage": "e3.p.bamboo",
+      "prompt": "Why is bamboo good for the planet? Choose the answer the report supports best.",
+      "options": [
+        { "text": "Pandas eat it, so it is never cut down.", "why": "Pandas are a fun fact. The report does not say this." },
+        { "text": "It grows back after it is cut, and its roots hold the soil." },
+        { "text": "It is a kind of tree that lives for hundreds of years.", "why": "Bamboo is a grass, not a tree." },
+        { "text": "It can be made into bicycles that never break.", "why": "The report does not say the bicycles never break." }
+      ],
+      "answer": 1,
+      "hints": ["Find the section called Good for the planet.", "That section gives two reasons.", "Check that every part of your answer is in the report."],
+      "explanation": "The report says new stems grow back after bamboo is cut, and the roots hold the soil together. The right answer has both reasons.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e3.inference.012", "skill": "e3.inference", "type": "mcq", "difficulty": 1,
+      "passage": "e3.p.bamboo",
+      "prompt": "A bamboo stem is hollow inside. What does hollow mean?",
+      "options": [
+        { "text": "very heavy", "why": "Hollow is about the inside, not the weight." },
+        { "text": "full of water", "why": "Hollow means there is nothing inside." },
+        { "text": "bright green", "why": "Hollow is not a colour." },
+        { "text": "empty inside" }
+      ],
+      "answer": 3,
+      "hints": ["Think of a drinking straw.", "What is in the middle of a straw?", "Picture a bamboo tube used to make an angklung."],
+      "explanation": "Hollow means empty inside, like a straw. That is why bamboo tubes can be used to make musical notes.",
+      "tags": ["reading"], "expectedSeconds": 90
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "skill": "m2.subtraction",
+  "title": "Subtracting 2-digit numbers",
+  "steps": [
+    {
+      "say": "Take away the tens, then take away the ones.",
+      "show": "76 - 34: 76 - 30 = 46, then 46 - 4 = 42"
+    },
+    {
+      "say": "To find a difference, count on from the smaller number.",
+      "figure": {
+        "kind": "numberline",
+        "min": 30,
+        "max": 50,
+        "step": 1,
+        "labels": [
+          30,
+          40,
+          50
+        ],
+        "jumps": [
+          {
+            "from": 38,
+            "to": 40,
+            "label": "+2"
+          },
+          {
+            "from": 40,
+            "to": 45,
+            "label": "+5"
+          }
+        ],
+        "alt": "Counting on from 38 to 40, then from 40 to 45."
+      },
+      "show": "45 - 38 = 7"
+    },
+    {
+      "say": "Check by adding the answer back on.",
+      "show": "42 + 34 = 76"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.subtraction.901",
+      "skill": "m2.subtraction",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "68 - 23 = ___",
+      "hints": [
+        "Take away the tens first.",
+        "68 - 20 = 48.",
+        "Now take away 3 from 48."
+      ],
+      "explanation": "68 - 20 = 48, then 48 - 3 = 45.",
+      "answer": 45
+    },
+    {
+      "id": "m2.subtraction.902",
+      "skill": "m2.subtraction",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "What is the difference between 27 and 35?",
+      "hints": [
+        "The difference is how far apart the numbers are.",
+        "Count on from 27 to 35.",
+        "Jump from 27 to 30 first. Then on to 35."
+      ],
+      "explanation": "From 27 to 30 is 3, and from 30 to 35 is 5. 3 + 5 = 8.",
+      "answer": 8
+    }
+  ]
+}

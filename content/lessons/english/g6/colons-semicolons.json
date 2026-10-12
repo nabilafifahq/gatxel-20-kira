@@ -1,0 +1,77 @@
+{
+  "skill": "e6.colons-semicolons",
+  "title": "Colons and semicolons",
+  "steps": [
+    {
+      "say": "A colon comes after a complete clause. It introduces a list, an example or an explanation.",
+      "show": "Pack three things: a hat, a map and water."
+    },
+    {
+      "say": "A colon can introduce an explanation of the first clause.",
+      "show": "Raka was soaked: he had forgotten his umbrella."
+    },
+    {
+      "say": "A semicolon joins two complete clauses that are closely linked.",
+      "show": "Lions hunt at night; eagles hunt by day."
+    },
+    {
+      "say": "A comma alone cannot join two complete clauses. Use a semicolon, a full stop or a conjunction."
+    },
+    {
+      "say": "In a list where items already contain commas, use semicolons between the items."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.colons-semicolons.901",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which punctuation mark belongs in the gap? We need three colours ___ red, blue and yellow.",
+      "options": [
+        {
+          "text": "a colon"
+        },
+        {
+          "text": "a semicolon",
+          "why": "A semicolon joins two complete clauses. Red, blue and yellow is a list."
+        },
+        {
+          "text": "a question mark",
+          "why": "This is not a question."
+        },
+        {
+          "text": "an exclamation mark",
+          "why": "This does not show strong feeling."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what comes after the gap.",
+        "Is it a list or a complete clause?",
+        "Which mark introduces a list after a complete clause?"
+      ],
+      "explanation": "A colon introduces the list: We need three colours: red, blue and yellow."
+    },
+    {
+      "id": "e6.colons-semicolons.902",
+      "skill": "e6.colons-semicolons",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A semicolon is missing. Write the word that should come straight after it. The sun was shining the beach was crowded.",
+      "blanks": [
+        {
+          "answers": [
+            "the"
+          ]
+        }
+      ],
+      "hints": [
+        "There are two complete clauses here.",
+        "Find where the first clause ends.",
+        "What was shining? Where does that idea end?"
+      ],
+      "explanation": "The sun was shining; the beach was crowded. The semicolon joins two linked clauses."
+    }
+  ]
+}

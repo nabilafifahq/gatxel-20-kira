@@ -1,0 +1,141 @@
+{
+  "skill": "e4.word-families",
+  "items": [
+    {
+      "id": "e4.word-families.001", "skill": "e4.word-families", "type": "mcq", "difficulty": 1,
+      "prompt": "What is the root word of helpful?",
+      "options": [
+        { "text": "help" },
+        { "text": "ful", "why": "-ful is the suffix, not the root word." },
+        { "text": "helper", "why": "Helper is in the same family, but it is not the root word." },
+        { "text": "helpless", "why": "Helpless is in the same family, but it is longer than the root." }
+      ],
+      "answer": 0,
+      "hints": ["The root word is the main part of the word.", "Take away the suffix at the end.", "What is left when you take off -ful?"],
+      "explanation": "The root word is help. The suffix -ful is added to make helpful.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.word-families.002", "skill": "e4.word-families", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word is in the same word family as play?",
+      "options": [
+        { "text": "plate", "why": "Plate starts with pla, but it has nothing to do with playing." },
+        { "text": "plan", "why": "Plan is not about playing." },
+        { "text": "player" },
+        { "text": "place", "why": "Place is not about playing." }
+      ],
+      "answer": 2,
+      "hints": ["Words in a family share a root word and a meaning.", "Look for a word that has the whole word play in it.", "Does the word have something to do with playing?"],
+      "explanation": "Player has the root word play in it, and it means someone who plays.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.word-families.003", "skill": "e4.word-families", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the words in the friend word family.",
+      "options": [
+        { "text": "friendly" },
+        { "text": "fried", "why": "Fried is about cooking, not friends." },
+        { "text": "friendship" },
+        { "text": "fright", "why": "Fright means a sudden fear." },
+        { "text": "unfriendly" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["A word family shares the same root word.", "Look for the whole word friend inside each word.", "Check the meaning too. Is it about being a friend?"],
+      "explanation": "Friendly, friendship and unfriendly all contain the root word friend, and they are all about friends."
+    },
+    {
+      "id": "e4.word-families.004", "skill": "e4.word-families", "type": "match", "difficulty": 2,
+      "prompt": "Match each word to its root word.",
+      "pairs": [["teacher", "teach"], ["careless", "care"], ["rebuild", "build"], ["unhappy", "happy"], ["magician", "magic"]],
+      "hints": ["Take off any prefix or suffix.", "What is the main word that is left?", "Start with rebuild. Take off re-."],
+      "explanation": "The root word is what is left after you take off the prefix and the suffix, like build in rebuild."
+    },
+    {
+      "id": "e4.word-families.005", "skill": "e4.word-families", "type": "text", "difficulty": 3,
+      "prompt": "Write the root word of unkindness.",
+      "blanks": [{ "answers": ["kind"] }],
+      "hints": ["This word has a prefix and a suffix.", "Take off un- at the front.", "Now take off the suffix at the end."],
+      "explanation": "Un + kind + ness = unkindness. The root word is kind."
+    },
+    {
+      "id": "e4.word-families.006", "skill": "e4.word-families", "type": "mcq", "difficulty": 2,
+      "prompt": "An actor is someone who acts. What is a musician?",
+      "options": [
+        { "text": "a song with no words", "why": "A musician is a person." },
+        { "text": "a music lesson", "why": "A musician is a person, not a lesson." },
+        { "text": "a place to keep music", "why": "A musician is a person, not a place." },
+        { "text": "someone who plays music" }
+      ],
+      "answer": 3,
+      "hints": ["Look at the root word inside musician.", "The ending -ian often means a person.", "Think of magician: someone who does magic."],
+      "explanation": "Musician comes from music. The ending -ian means a person, so a musician is someone who plays music."
+    },
+    {
+      "id": "e4.word-families.007", "skill": "e4.word-families", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the words into their word families.",
+      "groups": ["sign family", "act family", "light family"],
+      "items": [
+        { "text": "signal", "group": 0 }, { "text": "signature", "group": 0 }, { "text": "signpost", "group": 0 },
+        { "text": "action", "group": 1 }, { "text": "actor", "group": 1 }, { "text": "active", "group": 1 },
+        { "text": "sunlight", "group": 2 }, { "text": "lighthouse", "group": 2 }
+      ],
+      "hints": ["Look for the root word inside each word.", "Each word has sign, act or light inside it.", "Start with lighthouse. Which root word can you see?"],
+      "explanation": "Signal, signature and signpost share sign. Action, actor and active share act. Sunlight and lighthouse share light."
+    },
+    {
+      "id": "e4.word-families.008", "skill": "e4.word-families", "type": "text", "difficulty": 2,
+      "prompt": "Use a word from the care family.\nPlease be ___ with the glass vase.",
+      "blanks": [{ "answers": ["careful"] }],
+      "hints": ["The care family has words ending in -ful, -less and -er.", "You need a word that means taking care.", "Read the sentence with each care word in the gap."],
+      "explanation": "Careful means full of care. You should be careful with a glass vase."
+    },
+    {
+      "id": "e4.word-families.009", "skill": "e4.word-families", "type": "mcq", "difficulty": 4,
+      "prompt": "Use the word family to work out the meaning. What is childhood?",
+      "options": [
+        { "text": "a hood for a child", "why": "The ending -hood here does not mean a hat!" },
+        { "text": "the time when you are a child" },
+        { "text": "a group of children", "why": "That would be a class or a group." },
+        { "text": "a children's game", "why": "Childhood is a time of life, not a game." }
+      ],
+      "answer": 1,
+      "hints": ["The root word is child.", "The ending -hood can mean a time of life.", "Think of the word babyhood."],
+      "explanation": "Childhood means the time of your life when you are a child. The suffix -hood can mean a time or state."
+    },
+    {
+      "id": "e4.word-families.010", "skill": "e4.word-families", "type": "mcq", "difficulty": 4,
+      "prompt": "Which word is NOT in the same family as the others?",
+      "options": [
+        { "text": "single" },
+        { "text": "signal", "why": "Signal comes from sign." },
+        { "text": "signature", "why": "Signature comes from sign: you sign your name." },
+        { "text": "signpost", "why": "A signpost is a post that holds signs." }
+      ],
+      "answer": 0,
+      "hints": ["Three of the words are linked by meaning to sign.", "Starting with the same letters is not enough.", "Which word has nothing to do with signs or signing?"],
+      "explanation": "Single starts with sig, but it means one. It has nothing to do with sign, so it is not in the family.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.word-families.011", "skill": "e4.word-families", "type": "text", "difficulty": 3,
+      "prompt": "Use two words from the act family.\nThe ___ was very ___ on stage, jumping and dancing.",
+      "blanks": [{ "answers": ["actor", "actress"] }, { "answers": ["active"] }],
+      "hints": ["One word names a person. The other describes someone who moves a lot.", "Both words start with act.", "Start with the person. What do you call someone who acts in a play?"],
+      "explanation": "An actor is a person who acts. Active means moving a lot."
+    },
+    {
+      "id": "e4.word-families.012", "skill": "e4.word-families", "type": "mcq", "difficulty": 5,
+      "prompt": "Bio means life and graph means writing. Which word means the written story of a person's life?",
+      "options": [
+        { "text": "biology", "why": "Biology is the study of living things." },
+        { "text": "biscuit", "why": "Biscuit starts with bi, but it is a food!" },
+        { "text": "biography" },
+        { "text": "bicycle", "why": "In bicycle, bi means two wheels." }
+      ],
+      "answer": 2,
+      "hints": ["Look for a word with bio at the start.", "Then look for the part that means writing.", "Which word has both parts?"],
+      "explanation": "Biography is made of bio (life) and graph (writing). It is a written story of a person's life.",
+      "tags": ["iklc"]
+    }
+  ]
+}

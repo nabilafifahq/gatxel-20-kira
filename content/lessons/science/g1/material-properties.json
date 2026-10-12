@@ -1,0 +1,37 @@
+{
+  "skill": "s1.material-properties",
+  "title": "How does it feel?",
+  "steps": [
+    { "say": "Materials have properties. A property tells us what a material is like.", "show": "property" },
+    { "say": "Hard things do not squash. Soft things squash when you press them.", "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "hard" }, { "icon": "sponge", "label": "soft" }], "alt": "A hard rock and a soft sponge." } },
+    { "say": "Rough things feel bumpy. Smooth things feel flat and even.", "show": "rough, smooth" },
+    { "say": "Shiny things reflect light. Bendy things change shape when you bend them.", "show": "shiny, bendy" },
+    { "say": "A rubber band is stretchy. It gets longer when you pull it.", "figure": { "kind": "icons", "items": [{ "icon": "rubber-band", "label": "stretchy" }], "alt": "A stretchy rubber band." } }
+  ],
+  "check": [
+    {
+      "id": "s1.material-properties.901", "skill": "s1.material-properties", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word describes a sponge?",
+      "options": [
+        { "text": "hard", "why": "A sponge squashes when you press it." },
+        { "text": "soft" },
+        { "text": "shiny", "why": "A sponge looks dull." }
+      ],
+      "answer": 1,
+      "hints": ["Think about squeezing a sponge.", "Does it change shape when you press it?", "Press your hand into a sponge in your mind."],
+      "explanation": "A sponge is soft. It squashes when we press it."
+    },
+    {
+      "id": "s1.material-properties.902", "skill": "s1.material-properties", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one is shiny?",
+      "options": [
+        { "text": "a mirror" },
+        { "text": "a sock", "why": "A sock looks dull." },
+        { "text": "a brick", "why": "A brick looks dull and rough." }
+      ],
+      "answer": 0,
+      "hints": ["Shiny things reflect light.", "Which one can you see yourself in?", "Picture each one in sunshine."],
+      "explanation": "A mirror is shiny. It reflects light so well that you can see yourself."
+    }
+  ]
+}

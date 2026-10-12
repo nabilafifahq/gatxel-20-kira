@@ -1,0 +1,155 @@
+{
+  "skill": "s1.animal-groups",
+  "items": [
+    {
+      "id": "s1.animal-groups.001", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 1,
+      "prompt": "Which animal has feathers?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cat", "label": "cat" }, { "icon": "fish", "label": "fish" }, { "icon": "bird", "label": "bird" }], "alt": "Three animals: a cat, a fish and a bird." },
+      "options": [
+        { "text": "a cat", "why": "A cat has fur." },
+        { "text": "a fish", "why": "A fish has scales." },
+        { "text": "a bird" }
+      ],
+      "answer": 2,
+      "hints": ["Feathers are soft and help some animals fly.", "Which animal has wings?", "Look at each picture. Which one could fly?"],
+      "explanation": "Birds are the only animals with feathers. Feathers keep them warm and help them fly."
+    },
+    {
+      "id": "s1.animal-groups.002", "skill": "s1.animal-groups", "type": "numeric", "difficulty": 1,
+      "prompt": "How many legs does a spider have?",
+      "figure": { "kind": "icons", "items": [{ "icon": "spider", "label": "spider" }], "alt": "A spider with 4 legs on each side of its body." },
+      "answer": 8,
+      "hints": ["Look closely at the picture.", "Count the legs on one side, then the other side.", "Touch each leg on one side as you count."],
+      "explanation": "A spider has 8 legs, 4 on each side. Insects have 6 legs, so a spider is not an insect."
+    },
+    {
+      "id": "s1.animal-groups.003", "skill": "s1.animal-groups", "type": "match", "difficulty": 2,
+      "prompt": "Match each animal to how it moves.",
+      "figure": { "kind": "icons", "items": [{ "icon": "fish", "label": "fish" }, { "icon": "bird", "label": "bird" }, { "icon": "snake", "label": "snake" }, { "icon": "frog", "label": "frog" }], "alt": "Four animals: a fish, a bird, a snake and a frog." },
+      "pairs": [["fish", "swims"], ["bird", "flies"], ["snake", "slithers"], ["frog", "hops"]],
+      "hints": ["Picture each animal moving.", "Do the one you are most sure about first.", "Start with the fish. Where does it live?"],
+      "explanation": "A fish swims, a bird flies, a snake slithers along the ground and a frog hops."
+    },
+    {
+      "id": "s1.animal-groups.004", "skill": "s1.animal-groups", "type": "sort", "difficulty": 2,
+      "prompt": "Does it have fur or feathers? Sort the animals.",
+      "figure": { "kind": "icons", "items": [{ "icon": "cat", "label": "cat" }, { "icon": "rabbit", "label": "rabbit" }, { "icon": "monkey", "label": "monkey" }, { "icon": "duck", "label": "duck" }, { "icon": "owl", "label": "owl" }, { "icon": "hen", "label": "hen" }], "alt": "Six animals: a cat, a rabbit, a monkey, a duck, an owl and a hen." },
+      "groups": ["Fur", "Feathers"],
+      "items": [
+        { "text": "cat", "group": 0 },
+        { "text": "rabbit", "group": 0 },
+        { "text": "monkey", "group": 0 },
+        { "text": "duck", "group": 1 },
+        { "text": "owl", "group": 1 },
+        { "text": "hen", "group": 1 }
+      ],
+      "hints": ["Fur is soft hair. Feathers grow on birds.", "Ask: is it a bird?", "Start with the duck. What covers its body?"],
+      "explanation": "Cats, rabbits and monkeys have fur. Ducks, owls and hens are birds, so they have feathers."
+    },
+    {
+      "id": "s1.animal-groups.005", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 2,
+      "prompt": "Which body parts does a fish use to swim?",
+      "figure": { "kind": "icons", "items": [{ "icon": "fish", "label": "fish" }], "alt": "A fish with fins and a tail." },
+      "options": [
+        { "text": "fins and a tail" },
+        { "text": "wings", "why": "Birds and bats have wings. Fish do not." },
+        { "text": "feet", "why": "Fish have no feet." }
+      ],
+      "answer": 0,
+      "hints": ["Look at the flat parts on a fish.", "Which parts push against the water?", "Find the parts that stick out from the fish's body."],
+      "explanation": "A fish uses its fins and its tail to push through the water and swim."
+    },
+    {
+      "id": "s1.animal-groups.006", "skill": "s1.animal-groups", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the animals with 4 legs.",
+      "options": [
+        { "text": "cow" },
+        { "text": "hen", "why": "A hen is a bird with 2 legs." },
+        { "text": "lizard" },
+        { "text": "ant", "why": "An ant is an insect with 6 legs." },
+        { "text": "elephant" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Picture each animal standing.", "Birds have 2 legs and insects have 6 legs.", "Start with the cow. Count its legs."],
+      "explanation": "Cows, lizards and elephants have 4 legs. A hen has 2 legs and an ant has 6."
+    },
+    {
+      "id": "s1.animal-groups.007", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 3,
+      "prompt": "Insects have 6 legs. Which animal is an insect?",
+      "figure": { "kind": "icons", "items": [{ "icon": "spider", "label": "spider" }, { "icon": "ant", "label": "ant" }, { "icon": "worm", "label": "worm" }], "alt": "Three small animals: a spider with 8 legs, an ant with 6 legs and a worm with no legs." },
+      "options": [
+        { "text": "spider", "why": "A spider has 8 legs. Insects have 6." },
+        { "text": "ant" },
+        { "text": "worm", "why": "A worm has no legs at all." }
+      ],
+      "answer": 1,
+      "hints": ["Count the legs on each animal.", "Look for the animal with exactly 6 legs.", "Start with the spider. How many legs does it have?"],
+      "explanation": "An ant is an insect. Insects have 6 legs and 3 body parts."
+    },
+    {
+      "id": "s1.animal-groups.008", "skill": "s1.animal-groups", "type": "text", "difficulty": 3,
+      "prompt": "A turtle has a hard ___ on its back.",
+      "figure": { "kind": "icons", "items": [{ "icon": "turtle", "label": "turtle" }], "alt": "A turtle with a hard dome on its back." },
+      "blanks": [{ "answers": ["shell"] }],
+      "hints": ["It keeps the turtle safe.", "The turtle can pull its head inside it.", "Think of a snail. It carries one on its back too."],
+      "explanation": "A turtle has a hard shell. It protects the turtle's soft body."
+    },
+    {
+      "id": "s1.animal-groups.009", "skill": "s1.animal-groups", "type": "sort", "difficulty": 3,
+      "prompt": "How many legs does each animal have? Sort the cards.",
+      "groups": ["No legs", "2 legs", "4 legs"],
+      "items": [
+        { "text": "snake", "group": 0 },
+        { "text": "worm", "group": 0 },
+        { "text": "hen", "group": 1 },
+        { "text": "penguin", "group": 1 },
+        { "text": "cat", "group": 2 },
+        { "text": "camel", "group": 2 }
+      ],
+      "hints": ["Picture each animal walking or moving.", "Birds stand on 2 legs. Many furry animals walk on 4.", "Start with the snake. Does it have any legs?"],
+      "explanation": "Snakes and worms have no legs. Hens and penguins are birds with 2 legs. Cats and camels have 4 legs."
+    },
+    {
+      "id": "s1.animal-groups.010", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 4,
+      "prompt": "A penguin has feathers, wings and a beak. It cannot fly. What is it?",
+      "figure": { "kind": "icons", "items": [{ "icon": "penguin", "label": "penguin" }], "alt": "A penguin with feathers, small wings and a beak." },
+      "options": [
+        { "text": "a fish", "why": "Penguins swim well, but fish have scales and fins. Penguins have feathers." },
+        { "text": "a bird" },
+        { "text": "an insect", "why": "Insects have 6 legs. A penguin has 2 legs." }
+      ],
+      "answer": 1,
+      "hints": ["Look at what covers its body.", "Which group of animals has feathers?", "Remember: only one group of animals has feathers."],
+      "explanation": "A penguin is a bird. All birds have feathers, wings and a beak, even birds that cannot fly.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.animal-groups.011", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 4,
+      "prompt": "Which body part helps a duck swim?",
+      "figure": { "kind": "icons", "items": [{ "icon": "duck", "label": "duck" }, { "icon": "pond", "label": "pond" }], "alt": "A duck swimming on a pond." },
+      "options": [
+        { "text": "its beak", "why": "A duck uses its beak to find food." },
+        { "text": "its feathers", "why": "Feathers keep the duck warm and dry." },
+        { "text": "its webbed feet" }
+      ],
+      "answer": 2,
+      "hints": ["Think about what the duck pushes the water with.", "Look at a duck's feet. What joins the toes together?", "Picture paddling in a pool. What pushes you along?"],
+      "explanation": "A duck has webbed feet. The skin between its toes pushes the water like a paddle.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.animal-groups.012", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 5,
+      "prompt": "A bat has fur and wings. It flies at night. Is a bat a bird?",
+      "figure": { "kind": "icons", "items": [{ "icon": "bat", "label": "bat" }], "alt": "A bat with furry body and wings." },
+      "options": [
+        { "text": "Yes, because it flies.", "why": "Some animals that fly are not birds, like bees and bats." },
+        { "text": "No, because it has no feathers." },
+        { "text": "Yes, because it has wings.", "why": "Insects have wings too. Birds are the animals with feathers." }
+      ],
+      "answer": 1,
+      "hints": ["Flying does not make an animal a bird.", "What do all birds have?", "Check: does a bat have feathers?"],
+      "explanation": "A bat is not a bird because it has fur and no feathers. All birds have feathers.",
+      "tags": ["iksc"]
+    }
+  ]
+}

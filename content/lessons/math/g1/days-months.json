@@ -1,0 +1,65 @@
+{
+  "skill": "m1.days-months",
+  "title": "Days and months",
+  "steps": [
+    {
+      "say": "There are 7 days in a week.",
+      "show": "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+    },
+    {
+      "say": "After Sunday, the week starts again with Monday.",
+      "show": "Sunday, Monday, Tuesday"
+    },
+    {
+      "say": "There are 12 months in a year.",
+      "show": "January, February, March, April, May, June, July, August, September, October, November, December"
+    },
+    {
+      "say": "Yesterday is the day before today. Tomorrow is the day after.",
+      "show": "yesterday, today, tomorrow"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.days-months.901",
+      "skill": "m1.days-months",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What day comes after Wednesday?",
+      "hints": [
+        "Say the days of the week in order.",
+        "There are 7 days. After the last one, the week starts again.",
+        "Say Wednesday, then say the next day."
+      ],
+      "explanation": "Thursday comes straight after Wednesday.",
+      "options": [
+        {
+          "text": "Tuesday",
+          "why": "Tuesday comes before Wednesday."
+        },
+        {
+          "text": "Thursday"
+        },
+        {
+          "text": "Friday",
+          "why": "Friday is 2 days after Wednesday."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.days-months.902",
+      "skill": "m1.days-months",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many months are there in one year?",
+      "hints": [
+        "Say the months of the year.",
+        "Count on your fingers as you say each one.",
+        "Start with January and say 1."
+      ],
+      "explanation": "January to December makes 12 months.",
+      "answer": 12
+    }
+  ]
+}

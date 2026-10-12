@@ -1,0 +1,393 @@
+{
+  "skill": "e5.summarising-structure",
+  "items": [
+    {
+      "id": "e5.summarising-structure.001",
+      "skill": "e5.summarising-structure",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these events from the story in order.",
+      "passage": "e5.p.borrowed-telescope",
+      "items": [
+        "Bu Ratna lends Dimas her telescope.",
+        "Heavy rain makes the gutters overflow.",
+        "Dimas wraps up the telescope to return it.",
+        "Bu Ratna tells Dimas to be patient.",
+        "A cool wind clears the clouds.",
+        "Dimas sees the ring around Saturn."
+      ],
+      "hints": [
+        "Think about the beginning, the middle and the end of the story.",
+        "Use the days of the week in the story to help you.",
+        "Start with what happens on Sunday afternoon."
+      ],
+      "explanation": "The story moves through the week: the loan, the rain, giving up on Friday, Bu Ratna’s advice, the clear sky and finally the ring.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.002",
+      "skill": "e5.summarising-structure",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each paragraph to its main idea.",
+      "passage": "e5.p.mary-anning",
+      "pairs": [
+        [
+          "Paragraph 1",
+          "Where Mary was born"
+        ],
+        [
+          "Paragraph 2",
+          "Learning to search for fossils"
+        ],
+        [
+          "Paragraph 3",
+          "Hard times for the family"
+        ],
+        [
+          "Paragraph 4",
+          "The first big discovery"
+        ],
+        [
+          "Paragraph 5",
+          "More amazing finds"
+        ],
+        [
+          "Paragraph 6",
+          "Being treated unfairly"
+        ]
+      ],
+      "hints": [
+        "Each paragraph has one main idea.",
+        "The first sentence of a paragraph often tells you its main idea.",
+        "Start with Paragraph 3. What happened to Mary’s family?"
+      ],
+      "explanation": "Each paragraph covers one part of Mary’s life in time order, from her birth to the unfair way she was treated.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "e5.summarising-structure.003",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the phrases that help the reader follow the order of events.",
+      "passage": "e5.p.mary-anning",
+      "options": [
+        {
+          "text": "In 1811"
+        },
+        {
+          "text": "About a year later"
+        },
+        {
+          "text": "even though",
+          "why": "Even though shows a contrast, not time."
+        },
+        {
+          "text": "Five years later"
+        },
+        {
+          "text": "Although",
+          "why": "Although shows a contrast."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Biographies usually tell events in time order.",
+        "Look for dates and phrases about time.",
+        "Ask of each phrase: does it tell me when something happened?"
+      ],
+      "explanation": "In 1811, About a year later and Five years later are time phrases. They help the reader follow Mary’s life in order.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.summarising-structure.004",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which detail shows that this is a formal letter?",
+      "passage": "e5.p.save-the-banyan-tree",
+      "options": [
+        {
+          "text": "It begins with Dear Editor and ends with Yours faithfully."
+        },
+        {
+          "text": "It uses lots of exclamation marks.",
+          "why": "This letter has no exclamation marks, and formal letters use very few."
+        },
+        {
+          "text": "It is written in rhyming lines.",
+          "why": "Letters are written in sentences and paragraphs, not rhyme."
+        },
+        {
+          "text": "It begins with Hi there!",
+          "why": "The letter actually begins with Dear Editor."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the start and the end of the letter.",
+        "Formal letters use polite, set phrases to begin and end.",
+        "Read the greeting and the words just before the writer’s name."
+      ],
+      "explanation": "Dear Editor and Yours faithfully are formal ways to begin and end a letter to someone whose name you do not know.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.summarising-structure.005",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the purpose of the paragraph that begins: Of course, I understand that drivers need somewhere to park?",
+      "passage": "e5.p.save-the-banyan-tree",
+      "options": [
+        {
+          "text": "to give another reason for keeping the tree",
+          "why": "The reasons for keeping the tree come in the paragraphs before this one."
+        },
+        {
+          "text": "to answer an argument against the writer’s view"
+        },
+        {
+          "text": "to describe the wildlife in the tree",
+          "why": "Wildlife is the subject of the paragraph before."
+        },
+        {
+          "text": "to end the letter politely",
+          "why": "The letter ends later, with Yours faithfully."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about who might disagree with the writer.",
+        "This paragraph mentions what the other side wants and then offers a solution.",
+        "Look for the word However in the paragraph. What does it introduce?"
+      ],
+      "explanation": "The writer admits that drivers need parking, then suggests another place for a car park. This answers an argument against keeping the tree.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.006",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which heading would best suit the paragraph about young fish, crabs and prawns?",
+      "passage": "e5.p.how-mangroves-protect-the-coast",
+      "options": [
+        {
+          "text": "How mangroves remove salt",
+          "why": "Salt is the subject of the second paragraph."
+        },
+        {
+          "text": "Building up the land",
+          "why": "That heading fits the paragraph about trapping mud and sand."
+        },
+        {
+          "text": "Why mangroves are cut down",
+          "why": "This fits the last paragraph."
+        },
+        {
+          "text": "A safe place to grow up"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the paragraph about young fish, crabs and prawns.",
+        "A good heading sums up the main idea of a paragraph in a few words.",
+        "Ask: what do the young animals do among the roots, and why?"
+      ],
+      "explanation": "The paragraph explains that young sea creatures hide among the roots, where hunters cannot reach them. A safe place to grow up sums this up.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.summarising-structure.007",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words or phrases the writer uses to show cause and effect.",
+      "passage": "e5.p.how-mangroves-protect-the-coast",
+      "options": [
+        {
+          "text": "so"
+        },
+        {
+          "text": "Slowly",
+          "why": "Slowly tells us how something happens."
+        },
+        {
+          "text": "This means that"
+        },
+        {
+          "text": "Along",
+          "why": "Along tells us where."
+        },
+        {
+          "text": "As a result"
+        },
+        {
+          "text": "Finally",
+          "why": "Finally shows the last point in a list."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Cause and effect means one thing makes another thing happen.",
+        "Look for words that link a reason to what happens next.",
+        "Test each word: does it show that something happens because of something else?"
+      ],
+      "explanation": "So, This means that and As a result all show an effect. Explanation texts use them to show how one thing leads to another.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.summarising-structure.008",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which poem has a regular rhyme pattern?",
+      "passage": "e5.p.two-sea-poems",
+      "options": [
+        {
+          "text": "Poem A"
+        },
+        {
+          "text": "Poem B",
+          "why": "Poem B is free verse. Its lines do not follow a rhyme pattern."
+        },
+        {
+          "text": "both poems",
+          "why": "Only one of the poems rhymes in a regular pattern."
+        },
+        {
+          "text": "neither poem",
+          "why": "Look again at the ends of the lines in Poem A."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the last word of each line.",
+        "A regular rhyme pattern means lines rhyme in the same places in every stanza.",
+        "Read the first stanza of each poem aloud and listen to the line endings."
+      ],
+      "explanation": "In Poem A, the second and fourth lines of every stanza rhyme, such as sun and run. Poem B is free verse.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.summarising-structure.009",
+      "skill": "e5.summarising-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the features that show this is a news report.",
+      "passage": "e5.p.pupils-plant-mangroves",
+      "options": [
+        {
+          "text": "a headline"
+        },
+        {
+          "text": "a greeting such as Dear Sir",
+          "why": "Letters have greetings. News reports do not."
+        },
+        {
+          "text": "the reporter’s name"
+        },
+        {
+          "text": "rhyming lines",
+          "why": "Rhyme is a feature of some poems."
+        },
+        {
+          "text": "quotations from people involved"
+        },
+        {
+          "text": "numbered instructions",
+          "why": "Instructions have numbered steps."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about what you see on the front page of a newspaper.",
+        "Look at the top of the report and at the words in speech marks.",
+        "Find the line that starts with By."
+      ],
+      "explanation": "News reports have a headline, the reporter’s name and quotations from people who were there.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "e5.summarising-structure.010",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence is the best summary of the whole report?",
+      "passage": "e5.p.pupils-plant-mangroves",
+      "options": [
+        {
+          "text": "Aditya noticed that waves were reaching his grandmother’s path.",
+          "why": "This is one detail about how the project started."
+        },
+        {
+          "text": "Goats and strong waves can harm young mangroves.",
+          "why": "This is one problem, not the whole report."
+        },
+        {
+          "text": "Pupils planted mangroves to protect their village, and they plan to look after them."
+        },
+        {
+          "text": "A plant nursery gave the school 100 seedlings.",
+          "why": "This is one small detail."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A summary includes the main points, not small details.",
+        "Ask: what happened, why did it happen, and what will happen next?",
+        "Cross out any option that only describes one person or one detail."
+      ],
+      "explanation": "The best summary covers the main event, the reason for it and the plan for the future. The other options are single details.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    }
+  ]
+}

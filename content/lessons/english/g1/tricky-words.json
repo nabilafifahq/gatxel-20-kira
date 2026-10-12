@@ -1,0 +1,55 @@
+{
+  "skill": "e1.tricky-words",
+  "title": "Tricky words",
+  "steps": [
+    {
+      "say": "Some words do not sound the way they look. We call them tricky words.",
+      "show": "the, said, was, they"
+    },
+    {
+      "say": "Look at said. It sounds like sed, but it has ai.",
+      "show": "said"
+    },
+    {
+      "say": "Look at was. It sounds like woz, but it has a.",
+      "show": "was"
+    },
+    {
+      "say": "To learn a tricky word: look, say, cover, write, then check.",
+      "show": "look, say, cover, write, check"
+    },
+    {
+      "say": "Practise a few tricky words every day.",
+      "show": "the, said, was, they, you"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.tricky-words.901",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt the right way?",
+      "hints": [
+        "This is a tricky word.",
+        "It ends with two letters: a vowel and y.",
+        "Think how it looks in your books."
+      ],
+      "explanation": "They is spelt t, h, e, y.",
+      "options": [
+        {
+          "text": "thay",
+          "why": "They ends with e and y."
+        },
+        {
+          "text": "thei",
+          "why": "They ends with y."
+        },
+        {
+          "text": "they"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

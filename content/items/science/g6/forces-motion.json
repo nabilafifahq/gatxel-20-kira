@@ -1,0 +1,208 @@
+{
+  "skill": "s6.forces-motion",
+  "items": [
+    {
+      "id": "s6.forces-motion.001",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In a tug of war, both teams pull on the rope with a force of 400 N. What happens to the rope?",
+      "options": [
+        { "text": "It moves towards the team on the left.", "why": "Both teams pull equally hard, so neither side wins." },
+        { "text": "It does not move, because the forces are balanced." },
+        { "text": "It moves upwards.", "why": "Both forces are sideways and equal, so the rope stays still." },
+        { "text": "It speeds up towards the team on the right.", "why": "Neither force is bigger, so the rope does not start to move." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the size of the two forces.",
+        "The two forces pull in opposite directions.",
+        "Ask what happens when two equal forces pull in opposite directions."
+      ],
+      "explanation": "The two teams pull with equal forces in opposite directions, so the forces are balanced. The rope does not move."
+    },
+    {
+      "id": "s6.forces-motion.002",
+      "skill": "s6.forces-motion",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "When the forces on an object are equal in size and act in opposite directions, the forces are ___.",
+      "blanks": [{ "answers": ["balanced"] }],
+      "hints": [
+        "Think about a seesaw with the same weight on each side.",
+        "Equal and opposite forces cancel each other out.",
+        "The word starts with the letter b."
+      ],
+      "explanation": "Equal forces acting in opposite directions are balanced. Balanced forces do not change how an object moves.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.forces-motion.003",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Team A pulls a rope to the left with 500 N. Team B pulls it to the right with 350 N. What is the size of the resultant force?",
+      "answer": 150,
+      "unit": "N",
+      "hints": [
+        "The two forces pull in opposite directions.",
+        "When forces are opposite, find the difference between them.",
+        "Subtract the smaller force from the larger force."
+      ],
+      "explanation": "The forces are opposite, so the resultant force is 500 N − 350 N = 150 N. The rope moves towards Team A, which pulls harder.",
+      "tags": ["checkpoint", "imso"]
+    },
+    {
+      "id": "s6.forces-motion.004",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A boat floats without moving on a calm lake. Which two forces are balanced?",
+      "options": [
+        { "text": "air resistance and friction", "why": "The boat is not moving, so these forces are not acting much." },
+        { "text": "gravity and magnetism", "why": "Magnetism is not acting on the boat." },
+        { "text": "the push of the wind and upthrust", "why": "Wind pushes sideways and upthrust pushes up. Balanced forces act in opposite directions." },
+        { "text": "the boat's weight pulling down and upthrust from the water pushing up" }
+      ],
+      "answer": 3,
+      "hints": [
+        "The boat is not moving up or down.",
+        "One force pulls the boat down. Another force pushes it up.",
+        "Name the force that pulls everything down, then the force that water pushes up with."
+      ],
+      "explanation": "Gravity pulls the boat down with its weight, and the water pushes it up with an equal upthrust. These forces are balanced, so the boat floats without sinking or rising.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.forces-motion.005",
+      "skill": "s6.forces-motion",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort these into balanced forces and unbalanced forces.",
+      "groups": ["Balanced forces", "Unbalanced forces"],
+      "items": [
+        { "text": "a book lying still on a shelf", "group": 0 },
+        { "text": "a car going straight at a steady speed", "group": 0 },
+        { "text": "a lamp hanging still from a ceiling", "group": 0 },
+        { "text": "a parachutist falling at a steady speed", "group": 0 },
+        { "text": "a car speeding up from traffic lights", "group": 1 },
+        { "text": "a football being kicked", "group": 1 },
+        { "text": "a bicycle slowing down", "group": 1 },
+        { "text": "a bus turning a corner", "group": 1 }
+      ],
+      "hints": [
+        "Balanced forces mean no change: still things stay still, and moving things keep the same speed and direction.",
+        "Unbalanced forces change an object's speed or its direction.",
+        "For each one, ask whether its speed or direction is changing."
+      ],
+      "explanation": "Objects that stay still, or move at a steady speed in a straight line, have balanced forces. Speeding up, slowing down or changing direction, like a bus turning, needs unbalanced forces.",
+      "tags": ["checkpoint", "imso"]
+    },
+    {
+      "id": "s6.forces-motion.006",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A shopping trolley is already moving. The push forwards is 30 N and friction backwards is 30 N. What happens to the trolley?",
+      "options": [
+        { "text": "It slows down and stops.", "why": "The forces are balanced, so nothing changes its speed. It would slow down only if friction were bigger." },
+        { "text": "It speeds up.", "why": "It would speed up only if the push were bigger than friction." },
+        { "text": "It keeps moving at the same speed." },
+        { "text": "It moves backwards.", "why": "Neither force is bigger, so its direction does not change." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the forward force with the backward force.",
+        "Balanced forces do not change how an object is already moving.",
+        "Decide whether the forces are balanced. Then think about the trolley's speed."
+      ],
+      "explanation": "The forces are balanced, so there is no resultant force to change the trolley's motion. It keeps moving at the same speed in the same direction.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.forces-motion.007",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A toy car is being pushed along the floor. Which change would make it speed up?",
+      "options": [
+        { "text": "Push harder, so the push is bigger than friction." },
+        { "text": "Push with less force than friction.", "why": "Then friction would be bigger, so the car would slow down." },
+        { "text": "Make the push exactly equal to friction.", "why": "Balanced forces keep the speed the same." },
+        { "text": "Put the car on a rougher floor.", "why": "A rougher floor gives more friction, which slows the car down." }
+      ],
+      "answer": 0,
+      "hints": [
+        "To speed up, there must be an unbalanced force forwards.",
+        "Compare the push forwards with the friction backwards.",
+        "Ask which choice makes the forward force the biggest."
+      ],
+      "explanation": "If the push is bigger than friction, the forces are unbalanced in the forward direction. An unbalanced force forwards makes the car speed up."
+    },
+    {
+      "id": "s6.forces-motion.008",
+      "skill": "s6.forces-motion",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "A box is pushed to the right with a force of 20 N. Friction acts on it with a force of 5 N. Draw the box with labelled force arrows, and say what happens to it.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws an arrow pointing right, labelled 20 N", "points": 1 },
+          { "label": "Draws an arrow pointing left, labelled 5 N", "points": 1 },
+          { "label": "Makes the 20 N arrow longer than the 5 N arrow", "points": 2 },
+          { "label": "Starts both arrows on the box", "points": 1 },
+          { "label": "Says the forces are unbalanced, so the box speeds up", "points": 1 }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Friction always acts against the direction of movement.",
+        "A bigger force gets a longer arrow."
+      ],
+      "explanation": "The 20 N push to the right is bigger than the 5 N friction to the left. The forces are unbalanced, with a resultant of 15 N to the right, so the box speeds up.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.forces-motion.009",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A ball is thrown straight up. At the very top, it stops for a moment. Which force acts on it at that moment?",
+      "options": [
+        { "text": "no force at all", "why": "Gravity never switches off. That is why the ball falls back down." },
+        { "text": "gravity, pulling it down" },
+        { "text": "an upward force left over from the throw", "why": "The push from the hand stops as soon as the ball leaves it." },
+        { "text": "balanced forces holding it still", "why": "If the forces were balanced, the ball would stay at the top." }
+      ],
+      "answer": 1,
+      "hints": [
+        "The ball stops for only an instant, then falls back down.",
+        "Think about which force acts on everything near the Earth all the time.",
+        "Ask whether the hand can still push the ball once it has let go."
+      ],
+      "explanation": "At the top, the ball is not moving, so there is no air resistance, and only gravity acts on it. This unbalanced pull makes the ball fall straight back down.",
+      "tags": ["iksc", "imso"]
+    },
+    {
+      "id": "s6.forces-motion.010",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three forces pull on a crate: 40 N to the right, and 25 N and 10 N to the left. What is the size of the resultant force?",
+      "answer": 5,
+      "unit": "N",
+      "hints": [
+        "Forces in the same direction add together.",
+        "Add up the forces to the left, then compare the total with the force to the right.",
+        "Start by adding the two forces that pull to the left."
+      ],
+      "explanation": "The forces to the left add up to 25 N + 10 N = 35 N. The resultant force is 40 N − 35 N = 5 N to the right, so the crate speeds up to the right.",
+      "solution": [
+        { "say": "Add the two forces that pull to the left.", "show": "25 N + 10 N = 35 N" },
+        { "say": "Compare the left total with the force to the right, and find the difference.", "show": "40 N − 35 N = 5 N" },
+        { "say": "The bigger force is to the right, so the resultant is 5 N to the right.", "show": "5 N to the right" }
+      ],
+      "tags": ["imso"]
+    }
+  ]
+}

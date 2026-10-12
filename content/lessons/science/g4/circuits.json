@@ -1,0 +1,118 @@
+{
+  "skill": "s4.circuits",
+  "title": "Making a circuit work",
+  "steps": [
+    {
+      "say": "A circuit is a loop that electricity flows around. It needs a battery to push the electricity.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb-lit"
+        ],
+        "alt": "A battery and a lit bulb joined in a loop."
+      }
+    },
+    {
+      "say": "Components are the parts of a circuit: batteries, wires, bulbs, buzzers, motors and switches."
+    },
+    {
+      "say": "The loop must be complete. If there is a gap, electricity cannot flow.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "gap"
+        ],
+        "alt": "A battery and an unlit bulb with a gap in the wire."
+      }
+    },
+    {
+      "say": "A switch opens and closes a gap. Closed means on, and open means off.",
+      "show": "closed = on, open = off",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb-lit",
+          "switch-closed"
+        ],
+        "alt": "A battery, a lit bulb and a closed switch in a loop."
+      }
+    },
+    {
+      "say": "In a single loop, one break stops everything. Check for loose bulbs and flat batteries."
+    },
+    {
+      "say": "Batteries are safe for experiments. Mains electricity from sockets can badly hurt you."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.circuits.901",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Why does this bulb not light?",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "gap"
+        ],
+        "alt": "A battery and an unlit bulb with a gap in the wire."
+      },
+      "options": [
+        {
+          "text": "The bulb is too new.",
+          "why": "New bulbs work fine in a complete loop."
+        },
+        {
+          "text": "There are too many wires.",
+          "why": "Extra wire is not the problem here."
+        },
+        {
+          "text": "There is a gap in the circuit."
+        },
+        {
+          "text": "The battery is the wrong colour.",
+          "why": "Colour does not matter to a battery."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the loop with your finger.",
+        "Is the path complete?",
+        "Look for a place where the wire is broken."
+      ],
+      "explanation": "There is a gap, so the loop is not complete and electricity cannot flow."
+    },
+    {
+      "id": "s4.circuits.902",
+      "skill": "s4.circuits",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "When a switch is closed, the circuit is complete and the bulb is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "on",
+            "lit",
+            "lit up",
+            "bright",
+            "shining",
+            "turned on"
+          ]
+        }
+      ],
+      "hints": [
+        "A closed switch has no gap.",
+        "Electricity can flow all round the loop.",
+        "What does the bulb do then?"
+      ],
+      "explanation": "A closed switch completes the loop, so the bulb is on."
+    }
+  ]
+}

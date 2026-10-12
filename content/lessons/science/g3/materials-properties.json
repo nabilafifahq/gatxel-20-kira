@@ -1,0 +1,111 @@
+{
+  "skill": "s3.materials-properties",
+  "title": "Choosing the right material",
+  "steps": [
+    {
+      "say": "Objects are made from materials, such as wood, metal, plastic, glass and fabric.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "wooden-spoon",
+            "label": "wood"
+          },
+          {
+            "icon": "spoon",
+            "label": "metal"
+          },
+          {
+            "icon": "bottle",
+            "label": "plastic"
+          },
+          {
+            "icon": "glass",
+            "label": "glass"
+          },
+          {
+            "icon": "fabric",
+            "label": "fabric"
+          }
+        ],
+        "alt": "A wooden spoon, a metal spoon, a plastic bottle, a glass and a piece of fabric."
+      }
+    },
+    {
+      "say": "A property describes what a material is like. Hard, soft, shiny and rough are properties.",
+      "show": "hard, soft, shiny, rough, smooth"
+    },
+    {
+      "say": "Transparent materials let light through. Opaque materials do not.",
+      "show": "transparent or opaque"
+    },
+    {
+      "say": "Waterproof materials keep water out. Absorbent materials soak water up.",
+      "show": "waterproof or absorbent"
+    },
+    {
+      "say": "Flexible materials bend easily. Rigid materials stay stiff.",
+      "show": "flexible or rigid"
+    },
+    {
+      "say": "We choose a material because its properties suit the job. A window needs a transparent material.",
+      "show": "job → property → material"
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.materials-properties.901",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word describes a material that soaks up water?",
+      "options": [
+        {
+          "text": "waterproof",
+          "why": "Waterproof materials keep water out."
+        },
+        {
+          "text": "transparent",
+          "why": "Transparent is about light passing through."
+        },
+        {
+          "text": "rigid",
+          "why": "Rigid means stiff, not soaking up water."
+        },
+        {
+          "text": "absorbent"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about a towel or a sponge.",
+        "Which word means it drinks up water?",
+        "It is the opposite of waterproof."
+      ],
+      "explanation": "Absorbent materials, like towels and sponges, soak up water."
+    },
+    {
+      "id": "s3.materials-properties.902",
+      "skill": "s3.materials-properties",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Glass is used for windows because it is ___, so light can pass through.",
+      "blanks": [
+        {
+          "answers": [
+            "transparent",
+            "see-through",
+            "see through",
+            "clear"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about why we can look out of a window.",
+        "This property word is the opposite of opaque.",
+        "It starts with t."
+      ],
+      "explanation": "Glass is transparent, so light passes through and we can see out."
+    }
+  ]
+}

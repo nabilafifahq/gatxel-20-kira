@@ -1,0 +1,84 @@
+{
+  "skill": "m1.add-within-20",
+  "title": "Adding within 20",
+  "steps": [
+    {
+      "say": "Adding puts two groups together.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 5
+          },
+          {
+            "icon": "apple",
+            "count": 3
+          }
+        ],
+        "alt": "A group of 5 apples and a group of 3 apples."
+      }
+    },
+    {
+      "say": "Start with the bigger number and count on.",
+      "show": "5, 6, 7, 8"
+    },
+    {
+      "say": "For 8 + 5, make 10 first. 8 and 2 make 10.",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "labels": "all",
+        "jumps": [
+          {
+            "from": 8,
+            "to": 10,
+            "label": "+2"
+          },
+          {
+            "from": 10,
+            "to": 13,
+            "label": "+3"
+          }
+        ],
+        "alt": "A jump from 8 to 10, then a jump from 10 to 13."
+      }
+    },
+    {
+      "say": "Then add the 3 that are left.",
+      "show": "8 + 5 = 13"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.add-within-20.901",
+      "skill": "m1.add-within-20",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "6 + 3 = ___",
+      "hints": [
+        "Start with the bigger number.",
+        "Count on 3 from 6.",
+        "Say 6. Then count on: 7 is one more."
+      ],
+      "explanation": "Counting on 3 from 6 gives 9.",
+      "answer": 9
+    },
+    {
+      "id": "m1.add-within-20.902",
+      "skill": "m1.add-within-20",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "9 + 4 = ___",
+      "hints": [
+        "Can you make 10 first?",
+        "Split 4 into 1 and 3.",
+        "9 + 1 = 10. Now add the rest."
+      ],
+      "explanation": "9 + 1 = 10, and 10 + 3 = 13.",
+      "answer": 13
+    }
+  ]
+}

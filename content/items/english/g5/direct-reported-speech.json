@@ -1,0 +1,317 @@
+{
+  "skill": "e5.direct-reported-speech",
+  "items": [
+    {
+      "id": "e5.direct-reported-speech.001",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which punctuation mark is missing? “Where is my bag ___” asked Rudi.",
+      "options": [
+        {
+          "text": "a full stop",
+          "why": "Rudi is asking a question, so a full stop is not right."
+        },
+        {
+          "text": "a comma",
+          "why": "A comma is used when spoken words are a statement, not a question."
+        },
+        {
+          "text": "a question mark"
+        },
+        {
+          "text": "an exclamation mark",
+          "why": "An exclamation mark shows strong feeling, but Rudi is asking something."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read Rudi’s words aloud. What kind of sentence is it?",
+        "The punctuation inside the speech marks should match the kind of sentence that is spoken.",
+        "Look at the first word Rudi says. Does it start a statement or a question?"
+      ],
+      "explanation": "Where is my bag is a question, so it ends with a question mark inside the speech marks."
+    },
+    {
+      "id": "e5.direct-reported-speech.002",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Write only the words that Lia actually said. Lia shouted, “Look at that rainbow!”",
+      "blanks": [
+        {
+          "answers": [
+            "Look at that rainbow",
+            "Look at that rainbow!",
+            "\"Look at that rainbow!\"",
+            "\"Look at that rainbow\""
+          ]
+        }
+      ],
+      "hints": [
+        "The spoken words are inside the speech marks.",
+        "Leave out the words that tell us who is speaking.",
+        "Find the opening speech mark and copy from there to the closing one."
+      ],
+      "explanation": "The words inside the speech marks are what Lia said. Lia shouted is the reporting clause."
+    },
+    {
+      "id": "e5.direct-reported-speech.003",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is punctuated correctly?",
+      "options": [
+        {
+          "text": "“Can I borrow your ruler,” asked Tono?",
+          "why": "The question mark belongs inside the speech marks, straight after ruler."
+        },
+        {
+          "text": "Can I borrow your ruler? asked Tono.",
+          "why": "Speech marks are missing around the spoken words."
+        },
+        {
+          "text": "“Can I borrow your ruler?” asked Tono."
+        },
+        {
+          "text": "“Can I borrow your ruler”? asked Tono.",
+          "why": "The question mark should come before the closing speech mark, not after it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check where the speech marks and the question mark are in each sentence.",
+        "The punctuation that ends the spoken words goes inside the closing speech mark.",
+        "Find the sentence where the question mark comes just before the closing speech mark."
+      ],
+      "explanation": "The question is inside the speech marks with its question mark, and asked Tono continues the sentence with a small a."
+    },
+    {
+      "id": "e5.direct-reported-speech.004",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where should the comma go? “We are going to the zoo” said Dad.",
+      "options": [
+        {
+          "text": "after zoo, inside the speech marks"
+        },
+        {
+          "text": "after said",
+          "why": "A comma after said would split the words that tell us who is speaking."
+        },
+        {
+          "text": "after Dad",
+          "why": "The sentence ends after Dad, so it needs a full stop there."
+        },
+        {
+          "text": "before We",
+          "why": "Nothing comes before the speech, so no comma is needed there."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The spoken words are a statement, and the sentence carries on after them.",
+        "When speech comes first, a comma separates it from the words that say who spoke.",
+        "Find the last spoken word. What should come straight after it?"
+      ],
+      "explanation": "When the spoken words come first and the sentence continues, a comma goes inside the closing speech marks: “We are going to the zoo,” said Dad."
+    },
+    {
+      "id": "e5.direct-reported-speech.005",
+      "skill": "e5.direct-reported-speech",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 rules for writing direct speech.",
+      "options": [
+        {
+          "text": "Start a new line when a new person speaks."
+        },
+        {
+          "text": "Put the spoken words inside speech marks."
+        },
+        {
+          "text": "End all speech with a full stop outside the speech marks.",
+          "why": "Punctuation that ends the spoken words goes inside the speech marks."
+        },
+        {
+          "text": "Use a capital letter for every spoken word.",
+          "why": "Only the first spoken word and names need capital letters."
+        },
+        {
+          "text": "Never use a question mark in speech.",
+          "why": "Questions in speech need question marks inside the speech marks."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "Think about what a page of dialogue in a story looks like.",
+        "Check each rule against a speech sentence you know is correct.",
+        "Start with the rule about speech marks. Is it true?"
+      ],
+      "explanation": "Spoken words go inside speech marks, and each new speaker starts on a new line. This helps the reader follow who is talking."
+    },
+    {
+      "id": "e5.direct-reported-speech.006",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "“I am tired,” said Maya. Finish the reported speech: Maya said that she ___ tired.",
+      "blanks": [
+        {
+          "answers": [
+            "was"
+          ]
+        }
+      ],
+      "hints": [
+        "In reported speech, we tell what someone said without speech marks.",
+        "The verb usually moves one step into the past.",
+        "Maya said am. What is the past tense of am?"
+      ],
+      "explanation": "In reported speech, am changes to was because Maya said it in the past: Maya said that she was tired."
+    },
+    {
+      "id": "e5.direct-reported-speech.007",
+      "skill": "e5.direct-reported-speech",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences into direct speech and reported speech.",
+      "groups": [
+        "Direct speech",
+        "Reported speech"
+      ],
+      "items": [
+        {
+          "text": "“I love mangoes,” said Dina.",
+          "group": 0
+        },
+        {
+          "text": "Dina said that she loved mangoes.",
+          "group": 1
+        },
+        {
+          "text": "The coach told us to warm up.",
+          "group": 1
+        },
+        {
+          "text": "“Warm up first,” said the coach.",
+          "group": 0
+        },
+        {
+          "text": "Arif asked if the bus had left.",
+          "group": 1
+        },
+        {
+          "text": "“Has the bus left?” asked Arif.",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Direct speech shows the exact words that were said.",
+        "Look for speech marks. Reported speech does not use them.",
+        "Start with the first sentence. Does it have speech marks?"
+      ],
+      "explanation": "Direct speech uses speech marks around the exact words. Reported speech retells the words without speech marks, often with that or if."
+    },
+    {
+      "id": "e5.direct-reported-speech.008",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the correct reported speech? “I will help you tomorrow,” Ben told me.",
+      "options": [
+        {
+          "text": "Ben told me that I would help him the next day.",
+          "why": "The pronouns are swapped. Ben is the one who will help."
+        },
+        {
+          "text": "Ben told me that he would help me the next day."
+        },
+        {
+          "text": "Ben told me that he would help you tomorrow.",
+          "why": "You should change to me, because Ben was speaking to me."
+        },
+        {
+          "text": "Ben told me, “he would help me the next day.”",
+          "why": "Reported speech does not use speech marks."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about who is speaking and who is being helped.",
+        "In reported speech, I and you change to fit the person telling the story, and will changes to would.",
+        "Ben said I. When you retell it, who is that I?"
+      ],
+      "explanation": "Ben’s I becomes he, you becomes me, will becomes would and tomorrow becomes the next day."
+    },
+    {
+      "id": "e5.direct-reported-speech.009",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the correct reported speech? “Did you finish your homework?” Mum asked me.",
+      "options": [
+        {
+          "text": "Mum asked me did I finish my homework?",
+          "why": "Reported questions are written as statements, without a question mark."
+        },
+        {
+          "text": "Mum asked me if you had finished your homework.",
+          "why": "You should change to I, because Mum was asking me."
+        },
+        {
+          "text": "Mum asked me if I had finished my homework."
+        },
+        {
+          "text": "Mum asked me, if I had finished my homework?",
+          "why": "There should be no comma before if, and no question mark."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A reported question is no longer a direct question.",
+        "Reported questions often use if, change the pronouns and end with a full stop.",
+        "Start with Mum asked me if. Who is the I in the rest of the sentence?"
+      ],
+      "explanation": "A yes or no question is reported with if. You becomes I, did you finish becomes had finished, and the sentence ends with a full stop."
+    },
+    {
+      "id": "e5.direct-reported-speech.010",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which is the correct reported speech? “We visited this museum yesterday,” said the twins.",
+      "options": [
+        {
+          "text": "The twins said that we visited this museum yesterday.",
+          "why": "We should change to they, and the time and place words should change too."
+        },
+        {
+          "text": "The twins said that they had visited that museum the day before."
+        },
+        {
+          "text": "The twins said that they visited this museum yesterday.",
+          "why": "In reported speech, this usually becomes that and yesterday becomes the day before."
+        },
+        {
+          "text": "The twins said that they had visited this museum the day after.",
+          "why": "Yesterday means the day before, not the day after."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Several words in the sentence need to change.",
+        "Check the pronoun, the verb, the word this and the time word one at a time.",
+        "Start with the pronoun. The twins said we. Who is we when you retell it?"
+      ],
+      "explanation": "We becomes they, visited becomes had visited, this becomes that and yesterday becomes the day before.",
+      "tags": [
+        "iklc"
+      ]
+    }
+  ]
+}

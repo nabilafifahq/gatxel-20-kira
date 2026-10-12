@@ -1,0 +1,157 @@
+{
+  "skill": "m1.position-direction",
+  "title": "Where is it?",
+  "steps": [
+    {
+      "say": "Position words tell us where things are.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ball",
+            "label": "ball"
+          },
+          {
+            "icon": "car",
+            "label": "car"
+          },
+          {
+            "icon": "book",
+            "label": "book"
+          }
+        ],
+        "alt": "A row of things from left to right: ball, car, book."
+      }
+    },
+    {
+      "say": "The car is between the ball and the book.",
+      "show": "between"
+    },
+    {
+      "say": "The ball is to the left of the car. The book is to the right of the car.",
+      "show": "left, right"
+    },
+    {
+      "say": "Above means higher up. Below means lower down.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 4,
+        "points": [
+          {
+            "x": 2,
+            "y": 3,
+            "label": "A"
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "label": "B"
+          }
+        ],
+        "alt": "A grid. A is at 2 across and 3 up. B is at 2 across and 1 up. A is above B."
+      },
+      "show": "A is above B"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.position-direction.901",
+      "skill": "m1.position-direction",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is between the cup and the hat?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cup",
+            "label": "cup"
+          },
+          {
+            "icon": "bag",
+            "label": "bag"
+          },
+          {
+            "icon": "hat",
+            "label": "hat"
+          }
+        ],
+        "alt": "A row of things from left to right: cup, bag, hat."
+      },
+      "hints": [
+        "Between means in the middle of two things.",
+        "Find the cup and the hat.",
+        "Put one finger on each. What is in the middle?"
+      ],
+      "explanation": "The bag is in the middle, so it is between the cup and the hat.",
+      "options": [
+        {
+          "text": "cup",
+          "why": "The cup is at one end of the row."
+        },
+        {
+          "text": "bag"
+        },
+        {
+          "text": "hat",
+          "why": "The hat is at one end of the row."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.position-direction.902",
+      "skill": "m1.position-direction",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which point is below P?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 3,
+            "y": 3,
+            "label": "P"
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "label": "A"
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "label": "B"
+          },
+          {
+            "x": 5,
+            "y": 3,
+            "label": "C"
+          }
+        ],
+        "alt": "A grid with point P in the middle. A is 2 squares above P. B is 2 squares below P. C is 2 squares to the right of P."
+      },
+      "hints": [
+        "Find P first.",
+        "Below means lower down.",
+        "Put your finger on P. Move it down."
+      ],
+      "explanation": "B is lower down than P, in the same column, so B is below P.",
+      "options": [
+        {
+          "text": "A",
+          "why": "A is above P."
+        },
+        {
+          "text": "C",
+          "why": "C is to the right of P."
+        },
+        {
+          "text": "B"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

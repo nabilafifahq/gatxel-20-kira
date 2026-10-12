@@ -1,0 +1,39 @@
+{
+  "skill": "e3.main-idea",
+  "title": "What is it mostly about?",
+  "steps": [
+    { "say": "The main idea is what a whole text is mostly about. Details are the small facts that support it." },
+    { "say": "Look at the title and any headings first. They give big clues about the main idea.", "show": "Title: Green sea turtles" },
+    { "say": "Ask yourself: who or what is this about? What is the most important thing that happens?" },
+    { "say": "To find a detail, look for key words from the question in the text.", "show": "What do adults eat? → look for adults and eat" },
+    { "say": "Check your answer. Does it fit the whole text, or just one small part?" }
+  ],
+  "check": [
+    {
+      "id": "e3.main-idea.901", "skill": "e3.main-idea", "type": "mcq", "difficulty": 2,
+      "prompt": "Ali's cat climbed a tall tree and could not get down. Ali fetched a ladder and carried the cat down safely.\nWhat is this mostly about?",
+      "options": [
+        { "text": "Ali's tall ladder", "why": "The ladder is a detail. It is not what the text is mostly about." },
+        { "text": "Ali rescues his cat from a tree" },
+        { "text": "Cats like trees", "why": "The text is about one cat and what Ali did." },
+        { "text": "A tall tree in the garden", "why": "The tree is where it happens, not what it is about." }
+      ],
+      "answer": 1,
+      "hints": ["Who is the text about?", "What problem happens, and how is it solved?", "Which answer covers the whole text?"],
+      "explanation": "The whole text is about the cat getting stuck and Ali rescuing it. The ladder and the tree are details."
+    },
+    {
+      "id": "e3.main-idea.902", "skill": "e3.main-idea", "type": "mcq", "difficulty": 2,
+      "prompt": "Mangoes grow on tall trees. They are sweet and juicy. In Indonesia, many families have a mango tree.\nWhich sentence gives a detail about how mangoes taste?",
+      "options": [
+        { "text": "They are sweet and juicy." },
+        { "text": "Mangoes grow on tall trees.", "why": "This tells us where mangoes grow, not how they taste." },
+        { "text": "In Indonesia, many families have a mango tree.", "why": "This tells us about families, not taste." },
+        { "text": "Mangoes are yellow inside.", "why": "This sentence is not in the text." }
+      ],
+      "answer": 0,
+      "hints": ["The question asks about taste.", "Look for a word about taste in each sentence.", "Words like sweet and sour describe taste."],
+      "explanation": "Sweet and juicy describe how mangoes taste, so that sentence gives the detail."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "e3.speech-marks",
+  "title": "Showing what people say",
+  "steps": [
+    { "say": "Speech marks show the exact words that someone says. They look like little 66 and 99 shapes.", "show": "“ ”" },
+    { "say": "Open the speech marks before the first spoken word. Close them after the last one.", "show": "“I like mangoes,” said Ana." },
+    { "say": "The first spoken word starts with a capital letter.", "show": "Tom said, “The bus is here.”" },
+    { "say": "The punctuation for the speech goes inside the speech marks. Use a comma, a question mark or an exclamation mark.", "show": "“Where are you?” asked Dad." },
+    { "say": "You can say who is speaking before or after the spoken words.", "show": "Mum said, “Bedtime.” “Bedtime,” said Mum." }
+  ],
+  "check": [
+    {
+      "id": "e3.speech-marks.901", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sentence uses speech marks correctly?",
+      "options": [
+        { "text": "“I am ready,” said Lena." },
+        { "text": "“I am ready, said Lena.”", "why": "Said Lena is not spoken, so it goes outside." },
+        { "text": "I am “ready,” said Lena.", "why": "All of Lena's words go inside the speech marks." },
+        { "text": "“I am” ready, said Lena.", "why": "Ready is spoken too, so it belongs inside." }
+      ],
+      "answer": 0,
+      "hints": ["What exact words did Lena say?", "Only the spoken words go inside the speech marks.", "Check that said Lena is outside them."],
+      "explanation": "Lena said I am ready, so those words go inside the speech marks, with the comma."
+    },
+    {
+      "id": "e3.speech-marks.902", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 2,
+      "prompt": "Which word needs a capital letter?\nRani said, “look at the moon.”",
+      "options": [
+        { "text": "said", "why": "Said is in the middle of the sentence." },
+        { "text": "look" },
+        { "text": "at", "why": "At is in the middle of what Rani says." },
+        { "text": "moon", "why": "Moon is in the middle of what Rani says." }
+      ],
+      "answer": 1,
+      "hints": ["Find the speech marks.", "Which word comes first inside them?", "The first spoken word always starts with a capital."],
+      "explanation": "Look is the first spoken word, so it needs a capital letter: “Look at the moon.”"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "skill": "s4.conductors-insulators",
+  "title": "Conductors and insulators",
+  "steps": [
+    {
+      "say": "A thermal conductor lets heat pass through it easily. Metals are good thermal conductors.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "spoon",
+            "label": "metal spoon"
+          },
+          {
+            "icon": "kettle",
+            "label": "kettle"
+          }
+        ],
+        "alt": "A metal spoon and a kettle."
+      }
+    },
+    {
+      "say": "A thermal insulator lets heat through slowly. Wood, plastic, wool and foam are thermal insulators.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "wooden-spoon",
+            "label": "wooden spoon"
+          },
+          {
+            "icon": "fabric",
+            "label": "wool"
+          }
+        ],
+        "alt": "A wooden spoon and a piece of wool."
+      }
+    },
+    {
+      "say": "Insulators keep hot things hot and cold things cold. They slow heat moving in or out.",
+      "show": "insulators slow heat down"
+    },
+    {
+      "say": "An electrical conductor lets electricity flow through it. Metals and graphite are electrical conductors.",
+      "show": "metals conduct electricity"
+    },
+    {
+      "say": "An electrical insulator stops electricity flowing. Plastic, rubber, wood and glass are electrical insulators."
+    },
+    {
+      "say": "Test a material by putting it in the gap of a circuit. If the bulb lights, the material is a conductor.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "gap"
+        ],
+        "alt": "A circuit with a gap for testing materials."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.conductors-insulators.901",
+      "skill": "s4.conductors-insulators",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material is a good electrical conductor?",
+      "options": [
+        {
+          "text": "rubber",
+          "why": "Rubber is an electrical insulator."
+        },
+        {
+          "text": "plastic",
+          "why": "Plastic is an electrical insulator."
+        },
+        {
+          "text": "wood",
+          "why": "Wood is an electrical insulator."
+        },
+        {
+          "text": "copper"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Electrical conductors let electricity flow.",
+        "Most conductors are metals.",
+        "Which one is a metal used inside wires?"
+      ],
+      "explanation": "Copper is a metal and a very good electrical conductor. That is why wires are made of copper."
+    },
+    {
+      "id": "s4.conductors-insulators.902",
+      "skill": "s4.conductors-insulators",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets heat or electricity pass through easily is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "conductor",
+            "conductors",
+            "good conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals are examples.",
+        "It is the opposite of an insulator.",
+        "The word starts with c."
+      ],
+      "explanation": "A conductor lets heat or electricity pass through it easily."
+    }
+  ]
+}

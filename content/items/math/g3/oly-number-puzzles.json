@@ -1,0 +1,470 @@
+{
+  "skill": "m3.oly-number-puzzles",
+  "items": [
+    {
+      "id": "m3.oly-number-puzzles.001",
+      "skill": "m3.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A number, plus double the number, plus three times the number, makes 60. What is the number?",
+      "options": [
+        {
+          "text": "5",
+          "why": "5 + 10 + 15 = 30, not 60."
+        },
+        {
+          "text": "6",
+          "why": "6 + 12 + 18 = 36, not 60."
+        },
+        {
+          "text": "8",
+          "why": "8 + 16 + 24 = 48, not 60."
+        },
+        {
+          "text": "9",
+          "why": "9 + 18 + 27 = 54, not 60."
+        },
+        {
+          "text": "10"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Think of the number as 1 lot.",
+        "1 lot + 2 lots + 3 lots makes how many lots?",
+        "6 lots make 60. How much is 1 lot?"
+      ],
+      "explanation": "The number, its double and its triple make 1 + 2 + 3 = 6 lots of the number. 6 lots make 60, so the number is 10.",
+      "solution": [
+        {
+          "say": "Count the lots.",
+          "show": "1 + 2 + 3 = 6 lots"
+        },
+        {
+          "say": "Share 60 into 6 lots.",
+          "show": "60 ÷ 6 = 10"
+        },
+        {
+          "say": "Check.",
+          "show": "10 + 20 + 30 = 60"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-puzzles.002",
+      "skill": "m3.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "AB and BA are 2-digit numbers made from the digits A and B. AB + BA = 121. What is A + B?",
+      "options": [
+        {
+          "text": "8",
+          "why": "If A + B = 8, then AB + BA = 88."
+        },
+        {
+          "text": "9",
+          "why": "If A + B = 9, then AB + BA = 99."
+        },
+        {
+          "text": "10",
+          "why": "If A + B = 10, then AB + BA = 110."
+        },
+        {
+          "text": "11"
+        },
+        {
+          "text": "12",
+          "why": "If A + B = 12, then AB + BA = 132."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Try an example, like 29 + 92.",
+        "In AB + BA, the digit A is used once as tens and once as ones. So is B.",
+        "AB + BA is 11 lots of A plus 11 lots of B."
+      ],
+      "explanation": "AB + BA = 10A + B + 10B + A = 11A + 11B = 11 × (A + B). Since 11 × 11 = 121, A + B = 11. For example, 29 + 92 = 121.",
+      "solution": [
+        {
+          "say": "Write the numbers using tens and ones.",
+          "show": "AB = 10A + B, BA = 10B + A"
+        },
+        {
+          "say": "Add them.",
+          "show": "11A + 11B = 11 × (A + B)"
+        },
+        {
+          "say": "Find A + B.",
+          "show": "121 ÷ 11 = 11"
+        },
+        {
+          "say": "Example.",
+          "show": "29 + 92 = 121"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-number-puzzles.003",
+      "skill": "m3.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Noor writes all the numbers from 1 to 20. Then she adds up every digit she wrote. What total does she get?",
+      "options": [
+        {
+          "text": "92",
+          "why": "The tens digits of 10 to 19 add up to 10. Add them too."
+        },
+        {
+          "text": "100",
+          "why": "Do not forget the number 20. Its digits add up to 2."
+        },
+        {
+          "text": "102"
+        },
+        {
+          "text": "190",
+          "why": "Add the digits, not the numbers. The numbers 1 to 19 add up to 190."
+        },
+        {
+          "text": "210",
+          "why": "210 is the sum of the numbers 1 to 20, not their digits."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Split the numbers into 1 to 9, 10 to 19, and 20.",
+        "The digits of 1 to 9 add up to 45.",
+        "Each number from 10 to 19 has a tens digit of 1 and a ones digit from 0 to 9."
+      ],
+      "explanation": "The digits of 1 to 9 add up to 45, and the digits of 10 to 19 add up to 10 + 45 = 55. Adding 2 for the number 20 gives 45 + 55 + 2 = 102.",
+      "solution": [
+        {
+          "say": "Digits of 1 to 9.",
+          "show": "45"
+        },
+        {
+          "say": "Digits of 10 to 19: ten tens digits plus the ones digits.",
+          "show": "10 + 45 = 55"
+        },
+        {
+          "say": "Digits of 20.",
+          "show": "2 + 0 = 2"
+        },
+        {
+          "say": "Total.",
+          "show": "45 + 55 + 2 = 102"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-number-puzzles.004",
+      "skill": "m3.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Work out 25 × 4 × 25 × 4.",
+      "options": [
+        {
+          "text": "1,000",
+          "why": "Each 25 × 4 makes 100, and 100 × 100 is more than 1,000."
+        },
+        {
+          "text": "2,500",
+          "why": "Group the numbers as (25 × 4) × (25 × 4)."
+        },
+        {
+          "text": "10,000"
+        },
+        {
+          "text": "40,000",
+          "why": "40,000 is too big. Each 25 × 4 is 100."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for numbers that multiply to make 100.",
+        "25 × 4 = 100.",
+        "Group the numbers in pairs: (25 × 4) × (25 × 4)."
+      ],
+      "explanation": "25 × 4 = 100, so the product is 100 × 100 = 10,000.",
+      "solution": [
+        {
+          "say": "Group in pairs.",
+          "show": "(25 × 4) × (25 × 4)"
+        },
+        {
+          "say": "Each pair is 100.",
+          "show": "100 × 100"
+        },
+        {
+          "say": "Multiply.",
+          "show": "10,000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-puzzles.005",
+      "skill": "m3.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Mr Lim shares sweets with some children. If each child gets 4 sweets, 3 are left over. If each child gets 5 sweets, he is 4 sweets short. How many children are there?",
+      "answer": 7,
+      "hints": [
+        "Compare the two ways of sharing.",
+        "Giving each child 1 more sweet uses up the 3 spare sweets and needs 4 more.",
+        "So 1 extra sweet for every child adds up to 3 + 4 sweets."
+      ],
+      "explanation": "Going from 4 to 5 sweets each uses the 3 left over and needs 4 more, so 1 extra sweet for every child is 7 sweets. There are 7 children.",
+      "solution": [
+        {
+          "say": "Extra sweets needed for 1 more each.",
+          "show": "3 + 4 = 7"
+        },
+        {
+          "say": "Each child takes 1 of those.",
+          "show": "7 children"
+        },
+        {
+          "say": "Check: both ways use 31 sweets.",
+          "show": "7 × 4 + 3 = 31, 7 × 5 - 4 = 31"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-number-puzzles.006",
+      "skill": "m3.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Harga 3 buku tulis dan 2 pensil Rp21.000. Harga 1 buku tulis dan 2 pensil Rp11.000. Berapa harga 1 buku tulis?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Belanjaan",
+          "Harga"
+        ],
+        "rows": [
+          [
+            "3 buku tulis dan 2 pensil",
+            "Rp21.000"
+          ],
+          [
+            "1 buku tulis dan 2 pensil",
+            "Rp11.000"
+          ]
+        ],
+        "alt": "Tabel: 3 buku tulis dan 2 pensil harganya Rp21.000. 1 buku tulis dan 2 pensil harganya Rp11.000."
+      },
+      "options": [
+        {
+          "text": "Rp3.000",
+          "why": "Rp3.000 adalah harga 1 pensil."
+        },
+        {
+          "text": "Rp4.000",
+          "why": "Kalau 1 buku Rp4.000, baris kedua menjadi Rp13.000, bukan Rp11.000."
+        },
+        {
+          "text": "Rp5.000"
+        },
+        {
+          "text": "Rp10.000",
+          "why": "Rp10.000 adalah harga 2 buku tulis, bukan 1."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Bandingkan kedua belanjaan.",
+        "Bedanya hanya pada buku tulis. Pensilnya sama-sama 2.",
+        "Selisih harganya, Rp21.000 - Rp11.000, adalah harga 2 buku tulis."
+      ],
+      "explanation": "Kedua belanjaan sama-sama punya 2 pensil. Bedanya 2 buku tulis, dan selisih harganya Rp10.000. Jadi 1 buku tulis Rp5.000.",
+      "solution": [
+        {
+          "say": "Selisih belanjaan: 2 buku tulis.",
+          "show": "3 buku - 1 buku = 2 buku"
+        },
+        {
+          "say": "Selisih harga.",
+          "show": "Rp21.000 - Rp11.000 = Rp10.000"
+        },
+        {
+          "say": "Harga 1 buku tulis.",
+          "show": "Rp10.000 ÷ 2 = Rp5.000"
+        },
+        {
+          "say": "Periksa: 2 pensil Rp6.000.",
+          "show": "Rp15.000 + Rp6.000 = Rp21.000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "harga",
+          "en": "price"
+        },
+        {
+          "term": "buku tulis",
+          "en": "exercise book"
+        },
+        {
+          "term": "pensil",
+          "en": "pencil"
+        },
+        {
+          "term": "belanjaan",
+          "en": "shopping, purchases"
+        },
+        {
+          "term": "selisih",
+          "en": "difference"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-number-puzzles.007",
+      "skill": "m3.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Work out 1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17 + 19.",
+      "answer": 100,
+      "hints": [
+        "Look for pairs that make the same total.",
+        "1 + 19 = 20 and 3 + 17 = 20.",
+        "How many pairs like that are there?"
+      ],
+      "explanation": "Pair the numbers from the ends: 1 + 19, 3 + 17, 5 + 15, 7 + 13, 9 + 11. Each pair makes 20, and there are 5 pairs, so the total is 100.",
+      "solution": [
+        {
+          "say": "Pair from both ends.",
+          "show": "1 + 19, 3 + 17, 5 + 15, 7 + 13, 9 + 11"
+        },
+        {
+          "say": "Each pair is 20.",
+          "show": "5 pairs"
+        },
+        {
+          "say": "Total.",
+          "show": "5 × 20 = 100"
+        },
+        {
+          "say": "The first 10 odd numbers add up to 10 × 10."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-number-puzzles.008",
+      "skill": "m3.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A number leaves a remainder of 1 when divided by 2, by 3 or by 4. It can be divided exactly by 5. What is the smallest such number?",
+      "answer": 25,
+      "hints": [
+        "A number that leaves 1 when divided by 2, 3 and 4 is 1 more than a multiple of all three.",
+        "The smallest number that 2, 3 and 4 all divide into is 12.",
+        "List the numbers that are 1 more than a multiple of 12, starting with 13."
+      ],
+      "explanation": "The number is 1 more than a multiple of 12: 13, 25, 37, 49 and so on. The first of these that divides exactly by 5 is 25.",
+      "solution": [
+        {
+          "say": "Multiples of 2, 3 and 4.",
+          "show": "12, 24, 36, 48"
+        },
+        {
+          "say": "Add 1.",
+          "show": "13, 25, 37, 49"
+        },
+        {
+          "say": "Check which divides by 5.",
+          "show": "25 ÷ 5 = 5"
+        },
+        {
+          "say": "Check the remainders.",
+          "show": "25 = 2 × 12 + 1 = 3 × 8 + 1 = 4 × 6 + 1"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-number-puzzles.009",
+      "skill": "m3.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Today Ann is 8 years old and her mum is 35. In how many years will their ages add up to 63?",
+      "answer": 10,
+      "hints": [
+        "Find the sum of their ages today.",
+        "Each year, the sum of their two ages goes up by 2.",
+        "The sum must grow from 43 to 63."
+      ],
+      "explanation": "Today their ages add up to 8 + 35 = 43. Each year the sum grows by 2, and it must grow by 20, so it takes 10 years.",
+      "solution": [
+        {
+          "say": "Sum today.",
+          "show": "8 + 35 = 43"
+        },
+        {
+          "say": "Growth needed.",
+          "show": "63 - 43 = 20"
+        },
+        {
+          "say": "Each year adds 2.",
+          "show": "20 ÷ 2 = 10 years"
+        },
+        {
+          "say": "Check: Ann 18 and her mum 45.",
+          "show": "18 + 45 = 63"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

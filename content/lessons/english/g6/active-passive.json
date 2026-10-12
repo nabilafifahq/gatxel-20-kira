@@ -1,0 +1,80 @@
+{
+  "skill": "e6.active-passive",
+  "title": "Active and passive voice",
+  "steps": [
+    {
+      "say": "In an active sentence, the subject does the action.",
+      "show": "The chef cooked the rice."
+    },
+    {
+      "say": "In a passive sentence, the subject has the action done to it.",
+      "show": "The rice was cooked by the chef."
+    },
+    {
+      "say": "The passive uses a form of be with a past participle.",
+      "show": "is cooked, was cooked, has been cooked, will be cooked"
+    },
+    {
+      "say": "Use the passive when the doer is unknown or less important than the action.",
+      "show": "The gate was left open."
+    },
+    {
+      "say": "Science reports and formal writing often use the passive.",
+      "show": "The water was heated to 50 °C."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.active-passive.901",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is passive?",
+      "options": [
+        {
+          "text": "The postman delivered the letters.",
+          "why": "The postman does the action, so this is active."
+        },
+        {
+          "text": "The postman is very friendly.",
+          "why": "This describes the postman. No action is done to anyone."
+        },
+        {
+          "text": "We read the letters.",
+          "why": "We do the action, so this is active."
+        },
+        {
+          "text": "The letters were delivered this morning."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look for a form of be followed by a past participle.",
+        "In the passive, the subject receives the action.",
+        "Find the sentence where the letters have something done to them."
+      ],
+      "explanation": "The letters were delivered is passive: the letters received the action."
+    },
+    {
+      "id": "e6.active-passive.902",
+      "skill": "e6.active-passive",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Complete the passive sentence. The windows ___ cleaned every Friday.",
+      "blanks": [
+        {
+          "answers": [
+            "are",
+            "were"
+          ]
+        }
+      ],
+      "hints": [
+        "The windows receive the action.",
+        "A passive verb needs a form of be.",
+        "Windows is plural. Which form of be goes with a plural subject?"
+      ],
+      "explanation": "The windows are cleaned every Friday is passive: are + cleaned."
+    }
+  ]
+}

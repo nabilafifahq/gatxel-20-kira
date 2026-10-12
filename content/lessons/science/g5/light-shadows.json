@@ -1,0 +1,106 @@
+{
+  "skill": "s5.light-shadows",
+  "title": "Light and shadows",
+  "steps": [
+    {
+      "say": "A light source makes its own light, like the Sun or a torch. The Moon only reflects sunlight.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "torch",
+            "label": "torch"
+          },
+          {
+            "icon": "candle",
+            "label": "candle"
+          }
+        ],
+        "alt": "Three light sources: the Sun, a torch and a candle."
+      }
+    },
+    {
+      "say": "Light travels in straight lines. It cannot bend around objects."
+    },
+    {
+      "say": "Opaque materials block light and make dark shadows. Translucent materials let some light through, and transparent ones let almost all through."
+    },
+    {
+      "say": "A shadow forms where an object blocks light. It has the same outline as the object."
+    },
+    {
+      "say": "Move an object closer to the light, and its shadow gets bigger. Move it away, and the shadow gets smaller."
+    },
+    {
+      "say": "Sun shadows are long in the morning and evening. They are shortest around midday, when the Sun is highest."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.light-shadows.901",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a light source?",
+      "options": [
+        {
+          "text": "the Moon",
+          "why": "The Moon reflects light from the Sun. It does not make its own."
+        },
+        {
+          "text": "a mirror",
+          "why": "A mirror reflects light but does not make it."
+        },
+        {
+          "text": "a candle flame"
+        },
+        {
+          "text": "a white wall",
+          "why": "A white wall reflects light but does not make it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A light source makes its own light.",
+        "Ask whether each one would still shine in a dark room.",
+        "Cross out the things that only reflect light."
+      ],
+      "explanation": "A candle flame makes its own light, so it is a light source. The Moon, a mirror and a white wall only reflect light."
+    },
+    {
+      "id": "s5.light-shadows.902",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A puppet moves closer to a torch. What happens to its shadow?",
+      "options": [
+        {
+          "text": "It gets smaller.",
+          "why": "Moving closer to the light blocks more of the light, so the shadow grows."
+        },
+        {
+          "text": "It gets bigger."
+        },
+        {
+          "text": "It stays the same size.",
+          "why": "The shadow changes size as the puppet moves."
+        },
+        {
+          "text": "It disappears.",
+          "why": "The puppet still blocks light, so there is still a shadow."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An object close to a light blocks a wide spread of light.",
+        "Think about making shadow puppets with your hands near a lamp.",
+        "Compare a hand near the torch with a hand near the wall."
+      ],
+      "explanation": "The closer an object is to the light source, the more light it blocks, so its shadow gets bigger."
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "skill": "s6.graphs-evidence",
+  "items": [
+    {
+      "id": "s6.graphs-evidence.001",
+      "skill": "s6.graphs-evidence",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "To show how the temperature of water changes over 30 minutes, the best graph is a ___ graph.",
+      "blanks": [
+        {
+          "answers": [
+            "line"
+          ]
+        }
+      ],
+      "hints": [
+        "Time and temperature are both numbers that change smoothly.",
+        "This graph joins plotted points to show a change over time.",
+        "Bar charts suit separate groups. Think of the graph that joins dots instead."
+      ],
+      "explanation": "A line graph shows how a measurement changes over time. The points are plotted and joined, so you can see the pattern and read values in between.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.002",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sinta draws a line graph of her plant's height against time. Which goes on the horizontal axis?",
+      "options": [
+        {
+          "text": "the height of the plant",
+          "why": "Height is what she measures, so it goes on the vertical axis."
+        },
+        {
+          "text": "the time in days"
+        },
+        {
+          "text": "the name of the plant",
+          "why": "The name does not change, so it cannot go on an axis."
+        },
+        {
+          "text": "the colour of the leaves",
+          "why": "Colour is not measured with numbers here."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The variable you choose or change goes on the horizontal axis.",
+        "The variable you measure goes on the vertical axis.",
+        "Ask which one Sinta decides in advance: the days she measures on, or the height."
+      ],
+      "explanation": "Time is the variable Sinta chooses, so it goes on the horizontal (x) axis. The height she measures goes on the vertical (y) axis.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.003",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Mei Lin measures the temperature of a cup of tea every 5 minutes. By how many degrees did the tea cool in the first 10 minutes?",
+      "figure": {
+        "kind": "table",
+        "caption": "Cooling tea",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "38"
+          ],
+          [
+            "25",
+            "34"
+          ]
+        ],
+        "alt": "Table: at 0 minutes the tea is 80 °C, at 5 minutes 64 °C, at 10 minutes 52 °C, at 15 minutes 44 °C, at 20 minutes 38 °C and at 25 minutes 34 °C."
+      },
+      "answer": 28,
+      "unit": "°C",
+      "hints": [
+        "Find the temperature at 0 minutes and at 10 minutes.",
+        "Cooling means the temperature went down, so find the difference.",
+        "Subtract the temperature at 10 minutes from the starting temperature."
+      ],
+      "explanation": "The tea started at 80 °C and was 52 °C after 10 minutes. 80 − 52 = 28, so it cooled by 28 °C.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.004",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at Mei Lin's results for her cooling tea. What pattern do they show?",
+      "figure": {
+        "kind": "table",
+        "caption": "Cooling tea",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "38"
+          ],
+          [
+            "25",
+            "34"
+          ]
+        ],
+        "alt": "Table: at 0 minutes the tea is 80 °C, at 5 minutes 64 °C, at 10 minutes 52 °C, at 15 minutes 44 °C, at 20 minutes 38 °C and at 25 minutes 34 °C."
+      },
+      "options": [
+        {
+          "text": "The tea cools by the same amount every 5 minutes.",
+          "why": "It drops 16 °C in the first 5 minutes but only 4 °C in the last 5 minutes."
+        },
+        {
+          "text": "The tea gets hotter over time.",
+          "why": "The temperatures go down, not up."
+        },
+        {
+          "text": "The tea cools quickly at first, then more slowly."
+        },
+        {
+          "text": "The tea stops cooling after 10 minutes.",
+          "why": "The temperature keeps falling, just more slowly."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out how much the tea cools in each 5-minute step.",
+        "Compare the first drop with the last drop.",
+        "Find the drop from 0 to 5 minutes, then from 20 to 25 minutes."
+      ],
+      "explanation": "The tea cools by 16 °C in the first 5 minutes but by only 4 °C in the last 5 minutes. It cools quickly at first, then more slowly as it gets closer to room temperature.",
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.005",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Leo plots these results on a line graph. Use the pattern to estimate the plant's height on day 6.",
+      "figure": {
+        "kind": "table",
+        "caption": "Height of a bean plant",
+        "head": [
+          "Day",
+          "Height (cm)"
+        ],
+        "rows": [
+          [
+            "0",
+            "2"
+          ],
+          [
+            "4",
+            "6"
+          ],
+          [
+            "8",
+            "10"
+          ],
+          [
+            "12",
+            "14"
+          ]
+        ],
+        "alt": "Table: on day 0 the plant is 2 cm tall, on day 4 it is 6 cm, on day 8 it is 10 cm and on day 12 it is 14 cm."
+      },
+      "answer": 8,
+      "unit": "cm",
+      "hints": [
+        "Look at how much the plant grows every 4 days.",
+        "Day 6 is halfway between day 4 and day 8.",
+        "Find the height halfway between the heights on day 4 and day 8."
+      ],
+      "explanation": "The plant grows 4 cm every 4 days, which is 1 cm a day. Day 6 is halfway between day 4 (6 cm) and day 8 (10 cm), so the height is about 8 cm.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.006",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Omar hangs masses on a spring and measures how far it stretches. Which result in his table is anomalous?",
+      "figure": {
+        "kind": "table",
+        "caption": "Stretching a spring",
+        "head": [
+          "Mass added (g)",
+          "Stretch (cm)"
+        ],
+        "rows": [
+          [
+            "100",
+            "2"
+          ],
+          [
+            "200",
+            "4"
+          ],
+          [
+            "300",
+            "9"
+          ],
+          [
+            "400",
+            "8"
+          ],
+          [
+            "500",
+            "10"
+          ]
+        ],
+        "alt": "Table: 100 g stretches the spring 2 cm, 200 g stretches it 4 cm, 300 g 9 cm, 400 g 8 cm and 500 g 10 cm."
+      },
+      "options": [
+        {
+          "text": "the stretch for 100 g",
+          "why": "2 cm fits the pattern of 2 cm for every 100 g."
+        },
+        {
+          "text": "the stretch for 400 g",
+          "why": "8 cm fits the pattern of 2 cm for every 100 g."
+        },
+        {
+          "text": "the stretch for 500 g",
+          "why": "10 cm fits the pattern of 2 cm for every 100 g."
+        },
+        {
+          "text": "the stretch for 300 g"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An anomalous result does not fit the pattern of the others.",
+        "Most results go up by the same amount for every 100 g.",
+        "Use the pattern to work out the stretch you would expect for 300 g."
+      ],
+      "explanation": "The spring stretches 2 cm for every 100 g, so 300 g should give 6 cm, not 9 cm. This anomalous result should be measured again.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.007",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Rizky rolls one ball once on carpet and once on wood. It rolls further on wood. He says balls always roll less far on rough surfaces. Why is his evidence weak?",
+      "options": [
+        {
+          "text": "He tested only one ball, once on each of two surfaces."
+        },
+        {
+          "text": "He should have used a forcemeter.",
+          "why": "The problem is the number of tests, not the equipment."
+        },
+        {
+          "text": "Wood and carpet are both rough.",
+          "why": "Carpet is rougher than wood, so the comparison makes sense. He just needs more results."
+        },
+        {
+          "text": "Balls always roll the same distance.",
+          "why": "The distance does change with the surface. His evidence is just too small to say always."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The word always makes a very strong claim.",
+        "Think about how many results he collected.",
+        "Ask what he should do before saying always."
+      ],
+      "explanation": "One ball rolled once on each of two surfaces is too little evidence for a rule about all balls and all surfaces. He should repeat the test and try more balls and surfaces.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.008",
+      "skill": "s6.graphs-evidence",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a line graph of Mei Lin's cooling tea results. Label both axes with units, use even scales, plot the points and join them.",
+      "figure": {
+        "kind": "table",
+        "caption": "Cooling tea",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "38"
+          ],
+          [
+            "25",
+            "34"
+          ]
+        ],
+        "alt": "Table: at 0 minutes the tea is 80 °C, at 5 minutes 64 °C, at 10 minutes 52 °C, at 15 minutes 44 °C, at 20 minutes 38 °C and at 25 minutes 34 °C."
+      },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Puts time on the horizontal axis, with units",
+            "points": 1
+          },
+          {
+            "label": "Puts temperature on the vertical axis, with units",
+            "points": 1
+          },
+          {
+            "label": "Uses even scales on both axes",
+            "points": 1
+          },
+          {
+            "label": "Plots all six points accurately",
+            "points": 2
+          },
+          {
+            "label": "Joins the points with a smooth curve or straight lines",
+            "points": 1
+          }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Choose scales so that the graph fills most of the grid.",
+        "Plot each point carefully, then join them."
+      ],
+      "explanation": "Time goes on the horizontal axis and temperature on the vertical axis, each with an even scale and units. The plotted points make a curve that falls steeply at first, then levels off.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.009",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Jane Goodall spent many years watching wild chimpanzees in Tanzania. She saw them use sticks to catch termites. Which scientific skill was most important in her work?",
+      "options": [
+        {
+          "text": "fair tests in a laboratory",
+          "why": "She studied wild chimpanzees in their habitat, so she watched them instead of testing them in a laboratory."
+        },
+        {
+          "text": "measuring temperatures",
+          "why": "Her discoveries came from watching behaviour, not from temperatures."
+        },
+        {
+          "text": "careful observation over a long time"
+        },
+        {
+          "text": "building circuits",
+          "why": "Circuits have nothing to do with studying chimpanzees."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "She did not change anything about the chimpanzees' lives.",
+        "Her discoveries came from what she saw them do in the wild.",
+        "Ask which skill lets a scientist learn without doing an experiment."
+      ],
+      "explanation": "Jane Goodall learned by observing chimpanzees closely for many years in their natural habitat. Careful observation showed that chimpanzees make and use tools.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.graphs-evidence.010",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In a town, ice cream sales and cases of sunburn both rise in the same months. Does eating ice cream cause sunburn?",
+      "options": [
+        {
+          "text": "Yes, because the two rise together.",
+          "why": "Rising together does not prove that one causes the other."
+        },
+        {
+          "text": "No. Hot, sunny weather makes both go up."
+        },
+        {
+          "text": "Yes, because ice cream makes skin weaker.",
+          "why": "There is no evidence for this. Sunny weather is the link."
+        },
+        {
+          "text": "No, because sunburn only happens in winter.",
+          "why": "Sunburn is most common in sunny months."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Two things can rise together because a third thing causes both.",
+        "Think about the weather in the months when both go up.",
+        "Ask what makes people buy ice cream and also makes people get sunburnt."
+      ],
+      "explanation": "Hot, sunny weather makes people buy more ice cream and also causes more sunburn. The two rise together, but one does not cause the other.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    }
+  ]
+}

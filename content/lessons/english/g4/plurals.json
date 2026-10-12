@@ -1,0 +1,34 @@
+{
+  "skill": "e4.plurals",
+  "title": "Tricky plurals",
+  "steps": [
+    { "say": "Many words ending in f or fe change to -ves in the plural.", "show": "leaf → leaves, knife → knives, half → halves", "figure": { "kind": "objects", "items": [{ "icon": "leaf", "count": 3 }], "alt": "Three leaves." } },
+    { "say": "Some words ending in f just add -s. Say the plural aloud to check.", "show": "roof → roofs, chef → chefs" },
+    { "say": "Words ending in a consonant and y change to -ies.", "show": "pony → ponies, city → cities" },
+    { "say": "Some words change inside, or become a new word.", "show": "child → children, mouse → mice, foot → feet" },
+    { "say": "A few words do not change at all.", "show": "one sheep, two sheep; one fish, two fish" },
+    { "say": "Some words ending in o add -es.", "show": "tomato → tomatoes, potato → potatoes" }
+  ],
+  "check": [
+    {
+      "id": "e4.plurals.901", "skill": "e4.plurals", "type": "mcq", "difficulty": 1,
+      "prompt": "One wolf, two ___.",
+      "options": [
+        { "text": "wolfs", "why": "Wolf changes its f to v." },
+        { "text": "wolves" },
+        { "text": "wolfes", "why": "The f must change to v before -es." },
+        { "text": "wolve", "why": "This is missing the s." }
+      ],
+      "answer": 1,
+      "hints": ["Wolf ends in f.", "Many words ending in f change to -ves.", "Think of half and halves."],
+      "explanation": "Wolf ends in f, so it becomes wolves."
+    },
+    {
+      "id": "e4.plurals.902", "skill": "e4.plurals", "type": "text", "difficulty": 2,
+      "prompt": "One child, three ___.",
+      "blanks": [{ "answers": ["children"] }],
+      "hints": ["Child has an irregular plural.", "It does not add -s at all.", "Think of the word you hear in a busy playground."],
+      "explanation": "The plural of child is children."
+    }
+  ]
+}

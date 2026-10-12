@@ -1,0 +1,103 @@
+{
+  "skill": "s5.heart-lungs",
+  "title": "How your heart and lungs work together",
+  "steps": [
+    {
+      "say": "Your heart is a strong muscle about the size of your fist. It squeezes to pump blood around your body.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "heart-organ",
+            "label": "heart"
+          },
+          {
+            "icon": "lungs",
+            "label": "lungs"
+          }
+        ],
+        "alt": "A heart and a pair of lungs."
+      }
+    },
+    {
+      "say": "Arteries carry blood away from the heart. Veins carry blood back to the heart.",
+      "show": "arteries go away, veins come back"
+    },
+    {
+      "say": "When you breathe in, air goes down your windpipe into your lungs. Oxygen passes from the air into your blood."
+    },
+    {
+      "say": "Your blood carries oxygen to every muscle. It brings carbon dioxide back to the lungs, and you breathe it out."
+    },
+    {
+      "say": "When you run, your muscles need more oxygen. Your heart beats faster and you breathe faster.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "At rest",
+          "After running"
+        ],
+        "values": [
+          80,
+          145
+        ],
+        "axisMax": 160,
+        "step": 20,
+        "yLabel": "Heart rate (beats per minute)",
+        "tone": "science",
+        "alt": "Bar chart: heart rate 80 beats per minute at rest and 145 after running."
+      }
+    },
+    {
+      "say": "You can feel each heartbeat as a pulse in your wrist. Count the beats for one minute to find your pulse rate."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.heart-lungs.901",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which blood vessels carry blood back to the heart?",
+      "options": [
+        {
+          "text": "arteries",
+          "why": "Arteries carry blood away from the heart."
+        },
+        {
+          "text": "veins"
+        },
+        {
+          "text": "muscles",
+          "why": "Muscles are not blood vessels."
+        },
+        {
+          "text": "lungs",
+          "why": "The lungs are where blood picks up oxygen. They are not blood vessels."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are two main kinds of blood vessel.",
+        "Remember that arteries carry blood away from the heart.",
+        "Cross out the choices that are not blood vessels."
+      ],
+      "explanation": "Veins carry blood back to the heart. Arteries carry blood away from it."
+    },
+    {
+      "id": "s5.heart-lungs.902",
+      "skill": "s5.heart-lungs",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Nadia counts 20 heartbeats in 15 seconds. What is her pulse rate in beats per minute?",
+      "answer": 80,
+      "unit": "beats per minute",
+      "hints": [
+        "A pulse rate counts the beats in one whole minute.",
+        "A minute has four lots of 15 seconds.",
+        "Multiply her count by 4."
+      ],
+      "explanation": "20 × 4 = 80, so her pulse rate is 80 beats per minute."
+    }
+  ]
+}

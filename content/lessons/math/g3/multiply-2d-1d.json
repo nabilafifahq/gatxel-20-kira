@@ -1,0 +1,71 @@
+{
+  "skill": "m3.multiply-2d-1d",
+  "title": "Multiply a 2-digit number by a 1-digit number",
+  "steps": [
+    {
+      "say": "To work out 23 × 4, split 23 into tens and ones.",
+      "show": "23 = 20 + 3"
+    },
+    {
+      "say": "Multiply the tens by 4.",
+      "show": "20 × 4 = 80"
+    },
+    {
+      "say": "Multiply the ones by 4.",
+      "show": "3 × 4 = 12"
+    },
+    {
+      "say": "A grid keeps the parts tidy. Add the two parts.",
+      "show": "80 + 12 = 92",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "×",
+          "20",
+          "3"
+        ],
+        "rows": [
+          [
+            "4",
+            "80",
+            "12"
+          ]
+        ],
+        "alt": "A grid: 20 times 4 is 80 and 3 times 4 is 12."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.multiply-2d-1d.901",
+      "skill": "m3.multiply-2d-1d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 36 × 3.",
+      "answer": 108,
+      "hints": [
+        "Split 36 into 30 and 6.",
+        "Multiply each part by 3.",
+        "30 × 3 = 90."
+      ],
+      "explanation": "30 × 3 = 90 and 6 × 3 = 18. 90 + 18 = 108."
+    },
+    {
+      "id": "m3.multiply-2d-1d.902",
+      "skill": "m3.multiply-2d-1d",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A box holds 24 crayons. How many crayons are in 5 boxes?",
+      "answer": 120,
+      "hints": [
+        "Multiply 24 by 5.",
+        "Split 24 into 20 and 4.",
+        "20 × 5 = 100."
+      ],
+      "explanation": "20 × 5 = 100 and 4 × 5 = 20. 100 + 20 = 120 crayons.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

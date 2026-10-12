@@ -1,0 +1,77 @@
+{
+  "skill": "e5.summarising-structure",
+  "title": "Main ideas and how texts are organised",
+  "steps": [
+    {
+      "say": "The main idea is what a paragraph or text is mostly about. Details support it."
+    },
+    {
+      "say": "The first sentence of a paragraph is called the topic sentence. It often gives the main idea."
+    },
+    {
+      "say": "A summary gives the main points in a few words and leaves out small details."
+    },
+    {
+      "say": "Different texts are organised in different ways. Stories follow events, and letters follow a set layout."
+    },
+    {
+      "say": "Explanations link causes and effects with words such as because, so and as a result.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun heats water"
+          },
+          {
+            "icon": "steam",
+            "label": "Vapour rises"
+          },
+          {
+            "icon": "cloud",
+            "label": "Clouds form"
+          },
+          {
+            "icon": "rain",
+            "label": "Rain falls"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "A chain of four steps: the sun heats water, water vapour rises, clouds form and rain falls."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.summarising-structure.901",
+      "skill": "e5.summarising-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: Bees visit flowers to collect nectar. As they move from flower to flower, they carry pollen, which helps plants make seeds. Which heading fits best?",
+      "options": [
+        {
+          "text": "How bees help plants"
+        },
+        {
+          "text": "Bees can sting",
+          "why": "The paragraph does not mention stings."
+        },
+        {
+          "text": "My favourite flowers",
+          "why": "The paragraph is not about anyone’s favourite flowers."
+        },
+        {
+          "text": "How to make honey",
+          "why": "Honey is not mentioned."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A heading sums up the main idea.",
+        "Ask: what is the whole paragraph about?",
+        "Cross out any heading about something the paragraph does not mention."
+      ],
+      "explanation": "The paragraph explains how bees carry pollen that helps plants make seeds, so How bees help plants fits best."
+    }
+  ]
+}

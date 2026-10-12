@@ -1,0 +1,96 @@
+{
+  "skill": "s6.light-seeing",
+  "title": "How we see",
+  "steps": [
+    {
+      "say": "We see because light enters our eyes. About 1,000 years ago, Ibn al-Haytham showed this with careful experiments.",
+      "figure": {
+        "kind": "icons",
+        "arrows": "chain",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "light source"
+          },
+          {
+            "icon": "apple",
+            "label": "object"
+          },
+          {
+            "icon": "eye",
+            "label": "eye"
+          }
+        ],
+        "alt": "Light travels from a light source to an object, then reflects into an eye."
+      }
+    },
+    {
+      "say": "Most objects do not make light. We see them because light from a source reflects off them into our eyes."
+    },
+    {
+      "say": "Smooth, shiny surfaces reflect light in a regular way and make clear images. Rough surfaces scatter light."
+    },
+    {
+      "say": "When light hits a mirror, the angle of incidence equals the angle of reflection. Both are measured from the normal."
+    },
+    {
+      "say": "Light changes direction when it passes from one material into another, such as from water into air. This is refraction."
+    },
+    {
+      "say": "Refraction makes a straw look bent and a pool look shallower. A prism splits white light into colours, as Newton showed in 1666."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.light-seeing.901",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How do we see a red apple?",
+      "options": [
+        {
+          "text": "Light comes out of our eyes and lands on the apple.",
+          "why": "Our eyes take in light. They do not give it out."
+        },
+        {
+          "text": "The apple makes its own red light.",
+          "why": "An apple is not a light source."
+        },
+        {
+          "text": "We see it even in total darkness.",
+          "why": "Without any light, we cannot see the apple."
+        },
+        {
+          "text": "Light reflects off the apple into our eyes."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An apple is not a light source.",
+        "Light must travel from a source, to the apple, to your eye.",
+        "Cross out the choices where the light starts at the eye or the apple."
+      ],
+      "explanation": "Light from a source hits the apple and reflects into our eyes. That is how we see objects that do not make their own light."
+    },
+    {
+      "id": "s6.light-seeing.902",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The bending of light as it passes from water into air is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "refraction"
+          ]
+        }
+      ],
+      "hints": [
+        "It makes a straw in water look bent.",
+        "It is different from reflection, where light bounces back.",
+        "The word starts with the same two letters as reflection, but it means bending."
+      ],
+      "explanation": "Refraction is the bending of light when it passes from one material into another."
+    }
+  ]
+}

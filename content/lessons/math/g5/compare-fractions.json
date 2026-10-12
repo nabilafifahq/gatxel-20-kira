@@ -1,0 +1,137 @@
+{
+  "skill": "m5.compare-fractions",
+  "title": "Comparing fractions and mixed numbers",
+  "steps": [
+    {
+      "say": "When the denominators are the same, compare the numerators. 5/8 is more than 3/8.",
+      "show": "5/8 > 3/8",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 5,
+        "label": "5/8",
+        "alt": "A bar split into 8 equal parts with 5 parts shaded."
+      }
+    },
+    {
+      "say": "When the numerators are the same, a bigger denominator means smaller pieces.",
+      "show": "1/3 > 1/5"
+    },
+    {
+      "say": "Otherwise, make the denominators the same. 2/3 and 3/4 can both become twelfths.",
+      "show": "2/3 = 8/12 and 3/4 = 9/12, so 3/4 > 2/3"
+    },
+    {
+      "say": "An improper fraction has a numerator bigger than its denominator. It is more than one whole.",
+      "show": "7/4 = 1 3/4",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 2,
+        "step": 0.25,
+        "labels": [
+          0,
+          1,
+          2
+        ],
+        "marks": [
+          {
+            "at": 1.75,
+            "label": "7/4"
+          }
+        ],
+        "alt": "A number line from 0 to 2 in quarters with 7/4 marked between 1 and 2."
+      }
+    },
+    {
+      "say": "To change 7/4 to a mixed number, divide 7 by 4. That makes 1 whole with 3 quarters left.",
+      "show": "7 ÷ 4 = 1 r 3, so 7/4 = 1 3/4"
+    },
+    {
+      "say": "To change back, multiply the whole number by the denominator, then add the numerator.",
+      "show": "2 1/3 = (2 × 3 + 1)/3 = 7/3"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.compare-fractions.901",
+      "skill": "m5.compare-fractions",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which fraction is the largest?",
+      "hints": [
+        "All the fractions are fifths.",
+        "Compare the numerators.",
+        "The more fifths there are, the bigger the fraction."
+      ],
+      "explanation": "They are all fifths, and 4 is the biggest numerator, so 4/5 is the largest.",
+      "options": [
+        {
+          "text": "1/5",
+          "why": "1/5 is the smallest of these."
+        },
+        {
+          "text": "4/5"
+        },
+        {
+          "text": "2/5",
+          "why": "2/5 has fewer fifths than 4/5."
+        },
+        {
+          "text": "3/5",
+          "why": "3 fifths is less than 4 fifths."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m5.compare-fractions.902",
+      "skill": "m5.compare-fractions",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write 11/3 as a mixed number.",
+      "hints": [
+        "Divide 11 by 3.",
+        "The whole number is how many times 3 goes into 11.",
+        "The remainder becomes the numerator."
+      ],
+      "explanation": "11 ÷ 3 = 3 remainder 2, so 11/3 = 3 2/3.",
+      "blanks": [
+        {
+          "answers": [
+            "3 2/3",
+            "3 and 2/3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.compare-fractions.903",
+      "skill": "m5.compare-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is greater, 3/4 or 5/6?",
+      "hints": [
+        "The denominators are different.",
+        "Change both fractions to twelfths.",
+        "3/4 = 9/12."
+      ],
+      "explanation": "3/4 = 9/12 and 5/6 = 10/12. 10/12 is more, so 5/6 is greater.",
+      "options": [
+        {
+          "text": "They are equal",
+          "why": "In twelfths they are 9/12 and 10/12, which are not equal."
+        },
+        {
+          "text": "5/6"
+        },
+        {
+          "text": "3/4",
+          "why": "3/4 = 9/12 and 5/6 = 10/12, so 3/4 is smaller."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

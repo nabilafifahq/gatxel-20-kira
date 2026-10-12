@@ -1,0 +1,39 @@
+{
+  "skill": "e3.conjunctions",
+  "title": "Joining words",
+  "steps": [
+    { "say": "Conjunctions are joining words. They join two ideas into one longer sentence.", "show": "I was hot. I had a drink. → I was hot, so I had a drink." },
+    { "say": "And adds an idea. Or gives a choice.", "show": "rice and fish, rice or noodles" },
+    { "say": "But shows a difference or a surprise.", "show": "It was sunny, but it was cold." },
+    { "say": "Because gives a reason. So gives a result.", "show": "I ran because I was late. I was late, so I ran." },
+    { "say": "When and if tell us about time, and about what must happen first.", "show": "When it rains, we stay in. If you ask, I will help." }
+  ],
+  "check": [
+    {
+      "id": "e3.conjunctions.901", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 1,
+      "prompt": "I was thirsty, ___ I drank some water.",
+      "options": [
+        { "text": "but", "why": "But shows a surprise. Drinking when thirsty is no surprise." },
+        { "text": "or", "why": "Or gives a choice." },
+        { "text": "so" },
+        { "text": "if", "why": "If means only when something happens." }
+      ],
+      "answer": 2,
+      "hints": ["What happened because I was thirsty?", "You need a word that shows a result.", "Read the sentence with each word in the gap."],
+      "explanation": "So shows a result. I was thirsty, so I drank some water."
+    },
+    {
+      "id": "e3.conjunctions.902", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 2,
+      "prompt": "We stayed inside ___ it was raining.",
+      "options": [
+        { "text": "because" },
+        { "text": "so", "why": "So gives a result. Staying inside did not cause the rain." },
+        { "text": "or", "why": "Or gives a choice." },
+        { "text": "but", "why": "But shows a surprise. Staying in when it rains is not surprising." }
+      ],
+      "answer": 0,
+      "hints": ["Why did we stay inside?", "You need a word that gives a reason.", "Read the sentence aloud with each word."],
+      "explanation": "Because gives the reason: we stayed inside because it was raining."
+    }
+  ]
+}

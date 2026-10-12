@@ -1,0 +1,412 @@
+{
+  "skill": "s3.seeds-and-growth",
+  "items": [
+    {
+      "id": "s3.seeds-and-growth.001",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is it called when a seed starts to grow?",
+      "options": [
+        {
+          "text": "germination"
+        },
+        {
+          "text": "pollination",
+          "why": "Pollination is when pollen moves from flower to flower."
+        },
+        {
+          "text": "evaporation",
+          "why": "Evaporation is when a liquid turns into a gas."
+        },
+        {
+          "text": "reflection",
+          "why": "Reflection is when light bounces off something."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "This word is used when a seed wakes up and sprouts.",
+        "It is the first stage in the life of a new plant.",
+        "Look for the word that is about seeds, not light or water."
+      ],
+      "explanation": "Germination is when a seed starts to grow. A root grows out first, then a shoot."
+    },
+    {
+      "id": "s3.seeds-and-growth.002",
+      "skill": "s3.seeds-and-growth",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the stages of a bean seed growing in order.",
+      "items": [
+        "The seed takes in water and swells.",
+        "A root grows down out of the seed.",
+        "A shoot grows up towards the light.",
+        "The first green leaves open."
+      ],
+      "hints": [
+        "Think about what a dry seed needs before anything else happens.",
+        "The part that holds the plant in the soil comes out first.",
+        "Start with the seed getting wet."
+      ],
+      "explanation": "A seed swells with water, then a root grows down. Next a shoot grows up, and its first leaves open to catch light."
+    },
+    {
+      "id": "s3.seeds-and-growth.003",
+      "skill": "s3.seeds-and-growth",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 3 things most seeds need to germinate.",
+      "options": [
+        {
+          "text": "water"
+        },
+        {
+          "text": "light",
+          "why": "Most seeds germinate in the dark soil, using food stored inside them."
+        },
+        {
+          "text": "warmth"
+        },
+        {
+          "text": "soil",
+          "why": "Seeds can germinate on wet cotton wool, without any soil."
+        },
+        {
+          "text": "air"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about seeds sprouting on wet cotton wool in a dark cupboard.",
+        "Seeds carry their own food to start growing.",
+        "Cross out anything a seed in a dark jar would not have."
+      ],
+      "explanation": "Most seeds need water, warmth and air to germinate. They do not need light or soil yet, because they use food stored inside the seed.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.004",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rudi puts bean seeds on wet cotton wool in a warm, dark cupboard. Will they germinate?",
+      "options": [
+        {
+          "text": "No, because seeds always need light to start growing.",
+          "why": "Seeds start growing using food stored inside them. They do not need light yet."
+        },
+        {
+          "text": "Yes, because they have water, warmth and air."
+        },
+        {
+          "text": "No, because seeds need soil to germinate.",
+          "why": "Seeds can germinate without soil if they have water, warmth and air."
+        },
+        {
+          "text": "Yes, but only in the daytime.",
+          "why": "Inside a dark cupboard, day or night makes no difference."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List what the seeds have in the cupboard.",
+        "Remember the three things most seeds need to germinate.",
+        "Check each need, one by one."
+      ],
+      "explanation": "The seeds have water, warmth and air, so they will germinate. Light is not needed until the leaves must make food."
+    },
+    {
+      "id": "s3.seeds-and-growth.005",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rudi leaves the seedlings in the dark cupboard. Two weeks later, they are tall, thin and yellow. What do they need?",
+      "options": [
+        {
+          "text": "more darkness",
+          "why": "They have had darkness for two weeks. That is the problem."
+        },
+        {
+          "text": "colder air",
+          "why": "Seedlings need warmth to grow well, not cold."
+        },
+        {
+          "text": "light"
+        },
+        {
+          "text": "less water",
+          "why": "Water is not the problem here. Something else is missing."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "After germination, the seedling must make its own food.",
+        "Which part makes food, and what does it use?",
+        "Think about what is missing inside a cupboard."
+      ],
+      "explanation": "Once the stored food runs out, seedlings make food in their leaves using light. Without light they grow pale, thin and weak.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.006",
+      "skill": "s3.seeds-and-growth",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The table shows two bean plants after 2 weeks. How much taller is the plant on the windowsill?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Place",
+          "Height after 2 weeks (cm)"
+        ],
+        "rows": [
+          [
+            "sunny windowsill",
+            "14"
+          ],
+          [
+            "inside a fridge",
+            "3"
+          ]
+        ],
+        "alt": "Table: the plant on a sunny windowsill grew to 14 cm. The plant inside a fridge grew to 3 cm."
+      },
+      "answer": 11,
+      "unit": "cm",
+      "hints": [
+        "Find both heights in the table.",
+        "Taller by how much means find the difference.",
+        "Start with the bigger height and take away the smaller one."
+      ],
+      "explanation": "14 cm take away 3 cm is 11 cm. The fridge was cold and dark, so that plant grew much less.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.007",
+      "skill": "s3.seeds-and-growth",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these. Do they help a plant grow well, or stop it growing well?",
+      "groups": [
+        "Helps it grow well",
+        "Stops it growing well"
+      ],
+      "items": [
+        {
+          "text": "sunlight",
+          "group": 0
+        },
+        {
+          "text": "water from rain",
+          "group": 0
+        },
+        {
+          "text": "warm days",
+          "group": 0
+        },
+        {
+          "text": "minerals in the soil",
+          "group": 0
+        },
+        {
+          "text": "no light for weeks",
+          "group": 1
+        },
+        {
+          "text": "very salty water",
+          "group": 1
+        },
+        {
+          "text": "freezing weather",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about what a healthy plant gets every day.",
+        "Plants need light, water, warmth and minerals.",
+        "Start with sunlight. Does a plant need it?"
+      ],
+      "explanation": "Plants grow well with light, water, warmth and minerals from the soil. Weeks of darkness, salty water and freezing weather all harm them."
+    },
+    {
+      "id": "s3.seeds-and-growth.008",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Farmers often soak rice seeds in water for a day before sowing them. Why?",
+      "options": [
+        {
+          "text": "to wash the light out of the seeds",
+          "why": "Seeds do not hold light. Soaking gives them water."
+        },
+        {
+          "text": "to make the seeds cold",
+          "why": "Seeds need warmth, not cold, to germinate."
+        },
+        {
+          "text": "to remove the food stored inside",
+          "why": "Seeds need their food store to start growing."
+        },
+        {
+          "text": "to give the seeds water so they start to germinate"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what a dry seed needs to wake up.",
+        "Remember the three things seeds need to germinate.",
+        "Which of those does soaking give?"
+      ],
+      "explanation": "Seeds need water to germinate. Soaking lets rice seeds take in water, so they start growing sooner.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.009",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Plants on a windowsill slowly bend towards the window. Why?",
+      "options": [
+        {
+          "text": "because they grow towards the light"
+        },
+        {
+          "text": "to get away from the wall",
+          "why": "Plants do not move away from walls."
+        },
+        {
+          "text": "because wind from the window pushes them",
+          "why": "The bending happens even with the window closed."
+        },
+        {
+          "text": "because plants like cold glass",
+          "why": "Plants grow towards light, not towards cold."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what comes in through a window.",
+        "Plants need something from the window to make food.",
+        "Ask: what is brighter on the window side?"
+      ],
+      "explanation": "Plants grow towards light because they need it to make food. The stems bend so the leaves face the window.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.010",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Lia wants to test if seeds need warmth to germinate. Which two pots should she compare?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Pot",
+          "Water",
+          "Place"
+        ],
+        "rows": [
+          [
+            "A",
+            "yes",
+            "warm cupboard"
+          ],
+          [
+            "B",
+            "yes",
+            "fridge"
+          ],
+          [
+            "C",
+            "no",
+            "warm cupboard"
+          ],
+          [
+            "D",
+            "no",
+            "fridge"
+          ]
+        ],
+        "alt": "Table of four pots. A: water, warm cupboard. B: water, fridge. C: no water, warm cupboard. D: no water, fridge."
+      },
+      "options": [
+        {
+          "text": "A and C",
+          "why": "These pots differ in water, not warmth."
+        },
+        {
+          "text": "A and B"
+        },
+        {
+          "text": "B and C",
+          "why": "These pots differ in water and warmth, so the test is not fair."
+        },
+        {
+          "text": "C and D",
+          "why": "Neither pot has water, so no seeds will germinate in either."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Only the thing being tested should be different.",
+        "Find two pots with the same water but a different place.",
+        "Look for two pots that both have water."
+      ],
+      "explanation": "Pots A and B both have water and are both dark. Only the temperature is different, so this is a fair test of warmth.",
+      "tags": [
+        "iksc",
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.seeds-and-growth.011",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A bean seed germinates on wet cotton wool in a dark box. Its shoot grows 5 cm. Where did the food for this growth come from?",
+      "options": [
+        {
+          "text": "the cotton wool",
+          "why": "Cotton wool only holds water. It has no food for the seed."
+        },
+        {
+          "text": "light",
+          "why": "The box was dark, so the seedling could not make food yet."
+        },
+        {
+          "text": "food stored inside the seed"
+        },
+        {
+          "text": "the water",
+          "why": "Water helps the seed swell, but water is not food."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The box was dark, so leaves could not make food.",
+        "Cotton wool and water are not food.",
+        "Think about what a seed carries inside it."
+      ],
+      "explanation": "A seed carries a store of food inside it. The seedling uses this food until its leaves can make food using light.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

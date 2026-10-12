@@ -1,0 +1,130 @@
+{
+  "skill": "s3.rocks-and-soils",
+  "title": "Rocks, soils and fossils",
+  "steps": [
+    {
+      "say": "Rocks are natural, hard materials that make up the Earth. Different rocks have different properties.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "rock",
+            "label": "rock"
+          },
+          {
+            "icon": "stone",
+            "label": "stone"
+          },
+          {
+            "icon": "mountain",
+            "label": "mountain"
+          }
+        ],
+        "alt": "A rock, a stone and a mountain."
+      }
+    },
+    {
+      "say": "Granite is hard and chalk is soft. Some rocks let water soak in, and some do not."
+    },
+    {
+      "say": "Soil is tiny bits of rock mixed with humus, which is rotted plants and animals. Soil also holds air and water.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "soil",
+            "label": "soil"
+          },
+          {
+            "icon": "worm",
+            "label": "worm"
+          },
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          }
+        ],
+        "alt": "Soil, an earthworm and a dead leaf."
+      }
+    },
+    {
+      "say": "Sandy soil has big grains, so water drains quickly. Clay soil has tiny bits, so it holds water.",
+      "show": "sandy: drains fast. clay: holds water."
+    },
+    {
+      "say": "A fossil is the remains of a living thing from long ago, kept in rock.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fossil",
+            "label": "fossil"
+          },
+          {
+            "icon": "shell",
+            "label": "shell"
+          }
+        ],
+        "alt": "A fossil and a shell."
+      }
+    },
+    {
+      "say": "Fossils form when a living thing is buried in mud or sand. The layers slowly turn into rock.",
+      "show": "buried → layers → rock → fossil"
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.rocks-and-soils.901",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which soil holds on to water best?",
+      "options": [
+        {
+          "text": "sandy soil",
+          "why": "Sandy soil has big gaps, so water drains away quickly."
+        },
+        {
+          "text": "gravel",
+          "why": "Gravel has big gaps, so water runs straight through."
+        },
+        {
+          "text": "clay soil"
+        },
+        {
+          "text": "dry sand",
+          "why": "Sand lets water drain away fast."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Water drains through gaps in soil.",
+        "Small bits leave small gaps.",
+        "Which soil feels sticky when wet?"
+      ],
+      "explanation": "Clay soil has very tiny bits packed closely, so water drains slowly. It holds on to water."
+    },
+    {
+      "id": "s3.rocks-and-soils.902",
+      "skill": "s3.rocks-and-soils",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The remains of a living thing from long ago, kept in rock, is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "fossil",
+            "fossils"
+          ]
+        }
+      ],
+      "hints": [
+        "Scientists dig these out of rock.",
+        "Dinosaur bones in museums are an example.",
+        "The word starts with f."
+      ],
+      "explanation": "A fossil is the remains or shape of an ancient living thing kept in rock."
+    }
+  ]
+}

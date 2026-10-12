@@ -1,0 +1,39 @@
+{
+  "skill": "s2.healthy-living",
+  "title": "Staying healthy",
+  "steps": [
+    { "say": "Our bodies need care every day to stay healthy.", "show": "healthy habits" },
+    { "say": "Eat many kinds of food, like rice, vegetables, fruit and eggs. Sweets are a treat.", "show": "many kinds of food" },
+    { "say": "Drink water every day, and more when it is hot.", "figure": { "kind": "icons", "items": [{ "icon": "water-drop", "label": "water" }, { "icon": "cup", "label": "cup" }], "alt": "Water and a cup." } },
+    { "say": "Exercise makes your heart and muscles strong. Sleep helps your body grow.", "figure": { "kind": "icons", "items": [{ "icon": "running", "label": "exercise" }, { "icon": "bed", "label": "sleep" }], "alt": "A child running and a bed for sleep." } },
+    { "say": "Wash your hands with soap before eating. Brush your teeth twice a day.", "figure": { "kind": "icons", "items": [{ "icon": "soap", "label": "soap" }, { "icon": "toothbrush", "label": "toothbrush" }], "alt": "A bar of soap and a toothbrush." } }
+  ],
+  "check": [
+    {
+      "id": "s2.healthy-living.901", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 1,
+      "prompt": "When should you wash your hands?",
+      "options": [
+        { "text": "only on Sundays", "why": "Hands need washing many times every day." },
+        { "text": "before eating" },
+        { "text": "only when they look dirty", "why": "Germs are too small to see." },
+        { "text": "only after a bath", "why": "Wash hands at many times each day, like before eating." }
+      ],
+      "answer": 1,
+      "hints": ["Think about when germs could get into your mouth.", "Which choice happens every day?", "Ask: what do your hands touch just before a meal?"],
+      "explanation": "We wash our hands before eating so germs do not get onto our food."
+    },
+    {
+      "id": "s2.healthy-living.902", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 1,
+      "prompt": "Which habit keeps teeth healthy?",
+      "options": [
+        { "text": "brushing them twice a day" },
+        { "text": "eating sweets all day", "why": "Sugar left on teeth can make holes in them." },
+        { "text": "brushing once a week", "why": "Teeth need brushing every morning and night." },
+        { "text": "drinking fizzy drinks", "why": "Fizzy drinks have lots of sugar." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what you do each morning and night.", "Which choice cleans the teeth often?", "Ask: what is a toothbrush for?"],
+      "explanation": "Brushing twice a day cleans food and germs off our teeth."
+    }
+  ]
+}

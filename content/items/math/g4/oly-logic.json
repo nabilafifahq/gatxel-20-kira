@@ -1,0 +1,527 @@
+{
+  "skill": "m4.oly-logic",
+  "items": [
+    {
+      "id": "m4.oly-logic.001",
+      "skill": "m4.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In a race, Mia overtakes the runner in 2nd place. In which place is Mia now?",
+      "options": [
+        {
+          "text": "1st",
+          "why": "She passed the runner in 2nd place, not the leader."
+        },
+        {
+          "text": "2nd"
+        },
+        {
+          "text": "3rd",
+          "why": "She was 3rd before overtaking. Now she has moved up."
+        },
+        {
+          "text": "Last",
+          "why": "Overtaking moves her up, not down."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Overtaking someone means taking their place."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Picture the runners in a line.",
+        "When you overtake someone, you take their place.",
+        "Who was in 2nd place before Mia passed them?"
+      ],
+      "explanation": "When Mia overtakes the runner in 2nd place, she takes that runner's place. So Mia is now 2nd, not 1st.",
+      "solution": [
+        {
+          "say": "Before: someone is 2nd and Mia is just behind, in 3rd.",
+          "show": "2nd: runner, 3rd: Mia"
+        },
+        {
+          "say": "Mia passes that runner.",
+          "show": "Mia moves up one place"
+        },
+        {
+          "say": "Mia takes 2nd place.",
+          "show": "2nd"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-logic.002",
+      "skill": "m4.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ann, Ben, Cat and Dan each choose a different fruit: apple, banana, cherry or durian. Ben chooses the cherry. Ann does not choose the apple or the banana. Cat does not choose the apple. Who chooses the banana?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Child",
+          "apple",
+          "banana",
+          "cherry",
+          "durian"
+        ],
+        "rows": [
+          [
+            "Ann",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Ben",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Cat",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Dan",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "alt": "An empty logic grid: Ann, Ben, Cat and Dan down the side, and apple, banana, cherry and durian across the top."
+      },
+      "options": [
+        {
+          "text": "Ann",
+          "why": "Ann does not choose the banana."
+        },
+        {
+          "text": "Ben",
+          "why": "Ben chooses the cherry."
+        },
+        {
+          "text": "Cat"
+        },
+        {
+          "text": "Dan",
+          "why": "Dan gets the apple, the fruit left at the end."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The clues are enough. Use them one at a time."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Fill in a grid with ticks and crosses.",
+        "Ben has the cherry. What is left for Ann?",
+        "Ann cannot have the apple, banana or cherry, so she has the durian."
+      ],
+      "explanation": "Ben has the cherry. Ann cannot have the apple or banana, so she has the durian. Cat cannot have the apple, so Cat has the banana, and Dan has the apple.",
+      "solution": [
+        {
+          "say": "Ben: cherry.",
+          "show": "Ben: cherry"
+        },
+        {
+          "say": "Ann: not apple, not banana, not cherry.",
+          "show": "Ann: durian"
+        },
+        {
+          "say": "Cat: not apple, and the cherry and durian are taken.",
+          "show": "Cat: banana"
+        },
+        {
+          "say": "Dan gets what is left.",
+          "show": "Dan: apple"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.003",
+      "skill": "m4.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Knights always tell the truth and knaves always lie. Four islanders speak. A says, 'Exactly one of us is a knave.' B says, 'Exactly two of us are knaves.' C says, 'Exactly three of us are knaves.' D says, 'All four of us are knaves.' How many knaves are there?",
+      "options": [
+        {
+          "text": "0",
+          "why": "Then all four would be knights, but their words cannot all be true."
+        },
+        {
+          "text": "1",
+          "why": "Then A would be the only true speaker, so there would be three knaves, not one."
+        },
+        {
+          "text": "2",
+          "why": "Then B would be the only true speaker, so there would be three knaves, not two."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Then D's words would be true, but a knave cannot say something true."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "At most one of the four sentences can be true, because they disagree.",
+        "If no sentence were true, all four would be knaves. Check D's words then.",
+        "So exactly one islander is a knight. How many knaves is that?"
+      ],
+      "explanation": "The four sentences cannot be true together, so at most one islander is a knight. All four cannot be knaves, because then D would be telling the truth. So exactly one is a knight and three are knaves, which makes C's sentence the true one.",
+      "solution": [
+        {
+          "say": "The sentences disagree, so at most one is true.",
+          "show": "at most 1 knight"
+        },
+        {
+          "say": "If none were true there would be 4 knaves, and D's words would be true. That breaks.",
+          "show": "not 4 knaves"
+        },
+        {
+          "say": "So exactly 1 knight and 3 knaves.",
+          "show": "3 knaves"
+        },
+        {
+          "say": "Check: C says three are knaves, which is true, so C is the knight.",
+          "show": "C is the knight"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-logic.004",
+      "skill": "m4.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "3 hens lay 3 eggs in 3 days. At the same rate, how many eggs do 6 hens lay in 6 days?",
+      "options": [
+        {
+          "text": "6",
+          "why": "6 hens lay 6 eggs in 3 days. In 6 days they lay twice that."
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "18",
+          "why": "Each hen lays 2 eggs in 6 days, so 6 hens lay 6 × 2 eggs."
+        },
+        {
+          "text": "36",
+          "why": "Each hen lays only 1 egg every 3 days."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find how many eggs one hen lays.",
+        "3 hens lay 3 eggs in 3 days, so 1 hen lays 1 egg in 3 days.",
+        "In 6 days, 1 hen lays 2 eggs."
+      ],
+      "explanation": "Each hen lays 1 egg every 3 days, so in 6 days each hen lays 2 eggs. 6 hens lay 6 × 2 = 12 eggs.",
+      "solution": [
+        {
+          "say": "One hen in 3 days.",
+          "show": "1 egg"
+        },
+        {
+          "say": "One hen in 6 days.",
+          "show": "2 eggs"
+        },
+        {
+          "say": "Six hens in 6 days.",
+          "show": "6 × 2 = 12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.005",
+      "skill": "m4.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three siblings' ages add up to 30. The oldest is twice as old as the youngest. The middle one is 2 years older than the youngest. How old is the oldest?",
+      "answer": 14,
+      "hints": [
+        "Call the youngest's age one part.",
+        "The middle child is one part plus 2, and the oldest is two parts.",
+        "Four parts plus 2 make 30."
+      ],
+      "explanation": "The ages are one part, one part plus 2, and two parts, which add up to 4 parts + 2 = 30. So one part is 7 and the oldest is 14. Check: 7 + 9 + 14 = 30.",
+      "solution": [
+        {
+          "say": "Write the ages in parts.",
+          "show": "youngest 1 part, middle 1 part + 2, oldest 2 parts"
+        },
+        {
+          "say": "Add them.",
+          "show": "4 parts + 2 = 30"
+        },
+        {
+          "say": "One part.",
+          "show": "28 ÷ 4 = 7"
+        },
+        {
+          "say": "Oldest.",
+          "show": "2 × 7 = 14"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.006",
+      "skill": "m4.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Pada lomba lari, Dodi finis pertama dan Eko finis terakhir. Cici finis sesudah Dodi, tetapi sebelum Andi. Andi finis sebelum Budi. Siapa yang finis ketiga?",
+      "options": [
+        {
+          "text": "Andi"
+        },
+        {
+          "text": "Budi",
+          "why": "Budi finis sesudah Andi, jadi Budi keempat."
+        },
+        {
+          "text": "Cici",
+          "why": "Cici finis tepat sesudah Dodi, jadi Cici kedua."
+        },
+        {
+          "text": "Eko",
+          "why": "Eko finis terakhir, yaitu kelima."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Tulis tempat 1 sampai 5.",
+        "Dodi di tempat 1 dan Eko di tempat 5.",
+        "Cici, Andi, dan Budi mengisi tempat 2, 3, dan 4. Siapa paling depan di antara mereka?"
+      ],
+      "explanation": "Dodi pertama dan Eko kelima. Cici sebelum Andi, dan Andi sebelum Budi, jadi urutannya Dodi, Cici, Andi, Budi, Eko. Andi finis ketiga.",
+      "solution": [
+        {
+          "say": "Tempat 1 dan 5.",
+          "show": "1 Dodi, 5 Eko"
+        },
+        {
+          "say": "Cici sebelum Andi, Andi sebelum Budi.",
+          "show": "Cici, Andi, Budi"
+        },
+        {
+          "say": "Urutan lengkap.",
+          "show": "Dodi, Cici, Andi, Budi, Eko"
+        },
+        {
+          "say": "Yang ketiga adalah Andi."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "lomba lari",
+          "en": "running race"
+        },
+        {
+          "term": "finis",
+          "en": "to finish"
+        },
+        {
+          "term": "pertama",
+          "en": "first"
+        },
+        {
+          "term": "terakhir",
+          "en": "last"
+        },
+        {
+          "term": "sesudah",
+          "en": "after"
+        },
+        {
+          "term": "sebelum",
+          "en": "before"
+        },
+        {
+          "term": "ketiga",
+          "en": "third"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.007",
+      "skill": "m4.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Five lamps in a row are all off. Ken presses the switches in order 1, 2, 3, 4, 5, then starts again at 1. Each press changes one lamp from off to on, or on to off. After 23 presses, how many lamps are on?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "muted"
+          },
+          {
+            "shape": "circle",
+            "tone": "muted"
+          },
+          {
+            "shape": "circle",
+            "tone": "muted"
+          },
+          {
+            "shape": "circle",
+            "tone": "muted"
+          },
+          {
+            "shape": "circle",
+            "tone": "muted"
+          }
+        ],
+        "alt": "Five lamps in a row, numbered 1 to 5 from left to right, all switched off."
+      },
+      "answer": 3,
+      "hints": [
+        "Think about one full round of 5 presses.",
+        "After an even number of full rounds, every lamp has been pressed an even number of times.",
+        "Work out how many full rounds of 5 fit into 23 presses, and what is left over."
+      ],
+      "explanation": "23 presses are 4 full rounds of 5 (20 presses) and then switches 1, 2 and 3. After 4 rounds every lamp has changed 4 times, so all are off. The 3 extra presses turn lamps 1, 2 and 3 on.",
+      "solution": [
+        {
+          "say": "Full rounds.",
+          "show": "23 = 4 × 5 + 3"
+        },
+        {
+          "say": "After 4 rounds each lamp has changed 4 times: off again.",
+          "show": "all off"
+        },
+        {
+          "say": "Extra presses: switches 1, 2 and 3.",
+          "show": "3 lamps on"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.008",
+      "skill": "m4.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Four teams play in a league. Each team plays every other team once. A win gives 3 points, a draw gives 1 point to each team. The teams score 16 points in total. How many matches were draws?",
+      "answer": 2,
+      "hints": [
+        "First count the matches.",
+        "There are 6 matches. A match with a winner adds 3 points to the total, a draw adds 2.",
+        "If all 6 matches had winners, the total would be 18."
+      ],
+      "explanation": "There are 6 matches, and a match with a winner adds 3 points to the total while a draw adds 2. All wins would give 18 points, so 18 - 16 = 2 points are missing, which means 2 draws.",
+      "solution": [
+        {
+          "say": "Matches among 4 teams.",
+          "show": "3 + 2 + 1 = 6"
+        },
+        {
+          "say": "Points per match: win 3 in total, draw 2 in total.",
+          "show": "3 or 2"
+        },
+        {
+          "say": "All wins would give 18.",
+          "show": "6 × 3 = 18"
+        },
+        {
+          "say": "Each draw gives 1 point less.",
+          "show": "18 - 16 = 2 draws"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-logic.009",
+      "skill": "m4.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In 5 years, Lily will be 3 times as old as she was 5 years ago. How old is Lily now?",
+      "answer": 10,
+      "hints": [
+        "Try an age for Lily and test it.",
+        "Her age 5 years ago and her age in 5 years are 10 years apart.",
+        "One of those ages is 3 times the other, and they are 10 apart."
+      ],
+      "explanation": "Her ages 5 years ago and in 5 years differ by 10, and one is 3 times the other. So they are 5 and 15, and Lily is 10 now.",
+      "solution": [
+        {
+          "say": "Ages 5 years ago and in 5 years are 10 apart.",
+          "show": "later - earlier = 10"
+        },
+        {
+          "say": "Later is 3 times earlier, so the gap is 2 times earlier.",
+          "show": "2 × earlier = 10"
+        },
+        {
+          "say": "Earlier age.",
+          "show": "5"
+        },
+        {
+          "say": "Lily now.",
+          "show": "5 + 5 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "skill": "e2.joining-words",
+  "title": "Joining words",
+  "steps": [
+    {
+      "say": "Joining words link two ideas into one sentence.",
+      "show": "I like rice and I like noodles."
+    },
+    {
+      "say": "And adds more.",
+      "show": "I have a pen and a ruler."
+    },
+    {
+      "say": "But shows a change or a problem.",
+      "show": "I wanted to play, but it rained."
+    },
+    {
+      "say": "Because gives a reason. It answers why.",
+      "show": "I wore a coat because it was cold."
+    },
+    {
+      "say": "So tells you what happened next.",
+      "show": "It was cold, so I wore a coat."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.joining-words.901",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the joining word. 'I was thirsty, ___ I drank some water.'",
+      "hints": [
+        "Being thirsty made something happen.",
+        "Drinking is the result.",
+        "Which word shows a result?"
+      ],
+      "explanation": "So shows a result: I was thirsty, so I drank some water.",
+      "options": [
+        {
+          "text": "but",
+          "why": "But shows a clash."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason, but here the reason comes first."
+        },
+        {
+          "text": "so"
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.joining-words.902",
+      "skill": "e2.joining-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the joining word. 'I stayed at home ___ I was ill.'",
+      "hints": [
+        "Why did I stay at home?",
+        "The second part is a reason.",
+        "Which word answers why?"
+      ],
+      "explanation": "Because gives the reason: I stayed at home because I was ill.",
+      "options": [
+        {
+          "text": "because"
+        },
+        {
+          "text": "so",
+          "why": "So would mean being ill was a result of staying home."
+        },
+        {
+          "text": "but",
+          "why": "But shows a clash."
+        },
+        {
+          "text": "and",
+          "why": "And adds more. Here we need a reason."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

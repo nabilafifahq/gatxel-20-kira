@@ -1,0 +1,1006 @@
+{
+  "skill": "m2.oly-logic",
+  "items": [
+    {
+      "id": "m2.oly-logic.001",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Each shape stands for a number. Two stars make 10. A star and a circle make 8. What number is the circle?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "★",
+          "★"
+        ],
+        "right": [
+          "10"
+        ],
+        "tilt": "level",
+        "alt": "A level balance: two stars on the left and the number 10 on the right. Also, one star and one circle make 8."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "If the circle is 2, the star is 6. But two stars must make 10."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "If the circle is 4, the star is 4 too. Two stars would make 8, not 10."
+        },
+        {
+          "text": "5",
+          "why": "5 is the star, not the circle."
+        },
+        {
+          "text": "8",
+          "why": "8 is a star and a circle together."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the star first.",
+        "Two stars make 10, so one star is half of 10.",
+        "The star is 5. Now use: star and circle make 8."
+      ],
+      "explanation": "Two equal stars make 10, so one star is 5. A star and a circle make 8, so the circle is 8 - 5 = 3.",
+      "solution": [
+        {
+          "say": "Two stars make 10.",
+          "show": "★ + ★ = 10"
+        },
+        {
+          "say": "So one star is 5.",
+          "show": "5 + 5 = 10"
+        },
+        {
+          "say": "A star and a circle make 8.",
+          "show": "5 + ● = 8"
+        },
+        {
+          "say": "The circle is 3.",
+          "show": "8 - 5 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-logic.002",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ana, Bo, Cy and Di each have one pet. The pets are a cat, a dog, a fish and a bird. Bo has the fish. Ana's pet cannot fly. Di's pet has four legs. Di does not have the dog. Who has the dog?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Child",
+          "cat",
+          "dog",
+          "fish",
+          "bird"
+        ],
+        "rows": [
+          [
+            "Ana",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Bo",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Cy",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Di",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "alt": "An empty logic grid. The children Ana, Bo, Cy and Di are down the side. The pets cat, dog, fish and bird are across the top."
+      },
+      "options": [
+        {
+          "text": "Ana"
+        },
+        {
+          "text": "Bo",
+          "why": "Bo has the fish."
+        },
+        {
+          "text": "Cy",
+          "why": "Cy gets the bird, the pet that is left at the end."
+        },
+        {
+          "text": "Di",
+          "why": "The clues say Di does not have the dog."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The clues are enough if you use them one at a time."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Use one clue at a time and cross out pets.",
+        "Start with the clues about Bo and Di.",
+        "Di's pet has four legs but is not the dog. So which pet is Di's?"
+      ],
+      "explanation": "Bo has the fish. Di's pet has four legs but is not the dog, so Di has the cat. Ana's pet cannot fly, so Ana has the dog, and Cy has the bird.",
+      "solution": [
+        {
+          "say": "Bo has the fish.",
+          "show": "Bo: fish"
+        },
+        {
+          "say": "Di's pet has four legs: cat or dog. It is not the dog.",
+          "show": "Di: cat"
+        },
+        {
+          "say": "Ana's pet cannot fly, and the fish and the cat are taken.",
+          "show": "Ana: dog"
+        },
+        {
+          "say": "The bird is left for Cy.",
+          "show": "Cy: bird"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.003",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "2 apples weigh the same as 3 pears. 1 pear weighs the same as 2 plums. How many plums weigh the same as 4 apples?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "apple",
+          "apple"
+        ],
+        "right": [
+          "pear",
+          "pear",
+          "pear"
+        ],
+        "tilt": "level",
+        "alt": "A level balance: 2 apples on the left and 3 pears on the right. Also, 1 pear balances 2 plums."
+      },
+      "options": [
+        {
+          "text": "4",
+          "why": "4 is the number of apples."
+        },
+        {
+          "text": "6",
+          "why": "6 pears balance 4 apples. Now change the pears into plums."
+        },
+        {
+          "text": "8",
+          "why": "4 apples balance 6 pears, not 4 pears."
+        },
+        {
+          "text": "10",
+          "why": "Count again: 6 pears, and each one is 2 plums."
+        },
+        {
+          "text": "12"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "First find how many pears balance 4 apples.",
+        "4 apples is 2 apples and 2 apples again.",
+        "2 apples balance 3 pears, so 4 apples balance 3 + 3 pears."
+      ],
+      "explanation": "4 apples balance 3 + 3 = 6 pears. Each pear balances 2 plums, so 6 pears balance 12 plums.",
+      "solution": [
+        {
+          "say": "2 apples balance 3 pears.",
+          "show": "2 apples = 3 pears"
+        },
+        {
+          "say": "Double both sides.",
+          "show": "4 apples = 6 pears"
+        },
+        {
+          "say": "Each pear is 2 plums.",
+          "show": "6 pears = 2 + 2 + 2 + 2 + 2 + 2 plums"
+        },
+        {
+          "say": "So 4 apples balance 12 plums.",
+          "show": "4 apples = 12 plums"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.004",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Blue frogs always tell the truth. Green frogs always lie. Frog A says, 'B is green.' Frog B says, 'We are the same colour.' What colours are A and B?",
+      "options": [
+        {
+          "text": "Both blue",
+          "why": "If both were blue, A's words 'B is green' would be false. Blue frogs never say false things."
+        },
+        {
+          "text": "Both green",
+          "why": "If both were green, B's words would be true. Green frogs cannot say true things."
+        },
+        {
+          "text": "A blue, B green"
+        },
+        {
+          "text": "A green, B blue",
+          "why": "If B were blue, B's words would be true, so A would be blue too."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Test each case. Only one case works."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Test each colour for frog B.",
+        "Suppose B is blue. Then what B says is true. What colour must A be?",
+        "If B is blue, A must be blue too. Then is what A says true?"
+      ],
+      "explanation": "If B were blue, A would be blue too, but then A's words 'B is green' would be false. So B is green and lies, which means A is a different colour: blue. A blue frog saying 'B is green' tells the truth, so it all fits.",
+      "solution": [
+        {
+          "say": "Try B blue. B tells the truth, so A is blue too.",
+          "show": "B blue, so A blue"
+        },
+        {
+          "say": "But a blue A tells the truth, and A says B is green. That breaks.",
+          "show": "not possible"
+        },
+        {
+          "say": "So B is green. B lies, so the two frogs are different colours.",
+          "show": "B green, so A blue"
+        },
+        {
+          "say": "Check: blue A says 'B is green', which is true.",
+          "show": "A blue, B green"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-logic.005",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Boxes A and B weigh 7 kg together. Boxes B and C weigh 9 kg together. Boxes A and C weigh 8 kg together. How much does box B weigh?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Boxes",
+          "Mass together"
+        ],
+        "rows": [
+          [
+            "A and B",
+            "7 kg"
+          ],
+          [
+            "B and C",
+            "9 kg"
+          ],
+          [
+            "A and C",
+            "8 kg"
+          ]
+        ],
+        "alt": "A table: boxes A and B weigh 7 kg together, B and C weigh 9 kg together, A and C weigh 8 kg together."
+      },
+      "options": [
+        {
+          "text": "1 kg",
+          "why": "If B is 1 kg, A is 6 kg and C is 8 kg. Then A and C would be 14 kg."
+        },
+        {
+          "text": "2 kg",
+          "why": "If B is 2 kg, A is 5 kg and C is 7 kg. Then A and C would be 12 kg."
+        },
+        {
+          "text": "3 kg",
+          "why": "If B is 3 kg, A is 4 kg and C is 6 kg. Then A and C would be 10 kg, not 8 kg."
+        },
+        {
+          "text": "4 kg"
+        },
+        {
+          "text": "6 kg",
+          "why": "If B is 6 kg, A is 1 kg and C is 3 kg. Then A and C would be 4 kg."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Try a mass for box B and check all three facts.",
+        "Adding all three facts counts every box twice.",
+        "7 + 9 + 8 = 24 kg is two of each box. So all three boxes weigh 12 kg."
+      ],
+      "explanation": "7 + 9 + 8 = 24 kg counts each box twice, so the three boxes weigh 12 kg. A and C weigh 8 kg, so B weighs 12 - 8 = 4 kg.",
+      "solution": [
+        {
+          "say": "Add all three facts.",
+          "show": "7 + 9 + 8 = 24"
+        },
+        {
+          "say": "That counts each box twice, so all three boxes weigh half of 24.",
+          "show": "A + B + C = 12"
+        },
+        {
+          "say": "Take away A and C.",
+          "show": "12 - 8 = 4"
+        },
+        {
+          "say": "Check: A = 3, B = 4, C = 5 gives 7, 9 and 8.",
+          "show": "3 + 4 = 7, 4 + 5 = 9, 3 + 5 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-logic.006",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Children stand in a row. Mia is 4th from the left. She is also 6th from the right. How many children are in the row?",
+      "options": [
+        {
+          "text": "8",
+          "why": "Draw the row: 3 children, then Mia, then 5 more children."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "10",
+          "why": "Mia was counted twice: once from each side."
+        },
+        {
+          "text": "11",
+          "why": "Too many. Draw the row to check."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Draw the row with Mia in it.",
+        "From the left, there are 3 children before Mia. From the right, how many are after her?",
+        "Count the children left of Mia, then Mia, then the children right of Mia."
+      ],
+      "explanation": "There are 3 children to Mia's left and 5 to her right. With Mia, that is 3 + 1 + 5 = 9 children.",
+      "solution": [
+        {
+          "say": "4th from the left means 3 children are on her left.",
+          "show": "3, Mia"
+        },
+        {
+          "say": "6th from the right means 5 children are on her right.",
+          "show": "Mia, 5"
+        },
+        {
+          "say": "Add them.",
+          "show": "3 + 1 + 5 = 9"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-logic.007",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kai is 8 years old. His sister is half his age. How old will his sister be when Kai is 12?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 is 12 ÷ 4. Use the age gap instead."
+        },
+        {
+          "text": "4",
+          "why": "4 is how old she is now."
+        },
+        {
+          "text": "6",
+          "why": "Half of 12 is 6, but she does not stay half his age."
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the sister's age now.",
+        "The age gap between two people never changes.",
+        "Now the sister is 4. How many years older is Kai?"
+      ],
+      "explanation": "The sister is 4 now, so Kai is 4 years older. When Kai is 12, his sister is 12 - 4 = 8.",
+      "solution": [
+        {
+          "say": "Sister now: half of 8.",
+          "show": "8 ÷ 2 = 4"
+        },
+        {
+          "say": "The gap stays the same.",
+          "show": "8 - 4 = 4 years"
+        },
+        {
+          "say": "When Kai is 12.",
+          "show": "12 - 4 = 8"
+        },
+        {
+          "say": "Check: from 8 to 12 is 4 years, and the sister grows from 4 to 8.",
+          "show": "4 + 4 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.008",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "I am a 2-digit number. My digits add up to 9. My tens digit is 3 more than my ones digit. What number am I?",
+      "options": [
+        {
+          "text": "36",
+          "why": "In 36 the tens digit is smaller than the ones digit."
+        },
+        {
+          "text": "54",
+          "why": "5 is only 1 more than 4."
+        },
+        {
+          "text": "63"
+        },
+        {
+          "text": "72",
+          "why": "7 + 2 = 9, but 7 is 5 more than 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "List 2-digit numbers whose digits add up to 9.",
+        "They are 18, 27, 36, 45, 54, 63, 72, 81 and 90.",
+        "Find the one where the tens digit is 3 more than the ones digit."
+      ],
+      "explanation": "The digits must add up to 9 and be 3 apart, with the bigger digit in the tens place. 6 and 3 work, so the number is 63.",
+      "solution": [
+        {
+          "say": "Digits that add up to 9 and are 3 apart.",
+          "show": "6 + 3 = 9 and 6 - 3 = 3"
+        },
+        {
+          "say": "The tens digit is the bigger one.",
+          "show": "63"
+        },
+        {
+          "say": "Check: 6 + 3 = 9, and 6 is 3 more than 3.",
+          "show": "63"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.009",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Pak Budi cuts a log into 5 pieces. Each cut takes 2 minutes. How many minutes does he need?",
+      "figure": {
+        "kind": "grid",
+        "rows": 1,
+        "cols": 5,
+        "alt": "A log cut into 5 pieces in a row."
+      },
+      "answer": 8,
+      "unit": "minutes",
+      "hints": [
+        "Count the cuts, not the pieces.",
+        "Cutting a log into 2 pieces takes 1 cut. Into 3 pieces takes 2 cuts.",
+        "Draw a log and mark where it is cut into 5 pieces."
+      ],
+      "explanation": "5 pieces in a row need 4 cuts. 4 cuts of 2 minutes each take 2 + 2 + 2 + 2 = 8 minutes.",
+      "solution": [
+        {
+          "say": "Draw the log in 5 pieces and count the cut lines.",
+          "show": "4 cuts"
+        },
+        {
+          "say": "Each cut takes 2 minutes.",
+          "show": "2 + 2 + 2 + 2 = 8"
+        },
+        {
+          "say": "He needs 8 minutes, not 10, because 5 pieces need only 4 cuts."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.010",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a class, 12 children like apples and 10 like bananas. 5 children like both. Every child likes at least one of them. How many children are in the class?",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Like apples",
+          "Like bananas"
+        ],
+        "items": [
+          {
+            "text": "5",
+            "region": "both"
+          }
+        ],
+        "alt": "A Venn diagram. One circle is the 12 children who like apples. The other is the 10 children who like bananas. The overlap, children who like both, has 5."
+      },
+      "answer": 17,
+      "hints": [
+        "Some children are counted in both groups.",
+        "Draw two circles that overlap. Put 5 in the middle.",
+        "12 like apples, and 5 of them also like bananas. How many like only apples?"
+      ],
+      "explanation": "7 children like only apples, 5 like both and 5 like only bananas. That is 7 + 5 + 5 = 17 children.",
+      "solution": [
+        {
+          "say": "Only apples.",
+          "show": "12 - 5 = 7"
+        },
+        {
+          "say": "Only bananas.",
+          "show": "10 - 5 = 5"
+        },
+        {
+          "say": "Add the three parts.",
+          "show": "7 + 5 + 5 = 17"
+        },
+        {
+          "say": "Adding 12 + 10 = 22 counts the 5 children who like both twice.",
+          "show": "22 - 5 = 17"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "timo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.011",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Dina antre membeli es krim. Di depan Dina ada 4 anak. Di belakang Dina ada 5 anak. Berapa anak dalam antrean itu?",
+      "options": [
+        {
+          "text": "9",
+          "why": "Dina juga ada di antrean. Jangan lupa menghitung Dina."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "11",
+          "why": "Dina hanya dihitung satu kali."
+        },
+        {
+          "text": "20",
+          "why": "Jumlahkan anak di depan, Dina, dan anak di belakang."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Gambar antreannya.",
+        "Hitung anak di depan, Dina sendiri, lalu anak di belakang.",
+        "Di depan ada 4 anak, lalu Dina. Itu sudah 5 anak."
+      ],
+      "explanation": "Ada 4 anak di depan, Dina sendiri, dan 5 anak di belakang. Semuanya 4 + 1 + 5 = 10 anak.",
+      "solution": [
+        {
+          "say": "Anak di depan Dina.",
+          "show": "4"
+        },
+        {
+          "say": "Dina sendiri.",
+          "show": "1"
+        },
+        {
+          "say": "Anak di belakang Dina.",
+          "show": "5"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "4 + 1 + 5 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "antre",
+          "en": "to queue"
+        },
+        {
+          "term": "antrean",
+          "en": "queue"
+        },
+        {
+          "term": "es krim",
+          "en": "ice cream"
+        },
+        {
+          "term": "di depan",
+          "en": "in front of"
+        },
+        {
+          "term": "di belakang",
+          "en": "behind"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-logic.012",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Jam dinding di rumah Bu Sari terlambat 10 menit. Jam itu menunjukkan pukul 07.25. Pukul berapa sebenarnya sekarang?",
+      "figure": {
+        "kind": "clock",
+        "h": 7,
+        "m": 25,
+        "alt": "Jam dinding Bu Sari menunjukkan pukul 07.25. Jam ini terlambat 10 menit."
+      },
+      "options": [
+        {
+          "text": "Pukul 07.15",
+          "why": "Jam yang terlambat ketinggalan dari waktu sebenarnya. Jadi waktu sebenarnya lebih dari 07.25."
+        },
+        {
+          "text": "Pukul 07.25",
+          "why": "Itu waktu di jam yang terlambat, bukan waktu sebenarnya."
+        },
+        {
+          "text": "Pukul 07.35"
+        },
+        {
+          "text": "Pukul 07.45",
+          "why": "Jamnya terlambat 10 menit, bukan 20 menit."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Terlambat berarti jam itu ketinggalan dari waktu sebenarnya.",
+        "Waktu sebenarnya 10 menit lebih maju dari jam itu.",
+        "Tambahkan 10 menit ke 07.25."
+      ],
+      "explanation": "Jam yang terlambat 10 menit selalu ketinggalan 10 menit. Waktu sebenarnya adalah 07.25 ditambah 10 menit, yaitu 07.35.",
+      "solution": [
+        {
+          "say": "Jam terlambat berarti jamnya ketinggalan.",
+          "show": "waktu sebenarnya = waktu di jam + 10 menit"
+        },
+        {
+          "say": "Tambahkan 10 menit.",
+          "show": "07.25 + 10 menit = 07.35"
+        },
+        {
+          "say": "Sekarang sebenarnya pukul 07.35."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "jam dinding",
+          "en": "wall clock"
+        },
+        {
+          "term": "terlambat",
+          "en": "slow (clock), late"
+        },
+        {
+          "term": "menunjukkan",
+          "en": "to show"
+        },
+        {
+          "term": "sebenarnya",
+          "en": "really, actually"
+        },
+        {
+          "term": "menit",
+          "en": "minute"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.013",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Kofi gets into a lift on floor 3. He goes up 4 floors. Then he goes down 2 floors. Which floor is he on now?",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "labels": "all",
+        "marks": [
+          {
+            "at": 3,
+            "label": "start"
+          }
+        ],
+        "alt": "The floors shown as a number line from 0 to 10. Kofi starts at floor 3."
+      },
+      "options": [
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "Check the last step. He goes down 2 floors, not 1."
+        },
+        {
+          "text": "7",
+          "why": "That is after going up. He then goes down 2 floors."
+        },
+        {
+          "text": "9",
+          "why": "Going down means take away, not add."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Follow the lift one move at a time.",
+        "Up means add. Down means take away.",
+        "After going up 4 floors from floor 3, he is on floor 3 + 4."
+      ],
+      "explanation": "Going up 4 floors from floor 3 takes him to floor 7. Going down 2 floors takes him to floor 5.",
+      "solution": [
+        {
+          "say": "Start on floor 3.",
+          "show": "3"
+        },
+        {
+          "say": "Up 4 floors.",
+          "show": "3 + 4 = 7"
+        },
+        {
+          "say": "Down 2 floors.",
+          "show": "7 - 2 = 5",
+          "figure": {
+            "kind": "numberline",
+            "min": 0,
+            "max": 10,
+            "step": 1,
+            "labels": "all",
+            "jumps": [
+              {
+                "from": 3,
+                "to": 7,
+                "label": "+4"
+              },
+              {
+                "from": 7,
+                "to": 5,
+                "label": "-2"
+              }
+            ],
+            "alt": "A number line from 0 to 10 with a jump from 3 up to 7, then a jump back from 7 to 5."
+          }
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-logic.014",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Yesterday was Saturday. What day will it be the day after tomorrow?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Sat",
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed"
+        ],
+        "rows": [
+          [
+            "yesterday",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "alt": "Days in order: Saturday, Sunday, Monday, Tuesday, Wednesday. Saturday is marked as yesterday."
+      },
+      "options": [
+        {
+          "text": "Monday",
+          "why": "Monday is tomorrow."
+        },
+        {
+          "text": "Tuesday"
+        },
+        {
+          "text": "Wednesday",
+          "why": "Count again from today, which is Sunday."
+        },
+        {
+          "text": "Thursday",
+          "why": "That is too far. The day after tomorrow is only 2 days away."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "First work out what day it is today.",
+        "Today is the day after Saturday.",
+        "Today is Sunday. Tomorrow is Monday."
+      ],
+      "explanation": "Yesterday was Saturday, so today is Sunday. Tomorrow is Monday, and the day after tomorrow is Tuesday.",
+      "solution": [
+        {
+          "say": "Yesterday was Saturday, so today is Sunday.",
+          "show": "today: Sunday"
+        },
+        {
+          "say": "Tomorrow is Monday.",
+          "show": "tomorrow: Monday"
+        },
+        {
+          "say": "The day after tomorrow is Tuesday.",
+          "show": "Tuesday"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.015",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A number goes into a machine. The machine doubles it, takes away 4, then adds 10. The number that comes out is 30. What number went in?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Step 1",
+          "Step 2",
+          "Step 3",
+          "Out"
+        ],
+        "rows": [
+          [
+            "double",
+            "take away 4",
+            "add 10",
+            "30"
+          ]
+        ],
+        "alt": "A number machine. Step 1 doubles the number, step 2 takes away 4, step 3 adds 10. The number that comes out is 30."
+      },
+      "answer": 12,
+      "hints": [
+        "Work backwards from 30.",
+        "Undo each step in reverse order: undo add 10, then undo take away 4, then undo double.",
+        "Undo the last step first: 30 - 10."
+      ],
+      "explanation": "Undo adding 10: 30 - 10 = 20. Undo taking away 4: 20 + 4 = 24. Undo doubling: half of 24 is 12.",
+      "solution": [
+        {
+          "say": "Undo add 10.",
+          "show": "30 - 10 = 20"
+        },
+        {
+          "say": "Undo take away 4.",
+          "show": "20 + 4 = 24"
+        },
+        {
+          "say": "Undo double.",
+          "show": "24 ÷ 2 = 12"
+        },
+        {
+          "say": "Check: 12 doubled is 24, 24 - 4 = 20, and 20 + 10 = 30.",
+          "show": "12, 24, 20, 30"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "s2.living-things",
+  "title": "Alive, once alive or never alive",
+  "steps": [
+    { "say": "Living things move, grow, feed, sense and have young. They also need air and water.", "show": "move, grow, feed, sense, have young" },
+    { "say": "A tree is alive now. It grows and makes seeds.", "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "alive" }], "alt": "A living tree." } },
+    { "say": "Some things were once alive. Wood, paper and feathers came from living things.", "figure": { "kind": "icons", "items": [{ "icon": "wooden-spoon", "label": "wood" }, { "icon": "paper", "label": "paper" }, { "icon": "feather", "label": "feather" }], "alt": "Things that were once alive: a wooden spoon, paper and a feather." } },
+    { "say": "Some things were never alive. Stone, metal and glass were never part of a living thing.", "figure": { "kind": "icons", "items": [{ "icon": "stone", "label": "stone" }, { "icon": "key", "label": "metal" }, { "icon": "glass", "label": "glass" }], "alt": "Things that were never alive: a stone, a metal key and a glass." } },
+    { "say": "Moving is not enough to be alive. A car moves, but it cannot grow or have young.", "show": "Check all the life processes." }
+  ],
+  "check": [
+    {
+      "id": "s2.living-things.901", "skill": "s2.living-things", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one was once alive?",
+      "options": [
+        { "text": "a stone", "why": "A stone was never alive." },
+        { "text": "a metal key", "why": "Metal was never alive." },
+        { "text": "a wooden spoon" },
+        { "text": "a glass bottle", "why": "Glass is made from sand, which was never alive." }
+      ],
+      "answer": 2,
+      "hints": ["Once alive means it came from a living thing.", "Think about where each material comes from.", "Ask: which one came from a tree?"],
+      "explanation": "A wooden spoon is made of wood, which came from a living tree. So it was once alive."
+    },
+    {
+      "id": "s2.living-things.902", "skill": "s2.living-things", "type": "mcq", "difficulty": 3,
+      "prompt": "Which one is alive?",
+      "options": [
+        { "text": "a cloud", "why": "Clouds move, but they never grow or have young." },
+        { "text": "a seed" },
+        { "text": "a toy car", "why": "A toy car cannot grow or have young." },
+        { "text": "a kite", "why": "A kite only moves when the wind blows it." }
+      ],
+      "answer": 1,
+      "hints": ["Some living things look like they do nothing.", "Ask: could it grow if it got water and warmth?", "Think about planting each one in soil."],
+      "explanation": "A seed is alive. When it gets water and warmth, it grows into a new plant."
+    }
+  ]
+}

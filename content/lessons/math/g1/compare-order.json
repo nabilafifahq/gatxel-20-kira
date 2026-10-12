@@ -1,0 +1,93 @@
+{
+  "skill": "m1.compare-order",
+  "title": "More, less and in order",
+  "steps": [
+    {
+      "say": "To compare two groups, count each one. The bigger number is more.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 5
+          },
+          {
+            "icon": "pear",
+            "count": 3
+          }
+        ],
+        "alt": "5 apples and 3 pears."
+      }
+    },
+    {
+      "say": "There are more apples. There are fewer pears.",
+      "show": "5 is more than 3"
+    },
+    {
+      "say": "On a number line, numbers get bigger to the right.",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "labels": "all",
+        "marks": [
+          {
+            "at": 7
+          },
+          {
+            "at": 15
+          }
+        ],
+        "alt": "A number line from 0 to 20 with 7 and 15 marked."
+      }
+    },
+    {
+      "say": "To put numbers in order, find the smallest first.",
+      "show": "3, 9, 12, 18"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.compare-order.901",
+      "skill": "m1.compare-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is the greatest?",
+      "hints": [
+        "Greatest means the biggest number.",
+        "Numbers further along the number line are bigger.",
+        "Compare two numbers first. Keep the bigger one."
+      ],
+      "explanation": "16 comes after 9 and 12 when you count, so it is the greatest.",
+      "options": [
+        {
+          "text": "9",
+          "why": "9 is less than 16."
+        },
+        {
+          "text": "16"
+        },
+        {
+          "text": "12",
+          "why": "12 is less than 16."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m1.compare-order.902",
+      "skill": "m1.compare-order",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Which number is between 13 and 15?",
+      "hints": [
+        "Between means in the middle.",
+        "Count from 13 to 15.",
+        "Say 13. What comes next?"
+      ],
+      "explanation": "14 comes after 13 and before 15.",
+      "answer": 14
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "skill": "m5.place-value-millions",
+  "title": "Place value to a million",
+  "steps": [
+    {
+      "say": "Every digit has a value that depends on its place. Each place is worth ten times the place on its right.",
+      "show": "472,508",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Hundred thousands",
+          "Ten thousands",
+          "Thousands",
+          "Hundreds",
+          "Tens",
+          "Ones"
+        ],
+        "rows": [
+          [
+            "4",
+            "7",
+            "2",
+            "5",
+            "0",
+            "8"
+          ]
+        ],
+        "alt": "A place value chart with the digits of 472,508 under hundred thousands, ten thousands, thousands, hundreds, tens and ones."
+      }
+    },
+    {
+      "say": "Read the thousands group first, then the last three digits.",
+      "show": "four hundred and seventy-two thousand, five hundred and eight"
+    },
+    {
+      "say": "The 7 is in the ten thousands place, so its value is 70,000.",
+      "show": "472,508 = 400,000 + 70,000 + 2,000 + 500 + 8"
+    },
+    {
+      "say": "The 0 holds the tens place. Without it, the digits would slide into the wrong places.",
+      "show": "472,508 has 0 tens"
+    },
+    {
+      "say": "Ten lots of 100,000 make one million. We write one million as 1,000,000.",
+      "show": "10 × 100,000 = 1,000,000",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "100,000",
+          "200,000",
+          "300,000",
+          "400,000",
+          "500,000",
+          "600,000",
+          "700,000",
+          "800,000",
+          "900,000",
+          "1,000,000"
+        ],
+        "style": "boxes",
+        "alt": "A row of boxes counting in hundred thousands from 100,000 to 1,000,000."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.place-value-millions.901",
+      "skill": "m5.place-value-millions",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the value of the 6 in 365,120?",
+      "hints": [
+        "Put the number in a place value chart.",
+        "Count the places from the right: ones, tens, hundreds, thousands.",
+        "The number has 6 digits, so its first digit is in the hundred thousands place."
+      ],
+      "explanation": "The 6 is in the ten thousands place, so its value is 60,000.",
+      "options": [
+        {
+          "text": "60,000"
+        },
+        {
+          "text": "6,000",
+          "why": "That is the thousands place. Count the places again from the ones."
+        },
+        {
+          "text": "600,000",
+          "why": "The 3 is in the hundred thousands place, not the 6."
+        },
+        {
+          "text": "6",
+          "why": "The 6 is not in the ones place, so it is worth more than 6."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.place-value-millions.902",
+      "skill": "m5.place-value-millions",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write two hundred and six thousand, four hundred and fifty in digits.",
+      "hints": [
+        "Write the thousands part first: two hundred and six thousand.",
+        "Then write the last three digits: four hundred and fifty.",
+        "Check that your number has 6 digits."
+      ],
+      "explanation": "Two hundred and six thousand is 206,000. Add four hundred and fifty to get 206,450.",
+      "blanks": [
+        {
+          "answers": [
+            "206450",
+            "206,450",
+            "206 450",
+            "206.450"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.place-value-millions.903",
+      "skill": "m5.place-value-millions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What number is 10,000 more than 395,240?",
+      "hints": [
+        "Find the ten thousands digit in 395,240.",
+        "Adding 10,000 adds 1 to that digit.",
+        "The ten thousands digit is 9, so adding 1 more makes a new hundred thousand."
+      ],
+      "explanation": "395,240 + 10,000 = 405,240. The 9 ten thousands become 10 ten thousands, which is one more hundred thousand.",
+      "options": [
+        {
+          "text": "495,240",
+          "why": "That adds 100,000. Change the ten thousands digit."
+        },
+        {
+          "text": "405,240"
+        },
+        {
+          "text": "396,240",
+          "why": "That adds 1,000. Change the ten thousands digit."
+        },
+        {
+          "text": "395,250",
+          "why": "That adds 10. Change the ten thousands digit."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

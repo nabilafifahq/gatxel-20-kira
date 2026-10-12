@@ -1,0 +1,135 @@
+{
+  "skill": "m5.round-whole-numbers",
+  "title": "Rounding whole numbers",
+  "steps": [
+    {
+      "say": "Rounding gives a close number that is easier to use. First find the two round numbers it sits between.",
+      "show": "46,380 is between 46,000 and 47,000",
+      "figure": {
+        "kind": "numberline",
+        "min": 46000,
+        "max": 47000,
+        "step": 100,
+        "labels": [
+          46000,
+          46500,
+          47000
+        ],
+        "marks": [
+          {
+            "at": 46380,
+            "label": "46,380"
+          }
+        ],
+        "alt": "A number line from 46,000 to 47,000 in steps of 100, with 46,380 marked."
+      }
+    },
+    {
+      "say": "To round to the nearest 1,000, look at the hundreds digit.",
+      "show": "46,380: the hundreds digit is 3"
+    },
+    {
+      "say": "If that digit is 0, 1, 2, 3 or 4, round down. If it is 5 or more, round up.",
+      "show": "3 is less than 5, so round down"
+    },
+    {
+      "say": "So 46,380 rounded to the nearest 1,000 is 46,000. It is closer to 46,000 than to 47,000.",
+      "show": "46,380 ≈ 46,000"
+    },
+    {
+      "say": "To round to the nearest 10,000, look at the thousands digit instead. 46,380 has 6 thousands, so it rounds up.",
+      "show": "46,380 ≈ 50,000 to the nearest 10,000"
+    },
+    {
+      "say": "Take care when a 9 rounds up. 399,700 to the nearest 1,000 is 400,000.",
+      "show": "399,700 ≈ 400,000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.round-whole-numbers.901",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Round 73,482 to the nearest 1,000.",
+      "hints": [
+        "Find the two thousands that 73,482 sits between.",
+        "Look at the hundreds digit.",
+        "The hundreds digit is 4."
+      ],
+      "explanation": "The hundreds digit is 4, which is less than 5, so 73,482 rounds down to 73,000.",
+      "options": [
+        {
+          "text": "73,500",
+          "why": "73,500 is the nearest 100. A number rounded to 1,000 ends in three zeros."
+        },
+        {
+          "text": "70,000",
+          "why": "That is the nearest 10,000."
+        },
+        {
+          "text": "73,000"
+        },
+        {
+          "text": "74,000",
+          "why": "The hundreds digit is 4, so the number rounds down."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.round-whole-numbers.902",
+      "skill": "m5.round-whole-numbers",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Round 158,650 to the nearest 10,000.",
+      "hints": [
+        "Find the ten thousands digit.",
+        "Look at the digit to its right, in the thousands place.",
+        "The thousands digit is 8."
+      ],
+      "explanation": "158,650 is between 150,000 and 160,000. The thousands digit is 8, so it rounds up to 160,000.",
+      "blanks": [
+        {
+          "answers": [
+            "160000",
+            "160,000",
+            "160 000",
+            "160.000"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.round-whole-numbers.903",
+      "skill": "m5.round-whole-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number rounds to 5,000 when rounded to the nearest 1,000?",
+      "hints": [
+        "Round each number to the nearest 1,000.",
+        "Look at the hundreds digit of each number.",
+        "Numbers from 4,500 up to 5,499 round to 5,000."
+      ],
+      "explanation": "4,612 is between 4,000 and 5,000. Its hundreds digit is 6, so it rounds up to 5,000.",
+      "options": [
+        {
+          "text": "4,399",
+          "why": "The hundreds digit is 3, so 4,399 rounds down to 4,000."
+        },
+        {
+          "text": "5,500",
+          "why": "The hundreds digit is 5, so 5,500 rounds up to 6,000."
+        },
+        {
+          "text": "5,708",
+          "why": "5,708 is closer to 6,000."
+        },
+        {
+          "text": "4,612"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

@@ -1,0 +1,571 @@
+{
+  "skill": "e2.magic-e",
+  "items": [
+    {
+      "id": "e2.magic-e.001",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add magic e to cap. What word do you get?",
+      "hints": [
+        "Magic e goes at the end of the word.",
+        "It makes the a say its name.",
+        "Write cap, add e and read it."
+      ],
+      "explanation": "Cap plus e is cape. The e makes the a say its name.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "cap",
+          "why": "That is the word before we add e."
+        },
+        {
+          "text": "cape"
+        },
+        {
+          "text": "cop",
+          "why": "Cop has a different vowel."
+        },
+        {
+          "text": "cup",
+          "why": "Cup has a different vowel."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.002",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word names this picture?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "kite"
+          }
+        ],
+        "alt": "A kite flying in the sky."
+      },
+      "hints": [
+        "Say the picture name.",
+        "Listen to the i. Is it long or short?",
+        "A long i in a short word often needs magic e."
+      ],
+      "explanation": "Kite has a long i, so it needs magic e: k, i, t, e.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "kit",
+          "why": "A kit is a set of things. Add e to make the i say its name."
+        },
+        {
+          "text": "cut",
+          "why": "Cut has a short u sound."
+        },
+        {
+          "text": "kite"
+        },
+        {
+          "text": "cat",
+          "why": "Cat has a short a sound."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.magic-e.003",
+      "skill": "e2.magic-e",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each word to its magic e partner.",
+      "hints": [
+        "Each pair is the same word, plus e.",
+        "Look for the same first letters.",
+        "Start with hop. Find hop with an e."
+      ],
+      "explanation": "Adding e changes the vowel sound: hop to hope, pin to pine, tub to tube, man to mane.",
+      "pairs": [
+        [
+          "hop",
+          "hope"
+        ],
+        [
+          "pin",
+          "pine"
+        ],
+        [
+          "tub",
+          "tube"
+        ],
+        [
+          "man",
+          "mane"
+        ]
+      ]
+    },
+    {
+      "id": "e2.magic-e.004",
+      "skill": "e2.magic-e",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Short vowel or long vowel? Sort the words.",
+      "hints": [
+        "Look at the end of each word.",
+        "Magic e makes the vowel say its name.",
+        "Start with bike. Does it end with e?"
+      ],
+      "explanation": "Bike, home and cute have magic e and a long vowel. Big, hot and cut have a short vowel.",
+      "groups": [
+        "Short vowel",
+        "Long vowel (magic e)"
+      ],
+      "items": [
+        {
+          "text": "bike",
+          "group": 1
+        },
+        {
+          "text": "big",
+          "group": 0
+        },
+        {
+          "text": "home",
+          "group": 1
+        },
+        {
+          "text": "hot",
+          "group": 0
+        },
+        {
+          "text": "cute",
+          "group": 1
+        },
+        {
+          "text": "cut",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.005",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the word for this picture.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bone"
+          }
+        ],
+        "alt": "A dog bone."
+      },
+      "hints": [
+        "Say the word slowly.",
+        "The o says its name.",
+        "Write b, o, n, then think about the end."
+      ],
+      "explanation": "Bone has a long o, so it needs magic e: b, o, n, e.",
+      "blanks": [
+        {
+          "answers": [
+            "bone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.006",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word rhymes with cake?",
+      "hints": [
+        "Say cake slowly.",
+        "Rhyming words end with the same sound.",
+        "Look for a word that also ends with a, k, e."
+      ],
+      "explanation": "Snake and cake rhyme. Both end with ake.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "back",
+          "why": "Back has a short a sound."
+        },
+        {
+          "text": "cook",
+          "why": "Cook ends with a different sound."
+        },
+        {
+          "text": "sack",
+          "why": "Sack has a short a sound."
+        },
+        {
+          "text": "snake"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.magic-e.007",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word makes the sentence right? 'I ___ my bike to school.'",
+      "hints": [
+        "Read the sentence with each word.",
+        "What do you do on a bike?",
+        "The word has a long i sound."
+      ],
+      "explanation": "We ride a bike. Ride has a long i, so it ends with magic e.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "ride"
+        },
+        {
+          "text": "rid",
+          "why": "Rid means to get rid of something. Add e for the long i."
+        },
+        {
+          "text": "red",
+          "why": "Red is a colour."
+        },
+        {
+          "text": "rod",
+          "why": "A rod is a long stick."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.magic-e.008",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add magic e to tap. Write the new word.",
+      "hints": [
+        "Magic e goes on the end.",
+        "The a will say its name.",
+        "Write tap, then add one letter."
+      ],
+      "explanation": "Tap plus e is tape, like sticky tape.",
+      "blanks": [
+        {
+          "answers": [
+            "tape"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.009",
+      "skill": "e2.magic-e",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words where magic e makes a long vowel.",
+      "hints": [
+        "Three words are right.",
+        "Some words end in e, but the vowel stays short.",
+        "Say each word. Does the vowel say its name?"
+      ],
+      "explanation": "Home, plane and flute have long vowels made by magic e. Have ends in e, but its a is short.",
+      "options": [
+        {
+          "text": "home"
+        },
+        {
+          "text": "have",
+          "why": "Have ends in e, but the a does not say its name."
+        },
+        {
+          "text": "plane"
+        },
+        {
+          "text": "flute"
+        },
+        {
+          "text": "hop",
+          "why": "Hop has no magic e."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e2.magic-e.010",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does the magic e do in tube?",
+      "hints": [
+        "Say tub, then say tube.",
+        "Listen to the u in each word.",
+        "Is the e at the end loud or silent?"
+      ],
+      "explanation": "The magic e is silent. It makes the u say its name, so tub becomes tube.",
+      "options": [
+        {
+          "text": "It makes the word mean more than one.",
+          "why": "More than one is shown with s or es."
+        },
+        {
+          "text": "It makes the u say its name."
+        },
+        {
+          "text": "It makes an e sound at the end.",
+          "why": "The e at the end is silent."
+        },
+        {
+          "text": "It makes the word a question.",
+          "why": "Questions need a question mark."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.011",
+      "skill": "e2.magic-e",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "The describing word comes before the naming word.",
+        "End with the word that has a full stop."
+      ],
+      "explanation": "The white kite flies high. White and kite both have magic e.",
+      "items": [
+        "The",
+        "white",
+        "kite",
+        "flies",
+        "high."
+      ]
+    },
+    {
+      "id": "e2.magic-e.012",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Change one letter in line. Make the name of a green fruit.",
+      "hints": [
+        "Keep l, i and e the same.",
+        "Change the n to another letter.",
+        "The fruit is small, green and sour."
+      ],
+      "explanation": "Line becomes lime when n changes to m. A lime is a small green fruit.",
+      "blanks": [
+        {
+          "answers": [
+            "lime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.013",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word has a magic e?",
+      "hints": [
+        "All four words end in e.",
+        "Magic e makes the vowel say its name.",
+        "Say each word. Which vowel is long?"
+      ],
+      "explanation": "In bone, the o says its name, so the e is magic. Give, come and have end in e, but their vowels are short.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "give",
+          "why": "Give ends in e, but the i is short."
+        },
+        {
+          "text": "come",
+          "why": "Come ends in e, but the o does not say its name."
+        },
+        {
+          "text": "bone"
+        },
+        {
+          "text": "have",
+          "why": "Have ends in e, but the a is short."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.magic-e.014",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is spelt correctly?",
+      "hints": [
+        "Check every word.",
+        "Two words in the sentence need magic e.",
+        "Hope means you wish for something."
+      ],
+      "explanation": "Hope and lake both have long vowels, so both end in magic e.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I hop we can swim in the lak.",
+          "why": "Hope and lake both need magic e."
+        },
+        {
+          "text": "I hope we can swim in the lak.",
+          "why": "Lake needs magic e."
+        },
+        {
+          "text": "I hop we can swim in the lake.",
+          "why": "Hope needs magic e here."
+        },
+        {
+          "text": "I hope we can swim in the lake."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.magic-e.015",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the opposite of early. It ends with magic e.",
+      "hints": [
+        "Early means before the right time.",
+        "The opposite means after the right time.",
+        "The word rhymes with gate."
+      ],
+      "explanation": "Late is the opposite of early. It is spelt l, a, t, e.",
+      "blanks": [
+        {
+          "answers": [
+            "late"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.016",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Take the magic e off note. Then change o to u. What word is it?",
+      "hints": [
+        "Do it one step at a time.",
+        "Note without e is a short word.",
+        "Now swap the o for a u and read it."
+      ],
+      "explanation": "Note without e is not. Not with u instead of o is nut.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "net",
+          "why": "Check the vowel: o changes to u."
+        },
+        {
+          "text": "not",
+          "why": "That is the word before you change o to u."
+        },
+        {
+          "text": "nute",
+          "why": "The e was taken away."
+        },
+        {
+          "text": "nut"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.magic-e.017",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word makes a new word when you add magic e?",
+      "hints": [
+        "Add e to each word and say it.",
+        "Listen for a real word with a long vowel.",
+        "Which one becomes something you can fly?"
+      ],
+      "explanation": "Kit plus e makes kite. The others do not make real words.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "dog",
+          "why": "Dog plus e is not a word you would use."
+        },
+        {
+          "text": "kit"
+        },
+        {
+          "text": "bed",
+          "why": "Bed plus e is not a word you would use."
+        },
+        {
+          "text": "cup",
+          "why": "Cup plus e is not a word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.018",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word has a long a sound?",
+      "hints": [
+        "Long a says its name.",
+        "Look at the end of each word.",
+        "Which word has a magic e?"
+      ],
+      "explanation": "Gate has a magic e, so the a says its name.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "gate"
+        },
+        {
+          "text": "gap",
+          "why": "Gap has a short a."
+        },
+        {
+          "text": "get",
+          "why": "Get has a short e."
+        },
+        {
+          "text": "got",
+          "why": "Got has a short o."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "skill": "s3.healthy-living",
+  "title": "Healthy habits",
+  "steps": [
+    {
+      "say": "Your body needs food, water, exercise, sleep and cleanliness to stay healthy.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "running",
+            "label": "exercise"
+          },
+          {
+            "icon": "bed",
+            "label": "sleep"
+          },
+          {
+            "icon": "soap",
+            "label": "washing"
+          },
+          {
+            "icon": "water-drop",
+            "label": "water"
+          }
+        ],
+        "alt": "Pictures for exercise, sleep, washing with soap and drinking water."
+      }
+    },
+    {
+      "say": "Exercise makes your heart and muscles stronger. Your heart beats faster while you exercise.",
+      "show": "exercise → faster heartbeat"
+    },
+    {
+      "say": "Sleep helps your body grow and your brain learn. Children need about 9 to 12 hours each night.",
+      "show": "9 to 12 hours of sleep"
+    },
+    {
+      "say": "Wash your hands with soap before eating and after using the toilet. Soap removes germs.",
+      "show": "soap + water + 20 seconds"
+    },
+    {
+      "say": "Drink water every day, especially when you sweat. Sweet drinks are for sometimes."
+    },
+    {
+      "say": "Only take medicine from a trusted adult, like a parent or doctor."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.healthy-living.901",
+      "skill": "s3.healthy-living",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which habit helps stop germs spreading?",
+      "options": [
+        {
+          "text": "sharing a drinking cup",
+          "why": "Sharing cups can pass germs from one person to another."
+        },
+        {
+          "text": "washing hands with soap"
+        },
+        {
+          "text": "sneezing into your hands",
+          "why": "Germs stay on your hands and spread to what you touch."
+        },
+        {
+          "text": "eating with dirty hands",
+          "why": "Dirty hands can carry germs into your mouth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Germs are tiny living things that can make you ill.",
+        "Think about what removes germs from skin.",
+        "Which habit cleans something?"
+      ],
+      "explanation": "Washing hands with soap removes germs, so they do not spread."
+    },
+    {
+      "id": "s3.healthy-living.902",
+      "skill": "s3.healthy-living",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Ana sleeps from 8 p.m. until 6 a.m. How many hours of sleep is that?",
+      "answer": 10,
+      "unit": "hours",
+      "hints": [
+        "Count the hours from 8 p.m. to midnight first.",
+        "Then count from midnight to 6 a.m.",
+        "Add the two amounts together."
+      ],
+      "explanation": "From 8 p.m. to midnight is 4 hours, and from midnight to 6 a.m. is 6 hours. 4 + 6 = 10 hours."
+    }
+  ]
+}

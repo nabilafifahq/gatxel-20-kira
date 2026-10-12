@@ -1,0 +1,78 @@
+{
+  "skill": "e5.direct-reported-speech",
+  "title": "Direct and reported speech",
+  "steps": [
+    {
+      "say": "Direct speech shows the exact words someone says, inside speech marks.",
+      "show": "“I am hungry,” said Budi."
+    },
+    {
+      "say": "Punctuation that ends the spoken words goes inside the speech marks.",
+      "show": "“Are you ready?” asked Mum."
+    },
+    {
+      "say": "Start a new line each time a different person speaks."
+    },
+    {
+      "say": "Reported speech tells what someone said without speech marks. The verb usually moves into the past.",
+      "show": "Budi said that he was hungry."
+    },
+    {
+      "say": "Pronouns and time words change too.",
+      "show": "“I will come tomorrow.” She said she would come the next day."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.direct-reported-speech.901",
+      "skill": "e5.direct-reported-speech",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "“Look out!” shouted Rina."
+        },
+        {
+          "text": "“Look out”! shouted Rina.",
+          "why": "The exclamation mark belongs inside the speech marks."
+        },
+        {
+          "text": "Look out! shouted Rina.",
+          "why": "Speech marks are missing."
+        },
+        {
+          "text": "“Look out!”, shouted Rina.",
+          "why": "No comma is needed after the exclamation mark."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the speech marks, the exclamation mark and the capital letters.",
+        "The punctuation that ends the spoken words goes inside the speech marks.",
+        "Find the sentence where the exclamation mark comes before the closing speech mark."
+      ],
+      "explanation": "The exclamation mark goes inside the speech marks, and shouted continues the sentence with a small s."
+    },
+    {
+      "id": "e5.direct-reported-speech.902",
+      "skill": "e5.direct-reported-speech",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "“I like football,” said Arif. Finish the reported speech: Arif said that he ___ football.",
+      "blanks": [
+        {
+          "answers": [
+            "liked"
+          ]
+        }
+      ],
+      "hints": [
+        "In reported speech, the verb usually moves into the past.",
+        "Arif said like. What is the past tense of like?",
+        "Add the past tense ending to like."
+      ],
+      "explanation": "Like becomes liked in reported speech: Arif said that he liked football."
+    }
+  ]
+}

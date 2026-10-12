@@ -1,0 +1,868 @@
+{
+  "skill": "m2.oly-counting",
+  "items": [
+    {
+      "id": "m2.oly-counting.001",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A square garden has a fence. There are 4 posts on each side. The corner posts count for both sides. How many posts are there in all?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "A square fence with 4 posts along each side, counting the posts at both corners. Each corner post belongs to two sides."
+      },
+      "options": [
+        {
+          "text": "12"
+        },
+        {
+          "text": "13",
+          "why": "Count again: 4 corners plus 2 middle posts on each side."
+        },
+        {
+          "text": "14",
+          "why": "Each side has only 2 posts between its corners."
+        },
+        {
+          "text": "15",
+          "why": "The corner posts are shared, so count them only once."
+        },
+        {
+          "text": "16",
+          "why": "16 counts each corner post twice."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the square and mark the posts.",
+        "Each side has 2 corner posts and some posts in between.",
+        "Each side has 4 posts, and 2 of them are corners. How many are in between?"
+      ],
+      "explanation": "Each side has 2 posts between its corners, so there are 2 + 2 + 2 + 2 = 8 middle posts. Add the 4 corners: 8 + 4 = 12 posts.",
+      "solution": [
+        {
+          "say": "4 sides with 4 posts each would be 16, but each corner is counted twice.",
+          "show": "4 + 4 + 4 + 4 = 16"
+        },
+        {
+          "say": "There are 4 corner posts counted twice.",
+          "show": "16 - 4 = 12"
+        },
+        {
+          "say": "Or count 4 corners and 2 middle posts on each side.",
+          "show": "4 + 2 + 2 + 2 + 2 = 12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-counting.002",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A small book has pages numbered 1 to 15. How many digits are printed to number all the pages?",
+      "options": [
+        {
+          "text": "15",
+          "why": "15 is the number of pages. Some page numbers have 2 digits."
+        },
+        {
+          "text": "18",
+          "why": "Count the 2-digit pages again: 10 to 15 is 6 pages."
+        },
+        {
+          "text": "20",
+          "why": "Pages 10 to 15 are 6 pages with 2 digits each, which is 12 digits."
+        },
+        {
+          "text": "21"
+        },
+        {
+          "text": "30",
+          "why": "Pages 1 to 9 need only 1 digit each."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Some page numbers have 1 digit and some have 2.",
+        "Pages 1 to 9 have 1 digit each. Pages 10 to 15 have 2 digits each.",
+        "Count how many pages go from 10 to 15."
+      ],
+      "explanation": "Pages 1 to 9 use 9 digits. Pages 10 to 15 are 6 pages with 2 digits each, which is 12 digits. In all, 9 + 12 = 21 digits.",
+      "solution": [
+        {
+          "say": "Pages 1 to 9: one digit each.",
+          "show": "9 digits"
+        },
+        {
+          "say": "Pages 10 to 15: 6 pages, two digits each.",
+          "show": "6 × 2 = 12"
+        },
+        {
+          "say": "Add them.",
+          "show": "9 + 12 = 21"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-counting.003",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Four friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
+      "options": [
+        {
+          "text": "3",
+          "why": "Each friend shakes 3 hands, but there are 4 friends."
+        },
+        {
+          "text": "4",
+          "why": "Make a list of all the pairs of friends."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8",
+          "why": "Count each handshake only once."
+        },
+        {
+          "text": "12",
+          "why": "12 counts every handshake twice, once for each friend."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Give the friends letters: A, B, C, D.",
+        "List the pairs. A shakes hands with B, C and D.",
+        "Then B shakes with C and D. Do not count A and B again."
+      ],
+      "explanation": "The pairs are AB, AC, AD, BC, BD and CD. That is 3 + 2 + 1 = 6 handshakes.",
+      "solution": [
+        {
+          "say": "A shakes hands with B, C and D.",
+          "show": "AB, AC, AD"
+        },
+        {
+          "say": "B still needs C and D.",
+          "show": "BC, BD"
+        },
+        {
+          "say": "C still needs D.",
+          "show": "CD"
+        },
+        {
+          "say": "Add them.",
+          "show": "3 + 2 + 1 = 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.004",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Ben writes all the numbers from 1 to 50. How many of them have at least one digit 3?",
+      "options": [
+        {
+          "text": "4",
+          "why": "4 is only 3, 13, 23 and 43. The numbers from 30 to 39 count too."
+        },
+        {
+          "text": "5",
+          "why": "Many numbers in the 30s have a 3 too."
+        },
+        {
+          "text": "10",
+          "why": "10 is just the numbers from 30 to 39. Others like 13 and 23 count too."
+        },
+        {
+          "text": "13",
+          "why": "Did you miss the number 3 itself?"
+        },
+        {
+          "text": "14"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Look at the ones digit and the tens digit separately.",
+        "Numbers with a 3 in the ones place: 3, 13, 23, and so on.",
+        "Numbers from 30 to 39 all have a 3 in the tens place."
+      ],
+      "explanation": "Numbers with a 3 in the tens place are 30 to 39, which is 10 numbers. Numbers with a 3 only in the ones place are 3, 13, 23 and 43. So there are 10 + 4 = 14 numbers.",
+      "solution": [
+        {
+          "say": "3 in the tens place: 30, 31, and so on up to 39.",
+          "show": "10 numbers"
+        },
+        {
+          "say": "3 in the ones place, not already counted: 3, 13, 23, 43.",
+          "show": "4 numbers"
+        },
+        {
+          "say": "33 was already counted with the 30s, so do not count it again.",
+          "show": "10 + 4 = 14"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-counting.005",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A grid has 2 rows of 3 squares. An ant starts at the bottom left corner. It walks along the lines to the top right corner. It only moves right or up. How many different paths can it take?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 3,
+        "alt": "A grid of 2 rows and 3 columns of squares. The ant starts at the bottom left corner and ends at the top right corner, walking along the grid lines."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "6 paths is the answer for a 2 by 2 grid. This grid is 3 squares long."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "Some paths were counted twice. Write the number of paths at each corner."
+        },
+        {
+          "text": "15",
+          "why": "Too many. Write the number of ways to reach each corner."
+        },
+        {
+          "text": "20",
+          "why": "20 paths fit a 3 by 3 grid. This grid has only 2 rows."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Every path goes right 3 times and up 2 times.",
+        "Write the number of ways to reach each corner, starting near the start.",
+        "Corners on the bottom line and on the left line can be reached in only 1 way."
+      ],
+      "explanation": "Write at each corner the number of ways to reach it. Each number is the sum of the number to its left and the number below it. The top right corner gets 10.",
+      "solution": [
+        {
+          "say": "Bottom line of corners: each can be reached in 1 way.",
+          "show": "1, 1, 1, 1"
+        },
+        {
+          "say": "Middle line of corners: add the number on the left and the number below.",
+          "show": "1, 2, 3, 4"
+        },
+        {
+          "say": "Top line of corners: do the same.",
+          "show": "1, 3, 6, 10"
+        },
+        {
+          "say": "So there are 10 paths."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-counting.006",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How many 2-digit numbers have digits that add up to 5?",
+      "options": [
+        {
+          "text": "4",
+          "why": "Do not forget 50. Its digits are 5 and 0."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "05 is not a 2-digit number."
+        },
+        {
+          "text": "10",
+          "why": "Count again. List them: 14, 23, and so on."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The tens digit cannot be 0.",
+        "Start with tens digit 1: 1 + 4 = 5, so 14.",
+        "Try tens digits 1, 2, 3, 4 and 5 in turn."
+      ],
+      "explanation": "The numbers are 14, 23, 32, 41 and 50. So there are 5 of them.",
+      "solution": [
+        {
+          "say": "List by tens digit.",
+          "show": "14, 23, 32, 41, 50"
+        },
+        {
+          "say": "A tens digit of 0 is not allowed, so 05 does not count.",
+          "show": "5 numbers"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-counting.007",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Jo rolls a red dice and a blue dice. In how many ways can the total be 9?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Red 3 and blue 6 is different from red 6 and blue 3."
+        },
+        {
+          "text": "3",
+          "why": "Go through the red dice from 3 to 6 and check each one."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "6",
+          "why": "Each dice shows only 1 to 6, so a 1 or a 2 cannot be part of a total of 9."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Red 3 and blue 6 is one way. Red 6 and blue 3 is another.",
+        "Go through the red dice from 1 to 6. What must the blue dice show?",
+        "If red shows 1 or 2, blue would need 8 or 7. That cannot happen."
+      ],
+      "explanation": "The ways are red 3 with blue 6, red 4 with blue 5, red 5 with blue 4, and red 6 with blue 3. That is 4 ways.",
+      "solution": [
+        {
+          "say": "Red 1 or 2: blue would need 8 or 7. Not possible.",
+          "show": "no way"
+        },
+        {
+          "say": "Red 3, 4, 5, 6: blue shows 6, 5, 4, 3.",
+          "show": "3 + 6, 4 + 5, 5 + 4, 6 + 3"
+        },
+        {
+          "say": "So there are 4 ways.",
+          "show": "4"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.008",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ayu writes all the numbers from 1 to 30. How many times does she write the digit 2?",
+      "options": [
+        {
+          "text": "10",
+          "why": "That is only the tens place. Add the 2s in the ones place."
+        },
+        {
+          "text": "11",
+          "why": "Count the 2s in the ones place: 2, 12 and 22."
+        },
+        {
+          "text": "12",
+          "why": "22 has two 2s. Count both."
+        },
+        {
+          "text": "13"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the 2s in the ones place and in the tens place separately.",
+        "Ones place: 2, 12, 22. Tens place: 20 to 29.",
+        "22 has a 2 in both places, so it gives two 2s."
+      ],
+      "explanation": "The ones place has a 2 in 2, 12 and 22, which is 3 times. The tens place has a 2 in 20 to 29, which is 10 times. In all, 3 + 10 = 13.",
+      "solution": [
+        {
+          "say": "2 in the ones place.",
+          "show": "2, 12, 22: 3 times"
+        },
+        {
+          "say": "2 in the tens place.",
+          "show": "20 to 29: 10 times"
+        },
+        {
+          "say": "Add them. 22 is in both lists because it has two 2s.",
+          "show": "3 + 10 = 13"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.009",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Six dots are on a circle. Ali joins every dot to every other dot with a straight line. How many lines does he draw?",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "Six dots spaced evenly around a circle, at the corners of a hexagon."
+      },
+      "answer": 15,
+      "hints": [
+        "Start with one dot. How many lines go from it?",
+        "Each dot joins to 5 others. But each line joins 2 dots.",
+        "The first dot gives 5 lines. The next dot gives only 4 new lines."
+      ],
+      "explanation": "The first dot joins to 5 others, the next adds 4 new lines, then 3, 2 and 1. That is 5 + 4 + 3 + 2 + 1 = 15 lines.",
+      "solution": [
+        {
+          "say": "Dot 1 joins to the other 5 dots.",
+          "show": "5 lines"
+        },
+        {
+          "say": "Dot 2 is already joined to dot 1, so it adds 4 new lines.",
+          "show": "4 lines"
+        },
+        {
+          "say": "Keep going: 3, then 2, then 1 new line.",
+          "show": "3 + 2 + 1"
+        },
+        {
+          "say": "Add them all.",
+          "show": "5 + 4 + 3 + 2 + 1 = 15"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "hkimo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-counting.010",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Rudi pays exactly Rp7.000. He has plenty of Rp1.000 coins, Rp2.000 notes and Rp5.000 notes. How many different ways can he pay?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 1000,
+            "count": 3
+          },
+          {
+            "value": 2000,
+            "count": 3
+          },
+          {
+            "value": 5000,
+            "count": 1
+          }
+        ],
+        "alt": "Rudi's money: Rp1.000 coins, Rp2.000 notes and a Rp5.000 note. He has as many of each as he needs."
+      },
+      "answer": 6,
+      "hints": [
+        "Sort the ways by how many Rp5.000 notes he uses.",
+        "With one Rp5.000 note, he still needs Rp2.000 more.",
+        "With no Rp5.000 note, try 0, 1, 2 or 3 Rp2.000 notes."
+      ],
+      "explanation": "With a Rp5.000 note, the other Rp2.000 is one Rp2.000 note or two Rp1.000 coins: 2 ways. Without it, he can use 3, 2, 1 or 0 Rp2.000 notes and fill up with coins: 4 ways. That is 2 + 4 = 6 ways.",
+      "solution": [
+        {
+          "say": "With one Rp5.000 note, Rp2.000 is left.",
+          "show": "Rp5.000 + Rp2.000, or Rp5.000 + Rp1.000 + Rp1.000"
+        },
+        {
+          "say": "Without a Rp5.000 note, use 3 or 2 Rp2.000 notes.",
+          "show": "3 notes + 1 coin, or 2 notes + 3 coins"
+        },
+        {
+          "say": "Or use 1 or 0 Rp2.000 notes.",
+          "show": "1 note + 5 coins, or 7 coins"
+        },
+        {
+          "say": "Add them.",
+          "show": "2 + 4 = 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "timo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-counting.011",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Ibu membuat 3 jenis kue: lapis, onde-onde, dan klepon. Ani boleh mengambil 2 kue yang berbeda jenis. Ada berapa pilihan untuk Ani?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Coba daftar semua pasangan kue."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Ada pasangan yang terhitung dua kali. Lapis dan klepon sama dengan klepon dan lapis."
+        },
+        {
+          "text": "6",
+          "why": "Urutan tidak penting. Lapis lalu klepon sama dengan klepon lalu lapis."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Buat daftar pasangan kue.",
+        "Mulai dari lapis. Lapis bisa dipasangkan dengan onde-onde atau klepon.",
+        "Sesudah itu, pasangan apa lagi yang belum ada?"
+      ],
+      "explanation": "Pasangannya lapis dan onde-onde, lapis dan klepon, serta onde-onde dan klepon. Jadi ada 3 pilihan.",
+      "solution": [
+        {
+          "say": "Pasangan dengan lapis.",
+          "show": "lapis + onde-onde, lapis + klepon"
+        },
+        {
+          "say": "Pasangan tanpa lapis.",
+          "show": "onde-onde + klepon"
+        },
+        {
+          "say": "Semuanya 3 pilihan.",
+          "show": "3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "jenis",
+          "en": "kind, type"
+        },
+        {
+          "term": "kue",
+          "en": "cake, snack"
+        },
+        {
+          "term": "mengambil",
+          "en": "to take"
+        },
+        {
+          "term": "berbeda",
+          "en": "different"
+        },
+        {
+          "term": "pilihan",
+          "en": "choice"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-counting.012",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Ada 5 anak dalam satu kelompok. Setiap anak mengirim satu kartu ucapan kepada setiap anak lain. Berapa kartu yang dikirim semuanya?",
+      "options": [
+        {
+          "text": "10",
+          "why": "10 adalah banyak jabat tangan. Kartu dikirim dua arah: A ke B dan B ke A."
+        },
+        {
+          "text": "16",
+          "why": "Setiap anak mengirim 4 kartu. Hitung lagi untuk 5 anak."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "25",
+          "why": "Anak tidak mengirim kartu kepada dirinya sendiri."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hitung dulu kartu yang dikirim oleh satu anak.",
+        "Satu anak mengirim kartu kepada semua anak lain, yaitu 4 anak.",
+        "Ada 5 anak, dan setiap anak mengirim 4 kartu."
+      ],
+      "explanation": "Setiap anak mengirim 4 kartu. Ada 5 anak, jadi kartunya 4 + 4 + 4 + 4 + 4 = 20.",
+      "solution": [
+        {
+          "say": "Satu anak mengirim ke 4 anak lain.",
+          "show": "4 kartu"
+        },
+        {
+          "say": "Ada 5 anak.",
+          "show": "4 + 4 + 4 + 4 + 4 = 20"
+        },
+        {
+          "say": "Berbeda dengan jabat tangan: kartu dari A ke B dan dari B ke A adalah 2 kartu."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "kelompok",
+          "en": "group"
+        },
+        {
+          "term": "mengirim",
+          "en": "to send"
+        },
+        {
+          "term": "kartu ucapan",
+          "en": "greeting card"
+        },
+        {
+          "term": "setiap",
+          "en": "each, every"
+        },
+        {
+          "term": "anak lain",
+          "en": "other children"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.013",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A stall sells 2 drinks: tea and juice. It sells 3 snacks: bread, banana fritters and tofu. Leo buys 1 drink and 1 snack. How many different choices can he make?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Drinks",
+          "Snacks"
+        ],
+        "rows": [
+          [
+            "tea",
+            "bread"
+          ],
+          [
+            "juice",
+            "banana fritters"
+          ],
+          [
+            "",
+            "tofu"
+          ]
+        ],
+        "alt": "A menu. Drinks: tea and juice. Snacks: bread, banana fritters and tofu."
+      },
+      "options": [
+        {
+          "text": "5",
+          "why": "5 is 2 + 3. Each drink can go with every snack."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8",
+          "why": "Try a list: tea with each snack, then juice with each snack."
+        },
+        {
+          "text": "9",
+          "why": "There are only 2 drinks, not 3."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make a list of all the pairs.",
+        "Start with tea. Tea can go with bread, banana fritters or tofu.",
+        "Now do the same for juice."
+      ],
+      "explanation": "Tea goes with 3 snacks and juice goes with 3 snacks. That is 3 + 3 = 6 choices.",
+      "solution": [
+        {
+          "say": "Tea with each snack.",
+          "show": "tea + bread, tea + fritters, tea + tofu"
+        },
+        {
+          "say": "Juice with each snack.",
+          "show": "juice + bread, juice + fritters, juice + tofu"
+        },
+        {
+          "say": "Count them.",
+          "show": "3 + 3 = 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-counting.014",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A locker code has 2 digits. Each digit can be 1, 2 or 3. Digits may repeat, like 33. How many different codes are there?",
+      "options": [
+        {
+          "text": "3",
+          "why": "There are many more. List the codes that start with 1, then 2, then 3."
+        },
+        {
+          "text": "6",
+          "why": "Codes like 11, 22 and 33 are allowed too."
+        },
+        {
+          "text": "8",
+          "why": "Count again. Each first digit goes with 3 second digits."
+        },
+        {
+          "text": "9"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "List the codes in order.",
+        "Codes that start with 1: 11, 12, 13.",
+        "Now list the codes that start with 2, then with 3."
+      ],
+      "explanation": "Each of the 3 first digits can go with each of the 3 second digits. That is 3 + 3 + 3 = 9 codes.",
+      "solution": [
+        {
+          "say": "Start with 1.",
+          "show": "11, 12, 13"
+        },
+        {
+          "say": "Start with 2.",
+          "show": "21, 22, 23"
+        },
+        {
+          "say": "Start with 3.",
+          "show": "31, 32, 33"
+        },
+        {
+          "say": "Count them.",
+          "show": "3 + 3 + 3 = 9"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.015",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A strip is made of 4 squares in a row. How many rectangles can you find in it? Squares count as rectangles too.",
+      "figure": {
+        "kind": "grid",
+        "rows": 1,
+        "cols": 4,
+        "alt": "A strip of 4 squares in a row."
+      },
+      "answer": 10,
+      "hints": [
+        "Count rectangles by length: 1 square long, 2 long, 3 long and 4 long.",
+        "Rectangles 1 square long: there are 4 of them.",
+        "A rectangle 2 squares long can start at square 1, 2 or 3."
+      ],
+      "explanation": "There are 4 rectangles 1 square long, 3 that are 2 long, 2 that are 3 long and 1 that is 4 long. That is 4 + 3 + 2 + 1 = 10.",
+      "solution": [
+        {
+          "say": "1 square long.",
+          "show": "4"
+        },
+        {
+          "say": "2 squares long.",
+          "show": "3"
+        },
+        {
+          "say": "3 squares long.",
+          "show": "2"
+        },
+        {
+          "say": "4 squares long.",
+          "show": "1"
+        },
+        {
+          "say": "Add them.",
+          "show": "4 + 3 + 2 + 1 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

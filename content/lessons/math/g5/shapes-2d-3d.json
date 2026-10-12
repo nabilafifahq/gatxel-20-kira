@@ -1,0 +1,274 @@
+{
+  "skill": "m5.shapes-2d-3d",
+  "title": "2D shapes, 3D shapes and nets",
+  "steps": [
+    {
+      "say": "2D shapes are flat. We describe them by their sides, angles and lines of symmetry.",
+      "show": "Quadrilaterals have 4 sides",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "square",
+            "label": "square"
+          },
+          {
+            "shape": "rectangle",
+            "label": "rectangle"
+          },
+          {
+            "shape": "rhombus",
+            "label": "rhombus"
+          },
+          {
+            "shape": "parallelogram",
+            "label": "parallelogram"
+          },
+          {
+            "shape": "trapezium",
+            "label": "trapezium"
+          },
+          {
+            "shape": "kite",
+            "label": "kite"
+          }
+        ],
+        "alt": "Six quadrilaterals: a square, a rectangle, a rhombus, a parallelogram, a trapezium and a kite."
+      }
+    },
+    {
+      "say": "A square has 4 equal sides and 4 right angles. A rhombus also has 4 equal sides, and its angles need not be right angles.",
+      "show": "square and rhombus: 4 equal sides"
+    },
+    {
+      "say": "3D shapes are solid. They have faces, edges and vertices.",
+      "show": "Cuboid: 6 faces, 12 edges, 8 vertices",
+      "figure": {
+        "kind": "solid",
+        "solid": "cuboid",
+        "alt": "A drawing of a cuboid."
+      }
+    },
+    {
+      "say": "A triangular prism has 5 faces: 2 triangles and 3 rectangles.",
+      "show": "Triangular prism: 5 faces, 9 edges, 6 vertices",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A drawing of a triangular prism."
+      }
+    },
+    {
+      "say": "A net is a flat shape that folds up to make a 3D shape. A net of a cube has 6 squares.",
+      "show": "6 squares fold into a cube",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "alt": "A cross-shaped net of 6 squares: a column of 4 with one square on each side of the second square."
+      }
+    },
+    {
+      "say": "Some sets of 6 squares do not fold into a cube, because two faces end up on top of each other.",
+      "show": "Picture the folds to check"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.shapes-2d-3d.901",
+      "skill": "m5.shapes-2d-3d",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many edges does a cube have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A drawing of a cube."
+      },
+      "hints": [
+        "An edge is where two faces meet.",
+        "Count the edges around the top face first.",
+        "The top face has 4 edges."
+      ],
+      "explanation": "A cube has 4 edges on top, 4 on the bottom and 4 going up the sides. That makes 12 edges.",
+      "answer": 12
+    },
+    {
+      "id": "m5.shapes-2d-3d.902",
+      "skill": "m5.shapes-2d-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape has exactly one pair of parallel sides?",
+      "hints": [
+        "Parallel lines never meet.",
+        "Picture each shape and look at its opposite sides.",
+        "Most of these shapes have two pairs of parallel sides."
+      ],
+      "explanation": "A trapezium has exactly one pair of parallel sides.",
+      "options": [
+        {
+          "text": "Trapezium"
+        },
+        {
+          "text": "Rectangle",
+          "why": "A rectangle has two pairs of parallel sides."
+        },
+        {
+          "text": "Rhombus",
+          "why": "A rhombus has two pairs of parallel sides."
+        },
+        {
+          "text": "Kite",
+          "why": "A kite has no parallel sides."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.shapes-2d-3d.903",
+      "skill": "m5.shapes-2d-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which net folds to make a cube?",
+      "hints": [
+        "A cube has 6 square faces.",
+        "Picture folding each net up around one base square.",
+        "A row of 4 squares can wrap around the sides of a cube."
+      ],
+      "explanation": "The cross shape folds up with one square for each face of the cube.",
+      "options": [
+        {
+          "figure": {
+            "kind": "grid",
+            "rows": 4,
+            "cols": 3,
+            "shaded": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "alt": "A net of 6 squares: a column of 4 with one square on each side of the second square."
+          }
+        },
+        {
+          "figure": {
+            "kind": "grid",
+            "rows": 2,
+            "cols": 3,
+            "shaded": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "alt": "A net of 6 squares in a block of 2 rows of 3."
+          },
+          "why": "A 2 by 3 block cannot fold into a cube. Two faces would end up on top of each other."
+        },
+        {
+          "figure": {
+            "kind": "grid",
+            "rows": 2,
+            "cols": 5,
+            "shaded": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "alt": "A net of 6 squares: a row of 5 with one square above the first square."
+          },
+          "why": "A row of 5 squares is too long. The ends would overlap when folded."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

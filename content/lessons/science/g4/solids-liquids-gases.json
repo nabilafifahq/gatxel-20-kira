@@ -1,0 +1,96 @@
+{
+  "skill": "s4.solids-liquids-gases",
+  "title": "Three states of matter",
+  "steps": [
+    {
+      "say": "Materials can be solids, liquids or gases. These are the three states of matter.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ice-cube",
+            "label": "solid"
+          },
+          {
+            "icon": "water-drop",
+            "label": "liquid"
+          },
+          {
+            "icon": "steam",
+            "label": "gas"
+          }
+        ],
+        "alt": "An ice cube, a water drop and steam."
+      }
+    },
+    {
+      "say": "A solid keeps its own shape. You can hold it and it does not flow.",
+      "show": "solid: fixed shape"
+    },
+    {
+      "say": "A liquid flows and takes the shape of its container. Its volume stays the same.",
+      "show": "liquid: flows, same volume"
+    },
+    {
+      "say": "A gas spreads out to fill all the space it is in. It can be squashed.",
+      "show": "gas: spreads out, can be squashed"
+    },
+    {
+      "say": "Powders like sand and salt are solids. Each tiny grain keeps its shape."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.solids-liquids-gases.901",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which state of matter keeps its own shape?",
+      "options": [
+        {
+          "text": "liquid",
+          "why": "Liquids flow and take the shape of their container."
+        },
+        {
+          "text": "solid"
+        },
+        {
+          "text": "gas",
+          "why": "Gases spread out to fill a space."
+        },
+        {
+          "text": "all three states",
+          "why": "Only one state keeps its own shape."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about an ice cube on a plate.",
+        "Does it spread out or stay the same?",
+        "Which state can you hold in your hand?"
+      ],
+      "explanation": "Solids keep their own shape."
+    },
+    {
+      "id": "s4.solids-liquids-gases.902",
+      "skill": "s4.solids-liquids-gases",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Juice takes the shape of its cup because it is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "liquid",
+            "liquids"
+          ]
+        }
+      ],
+      "hints": [
+        "Juice can be poured.",
+        "It flows into any shape.",
+        "It is not a solid and not a gas."
+      ],
+      "explanation": "Juice is a liquid, so it flows and takes the shape of its container."
+    }
+  ]
+}

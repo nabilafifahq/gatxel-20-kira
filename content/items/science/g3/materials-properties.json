@@ -1,0 +1,444 @@
+{
+  "skill": "s3.materials-properties",
+  "items": [
+    {
+      "id": "s3.materials-properties.001",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material is transparent?",
+      "options": [
+        {
+          "text": "clear glass"
+        },
+        {
+          "text": "wood",
+          "why": "Wood is opaque. Light cannot pass through it."
+        },
+        {
+          "text": "metal",
+          "why": "Metal is opaque. You cannot see through it."
+        },
+        {
+          "text": "cardboard",
+          "why": "Cardboard is opaque. It blocks light."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Transparent means you can see through it.",
+        "Think about what windows are made of.",
+        "Which material lets light pass straight through?"
+      ],
+      "explanation": "Clear glass is transparent, so light passes through it and you can see through it. That is why windows are made of glass."
+    },
+    {
+      "id": "s3.materials-properties.002",
+      "skill": "s3.materials-properties",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each object to the property that makes its material useful.",
+      "pairs": [
+        [
+          "window",
+          "transparent"
+        ],
+        [
+          "umbrella",
+          "waterproof"
+        ],
+        [
+          "towel",
+          "absorbent"
+        ],
+        [
+          "rubber band",
+          "stretchy"
+        ],
+        [
+          "hammer head",
+          "hard and strong"
+        ]
+      ],
+      "hints": [
+        "Think about the job each object does.",
+        "A towel's job is to dry you.",
+        "Start with the window. What must you be able to do through it?"
+      ],
+      "explanation": "A window must let light through, an umbrella must keep rain out and a towel must soak up water. A rubber band must stretch and a hammer head must be hard and strong."
+    },
+    {
+      "id": "s3.materials-properties.003",
+      "skill": "s3.materials-properties",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these materials. Are they waterproof?",
+      "groups": [
+        "Waterproof",
+        "Not waterproof"
+      ],
+      "items": [
+        {
+          "text": "plastic",
+          "group": 0
+        },
+        {
+          "text": "rubber",
+          "group": 0
+        },
+        {
+          "text": "glass",
+          "group": 0
+        },
+        {
+          "text": "metal",
+          "group": 0
+        },
+        {
+          "text": "paper",
+          "group": 1
+        },
+        {
+          "text": "cotton fabric",
+          "group": 1
+        },
+        {
+          "text": "cardboard",
+          "group": 1
+        },
+        {
+          "text": "sponge",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Waterproof materials do not let water through.",
+        "Think about what happens to each material in the rain.",
+        "Start with paper. Does it keep water out?"
+      ],
+      "explanation": "Plastic, rubber, glass and metal do not let water through, so they are waterproof. Paper, cotton, cardboard and sponge let water in or soak it up."
+    },
+    {
+      "id": "s3.materials-properties.004",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A spoon can be made of metal, wood or plastic. What is metal?",
+      "options": [
+        {
+          "text": "an object",
+          "why": "An object is a thing, like a spoon. Metal is what it is made from."
+        },
+        {
+          "text": "a material"
+        },
+        {
+          "text": "a property",
+          "why": "A property describes a material, like hard or shiny."
+        },
+        {
+          "text": "a living thing",
+          "why": "Metal has never been alive."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An object is a thing you can pick up and use.",
+        "Ask: is metal the thing, or what the thing is made of?",
+        "What do we call the stuff an object is made from?"
+      ],
+      "explanation": "Metal is a material, the stuff an object is made from. The spoon is the object."
+    },
+    {
+      "id": "s3.materials-properties.005",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rubber is used to make boots for rainy days. Which two properties make it a good choice?",
+      "options": [
+        {
+          "text": "transparent and hard",
+          "why": "Boots do not need to be see-through. They need to keep water out."
+        },
+        {
+          "text": "absorbent and stiff",
+          "why": "Absorbent boots would soak up water, and your feet would get wet."
+        },
+        {
+          "text": "waterproof and flexible"
+        },
+        {
+          "text": "magnetic and shiny",
+          "why": "These properties do not help keep feet dry."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the job of a rain boot.",
+        "It must keep water out and let your feet move.",
+        "Which pair of words matches both jobs?"
+      ],
+      "explanation": "Rubber is waterproof, so it keeps feet dry. It is also flexible, so the boot bends as you walk."
+    },
+    {
+      "id": "s3.materials-properties.006",
+      "skill": "s3.materials-properties",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 properties a good raincoat material needs.",
+      "options": [
+        {
+          "text": "waterproof"
+        },
+        {
+          "text": "absorbent",
+          "why": "An absorbent coat would soak up rain and get heavy."
+        },
+        {
+          "text": "flexible"
+        },
+        {
+          "text": "rigid",
+          "why": "A rigid coat would not bend when you move your arms."
+        },
+        {
+          "text": "breakable",
+          "why": "A raincoat must not break or tear easily."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "A raincoat must keep you dry.",
+        "It must also let you move freely.",
+        "Find one word about water and one about bending."
+      ],
+      "explanation": "A raincoat must be waterproof to keep rain out. It must also be flexible so you can move."
+    },
+    {
+      "id": "s3.materials-properties.007",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material is best for a frying pan?",
+      "options": [
+        {
+          "text": "plastic",
+          "why": "Plastic can melt on a hot stove."
+        },
+        {
+          "text": "wood",
+          "why": "Wood could burn on a hot stove."
+        },
+        {
+          "text": "glass",
+          "why": "Ordinary glass can crack if it is heated quickly."
+        },
+        {
+          "text": "metal"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A frying pan sits on a very hot stove.",
+        "Think about which materials melt, burn or crack in heat.",
+        "Which material are most pans in your kitchen made of?"
+      ],
+      "explanation": "Metal does not melt, burn or crack on a stove, and it is strong. Heat also passes through metal well to cook the food."
+    },
+    {
+      "id": "s3.materials-properties.008",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A ruler must stay straight when you draw lines. Which property does its material need?",
+      "options": [
+        {
+          "text": "rigid"
+        },
+        {
+          "text": "stretchy",
+          "why": "A stretchy ruler would bend and give wobbly lines."
+        },
+        {
+          "text": "absorbent",
+          "why": "Soaking up water does not help a ruler draw straight lines."
+        },
+        {
+          "text": "soft",
+          "why": "A soft ruler would bend or dent."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what happens if a ruler bends.",
+        "The word means stiff and hard to bend.",
+        "Which word is the opposite of flexible?"
+      ],
+      "explanation": "A ruler must be rigid, which means stiff. A rigid ruler does not bend, so the lines stay straight."
+    },
+    {
+      "id": "s3.materials-properties.009",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ana tests how much water four fabrics soak up. Which fabric is best for a towel?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Fabric",
+          "Water soaked up (ml)"
+        ],
+        "rows": [
+          [
+            "A",
+            "5"
+          ],
+          [
+            "B",
+            "25"
+          ],
+          [
+            "C",
+            "12"
+          ],
+          [
+            "D",
+            "0"
+          ]
+        ],
+        "alt": "Table of water soaked up: fabric A 5 ml, fabric B 25 ml, fabric C 12 ml, fabric D 0 ml."
+      },
+      "options": [
+        {
+          "text": "Fabric A",
+          "why": "Fabric A soaked up only 5 ml."
+        },
+        {
+          "text": "Fabric B"
+        },
+        {
+          "text": "Fabric C",
+          "why": "Fabric C soaked up 12 ml, less than one other fabric."
+        },
+        {
+          "text": "Fabric D",
+          "why": "Fabric D soaked up nothing. It might make a good raincoat instead."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A towel needs to soak up water.",
+        "Find the biggest number in the table.",
+        "Compare the numbers in the water column."
+      ],
+      "explanation": "A towel should be very absorbent. Fabric B soaked up the most water, 25 ml, so it is the best choice.",
+      "tags": [
+        "keep-order",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.materials-properties.010",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is paper a poor material for a cup?",
+      "options": [
+        {
+          "text": "Paper is too heavy.",
+          "why": "Paper is very light. Weight is not the problem."
+        },
+        {
+          "text": "Paper soaks up water and goes soft."
+        },
+        {
+          "text": "Paper is transparent.",
+          "why": "Most paper is opaque. That is not the problem."
+        },
+        {
+          "text": "Paper is magnetic.",
+          "why": "Paper is not magnetic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what a cup holds.",
+        "What happens to paper when it gets wet?",
+        "Look for the property that matters for holding drinks."
+      ],
+      "explanation": "Paper is absorbent, so it soaks up drinks and goes soft. Paper cups have a thin waterproof coating to stop this.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.materials-properties.011",
+      "skill": "s3.materials-properties",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A material is hard, shiny and opaque. It rings when tapped. It bends a little without breaking. What is it most likely to be?",
+      "options": [
+        {
+          "text": "glass",
+          "why": "Glass is usually transparent, and it breaks instead of bending."
+        },
+        {
+          "text": "wood",
+          "why": "Wood is not shiny like this and does not ring when tapped."
+        },
+        {
+          "text": "metal"
+        },
+        {
+          "text": "rubber",
+          "why": "Rubber is soft and bendy, not hard and shiny."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check each clue one at a time.",
+        "Which materials are shiny and ring like a bell?",
+        "Cross out any material that does not match a clue."
+      ],
+      "explanation": "Metals are hard, shiny and opaque, and many ring when tapped. Thin metal can bend without breaking.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s3.materials-properties.012",
+      "skill": "s3.materials-properties",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Choose a material for a school lunch box. Give two reasons, using property words.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names a sensible material",
+            "points": 1
+          },
+          {
+            "label": "Gives two properties, such as waterproof or strong",
+            "points": 2
+          },
+          {
+            "label": "Links each property to the job of a lunch box",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 15,
+      "maxWords": 60,
+      "model": "I would choose plastic. It is waterproof, so juice will not leak out. It is also strong and light, so it will not break in my bag.",
+      "hints": [
+        "Think about what a lunch box must do every day.",
+        "Use words like waterproof, strong, light or easy to clean."
+      ],
+      "explanation": "Plastic or metal are good choices. They are waterproof and strong, so the food stays clean and the box lasts."
+    }
+  ]
+}

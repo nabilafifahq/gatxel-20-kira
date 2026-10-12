@@ -1,0 +1,32 @@
+{
+  "skill": "s1.earth-and-sun",
+  "title": "The Earth and the Sun",
+  "steps": [
+    { "say": "We live on planet Earth. It is round like a ball.", "figure": { "kind": "icons", "items": [{ "icon": "earth", "label": "Earth" }], "alt": "The round Earth with blue seas and green land." } },
+    { "say": "Most of the Earth is covered by water. The rest is land.", "show": "water and land" },
+    { "say": "The Sun is a star. It gives us light and heat.", "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }], "alt": "The Sun shining." } },
+    { "say": "The Sun is very big, but it is very far away.", "show": "big and far away" },
+    { "say": "Never look straight at the Sun. It can hurt your eyes.", "show": "Never look at the Sun." }
+  ],
+  "check": [
+    {
+      "id": "s1.earth-and-sun.901", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 1,
+      "prompt": "What does the Sun give us?",
+      "options": [
+        { "text": "light and heat" },
+        { "text": "rain", "why": "Rain falls from clouds." },
+        { "text": "snow", "why": "Snow falls from clouds in cold places." }
+      ],
+      "answer": 0,
+      "hints": ["Think about standing outside on a sunny day.", "How does the sunshine feel on your skin?", "Ask: why is it bright in the day?"],
+      "explanation": "The Sun gives us light and heat. It makes the day bright and warm."
+    },
+    {
+      "id": "s1.earth-and-sun.902", "skill": "s1.earth-and-sun", "type": "text", "difficulty": 1,
+      "prompt": "We live on planet ___.",
+      "blanks": [{ "answers": ["Earth", "earth", "the Earth"] }],
+      "hints": ["It is the planet under your feet.", "It has land, seas and living things.", "The name is also a word for soil."],
+      "explanation": "We live on planet Earth."
+    }
+  ]
+}

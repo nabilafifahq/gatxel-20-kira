@@ -1,0 +1,37 @@
+{
+  "skill": "s1.push-pull",
+  "title": "Pushes and pulls",
+  "steps": [
+    { "say": "A push moves something away from you. Kicking a ball is a push.", "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "push" }], "alt": "A ball being kicked away." } },
+    { "say": "A pull moves something towards you. Opening a drawer is a pull.", "show": "pull" },
+    { "say": "Pushes and pulls are forces. Forces make things move or stop.", "show": "force" },
+    { "say": "A bigger push makes a toy car go faster and further.", "figure": { "kind": "icons", "items": [{ "icon": "toy-car", "label": "toy car" }], "alt": "A toy car." } },
+    { "say": "A push can change shape too. Squashing clay is a push.", "show": "squash" }
+  ],
+  "check": [
+    {
+      "id": "s1.push-pull.901", "skill": "s1.push-pull", "type": "mcq", "difficulty": 1,
+      "prompt": "Is opening a drawer a push or a pull?",
+      "options": [
+        { "text": "a push", "why": "The drawer comes towards you, so it is not a push." },
+        { "text": "a pull" },
+        { "text": "neither", "why": "Opening a drawer moves it, so it uses a force." }
+      ],
+      "answer": 1,
+      "hints": ["Watch which way the drawer moves.", "Does it come towards you or go away?", "Act it out with your hand."],
+      "explanation": "Opening a drawer is a pull. The drawer moves towards you."
+    },
+    {
+      "id": "s1.push-pull.902", "skill": "s1.push-pull", "type": "mcq", "difficulty": 2,
+      "prompt": "Which push makes a ball roll furthest?",
+      "options": [
+        { "text": "a gentle push", "why": "A gentle push makes the ball roll a short way." },
+        { "text": "a tiny tap", "why": "A tiny tap makes the ball roll only a little." },
+        { "text": "a big push" }
+      ],
+      "answer": 2,
+      "hints": ["Think about rolling a ball to a friend far away.", "Does a bigger push send the ball further?", "Picture rolling a ball gently, then hard."],
+      "explanation": "A big push makes the ball go faster, so it rolls furthest."
+    }
+  ]
+}

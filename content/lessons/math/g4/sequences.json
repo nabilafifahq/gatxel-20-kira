@@ -1,0 +1,72 @@
+{
+  "skill": "m4.sequences",
+  "title": "Number sequences and rules",
+  "steps": [
+    {
+      "say": "A sequence follows a rule. Look at the difference between terms next to each other.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "7",
+          "11",
+          "15",
+          "19",
+          null
+        ],
+        "alt": "A sequence: 7, 11, 15, 19, then a gap."
+      }
+    },
+    {
+      "say": "Each term is 4 more than the one before. The rule is add 4.",
+      "show": "11 - 7 = 4"
+    },
+    {
+      "say": "Use the rule to find the next term.",
+      "show": "19 + 4 = 23"
+    },
+    {
+      "say": "Sequences can go down, and they can cross zero.",
+      "show": "6, 3, 0, -3, -6"
+    },
+    {
+      "say": "For a missing term in the middle, use the rule from the term before it.",
+      "show": "25, ___, 41: 25 + 8 = 33"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.sequences.901",
+      "skill": "m4.sequences",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the next term? 150, 125, 100, 75, ...",
+      "answer": 50,
+      "hints": [
+        "Is the sequence going up or down?",
+        "Find the difference between two terms next to each other.",
+        "150 - 125 = 25."
+      ],
+      "explanation": "The rule is subtract 25. 75 - 25 = 50."
+    },
+    {
+      "id": "m4.sequences.902",
+      "skill": "m4.sequences",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Find the missing term. 12, 19, ___, 33, 40",
+      "blanks": [
+        {
+          "answers": [
+            "26"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the difference between 12 and 19.",
+        "Check that the rule works for 33 and 40.",
+        "Add the step to 19."
+      ],
+      "explanation": "The rule is add 7. 19 + 7 = 26, and 26 + 7 = 33."
+    }
+  ]
+}

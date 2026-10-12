@@ -1,0 +1,153 @@
+{
+  "skill": "s1.body-parts",
+  "items": [
+    {
+      "id": "s1.body-parts.001", "skill": "s1.body-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Which body part do we use to walk?",
+      "options": [
+        { "text": "ears", "why": "Ears help us hear. They do not help us walk." },
+        { "text": "legs" },
+        { "text": "elbows", "why": "Elbows help our arms bend." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what moves when you walk.", "Stand up and take a step. What moves?", "March on the spot and notice which parts lift up."],
+      "explanation": "We use our legs and feet to walk, run and jump."
+    },
+    {
+      "id": "s1.body-parts.002", "skill": "s1.body-parts", "type": "match", "difficulty": 1,
+      "prompt": "Match each body part to what it helps us do.",
+      "pairs": [["teeth", "chew food"], ["legs", "walk and run"], ["hands", "hold things"], ["neck", "turn the head"]],
+      "hints": ["Think about using each body part.", "Do the easy ones first.", "Take a bite of food in your mind. Which part chews?"],
+      "explanation": "Teeth chew food, legs help us walk and run, hands hold things and the neck lets us turn our head."
+    },
+    {
+      "id": "s1.body-parts.003", "skill": "s1.body-parts", "type": "numeric", "difficulty": 1,
+      "prompt": "How many eyes do most people have?",
+      "figure": { "kind": "icons", "items": [{ "icon": "eye", "label": "eye" }], "alt": "A picture of an eye." },
+      "answer": 2,
+      "hints": ["Look at a face in a mirror.", "Count one eye, then the other.", "Point to your left eye and say 1."],
+      "explanation": "Most people have 2 eyes, one on each side of the nose."
+    },
+    {
+      "id": "s1.body-parts.004", "skill": "s1.body-parts", "type": "mcq", "difficulty": 2,
+      "prompt": "Which body part is between your hand and your shoulder?",
+      "options": [
+        { "text": "knee", "why": "Your knee is in the middle of your leg." },
+        { "text": "ankle", "why": "Your ankle joins your foot to your leg." },
+        { "text": "elbow" }
+      ],
+      "answer": 2,
+      "hints": ["Touch your shoulder, then slide down to your hand.", "Find the place where your arm bends.", "Bend your arm and look at the pointy part."],
+      "explanation": "The elbow is in the middle of the arm, between the shoulder and the hand. It lets the arm bend."
+    },
+    {
+      "id": "s1.body-parts.005", "skill": "s1.body-parts", "type": "mcq", "difficulty": 2,
+      "prompt": "Your leg bends in the middle. What is that part called?",
+      "options": [
+        { "text": "knee" },
+        { "text": "wrist", "why": "Your wrist joins your hand to your arm." },
+        { "text": "neck", "why": "Your neck holds up your head." }
+      ],
+      "answer": 0,
+      "hints": ["Sit down and look at your legs.", "Find where your leg bends when you sit.", "Put your hand on the bend in your leg."],
+      "explanation": "The knee is in the middle of the leg. It lets the leg bend when we sit, kick or climb."
+    },
+    {
+      "id": "s1.body-parts.006", "skill": "s1.body-parts", "type": "sort", "difficulty": 2,
+      "prompt": "Where is each body part? Sort the cards.",
+      "groups": ["Arm and hand", "Leg and foot"],
+      "items": [
+        { "text": "elbow", "group": 0 },
+        { "text": "wrist", "group": 0 },
+        { "text": "finger", "group": 0 },
+        { "text": "knee", "group": 1 },
+        { "text": "ankle", "group": 1 },
+        { "text": "toe", "group": 1 }
+      ],
+      "hints": ["Think about where each part is on your body.", "Touch each part on yourself as you sort.", "Start with your elbow. Is it on your arm or your leg?"],
+      "explanation": "The elbow, wrist and fingers are on the arm and hand. The knee, ankle and toes are on the leg and foot."
+    },
+    {
+      "id": "s1.body-parts.007", "skill": "s1.body-parts", "type": "text", "difficulty": 2,
+      "prompt": "We chew our food with our ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "tooth", "label": "?" }], "alt": "A picture of a body part that is hard and white, with a question mark." },
+      "blanks": [{ "answers": ["teeth", "tooth"] }],
+      "hints": ["Think about eating a crunchy apple.", "Which parts in your mouth are hard and white?", "Run your tongue along the inside of your mouth."],
+      "explanation": "We chew food with our teeth. Brushing them keeps them clean and strong."
+    },
+    {
+      "id": "s1.body-parts.008", "skill": "s1.body-parts", "type": "mcq", "difficulty": 2,
+      "prompt": "Where do people wear a watch?",
+      "figure": { "kind": "icons", "items": [{ "icon": "clock", "label": "watch" }], "alt": "A watch." },
+      "options": [
+        { "text": "on the neck", "why": "A necklace goes around the neck. A watch goes on the arm." },
+        { "text": "on the wrist" },
+        { "text": "on the knee", "why": "The knee is on the leg. A watch goes on the arm." }
+      ],
+      "answer": 1,
+      "hints": ["Picture someone checking the time on a watch.", "Which part of the arm is thin and near the hand?", "Look at where your hand joins your arm."],
+      "explanation": "A watch is worn on the wrist. The wrist joins the hand to the arm."
+    },
+    {
+      "id": "s1.body-parts.009", "skill": "s1.body-parts", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the body parts that come in pairs.",
+      "options": [
+        { "text": "eyes" },
+        { "text": "ears" },
+        { "text": "nose", "why": "Most people have one nose, in the middle of the face." },
+        { "text": "arms" },
+        { "text": "mouth", "why": "Most people have one mouth." }
+      ],
+      "answers": [0, 1, 3],
+      "hints": ["A pair means two of the same thing.", "Count each one on your own body.", "Start with your eyes. How many are there?"],
+      "explanation": "Eyes, ears and arms come in pairs, one on each side of the body. The nose and mouth are in the middle, and there is one of each."
+    },
+    {
+      "id": "s1.body-parts.010", "skill": "s1.body-parts", "type": "order", "difficulty": 3,
+      "prompt": "Order the body parts from the top to the bottom.",
+      "items": ["head", "neck", "shoulders", "knees", "ankles", "toes"],
+      "hints": ["Start at the very top of your body.", "Touch each part as you go down.", "Put the head first, then find the part just below it."],
+      "explanation": "From top to bottom, the order is head, neck, shoulders, knees, ankles and toes."
+    },
+    {
+      "id": "s1.body-parts.011", "skill": "s1.body-parts", "type": "mcq", "difficulty": 4,
+      "prompt": "Which body part helps us taste, eat and talk?",
+      "figure": { "kind": "icons", "items": [{ "icon": "nose", "label": "nose" }, { "icon": "ear", "label": "ear" }, { "icon": "tongue", "label": "tongue" }], "alt": "Three pictures: a nose, an ear and a tongue." },
+      "options": [
+        { "text": "nose", "why": "The nose helps us smell and breathe. It does not help us chew." },
+        { "text": "ear", "why": "Ears help us hear. They do not help us eat." },
+        { "text": "tongue" }
+      ],
+      "answer": 2,
+      "hints": ["Think about what moves in your mouth when you speak.", "Which part is inside your mouth?", "Say la la la slowly. What moves?"],
+      "explanation": "The tongue helps us taste food, move it around while we chew and make sounds when we talk.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.body-parts.012", "skill": "s1.body-parts", "type": "mcq", "difficulty": 3,
+      "prompt": "Some body parts are inside us. Which one is inside?",
+      "options": [
+        { "text": "heart" },
+        { "text": "elbow", "why": "You can see your elbow on the outside of your arm." },
+        { "text": "chin", "why": "Your chin is on the outside, at the bottom of your face." }
+      ],
+      "answer": 0,
+      "hints": ["Think about parts you can feel but not see.", "Put your hand on your chest. What can you feel beating?", "Check each one. Can you see it in a mirror?"],
+      "explanation": "The heart is inside the chest. We cannot see it, but we can feel it beating. The elbow and the chin are on the outside."
+    },
+    {
+      "id": "s1.body-parts.013", "skill": "s1.body-parts", "type": "multi", "difficulty": 5,
+      "prompt": "Choose all the places where your body can bend.",
+      "options": [
+        { "text": "elbow" },
+        { "text": "nose", "why": "The nose does not bend like a joint." },
+        { "text": "knee" },
+        { "text": "chin", "why": "The chin does not bend. The jaw below it moves to open the mouth." },
+        { "text": "wrist" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["A bend lets part of your body fold.", "Gently try moving each part.", "Start with your elbow. Can your arm fold there?"],
+      "explanation": "The elbow, the knee and the wrist are joints. Joints are places where the body bends. The nose and the chin do not bend."
+    }
+  ]
+}

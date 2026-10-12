@@ -1,0 +1,75 @@
+{
+  "skill": "e5.precise-verbs",
+  "title": "Choosing precise verbs",
+  "steps": [
+    {
+      "say": "A precise verb shows exactly how something happens.",
+      "show": "walked: strolled, trudged, marched"
+    },
+    {
+      "say": "Think about the feeling or speed you want to show.",
+      "show": "slammed (angry)     tiptoed (quiet)"
+    },
+    {
+      "say": "Verbs with similar meanings can show different strengths.",
+      "show": "whisper, say, shout"
+    },
+    {
+      "say": "Replace plain verbs like got, went and said when a better verb fits.",
+      "show": "“Help!” she screamed."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.precise-verbs.901",
+      "skill": "e5.precise-verbs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which verb shows that someone looked quickly?",
+      "options": [
+        {
+          "text": "glanced"
+        },
+        {
+          "text": "stared",
+          "why": "Stared means looked for a long time."
+        },
+        {
+          "text": "gazed",
+          "why": "Gazed means looked for a long time, often dreamily."
+        },
+        {
+          "text": "peered",
+          "why": "Peered means looked closely at something hard to see."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "All four verbs are ways of looking.",
+        "Think about which one takes the least time.",
+        "Picture someone doing each one. Which is over in a second?"
+      ],
+      "explanation": "Glanced means looked quickly. The other verbs describe looking for longer or more closely."
+    },
+    {
+      "id": "e5.precise-verbs.902",
+      "skill": "e5.precise-verbs",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Choose the better verb from the box. Box: whispered, yelled. In the library, Tia ___ to her friend.",
+      "blanks": [
+        {
+          "answers": [
+            "whispered"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about where Tia is.",
+        "Libraries are quiet places.",
+        "Choose the verb for speaking very quietly."
+      ],
+      "explanation": "In a library, people speak quietly, so whispered is the precise verb."
+    }
+  ]
+}

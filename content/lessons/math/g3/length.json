@@ -1,0 +1,71 @@
+{
+  "skill": "m3.length",
+  "title": "Length in centimetres and metres",
+  "steps": [
+    {
+      "say": "We measure short lengths in centimetres, written cm.",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 10,
+        "objectCm": 7,
+        "object": "pencil",
+        "alt": "A pencil next to a ruler. It starts at 0 and ends at 7 cm."
+      }
+    },
+    {
+      "say": "Line up one end with 0. Read the number at the other end.",
+      "show": "7 cm"
+    },
+    {
+      "say": "Longer lengths are measured in metres, written m.",
+      "show": "1 m = 100 cm"
+    },
+    {
+      "say": "To change metres to centimetres, multiply by 100.",
+      "show": "3 m = 300 cm"
+    },
+    {
+      "say": "2 m 45 cm is 200 cm and 45 cm more.",
+      "show": "2 m 45 cm = 245 cm"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.length.901",
+      "skill": "m3.length",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How long is the crayon?",
+      "answer": 9,
+      "hints": [
+        "Check that the crayon starts at 0.",
+        "Look at where the other end of the crayon is.",
+        "Read the number under that end."
+      ],
+      "explanation": "The crayon starts at 0 and ends at 9, so it is 9 cm long.",
+      "unit": "cm",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 12,
+        "objectCm": 9,
+        "object": "crayon",
+        "alt": "A crayon next to a ruler. It starts at 0 and ends at 9 cm."
+      }
+    },
+    {
+      "id": "m3.length.902",
+      "skill": "m3.length",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "4 m = ___ cm",
+      "answer": 400,
+      "hints": [
+        "1 m = 100 cm.",
+        "Multiply 4 by 100.",
+        "Count in hundreds, 4 times."
+      ],
+      "explanation": "4 × 100 = 400, so 4 m = 400 cm.",
+      "unit": "cm"
+    }
+  ]
+}

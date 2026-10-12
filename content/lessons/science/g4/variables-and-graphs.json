@@ -1,0 +1,102 @@
+{
+  "skill": "s4.variables-and-graphs",
+  "title": "Variables and results",
+  "steps": [
+    {
+      "say": "Variables are things that can change in a test.",
+      "show": "variables = things that can change"
+    },
+    {
+      "say": "Change one variable and measure another. Keep all the other variables the same.",
+      "show": "change 1, measure 1, keep the rest the same"
+    },
+    {
+      "say": "Use a bar chart for separate groups. Use a line graph to show change over time."
+    },
+    {
+      "say": "Look for a pattern, like the higher the ramp, the further the car rolls.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ramp height (cm)",
+          "Distance rolled (cm)"
+        ],
+        "rows": [
+          [
+            "10",
+            "40"
+          ],
+          [
+            "20",
+            "80"
+          ],
+          [
+            "30",
+            "120"
+          ]
+        ],
+        "alt": "Table: from a 10 cm ramp the car rolled 40 cm, from 20 cm it rolled 80 cm, and from 30 cm it rolled 120 cm."
+      }
+    },
+    {
+      "say": "Check results that do not fit the pattern. Repeat the test if you can."
+    },
+    {
+      "say": "A conclusion says what you found out. Use your results as evidence.",
+      "show": "I found that ... because my results show ..."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.variables-and-graphs.901",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Mo tests if the drop height changes how high a ball bounces. What does he measure?",
+      "options": [
+        {
+          "text": "the drop height",
+          "why": "This is what he changes."
+        },
+        {
+          "text": "the type of ball",
+          "why": "He keeps the same ball."
+        },
+        {
+          "text": "how high the ball bounces"
+        },
+        {
+          "text": "the floor",
+          "why": "He keeps the same floor."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "He changes one thing and measures another.",
+        "What does he find out after each drop?",
+        "What does he use the ruler for after the ball lands?"
+      ],
+      "explanation": "Mo changes the drop height and measures how high the ball bounces."
+    },
+    {
+      "id": "s4.variables-and-graphs.902",
+      "skill": "s4.variables-and-graphs",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A graph that shows how something changes over time is a ___ graph.",
+      "blanks": [
+        {
+          "answers": [
+            "line"
+          ]
+        }
+      ],
+      "hints": [
+        "Its points are joined up.",
+        "It is not a bar chart.",
+        "The word has four letters and starts with l."
+      ],
+      "explanation": "A line graph shows how something changes over time."
+    }
+  ]
+}

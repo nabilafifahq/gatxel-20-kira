@@ -1,0 +1,653 @@
+{
+  "skill": "m3.oly-patterns",
+  "items": [
+    {
+      "id": "m3.oly-patterns.001",
+      "skill": "m3.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Floor tiles are numbered 1, 2, 3 and so on. They are coloured red, green, blue, red, green, blue, again and again. Which of these tiles is blue?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "square",
+            "tone": "english"
+          },
+          {
+            "shape": "square",
+            "tone": "science"
+          },
+          {
+            "shape": "square",
+            "tone": "math"
+          },
+          {
+            "shape": "square",
+            "tone": "english"
+          },
+          {
+            "shape": "square",
+            "tone": "science"
+          },
+          {
+            "shape": "square",
+            "tone": "math"
+          }
+        ],
+        "alt": "Tiles 1 to 6 in a row: red, green, blue, red, green, blue. Tile 1 is red."
+      },
+      "options": [
+        {
+          "text": "Tile 31",
+          "why": "31 is 1 more than 30, a multiple of 3, so tile 31 is red."
+        },
+        {
+          "text": "Tile 40",
+          "why": "40 is 1 more than 39, a multiple of 3, so tile 40 is red."
+        },
+        {
+          "text": "Tile 52",
+          "why": "52 is 1 more than 51, a multiple of 3, so tile 52 is red."
+        },
+        {
+          "text": "Tile 66"
+        },
+        {
+          "text": "Tile 80",
+          "why": "80 is 2 more than 78, a multiple of 3, so tile 80 is green."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the numbers of the blue tiles.",
+        "The blue tiles are 3, 6, 9, 12 and so on.",
+        "Blue tiles have numbers in the 3 times table. Test each choice."
+      ],
+      "explanation": "Every third tile is blue, so blue tiles have numbers in the 3 times table. 66 = 3 × 22, so tile 66 is blue. None of the other numbers divides exactly by 3.",
+      "solution": [
+        {
+          "say": "Blue tiles are tiles 3, 6, 9, 12 and so on.",
+          "show": "3 times table"
+        },
+        {
+          "say": "Test each number for the 3 times table.",
+          "show": "31, 40, 52 and 80 are not in it"
+        },
+        {
+          "say": "66 = 3 × 22.",
+          "show": "Tile 66 is blue"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-patterns.002",
+      "skill": "m3.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Figure 1 is one square. Each new figure adds one square to the end of each of its 4 arms. Figure 2 has 5 squares and figure 3 has 9 squares. How many squares does figure 10 have?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Figure",
+          "Squares"
+        ],
+        "rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "5"
+          ],
+          [
+            "3",
+            "9"
+          ],
+          [
+            "10",
+            "?"
+          ]
+        ],
+        "alt": "A table: figure 1 has 1 square, figure 2 has 5 squares, figure 3 has 9 squares. The number for figure 10 is unknown."
+      },
+      "options": [
+        {
+          "text": "33",
+          "why": "33 is figure 9. Add one more step of 4."
+        },
+        {
+          "text": "36",
+          "why": "Count the centre square too: figure 1 starts with 1 square."
+        },
+        {
+          "text": "37"
+        },
+        {
+          "text": "40",
+          "why": "40 is 10 × 4, but figure 1 has only 1 square, not 4."
+        },
+        {
+          "text": "41",
+          "why": "41 is figure 11."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "How many squares does each new figure add?",
+        "Each new figure adds 4 squares, one on each arm.",
+        "From figure 1 to figure 10 there are 9 steps of 4."
+      ],
+      "explanation": "Figure 1 has 1 square and each step adds 4. Figure 10 is 9 steps after figure 1, so it has 1 + 9 × 4 = 37 squares.",
+      "solution": [
+        {
+          "say": "Each new figure adds 4 squares.",
+          "show": "1, 5, 9, 13, ..."
+        },
+        {
+          "say": "Figure 10 is 9 steps after figure 1.",
+          "show": "9 × 4 = 36"
+        },
+        {
+          "say": "Add the first square.",
+          "show": "1 + 36 = 37"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-patterns.003",
+      "skill": "m3.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Numbers are written in rows. Row 1 is 1. Row 2 is 2, 3. Row 3 is 4, 5, 6. Each row has one more number than the row above. What is the first number in row 10?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Row",
+          "Numbers"
+        ],
+        "rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2, 3"
+          ],
+          [
+            "3",
+            "4, 5, 6"
+          ],
+          [
+            "4",
+            "7, 8, 9, 10"
+          ]
+        ],
+        "alt": "Row 1: 1. Row 2: 2, 3. Row 3: 4, 5, 6. Row 4: 7, 8, 9, 10. Each row has one more number than the row before."
+      },
+      "options": [
+        {
+          "text": "46"
+        },
+        {
+          "text": "47",
+          "why": "47 is the second number in row 10."
+        },
+        {
+          "text": "50",
+          "why": "Count how many numbers are in rows 1 to 9."
+        },
+        {
+          "text": "55",
+          "why": "55 is the last number in row 10."
+        },
+        {
+          "text": "56",
+          "why": "56 is the first number in row 11."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The last number in each row is a running total: 1, 1 + 2, 1 + 2 + 3.",
+        "Row 4 ends at 1 + 2 + 3 + 4 = 10.",
+        "Find where row 9 ends."
+      ],
+      "explanation": "Rows 1 to 9 hold 1 + 2 + ... + 9 = 45 numbers, so row 9 ends at 45. Row 10 starts with the next number, 46.",
+      "solution": [
+        {
+          "say": "Each row ends at a running total.",
+          "show": "1, 3, 6, 10, 15, ..."
+        },
+        {
+          "say": "Row 9 ends at 1 + 2 + ... + 9.",
+          "show": "45"
+        },
+        {
+          "say": "Row 10 starts at the next number.",
+          "show": "46"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-patterns.004",
+      "skill": "m3.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What number comes next in this pattern?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "4",
+          "9",
+          "16",
+          "25",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 1, 4, 9, 16, 25, then an empty box."
+      },
+      "options": [
+        {
+          "text": "30",
+          "why": "The jumps grow by 2 each time: 3, 5, 7, 9, then 11."
+        },
+        {
+          "text": "34",
+          "why": "The next jump is 11, not 9."
+        },
+        {
+          "text": "36"
+        },
+        {
+          "text": "49",
+          "why": "49 comes two steps later."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the jumps, or look at the numbers themselves.",
+        "The jumps are 3, 5, 7, 9.",
+        "1 = 1 × 1, 4 = 2 × 2, 9 = 3 × 3."
+      ],
+      "explanation": "These are square numbers: 1 × 1, 2 × 2, 3 × 3, 4 × 4, 5 × 5. The next is 6 × 6 = 36. The jumps 3, 5, 7, 9, 11 show it too.",
+      "solution": [
+        {
+          "say": "Each number is a number times itself.",
+          "show": "1×1, 2×2, 3×3, 4×4, 5×5"
+        },
+        {
+          "say": "The next one is 6 × 6.",
+          "show": "36"
+        },
+        {
+          "say": "Check with the jumps.",
+          "show": "25 + 11 = 36"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-patterns.005",
+      "skill": "m3.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The pattern 5, 9, 13, 17 goes up by 4 each time. What is the 100th number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "5",
+          "9",
+          "13",
+          "17",
+          "...",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 5, 9, 13, 17, and so on, going up by 4 each time."
+      },
+      "answer": 401,
+      "hints": [
+        "You do not need to write 100 numbers.",
+        "The 1st number is 5. The 2nd is 5 + 4. The 3rd is 5 + 4 + 4.",
+        "The 100th number is 5 plus how many jumps of 4?"
+      ],
+      "explanation": "From the 1st number to the 100th there are 99 jumps of 4. So the 100th number is 5 + 99 × 4 = 5 + 396 = 401.",
+      "solution": [
+        {
+          "say": "Count the jumps.",
+          "show": "100th number: 99 jumps after the 1st"
+        },
+        {
+          "say": "Size of the jumps.",
+          "show": "99 × 4 = 396"
+        },
+        {
+          "say": "Add to the start.",
+          "show": "5 + 396 = 401"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-patterns.006",
+      "skill": "m3.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Lampu hias di pagar menyala dengan warna merah, kuning, hijau, biru, lalu berulang. Lampu pertama berwarna merah. Ada 50 lampu dari ujung ke ujung. Berapa lampu yang berwarna hijau?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "star"
+          },
+          {
+            "shape": "circle",
+            "tone": "science"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "star"
+          },
+          {
+            "shape": "circle",
+            "tone": "science"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          }
+        ],
+        "alt": "Lampu 1 sampai 8: merah, kuning, hijau, biru, merah, kuning, hijau, biru."
+      },
+      "options": [
+        {
+          "text": "11",
+          "why": "Hitung lagi: lampu hijau ke-12 adalah lampu nomor 47."
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "13",
+          "why": "Lampu hijau ke-13 adalah lampu nomor 51. Hanya ada 50 lampu."
+        },
+        {
+          "text": "14",
+          "why": "Ada 12 kelompok penuh, dan sisanya hanya merah dan kuning."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Cari kelompok warna yang berulang.",
+        "Satu kelompok berisi 4 lampu, dan setiap kelompok punya 1 lampu hijau.",
+        "Berapa kelompok penuh dalam 50 lampu? Lalu lihat lampu sisanya."
+      ],
+      "explanation": "Satu kelompok berisi 4 lampu dengan 1 lampu hijau. 50 lampu adalah 12 kelompok penuh (48 lampu) ditambah lampu ke-49 merah dan ke-50 kuning. Jadi ada 12 lampu hijau.",
+      "solution": [
+        {
+          "say": "Satu kelompok: merah, kuning, hijau, biru.",
+          "show": "4 lampu, 1 hijau"
+        },
+        {
+          "say": "Kelompok penuh dalam 50 lampu.",
+          "show": "12 × 4 = 48"
+        },
+        {
+          "say": "Lampu ke-49 dan ke-50 adalah merah dan kuning.",
+          "show": "tidak ada hijau"
+        },
+        {
+          "say": "Jadi ada 12 lampu hijau.",
+          "show": "12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "lampu hias",
+          "en": "fairy lights"
+        },
+        {
+          "term": "pagar",
+          "en": "fence"
+        },
+        {
+          "term": "menyala",
+          "en": "to light up"
+        },
+        {
+          "term": "merah",
+          "en": "red"
+        },
+        {
+          "term": "kuning",
+          "en": "yellow"
+        },
+        {
+          "term": "hijau",
+          "en": "green"
+        },
+        {
+          "term": "biru",
+          "en": "blue"
+        },
+        {
+          "term": "berulang",
+          "en": "repeating"
+        },
+        {
+          "term": "dari ujung ke ujung",
+          "en": "from end to end"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-patterns.007",
+      "skill": "m3.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each number in this pattern is found from the two numbers before it. What is the next number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "3",
+          "4",
+          "7",
+          "11",
+          "18",
+          "29",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 3, 4, 7, 11, 18, 29, then an empty box."
+      },
+      "answer": 47,
+      "hints": [
+        "Look at three numbers in a row: 3, 4, 7.",
+        "3 + 4 = 7 and 4 + 7 = 11.",
+        "Add the last two numbers."
+      ],
+      "explanation": "Each number is the sum of the two before it: 3 + 4 = 7, 4 + 7 = 11, 7 + 11 = 18, 11 + 18 = 29. The next is 18 + 29 = 47.",
+      "solution": [
+        {
+          "say": "Find the rule.",
+          "show": "3 + 4 = 7, 4 + 7 = 11"
+        },
+        {
+          "say": "Check it.",
+          "show": "7 + 11 = 18, 11 + 18 = 29"
+        },
+        {
+          "say": "Add the last two.",
+          "show": "18 + 29 = 47"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-patterns.008",
+      "skill": "m3.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In one month, the dates of three Mondays in a row add up to 45. What is the date of the first of these Mondays?",
+      "answer": 8,
+      "hints": [
+        "Mondays in a row are 7 days apart.",
+        "If the first Monday is a certain date, the next two are 7 and 14 days later.",
+        "The middle Monday is the average of the three dates: 45 ÷ 3."
+      ],
+      "explanation": "The middle date is the average, 45 ÷ 3 = 15. The Mondays are 7 days apart, so they are the 8th, 15th and 22nd. The first is the 8th.",
+      "solution": [
+        {
+          "say": "The dates are 7 apart.",
+          "show": "first, first + 7, first + 14"
+        },
+        {
+          "say": "The middle date is the average.",
+          "show": "45 ÷ 3 = 15"
+        },
+        {
+          "say": "The first Monday is 7 days before the middle one.",
+          "show": "15 - 7 = 8"
+        },
+        {
+          "say": "Check.",
+          "show": "8 + 15 + 22 = 45"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-patterns.009",
+      "skill": "m3.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Ella multiplies 20 twos together: 2 × 2 × 2 × ... × 2. What is the last digit of the answer?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Number of twos",
+          "Answer",
+          "Last digit"
+        ],
+        "rows": [
+          [
+            "1",
+            "2",
+            "2"
+          ],
+          [
+            "2",
+            "4",
+            "4"
+          ],
+          [
+            "3",
+            "8",
+            "8"
+          ],
+          [
+            "4",
+            "16",
+            "6"
+          ],
+          [
+            "5",
+            "32",
+            "2"
+          ]
+        ],
+        "alt": "A table: 1 two gives 2, 2 twos give 4, 3 twos give 8, 4 twos give 16, 5 twos give 32. The last digits are 2, 4, 8, 6, 2."
+      },
+      "answer": 6,
+      "hints": [
+        "Work out the first few answers and look at the last digits.",
+        "The last digits go 2, 4, 8, 6, 2, 4, 8, 6.",
+        "The last digits repeat every 4 numbers."
+      ],
+      "explanation": "The last digits go 2, 4, 8, 6 and then repeat. 20 twos make 5 full rounds of 4, so the last digit is the 4th in the cycle, which is 6.",
+      "solution": [
+        {
+          "say": "Multiply by 2 again and again. Watch only the last digit.",
+          "show": "2, 4, 8, 6, 2, 4, 8, 6"
+        },
+        {
+          "say": "The cycle is 4 long.",
+          "show": "2, 4, 8, 6"
+        },
+        {
+          "say": "20 twos end exactly at the end of a cycle.",
+          "show": "20 ÷ 4 = 5"
+        },
+        {
+          "say": "The last digit is 6.",
+          "show": "6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

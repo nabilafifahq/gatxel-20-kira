@@ -1,0 +1,91 @@
+{
+  "skill": "s5.friction-resistance",
+  "title": "Forces that slow things down",
+  "steps": [
+    {
+      "say": "Friction is a force between two surfaces that rub together. It acts against movement."
+    },
+    {
+      "say": "Rough surfaces make more friction than smooth ones. Oil and smooth surfaces reduce friction."
+    },
+    {
+      "say": "Friction can be useful, like the grip of shoes and brakes. It can also wear things out."
+    },
+    {
+      "say": "Air resistance pushes against things moving through air. A parachute's large surface makes a lot of it.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "parachute",
+            "label": "parachute"
+          },
+          {
+            "icon": "feather",
+            "label": "feather"
+          }
+        ],
+        "alt": "A parachute and a feather, both slowed by air resistance."
+      }
+    },
+    {
+      "say": "Water resistance slows things moving through water. Fish and boats are streamlined, which means smooth and pointed."
+    },
+    {
+      "say": "The Moon has no air, so there is no air resistance. A hammer and a feather fall together there."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.friction-resistance.901",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which force pushes up against a parachute as it falls?",
+      "options": [
+        {
+          "text": "magnetism",
+          "why": "Magnetism does not act on a parachute."
+        },
+        {
+          "text": "upthrust from water",
+          "why": "The parachute is falling through air, not water."
+        },
+        {
+          "text": "gravity",
+          "why": "Gravity pulls the parachute down. Another force pushes up against it."
+        },
+        {
+          "text": "air resistance"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The parachute pushes against something as it falls.",
+        "This force comes from the air.",
+        "Cross out the force that pulls the parachute down."
+      ],
+      "explanation": "Air resistance pushes up against the parachute as it falls. Its large surface makes the air resistance big, so it falls slowly."
+    },
+    {
+      "id": "s5.friction-resistance.902",
+      "skill": "s5.friction-resistance",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A smooth, pointed shape that moves easily through water or air is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "streamlined"
+          ]
+        }
+      ],
+      "hints": [
+        "Fish, dolphins and racing boats all have this kind of shape.",
+        "The shape lets water or air flow past it easily.",
+        "The word starts with the name for a small river."
+      ],
+      "explanation": "A streamlined shape is smooth and pointed, so water or air flows past it easily. This reduces water resistance and air resistance."
+    }
+  ]
+}

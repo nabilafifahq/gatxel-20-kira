@@ -1,0 +1,116 @@
+{
+  "skill": "s4.food-chains",
+  "title": "Who eats what",
+  "steps": [
+    {
+      "say": "A food chain shows what eats what. It starts with a green plant, called a producer.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "grass",
+            "label": "grass"
+          },
+          {
+            "icon": "rabbit",
+            "label": "rabbit"
+          },
+          {
+            "icon": "owl",
+            "label": "owl"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Food chain: grass, arrow, rabbit, arrow, owl."
+      }
+    },
+    {
+      "say": "Plants make their own food using energy from sunlight. Animals cannot, so they are consumers.",
+      "show": "producer: makes food. consumer: eats."
+    },
+    {
+      "say": "The arrows point from the food to the eater. They show which way the energy goes.",
+      "show": "grass → rabbit means the rabbit eats the grass"
+    },
+    {
+      "say": "A predator hunts other animals. The animals it eats are its prey.",
+      "show": "owl = predator. rabbit = prey."
+    },
+    {
+      "say": "If one living thing in a chain disappears, the others are affected too."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.food-chains.901",
+      "skill": "s4.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In this chain, which living thing is the producer?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          },
+          {
+            "icon": "snail",
+            "label": "snail"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Food chain: leaf, arrow, snail, arrow, bird."
+      },
+      "options": [
+        {
+          "text": "the snail",
+          "why": "The snail eats the leaf, so it is a consumer."
+        },
+        {
+          "text": "the bird",
+          "why": "The bird eats the snail, so it is a consumer."
+        },
+        {
+          "text": "the Sun",
+          "why": "The Sun gives energy, but it is not a living thing."
+        },
+        {
+          "text": "the leaf"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Producers make their own food.",
+        "Food chains start with a producer.",
+        "Look at the start of the chain."
+      ],
+      "explanation": "The leaf comes from a plant, which makes its own food. It is the producer."
+    },
+    {
+      "id": "s4.food-chains.902",
+      "skill": "s4.food-chains",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "An animal that hunts and eats other animals is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "predator",
+            "predators"
+          ]
+        }
+      ],
+      "hints": [
+        "Owls and eagles are examples.",
+        "The animals it eats are called prey.",
+        "The word starts with p."
+      ],
+      "explanation": "A predator hunts and eats other animals, called its prey."
+    }
+  ]
+}

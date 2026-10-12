@@ -1,0 +1,32 @@
+{
+  "skill": "s1.growing-up",
+  "title": "Growing up",
+  "steps": [
+    { "say": "All animals grow. Young animals grow into adults.", "figure": { "kind": "icons", "items": [{ "icon": "chick", "label": "chick" }, { "icon": "hen", "label": "hen" }], "arrows": "chain", "alt": "A chick grows into a hen." } },
+    { "say": "A kitten grows into a cat. A puppy grows into a dog.", "show": "kitten → cat, puppy → dog" },
+    { "say": "Some young animals look very different. A tadpole grows into a frog.", "figure": { "kind": "icons", "items": [{ "icon": "tadpole", "label": "tadpole" }, { "icon": "frog", "label": "frog" }], "arrows": "chain", "alt": "A tadpole grows into a frog." } },
+    { "say": "People grow too. A baby becomes a child, then a teenager, then an adult.", "show": "baby → child → teenager → adult" },
+    { "say": "Babies need food, sleep and care to grow.", "show": "food, sleep, care" }
+  ],
+  "check": [
+    {
+      "id": "s1.growing-up.901", "skill": "s1.growing-up", "type": "mcq", "difficulty": 1,
+      "prompt": "What does a calf grow into?",
+      "options": [
+        { "text": "a hen", "why": "A chick grows into a hen." },
+        { "text": "a cow" },
+        { "text": "a dog", "why": "A puppy grows into a dog." }
+      ],
+      "answer": 1,
+      "hints": ["A calf is a young farm animal.", "It drinks milk from its mother.", "Think about which farm animal says moo."],
+      "explanation": "A calf is a young cow. It grows into a cow."
+    },
+    {
+      "id": "s1.growing-up.902", "skill": "s1.growing-up", "type": "text", "difficulty": 2,
+      "prompt": "A young cat is called a ___.",
+      "blanks": [{ "answers": ["kitten", "kitty"] }],
+      "hints": ["Think about a small, young cat.", "A young dog is a puppy. A young cat has its own name.", "The word starts with k."],
+      "explanation": "A young cat is called a kitten. It grows into a cat."
+    }
+  ]
+}

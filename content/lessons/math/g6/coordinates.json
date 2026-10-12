@@ -1,0 +1,176 @@
+{
+  "skill": "m6.coordinates",
+  "title": "Coordinates in four quadrants",
+  "steps": [
+    {
+      "say": "The x-axis and the y-axis cross at the origin, (0, 0). They split the grid into four quadrants.",
+      "show": "(0, 0) is the origin",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": 0,
+            "y": 0,
+            "label": "O"
+          }
+        ],
+        "alt": "A coordinate grid with four quadrants and the origin O at (0, 0)."
+      }
+    },
+    {
+      "say": "Left of the origin, x is negative. Below the origin, y is negative.",
+      "show": "A(3, 2), B(−4, 1), C(−2, −3), D(4, −2)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": 3,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": -4,
+            "y": 1,
+            "label": "B"
+          },
+          {
+            "x": -2,
+            "y": -3,
+            "label": "C"
+          },
+          {
+            "x": 4,
+            "y": -2,
+            "label": "D"
+          }
+        ],
+        "alt": "A grid with points A(3, 2), B(−4, 1), C(−2, −3) and D(4, −2), one in each quadrant."
+      }
+    },
+    {
+      "say": "Always read x first, then y.",
+      "show": "(x, y)"
+    },
+    {
+      "say": "Plotting helps you find a missing vertex. Opposite sides of a rectangle are equal and parallel.",
+      "show": "P(−3, 2), Q(2, 2), R(2, −1), S(?, ?)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": -3,
+            "y": 2,
+            "label": "P"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "label": "Q"
+          },
+          {
+            "x": 2,
+            "y": -1,
+            "label": "R"
+          }
+        ],
+        "alt": "Three corners of a rectangle at P(−3, 2), Q(2, 2) and R(2, −1)."
+      }
+    },
+    {
+      "say": "The missing corner S takes its x-coordinate from P and its y-coordinate from R.",
+      "show": "S(−3, −1)"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.coordinates.901",
+      "skill": "m6.coordinates",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What are the coordinates of point F?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": -2,
+            "y": -4,
+            "label": "F"
+          }
+        ],
+        "alt": "A four-quadrant grid with point F, 2 left and 4 down from the origin."
+      },
+      "hints": [
+        "Start at the origin.",
+        "Count left or right first for x.",
+        "Left of the origin means a negative x."
+      ],
+      "explanation": "F is 2 left and 4 down from the origin, so F is at (−2, −4).",
+      "options": [
+        {
+          "text": "(−2, −4)"
+        },
+        {
+          "text": "(−4, −2)",
+          "why": "Read along the x-axis first, then up or down."
+        },
+        {
+          "text": "(2, −4)",
+          "why": "F is to the left of the origin, so x is negative."
+        },
+        {
+          "text": "(−2, 4)",
+          "why": "F is below the origin, so y is negative."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.coordinates.902",
+      "skill": "m6.coordinates",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Three corners of a square are (1, 1), (1, −3) and (−3, −3). What is the fourth corner? Write it like (x, y).",
+      "hints": [
+        "Plot the three corners on a grid.",
+        "The missing corner has the same x-coordinate as one of the corners.",
+        "It has the same y-coordinate as another corner."
+      ],
+      "explanation": "The fourth corner has x = −3, like (−3, −3), and y = 1, like (1, 1). So it is at (−3, 1).",
+      "blanks": [
+        {
+          "answers": [
+            "(−3, 1)",
+            "(−3,1)",
+            "−3, 1",
+            "(-3, 1)",
+            "(-3,1)",
+            "-3, 1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.coordinates.903",
+      "skill": "m6.coordinates",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Point A is at (−4, 2) and point B is at (5, 2). How far apart are they?",
+      "hints": [
+        "Both points have the same y-coordinate.",
+        "Find the distance between the x-coordinates.",
+        "From −4 to 0 is 4 units."
+      ],
+      "explanation": "From −4 to 0 is 4 units and from 0 to 5 is 5 units. 4 + 5 = 9 units.",
+      "answer": 9,
+      "unit": "units"
+    }
+  ]
+}

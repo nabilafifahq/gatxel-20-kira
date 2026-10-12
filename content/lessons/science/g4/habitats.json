@@ -1,0 +1,126 @@
+{
+  "skill": "s4.habitats",
+  "title": "Living things suited to their homes",
+  "steps": [
+    {
+      "say": "A habitat is the place where a living thing lives. It gives food, water and shelter.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "pond",
+            "label": "pond"
+          },
+          {
+            "icon": "forest",
+            "label": "forest"
+          },
+          {
+            "icon": "desert",
+            "label": "desert"
+          },
+          {
+            "icon": "arctic",
+            "label": "Arctic"
+          }
+        ],
+        "alt": "A pond, a forest, a desert and the Arctic."
+      }
+    },
+    {
+      "say": "Living things have features that suit their habitat. We say they are adapted.",
+      "show": "feature + habitat = adapted"
+    },
+    {
+      "say": "A camel has wide feet for sand and can go days without water. A polar bear has thick fur and fat for the cold.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "camel",
+            "label": "camel"
+          },
+          {
+            "icon": "polar-bear",
+            "label": "polar bear"
+          }
+        ],
+        "alt": "A camel and a polar bear."
+      }
+    },
+    {
+      "say": "Plants are adapted too. A cactus stores water in its thick stem.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cactus",
+            "label": "cactus"
+          }
+        ],
+        "alt": "A cactus with a thick stem."
+      }
+    },
+    {
+      "say": "Small habitats matter too. Woodlice live under logs because it is dark and damp."
+    },
+    {
+      "say": "People can harm habitats with litter and pollution. We can help by planting trees and recycling."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.habitats.901",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal is suited to a very cold habitat?",
+      "options": [
+        {
+          "text": "camel",
+          "why": "Camels are suited to hot deserts."
+        },
+        {
+          "text": "polar bear"
+        },
+        {
+          "text": "monkey",
+          "why": "Monkeys live in warm forests."
+        },
+        {
+          "text": "lizard",
+          "why": "Most lizards need warm places."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A cold habitat needs animals that keep warm.",
+        "Look for thick fur.",
+        "Which animal lives near the North Pole?"
+      ],
+      "explanation": "Polar bears have thick fur and a layer of fat to keep warm in the Arctic."
+    },
+    {
+      "id": "s4.habitats.902",
+      "skill": "s4.habitats",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The place where a plant or animal lives is called its ___.",
+      "blanks": [
+        {
+          "answers": [
+            "habitat",
+            "habitats",
+            "home"
+          ]
+        }
+      ],
+      "hints": [
+        "It gives food, water and shelter.",
+        "A pond and a desert are examples.",
+        "The word starts with h."
+      ],
+      "explanation": "A habitat is the place where a living thing lives."
+    }
+  ]
+}

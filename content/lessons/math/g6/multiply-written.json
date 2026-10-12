@@ -1,0 +1,137 @@
+{
+  "skill": "m6.multiply-written",
+  "title": "Multiplying by 2-digit numbers",
+  "steps": [
+    {
+      "say": "To multiply by a 2-digit number, split it into tens and ones.",
+      "show": "1,234 × 26 = 1,234 × 20 + 1,234 × 6"
+    },
+    {
+      "say": "Multiply by the tens. 1,234 × 20 is 1,234 × 2, then × 10.",
+      "show": "1,234 × 20 = 24,680"
+    },
+    {
+      "say": "Multiply by the ones.",
+      "show": "1,234 × 6 = 7,404"
+    },
+    {
+      "say": "Add the two parts.",
+      "show": "24,680 + 7,404 = 32,084"
+    },
+    {
+      "say": "A grid keeps all the parts tidy. Add every part to get the same answer.",
+      "show": "1,234 × 26 = 32,084",
+      "figure": {
+        "kind": "table",
+        "caption": "1,234 × 26",
+        "head": [
+          "×",
+          "1,000",
+          "200",
+          "30",
+          "4"
+        ],
+        "rows": [
+          [
+            "20",
+            "20,000",
+            "4,000",
+            "600",
+            "80"
+          ],
+          [
+            "6",
+            "6,000",
+            "1,200",
+            "180",
+            "24"
+          ]
+        ],
+        "alt": "A multiplication grid for 1,234 × 26 with eight parts."
+      }
+    },
+    {
+      "say": "Estimate to check. 1,234 × 26 is about 1,200 × 25 = 30,000.",
+      "show": "32,084 is close to 30,000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.multiply-written.901",
+      "skill": "m6.multiply-written",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Work out 342 × 23.",
+      "hints": [
+        "Split 23 into 20 and 3.",
+        "Work out 342 × 20 and 342 × 3.",
+        "342 × 20 = 6,840."
+      ],
+      "explanation": "342 × 20 = 6,840 and 342 × 3 = 1,026. 6,840 + 1,026 = 7,866.",
+      "blanks": [
+        {
+          "answers": [
+            "7866",
+            "7,866",
+            "7 866",
+            "7.866"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.multiply-written.902",
+      "skill": "m6.multiply-written",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the best estimate for 2,108 × 49?",
+      "hints": [
+        "Round each number.",
+        "2,108 is close to 2,000.",
+        "49 is close to 50."
+      ],
+      "explanation": "2,000 × 50 = 100,000, so the answer is about 100,000.",
+      "options": [
+        {
+          "text": "100,000"
+        },
+        {
+          "text": "10,000",
+          "why": "Check the place value. 2,000 × 50 has more zeros."
+        },
+        {
+          "text": "1,000,000",
+          "why": "That is 10 times too big."
+        },
+        {
+          "text": "50,000",
+          "why": "That is 1,000 × 50. Round 2,108 to 2,000."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.multiply-written.903",
+      "skill": "m6.multiply-written",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A school buys 36 packs of paper. Each pack has 500 sheets. How many sheets is that?",
+      "hints": [
+        "Multiply the number of packs by the sheets in each pack.",
+        "Work out 36 × 5, then multiply by 100.",
+        "36 × 5 = 180."
+      ],
+      "explanation": "36 × 500 = 36 × 5 × 100 = 180 × 100 = 18,000 sheets.",
+      "blanks": [
+        {
+          "answers": [
+            "18000",
+            "18,000",
+            "18 000",
+            "18.000"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "skill": "s3.tables-and-charts",
+  "title": "Recording and reading results",
+  "steps": [
+    {
+      "say": "Scientists write their results in a table. Headings show what was changed and what was measured.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Surface",
+          "Distance (cm)"
+        ],
+        "rows": [
+          [
+            "carpet",
+            "40"
+          ],
+          [
+            "tiles",
+            "120"
+          ]
+        ],
+        "alt": "A results table with headings Surface and Distance (cm): carpet 40, tiles 120."
+      }
+    },
+    {
+      "say": "Put units in brackets in the headings, like (cm) or (s). Then write only numbers below.",
+      "show": "Distance (cm)"
+    },
+    {
+      "say": "A bar chart turns a table into a picture. Each bar shows one result.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "carpet",
+          "tiles"
+        ],
+        "values": [
+          40,
+          120
+        ],
+        "axisMax": 140,
+        "step": 20,
+        "yLabel": "Distance (cm)",
+        "tone": "science",
+        "alt": "Bar chart: the car rolled 40 cm on carpet and 120 cm on tiles."
+      }
+    },
+    {
+      "say": "To read a bar, look across from the top of the bar to the scale.",
+      "show": "top of bar → scale"
+    },
+    {
+      "say": "Look for a pattern. Then write a conclusion that says what you found out.",
+      "show": "The car rolled furthest on tiles."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.tables-and-charts.901",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How far did the car roll on tiles?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "carpet",
+          "tiles"
+        ],
+        "values": [
+          40,
+          120
+        ],
+        "axisMax": 140,
+        "step": 20,
+        "yLabel": "Distance (cm)",
+        "tone": "science",
+        "alt": "Bar chart: the car rolled 40 cm on carpet and 120 cm on tiles."
+      },
+      "answer": 120,
+      "unit": "cm",
+      "hints": [
+        "Find the bar labelled tiles.",
+        "Look across from the top of the bar.",
+        "Read the number on the scale."
+      ],
+      "explanation": "The top of the tiles bar lines up with 120 on the scale, so the car rolled 120 cm."
+    },
+    {
+      "id": "s3.tables-and-charts.902",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where should units go in a results table?",
+      "options": [
+        {
+          "text": "after every number",
+          "why": "If units are in the heading, you only need numbers below."
+        },
+        {
+          "text": "at the very bottom of the page",
+          "why": "Readers need units next to the headings."
+        },
+        {
+          "text": "in brackets in the heading"
+        },
+        {
+          "text": "nowhere, because units are not needed",
+          "why": "Without units, nobody knows what the numbers mean."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Units tell you what the numbers mean.",
+        "Look at the heading Distance (cm).",
+        "Where is the cm written?"
+      ],
+      "explanation": "Units go in brackets in the heading, like Distance (cm). Then only numbers are written in the table."
+    }
+  ]
+}

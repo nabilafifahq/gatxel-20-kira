@@ -1,0 +1,168 @@
+{
+  "skill": "m6.graphs-charts",
+  "title": "Pie charts, line graphs and frequency tables",
+  "steps": [
+    {
+      "say": "A pie chart shows how a whole is split into parts. The whole circle is 100%, or 360°.",
+      "show": "1/4 of the circle = 25% = 90°",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 1,
+        "label": "25%",
+        "alt": "A pie chart with one quarter shaded."
+      }
+    },
+    {
+      "say": "If 40 children were asked and a quarter chose football, then 10 children chose football.",
+      "show": "1/4 of 40 = 10"
+    },
+    {
+      "say": "A line graph shows how something changes over time. Read across from a point to the scale.",
+      "show": "Week 3: the plant is 5 cm tall",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 0,
+            "y": 1
+          },
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "x": 2,
+            "y": 4
+          },
+          {
+            "x": 3,
+            "y": 5
+          },
+          {
+            "x": 4,
+            "y": 7
+          },
+          {
+            "x": 5,
+            "y": 8
+          }
+        ],
+        "alt": "A graph of a plant's height in cm for weeks 0 to 5: 1, 2, 4, 5, 7 and 8."
+      }
+    },
+    {
+      "say": "A frequency table groups data into classes. The frequency is how many values are in each class.",
+      "show": "9 children are 130 to 139 cm tall",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Height (cm)",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "120 to 129",
+            "4"
+          ],
+          [
+            "130 to 139",
+            "9"
+          ],
+          [
+            "140 to 149",
+            "6"
+          ],
+          [
+            "150 to 159",
+            "1"
+          ]
+        ],
+        "alt": "A frequency table of heights: 120 to 129 cm, 4 children; 130 to 139 cm, 9; 140 to 149 cm, 6; 150 to 159 cm, 1."
+      }
+    },
+    {
+      "say": "Add the frequencies to find how many values there are in total.",
+      "show": "4 + 9 + 6 + 1 = 20"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.graphs-charts.901",
+      "skill": "m6.graphs-charts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A pie chart shows how 60 children travel to school. Half of the pie is walk. How many children walk?",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 2,
+        "shaded": 1,
+        "alt": "A pie chart with half shaded for children who walk."
+      },
+      "hints": [
+        "Half the pie stands for half the children.",
+        "Find half of 60.",
+        "Divide 60 by 2."
+      ],
+      "explanation": "Half of 60 is 30, so 30 children walk.",
+      "answer": 30
+    },
+    {
+      "id": "m6.graphs-charts.902",
+      "skill": "m6.graphs-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The table shows the heights of a class. How many children are 140 cm or taller?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Height (cm)",
+          "Frequency"
+        ],
+        "rows": [
+          [
+            "120 to 129",
+            "3"
+          ],
+          [
+            "130 to 139",
+            "11"
+          ],
+          [
+            "140 to 149",
+            "8"
+          ],
+          [
+            "150 to 159",
+            "2"
+          ]
+        ],
+        "alt": "A frequency table of heights: 120 to 129 cm, 3 children; 130 to 139 cm, 11; 140 to 149 cm, 8; 150 to 159 cm, 2."
+      },
+      "hints": [
+        "Find the classes that start at 140 cm or more.",
+        "Read their frequencies.",
+        "There are two classes from 140 cm upwards."
+      ],
+      "explanation": "8 children are 140 to 149 cm and 2 are 150 to 159 cm. 8 + 2 = 10.",
+      "answer": 10
+    },
+    {
+      "id": "m6.graphs-charts.903",
+      "skill": "m6.graphs-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "In a pie chart, the slice for rice has an angle of 90°. 48 people were asked. How many chose rice?",
+      "hints": [
+        "The whole pie is 360°.",
+        "Work out what fraction of 360° the slice is.",
+        "90° is one quarter of the circle."
+      ],
+      "explanation": "90° is 1/4 of 360°, and 1/4 of 48 is 12.",
+      "answer": 12
+    }
+  ]
+}

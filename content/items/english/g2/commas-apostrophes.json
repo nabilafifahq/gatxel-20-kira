@@ -1,0 +1,558 @@
+{
+  "skill": "e2.commas-apostrophes",
+  "items": [
+    {
+      "id": "e2.commas-apostrophes.001",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is the short form of do not?",
+      "hints": [
+        "An apostrophe shows where letters are missing.",
+        "Do not loses one letter.",
+        "Which letter from not is missing?"
+      ],
+      "explanation": "Don't is short for do not. The apostrophe shows where the o was.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "don't"
+        },
+        {
+          "text": "dont",
+          "why": "It needs an apostrophe where the o is missing."
+        },
+        {
+          "text": "do'nt",
+          "why": "The apostrophe goes where the o is missing."
+        },
+        {
+          "text": "d'ont",
+          "why": "The apostrophe goes after the n."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.commas-apostrophes.002",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where do the commas go?",
+      "hints": [
+        "The list is red, blue and green.",
+        "Commas go between the things in a list.",
+        "Before and, we usually do not need a comma."
+      ],
+      "explanation": "Commas separate the things in a list. The last two are joined with and.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I like, red blue and green.",
+          "why": "Commas go between the colours in the list."
+        },
+        {
+          "text": "I like red, blue and green."
+        },
+        {
+          "text": "I like red blue, and, green.",
+          "why": "We do not put a comma after and here."
+        },
+        {
+          "text": "I, like red blue and green.",
+          "why": "Commas go between the things in the list."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.commas-apostrophes.003",
+      "skill": "e2.commas-apostrophes",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match the words to their short form.",
+      "hints": [
+        "Each short form uses an apostrophe.",
+        "The apostrophe goes where letters are missing.",
+        "Start with I am. Which short form starts with I?"
+      ],
+      "explanation": "I am is I'm, is not is isn't, we are is we're and cannot is can't.",
+      "pairs": [
+        [
+          "I am",
+          "I'm"
+        ],
+        [
+          "is not",
+          "isn't"
+        ],
+        [
+          "we are",
+          "we're"
+        ],
+        [
+          "cannot",
+          "can't"
+        ]
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.004",
+      "skill": "e2.commas-apostrophes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the short form of it is.",
+      "hints": [
+        "Join the two words together.",
+        "One letter is missing.",
+        "Put an apostrophe where the i of is was."
+      ],
+      "explanation": "It is becomes it's. The apostrophe shows the missing i.",
+      "blanks": [
+        {
+          "answers": [
+            "it's"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.005",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence has commas in the right places?",
+      "hints": [
+        "The list has four animals.",
+        "Put a comma between each animal.",
+        "The last two animals are joined with and."
+      ],
+      "explanation": "Commas go between the animals in the list. The last two are joined with and.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "We saw lions tigers, zebras and elephants.",
+          "why": "A comma is missing after lions."
+        },
+        {
+          "text": "We saw, lions, tigers zebras and elephants.",
+          "why": "We do not need a comma after saw."
+        },
+        {
+          "text": "We saw lions, tigers, zebras and elephants."
+        },
+        {
+          "text": "We saw lions tigers zebras and elephants.",
+          "why": "The list needs commas."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.commas-apostrophes.006",
+      "skill": "e2.commas-apostrophes",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "What does the apostrophe stand for? Sort the words.",
+      "hints": [
+        "Say the long form of each word.",
+        "Words ending in n't are short for not.",
+        "Start with don't. What are the two words?"
+      ],
+      "explanation": "Don't, isn't and can't are short for not. I'm, they're and she's are short for am, are and is.",
+      "groups": [
+        "Short for not",
+        "Short for am, is or are"
+      ],
+      "items": [
+        {
+          "text": "don't",
+          "group": 0
+        },
+        {
+          "text": "I'm",
+          "group": 1
+        },
+        {
+          "text": "isn't",
+          "group": 0
+        },
+        {
+          "text": "they're",
+          "group": 1
+        },
+        {
+          "text": "she's",
+          "group": 1
+        },
+        {
+          "text": "can't",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.007",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which letter does the apostrophe replace in didn't?",
+      "hints": [
+        "Say the long form: did not.",
+        "Compare did not and didn't.",
+        "Which letter is missing from not?"
+      ],
+      "explanation": "Didn't is short for did not. The apostrophe takes the place of the o.",
+      "options": [
+        {
+          "text": "i",
+          "why": "The i is still there."
+        },
+        {
+          "text": "d",
+          "why": "Both d letters are still there."
+        },
+        {
+          "text": "o"
+        },
+        {
+          "text": "n",
+          "why": "The n is still there."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.commas-apostrophes.008",
+      "skill": "e2.commas-apostrophes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the two full words for we're.",
+      "hints": [
+        "We're is a short form.",
+        "The apostrophe shows a missing letter.",
+        "The first word is we. What is the second?"
+      ],
+      "explanation": "We're is short for we are.",
+      "blanks": [
+        {
+          "answers": [
+            "we are"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.009",
+      "skill": "e2.commas-apostrophes",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the words with the apostrophe in the right place.",
+      "hints": [
+        "Three words are right.",
+        "The apostrophe goes exactly where letters are missing.",
+        "Say the long form of each word and check."
+      ],
+      "explanation": "Can't, I'm and wasn't are correct. The other two have the apostrophe in the wrong place.",
+      "options": [
+        {
+          "text": "can't"
+        },
+        {
+          "text": "does'nt",
+          "why": "The apostrophe goes where the o of not is missing: doesn't."
+        },
+        {
+          "text": "I'm"
+        },
+        {
+          "text": "wasn't"
+        },
+        {
+          "text": "theyr'e",
+          "why": "The apostrophe goes after they: they're."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.010",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How many commas does this list need? 'I packed a hat a towel sun cream and a book.'",
+      "hints": [
+        "Find the things in the list.",
+        "There are four things.",
+        "Put a comma between each, except before and."
+      ],
+      "explanation": "The list is a hat, a towel, sun cream and a book. Commas go after hat and towel, so we need 2.",
+      "options": [
+        {
+          "text": "1",
+          "why": "Look at the list again."
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "3",
+          "why": "We usually do not put a comma before and."
+        },
+        {
+          "text": "4",
+          "why": "Count the gaps between things, not the words."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.commas-apostrophes.011",
+      "skill": "e2.commas-apostrophes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the short form of I will.",
+      "hints": [
+        "Join the two words.",
+        "Two letters from will go away.",
+        "Put the apostrophe where w and i were."
+      ],
+      "explanation": "I will becomes I'll. The apostrophe shows where w and i are missing.",
+      "blanks": [
+        {
+          "answers": [
+            "I'll"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.012",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is correct?",
+      "hints": [
+        "The short form is made from I am.",
+        "The apostrophe goes where a letter is missing.",
+        "Which letter is missing from I am?"
+      ],
+      "explanation": "I'm is short for I am. The apostrophe goes where the a was.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "Im going to the park.",
+          "why": "It needs an apostrophe."
+        },
+        {
+          "text": "I'm going to the park."
+        },
+        {
+          "text": "I'am going to the park.",
+          "why": "Only the a is missing."
+        },
+        {
+          "text": "Im' going to the park.",
+          "why": "The apostrophe goes where the a is missing."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.commas-apostrophes.013",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses commas correctly?",
+      "hints": [
+        "The list is the names.",
+        "Commas go between the names.",
+        "The last two names are joined with and."
+      ],
+      "explanation": "Commas go between the names. The last two are joined with and.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "My friends are Ayu Ben Chen and Dodi.",
+          "why": "The list of names needs commas."
+        },
+        {
+          "text": "My friends, are Ayu, Ben, Chen and Dodi.",
+          "why": "We do not need a comma after friends."
+        },
+        {
+          "text": "My friends are Ayu, Ben, Chen, and, Dodi.",
+          "why": "We do not need a comma after and."
+        },
+        {
+          "text": "My friends are Ayu, Ben, Chen and Dodi."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.commas-apostrophes.014",
+      "skill": "e2.commas-apostrophes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the short form of they are.",
+      "hints": [
+        "Join the two words.",
+        "The a of are goes away.",
+        "Put the apostrophe where the a was."
+      ],
+      "explanation": "They are becomes they're.",
+      "blanks": [
+        {
+          "answers": [
+            "they're"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.015",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word goes in the gap? 'The dog wagged ___ tail.'",
+      "hints": [
+        "Try saying it is in the gap.",
+        "If it is does not make sense, you do not need an apostrophe.",
+        "The tail belongs to the dog."
+      ],
+      "explanation": "Its means belonging to it. It's always means it is.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "its"
+        },
+        {
+          "text": "it's",
+          "why": "It's means it is. The dog wagged it is tail does not make sense."
+        },
+        {
+          "text": "its'",
+          "why": "This is not a word."
+        },
+        {
+          "text": "it is",
+          "why": "The dog wagged it is tail does not make sense."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.commas-apostrophes.016",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word does NOT need an apostrophe?",
+      "hints": [
+        "Apostrophes show missing letters.",
+        "Plurals do not need apostrophes.",
+        "Which word just means more than one?"
+      ],
+      "explanation": "Dogs just means more than one dog, so it has no apostrophe. Don't, isn't and can't need one.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "dont",
+          "why": "Don't needs an apostrophe for the missing o."
+        },
+        {
+          "text": "isnt",
+          "why": "Isn't needs an apostrophe for the missing o."
+        },
+        {
+          "text": "dogs"
+        },
+        {
+          "text": "cant",
+          "why": "Can't needs an apostrophe for the missing letters."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.commas-apostrophes.017",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which two words make won't?",
+      "hints": [
+        "Won't is a special short form.",
+        "It is about the future.",
+        "Try each one in: I ___ be late tomorrow."
+      ],
+      "explanation": "Won't is short for will not. It is a special short form.",
+      "options": [
+        {
+          "text": "would not",
+          "why": "Would not is wouldn't."
+        },
+        {
+          "text": "will not"
+        },
+        {
+          "text": "was not",
+          "why": "Was not is wasn't."
+        },
+        {
+          "text": "want not",
+          "why": "This is not how we say it."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.commas-apostrophes.018",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why do we use an apostrophe in can't?",
+      "hints": [
+        "Can't is short for cannot.",
+        "Some letters were taken out.",
+        "What does the apostrophe show?"
+      ],
+      "explanation": "The apostrophe shows where letters are missing from cannot.",
+      "options": [
+        {
+          "text": "To show there is more than one.",
+          "why": "Plurals do not need apostrophes."
+        },
+        {
+          "text": "To start a sentence.",
+          "why": "Capital letters start sentences."
+        },
+        {
+          "text": "To ask a question.",
+          "why": "A question mark shows a question."
+        },
+        {
+          "text": "To show letters are missing."
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

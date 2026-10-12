@@ -1,0 +1,157 @@
+{
+  "skill": "m3.add-sub-columns",
+  "title": "Column addition and subtraction",
+  "steps": [
+    {
+      "say": "Write the numbers in columns: hundreds, tens and ones.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          " ",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            " ",
+            "2",
+            "5",
+            "8"
+          ],
+          [
+            "+",
+            "1",
+            "6",
+            "7"
+          ]
+        ],
+        "alt": "Column addition of 258 and 167."
+      }
+    },
+    {
+      "say": "Add the ones first. Write 5 and carry 1 ten.",
+      "show": "8 + 7 = 15"
+    },
+    {
+      "say": "Add the tens, with the carried ten. Write 2 and carry 1 hundred.",
+      "show": "5 + 6 + 1 = 12"
+    },
+    {
+      "say": "Add the hundreds, with the carried hundred.",
+      "show": "2 + 1 + 1 = 4",
+      "figure": {
+        "kind": "table",
+        "head": [
+          " ",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            " ",
+            "2",
+            "5",
+            "8"
+          ],
+          [
+            "+",
+            "1",
+            "6",
+            "7"
+          ],
+          [
+            "=",
+            "4",
+            "2",
+            "5"
+          ]
+        ],
+        "alt": "Column addition of 258 and 167, answer 425."
+      }
+    },
+    {
+      "say": "To subtract, start with the ones too. If the top digit is smaller, exchange 1 ten for 10 ones.",
+      "show": "52 - 27: 12 - 7 = 5"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.add-sub-columns.901",
+      "skill": "m3.add-sub-columns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 346 + 275.",
+      "answer": 621,
+      "hints": [
+        "Start with the ones column.",
+        "If a column makes 10 or more, carry to the next column.",
+        "6 + 5 = 11, so write 1 and carry 1."
+      ],
+      "explanation": "Ones: 6 + 5 = 11. Tens: 4 + 7 + 1 = 12. Hundreds: 3 + 2 + 1 = 6. So 346 + 275 = 621.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          " ",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            " ",
+            "3",
+            "4",
+            "6"
+          ],
+          [
+            "+",
+            "2",
+            "7",
+            "5"
+          ]
+        ],
+        "alt": "Column addition of 346 and 275."
+      }
+    },
+    {
+      "id": "m3.add-sub-columns.902",
+      "skill": "m3.add-sub-columns",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Work out 503 - 248.",
+      "answer": 255,
+      "hints": [
+        "Start with the ones. 3 is less than 8.",
+        "There are no tens, so exchange 1 hundred first.",
+        "503 is the same as 4 hundreds, 9 tens and 13 ones."
+      ],
+      "explanation": "13 - 8 = 5, 9 - 4 = 5 and 4 - 2 = 2. So 503 - 248 = 255.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          " ",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            " ",
+            "5",
+            "0",
+            "3"
+          ],
+          [
+            "-",
+            "2",
+            "4",
+            "8"
+          ]
+        ],
+        "alt": "Column subtraction of 503 and 248."
+      }
+    }
+  ]
+}

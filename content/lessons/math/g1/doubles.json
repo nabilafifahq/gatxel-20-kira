@@ -1,0 +1,74 @@
+{
+  "skill": "m1.doubles",
+  "title": "Doubles",
+  "steps": [
+    {
+      "say": "Double means two lots of the same number.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          4,
+          4
+        ],
+        "icon": "cookie",
+        "container": "plate",
+        "alt": "2 plates with 4 cookies on each."
+      }
+    },
+    {
+      "say": "Double 4 is 4 + 4.",
+      "show": "4 + 4 = 8"
+    },
+    {
+      "say": "Learn the doubles. They help you add fast.",
+      "show": "1 + 1 = 2, 2 + 2 = 4, 3 + 3 = 6, 5 + 5 = 10"
+    },
+    {
+      "say": "Near doubles: 6 + 7 is double 6 and 1 more.",
+      "show": "6 + 6 = 12, so 6 + 7 = 13"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.doubles.901",
+      "skill": "m1.doubles",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is double 6?",
+      "hints": [
+        "Double means two lots of the same number.",
+        "Add 6 and 6.",
+        "Start at 6. Count on 6 more."
+      ],
+      "explanation": "Double 6 is 6 + 6 = 12.",
+      "answer": 12
+    },
+    {
+      "id": "m1.doubles.902",
+      "skill": "m1.doubles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is double 7?",
+      "hints": [
+        "Double means add the number to itself.",
+        "Work out 7 + 7.",
+        "Start at 7 and count on 7."
+      ],
+      "explanation": "Double 7 is 7 + 7 = 14.",
+      "options": [
+        {
+          "text": "14"
+        },
+        {
+          "text": "13",
+          "why": "13 is 7 + 6."
+        },
+        {
+          "text": "15",
+          "why": "15 is 7 + 8."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

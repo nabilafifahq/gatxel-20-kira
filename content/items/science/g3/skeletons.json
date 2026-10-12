@@ -1,0 +1,440 @@
+{
+  "skill": "s3.skeletons",
+  "items": [
+    {
+      "id": "s3.skeletons.001",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of your skeleton protects your brain?",
+      "options": [
+        {
+          "text": "your skull"
+        },
+        {
+          "text": "your ribs",
+          "why": "Your ribs protect your heart and lungs."
+        },
+        {
+          "text": "your backbone",
+          "why": "Your backbone holds you up and lets you bend."
+        },
+        {
+          "text": "your kneecap",
+          "why": "Your kneecap protects your knee."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Your brain is inside your head.",
+        "Which bone forms a hard case around your head?",
+        "Gently tap the top of your head. What is under your hair?"
+      ],
+      "explanation": "Your skull is a hard case of bone around your brain. It protects your brain from bumps."
+    },
+    {
+      "id": "s3.skeletons.002",
+      "skill": "s3.skeletons",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part of the skeleton to its job.",
+      "pairs": [
+        [
+          "skull",
+          "protects the brain"
+        ],
+        [
+          "ribs",
+          "protect the heart and lungs"
+        ],
+        [
+          "backbone",
+          "holds the body upright and lets it bend"
+        ]
+      ],
+      "hints": [
+        "Think about where each part is in your body.",
+        "Bones that make a cage or case protect soft organs.",
+        "Start with the skull. What is inside your head?"
+      ],
+      "explanation": "The skull protects the brain, and the ribs protect the heart and lungs. The backbone holds you upright and lets you bend."
+    },
+    {
+      "id": "s3.skeletons.003",
+      "skill": "s3.skeletons",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 3 jobs of the human skeleton.",
+      "options": [
+        {
+          "text": "supports the body"
+        },
+        {
+          "text": "digests food",
+          "why": "Your stomach and intestines digest food."
+        },
+        {
+          "text": "protects organs inside the body"
+        },
+        {
+          "text": "pumps blood",
+          "why": "Your heart pumps blood."
+        },
+        {
+          "text": "helps the body move"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Imagine your body with no bones at all.",
+        "Think about the skull and the ribs.",
+        "Remember that muscles pull on bones to move you."
+      ],
+      "explanation": "The skeleton supports the body and protects organs such as the brain and heart. Muscles pull on bones so the body can move."
+    },
+    {
+      "id": "s3.skeletons.004",
+      "skill": "s3.skeletons",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the animals by their skeleton.",
+      "groups": [
+        "Skeleton inside",
+        "Skeleton outside",
+        "No skeleton"
+      ],
+      "items": [
+        {
+          "text": "cat",
+          "group": 0
+        },
+        {
+          "text": "fish",
+          "group": 0
+        },
+        {
+          "text": "bird",
+          "group": 0
+        },
+        {
+          "text": "beetle",
+          "group": 1
+        },
+        {
+          "text": "crab",
+          "group": 1
+        },
+        {
+          "text": "spider",
+          "group": 1
+        },
+        {
+          "text": "earthworm",
+          "group": 2
+        },
+        {
+          "text": "jellyfish",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Some animals have bones inside. Some have a hard case outside.",
+        "Insects, crabs and spiders have a hard outer covering.",
+        "Start with the earthworm. Can you feel any hard parts?"
+      ],
+      "explanation": "Cats, fish and birds have bony skeletons inside. Beetles, crabs and spiders have exoskeletons outside, and earthworms and jellyfish have no skeleton.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.skeletons.005",
+      "skill": "s3.skeletons",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A hard covering on the outside of an insect's body is called an ___.",
+      "blanks": [
+        {
+          "answers": [
+            "exoskeleton",
+            "exo-skeleton",
+            "exo skeleton"
+          ]
+        }
+      ],
+      "hints": [
+        "Insects have no bones inside.",
+        "This covering is a skeleton on the outside.",
+        "The word starts with exo, which means outside."
+      ],
+      "explanation": "An exoskeleton is a hard covering outside the body. It supports and protects animals such as insects, spiders and crabs."
+    },
+    {
+      "id": "s3.skeletons.006",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A crab grows too big for its exoskeleton. What happens next?",
+      "options": [
+        {
+          "text": "The exoskeleton stretches like rubber.",
+          "why": "An exoskeleton is hard. It cannot stretch."
+        },
+        {
+          "text": "It sheds the old one and grows a bigger one."
+        },
+        {
+          "text": "The crab stops growing forever.",
+          "why": "Crabs keep growing. They shed their old covering to do it."
+        },
+        {
+          "text": "Bones grow inside the crab instead.",
+          "why": "A crab has no bones inside. Its skeleton is on the outside."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An exoskeleton is hard, like a suit of armour.",
+        "Think about what you do when your shoes are too small.",
+        "Could hard armour stretch as you grow?"
+      ],
+      "explanation": "A hard exoskeleton cannot grow. The crab sheds it, and a new, bigger one hardens in its place.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.skeletons.007",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which animal has a backbone?",
+      "options": [
+        {
+          "text": "spider",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "spider"
+              }
+            ],
+            "alt": "A picture of a spider."
+          },
+          "why": "Spiders have an exoskeleton and no backbone."
+        },
+        {
+          "text": "earthworm",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "worm"
+              }
+            ],
+            "alt": "A picture of an earthworm."
+          },
+          "why": "Earthworms have no bones at all."
+        },
+        {
+          "text": "frog",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "frog"
+              }
+            ],
+            "alt": "A picture of a frog."
+          }
+        },
+        {
+          "text": "ant",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "ant"
+              }
+            ],
+            "alt": "A picture of an ant."
+          },
+          "why": "Ants have an exoskeleton, not a backbone."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A backbone is part of a skeleton inside the body.",
+        "Insects and spiders have their skeleton on the outside.",
+        "Which animal has bones you could feel through its skin?"
+      ],
+      "explanation": "A frog has a skeleton inside its body, with a backbone. Animals with a backbone are called vertebrates."
+    },
+    {
+      "id": "s3.skeletons.008",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "About how many bones are in an adult human skeleton?",
+      "options": [
+        {
+          "text": "about 26",
+          "why": "That is far too few. Each hand alone has 27 bones."
+        },
+        {
+          "text": "about 106",
+          "why": "There are more. Your hands and feet have over 100 bones between them."
+        },
+        {
+          "text": "about 206"
+        },
+        {
+          "text": "about 2006",
+          "why": "That is far too many. The real number is about one tenth of that."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Your hands and feet alone have lots of small bones.",
+        "The number is more than 100 but less than 1000.",
+        "The hands and feet have over 100 bones. Then add the rest of the body."
+      ],
+      "explanation": "An adult skeleton has about 206 bones. More than half of them are in the hands and feet.",
+      "tags": [
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s3.skeletons.009",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A newborn baby has more bones than an adult. Why?",
+      "options": [
+        {
+          "text": "Adults lose bones when they fall over.",
+          "why": "A fall can break a bone, but the bone heals. It is not lost."
+        },
+        {
+          "text": "Some bones drop out as children grow.",
+          "why": "Bones do not drop out like milk teeth."
+        },
+        {
+          "text": "Adult bones shrink until they disappear.",
+          "why": "Bones grow as you grow. They do not disappear."
+        },
+        {
+          "text": "Some small bones join together as a child grows."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The bones do not leave the body.",
+        "Think about what happens to the skull as a baby grows.",
+        "Two small bones could become one big bone. How?"
+      ],
+      "explanation": "A newborn baby has nearly 300 bones. As a child grows, some of them join together, so an adult has about 206.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.skeletons.010",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do your ribs protect?",
+      "options": [
+        {
+          "text": "your heart and lungs"
+        },
+        {
+          "text": "your brain",
+          "why": "Your skull protects your brain."
+        },
+        {
+          "text": "your knees",
+          "why": "Your kneecaps protect your knees."
+        },
+        {
+          "text": "your eyes",
+          "why": "Your eyes sit in bony holes in your skull."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Your ribs are in your chest.",
+        "Which organs are inside your chest?",
+        "Feel your chest as you breathe in. What is moving?"
+      ],
+      "explanation": "Your ribs make a cage around your heart and lungs. The cage protects them and moves as you breathe."
+    },
+    {
+      "id": "s3.skeletons.011",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A turtle has a hard shell on its back. It also has a backbone inside. Which group is it in?",
+      "options": [
+        {
+          "text": "animals with an exoskeleton, because of its shell",
+          "why": "The shell is joined to the skeleton inside. A turtle has a backbone."
+        },
+        {
+          "text": "vertebrates, because it has a backbone"
+        },
+        {
+          "text": "animals with no skeleton",
+          "why": "A turtle has bones inside its body."
+        },
+        {
+          "text": "invertebrates, because it has a shell",
+          "why": "Invertebrates have no backbone. A turtle has one."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do not be tricked by the shell.",
+        "The groups are about the backbone.",
+        "Read the second sentence again carefully."
+      ],
+      "explanation": "A turtle has a backbone, so it is a vertebrate. Its shell is made of bone and is joined to its skeleton.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s3.skeletons.012",
+      "skill": "s3.skeletons",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a simple human skeleton. Label the skull, ribs and backbone.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a skull, ribs and backbone in the right places",
+            "points": 2
+          },
+          {
+            "label": "Labels all three parts",
+            "points": 1
+          },
+          {
+            "label": "Adds arm and leg bones",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Start with the skull at the top.",
+        "Draw the backbone down the middle, then the ribs around the chest."
+      ],
+      "explanation": "The skull sits at the top, the backbone runs down the middle of the back and the ribs curve around the chest."
+    }
+  ]
+}

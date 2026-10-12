@@ -1,0 +1,118 @@
+{
+  "skill": "m3.tally-tables",
+  "title": "Tally charts and frequency tables",
+  "steps": [
+    {
+      "say": "Each tally mark stands for 1. The fifth mark goes across the other four.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 7
+          }
+        ],
+        "alt": "Tally chart: Cats 7."
+      }
+    },
+    {
+      "say": "Count the groups of 5, then add the single marks.",
+      "show": "5 + 2 = 7"
+    },
+    {
+      "say": "A frequency table shows the totals as numbers.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Pet",
+          "Number of children"
+        ],
+        "rows": [
+          [
+            "Cats",
+            "7"
+          ],
+          [
+            "Fish",
+            "4"
+          ],
+          [
+            "Rabbits",
+            "9"
+          ]
+        ],
+        "alt": "Table of favourite pets: Cats 7, Fish 4, Rabbits 9."
+      }
+    },
+    {
+      "say": "Use the numbers to compare. Rabbits has the most, with 9.",
+      "show": "9 > 7 > 4"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.tally-tables.901",
+      "skill": "m3.tally-tables",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many children chose bananas?",
+      "answer": 8,
+      "hints": [
+        "Find the Bananas row.",
+        "Count each group of 5 first.",
+        "Then count the marks that are left."
+      ],
+      "explanation": "Bananas has one group of 5 and 3 more marks. 5 + 3 = 8.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Mangoes",
+            "count": 12
+          },
+          {
+            "label": "Bananas",
+            "count": 8
+          },
+          {
+            "label": "Apples",
+            "count": 5
+          }
+        ],
+        "alt": "Tally chart of favourite fruits: Mangoes 12, Bananas 8, Apples 5."
+      }
+    },
+    {
+      "id": "m3.tally-tables.902",
+      "skill": "m3.tally-tables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more children chose mangoes than apples?",
+      "answer": 7,
+      "hints": [
+        "Find the totals for mangoes and for apples.",
+        "Take the smaller number away from the bigger one.",
+        "Mangoes has 2 groups of 5 and 2 more marks."
+      ],
+      "explanation": "Mangoes has 12 and apples has 5. 12 - 5 = 7.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Mangoes",
+            "count": 12
+          },
+          {
+            "label": "Bananas",
+            "count": 8
+          },
+          {
+            "label": "Apples",
+            "count": 5
+          }
+        ],
+        "alt": "Tally chart of favourite fruits: Mangoes 12, Bananas 8, Apples 5."
+      }
+    }
+  ]
+}

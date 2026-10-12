@@ -1,0 +1,106 @@
+{
+  "skill": "s6.metals-materials",
+  "title": "Choosing materials",
+  "steps": [
+    {
+      "say": "Every material has properties, such as hard, flexible, transparent or magnetic. We choose materials by their properties."
+    },
+    {
+      "say": "Most metals are shiny, strong and can be hammered into shape. They ring when you strike them."
+    },
+    {
+      "say": "Metals are good conductors of heat and electricity. That is why pans and wires are made of metal."
+    },
+    {
+      "say": "Wood, plastic, wool and air are thermal insulators. They slow down the flow of heat."
+    },
+    {
+      "say": "Only a few metals are magnetic, such as iron, nickel and steel. Copper, aluminium and gold are not.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "magnet",
+            "label": "magnet"
+          },
+          {
+            "icon": "paperclip",
+            "label": "steel paper clip"
+          },
+          {
+            "icon": "nail",
+            "label": "iron nail"
+          }
+        ],
+        "alt": "A magnet with a steel paper clip and an iron nail, which are both magnetic."
+      }
+    },
+    {
+      "say": "Graphite in pencils is a non-metal that conducts electricity. Mercury is a metal that is liquid at room temperature."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.metals-materials.901",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Why are electric wires made of copper?",
+      "options": [
+        {
+          "text": "Copper is magnetic.",
+          "why": "Copper is not magnetic, and wires do not need to be."
+        },
+        {
+          "text": "Copper is transparent.",
+          "why": "Copper is opaque, like all metals."
+        },
+        {
+          "text": "Copper is a thermal insulator.",
+          "why": "Copper conducts heat well, so it is not an insulator."
+        },
+        {
+          "text": "Copper conducts electricity well."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A wire must let electricity flow through it.",
+        "Materials that let electricity flow are called conductors.",
+        "Cross out the properties that have nothing to do with electricity."
+      ],
+      "explanation": "Copper is an excellent conductor of electricity, and it can be pulled into thin wires. That makes it ideal for electric wires."
+    },
+    {
+      "id": "s6.metals-materials.902",
+      "skill": "s6.metals-materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which object would a magnet pick up?",
+      "options": [
+        {
+          "text": "an aluminium can",
+          "why": "Aluminium is a metal, but it is not magnetic."
+        },
+        {
+          "text": "a steel paper clip"
+        },
+        {
+          "text": "a copper wire",
+          "why": "Copper is not magnetic."
+        },
+        {
+          "text": "a plastic button",
+          "why": "Plastic is not magnetic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Only a few metals are magnetic.",
+        "Iron and steel are attracted to magnets.",
+        "Look for the object made of steel."
+      ],
+      "explanation": "Steel is mostly iron, so a magnet attracts it. Aluminium, copper and plastic are not magnetic."
+    }
+  ]
+}

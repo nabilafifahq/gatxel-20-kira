@@ -1,0 +1,34 @@
+{
+  "skill": "e4.verb-tenses",
+  "title": "Was doing and have done",
+  "steps": [
+    { "say": "The past progressive shows an action that was going on in the past. Use was or were with an -ing verb.", "show": "I was reading. They were playing." },
+    { "say": "It is often used when another action interrupts it.", "show": "I was reading when the phone rang." },
+    { "say": "The present perfect uses has or have with a past form. It links the past to now.", "show": "I have finished my homework." },
+    { "say": "Some verbs have a special form after has or have.", "show": "go → gone, eat → eaten, see → seen, write → written" },
+    { "say": "Use has with he, she or it. Use have with I, you, we and they.", "show": "She has eaten. We have eaten." },
+    { "say": "Do not use the present perfect with a finished time like yesterday.", "show": "I saw it yesterday. I have seen it." }
+  ],
+  "check": [
+    {
+      "id": "e4.verb-tenses.901", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 1,
+      "prompt": "We ___ swimming when the whistle blew.",
+      "options": [
+        { "text": "was", "why": "Was goes with I, he, she or it. We needs a different word." },
+        { "text": "were" },
+        { "text": "are", "why": "Blew is in the past, so we need a past form." },
+        { "text": "have", "why": "Have is not used with swimming like this." }
+      ],
+      "answer": 1,
+      "hints": ["Blew tells you this is in the past.", "The swimming was going on when the whistle blew.", "Was or were: which goes with we?"],
+      "explanation": "With we in the past progressive, we use were: we were swimming."
+    },
+    {
+      "id": "e4.verb-tenses.902", "skill": "e4.verb-tenses", "type": "text", "difficulty": 2,
+      "prompt": "Write has or have.\nAna ___ finished her drawing.",
+      "blanks": [{ "answers": ["has"] }],
+      "hints": ["Ana is one person.", "Swap Ana for she.", "Which helper word goes with she?"],
+      "explanation": "Ana is one person, like she, so we use has: Ana has finished her drawing."
+    }
+  ]
+}

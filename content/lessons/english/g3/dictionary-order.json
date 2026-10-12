@@ -1,0 +1,40 @@
+{
+  "skill": "e3.dictionary-order",
+  "title": "Finding words in a dictionary",
+  "steps": [
+    { "say": "Alphabetical order means putting words in the order of the alphabet. Look at the first letter of each word.", "show": "apple, kite, sun" },
+    { "say": "If the first letters are the same, look at the second letter.", "show": "bag, bed, bird, box, bus" },
+    { "say": "If the second letters are the same too, look at the third letter.", "show": "stamp, step, stick" },
+    { "say": "A dictionary lists words in alphabetical order. It tells you how to spell them and what they mean." },
+    { "say": "Guide words at the top of a page show its first and last words.", "figure": { "kind": "table", "head": ["First word on the page", "Last word on the page"], "rows": [["lamp", "lemon"]], "alt": "A dictionary page with the guide words lamp and lemon." } },
+    { "say": "If your word comes between the guide words, it is on that page.", "show": "lamp ... leaf ... lemon" }
+  ],
+  "check": [
+    {
+      "id": "e3.dictionary-order.901", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word comes first in alphabetical order?",
+      "options": [
+        { "text": "pen", "why": "P comes after e and n in the alphabet." },
+        { "text": "egg" },
+        { "text": "nut", "why": "N comes after e in the alphabet." },
+        { "text": "sky", "why": "S comes near the end of the alphabet." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the first letter of each word.", "Say the alphabet from a.", "Which of p, e, n and s do you reach first?"],
+      "explanation": "E comes before n, p and s in the alphabet, so egg comes first."
+    },
+    {
+      "id": "e3.dictionary-order.902", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 2,
+      "prompt": "The guide words are sand and sock. Which word is on this page?",
+      "options": [
+        { "text": "rice", "why": "Rice starts with r, so it comes before sand." },
+        { "text": "sun", "why": "Su comes after so, so sun comes after sock." },
+        { "text": "sea" },
+        { "text": "tap", "why": "Tap starts with t, so it comes after sock." }
+      ],
+      "answer": 2,
+      "hints": ["The word must come after sand and before sock.", "All the s words: compare their second letters.", "Sand has a, sock has o. Which word has a second letter between a and o?"],
+      "explanation": "Sea starts with se. E comes after a and before o, so sea is between sand and sock."
+    }
+  ]
+}

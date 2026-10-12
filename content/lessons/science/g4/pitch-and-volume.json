@@ -1,0 +1,103 @@
+{
+  "skill": "s4.pitch-and-volume",
+  "title": "High and low, loud and quiet",
+  "steps": [
+    {
+      "say": "Pitch is how high or low a sound is. Volume is how loud or quiet it is.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bird",
+            "label": "high pitch"
+          },
+          {
+            "icon": "lion",
+            "label": "low pitch"
+          }
+        ],
+        "alt": "A bird with a high-pitched song and a lion with a low-pitched roar."
+      }
+    },
+    {
+      "say": "Fast vibrations make high notes. Slow vibrations make low notes.",
+      "show": "fast = high, slow = low"
+    },
+    {
+      "say": "Short, tight or thin strings vibrate fast and play high notes. Long, loose or thick strings play low notes.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "guitar",
+            "label": "guitar"
+          }
+        ],
+        "alt": "A guitar with strings of different thickness."
+      }
+    },
+    {
+      "say": "Big vibrations make loud sounds. Hitting or plucking harder makes bigger vibrations.",
+      "show": "big vibrations = loud"
+    },
+    {
+      "say": "Volume is measured in decibels (dB). Very loud sounds can damage your hearing.",
+      "show": "decibels (dB)"
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.pitch-and-volume.901",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A mouse squeaks. What kind of sound is it?",
+      "options": [
+        {
+          "text": "high-pitched"
+        },
+        {
+          "text": "low-pitched",
+          "why": "Low sounds are deep, like a lion's roar."
+        },
+        {
+          "text": "very loud",
+          "why": "A mouse squeak is quiet."
+        },
+        {
+          "text": "silent",
+          "why": "We can hear a squeak."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how a squeak sounds.",
+        "Is it deep or squeaky?",
+        "Pitch is about high or low."
+      ],
+      "explanation": "A squeak is a high-pitched sound."
+    },
+    {
+      "id": "s4.pitch-and-volume.902",
+      "skill": "s4.pitch-and-volume",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Hitting a drum harder makes the sound ___.",
+      "blanks": [
+        {
+          "answers": [
+            "louder",
+            "loud",
+            "louder sound"
+          ]
+        }
+      ],
+      "hints": [
+        "Harder hits make bigger vibrations.",
+        "This changes the volume.",
+        "It is the opposite of quieter."
+      ],
+      "explanation": "Hitting harder makes bigger vibrations, so the sound is louder."
+    }
+  ]
+}

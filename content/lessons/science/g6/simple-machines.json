@@ -1,0 +1,102 @@
+{
+  "skill": "s6.simple-machines",
+  "title": "Simple machines",
+  "steps": [
+    {
+      "say": "Simple machines make jobs easier. They can make a force bigger or change its direction."
+    },
+    {
+      "say": "A lever is a bar that turns on a pivot. The force you put in is the effort, and the weight you lift is the load."
+    },
+    {
+      "say": "The further your effort is from the pivot, the less effort you need. Archimedes is said to have claimed that a long enough lever could move the Earth."
+    },
+    {
+      "say": "A single pulley changes the direction of a force. You pull down on the rope to lift a load up."
+    },
+    {
+      "say": "Gears are toothed wheels. Two meshing gears turn in opposite directions, and a small gear turns faster than a big one."
+    },
+    {
+      "say": "A ramp lets you raise a load with a smaller push. You push it further, but with less force.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ramp",
+            "label": "ramp"
+          },
+          {
+            "icon": "box",
+            "label": "load"
+          }
+        ],
+        "alt": "A ramp and a box to be pushed up it."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.simple-machines.901",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the effort in a lever?",
+      "options": [
+        {
+          "text": "the weight you lift",
+          "why": "That is the load."
+        },
+        {
+          "text": "the point it turns on",
+          "why": "That is the pivot."
+        },
+        {
+          "text": "the force you put in"
+        },
+        {
+          "text": "the length of the bar",
+          "why": "Length matters, but the effort is the force you apply."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A lever has three parts: the load, the effort and the pivot.",
+        "You push or pull on a lever to make it work.",
+        "Cross out the load and the pivot."
+      ],
+      "explanation": "The effort is the force you put into the lever. The load is what it lifts, and the pivot is where it turns."
+    },
+    {
+      "id": "s6.simple-machines.902",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Gear A turns anticlockwise and meshes with gear B. Which way does gear B turn?",
+      "options": [
+        {
+          "text": "clockwise"
+        },
+        {
+          "text": "anticlockwise",
+          "why": "Meshing gears turn in opposite directions."
+        },
+        {
+          "text": "It stays still.",
+          "why": "Gear A pushes on gear B's teeth, so gear B must turn."
+        },
+        {
+          "text": "up and down",
+          "why": "Gears turn round, not up and down."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Meshing gears push on each other's teeth.",
+        "Look at where the teeth of the two gears touch, and which way they are pushed.",
+        "Use your two fists as gears and roll them against each other."
+      ],
+      "explanation": "Meshing gears turn in opposite directions, so gear B turns clockwise."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "skill": "s5.separating-mixtures",
+  "title": "Separating mixtures",
+  "steps": [
+    {
+      "say": "A mixture is two or more materials mixed together but not joined. Most mixtures can be separated again."
+    },
+    {
+      "say": "A sieve separates big pieces from small ones. It can separate pebbles from sand."
+    },
+    {
+      "say": "A filter has tiny holes. It traps insoluble bits, like sand, and lets water through."
+    },
+    {
+      "say": "Dissolved solids pass through a filter. To get salt back from salty water, you evaporate the water.",
+      "show": "salty water: evaporate the water, keep the salt"
+    },
+    {
+      "say": "A magnet pulls out iron and steel. It can separate iron filings from sand.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "magnet",
+            "label": "magnet"
+          },
+          {
+            "icon": "nail",
+            "label": "iron nail"
+          },
+          {
+            "icon": "sand",
+            "label": "sand"
+          }
+        ],
+        "alt": "A magnet, an iron nail and some sand."
+      }
+    },
+    {
+      "say": "Choose a method by asking what is different: the size of the pieces, dissolving or magnetism."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.separating-mixtures.901",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which method gets salt back from salty water?",
+      "options": [
+        {
+          "text": "filtering",
+          "why": "Dissolved salt passes through filter paper."
+        },
+        {
+          "text": "evaporating"
+        },
+        {
+          "text": "sieving",
+          "why": "Dissolved salt passes straight through a sieve."
+        },
+        {
+          "text": "using a magnet",
+          "why": "Salt is not magnetic."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The salt is dissolved in the water.",
+        "You need to get rid of the water and keep the salt.",
+        "Think about what happens to a puddle of sea water on a hot day."
+      ],
+      "explanation": "Evaporating removes the water as water vapour. The salt is left behind as crystals."
+    },
+    {
+      "id": "s5.separating-mixtures.902",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which mixture can a magnet separate?",
+      "options": [
+        {
+          "text": "sand and water",
+          "why": "Neither sand nor water is magnetic."
+        },
+        {
+          "text": "salt and water",
+          "why": "Salt is not magnetic, and it is dissolved."
+        },
+        {
+          "text": "sugar and flour",
+          "why": "Neither sugar nor flour is magnetic."
+        },
+        {
+          "text": "iron filings and sand"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A magnet only pulls on some metals.",
+        "Iron and steel are magnetic.",
+        "Look for the mixture with iron in it."
+      ],
+      "explanation": "Iron filings are magnetic and sand is not, so a magnet can pull the iron out of the sand."
+    }
+  ]
+}

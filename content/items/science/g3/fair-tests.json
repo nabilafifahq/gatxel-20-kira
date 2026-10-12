@@ -1,0 +1,375 @@
+{
+  "skill": "s3.fair-tests",
+  "items": [
+    {
+      "id": "s3.fair-tests.001",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In a fair test, how many things should you change?",
+      "options": [
+        {
+          "text": "two things",
+          "why": "If you change two things, you cannot tell which one made the difference."
+        },
+        {
+          "text": "everything",
+          "why": "Changing everything makes the results impossible to compare."
+        },
+        {
+          "text": "one thing"
+        },
+        {
+          "text": "nothing",
+          "why": "You need to change one thing to see what it does."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about how you would know what caused a result.",
+        "If two things change, can you tell which one mattered?",
+        "Find the smallest number that still lets you test something."
+      ],
+      "explanation": "In a fair test you change only one thing and keep everything else the same. Then you know that one thing caused any difference."
+    },
+    {
+      "id": "s3.fair-tests.002",
+      "skill": "s3.fair-tests",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each measuring tool to what it measures.",
+      "pairs": [
+        [
+          "ruler",
+          "length in centimetres"
+        ],
+        [
+          "thermometer",
+          "temperature in °C"
+        ],
+        [
+          "measuring jug",
+          "volume in millilitres"
+        ],
+        [
+          "stopwatch",
+          "time in seconds"
+        ],
+        [
+          "forcemeter",
+          "force in newtons"
+        ]
+      ],
+      "hints": [
+        "Each tool measures one thing.",
+        "Think about where you have seen each tool used.",
+        "Start with the stopwatch. What do you use it for in a race?"
+      ],
+      "explanation": "A ruler measures length, a thermometer measures temperature and a measuring jug measures volume. A stopwatch measures time and a forcemeter measures force."
+    },
+    {
+      "id": "s3.fair-tests.003",
+      "skill": "s3.fair-tests",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What temperature does the thermometer show?",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 50,
+        "value": 35,
+        "step": 5,
+        "alt": "A thermometer from 0 to 50 °C, marked every 5 degrees. The liquid reaches the line for 35 °C."
+      },
+      "answer": 35,
+      "unit": "°C",
+      "hints": [
+        "Look at the top of the liquid.",
+        "Count the marks between the numbers to see what each mark means.",
+        "Find the numbered line just below the top of the liquid."
+      ],
+      "explanation": "The liquid stops at the line halfway between 30 and 40, so the temperature is 35 °C."
+    },
+    {
+      "id": "s3.fair-tests.004",
+      "skill": "s3.fair-tests",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How much water is in the measuring jug?",
+      "figure": {
+        "kind": "jug",
+        "capacity": 1000,
+        "value": 450,
+        "step": 50,
+        "unit": "ml",
+        "alt": "A measuring jug marked every 50 ml up to 1000 ml. The water is level with the 450 ml mark."
+      },
+      "answer": 450,
+      "unit": "ml",
+      "hints": [
+        "Read the scale at the top of the water.",
+        "Work out what each small mark is worth.",
+        "Find the numbered mark just below the water, then count on."
+      ],
+      "explanation": "Each mark is 50 ml. The water is one mark above 400 ml, so there is 450 ml."
+    },
+    {
+      "id": "s3.fair-tests.005",
+      "skill": "s3.fair-tests",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How long is the leaf?",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 7,
+        "objectStartCm": 2,
+        "object": "leaf",
+        "alt": "A leaf next to a ruler. The leaf starts at the 2 cm mark and ends at the 9 cm mark."
+      },
+      "answer": 7,
+      "unit": "cm",
+      "hints": [
+        "Look at where the leaf starts. Is it at zero?",
+        "Length is the distance from one end to the other.",
+        "Find the end mark, then take away the start mark."
+      ],
+      "explanation": "The leaf goes from 2 cm to 9 cm. 9 take away 2 is 7, so the leaf is 7 cm long.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.fair-tests.006",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sam wants to find out which ball bounces highest. What is the fair way to test this?",
+      "options": [
+        {
+          "text": "Drop the light balls from higher up.",
+          "why": "Every ball should start from the same height, or the test is not fair."
+        },
+        {
+          "text": "Drop each ball onto a different floor.",
+          "why": "The floor could change the bounce. Keep it the same."
+        },
+        {
+          "text": "Throw some balls and drop the others.",
+          "why": "Throwing adds a push. Every ball should be dropped the same way."
+        },
+        {
+          "text": "Drop each ball from the same height onto the same floor."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Only the ball should change.",
+        "List the things that could change a bounce.",
+        "Check each answer: does it change anything except the ball?"
+      ],
+      "explanation": "Only the type of ball should change. Dropping every ball from the same height onto the same floor keeps the test fair."
+    },
+    {
+      "id": "s3.fair-tests.007",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Maya has not done her test yet. She says, 'I think the car will roll further on wood.' What is this?",
+      "options": [
+        {
+          "text": "a prediction"
+        },
+        {
+          "text": "a result",
+          "why": "A result is what you find after the test."
+        },
+        {
+          "text": "a conclusion",
+          "why": "A conclusion is what you decide after looking at the results."
+        },
+        {
+          "text": "a measurement",
+          "why": "A measurement uses a tool and a unit, like cm."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Maya has not done the test yet.",
+        "Think about which word means saying what you think will happen.",
+        "Look for the word that happens before a test."
+      ],
+      "explanation": "A prediction says what you think will happen before you test. Maya can check her prediction when she gets her results."
+    },
+    {
+      "id": "s3.fair-tests.008",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which unit is best for measuring the length of a classroom?",
+      "options": [
+        {
+          "text": "millilitres",
+          "why": "Millilitres measure volume, like water in a jug."
+        },
+        {
+          "text": "metres"
+        },
+        {
+          "text": "kilograms",
+          "why": "Kilograms measure mass, or how heavy something is."
+        },
+        {
+          "text": "degrees Celsius",
+          "why": "Degrees Celsius measure temperature."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Length is how long something is.",
+        "Think about which units go with a ruler or a measuring tape.",
+        "A classroom is much longer than a ruler."
+      ],
+      "explanation": "Metres measure length. A classroom is several metres long, so metres are the best unit.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.fair-tests.009",
+      "skill": "s3.fair-tests",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Ayu tests if the amount of water changes how tall cress grows. Choose 2 things she must keep the same.",
+      "options": [
+        {
+          "text": "the type of seed"
+        },
+        {
+          "text": "the amount of water",
+          "why": "This is the one thing she changes."
+        },
+        {
+          "text": "the amount of light"
+        },
+        {
+          "text": "the height of the cress",
+          "why": "This is what she measures at the end."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Find the one thing Ayu changes.",
+        "Find the thing she measures at the end.",
+        "Everything else must stay the same."
+      ],
+      "explanation": "Ayu changes only the amount of water and measures the height. The seed type and the light must stay the same to make it fair."
+    },
+    {
+      "id": "s3.fair-tests.010",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is it a good idea to repeat a measurement?",
+      "options": [
+        {
+          "text": "to make the test take longer",
+          "why": "Repeating is not about time. It helps you trust your results."
+        },
+        {
+          "text": "to change the thing you are testing",
+          "why": "In a repeat, you do exactly the same test again."
+        },
+        {
+          "text": "to check that you get a similar result"
+        },
+        {
+          "text": "so you can pick the result you like",
+          "why": "Scientists use every result, even the ones they did not expect."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Mistakes can happen in any test.",
+        "What would you learn if the second result was very different?",
+        "Think about how repeating helps you trust a result."
+      ],
+      "explanation": "Repeating a measurement checks that the results are similar. If one result is very different, you may have made a mistake."
+    },
+    {
+      "id": "s3.fair-tests.011",
+      "skill": "s3.fair-tests",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Plan a fair test to find which paper towel soaks up the most water.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says what to change: the type of paper towel",
+            "points": 1
+          },
+          {
+            "label": "Names 2 things to keep the same",
+            "points": 2
+          },
+          {
+            "label": "Says what to measure and gives a unit",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 90,
+      "planning": [
+        "What will you change?",
+        "What will you keep the same?",
+        "What will you measure, and with what tool?"
+      ],
+      "model": "I will change the type of paper towel. I will keep the size of each towel, the amount of water and the time the same. I will dip each towel in 100 ml of water for 10 seconds. Then I will measure how much water is left with a measuring jug.",
+      "hints": [
+        "Start with the one thing you will change.",
+        "Think about the water, the towel size and the time.",
+        "Say how you will measure the water that is soaked up."
+      ],
+      "explanation": "Change only the type of paper towel. Keep the towel size, amount of water and time the same, then measure the water soaked up in millilitres."
+    },
+    {
+      "id": "s3.fair-tests.012",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Kiko grows a bean in sandy soil on a sunny windowsill. Another grows in garden soil in a dark corner. The first grows taller. Can she say sandy soil is better?",
+      "options": [
+        {
+          "text": "Yes, because the bean in sandy soil grew taller.",
+          "why": "That bean also had more light. The light might be the reason."
+        },
+        {
+          "text": "Yes, because sandy soil is always best.",
+          "why": "Different plants grow well in different soils. Her test was not fair."
+        },
+        {
+          "text": "No, because beans cannot grow on windowsills.",
+          "why": "Beans can grow on a windowsill if they get water and light."
+        },
+        {
+          "text": "No, because she changed both the soil and the light."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count how many things were different between the two beans.",
+        "In a fair test only one thing changes.",
+        "Compare the two places. Are they the same?"
+      ],
+      "explanation": "Kiko changed two things: the soil and the amount of light. She cannot tell which one made the bean grow taller.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

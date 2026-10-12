@@ -1,0 +1,231 @@
+{
+  "skill": "s2.rocks-soil",
+  "items": [
+    {
+      "id": "s2.rocks-soil.001", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 1,
+      "prompt": "Where do rocks come from?",
+      "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "rock" }, { "icon": "mountain", "label": "mountain" }], "alt": "A rock and a rocky mountain." },
+      "options": [
+        { "text": "factories", "why": "Rocks are natural. People do not make them in factories." },
+        { "text": "the ground" },
+        { "text": "trees", "why": "Trees give us wood. Rocks are found in the ground." },
+        { "text": "the sky", "why": "Rocks are part of the Earth's land, under our feet." }
+      ],
+      "answer": 1,
+      "hints": ["Rocks are a natural material.", "Think about where you find stones when you dig.", "Ask: what is under the soil if you dig deep?"],
+      "explanation": "Rocks come from the ground. They are a natural material, and the Earth's land is made of rock under the soil."
+    },
+    {
+      "id": "s2.rocks-soil.002", "skill": "s2.rocks-soil", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things made from rock or stone.",
+      "options": [
+        { "text": "a stone wall" },
+        { "text": "a stone statue" },
+        { "text": "a gravel path" },
+        { "text": "a wooden door", "why": "A wooden door is made from trees." },
+        { "text": "a woollen hat", "why": "Wool comes from sheep." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Rock and stone are hard natural materials.", "Gravel is made of many small stones.", "Start with the stone wall. What is it made of?"],
+      "explanation": "Stone walls, stone statues and gravel paths are made from rock. A wooden door comes from trees and a woollen hat comes from sheep."
+    },
+    {
+      "id": "s2.rocks-soil.003", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 2,
+      "prompt": "What is sand made of?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sand", "label": "sand" }], "alt": "A pile of sand with tiny grains." },
+      "options": [
+        { "text": "tiny bits of sugar", "why": "Sand is not food. It is made of tiny bits of rock." },
+        { "text": "dried water", "why": "Water cannot dry into sand." },
+        { "text": "tiny bits of rock" },
+        { "text": "glass made by people", "why": "People make glass from sand. Sand itself is natural." }
+      ],
+      "answer": 2,
+      "hints": ["Look closely at sand with a magnifying glass.", "Each grain is hard, like a very tiny stone.", "Ask: what happens to rocks after many years of wind and waves?"],
+      "explanation": "Sand is made of tiny bits of rock, and sometimes bits of shell. Wind and water break rocks into tiny grains over a very long time."
+    },
+    {
+      "id": "s2.rocks-soil.004", "skill": "s2.rocks-soil", "type": "sort", "difficulty": 3,
+      "prompt": "Which things are natural parts of soil? Sort the cards.",
+      "groups": ["Natural part of soil", "Not a natural part"],
+      "items": [
+        { "text": "tiny bits of rock", "group": 0 },
+        { "text": "bits of dead plants", "group": 0 },
+        { "text": "water", "group": 0 },
+        { "text": "air", "group": 0 },
+        { "text": "plastic bags", "group": 1 },
+        { "text": "glass bottles", "group": 1 },
+        { "text": "metal cans", "group": 1 }
+      ],
+      "hints": ["Soil forms in nature over a long time.", "Ask: did people make it and leave it there?", "Start with the tiny bits of rock. Where did they come from?"],
+      "explanation": "Soil is made of tiny bits of rock, bits of dead plants and animals, water and air. Plastic, glass and cans are litter that people leave behind."
+    },
+    {
+      "id": "s2.rocks-soil.005", "skill": "s2.rocks-soil", "type": "text", "difficulty": 1,
+      "prompt": "Plants grow in ___. It has tiny bits of rock, water and air in it.",
+      "figure": { "kind": "icons", "items": [{ "icon": "seedling", "label": "young plant" }, { "icon": "soil", "label": "?" }], "alt": "A young plant growing in brown ground, marked with a question mark." },
+      "blanks": [{ "answers": ["soil", "the soil", "earth", "the ground"] }],
+      "hints": ["Think about what you fill a plant pot with.", "It is brown and you can dig in it.", "Worms live in it too."],
+      "explanation": "Plants grow in soil. Soil has tiny bits of rock, bits of dead plants, water and air in it."
+    },
+    {
+      "id": "s2.rocks-soil.006", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 2,
+      "prompt": "Which animal lives in soil and helps keep it healthy?",
+      "options": [
+        { "text": "polar bear", "why": "Polar bears live in the icy Arctic." },
+        { "text": "shark", "why": "Sharks live in the sea." },
+        { "text": "eagle", "why": "Eagles live in the sky and in tall trees." },
+        { "text": "earthworm" }
+      ],
+      "answer": 3,
+      "hints": ["Think about digging in a garden after rain.", "Which animal wriggles under the ground?", "Its name has the word earth in it."],
+      "explanation": "Earthworms live in soil. They make tunnels that let in air and water, and they help dead leaves rot into the soil."
+    },
+    {
+      "id": "s2.rocks-soil.007", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 3,
+      "prompt": "Borobudur temple is built from stone. Why is stone a good material for it?",
+      "options": [
+        { "text": "It is soft and bendy.", "why": "Stone is hard and stiff." },
+        { "text": "It is hard and lasts a very long time." },
+        { "text": "It is see-through.", "why": "We cannot see through stone." },
+        { "text": "It goes soft in the rain.", "why": "Stone stays hard in the rain." }
+      ],
+      "answer": 1,
+      "hints": ["Think about how old Borobudur is.", "A building must stand up and last.", "Ask: which property helps something last hundreds of years?"],
+      "explanation": "Stone is hard and strong and lasts a very long time. Borobudur was built about 1,200 years ago and is still standing.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.rocks-soil.008", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 4,
+      "prompt": "Rocks in a river are often round and smooth. Why?",
+      "figure": { "kind": "icons", "items": [{ "icon": "river", "label": "river" }, { "icon": "stone", "label": "smooth pebble" }], "alt": "A river with round, smooth pebbles." },
+      "options": [
+        { "text": "People polish them.", "why": "Rivers do this on their own, without people." },
+        { "text": "They grow that way.", "why": "Rocks do not grow." },
+        { "text": "Water rubs them for a very long time." },
+        { "text": "The Sun melts their corners.", "why": "The Sun is not hot enough to melt rocks." }
+      ],
+      "answer": 2,
+      "hints": ["Think about what moves over river rocks all day.", "Rocks also knock against each other in the water.", "Ask: what happens to sharp corners that are rubbed for years?"],
+      "explanation": "River water and other stones rub against the rocks for a very long time. Their sharp corners wear away, so they become round and smooth.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.rocks-soil.009", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 4,
+      "prompt": "Hot lava comes out of a volcano. What happens when it cools?",
+      "figure": { "kind": "icons", "items": [{ "icon": "volcano", "label": "volcano" }], "alt": "A volcano with hot lava flowing down its side." },
+      "options": [
+        { "text": "It turns into water.", "why": "Lava is melted rock. It does not become water." },
+        { "text": "It disappears.", "why": "The lava is still there. It changes." },
+        { "text": "It turns into sand straight away.", "why": "Cooled lava becomes solid rock. Rock can break into sand over a very long time." },
+        { "text": "It turns into solid rock." }
+      ],
+      "answer": 3,
+      "hints": ["Lava is rock that is so hot it has melted.", "Think about what happens to melted chocolate when it cools.", "Ask: if hot melted rock cools, what is it again?"],
+      "explanation": "Lava is melted rock. When it cools down, it turns into hard, solid rock.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.rocks-soil.010", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 4,
+      "prompt": "Farmers near volcanoes in Java often grow good crops. Why?",
+      "options": [
+        { "text": "Volcanoes water the crops.", "why": "Rain waters the crops. Volcanoes do not." },
+        { "text": "Soil made from volcanic ash is very good for plants." },
+        { "text": "Ash makes the weather cold.", "why": "The crops grow well because of the soil." },
+        { "text": "Plants eat the rocks.", "why": "Plants do not eat rocks. Their roots take in water and some goodness from the soil." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what falls on the land after an eruption.", "Over many years, volcanic ash becomes part of the soil.", "Ask: what do plant roots grow in?"],
+      "explanation": "Volcanic ash slowly becomes rich soil. Plants grow well in it, so farmers near volcanoes often have good crops.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.rocks-soil.011", "skill": "s2.rocks-soil", "type": "numeric", "difficulty": 3,
+      "prompt": "Joko pours 100 ml of water onto some sand. The jug shows the water that drained through. How much drained through?",
+      "figure": { "kind": "jug", "capacity": 100, "value": 80, "step": 10, "unit": "ml", "alt": "A jug with 80 ml of water in it." },
+      "answer": 80,
+      "unit": "ml",
+      "hints": ["Look at the top of the water in the jug.", "Each mark on the jug is 10 ml.", "Count up the marks from the bottom to the water."],
+      "explanation": "The water reaches the 80 ml mark, so 80 ml drained through the sand. Sand lets water through easily.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.rocks-soil.012", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 3,
+      "prompt": "Which one lets water through most easily?",
+      "figure": { "kind": "table", "caption": "Water that drained through in 1 minute", "head": ["Soil", "Water through"], "rows": [["sand", "80 ml"], ["garden soil", "50 ml"], ["clay", "10 ml"]], "alt": "Table of water that drained through in 1 minute: sand 80 ml, garden soil 50 ml, clay 10 ml." },
+      "options": [
+        { "text": "sand" },
+        { "text": "garden soil", "why": "Only 50 ml went through garden soil. Sand let more through." },
+        { "text": "clay", "why": "Only 10 ml went through clay. It holds water back." },
+        { "text": "They are all the same.", "why": "The numbers are different, so they are not the same." }
+      ],
+      "answer": 0,
+      "hints": ["Look at the water through column.", "The most water means the easiest path for water.", "Find the biggest number in the table."],
+      "explanation": "80 ml went through the sand, which is the most. Sand has big gaps between its grains, so water drains through easily.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.rocks-soil.013", "skill": "s2.rocks-soil", "type": "match", "difficulty": 3,
+      "prompt": "Match each word to what it means.",
+      "pairs": [["sand", "tiny grains of rock"], ["soil", "rock bits mixed with dead plants, water and air"], ["pebble", "a small, smooth stone"], ["lava", "melted rock from a volcano"]],
+      "hints": ["Read every meaning before you match.", "Do the one you are sure of first.", "Start with lava. Where does it come from?"],
+      "explanation": "Sand is tiny grains of rock and a pebble is a small, smooth stone. Soil is rock bits mixed with dead plants, water and air, and lava is melted rock from a volcano."
+    },
+    {
+      "id": "s2.rocks-soil.014", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 4,
+      "prompt": "How do earthworms help plants grow?",
+      "figure": { "kind": "icons", "items": [{ "icon": "worm", "label": "earthworm" }, { "icon": "soil", "label": "soil" }], "alt": "An earthworm making a tunnel in the soil." },
+      "options": [
+        { "text": "They eat living plant roots.", "why": "Earthworms eat dead leaves and bits in the soil." },
+        { "text": "They make the soil hard.", "why": "Worms make soil softer and looser." },
+        { "text": "They bring sunlight underground.", "why": "Worms cannot carry light." },
+        { "text": "Their tunnels let air and water into the soil." }
+      ],
+      "answer": 3,
+      "hints": ["Think about what worms do all day under the ground.", "Roots need air and water in the soil.", "Ask: what do worm tunnels let in?"],
+      "explanation": "Earthworms dig tunnels that let air and water reach the roots. They also help dead leaves rot into the soil.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.rocks-soil.015", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 4,
+      "prompt": "The school wants a path for the rainy season. It must not get muddy. Which material is best?",
+      "options": [
+        { "text": "soil", "why": "Soil turns to mud when it rains." },
+        { "text": "clay", "why": "Clay gets sticky and slippery when it is wet." },
+        { "text": "gravel" },
+        { "text": "paper", "why": "Paper goes soggy and tears in the rain." }
+      ],
+      "answer": 2,
+      "hints": ["Rain must drain away quickly on a good path.", "Small stones have gaps between them.", "Ask: which one stays firm when it is wet?"],
+      "explanation": "Gravel is made of small stones with gaps between them. Rainwater drains away, so a gravel path stays firm and does not turn to mud.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.rocks-soil.016", "skill": "s2.rocks-soil", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a slice of the ground. Show soil on top and rock below. Add a worm and some roots.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws soil on top and rock underneath", "points": 2 },
+        { "label": "Draws a worm in the soil", "points": 1 },
+        { "label": "Draws plant roots growing down into the soil", "points": 1 },
+        { "label": "Labels the soil and the rock", "points": 1 }
+      ] },
+      "hints": ["Draw a line across the page for the top of the ground.", "Put the rock at the bottom of your picture."],
+      "explanation": "Soil is on top, with roots and worms in it. Under the soil is solid rock."
+    },
+    {
+      "id": "s2.rocks-soil.017", "skill": "s2.rocks-soil", "type": "mcq", "difficulty": 5,
+      "prompt": "Wayan digs a deep hole and writes what he sees. Which layer has the most bits of dead plants?",
+      "figure": { "kind": "table", "head": ["Layer", "What it looks like"], "rows": [["top", "dark brown, with bits of leaves and roots"], ["middle", "lighter brown, with small stones"], ["bottom", "hard rock"]], "alt": "Table of soil layers. Top: dark brown, with bits of leaves and roots. Middle: lighter brown, with small stones. Bottom: hard rock." },
+      "options": [
+        { "text": "the top layer" },
+        { "text": "the middle layer", "why": "The middle layer has small stones and fewer bits of leaves." },
+        { "text": "the bottom layer", "why": "The bottom layer is hard rock." },
+        { "text": "They are all the same.", "why": "The layers look different from each other." }
+      ],
+      "answer": 0,
+      "hints": ["Read what each layer looks like.", "Dead leaves fall on top of the ground and rot there.", "Look for the words leaves and roots in the table."],
+      "explanation": "The top layer has bits of leaves and roots, which makes it dark brown. Leaves fall and rot on top, so the top layer has the most dead plant bits.",
+      "tags": ["iksc"]
+    }
+  ]
+}

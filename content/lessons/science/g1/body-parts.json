@@ -1,0 +1,37 @@
+{
+  "skill": "s1.body-parts",
+  "title": "Parts of my body",
+  "steps": [
+    { "say": "Your body has many parts. Each part helps you do something.", "figure": { "kind": "icons", "items": [{ "icon": "hand", "label": "hand" }, { "icon": "eye", "label": "eye" }, { "icon": "ear", "label": "ear" }, { "icon": "nose", "label": "nose" }], "alt": "A hand, an eye, an ear and a nose." } },
+    { "say": "Your head has your eyes, ears, nose and mouth.", "show": "head" },
+    { "say": "Your arm bends at the elbow. Your hands hold things.", "show": "arm, elbow, hand" },
+    { "say": "Your leg bends at the knee. Your feet help you walk.", "show": "leg, knee, foot" },
+    { "say": "Some parts are inside you. Your heart beats in your chest.", "figure": { "kind": "icons", "items": [{ "icon": "heart-organ", "label": "heart" }], "alt": "A heart." } }
+  ],
+  "check": [
+    {
+      "id": "s1.body-parts.901", "skill": "s1.body-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Where does your leg bend?",
+      "options": [
+        { "text": "at the knee" },
+        { "text": "at the elbow", "why": "The elbow is on your arm." },
+        { "text": "at the wrist", "why": "The wrist is between your hand and your arm." }
+      ],
+      "answer": 0,
+      "hints": ["Sit down and look at your legs.", "Find the place where your leg folds.", "Put your hand on the middle of your leg."],
+      "explanation": "Your leg bends at the knee. Your arm bends at the elbow."
+    },
+    {
+      "id": "s1.body-parts.902", "skill": "s1.body-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Which body part helps you hold a cup?",
+      "options": [
+        { "text": "your knee", "why": "Your knee helps your leg bend." },
+        { "text": "your ear", "why": "Your ear helps you hear." },
+        { "text": "your hand" }
+      ],
+      "answer": 2,
+      "hints": ["Think about drinking from a cup.", "Which part has fingers?", "Pretend to hold a cup now."],
+      "explanation": "We hold a cup with our hand. Our fingers wrap around it."
+    }
+  ]
+}

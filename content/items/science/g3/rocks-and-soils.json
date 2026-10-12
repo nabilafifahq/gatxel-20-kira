@@ -1,0 +1,429 @@
+{
+  "skill": "s3.rocks-and-soils",
+  "items": [
+    {
+      "id": "s3.rocks-and-soils.001",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is soil made from?",
+      "options": [
+        {
+          "text": "only sand",
+          "why": "Sand is in some soils, but soil also has humus, air and water."
+        },
+        {
+          "text": "tiny bits of rock mixed with rotted plants and animals"
+        },
+        {
+          "text": "melted plastic",
+          "why": "Plastic is not a natural part of soil."
+        },
+        {
+          "text": "only dead leaves",
+          "why": "Rotted leaves are part of soil, but it also has tiny bits of rock."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Soil has more than one ingredient.",
+        "Some of it comes from rock broken into tiny pieces.",
+        "The rest comes from things that were once alive."
+      ],
+      "explanation": "Soil is made of tiny bits of rock mixed with humus, which is rotted plant and animal material. Soil also holds air and water."
+    },
+    {
+      "id": "s3.rocks-and-soils.002",
+      "skill": "s3.rocks-and-soils",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The dark part of soil made from rotted plants and animals is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "humus"
+          ]
+        }
+      ],
+      "hints": [
+        "It makes soil dark and rich.",
+        "Gardeners like soil with lots of it.",
+        "The word has five letters and starts with h."
+      ],
+      "explanation": "Humus is rotted plant and animal material. It makes soil dark and gives plants minerals."
+    },
+    {
+      "id": "s3.rocks-and-soils.003",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a fossil?",
+      "options": [
+        {
+          "text": "a shell on the beach today",
+          "why": "A fossil comes from a living thing that died very long ago, kept in rock."
+        },
+        {
+          "text": "a smooth pebble",
+          "why": "A pebble is a rock, but it shows no living thing."
+        },
+        {
+          "text": "the shape of an ancient shell kept in rock"
+        },
+        {
+          "text": "a plastic dinosaur toy",
+          "why": "A toy is made by people. It is not a fossil."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Fossils come from living things.",
+        "Fossils are found in rock.",
+        "They are very, very old."
+      ],
+      "explanation": "A fossil is the remains or shape of a living thing from very long ago, kept in rock."
+    },
+    {
+      "id": "s3.rocks-and-soils.004",
+      "skill": "s3.rocks-and-soils",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps of how a fossil forms in order.",
+      "items": [
+        "A sea animal dies and sinks to the seabed.",
+        "Mud and sand quickly cover its body.",
+        "The soft parts rot, leaving the hard shell or bones.",
+        "More layers press down and slowly turn into rock.",
+        "Over a very long time, the rock wears away and the fossil is found."
+      ],
+      "hints": [
+        "The animal must die first.",
+        "It needs to be buried before it can become part of a rock.",
+        "Being found by people comes last."
+      ],
+      "explanation": "A buried animal's soft parts rot away, and its hard parts are pressed in layers that become rock. Much later, the rock wears away and the fossil appears.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.rocks-and-soils.005",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Asha scratches four rocks with an iron nail. Which rock is the hardest?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Rock",
+          "Scratched by the nail?"
+        ],
+        "rows": [
+          [
+            "chalk",
+            "yes, easily"
+          ],
+          [
+            "sandstone",
+            "yes"
+          ],
+          [
+            "marble",
+            "a little"
+          ],
+          [
+            "granite",
+            "no"
+          ]
+        ],
+        "alt": "Table of a scratch test: chalk was scratched easily, sandstone was scratched, marble was scratched a little, granite was not scratched."
+      },
+      "options": [
+        {
+          "text": "chalk",
+          "why": "Chalk was scratched easily, so it is the softest."
+        },
+        {
+          "text": "sandstone",
+          "why": "Sandstone was scratched, so it is quite soft."
+        },
+        {
+          "text": "marble",
+          "why": "Marble was scratched a little, so it is not the hardest."
+        },
+        {
+          "text": "granite"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A hard rock is difficult to scratch.",
+        "Look for the rock the nail could not scratch.",
+        "Read the second column carefully."
+      ],
+      "explanation": "The nail could not scratch granite, so granite is the hardest. Chalk was scratched easily, so it is the softest."
+    },
+    {
+      "id": "s3.rocks-and-soils.006",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Drops of water were put on four rocks. Which rock would make the best roof?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Rock",
+          "Did the water soak in?"
+        ],
+        "rows": [
+          [
+            "chalk",
+            "yes"
+          ],
+          [
+            "sandstone",
+            "yes"
+          ],
+          [
+            "slate",
+            "no"
+          ],
+          [
+            "pumice",
+            "yes"
+          ]
+        ],
+        "alt": "Table: water soaked into chalk, sandstone and pumice. Water did not soak into slate."
+      },
+      "options": [
+        {
+          "text": "slate"
+        },
+        {
+          "text": "chalk",
+          "why": "Water soaked into chalk, so rain would get through."
+        },
+        {
+          "text": "sandstone",
+          "why": "Water soaked into sandstone."
+        },
+        {
+          "text": "pumice",
+          "why": "Pumice is full of holes, and water soaked in."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A roof must keep rain out.",
+        "Look for the rock where water did not soak in.",
+        "Read the second column for each rock."
+      ],
+      "explanation": "Water did not soak into slate, so slate keeps rain out. Slate also splits into thin, flat sheets, which make good roof tiles."
+    },
+    {
+      "id": "s3.rocks-and-soils.007",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which soil lets water drain through it fastest?",
+      "options": [
+        {
+          "text": "clay soil",
+          "why": "Clay has tiny, tightly packed bits, so water drains slowly."
+        },
+        {
+          "text": "sandy soil"
+        },
+        {
+          "text": "soil packed hard on a path",
+          "why": "Packed soil has few gaps, so water drains slowly."
+        },
+        {
+          "text": "all soils drain at the same speed",
+          "why": "Different soils drain at very different speeds."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water drains through gaps between the bits of soil.",
+        "Big grains leave big gaps.",
+        "Which soil has the biggest grains?"
+      ],
+      "explanation": "Sandy soil has big grains with big gaps between them. Water runs through the gaps quickly.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.rocks-and-soils.008",
+      "skill": "s3.rocks-and-soils",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each soil had 100 ml of water poured on it. How much water stayed in the clay soil?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Soil",
+          "Water that drained through (ml)"
+        ],
+        "rows": [
+          [
+            "sandy soil",
+            "80"
+          ],
+          [
+            "garden soil",
+            "50"
+          ],
+          [
+            "clay soil",
+            "15"
+          ]
+        ],
+        "alt": "Table: 100 ml of water was poured on each soil. 80 ml drained through sandy soil, 50 ml through garden soil and 15 ml through clay soil."
+      },
+      "answer": 85,
+      "unit": "ml",
+      "hints": [
+        "100 ml went in at the top.",
+        "Find how much came out of the clay soil.",
+        "The rest stayed in the soil. Take it away from 100."
+      ],
+      "explanation": "15 ml drained through the clay, so 100 take away 15 is 85 ml. Clay soil holds on to lots of water.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.rocks-and-soils.009",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Pumice is a rock from volcanoes. It is full of tiny air holes. What happens when you put it in water?",
+      "options": [
+        {
+          "text": "It sinks at once.",
+          "why": "Pumice is full of trapped air, which makes it light enough to float."
+        },
+        {
+          "text": "It dissolves.",
+          "why": "Pumice is a rock. It does not dissolve in water."
+        },
+        {
+          "text": "It floats."
+        },
+        {
+          "text": "It melts.",
+          "why": "Rocks do not melt in water."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the tiny air holes.",
+        "Things full of air are very light for their size.",
+        "Would a light, airy rock sink or stay on top?"
+      ],
+      "explanation": "Pumice is full of trapped air, so it floats. Volcanoes in Indonesia have made large rafts of floating pumice.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.rocks-and-soils.010",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In which kind of rock are fossils most often found?",
+      "options": [
+        {
+          "text": "rock that was once melted, like granite",
+          "why": "Melted rock is far too hot. It would destroy any remains."
+        },
+        {
+          "text": "glass",
+          "why": "Glass is not a rock. It is made by heating sand."
+        },
+        {
+          "text": "rock from the Moon",
+          "why": "The Moon has no living things, so it has no fossils."
+        },
+        {
+          "text": "rock made from layers of mud and sand"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Fossils form when living things are buried.",
+        "What buries a dead sea animal on the seabed?",
+        "Which rock is made from those layers?"
+      ],
+      "explanation": "Fossils are found in sedimentary rock. It forms from layers of mud and sand that bury living things."
+    },
+    {
+      "id": "s3.rocks-and-soils.011",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which part of an animal is most likely to become a fossil?",
+      "options": [
+        {
+          "text": "its bones or teeth"
+        },
+        {
+          "text": "its skin",
+          "why": "Soft parts usually rot before they can become fossils."
+        },
+        {
+          "text": "its eyes",
+          "why": "Eyes are soft and rot quickly."
+        },
+        {
+          "text": "its fur",
+          "why": "Fur rots away quickly."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Fossils take a very long time to form.",
+        "Soft parts rot quickly.",
+        "Which parts are the hardest?"
+      ],
+      "explanation": "Hard parts such as bones, teeth and shells last much longer than soft parts. So they are most likely to become fossils."
+    },
+    {
+      "id": "s3.rocks-and-soils.012",
+      "skill": "s3.rocks-and-soils",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Fossils of sea shells are found in rock at the top of a high mountain. What does this tell us?",
+      "options": [
+        {
+          "text": "Sea animals used to climb mountains.",
+          "why": "Shellfish cannot climb mountains."
+        },
+        {
+          "text": "The rock was once under the sea."
+        },
+        {
+          "text": "Birds dropped the shells there.",
+          "why": "The fossils are inside the rock, so they were buried as the rock formed."
+        },
+        {
+          "text": "Shells grow on mountains.",
+          "why": "Sea shells come from sea animals."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where did the shell animals live?",
+        "The fossils are inside the rock itself.",
+        "Where must the rock have formed?"
+      ],
+      "explanation": "The shells were buried as the rock formed under the sea. Over a very long time, the rock was pushed up to make a mountain.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

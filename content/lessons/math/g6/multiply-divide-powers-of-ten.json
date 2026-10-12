@@ -1,0 +1,129 @@
+{
+  "skill": "m6.multiply-divide-powers-of-ten",
+  "title": "Multiplying and dividing decimals by 10, 100 and 1,000",
+  "steps": [
+    {
+      "say": "Multiplying by 10, 100 or 1,000 moves every digit 1, 2 or 3 places to the left.",
+      "show": "0.045 × 100 = 4.5",
+      "figure": {
+        "kind": "table",
+        "caption": "0.045 × 100 = 4.5",
+        "head": [
+          "Ones",
+          "Tenths",
+          "Hundredths",
+          "Thousandths"
+        ],
+        "rows": [
+          [
+            "0",
+            "0",
+            "4",
+            "5"
+          ],
+          [
+            "4",
+            "5",
+            "",
+            ""
+          ]
+        ],
+        "alt": "A place value chart. 0.045 moves two places left to make 4.5."
+      }
+    },
+    {
+      "say": "Dividing by 10, 100 or 1,000 moves every digit 1, 2 or 3 places to the right.",
+      "show": "37 ÷ 1,000 = 0.037"
+    },
+    {
+      "say": "Use this to change units. Changing to a smaller unit needs more of them, so multiply.",
+      "show": "2.75 km = 2.75 × 1,000 = 2,750 m"
+    },
+    {
+      "say": "Changing to a bigger unit needs fewer of them, so divide.",
+      "show": "450 ml = 450 ÷ 1,000 = 0.45 l"
+    },
+    {
+      "say": "Learn the links between units. Each one tells you whether to use 10, 100 or 1,000.",
+      "show": "10 mm = 1 cm, 100 cm = 1 m, 1,000 m = 1 km",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Unit",
+          "Equals"
+        ],
+        "rows": [
+          [
+            "1 cm",
+            "10 mm"
+          ],
+          [
+            "1 m",
+            "100 cm"
+          ],
+          [
+            "1 km",
+            "1,000 m"
+          ],
+          [
+            "1 kg",
+            "1,000 g"
+          ],
+          [
+            "1 l",
+            "1,000 ml"
+          ]
+        ],
+        "alt": "A table of unit links: 1 cm is 10 mm, 1 m is 100 cm, 1 km is 1,000 m, 1 kg is 1,000 g and 1 l is 1,000 ml."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.multiply-divide-powers-of-ten.901",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 0.38 × 100.",
+      "hints": [
+        "Multiplying by 100 moves the digits two places.",
+        "The digits move to the left.",
+        "The 3 tenths become 3 tens."
+      ],
+      "explanation": "Each digit moves two places to the left, so 0.38 × 100 = 38.",
+      "answer": 38,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.902",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 6.4 ÷ 100.",
+      "hints": [
+        "Dividing by 100 moves the digits two places.",
+        "The digits move to the right.",
+        "The 6 ones become 6 hundredths."
+      ],
+      "explanation": "Each digit moves two places to the right, so 6.4 ÷ 100 = 0.064.",
+      "answer": 0.064,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.multiply-divide-powers-of-ten.903",
+      "skill": "m6.multiply-divide-powers-of-ten",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A bottle holds 0.75 litres of juice. How many millilitres is that?",
+      "hints": [
+        "There are 1,000 ml in 1 litre.",
+        "Multiply the number of litres by 1,000.",
+        "Move each digit three places to the left."
+      ],
+      "explanation": "0.75 × 1,000 = 750, so the bottle holds 750 ml.",
+      "answer": 750,
+      "unit": "ml",
+      "allowDecimal": true
+    }
+  ]
+}

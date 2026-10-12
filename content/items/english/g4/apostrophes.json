@@ -1,0 +1,146 @@
+{
+  "skill": "e4.apostrophes",
+  "items": [
+    {
+      "id": "e4.apostrophes.001", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which shows that the bone belongs to the dog?",
+      "options": [
+        { "text": "the dogs bone", "why": "There is no apostrophe, so it does not show belonging." },
+        { "text": "the dog's bone" },
+        { "text": "the dogs' bone", "why": "This would mean the bone belongs to more than one dog." },
+        { "text": "the do'gs bone", "why": "The apostrophe goes after the whole word dog." }
+      ],
+      "answer": 1,
+      "hints": ["One dog owns the bone.", "To show belonging, add an apostrophe and s.", "Write the whole word dog first."],
+      "explanation": "For one owner, we add 's to the end of the word: the dog's bone.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.apostrophes.002", "skill": "e4.apostrophes", "type": "text", "difficulty": 1,
+      "prompt": "Write it a shorter way, with an apostrophe.\nthe hat that belongs to Rina",
+      "blanks": [{ "answers": ["Rina's hat"] }],
+      "hints": ["Who owns the hat?", "Put the owner first, then an apostrophe and s.", "Then write the thing that is owned."],
+      "explanation": "Rina owns the hat, so we write Rina's hat."
+    },
+    {
+      "id": "e4.apostrophes.003", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 2,
+      "prompt": "There are three girls. Which shows that the bags belong to all of them?",
+      "options": [
+        { "text": "the girl's bags", "why": "This means one girl owns the bags." },
+        { "text": "the girls bag's", "why": "The apostrophe goes on the owners, not on bags." },
+        { "text": "the girls's bags", "why": "Girls already ends in s, so just add an apostrophe." },
+        { "text": "the girls' bags" }
+      ],
+      "answer": 3,
+      "hints": ["There is more than one girl.", "First write the plural: girls.", "When a plural ends in s, where does the apostrophe go?"],
+      "explanation": "Girls is a plural ending in s, so we just add an apostrophe after the s: the girls' bags.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.apostrophes.004", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence uses an apostrophe correctly?",
+      "options": [
+        { "text": "The cat's tail was fluffy." },
+        { "text": "I bought two apple's.", "why": "Plurals do not need an apostrophe: two apples." },
+        { "text": "The car's are parked outside.", "why": "Cars is just a plural here, so it needs no apostrophe." },
+        { "text": "We have three cat's.", "why": "Cats is just a plural here, so it needs no apostrophe." }
+      ],
+      "answer": 0,
+      "hints": ["An apostrophe can show that something belongs to someone.", "Plurals that do not own anything do not need an apostrophe.", "In which sentence does something belong to something else?"],
+      "explanation": "The tail belongs to the cat, so we write the cat's tail. Plain plurals, like apples and cars, need no apostrophe.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.apostrophes.005", "skill": "e4.apostrophes", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the phrases: one owner or more than one owner?",
+      "groups": ["One owner", "More than one owner"],
+      "items": [
+        { "text": "the boy's kite", "group": 0 }, { "text": "the teacher's desk", "group": 0 }, { "text": "my sister's shoes", "group": 0 }, { "text": "the bird's egg", "group": 0 },
+        { "text": "the boys' kites", "group": 1 }, { "text": "the teachers' room", "group": 1 }, { "text": "the birds' nests", "group": 1 }, { "text": "the players' shirts", "group": 1 }
+      ],
+      "hints": ["Look at where the apostrophe is.", "Before the s means one owner. After a plural s means more than one.", "Start with the boy's kite. Is the apostrophe before or after the s?"],
+      "explanation": "When the apostrophe comes before the s, there is one owner. When it comes after a plural s, there is more than one."
+    },
+    {
+      "id": "e4.apostrophes.006", "skill": "e4.apostrophes", "type": "text", "difficulty": 3,
+      "prompt": "Write it a shorter way, with an apostrophe.\nthe toys that belong to the children",
+      "blanks": [{ "answers": ["the children's toys", "children's toys"] }],
+      "hints": ["Children is already plural, but it does not end in s.", "Add an apostrophe and s, just like for one owner.", "Write children first, then the apostrophe."],
+      "explanation": "Children does not end in s, so we add 's: the children's toys."
+    },
+    {
+      "id": "e4.apostrophes.007", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 3,
+      "prompt": "The coats belong to more than one child. Which word fills the gap?\nThe ___ coats were hanging on the hooks.",
+      "options": [
+        { "text": "childrens'", "why": "Children does not end in s, so the apostrophe goes before the s." },
+        { "text": "childrens", "why": "We need an apostrophe to show the coats belong to them." },
+        { "text": "children's" },
+        { "text": "childs'", "why": "The plural of child is children, not childs." }
+      ],
+      "answer": 2,
+      "hints": ["What is the plural of child?", "Does that plural end in s?", "If a plural does not end in s, add an apostrophe and s."],
+      "explanation": "The plural is children, which does not end in s. So we add 's: the children's coats."
+    },
+    {
+      "id": "e4.apostrophes.008", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 2,
+      "prompt": "What does the cats' bowls tell you?",
+      "options": [
+        { "text": "There is more than one cat." },
+        { "text": "There is only one cat.", "why": "For one cat we would write the cat's bowls." },
+        { "text": "The bowls own the cats.", "why": "The bowls belong to the cats, not the other way round." },
+        { "text": "The cats are eating.", "why": "The phrase does not tell us what the cats are doing." }
+      ],
+      "answer": 0,
+      "hints": ["Look at where the apostrophe is.", "It comes after the s in cats.", "What does an apostrophe after a plural s tell you?"],
+      "explanation": "The apostrophe comes after the s in cats, so there is more than one cat, and the bowls belong to them."
+    },
+    {
+      "id": "e4.apostrophes.009", "skill": "e4.apostrophes", "type": "multi", "difficulty": 4,
+      "prompt": "Choose 2 words that need an apostrophe to show belonging.\nThe farmers tractor was red, and the cows tails swished.",
+      "options": [
+        { "text": "farmers" },
+        { "text": "tractor", "why": "The tractor does not own anything." },
+        { "text": "cows" },
+        { "text": "tails", "why": "The tails do not own anything." }
+      ],
+      "answers": [0, 2],
+      "hints": ["Look for owners. Who owns the tractor? Who owns the tails?", "The owner word needs the apostrophe, not the thing that is owned.", "Check farmers first. Does it own something?"],
+      "explanation": "The tractor belongs to the farmer, so farmers needs an apostrophe. The tails belong to the cows, so cows needs one too."
+    },
+    {
+      "id": "e4.apostrophes.010", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 4,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        { "text": "The dog wagged it's tail.", "why": "It's means it is. The dog wagged it is tail does not make sense." },
+        { "text": "The dog wagged its tail." },
+        { "text": "The dog wagged its' tail.", "why": "Its' is never correct." },
+        { "text": "The dog wagged it is tail.", "why": "This does not make sense." }
+      ],
+      "answer": 1,
+      "hints": ["Its can show belonging, and it's means it is.", "Try reading it's as it is in the sentence.", "Does the dog wagged it is tail make sense?"],
+      "explanation": "Its shows belonging without an apostrophe. It's always means it is or it has.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.apostrophes.011", "skill": "e4.apostrophes", "type": "text", "difficulty": 4,
+      "prompt": "Write it a shorter way, with an apostrophe.\nthe room used by the teachers",
+      "blanks": [{ "answers": ["the teachers' room", "teachers' room"] }],
+      "hints": ["There is more than one teacher.", "The plural teachers ends in s.", "Where does the apostrophe go for a plural that ends in s?"],
+      "explanation": "Teachers is a plural ending in s, so we add just an apostrophe: the teachers' room."
+    },
+    {
+      "id": "e4.apostrophes.012", "skill": "e4.apostrophes", "type": "mcq", "difficulty": 5,
+      "prompt": "Which sentence has every apostrophe correct?",
+      "options": [
+        { "text": "The babie's toys were in my aunts bag.", "why": "The plural is babies, and aunt needs an apostrophe too." },
+        { "text": "The babies toy's were in my aunt's bag.", "why": "Toys does not own anything, and babies needs an apostrophe." },
+        { "text": "The babies' toy's were in my aunt's bag.", "why": "Toys does not own anything, so it has no apostrophe." },
+        { "text": "The babies' toys were in my aunt's bag." }
+      ],
+      "answer": 3,
+      "hints": ["Find the owners in the sentence.", "The toys belong to the babies, and the bag belongs to my aunt.", "Check each owner word. Is it one owner or more than one?"],
+      "explanation": "Babies' shows the toys belong to more than one baby. Aunt's shows the bag belongs to one aunt. Toys has no apostrophe because it owns nothing.",
+      "tags": ["iklc"]
+    }
+  ]
+}

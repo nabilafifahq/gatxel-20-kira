@@ -1,0 +1,132 @@
+{
+  "skill": "m6.rounding",
+  "title": "Rounding whole numbers and decimals",
+  "steps": [
+    {
+      "say": "To round, find the digit in the place you are rounding to. Then look at the digit on its right.",
+      "show": "Round 2,486,500 to the nearest 100,000"
+    },
+    {
+      "say": "The ten thousands digit is 8, which is 5 or more, so round up.",
+      "show": "2,486,500 ≈ 2,500,000"
+    },
+    {
+      "say": "Decimals round the same way. To round 6.348 to two decimal places, look at the thousandths digit.",
+      "show": "6.348 ≈ 6.35",
+      "figure": {
+        "kind": "numberline",
+        "min": 6.34,
+        "max": 6.35,
+        "step": 0.001,
+        "labels": [
+          6.34,
+          6.345,
+          6.35
+        ],
+        "marks": [
+          {
+            "at": 6.348,
+            "label": "6.348"
+          }
+        ],
+        "alt": "A number line from 6.34 to 6.35 in thousandths with 6.348 marked."
+      }
+    },
+    {
+      "say": "Rounding helps you estimate. Round each number, then do the easier calculation.",
+      "show": "48.7 × 3.1 ≈ 50 × 3 = 150"
+    },
+    {
+      "say": "Use the estimate to check an exact answer. If the two are far apart, check your working.",
+      "show": "48.7 × 3.1 = 150.97, which is close to 150"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.rounding.901",
+      "skill": "m6.rounding",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Round 7.462 to one decimal place.",
+      "hints": [
+        "One decimal place means keeping the tenths.",
+        "Look at the hundredths digit.",
+        "The hundredths digit is 6."
+      ],
+      "explanation": "7.462 is between 7.4 and 7.5. The hundredths digit is 6, so it rounds up to 7.5.",
+      "options": [
+        {
+          "text": "7.46",
+          "why": "That has two decimal places."
+        },
+        {
+          "text": "7",
+          "why": "That is the nearest whole number."
+        },
+        {
+          "text": "7.5"
+        },
+        {
+          "text": "7.4",
+          "why": "The hundredths digit is 6, so round up."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.rounding.902",
+      "skill": "m6.rounding",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Round 3,649,200 to the nearest million.",
+      "hints": [
+        "Find the millions digit.",
+        "Look at the hundred thousands digit.",
+        "The hundred thousands digit is 6."
+      ],
+      "explanation": "3,649,200 is between 3,000,000 and 4,000,000. The hundred thousands digit is 6, so it rounds up to 4,000,000.",
+      "blanks": [
+        {
+          "answers": [
+            "4000000",
+            "4,000,000",
+            "4 000 000",
+            "4.000.000",
+            "4 million"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.rounding.903",
+      "skill": "m6.rounding",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Estimate 19.8 × 5.1 by rounding each number to the nearest whole number.",
+      "hints": [
+        "Round each number to the nearest whole number.",
+        "19.8 is close to 20.",
+        "5.1 is close to 5."
+      ],
+      "explanation": "19.8 ≈ 20 and 5.1 ≈ 5. 20 × 5 = 100.",
+      "options": [
+        {
+          "text": "95",
+          "why": "That uses 19 instead of 20. 19.8 is closer to 20."
+        },
+        {
+          "text": "1,000",
+          "why": "Check the place value: 20 × 5 is not 1,000."
+        },
+        {
+          "text": "25",
+          "why": "That adds 20 and 5. Multiply instead."
+        },
+        {
+          "text": "100"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

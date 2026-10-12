@@ -1,0 +1,27 @@
+{
+  "skill": "e4.discussing",
+  "title": "Taking part in a discussion",
+  "steps": [
+    { "say": "In a discussion, people share ideas and listen to each other." },
+    { "say": "Give your opinion with a reason.", "show": "I think... because..." },
+    { "say": "Build on what others say, or disagree politely.", "show": "I agree with Mei, and also... / I see what you mean, but..." },
+    { "say": "Ask questions to understand other people's ideas.", "show": "Why do you think that?" },
+    { "say": "Take turns, and invite quieter people to speak.", "show": "What do you think, Omar?" },
+    { "say": "At the end, sum up what the group decided.", "show": "So, most of us think..." }
+  ],
+  "check": [
+    {
+      "id": "e4.discussing.901", "skill": "e4.discussing", "type": "mcq", "difficulty": 1,
+      "prompt": "Which phrase helps you disagree politely?",
+      "options": [
+        { "text": "You're wrong.", "why": "This is rude, and it gives no reason." },
+        { "text": "I see what you mean, but..." },
+        { "text": "Whatever.", "why": "This shows you are not listening." },
+        { "text": "Be quiet.", "why": "This stops the other person from sharing." }
+      ],
+      "answer": 1,
+      "hints": ["Polite disagreement shows you listened first.", "It does not hurt the other person's feelings.", "Which phrase would you like to hear if someone disagreed with you?"],
+      "explanation": "I see what you mean, but... shows you listened before you share a different view."
+    }
+  ]
+}

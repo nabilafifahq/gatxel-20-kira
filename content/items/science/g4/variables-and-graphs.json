@@ -1,0 +1,585 @@
+{
+  "skill": "s4.variables-and-graphs",
+  "items": [
+    {
+      "id": "s4.variables-and-graphs.001",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Zara tests whether warm water dissolves sugar faster than cold water. What does she change?",
+      "options": [
+        {
+          "text": "the temperature of the water"
+        },
+        {
+          "text": "the time the sugar takes to dissolve",
+          "why": "This is what she measures."
+        },
+        {
+          "text": "the amount of sugar",
+          "why": "She should keep this the same."
+        },
+        {
+          "text": "the size of the cup",
+          "why": "She should keep this the same to make the test fair."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for the one thing that is different between the cups.",
+        "Her question is about warm and cold water.",
+        "What is warm or cold?"
+      ],
+      "explanation": "Zara changes the temperature of the water. She measures how long the sugar takes to dissolve and keeps everything else the same."
+    },
+    {
+      "id": "s4.variables-and-graphs.002",
+      "skill": "s4.variables-and-graphs",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Ali tests how the height of a ramp changes how far a toy car rolls. Match each part to its job.",
+      "pairs": [
+        [
+          "height of the ramp",
+          "the variable he changes"
+        ],
+        [
+          "distance the car rolls",
+          "the variable he measures"
+        ],
+        [
+          "the same car and floor",
+          "the variables he keeps the same"
+        ]
+      ],
+      "hints": [
+        "His question names two things.",
+        "He sets one thing himself and finds out the other.",
+        "Everything else should not change."
+      ],
+      "explanation": "Ali changes the ramp height and measures the distance. He keeps the car and the floor the same to make it fair."
+    },
+    {
+      "id": "s4.variables-and-graphs.003",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When is a line graph better than a bar chart?",
+      "options": [
+        {
+          "text": "when you count favourite colours",
+          "why": "Colours are separate groups, so a bar chart is better."
+        },
+        {
+          "text": "when you measure how something changes over time"
+        },
+        {
+          "text": "when you have only one result",
+          "why": "One result does not need a graph."
+        },
+        {
+          "text": "when you have no numbers",
+          "why": "Graphs need numbers to plot."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Bar charts compare separate groups.",
+        "Line graphs join points with a line.",
+        "Which kind of data changes smoothly, like the temperature during a day?"
+      ],
+      "explanation": "A line graph shows how something changes over time, like the temperature of cooling water. Bar charts compare separate groups."
+    },
+    {
+      "id": "s4.variables-and-graphs.004",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The table shows hot water cooling down. By how many degrees did it cool in the first 5 minutes?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "40"
+          ]
+        ],
+        "alt": "Table of hot water cooling: 0 minutes 80 °C, 5 minutes 64 °C, 10 minutes 52 °C, 15 minutes 44 °C, 20 minutes 40 °C."
+      },
+      "answer": 16,
+      "unit": "°C",
+      "hints": [
+        "Find the temperature at 0 minutes and at 5 minutes.",
+        "Cooled by how much means find the difference.",
+        "Take the 5-minute temperature away from the start."
+      ],
+      "explanation": "The water started at 80 °C and was 64 °C after 5 minutes. 80 take away 64 is 16 degrees."
+    },
+    {
+      "id": "s4.variables-and-graphs.005",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at the cooling results. What pattern do they show?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "40"
+          ]
+        ],
+        "alt": "Table of hot water cooling: 0 minutes 80 °C, 5 minutes 64 °C, 10 minutes 52 °C, 15 minutes 44 °C, 20 minutes 40 °C."
+      },
+      "options": [
+        {
+          "text": "The water cooled by the same amount every 5 minutes.",
+          "why": "It cooled by 16, then 12, then 8, then 4 degrees."
+        },
+        {
+          "text": "The water got hotter.",
+          "why": "The temperature went down, so the water cooled."
+        },
+        {
+          "text": "The water cooled quickly at first, then more slowly."
+        },
+        {
+          "text": "The water stopped cooling after 5 minutes.",
+          "why": "It kept cooling until 20 minutes."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out how much it cooled in each 5 minutes.",
+        "Compare the first drop with the last drop.",
+        "Are the drops getting bigger or smaller?"
+      ],
+      "explanation": "The drops were 16, 12, 8 and then 4 degrees. The water cooled quickly at first and then more slowly.",
+      "solution": [
+        {
+          "say": "Find each drop: 80 to 64, 64 to 52, 52 to 44, 44 to 40.",
+          "show": "16, 12, 8, 4"
+        },
+        {
+          "say": "Each drop is smaller than the one before.",
+          "show": "16 > 12 > 8 > 4"
+        },
+        {
+          "say": "So the water cooled fast at first, then slowly.",
+          "show": "fast, then slow"
+        }
+      ],
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.006",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Use the cooling results. The room is 28 °C. Which is the best prediction for 25 minutes?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time (minutes)",
+          "Temperature (°C)"
+        ],
+        "rows": [
+          [
+            "0",
+            "80"
+          ],
+          [
+            "5",
+            "64"
+          ],
+          [
+            "10",
+            "52"
+          ],
+          [
+            "15",
+            "44"
+          ],
+          [
+            "20",
+            "40"
+          ]
+        ],
+        "alt": "Table of hot water cooling: 0 minutes 80 °C, 5 minutes 64 °C, 10 minutes 52 °C, 15 minutes 44 °C, 20 minutes 40 °C."
+      },
+      "options": [
+        {
+          "text": "20 °C",
+          "why": "Water cannot cool below the room temperature of 28 °C."
+        },
+        {
+          "text": "38 °C"
+        },
+        {
+          "text": "40 °C",
+          "why": "The water is still warmer than the room, so it keeps cooling a little."
+        },
+        {
+          "text": "50 °C",
+          "why": "Water does not warm up again by itself."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The water keeps cooling, but more slowly.",
+        "The last drop in 5 minutes was 4 degrees.",
+        "The next drop should be smaller than that."
+      ],
+      "explanation": "The drops are getting smaller, and the last one was 4 degrees. The next drop should be a little smaller, so about 38 °C is the best prediction.",
+      "tags": [
+        "keep-order",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.007",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Plants were given different amounts of water each day. Which conclusion matches the results?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "0 ml",
+          "25 ml",
+          "50 ml",
+          "100 ml"
+        ],
+        "values": [
+          2,
+          9,
+          14,
+          6
+        ],
+        "axisMax": 16,
+        "step": 2,
+        "yLabel": "Plant height (cm)",
+        "tone": "science",
+        "alt": "Bar chart of plant height after 3 weeks: 0 ml of water 2 cm, 25 ml 9 cm, 50 ml 14 cm, 100 ml 6 cm."
+      },
+      "options": [
+        {
+          "text": "The more water, the taller the plant.",
+          "why": "The 100 ml plant was shorter than the 50 ml plant."
+        },
+        {
+          "text": "Water made no difference.",
+          "why": "The heights were very different, from 2 cm to 14 cm."
+        },
+        {
+          "text": "Plants grow best with no water.",
+          "why": "The plant with no water grew least."
+        },
+        {
+          "text": "The plants grew best with 50 ml, and too much or too little slowed them."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the tallest bar.",
+        "Look at what happened after that amount.",
+        "Did more water always mean more growth?"
+      ],
+      "explanation": "The tallest plant had 50 ml a day. The plant with 100 ml grew less, so too much water slowed growth as well as too little.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.008",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rita drops a ball from 1 m four times and measures the bounce. Which result should she check again?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Try",
+          "Bounce height (cm)"
+        ],
+        "rows": [
+          [
+            "1",
+            "30"
+          ],
+          [
+            "2",
+            "31"
+          ],
+          [
+            "3",
+            "12"
+          ],
+          [
+            "4",
+            "29"
+          ]
+        ],
+        "alt": "Table of bounce heights: try 1 30 cm, try 2 31 cm, try 3 12 cm, try 4 29 cm."
+      },
+      "options": [
+        {
+          "text": "try 1",
+          "why": "30 cm is close to the other results."
+        },
+        {
+          "text": "try 2",
+          "why": "31 cm is close to the other results."
+        },
+        {
+          "text": "try 3"
+        },
+        {
+          "text": "try 4",
+          "why": "29 cm is close to the other results."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The same test should give similar results.",
+        "Look for a result that does not fit.",
+        "Which number is far from the others?"
+      ],
+      "explanation": "Tries 1, 2 and 4 are all about 30 cm. Try 3 is very different, so it is probably a mistake and should be checked.",
+      "tags": [
+        "keep-order",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.009",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the results. Which is the best conclusion?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ramp height (cm)",
+          "Distance rolled (cm)"
+        ],
+        "rows": [
+          [
+            "10",
+            "40"
+          ],
+          [
+            "20",
+            "80"
+          ],
+          [
+            "30",
+            "120"
+          ]
+        ],
+        "alt": "Table: from a 10 cm ramp the car rolled 40 cm, from 20 cm it rolled 80 cm, and from 30 cm it rolled 120 cm."
+      },
+      "options": [
+        {
+          "text": "The higher the ramp, the further the car rolled."
+        },
+        {
+          "text": "The car is fast.",
+          "why": "This does not use the results."
+        },
+        {
+          "text": "The lower the ramp, the further the car rolled.",
+          "why": "The lowest ramp gave the shortest distance."
+        },
+        {
+          "text": "Ramps are fun to use.",
+          "why": "A conclusion must say what the results show."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A conclusion says what the results show.",
+        "Look at how the distance changes as the ramp gets higher.",
+        "Read the two columns together, row by row."
+      ],
+      "explanation": "As the ramp got higher, the car rolled further each time. A good conclusion describes this pattern."
+    },
+    {
+      "id": "s4.variables-and-graphs.010",
+      "skill": "s4.variables-and-graphs",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Ben tests which paper towel soaks up the most water. Choose 3 things he must keep the same.",
+      "options": [
+        {
+          "text": "the amount of water"
+        },
+        {
+          "text": "the type of paper towel",
+          "why": "This is the variable he changes."
+        },
+        {
+          "text": "the size of each towel"
+        },
+        {
+          "text": "the amount of water soaked up",
+          "why": "This is what he measures."
+        },
+        {
+          "text": "the time each towel is left in the water"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Find the one thing Ben changes.",
+        "Find the one thing Ben measures.",
+        "Everything else must stay the same."
+      ],
+      "explanation": "Ben changes the type of towel and measures the water soaked up. The amount of water, the towel size and the time must stay the same."
+    },
+    {
+      "id": "s4.variables-and-graphs.011",
+      "skill": "s4.variables-and-graphs",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a line graph of this data. Label both axes.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Week",
+          "Plant height (cm)"
+        ],
+        "rows": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "2",
+            "5"
+          ],
+          [
+            "3",
+            "9"
+          ],
+          [
+            "4",
+            "12"
+          ],
+          [
+            "5",
+            "14"
+          ]
+        ],
+        "alt": "Table of plant height: week 1 2 cm, week 2 5 cm, week 3 9 cm, week 4 12 cm, week 5 14 cm."
+      },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Puts weeks on the bottom axis and height up the side",
+            "points": 1
+          },
+          {
+            "label": "Labels both axes with units",
+            "points": 1
+          },
+          {
+            "label": "Plots all five points correctly",
+            "points": 1
+          },
+          {
+            "label": "Joins the points with a line",
+            "points": 1
+          }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Time goes along the bottom.",
+        "Plot each point, then join them with a ruler or a smooth line."
+      ],
+      "explanation": "Weeks go along the bottom and height in centimetres goes up the side. Plot each point, then join the points with a line."
+    },
+    {
+      "id": "s4.variables-and-graphs.012",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "On days when more ice creams are sold, more people get sunburnt. Does eating ice cream cause sunburn?",
+      "options": [
+        {
+          "text": "Yes, because ice cream makes skin burn.",
+          "why": "Ice cream cannot burn skin."
+        },
+        {
+          "text": "No, hot sunny weather causes both."
+        },
+        {
+          "text": "Yes, because both happen on the same days.",
+          "why": "Two things happening together does not mean one causes the other."
+        },
+        {
+          "text": "No, because ice cream is cold.",
+          "why": "Being cold is not the reason. Sunny weather causes both."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what kind of day it is when both happen.",
+        "Could something else cause both things?",
+        "What makes people buy ice cream and also burns skin?"
+      ],
+      "explanation": "Hot, sunny days make people buy more ice cream and also cause more sunburn. Two things happening together does not prove that one causes the other.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

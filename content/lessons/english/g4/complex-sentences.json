@@ -1,0 +1,39 @@
+{
+  "skill": "e4.complex-sentences",
+  "title": "Building complex sentences",
+  "steps": [
+    { "say": "A main clause makes sense on its own.", "show": "The children ran outside." },
+    { "say": "Some clauses cannot stand alone. They start with words like when, because, although, if, until and while.", "show": "when the bell rang" },
+    { "say": "A complex sentence joins a main clause to one of these clauses.", "show": "When the bell rang, the children ran outside." },
+    { "say": "Each joining word has a job. Because gives a reason, although shows a contrast and until shows a time limit.", "show": "unless = if not" },
+    { "say": "If the joining clause comes first, put a comma before the main clause.", "show": "If you are ready, we can go. We can go if you are ready." }
+  ],
+  "check": [
+    {
+      "id": "e4.complex-sentences.901", "skill": "e4.complex-sentences", "type": "mcq", "difficulty": 1,
+      "prompt": "We waited ___ the rain stopped.",
+      "options": [
+        { "text": "although", "why": "Although shows a contrast. It does not fit here." },
+        { "text": "until" },
+        { "text": "unless", "why": "Unless means if not. It does not fit here." },
+        { "text": "or", "why": "Or gives a choice." }
+      ],
+      "answer": 1,
+      "hints": ["How long did we wait?", "You need a word that means up to the time when.", "Read the sentence with each word."],
+      "explanation": "Until means up to the time when. We waited until the rain stopped."
+    },
+    {
+      "id": "e4.complex-sentences.902", "skill": "e4.complex-sentences", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence is a complex sentence?",
+      "options": [
+        { "text": "The sun set.", "why": "This has only one clause." },
+        { "text": "Although it was late, we kept playing." },
+        { "text": "We played and we laughed.", "why": "And joins two main clauses." },
+        { "text": "Stop!", "why": "This is a one-word command." }
+      ],
+      "answer": 1,
+      "hints": ["A complex sentence has a clause that cannot stand alone.", "Look for a joining word like although or when.", "Which sentence has a comma between two clauses?"],
+      "explanation": "Although it was late cannot stand alone. It is joined to the main clause we kept playing."
+    }
+  ]
+}

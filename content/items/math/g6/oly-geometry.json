@@ -1,0 +1,481 @@
+{
+  "skill": "m6.oly-geometry",
+  "items": [
+    {
+      "id": "m6.oly-geometry.001",
+      "skill": "m6.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle with a base of 10 cm and a height of 6 cm."
+      },
+      "options": [
+        {
+          "text": "30 cm²"
+        },
+        {
+          "text": "32 cm²",
+          "why": "Use base × height ÷ 2."
+        },
+        {
+          "text": "45 cm²",
+          "why": "Use base × height ÷ 2: 10 × 6 ÷ 2."
+        },
+        {
+          "text": "60 cm²",
+          "why": "60 cm² is the rectangle. A triangle is half of it."
+        },
+        {
+          "text": "120 cm²",
+          "why": "Halve 10 × 6, do not double it."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A triangle is half of a rectangle with the same base and height.",
+        "The rectangle would be 10 cm by 6 cm.",
+        "Area of a triangle = base × height ÷ 2."
+      ],
+      "explanation": "The area is 10 × 6 ÷ 2 = 30 cm².",
+      "solution": [
+        {
+          "say": "Rectangle.",
+          "show": "10 × 6 = 60 cm²"
+        },
+        {
+          "say": "Half of it.",
+          "show": "60 ÷ 2 = 30 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-geometry.002",
+      "skill": "m6.oly-geometry",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the size of each angle inside a regular octagon?",
+      "figure": {
+        "kind": "shape",
+        "shape": "octagon",
+        "alt": "A regular octagon: 8 equal sides and 8 equal angles."
+      },
+      "options": [
+        {
+          "text": "108°",
+          "why": "108° is the angle in a regular pentagon."
+        },
+        {
+          "text": "120°",
+          "why": "120° is the angle in a regular hexagon."
+        },
+        {
+          "text": "135°"
+        },
+        {
+          "text": "140°",
+          "why": "140° is the angle in a regular 9-sided shape."
+        },
+        {
+          "text": "144°",
+          "why": "144° is the angle in a regular 10-sided shape."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Split the octagon into triangles from one corner.",
+        "From one corner, an octagon splits into 6 triangles.",
+        "The angles add up to 6 × 180°."
+      ],
+      "explanation": "From one corner an octagon splits into 6 triangles, so its angles add up to 6 × 180° = 1080°. Each of the 8 equal angles is 1080° ÷ 8 = 135°.",
+      "solution": [
+        {
+          "say": "Triangles from one corner.",
+          "show": "8 - 2 = 6"
+        },
+        {
+          "say": "Angle sum.",
+          "show": "6 × 180° = 1080°"
+        },
+        {
+          "say": "Each angle.",
+          "show": "1080° ÷ 8 = 135°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-geometry.003",
+      "skill": "m6.oly-geometry",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A square fits exactly inside a circle, with its 4 corners on the circle. The circle has a radius of 5 cm. What is the area of the square?",
+      "figure": {
+        "kind": "shape",
+        "shape": "circle",
+        "alt": "A circle with a radius of 5 cm. A square sits inside it with all 4 corners touching the circle."
+      },
+      "options": [
+        {
+          "text": "25 cm²",
+          "why": "25 cm² is a square with sides of 5 cm. Here the diagonal is 10 cm."
+        },
+        {
+          "text": "50 cm²"
+        },
+        {
+          "text": "75 cm²",
+          "why": "Split the square into 4 triangles from the centre."
+        },
+        {
+          "text": "78.5 cm²",
+          "why": "78.5 cm² is roughly the area of the circle, not the square."
+        },
+        {
+          "text": "100 cm²",
+          "why": "100 cm² is the square around the outside of the circle."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The diagonals of the square are diameters of the circle.",
+        "Each diagonal is 10 cm long, and the diagonals cross at the centre.",
+        "Cut the square into 4 triangles along its diagonals."
+      ],
+      "explanation": "The diagonals cut the square into 4 right-angled triangles, each with two sides of 5 cm. Each triangle has an area of 5 × 5 ÷ 2 = 12.5 cm², so the square is 4 × 12.5 = 50 cm².",
+      "solution": [
+        {
+          "say": "The diagonals are diameters.",
+          "show": "10 cm each"
+        },
+        {
+          "say": "4 triangles with two sides of 5 cm.",
+          "show": "5 × 5 ÷ 2 = 12.5 cm²"
+        },
+        {
+          "say": "Square.",
+          "show": "4 × 12.5 = 50 cm²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-geometry.004",
+      "skill": "m6.oly-geometry",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Using π = 22/7, what is the circumference of a circle with a diameter of 14 cm?",
+      "options": [
+        {
+          "text": "14 cm",
+          "why": "14 cm is the diameter. The circumference is π times it."
+        },
+        {
+          "text": "22 cm",
+          "why": "22 cm is half the circumference."
+        },
+        {
+          "text": "44 cm"
+        },
+        {
+          "text": "88 cm",
+          "why": "88 cm uses the diameter twice. Circumference = π × diameter."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Circumference = π × diameter.",
+        "Use π = 22/7 and a diameter of 14 cm.",
+        "For 14 × 22/7, divide 14 by 7 first."
+      ],
+      "explanation": "Circumference = π × diameter = 22/7 × 14 = 22 × 2 = 44 cm.",
+      "solution": [
+        {
+          "say": "Formula.",
+          "show": "C = π × d"
+        },
+        {
+          "say": "Substitute.",
+          "show": "22/7 × 14"
+        },
+        {
+          "say": "Work it out.",
+          "show": "22 × 2 = 44 cm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-geometry.005",
+      "skill": "m6.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A 6 × 4 × 3 cuboid is built from 1 cm cubes and painted on the outside. How many small cubes have exactly one painted face?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cuboid",
+        "label": "6 × 4 × 3",
+        "alt": "A cuboid 6 cubes long, 4 cubes wide and 3 cubes tall, made of 1 cm cubes and painted on the outside."
+      },
+      "answer": 28,
+      "hints": [
+        "Cubes with one painted face are in the middle of a face, away from every edge.",
+        "On a face of 6 by 4, the middle part is 4 by 2.",
+        "Do the same for the 6 by 3 and 4 by 3 faces. There are two of each face."
+      ],
+      "explanation": "The middle parts are 4 × 2 = 8 on each 6 × 4 face, 4 × 1 = 4 on each 6 × 3 face and 2 × 1 = 2 on each 4 × 3 face. With two of each face: 2 × (8 + 4 + 2) = 28.",
+      "solution": [
+        {
+          "say": "6 × 4 faces.",
+          "show": "(6 - 2) × (4 - 2) = 8 each"
+        },
+        {
+          "say": "6 × 3 faces.",
+          "show": "(6 - 2) × (3 - 2) = 4 each"
+        },
+        {
+          "say": "4 × 3 faces.",
+          "show": "(4 - 2) × (3 - 2) = 2 each"
+        },
+        {
+          "say": "Two of each face.",
+          "show": "2 × (8 + 4 + 2) = 28"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-geometry.006",
+      "skill": "m6.oly-geometry",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Sebuah taman berbentuk lingkaran dengan jari-jari 14 m. Berapa luas taman itu? Gunakan π = 22/7.",
+      "options": [
+        {
+          "text": "88 m²",
+          "why": "88 adalah keliling taman dalam meter, bukan luasnya."
+        },
+        {
+          "text": "154 m²",
+          "why": "154 adalah luas lingkaran berjari-jari 7 m."
+        },
+        {
+          "text": "308 m²",
+          "why": "308 adalah setengah luasnya. Gunakan π × r × r."
+        },
+        {
+          "text": "616 m²"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Luas lingkaran = π × r × r.",
+        "Jari-jarinya 14 m.",
+        "Hitung 22/7 × 14 × 14. Bagi 14 dengan 7 dulu."
+      ],
+      "explanation": "Luas = 22/7 × 14 × 14 = 22 × 2 × 14 = 616 m².",
+      "solution": [
+        {
+          "say": "Rumus.",
+          "show": "L = π × r × r"
+        },
+        {
+          "say": "Masukkan angkanya.",
+          "show": "22/7 × 14 × 14"
+        },
+        {
+          "say": "Hitung.",
+          "show": "22 × 2 × 14 = 616 m²"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "taman",
+          "en": "garden, park"
+        },
+        {
+          "term": "lingkaran",
+          "en": "circle"
+        },
+        {
+          "term": "jari-jari",
+          "en": "radius"
+        },
+        {
+          "term": "luas",
+          "en": "area"
+        },
+        {
+          "term": "gunakan",
+          "en": "use"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-geometry.007",
+      "skill": "m6.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The angles of a triangle are in the ratio 2 : 3 : 4. What is the size of the largest angle?",
+      "answer": 80,
+      "unit": "°",
+      "hints": [
+        "The angles of a triangle add up to 180°.",
+        "The ratio has 2 + 3 + 4 = 9 parts.",
+        "Find the size of one part."
+      ],
+      "explanation": "There are 9 parts, so one part is 180° ÷ 9 = 20°. The largest angle is 4 parts: 80°.",
+      "solution": [
+        {
+          "say": "Parts.",
+          "show": "2 + 3 + 4 = 9"
+        },
+        {
+          "say": "One part.",
+          "show": "180° ÷ 9 = 20°"
+        },
+        {
+          "say": "Largest angle.",
+          "show": "4 × 20° = 80°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-geometry.008",
+      "skill": "m6.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "ABCDE is a regular pentagon. What is the size of angle ABD, between the side BA and the diagonal BD?",
+      "figure": {
+        "kind": "shape",
+        "shape": "pentagon",
+        "alt": "A regular pentagon with corners A, B, C, D and E in order. A diagonal joins B to D."
+      },
+      "answer": 72,
+      "unit": "°",
+      "hints": [
+        "Each angle of a regular pentagon is 108°.",
+        "Triangle BCD has BC = CD, so its two base angles are equal.",
+        "Angle CBD = (180° - 108°) ÷ 2."
+      ],
+      "explanation": "Each angle of the pentagon is 108°. In triangle BCD, BC = CD and angle C = 108°, so angle CBD = (180° - 108°) ÷ 2 = 36°. Then angle ABD = 108° - 36° = 72°.",
+      "solution": [
+        {
+          "say": "Pentagon angle.",
+          "show": "3 × 180° ÷ 5 = 108°"
+        },
+        {
+          "say": "Triangle BCD is isosceles.",
+          "show": "angle CBD = (180° - 108°) ÷ 2 = 36°"
+        },
+        {
+          "say": "Angle ABD.",
+          "show": "108° - 36° = 72°"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-geometry.009",
+      "skill": "m6.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "On a grid, A is at (1, 1), B is at (7, 1) and C is at (4, 5). What is the area of triangle ABC in square units?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "A"
+          },
+          {
+            "x": 7,
+            "y": 1,
+            "label": "B"
+          },
+          {
+            "x": 4,
+            "y": 5,
+            "label": "C"
+          }
+        ],
+        "polygon": true,
+        "alt": "A grid with points A at (1, 1), B at (7, 1) and C at (4, 5), joined to make a triangle."
+      },
+      "answer": 12,
+      "unit": "square units",
+      "hints": [
+        "Use AB as the base.",
+        "AB is flat, from x = 1 to x = 7.",
+        "The height is how far C is above the line AB."
+      ],
+      "explanation": "The base AB is 7 - 1 = 6 units long. C is 5 - 1 = 4 units above AB, so the height is 4. The area is 6 × 4 ÷ 2 = 12 square units.",
+      "solution": [
+        {
+          "say": "Base AB.",
+          "show": "7 - 1 = 6"
+        },
+        {
+          "say": "Height from C to AB.",
+          "show": "5 - 1 = 4"
+        },
+        {
+          "say": "Area.",
+          "show": "6 × 4 ÷ 2 = 12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "skill": "s4.teeth",
+  "title": "Types of teeth and how to care for them",
+  "steps": [
+    {
+      "say": "Teeth break food into small pieces so we can swallow it. Different teeth do different jobs.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "tooth",
+            "label": "tooth"
+          },
+          {
+            "icon": "toothbrush",
+            "label": "toothbrush"
+          }
+        ],
+        "alt": "A tooth and a toothbrush."
+      }
+    },
+    {
+      "say": "Incisors at the front cut and bite. Canines are pointed, and they grip and tear.",
+      "show": "incisors: cut. canines: tear."
+    },
+    {
+      "say": "Premolars and molars at the back are wide and flat. They crush and grind food.",
+      "show": "molars: grind"
+    },
+    {
+      "say": "Children have 20 milk teeth. Adults usually have 32 adult teeth.",
+      "show": "20 milk teeth → up to 32 adult teeth"
+    },
+    {
+      "say": "Bacteria feed on sugar and make acid that damages enamel. Brush twice a day with fluoride toothpaste.",
+      "show": "sugar + bacteria → acid → holes"
+    },
+    {
+      "say": "Animal teeth match their food. Meat eaters have sharp teeth, and plant eaters have flat, grinding teeth.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "lion",
+            "label": "lion"
+          },
+          {
+            "icon": "cow",
+            "label": "cow"
+          }
+        ],
+        "alt": "A lion and a cow."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.teeth.901",
+      "skill": "s4.teeth",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which teeth cut and bite food?",
+      "options": [
+        {
+          "text": "molars",
+          "why": "Molars grind food at the back."
+        },
+        {
+          "text": "incisors"
+        },
+        {
+          "text": "canines",
+          "why": "Canines grip and tear."
+        },
+        {
+          "text": "premolars",
+          "why": "Premolars crush food."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about biting into an apple.",
+        "These teeth are at the front of your mouth.",
+        "They are thin and sharp, like little blades."
+      ],
+      "explanation": "Incisors are the sharp front teeth. They cut and bite food."
+    },
+    {
+      "id": "s4.teeth.902",
+      "skill": "s4.teeth",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "An adult usually has 32 teeth. A child has 20 milk teeth. How many more teeth does an adult usually have?",
+      "answer": 12,
+      "hints": [
+        "How many more means find the difference.",
+        "Start with the adult number.",
+        "Take the child number away from it."
+      ],
+      "explanation": "32 take away 20 is 12, so an adult usually has 12 more teeth."
+    }
+  ]
+}

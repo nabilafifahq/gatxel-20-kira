@@ -1,0 +1,401 @@
+{
+  "skill": "s3.water-in-plants",
+  "items": [
+    {
+      "id": "s3.water-in-plants.001",
+      "skill": "s3.water-in-plants",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Water moves through a plant. Put the places in order, starting in the soil.",
+      "items": [
+        "soil",
+        "roots",
+        "stem",
+        "leaves"
+      ],
+      "hints": [
+        "Water starts outside the plant.",
+        "Follow the water from the bottom of the plant to the top.",
+        "After the soil, which part does the water go into first?"
+      ],
+      "explanation": "Water goes from the soil into the roots. It travels up the stem and reaches the leaves."
+    },
+    {
+      "id": "s3.water-in-plants.002",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of a plant carries water up from the roots to the leaves?",
+      "options": [
+        {
+          "text": "the flower",
+          "why": "The flower makes seeds. It gets water from the stem too."
+        },
+        {
+          "text": "the seed",
+          "why": "A seed is not part of a grown plant's water path."
+        },
+        {
+          "text": "the stem"
+        },
+        {
+          "text": "the soil",
+          "why": "Soil holds water, but it is not part of the plant."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the part between the roots and the leaves.",
+        "This part works like a pipe.",
+        "Trace a line from the roots up to a leaf. What do you pass through?"
+      ],
+      "explanation": "The stem has tiny tubes inside. They carry water from the roots up to the leaves and flowers."
+    },
+    {
+      "id": "s3.water-in-plants.003",
+      "skill": "s3.water-in-plants",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Water enters a plant through its ___.",
+      "blanks": [
+        {
+          "answers": [
+            "roots",
+            "root",
+            "the roots"
+          ]
+        }
+      ],
+      "hints": [
+        "Water is in the soil.",
+        "Which part of the plant is in the soil?",
+        "This part grows downwards from the bottom of the stem."
+      ],
+      "explanation": "Roots grow in the soil and take in water. The water then travels up the stem."
+    },
+    {
+      "id": "s3.water-in-plants.004",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ana stands a white flower in a glass of blue water. What will she see the next day?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "flower",
+            "label": "white flower"
+          },
+          {
+            "icon": "glass",
+            "label": "blue water"
+          }
+        ],
+        "alt": "A white flower with its stem standing in a glass of blue water."
+      },
+      "options": [
+        {
+          "text": "petals that are still pure white",
+          "why": "The blue water travels up the stem, so colour reaches the petals."
+        },
+        {
+          "text": "blue colour only at the bottom of the stem",
+          "why": "The water travels all the way up the stem to the petals."
+        },
+        {
+          "text": "new roots growing from the stem",
+          "why": "One day is far too short for new roots to grow."
+        },
+        {
+          "text": "blue colour in the petals"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The flower takes in the water it stands in.",
+        "Think about where the water travels once it is inside the stem.",
+        "Follow the blue water from the glass up the stem."
+      ],
+      "explanation": "The flower takes up the blue water through its stem. The water travels to the petals, so they turn blue.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.005",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Bima stands a celery stalk in red water. Later he cuts it across and sees red dots. What are they?",
+      "options": [
+        {
+          "text": "tiny tubes that carried the red water up"
+        },
+        {
+          "text": "seeds inside the stalk",
+          "why": "Seeds are made in flowers, not inside celery stalks."
+        },
+        {
+          "text": "holes made by insects",
+          "why": "The red colour shows where water travelled, not insect holes."
+        },
+        {
+          "text": "food that the stalk made",
+          "why": "Leaves make the food. The red shows where water moved."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The red colour came from the water.",
+        "Think about how water travels up a stalk.",
+        "Ask yourself: what would carry water, like a straw?"
+      ],
+      "explanation": "The red dots are the ends of tiny tubes. These tubes carry water up the stalk, so they turned red.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.006",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A potted plant has had no water for a week. What do its leaves look like?",
+      "options": [
+        {
+          "text": "bigger and greener",
+          "why": "Without water, a plant cannot stay firm or grow well."
+        },
+        {
+          "text": "droopy and floppy"
+        },
+        {
+          "text": "covered in flowers",
+          "why": "A plant with no water is struggling. It does not suddenly flower."
+        },
+        {
+          "text": "exactly the same as before",
+          "why": "Plants need water to stay firm. Without it, they droop."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water helps a plant stay firm.",
+        "Think about a plant that has been forgotten on a hot day.",
+        "Picture the leaves when the water inside them runs out."
+      ],
+      "explanation": "Water inside a plant keeps its stem and leaves firm. Without water, the plant wilts and its leaves droop."
+    },
+    {
+      "id": "s3.water-in-plants.007",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A wilted plant is watered. A few hours later it stands up again. Why?",
+      "options": [
+        {
+          "text": "It grows a set of new leaves very quickly.",
+          "why": "New leaves take days to grow. The old leaves fill with water again."
+        },
+        {
+          "text": "The soil pushes the plant back up.",
+          "why": "Soil does not push plants. Water inside the plant makes it firm."
+        },
+        {
+          "text": "Water travels up the stem and makes the plant firm again."
+        },
+        {
+          "text": "Sunlight makes the stem stronger straight away.",
+          "why": "Light helps a plant make food, but the quick change comes from water."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what the plant was missing.",
+        "Remember the path water takes inside a plant.",
+        "Ask: where does the new water go after it enters the roots?"
+      ],
+      "explanation": "The roots take in the water. It travels up the stem into the leaves, which become firm again."
+    },
+    {
+      "id": "s3.water-in-plants.008",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Pak Darto waters his chilli plants. Where is the best place to pour the water?",
+      "options": [
+        {
+          "text": "only on the flowers",
+          "why": "Flowers do not take in water for the whole plant."
+        },
+        {
+          "text": "only on the top leaves",
+          "why": "Leaves take in very little water. Most water enters through the roots."
+        },
+        {
+          "text": "on the chillies",
+          "why": "The fruit does not take in water for the plant."
+        },
+        {
+          "text": "on the soil around the roots"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about which part takes in water.",
+        "Where is that part of the plant?",
+        "Water needs to reach the part hidden in the soil."
+      ],
+      "explanation": "Most water enters a plant through its roots. Pouring water on the soil lets it soak down to the roots.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.009",
+      "skill": "s3.water-in-plants",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 reasons why a plant needs water.",
+      "options": [
+        {
+          "text": "to make its flowers smell",
+          "why": "Water does not decide how flowers smell."
+        },
+        {
+          "text": "to stay firm and upright"
+        },
+        {
+          "text": "to keep birds away",
+          "why": "Water does not keep birds away from a plant."
+        },
+        {
+          "text": "to help its leaves make food"
+        },
+        {
+          "text": "to stop its roots growing",
+          "why": "Water helps roots grow. It does not stop them."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ],
+      "hints": [
+        "Think about what happens to a plant with no water.",
+        "Remember what leaves need to make food.",
+        "Look for one reason about shape and one about food."
+      ],
+      "explanation": "Water keeps a plant firm so it can stand up. Leaves also use water, with light and air, to make food."
+    },
+    {
+      "id": "s3.water-in-plants.010",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hana ties a clear plastic bag over some leaves on a sunny day. Later, water drops form inside. Where did the water come from?",
+      "options": [
+        {
+          "text": "from inside the leaves"
+        },
+        {
+          "text": "from the plastic bag",
+          "why": "The bag was dry. Plastic does not make water."
+        },
+        {
+          "text": "from the Sun",
+          "why": "The Sun gives light and warmth, not water."
+        },
+        {
+          "text": "from rain outside the bag",
+          "why": "The bag was closed, and it was a sunny day."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The bag was dry and closed.",
+        "Remember where water ends up after it travels up the stem.",
+        "Think about what was inside the bag with the air."
+      ],
+      "explanation": "Water travels up the stem to the leaves. Some of it escapes from the leaves into the air and collects as drops on the bag.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.011",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Two celery stalks stand in red water. Stalk A has leaves. Stalk B has no leaves. Which turns red higher up first?",
+      "options": [
+        {
+          "text": "Stalk B, because it has fewer parts to fill",
+          "why": "Leaves help pull water up. Without them, water rises more slowly."
+        },
+        {
+          "text": "Stalk A, because water leaving the leaves pulls more water up"
+        },
+        {
+          "text": "both at the same speed, because water just soaks up",
+          "why": "Leaves lose water into the air, and this pulls more water up the stalk."
+        },
+        {
+          "text": "neither, because celery cannot carry water",
+          "why": "Celery stalks have tiny tubes that carry water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what the leaves do with water.",
+        "Water escapes from leaves into the air.",
+        "If water leaves from the top, what happens to the water below it?"
+      ],
+      "explanation": "Water escapes from leaves into the air. This pulls more water up the tubes, so the stalk with leaves turns red higher up first.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.012",
+      "skill": "s3.water-in-plants",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Explain how water gets from the soil to a leaf. Use the words roots and stem.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says water enters through the roots",
+            "points": 1
+          },
+          {
+            "label": "Says water travels up the stem",
+            "points": 1
+          },
+          {
+            "label": "Says water reaches the leaves",
+            "points": 1
+          },
+          {
+            "label": "Writes in full sentences",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 15,
+      "maxWords": 60,
+      "planning": [
+        "Where does the water start?",
+        "Which part takes it in?",
+        "How does it get up to the leaf?"
+      ],
+      "model": "First, the roots take in water from the soil. Then the water travels up tiny tubes inside the stem. Finally, the water reaches the leaves, where it helps make food.",
+      "hints": [
+        "Start where the water is: the soil.",
+        "Use the words first, then and finally."
+      ],
+      "explanation": "Water enters the roots from the soil. It travels up tiny tubes in the stem until it reaches the leaves."
+    }
+  ]
+}

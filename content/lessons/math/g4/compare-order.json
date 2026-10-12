@@ -1,0 +1,101 @@
+{
+  "skill": "m4.compare-order",
+  "title": "Compare and order numbers to 10,000",
+  "steps": [
+    {
+      "say": "Compare the thousands first. More thousands means a bigger number.",
+      "show": "5,120 > 4,980"
+    },
+    {
+      "say": "If the thousands are the same, compare the hundreds.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Number",
+          "Th",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            "6,412",
+            "6",
+            "4",
+            "1",
+            "2"
+          ],
+          [
+            "6,389",
+            "6",
+            "3",
+            "8",
+            "9"
+          ]
+        ],
+        "alt": "A place value table for 6,412 and 6,389."
+      }
+    },
+    {
+      "say": "6,412 has 4 hundreds and 6,389 has 3 hundreds.",
+      "show": "6,412 > 6,389"
+    },
+    {
+      "say": "To order numbers, compare them place by place, from the left.",
+      "show": "2,045 < 2,450 < 2,504"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.compare-order.901",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the smallest?",
+      "options": [
+        {
+          "text": "3,509",
+          "why": "3,509 has 5 hundreds. 3,059 has 0 hundreds."
+        },
+        {
+          "text": "3,950",
+          "why": "3,950 has 9 hundreds. 3,059 has 0 hundreds."
+        },
+        {
+          "text": "3,059"
+        },
+        {
+          "text": "3,590",
+          "why": "3,590 has 5 hundreds. 3,059 has 0 hundreds."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "All the numbers have 3 thousands.",
+        "Compare the hundreds next.",
+        "The smallest number has the fewest hundreds."
+      ],
+      "explanation": "All the numbers have 3 thousands. 3,059 has 0 hundreds, so it is the smallest."
+    },
+    {
+      "id": "m4.compare-order.902",
+      "skill": "m4.compare-order",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write < or > in the gap. 7,301 ___ 7,310",
+      "blanks": [
+        {
+          "answers": [
+            "<"
+          ]
+        }
+      ],
+      "hints": [
+        "The thousands and the hundreds are the same.",
+        "Compare the tens next.",
+        "The sign opens towards the bigger number."
+      ],
+      "explanation": "7,301 has 0 tens and 7,310 has 1 ten, so 7,301 < 7,310."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "skill": "m5.coordinates-transformations",
+  "title": "Coordinates, translation and reflection",
+  "steps": [
+    {
+      "say": "Coordinates give the position of a point. Read along the x-axis first, then up the y-axis.",
+      "show": "A = (4, 2)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 4,
+            "y": 2,
+            "label": "A"
+          }
+        ],
+        "alt": "A grid with point A at (4, 2)."
+      }
+    },
+    {
+      "say": "A helpful saying is along the corridor, then up the stairs.",
+      "show": "(x, y)"
+    },
+    {
+      "say": "To translate a point, slide it without turning. Moving 3 right and 2 up adds 3 to x and 2 to y.",
+      "show": "(1, 2) moves to (4, 4)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 1,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "label": "A'"
+          }
+        ],
+        "alt": "Point A at (1, 2) and its translated image A' at (4, 4)."
+      }
+    },
+    {
+      "say": "A reflection flips a point over a mirror line. The image is the same distance from the line on the other side.",
+      "show": "P is 2 squares left of the line x = 4, so its image is 2 squares right",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 2,
+            "y": 3,
+            "label": "P"
+          },
+          {
+            "x": 6,
+            "y": 3,
+            "label": "P'"
+          }
+        ],
+        "alt": "Point P at (2, 3) and its image P' at (6, 3), reflected in the line x = 4."
+      }
+    },
+    {
+      "say": "When you reflect in a vertical mirror line, the y-coordinate stays the same.",
+      "show": "(2, 3) reflects to (6, 3)"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.coordinates-transformations.901",
+      "skill": "m5.coordinates-transformations",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What are the coordinates of point B?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 3,
+            "y": 5,
+            "label": "B"
+          }
+        ],
+        "alt": "A grid with point B, 3 along and 5 up."
+      },
+      "hints": [
+        "Start at (0, 0).",
+        "Count along the x-axis first.",
+        "Then count up to the point."
+      ],
+      "explanation": "B is 3 along and 5 up, so it is at (3, 5).",
+      "options": [
+        {
+          "text": "(3, 4)",
+          "why": "Count up the y-axis again."
+        },
+        {
+          "text": "(4, 5)",
+          "why": "Count the squares along the x-axis again."
+        },
+        {
+          "text": "(3, 5)"
+        },
+        {
+          "text": "(5, 3)",
+          "why": "Read along the x-axis first, then up."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.coordinates-transformations.902",
+      "skill": "m5.coordinates-transformations",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Point C is at (2, 6). It is translated 4 right and 3 down. Where is it now? Write it like (x, y).",
+      "hints": [
+        "Moving right or left changes the x-coordinate.",
+        "Moving up or down changes the y-coordinate.",
+        "Add 4 to the x-coordinate first."
+      ],
+      "explanation": "2 + 4 = 6 and 6 − 3 = 3, so C moves to (6, 3).",
+      "blanks": [
+        {
+          "answers": [
+            "(6, 3)",
+            "(6,3)",
+            "6, 3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.coordinates-transformations.903",
+      "skill": "m5.coordinates-transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Point D is at (1, 4). It is reflected in the line x = 3. Where is its image?",
+      "hints": [
+        "How far is D from the line x = 3?",
+        "The image is the same distance away on the other side.",
+        "D is 2 squares to the left of the line."
+      ],
+      "explanation": "D is 2 squares left of x = 3, so the image is 2 squares right of it, at (5, 4).",
+      "options": [
+        {
+          "text": "(1, 2)",
+          "why": "That changes the y-coordinate. A vertical mirror line changes x."
+        },
+        {
+          "text": "(3, 4)",
+          "why": "That is on the mirror line. The image is on the other side."
+        },
+        {
+          "text": "(4, 4)",
+          "why": "D is 2 squares from the line, so the image is 2 squares past it."
+        },
+        {
+          "text": "(5, 4)"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "skill": "m3.round-10-100",
+  "title": "Round to the nearest 10 or 100",
+  "steps": [
+    {
+      "say": "Rounding finds the nearest ten or hundred. A number line helps.",
+      "figure": {
+        "kind": "numberline",
+        "min": 40,
+        "max": 50,
+        "step": 1,
+        "labels": "ends",
+        "marks": [
+          {
+            "at": 47,
+            "label": "47"
+          }
+        ],
+        "alt": "A number line from 40 to 50 with 47 marked."
+      }
+    },
+    {
+      "say": "47 is between 40 and 50. It is closer to 50.",
+      "show": "47 rounds to 50"
+    },
+    {
+      "say": "Look at the ones digit. 5 or more rounds up, and less than 5 rounds down.",
+      "show": "45 rounds to 50, 44 rounds to 40"
+    },
+    {
+      "say": "To round to the nearest 100, look at the tens digit.",
+      "figure": {
+        "kind": "numberline",
+        "min": 300,
+        "max": 400,
+        "step": 10,
+        "labels": "ends",
+        "marks": [
+          {
+            "at": 360,
+            "label": "360"
+          }
+        ],
+        "alt": "A number line from 300 to 400 with 360 marked."
+      }
+    },
+    {
+      "say": "360 has 6 tens, so it rounds up to 400.",
+      "show": "360 rounds to 400"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.round-10-100.901",
+      "skill": "m3.round-10-100",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Round 73 to the nearest 10.",
+      "answer": 70,
+      "hints": [
+        "Which two tens is 73 between?",
+        "Look at the ones digit.",
+        "A ones digit less than 5 rounds down."
+      ],
+      "explanation": "73 is between 70 and 80. The ones digit is 3, so 73 rounds down to 70."
+    },
+    {
+      "id": "m3.round-10-100.902",
+      "skill": "m3.round-10-100",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Round 650 to the nearest 100.",
+      "answer": 700,
+      "hints": [
+        "Which two hundreds is 650 between?",
+        "Look at the tens digit.",
+        "A tens digit of 5 or more rounds up."
+      ],
+      "explanation": "650 is halfway between 600 and 700. Halfway numbers round up, so 650 rounds to 700."
+    }
+  ]
+}

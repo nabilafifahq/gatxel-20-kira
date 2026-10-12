@@ -1,0 +1,33 @@
+{
+  "skill": "s2.plants-grow",
+  "title": "What plants need",
+  "steps": [
+    { "say": "Plants need water, light, air and warmth to grow well.", "figure": { "kind": "icons", "items": [{ "icon": "seedling", "label": "plant" }, { "icon": "sun", "label": "light" }, { "icon": "water-drop", "label": "water" }], "alt": "A young plant with sunlight and water." } },
+    { "say": "Roots take in water from the soil. The stem carries it up to the leaves.", "show": "roots → stem → leaves" },
+    { "say": "Leaves use light, air and water to make food. Plants do not eat soil.", "show": "Leaves make the food." },
+    { "say": "Without light, a plant turns pale and weak.", "show": "no light: pale and weak" },
+    { "say": "A seed needs water and warmth to start growing.", "figure": { "kind": "icons", "items": [{ "icon": "seed", "label": "seed" }, { "icon": "seedling", "label": "seedling" }], "arrows": "chain", "alt": "A seed grows into a seedling." } }
+  ],
+  "check": [
+    {
+      "id": "s2.plants-grow.901", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 2,
+      "prompt": "Where does a plant make its food?",
+      "options": [
+        { "text": "in its roots", "why": "Roots take in water. They do not make food." },
+        { "text": "in the soil", "why": "Plants do not eat soil." },
+        { "text": "in its leaves" },
+        { "text": "in its flowers", "why": "Flowers make seeds." }
+      ],
+      "answer": 2,
+      "hints": ["Food is made using light.", "Which part catches the most light?", "Look for the flat green parts."],
+      "explanation": "Plants make their food in their leaves, using light, air and water."
+    },
+    {
+      "id": "s2.plants-grow.902", "skill": "s2.plants-grow", "type": "text", "difficulty": 2,
+      "prompt": "A plant needs water, air, warmth and ___ to grow well.",
+      "blanks": [{ "answers": ["light", "sunlight", "sun", "the sun", "sunshine", "space"] }],
+      "hints": ["One need is missing from the list.", "Think about where we put plants indoors.", "What does a window let in?"],
+      "explanation": "Plants need light as well as water, air and warmth. They use light to make their food."
+    }
+  ]
+}

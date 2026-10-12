@@ -1,0 +1,399 @@
+{
+  "skill": "e1.naming-doing-words",
+  "items": [
+    {
+      "id": "e1.naming-doing-words.001",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a naming word?",
+      "hints": [
+        "A naming word names a thing, person, animal or place.",
+        "Can you point to it or hold it?",
+        "Which one could you put in a lunch box?"
+      ],
+      "explanation": "Apple names a thing, so it is a naming word (a noun).",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "apple"
+        },
+        {
+          "text": "red",
+          "why": "Red is a describing word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.naming-doing-words.002",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a doing word?",
+      "hints": [
+        "A doing word is an action.",
+        "Can you do it right now?",
+        "Stand up and try to act out each word."
+      ],
+      "explanation": "Jump is something you do, so it is a doing word (a verb).",
+      "options": [
+        {
+          "text": "chair",
+          "why": "Chair names a thing."
+        },
+        {
+          "text": "big",
+          "why": "Big describes a thing."
+        },
+        {
+          "text": "jump"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.003",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a describing word?",
+      "hints": [
+        "A describing word tells us more about a thing.",
+        "It can tell how something looks or feels.",
+        "Which word could go in the gap: a ___ pillow?"
+      ],
+      "explanation": "Soft tells us how something feels. It is a describing word (an adjective).",
+      "options": [
+        {
+          "text": "soft"
+        },
+        {
+          "text": "pillow",
+          "why": "Pillow names a thing."
+        },
+        {
+          "text": "sleep",
+          "why": "Sleep is a doing word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.004",
+      "skill": "e1.naming-doing-words",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Naming words or doing words?",
+      "hints": [
+        "Naming words are things you can see or touch.",
+        "Doing words are actions.",
+        "Start with cat. Can you do cat?"
+      ],
+      "explanation": "Cat, ball and house are naming words. Run, eat and swim are doing words.",
+      "groups": [
+        "Naming words",
+        "Doing words"
+      ],
+      "items": [
+        {
+          "text": "cat",
+          "group": 0
+        },
+        {
+          "text": "run",
+          "group": 1
+        },
+        {
+          "text": "ball",
+          "group": 0
+        },
+        {
+          "text": "eat",
+          "group": 1
+        },
+        {
+          "text": "house",
+          "group": 0
+        },
+        {
+          "text": "swim",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.005",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Find the doing word. 'The duck swims in the pond.'",
+      "hints": [
+        "Look for the action.",
+        "What does the duck do?",
+        "Ask: what is happening?"
+      ],
+      "explanation": "Swims is the action. It tells us what the duck does.",
+      "options": [
+        {
+          "text": "duck",
+          "why": "Duck names an animal."
+        },
+        {
+          "text": "pond",
+          "why": "Pond names a place."
+        },
+        {
+          "text": "swims"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.006",
+      "skill": "e1.naming-doing-words",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 naming words. 'The boy has a kite.'",
+      "hints": [
+        "Two words are right.",
+        "Look for a person and a thing.",
+        "Which words could you draw?"
+      ],
+      "explanation": "Boy names a person and kite names a thing. They are naming words.",
+      "options": [
+        {
+          "text": "The",
+          "why": "The is a little word that comes before a naming word."
+        },
+        {
+          "text": "boy"
+        },
+        {
+          "text": "has",
+          "why": "Has is a doing word."
+        },
+        {
+          "text": "kite"
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.007",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which describing word tells the colour? 'I have a big red ball.'",
+      "hints": [
+        "There are two describing words.",
+        "One tells the size and one tells the colour.",
+        "Which word could be a crayon?"
+      ],
+      "explanation": "Red tells us the colour. Big tells us the size.",
+      "options": [
+        {
+          "text": "red"
+        },
+        {
+          "text": "big",
+          "why": "Big tells us the size."
+        },
+        {
+          "text": "ball",
+          "why": "Ball is a naming word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.008",
+      "skill": "e1.naming-doing-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the naming word in this sentence. 'Look at the moon.'",
+      "hints": [
+        "Look is a doing word.",
+        "Find the thing you can see.",
+        "Which word names something in the sky?"
+      ],
+      "explanation": "Moon names a thing, so it is the naming word.",
+      "blanks": [
+        {
+          "answers": [
+            "moon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.009",
+      "skill": "e1.naming-doing-words",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each thing to a describing word.",
+      "hints": [
+        "Think about how each thing feels or tastes.",
+        "Do the easy ones first.",
+        "Start with ice. How does ice feel?"
+      ],
+      "explanation": "Ice is cold, the sun is hot, a rabbit is fluffy and a lemon is sour.",
+      "pairs": [
+        [
+          "ice",
+          "cold"
+        ],
+        [
+          "sun",
+          "hot"
+        ],
+        [
+          "rabbit",
+          "fluffy"
+        ],
+        [
+          "lemon",
+          "sour"
+        ]
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.010",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is NOT a doing word?",
+      "hints": [
+        "Three words are actions.",
+        "Try acting out each word.",
+        "Which word tells how you feel?"
+      ],
+      "explanation": "Happy describes how you feel. Sing, read and clap are doing words.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "sing",
+          "why": "Sing is something you do."
+        },
+        {
+          "text": "happy"
+        },
+        {
+          "text": "read",
+          "why": "Read is something you do."
+        },
+        {
+          "text": "clap",
+          "why": "Clap is something you do."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.naming-doing-words.011",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How many naming words? 'The girl and her dog run to the park.'",
+      "hints": [
+        "Look for people, animals, things and places.",
+        "Do not count doing words.",
+        "Point to each naming word as you count."
+      ],
+      "explanation": "Girl, dog and park are naming words. That makes 3.",
+      "options": [
+        {
+          "text": "2",
+          "why": "Look for people, animals and places."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Run is a doing word, not a naming word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.naming-doing-words.012",
+      "skill": "e1.naming-doing-words",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the doing words. 'Ana jumps, claps and sings.'",
+      "hints": [
+        "Three words are right.",
+        "Look for the actions.",
+        "What does Ana do?"
+      ],
+      "explanation": "Jumps, claps and sings are all things Ana does.",
+      "options": [
+        {
+          "text": "Ana",
+          "why": "Ana is a name, so it is a naming word."
+        },
+        {
+          "text": "jumps"
+        },
+        {
+          "text": "claps"
+        },
+        {
+          "text": "and",
+          "why": "And is a joining word."
+        },
+        {
+          "text": "sings"
+        }
+      ],
+      "answers": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.013",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word can be a naming word AND a doing word?",
+      "hints": [
+        "Think of two sentences for each word.",
+        "Can you have one? Can you do it?",
+        "Try each word in: I have a ___. Then try: I ___ every day."
+      ],
+      "explanation": "Brush can be a thing: a brush. It can be an action too: brush your hair.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "apple",
+          "why": "Apple is only a naming word."
+        },
+        {
+          "text": "tall",
+          "why": "Tall is a describing word."
+        },
+        {
+          "text": "under",
+          "why": "Under tells where something is."
+        },
+        {
+          "text": "brush"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

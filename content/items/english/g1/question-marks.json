@@ -1,0 +1,355 @@
+{
+  "skill": "e1.question-marks",
+  "items": [
+    {
+      "id": "e1.question-marks.001",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is a question?",
+      "hints": [
+        "A question asks something.",
+        "Questions end with a special mark.",
+        "Look for the mark that curls at the top."
+      ],
+      "explanation": "Where is my hat? asks something, so it is a question. It ends with a question mark.",
+      "options": [
+        {
+          "text": "My hat is red.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Where is my hat?"
+        },
+        {
+          "text": "I have a hat.",
+          "why": "This tells us something."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.question-marks.002",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What goes at the end? 'What is your name'",
+      "hints": [
+        "Read it out loud. Does it ask something?",
+        "What is an asking word.",
+        "Questions need a curly mark at the end."
+      ],
+      "explanation": "What is your name? asks something. A question ends with a question mark.",
+      "options": [
+        {
+          "text": "a question mark (?)"
+        },
+        {
+          "text": "a full stop (.)",
+          "why": "This sentence asks something."
+        },
+        {
+          "text": "an exclamation mark (!)",
+          "why": "This is not a shout or a big feeling."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.question-marks.003",
+      "skill": "e1.question-marks",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it a question or a telling sentence? Sort them.",
+      "hints": [
+        "Read each one out loud.",
+        "A question asks something and wants an answer.",
+        "Start with Can you swim. Does it ask something?"
+      ],
+      "explanation": "Can you swim, Is it raining and Do you like mangoes are questions. The others tell us something.",
+      "groups": [
+        "Question",
+        "Telling sentence"
+      ],
+      "items": [
+        {
+          "text": "Can you swim",
+          "group": 0
+        },
+        {
+          "text": "I can swim",
+          "group": 1
+        },
+        {
+          "text": "Is it raining",
+          "group": 0
+        },
+        {
+          "text": "It is raining",
+          "group": 1
+        },
+        {
+          "text": "Do you like mangoes",
+          "group": 0
+        },
+        {
+          "text": "I like mangoes",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.question-marks.004",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word often starts a question?",
+      "hints": [
+        "Think of words that ask.",
+        "Who, where and when are asking words too.",
+        "Which word could start: ___ is that?"
+      ],
+      "explanation": "What is a question word, like who, where and when.",
+      "options": [
+        {
+          "text": "The",
+          "why": "The starts many telling sentences."
+        },
+        {
+          "text": "What"
+        },
+        {
+          "text": "My",
+          "why": "My starts many telling sentences."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.question-marks.005",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence shows a big feeling?",
+      "hints": [
+        "A big feeling can be surprise or joy.",
+        "Big feelings end with a special mark.",
+        "Look for the mark that is a line with a dot under it."
+      ],
+      "explanation": "Wow, a rainbow! shows surprise. It ends with an exclamation mark.",
+      "options": [
+        {
+          "text": "Wow, a rainbow!"
+        },
+        {
+          "text": "It is a rainbow.",
+          "why": "This is a calm telling sentence."
+        },
+        {
+          "text": "Is it a rainbow?",
+          "why": "This is a question."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.question-marks.006",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the best end mark. 'Help, my kite is stuck in the tree'",
+      "hints": [
+        "Read it like the person is calling out.",
+        "Help is a word we often shout.",
+        "Shouting and strong feelings need a special mark."
+      ],
+      "explanation": "Help! is a call out. We use an exclamation mark for shouting and strong feelings.",
+      "options": [
+        {
+          "text": "a question mark (?)",
+          "why": "This does not ask a question."
+        },
+        {
+          "text": "a full stop (.)",
+          "why": "A full stop is calm. This person is calling for help."
+        },
+        {
+          "text": "an exclamation mark (!)"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.question-marks.007",
+      "skill": "e1.question-marks",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the questions.",
+      "hints": [
+        "Three are questions.",
+        "Questions ask something.",
+        "Look at the end marks and the first words."
+      ],
+      "explanation": "Who is at the door?, How old are you? and Can I come too? all ask something.",
+      "options": [
+        {
+          "text": "Who is at the door?"
+        },
+        {
+          "text": "Look at the bird!",
+          "why": "This tells someone to do something."
+        },
+        {
+          "text": "How old are you?"
+        },
+        {
+          "text": "I am seven.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Can I come too?"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e1.question-marks.008",
+      "skill": "e1.question-marks",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Make it a question. Write the missing word. 'You can swim.' becomes '___ you swim?'",
+      "hints": [
+        "In a question, two words swap places.",
+        "Look at the words in: You can swim.",
+        "Which word moves to the front?"
+      ],
+      "explanation": "Can moves to the front to make a question: Can you swim? It needs a capital C at the start.",
+      "blanks": [
+        {
+          "answers": [
+            "Can"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e1.question-marks.009",
+      "skill": "e1.question-marks",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "The first word has a capital letter.",
+        "The last word has a question mark.",
+        "Start with the word that has a capital letter."
+      ],
+      "explanation": "Do you like cats? starts with a capital letter and ends with a question mark.",
+      "items": [
+        "Do",
+        "you",
+        "like",
+        "cats?"
+      ]
+    },
+    {
+      "id": "e1.question-marks.010",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Check the start and the end.",
+        "Does the sentence ask something?",
+        "Find the capital letter and the question mark together."
+      ],
+      "explanation": "Where is the cat? starts with a capital letter and ends with a question mark.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "where is the dog?",
+          "why": "A sentence starts with a capital letter."
+        },
+        {
+          "text": "Where is the bird.",
+          "why": "This asks something, so it needs a question mark."
+        },
+        {
+          "text": "Where is the cat?"
+        },
+        {
+          "text": "where is the fish.",
+          "why": "It needs a capital letter and a question mark."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.question-marks.011",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which question goes with this answer? 'I am seven.'",
+      "hints": [
+        "The answer is a number.",
+        "Seven tells us an age.",
+        "Which question asks about age?"
+      ],
+      "explanation": "I am seven tells your age. How old are you? asks about age.",
+      "options": [
+        {
+          "text": "What is your name?",
+          "why": "The answer would be a name."
+        },
+        {
+          "text": "How old are you?"
+        },
+        {
+          "text": "Where do you live?",
+          "why": "The answer would be a place."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.question-marks.012",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which one needs a question mark?",
+      "hints": [
+        "Be careful. Some sentences have question words but do not ask.",
+        "A question wants someone to answer.",
+        "Which one could you answer with yes or no?"
+      ],
+      "explanation": "Can you see my ball? asks something, so it needs a question mark. I wonder where my ball is tells a thought, so it ends with a full stop.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "I wonder where my ball is",
+          "why": "This tells us what someone is thinking. It does not ask."
+        },
+        {
+          "text": "Tell me your name",
+          "why": "This tells someone to do something."
+        },
+        {
+          "text": "Can you see my ball"
+        },
+        {
+          "text": "Look at my ball",
+          "why": "This tells someone to do something."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

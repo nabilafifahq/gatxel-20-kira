@@ -1,0 +1,88 @@
+{
+  "skill": "m4.time-24-hour",
+  "title": "12-hour and 24-hour clocks",
+  "steps": [
+    {
+      "say": "The 24-hour clock counts the hours from 0 to 23. It always uses four digits.",
+      "show": "07:15"
+    },
+    {
+      "say": "Morning times keep their hour. Put a 0 in front if the hour has one digit.",
+      "show": "7:15 a.m. = 07:15"
+    },
+    {
+      "say": "For afternoon and evening times, add 12 to the hour.",
+      "show": "3:40 p.m. = 15:40"
+    },
+    {
+      "say": "To go back to 12-hour time, take 12 away from hours after 12.",
+      "figure": {
+        "kind": "clock",
+        "h": 18,
+        "m": 30,
+        "digital": true,
+        "alt": "A digital clock showing 18:30."
+      },
+      "show": "18:30 = 6:30 p.m."
+    },
+    {
+      "say": "Midnight is 00:00 and midday is 12:00.",
+      "show": "00:00 and 12:00"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.time-24-hour.901",
+      "skill": "m4.time-24-hour",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write 9:25 p.m. in 24-hour time. ___",
+      "blanks": [
+        {
+          "answers": [
+            "21:25",
+            "21.25",
+            "2125"
+          ]
+        }
+      ],
+      "hints": [
+        "p.m. times are after midday.",
+        "Add 12 to the hour.",
+        "Work out 9 + 12."
+      ],
+      "explanation": "9 + 12 = 21, so 9:25 p.m. is 21:25."
+    },
+    {
+      "id": "m4.time-24-hour.902",
+      "skill": "m4.time-24-hour",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is 16:05 in 12-hour time?",
+      "options": [
+        {
+          "text": "4:05 a.m.",
+          "why": "16:05 is after midday, so it is p.m."
+        },
+        {
+          "text": "4:05 p.m."
+        },
+        {
+          "text": "16:05 p.m.",
+          "why": "12-hour times only go up to 12."
+        },
+        {
+          "text": "6:05 p.m.",
+          "why": "Take 12 away from the hour, not 10."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "16 is more than 12, so it is after midday.",
+        "Take 12 away from the hour.",
+        "Then add p.m."
+      ],
+      "explanation": "16 - 12 = 4, so 16:05 is 4:05 p.m."
+    }
+  ]
+}

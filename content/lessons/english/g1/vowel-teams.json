@@ -1,0 +1,102 @@
+{
+  "skill": "e1.vowel-teams",
+  "title": "Vowel teams",
+  "steps": [
+    {
+      "say": "Two vowels can team up to make one long sound.",
+      "show": "a + i = ai"
+    },
+    {
+      "say": "Ai says a, like in rain and tail.",
+      "show": "rain, tail",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "rain"
+          }
+        ],
+        "alt": "Rain falling from a cloud."
+      }
+    },
+    {
+      "say": "Ee says e, like in tree. Oa says o, like in boat.",
+      "show": "tree, boat"
+    },
+    {
+      "say": "Igh has three letters. It says i, like in night.",
+      "show": "night, light"
+    },
+    {
+      "say": "Oo says oo, like in moon and food.",
+      "show": "moon, food",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "moon"
+          }
+        ],
+        "alt": "The moon."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.vowel-teams.901",
+      "skill": "e1.vowel-teams",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word has oa?",
+      "hints": [
+        "Look for o and a together.",
+        "Oa says the long o sound.",
+        "Check the middle of each word."
+      ],
+      "explanation": "Coat has oa. It says the long o sound.",
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat has a."
+        },
+        {
+          "text": "cot",
+          "why": "Cot has only o."
+        },
+        {
+          "text": "coat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.vowel-teams.902",
+      "skill": "e1.vowel-teams",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing letters: tr ___",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "tree"
+          }
+        ],
+        "alt": "A picture of a tree."
+      },
+      "hints": [
+        "Say the picture name.",
+        "The end sound is a long e.",
+        "Two letters that are the same make this sound."
+      ],
+      "explanation": "Tree ends with ee.",
+      "blanks": [
+        {
+          "answers": [
+            "ee"
+          ]
+        }
+      ]
+    }
+  ]
+}

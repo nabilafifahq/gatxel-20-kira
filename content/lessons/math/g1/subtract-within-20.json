@@ -1,0 +1,84 @@
+{
+  "skill": "m1.subtract-within-20",
+  "title": "Taking away",
+  "steps": [
+    {
+      "say": "Subtracting means taking some away.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "bird",
+            "count": 8,
+            "crossed": 3
+          }
+        ],
+        "alt": "8 birds. 3 of them are crossed out."
+      }
+    },
+    {
+      "say": "8 take away 3 leaves 5.",
+      "show": "8 - 3 = 5"
+    },
+    {
+      "say": "You can count back on a number line.",
+      "figure": {
+        "kind": "numberline",
+        "min": 10,
+        "max": 20,
+        "step": 1,
+        "labels": "all",
+        "jumps": [
+          {
+            "from": 15,
+            "to": 14
+          },
+          {
+            "from": 14,
+            "to": 13
+          },
+          {
+            "from": 13,
+            "to": 12
+          }
+        ],
+        "alt": "3 jumps back from 15 to 12."
+      },
+      "show": "15 - 3 = 12"
+    },
+    {
+      "say": "For 13 - 5, jump back to 10 first. Then take away the rest.",
+      "show": "13 - 3 = 10, 10 - 2 = 8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.subtract-within-20.901",
+      "skill": "m1.subtract-within-20",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "9 - 4 = ___",
+      "hints": [
+        "Take away means some go away.",
+        "Start at 9 and count back 4.",
+        "One step back from 9 is 8."
+      ],
+      "explanation": "9 take away 4 leaves 5.",
+      "answer": 5
+    },
+    {
+      "id": "m1.subtract-within-20.902",
+      "skill": "m1.subtract-within-20",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "12 - 5 = ___",
+      "hints": [
+        "Can you jump back to 10 first?",
+        "Split 5 into 2 and 3.",
+        "12 - 2 = 10. Now take away the rest."
+      ],
+      "explanation": "12 - 2 = 10, and 10 - 3 = 7.",
+      "answer": 7
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "skill": "m5.add-subtract-decimals",
+  "title": "Adding and subtracting decimals",
+  "steps": [
+    {
+      "say": "Line up the decimal points so tenths sit under tenths. Fill any gaps with zeros.",
+      "show": "4.75 + 2.80",
+      "figure": {
+        "kind": "table",
+        "caption": "4.75 + 2.8",
+        "head": [
+          "Ones",
+          "Tenths",
+          "Hundredths"
+        ],
+        "rows": [
+          [
+            "4",
+            "7",
+            "5"
+          ],
+          [
+            "2",
+            "8",
+            "0"
+          ]
+        ],
+        "alt": "A place value chart with 4.75 above 2.80, lined up by place."
+      }
+    },
+    {
+      "say": "Add from the right, as with whole numbers. Carry when a column makes 10 or more.",
+      "show": "5 + 0 = 5, 7 + 8 = 15, 4 + 2 + 1 = 7"
+    },
+    {
+      "say": "Put the decimal point in the answer under the other points.",
+      "show": "4.75 + 2.8 = 7.55"
+    },
+    {
+      "say": "To subtract, line up the points the same way. Exchange when the top digit is too small.",
+      "show": "6.30 − 2.47 = 3.83"
+    },
+    {
+      "say": "For mental sums, use pairs that make 1. 0.35 + 0.65 = 1.",
+      "show": "0.35 + 0.65 = 1",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "labels": [
+          0,
+          0.5,
+          1
+        ],
+        "jumps": [
+          {
+            "from": 0,
+            "to": 0.35,
+            "label": "0.35"
+          },
+          {
+            "from": 0.35,
+            "to": 1,
+            "label": "0.65"
+          }
+        ],
+        "alt": "A number line from 0 to 1 with a jump of 0.35 from 0 and a jump of 0.65 to 1."
+      }
+    },
+    {
+      "say": "Measures use decimals too. If 1.25 m is cut from a 3.5 m ribbon, 2.25 m is left.",
+      "show": "3.50 − 1.25 = 2.25"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.add-subtract-decimals.901",
+      "skill": "m5.add-subtract-decimals",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 3.6 + 2.5.",
+      "hints": [
+        "Line up the decimal points.",
+        "Add the tenths first.",
+        "6 tenths and 5 tenths make more than 1 whole."
+      ],
+      "explanation": "3.6 + 2.5 = 6.1, because 6 tenths + 5 tenths = 1.1.",
+      "answer": 6.1,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.add-subtract-decimals.902",
+      "skill": "m5.add-subtract-decimals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 8.2 − 3.75.",
+      "hints": [
+        "Write 8.2 as 8.20.",
+        "Line up the decimal points and subtract from the right.",
+        "You need to exchange in the hundredths column."
+      ],
+      "explanation": "8.20 − 3.75 = 4.45.",
+      "answer": 4.45,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.add-subtract-decimals.903",
+      "skill": "m5.add-subtract-decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Omar runs 1.75 km on Monday and 2.6 km on Tuesday. How far does he run altogether?",
+      "hints": [
+        "Add the two distances.",
+        "Write 2.6 as 2.60.",
+        "Line up the decimal points before adding."
+      ],
+      "explanation": "1.75 + 2.60 = 4.35, so Omar runs 4.35 km.",
+      "answer": 4.35,
+      "unit": "km",
+      "allowDecimal": true
+    }
+  ]
+}

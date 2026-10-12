@@ -1,0 +1,40 @@
+{
+  "skill": "s2.fair-test",
+  "title": "Fair tests and results",
+  "steps": [
+    { "say": "Scientists ask a question. Then they predict what will happen.", "show": "question, prediction" },
+    { "say": "In a fair test, change one thing. Keep everything else the same.", "show": "change 1 thing" },
+    { "say": "Measure carefully. Use a ruler for length and a thermometer for temperature.", "show": "cm, °C" },
+    { "say": "Record your results in a table. Then you can compare them.", "figure": { "kind": "table", "head": ["Ball", "Bounce height"], "rows": [["rubber ball", "70 cm"], ["football", "45 cm"]], "alt": "Table: rubber ball bounced 70 cm, football bounced 45 cm." } },
+    { "say": "A bar chart shows results as bars. The tallest bar shows the biggest result.", "figure": { "kind": "bars", "categories": ["rubber ball", "football"], "values": [70, 45], "step": 10, "yLabel": "Height in cm", "alt": "Bar chart: rubber ball 70 cm, football 45 cm." } },
+    { "say": "Say what you found out, even if your prediction was wrong.", "show": "conclusion" }
+  ],
+  "check": [
+    {
+      "id": "s2.fair-test.901", "skill": "s2.fair-test", "type": "mcq", "difficulty": 2,
+      "prompt": "In a fair test, how many things do you change?",
+      "options": [
+        { "text": "one thing" },
+        { "text": "two things", "why": "With two changes, you cannot tell which one made the difference." },
+        { "text": "everything", "why": "If you change everything, you cannot tell what made the difference." },
+        { "text": "nothing", "why": "If nothing changes, there is nothing to test." }
+      ],
+      "answer": 0,
+      "hints": ["A fair test finds out what made a difference.", "If two things change, which one caused it?", "Ask: how many things can you test at once?"],
+      "explanation": "In a fair test you change one thing and keep everything else the same."
+    },
+    {
+      "id": "s2.fair-test.902", "skill": "s2.fair-test", "type": "mcq", "difficulty": 1,
+      "prompt": "Which tool measures length?",
+      "options": [
+        { "text": "a thermometer", "why": "A thermometer measures temperature." },
+        { "text": "a timer", "why": "A timer measures time." },
+        { "text": "a ruler" },
+        { "text": "a measuring jug", "why": "A jug measures liquids." }
+      ],
+      "answer": 2,
+      "hints": ["Length means how long something is.", "Which tool has centimetres on it?", "Think about the tool in your pencil case."],
+      "explanation": "A ruler measures length in centimetres."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "m2.doubles-halves",
+  "title": "Doubling and halving",
+  "steps": [
+    {
+      "say": "Double means two lots of the same number.",
+      "show": "double 15 = 15 + 15 = 30"
+    },
+    {
+      "say": "Halving is the opposite. It splits a number into 2 equal parts.",
+      "show": "half of 30 = 15"
+    },
+    {
+      "say": "To double a bigger number, double the tens, then double the ones.",
+      "show": "double 23 = 40 + 6 = 46"
+    },
+    {
+      "say": "Use doubles to check halves.",
+      "show": "half of 46 is 23, because 23 + 23 = 46"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.doubles-halves.901",
+      "skill": "m2.doubles-halves",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is double 14?",
+      "hints": [
+        "Double means add the number to itself.",
+        "Work out 14 + 14.",
+        "Double 10 is 20. Double 4 is 8."
+      ],
+      "explanation": "Double 14 is 14 + 14 = 28.",
+      "answer": 28
+    },
+    {
+      "id": "m2.doubles-halves.902",
+      "skill": "m2.doubles-halves",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is half of 50?",
+      "hints": [
+        "Half means 2 equal parts.",
+        "Split 50 into 40 and 10.",
+        "Halve each part, then add them."
+      ],
+      "explanation": "Half of 40 is 20 and half of 10 is 5. 20 + 5 = 25.",
+      "answer": 25
+    }
+  ]
+}

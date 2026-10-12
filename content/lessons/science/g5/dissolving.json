@@ -1,0 +1,74 @@
+{
+  "skill": "s5.dissolving",
+  "title": "What happens when things dissolve",
+  "steps": [
+    {
+      "say": "Stir sugar into water and it seems to disappear. The sugar has dissolved."
+    },
+    {
+      "say": "The sugar breaks into pieces too small to see. They spread out through the water."
+    },
+    {
+      "say": "The solid that dissolves is the solute. The liquid is the solvent, and the mixture is a solution.",
+      "show": "solute + solvent = solution"
+    },
+    {
+      "say": "Materials that dissolve are soluble, like salt. Materials that do not dissolve are insoluble, like sand."
+    },
+    {
+      "say": "Stirring, warmer water and smaller grains all make a solid dissolve faster."
+    },
+    {
+      "say": "Nothing is lost when a solid dissolves. 100 g of water and 10 g of salt make 110 g of solution.",
+      "show": "100 g + 10 g = 110 g"
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.dissolving.901",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is soluble in water?",
+      "options": [
+        {
+          "text": "sand",
+          "why": "Sand does not dissolve. It sinks to the bottom."
+        },
+        {
+          "text": "salt"
+        },
+        {
+          "text": "chalk",
+          "why": "Chalk does not dissolve in water."
+        },
+        {
+          "text": "pebbles",
+          "why": "Pebbles do not dissolve in water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A soluble material dissolves and seems to disappear.",
+        "Think about what you stir into cooking water to add flavour.",
+        "Cross out the materials that sink to the bottom of a glass of water."
+      ],
+      "explanation": "Salt dissolves in water, so it is soluble. Sand, chalk and pebbles are insoluble."
+    },
+    {
+      "id": "s5.dissolving.902",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Ali dissolves 15 g of sugar in 150 g of water. What is the mass of the solution?",
+      "answer": 165,
+      "unit": "g",
+      "hints": [
+        "Dissolved sugar is still there, even when you cannot see it.",
+        "No mass is lost when a solid dissolves.",
+        "Add the mass of the sugar to the mass of the water."
+      ],
+      "explanation": "150 g + 15 g = 165 g. The sugar is still in the solution, so its mass is still there."
+    }
+  ]
+}

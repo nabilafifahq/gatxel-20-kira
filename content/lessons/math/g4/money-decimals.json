@@ -1,0 +1,87 @@
+{
+  "skill": "m4.money-decimals",
+  "title": "Money with a decimal point",
+  "steps": [
+    {
+      "say": "Some countries use dollars and cents. 100 cents make $1.",
+      "show": "$1 = 100 cents"
+    },
+    {
+      "say": "$3.45 means 3 dollars and 45 cents.",
+      "show": "$3.45 = 345 cents"
+    },
+    {
+      "say": "To add prices, add the dollars and the cents, or change both to cents.",
+      "figure": {
+        "kind": "table",
+        "caption": "Snack bar",
+        "head": [
+          "Item",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Juice",
+            "$1.85"
+          ],
+          [
+            "Sandwich",
+            "$2.30"
+          ],
+          [
+            "Banana",
+            "$0.65"
+          ]
+        ],
+        "alt": "Snack bar prices: juice $1.85, sandwich $2.30, banana $0.65."
+      },
+      "show": "$2.30 + $1.85 = $4.15"
+    },
+    {
+      "say": "To find change, count up to the next whole dollar first.",
+      "show": "$2.65 to $3.00 is 35 cents"
+    },
+    {
+      "say": "Then count on to the money paid.",
+      "show": "$3.00 to $5.00 is $2, so the change is $2.35"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.money-decimals.901",
+      "skill": "m4.money-decimals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Ben buys a juice for $1.45 and a sandwich for $2.30. How much is that altogether, in dollars?",
+      "answer": 3.75,
+      "hints": [
+        "Add the dollars and the cents separately.",
+        "$1 + $2 = $3.",
+        "Then add 45 cents and 30 cents."
+      ],
+      "explanation": "$3 and 75 cents is $3.75.",
+      "allowDecimal": true,
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.money-decimals.902",
+      "skill": "m4.money-decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Tara pays $5 for a cap that costs $3.60. How much change does Tara get, in dollars?",
+      "answer": 1.4,
+      "hints": [
+        "Count up from $3.60 to $4.00.",
+        "Then count up from $4.00 to $5.00.",
+        "$3.60 to $4.00 is 40 cents."
+      ],
+      "explanation": "40 cents and $1 make $1.40.",
+      "allowDecimal": true,
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

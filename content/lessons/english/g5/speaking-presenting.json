@@ -1,0 +1,55 @@
+{
+  "skill": "e5.speaking-presenting",
+  "title": "Speaking to an audience",
+  "steps": [
+    {
+      "say": "Before you speak, think about who is listening and why."
+    },
+    {
+      "say": "Plan a clear beginning, three main points and an ending.",
+      "show": "Hello, point 1, point 2, point 3, thank you"
+    },
+    {
+      "say": "Speak slowly and clearly. Pause at the end of each idea."
+    },
+    {
+      "say": "Change your words for your listeners. Use simple words for young children and polite words for adults."
+    },
+    {
+      "say": "Look up at your audience, and finish by thanking them."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.speaking-presenting.901",
+      "skill": "e5.speaking-presenting",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You are speaking to the whole school in assembly. Which opening fits best?",
+      "options": [
+        {
+          "text": "Good morning, everyone. My name is Dewi, and I am in Class 5."
+        },
+        {
+          "text": "Hey guys, what’s up?",
+          "why": "This is too casual for a school assembly."
+        },
+        {
+          "text": "Um... okay... so...",
+          "why": "This sounds unprepared."
+        },
+        {
+          "text": "You have to listen to me now.",
+          "why": "This sounds rude to the audience."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "An assembly is a formal occasion.",
+        "A good opening greets the audience politely and introduces the speaker.",
+        "Find the option with a greeting and the speaker’s name."
+      ],
+      "explanation": "In a formal assembly, greet the audience politely and introduce yourself."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "skill": "s3.magnets",
+  "title": "How magnets behave",
+  "steps": [
+    {
+      "say": "A magnet pulls, or attracts, things made of iron or steel. These are magnetic materials.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "magnet",
+            "label": "magnet"
+          },
+          {
+            "icon": "paperclip",
+            "label": "paperclip"
+          },
+          {
+            "icon": "nail",
+            "label": "nail"
+          }
+        ],
+        "alt": "A magnet next to a paperclip and a nail."
+      }
+    },
+    {
+      "say": "Most materials are not magnetic. Even many metals, like aluminium and copper, are not magnetic.",
+      "show": "iron and steel: magnetic"
+    },
+    {
+      "say": "Every magnet has two poles: north (N) and south (S). The force is strongest at the poles.",
+      "show": "N and S"
+    },
+    {
+      "say": "Opposite poles attract. Like poles repel.",
+      "show": "N and S attract. N and N repel. S and S repel."
+    },
+    {
+      "say": "Magnetic force can act through paper, plastic and water. The magnet does not have to touch."
+    },
+    {
+      "say": "A compass needle is a small magnet. It lines up with the Earth's magnetism and points north."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.magnets.901",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material is magnetic?",
+      "options": [
+        {
+          "text": "plastic",
+          "why": "Plastic is not magnetic."
+        },
+        {
+          "text": "aluminium",
+          "why": "Aluminium is a metal that is not magnetic."
+        },
+        {
+          "text": "iron"
+        },
+        {
+          "text": "wood",
+          "why": "Wood is not magnetic."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Only a few materials are magnetic.",
+        "Think about what nails are made of.",
+        "Which one is a metal used to make steel?"
+      ],
+      "explanation": "Iron is magnetic. Steel, which is made from iron, is magnetic too."
+    },
+    {
+      "id": "s3.magnets.902",
+      "skill": "s3.magnets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A north pole and a south pole will ___ each other.",
+      "blanks": [
+        {
+          "answers": [
+            "attract",
+            "pull",
+            "pull together",
+            "pull towards"
+          ]
+        }
+      ],
+      "hints": [
+        "The two poles are different.",
+        "Different poles do not push apart.",
+        "The science word starts with a."
+      ],
+      "explanation": "Opposite poles attract, so north and south pull together."
+    }
+  ]
+}

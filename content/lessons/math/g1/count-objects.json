@@ -1,0 +1,104 @@
+{
+  "skill": "m1.count-objects",
+  "title": "Counting one by one",
+  "steps": [
+    {
+      "say": "Touch each thing once and say one number. Go in order so you do not miss any.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 6
+          }
+        ],
+        "alt": "A picture of 6 apples."
+      }
+    },
+    {
+      "say": "The last number you say tells you how many.",
+      "show": "1, 2, 3, 4, 5, 6"
+    },
+    {
+      "say": "A group of 10 helps with bigger numbers. Say 10, then count on.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          10,
+          4
+        ],
+        "icon": "star",
+        "container": "circle",
+        "alt": "14 stars: 10 in one ring and 4 in the other ring."
+      },
+      "show": "10, 11, 12, 13, 14"
+    },
+    {
+      "say": "If there are none, the number is zero.",
+      "show": "0"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.count-objects.901",
+      "skill": "m1.count-objects",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many ducks are there?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "duck",
+            "count": 8
+          }
+        ],
+        "alt": "A picture of 8 ducks."
+      },
+      "hints": [
+        "Touch each duck once as you count.",
+        "Count from left to right so you miss none.",
+        "Point to the first duck and say 1."
+      ],
+      "explanation": "Counting each duck once gives 8.",
+      "answer": 8
+    },
+    {
+      "id": "m1.count-objects.902",
+      "skill": "m1.count-objects",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How many stars are there?",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          10,
+          3
+        ],
+        "icon": "star",
+        "container": "circle",
+        "alt": "13 stars: 10 in one ring and 3 in the other ring."
+      },
+      "hints": [
+        "One ring has 10 stars.",
+        "Say 10 for the full ring. Then count on.",
+        "Count on from 10, one for each star in the small ring."
+      ],
+      "explanation": "10 and 3 more make 13.",
+      "options": [
+        {
+          "text": "13"
+        },
+        {
+          "text": "12",
+          "why": "12 is one too few. Count on from 10 again."
+        },
+        {
+          "text": "31",
+          "why": "31 is thirty-one. Say 10, then count on 3."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

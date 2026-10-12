@@ -1,0 +1,351 @@
+{
+  "skill": "e6.formal-informal",
+  "items": [
+    {
+      "id": "e6.formal-informal.001",
+      "skill": "e6.formal-informal",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the phrases into formal and informal.",
+      "groups": [
+        "Formal",
+        "Informal"
+      ],
+      "items": [
+        {
+          "text": "Dear Sir or Madam,",
+          "group": 0
+        },
+        {
+          "text": "Hi there!",
+          "group": 1
+        },
+        {
+          "text": "Yours faithfully,",
+          "group": 0
+        },
+        {
+          "text": "See you soon!",
+          "group": 1
+        },
+        {
+          "text": "I would be grateful if...",
+          "group": 0
+        },
+        {
+          "text": "Thanks a lot!",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about where you would see each phrase: a letter to a stranger or a message to a friend.",
+        "Formal phrases are polite and complete. Informal ones are chatty.",
+        "Start with Hi there! Would you write that to a head teacher?"
+      ],
+      "explanation": "Dear Sir or Madam, Yours faithfully and I would be grateful if are formal. Hi there, See you soon and Thanks a lot are informal."
+    },
+    {
+      "id": "e6.formal-informal.002",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is the most formal?",
+      "options": [
+        {
+          "text": "Can you tell us more about the trip?",
+          "why": "This is polite but quite chatty."
+        },
+        {
+          "text": "Tell us more about the trip, please!",
+          "why": "This is a friendly command, not formal."
+        },
+        {
+          "text": "What’s the deal with the trip?",
+          "why": "This is slang."
+        },
+        {
+          "text": "We would like to request more information about the trip."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Formal language is careful and polite.",
+        "Look for full words and more formal verbs.",
+        "Cross out anything with slang or contractions."
+      ],
+      "explanation": "We would like to request uses full, polite words and a formal verb, request, instead of ask.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.003",
+      "skill": "e6.formal-informal",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each informal phrase to a more formal word with the same meaning.",
+      "pairs": [
+        [
+          "find out",
+          "discover"
+        ],
+        [
+          "ask for",
+          "request"
+        ],
+        [
+          "get",
+          "receive"
+        ],
+        [
+          "put off",
+          "postpone"
+        ],
+        [
+          "help",
+          "assist"
+        ],
+        [
+          "need",
+          "require"
+        ]
+      ],
+      "hints": [
+        "Each pair means the same, but one is more formal.",
+        "Formal verbs are often single words that replace phrasal verbs like find out.",
+        "Start with ask for. Which formal verb is often used in letters?"
+      ],
+      "explanation": "Discover, request, receive, postpone, assist and require are more formal ways to say find out, ask for, get, put off, help and need."
+    },
+    {
+      "id": "e6.formal-informal.004",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which ending suits a formal letter that began Dear Sir or Madam?",
+      "options": [
+        {
+          "text": "Yours sincerely,",
+          "why": "Use Yours sincerely when you know the person’s name, as in Dear Mrs Lim."
+        },
+        {
+          "text": "Yours faithfully,"
+        },
+        {
+          "text": "Love from,",
+          "why": "This is for family and close friends."
+        },
+        {
+          "text": "Cheers,",
+          "why": "This is very informal."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Dear Sir or Madam means you do not know the person’s name.",
+        "British letters use different sign-offs for known and unknown names.",
+        "Cross out the informal sign-offs first, then decide between the two formal ones."
+      ],
+      "explanation": "In British English, a letter that begins Dear Sir or Madam ends with Yours faithfully. A letter to a named person ends with Yours sincerely.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.005",
+      "skill": "e6.formal-informal",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the contraction in full for a formal letter. We can’t attend the meeting.",
+      "blanks": [
+        {
+          "answers": [
+            "cannot"
+          ]
+        }
+      ],
+      "hints": [
+        "Contractions such as can’t are informal.",
+        "Write the full form of can’t.",
+        "In full, it is written as one word, not two."
+      ],
+      "explanation": "Can’t is short for cannot, which is written as one word. Formal writing usually avoids contractions.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.006",
+      "skill": "e6.formal-informal",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the features of informal writing.",
+      "options": [
+        {
+          "text": "contractions such as don’t"
+        },
+        {
+          "text": "the passive voice, such as it was decided",
+          "why": "The passive voice is common in formal writing."
+        },
+        {
+          "text": "exclamation marks for fun"
+        },
+        {
+          "text": "full forms such as do not",
+          "why": "Full forms are a feature of formal writing."
+        },
+        {
+          "text": "chatty phrases such as guess what"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Think about a message to a close friend.",
+        "Informal writing sounds like everyday speech.",
+        "Check each feature: would it appear in a text message to a friend?"
+      ],
+      "explanation": "Contractions, exclamation marks and chatty phrases make writing informal. The passive voice and full forms are more formal."
+    },
+    {
+      "id": "e6.formal-informal.007",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which formal verb could replace look into? We need to look into the problem.",
+      "options": [
+        {
+          "text": "investigate"
+        },
+        {
+          "text": "see",
+          "why": "See is plain and does not mean the same as look into."
+        },
+        {
+          "text": "check out",
+          "why": "Check out is another informal phrasal verb."
+        },
+        {
+          "text": "find",
+          "why": "Find changes the meaning."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look into is a phrasal verb, which is often informal.",
+        "You need one formal verb that means examine carefully.",
+        "Try each option in the sentence: We need to ___ the problem."
+      ],
+      "explanation": "Investigate means examine something carefully to find out the facts. It is the formal word for look into.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.008",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is the best way to complain politely in a formal email to a shop?",
+      "options": [
+        {
+          "text": "Your bike is rubbish and the bell’s broken!",
+          "why": "This is rude and informal."
+        },
+        {
+          "text": "Hey, the bell on my bike doesn’t work, sort it out.",
+          "why": "Hey and sort it out are too informal and rude."
+        },
+        {
+          "text": "I am writing to inform you that the bicycle I purchased on 5 May arrived with a broken bell."
+        },
+        {
+          "text": "I’m really, really cross about my bike.",
+          "why": "This shows feelings but does not explain the problem."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A formal complaint is polite and clear.",
+        "It explains the facts: what you bought, when, and what is wrong.",
+        "Cross out any option with slang or rude words."
+      ],
+      "explanation": "The correct sentence uses formal words such as inform and purchased and states the facts clearly and politely.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.009",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word in this formal sentence is too informal? We were delighted to receive loads of donations for the library appeal.",
+      "options": [
+        {
+          "text": "delighted",
+          "why": "Delighted is a polite, formal way to show pleasure."
+        },
+        {
+          "text": "receive",
+          "why": "Receive is a formal verb."
+        },
+        {
+          "text": "loads"
+        },
+        {
+          "text": "donations",
+          "why": "Donations is a formal word."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Most of the sentence is formal. One word is chatty.",
+        "Imagine the sentence in a letter from a head teacher.",
+        "Which word would you replace with many or a large number of?"
+      ],
+      "explanation": "Loads is informal. A formal sentence would say many donations or a large number of donations.",
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e6.formal-informal.010",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which is the best formal version of this message? Sorry, but the trip’s off cos of the rain.",
+      "options": [
+        {
+          "text": "Unfortunately, the trip has been cancelled because of the weather."
+        },
+        {
+          "text": "Sorry, the trip’s been cancelled cos it rained.",
+          "why": "Cos and trip’s are still informal."
+        },
+        {
+          "text": "Unfortunately, the trip is off because of the rain, sorry!",
+          "why": "Is off and sorry! keep it informal."
+        },
+        {
+          "text": "The trip has been cancelled, which is a real shame, guys.",
+          "why": "Guys is informal."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for informal words such as cos, off and sorry.",
+        "A formal version uses full forms and formal words, and often the passive voice.",
+        "Find the version with no contractions or slang at all."
+      ],
+      "explanation": "Unfortunately is a formal way to say sorry, has been cancelled replaces is off and because of replaces cos of.",
+      "tags": [
+        "checkpoint"
+      ]
+    }
+  ]
+}

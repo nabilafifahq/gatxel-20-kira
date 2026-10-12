@@ -1,0 +1,125 @@
+{
+  "skill": "m5.round-decimals",
+  "title": "Rounding decimals",
+  "steps": [
+    {
+      "say": "To round to the nearest whole number, look at the tenths digit. 0 to 4 rounds down, and 5 to 9 rounds up.",
+      "show": "7.6 ≈ 8",
+      "figure": {
+        "kind": "numberline",
+        "min": 7,
+        "max": 8,
+        "step": 0.1,
+        "labels": [
+          7,
+          7.5,
+          8
+        ],
+        "marks": [
+          {
+            "at": 7.6,
+            "label": "7.6"
+          }
+        ],
+        "alt": "A number line from 7 to 8 in tenths with 7.6 marked."
+      }
+    },
+    {
+      "say": "7.6 has 6 tenths, so it is closer to 8 than to 7.",
+      "show": "6 tenths: round up"
+    },
+    {
+      "say": "To round to one decimal place, look at the hundredths digit.",
+      "show": "4.73: look at the 3"
+    },
+    {
+      "say": "4.73 is between 4.7 and 4.8. The hundredths digit is 3, so it rounds down to 4.7.",
+      "show": "4.73 ≈ 4.7",
+      "figure": {
+        "kind": "numberline",
+        "min": 4.7,
+        "max": 4.8,
+        "step": 0.01,
+        "labels": [
+          4.7,
+          4.75,
+          4.8
+        ],
+        "marks": [
+          {
+            "at": 4.73,
+            "label": "4.73"
+          }
+        ],
+        "alt": "A number line from 4.7 to 4.8 in hundredths with 4.73 marked."
+      }
+    },
+    {
+      "say": "Take care with 9s. 3.96 rounded to one decimal place is 4.0.",
+      "show": "3.96 ≈ 4.0"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.round-decimals.901",
+      "skill": "m5.round-decimals",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Round 12.7 to the nearest whole number.",
+      "hints": [
+        "Find the two whole numbers that 12.7 sits between.",
+        "Look at the tenths digit.",
+        "The tenths digit is 7."
+      ],
+      "explanation": "12.7 has 7 tenths, so it rounds up to 13.",
+      "answer": 13
+    },
+    {
+      "id": "m5.round-decimals.902",
+      "skill": "m5.round-decimals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Round 5.34 to one decimal place.",
+      "hints": [
+        "One decimal place means one digit after the point.",
+        "Look at the hundredths digit.",
+        "The hundredths digit is 4."
+      ],
+      "explanation": "5.34 is between 5.3 and 5.4. The hundredths digit is 4, so it rounds down to 5.3.",
+      "options": [
+        {
+          "text": "5.4",
+          "why": "The hundredths digit is 4, so the tenths digit stays the same."
+        },
+        {
+          "text": "5",
+          "why": "That is the nearest whole number, not one decimal place."
+        },
+        {
+          "text": "5.35",
+          "why": "One decimal place means only a tenths digit."
+        },
+        {
+          "text": "5.3"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.round-decimals.903",
+      "skill": "m5.round-decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A bag of rice has a mass of 2.65 kg. Round its mass to one decimal place.",
+      "hints": [
+        "Look at the hundredths digit.",
+        "A digit of 5 or more rounds up.",
+        "2.65 is exactly halfway between two tenths."
+      ],
+      "explanation": "The hundredths digit is 5, so 2.65 rounds up to 2.7 kg.",
+      "answer": 2.7,
+      "unit": "kg",
+      "allowDecimal": true
+    }
+  ]
+}

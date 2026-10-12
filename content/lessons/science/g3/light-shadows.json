@@ -1,0 +1,111 @@
+{
+  "skill": "s3.light-shadows",
+  "title": "How shadows form",
+  "steps": [
+    {
+      "say": "A light source makes its own light. The Sun, a candle and a torch are light sources.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "candle",
+            "label": "candle"
+          },
+          {
+            "icon": "torch",
+            "label": "torch"
+          }
+        ],
+        "alt": "The Sun, a candle and a torch."
+      }
+    },
+    {
+      "say": "The Moon and mirrors are not light sources. They reflect light from something else.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "moon",
+            "label": "Moon"
+          },
+          {
+            "icon": "mirror",
+            "label": "mirror"
+          }
+        ],
+        "alt": "The Moon and a mirror."
+      }
+    },
+    {
+      "say": "Light travels in straight lines. It cannot bend around an object."
+    },
+    {
+      "say": "An opaque object blocks light and makes a shadow. Transparent things let light through, so they make almost no shadow."
+    },
+    {
+      "say": "Move an object closer to the light, and its shadow gets bigger.",
+      "show": "closer to the light → bigger shadow"
+    },
+    {
+      "say": "Sun shadows are long in the morning and evening. They are shortest at midday, when the Sun is high.",
+      "show": "morning: long. noon: short. evening: long."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.light-shadows.901",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which object makes a shadow when light shines on it?",
+      "options": [
+        {
+          "text": "a wooden block"
+        },
+        {
+          "text": "clear glass",
+          "why": "Clear glass lets light through."
+        },
+        {
+          "text": "clear plastic wrap",
+          "why": "Clear plastic wrap is transparent."
+        },
+        {
+          "text": "the air around you",
+          "why": "Air is transparent, so it makes no shadow."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Shadows form when light is blocked.",
+        "Opaque objects block light.",
+        "Which object can you not see through?"
+      ],
+      "explanation": "A wooden block is opaque. It blocks the light, so it makes a shadow."
+    },
+    {
+      "id": "s3.light-shadows.902",
+      "skill": "s3.light-shadows",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "An object that lets no light through is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "opaque"
+          ]
+        }
+      ],
+      "hints": [
+        "It is the opposite of transparent.",
+        "Cardboard and wood are like this.",
+        "The word starts with o."
+      ],
+      "explanation": "Opaque objects let no light through, so they make dark shadows."
+    }
+  ]
+}

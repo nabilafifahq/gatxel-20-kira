@@ -1,0 +1,64 @@
+{
+  "skill": "e1.digraphs",
+  "title": "Two letters, one sound",
+  "steps": [
+    {
+      "say": "Some sounds need two letters. S and h make sh.",
+      "show": "s + h = sh"
+    },
+    {
+      "say": "Sh is the sound we make for quiet. We hear it in ship and fish.",
+      "show": "ship, fish",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish"
+          }
+        ],
+        "alt": "A picture of a fish."
+      }
+    },
+    {
+      "say": "C and h make ch, like in chip and chin.",
+      "show": "ch: chip, chin"
+    },
+    {
+      "say": "T and h make th. Your tongue peeks out, like in thin.",
+      "show": "th: thin, three"
+    },
+    {
+      "say": "N and g make ng at the end of a word, like sing.",
+      "show": "ng: sing, king"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.digraphs.901",
+      "skill": "e1.digraphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word has sh?",
+      "hints": [
+        "Look for s and h together.",
+        "Look at the start of each word.",
+        "Read each word aloud."
+      ],
+      "explanation": "Shop starts with sh.",
+      "options": [
+        {
+          "text": "chop",
+          "why": "Chop has ch."
+        },
+        {
+          "text": "top",
+          "why": "Top has t."
+        },
+        {
+          "text": "shop"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

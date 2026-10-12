@@ -1,0 +1,436 @@
+{
+  "skill": "m1.oly-logic",
+  "items": [
+    {
+      "id": "m1.oly-logic.001",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ana is older than Ben. Ben is older than Cici. Dodi is younger than Cici. Who is the youngest?",
+      "options": [
+        {
+          "text": "Ana",
+          "why": "Ana is older than Ben, so she is the oldest."
+        },
+        {
+          "text": "Ben",
+          "why": "Ben is older than Cici, so he cannot be the youngest."
+        },
+        {
+          "text": "Cici",
+          "why": "Dodi is younger than Cici."
+        },
+        {
+          "text": "Dodi"
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The clues are enough. Put the children in a line from oldest to youngest."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Put the children in order of age.",
+        "Start with Ana. She is older than Ben, and Ben is older than Cici.",
+        "Now place Dodi. Is Dodi older or younger than Cici?"
+      ],
+      "explanation": "From oldest to youngest the order is Ana, Ben, Cici, Dodi. So Dodi is the youngest.",
+      "solution": [
+        {
+          "say": "Ana is older than Ben, and Ben is older than Cici.",
+          "show": "Ana, Ben, Cici"
+        },
+        {
+          "say": "Dodi is younger than Cici, so Dodi goes at the end.",
+          "show": "Ana, Ben, Cici, Dodi"
+        },
+        {
+          "say": "The last child in the line is the youngest: Dodi."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-logic.002",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In the garden there are 3 hens and 2 cats. How many legs are there in all?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "hen",
+            "count": 3
+          },
+          {
+            "icon": "cat",
+            "count": 2
+          }
+        ],
+        "alt": "3 hens and 2 cats. A hen has 2 legs. A cat has 4 legs."
+      },
+      "options": [
+        {
+          "text": "5",
+          "why": "5 is the number of animals, not legs."
+        },
+        {
+          "text": "6",
+          "why": "6 is only the hen legs. Add the cat legs too."
+        },
+        {
+          "text": "8",
+          "why": "8 is only the cat legs. Add the hen legs too."
+        },
+        {
+          "text": "10",
+          "why": "That is 2 legs for every animal. Cats have 4 legs."
+        },
+        {
+          "text": "14"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Count the legs of each kind of animal.",
+        "A hen has 2 legs. A cat has 4 legs.",
+        "Count the hen legs first: 2, 4, 6."
+      ],
+      "explanation": "3 hens have 2 + 2 + 2 = 6 legs. 2 cats have 4 + 4 = 8 legs. Together that is 6 + 8 = 14 legs.",
+      "solution": [
+        {
+          "say": "Hens have 2 legs each.",
+          "show": "2 + 2 + 2 = 6"
+        },
+        {
+          "say": "Cats have 4 legs each.",
+          "show": "4 + 4 = 8"
+        },
+        {
+          "say": "Add them.",
+          "show": "6 + 8 = 14"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-logic.003",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "1 apple weighs the same as 2 pears. 1 pear weighs the same as 3 cherries. How many cherries weigh the same as 1 apple?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "apple"
+        ],
+        "right": [
+          "pear",
+          "pear"
+        ],
+        "tilt": "level",
+        "alt": "A level balance with 1 apple on the left and 2 pears on the right. Also, 1 pear balances 3 cherries."
+      },
+      "options": [
+        {
+          "text": "3",
+          "why": "3 cherries match only 1 pear. The apple matches 2 pears."
+        },
+        {
+          "text": "5",
+          "why": "5 is 2 + 3. Swap each pear for 3 cherries instead."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8",
+          "why": "Each pear swaps for 3 cherries, not 4."
+        },
+        {
+          "text": "9",
+          "why": "The apple matches 2 pears, not 3."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Swap each pear for cherries.",
+        "The apple balances 2 pears. Each pear balances 3 cherries.",
+        "Put 3 cherries in place of the first pear."
+      ],
+      "explanation": "The apple balances 2 pears, and each pear balances 3 cherries. So the apple balances 3 + 3 = 6 cherries.",
+      "solution": [
+        {
+          "say": "The apple balances 2 pears.",
+          "show": "1 apple = 2 pears"
+        },
+        {
+          "say": "Each pear balances 3 cherries, so swap both pears.",
+          "show": "2 pears = 3 + 3 cherries"
+        },
+        {
+          "say": "So the apple balances 6 cherries.",
+          "show": "1 apple = 6 cherries",
+          "figure": {
+            "kind": "balance",
+            "left": [
+              "apple"
+            ],
+            "right": [
+              "cherry",
+              "cherry",
+              "cherry",
+              "cherry",
+              "cherry",
+              "cherry"
+            ],
+            "tilt": "level",
+            "alt": "A level balance with 1 apple on the left and 6 cherries on the right."
+          }
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.004",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Rafi's drawer has red socks and blue socks. The room is dark. He takes socks without looking. A pair means 2 socks of the same colour. How many socks must he take to be sure of a pair?",
+      "options": [
+        {
+          "text": "2",
+          "why": "The first 2 socks could be 1 red and 1 blue."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "4 always works, but a smaller number is enough."
+        },
+        {
+          "text": "5",
+          "why": "5 always works, but a smaller number is enough."
+        },
+        {
+          "text": "8",
+          "why": "Rafi does not need that many. Think about the worst luck."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the unluckiest way it could go.",
+        "The first two socks might be different colours.",
+        "Suppose he has 1 red and 1 blue. What happens with the next sock?"
+      ],
+      "explanation": "With 2 socks he might get 1 red and 1 blue. The 3rd sock must be red or blue, so it matches one of them. 3 socks always give a pair.",
+      "solution": [
+        {
+          "say": "Imagine bad luck. The first 2 socks are different.",
+          "show": "red, blue"
+        },
+        {
+          "say": "The 3rd sock is red or blue.",
+          "show": "red, blue, ?"
+        },
+        {
+          "say": "Either way it matches a sock he already has, so 3 socks are always enough.",
+          "show": "3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-logic.005",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Di rumah Pak Hadi ada 3 anak laki-laki. Setiap anak laki-laki punya 1 saudara perempuan. Berapa anak Pak Hadi semuanya?",
+      "answer": 4,
+      "hints": [
+        "Gambarlah anak-anak Pak Hadi.",
+        "Ketiga anak laki-laki itu bersaudara. Saudara perempuan mereka sama.",
+        "Gambar 3 anak laki-laki dulu. Berapa anak perempuan yang perlu ditambah?"
+      ],
+      "explanation": "Ketiga anak laki-laki punya saudara perempuan yang sama. Jadi ada 3 anak laki-laki dan 1 anak perempuan, semuanya 4 anak.",
+      "solution": [
+        {
+          "say": "Ada 3 anak laki-laki.",
+          "show": "L, L, L"
+        },
+        {
+          "say": "Mereka bersaudara, jadi saudara perempuan mereka adalah anak yang sama.",
+          "show": "L, L, L, P"
+        },
+        {
+          "say": "Semuanya ada 3 + 1 = 4 anak.",
+          "show": "3 + 1 = 4"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "anak laki-laki",
+          "en": "boy, son"
+        },
+        {
+          "term": "saudara perempuan",
+          "en": "sister"
+        },
+        {
+          "term": "setiap",
+          "en": "each, every"
+        },
+        {
+          "term": "semuanya",
+          "en": "in all"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.006",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ken pays exactly Rp5.000. He uses only Rp1.000 coins and Rp2.000 notes. How many different ways can he pay?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 1000,
+            "count": 5
+          },
+          {
+            "value": 2000,
+            "count": 2
+          }
+        ],
+        "alt": "Ken's money: five Rp1.000 coins and two Rp2.000 notes. He can choose from these."
+      },
+      "answer": 3,
+      "hints": [
+        "Make a list so you do not miss a way.",
+        "Sort the ways by notes: no notes, then 1 note, then 2 notes.",
+        "With no notes he needs five Rp1.000 coins. Now try 1 note."
+      ],
+      "explanation": "The ways are five Rp1.000 coins, or one Rp2.000 note and three coins, or two notes and one coin. Three notes make Rp6.000, which is too much. So there are 3 ways.",
+      "solution": [
+        {
+          "say": "No notes: five coins.",
+          "show": "Rp1.000 + Rp1.000 + Rp1.000 + Rp1.000 + Rp1.000"
+        },
+        {
+          "say": "1 note and three coins.",
+          "show": "Rp2.000 + Rp1.000 + Rp1.000 + Rp1.000"
+        },
+        {
+          "say": "2 notes and one coin.",
+          "show": "Rp2.000 + Rp2.000 + Rp1.000"
+        },
+        {
+          "say": "3 notes make Rp6.000, too much. So there are 3 ways.",
+          "show": "3 ways"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.007",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Mei is 5 years old. Tom is 3 years older than Mei. How old will Tom be in 2 years?",
+      "answer": 10,
+      "hints": [
+        "First find how old Tom is now.",
+        "Tom is 3 years older than Mei, so add 3 to her age.",
+        "Mei is 5 now. Work out 5 + 3."
+      ],
+      "explanation": "Tom is 5 + 3 = 8 years old now. In 2 years he will be 8 + 2 = 10.",
+      "solution": [
+        {
+          "say": "Tom now: 3 years older than Mei.",
+          "show": "5 + 3 = 8"
+        },
+        {
+          "say": "In 2 years, add 2.",
+          "show": "8 + 2 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-logic.008",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Five friends run a race. Dina finishes first and Eva finishes last. Ali finishes before Ben. Ben finishes before Cara. How many friends finish ahead of Ben?",
+      "answer": 2,
+      "hints": [
+        "Draw 5 places in a row, 1st to 5th.",
+        "Put Dina in 1st place and Eva in 5th place.",
+        "Ali, Ben and Cara fill places 2, 3 and 4. Who must come first of those three?"
+      ],
+      "explanation": "The order is Dina, Ali, Ben, Cara, Eva. Two friends, Dina and Ali, finish ahead of Ben.",
+      "solution": [
+        {
+          "say": "Dina is 1st and Eva is 5th.",
+          "show": "1 Dina, 2 ?, 3 ?, 4 ?, 5 Eva"
+        },
+        {
+          "say": "Ali is before Ben, and Ben is before Cara. So they fill places 2, 3 and 4 in that order.",
+          "show": "1 Dina, 2 Ali, 3 Ben, 4 Cara, 5 Eva"
+        },
+        {
+          "say": "Dina and Ali are ahead of Ben.",
+          "show": "2 friends"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

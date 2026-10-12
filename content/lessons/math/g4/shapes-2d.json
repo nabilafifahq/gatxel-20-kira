@@ -1,0 +1,124 @@
+{
+  "skill": "m4.shapes-2d",
+  "title": "Quadrilaterals and symmetry",
+  "steps": [
+    {
+      "say": "A quadrilateral has 4 sides. Here are six kinds.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "square",
+            "label": "Square"
+          },
+          {
+            "shape": "rectangle",
+            "label": "Rectangle"
+          },
+          {
+            "shape": "rhombus",
+            "label": "Rhombus"
+          },
+          {
+            "shape": "parallelogram",
+            "label": "Parallelogram"
+          },
+          {
+            "shape": "trapezium",
+            "label": "Trapezium"
+          },
+          {
+            "shape": "kite",
+            "label": "Kite"
+          }
+        ],
+        "alt": "A square, a rectangle, a rhombus, a parallelogram, a trapezium and a kite."
+      }
+    },
+    {
+      "say": "Parallel sides go in the same direction and never meet. A parallelogram has 2 pairs.",
+      "figure": {
+        "kind": "shape",
+        "shape": "parallelogram",
+        "alt": "A parallelogram leaning to the right."
+      }
+    },
+    {
+      "say": "A trapezium has exactly 1 pair of parallel sides.",
+      "figure": {
+        "kind": "shape",
+        "shape": "trapezium",
+        "alt": "A trapezium with a long bottom side and a shorter top side."
+      }
+    },
+    {
+      "say": "A kite has two pairs of equal sides next to each other. It has 1 line of symmetry.",
+      "figure": {
+        "kind": "shape",
+        "shape": "kite",
+        "lineOfSymmetry": "vertical",
+        "alt": "A kite with its vertical line of symmetry."
+      }
+    },
+    {
+      "say": "A regular polygon has all sides equal and all angles equal.",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "A regular hexagon."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.shapes-2d.901",
+      "skill": "m4.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which quadrilateral has exactly one pair of parallel sides?",
+      "options": [
+        {
+          "text": "Parallelogram",
+          "why": "A parallelogram has two pairs of parallel sides."
+        },
+        {
+          "text": "Rectangle",
+          "why": "A rectangle has two pairs of parallel sides."
+        },
+        {
+          "text": "Trapezium"
+        },
+        {
+          "text": "Kite",
+          "why": "A kite has no parallel sides."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Parallel sides never meet, however long they get.",
+        "Look at the opposite sides of each shape.",
+        "Count the pairs for each shape."
+      ],
+      "explanation": "A trapezium has exactly one pair of parallel sides."
+    },
+    {
+      "id": "m4.shapes-2d.902",
+      "skill": "m4.shapes-2d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many lines of symmetry does a square have?",
+      "answer": 4,
+      "hints": [
+        "A line of symmetry splits a shape into two matching halves.",
+        "Try lines up and down, and across.",
+        "Try the lines from corner to corner too."
+      ],
+      "explanation": "A square has 2 lines through the middles of its sides and 2 lines from corner to corner. That makes 4.",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "A picture of a square."
+      }
+    }
+  ]
+}

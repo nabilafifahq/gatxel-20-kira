@@ -1,0 +1,107 @@
+{
+  "skill": "m2.shapes-2d",
+  "title": "Sides and vertices",
+  "steps": [
+    {
+      "say": "A vertex is a corner where two sides meet.",
+      "figure": {
+        "kind": "shape",
+        "shape": "pentagon",
+        "alt": "A flat shape with 5 straight sides and 5 corners."
+      },
+      "show": "5 sides, 5 vertices"
+    },
+    {
+      "say": "Shape names can tell you the sides. Penta is 5, hexa is 6 and octa is 8.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "pentagon",
+            "label": "pentagon"
+          },
+          {
+            "shape": "hexagon",
+            "label": "hexagon"
+          },
+          {
+            "shape": "octagon",
+            "label": "octagon"
+          }
+        ],
+        "alt": "A pentagon with 5 sides, a hexagon with 6 sides and an octagon with 8 sides."
+      }
+    },
+    {
+      "say": "A semicircle has one curved side and one straight side.",
+      "figure": {
+        "kind": "shape",
+        "shape": "semicircle",
+        "alt": "A flat shape with one curved side, one straight side and 2 corners."
+      }
+    },
+    {
+      "say": "Every point on a circle is the same distance from the centre.",
+      "figure": {
+        "kind": "shape",
+        "shape": "circle",
+        "sideLabels": [
+          "3 cm"
+        ],
+        "alt": "A circle with a dot in the middle and a line 3 cm long from the dot to the edge."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.shapes-2d.901",
+      "skill": "m2.shapes-2d",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many vertices does this shape have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "A flat shape with 6 straight sides and 6 corners."
+      },
+      "hints": [
+        "A vertex is a corner.",
+        "Count each vertex once as you go round.",
+        "Start at the top and go round in one direction."
+      ],
+      "explanation": "A hexagon has 6 vertices.",
+      "answer": 6
+    },
+    {
+      "id": "m2.shapes-2d.902",
+      "skill": "m2.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape has 8 sides?",
+      "hints": [
+        "Think about each shape name.",
+        "Octa means 8, like an octopus with 8 arms.",
+        "Which name starts with octa?"
+      ],
+      "explanation": "An octagon has 8 sides.",
+      "options": [
+        {
+          "text": "hexagon",
+          "why": "A hexagon has 6 sides."
+        },
+        {
+          "text": "pentagon",
+          "why": "A pentagon has 5 sides."
+        },
+        {
+          "text": "rectangle",
+          "why": "A rectangle has 4 sides."
+        },
+        {
+          "text": "octagon"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

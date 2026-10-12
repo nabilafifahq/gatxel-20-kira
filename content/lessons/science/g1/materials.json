@@ -1,0 +1,37 @@
+{
+  "skill": "s1.materials",
+  "title": "What is it made of?",
+  "steps": [
+    { "say": "Objects are made of materials. Wood, metal, plastic and glass are materials.", "figure": { "kind": "icons", "items": [{ "icon": "wooden-spoon", "label": "wood" }, { "icon": "key", "label": "metal" }, { "icon": "bottle", "label": "plastic" }, { "icon": "glass", "label": "glass" }], "alt": "A wooden spoon, a metal key, a plastic bottle and a glass." } },
+    { "say": "Wood comes from trees. Tables and pencils are often made of wood.", "show": "wood" },
+    { "say": "Metal is hard and often shiny. Keys and nails are made of metal.", "show": "metal" },
+    { "say": "Glass is see-through. Windows are made of glass.", "show": "glass" },
+    { "say": "Fabric is soft and bendy. Clothes are made of fabric.", "figure": { "kind": "icons", "items": [{ "icon": "fabric", "label": "fabric" }, { "icon": "sock", "label": "sock" }], "alt": "A piece of fabric and a sock." } }
+  ],
+  "check": [
+    {
+      "id": "s1.materials.901", "skill": "s1.materials", "type": "mcq", "difficulty": 1,
+      "prompt": "What is a window made of?",
+      "options": [
+        { "text": "wood", "why": "We cannot see through wood." },
+        { "text": "fabric", "why": "Fabric is used for clothes and curtains." },
+        { "text": "glass" }
+      ],
+      "answer": 2,
+      "hints": ["You can see through a window.", "Which material is see-through?", "Look at a window near you."],
+      "explanation": "A window is made of glass. Glass is see-through, so light comes in."
+    },
+    {
+      "id": "s1.materials.902", "skill": "s1.materials", "type": "mcq", "difficulty": 1,
+      "prompt": "What is a key made of?",
+      "options": [
+        { "text": "metal" },
+        { "text": "paper", "why": "A paper key would bend and tear." },
+        { "text": "fabric", "why": "Fabric is soft. A key must be hard." }
+      ],
+      "answer": 0,
+      "hints": ["A key is hard and often shiny.", "It must be strong to turn a lock.", "Think about how a key feels in your hand."],
+      "explanation": "A key is made of metal. Metal is hard and strong."
+    }
+  ]
+}

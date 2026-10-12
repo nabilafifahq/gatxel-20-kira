@@ -1,0 +1,149 @@
+{
+  "skill": "s1.plant-parts",
+  "items": [
+    {
+      "id": "s1.plant-parts.001", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Which part of a plant grows under the soil?",
+      "figure": { "kind": "icons", "items": [{ "icon": "plant", "label": "plant" }, { "icon": "soil", "label": "soil" }], "alt": "A plant growing in soil." },
+      "options": [
+        { "text": "the roots" },
+        { "text": "the flower", "why": "The flower grows at the top of the plant, in the light." },
+        { "text": "the leaves", "why": "Leaves grow above the soil to catch the light." }
+      ],
+      "answer": 0,
+      "hints": ["Think about a plant pulled out of a pot.", "Which part is hidden in the soil?", "Picture digging up a plant. What do you see at the bottom?"],
+      "explanation": "The roots grow under the soil. They hold the plant in place and take in water."
+    },
+    {
+      "id": "s1.plant-parts.002", "skill": "s1.plant-parts", "type": "match", "difficulty": 2,
+      "prompt": "Match each part of the plant to its job.",
+      "figure": { "kind": "icons", "items": [{ "icon": "plant", "label": "roots, stem, leaves and flower" }], "alt": "A flowering plant with roots, a stem, leaves and a flower." },
+      "pairs": [["roots", "take in water from the soil"], ["stem", "holds the plant up"], ["leaf", "makes food using light"], ["flower", "makes seeds"]],
+      "hints": ["Think about where each part is on the plant.", "Start with the part you know best.", "The roots are under the soil. What can they find there?"],
+      "explanation": "Roots take in water, the stem holds the plant up, leaves make food using light and flowers make seeds."
+    },
+    {
+      "id": "s1.plant-parts.003", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Which plant part is often green and flat?",
+      "options": [
+        { "text": "a root", "why": "Roots are usually under the soil and look like thin strings." },
+        { "text": "a leaf" },
+        { "text": "a seed", "why": "Seeds are small and often hard and round." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what you see on a tree branch.", "Which part catches the light?", "Look at a plant near you. Which part is flat?"],
+      "explanation": "Most leaves are green and flat. Their flat shape helps them catch light to make food."
+    },
+    {
+      "id": "s1.plant-parts.004", "skill": "s1.plant-parts", "type": "order", "difficulty": 2,
+      "prompt": "Order the parts of a sunflower from the bottom to the top.",
+      "figure": { "kind": "icons", "items": [{ "icon": "flower", "label": "sunflower" }], "alt": "A tall sunflower growing in soil." },
+      "items": ["roots", "stem", "leaves", "flower"],
+      "hints": ["Start at the soil and move up.", "Which part is under the ground?", "Put the roots first, then think about what grows out of the soil."],
+      "explanation": "The roots are under the soil. The stem grows up from them, the leaves grow on the stem and the big flower is at the top."
+    },
+    {
+      "id": "s1.plant-parts.005", "skill": "s1.plant-parts", "type": "text", "difficulty": 2,
+      "prompt": "A tree has a thick, woody stem. It is called a ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "tree" }], "alt": "A tree with branches, leaves and a thick woody stem." },
+      "blanks": [{ "answers": ["trunk", "tree trunk"] }],
+      "hints": ["Think about the big brown part of a tree.", "It holds up all the branches.", "Picture hugging a tree. What are your arms around?"],
+      "explanation": "The thick, woody stem of a tree is called the trunk. It holds the tree up and carries water to the branches."
+    },
+    {
+      "id": "s1.plant-parts.006", "skill": "s1.plant-parts", "type": "sort", "difficulty": 3,
+      "prompt": "Where does this food grow? Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "carrot", "label": "carrot" }, { "icon": "apple", "label": "apple" }, { "icon": "banana", "label": "banana" }], "alt": "A carrot, an apple and a banana." },
+      "groups": ["Under the soil", "Above the soil"],
+      "items": [
+        { "text": "carrot", "group": 0 },
+        { "text": "cassava", "group": 0 },
+        { "text": "sweet potato", "group": 0 },
+        { "text": "apple", "group": 1 },
+        { "text": "banana", "group": 1 },
+        { "text": "tomato", "group": 1 }
+      ],
+      "hints": ["Think about where you would dig to find it.", "Roots grow under the soil. Fruits grow on the plant above it.", "Start with the carrot. Is the orange part a root?"],
+      "explanation": "Carrots, cassava and sweet potatoes are roots, so they grow under the soil. Apples, bananas and tomatoes are fruits that grow above the soil."
+    },
+    {
+      "id": "s1.plant-parts.007", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 3,
+      "prompt": "Which part of a mango tree holds the seed?",
+      "options": [
+        { "text": "the root", "why": "Roots stay under the soil and take in water." },
+        { "text": "the leaf", "why": "Leaves make food. They do not hold seeds." },
+        { "text": "the fruit" }
+      ],
+      "answer": 2,
+      "hints": ["Think about what you find inside a mango.", "When you eat a mango, what is in the middle?", "Picture cutting a mango open."],
+      "explanation": "The mango fruit holds a big seed inside. Fruits grow from flowers and keep the seeds safe.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.plant-parts.008", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 3,
+      "prompt": "Which part carries water from the roots to the leaves?",
+      "options": [
+        { "text": "the flower", "why": "The flower makes seeds. It is at the top of the stem." },
+        { "text": "the stem" },
+        { "text": "the seed", "why": "A seed grows into a new plant. It does not carry water." }
+      ],
+      "answer": 1,
+      "hints": ["Water goes up from the bottom of the plant.", "Which part joins the roots to the leaves?", "Trace a path with your finger from the roots up to a leaf."],
+      "explanation": "The stem carries water from the roots up to the leaves and flowers. It also holds the plant up.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.plant-parts.009", "skill": "s1.plant-parts", "type": "multi", "difficulty": 4,
+      "prompt": "Choose all the parts that grow above the soil on most plants.",
+      "options": [
+        { "text": "leaves" },
+        { "text": "roots", "why": "Roots grow down into the soil." },
+        { "text": "flowers" },
+        { "text": "stem" }
+      ],
+      "answers": [0, 2, 3],
+      "hints": ["Think about what you can see when you look at a plant in a pot.", "Picture the top of the soil. Is each part above it or below it?", "Start with the roots. Where do they grow?"],
+      "explanation": "Leaves, flowers and the stem grow above the soil. The roots grow down into the soil."
+    },
+    {
+      "id": "s1.plant-parts.010", "skill": "s1.plant-parts", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a plant in the soil. Label the roots, stem, leaves and flower.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws roots under the soil line", "points": 1 },
+        { "label": "Draws a stem with leaves", "points": 1 },
+        { "label": "Draws a flower", "points": 1 },
+        { "label": "Labels at least three parts correctly", "points": 2 }
+      ] },
+      "hints": ["Draw a line for the top of the soil first.", "Roots go below the line. The rest of the plant grows above it."],
+      "explanation": "A plant has roots under the soil, a stem that holds it up, leaves that make food and a flower that makes seeds."
+    },
+    {
+      "id": "s1.plant-parts.011", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 4,
+      "prompt": "Ayu pulls a weed out of the garden. Long thin parts hang from the bottom. What are they?",
+      "options": [
+        { "text": "roots" },
+        { "text": "petals", "why": "Petals are the coloured parts of a flower." },
+        { "text": "stems", "why": "The stem grows above the soil and holds the plant up." }
+      ],
+      "answer": 0,
+      "hints": ["Think about which part was under the soil.", "Which part holds a plant in the ground?", "Picture the weed before Ayu pulled it. What was hidden?"],
+      "explanation": "The long thin parts are roots. They grew under the soil, held the weed in place and took in water.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.plant-parts.012", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 5,
+      "prompt": "A cactus has sharp spines instead of flat leaves. Which part stores water?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cactus", "label": "cactus" }], "alt": "A cactus with a thick green stem covered in sharp spines." },
+      "options": [
+        { "text": "its spines", "why": "Spines are thin and sharp. They keep animals away." },
+        { "text": "its thick stem" },
+        { "text": "its flower", "why": "The flower makes seeds. It is too small to store much water." }
+      ],
+      "answer": 1,
+      "hints": ["Look at which part of the cactus is fat and green.", "Spines are thin. Could they hold much water?", "Find the thickest part of the cactus in the picture."],
+      "explanation": "A cactus stores water in its thick, green stem. This helps it live in dry places like deserts. The spines keep animals away.",
+      "tags": ["iksc"]
+    }
+  ]
+}

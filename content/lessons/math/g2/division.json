@@ -1,0 +1,77 @@
+{
+  "skill": "m2.division",
+  "title": "Sharing and grouping",
+  "steps": [
+    {
+      "say": "Sharing means giving out equally, one at a time.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "icon": "sweet",
+        "container": "bag",
+        "alt": "4 bags with 3 sweets in each."
+      },
+      "show": "12 ÷ 4 = 3"
+    },
+    {
+      "say": "Grouping means making groups of the same size.",
+      "figure": {
+        "kind": "array",
+        "rows": 4,
+        "cols": 5,
+        "icon": "dot",
+        "alt": "20 dots in 4 rows of 5."
+      },
+      "show": "20 ÷ 5 = 4"
+    },
+    {
+      "say": "Division undoes multiplication.",
+      "show": "4 × 5 = 20, so 20 ÷ 5 = 4"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.division.901",
+      "skill": "m2.division",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Share 10 sweets equally into 2 bags. How many go in each bag?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "sweet",
+            "count": 10
+          }
+        ],
+        "alt": "A picture of 10 sweets."
+      },
+      "hints": [
+        "Sharing equally means each bag gets the same.",
+        "Give 1 to each bag. Keep going.",
+        "Which number doubled makes 10?"
+      ],
+      "explanation": "10 shared into 2 equal groups is 5 in each. 10 ÷ 2 = 5.",
+      "answer": 5
+    },
+    {
+      "id": "m2.division.902",
+      "skill": "m2.division",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "30 ÷ 10 = ___",
+      "hints": [
+        "How many 10s make 30?",
+        "Count in 10s until you reach 30.",
+        "Count how many numbers you said."
+      ],
+      "explanation": "3 × 10 = 30, so 30 ÷ 10 = 3.",
+      "answer": 3
+    }
+  ]
+}

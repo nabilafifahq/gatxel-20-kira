@@ -1,0 +1,34 @@
+{
+  "skill": "e3.prefixes",
+  "title": "Prefixes change meanings",
+  "steps": [
+    { "say": "A prefix is a group of letters added to the front of a word. It changes what the word means.", "show": "un + happy = unhappy" },
+    { "say": "Un- means not. Unkind means not kind, and unsafe means not safe.", "show": "unkind, unsafe, untidy" },
+    { "say": "Dis- also means not, or the opposite. Disagree means not agree.", "show": "disagree, disobey, dishonest" },
+    { "say": "Re- means again or back. Rebuild means build again.", "show": "rebuild, reread, refill" },
+    { "say": "The root word keeps all its letters. Just add the prefix to the front.", "show": "dis + appear = disappear" },
+    { "say": "Some words only start with these letters. Uncle and ready have no prefix.", "show": "uncle, under, ready, real" }
+  ],
+  "check": [
+    {
+      "id": "e3.prefixes.901", "skill": "e3.prefixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word means not kind?",
+      "options": [
+        { "text": "unkind" },
+        { "text": "rekind", "why": "Rekind is not a word. Re- means again." },
+        { "text": "diskind", "why": "Diskind is not a word. Kind takes a different prefix." },
+        { "text": "kindly", "why": "Kindly means in a kind way." }
+      ],
+      "answer": 0,
+      "hints": ["Not kind is the opposite of kind.", "Which prefix means not and goes with kind?", "Try un, re and dis in front of kind. Say each one aloud."],
+      "explanation": "Un- means not, so unkind means not kind."
+    },
+    {
+      "id": "e3.prefixes.902", "skill": "e3.prefixes", "type": "text", "difficulty": 2,
+      "prompt": "Add re- to build.\nAfter the flood, the workers will ___ the bridge.",
+      "blanks": [{ "answers": ["rebuild"] }],
+      "hints": ["Re- means again.", "The bridge needs to be built again.", "Check your spelling: the word build keeps all its letters."],
+      "explanation": "Re- means again. Rebuild means build again."
+    }
+  ]
+}

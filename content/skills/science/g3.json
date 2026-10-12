@@ -1,0 +1,235 @@
+[
+  {
+    "id": "s3.plant-parts",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bs",
+    "title": "Parts of a plant and their jobs",
+    "titleId": "Bagian tumbuhan dan fungsinya",
+    "canDo": "I can name the parts of a flowering plant and say what each part does.",
+    "order": 10,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.water-in-plants",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bs",
+    "title": "How water moves through a plant",
+    "titleId": "Perjalanan air di dalam tumbuhan",
+    "canDo": "I can explain how water travels from the roots, up the stem, to the leaves.",
+    "order": 20,
+    "prerequisites": [
+      "s3.plant-parts"
+    ],
+    "term": 1,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.seeds-and-growth",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bp",
+    "title": "Seeds and what plants need to grow",
+    "titleId": "Perkecambahan dan kebutuhan tumbuhan untuk tumbuh",
+    "canDo": "I can say what seeds need to germinate and what plants need to grow well.",
+    "order": 30,
+    "prerequisites": [
+      "s3.plant-parts"
+    ],
+    "term": 1,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.fair-tests",
+    "subject": "science",
+    "grade": 3,
+    "strand": "TWS",
+    "title": "Fair tests and measuring",
+    "titleId": "Uji yang adil dan mengukur",
+    "canDo": "I can plan a fair test and measure with the right equipment and units.",
+    "order": 40,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.skeletons",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bs",
+    "title": "Skeletons",
+    "titleId": "Rangka",
+    "canDo": "I can explain how a skeleton supports and protects the body and helps it move.",
+    "order": 50,
+    "prerequisites": [],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.food-groups",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bp",
+    "title": "Food groups",
+    "titleId": "Kelompok makanan",
+    "canDo": "I can sort foods into food groups and say how each group helps my body.",
+    "order": 60,
+    "prerequisites": [],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.healthy-living",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Bp",
+    "title": "Staying healthy",
+    "titleId": "Hidup sehat",
+    "canDo": "I can explain how exercise, sleep, water and hygiene keep my body healthy.",
+    "order": 70,
+    "prerequisites": [
+      "s3.food-groups"
+    ],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.materials-properties",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Cp",
+    "title": "Properties of materials",
+    "titleId": "Sifat-sifat bahan",
+    "canDo": "I can describe materials using property words and choose a material for a job.",
+    "order": 80,
+    "prerequisites": [],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.magnets",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Pe",
+    "title": "Magnets and magnetic materials",
+    "titleId": "Magnet dan bahan magnetis",
+    "canDo": "I can find magnetic materials and explain how magnet poles attract and repel.",
+    "order": 90,
+    "prerequisites": [
+      "s3.materials-properties"
+    ],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.forces-friction",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Pf",
+    "title": "Forces and friction",
+    "titleId": "Gaya dan gesekan",
+    "canDo": "I can describe pushes and pulls and explain how friction changes movement.",
+    "order": 100,
+    "prerequisites": [],
+    "term": 2,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.tables-and-charts",
+    "subject": "science",
+    "grade": 3,
+    "strand": "TWS",
+    "title": "Tables, bar charts and results",
+    "titleId": "Tabel, diagram batang, dan hasil percobaan",
+    "canDo": "I can record results in a table, read a bar chart and say what the results show.",
+    "order": 110,
+    "prerequisites": [
+      "s3.fair-tests"
+    ],
+    "term": 3,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.light-shadows",
+    "subject": "science",
+    "grade": 3,
+    "strand": "Pl",
+    "title": "Light and shadows",
+    "titleId": "Cahaya dan bayangan",
+    "canDo": "I can name light sources and explain how shadows form and change.",
+    "order": 120,
+    "prerequisites": [],
+    "term": 3,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  },
+  {
+    "id": "s3.rocks-and-soils",
+    "subject": "science",
+    "grade": 3,
+    "strand": "ESp",
+    "title": "Rocks, soils and fossils",
+    "titleId": "Batuan, tanah, dan fosil",
+    "canDo": "I can compare rocks, describe what soil is made of and explain how fossils form.",
+    "order": 130,
+    "prerequisites": [
+      "s3.materials-properties"
+    ],
+    "term": 3,
+    "competitions": [
+      "iksc",
+      "ksnr"
+    ],
+    "generator": false
+  }
+]

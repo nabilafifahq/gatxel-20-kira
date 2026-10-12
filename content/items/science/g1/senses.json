@@ -1,0 +1,155 @@
+{
+  "skill": "s1.senses",
+  "items": [
+    {
+      "id": "s1.senses.001", "skill": "s1.senses", "type": "match", "difficulty": 1,
+      "prompt": "Match each body part to its sense.",
+      "figure": { "kind": "icons", "items": [{ "icon": "eye", "label": "eye" }, { "icon": "ear", "label": "ear" }, { "icon": "nose", "label": "nose" }, { "icon": "tongue", "label": "tongue" }, { "icon": "hand", "label": "skin" }], "alt": "Five pictures: an eye, an ear, a nose, a tongue and a hand for skin." },
+      "pairs": [["eyes", "sight"], ["ears", "hearing"], ["nose", "smell"], ["tongue", "taste"], ["skin", "touch"]],
+      "hints": ["Each body part goes with one sense.", "Point to each part on your face and think about what it does.", "Start with your eyes. What do they help you do?"],
+      "explanation": "We see with our eyes, hear with our ears, smell with our nose, taste with our tongue and feel with our skin."
+    },
+    {
+      "id": "s1.senses.002", "skill": "s1.senses", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sense do you use to enjoy a rainbow?",
+      "figure": { "kind": "icons", "items": [{ "icon": "rainbow", "label": "rainbow" }], "alt": "A rainbow in the sky." },
+      "options": [
+        { "text": "hearing", "why": "A rainbow makes no sound." },
+        { "text": "smell", "why": "A rainbow has no smell." },
+        { "text": "sight" }
+      ],
+      "answer": 2,
+      "hints": ["Think about how you know a rainbow is there.", "Which body part do you use?", "Close your eyes. Can you still find the rainbow?"],
+      "explanation": "We see a rainbow with our eyes. This sense is called sight."
+    },
+    {
+      "id": "s1.senses.003", "skill": "s1.senses", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sense tells you a durian is near, before you see it?",
+      "options": [
+        { "text": "smell" },
+        { "text": "taste", "why": "You taste food in your mouth. The durian is not in your mouth yet." },
+        { "text": "hearing", "why": "A durian does not make a sound." }
+      ],
+      "answer": 0,
+      "hints": ["Durian is famous for something strong.", "Which body part notices things in the air?", "Take a deep breath in. Which part of you is working?"],
+      "explanation": "Durian has a very strong smell. We smell it with our nose, even before we see it.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.senses.004", "skill": "s1.senses", "type": "sort", "difficulty": 2,
+      "prompt": "Which sense would you use? Sort the cards.",
+      "groups": ["Hearing", "Touch"],
+      "items": [
+        { "text": "a bell ringing", "group": 0 },
+        { "text": "a dog barking", "group": 0 },
+        { "text": "thunder", "group": 0 },
+        { "text": "soft fur", "group": 1 },
+        { "text": "a rough rock", "group": 1 },
+        { "text": "a cold ice cube", "group": 1 }
+      ],
+      "hints": ["Think about how you would notice each one.", "Ask: is it a sound, or something you feel?", "Start with the bell. How do you know it is ringing?"],
+      "explanation": "We hear a bell, a dog barking and thunder with our ears. We feel soft fur, a rough rock and a cold ice cube with our skin."
+    },
+    {
+      "id": "s1.senses.005", "skill": "s1.senses", "type": "mcq", "difficulty": 2,
+      "prompt": "Which body part do you use to taste?",
+      "options": [
+        { "text": "ear", "why": "Ears help us hear sounds." },
+        { "text": "tongue" },
+        { "text": "eye", "why": "Eyes help us see colours and shapes." }
+      ],
+      "answer": 1,
+      "hints": ["Think about eating your favourite food.", "Which part is inside your mouth?", "Picture licking an ice lolly. Which part touches it?"],
+      "explanation": "We taste with our tongue. It tells us if food is sweet, salty, sour or bitter."
+    },
+    {
+      "id": "s1.senses.006", "skill": "s1.senses", "type": "text", "difficulty": 3,
+      "prompt": "Mangoes taste sweet. Limes taste ___.",
+      "blanks": [{ "answers": ["sour", "very sour"] }],
+      "hints": ["Think about the face you make when you bite a lime.", "Think about the four tastes your tongue can notice.", "Compare it with eating a lemon."],
+      "explanation": "Limes taste sour. Sweet, sour, salty and bitter are tastes our tongue can notice."
+    },
+    {
+      "id": "s1.senses.007", "skill": "s1.senses", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things you can hear.",
+      "figure": { "kind": "icons", "items": [{ "icon": "whistle", "label": "whistle" }, { "icon": "rainbow", "label": "rainbow" }, { "icon": "drum", "label": "drum" }, { "icon": "book", "label": "picture book" }, { "icon": "bird", "label": "bird singing" }], "alt": "Five pictures: a whistle, a rainbow, a drum, a picture book and a bird singing." },
+      "options": [
+        { "text": "a whistle" },
+        { "text": "a rainbow", "why": "A rainbow is quiet. You see it with your eyes." },
+        { "text": "a drum" },
+        { "text": "a picture book", "why": "A picture book is quiet. You look at it with your eyes." },
+        { "text": "a bird singing" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Think about things that make a sound.", "Imagine closing your eyes. Which ones could you still notice?", "Start with the whistle. What happens when someone blows it?"],
+      "explanation": "A whistle, a drum and a bird singing all make sounds that we hear with our ears. A rainbow and a picture book are quiet."
+    },
+    {
+      "id": "s1.senses.008", "skill": "s1.senses", "type": "mcq", "difficulty": 3,
+      "prompt": "Andi wants to know if a cake is sweet. Which sense should he use?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cake", "label": "cake" }], "alt": "A cake on a plate." },
+      "options": [
+        { "text": "hearing", "why": "A cake makes no sound." },
+        { "text": "touch", "why": "Touch tells him if the cake is soft. It cannot tell him if it is sweet." },
+        { "text": "taste" }
+      ],
+      "answer": 2,
+      "hints": ["Think about how you find out if food is sweet or sour.", "Which body part notices sweet, sour and salty?", "Think about putting a small piece in your mouth."],
+      "explanation": "Sweetness is a taste, so Andi uses his tongue. He should only taste food that an adult says is safe.",
+      "tip": "Only taste things when a grown-up says they are safe to eat.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.senses.009", "skill": "s1.senses", "type": "mcq", "difficulty": 3,
+      "prompt": "A smoke alarm beeps loudly. Which sense warns you?",
+      "options": [
+        { "text": "hearing" },
+        { "text": "taste", "why": "We cannot taste a sound." },
+        { "text": "touch", "why": "We do not feel the beep with our skin." }
+      ],
+      "answer": 0,
+      "hints": ["A beep is a sound.", "Which body part notices sounds?", "Cover your ears. Would the beep be harder to notice?"],
+      "explanation": "We hear the beep with our ears. Hearing can warn us about danger, like a smoke alarm or a car horn.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.senses.010", "skill": "s1.senses", "type": "mcq", "difficulty": 4,
+      "prompt": "Which one can you not find out by touching?",
+      "options": [
+        { "text": "if ice is cold", "why": "Your skin can feel cold things." },
+        { "text": "the colour of a ball" },
+        { "text": "if a stone is rough", "why": "Your fingers can feel if a stone is rough." }
+      ],
+      "answer": 1,
+      "hints": ["Touch tells us about how things feel.", "Ask: can my fingers feel this?", "Start with the ice. Can your skin feel cold?"],
+      "explanation": "Touch tells us if things are hot, cold, rough or smooth. We need our eyes to see colours.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.senses.011", "skill": "s1.senses", "type": "mcq", "difficulty": 5,
+      "prompt": "Mei holds her nose and eats a strawberry. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "strawberry", "label": "strawberry" }], "alt": "A strawberry." },
+      "options": [
+        { "text": "She cannot eat it at all.", "why": "She can still chew and swallow it." },
+        { "text": "It tastes much stronger.", "why": "Holding the nose makes flavours seem weaker." },
+        { "text": "It tastes weaker than usual." }
+      ],
+      "answer": 2,
+      "hints": ["Smell and taste work together.", "Think about eating when you have a blocked nose.", "Ask: what does the nose add when we eat?"],
+      "explanation": "Our nose helps us enjoy the flavour of food. When we hold our nose, food tastes weaker than usual.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.senses.012", "skill": "s1.senses", "type": "draw", "difficulty": 2,
+      "prompt": "Draw something you can hear and something you can smell. Label them.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws something that makes a sound", "points": 1 },
+        { "label": "Draws something that has a smell", "points": 1 },
+        { "label": "Labels both drawings", "points": 1 }
+      ] },
+      "hints": ["A drum or a bird makes a sound.", "Flowers and food often have a smell."],
+      "explanation": "We hear sounds with our ears and smell with our nose. A drum makes a sound and a flower has a smell."
+    }
+  ]
+}

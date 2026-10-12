@@ -1,0 +1,59 @@
+{
+  "skill": "e2.poems",
+  "title": "Poems, rhyme and sound words",
+  "steps": [
+    {
+      "say": "Many poems have rhyming words at the ends of lines.",
+      "show": "bed, overhead"
+    },
+    {
+      "say": "Sound words copy the noise they name.",
+      "show": "croak, chirp, buzz, splash"
+    },
+    {
+      "say": "Poets repeat words to make a rhythm.",
+      "show": "run, run, run"
+    },
+    {
+      "say": "A poet can compare two things with the word like.",
+      "show": "It swoops just like a bird."
+    },
+    {
+      "say": "Read a poem aloud to hear its rhythm and rhyme.",
+      "show": "Clap the beat as you read."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.poems.901",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a sound word?",
+      "hints": [
+        "Sound words copy a noise.",
+        "Say each word aloud.",
+        "Which one sounds like a bee?"
+      ],
+      "explanation": "Buzz copies the sound a bee makes.",
+      "options": [
+        {
+          "text": "blue",
+          "why": "Blue is a colour."
+        },
+        {
+          "text": "buzz"
+        },
+        {
+          "text": "tall",
+          "why": "Tall is about height."
+        },
+        {
+          "text": "sleep",
+          "why": "Sleep is a doing word."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

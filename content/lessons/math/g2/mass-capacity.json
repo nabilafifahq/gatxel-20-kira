@@ -1,0 +1,102 @@
+{
+  "skill": "m2.mass-capacity",
+  "title": "Scales, jugs and thermometers",
+  "steps": [
+    {
+      "say": "Mass is how heavy something is. We use grams (g) and kilograms (kg).",
+      "figure": {
+        "kind": "scale",
+        "max": 1000,
+        "value": 600,
+        "step": 100,
+        "unit": "g",
+        "alt": "Kitchen scales from 0 to 1000 g. The pointer is at 600 g."
+      },
+      "show": "600 g"
+    },
+    {
+      "say": "Capacity is how much a container holds. We use millilitres (ml) and litres (l).",
+      "figure": {
+        "kind": "jug",
+        "capacity": 1000,
+        "value": 400,
+        "step": 100,
+        "unit": "ml",
+        "alt": "A jug marked from 0 to 1000 ml. The water is at 400 ml."
+      },
+      "show": "400 ml"
+    },
+    {
+      "say": "A thermometer shows temperature in degrees Celsius.",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 40,
+        "value": 25,
+        "step": 10,
+        "alt": "A thermometer from 0 to 40 degrees Celsius. The red line stops at 25 degrees."
+      },
+      "show": "25 °C"
+    },
+    {
+      "say": "Big units are made of small ones.",
+      "show": "1 kg = 1000 g, 1 l = 1000 ml"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.mass-capacity.901",
+      "skill": "m2.mass-capacity",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How much water is in the jug?",
+      "figure": {
+        "kind": "jug",
+        "capacity": 1000,
+        "value": 800,
+        "step": 100,
+        "unit": "ml",
+        "alt": "A jug marked from 0 to 1000 ml in steps of 100 ml. The water is at 800 ml."
+      },
+      "hints": [
+        "Look at the top of the water.",
+        "The marks go up in 100s.",
+        "Read the mark level with the water."
+      ],
+      "explanation": "The water reaches the 800 ml mark, so there is 800 ml.",
+      "answer": 800,
+      "unit": "ml"
+    },
+    {
+      "id": "m2.mass-capacity.902",
+      "skill": "m2.mass-capacity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which unit is best for the mass of a bag of rice?",
+      "hints": [
+        "Mass is how heavy something is.",
+        "Grams are for light things. Kilograms are for heavy things.",
+        "Is a bag of rice heavy or light?"
+      ],
+      "explanation": "A bag of rice is heavy, so we use kilograms.",
+      "options": [
+        {
+          "text": "grams",
+          "why": "Grams are for light things like a grape."
+        },
+        {
+          "text": "litres",
+          "why": "Litres are for large amounts of liquid."
+        },
+        {
+          "text": "kilograms"
+        },
+        {
+          "text": "millilitres",
+          "why": "Millilitres are for tiny amounts of liquid."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

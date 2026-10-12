@@ -1,0 +1,86 @@
+{
+  "skill": "m3.add-sub-mental",
+  "title": "Add and subtract in your head",
+  "steps": [
+    {
+      "say": "To add 46 + 30, count on in tens from 46.",
+      "figure": {
+        "kind": "numberline",
+        "min": 40,
+        "max": 80,
+        "step": 10,
+        "labels": "all",
+        "marks": [
+          {
+            "at": 46,
+            "label": "46"
+          },
+          {
+            "at": 76,
+            "label": "76"
+          }
+        ],
+        "jumps": [
+          {
+            "from": 46,
+            "to": 56,
+            "label": "+10"
+          },
+          {
+            "from": 56,
+            "to": 66,
+            "label": "+10"
+          },
+          {
+            "from": 66,
+            "to": 76,
+            "label": "+10"
+          }
+        ],
+        "alt": "A number line from 40 to 80 with three jumps of 10 from 46 to 76."
+      }
+    },
+    {
+      "say": "46, 56, 66, 76. Only the tens digit changes.",
+      "show": "46 + 30 = 76"
+    },
+    {
+      "say": "To add 9, add 10 and then take away 1.",
+      "show": "58 + 9 = 58 + 10 - 1 = 67"
+    },
+    {
+      "say": "To subtract close numbers, count up from the smaller one.",
+      "show": "78 + 4 = 82, so 82 - 78 = 4"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.add-sub-mental.901",
+      "skill": "m3.add-sub-mental",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 154 + 40.",
+      "answer": 194,
+      "hints": [
+        "Count on in tens from 154.",
+        "Only the tens digit changes.",
+        "154 + 10 = 164."
+      ],
+      "explanation": "154, 164, 174, 184, 194. So 154 + 40 = 194."
+    },
+    {
+      "id": "m3.add-sub-mental.902",
+      "skill": "m3.add-sub-mental",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Work out 63 - 19.",
+      "answer": 44,
+      "hints": [
+        "19 is 1 less than 20.",
+        "Take away 20, then add 1 back.",
+        "63 - 20 = 43."
+      ],
+      "explanation": "63 - 20 = 43. That took away 1 too many, so add 1 back. 43 + 1 = 44."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "skill": "s2.electricity",
+  "title": "Electricity and staying safe",
+  "steps": [
+    { "say": "Many things use electricity. Some plug into the wall and some use batteries.", "figure": { "kind": "icons", "items": [{ "icon": "bulb", "label": "lamp" }, { "icon": "battery", "label": "battery" }], "alt": "A lamp bulb and a battery." } },
+    { "say": "Mains electricity comes from wall sockets. It is very strong.", "show": "mains: fridge, TV, rice cooker" },
+    { "say": "Batteries store a small amount of electricity. Torches and remotes use them.", "show": "batteries: torch, remote" },
+    { "say": "Keep water away from electricity. Never poke anything into a socket.", "show": "Safety first" },
+    { "say": "Fly kites far from power lines. Tell an adult about fallen wires.", "figure": { "kind": "icons", "items": [{ "icon": "kite", "label": "kite" }, { "icon": "wire", "label": "power line" }], "alt": "A kite and a power line." } },
+    { "say": "A bulb lights up when a battery and wires make a complete loop.", "figure": { "kind": "circuit", "parts": ["battery", "bulb-lit"], "alt": "A battery and a lit bulb joined in a complete loop." } }
+  ],
+  "check": [
+    {
+      "id": "s2.electricity.901", "skill": "s2.electricity", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one is safe?",
+      "options": [
+        { "text": "touching a switch with wet hands", "why": "Water and electricity are a dangerous mix." },
+        { "text": "asking an adult to plug in a lamp" },
+        { "text": "pushing a pencil into a socket", "why": "Never put anything into a socket." },
+        { "text": "climbing an electricity pole", "why": "Never climb an electricity pole." }
+      ],
+      "answer": 1,
+      "hints": ["Three of these are dangerous.", "Think about water, sockets and poles.", "Ask: which one keeps you away from danger?"],
+      "explanation": "Asking an adult to plug in a lamp is safe. The others could give a dangerous shock."
+    },
+    {
+      "id": "s2.electricity.902", "skill": "s2.electricity", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one uses batteries?",
+      "options": [
+        { "text": "a fridge", "why": "A fridge plugs into the wall." },
+        { "text": "a washing machine", "why": "A washing machine plugs into the wall." },
+        { "text": "a TV remote" },
+        { "text": "an electric kettle", "why": "An electric kettle plugs into the wall." }
+      ],
+      "answer": 2,
+      "hints": ["Things we carry around often use batteries.", "Which one has no cable?", "Think about what you hold to change the TV channel."],
+      "explanation": "A TV remote uses small batteries. The others plug into the wall."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "skill": "e2.synonyms-opposites",
+  "title": "Same and opposite",
+  "steps": [
+    {
+      "say": "Synonyms are words that mean the same, or nearly the same.",
+      "show": "big, large / happy, glad"
+    },
+    {
+      "say": "Use a synonym to make your writing more interesting.",
+      "show": "a nice day, a wonderful day"
+    },
+    {
+      "say": "Opposites mean very different things.",
+      "show": "hot, cold / full, empty"
+    },
+    {
+      "say": "Adding un to the front of some words makes an opposite.",
+      "show": "kind, unkind / happy, unhappy"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.synonyms-opposites.901",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word means the same as small?",
+      "hints": [
+        "Synonyms mean the same.",
+        "Think of a mouse.",
+        "Which word could replace small?"
+      ],
+      "explanation": "Little means the same as small.",
+      "options": [
+        {
+          "text": "big",
+          "why": "Big is the opposite of small."
+        },
+        {
+          "text": "little"
+        },
+        {
+          "text": "tall",
+          "why": "Tall is about height."
+        },
+        {
+          "text": "loud",
+          "why": "Loud is about sound."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.synonyms-opposites.902",
+      "skill": "e2.synonyms-opposites",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add un to make the opposite of tidy.",
+      "hints": [
+        "Un means not.",
+        "Un goes at the start.",
+        "Write un, then tidy."
+      ],
+      "explanation": "Untidy means not tidy.",
+      "blanks": [
+        {
+          "answers": [
+            "untidy"
+          ]
+        }
+      ]
+    }
+  ]
+}

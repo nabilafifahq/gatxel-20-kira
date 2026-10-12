@@ -1,0 +1,471 @@
+{
+  "skill": "m6.oly-logic",
+  "items": [
+    {
+      "id": "m6.oly-logic.001",
+      "skill": "m6.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The day before yesterday was Thursday. What day will it be the day after tomorrow?",
+      "options": [
+        {
+          "text": "Monday"
+        },
+        {
+          "text": "Tuesday",
+          "why": "Count again: today is Saturday, so the day after tomorrow is 2 days on."
+        },
+        {
+          "text": "Wednesday",
+          "why": "That is 4 days after today."
+        },
+        {
+          "text": "Friday",
+          "why": "Friday was yesterday."
+        },
+        {
+          "text": "Sunday",
+          "why": "Sunday is tomorrow."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out today first.",
+        "The day before yesterday is 2 days before today.",
+        "Today is 2 days after Thursday."
+      ],
+      "explanation": "The day before yesterday was Thursday, so today is Saturday. The day after tomorrow is 2 days after Saturday, which is Monday.",
+      "solution": [
+        {
+          "say": "Today.",
+          "show": "Thursday + 2 days = Saturday"
+        },
+        {
+          "say": "Day after tomorrow.",
+          "show": "Saturday + 2 days = Monday"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-logic.002",
+      "skill": "m6.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A bag has 10 red, 10 blue and 10 green marbles. Without looking, how many must you take to be sure of getting all three colours?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 marbles could all be red."
+        },
+        {
+          "text": "11",
+          "why": "11 marbles could be 10 red and 1 blue, with no green."
+        },
+        {
+          "text": "20",
+          "why": "20 marbles could be all the red and all the blue."
+        },
+        {
+          "text": "21"
+        },
+        {
+          "text": "30",
+          "why": "30 always works, but fewer is enough."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the unluckiest way it could go.",
+        "You could take every marble of two colours before any of the third.",
+        "Two whole colours make 20 marbles."
+      ],
+      "explanation": "With bad luck you could take all 10 red and all 10 blue first, which is 20 marbles with no green. The 21st marble must be green. So 21 marbles are enough.",
+      "solution": [
+        {
+          "say": "Worst case: two whole colours.",
+          "show": "10 + 10 = 20"
+        },
+        {
+          "say": "The next marble is the third colour.",
+          "show": "20 + 1 = 21"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-logic.003",
+      "skill": "m6.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Ten people sit around a round table. Each is a knight, who always tells the truth, or a liar. Everyone says, 'Both my neighbours are liars.' What is the largest possible number of knights?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 knights can work, but more will fit."
+        },
+        {
+          "text": "4",
+          "why": "Try knight, liar, knight, liar all the way round."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "With 6 knights in 10 seats, two knights must sit side by side."
+        },
+        {
+          "text": "10",
+          "why": "A knight says both neighbours are liars, so knights cannot all sit together."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A knight's neighbours must both be liars.",
+        "So no two knights can sit next to each other.",
+        "How many people can you choose around a table of 10 with no two side by side?"
+      ],
+      "explanation": "A knight's words are true, so both of a knight's neighbours are liars and no two knights sit together. Around 10 seats that allows at most 5 knights. Knight, liar, knight, liar all the way round works, because each liar sits between two knights and so is lying.",
+      "solution": [
+        {
+          "say": "Knights cannot sit next to each other.",
+          "show": "K L K L ..."
+        },
+        {
+          "say": "At most every other seat.",
+          "show": "10 ÷ 2 = 5"
+        },
+        {
+          "say": "Check the liars: each has knights as neighbours, so their words are false.",
+          "show": "it works"
+        },
+        {
+          "say": "Largest number of knights.",
+          "show": "5"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-logic.004",
+      "skill": "m6.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "5 machines make 5 toys in 5 minutes. How long do 100 machines take to make 100 toys?",
+      "options": [
+        {
+          "text": "1 minute",
+          "why": "More machines make more toys, but each toy still takes the same time."
+        },
+        {
+          "text": "5 minutes"
+        },
+        {
+          "text": "20 minutes",
+          "why": "Each machine makes its own toy, all at the same time."
+        },
+        {
+          "text": "100 minutes",
+          "why": "The machines work at the same time, not one after another."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find how long one machine takes to make one toy.",
+        "5 machines make 5 toys in 5 minutes, so each machine makes 1 toy in 5 minutes.",
+        "Do the machines take turns, or do they all work at the same time?"
+      ],
+      "explanation": "Each machine makes 1 toy in 5 minutes. 100 machines working together make 100 toys in the same 5 minutes.",
+      "solution": [
+        {
+          "say": "One machine, one toy.",
+          "show": "5 minutes"
+        },
+        {
+          "say": "100 machines, each making one toy at once.",
+          "show": "5 minutes"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-logic.005",
+      "skill": "m6.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ali is 3 years older than Ben. Ben is 4 years older than Chen. Their ages add up to 41. How old is Ali?",
+      "answer": 17,
+      "hints": [
+        "Write everyone's age using Chen's age.",
+        "Ben is Chen + 4 and Ali is Chen + 7.",
+        "Three times Chen's age, plus 11, makes 41."
+      ],
+      "explanation": "With Chen's age as c, the ages are c, c + 4 and c + 7, which add up to 3c + 11 = 41. So c = 10 and Ali is 17.",
+      "solution": [
+        {
+          "say": "Ages from Chen's age.",
+          "show": "c, c + 4, c + 7"
+        },
+        {
+          "say": "Sum.",
+          "show": "3c + 11 = 41"
+        },
+        {
+          "say": "Chen.",
+          "show": "3c = 30, c = 10"
+        },
+        {
+          "say": "Ali.",
+          "show": "10 + 7 = 17"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-logic.006",
+      "skill": "m6.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Kereta berangkat dari Malang pukul 07.45 dan tiba di Surabaya pukul 10.20. Di jalan, kereta berhenti 3 kali, masing-masing 5 menit. Berapa menit kereta itu berjalan?",
+      "options": [
+        {
+          "text": "140"
+        },
+        {
+          "text": "145",
+          "why": "Kereta berhenti 3 kali 5 menit, jadi kurangi 15 menit, bukan 10 menit."
+        },
+        {
+          "text": "150",
+          "why": "Kereta berhenti 3 kali, jadi kurangi 15 menit, bukan 5 menit."
+        },
+        {
+          "text": "155",
+          "why": "155 menit adalah seluruh perjalanan, termasuk waktu berhenti."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Hitung dulu lama seluruh perjalanan.",
+        "Dari 07.45 sampai 10.20: hitung sampai 08.00, lalu sampai 10.00, lalu sampai 10.20.",
+        "Kurangi waktu berhenti: 3 × 5 menit."
+      ],
+      "explanation": "Seluruh perjalanan lamanya 15 + 120 + 20 = 155 menit. Kereta berhenti 3 × 5 = 15 menit, jadi kereta berjalan 155 - 15 = 140 menit.",
+      "solution": [
+        {
+          "say": "07.45 sampai 08.00.",
+          "show": "15 menit"
+        },
+        {
+          "say": "08.00 sampai 10.00.",
+          "show": "120 menit"
+        },
+        {
+          "say": "10.00 sampai 10.20.",
+          "show": "20 menit"
+        },
+        {
+          "say": "Seluruh perjalanan dikurangi waktu berhenti.",
+          "show": "155 - 15 = 140 menit"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "kereta",
+          "en": "train"
+        },
+        {
+          "term": "berangkat",
+          "en": "to depart"
+        },
+        {
+          "term": "tiba",
+          "en": "to arrive"
+        },
+        {
+          "term": "berhenti",
+          "en": "to stop"
+        },
+        {
+          "term": "masing-masing",
+          "en": "each"
+        },
+        {
+          "term": "berjalan",
+          "en": "to be moving"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-logic.007",
+      "skill": "m6.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Paul tells the truth on Monday, Wednesday and Friday. On the other days he always lies. One day he says, 'Tomorrow I will tell the truth.' On how many days of the week could he say this?",
+      "answer": 1,
+      "hints": [
+        "Check each day of the week one by one.",
+        "On a truth day the sentence must be true. On a lying day it must be false.",
+        "Is tomorrow a truth day? Compare that with what kind of day today is."
+      ],
+      "explanation": "On a truth day the next day is always a lying day, so the sentence would be false, which cannot happen. On a lying day the sentence must be false, so the next day must also be a lying day, and only Saturday, followed by Sunday, works. So there is 1 day.",
+      "solution": [
+        {
+          "say": "Truth days are followed by lying days, so the sentence would be false.",
+          "show": "Mon, Wed, Fri: no"
+        },
+        {
+          "say": "On lying days the sentence must be false, so tomorrow must be a lying day.",
+          "show": "Tue, Thu: no"
+        },
+        {
+          "say": "Saturday is followed by Sunday, a lying day. Sunday is followed by Monday, a truth day.",
+          "show": "Saturday only"
+        },
+        {
+          "say": "So 1 day.",
+          "show": "1"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-logic.008",
+      "skill": "m6.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Four teams each play every other team once. A win gives 3 points, a draw gives 1 point each. Final points: A 7, B 5, C 2, D 1. How many matches were draws?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Team",
+          "Points"
+        ],
+        "rows": [
+          [
+            "A",
+            "7"
+          ],
+          [
+            "B",
+            "5"
+          ],
+          [
+            "C",
+            "2"
+          ],
+          [
+            "D",
+            "1"
+          ]
+        ],
+        "alt": "A points table: team A 7 points, B 5 points, C 2 points, D 1 point."
+      },
+      "answer": 3,
+      "hints": [
+        "Count the matches and the total points.",
+        "There are 6 matches, and the points add up to 15.",
+        "A match with a winner gives 3 points in total. A draw gives 2."
+      ],
+      "explanation": "6 matches would give 18 points if every match had a winner. Each draw gives 1 point less in total. The total is 7 + 5 + 2 + 1 = 15, so there were 18 - 15 = 3 draws.",
+      "solution": [
+        {
+          "say": "Matches.",
+          "show": "3 + 2 + 1 = 6"
+        },
+        {
+          "say": "Total points.",
+          "show": "7 + 5 + 2 + 1 = 15"
+        },
+        {
+          "say": "All wins would give 18.",
+          "show": "6 × 3 = 18"
+        },
+        {
+          "say": "Draws.",
+          "show": "18 - 15 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-logic.009",
+      "skill": "m6.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A father is 4 times as old as his son. In 20 years, he will be twice as old as his son. How old is the son now?",
+      "answer": 10,
+      "hints": [
+        "The age gap between them never changes.",
+        "Now the gap is 3 times the son's age.",
+        "In 20 years the gap equals the son's age then."
+      ],
+      "explanation": "Now the gap is 4s - s = 3s. In 20 years the father is twice the son, so the gap equals the son's age then, s + 20. So 3s = s + 20, which gives s = 10.",
+      "solution": [
+        {
+          "say": "Gap now.",
+          "show": "4s - s = 3s"
+        },
+        {
+          "say": "Gap in 20 years equals the son's age then.",
+          "show": "s + 20"
+        },
+        {
+          "say": "Solve.",
+          "show": "3s = s + 20, so s = 10"
+        },
+        {
+          "say": "Check: son 10, father 40. In 20 years: 30 and 60.",
+          "show": "60 = 2 × 30"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

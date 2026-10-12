@@ -1,0 +1,37 @@
+{
+  "skill": "s1.sounds",
+  "title": "Sounds around us",
+  "steps": [
+    { "say": "A sound source is anything that makes a sound.", "figure": { "kind": "icons", "items": [{ "icon": "drum", "label": "drum" }, { "icon": "bell", "label": "bell" }, { "icon": "bird", "label": "bird" }], "alt": "Three sound sources: a drum, a bell and a bird." } },
+    { "say": "We hear sounds with our ears.", "figure": { "kind": "icons", "items": [{ "icon": "ear", "label": "ear" }], "alt": "An ear, which we hear with." } },
+    { "say": "Some sounds are loud, like thunder. Some are quiet, like a whisper.", "show": "loud, quiet" },
+    { "say": "Sounds get quieter as you move further away.", "show": "further away, quieter" },
+    { "say": "Cover your ears near very loud sounds. This keeps them safe.", "show": "Look after your ears." }
+  ],
+  "check": [
+    {
+      "id": "s1.sounds.901", "skill": "s1.sounds", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one is a sound source?",
+      "options": [
+        { "text": "a picture", "why": "A picture makes no sound." },
+        { "text": "a bell ringing" },
+        { "text": "a rock", "why": "A rock lying still makes no sound." }
+      ],
+      "answer": 1,
+      "hints": ["A sound source makes a sound.", "Which one could you hear with your eyes closed?", "Think about the start of the school day."],
+      "explanation": "A ringing bell makes a sound, so it is a sound source."
+    },
+    {
+      "id": "s1.sounds.902", "skill": "s1.sounds", "type": "mcq", "difficulty": 2,
+      "prompt": "You walk away from a radio. How does it sound?",
+      "options": [
+        { "text": "louder", "why": "Sounds get quieter as you move away." },
+        { "text": "the same", "why": "Sounds change when you move further away." },
+        { "text": "quieter" }
+      ],
+      "answer": 2,
+      "hints": ["Think about a sound close up and far away.", "Does a sound get weaker as it travels?", "Picture walking to the end of a long garden."],
+      "explanation": "Sounds get quieter the further you are from the source."
+    }
+  ]
+}

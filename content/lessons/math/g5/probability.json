@@ -1,0 +1,159 @@
+{
+  "skill": "m5.probability",
+  "title": "Probability",
+  "steps": [
+    {
+      "say": "Probability is how likely something is to happen. We use the words impossible, unlikely, even chance, likely and certain.",
+      "show": "impossible, unlikely, even chance, likely, certain",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 1,
+        "step": 0.25,
+        "labels": "ends",
+        "marks": [
+          {
+            "at": 0,
+            "label": "impossible"
+          },
+          {
+            "at": 0.5,
+            "label": "even chance"
+          },
+          {
+            "at": 1,
+            "label": "certain"
+          }
+        ],
+        "alt": "A probability scale from impossible to certain, with even chance in the middle."
+      }
+    },
+    {
+      "say": "Rolling a 7 on a normal dice is impossible. Rolling a number less than 7 is certain.",
+      "show": "A dice has the numbers 1 to 6"
+    },
+    {
+      "say": "A coin landing on heads has an even chance. There are two outcomes, and both are equally likely.",
+      "show": "heads or tails"
+    },
+    {
+      "say": "This spinner has 4 equal parts and 1 is shaded. Landing on the shaded part is unlikely.",
+      "show": "1 out of 4 parts",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 1,
+        "alt": "A spinner with 4 equal parts and 1 part shaded."
+      }
+    },
+    {
+      "say": "List all the possible outcomes to see what can happen. Two coins have four outcomes.",
+      "show": "HH, HT, TH, TT",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Coin 1",
+          "Coin 2"
+        ],
+        "rows": [
+          [
+            "H",
+            "H"
+          ],
+          [
+            "H",
+            "T"
+          ],
+          [
+            "T",
+            "H"
+          ],
+          [
+            "T",
+            "T"
+          ]
+        ],
+        "alt": "A table of outcomes for two coins: heads and heads, heads and tails, tails and heads, tails and tails."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.probability.901",
+      "skill": "m5.probability",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A bag has 9 red counters and 1 blue counter. How likely is it that you pick a red counter?",
+      "hints": [
+        "Count the red counters and the blue counter.",
+        "Compare the number of red counters with the total.",
+        "There are 10 counters altogether."
+      ],
+      "explanation": "9 of the 10 counters are red, so picking red is likely.",
+      "options": [
+        {
+          "text": "Likely"
+        },
+        {
+          "text": "Impossible",
+          "why": "There are red counters in the bag, so it can happen."
+        },
+        {
+          "text": "Certain",
+          "why": "There is a blue counter, so red is not certain."
+        },
+        {
+          "text": "Unlikely",
+          "why": "Most of the counters are red."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.probability.902",
+      "skill": "m5.probability",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Two coins are tossed. How many possible outcomes are there?",
+      "hints": [
+        "List the outcomes for the first coin.",
+        "For each one, list the outcomes for the second coin.",
+        "Start with heads and heads."
+      ],
+      "explanation": "HH, HT, TH and TT make 4 outcomes.",
+      "answer": 4
+    },
+    {
+      "id": "m5.probability.903",
+      "skill": "m5.probability",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A normal dice is rolled. Which event has an even chance?",
+      "hints": [
+        "A dice has the numbers 1 to 6.",
+        "An even chance means half of the outcomes.",
+        "Count how many numbers fit each event."
+      ],
+      "explanation": "3 of the 6 numbers (2, 4 and 6) are even. That is half, so the chance is even.",
+      "options": [
+        {
+          "text": "Rolling a 0",
+          "why": "There is no 0 on a dice, so this is impossible."
+        },
+        {
+          "text": "Rolling an even number"
+        },
+        {
+          "text": "Rolling a 6",
+          "why": "Only 1 of the 6 numbers is a 6, so it is unlikely."
+        },
+        {
+          "text": "Rolling a number less than 7",
+          "why": "Every number on the dice is less than 7, so this is certain."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

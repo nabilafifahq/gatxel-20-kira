@@ -1,0 +1,248 @@
+[
+  {
+    "id": "e1.letter-sounds",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Rw",
+    "title": "Letter sounds and short words",
+    "titleId": "Bunyi huruf dan kata pendek (CVC)",
+    "canDo": "I can hear the sounds in a short word and read words like cat, pig and sun.",
+    "order": 10,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.digraphs",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Rw",
+    "title": "Two letters, one sound: sh, ch, th, ng",
+    "titleId": "Dua huruf satu bunyi: sh, ch, th, ng",
+    "canDo": "I can read and spell words with sh, ch, th and ng.",
+    "order": 20,
+    "prerequisites": [
+      "e1.letter-sounds"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.vowel-teams",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Rw",
+    "title": "Vowel teams: ai, ee, igh, oa, oo",
+    "titleId": "Gabungan vokal ai, ee, igh, oa, dan oo",
+    "canDo": "I can read words with ai, ee, igh, oa and oo, like rain, tree and boat.",
+    "order": 30,
+    "prerequisites": [
+      "e1.digraphs"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.tricky-words",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Ww",
+    "title": "Tricky words",
+    "titleId": "Kata sulit yang tidak dibaca sesuai bunyi huruf",
+    "canDo": "I can read and spell tricky words like the, said, was and they.",
+    "order": 40,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.word-meanings",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Rv",
+    "title": "Opposites and word groups",
+    "titleId": "Lawan kata dan kelompok kata",
+    "canDo": "I can find opposites like hot and cold and put words into groups.",
+    "order": 50,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.capitals-full-stops",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Wg",
+    "title": "Capital letters and full stops",
+    "titleId": "Huruf kapital dan titik",
+    "canDo": "I can start a sentence with a capital letter and end it with a full stop.",
+    "order": 60,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.question-marks",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Wg",
+    "title": "Question marks and exclamation marks",
+    "titleId": "Tanda tanya dan tanda seru",
+    "canDo": "I can end a question with a question mark and a strong feeling with an exclamation mark.",
+    "order": 70,
+    "prerequisites": [
+      "e1.capitals-full-stops"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.naming-doing-words",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Wg",
+    "title": "Naming, doing and describing words",
+    "titleId": "Kata benda, kata kerja, dan kata sifat",
+    "canDo": "I can find naming words, doing words and describing words in a sentence.",
+    "order": 80,
+    "prerequisites": [],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.word-endings",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Wg",
+    "title": "Adding -s, -es and -ing",
+    "titleId": "Menambahkan akhiran -s, -es, dan -ing",
+    "canDo": "I can add -s or -es for more than one, and -ing to a doing word.",
+    "order": 90,
+    "prerequisites": [
+      "e1.naming-doing-words"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.reading-details",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Ri",
+    "title": "Finding answers in a text",
+    "titleId": "Mencari informasi dan perasaan tokoh dalam bacaan",
+    "canDo": "I can find answers in a story or fact text and say how a character feels.",
+    "order": 100,
+    "prerequisites": [],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.story-order",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Rs",
+    "title": "Story order and kinds of text",
+    "titleId": "Urutan cerita, menebak kelanjutan, dan jenis teks",
+    "canDo": "I can put events in order, guess what happens next and tell a story from a fact text.",
+    "order": 110,
+    "prerequisites": [
+      "e1.reading-details"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.rhyme-poems",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Ra",
+    "title": "Rhyme and poems",
+    "titleId": "Rima dan puisi",
+    "canDo": "I can hear words that rhyme and talk about a short poem.",
+    "order": 120,
+    "prerequisites": [
+      "e1.letter-sounds"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "iklc"
+    ],
+    "generator": false
+  },
+  {
+    "id": "e1.write-sentences",
+    "subject": "english",
+    "grade": 1,
+    "strand": "Wc",
+    "title": "Writing sentences",
+    "titleId": "Menulis kalimat",
+    "canDo": "I can write a sentence with a capital letter, finger spaces and a full stop.",
+    "order": 130,
+    "prerequisites": [
+      "e1.capitals-full-stops"
+    ],
+    "term": 3,
+    "competitions": [],
+    "generator": false
+  },
+  {
+    "id": "e1.speaking",
+    "subject": "english",
+    "grade": 1,
+    "strand": "SL",
+    "title": "Speaking and listening",
+    "titleId": "Berbicara dan menyimak",
+    "canDo": "I can talk about a picture, tell a short story and read a sentence aloud.",
+    "order": 140,
+    "prerequisites": [],
+    "term": 3,
+    "competitions": [],
+    "generator": false
+  }
+]

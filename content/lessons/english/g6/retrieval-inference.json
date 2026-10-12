@@ -1,0 +1,86 @@
+{
+  "skill": "e6.retrieval-inference",
+  "title": "Inference with evidence",
+  "steps": [
+    {
+      "say": "An inference is a sensible conclusion based on clues in the text."
+    },
+    {
+      "say": "Look at what characters say, what they do and how others react to them."
+    },
+    {
+      "say": "When words and actions do not match, the actions often show the real feeling.",
+      "show": "“I’m fine,” she said, wiping her eyes."
+    },
+    {
+      "say": "Back up every inference with a short quotation as evidence."
+    },
+    {
+      "say": "For retrieval questions, scan for key words, then read the whole sentence around them."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.retrieval-inference.901",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: “I’m not hungry at all,” said Bima, staring at the plate of fried rice. What can you infer?",
+      "options": [
+        {
+          "text": "Bima is probably hungry but is pretending not to be."
+        },
+        {
+          "text": "Bima has just eaten a big meal.",
+          "why": "The text does not say this, and staring at the food suggests he wants it."
+        },
+        {
+          "text": "Bima does not like fried rice.",
+          "why": "Staring at the plate suggests the opposite."
+        },
+        {
+          "text": "Bima is angry with the cook.",
+          "why": "Nothing in the sentence suggests anger."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare what Bima says with what he does.",
+        "His words and his actions do not match.",
+        "Ask: why would someone stare at food?"
+      ],
+      "explanation": "Bima says he is not hungry, but he is staring at the food. His actions suggest that he really is hungry."
+    },
+    {
+      "id": "e6.retrieval-inference.902",
+      "skill": "e6.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which quotation is the best evidence that Tika was nervous before her speech?",
+      "options": [
+        {
+          "text": "She walked onto the stage.",
+          "why": "This tells us what she did, but not how she felt."
+        },
+        {
+          "text": "Her hands shook as she unfolded her notes."
+        },
+        {
+          "text": "The hall was full of parents.",
+          "why": "This describes the hall, not Tika."
+        },
+        {
+          "text": "Her speech was about recycling.",
+          "why": "This gives the topic, not her feelings."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The best evidence shows the feeling itself.",
+        "Look for a physical sign of nerves.",
+        "Ask: what happens to people’s bodies when they are nervous?"
+      ],
+      "explanation": "Shaking hands are a sign of nerves, so this quotation is the best evidence."
+    }
+  ]
+}

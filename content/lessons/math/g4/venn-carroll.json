@@ -1,0 +1,166 @@
+{
+  "skill": "m4.venn-carroll",
+  "title": "Venn and Carroll diagrams with two rules",
+  "steps": [
+    {
+      "say": "This Venn diagram sorts numbers by two rules.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Multiples of 3",
+          "Factors of 24"
+        ],
+        "items": [
+          {
+            "text": "9",
+            "region": "a"
+          },
+          {
+            "text": "15",
+            "region": "a"
+          },
+          {
+            "text": "3",
+            "region": "both"
+          },
+          {
+            "text": "6",
+            "region": "both"
+          },
+          {
+            "text": "12",
+            "region": "both"
+          },
+          {
+            "text": "2",
+            "region": "b"
+          },
+          {
+            "text": "4",
+            "region": "b"
+          },
+          {
+            "text": "8",
+            "region": "b"
+          },
+          {
+            "text": "5",
+            "region": "none"
+          },
+          {
+            "text": "7",
+            "region": "none"
+          }
+        ],
+        "alt": "Venn diagram. Multiples of 3 only: 9, 15. Both: 3, 6, 12. Factors of 24 only: 2, 4, 8. Outside: 5, 7."
+      }
+    },
+    {
+      "say": "3, 6 and 12 fit both rules, so they go in the overlap.",
+      "show": "3, 6, 12"
+    },
+    {
+      "say": "9 and 15 are multiples of 3, but they do not divide into 24 exactly.",
+      "show": "24 ÷ 9 = 2 r 6"
+    },
+    {
+      "say": "A Carroll diagram sorts the same numbers into a grid of four boxes.",
+      "figure": {
+        "kind": "carroll",
+        "cols": [
+          "Multiple of 3",
+          "Not a multiple of 3"
+        ],
+        "rows": [
+          "Factor of 24",
+          "Not a factor of 24"
+        ],
+        "cells": [
+          [
+            "3",
+            "6",
+            "12"
+          ],
+          [
+            "2",
+            "4",
+            "8"
+          ],
+          [
+            "9",
+            "15"
+          ],
+          [
+            "5",
+            "7"
+          ]
+        ],
+        "alt": "Carroll diagram. Multiple of 3 and factor of 24: 3, 6, 12. Factor of 24 only: 2, 4, 8. Multiple of 3 only: 9, 15. Neither: 5, 7."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.venn-carroll.901",
+      "skill": "m4.venn-carroll",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The circles are multiples of 3 and factors of 24. Where does 18 go?",
+      "options": [
+        {
+          "text": "In the multiples of 3 circle only"
+        },
+        {
+          "text": "In both circles",
+          "why": "24 ÷ 18 leaves a remainder, so 18 is not a factor of 24."
+        },
+        {
+          "text": "Outside both circles",
+          "why": "18 is a multiple of 3, so it must be inside that circle."
+        },
+        {
+          "text": "In the factors of 24 circle only",
+          "why": "18 is a multiple of 3, so it must be inside that circle."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Test 18 against each rule.",
+        "Is 18 in the 3 times table?",
+        "Does 18 divide into 24 exactly?"
+      ],
+      "explanation": "18 is a multiple of 3. 24 ÷ 18 leaves a remainder, so 18 is not a factor of 24. It goes in the multiples of 3 circle only."
+    },
+    {
+      "id": "m4.venn-carroll.902",
+      "skill": "m4.venn-carroll",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "30 children were asked. 14 have a cat, 11 have a dog, and 4 have both. How many have neither?",
+      "answer": 9,
+      "hints": [
+        "The 4 children in the overlap are counted in both groups.",
+        "Inside the circles: 14 + 11 - 4.",
+        "Take that away from 30."
+      ],
+      "explanation": "14 + 11 - 4 = 21 children are inside the circles. 30 - 21 = 9 have neither.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Has a cat",
+          "Has a dog"
+        ],
+        "items": [
+          {
+            "text": "4",
+            "region": "both"
+          }
+        ],
+        "alt": "Venn diagram with circles for has a cat and has a dog. 4 children are in the overlap."
+      },
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

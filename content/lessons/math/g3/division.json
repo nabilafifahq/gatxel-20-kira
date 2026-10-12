@@ -1,0 +1,87 @@
+{
+  "skill": "m3.division",
+  "title": "Division facts and remainders",
+  "steps": [
+    {
+      "say": "Division shares into equal groups. 12 ÷ 3 means 12 shared into 3 groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          4,
+          4,
+          4
+        ],
+        "icon": "cookie",
+        "container": "plate",
+        "alt": "12 cookies shared onto 3 plates, 4 on each plate."
+      }
+    },
+    {
+      "say": "Each plate gets 4.",
+      "show": "12 ÷ 3 = 4"
+    },
+    {
+      "say": "Use times tables to divide. 3 × 4 = 12, so 12 ÷ 3 = 4.",
+      "show": "3 × 4 = 12"
+    },
+    {
+      "say": "Sometimes some are left over. This is called the remainder.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "cookie",
+            "count": 14
+          }
+        ],
+        "alt": "14 cookies."
+      },
+      "show": "14 ÷ 3 = 4 r 2"
+    },
+    {
+      "say": "3 groups of 4 use 12 cookies. 2 cookies are left over.",
+      "show": "14 - 12 = 2"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.division.901",
+      "skill": "m3.division",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 35 ÷ 5?",
+      "answer": 7,
+      "hints": [
+        "Think of the 5 times table.",
+        "What times 5 makes 35?",
+        "Count in 5s up to 35."
+      ],
+      "explanation": "7 × 5 = 35, so 35 ÷ 5 = 7."
+    },
+    {
+      "id": "m3.division.902",
+      "skill": "m3.division",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "23 ÷ 4 = ___ r ___",
+      "blanks": [
+        {
+          "answers": [
+            "5"
+          ]
+        },
+        {
+          "answers": [
+            "3"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the biggest multiple of 4 that is not more than 23.",
+        "Count in 4s: 4, 8, 12, and so on.",
+        "Then work out what is left over."
+      ],
+      "explanation": "5 × 4 = 20 and 23 - 20 = 3. So 23 ÷ 4 = 5 r 3."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "s2.materials",
+  "title": "Choosing materials",
+  "steps": [
+    { "say": "Natural materials come from plants, animals or the ground.", "show": "wood, wool, cotton, stone" },
+    { "say": "Some materials are made by people. Plastic, glass and brick are made materials.", "show": "plastic, glass, brick" },
+    { "say": "Waterproof materials keep water out. Absorbent materials soak water up.", "figure": { "kind": "icons", "items": [{ "icon": "umbrella", "label": "waterproof" }, { "icon": "sponge", "label": "absorbent" }], "alt": "A waterproof umbrella and an absorbent sponge." } },
+    { "say": "We choose a material for its properties. A window must be see-through.", "show": "the right property for the job" },
+    { "say": "Magnets pull iron and steel. Wood, plastic and glass are not magnetic.", "figure": { "kind": "icons", "items": [{ "icon": "magnet", "label": "magnet" }, { "icon": "nail", "label": "iron nail" }], "alt": "A magnet and an iron nail." } }
+  ],
+  "check": [
+    {
+      "id": "s2.materials.901", "skill": "s2.materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Which material is best for a raincoat?",
+      "options": [
+        { "text": "paper", "why": "Paper goes soggy and tears in the rain." },
+        { "text": "wool", "why": "Wool soaks up water." },
+        { "text": "waterproof plastic" },
+        { "text": "cotton", "why": "Cotton soaks up water." }
+      ],
+      "answer": 2,
+      "hints": ["A raincoat must keep you dry.", "Look for a material that keeps water out.", "Ask: which one is waterproof?"],
+      "explanation": "Waterproof plastic keeps the rain out, so it is good for a raincoat."
+    },
+    {
+      "id": "s2.materials.902", "skill": "s2.materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Which material is natural?",
+      "options": [
+        { "text": "plastic", "why": "Plastic is made by people." },
+        { "text": "glass", "why": "Glass is made by people by heating sand." },
+        { "text": "brick", "why": "Bricks are made by people by baking clay." },
+        { "text": "wool" }
+      ],
+      "answer": 3,
+      "hints": ["Natural materials come from plants, animals or the ground.", "Which one comes from an animal?", "Think about what a sheep gives us."],
+      "explanation": "Wool is natural because it comes from sheep. Plastic, glass and brick are made by people."
+    }
+  ]
+}

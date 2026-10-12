@@ -1,0 +1,372 @@
+{
+  "skill": "e1.capitals-full-stops",
+  "items": [
+    {
+      "id": "e1.capitals-full-stops.001",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence starts the right way?",
+      "hints": [
+        "Look at the first letter of each sentence.",
+        "A sentence starts with a capital letter.",
+        "Find the sentence that starts with a big letter."
+      ],
+      "explanation": "A sentence starts with a capital letter. My starts with a capital M.",
+      "options": [
+        {
+          "text": "My cat is grey."
+        },
+        {
+          "text": "my dog is brown.",
+          "why": "A sentence starts with a capital letter."
+        },
+        {
+          "text": "tHe bird is blue.",
+          "why": "Only the first letter should be a capital."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.capitals-full-stops.002",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What goes at the end of this sentence? 'I like rice'",
+      "hints": [
+        "Is the sentence asking something?",
+        "It is a telling sentence.",
+        "Telling sentences end with a little dot."
+      ],
+      "explanation": "I like rice tells us something. A telling sentence ends with a full stop.",
+      "options": [
+        {
+          "text": "a comma (,)",
+          "why": "A comma goes inside a sentence."
+        },
+        {
+          "text": "a full stop (.)"
+        },
+        {
+          "text": "a question mark (?)",
+          "why": "This sentence does not ask anything."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.003",
+      "skill": "e1.capitals-full-stops",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the name with a capital letter: dewi",
+      "hints": [
+        "Names always start with a capital letter.",
+        "Only the first letter changes.",
+        "Write a big D, then the rest of the name."
+      ],
+      "explanation": "Dewi is a name. Names start with a capital letter.",
+      "blanks": [
+        {
+          "answers": [
+            "Dewi"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.004",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word should always start with a capital letter?",
+      "hints": [
+        "Names of people always have a capital letter.",
+        "Look for a name.",
+        "Which word is a girl's name?"
+      ],
+      "explanation": "Rani is a name, so it always starts with a capital letter: Rani.",
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat only needs a capital at the start of a sentence."
+        },
+        {
+          "text": "red",
+          "why": "Red only needs a capital at the start of a sentence."
+        },
+        {
+          "text": "rani"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.capitals-full-stops.005",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word should have a capital letter? 'Yesterday i went to the park.'",
+      "hints": [
+        "Check the start of the sentence first.",
+        "When you write about yourself, one little word is always a capital.",
+        "Look for a word with only one letter."
+      ],
+      "explanation": "When I means me, it is always a capital letter: I went to the park.",
+      "options": [
+        {
+          "text": "i"
+        },
+        {
+          "text": "Yesterday",
+          "why": "Yesterday is at the start and already has a capital."
+        },
+        {
+          "text": "park",
+          "why": "Park is not a name."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.capitals-full-stops.006",
+      "skill": "e1.capitals-full-stops",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The first word has a capital letter.",
+        "The last word has a full stop.",
+        "Start with the capital letter. What comes next?"
+      ],
+      "explanation": "The bird can sing. It starts with a capital letter and ends with a full stop.",
+      "items": [
+        "The",
+        "bird",
+        "can",
+        "sing."
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.007",
+      "skill": "e1.capitals-full-stops",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 sentences that are written correctly.",
+      "hints": [
+        "Check the start of each sentence.",
+        "Check the end of each sentence.",
+        "A correct sentence has a capital letter and a full stop."
+      ],
+      "explanation": "We like the beach. and I can swim. both start with a capital letter and end with a full stop.",
+      "options": [
+        {
+          "text": "We like the beach."
+        },
+        {
+          "text": "the sun is hot.",
+          "why": "The first word needs a capital T."
+        },
+        {
+          "text": "I can swim."
+        },
+        {
+          "text": "My mum is here",
+          "why": "This needs a full stop at the end."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.008",
+      "skill": "e1.capitals-full-stops",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write this sentence with a capital letter at the start. 'my bag is red.'",
+      "hints": [
+        "Look at the first word.",
+        "Only the first letter needs to change.",
+        "Write a big M to start."
+      ],
+      "explanation": "A sentence starts with a capital letter: My bag is red.",
+      "blanks": [
+        {
+          "answers": [
+            "My bag is red."
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.009",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where should the full stop go? 'I have a cat It is black.'",
+      "hints": [
+        "There are two ideas here.",
+        "Find where the first idea ends.",
+        "The second sentence starts with a capital letter."
+      ],
+      "explanation": "The first sentence is 'I have a cat.' The second sentence starts with It.",
+      "options": [
+        {
+          "text": "after have",
+          "why": "I have. is not a whole idea."
+        },
+        {
+          "text": "after cat"
+        },
+        {
+          "text": "after It",
+          "why": "It needs to start the next sentence."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.010",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Names start with a capital letter.",
+        "The word I is always a capital.",
+        "Find the sentence with both capitals."
+      ],
+      "explanation": "Ali is a name and I is always a capital. Only Ali and I play. has both capitals.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "sam and i run.",
+          "why": "Sam is a name and I is always a capital."
+        },
+        {
+          "text": "Ali and I play."
+        },
+        {
+          "text": "Tom and i swim.",
+          "why": "I is always a capital letter."
+        },
+        {
+          "text": "mia and I jump.",
+          "why": "Mia is a name, so it needs a capital."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.011",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How many sentences are here? 'The sun is up. Birds sing. I wake up.'",
+      "hints": [
+        "Each sentence ends with a full stop.",
+        "Count the full stops.",
+        "Point to each full stop and count."
+      ],
+      "explanation": "There are 3 full stops, so there are 3 sentences.",
+      "options": [
+        {
+          "text": "2",
+          "why": "Count the full stops again."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "9",
+          "why": "There are 9 words. Count the full stops instead."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.012",
+      "skill": "e1.capitals-full-stops",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Which words always need a capital letter? Sort them.",
+      "hints": [
+        "Names of people and places always have a capital.",
+        "Other words only need a capital at the start of a sentence.",
+        "Start with budi. Is it a name?"
+      ],
+      "explanation": "Budi and Sari are names of people. London is the name of a place. They always need a capital letter.",
+      "groups": [
+        "Always a capital",
+        "Not always"
+      ],
+      "items": [
+        {
+          "text": "budi",
+          "group": 0
+        },
+        {
+          "text": "bag",
+          "group": 1
+        },
+        {
+          "text": "london",
+          "group": 0
+        },
+        {
+          "text": "tree",
+          "group": 1
+        },
+        {
+          "text": "sari",
+          "group": 0
+        },
+        {
+          "text": "cup",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.013",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many capital letters are missing? 'my friend tom and i like to swim.'",
+      "hints": [
+        "Check the start of the sentence.",
+        "Look for a name.",
+        "Remember the word I."
+      ],
+      "explanation": "My needs a capital, Tom is a name and I is always a capital. That is 3.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "1",
+          "why": "Look at the start, at the name and at the word i."
+        },
+        {
+          "text": "2",
+          "why": "Look again at the little word i."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Friend and swim do not need capitals."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

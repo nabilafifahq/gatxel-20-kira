@@ -1,0 +1,149 @@
+{
+  "skill": "m1.pictograms-graphs",
+  "title": "Pictograms and graphs",
+  "steps": [
+    {
+      "say": "A pictogram uses pictures to show how many.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite fruit",
+        "rows": [
+          {
+            "label": "Apples",
+            "count": 4
+          },
+          {
+            "label": "Bananas",
+            "count": 6
+          },
+          {
+            "label": "Mangoes",
+            "count": 3
+          }
+        ],
+        "icon": "star",
+        "key": 1,
+        "alt": "Pictogram of favourite fruit. Each star is 1 child. Apples: 4, Bananas: 6, Mangoes: 3."
+      }
+    },
+    {
+      "say": "Each star is 1 child. Count the stars in a row.",
+      "show": "Bananas: 6"
+    },
+    {
+      "say": "A block graph uses blocks. Read the number at the top of each block.",
+      "figure": {
+        "kind": "bars",
+        "title": "Favourite pet",
+        "categories": [
+          "Cats",
+          "Dogs",
+          "Fish"
+        ],
+        "values": [
+          5,
+          7,
+          2
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Block graph of favourite pet. Cats: 5, Dogs: 7, Fish: 2."
+      }
+    },
+    {
+      "say": "A tally chart uses marks. A gate of 4 marks with a line across is 5.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 7
+          }
+        ],
+        "alt": "Tally chart: cats 7."
+      },
+      "show": "5 + 2 = 7"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.pictograms-graphs.901",
+      "skill": "m1.pictograms-graphs",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many children chose apples?",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite fruit",
+        "rows": [
+          {
+            "label": "Apples",
+            "count": 4
+          },
+          {
+            "label": "Bananas",
+            "count": 6
+          },
+          {
+            "label": "Mangoes",
+            "count": 3
+          }
+        ],
+        "icon": "star",
+        "key": 1,
+        "alt": "Pictogram of favourite fruit. Each star is 1 child. Apples: 4, Bananas: 6, Mangoes: 3."
+      },
+      "hints": [
+        "Find the row for apples.",
+        "Each star stands for 1 child.",
+        "Point to each star in the row and count."
+      ],
+      "explanation": "The apples row has 4 stars, so 4 children chose apples.",
+      "answer": 4
+    },
+    {
+      "id": "m1.pictograms-graphs.902",
+      "skill": "m1.pictograms-graphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which pet was chosen by the most children?",
+      "figure": {
+        "kind": "bars",
+        "title": "Favourite pet",
+        "categories": [
+          "Cats",
+          "Dogs",
+          "Fish"
+        ],
+        "values": [
+          5,
+          7,
+          2
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Block graph of favourite pet. Cats: 5, Dogs: 7, Fish: 2."
+      },
+      "hints": [
+        "Read each block.",
+        "The tallest block shows the most.",
+        "Compare the blocks for cats and fish first."
+      ],
+      "explanation": "Dogs has 7, the tallest block.",
+      "options": [
+        {
+          "text": "Cats",
+          "why": "Cats has 5. Dogs has more."
+        },
+        {
+          "text": "Fish",
+          "why": "Fish has 2. Dogs has more."
+        },
+        {
+          "text": "Dogs"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

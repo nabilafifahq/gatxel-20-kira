@@ -1,0 +1,32 @@
+{
+  "skill": "s1.plant-parts",
+  "title": "The parts of a plant",
+  "steps": [
+    { "say": "Plants have different parts. Each part has a job.", "figure": { "kind": "icons", "items": [{ "icon": "plant", "label": "plant" }, { "icon": "soil", "label": "soil" }], "alt": "A plant growing in soil." } },
+    { "say": "The roots grow under the soil. They hold the plant and take in water.", "show": "roots" },
+    { "say": "The stem holds the plant up. It carries water to the leaves.", "show": "stem" },
+    { "say": "Leaves are often green and flat. They use light to make food.", "figure": { "kind": "icons", "items": [{ "icon": "leaf", "label": "leaf" }, { "icon": "sun", "label": "light" }], "alt": "A green leaf in the sunlight." } },
+    { "say": "The flower makes seeds. New plants grow from the seeds.", "figure": { "kind": "icons", "items": [{ "icon": "flower", "label": "flower" }, { "icon": "seed", "label": "seed" }], "alt": "A flower and a seed." } }
+  ],
+  "check": [
+    {
+      "id": "s1.plant-parts.901", "skill": "s1.plant-parts", "type": "mcq", "difficulty": 1,
+      "prompt": "Which part takes in water from the soil?",
+      "options": [
+        { "text": "the flower", "why": "The flower makes seeds." },
+        { "text": "the leaves", "why": "Leaves make food using light." },
+        { "text": "the roots" }
+      ],
+      "answer": 2,
+      "hints": ["Think about which part is in the soil.", "Water is in the soil, under the ground.", "Ask: which part grows down into the soil?"],
+      "explanation": "The roots grow in the soil and take in water for the plant."
+    },
+    {
+      "id": "s1.plant-parts.902", "skill": "s1.plant-parts", "type": "text", "difficulty": 2,
+      "prompt": "The ___ holds the plant up.",
+      "blanks": [{ "answers": ["stem", "stalk", "trunk"] }],
+      "hints": ["This part joins the roots to the leaves.", "It is long and stands up straight.", "Think about the part you hold when you pick a flower."],
+      "explanation": "The stem holds the plant up. It also carries water from the roots to the leaves."
+    }
+  ]
+}

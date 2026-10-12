@@ -1,0 +1,497 @@
+{
+  "skill": "s3.tables-and-charts",
+  "items": [
+    {
+      "id": "s3.tables-and-charts.001",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the table. Which plant grew tallest?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Plant",
+          "Height (cm)"
+        ],
+        "rows": [
+          [
+            "bean",
+            "12"
+          ],
+          [
+            "pea",
+            "8"
+          ],
+          [
+            "sunflower",
+            "15"
+          ],
+          [
+            "cress",
+            "4"
+          ]
+        ],
+        "alt": "Table of plant heights: bean 12 cm, pea 8 cm, sunflower 15 cm, cress 4 cm."
+      },
+      "options": [
+        {
+          "text": "bean",
+          "why": "The bean grew 12 cm. One plant grew taller."
+        },
+        {
+          "text": "sunflower"
+        },
+        {
+          "text": "pea",
+          "why": "The pea grew 8 cm."
+        },
+        {
+          "text": "cress",
+          "why": "Cress grew only 4 cm, the least."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Tallest means the biggest height.",
+        "Look down the height column.",
+        "Find the largest number."
+      ],
+      "explanation": "The sunflower grew 15 cm, which is the biggest number in the table."
+    },
+    {
+      "id": "s3.tables-and-charts.002",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many paperclips did magnet C hold?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "values": [
+          6,
+          10,
+          14,
+          4
+        ],
+        "axisMax": 16,
+        "step": 2,
+        "yLabel": "Paperclips held",
+        "tone": "science",
+        "alt": "Bar chart of paperclips held by each magnet: A 6, B 10, C 14, D 4."
+      },
+      "answer": 14,
+      "hints": [
+        "Find the bar labelled C.",
+        "Look across from the top of the bar to the scale.",
+        "The lines on the scale go up in 2s."
+      ],
+      "explanation": "The top of bar C lines up with 14 on the scale. Magnet C held 14 paperclips."
+    },
+    {
+      "id": "s3.tables-and-charts.003",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more paperclips did magnet B hold than magnet D?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "values": [
+          6,
+          10,
+          14,
+          4
+        ],
+        "axisMax": 16,
+        "step": 2,
+        "yLabel": "Paperclips held",
+        "tone": "science",
+        "alt": "Bar chart of paperclips held by each magnet: A 6, B 10, C 14, D 4."
+      },
+      "answer": 6,
+      "hints": [
+        "Read the bars for B and D.",
+        "How many more means find the difference.",
+        "Take the smaller number away from the bigger one."
+      ],
+      "explanation": "Magnet B held 10 and magnet D held 4. 10 take away 4 is 6."
+    },
+    {
+      "id": "s3.tables-and-charts.004",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ben tests how far a toy car rolls on different surfaces. What should his two table headings be?",
+      "options": [
+        {
+          "text": "Car colour and Distance (cm)",
+          "why": "Ben does not change the colour of the car."
+        },
+        {
+          "text": "Surface and Time of day",
+          "why": "Ben is measuring distance, not the time of day."
+        },
+        {
+          "text": "Surface and Distance (cm)"
+        },
+        {
+          "text": "Distance (cm) and Weather",
+          "why": "The weather is not part of this test."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "One column is for the thing Ben changes.",
+        "The other column is for what he measures.",
+        "What does Ben change, and what does he measure?"
+      ],
+      "explanation": "The first column shows what Ben changes, the surface. The second shows what he measures, the distance in centimetres."
+    },
+    {
+      "id": "s3.tables-and-charts.005",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Children counted minibeasts in the school garden. Which conclusion fits the results?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "under logs",
+          "on the lawn",
+          "under stones",
+          "on the path"
+        ],
+        "values": [
+          18,
+          6,
+          14,
+          2
+        ],
+        "axisMax": 20,
+        "step": 2,
+        "yLabel": "Minibeasts found",
+        "tone": "science",
+        "alt": "Bar chart of minibeasts found: under logs 18, on the lawn 6, under stones 14, on the path 2."
+      },
+      "options": [
+        {
+          "text": "Minibeasts like bright, dry paths best.",
+          "why": "Only 2 minibeasts were found on the path, the fewest."
+        },
+        {
+          "text": "The same number lived everywhere.",
+          "why": "The numbers were very different, from 2 to 18."
+        },
+        {
+          "text": "No minibeasts live on the lawn.",
+          "why": "6 minibeasts were found on the lawn."
+        },
+        {
+          "text": "More minibeasts were found in dark, damp places."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the two tallest bars.",
+        "Think about what those two places are like.",
+        "Are logs and stones dark and damp, or bright and dry?"
+      ],
+      "explanation": "Most minibeasts were under logs and stones, which are dark and damp. Very few were on the bright, dry path.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.006",
+      "skill": "s3.tables-and-charts",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the steps of an investigation in order.",
+      "items": [
+        "Ask a question.",
+        "Make a prediction.",
+        "Do the test and measure.",
+        "Record the results in a table.",
+        "Write a conclusion."
+      ],
+      "hints": [
+        "Every investigation starts with something you want to find out.",
+        "You predict before you test.",
+        "The conclusion comes last, after you look at the results."
+      ],
+      "explanation": "First ask a question and predict. Then test and measure, record the results, and finally write a conclusion."
+    },
+    {
+      "id": "s3.tables-and-charts.007",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The chart shows how high a ball bounced when dropped from different heights. Which sentence is true?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "50 cm",
+          "100 cm",
+          "150 cm",
+          "200 cm"
+        ],
+        "values": [
+          20,
+          40,
+          60,
+          80
+        ],
+        "axisMax": 100,
+        "step": 20,
+        "yLabel": "Bounce height (cm)",
+        "tone": "science",
+        "alt": "Bar chart of bounce height for each drop height: 50 cm drop gave 20 cm, 100 cm gave 40 cm, 150 cm gave 60 cm, 200 cm gave 80 cm."
+      },
+      "options": [
+        {
+          "text": "The higher the drop, the higher the bounce."
+        },
+        {
+          "text": "The ball always bounced 20 cm.",
+          "why": "The bounce changed from 20 cm to 80 cm."
+        },
+        {
+          "text": "The 50 cm drop gave the highest bounce.",
+          "why": "The 50 cm drop gave the lowest bounce."
+        },
+        {
+          "text": "The ball bounced higher than it was dropped.",
+          "why": "Every bounce was lower than its drop height."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at how the bars change from left to right.",
+        "The drop height grows from left to right.",
+        "Do the bars grow too?"
+      ],
+      "explanation": "Each time the drop height went up, the bounce went up too. The higher the drop, the higher the bounce.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.008",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Use the pattern in the chart. Predict the bounce for a drop of 250 cm.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "50 cm",
+          "100 cm",
+          "150 cm",
+          "200 cm"
+        ],
+        "values": [
+          20,
+          40,
+          60,
+          80
+        ],
+        "axisMax": 100,
+        "step": 20,
+        "yLabel": "Bounce height (cm)",
+        "tone": "science",
+        "alt": "Bar chart of bounce height for each drop height: 50 cm drop gave 20 cm, 100 cm gave 40 cm, 150 cm gave 60 cm, 200 cm gave 80 cm."
+      },
+      "answer": 100,
+      "unit": "cm",
+      "hints": [
+        "Look at how much the bounce grows each time.",
+        "Each extra 50 cm of drop adds the same amount of bounce.",
+        "The 200 cm drop gave 80 cm. Add one more step."
+      ],
+      "explanation": "Each extra 50 cm of drop adds 20 cm of bounce. So 250 cm should give 80 + 20 = 100 cm.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.009",
+      "skill": "s3.tables-and-charts",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A table heading says Time (s). The s stands for ___.",
+      "blanks": [
+        {
+          "answers": [
+            "seconds",
+            "second",
+            "secs"
+          ]
+        }
+      ],
+      "hints": [
+        "Time can be measured in different units.",
+        "A stopwatch counts these.",
+        "There are 60 of them in a minute."
+      ],
+      "explanation": "The s stands for seconds. Units go in brackets in table headings."
+    },
+    {
+      "id": "s3.tables-and-charts.010",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the best way to show how many children chose each favourite fruit?",
+      "options": [
+        {
+          "text": "a line graph",
+          "why": "Line graphs show how something changes over time."
+        },
+        {
+          "text": "a bar chart"
+        },
+        {
+          "text": "a map",
+          "why": "A map shows where places are, not how many chose each fruit."
+        },
+        {
+          "text": "a thermometer",
+          "why": "A thermometer measures temperature."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Each fruit is a separate group.",
+        "You want to compare amounts.",
+        "Which chart is made of blocks you can compare?"
+      ],
+      "explanation": "A bar chart shows a separate bar for each fruit. You can compare the heights quickly."
+    },
+    {
+      "id": "s3.tables-and-charts.011",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Mia measured her plant every week. Which result is probably a mistake?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Week",
+          "Height (cm)"
+        ],
+        "rows": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "2",
+            "4"
+          ],
+          [
+            "3",
+            "6"
+          ],
+          [
+            "4",
+            "3"
+          ],
+          [
+            "5",
+            "10"
+          ]
+        ],
+        "alt": "Table of plant height: week 1 2 cm, week 2 4 cm, week 3 6 cm, week 4 3 cm, week 5 10 cm."
+      },
+      "options": [
+        {
+          "text": "week 1",
+          "why": "Week 1 fits the pattern of growing 2 cm a week."
+        },
+        {
+          "text": "week 2",
+          "why": "Week 2 fits the pattern."
+        },
+        {
+          "text": "week 4"
+        },
+        {
+          "text": "week 5",
+          "why": "Week 5 fits the pattern: 2 more weeks of 2 cm after week 3."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a pattern in the heights.",
+        "A healthy plant does not get shorter.",
+        "Check each week against the one before."
+      ],
+      "explanation": "The plant grew about 2 cm each week, so week 4 should be about 8 cm. A plant cannot shrink from 6 cm to 3 cm, so 3 cm is probably a mistake.",
+      "tags": [
+        "iksc",
+        "olympiad",
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.012",
+      "skill": "s3.tables-and-charts",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a bar chart of these results. Label both axes.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Surface",
+          "Distance (cm)"
+        ],
+        "rows": [
+          [
+            "carpet",
+            "40"
+          ],
+          [
+            "wood",
+            "90"
+          ],
+          [
+            "tiles",
+            "120"
+          ]
+        ],
+        "alt": "Table: the toy car rolled 40 cm on carpet, 90 cm on wood and 120 cm on tiles."
+      },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Labels both axes, with units",
+            "points": 1
+          },
+          {
+            "label": "Uses an even scale",
+            "points": 1
+          },
+          {
+            "label": "Draws each bar to the correct height",
+            "points": 2
+          }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Put the surfaces along the bottom.",
+        "Choose a scale that counts up in 10s or 20s."
+      ],
+      "explanation": "The bar chart should have the surfaces along the bottom and distance in centimetres up the side. The tiles bar is tallest at 120 cm."
+    }
+  ]
+}

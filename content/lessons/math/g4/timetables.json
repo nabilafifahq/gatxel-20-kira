@@ -1,0 +1,153 @@
+{
+  "skill": "m4.timetables",
+  "title": "Timetables and time intervals",
+  "steps": [
+    {
+      "say": "A timetable shows when each bus leaves each stop. Read along a row and down a column.",
+      "figure": {
+        "kind": "table",
+        "caption": "Bus timetable",
+        "head": [
+          "Stop",
+          "Bus A",
+          "Bus B"
+        ],
+        "rows": [
+          [
+            "Malang",
+            "07:10",
+            "08:40"
+          ],
+          [
+            "Lawang",
+            "07:35",
+            "09:05"
+          ],
+          [
+            "Surabaya",
+            "08:50",
+            "10:20"
+          ]
+        ],
+        "alt": "Bus timetable. Bus A: Malang 07:10, Lawang 07:35, Surabaya 08:50. Bus B: Malang 08:40, Lawang 09:05, Surabaya 10:20."
+      }
+    },
+    {
+      "say": "Bus A leaves Malang at 07:10 and reaches Surabaya at 08:50.",
+      "show": "07:10 to 08:50"
+    },
+    {
+      "say": "First count on to the next o'clock.",
+      "show": "07:10 to 08:00 is 50 minutes"
+    },
+    {
+      "say": "Then count on to the arrival time and add the parts.",
+      "show": "08:00 to 08:50 is 50 minutes. 50 + 50 = 100 minutes"
+    },
+    {
+      "say": "100 minutes is 1 hour and 40 minutes.",
+      "show": "100 - 60 = 40"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.timetables.901",
+      "skill": "m4.timetables",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many minutes does Bus B take to go from Malang to Lawang?",
+      "answer": 25,
+      "hints": [
+        "Find the Bus B column.",
+        "Read the Malang time and the Lawang time.",
+        "Count on from 08:40."
+      ],
+      "explanation": "08:40 to 09:05 is 25 minutes.",
+      "unit": "minutes",
+      "figure": {
+        "kind": "table",
+        "caption": "Bus timetable",
+        "head": [
+          "Stop",
+          "Bus A",
+          "Bus B"
+        ],
+        "rows": [
+          [
+            "Malang",
+            "07:10",
+            "08:40"
+          ],
+          [
+            "Lawang",
+            "07:35",
+            "09:05"
+          ],
+          [
+            "Surabaya",
+            "08:50",
+            "10:20"
+          ]
+        ],
+        "alt": "Bus timetable. Bus A: Malang 07:10, Lawang 07:35, Surabaya 08:50. Bus B: Malang 08:40, Lawang 09:05, Surabaya 10:20."
+      }
+    },
+    {
+      "id": "m4.timetables.902",
+      "skill": "m4.timetables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Rafi gets to Lawang at 08:00. Which bus can Rafi catch to Surabaya?",
+      "options": [
+        {
+          "text": "Neither bus",
+          "why": "Bus B leaves Lawang at 09:05, after Rafi arrives."
+        },
+        {
+          "text": "Bus A",
+          "why": "Bus A leaves Lawang at 07:35, before Rafi arrives."
+        },
+        {
+          "text": "Bus B"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the Lawang row.",
+        "Which bus leaves Lawang after 08:00?",
+        "A bus that has already left cannot be caught."
+      ],
+      "explanation": "Bus A has already left Lawang at 07:35. Bus B leaves Lawang at 09:05, so Rafi can catch Bus B.",
+      "figure": {
+        "kind": "table",
+        "caption": "Bus timetable",
+        "head": [
+          "Stop",
+          "Bus A",
+          "Bus B"
+        ],
+        "rows": [
+          [
+            "Malang",
+            "07:10",
+            "08:40"
+          ],
+          [
+            "Lawang",
+            "07:35",
+            "09:05"
+          ],
+          [
+            "Surabaya",
+            "08:50",
+            "10:20"
+          ]
+        ],
+        "alt": "Bus timetable. Bus A: Malang 07:10, Lawang 07:35, Surabaya 08:50. Bus B: Malang 08:40, Lawang 09:05, Surabaya 10:20."
+      },
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

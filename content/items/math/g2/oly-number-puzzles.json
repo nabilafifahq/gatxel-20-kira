@@ -1,0 +1,905 @@
+{
+  "skill": "m2.oly-number-puzzles",
+  "items": [
+    {
+      "id": "m2.oly-number-puzzles.001",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Mum has 23 rambutans. She keeps 3 for herself. She shares the rest equally between her 4 children. How many does each child get?",
+      "options": [
+        {
+          "text": "2",
+          "why": "4 children with 2 each use only 8 rambutans."
+        },
+        {
+          "text": "3",
+          "why": "4 children with 3 each use only 12 rambutans."
+        },
+        {
+          "text": "4",
+          "why": "4 children with 4 each use only 16. There are 20 to share."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "4 children with 6 each need 24 rambutans, too many."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "First find how many rambutans are shared.",
+        "Take away the 3 that Mum keeps.",
+        "23 - 3 = 20. Share 20 between 4 children."
+      ],
+      "explanation": "Mum shares 23 - 3 = 20 rambutans. 20 shared between 4 children is 5 each.",
+      "solution": [
+        {
+          "say": "Rambutans to share.",
+          "show": "23 - 3 = 20"
+        },
+        {
+          "say": "Share between 4 children.",
+          "show": "20 ÷ 4 = 5"
+        },
+        {
+          "say": "Check.",
+          "show": "5 + 5 + 5 + 5 + 3 = 23"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-number-puzzles.002",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The same digit goes in both boxes. 3☐ + ☐2 = 76. Which digit is it?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Check: 32 + 22 = 54, not 76."
+        },
+        {
+          "text": "3",
+          "why": "Check: 33 + 32 = 65, not 76."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "Check: 35 + 52 = 87, not 76."
+        },
+        {
+          "text": "6",
+          "why": "Check: 36 + 62 = 98, not 76."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try a digit in both boxes and check the sum.",
+        "Look at the ones digits: ☐ + 2 must end in 6.",
+        "Which digit plus 2 ends in 6?"
+      ],
+      "explanation": "The ones digits must add up to a number ending in 6, so ☐ + 2 = 6 and the digit is 4. Check: 34 + 42 = 76.",
+      "solution": [
+        {
+          "say": "Ones digits: ☐ + 2 ends in 6.",
+          "show": "☐ = 4"
+        },
+        {
+          "say": "Put 4 in both boxes.",
+          "show": "34 + 42"
+        },
+        {
+          "say": "Check the sum.",
+          "show": "34 + 42 = 76"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.003",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Ina has 6 coins. Some are Rp500 coins and the rest are Rp200 coins. Together they make Rp2.100. How many Rp500 coins does she have?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 500,
+            "count": 1
+          },
+          {
+            "value": 200,
+            "count": 1
+          }
+        ],
+        "alt": "One Rp500 coin and one Rp200 coin, the two kinds of coin Ina has."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "2 coins of Rp500 and 4 of Rp200 make Rp1.800."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "4 coins of Rp500 and 2 of Rp200 make Rp2.400."
+        },
+        {
+          "text": "5",
+          "why": "5 coins of Rp500 and 1 of Rp200 make Rp2.700."
+        },
+        {
+          "text": "6",
+          "why": "6 coins of Rp500 make Rp3.000."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try a number of Rp500 coins and check the total.",
+        "Each time you swap a Rp200 coin for a Rp500 coin, the total goes up by Rp300.",
+        "If all 6 coins were Rp200, the total would be Rp1.200."
+      ],
+      "explanation": "6 coins of Rp200 make Rp1.200, which is Rp900 short. Swapping a Rp200 coin for a Rp500 coin adds Rp300, and 3 swaps add Rp900. So she has 3 Rp500 coins.",
+      "solution": [
+        {
+          "say": "Start with all 6 coins as Rp200.",
+          "show": "6 × Rp200 = Rp1.200"
+        },
+        {
+          "say": "Rp900 is still missing.",
+          "show": "Rp2.100 - Rp1.200 = Rp900"
+        },
+        {
+          "say": "Each swap from Rp200 to Rp500 adds Rp300. Three swaps add Rp900.",
+          "show": "3 swaps"
+        },
+        {
+          "say": "Check: 3 coins of Rp500 and 3 coins of Rp200.",
+          "show": "Rp1.500 + Rp600 = Rp2.100"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-number-puzzles.004",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Dewi writes the numbers 1 to 9. She crosses out some of them. The numbers left add up to 40. What is the smallest number of numbers she can cross out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "style": "boxes",
+        "alt": "The numbers 1, 2, 3, 4, 5, 6, 7, 8 and 9 in a row."
+      },
+      "options": [
+        {
+          "text": "1"
+        },
+        {
+          "text": "2",
+          "why": "Two numbers such as 1 and 4 work, but one number is enough."
+        },
+        {
+          "text": "3",
+          "why": "Three numbers is more than needed. Find the total of 1 to 9 first."
+        },
+        {
+          "text": "4",
+          "why": "Four numbers is more than needed. The crossed-out numbers must add up to only 5."
+        },
+        {
+          "text": "5",
+          "why": "That crosses out far too many. The crossed-out numbers must add up to 5."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the total of all the numbers from 1 to 9.",
+        "Pairs help: 1 + 9, 2 + 8, 3 + 7 and 4 + 6 all make 10.",
+        "The total is 45. How much must the crossed-out numbers add up to?"
+      ],
+      "explanation": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45. To leave 40, the crossed-out numbers must add up to 5. She can cross out just the 5, so the smallest number is 1.",
+      "solution": [
+        {
+          "say": "Add 1 to 9 using pairs that make 10.",
+          "show": "10 + 10 + 10 + 10 + 5 = 45"
+        },
+        {
+          "say": "The crossed-out numbers must add up to 45 - 40.",
+          "show": "5"
+        },
+        {
+          "say": "The number 5 is on the list, so crossing out one number works.",
+          "show": "cross out 5"
+        },
+        {
+          "say": "Check.",
+          "show": "45 - 5 = 40"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-number-puzzles.005",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Hana thinks of a number. She doubles it and adds 6. The answer is 20. What is her number?",
+      "options": [
+        {
+          "text": "7"
+        },
+        {
+          "text": "10",
+          "why": "Half of 20 is 10, but she added 6 after doubling. Undo that first."
+        },
+        {
+          "text": "13",
+          "why": "13 comes from adding 6 instead of taking it away."
+        },
+        {
+          "text": "14",
+          "why": "14 is the number after doubling. Halve it."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Work backwards from 20.",
+        "Undo adding 6 first, then undo doubling.",
+        "20 - 6 = 14. What number doubled makes 14?"
+      ],
+      "explanation": "Undo adding 6: 20 - 6 = 14. Undo doubling: half of 14 is 7. Check: 7 doubled is 14, and 14 + 6 = 20.",
+      "solution": [
+        {
+          "say": "Undo add 6.",
+          "show": "20 - 6 = 14"
+        },
+        {
+          "say": "Undo double.",
+          "show": "14 ÷ 2 = 7"
+        },
+        {
+          "say": "Check.",
+          "show": "7 × 2 + 6 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-number-puzzles.006",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Work out 99 + 98 - 97 - 96 + 95 + 94 - 93 - 92.",
+      "options": [
+        {
+          "text": "4",
+          "why": "Check each pair: 99 - 97 = 2 and 98 - 96 = 2. There are 4 such pairs."
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "12",
+          "why": "There are only 4 pairs, and each makes 2."
+        },
+        {
+          "text": "16",
+          "why": "Each pair makes 2, not 4."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for a quick way instead of working left to right.",
+        "Pair each number with one that is 2 smaller: 99 with 97, 98 with 96.",
+        "99 - 97 = 2. Find the other pairs."
+      ],
+      "explanation": "Group it as (99 - 97) + (98 - 96) + (95 - 93) + (94 - 92). Each bracket is 2, and there are 4 brackets, so the answer is 8.",
+      "solution": [
+        {
+          "say": "Pair numbers that are 2 apart.",
+          "show": "(99 - 97) + (98 - 96) + (95 - 93) + (94 - 92)"
+        },
+        {
+          "say": "Each pair makes 2.",
+          "show": "2 + 2 + 2 + 2"
+        },
+        {
+          "say": "The answer is 8.",
+          "show": "8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.007",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two numbers add up to 20. The bigger number is 4 more than the smaller one. What is the bigger number?",
+      "options": [
+        {
+          "text": "8",
+          "why": "8 is the smaller number."
+        },
+        {
+          "text": "10",
+          "why": "10 + 10 = 20, but the numbers must be 4 apart."
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "16",
+          "why": "16 + 4 = 20, but 16 is 12 more than 4."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try pairs of numbers that add up to 20.",
+        "If the two numbers were equal, each would be 10.",
+        "Take away the difference first: 20 - 4 = 16. Then share 16 equally."
+      ],
+      "explanation": "Take the extra 4 away: 20 - 4 = 16. Share 16 equally, so the smaller number is 8. The bigger number is 8 + 4 = 12.",
+      "solution": [
+        {
+          "say": "Take away the difference.",
+          "show": "20 - 4 = 16"
+        },
+        {
+          "say": "Share equally.",
+          "show": "16 ÷ 2 = 8 (smaller)"
+        },
+        {
+          "say": "Add the difference back.",
+          "show": "8 + 4 = 12 (bigger)"
+        },
+        {
+          "say": "Check: 12 + 8 = 20 and 12 - 8 = 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.008",
+      "skill": "m2.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "If Ana gives Ben 3 sweets, they will have the same number. How many more sweets does Ana have than Ben now?",
+      "answer": 6,
+      "hints": [
+        "Try some numbers, like Ana has 10 sweets.",
+        "Giving away 3 makes Ana's pile smaller and Ben's pile bigger.",
+        "If Ana has 10 and gives 3, she has 7. How many must Ben have had?"
+      ],
+      "explanation": "When Ana gives 3 sweets, she loses 3 and Ben gains 3, which closes a gap of 3 + 3 = 6. So Ana has 6 more sweets than Ben.",
+      "solution": [
+        {
+          "say": "Try numbers. Ana has 10. After giving 3 she has 7.",
+          "show": "10 - 3 = 7"
+        },
+        {
+          "say": "Ben must end with 7 too, so he had 4.",
+          "show": "7 - 3 = 4"
+        },
+        {
+          "say": "The difference now.",
+          "show": "10 - 4 = 6"
+        },
+        {
+          "say": "Any numbers that work give 6, because Ana loses 3 and Ben gains 3."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.009",
+      "skill": "m2.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The numbers 1 to 6 go in the circles of a triangle. There is one circle at each corner and one on each side. Each side adds up to 10. What do the three corner numbers add up to?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle with 6 circles: one at each corner and one in the middle of each side. Each side has 3 circles: two corners and one middle circle."
+      },
+      "answer": 9,
+      "hints": [
+        "Add up all three sides. Which numbers get counted twice?",
+        "Each corner number is on two sides. Each middle number is on one side.",
+        "The three sides add up to 10 + 10 + 10 = 30."
+      ],
+      "explanation": "The three sides add up to 30. That total uses each number once, which is 1 + 2 + 3 + 4 + 5 + 6 = 21, plus the corners a second time. So the corners add up to 30 - 21 = 9.",
+      "solution": [
+        {
+          "say": "Add the three sides.",
+          "show": "10 + 10 + 10 = 30"
+        },
+        {
+          "say": "All six numbers add up to 21.",
+          "show": "1 + 2 + 3 + 4 + 5 + 6 = 21"
+        },
+        {
+          "say": "The corners are counted twice, so they make the extra.",
+          "show": "30 - 21 = 9"
+        },
+        {
+          "say": "Example: corners 1, 3 and 5 with 6, 2 and 4 in the middles.",
+          "show": "1 + 6 + 3 = 10, 3 + 2 + 5 = 10, 5 + 4 + 1 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "timo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-number-puzzles.010",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Kak Rudi membeli 2 bungkus permen. Setiap bungkus berisi 12 permen. Permen itu dibagi sama banyak kepada 6 anak. Berapa permen yang diterima setiap anak?",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          12,
+          12
+        ],
+        "icon": "sweet",
+        "container": "bag",
+        "alt": "Dua bungkus permen. Setiap bungkus berisi 12 permen."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "Setiap anak mendapat 2 kalau permennya hanya 12."
+        },
+        {
+          "text": "3",
+          "why": "Hitung lagi: 24 permen dibagi 6 anak."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "6",
+          "why": "6 adalah banyak anak, bukan banyak permen untuk setiap anak."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hitung dulu semua permen.",
+        "2 bungkus berisi 12 + 12 permen.",
+        "Ada 24 permen. Bagikan kepada 6 anak sama banyak."
+      ],
+      "explanation": "Semua permen ada 12 + 12 = 24. Dibagi kepada 6 anak, setiap anak mendapat 24 ÷ 6 = 4 permen.",
+      "solution": [
+        {
+          "say": "Jumlah permen.",
+          "show": "12 + 12 = 24"
+        },
+        {
+          "say": "Bagi sama banyak kepada 6 anak.",
+          "show": "24 ÷ 6 = 4"
+        },
+        {
+          "say": "Periksa.",
+          "show": "4 + 4 + 4 + 4 + 4 + 4 = 24"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "membeli",
+          "en": "to buy"
+        },
+        {
+          "term": "bungkus",
+          "en": "packet"
+        },
+        {
+          "term": "permen",
+          "en": "sweet"
+        },
+        {
+          "term": "berisi",
+          "en": "contains"
+        },
+        {
+          "term": "dibagi sama banyak",
+          "en": "shared equally"
+        },
+        {
+          "term": "diterima",
+          "en": "received"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-number-puzzles.011",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Bu Ani membeli 2 kg beras. Harga 1 kg beras Rp12.000. Ia juga membeli 1 botol kecap seharga Rp8.000. Ia membayar dengan uang Rp50.000. Berapa uang kembaliannya?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 50000,
+            "count": 1
+          }
+        ],
+        "alt": "Selembar uang Rp50.000 untuk membayar belanjaan."
+      },
+      "options": [
+        {
+          "text": "Rp12.000",
+          "why": "Rp12.000 adalah harga 1 kg beras saja."
+        },
+        {
+          "text": "Rp18.000"
+        },
+        {
+          "text": "Rp30.000",
+          "why": "Beras yang dibeli 2 kg, bukan 1 kg."
+        },
+        {
+          "text": "Rp32.000",
+          "why": "Rp32.000 adalah harga belanjaan. Kembalian adalah sisa uangnya."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hitung dulu semua harga belanjaan.",
+        "Harga 2 kg beras adalah Rp12.000 + Rp12.000.",
+        "Tambahkan harga kecap ke harga beras."
+      ],
+      "explanation": "Beras 2 kg harganya Rp24.000. Ditambah kecap Rp8.000 menjadi Rp32.000. Kembaliannya Rp50.000 - Rp32.000 = Rp18.000.",
+      "solution": [
+        {
+          "say": "Harga beras.",
+          "show": "Rp12.000 + Rp12.000 = Rp24.000"
+        },
+        {
+          "say": "Tambah harga kecap.",
+          "show": "Rp24.000 + Rp8.000 = Rp32.000"
+        },
+        {
+          "say": "Kembalian.",
+          "show": "Rp50.000 - Rp32.000 = Rp18.000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "beras",
+          "en": "rice"
+        },
+        {
+          "term": "harga",
+          "en": "price"
+        },
+        {
+          "term": "botol",
+          "en": "bottle"
+        },
+        {
+          "term": "kecap",
+          "en": "sweet soy sauce"
+        },
+        {
+          "term": "seharga",
+          "en": "costing"
+        },
+        {
+          "term": "membayar",
+          "en": "to pay"
+        },
+        {
+          "term": "kembalian",
+          "en": "change (money)"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.012",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Kakak 5 tahun lebih tua dari Adik. Jumlah umur mereka 17 tahun. Berapa umur Adik?",
+      "options": [
+        {
+          "text": "6"
+        },
+        {
+          "text": "7",
+          "why": "Kalau Adik 7 tahun, Kakak 12 tahun. Jumlahnya 19, bukan 17."
+        },
+        {
+          "text": "11",
+          "why": "11 tahun adalah umur Kakak."
+        },
+        {
+          "text": "12",
+          "why": "17 - 5 = 12 belum dibagi dua."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Coba tebak umur Adik, lalu periksa jumlahnya.",
+        "Kalau Kakak dikurangi 5 tahun, umur mereka sama.",
+        "17 - 5 = 12. Bagi 12 menjadi dua bagian sama."
+      ],
+      "explanation": "Ambil dulu selisihnya: 17 - 5 = 12. Bagi dua: umur Adik 6 tahun. Kakak 6 + 5 = 11 tahun, dan 6 + 11 = 17.",
+      "solution": [
+        {
+          "say": "Ambil selisih umur.",
+          "show": "17 - 5 = 12"
+        },
+        {
+          "say": "Bagi dua.",
+          "show": "12 ÷ 2 = 6 (Adik)"
+        },
+        {
+          "say": "Umur Kakak.",
+          "show": "6 + 5 = 11"
+        },
+        {
+          "say": "Periksa.",
+          "show": "6 + 11 = 17"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "kakak",
+          "en": "older brother or sister"
+        },
+        {
+          "term": "adik",
+          "en": "younger brother or sister"
+        },
+        {
+          "term": "lebih tua",
+          "en": "older"
+        },
+        {
+          "term": "jumlah umur",
+          "en": "sum of ages"
+        },
+        {
+          "term": "tahun",
+          "en": "year"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.013",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A bookshelf has 3 shelves. The top shelf has 8 books. The middle shelf has 5 more than the top. The bottom shelf has 2 fewer than the middle. How many books are there?",
+      "options": [
+        {
+          "text": "27",
+          "why": "The bottom shelf has 2 fewer than the middle shelf, not the top shelf."
+        },
+        {
+          "text": "32"
+        },
+        {
+          "text": "34",
+          "why": "The bottom shelf has 2 fewer than the middle, so it has 11, not 13."
+        },
+        {
+          "text": "36",
+          "why": "The bottom shelf has 2 fewer than the middle, not 2 more."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out each shelf, one at a time.",
+        "Middle shelf: 8 + 5. Bottom shelf: take 2 from the middle shelf.",
+        "The middle shelf has 13 books."
+      ],
+      "explanation": "The middle shelf has 8 + 5 = 13 books. The bottom shelf has 13 - 2 = 11 books. In all there are 8 + 13 + 11 = 32 books.",
+      "solution": [
+        {
+          "say": "Top shelf.",
+          "show": "8"
+        },
+        {
+          "say": "Middle shelf.",
+          "show": "8 + 5 = 13"
+        },
+        {
+          "say": "Bottom shelf.",
+          "show": "13 - 2 = 11"
+        },
+        {
+          "say": "Total.",
+          "show": "8 + 13 + 11 = 32"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-number-puzzles.014",
+      "skill": "m2.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "At a fruit stall, 3 mangoes cost the same as 2 papayas. One papaya costs Rp6.000. How much does one mango cost?",
+      "options": [
+        {
+          "text": "Rp1.000",
+          "why": "Rp1.000 × 3 = Rp3.000, but 2 papayas cost Rp12.000."
+        },
+        {
+          "text": "Rp2.000",
+          "why": "Rp2.000 × 3 = Rp6.000, the price of only 1 papaya."
+        },
+        {
+          "text": "Rp3.000",
+          "why": "Rp3.000 is half the price of a papaya. Use 2 papayas."
+        },
+        {
+          "text": "Rp4.000"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the price of 2 papayas first.",
+        "2 papayas cost Rp6.000 + Rp6.000.",
+        "3 mangoes cost Rp12.000. Share it between the 3 mangoes."
+      ],
+      "explanation": "2 papayas cost Rp12.000, so 3 mangoes cost Rp12.000 too. One mango costs Rp12.000 ÷ 3 = Rp4.000.",
+      "solution": [
+        {
+          "say": "Price of 2 papayas.",
+          "show": "Rp6.000 + Rp6.000 = Rp12.000"
+        },
+        {
+          "say": "3 mangoes cost the same.",
+          "show": "3 mangoes = Rp12.000"
+        },
+        {
+          "say": "One mango.",
+          "show": "Rp12.000 ÷ 3 = Rp4.000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.015",
+      "skill": "m2.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Lia opens a book. The two page numbers she sees add up to 25. The left page has the smaller number. What is the left page number?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "book",
+            "label": "pages add up to 25"
+          }
+        ],
+        "alt": "An open book. The two page numbers you can see add up to 25."
+      },
+      "answer": 12,
+      "hints": [
+        "Two facing pages have numbers one after the other.",
+        "Two numbers next to each other that add up to 25 are close to half of 25.",
+        "Try 10 and 11. Their total is 21. Is that too small?"
+      ],
+      "explanation": "Facing pages have numbers next to each other. 12 + 13 = 25, so the left page is 12.",
+      "solution": [
+        {
+          "say": "Facing pages have numbers one after the other.",
+          "show": "a number and the next number"
+        },
+        {
+          "say": "Try numbers near half of 25.",
+          "show": "12 + 13 = 25"
+        },
+        {
+          "say": "The smaller number is on the left.",
+          "show": "12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "skill": "s2.plants-grow",
+  "items": [
+    {
+      "id": "s2.plants-grow.001", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 1,
+      "prompt": "What do plants need to grow?",
+      "figure": { "kind": "icons", "items": [{ "icon": "seedling", "label": "young plant" }], "alt": "A young plant growing in soil." },
+      "options": [
+        { "text": "sweets and juice", "why": "Plants do not eat sweets. They make their own food." },
+        { "text": "water and light" },
+        { "text": "toys", "why": "Toys do not help a plant grow." },
+        { "text": "darkness and ice", "why": "Plants need light and warmth." }
+      ],
+      "answer": 1,
+      "hints": ["Think about how people look after plants at home.", "What do you pour on a plant? Where do you put it?", "Picture a plant on a sunny windowsill."],
+      "explanation": "Plants need water and light to grow. They also need air and warmth."
+    },
+    {
+      "id": "s2.plants-grow.002", "skill": "s2.plants-grow", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things a plant needs to grow well.",
+      "options": [
+        { "text": "water" },
+        { "text": "light" },
+        { "text": "air" },
+        { "text": "chocolate", "why": "Plants make their own food. They do not eat chocolate." },
+        { "text": "loud music", "why": "Music does not help a plant grow." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about what a plant uses every day.", "Plants make their own food. What do they need to do that?", "Start with water. What happens to a plant with no water?"],
+      "explanation": "Plants need water, light and air to grow well. They use these to make their own food."
+    },
+    {
+      "id": "s2.plants-grow.003", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 2,
+      "prompt": "Where does a plant make its food?",
+      "options": [
+        { "text": "in the soil", "why": "Plants do not eat soil. Roots take in water from it." },
+        { "text": "in its flowers", "why": "Flowers make seeds." },
+        { "text": "in its leaves" },
+        { "text": "in its seeds", "why": "Seeds store food for a new plant. The leaves make the food." }
+      ],
+      "answer": 2,
+      "hints": ["Think about which part catches the most light.", "The food-making part is usually green and flat.", "Look at a plant. Which parts face the Sun?"],
+      "explanation": "Plants make their food in their leaves, using light from the Sun. Plants do not eat soil."
+    },
+    {
+      "id": "s2.plants-grow.004", "skill": "s2.plants-grow", "type": "text", "difficulty": 1,
+      "prompt": "Roots take in ___ from the soil.",
+      "blanks": [{ "answers": ["water"] }],
+      "hints": ["Think about what you pour on a plant.", "Roots soak something up, a bit like a straw.", "What comes out of a watering can?"],
+      "explanation": "Roots take in water from the soil. The water travels up the stem to the leaves."
+    },
+    {
+      "id": "s2.plants-grow.005", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 3,
+      "prompt": "Rahmat puts a plant in a dark cupboard for two weeks. What happens?",
+      "options": [
+        { "text": "It grows greener and stronger.", "why": "Without light the plant cannot make enough food, so it gets weaker." },
+        { "text": "Nothing changes.", "why": "Plants need light. Without it, they change." },
+        { "text": "It grows lots of flowers.", "why": "A plant in the dark is too weak to make many flowers." },
+        { "text": "It becomes pale, yellow and weak." }
+      ],
+      "answer": 3,
+      "hints": ["Think about what the plant is missing in the cupboard.", "What does a plant use light for?", "Ask: can the plant make its food without light?"],
+      "explanation": "Without light, the plant cannot make its food. It turns pale and yellow, gets weak and will die if it stays in the dark.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.plants-grow.006", "skill": "s2.plants-grow", "type": "sort", "difficulty": 3,
+      "prompt": "Does a plant need it? Sort the cards.",
+      "groups": ["Needs", "Does not need"],
+      "items": [
+        { "text": "water", "group": 0 },
+        { "text": "light", "group": 0 },
+        { "text": "air", "group": 0 },
+        { "text": "warmth", "group": 0 },
+        { "text": "sweets", "group": 1 },
+        { "text": "darkness all day", "group": 1 },
+        { "text": "a cold freezer", "group": 1 }
+      ],
+      "hints": ["Plants make their own food. Think about what they use to make it.", "Ask: would this help a plant grow or harm it?", "Start with water. What happens to a plant without it?"],
+      "explanation": "Plants need water, light, air and warmth. They do not need sweets, and darkness or freezing cold will harm them."
+    },
+    {
+      "id": "s2.plants-grow.007", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 3,
+      "prompt": "Look at the results. What does this test show plants need?",
+      "figure": { "kind": "table", "caption": "Two bean plants", "head": ["Plant", "Place", "Water", "After 2 weeks"], "rows": [["A", "sunny window", "yes", "green and strong"], ["B", "dark cupboard", "yes", "pale and weak"]], "alt": "Table: Plant A was by a sunny window with water and was green and strong after 2 weeks. Plant B was in a dark cupboard with water and was pale and weak." },
+      "options": [
+        { "text": "light" },
+        { "text": "water", "why": "Both plants got water, so water was not the thing that changed." },
+        { "text": "soil", "why": "Both plants had soil." },
+        { "text": "a pot", "why": "Both plants were in pots." }
+      ],
+      "answer": 0,
+      "hints": ["Find the one thing that was different for the two plants.", "Compare the Place column for A and B.", "Ask: what does a sunny window have that a dark cupboard does not?"],
+      "explanation": "The only difference was the place. Plant A had light and Plant B did not, so the test shows that plants need light.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.plants-grow.008", "skill": "s2.plants-grow", "type": "match", "difficulty": 3,
+      "prompt": "Match each problem to what the plant needs.",
+      "pairs": [["leaves droop and wilt", "water"], ["plant is pale and yellow", "light"], ["seed in a freezer does not grow", "warmth"], ["plants squashed close together", "space"]],
+      "hints": ["Each problem is caused by missing one thing.", "Think about what makes leaves stand up firm.", "Start with the drooping leaves. What would you give a thirsty plant?"],
+      "explanation": "Wilting leaves need water. A pale, yellow plant needs light. A seed needs warmth to grow, and crowded plants need more space."
+    },
+    {
+      "id": "s2.plants-grow.009", "skill": "s2.plants-grow", "type": "order", "difficulty": 2,
+      "prompt": "Put the steps for growing a bean plant in order.",
+      "items": ["Fill a pot with soil.", "Push the bean seed into the soil.", "Water it and keep it warm.", "A shoot comes up.", "Leaves grow on the stem."],
+      "hints": ["Think about what you need before you can plant a seed.", "The seed must be in the soil before it can grow.", "Start with the pot. What goes in it first?"],
+      "explanation": "First fill a pot with soil and push the seed in. Water it and keep it warm. A shoot comes up, and then leaves grow on the stem."
+    },
+    {
+      "id": "s2.plants-grow.010", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 4,
+      "prompt": "Maya waters her plant until the soil is always a puddle. The plant gets sick. Why?",
+      "options": [
+        { "text": "It needs even more water.", "why": "The soil is already too wet." },
+        { "text": "Too much water can harm the roots." },
+        { "text": "Plants never need water.", "why": "Plants do need water. The problem here is too much of it." },
+        { "text": "It needs to be in a dark place.", "why": "Plants need light to make their food." }
+      ],
+      "answer": 1,
+      "hints": ["Think about how wet the soil is.", "Roots need air as well as water.", "Ask: is it possible to give a plant too much of something it needs?"],
+      "explanation": "Roots need air as well as water. When the soil is always flooded, the roots can rot and the plant gets sick.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.plants-grow.011", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 5,
+      "prompt": "Seeds need water and warmth to start growing. Which seed will start to grow?",
+      "figure": { "kind": "table", "head": ["Seed", "Water", "Where"], "rows": [["A", "no water", "warm room"], ["B", "wet cotton wool", "freezer"], ["C", "wet cotton wool", "warm room"]], "alt": "Table: Seed A has no water and is in a warm room. Seed B is on wet cotton wool in a freezer. Seed C is on wet cotton wool in a warm room." },
+      "options": [
+        { "text": "Seed A", "why": "Seed A is dry. Seeds need water to start growing." },
+        { "text": "Seed B", "why": "Seed B has water, but the freezer is too cold." },
+        { "text": "Seed C" },
+        { "text": "none of them", "why": "One seed has both water and warmth." }
+      ],
+      "answer": 2,
+      "hints": ["A seed needs two things to start growing.", "Check each seed for water and for warmth.", "Start with Seed A. Does it have water?"],
+      "explanation": "Seed C has water and warmth, so it can start to grow. Seed A is too dry and Seed B is too cold.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.plants-grow.012", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 3,
+      "prompt": "A plant on a windowsill leans towards the window. Why?",
+      "options": [
+        { "text": "to get more light" },
+        { "text": "to see outside", "why": "Plants do not have eyes." },
+        { "text": "to get away from the soil", "why": "Plants need their roots in the soil." },
+        { "text": "because of the wind", "why": "Plants lean towards light even indoors, where there is no wind." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what comes in through a window.", "What do leaves need to make food?", "Ask: what is on the window side that is not on the room side?"],
+      "explanation": "Plants grow towards light. Leaning towards the window helps the leaves get more light to make food.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.plants-grow.013", "skill": "s2.plants-grow", "type": "numeric", "difficulty": 4,
+      "prompt": "Galih measures his bean plant. How much did it grow from Day 4 to Day 8?",
+      "figure": { "kind": "bars", "title": "Height of the bean plant", "categories": ["Day 2", "Day 4", "Day 6", "Day 8"], "values": [0, 2, 5, 9], "step": 1, "yLabel": "Height in cm", "alt": "Bar chart of the bean plant's height: Day 2, 0 cm. Day 4, 2 cm. Day 6, 5 cm. Day 8, 9 cm." },
+      "answer": 7,
+      "unit": "cm",
+      "hints": ["Find the bars for Day 4 and Day 8.", "Read the height at the top of each bar.", "Day 8 is 9 cm. Now find the height on Day 4."],
+      "explanation": "On Day 4 the plant was 2 cm tall. On Day 8 it was 9 cm. 9 take away 2 is 7, so it grew 7 cm.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.plants-grow.014", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 5,
+      "prompt": "Plants make their own food. What do they use to make it?",
+      "options": [
+        { "text": "soil and stones", "why": "Plants do not eat soil. Roots take in water from it." },
+        { "text": "sugar from a shop", "why": "Plants make their own food. Nobody feeds them sugar." },
+        { "text": "only water", "why": "Water is not enough. Plants also need light and air to make food." },
+        { "text": "light, air and water" }
+      ],
+      "answer": 3,
+      "hints": ["Think about everything the leaves can get.", "Leaves catch something from the Sun and take in something from around them.", "Ask: what do the roots carry up to the leaves?"],
+      "explanation": "Leaves use light from the Sun, air and water to make food for the plant. Plants do not eat soil.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.plants-grow.015", "skill": "s2.plants-grow", "type": "mcq", "difficulty": 4,
+      "prompt": "Why does a cactus not need watering every day?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cactus", "label": "cactus" }, { "icon": "desert", "label": "desert" }], "alt": "A cactus with a thick green stem growing in a dry desert." },
+      "options": [
+        { "text": "It does not need water at all.", "why": "All plants need water. A cactus keeps a store of it." },
+        { "text": "It stores water in its thick stem." },
+        { "text": "It drinks rain through its spines.", "why": "Spines protect the cactus. Water goes in through the roots." },
+        { "text": "It gets water from the Sun.", "why": "The Sun gives light and heat. It does not give water." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the shape of the cactus stem.", "Where could a plant keep water for later?", "Think about where cactuses grow. Is it often rainy there?"],
+      "explanation": "A cactus stores water in its thick, fleshy stem. This lets it live in dry places where it does not rain often.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.plants-grow.016", "skill": "s2.plants-grow", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a plant that is growing well. Label two things it needs.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws a healthy plant with roots, a stem and leaves", "points": 2 },
+        { "label": "Labels two needs: light, water, air or warmth", "points": 2 }
+      ] },
+      "hints": ["Draw the Sun or a watering can to show what the plant needs.", "Use arrows to point from your labels to the right places."],
+      "explanation": "A plant needs light, water, air and warmth to grow well. Its roots take in water and its leaves use light to make food."
+    }
+  ]
+}

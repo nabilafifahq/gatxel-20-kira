@@ -1,0 +1,355 @@
+{
+  "skill": "s6.earth-space",
+  "items": [
+    {
+      "id": "s6.earth-space.001",
+      "skill": "s6.earth-space",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the planets in order, starting with the one closest to the Sun.",
+      "items": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune"
+      ],
+      "hints": [
+        "There are four small rocky planets, then four giant planets.",
+        "Earth is the third planet from the Sun.",
+        "Start with the smallest planet, which is the closest one to the Sun."
+      ],
+      "explanation": "The order from the Sun is Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. One way to remember it is: My Very Easy Method Just Speeds Up Naming.",
+      "tags": [
+        "checkpoint",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.002",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What causes day and night on Earth?",
+      "options": [
+        {
+          "text": "The Sun moves around the Earth every day.",
+          "why": "The Sun only seems to move across the sky. It is the Earth that spins."
+        },
+        {
+          "text": "The Earth spins on its axis once every 24 hours."
+        },
+        {
+          "text": "The Moon blocks the Sun at night.",
+          "why": "Night happens when your side of the Earth faces away from the Sun."
+        },
+        {
+          "text": "The Earth orbits the Sun once a day.",
+          "why": "One orbit of the Sun takes a year, not a day."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Sun seems to move across the sky, but something else is really moving.",
+        "Think about which side of a spinning ball faces a lamp.",
+        "Cross out the choice that describes a whole year."
+      ],
+      "explanation": "The Earth spins on its axis once every 24 hours. The side facing the Sun has day, and the side facing away has night.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.earth-space.003",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why does the Moon seem to change shape during a month?",
+      "options": [
+        {
+          "text": "The Earth's shadow covers different parts of it.",
+          "why": "The Earth's shadow falls on the Moon only during a lunar eclipse, which is rare."
+        },
+        {
+          "text": "Clouds cover parts of the Moon.",
+          "why": "The phases happen on clear nights too."
+        },
+        {
+          "text": "We see different amounts of its sunlit half as it orbits the Earth."
+        },
+        {
+          "text": "The Moon really changes shape.",
+          "why": "The Moon is always a ball. Only the part we see lit up changes."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The Sun always lights up half of the Moon.",
+        "As the Moon orbits the Earth, we see it from different angles.",
+        "Picture a ball lit by a lamp while you walk around it. Watch how much of the lit half you see."
+      ],
+      "explanation": "The Sun always lights half of the Moon. As the Moon orbits the Earth, we see different amounts of that sunlit half, from none at new moon to all of it at full moon.",
+      "tags": [
+        "checkpoint",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.004",
+      "skill": "s6.earth-space",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the phases of the Moon in order, starting from new moon.",
+      "items": [
+        "new moon",
+        "waxing crescent",
+        "first quarter",
+        "waxing gibbous",
+        "full moon",
+        "waning gibbous",
+        "last quarter",
+        "waning crescent"
+      ],
+      "hints": [
+        "Waxing means the lit part is growing. Waning means it is shrinking.",
+        "The Moon goes from no lit part, to half lit, to fully lit, then back again.",
+        "After new moon, the first thing you see is a thin, growing crescent."
+      ],
+      "explanation": "From new moon, the lit part grows through crescent, first quarter and gibbous to full moon. Then it shrinks through gibbous, last quarter and crescent back to new moon, in about 29.5 days.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.005",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What causes the seasons in countries such as Japan and the United Kingdom?",
+      "options": [
+        {
+          "text": "The Earth is closer to the Sun in summer.",
+          "why": "The Earth is actually closest to the Sun in early January, during winter in the north."
+        },
+        {
+          "text": "The Sun gives out more heat in summer.",
+          "why": "The Sun gives out about the same energy all year."
+        },
+        {
+          "text": "The Moon blocks some sunlight in winter.",
+          "why": "The Moon does not cause the seasons."
+        },
+        {
+          "text": "The Earth's axis is tilted as it orbits the Sun."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The Earth's axis is not straight up. It leans to one side.",
+        "During the year, each half of the Earth leans towards the Sun and then away from it.",
+        "Think about which half of the Earth gets the Sun high in the sky and long days."
+      ],
+      "explanation": "The Earth's axis is tilted. When your half of the Earth leans towards the Sun, the Sun is higher and days are longer, so it is summer. When it leans away, it is winter.",
+      "tags": [
+        "checkpoint",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.006",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Indonesia is near the equator. Why does it have a rainy season and a dry season instead of a hot summer and a cold winter?",
+      "options": [
+        {
+          "text": "Near the equator the Sun is high all year, so it stays warm, and changing winds bring wet and dry seasons."
+        },
+        {
+          "text": "The equator is not tilted.",
+          "why": "The whole Earth is tilted. Near the equator, the tilt changes the Sun's height only a little."
+        },
+        {
+          "text": "Indonesia is closer to the Sun than other countries.",
+          "why": "Every country is about the same distance from the Sun."
+        },
+        {
+          "text": "Volcanoes make all the rain in Indonesia.",
+          "why": "Rain comes from water vapour in the air, carried in by the winds."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Near the equator, the Sun is high in the sky at midday all year round.",
+        "In Indonesia, the main winds change direction during the year.",
+        "Ask what keeps the temperature steady, then what brings the rain."
+      ],
+      "explanation": "Near the equator, the Sun is high all year, so temperatures stay warm. Seasonal winds called monsoons bring wet air in one part of the year and drier air in another.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s6.earth-space.007",
+      "skill": "s6.earth-space",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the planets into rocky planets and giant planets.",
+      "groups": [
+        "Rocky planet",
+        "Giant planet"
+      ],
+      "items": [
+        {
+          "text": "Mercury",
+          "group": 0
+        },
+        {
+          "text": "Venus",
+          "group": 0
+        },
+        {
+          "text": "Earth",
+          "group": 0
+        },
+        {
+          "text": "Mars",
+          "group": 0
+        },
+        {
+          "text": "Jupiter",
+          "group": 1
+        },
+        {
+          "text": "Saturn",
+          "group": 1
+        },
+        {
+          "text": "Uranus",
+          "group": 1
+        },
+        {
+          "text": "Neptune",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The four planets closest to the Sun are small and rocky.",
+        "The four outer planets are huge and made mostly of gas and ice.",
+        "Earth is a rocky planet. Start with its neighbours."
+      ],
+      "explanation": "Mercury, Venus, Earth and Mars are small rocky planets. Jupiter, Saturn, Uranus and Neptune are giant planets made mostly of gas and ice.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.008",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1610, Galileo Galilei used a telescope to see four small moons moving around Jupiter. Why was this important?",
+      "options": [
+        {
+          "text": "It proved that Jupiter is a star.",
+          "why": "Jupiter is a planet. It shines by reflecting sunlight."
+        },
+        {
+          "text": "It showed that not everything in space moves around the Earth."
+        },
+        {
+          "text": "It showed that the Moon makes its own light.",
+          "why": "Our Moon reflects sunlight, and this discovery was about Jupiter's moons."
+        },
+        {
+          "text": "It proved that the Earth is flat.",
+          "why": "People knew the Earth was round long before Galileo."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "In 1610, many people believed that everything in the sky moved around the Earth.",
+        "Galileo saw moons circling a different planet.",
+        "Ask what these moons were moving around."
+      ],
+      "explanation": "Jupiter's moons were moving around Jupiter, not around the Earth. This was evidence that the Earth is not the centre of everything, which supported the idea that the planets orbit the Sun.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-space.009",
+      "skill": "s6.earth-space",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw the Sun, the Earth and the Moon at the time of a full moon. Shade the half of the Moon that is lit by the Sun.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Places the Moon on the far side of the Earth from the Sun",
+            "points": 2
+          },
+          {
+            "label": "Shades the half of the Moon that faces the Sun",
+            "points": 2
+          },
+          {
+            "label": "Draws an arrow to show sunlight travelling from the Sun",
+            "points": 1
+          },
+          {
+            "label": "Labels the Sun, the Earth and the Moon",
+            "points": 1
+          }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "At full moon, we see the whole of the Moon's sunlit half.",
+        "Think about where the Moon must be for its lit side to face the Earth."
+      ],
+      "explanation": "At full moon, the Moon is on the opposite side of the Earth from the Sun. Its sunlit half faces the Earth, so we see a whole bright disc.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.earth-space.010",
+      "skill": "s6.earth-space",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Imagine the Earth's axis was not tilted at all. What would happen to the seasons in the United Kingdom?",
+      "options": [
+        {
+          "text": "There would be almost no seasons, and day length would barely change all year."
+        },
+        {
+          "text": "Summers would be much hotter.",
+          "why": "Without a tilt, the Sun's midday height would stay the same all year, so there would be no hotter summer."
+        },
+        {
+          "text": "There would be two summers each year.",
+          "why": "Seasons come from the tilt. With no tilt, there would be hardly any seasons at all."
+        },
+        {
+          "text": "There would be daylight for 24 hours every day.",
+          "why": "The Earth would still spin, so there would still be day and night."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Seasons happen because the tilt makes each half of the Earth lean towards and then away from the Sun.",
+        "Without a tilt, the Sun's path across the sky would be the same every day.",
+        "Ask what would change during the year if the Sun's height and day length stayed the same."
+      ],
+      "explanation": "The tilt is what causes the seasons. With no tilt, the Sun would follow the same path every day, so day length and temperature would barely change during the year.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    }
+  ]
+}

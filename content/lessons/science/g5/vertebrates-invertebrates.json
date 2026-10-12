@@ -1,0 +1,140 @@
+{
+  "skill": "s5.vertebrates-invertebrates",
+  "title": "Animals with and without backbones",
+  "steps": [
+    {
+      "say": "Scientists sort animals into groups by their features. One big question is whether an animal has a backbone."
+    },
+    {
+      "say": "Animals with a backbone are vertebrates. There are five groups: fish, amphibians, reptiles, birds and mammals.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish",
+            "label": "fish"
+          },
+          {
+            "icon": "frog",
+            "label": "amphibian"
+          },
+          {
+            "icon": "lizard",
+            "label": "reptile"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          },
+          {
+            "icon": "cat",
+            "label": "mammal"
+          }
+        ],
+        "alt": "One example of each vertebrate group: a fish, a frog (amphibian), a lizard (reptile), a bird and a cat (mammal)."
+      }
+    },
+    {
+      "say": "Fish have gills and scales. Amphibians have moist skin, and their young usually live in water."
+    },
+    {
+      "say": "Reptiles have dry, scaly skin. Birds have feathers, and mammals have hair and feed their young on milk."
+    },
+    {
+      "say": "Animals without a backbone are invertebrates. Insects, spiders, snails, worms and crabs are all invertebrates.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ant",
+            "label": "insect"
+          },
+          {
+            "icon": "spider",
+            "label": "spider"
+          },
+          {
+            "icon": "snail",
+            "label": "snail"
+          },
+          {
+            "icon": "worm",
+            "label": "worm"
+          },
+          {
+            "icon": "crab",
+            "label": "crab"
+          }
+        ],
+        "alt": "Five invertebrates: an ant (insect), a spider, a snail, a worm and a crab."
+      }
+    },
+    {
+      "say": "Insects have six legs and three body parts. Spiders have eight legs and two body parts."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.vertebrates-invertebrates.901",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A dolphin breathes air and feeds its young on milk. Which group is it in?",
+      "options": [
+        {
+          "text": "fish",
+          "why": "Fish breathe with gills. Dolphins breathe air with lungs."
+        },
+        {
+          "text": "mammals"
+        },
+        {
+          "text": "amphibians",
+          "why": "Amphibians have moist skin, and their young start life in water with gills."
+        },
+        {
+          "text": "reptiles",
+          "why": "Reptiles have dry, scaly skin, and most lay eggs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Living in water does not make an animal a fish.",
+        "Feeding young on milk is a feature of one group only.",
+        "Name the group whose mothers feed their babies on milk."
+      ],
+      "explanation": "Dolphins breathe air and feed their young on milk, so they are mammals, even though they live in the sea."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.902",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which animal is an invertebrate?",
+      "options": [
+        {
+          "text": "frog",
+          "why": "A frog has a backbone, so it is a vertebrate. It is an amphibian."
+        },
+        {
+          "text": "eagle",
+          "why": "An eagle has a backbone. It is a bird."
+        },
+        {
+          "text": "shark",
+          "why": "A shark has a backbone made of cartilage. It is a fish."
+        },
+        {
+          "text": "snail"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An invertebrate has no backbone.",
+        "Think about which animal has a soft body with no bones.",
+        "Cross out the animals that are fish, amphibians or birds."
+      ],
+      "explanation": "A snail has a soft body and no backbone, so it is an invertebrate. Frogs, eagles and sharks are vertebrates."
+    }
+  ]
+}

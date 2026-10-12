@@ -1,0 +1,212 @@
+{
+  "skill": "s5.mass-weight",
+  "items": [
+    {
+      "id": "s5.mass-weight.001",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What unit is weight measured in?",
+      "options": [
+        { "text": "kilograms (kg)", "why": "Kilograms measure mass, the amount of matter in an object." },
+        { "text": "newtons (N)" },
+        { "text": "metres (m)", "why": "Metres measure length." },
+        { "text": "litres (l)", "why": "Litres measure volume, the space a liquid takes up." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Weight is a force, the pull of gravity on an object.",
+        "Forces have their own unit, named after a famous scientist.",
+        "Cross out the units for length, volume and mass."
+      ],
+      "explanation": "Weight is a force, so it is measured in newtons (N). Mass is measured in kilograms, length in metres and volume in litres."
+    },
+    {
+      "id": "s5.mass-weight.002",
+      "skill": "s5.mass-weight",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        ["mass", "the amount of matter in an object"],
+        ["weight", "the pull of gravity on an object"],
+        ["gravity", "the force that pulls objects towards the Earth"],
+        ["forcemeter", "a tool that measures forces in newtons"]
+      ],
+      "hints": [
+        "Two of these words are often mixed up in everyday talk: mass and weight.",
+        "One of them is measured in kilograms and the other in newtons.",
+        "Start with forcemeter. The word itself tells you what it measures."
+      ],
+      "explanation": "Mass is the amount of matter in an object and weight is the pull of gravity on it. Gravity pulls objects towards the Earth, and a forcemeter measures forces in newtons."
+    },
+    {
+      "id": "s5.mass-weight.003",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "On Earth, gravity pulls on each 1 kg with a force of about 10 N. What is the weight of a 3 kg bag of rice?",
+      "answer": 30,
+      "unit": "N",
+      "hints": [
+        "Weight depends on how much mass there is.",
+        "Each kilogram has a weight of about 10 N on Earth.",
+        "Multiply the number of kilograms by 10."
+      ],
+      "explanation": "Each kilogram weighs about 10 N, so 3 kg weighs about 3 × 10 = 30 N.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.mass-weight.004",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why does a ball fall back down after you throw it up?",
+      "options": [
+        { "text": "Gravity pulls it towards the Earth." },
+        { "text": "Air pushes it down.", "why": "Air resistance slows the ball, but it is gravity that pulls it back down." },
+        { "text": "The ball runs out of force.", "why": "Objects do not carry force inside them. Gravity keeps pulling down on the ball the whole time." },
+        { "text": "The spinning Earth throws it down.", "why": "The Earth's spin does not make things fall." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Everything you drop falls in the same direction: down.",
+        "A force keeps pulling on the ball even after it leaves your hand.",
+        "Think about what pulls you back down to the ground when you jump."
+      ],
+      "explanation": "Gravity pulls the ball towards the Earth all the time. It slows the ball as it rises, stops it at the top and then pulls it back down."
+    },
+    {
+      "id": "s5.mass-weight.005",
+      "skill": "s5.mass-weight",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each statement into mass or weight.",
+      "groups": ["Mass", "Weight"],
+      "items": [
+        { "text": "measured in kilograms", "group": 0 },
+        { "text": "the amount of matter in an object", "group": 0 },
+        { "text": "stays the same on the Moon", "group": 0 },
+        { "text": "found with a pan balance", "group": 0 },
+        { "text": "measured in newtons", "group": 1 },
+        { "text": "is a force", "group": 1 },
+        { "text": "gets smaller on the Moon", "group": 1 },
+        { "text": "measured with a forcemeter", "group": 1 }
+      ],
+      "hints": [
+        "Mass is how much matter there is. Weight is how hard gravity pulls on it.",
+        "Ask which one would change if you took the object to the Moon.",
+        "Start with the units: kilograms for one and newtons for the other."
+      ],
+      "explanation": "Mass is the amount of matter, measured in kilograms with a balance, and it stays the same everywhere. Weight is a force, measured in newtons with a forcemeter, and it is smaller on the Moon.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.mass-weight.006",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A box of tools has a mass of 12 kg on Earth. What is its mass on the Moon?",
+      "options": [
+        { "text": "about 2 kg", "why": "Gravity on the Moon is about one sixth of Earth's, but that changes the weight, not the mass." },
+        { "text": "0 kg", "why": "The box is still made of the same matter, so its mass is not zero." },
+        { "text": "12 kg" },
+        { "text": "72 kg", "why": "Mass does not grow when you go to the Moon." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Mass is the amount of matter in an object.",
+        "Taking the box to the Moon does not add or remove any matter.",
+        "Ask whether anything was taken out of the box on the way."
+      ],
+      "explanation": "Mass is the amount of matter, and the box has the same matter on the Moon, so its mass is still 12 kg. Its weight is smaller there, because the Moon's gravity is weaker.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.mass-weight.007",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A rock weighs 60 N on Earth. Gravity on the Moon is about one sixth as strong. About how much would the rock weigh on the Moon?",
+      "answer": 10,
+      "unit": "N",
+      "hints": [
+        "Weaker gravity means a smaller weight.",
+        "One sixth means dividing into 6 equal parts.",
+        "Divide the rock's weight on Earth by 6."
+      ],
+      "explanation": "One sixth of 60 N is 60 ÷ 6 = 10 N. The rock's mass stays the same, but the Moon pulls on it less.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.mass-weight.008",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The table shows how hard gravity pulls on 1 kg in different places. How much would a 10 kg box weigh on Mars?",
+      "figure": {
+        "kind": "table",
+        "caption": "Pull of gravity on 1 kg",
+        "head": ["Place", "Pull on 1 kg"],
+        "rows": [
+          ["Earth", "10 N"],
+          ["Moon", "1.6 N"],
+          ["Mars", "3.7 N"],
+          ["Jupiter", "25 N"]
+        ],
+        "alt": "Table of the pull of gravity on 1 kg: Earth 10 N, Moon 1.6 N, Mars 3.7 N and Jupiter 25 N."
+      },
+      "answer": 37,
+      "unit": "N",
+      "hints": [
+        "Find the row for Mars in the table.",
+        "The table shows the weight of just 1 kg. The box has 10 kg.",
+        "Multiply the pull on 1 kg on Mars by 10."
+      ],
+      "explanation": "On Mars, each kilogram weighs about 3.7 N. So 10 kg weighs 10 × 3.7 N = 37 N.",
+      "tags": ["imso"]
+    },
+    {
+      "id": "s5.mass-weight.009",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kemal says his school bag has a weight of 5 kg. How would a scientist correct him?",
+      "options": [
+        { "text": "Its weight is 5 N.", "why": "On Earth, the weight in newtons is about 10 times the mass in kilograms." },
+        { "text": "Its mass is 50 N.", "why": "Mass is measured in kilograms, not newtons." },
+        { "text": "Its weight is 5 kg on the Moon too.", "why": "Weight is measured in newtons, and it is smaller on the Moon." },
+        { "text": "Its mass is 5 kg, and its weight is about 50 N." }
+      ],
+      "answer": 3,
+      "hints": [
+        "In science, kilograms measure mass and newtons measure weight.",
+        "On Earth, each kilogram weighs about 10 N.",
+        "First decide whether 5 kg is a mass or a weight."
+      ],
+      "explanation": "Kilograms measure mass, so the bag has a mass of 5 kg. Its weight on Earth is about 5 × 10 = 50 N.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.mass-weight.010",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A bag of marbles hangs from a forcemeter. On Earth, the forcemeter reads 6 N. What would the same forcemeter read on the Moon?",
+      "options": [
+        { "text": "6 N, because the mass is the same", "why": "The mass stays the same, but the Moon pulls on it less, so the spring stretches less." },
+        { "text": "about 1 N" },
+        { "text": "36 N", "why": "The Moon's gravity is weaker than Earth's, so the reading goes down." },
+        { "text": "0 N, because the Moon has no gravity", "why": "The Moon does have gravity. It is about one sixth as strong as Earth's." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A forcemeter measures weight, which depends on the strength of gravity.",
+        "The Moon's gravity is about one sixth as strong as Earth's.",
+        "Work out one sixth of the reading on Earth."
+      ],
+      "explanation": "The forcemeter measures weight. The Moon pulls about one sixth as hard, so the reading falls to about 6 ÷ 6 = 1 N, even though the mass of the marbles has not changed.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

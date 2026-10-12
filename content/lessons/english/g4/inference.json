@@ -1,0 +1,39 @@
+{
+  "skill": "e4.inference",
+  "title": "Clues and evidence",
+  "steps": [
+    { "say": "To infer means to work something out from clues. Writers often show feelings instead of naming them.", "show": "His knuckles turned white." },
+    { "say": "Ask what the character does, says or notices. Then think what that would mean in real life.", "show": "knuckles turned white → holding very tightly → nervous" },
+    { "say": "Always find evidence. Point to the words in the text that support your answer.", "show": "Evidence: so tightly that his knuckles turned white" },
+    { "say": "For a new word, read the sentences around it and look for clues.", "show": "tangled up ... cut it free → caught and twisted" },
+    { "say": "Some phrases are not meant to be taken literally.", "show": "My legs were burning = my legs were very tired" }
+  ],
+  "check": [
+    {
+      "id": "e4.inference.901", "skill": "e4.inference", "type": "mcq", "difficulty": 2,
+      "prompt": "Ana slammed the door and stomped up the stairs.\nHow does Ana feel?",
+      "options": [
+        { "text": "calm", "why": "Slamming and stomping are not calm actions." },
+        { "text": "cross" },
+        { "text": "sleepy", "why": "A sleepy person would move slowly and quietly." },
+        { "text": "proud", "why": "Nothing here shows that she is proud." }
+      ],
+      "answer": 1,
+      "hints": ["Look at what Ana does.", "How do people shut doors when they are upset?", "What does stomping tell you?"],
+      "explanation": "Slamming the door and stomping up the stairs are clues that Ana is cross."
+    },
+    {
+      "id": "e4.inference.902", "skill": "e4.inference", "type": "mcq", "difficulty": 3,
+      "prompt": "The soup was so hot that steam curled up from the bowl. Dad blew on his spoon.\nWhy did Dad blow on his spoon?",
+      "options": [
+        { "text": "to cool the soup down" },
+        { "text": "to make music", "why": "Blowing on a spoon does not make music." },
+        { "text": "to dry the spoon", "why": "The spoon has hot soup on it." },
+        { "text": "to show the soup was cold", "why": "The text says the soup was very hot." }
+      ],
+      "answer": 0,
+      "hints": ["What do you know about the soup?", "What do people do when food is too hot to eat?", "Link the steam to what Dad does next."],
+      "explanation": "The soup was very hot, so Dad blew on his spoon to cool it before eating."
+    }
+  ]
+}

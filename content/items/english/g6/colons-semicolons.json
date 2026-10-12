@@ -1,0 +1,332 @@
+{
+  "skill": "e6.colons-semicolons",
+  "items": [
+    {
+      "id": "e6.colons-semicolons.001",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Where should the colon go? You will need three things scissors, glue and paper.",
+      "options": [
+        {
+          "text": "after need",
+          "why": "The colon comes before the list, not in the middle of the main clause."
+        },
+        {
+          "text": "after things"
+        },
+        {
+          "text": "after scissors",
+          "why": "Scissors is the first item in the list."
+        },
+        {
+          "text": "after glue",
+          "why": "Glue is in the middle of the list."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A colon can introduce a list.",
+        "The colon goes after a complete clause, just before the list starts.",
+        "Find the first item in the list. What comes just before it?"
+      ],
+      "explanation": "The colon introduces the list: You will need three things: scissors, glue and paper.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.002",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence uses a semicolon correctly?",
+      "options": [
+        {
+          "text": "The rain; stopped the children ran outside.",
+          "why": "A semicolon must come between two complete clauses."
+        },
+        {
+          "text": "The rain stopped; the children ran outside to play."
+        },
+        {
+          "text": "The rain stopped the children; ran outside.",
+          "why": "The semicolon splits the second clause in the wrong place."
+        },
+        {
+          "text": "We bought; mangoes, bananas and papayas.",
+          "why": "No punctuation is needed after bought."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A semicolon joins two complete clauses that are closely linked.",
+        "Each side of the semicolon must make sense as a sentence on its own.",
+        "Cover the words after the semicolon. Does the first part make sense alone?"
+      ],
+      "explanation": "The rain stopped and the children ran outside to play are both complete clauses, and they are closely linked, so a semicolon can join them.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.003",
+      "skill": "e6.colons-semicolons",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 sentences where the colon is used correctly.",
+      "options": [
+        {
+          "text": "There is one rule in the library: whisper."
+        },
+        {
+          "text": "Pack these items: a torch, a map and a water bottle."
+        },
+        {
+          "text": "My favourite: fruit is mango.",
+          "why": "The colon splits favourite fruit, which belong together."
+        },
+        {
+          "text": "We went: to the market.",
+          "why": "The colon breaks up the sentence for no reason."
+        },
+        {
+          "text": "She: smiled at me.",
+          "why": "The colon separates the subject from its verb."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "A colon comes after a complete clause.",
+        "A colon introduces something: a list, an explanation or an example.",
+        "Cover everything after each colon. Is the first part a complete clause?"
+      ],
+      "explanation": "In the correct sentences, a complete clause comes before the colon, and the colon introduces a rule or a list.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.004",
+      "skill": "e6.colons-semicolons",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A semicolon is missing. Write the word that should come straight after it. Rani loves maths her brother prefers art.",
+      "blanks": [
+        {
+          "answers": [
+            "her"
+          ]
+        }
+      ],
+      "hints": [
+        "There are two complete clauses joined together with no punctuation.",
+        "Find where the first clause ends.",
+        "Who loves maths? Where does that idea finish?"
+      ],
+      "explanation": "The semicolon separates the two clauses: Rani loves maths; her brother prefers art.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.005",
+      "skill": "e6.colons-semicolons",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences by the punctuation mark that belongs in the gap.",
+      "groups": [
+        "colon",
+        "semicolon"
+      ],
+      "items": [
+        {
+          "text": "Bring one thing ___ a hat.",
+          "group": 0
+        },
+        {
+          "text": "Ayu sang ___ Dewi played the flute.",
+          "group": 1
+        },
+        {
+          "text": "Bring two things ___ a hat and water.",
+          "group": 0
+        },
+        {
+          "text": "Bats fly at night ___ birds fly by day.",
+          "group": 1
+        },
+        {
+          "text": "There is one problem ___ the rain.",
+          "group": 0
+        },
+        {
+          "text": "The sun set ___ the sky turned orange.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Look at the words after each gap.",
+        "If they are a list or a single idea that explains, use a colon. If they are a complete clause, use a semicolon.",
+        "Start with Bring one thing ___ a hat. Is a hat a complete clause?"
+      ],
+      "explanation": "Colons introduce a list or an explanation, such as a hat or the rain. Semicolons join two complete, closely linked clauses, such as Ayu sang and Dewi played the flute."
+    },
+    {
+      "id": "e6.colons-semicolons.006",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is punctuated correctly?",
+      "options": [
+        {
+          "text": "The museum was closed; we visited the park instead."
+        },
+        {
+          "text": "The museum was closed, we visited the park instead.",
+          "why": "A comma alone cannot join two complete clauses."
+        },
+        {
+          "text": "The museum was closed we visited the park instead.",
+          "why": "Two complete clauses need punctuation or a joining word between them."
+        },
+        {
+          "text": "The museum; was closed we visited the park instead.",
+          "why": "The semicolon is in the wrong place."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "There are two complete clauses in each sentence.",
+        "Two complete clauses can be joined with a semicolon, but not with a comma alone.",
+        "Find where the first clause ends."
+      ],
+      "explanation": "A semicolon can join two complete clauses. Using only a comma is a mistake called a comma splice.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.007",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses a colon to introduce an explanation?",
+      "options": [
+        {
+          "text": "Raka was soaked, he had forgotten his umbrella.",
+          "why": "A comma alone cannot join two complete clauses."
+        },
+        {
+          "text": "Raka was soaked: he had forgotten his umbrella."
+        },
+        {
+          "text": "Raka: was soaked because he forgot his umbrella.",
+          "why": "The colon separates the subject from its verb."
+        },
+        {
+          "text": "Raka was: soaked.",
+          "why": "The colon breaks the clause in the middle."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The second part of the sentence explains the first part.",
+        "A colon can come between a statement and its explanation.",
+        "Find the sentence with a complete clause on each side of the colon."
+      ],
+      "explanation": "The second clause explains why Raka was soaked, so a colon can introduce it.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.008",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses semicolons correctly in a list?",
+      "options": [
+        {
+          "text": "We visited Bogor; which has a famous botanic garden, Bandung; which is cool and hilly, and Malang; which is known for its apples.",
+          "why": "The semicolons should separate the whole items, not come in front of which."
+        },
+        {
+          "text": "We visited; Bogor, which has a famous botanic garden, Bandung, which is cool and hilly, and Malang, which is known for its apples.",
+          "why": "A semicolon cannot come straight after visited."
+        },
+        {
+          "text": "We visited Bogor, which has a famous botanic garden; Bandung, which is cool and hilly; and Malang, which is known for its apples."
+        },
+        {
+          "text": "We visited Bogor, which has a famous botanic garden, Bandung, which is cool and hilly; and Malang; which is known for its apples.",
+          "why": "The semicolons are in the wrong places."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "When list items already contain commas, semicolons separate the items.",
+        "Each item is a place plus some extra information about it.",
+        "Find the end of the Bogor item. What punctuation comes next?"
+      ],
+      "explanation": "Each item already has a comma inside it, so semicolons separate the three items clearly: Bogor; Bandung; and Malang.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.009",
+      "skill": "e6.colons-semicolons",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each item in this list contains a comma. How many semicolons are needed? The club has three leaders: Tia, who plans the games, Bayu, who looks after the money, and Kiki, who writes the newsletter.",
+      "answer": 2,
+      "hints": [
+        "Semicolons go between the items of a list when the items already contain commas.",
+        "Find the three items first: each one is a name plus extra information.",
+        "Count the gaps between the three items."
+      ],
+      "explanation": "Semicolons go after games and after money: Tia, who plans the games; Bayu, who looks after the money; and Kiki, who writes the newsletter.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.010",
+      "skill": "e6.colons-semicolons",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Read: I have three hobbies: reading, swimming and painting; my sister has none. Why is there a semicolon after painting?",
+      "options": [
+        {
+          "text": "to introduce a list",
+          "why": "The colon after hobbies introduces the list."
+        },
+        {
+          "text": "to show a pause in speech",
+          "why": "Semicolons do not mark speech."
+        },
+        {
+          "text": "to separate the items in the list",
+          "why": "Commas separate the items in this list."
+        },
+        {
+          "text": "to join two complete clauses that are closely linked"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at what comes before and after the semicolon.",
+        "My sister has none makes sense on its own.",
+        "Ask: is the first part a complete clause too?"
+      ],
+      "explanation": "I have three hobbies: reading, swimming and painting is a complete clause, and so is my sister has none. The semicolon links these two related clauses.",
+      "tags": [
+        "iklc"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "skill": "m3.mass-capacity",
+  "title": "Mass and capacity",
+  "steps": [
+    {
+      "say": "Mass is how heavy something is. We use grams (g) and kilograms (kg).",
+      "show": "1 kg = 1,000 g"
+    },
+    {
+      "say": "To read scales, first find what each mark is worth.",
+      "figure": {
+        "kind": "scale",
+        "max": 1000,
+        "value": 600,
+        "step": 100,
+        "unit": "g",
+        "alt": "Scales from 0 to 1,000 g marked every 100 g. The pointer is at 600 g."
+      },
+      "show": "600 g"
+    },
+    {
+      "say": "Capacity is how much a container holds. We use millilitres (ml) and litres (l).",
+      "show": "1 l = 1,000 ml"
+    },
+    {
+      "say": "This jug is marked every 250 ml. The water is at 750 ml.",
+      "figure": {
+        "kind": "jug",
+        "capacity": 1000,
+        "value": 750,
+        "step": 250,
+        "unit": "ml",
+        "alt": "A jug marked every 250 ml up to 1,000 ml. The water is at 750 ml."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.mass-capacity.901",
+      "skill": "m3.mass-capacity",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How much water is in the jug?",
+      "answer": 300,
+      "hints": [
+        "Find what each mark on the jug is worth.",
+        "Count up the marks from the bottom.",
+        "Read the mark at the top of the water."
+      ],
+      "explanation": "The marks go up in 100 ml. The water reaches 300 ml.",
+      "unit": "ml",
+      "figure": {
+        "kind": "jug",
+        "capacity": 500,
+        "value": 300,
+        "step": 100,
+        "unit": "ml",
+        "alt": "A jug marked every 100 ml up to 500 ml. The water is at 300 ml."
+      }
+    },
+    {
+      "id": "m3.mass-capacity.902",
+      "skill": "m3.mass-capacity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the heaviest?",
+      "options": [
+        {
+          "text": "900 g",
+          "why": "900 g is less than 1 kg."
+        },
+        {
+          "text": "1,500 g",
+          "why": "1,500 g is 1 kg 500 g, which is less than 2 kg."
+        },
+        {
+          "text": "2 kg"
+        },
+        {
+          "text": "1 kg",
+          "why": "1 kg is less than 2 kg."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Change them all to grams.",
+        "1 kg = 1,000 g.",
+        "Then compare the numbers."
+      ],
+      "explanation": "2 kg = 2,000 g. That is more than 1,500 g, 1,000 g and 900 g."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "skill": "s1.living-things",
+  "title": "Living or not living?",
+  "steps": [
+    { "say": "Living things are alive. Plants, animals and people are living things.", "figure": { "kind": "icons", "items": [{ "icon": "cat", "label": "cat" }, { "icon": "tree", "label": "tree" }, { "icon": "bird", "label": "bird" }], "alt": "Three living things: a cat, a tree and a bird." } },
+    { "say": "Living things grow. A kitten grows into a cat.", "show": "Living things grow." },
+    { "say": "Living things need food, water and air. They can have young.", "show": "food, water, air" },
+    { "say": "Things that are not living never grow or eat. A rock stays a rock.", "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "rock" }, { "icon": "ball", "label": "ball" }, { "icon": "cup", "label": "cup" }], "alt": "Three things that are not living: a rock, a ball and a cup." } },
+    { "say": "Some things move but are not alive. A car moves, but it cannot grow.", "show": "Moving is not enough." },
+    { "say": "Ask yourself: does it grow? Does it need food and water?", "show": "Does it grow? Does it eat?" }
+  ],
+  "check": [
+    {
+      "id": "s1.living-things.901", "skill": "s1.living-things", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one is living?",
+      "options": [
+        { "text": "a ball", "why": "A ball cannot grow or eat." },
+        { "text": "a tree" },
+        { "text": "a cup", "why": "A cup never grows." }
+      ],
+      "answer": 1,
+      "hints": ["Think about which one can grow.", "Living things need water.", "Ask: which one would need water to stay alive?"],
+      "explanation": "A tree is living. It grows and needs water, air and light."
+    },
+    {
+      "id": "s1.living-things.902", "skill": "s1.living-things", "type": "mcq", "difficulty": 2,
+      "prompt": "A clock moves its hands. Is it living?",
+      "options": [
+        { "text": "Yes, because it moves.", "why": "Moving is not enough. A clock cannot grow or eat." },
+        { "text": "Yes, because it ticks.", "why": "Making a sound does not make something alive." },
+        { "text": "No, it cannot grow or eat." }
+      ],
+      "answer": 2,
+      "hints": ["Some things move but are not alive.", "Think about the things all living things do.", "Ask: will the clock ever grow bigger?"],
+      "explanation": "A clock moves, but it cannot grow, eat or have young. It is not living."
+    }
+  ]
+}

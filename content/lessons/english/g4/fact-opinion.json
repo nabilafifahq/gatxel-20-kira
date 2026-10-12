@@ -1,0 +1,39 @@
+{
+  "skill": "e4.fact-opinion",
+  "title": "Fact or opinion?",
+  "steps": [
+    { "say": "A fact is something that can be checked and proved.", "show": "Komodo National Park was set up in 1980." },
+    { "say": "An opinion is what someone thinks or feels. Other people might disagree.", "show": "Komodo dragons are beautiful." },
+    { "say": "Watch for opinion clue words.", "show": "I think, I believe, best, worst, should, beautiful" },
+    { "say": "Test each sentence. Could you check it in a book, on a map or by counting?" },
+    { "say": "Writers often use facts as evidence for their opinions.", "show": "We found 214 bottles in five days. We think this is far too many." }
+  ],
+  "check": [
+    {
+      "id": "e4.fact-opinion.901", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sentence is a fact?",
+      "options": [
+        { "text": "Pizza is the best food.", "why": "Best shows an opinion. Not everyone agrees." },
+        { "text": "A spider has eight legs." },
+        { "text": "Homework is boring.", "why": "Boring is an opinion." },
+        { "text": "Red is a lovely colour.", "why": "Lovely is an opinion." }
+      ],
+      "answer": 1,
+      "hints": ["A fact can be checked.", "Which sentence could you prove by counting?", "Cross out the sentences with words like best and lovely."],
+      "explanation": "You can count a spider's legs, so A spider has eight legs is a fact."
+    },
+    {
+      "id": "e4.fact-opinion.902", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 2,
+      "prompt": "Which word often shows that a sentence is an opinion?",
+      "options": [
+        { "text": "Tuesday", "why": "Tuesday is a day. It can be part of a fact." },
+        { "text": "seven", "why": "A number can usually be checked." },
+        { "text": "best" },
+        { "text": "island", "why": "Island names a place. It can be part of a fact." }
+      ],
+      "answer": 2,
+      "hints": ["Opinion words show what someone thinks.", "Which word judges how good something is?", "Try each word in a sentence about food."],
+      "explanation": "Best judges how good something is. People can disagree about what is best, so it shows an opinion."
+    }
+  ]
+}

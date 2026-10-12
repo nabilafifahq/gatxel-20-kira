@@ -1,0 +1,154 @@
+{
+  "skill": "s1.materials",
+  "items": [
+    {
+      "id": "s1.materials.001", "skill": "s1.materials", "type": "mcq", "difficulty": 1,
+      "prompt": "What is this spoon made of?",
+      "figure": { "kind": "icons", "items": [{ "icon": "wooden-spoon", "label": "spoon" }], "alt": "A brown wooden spoon with lines in the wood." },
+      "options": [
+        { "text": "glass", "why": "Glass is see-through and breaks easily." },
+        { "text": "wood" },
+        { "text": "paper", "why": "A paper spoon would get soggy in food." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the colour and the lines on the spoon.", "Which material comes from trees?", "Think about a table or a door. What are they often made of?"],
+      "explanation": "This spoon is made of wood. Wood comes from trees and is hard and strong."
+    },
+    {
+      "id": "s1.materials.002", "skill": "s1.materials", "type": "match", "difficulty": 1,
+      "prompt": "Match each object to the material it is made of.",
+      "figure": { "kind": "icons", "items": [{ "icon": "glass", "label": "window" }, { "icon": "book", "label": "book" }, { "icon": "sock", "label": "sock" }, { "icon": "nail", "label": "nail" }], "alt": "Four objects: a window, a book, a sock and a nail." },
+      "pairs": [["window", "glass"], ["book", "paper"], ["sock", "fabric"], ["nail", "metal"]],
+      "hints": ["Think about how each object feels.", "Do the ones you know first.", "Start with the window. What material can you see through?"],
+      "explanation": "A window is made of glass, a book of paper, a sock of fabric and a nail of metal."
+    },
+    {
+      "id": "s1.materials.003", "skill": "s1.materials", "type": "sort", "difficulty": 2,
+      "prompt": "Is it metal or plastic? Sort the cards.",
+      "groups": ["Metal", "Plastic"],
+      "items": [
+        { "text": "key", "group": 0 },
+        { "text": "nail", "group": 0 },
+        { "text": "paperclip", "group": 0 },
+        { "text": "plastic bottle", "group": 1 },
+        { "text": "plastic comb", "group": 1 },
+        { "text": "toothbrush handle", "group": 1 }
+      ],
+      "hints": ["Metal is hard and often shiny and cold to touch.", "Think about how each object feels in your hand.", "Start with the key. What is a key made of?"],
+      "explanation": "Keys, nails and paperclips are made of metal. The bottle, the comb and the toothbrush handle are made of plastic."
+    },
+    {
+      "id": "s1.materials.004", "skill": "s1.materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Which object is made of fabric?",
+      "options": [
+        { "text": "a brick", "why": "A brick is made of baked clay." },
+        { "text": "a cup", "why": "Cups are often made of plastic or glass." },
+        { "text": "a T-shirt" }
+      ],
+      "answer": 2,
+      "hints": ["Fabric is soft and bendy, like cloth.", "Which object can you wear?", "Look at your own clothes. What are they made of?"],
+      "explanation": "A T-shirt is made of fabric. Fabric is soft and bends easily, so it is good for clothes."
+    },
+    {
+      "id": "s1.materials.005", "skill": "s1.materials", "type": "text", "difficulty": 2,
+      "prompt": "Windows are made of ___ so we can see through them.",
+      "blanks": [{ "answers": ["glass"] }],
+      "hints": ["Think about what you look through at home.", "This material is see-through and smooth.", "It can break if a ball hits it."],
+      "explanation": "Windows are made of glass. Glass is see-through, so light comes in and we can see outside."
+    },
+    {
+      "id": "s1.materials.006", "skill": "s1.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Mr Joko makes a chair. Which material is good for it?",
+      "options": [
+        { "text": "wood" },
+        { "text": "paper", "why": "Paper is too weak. The chair would break." },
+        { "text": "ice", "why": "Ice melts and is slippery." }
+      ],
+      "answer": 0,
+      "hints": ["A chair must hold a person up.", "Which material is hard and strong?", "Think about the chairs in your classroom."],
+      "explanation": "Wood is hard and strong, so it is a good material for a chair.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.materials.007", "skill": "s1.materials", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the things made of paper.",
+      "options": [
+        { "text": "a book" },
+        { "text": "a window", "why": "Windows are made of glass." },
+        { "text": "a newspaper" },
+        { "text": "a nail", "why": "Nails are made of metal." },
+        { "text": "a birthday card" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Paper is thin and is made from trees.", "Think about what you can write or draw on.", "Start with the book. What are its pages made of?"],
+      "explanation": "Books, newspapers and birthday cards are made of paper. Windows are glass and nails are metal."
+    },
+    {
+      "id": "s1.materials.008", "skill": "s1.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Rina's ball is bouncy and bendy. What is it most likely made of?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "bouncy ball" }], "alt": "A bouncy ball." },
+      "options": [
+        { "text": "glass", "why": "Glass is hard and can break when it is dropped." },
+        { "text": "stone", "why": "A stone ball is heavy and hard. It does not bounce well." },
+        { "text": "rubber" }
+      ],
+      "answer": 2,
+      "hints": ["Think about which material is bendy and bouncy.", "Bicycle tyres are made of this material too.", "Squeeze each one in your mind. Which one squashes and springs back?"],
+      "explanation": "Bouncy balls are usually made of rubber. Rubber squashes when it hits the floor and springs back."
+    },
+    {
+      "id": "s1.materials.009", "skill": "s1.materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Which object is made of more than one material?",
+      "options": [
+        { "text": "a glass marble", "why": "A marble is made of glass only." },
+        { "text": "a pencil with an eraser" },
+        { "text": "a metal nail", "why": "A nail is made of metal only." }
+      ],
+      "answer": 1,
+      "hints": ["Look for an object with different parts.", "Think about each part of the object. Is it the same material?", "Picture a pencil. What is the eraser made of? What is the outside made of?"],
+      "explanation": "A pencil with an eraser has wood on the outside, a grey writing part in the middle and a rubber eraser at the end.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.materials.010", "skill": "s1.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Lestari wants a cup that will not break if it falls. Which material?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cup", "label": "cup" }], "alt": "A cup for drinking." },
+      "options": [
+        { "text": "plastic" },
+        { "text": "glass", "why": "Glass cups can break when they fall." },
+        { "text": "clay", "why": "Clay cups can crack or break when they fall." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what happens when each cup falls on the floor.", "Which material bends a little instead of breaking?", "Picture dropping each cup on a hard floor."],
+      "explanation": "A plastic cup will not break if it falls. Glass and clay cups can crack or break.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.materials.011", "skill": "s1.materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Which two objects are made of the same material?",
+      "options": [
+        { "text": "a book and a sock", "why": "A book is paper. A sock is fabric." },
+        { "text": "a window and a brick", "why": "A window is glass. A brick is baked clay." },
+        { "text": "a key and a nail" }
+      ],
+      "answer": 2,
+      "hints": ["Name the material of each object.", "Look for two objects with the same material name.", "Start with the key. What is it made of?"],
+      "explanation": "A key and a nail are both made of metal. The other pairs are made of two different materials.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.materials.012", "skill": "s1.materials", "type": "mcq", "difficulty": 5,
+      "prompt": "Some rubber comes from the sap of rubber trees. Is this rubber natural?",
+      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "rubber tree" }, { "icon": "rubber-band", "label": "rubber band" }], "alt": "A rubber tree and a rubber band." },
+      "options": [
+        { "text": "Yes, because it comes from a plant." },
+        { "text": "No, because it is bendy.", "why": "Being bendy does not tell us where a material comes from." },
+        { "text": "No, because it is made in a shop.", "why": "Shops sell rubber things. The rubber itself came from trees." }
+      ],
+      "answer": 0,
+      "hints": ["Natural materials come from plants, animals or the ground.", "Where does this rubber come from?", "Think about the tree in the picture."],
+      "explanation": "Rubber from rubber trees is a natural material because it comes from a plant. Indonesia grows many rubber trees.",
+      "tags": ["iksc", "ksnr"]
+    }
+  ]
+}

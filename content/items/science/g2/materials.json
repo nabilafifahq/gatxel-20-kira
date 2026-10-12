@@ -1,0 +1,219 @@
+{
+  "skill": "s2.materials",
+  "items": [
+    {
+      "id": "s2.materials.001", "skill": "s2.materials", "type": "mcq", "difficulty": 1,
+      "prompt": "Which material is natural?",
+      "options": [
+        { "text": "wood" },
+        { "text": "plastic", "why": "Plastic is made by people in factories." },
+        { "text": "glass", "why": "Glass is made by people by heating sand." },
+        { "text": "brick", "why": "Bricks are made by people by baking clay." }
+      ],
+      "answer": 0,
+      "hints": ["Natural materials come from plants, animals or the ground.", "Which one grows in nature?", "Think about a tree. What material does it give us?"],
+      "explanation": "Wood is natural because it comes from trees. Plastic, glass and brick are made by people."
+    },
+    {
+      "id": "s2.materials.002", "skill": "s2.materials", "type": "sort", "difficulty": 2,
+      "prompt": "Natural or made by people? Sort the materials.",
+      "groups": ["Natural", "Made by people"],
+      "items": [
+        { "text": "wood", "group": 0 },
+        { "text": "stone", "group": 0 },
+        { "text": "wool", "group": 0 },
+        { "text": "cotton", "group": 0 },
+        { "text": "plastic", "group": 1 },
+        { "text": "glass", "group": 1 },
+        { "text": "brick", "group": 1 }
+      ],
+      "hints": ["Natural materials are found in nature.", "Ask: did people have to make it in a factory or a kiln?", "Start with wool. Where does it come from?"],
+      "explanation": "Wood, stone, wool and cotton come from nature. Plastic, glass and brick are made by people."
+    },
+    {
+      "id": "s2.materials.003", "skill": "s2.materials", "type": "match", "difficulty": 2,
+      "prompt": "Match each material to what it is made from.",
+      "pairs": [["glass", "sand"], ["paper", "wood"], ["brick", "clay"], ["woollen jumper", "wool from sheep"]],
+      "hints": ["Each made material starts as something natural.", "Do the one you are sure about first.", "Start with paper. Which natural material is it made from?"],
+      "explanation": "Glass is made by heating sand, paper is made from wood, bricks are baked clay and a woollen jumper is made from sheep's wool."
+    },
+    {
+      "id": "s2.materials.004", "skill": "s2.materials", "type": "mcq", "difficulty": 1,
+      "prompt": "Which material is waterproof?",
+      "options": [
+        { "text": "paper", "why": "Paper soaks up water and goes soggy." },
+        { "text": "cotton fabric", "why": "Cotton soaks up water." },
+        { "text": "plastic" },
+        { "text": "sponge", "why": "A sponge soaks up lots of water." }
+      ],
+      "answer": 2,
+      "hints": ["Waterproof means water cannot get through.", "Which one stays dry on the other side when it rains?", "Think about what a raincoat or a bucket is made of."],
+      "explanation": "Plastic is waterproof. Water cannot get through it, so it is used for raincoats and buckets."
+    },
+    {
+      "id": "s2.materials.005", "skill": "s2.materials", "type": "text", "difficulty": 2,
+      "prompt": "A material that does not let water through is ___.",
+      "blanks": [{ "answers": ["waterproof", "water-proof", "water proof"] }],
+      "hints": ["Think about what an umbrella must do in the rain.", "The word starts with water.", "It ends with a short word that means safe from."],
+      "explanation": "A material that does not let water through is waterproof. Raincoats and umbrellas are made of waterproof materials."
+    },
+    {
+      "id": "s2.materials.006", "skill": "s2.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Which material is best for an umbrella?",
+      "figure": { "kind": "icons", "items": [{ "icon": "umbrella", "label": "umbrella" }, { "icon": "rain", "label": "rain" }], "alt": "An umbrella in the rain." },
+      "options": [
+        { "text": "paper", "why": "Paper would get soggy and tear in the rain." },
+        { "text": "waterproof fabric" },
+        { "text": "glass", "why": "Glass keeps water out, but it is heavy and can break." },
+        { "text": "wool", "why": "Wool soaks up water." }
+      ],
+      "answer": 1,
+      "hints": ["An umbrella must keep you dry.", "It must also fold up and be light to carry.", "Ask for each one: does it keep water out? Can it fold?"],
+      "explanation": "Waterproof fabric keeps the rain out, and it is light and bendy, so the umbrella can fold up.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.materials.007", "skill": "s2.materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one soaks up water best?",
+      "options": [
+        { "text": "a plastic bag", "why": "Plastic is waterproof. It does not soak up water." },
+        { "text": "a metal tray", "why": "Metal does not soak up water." },
+        { "text": "a glass plate", "why": "Glass does not soak up water." },
+        { "text": "a cotton towel" }
+      ],
+      "answer": 3,
+      "hints": ["Soaking up water is called being absorbent.", "Which one do you use to dry yourself after a bath?", "Ask: which one would get heavy and wet if you dipped it in water?"],
+      "explanation": "A cotton towel soaks up water best. It is absorbent, so it is good for drying."
+    },
+    {
+      "id": "s2.materials.008", "skill": "s2.materials", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the materials you can see through.",
+      "options": [
+        { "text": "clear glass" },
+        { "text": "clear plastic" },
+        { "text": "wood", "why": "Wood blocks light. We cannot see through it." },
+        { "text": "metal", "why": "Metal blocks light. We cannot see through it." },
+        { "text": "cardboard", "why": "Cardboard blocks light. We cannot see through it." }
+      ],
+      "answers": [0, 1],
+      "hints": ["See-through materials let light pass.", "Think about windows and water bottles.", "Start with clear glass. Can you see through a window?"],
+      "explanation": "Clear glass and clear plastic are see-through, so light passes through them. Wood, metal and cardboard block light."
+    },
+    {
+      "id": "s2.materials.009", "skill": "s2.materials", "type": "match", "difficulty": 3,
+      "prompt": "Match each object to the property that makes it useful.",
+      "pairs": [["window", "see-through"], ["raincoat", "waterproof"], ["towel", "soaks up water"], ["bridge", "strong"], ["rubber band", "stretchy"]],
+      "hints": ["Think about the job each object does.", "What must a window let through?", "Start with the raincoat. What must it keep out?"],
+      "explanation": "A window is see-through, a raincoat is waterproof, a towel soaks up water, a bridge is strong and a rubber band is stretchy."
+    },
+    {
+      "id": "s2.materials.010", "skill": "s2.materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Why are cooking pots made of metal?",
+      "figure": { "kind": "icons", "items": [{ "icon": "kettle", "label": "metal pot" }], "alt": "A metal pot." },
+      "options": [
+        { "text": "Metal is soft and bendy.", "why": "Metal pots are hard and stiff." },
+        { "text": "Metal is see-through.", "why": "We cannot see through metal." },
+        { "text": "Metal is strong and does not burn on the stove." },
+        { "text": "Metal soaks up water.", "why": "Metal does not soak up water. It is waterproof." }
+      ],
+      "answer": 2,
+      "hints": ["Think about what happens to a pot on a hot stove.", "Which property would a pot need near flames?", "Ask: what would happen to a paper or plastic pot on the stove?"],
+      "explanation": "Metal is strong and does not burn or melt on a stove. Heat also passes through it easily to cook the food.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.materials.011", "skill": "s2.materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Nadia drips water on four fabrics. Which fabric is best for a raincoat?",
+      "figure": { "kind": "table", "caption": "Water test", "head": ["Fabric", "After 1 minute"], "rows": [["A", "soaked through"], ["B", "a little wet underneath"], ["C", "dry underneath"], ["D", "soaked through"]], "alt": "Water test table. Fabric A soaked through. Fabric B a little wet underneath. Fabric C dry underneath. Fabric D soaked through." },
+      "options": [
+        { "text": "Fabric A", "why": "Water soaked through Fabric A, so it is not waterproof." },
+        { "text": "Fabric B", "why": "Some water got through Fabric B." },
+        { "text": "Fabric C" },
+        { "text": "Fabric D", "why": "Water soaked through Fabric D, so it is not waterproof." }
+      ],
+      "answer": 2,
+      "hints": ["A raincoat must be waterproof.", "Look for the fabric that stayed dry underneath.", "Read each row of the table one at a time."],
+      "explanation": "Fabric C stayed dry underneath, so no water got through. It is the most waterproof, which makes it best for a raincoat.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.materials.012", "skill": "s2.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Which object will a magnet pick up?",
+      "figure": { "kind": "icons", "items": [{ "icon": "magnet", "label": "magnet" }], "alt": "A magnet." },
+      "options": [
+        { "text": "a wooden spoon", "why": "Wood is not magnetic." },
+        { "text": "an iron nail" },
+        { "text": "a plastic cup", "why": "Plastic is not magnetic." },
+        { "text": "a glass marble", "why": "Glass is not magnetic." }
+      ],
+      "answer": 1,
+      "hints": ["Magnets pull some metals.", "Which object is made of metal?", "Ask: which material is magnetic, iron or wood?"],
+      "explanation": "Iron is magnetic, so a magnet picks up an iron nail. Wood, plastic and glass are not magnetic.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.materials.013", "skill": "s2.materials", "type": "mcq", "difficulty": 5,
+      "prompt": "Ravi says all metals are magnetic. Which result shows he is wrong?",
+      "options": [
+        { "text": "A magnet picks up an iron nail.", "why": "This shows iron is magnetic. It does not test other metals." },
+        { "text": "A magnet does not pick up a wooden block.", "why": "Wood is not a metal, so this does not test his idea." },
+        { "text": "A magnet picks up a steel paperclip.", "why": "Steel is magnetic, so this fits his idea." },
+        { "text": "A magnet does not pick up an aluminium can." }
+      ],
+      "answer": 3,
+      "hints": ["To show an idea is wrong, find one example that does not fit.", "You need a metal that a magnet does not pick up.", "Check each result. Is the object a metal? Did the magnet pick it up?"],
+      "explanation": "An aluminium can is metal, but a magnet does not pick it up. So not all metals are magnetic. Iron and steel are magnetic.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.materials.014", "skill": "s2.materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Why are bicycle tyres made of rubber?",
+      "figure": { "kind": "icons", "items": [{ "icon": "bicycle", "label": "bicycle" }], "alt": "A bicycle with rubber tyres." },
+      "options": [
+        { "text": "Rubber is bendy and grips the road." },
+        { "text": "Rubber is see-through.", "why": "Most rubber is not see-through, and tyres do not need to be." },
+        { "text": "Rubber soaks up water.", "why": "Rubber is waterproof." },
+        { "text": "Rubber is very heavy.", "why": "A heavy tyre would make the bicycle hard to ride." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what a tyre must do on a bumpy road.", "Squeeze a rubber ball in your mind. What happens?", "Ask: which property helps a tyre not slip?"],
+      "explanation": "Rubber is bendy, so the tyre squashes over bumps. It also grips the road, so the bicycle does not slip."
+    },
+    {
+      "id": "s2.materials.015", "skill": "s2.materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Which two properties does a window need?",
+      "options": [
+        { "text": "soft and stretchy", "why": "A soft, stretchy window would sag and tear." },
+        { "text": "bendy and absorbent", "why": "A window must keep its shape and keep the rain out." },
+        { "text": "see-through and absorbent", "why": "A window should keep rain out, so it must not soak up water." },
+        { "text": "see-through and waterproof" }
+      ],
+      "answer": 3,
+      "hints": ["Think about two jobs a window does.", "It lets light in. What must it keep out?", "Check both words in each choice."],
+      "explanation": "A window must be see-through to let light in and waterproof to keep rain out. Glass has both properties.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.materials.016", "skill": "s2.materials", "type": "draw", "difficulty": 3,
+      "prompt": "Design a raincoat for a puppy. Label the material you chose and say why.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws a raincoat that covers the puppy's back", "points": 1 },
+        { "label": "Labels a waterproof material", "points": 2 },
+        { "label": "Writes one reason for choosing it", "points": 1 }
+      ] },
+      "hints": ["Think about which materials keep water out.", "Remember the water test: which fabrics stayed dry?"],
+      "explanation": "A raincoat must be waterproof so the rain cannot get through. Plastic or waterproof fabric would keep the puppy dry."
+    },
+    {
+      "id": "s2.materials.017", "skill": "s2.materials", "type": "numeric", "difficulty": 5,
+      "prompt": "Hiro pours 10 spoons of water onto each fabric. How many spoons did Fabric B stop?",
+      "figure": { "kind": "table", "head": ["Fabric", "Spoons poured", "Spoons that came through"], "rows": [["A", "10", "8"], ["B", "10", "3"], ["C", "10", "0"]], "alt": "Table: Fabric A, 10 spoons poured, 8 came through. Fabric B, 10 poured, 3 came through. Fabric C, 10 poured, 0 came through." },
+      "answer": 7,
+      "unit": "spoons",
+      "hints": ["Find the row for Fabric B.", "Some water came through. The rest was stopped.", "Start with 10 spoons and take away the ones that came through."],
+      "explanation": "10 spoons were poured on Fabric B and 3 came through. 10 take away 3 is 7, so Fabric B stopped 7 spoons.",
+      "tags": ["ksnr"]
+    }
+  ]
+}

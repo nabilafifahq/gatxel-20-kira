@@ -1,0 +1,40 @@
+{
+  "skill": "e3.text-features",
+  "title": "Spotting text features",
+  "steps": [
+    { "say": "Different texts have different features. Features help you know what kind of text you are reading." },
+    { "say": "Information texts have a title, subheadings and facts. Some have a Did you know? box.", "show": "title, subheadings, facts" },
+    { "say": "Instructions have a list of things you need and numbered steps. The steps start with bossy verbs.", "show": "1. Fold the paper in half." },
+    { "say": "Poems are often written in verses, and many have rhyming words.", "show": "breeze and trees" },
+    { "say": "Playscripts show the speaker's name and a colon. Stage directions go in brackets.", "show": "AMIR: (worried) I can't find my book." },
+    { "say": "Letters have an address, a date, a greeting and a sign-off.", "show": "Dear Grandad, ... With lots of love, Bima" }
+  ],
+  "check": [
+    {
+      "id": "e3.text-features.901", "skill": "e3.text-features", "type": "mcq", "difficulty": 1,
+      "prompt": "Which line comes from a playscript?",
+      "options": [
+        { "text": "LUCY: (smiling) Is this it?" },
+        { "text": "Dear Lucy,", "why": "This is the greeting of a letter." },
+        { "text": "1. Fold the paper in half.", "why": "This is a step from a set of instructions." },
+        { "text": "Once upon a time, there was a girl.", "why": "This is how a story might start." }
+      ],
+      "answer": 0,
+      "hints": ["Think about how a playscript shows who is speaking.", "Look for a name with a colon after it.", "Look for a stage direction in brackets."],
+      "explanation": "A playscript shows the speaker's name, a colon and stage directions in brackets."
+    },
+    {
+      "id": "e3.text-features.902", "skill": "e3.text-features", "type": "mcq", "difficulty": 2,
+      "prompt": "Which text would have numbered steps?",
+      "options": [
+        { "text": "a poem about the sea", "why": "Poems are written in lines and verses." },
+        { "text": "a recipe for fried rice" },
+        { "text": "a letter to a friend", "why": "Letters use paragraphs, not numbered steps." },
+        { "text": "a story about a dragon", "why": "Stories are told in paragraphs." }
+      ],
+      "answer": 1,
+      "hints": ["Numbered steps tell you what to do, in order.", "Which text tells you how to make something?", "Think about cooking."],
+      "explanation": "A recipe is a kind of instructions, so it has numbered steps to follow in order."
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "skill": "m4.oly-number-puzzles",
+  "items": [
+    {
+      "id": "m4.oly-number-puzzles.001",
+      "skill": "m4.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two whole numbers multiply to 36 and add up to 13. What is the difference between them?",
+      "options": [
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "A difference of 6 needs numbers like 3 and 9, but 3 × 9 = 27."
+        },
+        {
+          "text": "7",
+          "why": "A difference of 7 needs numbers like 3 and 10, which multiply to 30."
+        },
+        {
+          "text": "8",
+          "why": "Check the pairs that multiply to 36: which one adds up to 13?"
+        },
+        {
+          "text": "9",
+          "why": "9 is one of the numbers, not the difference."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List the pairs that multiply to 36.",
+        "The pairs are 1 and 36, 2 and 18, 3 and 12, 4 and 9, 6 and 6.",
+        "Which pair adds up to 13?"
+      ],
+      "explanation": "4 × 9 = 36 and 4 + 9 = 13, so the numbers are 4 and 9. Their difference is 9 - 4 = 5.",
+      "solution": [
+        {
+          "say": "Pairs for 36.",
+          "show": "1×36, 2×18, 3×12, 4×9, 6×6"
+        },
+        {
+          "say": "Sum 13.",
+          "show": "4 + 9 = 13"
+        },
+        {
+          "say": "Difference.",
+          "show": "9 - 4 = 5"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-number-puzzles.002",
+      "skill": "m4.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Work out 2026 - 2025 + 2024 - 2023 + ... + 2 - 1.",
+      "options": [
+        {
+          "text": "1",
+          "why": "Each pair gives 1, and there are many pairs."
+        },
+        {
+          "text": "1000",
+          "why": "Count the pairs: 2026 numbers make 1013 pairs."
+        },
+        {
+          "text": "1011",
+          "why": "Count the pairs again: 2026 ÷ 2."
+        },
+        {
+          "text": "1012",
+          "why": "Count the pairs again: 2026 ÷ 2."
+        },
+        {
+          "text": "1013"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Pair the numbers two at a time.",
+        "2026 - 2025 = 1, 2024 - 2023 = 1, and so on.",
+        "How many pairs are there in 2026 numbers?"
+      ],
+      "explanation": "Group the numbers in pairs: (2026 - 2025) + (2024 - 2023) + ... + (2 - 1). Each pair is 1, and 2026 numbers make 1013 pairs, so the answer is 1013.",
+      "solution": [
+        {
+          "say": "Pair the numbers.",
+          "show": "(2026 - 2025) + (2024 - 2023) + ... + (2 - 1)"
+        },
+        {
+          "say": "Each pair is 1.",
+          "show": "1 + 1 + ... + 1"
+        },
+        {
+          "say": "Number of pairs.",
+          "show": "2026 ÷ 2 = 1013"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-number-puzzles.003",
+      "skill": "m4.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Some 2-digit numbers are exactly 4 times the sum of their digits. For example, 12 = 4 × (1 + 2). How many such numbers are there?",
+      "options": [
+        {
+          "text": "1",
+          "why": "12 works, but so do others, like 24."
+        },
+        {
+          "text": "2",
+          "why": "Keep going: 12, 24, and more."
+        },
+        {
+          "text": "3",
+          "why": "Check 48: 4 × (4 + 8) = 48."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "The ones digit must be double the tens digit, so the list stops at 48."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Write the number as tens and ones: 10 × tens + ones.",
+        "10 × tens + ones = 4 × tens + 4 × ones, so 6 × tens = 3 × ones.",
+        "The ones digit is double the tens digit."
+      ],
+      "explanation": "10t + u = 4t + 4u gives 6t = 3u, so u = 2t. The numbers are 12, 24, 36 and 48, because the ones digit cannot be more than 9. That is 4 numbers.",
+      "solution": [
+        {
+          "say": "Write it with tens t and ones u.",
+          "show": "10t + u = 4 × (t + u)"
+        },
+        {
+          "say": "Simplify.",
+          "show": "6t = 3u, so u = 2t"
+        },
+        {
+          "say": "Possible numbers.",
+          "show": "12, 24, 36, 48"
+        },
+        {
+          "say": "t = 5 would need u = 10, which is not a digit.",
+          "show": "4 numbers"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-number-puzzles.004",
+      "skill": "m4.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The average of 5 numbers is 12. One number is removed, and the average of the other 4 is 10. Which number was removed?",
+      "options": [
+        {
+          "text": "2",
+          "why": "2 is the drop in the average, not the number removed."
+        },
+        {
+          "text": "10",
+          "why": "Find the totals: 5 × 12 and 4 × 10."
+        },
+        {
+          "text": "12",
+          "why": "12 is the old average, not the number removed."
+        },
+        {
+          "text": "20"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Work with totals instead of averages.",
+        "The 5 numbers add up to 5 × 12.",
+        "The 4 numbers left add up to 4 × 10."
+      ],
+      "explanation": "The 5 numbers add up to 60 and the 4 numbers left add up to 40. The removed number is 60 - 40 = 20.",
+      "solution": [
+        {
+          "say": "Total of 5 numbers.",
+          "show": "5 × 12 = 60"
+        },
+        {
+          "say": "Total of 4 numbers.",
+          "show": "4 × 10 = 40"
+        },
+        {
+          "say": "Removed number.",
+          "show": "60 - 40 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-number-puzzles.005",
+      "skill": "m4.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A number is bigger than 2. Divided by 3, 4, 5 or 6, it always leaves a remainder of 2. What is the smallest such number?",
+      "answer": 62,
+      "hints": [
+        "Take 2 away. The new number divides exactly by 3, 4, 5 and 6.",
+        "Find the smallest number that 3, 4, 5 and 6 all divide into.",
+        "It must be a multiple of 5 and of 12."
+      ],
+      "explanation": "Taking 2 away gives a number that 3, 4, 5 and 6 all divide into. The smallest such number is 60, so the answer is 60 + 2 = 62.",
+      "solution": [
+        {
+          "say": "Subtract the remainder.",
+          "show": "the number - 2 divides by 3, 4, 5 and 6"
+        },
+        {
+          "say": "Smallest common multiple of 3, 4, 5 and 6.",
+          "show": "60"
+        },
+        {
+          "say": "Add the 2 back.",
+          "show": "60 + 2 = 62"
+        },
+        {
+          "say": "Check.",
+          "show": "62 = 3×20 + 2 = 4×15 + 2 = 5×12 + 2 = 6×10 + 2"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-number-puzzles.006",
+      "skill": "m4.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Bu Rina menjual kue. Pagi hari terjual setengah dari kuenya. Siang hari terjual sepertiga dari sisanya. Sore hari masih ada 20 kue. Berapa kue Bu Rina pada awalnya?",
+      "options": [
+        {
+          "text": "40",
+          "why": "Kalau awalnya 40, pagi tersisa 20, lalu siang terjual lagi. Sorenya kurang dari 20."
+        },
+        {
+          "text": "60"
+        },
+        {
+          "text": "80",
+          "why": "Kalau awalnya 80, sisa pagi 40, dan sepertiga dari 40 bukan bilangan bulat."
+        },
+        {
+          "text": "120",
+          "why": "Kalau awalnya 120, sore masih ada 40 kue."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Kerjakan mundur dari sore hari.",
+        "Siang hari terjual sepertiga, jadi 20 kue adalah dua pertiga dari sisa pagi.",
+        "Kalau dua pertiga sama dengan 20 kue, sepertiganya 10 kue."
+      ],
+      "explanation": "20 kue adalah dua pertiga dari sisa pagi, jadi sisa pagi 30 kue. 30 kue adalah setengah dari kue awal, jadi awalnya ada 60 kue.",
+      "solution": [
+        {
+          "say": "Sore: 20 kue sama dengan dua pertiga sisa pagi.",
+          "show": "sepertiga = 10"
+        },
+        {
+          "say": "Sisa pagi.",
+          "show": "3 × 10 = 30"
+        },
+        {
+          "say": "Sisa pagi sama dengan setengah kue awal.",
+          "show": "2 × 30 = 60"
+        },
+        {
+          "say": "Periksa: 60, pagi terjual 30, siang terjual 10, sisa 20.",
+          "show": "60 - 30 - 10 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "menjual",
+          "en": "to sell"
+        },
+        {
+          "term": "terjual",
+          "en": "sold"
+        },
+        {
+          "term": "setengah",
+          "en": "half"
+        },
+        {
+          "term": "sepertiga",
+          "en": "one third"
+        },
+        {
+          "term": "sisanya",
+          "en": "the rest"
+        },
+        {
+          "term": "pada awalnya",
+          "en": "at the start"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-number-puzzles.007",
+      "skill": "m4.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Find the sum of all the 2-digit numbers whose digits add up to 5.",
+      "answer": 160,
+      "hints": [
+        "First list the numbers.",
+        "They are 14, 23, 32, 41 and 50.",
+        "Add the tens and the ones separately."
+      ],
+      "explanation": "The numbers are 14, 23, 32, 41 and 50. Their sum is 14 + 23 + 32 + 41 + 50 = 160.",
+      "solution": [
+        {
+          "say": "List them.",
+          "show": "14, 23, 32, 41, 50"
+        },
+        {
+          "say": "Tens.",
+          "show": "10 + 20 + 30 + 40 + 50 = 150"
+        },
+        {
+          "say": "Ones.",
+          "show": "4 + 3 + 2 + 1 + 0 = 10"
+        },
+        {
+          "say": "Total.",
+          "show": "150 + 10 = 160"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-number-puzzles.008",
+      "skill": "m4.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Kai multiplies all the whole numbers from 1 to 25 together. How many zeros are at the end of the answer?",
+      "answer": 6,
+      "hints": [
+        "Each zero at the end comes from a 2 × 5.",
+        "There are far more 2s than 5s, so count the 5s.",
+        "Count the multiples of 5 up to 25. Remember that 25 = 5 × 5."
+      ],
+      "explanation": "Each end zero needs a 5 paired with a 2, and there are plenty of 2s. The numbers 5, 10, 15 and 20 give one 5 each, and 25 gives two. That is 6 fives, so there are 6 zeros at the end.",
+      "solution": [
+        {
+          "say": "End zeros come from 10 = 2 × 5.",
+          "show": "count the 5s"
+        },
+        {
+          "say": "Multiples of 5: 5, 10, 15, 20, 25.",
+          "show": "5 numbers"
+        },
+        {
+          "say": "25 = 5 × 5 gives an extra 5.",
+          "show": "5 + 1 = 6"
+        },
+        {
+          "say": "So there are 6 end zeros.",
+          "show": "6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-number-puzzles.009",
+      "skill": "m4.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A farm has chickens and goats. There are 30 heads and 74 legs. How many goats are there?",
+      "answer": 7,
+      "hints": [
+        "Imagine every animal is a chicken first.",
+        "30 chickens would have 60 legs. How many legs are missing?",
+        "Each goat has 2 more legs than a chicken."
+      ],
+      "explanation": "30 chickens would have 60 legs, which is 14 short of 74. Each goat adds 2 more legs, so there are 14 ÷ 2 = 7 goats.",
+      "solution": [
+        {
+          "say": "All chickens.",
+          "show": "30 × 2 = 60 legs"
+        },
+        {
+          "say": "Legs missing.",
+          "show": "74 - 60 = 14"
+        },
+        {
+          "say": "Each goat adds 2 legs.",
+          "show": "14 ÷ 2 = 7"
+        },
+        {
+          "say": "Check: 7 goats and 23 chickens.",
+          "show": "28 + 46 = 74"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

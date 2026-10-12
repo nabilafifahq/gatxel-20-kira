@@ -1,0 +1,79 @@
+{
+  "skill": "e6.word-origins",
+  "title": "Using roots to understand words",
+  "steps": [
+    {
+      "say": "Many English words are built from Greek and Latin roots. A root carries the core meaning.",
+      "show": "tele = far     scope = look     telescope"
+    },
+    {
+      "say": "If you know the root, you can often work out a new word.",
+      "show": "aqua = water: aquarium, aquatic"
+    },
+    {
+      "say": "Some roots come from Greek, such as bio, graph and phon.",
+      "show": "biology, autograph, microphone"
+    },
+    {
+      "say": "Others come from Latin, such as port, aud, vis and rupt.",
+      "show": "portable, audience, visible, interrupt"
+    },
+    {
+      "say": "English also borrows words from other languages, including Malay.",
+      "show": "orangutan, rattan, sarong"
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.word-origins.901",
+      "skill": "e6.word-origins",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Bio means life and -logy means the study of. What is biology?",
+      "options": [
+        {
+          "text": "the study of living things"
+        },
+        {
+          "text": "the study of the earth",
+          "why": "That is geology. Geo means earth."
+        },
+        {
+          "text": "the study of the stars",
+          "why": "That is astronomy."
+        },
+        {
+          "text": "the study of numbers",
+          "why": "That is mathematics."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Put the two meanings together.",
+        "Bio tells you what is being studied.",
+        "Say it as a phrase: the study of..."
+      ],
+      "explanation": "Biology is the study of life, or living things."
+    },
+    {
+      "id": "e6.word-origins.902",
+      "skill": "e6.word-origins",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Port means carry. Write the word that means able to be carried. It begins with port.",
+      "blanks": [
+        {
+          "answers": [
+            "portable"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a radio or a speaker you can take anywhere.",
+        "You need the root port plus a suffix.",
+        "Which suffix means able to be, as in enjoyable?"
+      ],
+      "explanation": "Portable means able to be carried: port (carry) + -able."
+    }
+  ]
+}

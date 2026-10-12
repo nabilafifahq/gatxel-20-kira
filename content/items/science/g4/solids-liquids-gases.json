@@ -1,0 +1,379 @@
+{
+  "skill": "s4.solids-liquids-gases",
+  "items": [
+    {
+      "id": "s4.solids-liquids-gases.001",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a gas?",
+      "options": [
+        {
+          "text": "water in a glass",
+          "why": "Water in a glass is a liquid."
+        },
+        {
+          "text": "an ice cube",
+          "why": "An ice cube is a solid."
+        },
+        {
+          "text": "a wooden block",
+          "why": "A wooden block is a solid."
+        },
+        {
+          "text": "the air in a balloon"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Gases are often invisible.",
+        "A gas spreads out to fill its container.",
+        "What fills up a balloon when you blow into it?"
+      ],
+      "explanation": "Air is a mixture of gases. It spreads out to fill the whole balloon."
+    },
+    {
+      "id": "s4.solids-liquids-gases.002",
+      "skill": "s4.solids-liquids-gases",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the materials into solids, liquids and gases.",
+      "groups": [
+        "Solid",
+        "Liquid",
+        "Gas"
+      ],
+      "items": [
+        {
+          "text": "stone",
+          "group": 0
+        },
+        {
+          "text": "ice",
+          "group": 0
+        },
+        {
+          "text": "sand",
+          "group": 0
+        },
+        {
+          "text": "milk",
+          "group": 1
+        },
+        {
+          "text": "cooking oil",
+          "group": 1
+        },
+        {
+          "text": "honey",
+          "group": 1
+        },
+        {
+          "text": "air",
+          "group": 2
+        },
+        {
+          "text": "water vapour",
+          "group": 2
+        },
+        {
+          "text": "helium in a party balloon",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Solids keep their shape.",
+        "Liquids flow and take the shape of their container.",
+        "Be careful with sand: look at one grain."
+      ],
+      "explanation": "Stone, ice and sand are solids, and each grain of sand keeps its shape. Milk, oil and honey are liquids, and air, water vapour and helium are gases."
+    },
+    {
+      "id": "s4.solids-liquids-gases.003",
+      "skill": "s4.solids-liquids-gases",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each state to its property.",
+      "pairs": [
+        [
+          "solid",
+          "keeps its own shape"
+        ],
+        [
+          "liquid",
+          "flows and takes the shape of its container"
+        ],
+        [
+          "gas",
+          "spreads out to fill all the space it is in"
+        ]
+      ],
+      "hints": [
+        "Think about an ice cube, water and air.",
+        "Which one stays the same shape on a table?",
+        "Which one escapes from an open bottle?"
+      ],
+      "explanation": "A solid keeps its shape and a liquid flows to take the shape of its container. A gas spreads out to fill all the space."
+    },
+    {
+      "id": "s4.solids-liquids-gases.004",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sand can be poured like a liquid. Why is sand still a solid?",
+      "options": [
+        {
+          "text": "Each grain keeps its own shape and size."
+        },
+        {
+          "text": "Sand is wet.",
+          "why": "Dry sand pours too, and it is still a solid."
+        },
+        {
+          "text": "Sand is heavier than water.",
+          "why": "Being heavy does not make something a solid."
+        },
+        {
+          "text": "Sand floats on water.",
+          "why": "Sand sinks. Floating does not decide the state anyway."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look closely at a single grain.",
+        "Does one grain change shape when you pour it?",
+        "Think about the properties of a solid."
+      ],
+      "explanation": "Sand is made of tiny solid grains. Each grain keeps its shape, even though the grains can be poured.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.solids-liquids-gases.005",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ani pours 200 ml of juice from a tall glass into a wide bowl. How much juice is in the bowl?",
+      "options": [
+        {
+          "text": "less than 200 ml, because it spreads out",
+          "why": "The juice looks lower, but none of it has gone."
+        },
+        {
+          "text": "200 ml"
+        },
+        {
+          "text": "more than 200 ml, because the bowl is bigger",
+          "why": "A bigger bowl does not make more juice."
+        },
+        {
+          "text": "none, because juice turns into a gas",
+          "why": "The juice stays a liquid when it is poured."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Liquids change shape when they are poured.",
+        "Was any juice spilled or added?",
+        "Does the amount change, or only the shape?"
+      ],
+      "explanation": "A liquid takes the shape of its container, but its volume stays the same. The bowl holds the same 200 ml.",
+      "tags": [
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s4.solids-liquids-gases.006",
+      "skill": "s4.solids-liquids-gases",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 properties of gases.",
+      "options": [
+        {
+          "text": "They spread out to fill their container."
+        },
+        {
+          "text": "They keep a fixed shape.",
+          "why": "Solids keep a fixed shape. Gases do not."
+        },
+        {
+          "text": "They can be squashed into a smaller space."
+        },
+        {
+          "text": "They always have a colour.",
+          "why": "Most gases, like air, have no colour."
+        },
+        {
+          "text": "They cannot move.",
+          "why": "Gases move and spread out all the time."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about air in a bicycle pump.",
+        "Think about a smell spreading across a room.",
+        "Cross out properties of solids."
+      ],
+      "explanation": "Gases spread out to fill any container. They can also be squashed, which is how a bicycle pump works."
+    },
+    {
+      "id": "s4.solids-liquids-gases.007",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two syringes are sealed at the tip. One holds air and one holds water. Which plunger can you push in further?",
+      "options": [
+        {
+          "text": "the one with water, because water is runny",
+          "why": "Liquids flow, but they are very hard to squash."
+        },
+        {
+          "text": "the one with air, because gases can be squashed"
+        },
+        {
+          "text": "both the same, because they are the same size",
+          "why": "Air and water behave differently when squashed."
+        },
+        {
+          "text": "neither, because both are sealed",
+          "why": "The air can be squashed, so its plunger moves in."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Both syringes are sealed, so nothing can escape.",
+        "Which state can be squashed into a smaller space?",
+        "Think about pumping air into a ball."
+      ],
+      "explanation": "Gases can be squashed, so the air plunger moves in. Liquids hardly squash at all, so the water plunger barely moves.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.solids-liquids-gases.008",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a liquid?",
+      "options": [
+        {
+          "text": "salt",
+          "why": "Salt is made of tiny solid crystals."
+        },
+        {
+          "text": "a stone",
+          "why": "A stone is a solid."
+        },
+        {
+          "text": "cooking oil"
+        },
+        {
+          "text": "a wooden spoon",
+          "why": "A wooden spoon is a solid."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Liquids flow and can be poured.",
+        "Liquids take the shape of their container.",
+        "Which one could you pour as a runny stream?"
+      ],
+      "explanation": "Cooking oil flows and takes the shape of its container, so it is a liquid. Salt pours too, but each crystal is solid."
+    },
+    {
+      "id": "s4.solids-liquids-gases.009",
+      "skill": "s4.solids-liquids-gases",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Water as a gas is called water ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vapour",
+            "vapor"
+          ]
+        }
+      ],
+      "hints": [
+        "It forms when water evaporates.",
+        "It is invisible in the air.",
+        "The word starts with v."
+      ],
+      "explanation": "Water as a gas is called water vapour. It is invisible and mixes with the air."
+    },
+    {
+      "id": "s4.solids-liquids-gases.010",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Someone is cooking fried rice in the kitchen. Soon you can smell it in the bedroom. Why?",
+      "options": [
+        {
+          "text": "Smells are solids that roll along the floor.",
+          "why": "Smells are not solid. They travel through the air."
+        },
+        {
+          "text": "Smells are liquids that flow under doors.",
+          "why": "Smells are not liquid. They travel as a gas."
+        },
+        {
+          "text": "You only imagine the smell.",
+          "why": "Smells are real. A gas carries them to your nose."
+        },
+        {
+          "text": "The smell is carried by a gas that spreads through the air."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Smells reach your nose through the air.",
+        "Which state spreads out to fill a space?",
+        "Think about how the smell got so far."
+      ],
+      "explanation": "Gases spread out to fill the space they are in. The gas carrying the smell spreads through the house to your nose.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.solids-liquids-gases.011",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A sealed bottle holds 1 litre of air. Another holds 1 litre of water. Which statement is true?",
+      "options": [
+        {
+          "text": "The water has much more mass, but the air still has some mass."
+        },
+        {
+          "text": "The air has no mass at all.",
+          "why": "Air does have mass. A litre of air has a mass of about 1 gram."
+        },
+        {
+          "text": "They have the same mass, because the volumes are the same.",
+          "why": "Same volume does not mean same mass. Water has much more."
+        },
+        {
+          "text": "The air could be poured into a cup like the water.",
+          "why": "Air spreads out. It cannot be poured into a cup like water."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Air is a real material.",
+        "You can feel air push on you when the wind blows.",
+        "A litre of water has a mass of 1 kilogram."
+      ],
+      "explanation": "A litre of water has a mass of about 1 kg, while a litre of air has a mass of about 1 g. Air is light, but it still has mass.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    }
+  ]
+}

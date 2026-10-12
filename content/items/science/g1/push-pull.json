@@ -1,0 +1,156 @@
+{
+  "skill": "s1.push-pull",
+  "items": [
+    {
+      "id": "s1.push-pull.001", "skill": "s1.push-pull", "type": "mcq", "difficulty": 1,
+      "prompt": "Is kicking a ball a push or a pull?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "ball" }], "alt": "A football." },
+      "options": [
+        { "text": "a pull", "why": "A pull brings something towards you. A kick sends the ball away." },
+        { "text": "a push" },
+        { "text": "not a force", "why": "A kick makes the ball move, so it is a force." }
+      ],
+      "answer": 1,
+      "hints": ["A push moves something away from you.", "Where does the ball go when you kick it?", "Picture your foot hitting the ball. Does the ball move away or come closer?"],
+      "explanation": "Kicking is a push. Your foot pushes the ball away from you."
+    },
+    {
+      "id": "s1.push-pull.002", "skill": "s1.push-pull", "type": "sort", "difficulty": 2,
+      "prompt": "Is it a push or a pull? Sort the cards.",
+      "groups": ["Push", "Pull"],
+      "items": [
+        { "text": "pressing a doorbell", "group": 0 },
+        { "text": "throwing a ball", "group": 0 },
+        { "text": "closing a drawer", "group": 0 },
+        { "text": "opening a drawer", "group": 1 },
+        { "text": "taking off a sock", "group": 1 },
+        { "text": "picking a mango", "group": 1 }
+      ],
+      "hints": ["A push moves something away. A pull brings it closer.", "Act out each one with your hands.", "Start with the doorbell. Does your finger move away from you?"],
+      "explanation": "Pressing a doorbell, throwing a ball and closing a drawer are pushes. Opening a drawer, taking off a sock and picking a mango are pulls."
+    },
+    {
+      "id": "s1.push-pull.003", "skill": "s1.push-pull", "type": "mcq", "difficulty": 1,
+      "prompt": "Dimas opens a drawer to get a pencil. Is it a push or a pull?",
+      "options": [
+        { "text": "a push", "why": "To open a drawer, you move it towards you." },
+        { "text": "a pull" },
+        { "text": "a twist", "why": "You do not turn a drawer round to open it." }
+      ],
+      "answer": 1,
+      "hints": ["Watch which way the drawer moves.", "Does it come towards you or go away?", "Act it out: hold a handle and open it."],
+      "explanation": "Opening a drawer is a pull. The drawer moves towards you."
+    },
+    {
+      "id": "s1.push-pull.004", "skill": "s1.push-pull", "type": "text", "difficulty": 2,
+      "prompt": "Pushes and pulls are kinds of ___.",
+      "blanks": [{ "answers": ["force", "forces"] }],
+      "hints": ["There is one science word for pushes and pulls.", "This word is used when something is made to move or stop.", "It starts with f and has 5 letters."],
+      "explanation": "Pushes and pulls are forces. A force can make things move, stop or change shape."
+    },
+    {
+      "id": "s1.push-pull.005", "skill": "s1.push-pull", "type": "mcq", "difficulty": 2,
+      "prompt": "Which push will make a toy car go further?",
+      "figure": { "kind": "icons", "items": [{ "icon": "toy-car", "label": "toy car" }], "alt": "A toy car on the floor." },
+      "options": [
+        { "text": "a small push", "why": "A small push makes the car go a short way." },
+        { "text": "no push", "why": "Without a push, the car stays still." },
+        { "text": "a big push" }
+      ],
+      "answer": 2,
+      "hints": ["Think about pushing gently and pushing hard.", "Which push gives the car more speed?", "Picture pushing the car very gently. How far does it go?"],
+      "explanation": "A bigger push makes the toy car go faster and further."
+    },
+    {
+      "id": "s1.push-pull.006", "skill": "s1.push-pull", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the actions that are pulls.",
+      "options": [
+        { "text": "opening a curtain" },
+        { "text": "kicking a ball", "why": "Kicking moves the ball away from you, so it is a push." },
+        { "text": "taking a book off a shelf" },
+        { "text": "pressing a key", "why": "Pressing moves the key down, away from your finger. It is a push." },
+        { "text": "tugging a rope" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["A pull brings something towards you.", "Act out each one.", "Start with the curtain. Which way does your hand move?"],
+      "explanation": "Opening a curtain, taking a book off a shelf and tugging a rope are pulls. Kicking and pressing are pushes."
+    },
+    {
+      "id": "s1.push-pull.007", "skill": "s1.push-pull", "type": "mcq", "difficulty": 2,
+      "prompt": "Putu is on a swing. How can his friend make it go higher?",
+      "options": [
+        { "text": "push it harder" },
+        { "text": "pull it down", "why": "Pulling the swing down would slow it." },
+        { "text": "stop pushing", "why": "Without pushes, the swing slows down and stops." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what makes a swing move.", "Does a harder push or a softer push go higher?", "Picture pushing a swing gently, then strongly."],
+      "explanation": "A harder push makes the swing go higher and faster.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.push-pull.008", "skill": "s1.push-pull", "type": "mcq", "difficulty": 3,
+      "prompt": "Kartika squashes a ball of clay flat. What did her push do?",
+      "options": [
+        { "text": "made it a different colour", "why": "The clay stays the same colour." },
+        { "text": "changed its shape" },
+        { "text": "made it disappear", "why": "The clay is still there. It is flat now." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the clay before and after.", "What is different about it now?", "Compare a round ball with a flat pancake."],
+      "explanation": "A push can change the shape of something. Kartika's push changed the round clay into a flat shape."
+    },
+    {
+      "id": "s1.push-pull.009", "skill": "s1.push-pull", "type": "mcq", "difficulty": 3,
+      "prompt": "A ball is rolling towards you. How can you stop it?",
+      "options": [
+        { "text": "shout at it", "why": "Shouting cannot push the ball." },
+        { "text": "look at it", "why": "Looking does not push or pull the ball." },
+        { "text": "push against it with your hand" }
+      ],
+      "answer": 2,
+      "hints": ["Forces can stop things moving.", "Which choice uses a push or a pull?", "Picture catching a rolling ball. What do your hands do?"],
+      "explanation": "Pushes and pulls can stop moving things. Putting your hand against the ball pushes on it and stops it."
+    },
+    {
+      "id": "s1.push-pull.010", "skill": "s1.push-pull", "type": "mcq", "difficulty": 4,
+      "prompt": "Two teams play tug of war. Which force do both teams use?",
+      "options": [
+        { "text": "a pull" },
+        { "text": "a push", "why": "In tug of war, both teams move the rope towards themselves." },
+        { "text": "a twist", "why": "The teams do not turn the rope round." }
+      ],
+      "answer": 0,
+      "hints": ["Think about which way each team moves the rope.", "Does each team move the rope towards itself or away?", "Act it out with a scarf or a towel."],
+      "explanation": "In tug of war, both teams pull the rope towards themselves. The team with the stronger pull wins.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.push-pull.011", "skill": "s1.push-pull", "type": "mcq", "difficulty": 4,
+      "prompt": "Which one needs a push and a pull?",
+      "options": [
+        { "text": "kicking a ball", "why": "Kicking is only a push." },
+        { "text": "opening and then closing a door" },
+        { "text": "pressing a button", "why": "Pressing is only a push." }
+      ],
+      "answer": 1,
+      "hints": ["Look for a choice with two actions.", "One action moves something towards you and the other moves it away.", "Act out opening a door, then closing it."],
+      "explanation": "Opening and closing a door uses a pull one way and a push the other way.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.push-pull.012", "skill": "s1.push-pull", "type": "mcq", "difficulty": 5,
+      "prompt": "Ravi pushes his toy car the same way each time. He tries a carpet and a smooth floor. Where does it roll further?",
+      "figure": { "kind": "icons", "items": [{ "icon": "toy-car", "label": "toy car" }, { "icon": "fabric", "label": "carpet" }, { "icon": "square", "label": "smooth floor" }], "alt": "A toy car, a rough carpet and a smooth floor." },
+      "options": [
+        { "text": "on the carpet", "why": "The carpet is rough. It slows the car down more." },
+        { "text": "the same on both", "why": "The rough carpet slows the car more than the smooth floor." },
+        { "text": "on the smooth floor" }
+      ],
+      "answer": 2,
+      "hints": ["Think about how the two surfaces feel.", "Rough surfaces slow moving things down more than smooth ones.", "Picture rolling a ball on a rug and on tiles."],
+      "explanation": "The car rolls further on the smooth floor. The rough carpet rubs against the wheels and slows the car down more.",
+      "tags": ["iksc", "ksnr"]
+    }
+  ]
+}

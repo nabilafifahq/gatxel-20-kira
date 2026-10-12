@@ -1,0 +1,147 @@
+{
+  "skill": "m6.place-value",
+  "title": "Place value to millions and thousandths",
+  "steps": [
+    {
+      "say": "Each place is worth ten times the place on its right. This carries on left into millions.",
+      "show": "3,406,215",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Millions",
+          "Hundred thousands",
+          "Ten thousands",
+          "Thousands",
+          "Hundreds",
+          "Tens",
+          "Ones"
+        ],
+        "rows": [
+          [
+            "3",
+            "4",
+            "0",
+            "6",
+            "2",
+            "1",
+            "5"
+          ]
+        ],
+        "alt": "A place value chart with the digits of 3,406,215 from millions down to ones."
+      }
+    },
+    {
+      "say": "Read big numbers in groups of three digits: 3 million, 406 thousand, 215.",
+      "show": "three million, four hundred and six thousand, two hundred and fifteen"
+    },
+    {
+      "say": "To the right of the decimal point, the places are tenths, hundredths and thousandths.",
+      "show": "4.207 = 4 + 0.2 + 0.007",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ones",
+          "Tenths",
+          "Hundredths",
+          "Thousandths"
+        ],
+        "rows": [
+          [
+            "4",
+            "2",
+            "0",
+            "7"
+          ]
+        ],
+        "alt": "A place value chart with 4 ones, 2 tenths, 0 hundredths and 7 thousandths."
+      }
+    },
+    {
+      "say": "To compare decimals, line up the places and compare from the left. 0.6 is more than 0.587 because it has more tenths.",
+      "show": "0.600 > 0.587"
+    },
+    {
+      "say": "To order numbers, compare the first digit that is different in each pair.",
+      "show": "2.08 < 2.1 < 2.105 < 2.15"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.place-value.901",
+      "skill": "m6.place-value",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the value of the 7 in 2,371,040?",
+      "hints": [
+        "Write the number in a place value chart.",
+        "Count the places from the ones.",
+        "The 1 is in the thousands place."
+      ],
+      "explanation": "The 7 is in the ten thousands place, so it is worth 70,000.",
+      "options": [
+        {
+          "text": "70,000"
+        },
+        {
+          "text": "7,000",
+          "why": "The 7 is in the ten thousands place, not the thousands place."
+        },
+        {
+          "text": "700,000",
+          "why": "The 3 is in the hundred thousands place, not the 7."
+        },
+        {
+          "text": "70",
+          "why": "The 7 is not in the tens place."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.place-value.902",
+      "skill": "m6.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the largest?",
+      "hints": [
+        "Write each number with three decimal places.",
+        "Compare the tenths first.",
+        "0.7 is the same as 0.700."
+      ],
+      "explanation": "As thousandths the numbers are 0.710, 0.698, 0.700 and 0.079. The largest is 0.71.",
+      "options": [
+        {
+          "text": "0.079",
+          "why": "0.079 has 0 tenths."
+        },
+        {
+          "text": "0.71"
+        },
+        {
+          "text": "0.698",
+          "why": "0.698 has 6 tenths, and 0.71 has 7 tenths."
+        },
+        {
+          "text": "0.7",
+          "why": "0.7 is the same as 0.700, which is less than 0.710."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.place-value.903",
+      "skill": "m6.place-value",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the value of the 5 in 8.035? Write it as a decimal.",
+      "hints": [
+        "Name the places after the decimal point.",
+        "The third place after the point is thousandths.",
+        "Count the places from the decimal point to the 5."
+      ],
+      "explanation": "The 5 is in the thousandths place, so it is worth 5 thousandths, which is 0.005.",
+      "answer": 0.005,
+      "allowDecimal": true
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "skill": "m1.number-bonds-10",
+  "title": "Pairs that make 10",
+  "steps": [
+    {
+      "say": "A ten frame has 10 boxes. Here 7 are filled and 3 are empty.",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 5,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "alt": "A ten frame with 7 of the 10 boxes filled."
+      }
+    },
+    {
+      "say": "So 7 and 3 make 10.",
+      "show": "7 + 3 = 10"
+    },
+    {
+      "say": "Learn all the pairs that make 10.",
+      "show": "1 + 9, 2 + 8, 3 + 7, 4 + 6, 5 + 5"
+    },
+    {
+      "say": "They work both ways round.",
+      "show": "3 + 7 = 7 + 3 = 10"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.number-bonds-10.901",
+      "skill": "m1.number-bonds-10",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "6 + ___ = 10",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 5,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "alt": "A ten frame with 6 of the 10 boxes filled."
+      },
+      "hints": [
+        "Think of pairs that make 10.",
+        "Count the empty boxes in the ten frame.",
+        "Start at 6 and count on to 10."
+      ],
+      "explanation": "6 and 4 make 10.",
+      "answer": 4
+    },
+    {
+      "id": "m1.number-bonds-10.902",
+      "skill": "m1.number-bonds-10",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which pair makes 10?",
+      "hints": [
+        "Add each pair.",
+        "Use your fingers to check.",
+        "Start with 2 + 7. Is it 10?"
+      ],
+      "explanation": "2 + 8 = 10.",
+      "options": [
+        {
+          "text": "2 + 7",
+          "why": "2 + 7 makes 9."
+        },
+        {
+          "text": "3 + 8",
+          "why": "3 + 8 makes 11."
+        },
+        {
+          "text": "2 + 8"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

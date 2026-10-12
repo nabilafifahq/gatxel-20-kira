@@ -1,0 +1,210 @@
+{
+  "skill": "s2.living-things",
+  "items": [
+    {
+      "id": "s2.living-things.001", "skill": "s2.living-things", "type": "mcq", "difficulty": 1,
+      "prompt": "Which of these is alive?",
+      "figure": { "kind": "icons", "items": [{ "icon": "fish", "label": "goldfish" }, { "icon": "toy-car", "label": "toy car" }, { "icon": "stone", "label": "pebble" }, { "icon": "kite", "label": "kite" }], "alt": "Four pictures: a goldfish, a toy car, a pebble and a kite." },
+      "options": [
+        { "text": "a goldfish" },
+        { "text": "a toy car", "why": "A toy car can move, but it cannot grow or have young." },
+        { "text": "a pebble", "why": "A pebble was never alive." },
+        { "text": "a kite", "why": "A kite moves in the wind, but it does not eat or grow." }
+      ],
+      "answer": 0,
+      "hints": ["Think about which one needs food and water.", "Living things grow and can have young.", "Start with the goldfish. Does it eat and grow?"],
+      "explanation": "A goldfish is alive. It eats, breathes, grows and can have young."
+    },
+    {
+      "id": "s2.living-things.002", "skill": "s2.living-things", "type": "sort", "difficulty": 2,
+      "prompt": "Sort into alive, once alive and never alive.",
+      "groups": ["Alive", "Once alive", "Never alive"],
+      "items": [
+        { "text": "tree", "group": 0 },
+        { "text": "rabbit", "group": 0 },
+        { "text": "ladybird", "group": 0 },
+        { "text": "wooden spoon", "group": 1 },
+        { "text": "feather", "group": 1 },
+        { "text": "dry leaf", "group": 1 },
+        { "text": "stone", "group": 2 },
+        { "text": "metal key", "group": 2 },
+        { "text": "glass bottle", "group": 2 }
+      ],
+      "hints": ["Once alive means it was alive before, or was part of a living thing.", "Ask two questions. Is it alive now? Was it ever part of a living thing?", "Start with the wooden spoon. Where does wood come from?"],
+      "explanation": "The tree, the rabbit and the ladybird are alive now. The wooden spoon, the feather and the dry leaf came from living things, so they were once alive. The stone, the key and the bottle were never alive."
+    },
+    {
+      "id": "s2.living-things.003", "skill": "s2.living-things", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things that every living thing does.",
+      "options": [
+        { "text": "grows" },
+        { "text": "needs food" },
+        { "text": "goes to school", "why": "Only children go to school. Trees and fish do not." },
+        { "text": "needs water" },
+        { "text": "talks", "why": "Plants and most animals cannot talk." }
+      ],
+      "answers": [0, 1, 3],
+      "hints": ["Think about a tree, a fish and you. What do all three do?", "Check each choice against a plant.", "Start with grows. Does a tree grow? Does a fish grow?"],
+      "explanation": "All living things grow and need food and water. Plants make their own food. Talking and going to school are things only some living things do."
+    },
+    {
+      "id": "s2.living-things.004", "skill": "s2.living-things", "type": "text", "difficulty": 1,
+      "prompt": "A wooden chair is made from a ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "?" }], "alt": "A tall living thing with a trunk, branches and leaves, marked with a question mark." },
+      "blanks": [{ "answers": ["tree", "trees"] }],
+      "hints": ["Wood comes from a plant.", "Think about a plant that grows tall and has a trunk.", "Look at the lines in wood. Where did they grow?"],
+      "explanation": "Wood comes from trees. A wooden chair was once part of a living tree, so it was once alive."
+    },
+    {
+      "id": "s2.living-things.005", "skill": "s2.living-things", "type": "mcq", "difficulty": 3,
+      "prompt": "Which one was never alive?",
+      "options": [
+        { "text": "a cotton T-shirt", "why": "Cotton comes from the cotton plant, so it was once alive." },
+        { "text": "a paper bag", "why": "Paper is made from wood, which comes from trees." },
+        { "text": "a glass jar" },
+        { "text": "a seashell", "why": "A seashell was once part of a living sea animal." }
+      ],
+      "answer": 2,
+      "hints": ["Think about where each material comes from.", "Was it ever part of a plant or an animal?", "Start with the cotton T-shirt. Where does cotton grow?"],
+      "explanation": "Glass is made from sand, which was never alive. Cotton, paper and shells all come from living things.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.living-things.006", "skill": "s2.living-things", "type": "mcq", "difficulty": 2,
+      "prompt": "A puppy becomes a big dog. Which life process is this?",
+      "options": [
+        { "text": "moving", "why": "Moving means going from place to place." },
+        { "text": "eating", "why": "Eating gives the puppy food. Getting bigger is a different process." },
+        { "text": "sensing", "why": "Sensing means noticing things with the senses." },
+        { "text": "growing" }
+      ],
+      "answer": 3,
+      "hints": ["Think about what changes as the puppy gets older.", "Which word means getting bigger?", "Compare the puppy at the start with the dog at the end."],
+      "explanation": "Getting bigger is growing. All living things grow."
+    },
+    {
+      "id": "s2.living-things.007", "skill": "s2.living-things", "type": "match", "difficulty": 3,
+      "prompt": "Match each life process to an example.",
+      "pairs": [["moving", "a fish swims"], ["growing", "a seed becomes a plant"], ["sensing", "a cat hears a mouse"], ["feeding", "a cow eats grass"], ["having young", "a hen lays eggs"]],
+      "hints": ["Each example shows one thing living things do.", "Do the ones you are surest about first.", "Start with moving. Which example shows going from place to place?"],
+      "explanation": "A fish swimming shows moving, and a seed becoming a plant shows growing. A cat hearing a mouse shows sensing, and a cow eating grass shows feeding. A hen laying eggs shows having young."
+    },
+    {
+      "id": "s2.living-things.008", "skill": "s2.living-things", "type": "mcq", "difficulty": 3,
+      "prompt": "A car moves and needs fuel, like food. Why is it not alive?",
+      "figure": { "kind": "icons", "items": [{ "icon": "car", "label": "car" }], "alt": "A car on a road." },
+      "options": [
+        { "text": "It is too big.", "why": "Whales are huge, and they are alive." },
+        { "text": "It cannot grow or have young." },
+        { "text": "It is made in a factory.", "why": "Where it was made does not decide it. Living things grow and have young." },
+        { "text": "It is too fast.", "why": "Cheetahs are very fast, and they are alive." }
+      ],
+      "answer": 1,
+      "hints": ["Moving and using fuel are not enough.", "Think about all the life processes. Which ones can a car not do?", "Ask: will a car ever get bigger or have baby cars?"],
+      "explanation": "A car can move and uses fuel, but it cannot grow, sense or have young. Living things do all of these, so a car is not alive.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.living-things.009", "skill": "s2.living-things", "type": "sort", "difficulty": 3,
+      "prompt": "Did it come from a plant or an animal? Sort the cards.",
+      "groups": ["From a plant", "From an animal"],
+      "items": [
+        { "text": "cotton", "group": 0 },
+        { "text": "paper", "group": 0 },
+        { "text": "wooden ruler", "group": 0 },
+        { "text": "wool", "group": 1 },
+        { "text": "feather", "group": 1 },
+        { "text": "honey", "group": 1 }
+      ],
+      "hints": ["Think about where each material first came from.", "Plants give us wood and cotton. Animals give us other things.", "Start with wool. Which animal has woolly hair?"],
+      "explanation": "Cotton, paper and wood come from plants. Wool comes from sheep, feathers come from birds and honey is made by bees."
+    },
+    {
+      "id": "s2.living-things.010", "skill": "s2.living-things", "type": "mcq", "difficulty": 5,
+      "prompt": "Which one is alive?",
+      "options": [
+        { "text": "a fire", "why": "A fire can spread, but it does not feed, sense or have young." },
+        { "text": "a cloud", "why": "Clouds move and change shape, but they were never alive." },
+        { "text": "a seed in a packet" },
+        { "text": "a robot dog", "why": "A robot dog can move and bark, but it cannot grow or have young." }
+      ],
+      "answer": 2,
+      "hints": ["Some living things are resting and look like they do nothing.", "Ask: could it grow if it got water and warmth?", "Start with the seed. What happens when you plant it?"],
+      "explanation": "A seed is alive. It rests until it gets water and warmth, then it grows into a new plant.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.living-things.011", "skill": "s2.living-things", "type": "mcq", "difficulty": 4,
+      "prompt": "Andi finds a dry brown leaf on the ground. Which is true?",
+      "figure": { "kind": "icons", "items": [{ "icon": "leaf", "label": "dry leaf" }], "alt": "A dry brown leaf on the ground." },
+      "options": [
+        { "text": "It was never alive.", "why": "It grew on a plant, so it was once part of a living thing." },
+        { "text": "It was once alive." },
+        { "text": "It is alive now.", "why": "It has fallen and dried out. It cannot grow any more." },
+        { "text": "It will grow into a tree.", "why": "Leaves do not grow into trees. Seeds do." }
+      ],
+      "answer": 1,
+      "hints": ["Think about where the leaf came from.", "Can a dry, fallen leaf still grow?", "Ask: was it ever part of a living plant?"],
+      "explanation": "The leaf grew on a living plant, so it was once alive. Now it is dry and dead, so it cannot grow.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.living-things.012", "skill": "s2.living-things", "type": "text", "difficulty": 3,
+      "prompt": "Living things need ___ to breathe.",
+      "blanks": [{ "answers": ["air", "oxygen", "fresh air"] }],
+      "hints": ["You cannot see it, but it is all around you.", "Hold your breath for a moment. What do you need next?", "It fills a balloon when you blow into it."],
+      "explanation": "Living things need air. Animals breathe in air, and plants take in air through their leaves."
+    },
+    {
+      "id": "s2.living-things.013", "skill": "s2.living-things", "type": "mcq", "difficulty": 5,
+      "prompt": "Fossils are found in rock. They show animals or plants from long ago. Which is true about a fossil shell?",
+      "figure": { "kind": "icons", "items": [{ "icon": "fossil", "label": "fossil shell" }, { "icon": "rock", "label": "rock" }], "alt": "A fossil shell shape inside a piece of rock." },
+      "options": [
+        { "text": "It is still alive.", "why": "The animal died a very, very long time ago." },
+        { "text": "It will hatch one day.", "why": "A fossil is made of rock. It cannot hatch." },
+        { "text": "It was never alive.", "why": "The rock was never alive, but the shell shape came from a sea animal." },
+        { "text": "It came from a living thing." }
+      ],
+      "answer": 3,
+      "hints": ["A fossil keeps the shape of something from long ago.", "Think about what made the shell in the first place.", "Ask: did a living animal once have this shell?"],
+      "explanation": "A fossil shell shows the shape of a sea animal that lived long ago. It came from a living thing, so it was once alive.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.living-things.014", "skill": "s2.living-things", "type": "multi", "difficulty": 4,
+      "prompt": "Choose all the things a plant does that show it is alive.",
+      "options": [
+        { "text": "grows towards the light" },
+        { "text": "makes seeds" },
+        { "text": "walks to find water", "why": "Plants stay in one place. Their roots grow towards water." },
+        { "text": "needs water" },
+        { "text": "talks to other plants", "why": "Plants do not talk." }
+      ],
+      "answers": [0, 1, 3],
+      "hints": ["Think about what you have seen plants do.", "Plants are living, but they do things slowly.", "Start with growing towards the light. Have you seen a plant on a windowsill lean?"],
+      "explanation": "Plants grow towards the light, make seeds and need water. These show they are alive, even though they cannot walk or talk."
+    },
+    {
+      "id": "s2.living-things.015", "skill": "s2.living-things", "type": "numeric", "difficulty": 4,
+      "prompt": "How many objects are made from something that was once alive?",
+      "figure": { "kind": "table", "head": ["Object", "Material"], "rows": [["chair", "wood"], ["spoon", "metal"], ["scarf", "wool"], ["window", "glass"], ["notebook", "paper"], ["wall", "brick"]], "alt": "Table of objects and materials: chair, wood. Spoon, metal. Scarf, wool. Window, glass. Notebook, paper. Wall, brick." },
+      "answer": 3,
+      "hints": ["Look at the material column.", "For each material, ask: did it come from a plant or an animal?", "Start with wood. It comes from trees, so count 1."],
+      "explanation": "Wood comes from trees, wool comes from sheep and paper is made from wood. That makes 3. Metal, glass and brick were never alive.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.living-things.016", "skill": "s2.living-things", "type": "draw", "difficulty": 3,
+      "prompt": "Draw something alive, something once alive and something never alive. Label each one.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws something that is alive now", "points": 1 },
+        { "label": "Draws something that was once alive", "points": 1 },
+        { "label": "Draws something that was never alive", "points": 1 },
+        { "label": "Writes a clear label for each drawing", "points": 1 }
+      ] },
+      "hints": ["Once alive things include wood, paper and feathers.", "Never alive things include stones, metal and glass."],
+      "explanation": "A plant or a pet is alive. Wood and feathers were once alive. Stones, metal and glass were never alive."
+    }
+  ]
+}

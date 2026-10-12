@@ -1,0 +1,177 @@
+{
+  "skill": "e4.persuasive-writing",
+  "items": [
+    {
+      "id": "e4.persuasive-writing.001", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 1,
+      "prompt": "What is the main job of a persuasive letter?",
+      "options": [
+        { "text": "to tell a made-up story", "why": "That is the job of a story." },
+        { "text": "to give step-by-step instructions", "why": "That is the job of instructions." },
+        { "text": "to make the reader agree with you and do something" },
+        { "text": "to list facts about an animal", "why": "That is the job of a report." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the letter Class 4B wrote to Mrs Wulan.", "What did Class 4B want Mrs Wulan to do?", "To persuade means to get someone to agree."],
+      "explanation": "A persuasive letter tries to make the reader agree with the writer and take action."
+    },
+    {
+      "id": "e4.persuasive-writing.002", "skill": "e4.persuasive-writing", "type": "order", "difficulty": 2,
+      "prompt": "Put the parts of a persuasive letter in order.",
+      "items": ["your address and the date", "Dear Mrs Wulan,", "what you are asking for", "your reasons, with evidence", "what you would like to happen next", "Yours sincerely, and your name"],
+      "hints": ["Letters start with the address and the date.", "Then comes the greeting.", "The sign-off always comes last."],
+      "explanation": "A letter starts with the address, the date and a greeting. Then it says what you want, gives reasons, and ends with a polite request and a sign-off."
+    },
+    {
+      "id": "e4.persuasive-writing.003", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence is the most persuasive?",
+      "options": [
+        { "text": "We want more playtime.", "why": "This says what you want, but it gives no reason." },
+        { "text": "Please could we have ten more minutes of playtime, because exercise helps us concentrate?" },
+        { "text": "Playtime is at ten o'clock.", "why": "This is a fact, but it does not persuade." },
+        { "text": "I like playtime.", "why": "This is an opinion with no reason." }
+      ],
+      "answer": 1,
+      "hints": ["A persuasive sentence asks politely and gives a reason.", "Look for a word that introduces a reason.", "Which sentence would a head teacher take seriously?"],
+      "explanation": "It asks politely and gives a reason with because. Reasons make a request more persuasive."
+    },
+    {
+      "id": "e4.persuasive-writing.004", "skill": "e4.persuasive-writing", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the features: persuasive letter or report?",
+      "groups": ["Persuasive letter", "Report"],
+      "items": [
+        { "text": "gives the writer's opinion", "group": 0 }, { "text": "asks the reader to do something", "group": 0 }, { "text": "ends with Yours sincerely", "group": 0 },
+        { "text": "uses subheadings", "group": 1 }, { "text": "gives facts, not opinions", "group": 1 }, { "text": "may have a Did you know? box", "group": 1 }
+      ],
+      "hints": ["A persuasive letter tries to change someone's mind.", "A report gives information about a topic.", "Start with uses subheadings. Did the Komodo dragon report have them?"],
+      "explanation": "Persuasive letters give opinions and reasons, and ask for action. Reports give facts, organised with subheadings."
+    },
+    {
+      "id": "e4.persuasive-writing.005", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which phrase helps you add another reason in a persuasive letter?",
+      "options": [
+        { "text": "Once upon a time", "why": "This begins a story." },
+        { "text": "The end", "why": "This ends a story." },
+        { "text": "Suddenly", "why": "Suddenly is used in stories for a surprise." },
+        { "text": "Another reason is" }
+      ],
+      "answer": 3,
+      "hints": ["Persuasive letters give more than one reason.", "You need a phrase that adds a new reason.", "Which phrase could you use after a sentence that starts with Firstly?"],
+      "explanation": "Another reason is introduces a new reason. Words like Firstly, Also and Finally do the same job."
+    },
+    {
+      "id": "e4.persuasive-writing.006", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 4,
+      "prompt": "In a report about orangutans, which sentence belongs under the subheading Habitat?",
+      "options": [
+        { "text": "Orangutans live in the rainforests of Borneo and Sumatra." },
+        { "text": "Orangutans eat mostly fruit, as well as leaves and insects.", "why": "This belongs under a subheading about food." },
+        { "text": "Baby orangutans stay with their mothers for many years.", "why": "This belongs under a subheading about young orangutans." },
+        { "text": "Orangutans have very long arms.", "why": "This belongs under a subheading about what they look like." }
+      ],
+      "answer": 0,
+      "hints": ["Habitat means where an animal lives.", "Look for a sentence about a place.", "Cross out the sentences about food, babies and bodies."],
+      "explanation": "A habitat is where an animal lives. The rainforests of Borneo and Sumatra are where orangutans live."
+    },
+    {
+      "id": "e4.persuasive-writing.007", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 3,
+      "prompt": "Write a letter to your head teacher asking for a school vegetable garden. Give reasons to persuade them.",
+      "planning": ["What exactly are you asking for?", "What are your reasons? Can you add a fact as evidence?", "What might someone say against it, and how will you answer?", "How will you end politely?"],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I said clearly what I am asking for", "points": 2 },
+        { "label": "I gave reasons, with because or a fact as evidence", "points": 3 },
+        { "label": "I answered a reason someone might give against my idea", "points": 2 },
+        { "label": "I set out my letter with an address, date, greeting and sign-off", "points": 2 },
+        { "label": "I used paragraphs", "points": 2 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Start by saying what you want in one clear sentence.", "Use Firstly, Secondly and However to organise your ideas."],
+      "explanation": "A persuasive letter is polite, asks for something clearly and backs it up with reasons and evidence.",
+      "model": "Class 4C\nCempaka Primary School\n10 March\n\nDear Mrs Wulan,\n\nWe are writing to ask if our class could start a vegetable garden behind the canteen.\n\nFirstly, a garden would help us learn. We could measure how fast plants grow in maths and study seeds in science. Secondly, the canteen could cook our vegetables, so pupils would eat fresh food.\n\nSome people might say that a garden needs too much work. However, every pupil in our class has agreed to take turns watering the plants before lessons.\n\nPlease could we meet you to share our plan?\n\nYours sincerely,\nClass 4C"
+    },
+    {
+      "id": "e4.persuasive-writing.008", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 3,
+      "prompt": "Write a letter to your town council asking for a safe crossing outside your school.",
+      "planning": ["Why is the road outside your school hard to cross now?", "What would a safe crossing change?", "What might the council say against it, and how will you answer?"],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I explained the problem clearly", "points": 2 },
+        { "label": "I gave reasons and a fact as evidence", "points": 3 },
+        { "label": "I answered a reason someone might give against my idea", "points": 2 },
+        { "label": "I used a formal greeting and sign-off", "points": 1 },
+        { "label": "I used paragraphs", "points": 2 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Describe what happens at the road each morning.", "If you do not know the reader's name, end with Yours faithfully."],
+      "explanation": "Persuasive letters work best when they describe a real problem, give evidence and suggest a clear solution.",
+      "model": "Class 4A\nCempaka Primary School\n2 May\n\nDear Councillors,\n\nWe are writing to ask you to build a zebra crossing outside our school gate.\n\nEvery morning, more than 300 pupils cross the road outside our school. Cars and motorbikes drive past quickly, and it is hard to find a safe gap. Some younger children wait for a long time before they can cross.\n\nA zebra crossing would make drivers stop, so pupils could cross safely. It would also help parents with babies and older people who use the road.\n\nYou might think that a crossing costs a lot. However, keeping children safe on their way to school is worth it.\n\nYours faithfully,\nClass 4A"
+    },
+    {
+      "id": "e4.persuasive-writing.009", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 4,
+      "prompt": "Persuade your class to choose your idea for the end-of-year trip. Write them a letter.",
+      "planning": ["Where do you want to go?", "Give at least two reasons, with facts if you can.", "Why is your idea better than another idea someone might suggest?"],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I made my choice clear at the start", "points": 1 },
+        { "label": "I gave at least two strong reasons", "points": 3 },
+        { "label": "I compared my idea fairly with another idea", "points": 2 },
+        { "label": "I ended by asking the reader to do something", "points": 2 },
+        { "label": "I used paragraphs and linking words", "points": 2 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Think about what your classmates would enjoy and learn.", "End with a clear request, such as asking them to vote."],
+      "explanation": "Comparing your idea fairly with another one shows you have thought about it, which makes your letter more convincing.",
+      "model": "Dear Class 4B,\n\nI think our end-of-year trip should be to the science museum in the city.\n\nFirstly, the museum has a planetarium where we can watch the stars on a giant dome. We have just finished our topic on space, so it would help us remember what we learnt. Secondly, there are rooms where we can build circuits and test magnets ourselves.\n\nSome of you want to go to the water park. It would be fun, but it is very crowded in the holidays, and we can go there with our families at any time.\n\nPlease vote for the science museum on Friday!\n\nFrom your friend,\nNadia"
+    },
+    {
+      "id": "e4.persuasive-writing.010", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 3,
+      "prompt": "Write a report about an animal that lives in Indonesia. Use a title and subheadings.",
+      "planning": ["Choose your animal and a title.", "Plan three or four subheadings, such as Appearance, Habitat, Food and Young.", "Write facts, not opinions, and use the present tense.", "Add a Did you know? fact at the end."],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I used a title and subheadings", "points": 2 },
+        { "label": "I wrote facts, not opinions", "points": 2 },
+        { "label": "Each section is about one thing", "points": 2 },
+        { "label": "I used the present tense", "points": 1 },
+        { "label": "I chose clear words to describe and explain", "points": 2 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Make a quick list of facts under each subheading first.", "Read each sentence and ask: could this be checked?"],
+      "explanation": "A good report groups facts under clear subheadings and keeps opinions out.",
+      "model": "Orangutans\n\nAppearance\nOrangutans are large apes with long, reddish-brown hair. Their arms are longer than their legs, which helps them swing through the trees.\n\nHabitat\nOrangutans live in the rainforests of Borneo and Sumatra. They spend most of their lives high up in the trees.\n\nFood\nThey eat mostly fruit, such as figs. They also eat leaves, bark and insects.\n\nYoung\nA baby orangutan stays with its mother for about seven years. She shows it which foods are safe to eat.\n\nDid you know?\nEvery night, orangutans build a new nest of leaves to sleep in."
+    },
+    {
+      "id": "e4.persuasive-writing.011", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 4,
+      "prompt": "Write a news report about an event at your school. It could be sports day or a class trip.",
+      "planning": ["Write a headline that tells the news in a few words.", "In the first paragraph, say who, what, when and where.", "Add details in order, and a quote from someone who was there.", "End with what will happen next."],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I wrote a clear headline", "points": 1 },
+        { "label": "My first paragraph says who, what, when and where", "points": 3 },
+        { "label": "I added details in the order they happened", "points": 2 },
+        { "label": "I included a quote with speech marks", "points": 2 },
+        { "label": "I wrote in the past tense", "points": 1 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Look back at the school garden news report for ideas.", "Ask someone who was there what they thought, and quote them."],
+      "explanation": "A news report puts the key facts first, then adds details and quotes from people who were there.",
+      "model": "Blue Team Wins Sports Day\n\nThe Blue Team won Cempaka Primary School's Sports Day on Saturday, beating three other teams on the school field.\n\nThe day began with the sack race, which the Red Team won. In the afternoon, the Blue Team took the lead in the relay. Their last runner, Fajar, passed two runners on the final bend.\n\n“I was so tired, but I could hear everyone cheering,” said Fajar after the race.\n\nThe head teacher, Mrs Wulan, gave out the cup at four o'clock. Next year, the school hopes to add a tug of war."
+    },
+    {
+      "id": "e4.persuasive-writing.012", "skill": "e4.persuasive-writing", "type": "write", "difficulty": 4,
+      "prompt": "Write a report about a food from Indonesia, such as rice, tempeh or coconuts. Use subheadings.",
+      "planning": ["Choose your food and a title.", "Plan your subheadings, such as What it is and How it is made.", "Use facts and the present tense.", "Add a fact box or a Did you know? fact."],
+      "minWords": 100, "maxWords": 350,
+      "rubric": { "criteria": [
+        { "label": "I used a title and subheadings", "points": 2 },
+        { "label": "I explained how the food is grown or made, in order", "points": 2 },
+        { "label": "I wrote facts, not opinions", "points": 2 },
+        { "label": "I used the present tense", "points": 1 },
+        { "label": "I used clear, exact words", "points": 2 },
+        { "label": "My spelling and punctuation are careful", "points": 2 }
+      ] },
+      "hints": ["Ask an adult at home how the food is made, and take notes.", "Use time words like first and then when you explain how it is made."],
+      "explanation": "An explanation inside a report uses time words to show the steps in order.",
+      "model": "Tempeh\n\nWhat it is\nTempeh is a food made from soya beans. It comes from Java, and people in Indonesia have eaten it for hundreds of years.\n\nHow it is made\nFirst, the beans are soaked, boiled and peeled. Then a special mould is mixed in. After one or two days, the mould grows around the beans and holds them together in a firm cake.\n\nHow people eat it\nTempeh can be fried, steamed or added to curries. It is often sliced thinly and fried until it is crispy.\n\nDid you know?\nTempeh is full of protein, which helps your body grow and repair itself."
+    }
+  ]
+}

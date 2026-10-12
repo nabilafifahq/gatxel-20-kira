@@ -1,0 +1,115 @@
+{
+  "skill": "m5.multiply-divide-10-100-1000",
+  "title": "Multiplying and dividing by 10, 100 and 1,000",
+  "steps": [
+    {
+      "say": "When you multiply by 10, every digit moves one place to the left. The number becomes ten times bigger.",
+      "show": "3.4 × 10 = 34",
+      "figure": {
+        "kind": "table",
+        "caption": "3.4 × 10 = 34",
+        "head": [
+          "Tens",
+          "Ones",
+          "Tenths"
+        ],
+        "rows": [
+          [
+            "",
+            "3",
+            "4"
+          ],
+          [
+            "3",
+            "4",
+            ""
+          ]
+        ],
+        "alt": "A place value chart. 3.4 moves one place left to make 34."
+      }
+    },
+    {
+      "say": "Multiply by 100 and the digits move two places. Multiply by 1,000 and they move three places.",
+      "show": "0.25 × 100 = 25 and 0.25 × 1,000 = 250"
+    },
+    {
+      "say": "Dividing moves the digits to the right. 560 ÷ 10 = 56 and 560 ÷ 100 = 5.6.",
+      "show": "560 ÷ 100 = 5.6"
+    },
+    {
+      "say": "Zeros fill the empty places before the decimal point.",
+      "show": "7 × 1,000 = 7,000"
+    },
+    {
+      "say": "Picture the decimal point fixed in place while the digits slide past it.",
+      "show": "10 is 1 place, 100 is 2 places, 1,000 is 3 places"
+    },
+    {
+      "say": "This helps with units. 1 kg = 1,000 g, so 3.5 kg is 3.5 × 1,000 g.",
+      "show": "3.5 kg = 3,500 g"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.multiply-divide-10-100-1000.901",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 4.7 × 100.",
+      "hints": [
+        "Multiplying by 100 makes a number 100 times bigger.",
+        "Move each digit two places to the left.",
+        "Write 4.7 in a place value chart first."
+      ],
+      "explanation": "Each digit moves two places to the left, so 4.7 × 100 = 470.",
+      "answer": 470,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.902",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 245 ÷ 100.",
+      "hints": [
+        "Dividing by 100 makes a number 100 times smaller.",
+        "Move each digit two places to the right.",
+        "The 5 ones become 5 hundredths."
+      ],
+      "explanation": "Each digit moves two places to the right, so 245 ÷ 100 = 2.45.",
+      "answer": 2.45,
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.multiply-divide-10-100-1000.903",
+      "skill": "m5.multiply-divide-10-100-1000",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dewi's ribbon is 2.3 m long. How long is it in centimetres?",
+      "hints": [
+        "How many centimetres are in 1 metre?",
+        "Multiply the number of metres by 100.",
+        "Move each digit of 2.3 two places to the left."
+      ],
+      "explanation": "1 m = 100 cm, so 2.3 m = 2.3 × 100 = 230 cm.",
+      "options": [
+        {
+          "text": "230 cm"
+        },
+        {
+          "text": "23 cm",
+          "why": "That multiplies by 10. There are 100 cm in 1 m."
+        },
+        {
+          "text": "2,300 cm",
+          "why": "That multiplies by 1,000. There are 100 cm in 1 m."
+        },
+        {
+          "text": "0.23 cm",
+          "why": "Centimetres are smaller than metres, so the number should get bigger."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "skill": "e4.verb-tenses",
+  "items": [
+    {
+      "id": "e4.verb-tenses.001", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 1,
+      "prompt": "I ___ reading when Mum called me.",
+      "options": [
+        { "text": "were", "why": "Were goes with you, we and they. With I, we use was." },
+        { "text": "was" },
+        { "text": "am", "why": "Called is in the past, so we need a past form." },
+        { "text": "has", "why": "Has is not used with an -ing verb like this." }
+      ],
+      "answer": 1,
+      "hints": ["Called tells you this is in the past.", "The past progressive uses was or were with an -ing verb.", "Which one goes with I?"],
+      "explanation": "With I in the past, we use was: I was reading. The reading was going on when Mum called.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.verb-tenses.002", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 1,
+      "prompt": "They ___ playing football at four o'clock yesterday.",
+      "options": [
+        { "text": "was", "why": "Was goes with I, he, she or it. They needs a different word." },
+        { "text": "is", "why": "Is is the present tense." },
+        { "text": "have", "why": "Have does not go with playing here." },
+        { "text": "were" }
+      ],
+      "answer": 3,
+      "hints": ["Yesterday tells you this is in the past.", "They means more than one person.", "Was or were: which one goes with they?"],
+      "explanation": "With they in the past, we use were: they were playing.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.verb-tenses.003", "skill": "e4.verb-tenses", "type": "text", "difficulty": 2,
+      "prompt": "Use the past progressive of paint.\nDewi ___ when it started to rain.",
+      "blanks": [{ "answers": ["was painting"] }],
+      "hints": ["The painting was already going on when the rain started.", "Use was or were, then add -ing to the verb.", "Dewi is one person. Which helper word goes with her?"],
+      "explanation": "The past progressive uses was or were with an -ing verb: Dewi was painting."
+    },
+    {
+      "id": "e4.verb-tenses.004", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 2,
+      "prompt": "We have ___ our homework.",
+      "options": [
+        { "text": "finished" },
+        { "text": "finish", "why": "After have, we need the past form." },
+        { "text": "finishing", "why": "Finishing goes with am, is, are, was or were." },
+        { "text": "finishes", "why": "Finishes is the present tense." }
+      ],
+      "answer": 0,
+      "hints": ["Have is a helper verb here.", "The present perfect uses has or have with a past form.", "Many past forms end in -ed."],
+      "explanation": "The present perfect is has or have with a past form: we have finished."
+    },
+    {
+      "id": "e4.verb-tenses.005", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 2,
+      "prompt": "Leo ___ lost his pencil case.",
+      "options": [
+        { "text": "have", "why": "Have goes with I, you, we and they." },
+        { "text": "is", "why": "Is lost would mean something different here." },
+        { "text": "has" },
+        { "text": "were", "why": "Were is not used with lost like this." }
+      ],
+      "answer": 2,
+      "hints": ["Leo is one person.", "Use has with he, she or it. Use have with I, you, we and they.", "Swap Leo for he. Which helper word fits?"],
+      "explanation": "Leo is one person, like he, so we use has: Leo has lost his pencil case."
+    },
+    {
+      "id": "e4.verb-tenses.006", "skill": "e4.verb-tenses", "type": "match", "difficulty": 3,
+      "prompt": "Match each verb to the form used after has or have.",
+      "pairs": [["eat", "eaten"], ["go", "gone"], ["see", "seen"], ["write", "written"], ["take", "taken"]],
+      "hints": ["These verbs have a special form after has or have.", "Say: I have ... with each one.", "Start with see. I have ... that film."],
+      "explanation": "After has or have, these verbs use special past forms: eaten, gone, seen, written and taken."
+    },
+    {
+      "id": "e4.verb-tenses.007", "skill": "e4.verb-tenses", "type": "text", "difficulty": 3,
+      "prompt": "Use the right form of ride.\nHave you ever ___ a horse?",
+      "blanks": [{ "answers": ["ridden"] }],
+      "hints": ["After have, you need the special past form.", "Ride is irregular. It does not add -ed.", "Think of write and written. Ride changes in a similar way."],
+      "explanation": "The form of ride after have is ridden: Have you ever ridden a horse?"
+    },
+    {
+      "id": "e4.verb-tenses.008", "skill": "e4.verb-tenses", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the phrases into the past progressive and the present perfect.",
+      "groups": ["Past progressive", "Present perfect"],
+      "items": [
+        { "text": "she was singing", "group": 0 }, { "text": "they were running", "group": 0 }, { "text": "I was waiting", "group": 0 },
+        { "text": "we have eaten", "group": 1 }, { "text": "he has gone", "group": 1 }, { "text": "you have seen", "group": 1 }
+      ],
+      "hints": ["Look at the helper word in each phrase.", "Was and were go with -ing. Has and have go with a past form.", "Start with she was singing. Which helper word does it use?"],
+      "explanation": "Was or were with an -ing verb is the past progressive. Has or have with a past form is the present perfect."
+    },
+    {
+      "id": "e4.verb-tenses.009", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 3,
+      "prompt": "Which sentence shows that one action was interrupted by another?",
+      "options": [
+        { "text": "I walked home.", "why": "This shows only one finished action." },
+        { "text": "I was walking home when it started to rain." },
+        { "text": "I have walked home.", "why": "This shows a finished action with nothing interrupting it." },
+        { "text": "I will walk home.", "why": "This is about the future." }
+      ],
+      "answer": 1,
+      "hints": ["An interrupted action was still going on when something else happened.", "Look for a sentence with two actions.", "The longer action uses was or were with -ing."],
+      "explanation": "I was walking home shows an action that was going on. When it started to rain shows what interrupted it."
+    },
+    {
+      "id": "e4.verb-tenses.010", "skill": "e4.verb-tenses", "type": "text", "difficulty": 4,
+      "prompt": "Use the verbs watch and go.\nWe ___ a film when the lights ___ out.",
+      "blanks": [{ "answers": ["were watching"] }, { "answers": ["went"] }],
+      "hints": ["The film was already going on. Then something happened suddenly.", "The longer action uses were with -ing. The sudden action uses the simple past.", "Do the first gap first: we were ..."],
+      "explanation": "We were watching shows that the film was going on. The lights went out is the sudden action that interrupted it."
+    },
+    {
+      "id": "e4.verb-tenses.011", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 4,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        { "text": "She has gone to the shop." },
+        { "text": "She has went to the shop.", "why": "After has, we use gone, not went." },
+        { "text": "She have gone to the shop.", "why": "She needs has, not have." },
+        { "text": "She was gone to the shop.", "why": "We do not use was with gone like this." }
+      ],
+      "answer": 0,
+      "hints": ["She needs has.", "After has, use the special past form of go.", "Is it went or gone after has?"],
+      "explanation": "With she we use has, and after has we use gone: she has gone to the shop.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.verb-tenses.012", "skill": "e4.verb-tenses", "type": "mcq", "difficulty": 5,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        { "text": "I have seen that film yesterday.", "why": "We do not use have seen with a finished time like yesterday." },
+        { "text": "I have saw that film yesterday.", "why": "After have we use seen, and yesterday needs the simple past." },
+        { "text": "I saw that film yesterday." },
+        { "text": "I was seen that film yesterday.", "why": "Was seen is not correct here." }
+      ],
+      "answer": 2,
+      "hints": ["Yesterday is a finished time.", "The present perfect is not used with a finished time like yesterday.", "Which sentence uses the simple past?"],
+      "explanation": "Yesterday is a finished time, so we use the simple past: I saw that film yesterday. Without yesterday, we could say I have seen that film.",
+      "tags": ["iklc"]
+    }
+  ]
+}

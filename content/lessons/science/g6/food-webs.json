@@ -1,0 +1,123 @@
+{
+  "skill": "s6.food-webs",
+  "title": "Food webs and our impact",
+  "steps": [
+    {
+      "say": "Most animals eat more than one kind of food. Many food chains linked together make a food web."
+    },
+    {
+      "say": "In a rice field, grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls.",
+      "figure": {
+        "kind": "table",
+        "caption": "A rice field food web",
+        "head": [
+          "Living thing",
+          "Is eaten by"
+        ],
+        "rows": [
+          [
+            "rice plant",
+            "grasshopper, rat"
+          ],
+          [
+            "grasshopper",
+            "frog, sparrow"
+          ],
+          [
+            "rat",
+            "snake, owl"
+          ],
+          [
+            "frog",
+            "snake"
+          ],
+          [
+            "sparrow",
+            "owl"
+          ],
+          [
+            "snake",
+            "eagle"
+          ]
+        ],
+        "alt": "A rice field food web as a table. Rice plants are eaten by grasshoppers and rats. Grasshoppers are eaten by frogs and sparrows. Rats are eaten by snakes and owls. Frogs are eaten by snakes, sparrows by owls and snakes by eagles."
+      }
+    },
+    {
+      "say": "Decomposers, such as fungi and bacteria, break down dead things. They return minerals to the soil for plants."
+    },
+    {
+      "say": "A change to one population affects others. With no frogs, there may be more grasshoppers and less rice."
+    },
+    {
+      "say": "People can harm habitats by cutting down forests, polluting and overfishing. These actions change whole food webs."
+    },
+    {
+      "say": "People can also help, by replanting mangroves, protecting national parks and cutting plastic waste."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.food-webs.901",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do decomposers do?",
+      "options": [
+        {
+          "text": "make food from sunlight",
+          "why": "That is what producers do."
+        },
+        {
+          "text": "hunt other animals",
+          "why": "That is what predators do."
+        },
+        {
+          "text": "eat only plants",
+          "why": "That is what herbivores do."
+        },
+        {
+          "text": "break down dead plants and animals"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Fungi and bacteria are examples of decomposers.",
+        "They work on things that have died.",
+        "Cross out the jobs of producers, predators and herbivores."
+      ],
+      "explanation": "Decomposers break down dead plants and animals. This returns minerals to the soil, which plants use to grow."
+    },
+    {
+      "id": "s6.food-webs.902",
+      "skill": "s6.food-webs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which action helps a coastal habitat?",
+      "options": [
+        {
+          "text": "dumping rubbish in the sea",
+          "why": "Rubbish harms sea animals."
+        },
+        {
+          "text": "catching every fish",
+          "why": "Overfishing removes food for other animals."
+        },
+        {
+          "text": "replanting mangroves"
+        },
+        {
+          "text": "clearing mangroves to build houses",
+          "why": "Clearing mangroves destroys homes for fish and crabs."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which choice gives animals more places to live.",
+        "Mangroves are homes and nurseries for young fish and crabs.",
+        "Cross out the actions that remove or pollute things."
+      ],
+      "explanation": "Replanting mangroves gives young fish, crabs and birds a home, and it protects the coast from waves."
+    }
+  ]
+}

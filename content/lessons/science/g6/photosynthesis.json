@@ -1,0 +1,101 @@
+{
+  "skill": "s6.photosynthesis",
+  "title": "How plants make food",
+  "steps": [
+    {
+      "say": "Green plants make their own food. This is called photosynthesis."
+    },
+    {
+      "say": "A plant needs light, water and carbon dioxide. Roots take in water, and leaves take in carbon dioxide from the air.",
+      "show": "needs: light, water, carbon dioxide",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "light"
+          },
+          {
+            "icon": "water-drop",
+            "label": "water"
+          },
+          {
+            "icon": "wind",
+            "label": "carbon dioxide in air"
+          },
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          }
+        ],
+        "alt": "Light, water and carbon dioxide from the air go into a leaf."
+      }
+    },
+    {
+      "say": "Green chlorophyll in the leaves traps light energy. The plant uses it to make sugar."
+    },
+    {
+      "say": "Photosynthesis also gives out oxygen. Animals, including people, breathe in this oxygen.",
+      "show": "makes: sugar and oxygen"
+    },
+    {
+      "say": "Soil gives plants water and minerals, but not ready-made food. The food is made in the leaves."
+    },
+    {
+      "say": "In the 1600s, Jan van Helmont found that a growing tree gains far more mass than its soil loses."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.photosynthesis.901",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which gas do plants take in to make food?",
+      "options": [
+        {
+          "text": "oxygen",
+          "why": "Plants give out oxygen when they make food."
+        },
+        {
+          "text": "nitrogen",
+          "why": "Nitrogen is in the air, but plants do not use it to make sugar."
+        },
+        {
+          "text": "carbon dioxide"
+        },
+        {
+          "text": "helium",
+          "why": "Helium is not used by plants."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Plants take in one gas and give out another.",
+        "Animals breathe out the gas that plants take in.",
+        "Cross out the gas that plants give out."
+      ],
+      "explanation": "Plants take in carbon dioxide through tiny holes in their leaves. They use it, with water and light, to make sugar."
+    },
+    {
+      "id": "s6.photosynthesis.902",
+      "skill": "s6.photosynthesis",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The way green plants make food in their leaves using light is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "photosynthesis"
+          ]
+        }
+      ],
+      "hints": [
+        "It happens in green leaves in sunlight.",
+        "The first part of the word means light, as in photograph.",
+        "The second part of the word means putting things together."
+      ],
+      "explanation": "Photosynthesis is how green plants make sugar from water and carbon dioxide, using light energy."
+    }
+  ]
+}

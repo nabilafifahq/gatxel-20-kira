@@ -1,0 +1,88 @@
+{
+  "skill": "m4.equivalent-fractions",
+  "title": "Equivalent fractions and comparing",
+  "steps": [
+    {
+      "say": "2/3 of this bar is shaded.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 3,
+        "shaded": 2,
+        "alt": "A bar in 3 equal parts with 2 parts shaded."
+      }
+    },
+    {
+      "say": "Split every part in two. Now 4 of 6 parts are shaded.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 6,
+        "shaded": 4,
+        "alt": "The same bar in 6 equal parts with 4 parts shaded."
+      },
+      "show": "2/3 = 4/6"
+    },
+    {
+      "say": "Multiply the top and the bottom by the same number.",
+      "show": "2/3 = 4/6 = 6/9 = 8/12"
+    },
+    {
+      "say": "To simplify, divide the top and the bottom by the same number.",
+      "show": "6/8 = 3/4"
+    },
+    {
+      "say": "To compare 3/4 and 5/8, change the quarters into eighths.",
+      "show": "3/4 = 6/8, and 6/8 > 5/8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.equivalent-fractions.901",
+      "skill": "m4.equivalent-fractions",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Fill the gap. 3/5 = ___/10",
+      "blanks": [
+        {
+          "answers": [
+            "6"
+          ]
+        }
+      ],
+      "hints": [
+        "What do you multiply 5 by to get 10?",
+        "Do the same to the top number.",
+        "5 × 2 = 10."
+      ],
+      "explanation": "5 × 2 = 10, so 3 × 2 = 6. 3/5 = 6/10."
+    },
+    {
+      "id": "m4.equivalent-fractions.902",
+      "skill": "m4.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which fraction is bigger, 2/3 or 5/6?",
+      "options": [
+        {
+          "text": "They are equal",
+          "why": "2/3 = 4/6, which is not the same as 5/6."
+        },
+        {
+          "text": "2/3",
+          "why": "2/3 = 4/6, which is less than 5/6."
+        },
+        {
+          "text": "5/6"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Make the bottom numbers the same.",
+        "Change thirds into sixths.",
+        "Multiply the top and the bottom of 2/3 by 2."
+      ],
+      "explanation": "2/3 = 4/6. 5/6 is more than 4/6, so 5/6 is bigger."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "skill": "e5.complex-sentences",
+  "title": "Joining ideas in complex sentences",
+  "steps": [
+    {
+      "say": "A clause has a subject and a verb. A main clause makes sense on its own.",
+      "show": "the bats flew out"
+    },
+    {
+      "say": "A subordinate clause starts with a conjunction such as when, because, although, if or unless.",
+      "show": "when the sun set"
+    },
+    {
+      "say": "Put them together to make a complex sentence.",
+      "show": "The bats flew out when the sun set."
+    },
+    {
+      "say": "If the subordinate clause comes first, put a comma after it.",
+      "show": "When the sun set, the bats flew out."
+    },
+    {
+      "say": "Choose the conjunction that shows the right link: a reason, a time, a condition or a contrast.",
+      "show": "because, until, if, although"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.complex-sentences.901",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which conjunction shows a contrast?",
+      "options": [
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "although"
+        },
+        {
+          "text": "when",
+          "why": "When tells us the time."
+        },
+        {
+          "text": "if",
+          "why": "If gives a condition."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A contrast shows that something is surprising after something else.",
+        "Try each word in this sentence: ___ it was raining, we played outside.",
+        "Which word makes playing outside in the rain sound surprising?"
+      ],
+      "explanation": "Although shows a contrast: Although it was raining, we played outside."
+    },
+    {
+      "id": "e5.complex-sentences.902",
+      "skill": "e5.complex-sentences",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Write the conjunction in this sentence. We played inside because it was raining.",
+      "blanks": [
+        {
+          "answers": [
+            "because"
+          ]
+        }
+      ],
+      "hints": [
+        "A conjunction joins two clauses.",
+        "Find where the first clause ends and the second begins.",
+        "Look at the word that starts the second clause."
+      ],
+      "explanation": "Because joins the two clauses and gives the reason."
+    }
+  ]
+}

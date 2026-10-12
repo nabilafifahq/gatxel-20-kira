@@ -1,0 +1,127 @@
+{
+  "skill": "m3.time-intervals",
+  "title": "Time intervals and calendars",
+  "steps": [
+    {
+      "say": "A film starts at 2:15 and ends at 3:30. Count on from the start time.",
+      "figure": {
+        "kind": "clock",
+        "h": 2,
+        "m": 15,
+        "alt": "A clock showing quarter past 2."
+      }
+    },
+    {
+      "say": "First count on to the next o'clock.",
+      "show": "2:15 to 3:00 is 45 minutes"
+    },
+    {
+      "say": "Then count on to the end time.",
+      "show": "3:00 to 3:30 is 30 minutes"
+    },
+    {
+      "say": "Add the parts. 75 minutes is 1 hour and 15 minutes.",
+      "show": "45 + 30 = 75"
+    },
+    {
+      "say": "A calendar shows a month in rows of 7 days. One week later is one row down.",
+      "figure": {
+        "kind": "table",
+        "caption": "March",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11"
+          ],
+          [
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"
+          ],
+          [
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25"
+          ],
+          [
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            ""
+          ]
+        ],
+        "alt": "A calendar for March. The 1st is a Thursday. It has 31 days."
+      },
+      "show": "3 March + 7 days = 10 March"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.time-intervals.901",
+      "skill": "m3.time-intervals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Swimming starts at 4:30 and ends at 5:15. How many minutes is that?",
+      "answer": 45,
+      "hints": [
+        "Count on from 4:30 to 5:00.",
+        "Then count on from 5:00 to 5:15.",
+        "4:30 to 5:00 is 30 minutes."
+      ],
+      "explanation": "30 minutes to 5:00 and 15 more minutes. 30 + 15 = 45 minutes.",
+      "unit": "minutes",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m3.time-intervals.902",
+      "skill": "m3.time-intervals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Today is 12 May. How many days is it until 20 May?",
+      "answer": 8,
+      "hints": [
+        "Count on from 12 to 20.",
+        "Do not count today.",
+        "Work out 20 - 12."
+      ],
+      "explanation": "20 - 12 = 8, so it is 8 days until 20 May.",
+      "unit": "days"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "skill": "e2.sentence-punctuation",
+  "title": "Ending a sentence",
+  "steps": [
+    {
+      "say": "Every sentence starts with a capital letter.",
+      "show": "The bus is late."
+    },
+    {
+      "say": "A telling sentence ends with a full stop.",
+      "show": "The bus is late."
+    },
+    {
+      "say": "A question ends with a question mark.",
+      "show": "Is the bus late?"
+    },
+    {
+      "say": "A strong feeling or a shout ends with an exclamation mark.",
+      "show": "Hooray, the bus is here!"
+    },
+    {
+      "say": "Names, places, days and the word I always have capital letters.",
+      "show": "On Monday, Rio and I went to Bali."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.sentence-punctuation.901",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which end mark does this need? 'What time is it'",
+      "hints": [
+        "Read it aloud.",
+        "Does it ask something?",
+        "Questions end with a curly mark."
+      ],
+      "explanation": "What time is it? asks something, so it ends with a question mark.",
+      "options": [
+        {
+          "text": "a question mark"
+        },
+        {
+          "text": "a full stop",
+          "why": "This sentence asks something."
+        },
+        {
+          "text": "an exclamation mark",
+          "why": "This is not a shout."
+        },
+        {
+          "text": "a comma",
+          "why": "A comma does not end a sentence."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.sentence-punctuation.902",
+      "skill": "e2.sentence-punctuation",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the name of the day with a capital letter: friday",
+      "hints": [
+        "Days of the week are names.",
+        "Names start with a capital.",
+        "Write a big F first."
+      ],
+      "explanation": "Days of the week start with a capital letter: Friday.",
+      "blanks": [
+        {
+          "answers": [
+            "Friday"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    }
+  ]
+}

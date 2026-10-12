@@ -1,0 +1,84 @@
+{
+  "skill": "s4.changing-state",
+  "title": "How materials change state",
+  "steps": [
+    {
+      "say": "Heating and cooling can change a material from one state to another.",
+      "figure": {
+        "kind": "thermometer",
+        "min": -10,
+        "max": 110,
+        "value": 25,
+        "step": 10,
+        "alt": "A thermometer from minus 10 to 110 °C showing 25 °C."
+      }
+    },
+    {
+      "say": "Melting turns a solid into a liquid. Freezing turns a liquid back into a solid.",
+      "show": "solid ⇄ liquid"
+    },
+    {
+      "say": "Pure water freezes, and ice melts, at 0 °C. Water boils at about 100 °C.",
+      "show": "0 °C: melt or freeze. 100 °C: boil."
+    },
+    {
+      "say": "Evaporation turns a liquid into a gas. Puddles dry up because the water evaporates.",
+      "show": "liquid → gas"
+    },
+    {
+      "say": "Condensation turns a gas back into a liquid. Water vapour condenses on a cold glass.",
+      "show": "gas → liquid"
+    },
+    {
+      "say": "These changes can be reversed. Melted chocolate becomes solid again when it cools."
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.changing-state.901",
+      "skill": "s4.changing-state",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is it called when a liquid turns into a solid?",
+      "options": [
+        {
+          "text": "freezing"
+        },
+        {
+          "text": "melting",
+          "why": "Melting is solid to liquid."
+        },
+        {
+          "text": "evaporating",
+          "why": "Evaporating is liquid to gas."
+        },
+        {
+          "text": "boiling",
+          "why": "Boiling turns a liquid into a gas."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about making ice cubes.",
+        "The liquid is cooled down a lot.",
+        "Where do you put water to make ice?"
+      ],
+      "explanation": "Freezing is when a liquid cools and turns into a solid."
+    },
+    {
+      "id": "s4.changing-state.902",
+      "skill": "s4.changing-state",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "At what temperature, in °C, does pure water freeze?",
+      "answer": 0,
+      "unit": "°C",
+      "hints": [
+        "Ice melts at the same temperature.",
+        "It is colder than a fridge but warmer than a freezer.",
+        "Think about the mark between the positive and negative numbers."
+      ],
+      "explanation": "Pure water freezes at 0 °C. Ice melts at the same temperature."
+    }
+  ]
+}

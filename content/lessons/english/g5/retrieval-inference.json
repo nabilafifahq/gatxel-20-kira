@@ -1,0 +1,83 @@
+{
+  "skill": "e5.retrieval-inference",
+  "title": "Finding and inferring information",
+  "steps": [
+    {
+      "say": "Retrieval means finding information that is written in the text. Inference means working out what the writer suggests."
+    },
+    {
+      "say": "For a retrieval question, pick out the key words in the question. Then scan the text for them.",
+      "show": "When did Joseph find the skull?   Key words: Joseph, skull"
+    },
+    {
+      "say": "Read the whole sentence around the key words before you answer."
+    },
+    {
+      "say": "For inference, look for clues in what characters say, do and feel.",
+      "show": "She slammed the door.   Clue: she is angry."
+    },
+    {
+      "say": "Always check that you can point to evidence in the text for your answer."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.retrieval-inference.901",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Read: Lina hugged her new puppy and could not stop smiling. How does Lina feel?",
+      "options": [
+        {
+          "text": "happy"
+        },
+        {
+          "text": "worried",
+          "why": "Smiling and hugging do not show worry."
+        },
+        {
+          "text": "bored",
+          "why": "Someone who is bored would not keep smiling."
+        },
+        {
+          "text": "angry",
+          "why": "Hugging and smiling do not show anger."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The sentence does not name the feeling. Look for clues.",
+        "Think about what hugging and smiling usually show.",
+        "Picture Lina’s face. What does it look like?"
+      ],
+      "explanation": "Lina hugs the puppy and keeps smiling. These clues show that she is happy."
+    },
+    {
+      "id": "e5.retrieval-inference.902",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Read: The ferry leaves the harbour at 7.30 every morning and comes back at 4.00. When does the ferry leave?",
+      "blanks": [
+        {
+          "answers": [
+            "7.30",
+            "at 7.30",
+            "7.30 every morning",
+            "7:30",
+            "half past seven",
+            "at half past seven",
+            "7.30 am",
+            "7.30 in the morning"
+          ]
+        }
+      ],
+      "hints": [
+        "This is a retrieval question. The answer is in the sentence.",
+        "Find the word leaves.",
+        "Read the time that comes straight after leaves the harbour."
+      ],
+      "explanation": "The text says the ferry leaves the harbour at 7.30 every morning."
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "skill": "e2.pronouns",
+  "items": [
+    {
+      "id": "e2.pronouns.001",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the pronoun for Mia. '___ likes to draw.'",
+      "hints": [
+        "Mia is a girl.",
+        "A pronoun takes the place of a name.",
+        "Which word do we use for one girl?"
+      ],
+      "explanation": "Mia is a girl, so we use she: She likes to draw.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "He",
+          "why": "He is for a boy or a man."
+        },
+        {
+          "text": "She"
+        },
+        {
+          "text": "It",
+          "why": "It is for a thing or an animal."
+        },
+        {
+          "text": "They",
+          "why": "They is for more than one."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.002",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the pronoun. 'Tom and Ali are friends. ___ play football.'",
+      "hints": [
+        "Count the people.",
+        "Tom and Ali are two people.",
+        "Which pronoun is for more than one?"
+      ],
+      "explanation": "Tom and Ali are two people, so we use they.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "They"
+        },
+        {
+          "text": "He",
+          "why": "He is for one boy."
+        },
+        {
+          "text": "She",
+          "why": "She is for one girl."
+        },
+        {
+          "text": "It",
+          "why": "It is for a thing."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.pronouns.003",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the pronoun. 'The cat is hungry. ___ wants some fish.'",
+      "hints": [
+        "The cat is an animal.",
+        "We can use the same word for an animal or a thing.",
+        "Is the cat one animal or more?"
+      ],
+      "explanation": "We can use it for an animal: It wants some fish.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "They",
+          "why": "They is for more than one."
+        },
+        {
+          "text": "We",
+          "why": "We means me and other people."
+        },
+        {
+          "text": "I",
+          "why": "I means the person speaking."
+        },
+        {
+          "text": "It"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.pronouns.004",
+      "skill": "e2.pronouns",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each name to a pronoun.",
+      "hints": [
+        "Think about who or what each one is.",
+        "He is for a boy or man. She is for a girl or woman.",
+        "Start with the bike. Is it a person?"
+      ],
+      "explanation": "Grandpa is he, Aunt Rosa is she, the bike is it, and Dina and Rio are they.",
+      "pairs": [
+        [
+          "Grandpa",
+          "he"
+        ],
+        [
+          "Aunt Rosa",
+          "she"
+        ],
+        [
+          "the bike",
+          "it"
+        ],
+        [
+          "Dina and Rio",
+          "they"
+        ]
+      ]
+    },
+    {
+      "id": "e2.pronouns.005",
+      "skill": "e2.pronouns",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the pronoun. 'My friends and I like rice. ___ eat it every day.'",
+      "hints": [
+        "My friends and I means more than one person.",
+        "You are one of the people.",
+        "Which pronoun means me and others?"
+      ],
+      "explanation": "My friends and I includes you, so we use we: We eat it every day.",
+      "blanks": [
+        {
+          "answers": [
+            "We"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.006",
+      "skill": "e2.pronouns",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the pronouns. One person or more than one?",
+      "hints": [
+        "Think how many people each word means.",
+        "We and us include you and other people.",
+        "Start with they. Is it one person or more?"
+      ],
+      "explanation": "He, she and I mean one person. They, we and us mean more than one.",
+      "groups": [
+        "One",
+        "More than one"
+      ],
+      "items": [
+        {
+          "text": "he",
+          "group": 0
+        },
+        {
+          "text": "they",
+          "group": 1
+        },
+        {
+          "text": "she",
+          "group": 0
+        },
+        {
+          "text": "we",
+          "group": 1
+        },
+        {
+          "text": "I",
+          "group": 0
+        },
+        {
+          "text": "us",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.007",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word can replace 'the boys'? 'I saw the boys at the park.'",
+      "hints": [
+        "There is more than one boy.",
+        "The boys come after the doing word saw.",
+        "Try each word: I saw ___ at the park."
+      ],
+      "explanation": "After a doing word, we use them for more than one: I saw them at the park.",
+      "options": [
+        {
+          "text": "them"
+        },
+        {
+          "text": "they",
+          "why": "They goes before a doing word, like they play. After saw, we use them."
+        },
+        {
+          "text": "him",
+          "why": "Him is for one boy."
+        },
+        {
+          "text": "us",
+          "why": "Us includes you."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.pronouns.008",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the missing word. 'Lina has a red bag. ___ bag is new.'",
+      "hints": [
+        "The bag belongs to Lina.",
+        "We need a word that shows whose bag it is.",
+        "Lina is a girl. Whose bag is it?"
+      ],
+      "explanation": "Her shows the bag belongs to Lina: Her bag is new.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "She",
+          "why": "She does the action. Here we need a word that shows whose bag."
+        },
+        {
+          "text": "Her"
+        },
+        {
+          "text": "His",
+          "why": "His is for a boy."
+        },
+        {
+          "text": "It",
+          "why": "It does not show whose bag it is."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.009",
+      "skill": "e2.pronouns",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the pronouns. 'She gave it to me.'",
+      "hints": [
+        "Three words are pronouns.",
+        "Pronouns stand in for people and things.",
+        "Which words could be swapped for a name or a thing?"
+      ],
+      "explanation": "She, it and me are pronouns. They take the place of names and things.",
+      "options": [
+        {
+          "text": "She"
+        },
+        {
+          "text": "gave",
+          "why": "Gave is a doing word."
+        },
+        {
+          "text": "it"
+        },
+        {
+          "text": "to",
+          "why": "To is a small linking word."
+        },
+        {
+          "text": "me"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e2.pronouns.010",
+      "skill": "e2.pronouns",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Change the name to a pronoun. 'Dad is cooking. ___ is making soup.'",
+      "hints": [
+        "Dad is a man.",
+        "We use a pronoun so we do not say Dad again.",
+        "Which pronoun is for one man?"
+      ],
+      "explanation": "Dad is a man, so we use he: He is making soup.",
+      "blanks": [
+        {
+          "answers": [
+            "He"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.011",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Choose the correct sentence.",
+      "hints": [
+        "Take Ali away. Which sounds right: I went, or me went?",
+        "Polite speakers name the other person first.",
+        "Find the sentence that does both."
+      ],
+      "explanation": "We say I went, and we put the other person first: Ali and I went to the shop.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "Me and Ali went to the shop.",
+          "why": "Me does not start a sentence like this."
+        },
+        {
+          "text": "Ali and I went to the shop."
+        },
+        {
+          "text": "Ali and me went to the shop.",
+          "why": "Before went, we use I, not me."
+        },
+        {
+          "text": "I and Ali went to the shop.",
+          "why": "It is polite to name the other person first."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.012",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: 'Pak Budi and his dog walk to the river. Then they sit by the water.' Who does they mean?",
+      "hints": [
+        "They means more than one.",
+        "Who walks to the river?",
+        "Look back at the first sentence."
+      ],
+      "explanation": "They means Pak Budi and his dog. They walk to the river, and then they sit down.",
+      "options": [
+        {
+          "text": "Pak Budi and his dog"
+        },
+        {
+          "text": "the river",
+          "why": "A river cannot sit."
+        },
+        {
+          "text": "the water",
+          "why": "Water cannot sit."
+        },
+        {
+          "text": "Pak Budi",
+          "why": "They means more than one."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.pronouns.013",
+      "skill": "e2.pronouns",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write a pronoun. 'Can you help ___? I cannot reach the shelf.'",
+      "hints": [
+        "The person speaking needs help.",
+        "Read the second sentence: I cannot reach.",
+        "After help, we do not use I. What do we use?"
+      ],
+      "explanation": "The speaker needs help, so the pronoun is me: Can you help me?",
+      "blanks": [
+        {
+          "answers": [
+            "me"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.014",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence sounds best?",
+      "hints": [
+        "Pronouns help us not to repeat names.",
+        "Check that each pronoun fits the person or thing.",
+        "The hat is a thing. Which pronoun is for a thing?"
+      ],
+      "explanation": "Her, she and it replace Dewi and the hat, so the sentence does not repeat words.",
+      "options": [
+        {
+          "text": "Dewi lost Dewi's hat, so Dewi looked for Dewi's hat.",
+          "why": "Saying Dewi again and again sounds odd."
+        },
+        {
+          "text": "Dewi lost her hat, so she looked for it."
+        },
+        {
+          "text": "She lost her hat, so she looked for her.",
+          "why": "The hat is a thing, so we use it, not her."
+        },
+        {
+          "text": "Dewi lost it hat, so it looked for her.",
+          "why": "It is for things, not people."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.015",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many pronouns are in this sentence? 'We gave him the ball, and he kicked it to them.'",
+      "hints": [
+        "Pronouns take the place of names and things.",
+        "Find words like we, he and it.",
+        "Point to each pronoun as you count."
+      ],
+      "explanation": "We, him, he, it and them are pronouns. That makes 5.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "3",
+          "why": "Count them all again."
+        },
+        {
+          "text": "4",
+          "why": "Look at the end of the sentence."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "Ball and gave are not pronouns."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.pronouns.016",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which pronouns are missing? 'Our class has a goldfish. ___ is orange. ___ feed it every morning.'",
+      "hints": [
+        "The first gap is about the goldfish.",
+        "The second gap is about our class.",
+        "Our class includes you."
+      ],
+      "explanation": "The goldfish is it, and our class is we: It is orange. We feed it every morning.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "He / They",
+          "why": "The goldfish is an animal, and our class includes us."
+        },
+        {
+          "text": "It / Us",
+          "why": "Us does not start a sentence like this."
+        },
+        {
+          "text": "It / We"
+        },
+        {
+          "text": "They / We",
+          "why": "There is only one goldfish."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.pronouns.017",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a pronoun?",
+      "hints": [
+        "A pronoun takes the place of a name.",
+        "It could replace Tom and Ali.",
+        "Which word could start: ___ are friends?"
+      ],
+      "explanation": "They is a pronoun. It can take the place of names.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "table",
+          "why": "Table is a noun."
+        },
+        {
+          "text": "jump",
+          "why": "Jump is a verb."
+        },
+        {
+          "text": "green",
+          "why": "Green is an adjective."
+        },
+        {
+          "text": "they"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

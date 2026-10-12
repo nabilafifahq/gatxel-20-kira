@@ -1,0 +1,426 @@
+{
+  "skill": "s4.circuits",
+  "items": [
+    {
+      "id": "s4.circuits.001",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of a circuit pushes the electricity around?",
+      "options": [
+        {
+          "text": "the bulb",
+          "why": "The bulb uses electricity to give light."
+        },
+        {
+          "text": "the switch",
+          "why": "The switch opens or closes the circuit."
+        },
+        {
+          "text": "the wire",
+          "why": "Wires carry electricity, but they do not push it."
+        },
+        {
+          "text": "the battery"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Every working circuit needs one of these.",
+        "It stores energy.",
+        "Torches and remote controls have these inside."
+      ],
+      "explanation": "The battery pushes electricity around the circuit. Without a battery, nothing happens."
+    },
+    {
+      "id": "s4.circuits.002",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which circuit will light the bulb?",
+      "options": [
+        {
+          "figure": {
+            "kind": "circuit",
+            "parts": [
+              "battery",
+              "bulb",
+              "switch-closed"
+            ],
+            "alt": "A loop with a battery, a bulb and a closed switch."
+          }
+        },
+        {
+          "figure": {
+            "kind": "circuit",
+            "parts": [
+              "battery",
+              "bulb",
+              "switch-open"
+            ],
+            "alt": "A loop with a battery, a bulb and an open switch."
+          },
+          "why": "The switch is open, so there is a gap in the circuit."
+        },
+        {
+          "figure": {
+            "kind": "circuit",
+            "parts": [
+              "battery",
+              "bulb",
+              "gap"
+            ],
+            "alt": "A loop with a battery, a bulb and a gap in the wire."
+          },
+          "why": "There is a gap in the wire, so the circuit is not complete."
+        },
+        {
+          "figure": {
+            "kind": "circuit",
+            "parts": [
+              "bulb",
+              "switch-closed"
+            ],
+            "alt": "A loop with a bulb and a closed switch, but no battery."
+          },
+          "why": "There is no battery to push the electricity."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A bulb lights only in a complete loop.",
+        "Look for gaps and open switches.",
+        "Check that the circuit has something to push the electricity."
+      ],
+      "explanation": "The bulb lights only when there is a battery and a complete loop with no gaps. A closed switch completes the loop."
+    },
+    {
+      "id": "s4.circuits.003",
+      "skill": "s4.circuits",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A switch that is ___ makes a gap, so the circuit is off.",
+      "blanks": [
+        {
+          "answers": [
+            "open",
+            "opened",
+            "off"
+          ]
+        }
+      ],
+      "hints": [
+        "A switch has two positions.",
+        "A gap stops electricity flowing.",
+        "Think about a drawbridge that is up."
+      ],
+      "explanation": "An open switch makes a gap in the circuit. Electricity cannot flow, so the circuit is off."
+    },
+    {
+      "id": "s4.circuits.004",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why is the bulb in this circuit not lit?",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "switch-open"
+        ],
+        "alt": "A circuit with a battery, an unlit bulb and an open switch."
+      },
+      "options": [
+        {
+          "text": "The battery is too big.",
+          "why": "A battery's size does not stop the bulb lighting here."
+        },
+        {
+          "text": "The switch is open, so the circuit is not complete."
+        },
+        {
+          "text": "Bulbs only light in the dark.",
+          "why": "Bulbs light in the dark and in daylight."
+        },
+        {
+          "text": "The wires are too long.",
+          "why": "Longer wires still carry electricity."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at every part of the circuit.",
+        "Is the loop complete?",
+        "Which part can make a gap?"
+      ],
+      "explanation": "The switch is open, so there is a gap in the loop. Electricity cannot flow, so the bulb stays off."
+    },
+    {
+      "id": "s4.circuits.005",
+      "skill": "s4.circuits",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each component to its job.",
+      "pairs": [
+        [
+          "battery",
+          "pushes electricity around the circuit"
+        ],
+        [
+          "bulb",
+          "gives out light"
+        ],
+        [
+          "buzzer",
+          "makes a sound"
+        ],
+        [
+          "switch",
+          "opens and closes a gap"
+        ],
+        [
+          "motor",
+          "makes something spin"
+        ]
+      ],
+      "hints": [
+        "Think about what each component does when the circuit is on.",
+        "A doorbell uses one of these.",
+        "A toy fan uses another."
+      ],
+      "explanation": "The battery pushes electricity, the bulb lights and the buzzer sounds. The switch opens and closes a gap, and the motor spins."
+    },
+    {
+      "id": "s4.circuits.006",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ari joins one wire from a battery to a bulb. Nothing else is connected. Does the bulb light?",
+      "options": [
+        {
+          "text": "Yes, one wire is enough.",
+          "why": "Electricity needs a full loop out and back."
+        },
+        {
+          "text": "Yes, if the battery is new.",
+          "why": "Even a new battery needs a complete loop."
+        },
+        {
+          "text": "No, because electricity needs a complete loop back to the battery."
+        },
+        {
+          "text": "No, because bulbs need three wires.",
+          "why": "A bulb needs two connections in a loop, not three wires."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Electricity flows round in a loop.",
+        "Follow the path from the battery. Does it come back?",
+        "Count the connections on the bulb."
+      ],
+      "explanation": "Electricity must flow out of the battery, through the bulb and back again. One wire cannot make a complete loop.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.circuits.007",
+      "skill": "s4.circuits",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 reasons why a bulb in a circuit might not light.",
+      "options": [
+        {
+          "text": "The bulb is loose in its holder."
+        },
+        {
+          "text": "The switch is closed.",
+          "why": "A closed switch completes the circuit."
+        },
+        {
+          "text": "The battery is flat."
+        },
+        {
+          "text": "The wires make a full loop.",
+          "why": "A full loop is what a circuit needs."
+        },
+        {
+          "text": "The room is bright.",
+          "why": "A bulb lights in any room."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about faults: something loose, broken or used up.",
+        "Cross out things that help a circuit work.",
+        "Look for one problem with the bulb and one with the battery."
+      ],
+      "explanation": "A loose bulb makes a gap, and a flat battery cannot push electricity. Either one stops the bulb lighting."
+    },
+    {
+      "id": "s4.circuits.008",
+      "skill": "s4.circuits",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order to build a circuit with a switch.",
+      "items": [
+        "Join a wire from the battery to the switch.",
+        "Join a wire from the switch to the bulb.",
+        "Join a wire from the bulb back to the battery.",
+        "Close the switch to light the bulb."
+      ],
+      "hints": [
+        "Start at the battery.",
+        "Follow the loop round, one part at a time.",
+        "Closing the switch comes last."
+      ],
+      "explanation": "Join the parts one after another in a loop: battery, switch, bulb and back to the battery. Then close the switch."
+    },
+    {
+      "id": "s4.circuits.009",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "This circuit has a bulb and a buzzer in one loop. What happens if the bulb breaks?",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb-lit",
+          "buzzer",
+          "switch-closed"
+        ],
+        "alt": "A single loop with a battery, a lit bulb, a buzzer and a closed switch."
+      },
+      "options": [
+        {
+          "text": "The buzzer gets louder.",
+          "why": "A broken bulb makes a gap. It cannot make the buzzer louder."
+        },
+        {
+          "text": "Only the bulb stops. The buzzer keeps buzzing.",
+          "why": "In a single loop, a break anywhere stops everything."
+        },
+        {
+          "text": "The battery is ruined.",
+          "why": "The battery is fine. The loop is just broken."
+        },
+        {
+          "text": "The buzzer stops too, because the loop is broken."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Everything is in one loop.",
+        "A broken bulb makes a gap.",
+        "Can electricity get past a gap?"
+      ],
+      "explanation": "In a single loop, electricity must pass through every component. A broken bulb makes a gap, so the buzzer stops too.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.circuits.010",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why must you never poke anything into a wall socket?",
+      "options": [
+        {
+          "text": "Mains electricity is very strong and can badly hurt you."
+        },
+        {
+          "text": "It would use up the battery.",
+          "why": "Wall sockets are not batteries."
+        },
+        {
+          "text": "Sockets only work when it rains.",
+          "why": "Sockets work in any weather."
+        },
+        {
+          "text": "It makes the lights brighter.",
+          "why": "Poking a socket is dangerous. It does not change the lights."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Wall sockets are connected to mains electricity.",
+        "Mains electricity is much stronger than a battery.",
+        "Think about why sockets have safety covers."
+      ],
+      "explanation": "Mains electricity is very strong and can cause serious injury. Only use batteries for experiments.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s4.circuits.011",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Two bulbs light in a single loop with one battery. Ana adds a third bulb to the same loop. What happens?",
+      "options": [
+        {
+          "text": "The bulbs get brighter.",
+          "why": "More bulbs share the same battery, so each gets less."
+        },
+        {
+          "text": "All the bulbs get dimmer."
+        },
+        {
+          "text": "Only the new bulb lights.",
+          "why": "All the bulbs are in the same loop, so all of them light."
+        },
+        {
+          "text": "Nothing changes.",
+          "why": "Adding a bulb to the loop changes how bright they are."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The battery has not changed.",
+        "More bulbs share the battery's push.",
+        "Is it harder or easier for electricity to flow now?"
+      ],
+      "explanation": "Each extra bulb in a single loop makes it harder for electricity to flow. With the same battery, all the bulbs glow more dimly.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.circuits.012",
+      "skill": "s4.circuits",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a circuit with a battery, a bulb and a switch. The switch must turn the bulb on and off. Label each part.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a complete loop with no gaps",
+            "points": 2
+          },
+          {
+            "label": "Includes a battery, a bulb and a switch",
+            "points": 1
+          },
+          {
+            "label": "Labels each component",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Draw the battery first, then join the parts in a loop.",
+        "Put the switch anywhere in the loop."
+      ],
+      "explanation": "The battery, bulb and switch must form one complete loop. When the switch closes, the bulb lights."
+    }
+  ]
+}

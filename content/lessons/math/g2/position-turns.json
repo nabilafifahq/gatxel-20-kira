@@ -1,0 +1,102 @@
+{
+  "skill": "m2.position-turns",
+  "title": "Moves and turns",
+  "steps": [
+    {
+      "say": "On a grid, move right or left first. Then move up or down.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "label": "A"
+          }
+        ],
+        "alt": "A grid. S is at 1 across and 1 up. A is at 4 across and 3 up."
+      },
+      "show": "S to A: 3 right, 2 up"
+    },
+    {
+      "say": "Clockwise is the way clock hands move. A quarter turn clockwise goes from 12 to 3.",
+      "figure": {
+        "kind": "clock",
+        "h": 12,
+        "m": 15,
+        "alt": "A clock. The long minute hand points to 3. The short hour hand is between 12 and 1."
+      },
+      "show": "12 to 3"
+    },
+    {
+      "say": "A half turn makes you face the opposite way.",
+      "show": "12 to 6"
+    },
+    {
+      "say": "Anticlockwise is the other way. A quarter turn anticlockwise goes from 12 to 9.",
+      "show": "12 to 9"
+    },
+    {
+      "say": "4 quarter turns make a full turn.",
+      "show": "4 quarter turns = 1 full turn"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.position-turns.901",
+      "skill": "m2.position-turns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The long hand points to 3. It makes a half turn. Where does it point now?",
+      "figure": {
+        "kind": "clock",
+        "h": 12,
+        "m": 15,
+        "alt": "A clock. The long minute hand points to 3. The short hour hand is between 12 and 1."
+      },
+      "hints": [
+        "A half turn points the opposite way.",
+        "Opposite 3 on a clock is straight across.",
+        "Start at 3. Turn halfway round the clock."
+      ],
+      "explanation": "A half turn from 3 points to 9, on the opposite side of the clock.",
+      "options": [
+        {
+          "text": "6",
+          "why": "6 is a quarter turn clockwise from 3."
+        },
+        {
+          "text": "12",
+          "why": "12 is a quarter turn anticlockwise from 3."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "3",
+          "why": "That is where it started."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m2.position-turns.902",
+      "skill": "m2.position-turns",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many quarter turns make a full turn?",
+      "hints": [
+        "A quarter turn is one of 4 equal turns.",
+        "Use a clock: 12 to 3 is one quarter turn.",
+        "Count the quarter turns from 12 all the way back to 12."
+      ],
+      "explanation": "12 to 3, 3 to 6, 6 to 9 and 9 to 12 make 4 quarter turns.",
+      "answer": 4
+    }
+  ]
+}

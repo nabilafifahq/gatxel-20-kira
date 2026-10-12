@@ -1,0 +1,65 @@
+{
+  "skill": "m3.fractions-of-amounts",
+  "title": "Fractions of amounts",
+  "steps": [
+    {
+      "say": "To find 1/3 of 12, share 12 into 3 equal groups.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          4,
+          4,
+          4
+        ],
+        "icon": "strawberry",
+        "container": "circle",
+        "alt": "12 strawberries in 3 equal groups of 4."
+      }
+    },
+    {
+      "say": "Each group has 4, so 1/3 of 12 is 4.",
+      "show": "12 ÷ 3 = 4"
+    },
+    {
+      "say": "To find 2/3 of 12, take 2 of the groups.",
+      "show": "2 × 4 = 8"
+    },
+    {
+      "say": "Divide by the bottom number, then multiply by the top number.",
+      "show": "2/3 of 12 = 8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.fractions-of-amounts.901",
+      "skill": "m3.fractions-of-amounts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 1/4 of 20?",
+      "answer": 5,
+      "hints": [
+        "Share 20 into 4 equal groups.",
+        "Work out 20 ÷ 4.",
+        "Use the 4 times table."
+      ],
+      "explanation": "20 ÷ 4 = 5, so 1/4 of 20 is 5."
+    },
+    {
+      "id": "m3.fractions-of-amounts.902",
+      "skill": "m3.fractions-of-amounts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Leo has 15 marbles. Leo gives 2/5 of them to Sam. How many marbles does Sam get?",
+      "answer": 6,
+      "hints": [
+        "First find 1/5 of 15.",
+        "Work out 15 ÷ 5.",
+        "Then multiply by 2."
+      ],
+      "explanation": "15 ÷ 5 = 3, so 1/5 of 15 is 3. 2/5 of 15 is 2 × 3 = 6 marbles.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

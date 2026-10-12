@@ -1,0 +1,72 @@
+{
+  "skill": "e1.capitals-full-stops",
+  "title": "Capital letters and full stops",
+  "steps": [
+    {
+      "say": "A sentence starts with a capital letter.",
+      "show": "The cat naps."
+    },
+    {
+      "say": "A telling sentence ends with a full stop.",
+      "show": "The cat naps."
+    },
+    {
+      "say": "Names of people and places always start with a capital letter.",
+      "show": "Dewi, Budi, Jakarta"
+    },
+    {
+      "say": "When I means me, it is always a capital letter.",
+      "show": "Rio and I play."
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.capitals-full-stops.901",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is correct?",
+      "hints": [
+        "Check the start.",
+        "Check the end.",
+        "Find the one with a capital letter and a full stop."
+      ],
+      "explanation": "The dog barks. has a capital letter and a full stop.",
+      "options": [
+        {
+          "text": "the cat sleeps.",
+          "why": "Start with a capital letter."
+        },
+        {
+          "text": "The dog barks."
+        },
+        {
+          "text": "The bird sings",
+          "why": "End with a full stop."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.902",
+      "skill": "e1.capitals-full-stops",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the name with a capital letter: budi",
+      "hints": [
+        "Names start with a capital.",
+        "Change only the first letter.",
+        "Write a big B first."
+      ],
+      "explanation": "Budi is a name, so it starts with a capital B.",
+      "blanks": [
+        {
+          "answers": [
+            "Budi"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "skill": "s4.sound-vibrations",
+  "title": "Vibrations make sound",
+  "steps": [
+    {
+      "say": "Every sound is made by something vibrating. Vibrating means moving quickly back and forth.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "drum",
+            "label": "drum"
+          },
+          {
+            "icon": "guitar",
+            "label": "guitar"
+          },
+          {
+            "icon": "bell",
+            "label": "bell"
+          }
+        ],
+        "alt": "A drum, a guitar and a bell."
+      }
+    },
+    {
+      "say": "Touch your throat while you hum. You can feel your voice box vibrating."
+    },
+    {
+      "say": "Vibrations travel through materials to your ear. Sound travels through solids, liquids and gases.",
+      "show": "solid, liquid, gas"
+    },
+    {
+      "say": "Sound cannot travel through empty space. There is nothing there to vibrate."
+    },
+    {
+      "say": "Sound gets fainter as it travels further from where it was made."
+    },
+    {
+      "say": "Inside your ear, the vibrations make your eardrum vibrate. Your brain hears this as sound.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ear",
+            "label": "ear"
+          },
+          {
+            "icon": "brain",
+            "label": "brain"
+          }
+        ],
+        "alt": "An ear and a brain."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.sound-vibrations.901",
+      "skill": "s4.sound-vibrations",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What makes the sound when you pluck a guitar string?",
+      "options": [
+        {
+          "text": "the colour of the guitar",
+          "why": "Colour does not make sound."
+        },
+        {
+          "text": "the string vibrating"
+        },
+        {
+          "text": "light from the string",
+          "why": "Strings do not give out light."
+        },
+        {
+          "text": "the guitar staying still",
+          "why": "Something must move to make a sound."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Watch a plucked string closely.",
+        "It moves very quickly.",
+        "All sounds are made by this kind of movement."
+      ],
+      "explanation": "The plucked string vibrates. The vibrations travel through the air to your ears."
+    },
+    {
+      "id": "s4.sound-vibrations.902",
+      "skill": "s4.sound-vibrations",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Sound cannot travel through empty space because there is no ___ to carry it.",
+      "blanks": [
+        {
+          "answers": [
+            "air",
+            "material",
+            "matter",
+            "gas"
+          ]
+        }
+      ],
+      "hints": [
+        "On Earth, sound travels through something all around us.",
+        "We breathe it in.",
+        "The word has three letters."
+      ],
+      "explanation": "Sound needs a material, like air, to travel through. Empty space has no air."
+    }
+  ]
+}

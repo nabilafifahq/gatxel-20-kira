@@ -1,0 +1,132 @@
+{
+  "skill": "m5.primes-squares",
+  "title": "Prime numbers and square numbers",
+  "steps": [
+    {
+      "say": "A prime number has exactly two factors, 1 and itself. 7 is prime because only 1 × 7 makes 7.",
+      "show": "7 = 1 × 7"
+    },
+    {
+      "say": "A number with more than two factors is called composite. 9 is composite because 3 × 3 = 9.",
+      "show": "9 = 1 × 9 = 3 × 3"
+    },
+    {
+      "say": "1 is not prime, because it has only one factor. 2 is the only even prime number.",
+      "show": "Primes up to 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29"
+    },
+    {
+      "say": "A square number is a whole number times itself. It makes a square array.",
+      "show": "4 × 4 = 16",
+      "figure": {
+        "kind": "array",
+        "rows": 4,
+        "cols": 4,
+        "icon": "dot",
+        "alt": "An array of 4 rows of 4 dots making a square."
+      }
+    },
+    {
+      "say": "The first ten square numbers go up to 10 × 10 = 100.",
+      "show": "1, 4, 9, 16, 25, 36, 49, 64, 81, 100",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "4",
+          "9",
+          "16",
+          "25",
+          "36",
+          "49",
+          "64",
+          "81",
+          "100"
+        ],
+        "style": "boxes",
+        "alt": "A row of boxes with the square numbers from 1 to 100."
+      }
+    },
+    {
+      "say": "We write 5 squared as 5². It means 5 × 5.",
+      "show": "5² = 25"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.primes-squares.901",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is prime?",
+      "hints": [
+        "A prime number has exactly two factors.",
+        "Try dividing each number by 2, 3 and 5.",
+        "Start with 21: can you divide it by 3?"
+      ],
+      "explanation": "29 can only be divided exactly by 1 and 29, so it is prime.",
+      "options": [
+        {
+          "text": "27",
+          "why": "27 = 3 × 9, so it has more than two factors."
+        },
+        {
+          "text": "21",
+          "why": "21 = 3 × 7, so it is not prime."
+        },
+        {
+          "text": "25",
+          "why": "25 = 5 × 5, so it is a square number with three factors."
+        },
+        {
+          "text": "29"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.primes-squares.902",
+      "skill": "m5.primes-squares",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 7²?",
+      "hints": [
+        "The small 2 means squared.",
+        "Squared means a number multiplied by itself.",
+        "Use the 7 times table."
+      ],
+      "explanation": "7² = 7 × 7 = 49.",
+      "answer": 49
+    },
+    {
+      "id": "m5.primes-squares.903",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is both a square number and an even number?",
+      "hints": [
+        "List the square numbers up to 100.",
+        "Even numbers end in 0, 2, 4, 6 or 8.",
+        "Check each option against both rules."
+      ],
+      "explanation": "36 = 6 × 6, so it is a square number, and it ends in 6, so it is even.",
+      "options": [
+        {
+          "text": "36"
+        },
+        {
+          "text": "49",
+          "why": "49 is a square number, but it is odd."
+        },
+        {
+          "text": "18",
+          "why": "18 is even, but no whole number times itself makes 18."
+        },
+        {
+          "text": "25",
+          "why": "25 is a square number, but it is odd."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

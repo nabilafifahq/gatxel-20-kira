@@ -1,0 +1,240 @@
+{
+  "skill": "m3.perimeter-area",
+  "title": "Perimeter and area on a grid",
+  "steps": [
+    {
+      "say": "Perimeter is the distance all the way around a shape.",
+      "figure": {
+        "kind": "grid",
+        "rows": 5,
+        "cols": 6,
+        "shaded": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "showUnits": true,
+        "alt": "A rectangle 4 squares long and 3 squares wide on a grid of 1 cm squares."
+      }
+    },
+    {
+      "say": "Add the four sides of this rectangle.",
+      "show": "4 + 3 + 4 + 3 = 14 cm"
+    },
+    {
+      "say": "Area is the space inside a shape. Count the squares inside.",
+      "show": "12 squares"
+    },
+    {
+      "say": "3 rows of 4 squares make 12 squares.",
+      "show": "3 × 4 = 12"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.perimeter-area.901",
+      "skill": "m3.perimeter-area",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Each square is 1 cm long. What is the perimeter of the rectangle?",
+      "answer": 14,
+      "hints": [
+        "Go all the way around the edge.",
+        "Add the four sides.",
+        "The long sides are 5 cm each."
+      ],
+      "explanation": "5 + 2 + 5 + 2 = 14 cm.",
+      "unit": "cm",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 7,
+        "shaded": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "showUnits": true,
+        "alt": "A rectangle 5 squares long and 2 squares wide on a grid of 1 cm squares."
+      }
+    },
+    {
+      "id": "m3.perimeter-area.902",
+      "skill": "m3.perimeter-area",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the area of this rectangle? Count the squares.",
+      "answer": 18,
+      "hints": [
+        "Count the squares in one row.",
+        "Count the rows.",
+        "Multiply the squares in one row by the number of rows."
+      ],
+      "explanation": "3 rows of 6 squares: 3 × 6 = 18 squares.",
+      "unit": "squares",
+      "figure": {
+        "kind": "grid",
+        "rows": 5,
+        "cols": 8,
+        "shaded": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "showUnits": true,
+        "alt": "A rectangle 6 squares long and 3 squares wide on a grid."
+      }
+    }
+  ]
+}

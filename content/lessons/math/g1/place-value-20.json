@@ -1,0 +1,69 @@
+{
+  "skill": "m1.place-value-20",
+  "title": "Tens and ones",
+  "steps": [
+    {
+      "say": "Ten ones make 1 ten. We show a ten as a long rod.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 1,
+        "ones": 0,
+        "alt": "A ten rod."
+      }
+    },
+    {
+      "say": "13 is 1 ten and 3 ones.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 1,
+        "ones": 3,
+        "alt": "A ten rod and 3 small cubes."
+      },
+      "show": "13 = 10 + 3"
+    },
+    {
+      "say": "The 1 in 13 tells the ten. The 3 tells the ones.",
+      "show": "1 ten, 3 ones"
+    },
+    {
+      "say": "20 is 2 tens and no ones.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 2,
+        "ones": 0,
+        "alt": "2 ten rods."
+      },
+      "show": "20 = 10 + 10"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.place-value-20.901",
+      "skill": "m1.place-value-20",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "1 ten and 7 ones make ___.",
+      "hints": [
+        "A ten is 10.",
+        "Start at 10 and count on 7.",
+        "Write 1 for the ten. Then write the ones."
+      ],
+      "explanation": "10 and 7 more make 17.",
+      "answer": 17
+    },
+    {
+      "id": "m1.place-value-20.902",
+      "skill": "m1.place-value-20",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "16 is 1 ten and ___ ones.",
+      "hints": [
+        "Think of 16 as 10 and some more.",
+        "The 1 in 16 means 1 ten.",
+        "Count on from 10 to 16. How many steps?"
+      ],
+      "explanation": "16 = 10 + 6, so it is 1 ten and 6 ones.",
+      "answer": 6
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "skill": "s5.food-chains",
+  "title": "Who eats whom",
+  "steps": [
+    {
+      "say": "A food chain shows what eats what in a habitat. It always starts with a green plant.",
+      "figure": {
+        "kind": "icons",
+        "arrows": "chain",
+        "items": [
+          {
+            "icon": "plant",
+            "label": "rice plant"
+          },
+          {
+            "icon": "mouse",
+            "label": "rat"
+          },
+          {
+            "icon": "snake",
+            "label": "snake"
+          },
+          {
+            "icon": "bird",
+            "label": "eagle"
+          }
+        ],
+        "alt": "A food chain: rice plant, then rat, then snake, then eagle."
+      }
+    },
+    {
+      "say": "Plants are producers. They make their own food using energy from sunlight."
+    },
+    {
+      "say": "Animals are consumers. Herbivores eat plants, carnivores eat animals and omnivores eat both."
+    },
+    {
+      "say": "An arrow points from the food to the animal that eats it. It shows energy moving along the chain.",
+      "show": "The arrow means: is eaten by"
+    },
+    {
+      "say": "A predator hunts other animals. The animals it eats are its prey."
+    },
+    {
+      "say": "If one animal disappears, the others in the chain are affected. Fewer owls can mean more rats."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.food-chains.901",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In a food chain, what is a producer?",
+      "options": [
+        {
+          "text": "an animal that hunts other animals",
+          "why": "That is a predator."
+        },
+        {
+          "text": "an animal that is eaten",
+          "why": "That is prey."
+        },
+        {
+          "text": "a green plant that makes its own food"
+        },
+        {
+          "text": "an animal that eats only plants",
+          "why": "That is a herbivore."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Every food chain starts with a producer.",
+        "Producers do not need to eat other living things.",
+        "Think about what a rice plant does with sunlight."
+      ],
+      "explanation": "A producer is a green plant. It makes its own food using energy from sunlight, so it starts every food chain."
+    },
+    {
+      "id": "s5.food-chains.902",
+      "skill": "s5.food-chains",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In the food chain grass, rabbit, fox, which animal is the predator?",
+      "options": [
+        {
+          "text": "fox"
+        },
+        {
+          "text": "grass",
+          "why": "Grass is a producer. It is not an animal."
+        },
+        {
+          "text": "rabbit",
+          "why": "The rabbit eats grass and is hunted, so it is prey."
+        },
+        {
+          "text": "sunlight",
+          "why": "Sunlight gives energy, but it is not a living thing."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A predator hunts and eats other animals.",
+        "Follow the chain to find out what eats the rabbit.",
+        "Look at the end of the chain."
+      ],
+      "explanation": "The fox hunts and eats the rabbit, so the fox is the predator and the rabbit is its prey."
+    }
+  ]
+}

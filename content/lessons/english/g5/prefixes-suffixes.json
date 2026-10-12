@@ -1,0 +1,79 @@
+{
+  "skill": "e5.prefixes-suffixes",
+  "title": "Building words with prefixes and suffixes",
+  "steps": [
+    {
+      "say": "A prefix goes at the start of a word and changes its meaning. A suffix goes at the end.",
+      "show": "un + kind = unkind     kind + ness = kindness"
+    },
+    {
+      "say": "Some prefixes mean not. The right one often matches the first letter of the root word.",
+      "show": "impossible, illegal, irregular, incorrect"
+    },
+    {
+      "say": "When a suffix starts with a vowel, a final e is usually dropped.",
+      "show": "hope + ing = hoping     fame + ous = famous"
+    },
+    {
+      "say": "When a suffix starts with a consonant, the e usually stays.",
+      "show": "hope + ful = hopeful     excite + ment = excitement"
+    },
+    {
+      "say": "Some endings sound alike but are spelt differently. Learn each word family.",
+      "show": "enjoyable, possible, musician, explosion"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.prefixes-suffixes.901",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word means not polite?",
+      "options": [
+        {
+          "text": "impolite"
+        },
+        {
+          "text": "unpolite",
+          "why": "Polite starts with p, so it takes im-, not un-."
+        },
+        {
+          "text": "dispolite",
+          "why": "Dispolite is not a word."
+        },
+        {
+          "text": "inpolite",
+          "why": "Words starting with p take im-, not in-."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first letter of polite.",
+        "Words starting with p usually take the same prefix as possible.",
+        "Say each word aloud. Which one have you heard before?"
+      ],
+      "explanation": "Polite starts with p, so its opposite takes im-: impolite."
+    },
+    {
+      "id": "e5.prefixes-suffixes.902",
+      "skill": "e5.prefixes-suffixes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add -ing to smile. Write the new word.",
+      "blanks": [
+        {
+          "answers": [
+            "smiling"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the last letter of smile.",
+        "-ing starts with a vowel, so think about what happens to a final e.",
+        "Write smile without its last letter, then add -ing."
+      ],
+      "explanation": "Smile ends in e and -ing starts with a vowel, so the e is dropped: smiling."
+    }
+  ]
+}

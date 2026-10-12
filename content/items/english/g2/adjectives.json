@@ -1,0 +1,586 @@
+{
+  "skill": "e2.adjectives",
+  "items": [
+    {
+      "id": "e2.adjectives.001",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word describes the elephant? 'The huge elephant drinks water.'",
+      "hints": [
+        "A describing word tells us more about a noun.",
+        "What is the elephant like?",
+        "Look at the word just before elephant."
+      ],
+      "explanation": "Huge describes the elephant. It tells us its size.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "huge"
+        },
+        {
+          "text": "drinks",
+          "why": "Drinks is a doing word."
+        },
+        {
+          "text": "water",
+          "why": "Water is a naming word."
+        },
+        {
+          "text": "elephant",
+          "why": "Elephant is a naming word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.adjectives.002",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which describing word fits ice best?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ice-cube"
+          }
+        ],
+        "alt": "An ice cube."
+      },
+      "hints": [
+        "Think about how ice feels.",
+        "Imagine holding an ice cube.",
+        "Which word is about temperature?"
+      ],
+      "explanation": "Ice is cold.",
+      "options": [
+        {
+          "text": "hot",
+          "why": "Ice is not hot."
+        },
+        {
+          "text": "cold"
+        },
+        {
+          "text": "fluffy",
+          "why": "Fluffy is for things like kittens."
+        },
+        {
+          "text": "loud",
+          "why": "Ice does not make a loud sound."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.003",
+      "skill": "e2.adjectives",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the describing words. Size or colour?",
+      "hints": [
+        "Size words tell how big or small.",
+        "Colour words name a colour.",
+        "Start with tiny. Is it a size or a colour?"
+      ],
+      "explanation": "Tiny, huge and tall are size words. Green, purple and pink are colour words.",
+      "groups": [
+        "Size",
+        "Colour"
+      ],
+      "items": [
+        {
+          "text": "tiny",
+          "group": 0
+        },
+        {
+          "text": "green",
+          "group": 1
+        },
+        {
+          "text": "huge",
+          "group": 0
+        },
+        {
+          "text": "purple",
+          "group": 1
+        },
+        {
+          "text": "tall",
+          "group": 0
+        },
+        {
+          "text": "pink",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.004",
+      "skill": "e2.adjectives",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the describing words. 'A fluffy white cat sat on a soft mat.'",
+      "hints": [
+        "Three words are right.",
+        "Describing words tell us more about the cat and the mat.",
+        "Ask: what is the cat like? What is the mat like?"
+      ],
+      "explanation": "Fluffy and white describe the cat. Soft describes the mat.",
+      "options": [
+        {
+          "text": "fluffy"
+        },
+        {
+          "text": "white"
+        },
+        {
+          "text": "cat",
+          "why": "Cat is a naming word."
+        },
+        {
+          "text": "sat",
+          "why": "Sat is a doing word."
+        },
+        {
+          "text": "soft"
+        },
+        {
+          "text": "mat",
+          "why": "Mat is a naming word."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "e2.adjectives.005",
+      "skill": "e2.adjectives",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Add -er to compare. 'A bus is big. A plane is ___.'",
+      "hints": [
+        "Add -er to compare two things.",
+        "Big is a short word with one vowel.",
+        "Double the last letter before you add -er."
+      ],
+      "explanation": "Big becomes bigger. We double the g before adding -er.",
+      "blanks": [
+        {
+          "answers": [
+            "bigger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.006",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word tells how something feels when you touch it?",
+      "hints": [
+        "Think about your fingers.",
+        "Each word goes with a different sense.",
+        "Which word could describe a pebble in your hand?"
+      ],
+      "explanation": "Smooth tells us how something feels when we touch it.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "loud",
+          "why": "Loud is about sound."
+        },
+        {
+          "text": "yellow",
+          "why": "Yellow is a colour."
+        },
+        {
+          "text": "tasty",
+          "why": "Tasty is about taste."
+        },
+        {
+          "text": "smooth"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.adjectives.007",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which describing word fits best? 'The lemon tastes ___.'",
+      "hints": [
+        "Think about the sense of taste.",
+        "Lemons make your face scrunch up.",
+        "Which word is about taste?"
+      ],
+      "explanation": "Lemons taste sour.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "loud",
+          "why": "Loud is about sound."
+        },
+        {
+          "text": "sour"
+        },
+        {
+          "text": "furry",
+          "why": "Furry is about touch."
+        },
+        {
+          "text": "tall",
+          "why": "Tall is about height."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.008",
+      "skill": "e2.adjectives",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each thing to the best describing word.",
+      "hints": [
+        "Think about how each thing looks, feels or sounds.",
+        "Do the ones you are sure about first.",
+        "Start with thunder. What do you hear?"
+      ],
+      "explanation": "A rock is hard, honey is sticky, thunder is loud and a pillow is soft.",
+      "pairs": [
+        [
+          "rock",
+          "hard"
+        ],
+        [
+          "honey",
+          "sticky"
+        ],
+        [
+          "thunder",
+          "loud"
+        ],
+        [
+          "pillow",
+          "soft"
+        ]
+      ]
+    },
+    {
+      "id": "e2.adjectives.009",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ana is tall. Ben is taller. Cara is the tallest. Who is the tallest?",
+      "hints": [
+        "-er compares two people.",
+        "-est means more than all the others.",
+        "Find the name that goes with the -est word."
+      ],
+      "explanation": "Tallest means taller than everyone else, so Cara is the tallest.",
+      "options": [
+        {
+          "text": "Ana",
+          "why": "Ana is tall, but the others are taller."
+        },
+        {
+          "text": "Ben",
+          "why": "Ben is taller than Ana, but he is not the tallest."
+        },
+        {
+          "text": "Cara"
+        },
+        {
+          "text": "They are all the same.",
+          "why": "The words tell us they are different."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.adjectives.010",
+      "skill": "e2.adjectives",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Add -est to fast. 'This is the ___ car in the race.'",
+      "hints": [
+        "-est compares more than two things.",
+        "Fast does not change before the ending.",
+        "Write fast, then add the ending."
+      ],
+      "explanation": "Fast plus -est makes fastest.",
+      "blanks": [
+        {
+          "answers": [
+            "fastest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.011",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence paints the best picture?",
+      "hints": [
+        "Look for describing words.",
+        "Which sentence helps you see the boat?",
+        "Count the describing words in each sentence."
+      ],
+      "explanation": "Old, wooden and calm help us picture the boat and the sea.",
+      "options": [
+        {
+          "text": "The old wooden boat floated on the calm sea."
+        },
+        {
+          "text": "The boat was on the sea.",
+          "why": "This is correct, but it has no describing words."
+        },
+        {
+          "text": "There is a boat.",
+          "why": "This tells us very little."
+        },
+        {
+          "text": "Boats float.",
+          "why": "This is a fact with no detail."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.adjectives.012",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is NOT a describing word?",
+      "hints": [
+        "Three words describe a person.",
+        "One word is an action.",
+        "Try each one in: a ___ friend."
+      ],
+      "explanation": "Jump is a doing word. Brave, kind and funny are describing words.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "brave",
+          "why": "Brave describes a person."
+        },
+        {
+          "text": "kind",
+          "why": "Kind describes a person."
+        },
+        {
+          "text": "jump"
+        },
+        {
+          "text": "funny",
+          "why": "Funny describes a person or a thing."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.adjectives.013",
+      "skill": "e2.adjectives",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "The describing words go before kite.",
+        "Size usually comes before colour."
+      ],
+      "explanation": "I have a big red kite. In English, size words usually come before colour words.",
+      "items": [
+        "I",
+        "have",
+        "a",
+        "big",
+        "red",
+        "kite."
+      ]
+    },
+    {
+      "id": "e2.adjectives.014",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word fits? 'My bag is heavy, but your bag is even ___.'",
+      "hints": [
+        "You are comparing two bags.",
+        "Use the -er ending.",
+        "Heavy ends in y. Change the y to i first."
+      ],
+      "explanation": "Heavy becomes heavier. The y changes to i before -er.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "heavyer",
+          "why": "When a word ends in y, change the y to i."
+        },
+        {
+          "text": "heavier"
+        },
+        {
+          "text": "more heavy",
+          "why": "We add -er to a word like heavy."
+        },
+        {
+          "text": "heaviest",
+          "why": "Heaviest is for more than two things."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.015",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is the opposite of smallest?",
+      "hints": [
+        "Smallest ends with -est.",
+        "The opposite should also end with -est.",
+        "Think: small and big are opposites."
+      ],
+      "explanation": "Biggest is the opposite of smallest. Both end with -est.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "bigger",
+          "why": "Bigger compares two things."
+        },
+        {
+          "text": "small",
+          "why": "Small is not the opposite."
+        },
+        {
+          "text": "tiniest",
+          "why": "Tiniest means the same as smallest."
+        },
+        {
+          "text": "biggest"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.adjectives.016",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which group of words could describe a kitten?",
+      "hints": [
+        "Picture a kitten in your mind.",
+        "All three words in the group must fit.",
+        "Which group could describe something soft and little?"
+      ],
+      "explanation": "A kitten can be fluffy, playful and small.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "loud, metal, heavy",
+          "why": "These describe a machine."
+        },
+        {
+          "text": "fluffy, playful, small"
+        },
+        {
+          "text": "sour, juicy, round",
+          "why": "These describe a fruit."
+        },
+        {
+          "text": "tall, leafy, green",
+          "why": "These describe a tree."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.017",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Read: 'The sky was dark and the wind howled.' What kind of day was it?",
+      "hints": [
+        "Look at the describing words.",
+        "A dark sky and a howling wind go together.",
+        "What weather has dark clouds and strong wind?"
+      ],
+      "explanation": "A dark sky and a howling wind show it was a stormy day.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "sunny",
+          "why": "Sunny days are bright, not dark."
+        },
+        {
+          "text": "calm",
+          "why": "A calm day has gentle wind."
+        },
+        {
+          "text": "stormy"
+        },
+        {
+          "text": "warm and still",
+          "why": "Still means there is no wind."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.adjectives.018",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which describing word tells the number? 'Three small ducks swim.'",
+      "hints": [
+        "Describing words can tell size, colour or number.",
+        "Which word answers: how many?",
+        "Count the ducks in the sentence."
+      ],
+      "explanation": "Three tells us how many ducks. Small tells us the size.",
+      "options": [
+        {
+          "text": "Three"
+        },
+        {
+          "text": "small",
+          "why": "Small tells the size."
+        },
+        {
+          "text": "ducks",
+          "why": "Ducks is a naming word."
+        },
+        {
+          "text": "swim",
+          "why": "Swim is a doing word."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

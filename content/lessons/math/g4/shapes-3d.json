@@ -1,0 +1,148 @@
+{
+  "skill": "m4.shapes-3d",
+  "title": "3D shapes and nets",
+  "steps": [
+    {
+      "say": "A prism has two matching ends joined by rectangles. This is a triangular prism.",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A picture of a triangular prism."
+      }
+    },
+    {
+      "say": "A pyramid has one base and triangle faces that meet at a point.",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A picture of a square-based pyramid."
+      }
+    },
+    {
+      "say": "A net is a flat shape that folds up to make a 3D shape.",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "alt": "A net of 6 squares: a column of 4, with one square on each side of the second square."
+      }
+    },
+    {
+      "say": "This net has 6 squares that fold into a cube without overlapping.",
+      "show": "6 square faces"
+    },
+    {
+      "say": "Not every set of 6 squares is a net. Folding 2 rows of 3 makes squares overlap.",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "alt": "Six squares in 2 rows of 3."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.shapes-3d.901",
+      "skill": "m4.shapes-3d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A net has 2 triangles and 3 rectangles. Which 3D shape does it make?",
+      "options": [
+        {
+          "text": "Triangular prism"
+        },
+        {
+          "text": "Square-based pyramid",
+          "why": "Its net has 1 square and 4 triangles."
+        },
+        {
+          "text": "Cube",
+          "why": "Its net has 6 squares."
+        },
+        {
+          "text": "Cylinder",
+          "why": "Its net has 2 circles and 1 rectangle."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Each flat shape becomes one face.",
+        "Two matching ends joined by rectangles make a prism.",
+        "Look at the shape of the two ends."
+      ],
+      "explanation": "The 2 triangles are the ends, and the 3 rectangles join them. That makes a triangular prism."
+    },
+    {
+      "id": "m4.shapes-3d.902",
+      "skill": "m4.shapes-3d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many edges does a triangular prism have?",
+      "answer": 9,
+      "hints": [
+        "Count the edges on each triangle end.",
+        "Then count the edges that join the two ends.",
+        "Each triangle has 3 edges."
+      ],
+      "explanation": "3 edges on each end and 3 edges joining them. 3 + 3 + 3 = 9 edges.",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A picture of a triangular prism."
+      }
+    }
+  ]
+}

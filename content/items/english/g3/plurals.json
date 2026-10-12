@@ -1,0 +1,131 @@
+{
+  "skill": "e3.plurals",
+  "items": [
+    {
+      "id": "e3.plurals.001", "skill": "e3.plurals", "type": "mcq", "difficulty": 1,
+      "prompt": "One cat, two ___.",
+      "figure": { "kind": "objects", "items": [{ "icon": "cat", "count": 2 }], "alt": "Two cats sitting side by side." },
+      "options": [
+        { "text": "cates", "why": "We only add -es after s, sh, ch, x or z." },
+        { "text": "cats" },
+        { "text": "caties", "why": "Cat does not end in y, so there is no -ies." },
+        { "text": "cat", "why": "Cat is for one. There are two." }
+      ],
+      "answer": 1,
+      "hints": ["Count the animals in the picture.", "Most words just add -s to make more than one.", "Does cat end in s, sh, ch, x or y? If not, what do you add?"],
+      "explanation": "Most nouns just add -s. One cat, two cats."
+    },
+    {
+      "id": "e3.plurals.002", "skill": "e3.plurals", "type": "text", "difficulty": 1,
+      "prompt": "One box, two ___.",
+      "figure": { "kind": "objects", "items": [{ "icon": "box", "count": 2 }], "alt": "Two boxes." },
+      "blanks": [{ "answers": ["boxes"] }],
+      "hints": ["Look at the last letter of box.", "Words ending in s, sh, ch, x or z add -es.", "Say the plural aloud. Can you hear an extra sound at the end?"],
+      "explanation": "Box ends in x, so we add -es. One box, two boxes."
+    },
+    {
+      "id": "e3.plurals.003", "skill": "e3.plurals", "type": "text", "difficulty": 2,
+      "prompt": "One baby, three ___.",
+      "blanks": [{ "answers": ["babies"] }],
+      "hints": ["Baby ends in a consonant and then y.", "When a word ends in a consonant and y, change the y and add -es.", "Think of lorry and lorries. Do the same with baby."],
+      "explanation": "Baby ends in b and then y. Change y to i and add -es: babies."
+    },
+    {
+      "id": "e3.plurals.004", "skill": "e3.plurals", "type": "sort", "difficulty": 3,
+      "prompt": "Sort the words by how you make them plural.",
+      "groups": ["Add -s", "Add -es", "Change y to -ies"],
+      "items": [
+        { "text": "book", "group": 0 }, { "text": "toy", "group": 0 }, { "text": "key", "group": 0 },
+        { "text": "dish", "group": 1 }, { "text": "bench", "group": 1 }, { "text": "fox", "group": 1 },
+        { "text": "pony", "group": 2 }, { "text": "story", "group": 2 }, { "text": "cherry", "group": 2 }
+      ],
+      "hints": ["Look carefully at how each word ends.", "Words ending in sh, ch or x add -es. A consonant and y changes to -ies.", "Look at toy and key. Is the letter before y a vowel or a consonant?"],
+      "explanation": "Book, toy and key add -s. Dish, bench and fox add -es. Pony, story and cherry change y to -ies."
+    },
+    {
+      "id": "e3.plurals.005", "skill": "e3.plurals", "type": "mcq", "difficulty": 2,
+      "prompt": "Which plural is spelt correctly?",
+      "options": [
+        { "text": "monkies", "why": "Monkey has a vowel before the y, so it just adds -s." },
+        { "text": "monkeyes", "why": "We only add -es after s, sh, ch, x or z." },
+        { "text": "monkeyies", "why": "Do not keep the y and add -ies too." },
+        { "text": "monkeys" }
+      ],
+      "answer": 3,
+      "hints": ["Look at the letter just before the y in monkey.", "If a vowel comes before y, just add -s.", "Think of day and days. Monkey works the same way."],
+      "explanation": "Monkey ends in a vowel and then y, so we just add -s: monkeys.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.plurals.006", "skill": "e3.plurals", "type": "match", "difficulty": 2,
+      "prompt": "Match each word to its plural.",
+      "pairs": [["bus", "buses"], ["party", "parties"], ["day", "days"], ["watch", "watches"], ["lorry", "lorries"]],
+      "hints": ["Look at the end of each word.", "Words ending in s, sh, ch or x add -es. A consonant and y changes to -ies.", "Start with day. A vowel comes before y, so what do you add?"],
+      "explanation": "Bus and watch add -es. Party and lorry change y to -ies. Day just adds -s."
+    },
+    {
+      "id": "e3.plurals.007", "skill": "e3.plurals", "type": "text", "difficulty": 3,
+      "prompt": "Write the plural of lunchbox.\nThere were three ___ on the table.",
+      "blanks": [{ "answers": ["lunchboxes"] }],
+      "hints": ["Lunchbox is made of lunch and box.", "Look at the very last letter of the word.", "Words ending in x add the same ending as fox."],
+      "explanation": "Lunchbox ends in x, so we add -es: lunchboxes."
+    },
+    {
+      "id": "e3.plurals.008", "skill": "e3.plurals", "type": "mcq", "difficulty": 2,
+      "prompt": "We picked lots of ___ from the tree.",
+      "figure": { "kind": "objects", "items": [{ "icon": "cherry", "count": 6 }], "alt": "Six cherries." },
+      "options": [
+        { "text": "cherries" },
+        { "text": "cherrys", "why": "Cherry has a consonant before the y, so the y changes to i." },
+        { "text": "cherryes", "why": "Change the y to i and add -es. Do not keep the y." },
+        { "text": "cherrie", "why": "This is missing the s at the end." }
+      ],
+      "answer": 0,
+      "hints": ["Cherry ends in r and then y.", "When a consonant comes before y, change y to i and add -es.", "Think of story and stories."],
+      "explanation": "Cherry ends in a consonant and y, so we change y to i and add -es: cherries.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.plurals.009", "skill": "e3.plurals", "type": "text", "difficulty": 3,
+      "prompt": "Write the plural of city.\nJakarta and Surabaya are big ___.",
+      "blanks": [{ "answers": ["cities"] }],
+      "hints": ["There are two places, so you need the plural.", "City ends in a consonant and then y.", "Change the y and add the ending, just like baby and babies."],
+      "explanation": "City ends in t and then y, so the y changes to i and we add -es: cities."
+    },
+    {
+      "id": "e3.plurals.010", "skill": "e3.plurals", "type": "mcq", "difficulty": 4,
+      "prompt": "Which sentence has every plural spelt correctly?",
+      "options": [
+        { "text": "The boys put the toyes in boxs.", "why": "Toy just adds -s, and box adds -es." },
+        { "text": "The boies put the toys in boxes.", "why": "Boy has a vowel before the y, so it is boys." },
+        { "text": "The boys put the toys in boxes." },
+        { "text": "The boys put the toys in boxies.", "why": "Box ends in x, so it adds -es." }
+      ],
+      "answer": 2,
+      "hints": ["Check each plural word, one at a time.", "Boy and toy end in a vowel and y. Box ends in x.", "Start with the first plural in each sentence. Is it boys or boies?"],
+      "explanation": "Boy and toy just add -s because a vowel comes before y. Box adds -es. So it is boys, toys and boxes.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e3.plurals.011", "skill": "e3.plurals", "type": "text", "difficulty": 4,
+      "prompt": "Write the plurals of fly and dish.\nTwo ___ landed on the clean ___.",
+      "blanks": [{ "answers": ["flies"] }, { "answers": ["dishes"] }],
+      "hints": ["You need two plural words.", "Fly ends in a consonant and y. Dish ends in sh.", "Do fly first. What happens to the y?"],
+      "explanation": "Fly changes y to i and adds -es: flies. Dish ends in sh, so it adds -es: dishes."
+    },
+    {
+      "id": "e3.plurals.012", "skill": "e3.plurals", "type": "mcq", "difficulty": 5,
+      "prompt": "Which word just adds -s to make its plural?",
+      "options": [
+        { "text": "puppy", "why": "Puppy has a consonant before the y, so it becomes puppies." },
+        { "text": "donkey" },
+        { "text": "berry", "why": "Berry becomes berries, because r comes before the y." },
+        { "text": "story", "why": "Story becomes stories, because r comes before the y." }
+      ],
+      "answer": 1,
+      "hints": ["All four words end in y.", "Look at the letter just before the y in each word.", "If that letter is a vowel, the word just adds -s."],
+      "explanation": "Donkey has the vowel e before the y, so it just adds -s: donkeys. The others change y to -ies.",
+      "tags": ["iklc"]
+    }
+  ]
+}

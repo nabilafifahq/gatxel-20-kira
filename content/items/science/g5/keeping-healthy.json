@@ -1,0 +1,233 @@
+{
+  "skill": "s5.keeping-healthy",
+  "items": [
+    {
+      "id": "s5.keeping-healthy.001",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which habit helps to keep your teeth healthy?",
+      "options": [
+        { "text": "eating sweets just before bed", "why": "Sugar left on teeth overnight feeds bacteria that make acid, and acid can make holes in teeth." },
+        { "text": "brushing your teeth twice a day" },
+        { "text": "brushing your teeth once a week", "why": "Once a week is not enough. Brush in the morning and before bed." },
+        { "text": "sipping sugary drinks all day", "why": "Sugary drinks cover your teeth in sugar again and again." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what removes food and sugar from your teeth.",
+        "Bacteria in your mouth use sugar to make acid, and acid damages teeth.",
+        "Cross out the choices that leave sugar on your teeth for a long time."
+      ],
+      "explanation": "Brushing in the morning and before bed removes food and bacteria from your teeth. This stops acid building up and making holes in them."
+    },
+    {
+      "id": "s5.keeping-healthy.002",
+      "skill": "s5.keeping-healthy",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each food group to its main job in the body.",
+      "pairs": [
+        ["carbohydrates", "give us energy"],
+        ["proteins", "help the body grow and repair itself"],
+        ["vitamins and minerals", "help keep the body working well"],
+        ["fibre", "helps food move through the gut"]
+      ],
+      "hints": [
+        "Each food group has one main job. Think about running, growing and staying well.",
+        "Think of an example food for each group, such as rice, eggs, fruit or vegetables.",
+        "Start with carbohydrates. Rice and bread give you the power to run and play."
+      ],
+      "explanation": "Carbohydrates such as rice give energy, and proteins such as eggs help the body grow and repair. Vitamins and minerals keep the body working well, and fibre helps food move through the gut."
+    },
+    {
+      "id": "s5.keeping-healthy.003",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which food is rich in protein?",
+      "options": [
+        { "text": "rice", "why": "Rice is mostly carbohydrate, which gives energy." },
+        { "text": "mango", "why": "Mangoes give vitamins, fibre and natural sugars, with very little protein." },
+        { "text": "cooking oil", "why": "Cooking oil is a fat. It stores energy but has no protein." },
+        { "text": "tempeh" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Protein helps the body grow and repair itself.",
+        "Protein foods often come from animals, beans or soya beans.",
+        "Cross out the fruit and the oil first. Then compare the two foods that are left."
+      ],
+      "explanation": "Tempeh is made from soya beans, which are rich in protein. Rice is mostly carbohydrate, mango gives vitamins and oil is a fat."
+    },
+    {
+      "id": "s5.keeping-healthy.004",
+      "skill": "s5.keeping-healthy",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the foods by the main food group in each one.",
+      "groups": ["Mostly carbohydrate", "Mostly protein", "Mostly fat"],
+      "items": [
+        { "text": "rice", "group": 0 },
+        { "text": "bread", "group": 0 },
+        { "text": "sweet potato", "group": 0 },
+        { "text": "fish", "group": 1 },
+        { "text": "tofu", "group": 1 },
+        { "text": "chicken", "group": 1 },
+        { "text": "butter", "group": 2 },
+        { "text": "cooking oil", "group": 2 }
+      ],
+      "hints": [
+        "Carbohydrates give quick energy, proteins help you grow and fats store energy.",
+        "Think about where each food comes from: grains and roots, animals and beans, or oils.",
+        "Start with the foods made from grains or roots, such as rice."
+      ],
+      "explanation": "Rice, bread and sweet potato are mostly carbohydrate. Fish, tofu and chicken are rich in protein, while butter and cooking oil are fats."
+    },
+    {
+      "id": "s5.keeping-healthy.005",
+      "skill": "s5.keeping-healthy",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the habits that help to stop harmful microorganisms spreading.",
+      "options": [
+        { "text": "washing your hands with soap before eating" },
+        { "text": "covering your mouth when you cough or sneeze" },
+        { "text": "sharing a drinking bottle with a friend who is ill", "why": "Microorganisms from the ill person can pass to you on the bottle." },
+        { "text": "keeping food covered so flies cannot land on it" },
+        { "text": "rinsing your hands with cold water only", "why": "Water alone leaves many microorganisms behind. Soap removes far more." }
+      ],
+      "answers": [0, 1, 3],
+      "hints": [
+        "Harmful microorganisms spread on hands, in droplets from coughs and on flies.",
+        "For each habit, ask whether it stops microorganisms reaching your mouth or someone else.",
+        "Start with the habits that use soap or a cover. Then think about sharing and rinsing."
+      ],
+      "explanation": "Soap, covering coughs and covering food all stop microorganisms reaching people. Sharing a bottle with someone who is ill, or rinsing without soap, lets microorganisms spread."
+    },
+    {
+      "id": "s5.keeping-healthy.006",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which food is made with the help of useful microorganisms?",
+      "options": [
+        { "text": "boiled rice", "why": "Rice is cooked with heat in water. No microorganism is needed." },
+        { "text": "orange juice", "why": "Juice is squeezed from fruit. No microorganism is needed." },
+        { "text": "tapai, made from cassava" },
+        { "text": "sea salt", "why": "Sea salt is left behind when sea water evaporates. No microorganism is needed." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Some foods change because tiny living things grow in them for a few days.",
+        "Yeast is a useful microorganism. It can make food soft, sweet or bubbly.",
+        "Cross out the foods that are only cooked, squeezed or dried."
+      ],
+      "explanation": "Tapai is made by adding ragi to cooked cassava. Ragi contains yeasts and moulds, useful microorganisms that turn the starch into sugars and make the cassava sweet and soft.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.keeping-healthy.007",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at the table. Which lunch box gives the most balanced meal?",
+      "figure": {
+        "kind": "table",
+        "caption": "What is in each lunch box",
+        "head": ["Lunch box", "Foods inside"],
+        "rows": [
+          ["A", "rice, fried chicken, cake"],
+          ["B", "rice, fish, spinach, papaya"],
+          ["C", "bread, jam, sweet biscuits"],
+          ["D", "noodles, rice, crackers"]
+        ],
+        "alt": "Table of four lunch boxes. A: rice, fried chicken and cake. B: rice, fish, spinach and papaya. C: bread, jam and sweet biscuits. D: noodles, rice and crackers."
+      },
+      "options": [
+        { "text": "Box A", "why": "Box A has carbohydrate and protein, but no fruit or vegetables." },
+        { "text": "Box B" },
+        { "text": "Box C", "why": "Box C is mostly carbohydrate and sugar, with no protein, fruit or vegetables." },
+        { "text": "Box D", "why": "Box D has three carbohydrate foods and nothing from the other groups." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A balanced meal has foods from several different food groups.",
+        "Look for a carbohydrate, a protein, and a fruit or vegetable in the same box.",
+        "Check each box for a vegetable or a fruit first."
+      ],
+      "explanation": "Box B has carbohydrate (rice), protein (fish), and vitamins, minerals and fibre (spinach and papaya). Eating from several food groups gives the body what it needs."
+    },
+    {
+      "id": "s5.keeping-healthy.008",
+      "skill": "s5.keeping-healthy",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Plan a balanced lunch for a school day. Name four foods and say which food group each one belongs to. Explain why your lunch is balanced.",
+      "rubric": {
+        "criteria": [
+          { "label": "Names at least four foods", "points": 1 },
+          { "label": "Gives a correct food group for each food", "points": 2 },
+          { "label": "Includes a fruit or a vegetable", "points": 1 },
+          { "label": "Explains why the meal is balanced", "points": 1 },
+          { "label": "Writes in full sentences", "points": 1 }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 120,
+      "planning": [
+        "Which food will give you energy?",
+        "Which food will help you grow?",
+        "Which fruit or vegetable will you add?"
+      ],
+      "model": "For lunch I will have brown rice, which is a carbohydrate that gives me energy. I will add grilled fish for protein to help me grow. I will also eat stir-fried kangkung and a slice of watermelon for vitamins, minerals and fibre. My lunch is balanced because it has food from several food groups.",
+      "hints": [
+        "Start with a food that gives you energy.",
+        "Add one food for growing and one fruit or vegetable."
+      ],
+      "explanation": "A balanced lunch includes a carbohydrate for energy, a protein for growth and repair, and fruit or vegetables for vitamins, minerals and fibre."
+    },
+    {
+      "id": "s5.keeping-healthy.009",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1796, Edward Jenner tested an idea that led to the first vaccine. What does a vaccine do?",
+      "options": [
+        { "text": "It cures every illness straight away.", "why": "A vaccine protects against one particular disease. It does not cure every illness." },
+        { "text": "It kills microorganisms on your hands.", "why": "Soap and water do that. A vaccine works inside the body." },
+        { "text": "It gives the body extra vitamins.", "why": "Vitamins come from food. A vaccine trains the body's defences." },
+        { "text": "It helps the body learn to fight a disease before you catch it." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Jenner wanted to stop people from catching a disease in the first place.",
+        "Think about the difference between preventing a disease and curing it.",
+        "Cross out the choices about soap and food first."
+      ],
+      "explanation": "A vaccine trains the body's defences to recognise a disease, so the body can fight it quickly later. Jenner's 1796 test against smallpox led to the first vaccine.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.keeping-healthy.010",
+      "skill": "s5.keeping-healthy",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Class 5A washes their hands with water only. Class 5B uses soap and water. Each class touches a slice of bread, and both slices are sealed in bags for five days. Which result is most likely?",
+      "options": [
+        { "text": "Both slices grow the same amount of mould.", "why": "Soap removes more microorganisms, so fewer reach the bread from Class 5B." },
+        { "text": "The bread from Class 5B grows less mould." },
+        { "text": "The bread from Class 5A grows no mould at all.", "why": "Water alone leaves many microorganisms on hands, so mould can still grow." },
+        { "text": "Mould only grows on bread kept in a fridge.", "why": "Mould grows faster in warm places than in a cold fridge." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Mould and bacteria grow from microorganisms that land on the bread.",
+        "Think about which hands carried more microorganisms onto the bread.",
+        "Compare water only with soap and water. Decide which removes more microorganisms."
+      ],
+      "explanation": "Soap and water remove more microorganisms than water alone. Fewer microorganisms reach Class 5B's bread, so less mould grows on it.",
+      "tags": ["iksc", "osn-sd"]
+    }
+  ]
+}

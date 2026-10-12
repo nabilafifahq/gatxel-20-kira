@@ -1,0 +1,83 @@
+{
+  "skill": "s6.forces-motion",
+  "title": "Balanced and unbalanced forces",
+  "steps": [
+    {
+      "say": "Forces are pushes and pulls, measured in newtons. We draw them as arrows, and a longer arrow means a bigger force."
+    },
+    {
+      "say": "When two forces are equal and opposite, they are balanced. A book resting on a table has balanced forces."
+    },
+    {
+      "say": "Balanced forces do not change motion. A still object stays still, and a moving object keeps the same speed and direction."
+    },
+    {
+      "say": "When forces are unbalanced, an object speeds up, slows down or changes direction."
+    },
+    {
+      "say": "To find the resultant force, subtract opposite forces. 50 N to the right and 30 N to the left gives 20 N to the right.",
+      "show": "50 N − 30 N = 20 N to the right"
+    },
+    {
+      "say": "A floating boat has balanced forces. Its weight pulls down and upthrust from the water pushes up.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "boat",
+            "label": "floating boat"
+          }
+        ],
+        "alt": "A boat floating on water, with its weight balanced by upthrust."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.forces-motion.901",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A car moves at a steady speed in a straight line. What can you say about the forces on it?",
+      "options": [
+        {
+          "text": "They are unbalanced.",
+          "why": "Unbalanced forces would change its speed or direction."
+        },
+        {
+          "text": "They are balanced."
+        },
+        {
+          "text": "There are no forces on it.",
+          "why": "The engine's push and friction still act. They just balance."
+        },
+        {
+          "text": "Only gravity acts on it.",
+          "why": "The engine pushes forwards, and friction and air resistance push back."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The car's speed and direction are not changing.",
+        "Unbalanced forces always change speed or direction.",
+        "Decide whether anything about the car's motion is changing."
+      ],
+      "explanation": "The car's speed and direction are not changing, so the forces on it are balanced. The engine's push balances friction and air resistance."
+    },
+    {
+      "id": "s6.forces-motion.902",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A box is pushed with 70 N to the right. Friction pushes back with 25 N. What is the size of the resultant force?",
+      "answer": 45,
+      "unit": "N",
+      "hints": [
+        "The two forces act in opposite directions.",
+        "For opposite forces, find the difference.",
+        "Subtract the friction from the push."
+      ],
+      "explanation": "70 N − 25 N = 45 N, so the resultant force is 45 N to the right."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "skill": "m6.ratio-proportion",
+  "title": "Ratio, proportion and scale",
+  "steps": [
+    {
+      "say": "Simplify a ratio by dividing both parts by a common factor.",
+      "show": "12 : 18 = 2 : 3"
+    },
+    {
+      "say": "To share in a ratio, find the total number of parts. Then find the size of one part.",
+      "show": "Share 45 in the ratio 4 : 5: 9 parts, 45 ÷ 9 = 5",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          }
+        ],
+        "alt": "A row of 9 parts: 4 red parts and 5 blue parts."
+      }
+    },
+    {
+      "say": "Multiply to find each share.",
+      "show": "4 × 5 = 20 and 5 × 5 = 25"
+    },
+    {
+      "say": "In direct proportion, if one amount doubles, so does the other. Find the value of one first.",
+      "show": "5 pens cost Rp20.000, so 1 pen costs Rp4.000 and 8 pens cost Rp32.000"
+    },
+    {
+      "say": "A scale compares a drawing with real life. On a 1 : 100 plan, 1 cm stands for 100 cm.",
+      "show": "4.5 cm on the plan is 4.5 m in real life",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Plan",
+          "Real life"
+        ],
+        "rows": [
+          [
+            "1 cm",
+            "100 cm = 1 m"
+          ],
+          [
+            "4.5 cm",
+            "450 cm = 4.5 m"
+          ]
+        ],
+        "alt": "A table for a 1 : 100 plan: 1 cm on the plan is 1 m in real life, and 4.5 cm is 4.5 m."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.ratio-proportion.901",
+      "skill": "m6.ratio-proportion",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Simplify the ratio 15 : 25.",
+      "hints": [
+        "Find a common factor of 15 and 25.",
+        "Both numbers are in the 5 times table.",
+        "Divide both parts by the same number."
+      ],
+      "explanation": "15 ÷ 5 = 3 and 25 ÷ 5 = 5, so 15 : 25 = 3 : 5.",
+      "blanks": [
+        {
+          "answers": [
+            "3 : 5",
+            "3:5",
+            "3 :5",
+            "3: 5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.ratio-proportion.902",
+      "skill": "m6.ratio-proportion",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Share 56 marbles in the ratio 3 : 4. How many marbles are in the bigger share?",
+      "hints": [
+        "Add the parts of the ratio.",
+        "Divide 56 by the number of parts.",
+        "3 + 4 = 7 parts."
+      ],
+      "explanation": "There are 7 parts. 56 ÷ 7 = 8. The bigger share is 4 × 8 = 32.",
+      "answer": 32
+    },
+    {
+      "id": "m6.ratio-proportion.903",
+      "skill": "m6.ratio-proportion",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A map has a scale of 1 : 50,000. Two towns are 6 cm apart on the map. How far apart are they in kilometres?",
+      "hints": [
+        "1 cm on the map is 50,000 cm in real life.",
+        "Multiply 6 by 50,000.",
+        "There are 100,000 cm in 1 km."
+      ],
+      "explanation": "6 × 50,000 = 300,000 cm. 300,000 ÷ 100,000 = 3 km.",
+      "answer": 3,
+      "unit": "km"
+    }
+  ]
+}

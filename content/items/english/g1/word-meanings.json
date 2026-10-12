@@ -1,0 +1,455 @@
+{
+  "skill": "e1.word-meanings",
+  "items": [
+    {
+      "id": "e1.word-meanings.001",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the opposite of hot?",
+      "hints": [
+        "Opposites are as different as can be.",
+        "Think of ice. How does ice feel?",
+        "Find the word that means not hot at all."
+      ],
+      "explanation": "Cold is the opposite of hot. Ice is cold and the sun is hot.",
+      "options": [
+        {
+          "text": "warm",
+          "why": "Warm is a little bit hot. Look for the word that means not hot at all."
+        },
+        {
+          "text": "cold"
+        },
+        {
+          "text": "sun",
+          "why": "The sun is hot. Sun is a thing, so it cannot be the opposite of hot."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.002",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one is a fruit?",
+      "hints": [
+        "Fruit is something you can eat.",
+        "Fruit grows on trees and plants.",
+        "Which one could you eat as a snack?"
+      ],
+      "explanation": "A mango is a fruit. It grows on a tree.",
+      "options": [
+        {
+          "text": "chair",
+          "why": "A chair is something you sit on."
+        },
+        {
+          "text": "shoe",
+          "why": "A shoe goes on your foot."
+        },
+        {
+          "text": "mango"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.003",
+      "skill": "e1.word-meanings",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match the opposites.",
+      "hints": [
+        "Opposites mean very different things.",
+        "Do the easy ones first.",
+        "Start with up. Which word means the other way?"
+      ],
+      "explanation": "Big and small, up and down, open and shut, happy and sad are opposites.",
+      "pairs": [
+        [
+          "big",
+          "small"
+        ],
+        [
+          "up",
+          "down"
+        ],
+        [
+          "open",
+          "shut"
+        ],
+        [
+          "happy",
+          "sad"
+        ]
+      ]
+    },
+    {
+      "id": "e1.word-meanings.004",
+      "skill": "e1.word-meanings",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Animals or food?",
+      "hints": [
+        "Animals are alive and can move.",
+        "Food is something we eat.",
+        "Start with cow. Is it an animal or food?"
+      ],
+      "explanation": "Cow, duck and frog are animals. Rice, bread and banana are food.",
+      "groups": [
+        "Animals",
+        "Food"
+      ],
+      "items": [
+        {
+          "text": "cow",
+          "group": 0
+        },
+        {
+          "text": "rice",
+          "group": 1
+        },
+        {
+          "text": "duck",
+          "group": 0
+        },
+        {
+          "text": "bread",
+          "group": 1
+        },
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "banana",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.005",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong?",
+      "hints": [
+        "Three words go together.",
+        "Think: which ones are animals?",
+        "Find the one that is not alive."
+      ],
+      "explanation": "Cat, dog and hen are animals. A bus is not an animal.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat is an animal, like dog and hen."
+        },
+        {
+          "text": "dog",
+          "why": "Dog is an animal, like cat and hen."
+        },
+        {
+          "text": "bus"
+        },
+        {
+          "text": "hen",
+          "why": "Hen is an animal, like cat and dog."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.006",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the opposite. 'The opposite of day is ___.'",
+      "hints": [
+        "Think about when you sleep.",
+        "Opposites are very different.",
+        "When is it dark outside?"
+      ],
+      "explanation": "Night is the opposite of day. Day is light and night is dark.",
+      "options": [
+        {
+          "text": "night"
+        },
+        {
+          "text": "sun",
+          "why": "We see the sun in the day."
+        },
+        {
+          "text": "morning",
+          "why": "Morning is part of the day."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.007",
+      "skill": "e1.word-meanings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the opposite of 'in'.",
+      "hints": [
+        "Think of a cat going in a box.",
+        "Now the cat comes the other way.",
+        "The word has three letters and starts with o."
+      ],
+      "explanation": "Out is the opposite of in.",
+      "blanks": [
+        {
+          "answers": [
+            "out"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.008",
+      "skill": "e1.word-meanings",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 3 things you can wear.",
+      "hints": [
+        "Three answers are right.",
+        "Think about getting dressed.",
+        "Which things go on your head or your feet?"
+      ],
+      "explanation": "You can wear a hat, a sock and a shoe. You eat with a spoon and read a book.",
+      "options": [
+        {
+          "text": "hat"
+        },
+        {
+          "text": "sock"
+        },
+        {
+          "text": "spoon",
+          "why": "You eat with a spoon."
+        },
+        {
+          "text": "shoe"
+        },
+        {
+          "text": "book",
+          "why": "You read a book."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e1.word-meanings.009",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "These pictures are all about the ___.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun"
+          },
+          {
+            "icon": "cloud"
+          },
+          {
+            "icon": "rain"
+          },
+          {
+            "icon": "wind"
+          }
+        ],
+        "alt": "Four pictures: the sun, a cloud, rain and wind."
+      },
+      "hints": [
+        "Look at all four pictures.",
+        "You can see them all when you look at the sky.",
+        "What word do we use for sun, rain and wind together?"
+      ],
+      "explanation": "Sun, cloud, rain and wind are all weather words.",
+      "options": [
+        {
+          "text": "weather"
+        },
+        {
+          "text": "body",
+          "why": "Body words are like hand and nose."
+        },
+        {
+          "text": "school",
+          "why": "School words are like pencil and desk."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.010",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the opposite. 'The box is full. The bag is ___.'",
+      "hints": [
+        "Look at the word full.",
+        "Find the word that means nothing inside.",
+        "Try each word: The bag is ___."
+      ],
+      "explanation": "Empty is the opposite of full. An empty bag has nothing in it.",
+      "options": [
+        {
+          "text": "big",
+          "why": "Big is about size."
+        },
+        {
+          "text": "empty"
+        },
+        {
+          "text": "heavy",
+          "why": "A full bag can be heavy. Look for the opposite of full."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.011",
+      "skill": "e1.word-meanings",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words: body, family or school.",
+      "hints": [
+        "Body words are parts of you.",
+        "Family words are people at home.",
+        "Start with nose. Where is your nose?"
+      ],
+      "explanation": "Nose and knee are body words. Sister and grandma are family words. Ruler and desk are school words.",
+      "groups": [
+        "Body",
+        "Family",
+        "School"
+      ],
+      "items": [
+        {
+          "text": "nose",
+          "group": 0
+        },
+        {
+          "text": "sister",
+          "group": 1
+        },
+        {
+          "text": "ruler",
+          "group": 2
+        },
+        {
+          "text": "knee",
+          "group": 0
+        },
+        {
+          "text": "grandma",
+          "group": 1
+        },
+        {
+          "text": "desk",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.012",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which pair are opposites?",
+      "hints": [
+        "Opposites mean very different things.",
+        "Three pairs mean the same thing.",
+        "Read each pair. Do the words mean the same or different?"
+      ],
+      "explanation": "Fast and slow are opposites. The other pairs mean the same.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "big, large",
+          "why": "Big and large mean the same."
+        },
+        {
+          "text": "fast, slow"
+        },
+        {
+          "text": "little, small",
+          "why": "Little and small mean the same."
+        },
+        {
+          "text": "happy, glad",
+          "why": "Happy and glad mean the same."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.013",
+      "skill": "e1.word-meanings",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the opposite of 'wet'.",
+      "hints": [
+        "Think of a towel after a bath.",
+        "Clothes hang in the sun until they are not wet.",
+        "The word has three letters and ends with y."
+      ],
+      "explanation": "Dry is the opposite of wet.",
+      "blanks": [
+        {
+          "answers": [
+            "dry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.014",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the opposite of the opposite of up?",
+      "hints": [
+        "Do it in two steps.",
+        "First, find the opposite of up.",
+        "Then find the opposite of that word."
+      ],
+      "explanation": "The opposite of up is down. The opposite of down is up again.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "down",
+          "why": "Down is the opposite of up. Now find its opposite."
+        },
+        {
+          "text": "up"
+        },
+        {
+          "text": "under",
+          "why": "Under is about being below something."
+        },
+        {
+          "text": "over",
+          "why": "Over is a different word. Think in two steps."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

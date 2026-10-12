@@ -1,0 +1,223 @@
+{
+  "skill": "s2.changing-materials",
+  "items": [
+    {
+      "id": "s2.changing-materials.001", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 1,
+      "prompt": "Ice melts when it gets ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "ice-cube", "label": "ice cube" }], "alt": "An ice cube." },
+      "options": [
+        { "text": "warm" },
+        { "text": "cold", "why": "Cold keeps ice frozen." },
+        { "text": "dark", "why": "Darkness does not melt ice. Warmth does." },
+        { "text": "windy", "why": "Wind alone does not melt ice. Warmth does." }
+      ],
+      "answer": 0,
+      "hints": ["Think about an ice cube in a hot drink.", "What makes frozen things turn runny?", "Picture ice in the sunshine. What happens to it?"],
+      "explanation": "Ice melts when it gets warm. The warmth turns the solid ice into liquid water."
+    },
+    {
+      "id": "s2.changing-materials.002", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 1,
+      "prompt": "What does ice turn into when it melts?",
+      "options": [
+        { "text": "sand", "why": "Ice is frozen water. When it melts, it becomes water again." },
+        { "text": "water" },
+        { "text": "steam", "why": "Steam comes from very hot water. Melting ice makes liquid water." },
+        { "text": "glass", "why": "Glass is made by heating sand." }
+      ],
+      "answer": 1,
+      "hints": ["Think about how ice cubes are made in a freezer.", "What is left in a glass after the ice is gone?", "Picture an ice cube on a plate. What is on the plate later?"],
+      "explanation": "Ice is frozen water. When it melts, it turns back into liquid water."
+    },
+    {
+      "id": "s2.changing-materials.003", "skill": "s2.changing-materials", "type": "match", "difficulty": 2,
+      "prompt": "Match each action to the change it makes.",
+      "pairs": [["pressing a sponge flat", "squash"], ["wringing a wet towel", "twist"], ["pulling a rubber band", "stretch"], ["folding a pipe cleaner", "bend"]],
+      "hints": ["Act out each action with your hands.", "Which action makes something longer? Which makes it flatter?", "Start with the rubber band. What happens when you pull it?"],
+      "explanation": "Pressing a sponge flat squashes it, wringing a towel twists it, pulling a rubber band stretches it and folding a pipe cleaner bends it."
+    },
+    {
+      "id": "s2.changing-materials.004", "skill": "s2.changing-materials", "type": "sort", "difficulty": 2,
+      "prompt": "Does it spring back or stay changed? Sort the cards.",
+      "groups": ["Springs back", "Stays changed"],
+      "items": [
+        { "text": "squashed sponge", "group": 0 },
+        { "text": "stretched rubber band", "group": 0 },
+        { "text": "squashed spring", "group": 0 },
+        { "text": "squashed clay", "group": 1 },
+        { "text": "crumpled foil", "group": 1 },
+        { "text": "rolled bread dough", "group": 1 }
+      ],
+      "hints": ["Some materials go back to their shape when you let go.", "Imagine letting go of each one. Does it change back?", "Start with the sponge. What happens when you stop squeezing?"],
+      "explanation": "A sponge, a rubber band and a spring go back to their shape. Clay, foil and dough stay in their new shape."
+    },
+    {
+      "id": "s2.changing-materials.005", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Putri leaves an ice lolly in the sun. What happens to it?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ice-cream", "label": "ice lolly" }, { "icon": "sun", "label": "sun" }], "alt": "An ice lolly in the hot sun." },
+      "options": [
+        { "text": "It gets harder.", "why": "Heat makes ice softer, and then it melts." },
+        { "text": "It grows bigger.", "why": "A melting ice lolly gets smaller and runny." },
+        { "text": "It melts." },
+        { "text": "Nothing happens.", "why": "The Sun's heat warms the ice lolly, so it changes." }
+      ],
+      "answer": 2,
+      "hints": ["The Sun gives out heat.", "What happens to frozen things when they get warm?", "Picture holding an ice lolly at the beach."],
+      "explanation": "The heat from the Sun warms the ice lolly and it melts into a runny liquid.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.changing-materials.006", "skill": "s2.changing-materials", "type": "text", "difficulty": 2,
+      "prompt": "Water turns into ice in a freezer. We say the water ___.",
+      "blanks": [{ "answers": ["freezes", "froze", "has frozen", "is freezing", "freeze"] }],
+      "hints": ["The opposite of melting.", "The name of the freezer gives a clue.", "Say it aloud: the freezer makes water ___."],
+      "explanation": "When water gets very cold it freezes and becomes solid ice. Melting is the opposite change."
+    },
+    {
+      "id": "s2.changing-materials.007", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Which change can be undone?",
+      "options": [
+        { "text": "baking a cake", "why": "A baked cake cannot turn back into runny cake mix." },
+        { "text": "cooking an egg", "why": "A cooked egg cannot become runny again." },
+        { "text": "burning paper", "why": "Burnt paper cannot become paper again." },
+        { "text": "melting chocolate" }
+      ],
+      "answer": 3,
+      "hints": ["Think about what happens when each thing cools down again.", "Can you get the material back the way it was?", "Ask: what happens to melted chocolate in the fridge?"],
+      "explanation": "Melted chocolate sets hard again when it cools, so the change can be undone. Baking, cooking and burning cannot be undone.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.changing-materials.008", "skill": "s2.changing-materials", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the things that melt when they get warm.",
+      "options": [
+        { "text": "ice" },
+        { "text": "chocolate" },
+        { "text": "butter" },
+        { "text": "a stone", "why": "A stone stays hard in the sun." },
+        { "text": "a wooden spoon", "why": "Wood does not melt in the sun." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about what happens on a hot day.", "Which things become soft and runny?", "Start with chocolate. What happens to it in a warm pocket?"],
+      "explanation": "Ice, chocolate and butter melt when they get warm. A stone and a wooden spoon stay solid."
+    },
+    {
+      "id": "s2.changing-materials.009", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Leo squashes a ball of plasticine and lets go. What happens?",
+      "options": [
+        { "text": "It springs back into a ball.", "why": "Plasticine keeps its new shape. A sponge would spring back." },
+        { "text": "It stays squashed." },
+        { "text": "It melts.", "why": "Squashing changes the shape. It does not melt the plasticine." },
+        { "text": "It gets bigger.", "why": "Squashing changes the shape. The plasticine is the same amount." }
+      ],
+      "answer": 1,
+      "hints": ["Think about playing with plasticine or clay.", "Does plasticine go back to its old shape?", "Compare it with a sponge. What is different?"],
+      "explanation": "Plasticine stays in its new squashed shape. Some materials, like sponges, spring back, but plasticine does not."
+    },
+    {
+      "id": "s2.changing-materials.010", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Mira pulls both ends of a rubber band. What is she doing?",
+      "figure": { "kind": "icons", "items": [{ "icon": "rubber-band", "label": "rubber band" }], "alt": "A rubber band being pulled at both ends." },
+      "options": [
+        { "text": "stretching it" },
+        { "text": "squashing it", "why": "Squashing pushes something together. Mira is pulling." },
+        { "text": "melting it", "why": "Melting needs heat. Mira is pulling." },
+        { "text": "freezing it", "why": "Freezing needs cold. Mira is pulling." }
+      ],
+      "answer": 0,
+      "hints": ["Pulling both ends makes it longer.", "Which word means making something longer by pulling?", "Act it out with your hands."],
+      "explanation": "Pulling both ends stretches the rubber band. It gets longer and goes back when she lets go."
+    },
+    {
+      "id": "s2.changing-materials.011", "skill": "s2.changing-materials", "type": "order", "difficulty": 2,
+      "prompt": "Put the steps for making an ice lolly in order.",
+      "items": ["Pour juice into a mould.", "Put the mould in the freezer.", "Wait for the juice to freeze.", "Take out the ice lolly."],
+      "hints": ["You need the juice in something before it can freeze.", "The freezer does the cold part.", "Start with the juice. Where does it go first?"],
+      "explanation": "Pour the juice into a mould, put it in the freezer and wait for it to freeze. Then take out the ice lolly."
+    },
+    {
+      "id": "s2.changing-materials.012", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 3,
+      "prompt": "Butter is hard in the fridge. Ani leaves it out on a hot day. What happens?",
+      "options": [
+        { "text": "It gets harder.", "why": "Warmth makes butter softer." },
+        { "text": "It becomes soft and may melt." },
+        { "text": "It freezes.", "why": "Freezing needs cold. The day is hot." },
+        { "text": "Nothing changes.", "why": "Butter changes when it warms up." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the difference between the fridge and a hot day.", "What does warmth do to butter?", "Picture spreading butter straight from the fridge, then on a hot day."],
+      "explanation": "Warmth makes butter soft, and on a very hot day it can melt. Putting it back in the fridge makes it hard again.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.changing-materials.013", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 3,
+      "prompt": "A puddle of melted ice is put back in the freezer. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "puddle", "label": "water" }, { "icon": "snowflake", "label": "freezer" }], "alt": "A puddle of water going into a freezer." },
+      "options": [
+        { "text": "It stays as water for ever.", "why": "Freezing turns water into ice again." },
+        { "text": "It turns into steam.", "why": "Steam comes from very hot water." },
+        { "text": "It turns back into ice." },
+        { "text": "It disappears.", "why": "The water is still there. It changes into ice." }
+      ],
+      "answer": 2,
+      "hints": ["A freezer makes things very cold.", "What happens to water when it gets very cold?", "Think about how ice cubes are made."],
+      "explanation": "The cold freezer turns the water back into ice. Melting and freezing can be undone.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.changing-materials.014", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 4,
+      "prompt": "Water freezes at 0 °C. Would ice melt or stay frozen in this room?",
+      "figure": { "kind": "thermometer", "min": 0, "max": 40, "value": 25, "step": 5, "alt": "A thermometer showing 25 degrees Celsius in the room." },
+      "options": [
+        { "text": "It would melt." },
+        { "text": "It would stay frozen.", "why": "25 °C is much warmer than 0 °C, so the ice melts." },
+        { "text": "It would get bigger.", "why": "Ice does not grow in a warm room." },
+        { "text": "It would turn into steam straight away.", "why": "Water needs to be much hotter to turn into steam." }
+      ],
+      "answer": 0,
+      "hints": ["Read the number on the thermometer first.", "Compare the room's temperature with 0 °C.", "Ask: is the room warmer or colder than freezing?"],
+      "explanation": "The room is 25 °C, which is much warmer than 0 °C. Ice warms up and melts in this room.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.changing-materials.015", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 5,
+      "prompt": "Which one shows heating changing a material for ever?",
+      "options": [
+        { "text": "Ice melts into water.", "why": "Water can freeze back into ice, so this can be undone." },
+        { "text": "Chocolate melts.", "why": "Melted chocolate can set hard again." },
+        { "text": "Bread turns into toast." },
+        { "text": "Butter goes soft.", "why": "Soft butter goes hard again in the fridge." }
+      ],
+      "answer": 2,
+      "hints": ["For ever means it cannot be changed back.", "Think about cooling each one down again.", "Ask: can toast ever become soft bread again?"],
+      "explanation": "Toasting changes bread for ever. Cooling toast does not turn it back into bread. Melting can be undone by cooling.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.changing-materials.016", "skill": "s2.changing-materials", "type": "sort", "difficulty": 5,
+      "prompt": "Can the change be undone? Sort the cards.",
+      "groups": ["Can be undone", "Cannot be undone"],
+      "items": [
+        { "text": "melting ice", "group": 0 },
+        { "text": "freezing water", "group": 0 },
+        { "text": "squashing a sponge", "group": 0 },
+        { "text": "baking a cake", "group": 1 },
+        { "text": "cooking an egg", "group": 1 },
+        { "text": "burning wood", "group": 1 }
+      ],
+      "hints": ["Undone means you can get the material back as it was.", "Melting and freezing are opposites.", "Start with the cooked egg. Can it ever be runny again?"],
+      "explanation": "Melting ice, freezing water and squashing a sponge can be undone. Baking, cooking and burning make new materials, so they cannot be undone."
+    },
+    {
+      "id": "s2.changing-materials.017", "skill": "s2.changing-materials", "type": "draw", "difficulty": 2,
+      "prompt": "Draw a ball of clay before and after you squash it. Label each picture.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws the clay as a round ball", "points": 1 },
+        { "label": "Draws the clay flat after squashing", "points": 1 },
+        { "label": "Labels before and after", "points": 1 }
+      ] },
+      "hints": ["Draw the ball first, then the flat shape next to it.", "Add an arrow between them to show the squash."],
+      "explanation": "Squashing is a push. It changes the clay from a round ball into a flat shape, and the clay stays flat."
+    }
+  ]
+}

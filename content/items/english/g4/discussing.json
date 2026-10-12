@@ -1,0 +1,149 @@
+{
+  "skill": "e4.discussing",
+  "items": [
+    {
+      "id": "e4.discussing.001", "skill": "e4.discussing", "type": "mcq", "difficulty": 1,
+      "prompt": "In a group discussion, what should you do when someone else is talking?",
+      "options": [
+        { "text": "Listen and wait for your turn." },
+        { "text": "Talk at the same time.", "why": "Then nobody can be heard." },
+        { "text": "Look away and play with something.", "why": "This shows you are not listening." },
+        { "text": "Walk away from the group.", "why": "You cannot take part if you leave." }
+      ],
+      "answer": 0,
+      "hints": ["Think about how you want others to act when you talk.", "A discussion needs everyone to be heard.", "Which answer helps the speaker most?"],
+      "explanation": "Good discussions take turns. Listening carefully also helps you reply to what others say."
+    },
+    {
+      "id": "e4.discussing.002", "skill": "e4.discussing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which is a polite way to disagree?",
+      "options": [
+        { "text": "That's a silly idea.", "why": "This is unkind, and it gives no reason." },
+        { "text": "No. You're wrong.", "why": "This is rude, and it does not explain why." },
+        { "text": "I see what you mean, but I think a fish would be easier to look after." },
+        { "text": "Stop talking.", "why": "This stops the discussion." }
+      ],
+      "answer": 2,
+      "hints": ["Polite disagreement respects the other person.", "It shows you listened before you give your view.", "Look for a sentence that also gives a reason."],
+      "explanation": "I see what you mean shows you listened. Then but I think gives your own view, with a reason, politely."
+    },
+    {
+      "id": "e4.discussing.003", "skill": "e4.discussing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence gives an opinion and a reason?",
+      "options": [
+        { "text": "I think we should plant trees.", "why": "This gives an opinion, but no reason." },
+        { "text": "Trees.", "why": "One word is not an opinion with a reason." },
+        { "text": "What do you think?", "why": "This asks for someone else's opinion." },
+        { "text": "I think we should plant trees because they give us shade." }
+      ],
+      "answer": 3,
+      "hints": ["An opinion says what you think.", "A reason explains why.", "Look for the word that introduces a reason."],
+      "explanation": "I think shows the opinion, and because they give us shade is the reason."
+    },
+    {
+      "id": "e4.discussing.004", "skill": "e4.discussing", "type": "mcq", "difficulty": 3,
+      "prompt": "Your group must choose a class pet. How can you make sure everyone has a say?",
+      "options": [
+        { "text": "Let the loudest person decide.", "why": "Quieter people would not be heard." },
+        { "text": "Ask each person for their idea in turn." },
+        { "text": "Choose without asking anyone.", "why": "Then nobody else gets a say." },
+        { "text": "Only listen to your best friend.", "why": "Everyone in the group should be heard." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the quieter people in the group.", "How can each person get a turn?", "Which answer includes everyone?"],
+      "explanation": "Asking each person in turn means that the quieter people are heard too."
+    },
+    {
+      "id": "e4.discussing.005", "skill": "e4.discussing", "type": "mcq", "difficulty": 3,
+      "prompt": "Which is the best way to sum up a discussion?",
+      "options": [
+        { "text": "Fish.", "why": "This does not say what the group decided, or why." },
+        { "text": "I want a dog and that's it.", "why": "This is one person's wish, not a summary." },
+        { "text": "So, most of us think a fish would be the best class pet, because it is easy to look after." },
+        { "text": "We talked.", "why": "This does not say what was decided." }
+      ],
+      "answer": 2,
+      "hints": ["A summary tells what the group decided.", "It also gives the main reason.", "Which answer would help someone who missed the discussion?"],
+      "explanation": "A good summary says what most people agreed and why. It helps everyone remember the decision."
+    },
+    {
+      "id": "e4.discussing.006", "skill": "e4.discussing", "type": "speak", "difficulty": 2,
+      "prompt": "Give your opinion. Should children have homework every day? Give at least two reasons.",
+      "rubric": { "criteria": [
+        { "label": "I gave a clear opinion", "points": 2 },
+        { "label": "I gave at least two reasons", "points": 2 },
+        { "label": "I used linking words like because, also and however", "points": 1 },
+        { "label": "I spoke clearly and at a good speed", "points": 2 }
+      ] },
+      "maxSeconds": 90,
+      "hints": ["Start with: I think... because...", "Use Also for your second reason."],
+      "explanation": "A strong spoken opinion is clear, gives reasons and links them with words like because and also."
+    },
+    {
+      "id": "e4.discussing.007", "skill": "e4.discussing", "type": "speak", "difficulty": 3,
+      "prompt": "Your friend says, “Rainy days are boring.” Do you agree? Explain why or why not, politely.",
+      "rubric": { "criteria": [
+        { "label": "I said politely whether I agree or disagree", "points": 2 },
+        { "label": "I gave reasons or examples", "points": 2 },
+        { "label": "I used a polite phrase like I see what you mean, but...", "points": 2 }
+      ] },
+      "maxSeconds": 60,
+      "hints": ["Start by showing that you heard your friend.", "Give an example of something you do on rainy days."],
+      "explanation": "Polite disagreement shows respect: it mentions the other view kindly, then gives reasons for your own."
+    },
+    {
+      "id": "e4.discussing.008", "skill": "e4.discussing", "type": "speak", "difficulty": 3,
+      "prompt": "Give a one-minute talk about an animal that lives in Indonesia. Use facts you know.",
+      "rubric": { "criteria": [
+        { "label": "I introduced my animal clearly", "points": 1 },
+        { "label": "I gave several true facts", "points": 3 },
+        { "label": "I organised my talk, such as where it lives, then what it eats", "points": 2 },
+        { "label": "I looked up and spoke clearly", "points": 2 }
+      ] },
+      "maxSeconds": 75,
+      "hints": ["Plan your talk like a report with sections.", "End with your most interesting fact."],
+      "explanation": "A good short talk is organised like a report, with a clear start, facts in a sensible order and a strong ending."
+    },
+    {
+      "id": "e4.discussing.009", "skill": "e4.discussing", "type": "speak", "difficulty": 3,
+      "prompt": "Read this part of a persuasive letter aloud. Imagine you are speaking to the whole school.",
+      "readText": "A refill station would help in several ways. Firstly, there would be less plastic rubbish. Plastic bottles can take hundreds of years to break down, and some of them end up in rivers and the sea. Secondly, families would save money, because pupils could bring the same bottle every day.",
+      "rubric": { "criteria": [
+        { "label": "I read every word correctly", "points": 2 },
+        { "label": "I used a strong, confident voice", "points": 2 },
+        { "label": "I paused after each reason", "points": 1 },
+        { "label": "I stressed important words like Firstly and Secondly", "points": 1 }
+      ] },
+      "maxSeconds": 60,
+      "hints": ["Practise once quietly first.", "Pause at each full stop."],
+      "explanation": "Persuasive speaking uses a confident voice, clear pauses and stress on the key words."
+    },
+    {
+      "id": "e4.discussing.010", "skill": "e4.discussing", "type": "speak", "difficulty": 4,
+      "prompt": "Your class is choosing a trip: the zoo or the science museum. Say which you would choose and why. Then answer one reason someone might give for the other place.",
+      "rubric": { "criteria": [
+        { "label": "I made my choice clear", "points": 1 },
+        { "label": "I gave at least two reasons", "points": 2 },
+        { "label": "I answered a reason for the other place, politely", "points": 2 },
+        { "label": "I finished with a short summary", "points": 1 },
+        { "label": "I spoke clearly and confidently", "points": 2 }
+      ] },
+      "maxSeconds": 120,
+      "hints": ["Use: Some people might say... However...", "Finish with: So, I think we should..."],
+      "explanation": "Answering the other side shows that you have listened and thought about it, which makes your argument stronger."
+    },
+    {
+      "id": "e4.discussing.011", "skill": "e4.discussing", "type": "speak", "difficulty": 4,
+      "prompt": "Think about this idea: every school should have a vegetable garden. Give one reason for it and one reason against it. Then say what you think.",
+      "rubric": { "criteria": [
+        { "label": "I gave a reason for the idea", "points": 2 },
+        { "label": "I gave a reason against the idea", "points": 2 },
+        { "label": "I gave my own opinion with a reason", "points": 2 },
+        { "label": "I used phrases like on the other hand", "points": 1 }
+      ] },
+      "maxSeconds": 90,
+      "hints": ["Start with: One reason for this is...", "Then say: On the other hand..."],
+      "explanation": "Looking at both sides before giving your own opinion is what good discussions do."
+    }
+  ]
+}

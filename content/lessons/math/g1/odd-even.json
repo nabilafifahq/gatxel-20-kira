@@ -1,0 +1,85 @@
+{
+  "skill": "m1.odd-even",
+  "title": "Odd and even",
+  "steps": [
+    {
+      "say": "Even numbers can make pairs with none left over.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          2,
+          2
+        ],
+        "icon": "sock",
+        "container": "circle",
+        "alt": "6 socks in 3 pairs."
+      }
+    },
+    {
+      "say": "Odd numbers always leave one on its own.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          2,
+          1
+        ],
+        "icon": "sock",
+        "container": "circle",
+        "alt": "5 socks: 2 pairs and 1 sock on its own."
+      }
+    },
+    {
+      "say": "Even numbers end in 0, 2, 4, 6 or 8.",
+      "show": "0, 2, 4, 6, 8, 10, 12"
+    },
+    {
+      "say": "Odd numbers end in 1, 3, 5, 7 or 9.",
+      "show": "1, 3, 5, 7, 9, 11, 13"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.odd-even.901",
+      "skill": "m1.odd-even",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is odd?",
+      "hints": [
+        "Odd numbers leave one on its own.",
+        "Odd numbers end in 1, 3, 5, 7 or 9.",
+        "Look at each number. Does it end in 1, 3, 5, 7 or 9?"
+      ],
+      "explanation": "7 is odd. 7 things make 3 pairs and 1 left over.",
+      "options": [
+        {
+          "text": "4",
+          "why": "4 is even. It makes 2 pairs."
+        },
+        {
+          "text": "10",
+          "why": "10 is even. It ends in 0."
+        },
+        {
+          "text": "7"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m1.odd-even.902",
+      "skill": "m1.odd-even",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "What is the next even number after 9?",
+      "hints": [
+        "Count on from 9.",
+        "Odd and even numbers take turns.",
+        "Say the number after 9. Is it even?"
+      ],
+      "explanation": "The number after 9 is 10, and 10 is even.",
+      "answer": 10
+    }
+  ]
+}

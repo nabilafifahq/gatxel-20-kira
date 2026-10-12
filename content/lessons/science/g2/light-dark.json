@@ -1,0 +1,39 @@
+{
+  "skill": "s2.light-dark",
+  "title": "Light and dark",
+  "steps": [
+    { "say": "A light source makes its own light. The Sun, a torch and a candle are light sources.", "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "torch", "label": "torch" }, { "icon": "candle", "label": "candle" }], "alt": "Three light sources: the Sun, a torch and a candle." } },
+    { "say": "Dark is where there is no light.", "show": "dark: no light" },
+    { "say": "We see things when light bounces off them into our eyes.", "show": "light source → object → eye" },
+    { "say": "The Moon and mirrors do not make light. They reflect it.", "figure": { "kind": "icons", "items": [{ "icon": "moon", "label": "Moon" }, { "icon": "mirror", "label": "mirror" }], "alt": "The Moon and a mirror, which reflect light." } },
+    { "say": "Never look straight at the Sun. It can hurt your eyes.", "show": "Never look at the Sun." }
+  ],
+  "check": [
+    {
+      "id": "s2.light-dark.901", "skill": "s2.light-dark", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one is a light source?",
+      "options": [
+        { "text": "the Moon", "why": "The Moon reflects light from the Sun." },
+        { "text": "a mirror", "why": "A mirror reflects light." },
+        { "text": "a lit candle" },
+        { "text": "a spoon", "why": "A shiny spoon reflects light." }
+      ],
+      "answer": 2,
+      "hints": ["A light source makes its own light.", "Which one would shine in a dark room?", "Ask: which one has a flame?"],
+      "explanation": "A lit candle makes its own light, so it is a light source."
+    },
+    {
+      "id": "s2.light-dark.902", "skill": "s2.light-dark", "type": "mcq", "difficulty": 1,
+      "prompt": "Why can we not see in a very dark room?",
+      "options": [
+        { "text": "There is no light." },
+        { "text": "It is too quiet.", "why": "Sound does not help us see." },
+        { "text": "Our eyes are tired.", "why": "Even rested eyes need light to see." },
+        { "text": "The room is too big.", "why": "Size does not matter. We need light to see." }
+      ],
+      "answer": 0,
+      "hints": ["What do you switch on in a dark room?", "Our eyes need something to see.", "Ask: what is missing in the dark?"],
+      "explanation": "We need light to see. A very dark room has no light."
+    }
+  ]
+}

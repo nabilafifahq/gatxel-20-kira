@@ -1,0 +1,205 @@
+{
+  "skill": "s5.separating-mixtures",
+  "items": [
+    {
+      "id": "s5.separating-mixtures.001",
+      "skill": "s5.separating-mixtures",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each mixture to the best way to separate it.",
+      "pairs": [
+        ["dried beans and flour", "sieving"],
+        ["sand and water", "filtering"],
+        ["salt dissolved in water", "evaporating"],
+        ["iron nails and sawdust", "using a magnet"]
+      ],
+      "hints": [
+        "Look at what is different about the two materials in each mixture: size, dissolving or magnetism.",
+        "Sieves sort by size, filters catch insoluble bits, evaporation leaves dissolved solids and magnets pick up iron.",
+        "Start with the iron nails. Think about which method picks up only some metals."
+      ],
+      "explanation": "A sieve separates big pieces from small ones, and a filter traps insoluble sand. Evaporating the water leaves the salt behind, and a magnet pulls out the iron."
+    },
+    {
+      "id": "s5.separating-mixtures.002",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Ravi has muddy water with sand in it. What should he use to remove the sand?",
+      "options": [
+        { "text": "a magnet", "why": "Sand is not magnetic, so a magnet cannot pick it up." },
+        { "text": "a filter paper in a funnel" },
+        { "text": "a sieve with large holes", "why": "Grains of sand are tiny and would pass through large holes." },
+        { "text": "a thermometer", "why": "A thermometer measures temperature. It cannot separate anything." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Sand does not dissolve in water. It is an insoluble solid.",
+        "You need something with holes small enough to stop sand grains but let water through.",
+        "Cross out the tools that measure or attract things."
+      ],
+      "explanation": "Filter paper has tiny holes that let water through but trap the grains of sand. This method is called filtering."
+    },
+    {
+      "id": "s5.separating-mixtures.003",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A mixture contains sand and iron filings. Which is the quickest way to separate them?",
+      "options": [
+        { "text": "filtering", "why": "Neither sand nor iron dissolves, so both would stay on the filter paper together." },
+        { "text": "evaporating", "why": "There is no water to evaporate, and both solids would be left together." },
+        { "text": "sieving", "why": "Sand grains and iron filings are about the same size, so a sieve cannot sort them." },
+        { "text": "using a magnet" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about a property that iron has but sand does not.",
+        "Some metals are pulled towards a magnet.",
+        "Cross out the methods that sort by size or need water."
+      ],
+      "explanation": "Iron is magnetic and sand is not. A magnet pulls the iron filings out and leaves the sand behind."
+    },
+    {
+      "id": "s5.separating-mixtures.004",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why can filter paper not separate salt from salty water?",
+      "options": [
+        { "text": "Dissolved salt is in pieces so tiny that they pass through the filter paper." },
+        { "text": "Salt is magnetic.", "why": "Salt is not magnetic, and magnetism has nothing to do with filtering." },
+        { "text": "Filter paper dissolves in salty water.", "why": "Filter paper does not dissolve. It stays whole while water passes through." },
+        { "text": "Salt is too big to pass through.", "why": "If the salt were too big, the filter would catch it. Dissolved salt passes through." }
+      ],
+      "answer": 0,
+      "hints": [
+        "When salt dissolves, it breaks into particles too small to see.",
+        "A filter only stops pieces that are bigger than its tiny holes.",
+        "Compare the size of dissolved salt particles with the holes in filter paper."
+      ],
+      "explanation": "When salt dissolves, it splits into particles small enough to pass through the holes in filter paper with the water. To get the salt back, you must evaporate the water."
+    },
+    {
+      "id": "s5.separating-mixtures.005",
+      "skill": "s5.separating-mixtures",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "A mixture contains iron filings, sand and salt. Choose 3 methods that together separate all three.",
+      "options": [
+        { "text": "using a magnet" },
+        { "text": "dissolving the salt, then filtering out the sand" },
+        { "text": "evaporating the water from the salty liquid" },
+        { "text": "sieving", "why": "All three are small grains, so a sieve cannot sort them." },
+        { "text": "melting", "why": "These materials melt only at very high temperatures, and melting would not separate them." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": [
+        "Each of the three materials has a different property you can use.",
+        "Iron is magnetic, salt dissolves in water and sand does not dissolve.",
+        "Take out the iron first. Then add water to the sand and salt, and think about the next step."
+      ],
+      "explanation": "A magnet removes the iron filings. Adding water dissolves the salt, filtering removes the sand, and evaporating the water leaves the salt behind.",
+      "tags": ["iksc", "imso", "osn-sd"]
+    },
+    {
+      "id": "s5.separating-mixtures.006",
+      "skill": "s5.separating-mixtures",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Rock salt is salt mixed with sand and grit. Put the steps in order to get clean salt from it.",
+      "items": ["crush the rock salt", "add water and stir", "filter the mixture", "evaporate the water from the salty liquid"],
+      "hints": [
+        "Sand and grit do not dissolve, but salt does.",
+        "First the salt must dissolve, then the sand can be removed, then the salt can be collected.",
+        "Start by making the lumps of rock salt smaller so the salt dissolves faster."
+      ],
+      "explanation": "Crushing makes small pieces, and stirring in water dissolves the salt. Filtering removes the sand and grit, and evaporating the water leaves clean salt.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.separating-mixtures.007",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "On the island of Madura, farmers let sea water stand in shallow ponds in the dry season. How do they get salt?",
+      "options": [
+        { "text": "The salt sinks and the water is poured away.", "why": "Dissolved salt does not sink. The water has to evaporate." },
+        { "text": "The salt freezes at night.", "why": "Madura is warm, and sea water does not freeze there." },
+        { "text": "The Sun's heat evaporates the water and leaves the salt behind." },
+        { "text": "Filtering the sea water traps the salt.", "why": "Dissolved salt passes through a filter. The water must evaporate instead." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Sea water is a solution of salt in water.",
+        "Think about what the hot, dry season does to shallow water.",
+        "Ask which part of the sea water can turn into a gas and leave the pond."
+      ],
+      "explanation": "The Sun's heat makes the water evaporate, leaving the dissolved salt behind as crystals. Shallow ponds and dry weather help the water evaporate faster.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.separating-mixtures.008",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which mixture is best separated with a sieve?",
+      "options": [
+        { "text": "salt and water", "why": "Salt dissolves, so it passes straight through a sieve. Evaporate the water instead." },
+        { "text": "pebbles and sand" },
+        { "text": "iron filings and sand", "why": "Both are tiny grains of a similar size. Use a magnet instead." },
+        { "text": "sugar and water", "why": "Sugar dissolves, so it passes through a sieve. Evaporate the water instead." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A sieve separates pieces of different sizes.",
+        "Look for a mixture with one big kind of piece and one small kind of piece.",
+        "Cross out the mixtures where one part has dissolved."
+      ],
+      "explanation": "Pebbles are too big to fit through the holes of a sieve, but sand grains fall through. Dissolved materials pass straight through a sieve with the water."
+    },
+    {
+      "id": "s5.separating-mixtures.009",
+      "skill": "s5.separating-mixtures",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw how to filter muddy water using a funnel, filter paper and a beaker. Label the funnel, filter paper, beaker, sand and clean water.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws a funnel sitting in a beaker", "points": 1 },
+          { "label": "Shows filter paper folded inside the funnel", "points": 1 },
+          { "label": "Shows the sand trapped on the filter paper", "points": 2 },
+          { "label": "Shows clear water collected in the beaker", "points": 1 },
+          { "label": "Labels all five parts", "points": 1 }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "Draw the beaker first, then put the funnel on top of it.",
+        "Think about where the sand ends up and where the water ends up."
+      ],
+      "explanation": "The filter paper sits inside the funnel above the beaker. Sand is trapped on the paper, and water drips through into the beaker."
+    },
+    {
+      "id": "s5.separating-mixtures.010",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Kiki builds a filter from gravel, sand and cloth. Dirty river water comes out looking clear. Is it safe to drink?",
+      "options": [
+        { "text": "Yes, because it looks clear.", "why": "Clear water can still contain microorganisms that are too small to see." },
+        { "text": "Yes, because sand kills all germs.", "why": "Sand traps bits of dirt, but it does not kill microorganisms." },
+        { "text": "No, because filtering adds salt to the water.", "why": "A filter does not add salt." },
+        { "text": "No. Tiny microorganisms can pass through, so the water should be boiled first." }
+      ],
+      "answer": 3,
+      "hints": [
+        "A filter traps pieces that are bigger than the gaps between its grains.",
+        "Some microorganisms that cause illness are far too small to see.",
+        "Ask whether a sand filter can stop something smaller than the gaps in it."
+      ],
+      "explanation": "A sand filter removes mud and bits, but harmful microorganisms are small enough to pass through. Boiling the water kills them, which makes it safe to drink.",
+      "tags": ["iksc", "osn-sd"]
+    }
+  ]
+}

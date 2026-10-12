@@ -1,0 +1,173 @@
+{
+  "skill": "m6.transformations",
+  "title": "Translation, reflection and rotation",
+  "steps": [
+    {
+      "say": "A translation slides a shape. Every point moves the same distance in the same direction.",
+      "show": "5 right and 3 down: (−3, 1) moves to (2, −2)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": -3,
+            "y": 1,
+            "label": "A"
+          },
+          {
+            "x": 2,
+            "y": -2,
+            "label": "A'"
+          }
+        ],
+        "alt": "Point A at (−3, 1) and its image A' at (2, −2) after a translation."
+      }
+    },
+    {
+      "say": "Moving right adds to x and moving left subtracts. Moving up adds to y and moving down subtracts.",
+      "show": "(x + 5, y − 3)"
+    },
+    {
+      "say": "A reflection flips a shape in a mirror line. Each image point is the same distance from the line on the other side.",
+      "show": "Reflect in the y-axis: (2, 3) goes to (−2, 3)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": 2,
+            "y": 3,
+            "label": "B"
+          },
+          {
+            "x": -2,
+            "y": 3,
+            "label": "B'"
+          }
+        ],
+        "alt": "Point B at (2, 3) and its image B' at (−2, 3) on the other side of the y-axis."
+      }
+    },
+    {
+      "say": "In the y-axis, the x-coordinate changes sign. In the x-axis, the y-coordinate changes sign.",
+      "show": "Reflect in the x-axis: (2, 3) goes to (2, −3)"
+    },
+    {
+      "say": "A rotation turns a shape about a point. A quarter turn is 90°, and a half turn is 180°.",
+      "show": "Half turn about (0, 0): (3, 1) goes to (−3, −1)"
+    },
+    {
+      "say": "For a half turn about the origin, both coordinates change sign.",
+      "show": "(x, y) goes to (−x, −y)",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "quadrants": 4,
+        "points": [
+          {
+            "x": 3,
+            "y": 1,
+            "label": "C"
+          },
+          {
+            "x": -3,
+            "y": -1,
+            "label": "C'"
+          }
+        ],
+        "alt": "Point C at (3, 1) and its image C' at (−3, −1) after a half turn about the origin."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.transformations.901",
+      "skill": "m6.transformations",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Point P (2, −1) is translated 3 left and 4 up. Where is it now? Write it like (x, y).",
+      "hints": [
+        "Moving left changes the x-coordinate.",
+        "Moving up changes the y-coordinate.",
+        "Subtract 3 from the x-coordinate first."
+      ],
+      "explanation": "2 − 3 = −1 and −1 + 4 = 3, so P moves to (−1, 3).",
+      "blanks": [
+        {
+          "answers": [
+            "(−1, 3)",
+            "(−1,3)",
+            "−1, 3",
+            "(-1, 3)",
+            "(-1,3)",
+            "-1, 3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.transformations.902",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Point Q (4, 3) is reflected in the x-axis. Where is its image?",
+      "hints": [
+        "The x-axis is the horizontal axis.",
+        "The image is the same distance below the axis as Q is above it.",
+        "Q is 3 units above the x-axis."
+      ],
+      "explanation": "Q is 3 units above the x-axis, so the image is 3 units below it, at (4, −3).",
+      "options": [
+        {
+          "text": "(3, 4)",
+          "why": "Swapping x and y is a different transformation."
+        },
+        {
+          "text": "(4, −3)"
+        },
+        {
+          "text": "(−4, 3)",
+          "why": "That is a reflection in the y-axis."
+        },
+        {
+          "text": "(−4, −3)",
+          "why": "That is a half turn about the origin."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.transformations.903",
+      "skill": "m6.transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Point R (−2, 5) is rotated a half turn about the origin. Where is its image?",
+      "hints": [
+        "A half turn is 180°.",
+        "The image is on the opposite side of the origin.",
+        "Think about what happens to the sign of each coordinate."
+      ],
+      "explanation": "A half turn about the origin changes the sign of both coordinates, so (−2, 5) goes to (2, −5).",
+      "options": [
+        {
+          "text": "(2, 5)",
+          "why": "That is a reflection in the y-axis."
+        },
+        {
+          "text": "(5, −2)",
+          "why": "A half turn changes the sign of both coordinates. It does not swap them."
+        },
+        {
+          "text": "(2, −5)"
+        },
+        {
+          "text": "(−2, −5)",
+          "why": "That is a reflection in the x-axis."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

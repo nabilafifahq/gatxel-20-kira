@@ -1,0 +1,39 @@
+{
+  "skill": "s2.changing-materials",
+  "title": "Changing materials",
+  "steps": [
+    { "say": "Pushes and pulls can change the shape of materials.", "show": "squash, bend, twist, stretch" },
+    { "say": "Some materials spring back, like a sponge. Some stay changed, like clay.", "figure": { "kind": "icons", "items": [{ "icon": "sponge", "label": "springs back" }, { "icon": "rubber-band", "label": "springs back" }], "alt": "A sponge and a rubber band, which both spring back." } },
+    { "say": "Heating can melt materials. Ice, chocolate and butter melt when they get warm.", "figure": { "kind": "icons", "items": [{ "icon": "ice-cube", "label": "ice" }, { "icon": "water-drop", "label": "water" }], "arrows": "chain", "alt": "Ice melts into water." } },
+    { "say": "Cooling can freeze materials. Water freezes into ice in a freezer.", "figure": { "kind": "icons", "items": [{ "icon": "water-drop", "label": "water" }, { "icon": "ice-cube", "label": "ice" }], "arrows": "chain", "alt": "Water freezes into ice." } },
+    { "say": "Melting and freezing can be undone. Cooking an egg cannot be undone.", "show": "Can it change back?" }
+  ],
+  "check": [
+    {
+      "id": "s2.changing-materials.901", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 1,
+      "prompt": "What happens to ice when it gets warm?",
+      "options": [
+        { "text": "It melts." },
+        { "text": "It freezes.", "why": "Freezing needs cold." },
+        { "text": "It grows.", "why": "Ice gets smaller as it melts." },
+        { "text": "It turns into sand.", "why": "Ice is frozen water. It turns back into water." }
+      ],
+      "answer": 0,
+      "hints": ["Think about an ice cube in the sun.", "Warmth makes frozen things change.", "Ask: what is left on the plate later?"],
+      "explanation": "Warm ice melts and turns into liquid water."
+    },
+    {
+      "id": "s2.changing-materials.902", "skill": "s2.changing-materials", "type": "mcq", "difficulty": 2,
+      "prompt": "Which word means pulling something to make it longer?",
+      "options": [
+        { "text": "squash", "why": "Squashing pushes something flatter." },
+        { "text": "twist", "why": "Twisting turns the ends opposite ways." },
+        { "text": "stretch" },
+        { "text": "bend", "why": "Bending makes a curve or a fold." }
+      ],
+      "answer": 2,
+      "hints": ["Think about pulling a rubber band.", "It gets longer when you pull it.", "Act it out with your hands."],
+      "explanation": "Stretching means pulling something to make it longer, like a rubber band."
+    }
+  ]
+}

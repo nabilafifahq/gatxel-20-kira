@@ -1,0 +1,104 @@
+{
+  "skill": "s3.forces-friction",
+  "title": "Pushes, pulls and friction",
+  "steps": [
+    {
+      "say": "A force is a push or a pull. Forces can start, stop, speed up, slow down or turn moving things.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "toy-car",
+            "label": "toy car"
+          },
+          {
+            "icon": "ramp",
+            "label": "ramp"
+          }
+        ],
+        "alt": "A toy car next to a ramp."
+      }
+    },
+    {
+      "say": "Forces can also change shape. Squashing clay and stretching a spring both use forces.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "spring",
+            "label": "spring"
+          }
+        ],
+        "alt": "A spring that can be stretched or squashed."
+      }
+    },
+    {
+      "say": "We measure forces in newtons (N) with a forcemeter.",
+      "show": "forcemeter → newtons (N)"
+    },
+    {
+      "say": "Friction is a force between surfaces that rub together. It acts against movement.",
+      "show": "friction slows things down"
+    },
+    {
+      "say": "Rough surfaces make more friction than smooth ones. A toy car rolls further on smooth tiles than on carpet.",
+      "show": "rough: more friction. smooth: less friction."
+    },
+    {
+      "say": "Friction is useful for brakes and for shoes that grip. Oil and water reduce friction."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.forces-friction.901",
+      "skill": "s3.forces-friction",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "On which surface would a toy car roll furthest?",
+      "options": [
+        {
+          "text": "smooth tiles"
+        },
+        {
+          "text": "sandpaper",
+          "why": "Sandpaper is rough, so friction stops the car quickly."
+        },
+        {
+          "text": "carpet",
+          "why": "Carpet is rough, so friction is quite big."
+        },
+        {
+          "text": "grass",
+          "why": "Grass is bumpy, so the car slows down quickly."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Friction slows a rolling car down.",
+        "Smooth surfaces have less friction.",
+        "Which surface is the smoothest?"
+      ],
+      "explanation": "Smooth tiles give the least friction, so the car rolls furthest."
+    },
+    {
+      "id": "s3.forces-friction.902",
+      "skill": "s3.forces-friction",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The force between two surfaces that slows movement is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "friction"
+          ]
+        }
+      ],
+      "hints": [
+        "It happens when surfaces rub together.",
+        "Brakes on a bike use this force.",
+        "The word starts with f."
+      ],
+      "explanation": "Friction is the force between surfaces that rub together."
+    }
+  ]
+}

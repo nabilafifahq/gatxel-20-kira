@@ -1,0 +1,172 @@
+{
+  "skill": "s1.living-things",
+  "items": [
+    {
+      "id": "s1.living-things.001", "skill": "s1.living-things", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one is a living thing?",
+      "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "rock" }, { "icon": "cat", "label": "cat" }, { "icon": "ball", "label": "ball" }], "alt": "Three pictures: a rock, a cat and a ball." },
+      "options": [
+        { "text": "a rock", "why": "A rock does not grow, eat or breathe." },
+        { "text": "a cat" },
+        { "text": "a ball", "why": "A ball cannot grow or eat. It only moves when we push it." }
+      ],
+      "answer": 1,
+      "hints": ["Think about which one can grow.", "Living things need food and water. Check each picture.", "Start with the rock. Does a rock eat or grow?"],
+      "explanation": "A cat is a living thing. It grows, eats, drinks, breathes and can have kittens."
+    },
+    {
+      "id": "s1.living-things.002", "skill": "s1.living-things", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one is not a living thing?",
+      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "tree" }, { "icon": "bird", "label": "bird" }, { "icon": "spoon", "label": "spoon" }], "alt": "Three pictures: a tree, a bird and a spoon." },
+      "options": [
+        { "text": "a tree", "why": "A tree is living. It grows and needs water." },
+        { "text": "a bird", "why": "A bird is living. It eats, grows and lays eggs." },
+        { "text": "a spoon" }
+      ],
+      "answer": 2,
+      "hints": ["Look for the thing that never grows.", "Ask: does it need food or water?", "Start with the tree. Does a tree grow bigger?"],
+      "explanation": "A spoon does not grow, eat, drink or breathe. It is not a living thing."
+    },
+    {
+      "id": "s1.living-things.003", "skill": "s1.living-things", "type": "sort", "difficulty": 2,
+      "prompt": "Is it living or not living? Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "fish", "label": "fish" }, { "icon": "plant", "label": "plant" }, { "icon": "ant", "label": "ant" }, { "icon": "car", "label": "car" }, { "icon": "cup", "label": "cup" }, { "icon": "book", "label": "book" }], "alt": "Six pictures: a fish, a plant, an ant, a car, a cup and a book." },
+      "groups": ["Living", "Not living"],
+      "items": [
+        { "text": "fish", "group": 0 },
+        { "text": "plant", "group": 0 },
+        { "text": "ant", "group": 0 },
+        { "text": "car", "group": 1 },
+        { "text": "cup", "group": 1 },
+        { "text": "book", "group": 1 }
+      ],
+      "hints": ["Living things grow and need food and water.", "Take one card at a time and ask: does it grow?", "Start with the fish. Does a fish eat and grow?"],
+      "explanation": "The fish, the plant and the ant are living. They grow and need food and water. The car, the cup and the book are not living."
+    },
+    {
+      "id": "s1.living-things.004", "skill": "s1.living-things", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the living things.",
+      "figure": { "kind": "icons", "items": [{ "icon": "dog", "label": "dog" }, { "icon": "kite", "label": "kite" }, { "icon": "tree", "label": "tree" }, { "icon": "bicycle", "label": "bicycle" }, { "icon": "butterfly", "label": "butterfly" }], "alt": "Five pictures: a dog, a kite, a tree, a bicycle and a butterfly." },
+      "options": [
+        { "text": "a dog" },
+        { "text": "a kite", "why": "A kite moves in the wind, but it does not grow or eat." },
+        { "text": "a tree" },
+        { "text": "a bicycle", "why": "A bicycle moves when we pedal. It cannot grow or eat." },
+        { "text": "a butterfly" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Some things move but are not alive.", "Check each one: does it grow and need food?", "Start with the dog. Does a dog need food?"],
+      "explanation": "The dog, the tree and the butterfly are living. They grow and need food and water. A kite and a bicycle only move when the wind or a person moves them."
+    },
+    {
+      "id": "s1.living-things.005", "skill": "s1.living-things", "type": "mcq", "difficulty": 2,
+      "prompt": "What do all living things need?",
+      "options": [
+        { "text": "water" },
+        { "text": "toys", "why": "Toys are fun, but plants and animals can live without them." },
+        { "text": "shoes", "why": "Animals and plants live without shoes." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what plants and animals both need.", "Which one would a tree need, and a fish too?", "Picture a plant on a hot day. What does it need?"],
+      "explanation": "All living things need water to stay alive. Plants and animals both need it."
+    },
+    {
+      "id": "s1.living-things.006", "skill": "s1.living-things", "type": "mcq", "difficulty": 3,
+      "prompt": "Mia's toy car moves across the floor. Is it a living thing?",
+      "figure": { "kind": "icons", "items": [{ "icon": "toy-car", "label": "toy car" }], "alt": "A toy car on the floor." },
+      "options": [
+        { "text": "Yes, because it moves.", "why": "Some things move but are not alive. The wind moves clouds too." },
+        { "text": "No, because it cannot grow or eat." },
+        { "text": "Yes, because it has wheels.", "why": "Wheels do not make something alive." }
+      ],
+      "answer": 1,
+      "hints": ["Moving is not enough to be alive.", "Think of the other things that living things do.", "Ask: will the toy car get bigger, like a puppy does?"],
+      "explanation": "A toy car moves only when it is pushed or has a battery. It cannot grow, eat or have young, so it is not living.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.living-things.007", "skill": "s1.living-things", "type": "match", "difficulty": 2,
+      "prompt": "Living things need food. Match each animal to a food it eats.",
+      "figure": { "kind": "icons", "items": [{ "icon": "cow", "label": "cow" }, { "icon": "monkey", "label": "monkey" }, { "icon": "bee", "label": "bee" }, { "icon": "hen", "label": "hen" }], "alt": "Four animals: a cow, a monkey, a bee and a hen." },
+      "pairs": [["cow", "grass"], ["monkey", "banana"], ["bee", "nectar from flowers"], ["hen", "seeds"]],
+      "hints": ["Think about what you have seen these animals eat.", "Do the ones you are sure about first.", "Start with the cow. What does a cow eat in a field?"],
+      "explanation": "Cows eat grass, monkeys eat fruit such as bananas, bees drink nectar from flowers and hens peck at seeds. All animals need food."
+    },
+    {
+      "id": "s1.living-things.008", "skill": "s1.living-things", "type": "sort", "difficulty": 4,
+      "prompt": "Some living things are small or very still. Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "seed", "label": "seed" }, { "icon": "mushroom", "label": "mushroom" }, { "icon": "worm", "label": "worm" }, { "icon": "cloud", "label": "cloud" }, { "icon": "candle", "label": "candle" }, { "icon": "clock", "label": "clock" }], "alt": "Six pictures: a seed, a mushroom, a worm, a cloud, a candle and a clock." },
+      "groups": ["Living", "Not living"],
+      "items": [
+        { "text": "seed", "group": 0 },
+        { "text": "mushroom", "group": 0 },
+        { "text": "worm", "group": 0 },
+        { "text": "cloud", "group": 1 },
+        { "text": "candle", "group": 1 },
+        { "text": "clock", "group": 1 }
+      ],
+      "hints": ["Living things can grow when they get what they need.", "Ask: could it grow if it gets food or water?", "Start with the seed. What happens when you plant it?"],
+      "explanation": "A seed, a mushroom and a worm are living. A seed grows into a plant and a mushroom grows too. A cloud, a candle and a clock do not eat or grow."
+    },
+    {
+      "id": "s1.living-things.009", "skill": "s1.living-things", "type": "text", "difficulty": 3,
+      "prompt": "A living thing gets bigger as it gets older. We say it ___.",
+      "blanks": [{ "answers": ["grows", "grow", "is growing"] }],
+      "hints": ["Think about what happens to you every year.", "A baby becomes a child, then an adult. Which word means getting bigger?", "Say this aloud: a puppy ___ into a dog."],
+      "explanation": "Living things grow. A puppy grows into a dog and a seed grows into a plant."
+    },
+    {
+      "id": "s1.living-things.010", "skill": "s1.living-things", "type": "mcq", "difficulty": 3,
+      "prompt": "Which one shows that a plant is living?",
+      "figure": { "kind": "icons", "items": [{ "icon": "plant", "label": "plant" }], "alt": "A green plant in a pot." },
+      "options": [
+        { "text": "It grows new leaves." },
+        { "text": "It is green.", "why": "Some things that are not living are green too, like a green crayon." },
+        { "text": "It stays in one place.", "why": "A rock stays in one place, and it is not living." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what living things do.", "Which choice is something only living things do?", "Check each choice. Could a crayon or a rock do it too?"],
+      "explanation": "Growing new leaves shows the plant is living. All living things grow."
+    },
+    {
+      "id": "s1.living-things.011", "skill": "s1.living-things", "type": "mcq", "difficulty": 4,
+      "prompt": "Dewi says the wind is alive because it moves the trees. Is she right?",
+      "figure": { "kind": "icons", "items": [{ "icon": "wind", "label": "wind" }, { "icon": "tree", "label": "tree" }], "alt": "The wind blowing a tree." },
+      "options": [
+        { "text": "Yes, the wind is alive.", "why": "Moving things is not enough. The wind does not eat, grow or have young." },
+        { "text": "No, the wind is not alive." },
+        { "text": "Only on stormy days.", "why": "The wind is never alive, even when it is very strong." }
+      ],
+      "answer": 1,
+      "hints": ["Think about all the things living things do.", "Living things grow, need food and have young.", "Ask: does the wind eat food or grow?"],
+      "explanation": "The wind can move things, but it does not eat, drink, grow or have young. It is not a living thing.",
+      "tags": ["iksc", "ksnr"]
+    },
+    {
+      "id": "s1.living-things.012", "skill": "s1.living-things", "type": "mcq", "difficulty": 5,
+      "prompt": "Which one is a living thing?",
+      "figure": { "kind": "icons", "items": [{ "icon": "flower", "label": "plastic flower" }, { "icon": "fish", "label": "toy fish" }, { "icon": "seed", "label": "seed" }], "alt": "Three pictures: a plastic flower, a toy fish and a seed." },
+      "options": [
+        { "text": "a plastic flower", "why": "It looks like a plant, but it can never grow." },
+        { "text": "a toy fish", "why": "It looks like a fish, but it cannot eat or grow." },
+        { "text": "a seed" }
+      ],
+      "answer": 2,
+      "hints": ["Some living things do not look alive.", "Think about which one could grow if you look after it.", "Imagine putting each one in soil with water. Which one could grow?"],
+      "explanation": "A seed is living. When it gets water and warmth it grows into a new plant. The plastic flower and the toy fish can never grow.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.living-things.013", "skill": "s1.living-things", "type": "draw", "difficulty": 2,
+      "prompt": "Draw one living thing and one non-living thing. Label them.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws one living thing", "points": 1 },
+        { "label": "Draws one non-living thing", "points": 1 },
+        { "label": "Writes a label for each drawing", "points": 1 }
+      ] },
+      "hints": ["Look around the room for ideas.", "A pet or a plant is living. A chair is not living."],
+      "explanation": "Living things grow and need food and water, like a plant or a pet. Non-living things, like a chair or a cup, do not."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "skill": "m3.temperature",
+  "title": "Temperature in degrees Celsius",
+  "steps": [
+    {
+      "say": "Temperature tells us how hot or cold something is. We measure it in degrees Celsius (°C)."
+    },
+    {
+      "say": "Read the thermometer where the liquid stops.",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 50,
+        "value": 30,
+        "step": 10,
+        "alt": "A thermometer from 0 to 50 °C. The liquid stops at 30 °C."
+      },
+      "show": "30 °C"
+    },
+    {
+      "say": "Some marks have no number. Work out what each mark is worth.",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 40,
+        "value": 25,
+        "step": 5,
+        "alt": "A thermometer from 0 to 40 °C marked every 5 degrees. The liquid stops at 25 °C."
+      },
+      "show": "25 °C"
+    },
+    {
+      "say": "To find a difference, take the lower temperature away from the higher one.",
+      "show": "32 °C - 26 °C = 6 degrees"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.temperature.901",
+      "skill": "m3.temperature",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What temperature does the thermometer show?",
+      "answer": 35,
+      "hints": [
+        "Find what each mark is worth.",
+        "Count up the marks from 0.",
+        "Look at where the liquid stops."
+      ],
+      "explanation": "Each mark is 5 degrees. The liquid stops at 35 °C.",
+      "unit": "°C",
+      "figure": {
+        "kind": "thermometer",
+        "min": 0,
+        "max": 50,
+        "value": 35,
+        "step": 5,
+        "alt": "A thermometer from 0 to 50 °C marked every 5 degrees. The liquid stops at 35 °C."
+      }
+    },
+    {
+      "id": "m3.temperature.902",
+      "skill": "m3.temperature",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "In the morning it is 24 °C. At midday it is 31 °C. How many degrees warmer is it at midday?",
+      "answer": 7,
+      "hints": [
+        "Find the difference between the two temperatures.",
+        "Count up from 24 to 31.",
+        "24 to 30 is 6 degrees."
+      ],
+      "explanation": "31 - 24 = 7, so it is 7 degrees warmer.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

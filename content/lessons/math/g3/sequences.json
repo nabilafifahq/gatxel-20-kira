@@ -1,0 +1,92 @@
+{
+  "skill": "m3.sequences",
+  "title": "Counting in steps",
+  "steps": [
+    {
+      "say": "A sequence goes up or down in equal steps.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "25",
+          "30",
+          "35",
+          "40",
+          null
+        ],
+        "alt": "A sequence: 25, 30, 35, 40, then a gap."
+      }
+    },
+    {
+      "say": "Find the step. From 25 to 30 is 5 more.",
+      "show": "30 - 25 = 5"
+    },
+    {
+      "say": "Add the step to the last number to find the next one.",
+      "show": "40 + 5 = 45"
+    },
+    {
+      "say": "Counting back works the same way. Take away the step each time.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "90",
+          "80",
+          "70",
+          null
+        ],
+        "alt": "A sequence: 90, 80, 70, then a gap."
+      }
+    },
+    {
+      "say": "Even numbers end in 0, 2, 4, 6 or 8. Odd numbers end in 1, 3, 5, 7 or 9.",
+      "show": "even: 34, odd: 57"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.sequences.901",
+      "skill": "m3.sequences",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the next number? 106, 103, 100, 97, ...",
+      "answer": 94,
+      "hints": [
+        "Is the sequence going up or down?",
+        "Find the step between two numbers next to each other.",
+        "Take the step away from 97."
+      ],
+      "explanation": "The numbers go down by 3 each time. 97 - 3 = 94."
+    },
+    {
+      "id": "m3.sequences.902",
+      "skill": "m3.sequences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is odd?",
+      "options": [
+        {
+          "text": "774",
+          "why": "774 ends in 4, so it is even."
+        },
+        {
+          "text": "461"
+        },
+        {
+          "text": "590",
+          "why": "590 ends in 0, so it is even."
+        },
+        {
+          "text": "238",
+          "why": "238 ends in 8, so it is even."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the ones digit of each number.",
+        "Odd numbers end in 1, 3, 5, 7 or 9.",
+        "Check each number in turn."
+      ],
+      "explanation": "461 ends in 1, so it is odd."
+    }
+  ]
+}

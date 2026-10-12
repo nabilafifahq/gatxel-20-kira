@@ -1,0 +1,92 @@
+{
+  "skill": "s5.sound",
+  "title": "Sound, pitch and loudness",
+  "steps": [
+    {
+      "say": "Every sound is made by something vibrating. Touch your throat while you hum to feel the vibrations."
+    },
+    {
+      "say": "Vibrations travel through solids, liquids and gases to your ears. Sound cannot travel through empty space.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "drum",
+            "label": "drum"
+          },
+          {
+            "icon": "ear",
+            "label": "ear"
+          }
+        ],
+        "alt": "A drum making a sound that travels to an ear."
+      }
+    },
+    {
+      "say": "Pitch is how high or low a sound is. Faster vibrations make higher notes."
+    },
+    {
+      "say": "Short, thin or tight things vibrate faster. A short angklung tube makes a higher note than a long one."
+    },
+    {
+      "say": "Loudness depends on the size of the vibrations. Hitting a drum harder makes bigger vibrations and a louder sound."
+    },
+    {
+      "say": "Soft materials like curtains and foam absorb sound. They are used to make rooms quieter."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.sound.901",
+      "skill": "s5.sound",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How can you make a guitar string play a higher note?",
+      "options": [
+        {
+          "text": "loosen the string",
+          "why": "A looser string vibrates more slowly and plays a lower note."
+        },
+        {
+          "text": "pluck it more gently",
+          "why": "Plucking gently makes the note quieter, not higher."
+        },
+        {
+          "text": "use a thicker string",
+          "why": "Thicker strings vibrate more slowly and play lower notes."
+        },
+        {
+          "text": "tighten the string"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Higher notes come from faster vibrations.",
+        "Tight, thin and short strings vibrate faster.",
+        "Cross out the choices that slow the vibrations down or only change loudness."
+      ],
+      "explanation": "Tightening a string makes it vibrate faster, so it plays a higher note."
+    },
+    {
+      "id": "s5.sound.902",
+      "skill": "s5.sound",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Bigger vibrations make a sound more ___.",
+      "blanks": [
+        {
+          "answers": [
+            "loud",
+            "louder"
+          ]
+        }
+      ],
+      "hints": [
+        "Big vibrations and small vibrations sound different.",
+        "Hitting a drum harder makes bigger vibrations.",
+        "Think of the word that is the opposite of quiet."
+      ],
+      "explanation": "Bigger vibrations make louder sounds, and smaller vibrations make quieter sounds."
+    }
+  ]
+}

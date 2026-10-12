@@ -1,0 +1,477 @@
+{
+  "skill": "s3.magnets",
+  "items": [
+    {
+      "id": "s3.magnets.001",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which object will a magnet attract?",
+      "options": [
+        {
+          "text": "plastic button",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "button"
+              }
+            ],
+            "alt": "A plastic button."
+          },
+          "why": "Plastic is not magnetic."
+        },
+        {
+          "text": "wooden pencil",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "pencil"
+              }
+            ],
+            "alt": "A wooden pencil."
+          },
+          "why": "Wood is not magnetic."
+        },
+        {
+          "text": "rubber eraser",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "eraser"
+              }
+            ],
+            "alt": "A rubber eraser."
+          },
+          "why": "Rubber is not magnetic."
+        },
+        {
+          "text": "steel paperclip",
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "paperclip"
+              }
+            ],
+            "alt": "A steel paperclip."
+          }
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Magnets attract some metals.",
+        "Steel contains iron.",
+        "Which object is made of metal?"
+      ],
+      "explanation": "A magnet attracts things made of iron or steel. The paperclip is steel, so the magnet pulls it."
+    },
+    {
+      "id": "s3.magnets.002",
+      "skill": "s3.magnets",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the objects. Will a magnet attract them?",
+      "groups": [
+        "Magnetic",
+        "Not magnetic"
+      ],
+      "items": [
+        {
+          "text": "iron nail",
+          "group": 0
+        },
+        {
+          "text": "steel spoon",
+          "group": 0
+        },
+        {
+          "text": "steel paperclip",
+          "group": 0
+        },
+        {
+          "text": "aluminium foil",
+          "group": 1
+        },
+        {
+          "text": "copper wire",
+          "group": 1
+        },
+        {
+          "text": "glass marble",
+          "group": 1
+        },
+        {
+          "text": "plastic cup",
+          "group": 1
+        },
+        {
+          "text": "gold ring",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Only a few metals are magnetic.",
+        "Iron and steel are magnetic.",
+        "Be careful: not every metal is magnetic."
+      ],
+      "explanation": "Iron and steel are magnetic. Aluminium, copper and gold are metals too, but they are not magnetic, and neither are glass and plastic.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.magnets.003",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The north pole of one magnet is held near the north pole of another. What happens?",
+      "options": [
+        {
+          "text": "They push apart."
+        },
+        {
+          "text": "They pull together.",
+          "why": "Different poles attract. Two north poles are the same, so they repel."
+        },
+        {
+          "text": "Nothing happens.",
+          "why": "Magnets always push or pull each other when their poles are close."
+        },
+        {
+          "text": "Both magnets lose their poles.",
+          "why": "Magnets keep their poles. They push apart."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Both poles are the same: north.",
+        "Remember the rule for same poles and different poles.",
+        "Do same poles attract or repel?"
+      ],
+      "explanation": "Like poles repel, so two north poles push each other away. A north pole and a south pole would pull together."
+    },
+    {
+      "id": "s3.magnets.004",
+      "skill": "s3.magnets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Two south poles will ___ each other.",
+      "blanks": [
+        {
+          "answers": [
+            "repel",
+            "push away",
+            "push",
+            "push apart",
+            "push off"
+          ]
+        }
+      ],
+      "hints": [
+        "The two poles are the same.",
+        "Same poles do not pull together.",
+        "The science word starts with r."
+      ],
+      "explanation": "Like poles repel, which means they push each other away."
+    },
+    {
+      "id": "s3.magnets.005",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Three ring magnets sit on a pencil. The top magnet floats above the others. Why?",
+      "options": [
+        {
+          "text": "The pencil is magnetic.",
+          "why": "Wood is not magnetic."
+        },
+        {
+          "text": "The facing poles are the same, so they repel."
+        },
+        {
+          "text": "The top magnet is lighter than air.",
+          "why": "Magnets are heavy. A push between the magnets holds it up."
+        },
+        {
+          "text": "The magnets attract the air.",
+          "why": "Magnets do not attract air."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Something is pushing the top magnet up.",
+        "Think about which poles push and which pull.",
+        "Are the facing poles the same or different?"
+      ],
+      "explanation": "The poles facing each other are the same, so they repel. The push holds the top magnet up in the air.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.magnets.006",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rina holds a magnet under a sheet of paper. A paperclip on top moves with the magnet. What does this show?",
+      "options": [
+        {
+          "text": "Paper is magnetic.",
+          "why": "Paper is not magnetic. The force passes through it."
+        },
+        {
+          "text": "A breeze is moving the paperclip.",
+          "why": "The paperclip follows the magnet, not the air."
+        },
+        {
+          "text": "Magnetic force can act through paper."
+        },
+        {
+          "text": "Magnets only work when touching.",
+          "why": "The magnet did not touch the paperclip, but it still moved it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The magnet is not touching the paperclip.",
+        "Something passes through the paper.",
+        "Can a magnet pull without touching?"
+      ],
+      "explanation": "Magnetic force can act at a distance and through some materials, like paper. That is why the paperclip moves."
+    },
+    {
+      "id": "s3.magnets.007",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "At a recycling centre, a big magnet lifts some cans out of a pile. Which cans does it lift?",
+      "options": [
+        {
+          "text": "aluminium drink cans",
+          "why": "Aluminium is a metal, but it is not magnetic."
+        },
+        {
+          "text": "plastic bottles",
+          "why": "Plastic is not magnetic."
+        },
+        {
+          "text": "glass jars",
+          "why": "Glass is not magnetic."
+        },
+        {
+          "text": "steel food cans"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The magnet only lifts magnetic materials.",
+        "Some metals are magnetic and some are not.",
+        "Which metal contains iron?"
+      ],
+      "explanation": "Steel contains iron, so steel cans are magnetic. Aluminium cans are not, so a magnet helps sort them.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.magnets.008",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kevin counts how many paperclips each magnet can hold in a chain. What can he conclude?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Magnet",
+          "Size",
+          "Paperclips held"
+        ],
+        "rows": [
+          [
+            "A",
+            "big",
+            "5"
+          ],
+          [
+            "B",
+            "small",
+            "12"
+          ],
+          [
+            "C",
+            "medium",
+            "8"
+          ],
+          [
+            "D",
+            "big",
+            "3"
+          ]
+        ],
+        "alt": "Table: magnet A is big and holds 5 paperclips. B is small and holds 12. C is medium and holds 8. D is big and holds 3."
+      },
+      "options": [
+        {
+          "text": "A bigger magnet is not always stronger."
+        },
+        {
+          "text": "Bigger magnets are always stronger.",
+          "why": "Magnet B is small but holds the most paperclips."
+        },
+        {
+          "text": "All magnets are equally strong.",
+          "why": "The magnets held between 3 and 12 paperclips."
+        },
+        {
+          "text": "Magnet D is the strongest.",
+          "why": "Magnet D held only 3 paperclips, the fewest."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The number of paperclips shows how strong each magnet is.",
+        "Find the strongest magnet. How big is it?",
+        "Compare the sizes with the numbers."
+      ],
+      "explanation": "Magnet B is small but held 12 paperclips, the most. So the size of a magnet does not tell you how strong it is.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.magnets.009",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A compass needle is a tiny magnet. Why does it point north?",
+      "options": [
+        {
+          "text": "It is pulled towards the Sun.",
+          "why": "The Sun does not pull the compass needle."
+        },
+        {
+          "text": "The Earth acts like a giant magnet."
+        },
+        {
+          "text": "The wind pushes it north.",
+          "why": "A compass works indoors, with no wind."
+        },
+        {
+          "text": "It points to the nearest metal.",
+          "why": "Nearby iron can pull a needle off course, but that is not why it points north."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A magnet lines up with other magnets nearby.",
+        "Think about the biggest magnet you live on.",
+        "What could be magnetic all around the world?"
+      ],
+      "explanation": "The Earth behaves like a giant magnet. A compass needle lines up with the Earth's magnetism, so one end points north."
+    },
+    {
+      "id": "s3.magnets.010",
+      "skill": "s3.magnets",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 metals that a magnet will attract.",
+      "options": [
+        {
+          "text": "iron"
+        },
+        {
+          "text": "aluminium",
+          "why": "Aluminium is a metal, but it is not magnetic."
+        },
+        {
+          "text": "copper",
+          "why": "Copper is a metal, but it is not magnetic."
+        },
+        {
+          "text": "steel"
+        },
+        {
+          "text": "gold",
+          "why": "Gold is a metal, but it is not magnetic."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Not every metal is magnetic.",
+        "Think about what nails and paperclips are made of.",
+        "One answer is mostly made from the other."
+      ],
+      "explanation": "Iron and steel are magnetic, and steel is made mostly from iron. Aluminium, copper and gold are not magnetic."
+    },
+    {
+      "id": "s3.magnets.011",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "End A of a magnet is a north pole. End A attracts end B of another magnet. End A repels end C of a third magnet. What are B and C?",
+      "options": [
+        {
+          "text": "B is south and C is north."
+        },
+        {
+          "text": "B is north and C is south.",
+          "why": "End A is north. Opposite poles attract, so B must be south."
+        },
+        {
+          "text": "B and C are both north.",
+          "why": "B attracts A, so B must be the opposite pole: south."
+        },
+        {
+          "text": "B and C are both south.",
+          "why": "C repels A, so C must be the same pole as A: north."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Attract means the poles are different.",
+        "Repel means the poles are the same.",
+        "Start with B. What is the opposite of north?"
+      ],
+      "explanation": "End A is north. B attracts A, so B is the opposite pole, south. C repels A, so C is the same pole, north.",
+      "tags": [
+        "iksc",
+        "olympiad",
+        "keep-order"
+      ]
+    },
+    {
+      "id": "s3.magnets.012",
+      "skill": "s3.magnets",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw two bar magnets that will attract each other. Label the N and S poles.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws two bar magnets",
+            "points": 1
+          },
+          {
+            "label": "Labels N and S on both magnets",
+            "points": 1
+          },
+          {
+            "label": "The facing ends are opposite poles",
+            "points": 2
+          }
+        ]
+      },
+      "hints": [
+        "Each magnet has an N end and an S end.",
+        "Opposite poles attract."
+      ],
+      "explanation": "The magnets attract when a north pole faces a south pole."
+    }
+  ]
+}

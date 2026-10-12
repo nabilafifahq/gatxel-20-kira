@@ -1,0 +1,386 @@
+{
+  "skill": "e1.tricky-words",
+  "items": [
+    {
+      "id": "e1.tricky-words.001",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt the right way?",
+      "hints": [
+        "This is a tricky word. It does not look how it sounds.",
+        "Think of the word in: Mum ___ hello.",
+        "Look for the spelling you see in your reading books."
+      ],
+      "explanation": "Said is a tricky word. We spell it s, a, i, d.",
+      "options": [
+        {
+          "text": "sed",
+          "why": "This word is tricky. Its middle sound is spelt ai."
+        },
+        {
+          "text": "said"
+        },
+        {
+          "text": "sayd",
+          "why": "This is not how we spell it. Look in your reading book."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.tricky-words.002",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the word that fits. 'Where ___ you?'",
+      "hints": [
+        "Read the question with each word.",
+        "Think about how we ask a friend this question.",
+        "Which word sounds right after where?"
+      ],
+      "explanation": "We say 'Where are you?' Are goes with you.",
+      "options": [
+        {
+          "text": "are"
+        },
+        {
+          "text": "is",
+          "why": "We say you are, not you is."
+        },
+        {
+          "text": "was",
+          "why": "With you, we use were for the past."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.tricky-words.003",
+      "skill": "e1.tricky-words",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing letter in the tricky word. 'She w ___ s happy.'",
+      "hints": [
+        "Read the sentence. What is the tricky word?",
+        "It sounds like it has o in it, but it does not.",
+        "The missing letter is a vowel. Try each one."
+      ],
+      "explanation": "Was is a tricky word. It sounds like woz, but we spell it w, a, s.",
+      "blanks": [
+        {
+          "answers": [
+            "a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.tricky-words.004",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word means 1?",
+      "hints": [
+        "Two of the words sound the same.",
+        "Think about counting: 1, 2, 3.",
+        "Of the two words that sound the same, which is the number word?"
+      ],
+      "explanation": "One is the word for 1. Won sounds the same but means you came first.",
+      "options": [
+        {
+          "text": "won",
+          "why": "Won sounds the same, but it means you came first."
+        },
+        {
+          "text": "on",
+          "why": "On tells where something is."
+        },
+        {
+          "text": "one"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.tricky-words.005",
+      "skill": "e1.tricky-words",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each question to its answer.",
+      "hints": [
+        "Look at the first word of each question.",
+        "Where asks about a place. Who asks about a person.",
+        "Find the answer that names a place first."
+      ],
+      "explanation": "Where asks about a place, who asks about a person and what asks about a thing.",
+      "pairs": [
+        [
+          "Where is it?",
+          "In the box."
+        ],
+        [
+          "Who is it?",
+          "It is Dimas."
+        ],
+        [
+          "What is it?",
+          "It is a ball."
+        ]
+      ]
+    },
+    {
+      "id": "e1.tricky-words.006",
+      "skill": "e1.tricky-words",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Is the tricky word spelt right? Sort the words.",
+      "hints": [
+        "Tricky words do not always look how they sound.",
+        "Think about how you see them in books.",
+        "Start with was. Have you seen it spelt like that in books?"
+      ],
+      "explanation": "Was, they and have are spelt right. Woz, thay and hav are not real spellings.",
+      "groups": [
+        "Spelt right",
+        "Not right"
+      ],
+      "items": [
+        {
+          "text": "was",
+          "group": 0
+        },
+        {
+          "text": "woz",
+          "group": 1
+        },
+        {
+          "text": "they",
+          "group": 0
+        },
+        {
+          "text": "thay",
+          "group": 1
+        },
+        {
+          "text": "have",
+          "group": 0
+        },
+        {
+          "text": "hav",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.tricky-words.007",
+      "skill": "e1.tricky-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "How many balls? Write the number as a word.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "ball",
+            "count": 2
+          }
+        ],
+        "alt": "Two balls."
+      },
+      "hints": [
+        "Count the balls.",
+        "Write the word, not the number.",
+        "This word is tricky. It has a silent w."
+      ],
+      "explanation": "There are 2 balls. The word for 2 is two, with a silent w.",
+      "blanks": [
+        {
+          "answers": [
+            "two"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.tricky-words.008",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is spelt right?",
+      "hints": [
+        "Check each word carefully.",
+        "Two sentences have one mistake each.",
+        "Look closely at the first word and the last word."
+      ],
+      "explanation": "They and friends are both tricky words. Only one sentence spells both correctly.",
+      "options": [
+        {
+          "text": "Thay are my friends.",
+          "why": "They is spelt t, h, e, y."
+        },
+        {
+          "text": "They are my frends.",
+          "why": "Friends has an i: f, r, i, e, n, d, s."
+        },
+        {
+          "text": "They are my friends."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.tricky-words.009",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the missing word. 'Yesterday we ___ at the beach.'",
+      "hints": [
+        "Yesterday means it already happened.",
+        "We goes with a special past word.",
+        "Say it: today we are, yesterday we ___."
+      ],
+      "explanation": "We were is the past of we are. Were is a tricky word.",
+      "options": [
+        {
+          "text": "were"
+        },
+        {
+          "text": "was",
+          "why": "With we, the past word is were."
+        },
+        {
+          "text": "wer",
+          "why": "This word needs an e at the end."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.tricky-words.010",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is spelt correctly?",
+      "hints": [
+        "This tricky word has a letter you do not hear.",
+        "Remember: a friend is there to the end.",
+        "Find the spelling with ie in the middle."
+      ],
+      "explanation": "Friend is spelt f, r, i, e, n, d. A friend is there to the end.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "frend",
+          "why": "A letter is missing."
+        },
+        {
+          "text": "freind",
+          "why": "Two letters are swapped."
+        },
+        {
+          "text": "friend"
+        },
+        {
+          "text": "frind",
+          "why": "The e is missing."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.tricky-words.011",
+      "skill": "e1.tricky-words",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Put these letters in order to make a tricky word.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "e",
+          "h",
+          "r",
+          "e"
+        ],
+        "style": "boxes",
+        "alt": "Four letter boxes: e, h, r, e."
+      },
+      "hints": [
+        "The word has four letters.",
+        "It is a place word: Come over ___.",
+        "The word starts with h."
+      ],
+      "explanation": "The letters make here, as in 'Come over here.'",
+      "blanks": [
+        {
+          "answers": [
+            "here"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.tricky-words.012",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which tricky word is hidden in 'something'?",
+      "hints": [
+        "Look at the start of the long word.",
+        "Cover up thing with your finger.",
+        "Read the letters that are left."
+      ],
+      "explanation": "Something is some and thing joined together.",
+      "options": [
+        {
+          "text": "come",
+          "why": "Come is not inside something."
+        },
+        {
+          "text": "some"
+        },
+        {
+          "text": "home",
+          "why": "Home is not inside something."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.tricky-words.013",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Choose the words to finish. '___ is my ball? It is over ___.'",
+      "hints": [
+        "The first gap starts a question about a place.",
+        "The second gap is a place word, like here.",
+        "Both words have the letters h, e, r, e in them."
+      ],
+      "explanation": "Where asks about a place. There tells you the place. Both words have here inside them.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Were / their",
+          "why": "Were is a past word, and their means it belongs to them."
+        },
+        {
+          "text": "Where / there"
+        },
+        {
+          "text": "Where / their",
+          "why": "Their means something belongs to them."
+        },
+        {
+          "text": "Wear / there",
+          "why": "Wear is for clothes, like wear a hat."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

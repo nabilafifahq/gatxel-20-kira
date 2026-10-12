@@ -1,0 +1,211 @@
+{
+  "skill": "s2.light-dark",
+  "items": [
+    {
+      "id": "s2.light-dark.001", "skill": "s2.light-dark", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one is a light source?",
+      "options": [
+        { "text": "a mirror", "why": "A mirror reflects light. It does not make its own." },
+        { "text": "the Sun" },
+        { "text": "a book", "why": "A book does not make light." },
+        { "text": "a spoon", "why": "A shiny spoon reflects light. It does not make light." }
+      ],
+      "answer": 1,
+      "hints": ["A light source makes its own light.", "Which one still shines when everything else is dark?", "Think about what lights up the sky in the day."],
+      "explanation": "The Sun is a light source because it makes its own light. Mirrors and spoons only reflect light."
+    },
+    {
+      "id": "s2.light-dark.002", "skill": "s2.light-dark", "type": "sort", "difficulty": 3,
+      "prompt": "Does it make its own light? Sort the cards.",
+      "groups": ["Makes light", "Does not make light"],
+      "items": [
+        { "text": "the Sun", "group": 0 },
+        { "text": "a lit candle", "group": 0 },
+        { "text": "a torch that is on", "group": 0 },
+        { "text": "lightning", "group": 0 },
+        { "text": "a mirror", "group": 1 },
+        { "text": "the Moon", "group": 1 },
+        { "text": "shiny foil", "group": 1 }
+      ],
+      "hints": ["Shiny things can look bright without making light.", "Ask: would it still shine in a dark room with no other light?", "Start with the Moon. Where does its light come from?"],
+      "explanation": "The Sun, a lit candle, a torch that is on and lightning make their own light. A mirror, the Moon and shiny foil only reflect light."
+    },
+    {
+      "id": "s2.light-dark.003", "skill": "s2.light-dark", "type": "mcq", "difficulty": 1,
+      "prompt": "Why can we not see in a very dark room?",
+      "options": [
+        { "text": "Our eyes are closed.", "why": "Even with open eyes, we cannot see without light." },
+        { "text": "The room is too small.", "why": "Size does not matter. We need light to see." },
+        { "text": "There is no light." },
+        { "text": "It is too quiet.", "why": "Sound does not help us see." }
+      ],
+      "answer": 2,
+      "hints": ["Think about what you switch on when you enter a dark room.", "What do our eyes need to see?", "Ask: what is missing in the dark?"],
+      "explanation": "Dark means there is no light. We need light to see, so in a very dark room we cannot see anything."
+    },
+    {
+      "id": "s2.light-dark.004", "skill": "s2.light-dark", "type": "text", "difficulty": 2,
+      "prompt": "Something that makes its own light is called a light ___.",
+      "blanks": [{ "answers": ["source", "sources"] }],
+      "hints": ["It is where the light comes from.", "The Sun and a torch are both examples.", "The same word is used for a sound: a sound ___."],
+      "explanation": "A light source makes its own light. The Sun, a candle flame and a lamp that is on are light sources."
+    },
+    {
+      "id": "s2.light-dark.005", "skill": "s2.light-dark", "type": "mcq", "difficulty": 4,
+      "prompt": "The Moon shines at night. Is it a light source?",
+      "figure": { "kind": "icons", "items": [{ "icon": "moon", "label": "Moon" }, { "icon": "sun", "label": "Sun" }], "alt": "The Moon in the night sky and the Sun." },
+      "options": [
+        { "text": "Yes, it makes its own light.", "why": "The Moon looks bright, but its light comes from the Sun." },
+        { "text": "Yes, but only when it is round and full.", "why": "The Moon never makes its own light." },
+        { "text": "No, it reflects light from the Sun." },
+        { "text": "No, because it is cold.", "why": "Being cold is not the reason. The Moon reflects sunlight." }
+      ],
+      "answer": 2,
+      "hints": ["Many people think the Moon makes light.", "Where does moonlight really come from?", "Ask: does the Moon shine like a lamp or like a mirror?"],
+      "explanation": "The Moon is not a light source. It shines because light from the Sun bounces off it, like light off a mirror.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.light-dark.006", "skill": "s2.light-dark", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the light sources.",
+      "options": [
+        { "text": "a torch that is switched on" },
+        { "text": "a campfire" },
+        { "text": "a firefly" },
+        { "text": "a mirror", "why": "A mirror reflects light. It does not make light." },
+        { "text": "a glass of water", "why": "Light passes through water, but water does not make light." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["A light source makes its own light.", "Imagine each one in a dark room with no other light.", "Start with the firefly. Have you seen one glow at night?"],
+      "explanation": "A torch that is on, a campfire and a firefly all make their own light. A mirror and a glass of water do not."
+    },
+    {
+      "id": "s2.light-dark.007", "skill": "s2.light-dark", "type": "mcq", "difficulty": 2,
+      "prompt": "What is the safe way to treat the Sun?",
+      "options": [
+        { "text": "Never look straight at it." },
+        { "text": "Look at it with sunglasses.", "why": "Sunglasses do not protect your eyes from looking straight at the Sun." },
+        { "text": "Look at it through binoculars.", "why": "Binoculars make the Sun's light even more dangerous." },
+        { "text": "Look at it for one minute only.", "why": "Even a short look can hurt your eyes." }
+      ],
+      "answer": 0,
+      "hints": ["The Sun is the brightest light source we see.", "Which choice keeps your eyes away from it?", "Think about the safety rule your teacher tells you."],
+      "explanation": "Never look straight at the Sun, even with sunglasses. Its light is so strong that it can damage your eyes.",
+      "tip": "Never look straight at the Sun.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.light-dark.008", "skill": "s2.light-dark", "type": "mcq", "difficulty": 4,
+      "prompt": "Why do cyclists wear shiny strips at night?",
+      "options": [
+        { "text": "They keep the cyclist warm.", "why": "The strips are thin. They are there for safety." },
+        { "text": "They reflect car lights, so drivers see the cyclist." },
+        { "text": "They make their own light.", "why": "The strips do not make light. They reflect light from car headlights." },
+        { "text": "They make the bicycle faster.", "why": "Strips do not change the bicycle's speed." }
+      ],
+      "answer": 1,
+      "hints": ["Shiny things bounce light back.", "Where does the light come from on a dark road?", "Ask: what shines on the strips when a car comes?"],
+      "explanation": "Shiny strips reflect light from car headlights back towards the driver, so the driver sees the cyclist in the dark.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.light-dark.009", "skill": "s2.light-dark", "type": "mcq", "difficulty": 4,
+      "prompt": "How do we see a book on a table?",
+      "options": [
+        { "text": "Our eyes send out light to the book.", "why": "Eyes do not send out light. Light goes into our eyes." },
+        { "text": "The book makes a sound.", "why": "We hear sounds. We see with light." },
+        { "text": "We touch it with our eyes.", "why": "Our eyes do not touch things. Light travels to them." },
+        { "text": "Light bounces off the book into our eyes." }
+      ],
+      "answer": 3,
+      "hints": ["The book does not make its own light.", "Light comes from a source, like a lamp or the Sun.", "Follow the light: lamp, then book, then where?"],
+      "explanation": "Light from a source, like a lamp, bounces off the book and travels into our eyes. That is how we see it.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.light-dark.010", "skill": "s2.light-dark", "type": "numeric", "difficulty": 4,
+      "prompt": "How many of these are giving out their own light?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "candle", "label": "lit candle" }, { "icon": "mirror", "label": "mirror" }, { "icon": "torch", "label": "torch, on" }, { "icon": "moon", "label": "Moon" }, { "icon": "bulb", "label": "bulb, off" }], "alt": "Six pictures: the Sun, a lit candle, a mirror, a torch that is on, the Moon and a bulb that is off." },
+      "answer": 3,
+      "hints": ["A light source makes its own light right now.", "The Moon and a mirror only reflect light. A bulb that is off gives no light.", "Start with the Sun and count 1."],
+      "explanation": "The Sun, the lit candle and the torch that is on give out their own light. That is 3. The Moon and the mirror reflect light, and the bulb is off.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.light-dark.011", "skill": "s2.light-dark", "type": "mcq", "difficulty": 3,
+      "prompt": "Dewi is in a deep cave. She switches off her torch. What can she see?",
+      "figure": { "kind": "icons", "items": [{ "icon": "torch", "label": "torch, off" }, { "icon": "mountain", "label": "deep cave" }], "alt": "A torch switched off inside a deep, dark cave." },
+      "options": [
+        { "text": "only bright colours", "why": "Colours need light to be seen." },
+        { "text": "her hands clearly", "why": "With no light, she cannot see her hands." },
+        { "text": "the cave walls", "why": "With no light reaching the walls, she cannot see them." },
+        { "text": "nothing at all" }
+      ],
+      "answer": 3,
+      "hints": ["A deep cave gets no sunlight.", "What happens when the only light source is switched off?", "Ask: is there any light left to go into her eyes?"],
+      "explanation": "With the torch off, there is no light in the deep cave. Without light, Dewi cannot see anything."
+    },
+    {
+      "id": "s2.light-dark.012", "skill": "s2.light-dark", "type": "mcq", "difficulty": 5,
+      "prompt": "Some people say cats can see in total darkness. Which is true?",
+      "figure": { "kind": "icons", "items": [{ "icon": "cat", "label": "cat" }, { "icon": "moon", "label": "night" }], "alt": "A cat at night." },
+      "options": [
+        { "text": "Yes, cats see in total darkness.", "why": "No animal sees in total darkness. Cats need a little light." },
+        { "text": "Cats need a little light to see." },
+        { "text": "Cats' eyes make their own light.", "why": "Cats' eyes shine because they reflect light. They do not make it." },
+        { "text": "Cats cannot see at all.", "why": "Cats see well, even in dim light." }
+      ],
+      "answer": 1,
+      "hints": ["Every animal's eyes need light to see.", "Cats are very good at using a tiny bit of light.", "Ask: what would a cat see in a room with no light at all?"],
+      "explanation": "Cats see much better than people in dim light, but they still need a little light. In total darkness, no animal can see.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.light-dark.013", "skill": "s2.light-dark", "type": "text", "difficulty": 3,
+      "prompt": "Light from the ___ makes the Moon look bright.",
+      "blanks": [{ "answers": ["Sun", "sun"] }],
+      "hints": ["The Moon does not make its own light.", "Think about the brightest light source in the sky.", "It shines in the day and is a star."],
+      "explanation": "Light from the Sun bounces off the Moon. That is why the Moon looks bright at night."
+    },
+    {
+      "id": "s2.light-dark.014", "skill": "s2.light-dark", "type": "mcq", "difficulty": 4,
+      "prompt": "There is a power cut at night. Which can Joko use to see?",
+      "options": [
+        { "text": "a mirror", "why": "A mirror only reflects light. It cannot light up the room." },
+        { "text": "a torch with batteries" },
+        { "text": "a lamp plugged into the wall", "why": "The power cut stops the electricity from the wall socket." },
+        { "text": "a shiny spoon", "why": "A spoon reflects light. It cannot make light." }
+      ],
+      "answer": 1,
+      "hints": ["A power cut stops the electricity from the wall sockets.", "Which light source does not need a wall socket?", "Ask: which one has its own batteries?"],
+      "explanation": "A torch with batteries still works in a power cut. Lamps plugged into the wall need mains electricity, and mirrors only reflect light.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.light-dark.015", "skill": "s2.light-dark", "type": "mcq", "difficulty": 4,
+      "prompt": "Ana stands in the sunshine. Why does she make a shadow?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "running", "label": "Ana" }], "alt": "Ana standing in the sunshine with a shadow on the ground." },
+      "options": [
+        { "text": "Her body makes darkness.", "why": "Darkness is where light is missing. Her body blocks the light." },
+        { "text": "The Sun is behind a cloud.", "why": "Shadows are clearest when the Sun is shining." },
+        { "text": "Her body blocks the light." },
+        { "text": "Shadows are made of water.", "why": "A shadow is a dark shape where light cannot reach." }
+      ],
+      "answer": 2,
+      "hints": ["Light cannot pass through Ana's body.", "What happens to the ground behind her?", "Ask: does the sunlight reach the ground behind Ana?"],
+      "explanation": "Ana's body blocks the sunlight. The ground behind her gets no direct light, so a dark shadow forms there.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.light-dark.016", "skill": "s2.light-dark", "type": "draw", "difficulty": 3,
+      "prompt": "Draw three light sources. Label each one.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws three things that make their own light", "points": 3 },
+        { "label": "Labels each drawing", "points": 1 }
+      ] },
+      "hints": ["Think about the sky, your home and a birthday cake.", "Remember that a mirror and the Moon only reflect light."],
+      "explanation": "Light sources make their own light. The Sun, a lit candle, a torch and a lamp that is switched on are all light sources."
+    }
+  ]
+}

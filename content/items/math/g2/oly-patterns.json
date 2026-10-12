@@ -1,0 +1,1060 @@
+{
+  "skill": "m2.oly-patterns",
+  "items": [
+    {
+      "id": "m2.oly-patterns.001",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Lea draws shapes in this pattern again and again. What is the 15th shape?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "triangle"
+          }
+        ],
+        "alt": "A row of shapes: star, circle, circle, triangle, star, circle, circle, triangle. The same 4 shapes keep repeating."
+      },
+      "options": [
+        {
+          "text": "Circle"
+        },
+        {
+          "text": "Star",
+          "why": "Star is the 13th shape, the start of the 4th group."
+        },
+        {
+          "text": "Triangle",
+          "why": "Triangle is the 16th shape, at the end of the 4th group."
+        },
+        {
+          "text": "Square",
+          "why": "There are no squares in this pattern."
+        },
+        {
+          "text": "Heart",
+          "why": "There are no hearts in this pattern."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the group of shapes that repeats.",
+        "Each group has 4 shapes. Count in 4s to get close to 15.",
+        "3 groups end at the 12th shape. Count on from there."
+      ],
+      "explanation": "The group star, circle, circle, triangle repeats. 3 groups use 12 shapes, so the 13th is a star, the 14th a circle and the 15th a circle.",
+      "solution": [
+        {
+          "say": "The pattern repeats every 4 shapes.",
+          "show": "star, circle, circle, triangle"
+        },
+        {
+          "say": "3 groups make 12 shapes.",
+          "show": "4 + 4 + 4 = 12"
+        },
+        {
+          "say": "Count on from 12.",
+          "show": "13 star, 14 circle, 15 circle"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-patterns.002",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A magic bean plant has 1 leaf on day 1. Every day, the number of leaves doubles. How many leaves does it have on day 6?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Day",
+          "Leaves"
+        ],
+        "rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2"
+          ],
+          [
+            "3",
+            "4"
+          ],
+          [
+            "6",
+            "?"
+          ]
+        ],
+        "alt": "A table: day 1 has 1 leaf, day 2 has 2 leaves, day 3 has 4 leaves. The number for day 6 is unknown."
+      },
+      "options": [
+        {
+          "text": "12",
+          "why": "12 is 6 doubled. Double the leaves one day at a time."
+        },
+        {
+          "text": "16",
+          "why": "16 leaves is day 5. Double once more."
+        },
+        {
+          "text": "24",
+          "why": "Doubling 16 gives 32, not 24."
+        },
+        {
+          "text": "32"
+        },
+        {
+          "text": "64",
+          "why": "64 leaves is day 7, one day too many."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Doubling means adding a number to itself.",
+        "Make a list: day 1, day 2, day 3, and so on.",
+        "Day 3 has 4 leaves. Day 4 has 4 + 4 leaves."
+      ],
+      "explanation": "The leaves go 1, 2, 4, 8, 16, 32 for days 1 to 6. So on day 6 there are 32 leaves.",
+      "solution": [
+        {
+          "say": "Double each day.",
+          "show": "1, 2, 4, 8"
+        },
+        {
+          "say": "Keep going to day 6.",
+          "show": "8 + 8 = 16, 16 + 16 = 32"
+        },
+        {
+          "say": "Day 6 has 32 leaves.",
+          "show": "32"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-patterns.003",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Numbers are written in rows of 4. The rows turn back and forth like a snake. Which number is just below 15?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "rows": [
+          [
+            "8",
+            "7",
+            "6",
+            "5"
+          ],
+          [
+            "9",
+            "10",
+            "11",
+            "12"
+          ]
+        ],
+        "alt": "Numbers in rows of 4. Row 1: 1, 2, 3, 4. Row 2 goes back: 8, 7, 6, 5. Row 3: 9, 10, 11, 12. The rows keep going back and forth in the same way."
+      },
+      "options": [
+        {
+          "text": "16",
+          "why": "16 is next to 15 in the same row, not below it."
+        },
+        {
+          "text": "17",
+          "why": "17 is below 16, at the left end."
+        },
+        {
+          "text": "18"
+        },
+        {
+          "text": "19",
+          "why": "19 is below 14."
+        },
+        {
+          "text": "20",
+          "why": "20 is below 13."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Write out the next two rows.",
+        "Row 4 goes from right to left, so 13 is at the right end.",
+        "Row 4 reads 16, 15, 14, 13. Now write row 5 underneath."
+      ],
+      "explanation": "Row 4 reads 16, 15, 14, 13, so 15 is in the 2nd column. Row 5 reads 17, 18, 19, 20, and its 2nd column is 18.",
+      "solution": [
+        {
+          "say": "Odd rows go left to right. Even rows go right to left.",
+          "show": "1 2 3 4 | 8 7 6 5 | 9 10 11 12"
+        },
+        {
+          "say": "Row 4 goes right to left, starting with 13 on the right.",
+          "show": "16 15 14 13"
+        },
+        {
+          "say": "Row 5 goes left to right.",
+          "show": "17 18 19 20"
+        },
+        {
+          "say": "15 is in column 2. Below it in column 2 is 18.",
+          "show": "18"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.004",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ravi writes MATHS again and again: MATHSMATHSMATHS and so on. He writes 23 letters. How many letters H has he written?",
+      "options": [
+        {
+          "text": "3",
+          "why": "There are 4 full groups, and each one has an H."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "The 23rd letter is T, so the 5th group has no H yet."
+        },
+        {
+          "text": "6",
+          "why": "There are not 6 full groups in 23 letters."
+        },
+        {
+          "text": "7",
+          "why": "Only one letter in each group of 5 is H."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Each group MATHS has 5 letters and one H.",
+        "Count in 5s to see how many full groups fit in 23 letters.",
+        "4 groups use 20 letters. Which letters come after that?"
+      ],
+      "explanation": "23 letters are 4 full groups of MATHS (20 letters) and then M, A, T. Each full group has one H, and M, A, T has none, so there are 4 letters H.",
+      "solution": [
+        {
+          "say": "One group MATHS has 5 letters with 1 H.",
+          "show": "M A T H S"
+        },
+        {
+          "say": "4 groups use 20 letters.",
+          "show": "5 + 5 + 5 + 5 = 20"
+        },
+        {
+          "say": "Letters 21, 22 and 23 are M, A and T. No H there.",
+          "show": "M A T"
+        },
+        {
+          "say": "So there are 4 letters H.",
+          "show": "4"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.005",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Triangles are made from sticks in a row. Each new triangle shares a side with the one before. 1 triangle uses 3 sticks. 2 triangles use 5 sticks. How many triangles can be made with 21 sticks?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Triangles",
+          "Sticks"
+        ],
+        "rows": [
+          [
+            "1",
+            "3"
+          ],
+          [
+            "2",
+            "5"
+          ],
+          [
+            "3",
+            "7"
+          ],
+          [
+            "?",
+            "21"
+          ]
+        ],
+        "alt": "A table: 1 triangle uses 3 sticks, 2 triangles use 5 sticks, 3 triangles use 7 sticks. How many triangles use 21 sticks is unknown."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "6 triangles use 3 + 10 = 13 sticks."
+        },
+        {
+          "text": "7",
+          "why": "21 ÷ 3 = 7 would be right only if no sides were shared."
+        },
+        {
+          "text": "8",
+          "why": "8 triangles use 3 + 14 = 17 sticks."
+        },
+        {
+          "text": "9",
+          "why": "9 triangles use 3 + 16 = 19 sticks. There are 2 sticks left."
+        },
+        {
+          "text": "10"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "The first triangle needs 3 sticks. How many does each new one need?",
+        "Each new triangle adds 2 sticks because one side is shared.",
+        "After the first triangle, 21 - 3 = 18 sticks are left."
+      ],
+      "explanation": "The first triangle uses 3 sticks and each new triangle adds 2. The other 18 sticks make 9 more triangles, so there are 1 + 9 = 10 triangles.",
+      "solution": [
+        {
+          "say": "The first triangle uses 3 sticks.",
+          "show": "21 - 3 = 18 left"
+        },
+        {
+          "say": "Each new triangle adds 2 sticks. Half of 18 is 9.",
+          "show": "18 ÷ 2 = 9 more triangles"
+        },
+        {
+          "say": "Count all the triangles.",
+          "show": "1 + 9 = 10"
+        },
+        {
+          "say": "Check: 3 sticks plus 9 lots of 2 sticks.",
+          "show": "3 + 18 = 21"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-patterns.006",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the missing number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "3",
+          "7",
+          "11",
+          null,
+          "19",
+          "23"
+        ],
+        "style": "boxes",
+        "alt": "Boxes with the numbers 3, 7, 11, an empty box, then 19 and 23."
+      },
+      "options": [
+        {
+          "text": "13",
+          "why": "13 is 11 + 2. The pattern goes up by 4 each time."
+        },
+        {
+          "text": "14",
+          "why": "Check: 14 + 4 = 18, not 19."
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "17",
+          "why": "The jump from the missing number to 19 must also be 4."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the jump from one number to the next.",
+        "From 3 to 7 is +4. Check 7 to 11.",
+        "Add the same jump to 11."
+      ],
+      "explanation": "The numbers go up by 4 each time: 3, 7, 11, 15, 19, 23. So the missing number is 15.",
+      "solution": [
+        {
+          "say": "Find the jump.",
+          "show": "3 + 4 = 7, 7 + 4 = 11"
+        },
+        {
+          "say": "Add 4 to 11.",
+          "show": "11 + 4 = 15"
+        },
+        {
+          "say": "Check: 15 + 4 = 19.",
+          "show": "15 + 4 = 19"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-patterns.007",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Each number is the two numbers before it added together. What is the 8th number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "1",
+          "2",
+          "3",
+          "5",
+          "8",
+          null,
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 1, 1, 2, 3, 5, 8, then two empty boxes for the 7th and 8th numbers."
+      },
+      "options": [
+        {
+          "text": "11",
+          "why": "11 is 8 + 3. Add the two numbers just before."
+        },
+        {
+          "text": "13",
+          "why": "13 is the 7th number. Find one more."
+        },
+        {
+          "text": "18",
+          "why": "Add the two numbers just before: 8 and 13."
+        },
+        {
+          "text": "21"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check the rule: 1 + 1 = 2 and 1 + 2 = 3.",
+        "Keep adding the last two numbers to get the next one.",
+        "The 7th number is 5 + 8."
+      ],
+      "explanation": "The 7th number is 5 + 8 = 13. The 8th number is 8 + 13 = 21.",
+      "solution": [
+        {
+          "say": "Check the rule with the numbers given.",
+          "show": "1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8"
+        },
+        {
+          "say": "Find the 7th number.",
+          "show": "5 + 8 = 13"
+        },
+        {
+          "say": "Find the 8th number.",
+          "show": "8 + 13 = 21"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.008",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Today is Tuesday. What day of the week will it be in 20 days?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "today",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "alt": "The days of the week from Monday to Sunday. Today, Tuesday, is marked."
+      },
+      "options": [
+        {
+          "text": "Sunday",
+          "why": "Sunday is 19 days away. Count one more day."
+        },
+        {
+          "text": "Monday"
+        },
+        {
+          "text": "Tuesday",
+          "why": "Tuesday comes back after 7, 14 and 21 days, not 20."
+        },
+        {
+          "text": "Wednesday",
+          "why": "Wednesday is 22 days away. Count again."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The days of the week repeat every 7 days.",
+        "7 days from Tuesday is Tuesday again. So is 14 days.",
+        "14 days from today is Tuesday. Count on 6 more days."
+      ],
+      "explanation": "After 14 days it is Tuesday again. 6 more days take you to Monday, and 14 + 6 = 20.",
+      "solution": [
+        {
+          "say": "Every 7 days it is Tuesday again.",
+          "show": "7 days, 14 days: Tuesday"
+        },
+        {
+          "say": "20 = 14 + 6. Count on 6 days from Tuesday.",
+          "show": "Wed, Thu, Fri, Sat, Sun, Mon"
+        },
+        {
+          "say": "So in 20 days it is Monday.",
+          "show": "Monday"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.009",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The rule is: double the number, then add 1. The pattern starts 2, 5, 11, 23. What is the next number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "5",
+          "11",
+          "23",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 2, 5, 11, 23, then an empty box."
+      },
+      "answer": 47,
+      "hints": [
+        "Check the rule on the first numbers.",
+        "2 doubled is 4, and 4 + 1 = 5. 5 doubled is 10, and 10 + 1 = 11.",
+        "Double 23 first."
+      ],
+      "explanation": "Double 23 to get 46, then add 1 to get 47.",
+      "solution": [
+        {
+          "say": "Check the rule.",
+          "show": "2 × 2 + 1 = 5, 5 × 2 + 1 = 11, 11 × 2 + 1 = 23"
+        },
+        {
+          "say": "Double 23.",
+          "show": "23 + 23 = 46"
+        },
+        {
+          "say": "Add 1.",
+          "show": "46 + 1 = 47"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.010",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Nina counts in 3s. She starts at 4 and stops at 34. She says 4, 7, 10 and so on. How many numbers does she say?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "4",
+          "7",
+          "10",
+          "...",
+          "34"
+        ],
+        "style": "circles",
+        "alt": "Nina's numbers: 4, 7, 10, and so on, up to 34."
+      },
+      "answer": 11,
+      "hints": [
+        "Write the list, or find how far it is from 4 to 34.",
+        "From 4 to 34 is 30. Each jump is 3.",
+        "Work out how many jumps of 3 make 30."
+      ],
+      "explanation": "From 4 to 34 is 30, which is 10 jumps of 3. 10 jumps join 11 numbers, so Nina says 11 numbers.",
+      "solution": [
+        {
+          "say": "The distance from 4 to 34.",
+          "show": "34 - 4 = 30"
+        },
+        {
+          "say": "Jumps of 3 in 30.",
+          "show": "30 ÷ 3 = 10 jumps"
+        },
+        {
+          "say": "10 jumps join 11 numbers, like 10 gaps between 11 fence posts.",
+          "show": "10 + 1 = 11"
+        },
+        {
+          "say": "Check by listing.",
+          "show": "4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "timo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-patterns.011",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Rumah di sisi kiri Jalan Mawar bernomor genap. Nomornya 2, 4, 6, 8, dan seterusnya. Rumah ke-10 di sisi kiri bernomor berapa?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "4",
+          "6",
+          "8",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Nomor rumah di sisi kiri: 2, 4, 6, 8, lalu kotak kosong."
+      },
+      "options": [
+        {
+          "text": "18",
+          "why": "18 adalah nomor rumah ke-9."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "22",
+          "why": "22 adalah nomor rumah ke-11."
+        },
+        {
+          "text": "24",
+          "why": "24 adalah nomor rumah ke-12."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Lihat hubungan urutan rumah dengan nomornya.",
+        "Rumah ke-1 bernomor 2, rumah ke-2 bernomor 4, rumah ke-3 bernomor 6.",
+        "Teruskan hitung loncat 2 sampai rumah ke-10."
+      ],
+      "explanation": "Nomor rumah adalah 2 kali urutannya. Rumah ke-10 bernomor 2 × 10 = 20.",
+      "solution": [
+        {
+          "say": "Rumah ke-1 bernomor 2, ke-2 bernomor 4, ke-3 bernomor 6.",
+          "show": "nomor = 2 × urutan"
+        },
+        {
+          "say": "Hitung loncat 2 sampai 10 rumah.",
+          "show": "2, 4, 6, 8, 10, 12, 14, 16, 18, 20"
+        },
+        {
+          "say": "Rumah ke-10 bernomor 20."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "rumah",
+          "en": "house"
+        },
+        {
+          "term": "sisi kiri",
+          "en": "left side"
+        },
+        {
+          "term": "bernomor",
+          "en": "numbered"
+        },
+        {
+          "term": "genap",
+          "en": "even"
+        },
+        {
+          "term": "dan seterusnya",
+          "en": "and so on"
+        },
+        {
+          "term": "ke-10",
+          "en": "tenth"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-patterns.012",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Bus sekolah berangkat setiap 15 menit. Bus pertama berangkat pukul 06.00. Pukul berapa bus ke-5 berangkat?",
+      "figure": {
+        "kind": "clock",
+        "h": 6,
+        "m": 0,
+        "alt": "Jam menunjukkan pukul 06.00, waktu bus pertama berangkat."
+      },
+      "options": [
+        {
+          "text": "Pukul 06.30",
+          "why": "Pukul 06.30 adalah waktu bus ke-3."
+        },
+        {
+          "text": "Pukul 06.45",
+          "why": "Pukul 06.45 adalah waktu bus ke-4."
+        },
+        {
+          "text": "Pukul 07.00"
+        },
+        {
+          "text": "Pukul 07.15",
+          "why": "Pukul 07.15 adalah waktu bus ke-6."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Buat daftar jam berangkat setiap bus.",
+        "Bus ke-2 berangkat 15 menit sesudah bus pertama.",
+        "Bus ke-2 berangkat pukul 06.15. Lanjutkan daftarnya."
+      ],
+      "explanation": "Bus berangkat pukul 06.00, 06.15, 06.30, 06.45, dan 07.00. Jadi bus ke-5 berangkat pukul 07.00.",
+      "solution": [
+        {
+          "say": "Tambahkan 15 menit untuk setiap bus berikutnya.",
+          "show": "06.00, 06.15, 06.30"
+        },
+        {
+          "say": "Lanjutkan sampai bus ke-5.",
+          "show": "06.45, 07.00"
+        },
+        {
+          "say": "60 menit sama dengan 1 jam, jadi 06.45 ditambah 15 menit menjadi 07.00."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "bus sekolah",
+          "en": "school bus"
+        },
+        {
+          "term": "berangkat",
+          "en": "to leave"
+        },
+        {
+          "term": "setiap",
+          "en": "every"
+        },
+        {
+          "term": "menit",
+          "en": "minute"
+        },
+        {
+          "term": "pukul",
+          "en": "at (a time), o'clock"
+        },
+        {
+          "term": "ke-5",
+          "en": "fifth"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.013",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A shop stacks jars in rows. The top row has 1 jar. Each row below has 1 more jar. The stack has 5 rows. How many jars are there?",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "icon": "jar",
+        "container": "box",
+        "alt": "A stack of jars in 5 rows: 1 jar in the top row, then 2, 3, 4 and 5 jars in the bottom row."
+      },
+      "options": [
+        {
+          "text": "5",
+          "why": "5 is the number of rows, or the jars in the bottom row only."
+        },
+        {
+          "text": "9",
+          "why": "9 is only the two bottom rows."
+        },
+        {
+          "text": "10",
+          "why": "10 jars make only 4 rows. Add the 5th row."
+        },
+        {
+          "text": "15"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Write how many jars are in each row.",
+        "The rows have 1, 2, 3, 4 and 5 jars.",
+        "Start adding from the top: 1 + 2 = 3."
+      ],
+      "explanation": "The 5 rows have 1, 2, 3, 4 and 5 jars. 1 + 2 + 3 + 4 + 5 = 15 jars.",
+      "solution": [
+        {
+          "say": "Write the number of jars in each row.",
+          "show": "1, 2, 3, 4, 5"
+        },
+        {
+          "say": "Add them. Pairs that make 5 help: 1 + 4 and 2 + 3.",
+          "show": "5 + 5 + 5 = 15"
+        },
+        {
+          "say": "There are 15 jars."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-patterns.014",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ayu has Rp2.000 in her money box on day 1. She puts in Rp3.000 more each day. On which day will she first have Rp20.000?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Day",
+          "Money in the box"
+        ],
+        "rows": [
+          [
+            "1",
+            "Rp2.000"
+          ],
+          [
+            "2",
+            "Rp5.000"
+          ],
+          [
+            "3",
+            "Rp8.000"
+          ]
+        ],
+        "alt": "A table: day 1 Rp2.000, day 2 Rp5.000, day 3 Rp8.000. The money goes up by Rp3.000 every day."
+      },
+      "options": [
+        {
+          "text": "Day 6",
+          "why": "On day 6 she has Rp17.000."
+        },
+        {
+          "text": "Day 7"
+        },
+        {
+          "text": "Day 8",
+          "why": "On day 8 she has Rp23.000. She reached Rp20.000 a day earlier."
+        },
+        {
+          "text": "Day 9",
+          "why": "Rp20.000 comes sooner. Make a list of each day."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make a list of how much she has each day.",
+        "Each day adds Rp3.000: Rp2.000, Rp5.000, Rp8.000, and so on.",
+        "Keep adding Rp3.000 until you reach Rp20.000."
+      ],
+      "explanation": "Her money goes Rp2.000, Rp5.000, Rp8.000, Rp11.000, Rp14.000, Rp17.000, Rp20.000. Rp20.000 is the 7th amount, so it is day 7.",
+      "solution": [
+        {
+          "say": "Start with Rp2.000 on day 1.",
+          "show": "Day 1: Rp2.000"
+        },
+        {
+          "say": "Add Rp3.000 each day.",
+          "show": "Day 2: Rp5.000, Day 3: Rp8.000, Day 4: Rp11.000"
+        },
+        {
+          "say": "Keep going.",
+          "show": "Day 5: Rp14.000, Day 6: Rp17.000, Day 7: Rp20.000"
+        },
+        {
+          "say": "She first has Rp20.000 on day 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.015",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Find the next number in the pattern.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "3",
+          "5",
+          "9",
+          "17",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 2, 3, 5, 9, 17, then an empty box."
+      },
+      "answer": 33,
+      "hints": [
+        "Look at the jumps between the numbers.",
+        "The jumps are +1, +2, +4, +8. How do the jumps change?",
+        "Each jump is double the one before. What is double 8?"
+      ],
+      "explanation": "The jumps double each time: +1, +2, +4, +8, +16. So the next number is 17 + 16 = 33.",
+      "solution": [
+        {
+          "say": "Find the jumps.",
+          "show": "+1, +2, +4, +8"
+        },
+        {
+          "say": "Each jump is double the last one.",
+          "show": "8 + 8 = 16"
+        },
+        {
+          "say": "Add the next jump.",
+          "show": "17 + 16 = 33"
+        },
+        {
+          "say": "Another way: double the number and take away 1.",
+          "show": "17 × 2 - 1 = 33"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

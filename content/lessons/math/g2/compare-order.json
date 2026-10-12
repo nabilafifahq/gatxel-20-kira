@@ -1,0 +1,84 @@
+{
+  "skill": "m2.compare-order",
+  "title": "Bigger and smaller to 100",
+  "steps": [
+    {
+      "say": "Compare the tens first. More tens means a bigger number.",
+      "show": "62 > 48"
+    },
+    {
+      "say": "If the tens are the same, compare the ones.",
+      "show": "34 < 37"
+    },
+    {
+      "say": "The open side of < or > faces the bigger number.",
+      "show": "5 < 9 and 9 > 5"
+    },
+    {
+      "say": "On a number line, bigger numbers are further right.",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "labels": "all",
+        "marks": [
+          {
+            "at": 34
+          },
+          {
+            "at": 72
+          }
+        ],
+        "alt": "A number line from 0 to 100 in tens with 34 and 72 marked."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.compare-order.901",
+      "skill": "m2.compare-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is true?",
+      "hints": [
+        "< means less than. > means greater than.",
+        "Compare the tens digits first.",
+        "41 has 4 tens. 52 has 5 tens."
+      ],
+      "explanation": "4 tens is less than 5 tens, so 41 < 52.",
+      "options": [
+        {
+          "text": "41 > 52",
+          "why": "41 is less than 52, so > is the wrong sign."
+        },
+        {
+          "text": "41 = 52",
+          "why": "41 and 52 are different numbers."
+        },
+        {
+          "text": "52 < 41",
+          "why": "52 is greater than 41."
+        },
+        {
+          "text": "41 < 52"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m2.compare-order.902",
+      "skill": "m2.compare-order",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A number has 6 tens. It is greater than 65 and less than 67. What is the number?",
+      "hints": [
+        "The number is between 65 and 67.",
+        "Only one whole number fits between them.",
+        "Count on one from 65."
+      ],
+      "explanation": "66 is the only number between 65 and 67.",
+      "answer": 66
+    }
+  ]
+}

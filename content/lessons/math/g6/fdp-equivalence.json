@@ -1,0 +1,262 @@
+{
+  "skill": "m6.fdp-equivalence",
+  "title": "Fractions, decimals and percentages",
+  "steps": [
+    {
+      "say": "Fractions, decimals and percentages can show the same amount.",
+      "show": "2/5 = 0.4 = 40%",
+      "figure": {
+        "kind": "grid",
+        "rows": 10,
+        "cols": 10,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "alt": "A 10 by 10 grid with 40 squares shaded."
+      }
+    },
+    {
+      "say": "To change a fraction to a decimal, divide the numerator by the denominator.",
+      "show": "3/8 = 3 ÷ 8 = 0.375"
+    },
+    {
+      "say": "To change a decimal to a percentage, multiply by 100.",
+      "show": "0.375 = 37.5%"
+    },
+    {
+      "say": "To change a percentage to a fraction, write it over 100 and simplify.",
+      "show": "35% = 35/100 = 7/20"
+    },
+    {
+      "say": "To order a mix, change them all into the same form, such as decimals.",
+      "show": "3/5 = 0.6, 58% = 0.58, so 58% < 3/5 < 0.65"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.fdp-equivalence.901",
+      "skill": "m6.fdp-equivalence",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Write 3/4 as a decimal.",
+      "hints": [
+        "Divide the numerator by the denominator.",
+        "3/4 is three quarters.",
+        "One quarter is 0.25."
+      ],
+      "explanation": "3 ÷ 4 = 0.75.",
+      "answer": 0.75,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.fdp-equivalence.902",
+      "skill": "m6.fdp-equivalence",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write 45% as a fraction in its simplest form.",
+      "hints": [
+        "Write 45% as a fraction out of 100.",
+        "Find a common factor of 45 and 100.",
+        "Both 45 and 100 are in the 5 times table."
+      ],
+      "explanation": "45% = 45/100. Divide both numbers by 5 to get 9/20.",
+      "blanks": [
+        {
+          "answers": [
+            "9/20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.fdp-equivalence.903",
+      "skill": "m6.fdp-equivalence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the largest?",
+      "hints": [
+        "Change each one into a decimal.",
+        "Divide the numerator by the denominator for each fraction.",
+        "62% = 0.62."
+      ],
+      "explanation": "13/20 = 0.65, 62% = 0.62, 0.6 stays the same and 5/8 = 0.625. The largest is 13/20.",
+      "options": [
+        {
+          "text": "13/20"
+        },
+        {
+          "text": "62%",
+          "why": "62% = 0.62, and 13/20 = 0.65."
+        },
+        {
+          "text": "0.6",
+          "why": "0.6 = 60%, which is less than 65%."
+        },
+        {
+          "text": "5/8",
+          "why": "5/8 = 0.625, which is less than 0.65."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

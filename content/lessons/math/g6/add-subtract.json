@@ -1,0 +1,125 @@
+{
+  "skill": "m6.add-subtract",
+  "title": "Adding and subtracting large numbers and decimals",
+  "steps": [
+    {
+      "say": "Use a mental method when the numbers are friendly. Round, then adjust.",
+      "show": "56,700 + 29,900 = 56,700 + 30,000 − 100 = 86,600"
+    },
+    {
+      "say": "For harder numbers, use columns. Line up the place values.",
+      "show": "45,206 − 27,859",
+      "figure": {
+        "kind": "table",
+        "caption": "45,206 − 27,859",
+        "head": [
+          "Ten thousands",
+          "Thousands",
+          "Hundreds",
+          "Tens",
+          "Ones"
+        ],
+        "rows": [
+          [
+            "4",
+            "5",
+            "2",
+            "0",
+            "6"
+          ],
+          [
+            "2",
+            "7",
+            "8",
+            "5",
+            "9"
+          ]
+        ],
+        "alt": "A place value chart with 45,206 above 27,859."
+      }
+    },
+    {
+      "say": "Exchange when the top digit is smaller. Work from the ones to the left.",
+      "show": "45,206 − 27,859 = 17,347"
+    },
+    {
+      "say": "With decimals, line up the decimal points and fill any gaps with zeros.",
+      "show": "12.5 − 4.86 = 12.50 − 4.86 = 7.64"
+    },
+    {
+      "say": "Check with the inverse. Add your answer to the number you took away.",
+      "show": "7.64 + 4.86 = 12.5"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.add-subtract.901",
+      "skill": "m6.add-subtract",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Work out 38,450 + 9,999.",
+      "hints": [
+        "9,999 is 1 less than 10,000.",
+        "Add 10,000 first.",
+        "Then take away 1."
+      ],
+      "explanation": "38,450 + 10,000 = 48,450. Take away 1 to get 48,449.",
+      "blanks": [
+        {
+          "answers": [
+            "48449",
+            "48,449",
+            "48 449",
+            "48.449"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.add-subtract.902",
+      "skill": "m6.add-subtract",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 15.3 − 6.72.",
+      "hints": [
+        "Write 15.3 as 15.30.",
+        "Line up the decimal points.",
+        "Exchange when the top digit is smaller."
+      ],
+      "explanation": "15.30 − 6.72 = 8.58.",
+      "answer": 8.58,
+      "allowDecimal": true
+    },
+    {
+      "id": "m6.add-subtract.903",
+      "skill": "m6.add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A town had 104,520 visitors in 2025 and 87,960 in 2024. How many more visitors came in 2025?",
+      "hints": [
+        "How many more means find the difference.",
+        "Subtract 87,960 from 104,520.",
+        "Line up the digits in columns, starting with the ones."
+      ],
+      "explanation": "104,520 − 87,960 = 16,560, so 16,560 more visitors came in 2025.",
+      "options": [
+        {
+          "text": "192,480",
+          "why": "That is the total. How many more means find the difference."
+        },
+        {
+          "text": "17,560",
+          "why": "Check the thousands column after exchanging."
+        },
+        {
+          "text": "26,560",
+          "why": "Check the ten thousands column after exchanging."
+        },
+        {
+          "text": "16,560"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

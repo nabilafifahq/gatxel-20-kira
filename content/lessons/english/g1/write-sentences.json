@@ -1,0 +1,51 @@
+{
+  "skill": "e1.write-sentences",
+  "title": "Writing a sentence",
+  "steps": [
+    {
+      "say": "Say your sentence out loud before you write it.",
+      "show": "I like red apples."
+    },
+    {
+      "say": "Start with a capital letter.",
+      "show": "I"
+    },
+    {
+      "say": "Leave a finger space between each word.",
+      "show": "I like red apples."
+    },
+    {
+      "say": "End with a full stop. Then read it back to check.",
+      "show": "I like red apples."
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.write-sentences.901",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is written well?",
+      "hints": [
+        "Check the start.",
+        "Check the spaces.",
+        "Check the end."
+      ],
+      "explanation": "We play ball. has a capital letter, finger spaces and a full stop.",
+      "options": [
+        {
+          "text": "We play ball."
+        },
+        {
+          "text": "weplay ball.",
+          "why": "It needs a capital letter and finger spaces."
+        },
+        {
+          "text": "We play ball",
+          "why": "It needs a full stop."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

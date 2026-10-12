@@ -1,0 +1,33 @@
+{
+  "skill": "e4.suffixes",
+  "title": "Making nouns with -ness and -ment",
+  "steps": [
+    { "say": "A noun names a person, a place, a thing or a feeling. The suffixes -ness and -ment can make nouns.", "show": "kind → kindness, enjoy → enjoyment" },
+    { "say": "The suffix -ness often goes on describing words.", "show": "dark → darkness, ill → illness" },
+    { "say": "The suffix -ment often goes on doing words.", "show": "move → movement, pay → payment" },
+    { "say": "If the word ends in a consonant and y, change the y to i first.", "show": "happy → happiness, merry → merriment" },
+    { "say": "Most words ending in e keep it, but argue drops its e.", "show": "excite → excitement, argue → argument" }
+  ],
+  "check": [
+    {
+      "id": "e4.suffixes.901", "skill": "e4.suffixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Add -ness to sad. Which word do you make?",
+      "options": [
+        { "text": "sadment", "why": "Sad takes -ness, and sadment is not a word." },
+        { "text": "sadness" },
+        { "text": "sadnes", "why": "The suffix -ness has a double s." },
+        { "text": "saddness", "why": "Do not double the d before -ness." }
+      ],
+      "answer": 1,
+      "hints": ["Sad does not change before the suffix.", "Just add the four letters of -ness.", "Check the end of the word for a double s."],
+      "explanation": "Sad + ness = sadness."
+    },
+    {
+      "id": "e4.suffixes.902", "skill": "e4.suffixes", "type": "text", "difficulty": 2,
+      "prompt": "Add -ment to agree.\nAfter a long talk, we came to an ___ about the game.",
+      "blanks": [{ "answers": ["agreement"] }],
+      "hints": ["You need a noun after the word an.", "Agree ends in e. Keep it before -ment.", "Write agree, then add the suffix."],
+      "explanation": "Agree + ment = agreement. The e stays."
+    }
+  ]
+}

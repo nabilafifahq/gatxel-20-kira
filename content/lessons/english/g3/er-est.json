@@ -1,0 +1,34 @@
+{
+  "skill": "e3.er-est",
+  "title": "Comparing with -er and -est",
+  "steps": [
+    { "say": "Use -er to compare two things. Use -est to compare three or more.", "show": "tall, taller, tallest" },
+    { "say": "If the word ends in e, just add -r or -st.", "show": "nice, nicer, nicest" },
+    { "say": "If the word ends in a consonant and y, change the y to i first.", "show": "happy, happier, happiest" },
+    { "say": "Short words with one vowel and one last consonant double that consonant.", "show": "big, bigger, biggest" },
+    { "say": "Look out for the word than. It often means you need the -er word.", "show": "Ana is taller than Ben." },
+    { "say": "A few words change completely. Learn these ones by heart.", "show": "good, better, best" }
+  ],
+  "check": [
+    {
+      "id": "e3.er-est.901", "skill": "e3.er-est", "type": "mcq", "difficulty": 1,
+      "prompt": "A cheetah is ___ than a tortoise.",
+      "options": [
+        { "text": "fast", "why": "We are comparing two animals, so fast needs -er." },
+        { "text": "fastest", "why": "Fastest compares three or more. Here there are two." },
+        { "text": "faster" },
+        { "text": "more fast", "why": "We do not say more fast. Short words take -er." }
+      ],
+      "answer": 2,
+      "hints": ["How many animals are being compared?", "The word than tells you there are two.", "Which ending do we use for two things?"],
+      "explanation": "We compare two animals with -er: a cheetah is faster than a tortoise."
+    },
+    {
+      "id": "e3.er-est.902", "skill": "e3.er-est", "type": "text", "difficulty": 2,
+      "prompt": "Add -est to funny.\nThat was the ___ joke I have ever heard!",
+      "blanks": [{ "answers": ["funniest"] }],
+      "hints": ["Funny ends in a consonant and then y.", "Change the y before you add the ending.", "Think of happy and happiest."],
+      "explanation": "Funny ends in a consonant and y, so the y changes to i: funniest."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "skill": "m5.mental-add-subtract",
+  "title": "Mental addition and subtraction",
+  "steps": [
+    {
+      "say": "Some numbers are close to a round number. Use the round number, then adjust.",
+      "show": "4,675 + 1,998"
+    },
+    {
+      "say": "1,998 is 2 less than 2,000. Add 2,000, then take away 2.",
+      "show": "4,675 + 2,000 = 6,675, then 6,675 − 2 = 6,673"
+    },
+    {
+      "say": "For subtraction, take away the round number, then add back the extra.",
+      "show": "8,340 − 2,990 = 8,340 − 3,000 + 10"
+    },
+    {
+      "say": "8,340 − 3,000 = 5,340. You took away 10 too many, so add 10 back.",
+      "show": "5,340 + 10 = 5,350"
+    },
+    {
+      "say": "You can also count up to find a difference. Jump from the smaller number to the bigger one.",
+      "show": "50 + 100 + 215 = 365, so 4,215 − 3,850 = 365",
+      "figure": {
+        "kind": "numberline",
+        "min": 3800,
+        "max": 4300,
+        "step": 100,
+        "jumps": [
+          {
+            "from": 3850,
+            "to": 3900,
+            "label": "+50"
+          },
+          {
+            "from": 3900,
+            "to": 4000,
+            "label": "+100"
+          },
+          {
+            "from": 4000,
+            "to": 4215,
+            "label": "+215"
+          }
+        ],
+        "alt": "A number line from 3,800 to 4,300 with jumps of 50 from 3,850 to 3,900, 100 to 4,000 and 215 to 4,215."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.mental-add-subtract.901",
+      "skill": "m5.mental-add-subtract",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out 648 + 299 in your head.",
+      "hints": [
+        "299 is close to 300.",
+        "Add 300 first.",
+        "Then take away the extra 1."
+      ],
+      "explanation": "648 + 300 = 948. Take away 1 to get 947.",
+      "answer": 947
+    },
+    {
+      "id": "m5.mental-add-subtract.902",
+      "skill": "m5.mental-add-subtract",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 725 − 198 in your head.",
+      "hints": [
+        "198 is 2 less than 200.",
+        "Take away 200 first.",
+        "You took away 2 too many, so add them back."
+      ],
+      "explanation": "725 − 200 = 525. Add back 2 to get 527.",
+      "answer": 527
+    },
+    {
+      "id": "m5.mental-add-subtract.903",
+      "skill": "m5.mental-add-subtract",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Rafi has Rp45.000. He spends Rp19.000. How much does he have left?",
+      "hints": [
+        "Rp19.000 is close to Rp20.000.",
+        "Take away Rp20.000 first.",
+        "Then add back the extra Rp1.000."
+      ],
+      "explanation": "Rp45.000 − Rp20.000 = Rp25.000. Add back Rp1.000 to get Rp26.000.",
+      "options": [
+        {
+          "text": "Rp36.000",
+          "why": "That takes away Rp9.000, not Rp19.000."
+        },
+        {
+          "text": "Rp24.000",
+          "why": "After taking away Rp20.000, add Rp1.000 back. Do not take it away."
+        },
+        {
+          "text": "Rp64.000",
+          "why": "That adds the amounts. Spending means taking away."
+        },
+        {
+          "text": "Rp26.000"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "skill": "m3.chance",
+  "title": "Certain, likely, unlikely, impossible",
+  "steps": [
+    {
+      "say": "We use words to say how likely something is to happen.",
+      "show": "impossible, unlikely, likely, certain"
+    },
+    {
+      "say": "Certain means it will happen. Impossible means it can never happen.",
+      "show": "The sun will set this evening: certain"
+    },
+    {
+      "say": "Likely means it will probably happen. Unlikely means it probably will not."
+    },
+    {
+      "say": "This bag has 7 apples and 1 pear. Taking an apple is likely, and taking the pear is unlikely.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 7
+          },
+          {
+            "icon": "pear",
+            "count": 1
+          }
+        ],
+        "alt": "A bag with 7 apples and 1 pear."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.chance.901",
+      "skill": "m3.chance",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A bag has 6 bananas. Hana takes one without looking. How likely is it to be a banana?",
+      "options": [
+        {
+          "text": "Certain"
+        },
+        {
+          "text": "Unlikely",
+          "why": "Unlikely means it probably will not happen."
+        },
+        {
+          "text": "Likely",
+          "why": "Likely means it will probably happen. Here it will happen for sure."
+        },
+        {
+          "text": "Impossible",
+          "why": "Impossible means it can never happen."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at every fruit in the bag.",
+        "Is there any fruit that is not a banana?",
+        "Think about what else could be taken."
+      ],
+      "explanation": "Every fruit in the bag is a banana, so taking a banana is certain.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "banana",
+            "count": 6
+          }
+        ],
+        "alt": "A bag with 6 bananas."
+      }
+    },
+    {
+      "id": "m3.chance.902",
+      "skill": "m3.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How likely is this? A normal dice numbered 1 to 6 shows a 7.",
+      "options": [
+        {
+          "text": "Unlikely",
+          "why": "Unlikely means it could happen. A normal dice has no 7."
+        },
+        {
+          "text": "Certain",
+          "why": "Certain means it will happen for sure. A normal dice has no 7."
+        },
+        {
+          "text": "Likely",
+          "why": "Likely means it will probably happen. A normal dice has no 7."
+        },
+        {
+          "text": "Impossible"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the numbers on a normal dice.",
+        "Is 7 one of them?",
+        "Something that can never happen has its own word."
+      ],
+      "explanation": "A normal dice only has the numbers 1 to 6, so rolling a 7 is impossible."
+    }
+  ]
+}

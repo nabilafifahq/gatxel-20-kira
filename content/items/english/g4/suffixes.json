@@ -1,0 +1,135 @@
+{
+  "skill": "e4.suffixes",
+  "items": [
+    {
+      "id": "e4.suffixes.001", "skill": "e4.suffixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Add -ness to kind. Which word do you make?",
+      "options": [
+        { "text": "kindness" },
+        { "text": "kindnes", "why": "The suffix -ness ends in a double s." },
+        { "text": "kindment", "why": "That uses -ment, and kindment is not a word." },
+        { "text": "kindly", "why": "Kindly uses -ly, not -ness." }
+      ],
+      "answer": 0,
+      "hints": ["The suffix -ness turns a describing word into a noun.", "Kind does not change. Just add the suffix.", "Check how many s letters the suffix has."],
+      "explanation": "Kind + ness = kindness. The root word does not change, and -ness ends in a double s.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.suffixes.002", "skill": "e4.suffixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Add -ment to enjoy. Which word do you make?",
+      "options": [
+        { "text": "enjoyness", "why": "That uses -ness, and enjoyness is not a word." },
+        { "text": "enjoyement", "why": "There is no e between enjoy and -ment." },
+        { "text": "enjoyment" },
+        { "text": "enjoyed", "why": "Enjoyed is the past tense, not a -ment noun." }
+      ],
+      "answer": 2,
+      "hints": ["The suffix -ment turns a verb into a noun.", "Enjoy does not change. Just add the suffix.", "Write enjoy, then add the four letters of the suffix."],
+      "explanation": "Enjoy + ment = enjoyment. The y stays because a vowel comes before it.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.suffixes.003", "skill": "e4.suffixes", "type": "text", "difficulty": 2,
+      "prompt": "Add -ness to dark.\nWe could not see anything in the ___.",
+      "blanks": [{ "answers": ["darkness"] }],
+      "hints": ["You need a noun that names something.", "Dark does not change before the suffix.", "Check that your word ends in a double s."],
+      "explanation": "Dark + ness = darkness. It names the state of being dark."
+    },
+    {
+      "id": "e4.suffixes.004", "skill": "e4.suffixes", "type": "text", "difficulty": 2,
+      "prompt": "Add -ment to move.\nThe dancer made a slow ___ with her arms.",
+      "blanks": [{ "answers": ["movement"] }],
+      "hints": ["You need a noun after the words a slow.", "Move ends in e. Keep the e before -ment.", "Write move, then add the suffix."],
+      "explanation": "Move + ment = movement. The e stays, because -ment starts with a consonant."
+    },
+    {
+      "id": "e4.suffixes.005", "skill": "e4.suffixes", "type": "sort", "difficulty": 2,
+      "prompt": "Sort the words. Which suffix makes a real noun?",
+      "groups": ["-ness", "-ment"],
+      "items": [
+        { "text": "sad", "group": 0 }, { "text": "kind", "group": 0 }, { "text": "dark", "group": 0 }, { "text": "ill", "group": 0 },
+        { "text": "agree", "group": 1 }, { "text": "pay", "group": 1 }, { "text": "amaze", "group": 1 }, { "text": "excite", "group": 1 }
+      ],
+      "hints": ["Say each word with -ness and then with -ment.", "Only one suffix sounds like a real word each time.", "Start with pay. Is it payness or payment?"],
+      "explanation": "We say sadness, kindness, darkness and illness. We say agreement, payment, amazement and excitement."
+    },
+    {
+      "id": "e4.suffixes.006", "skill": "e4.suffixes", "type": "text", "difficulty": 3,
+      "prompt": "Add -ness to happy.\nOn the last day of school, the children were full of ___.",
+      "blanks": [{ "answers": ["happiness"] }],
+      "hints": ["Happy ends in a consonant and then y.", "Remember the rule for words like this. What happens to the y?", "Think of happy and happily. Make the same change."],
+      "explanation": "Happy ends in a consonant and y, so the y changes to i: happiness."
+    },
+    {
+      "id": "e4.suffixes.007", "skill": "e4.suffixes", "type": "mcq", "difficulty": 3,
+      "prompt": "Which word is spelt correctly?",
+      "options": [
+        { "text": "lazyness", "why": "Lazy ends in a consonant and y, so the y changes to i." },
+        { "text": "lazines", "why": "The suffix -ness has a double s." },
+        { "text": "lazieness", "why": "There is no e after the i." },
+        { "text": "laziness" }
+      ],
+      "answer": 3,
+      "hints": ["Lazy ends in z and then y.", "Change the y before adding the suffix.", "Check that the end of the word is -ness with a double s."],
+      "explanation": "Lazy ends in a consonant and y, so y changes to i. Lazy + ness = laziness.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.suffixes.008", "skill": "e4.suffixes", "type": "match", "difficulty": 3,
+      "prompt": "Match each word to the noun made from it.",
+      "pairs": [["empty", "emptiness"], ["equip", "equipment"], ["ill", "illness"], ["argue", "argument"], ["bright", "brightness"]],
+      "hints": ["Each word takes -ness or -ment.", "Watch for words that change before the suffix.", "Start with ill. Which noun means being ill?"],
+      "explanation": "Empty changes y to i to make emptiness. Argue drops its e to make argument. The others just add the suffix."
+    },
+    {
+      "id": "e4.suffixes.009", "skill": "e4.suffixes", "type": "mcq", "difficulty": 3,
+      "prompt": "Ella gasped in ___ when she saw the huge cake.",
+      "options": [
+        { "text": "amazeness", "why": "Amaze takes -ment, not -ness." },
+        { "text": "amazement" },
+        { "text": "amazing", "why": "Amazing describes something. After in, we need a noun." },
+        { "text": "amazed", "why": "Amazed describes how someone feels. After in, we need a noun." }
+      ],
+      "answer": 1,
+      "hints": ["The missing word comes after in.", "You need a noun that names a feeling.", "Which suffix goes with amaze?"],
+      "explanation": "After in we need a noun. Amaze + ment = amazement.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.suffixes.010", "skill": "e4.suffixes", "type": "mcq", "difficulty": 4,
+      "prompt": "Which pair is correct?",
+      "options": [
+        { "text": "argue → argument" },
+        { "text": "argue → arguement", "why": "Argue drops its e before -ment. It is one of the tricky ones." },
+        { "text": "silly → sillyness", "why": "Silly ends in a consonant and y, so it becomes silliness." },
+        { "text": "merry → merryment", "why": "Merry changes y to i: merriment." }
+      ],
+      "answer": 0,
+      "hints": ["Check each root word for an e or a y at the end.", "Words ending in a consonant and y change y to i.", "Argue breaks the usual keep-the-e rule. Look closely at the two argue pairs."],
+      "explanation": "Argue drops its e before -ment, so it is argument. Silly becomes silliness and merry becomes merriment.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.suffixes.011", "skill": "e4.suffixes", "type": "text", "difficulty": 4,
+      "prompt": "Add -ment to excite and to announce.\nThe team cheered with ___ after the ___.",
+      "blanks": [{ "answers": ["excitement"] }, { "answers": ["announcement"] }],
+      "hints": ["Both words end in e.", "Most words ending in e keep the e before -ment.", "Write excite, then add the suffix. Do the same for announce."],
+      "explanation": "Excite + ment = excitement, and announce + ment = announcement. Both words keep their e."
+    },
+    {
+      "id": "e4.suffixes.012", "skill": "e4.suffixes", "type": "mcq", "difficulty": 5,
+      "prompt": "Add -ness to sudden. Which spelling is right?",
+      "options": [
+        { "text": "suddeness", "why": "Sudden ends in n, and -ness starts with n, so you need both." },
+        { "text": "suddenness" },
+        { "text": "suddness", "why": "Do not drop the e from sudden." },
+        { "text": "suddennes", "why": "The suffix -ness ends in a double s." }
+      ],
+      "answer": 1,
+      "hints": ["Write sudden first.", "Do not change sudden before adding the suffix.", "Count the letter n where the two parts join."],
+      "explanation": "Sudden + ness = suddenness. Sudden ends in n and -ness starts with n, so there are two n letters together.",
+      "tags": ["iklc"]
+    }
+  ]
+}

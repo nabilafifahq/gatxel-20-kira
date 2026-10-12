@@ -1,0 +1,76 @@
+{
+  "skill": "e6.editing-proofreading",
+  "title": "Editing and proofreading",
+  "steps": [
+    {
+      "say": "Editing improves meaning and style. Proofreading corrects mistakes."
+    },
+    {
+      "say": "Check that verbs agree with their subjects and that tenses stay consistent.",
+      "show": "Each of the pupils has a locker."
+    },
+    {
+      "say": "Watch out for commonly confused words.",
+      "show": "its or it’s     fewer or less     their, there or they’re"
+    },
+    {
+      "say": "Make sure every sentence is complete and every opening phrase clearly describes its subject."
+    },
+    {
+      "say": "Replace repeated or vague words with precise details."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.editing-proofreading.901",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "There are fewer cars on the road today."
+        },
+        {
+          "text": "There are less cars on the road today.",
+          "why": "Cars can be counted, so use fewer."
+        },
+        {
+          "text": "There is fewer cars on the road today.",
+          "why": "Cars is plural, so use are."
+        },
+        {
+          "text": "There are fewest cars on the road today.",
+          "why": "Fewest is used to compare three or more things."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Cars are things you can count.",
+        "Use fewer with things you can count.",
+        "Check the verb too: is or are?"
+      ],
+      "explanation": "Cars can be counted, so we use fewer, and cars is plural, so we use are."
+    },
+    {
+      "id": "e6.editing-proofreading.902",
+      "skill": "e6.editing-proofreading",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "One word is spelt wrongly. Write it correctly. The hotel had excellent accomodation.",
+      "blanks": [
+        {
+          "answers": [
+            "accommodation"
+          ]
+        }
+      ],
+      "hints": [
+        "This word has two sets of double letters.",
+        "Think of it as having room for two c letters and two m letters.",
+        "Write acco, then think about the next double letter."
+      ],
+      "explanation": "Accommodation has a double c and a double m: ac-com-mo-da-tion."
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "skill": "m5.oly-counting",
+  "items": [
+    {
+      "id": "m5.oly-counting.001",
+      "skill": "m5.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A diagonal joins two corners of a shape that are not next to each other. How many diagonals does an octagon have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "octagon",
+        "alt": "An octagon with 8 corners."
+      },
+      "options": [
+        {
+          "text": "8",
+          "why": "8 is the number of sides."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "28",
+          "why": "28 counts the sides too. Sides are not diagonals."
+        },
+        {
+          "text": "40",
+          "why": "40 counts each diagonal twice, once from each end."
+        },
+        {
+          "text": "56",
+          "why": "56 = 8 × 7 counts every pair of corners twice, sides included."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pick one corner and count its diagonals.",
+        "A corner cannot join to itself or to its 2 neighbours.",
+        "Each corner has 5 diagonals, and each diagonal has 2 ends."
+      ],
+      "explanation": "Each of the 8 corners has 8 - 3 = 5 diagonals. That counts 8 × 5 = 40 ends, and each diagonal has 2 ends, so there are 20 diagonals.",
+      "solution": [
+        {
+          "say": "Diagonals from one corner.",
+          "show": "8 - 1 - 2 = 5"
+        },
+        {
+          "say": "From all corners.",
+          "show": "8 × 5 = 40"
+        },
+        {
+          "say": "Each diagonal counted twice.",
+          "show": "40 ÷ 2 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-counting.002",
+      "skill": "m5.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A 3-digit number uses only the digits 1, 2, 3, 4 and 5. Each digit is bigger than the one before it, like 135. How many such numbers are there?",
+      "options": [
+        {
+          "text": "6",
+          "why": "Choose any 3 of the 5 digits. There are more than 6 ways."
+        },
+        {
+          "text": "8",
+          "why": "List them by the first digit: 1 _ _, 2 _ _, 3 _ _."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "Each set of 3 digits gives only 1 number, written smallest first."
+        },
+        {
+          "text": "60",
+          "why": "60 counts every order. Only the increasing order counts."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Once you choose 3 digits, there is only one way to write them in increasing order.",
+        "So count the ways to choose 3 of the 5 digits.",
+        "Start the list with 123, 124, 125, 134."
+      ],
+      "explanation": "Each choice of 3 different digits gives exactly one increasing number. The list is 123, 124, 125, 134, 135, 145, 234, 235, 245, 345. That is 10.",
+      "solution": [
+        {
+          "say": "Start with 1.",
+          "show": "123, 124, 125, 134, 135, 145"
+        },
+        {
+          "say": "Start with 2.",
+          "show": "234, 235, 245"
+        },
+        {
+          "say": "Start with 3.",
+          "show": "345"
+        },
+        {
+          "say": "Total.",
+          "show": "6 + 3 + 1 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-counting.003",
+      "skill": "m5.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A grid is 3 squares wide and 3 squares tall. Paths go from the bottom left corner to the top right corner. They move only right or up along the lines. How many paths are there?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 3,
+        "alt": "A 3 by 3 grid of squares. Paths start at the bottom left corner and end at the top right corner."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "6 paths fit a 2 by 2 grid. This one is bigger."
+        },
+        {
+          "text": "9",
+          "why": "Write the number of ways to reach each corner, starting from the bottom left."
+        },
+        {
+          "text": "12",
+          "why": "Each corner's number is the sum of the numbers to its left and below it."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "27",
+          "why": "Check the corner numbers again, adding left and below."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Every path goes right 3 times and up 3 times.",
+        "Write the number of ways to reach each grid corner.",
+        "Corners on the bottom line and on the left line can be reached in only 1 way."
+      ],
+      "explanation": "Each corner's number is the sum of the numbers to its left and below. The lines of numbers are 1, 1, 1, 1, then 1, 2, 3, 4, then 1, 3, 6, 10, then 1, 4, 10, 20. So there are 20 paths.",
+      "solution": [
+        {
+          "say": "Bottom line.",
+          "show": "1, 1, 1, 1"
+        },
+        {
+          "say": "Next line.",
+          "show": "1, 2, 3, 4"
+        },
+        {
+          "say": "Next line.",
+          "show": "1, 3, 6, 10"
+        },
+        {
+          "say": "Top line.",
+          "show": "1, 4, 10, 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-counting.004",
+      "skill": "m5.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Five friends stand in a row for a photo. Ali and Bea must stand next to each other. How many different orders are possible?",
+      "options": [
+        {
+          "text": "24",
+          "why": "Ali and Bea can also swap places with each other."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "60",
+          "why": "Treat Ali and Bea as one block first."
+        },
+        {
+          "text": "120",
+          "why": "120 is every order, including ones where Ali and Bea are apart."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Glue Ali and Bea together as one block.",
+        "Now there are 4 things to arrange: the block and 3 other friends.",
+        "Inside the block, Ali and Bea can stand in 2 orders."
+      ],
+      "explanation": "Treat Ali and Bea as one block. The block and 3 friends make 4 things, which can be arranged in 4 × 3 × 2 × 1 = 24 ways. The pair can swap inside the block, so 24 × 2 = 48.",
+      "solution": [
+        {
+          "say": "Make Ali and Bea one block.",
+          "show": "4 things"
+        },
+        {
+          "say": "Arrange 4 things.",
+          "show": "4 × 3 × 2 × 1 = 24"
+        },
+        {
+          "say": "Swap inside the block.",
+          "show": "24 × 2 = 48"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-counting.005",
+      "skill": "m5.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many whole numbers from 1 to 100 can be divided exactly by 2 or by 3?",
+      "answer": 67,
+      "hints": [
+        "Count the multiples of 2 and the multiples of 3.",
+        "Numbers like 6 and 12 are in both lists.",
+        "Numbers in both lists are multiples of 6."
+      ],
+      "explanation": "There are 50 multiples of 2 and 33 multiples of 3. The 16 multiples of 6 are in both lists, so the total is 50 + 33 - 16 = 67.",
+      "solution": [
+        {
+          "say": "Multiples of 2.",
+          "show": "100 ÷ 2 = 50"
+        },
+        {
+          "say": "Multiples of 3.",
+          "show": "100 ÷ 3 = 33 remainder 1, so 33"
+        },
+        {
+          "say": "Multiples of 6, counted twice.",
+          "show": "100 ÷ 6 = 16 remainder 4, so 16"
+        },
+        {
+          "say": "Total.",
+          "show": "50 + 33 - 16 = 67"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-counting.006",
+      "skill": "m5.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Six teams play in a football league. Each team plays every other team twice, once at home and once away. How many matches are played?",
+      "options": [
+        {
+          "text": "12",
+          "why": "Each team alone plays 10 matches."
+        },
+        {
+          "text": "15",
+          "why": "15 is the number of pairs. Each pair plays twice."
+        },
+        {
+          "text": "30"
+        },
+        {
+          "text": "36",
+          "why": "A team never plays itself."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the pairs of teams first.",
+        "6 teams make 5 + 4 + 3 + 2 + 1 pairs.",
+        "Each pair plays 2 matches."
+      ],
+      "explanation": "There are 5 + 4 + 3 + 2 + 1 = 15 pairs of teams. Each pair plays twice, so there are 15 × 2 = 30 matches. Another way: each team hosts 5 matches, and 6 × 5 = 30.",
+      "solution": [
+        {
+          "say": "Pairs of teams.",
+          "show": "5 + 4 + 3 + 2 + 1 = 15"
+        },
+        {
+          "say": "Two matches per pair.",
+          "show": "15 × 2 = 30"
+        },
+        {
+          "say": "Check: 6 teams each host 5 matches.",
+          "show": "6 × 5 = 30"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-counting.007",
+      "skill": "m5.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A grid has 3 rows and 4 columns of squares. How many rectangles of any size are in it? Squares count as rectangles.",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 4,
+        "alt": "A grid of 3 rows and 4 columns, 12 small squares."
+      },
+      "answer": 60,
+      "hints": [
+        "A rectangle is fixed by 2 horizontal lines and 2 vertical lines.",
+        "The grid has 4 horizontal lines and 5 vertical lines.",
+        "Count the pairs of horizontal lines, then the pairs of vertical lines."
+      ],
+      "explanation": "There are 6 ways to choose 2 of the 4 horizontal lines and 10 ways to choose 2 of the 5 vertical lines. So there are 6 × 10 = 60 rectangles.",
+      "solution": [
+        {
+          "say": "Pairs from 4 horizontal lines.",
+          "show": "3 + 2 + 1 = 6"
+        },
+        {
+          "say": "Pairs from 5 vertical lines.",
+          "show": "4 + 3 + 2 + 1 = 10"
+        },
+        {
+          "say": "Rectangles.",
+          "show": "6 × 10 = 60"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-counting.008",
+      "skill": "m5.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many whole numbers divide exactly into 72?",
+      "answer": 12,
+      "hints": [
+        "Find the factors in pairs that multiply to 72.",
+        "1 × 72, 2 × 36, 3 × 24, and so on.",
+        "Keep going until the pairs start to repeat."
+      ],
+      "explanation": "The factor pairs are 1 × 72, 2 × 36, 3 × 24, 4 × 18, 6 × 12 and 8 × 9. That gives 12 factors.",
+      "solution": [
+        {
+          "say": "Factor pairs.",
+          "show": "1×72, 2×36, 3×24, 4×18, 6×12, 8×9"
+        },
+        {
+          "say": "Each pair gives 2 factors.",
+          "show": "6 × 2 = 12"
+        },
+        {
+          "say": "Another way: 72 = 2 × 2 × 2 × 3 × 3, so (3 + 1) × (2 + 1) = 12."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-counting.009",
+      "skill": "m5.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "In how many ways can Rp6.000 be made using Rp500 coins, Rp1.000 coins and Rp2.000 notes?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 500,
+            "count": 1
+          },
+          {
+            "value": 1000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 1
+          }
+        ],
+        "alt": "One of each kind: a Rp500 coin, a Rp1.000 coin and a Rp2.000 note. As many of each as needed may be used."
+      },
+      "answer": 16,
+      "hints": [
+        "Sort the ways by the number of Rp2.000 notes: 0, 1, 2 or 3.",
+        "With three notes there is only 1 way.",
+        "With two notes, Rp2.000 is left: use 0, 1 or 2 Rp1.000 coins and fill up with Rp500 coins."
+      ],
+      "explanation": "With 3, 2, 1 or 0 Rp2.000 notes, the rest can be made with coins in 1, 3, 5 or 7 ways. In all, 1 + 3 + 5 + 7 = 16 ways.",
+      "solution": [
+        {
+          "say": "3 notes.",
+          "show": "1 way"
+        },
+        {
+          "say": "2 notes: make Rp2.000 from coins.",
+          "show": "0, 1 or 2 Rp1.000 coins: 3 ways"
+        },
+        {
+          "say": "1 note: make Rp4.000.",
+          "show": "0 to 4 Rp1.000 coins: 5 ways"
+        },
+        {
+          "say": "No notes: make Rp6.000.",
+          "show": "0 to 6 Rp1.000 coins: 7 ways"
+        },
+        {
+          "say": "Total.",
+          "show": "1 + 3 + 5 + 7 = 16"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

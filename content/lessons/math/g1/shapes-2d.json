@@ -1,0 +1,119 @@
+{
+  "skill": "m1.shapes-2d",
+  "title": "Flat shapes",
+  "steps": [
+    {
+      "say": "Flat shapes are called 2D shapes.",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "circle",
+            "label": "circle"
+          },
+          {
+            "shape": "triangle",
+            "label": "triangle"
+          },
+          {
+            "shape": "square",
+            "label": "square"
+          },
+          {
+            "shape": "rectangle",
+            "label": "rectangle"
+          }
+        ],
+        "alt": "A circle, a triangle, a square and a rectangle."
+      }
+    },
+    {
+      "say": "Count the sides and the corners to name a shape.",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A flat shape with 3 straight sides and 3 corners."
+      },
+      "show": "3 sides, 3 corners"
+    },
+    {
+      "say": "A circle has one curved side and no corners.",
+      "figure": {
+        "kind": "shape",
+        "shape": "circle",
+        "alt": "A round flat shape with one curved side and no corners."
+      }
+    },
+    {
+      "say": "Shapes can make a pattern that repeats.",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          null
+        ],
+        "alt": "A pattern of shapes: circle, square, circle, square, then a blank."
+      },
+      "show": "circle, square, circle, square, circle"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.shapes-2d.901",
+      "skill": "m1.shapes-2d",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many straight sides does this shape have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A flat shape with 3 straight sides and 3 corners."
+      },
+      "hints": [
+        "A side is a straight line on the edge.",
+        "Count each side once as you go round.",
+        "Start at the top and move round."
+      ],
+      "explanation": "This is a triangle. It has 3 straight sides.",
+      "answer": 3
+    },
+    {
+      "id": "m1.shapes-2d.902",
+      "skill": "m1.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape has 4 sides that are all the same length?",
+      "hints": [
+        "Think about each shape.",
+        "Count the sides of each one.",
+        "Which shape with 4 sides has no long and short sides?"
+      ],
+      "explanation": "A square has 4 sides that are all the same length.",
+      "options": [
+        {
+          "text": "rectangle",
+          "why": "A rectangle has 2 long sides and 2 short sides."
+        },
+        {
+          "text": "triangle",
+          "why": "A triangle has 3 sides."
+        },
+        {
+          "text": "square"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "skill": "s2.forces-motion",
+  "items": [
+    {
+      "id": "s2.forces-motion.001", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 1,
+      "prompt": "A force is a push or a ___.",
+      "options": [
+        { "text": "colour", "why": "A colour is not a force. Forces make things move or change shape." },
+        { "text": "sound", "why": "A sound is not a push or a pull." },
+        { "text": "pull" },
+        { "text": "smell", "why": "A smell is not a push or a pull." }
+      ],
+      "answer": 2,
+      "hints": ["Think about how you move a drawer.", "There are two kinds of force. One is a push.", "What is the opposite of a push?"],
+      "explanation": "A force is a push or a pull. Forces can make things move, stop or change shape."
+    },
+    {
+      "id": "s2.forces-motion.002", "skill": "s2.forces-motion", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things a push or a pull can do.",
+      "options": [
+        { "text": "start something moving" },
+        { "text": "stop something moving" },
+        { "text": "change which way it goes" },
+        { "text": "change its colour", "why": "Pushes and pulls do not change the colour of things." },
+        { "text": "make it alive", "why": "A force cannot make something alive." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about playing with a ball.", "What can your foot or hands make a ball do?", "Start with a ball that is still. What can a kick do to it?"],
+      "explanation": "A push or a pull can start something moving, stop it or change its direction. It can also change its shape or speed."
+    },
+    {
+      "id": "s2.forces-motion.003", "skill": "s2.forces-motion", "type": "match", "difficulty": 2,
+      "prompt": "Match each action to what the force does.",
+      "pairs": [["kicking a ball that is still", "starts it moving"], ["catching a ball", "stops it"], ["hitting a ball with a bat", "changes its direction"], ["pressing a lump of clay", "changes its shape"]],
+      "hints": ["Think about what is different before and after each action.", "Do the one you are sure of first.", "Start with catching. What happens to the ball in your hands?"],
+      "explanation": "A kick starts a still ball moving, a catch stops it, a bat changes its direction and pressing clay changes its shape."
+    },
+    {
+      "id": "s2.forces-motion.004", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 1,
+      "prompt": "Which push will make a ball roll fastest?",
+      "options": [
+        { "text": "a gentle push", "why": "A gentle push makes the ball roll slowly." },
+        { "text": "a strong push" },
+        { "text": "a tiny tap", "why": "A tiny tap makes the ball roll only a little." },
+        { "text": "no push at all", "why": "Without a push, a still ball stays still." }
+      ],
+      "answer": 1,
+      "hints": ["Think about rolling a ball to a friend far away.", "Does a bigger push or a smaller push make it faster?", "Compare a tap with a hard push."],
+      "explanation": "A strong push makes the ball roll fastest. A bigger force makes a bigger change in speed."
+    },
+    {
+      "id": "s2.forces-motion.005", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 2,
+      "prompt": "Bima squeezes the brakes on his bicycle. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "bicycle", "label": "bicycle" }], "alt": "A bicycle with brakes on the handlebars." },
+      "options": [
+        { "text": "The bicycle slows down." },
+        { "text": "The bicycle speeds up.", "why": "Brakes push against the wheels to slow them." },
+        { "text": "The bicycle turns left.", "why": "Turning the handlebars makes a bicycle turn." },
+        { "text": "Nothing happens.", "why": "Brakes make a force that slows the wheels." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what brakes are for.", "Brakes rub against the wheels.", "Picture riding down a hill and squeezing the brakes."],
+      "explanation": "The brakes press on the wheels and make a force that slows the bicycle down.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.forces-motion.006", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 3,
+      "prompt": "Rina lets a toy car roll down a ramp. Then she makes the ramp higher. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ramp", "label": "ramp" }, { "icon": "toy-car", "label": "toy car" }], "alt": "A toy car at the top of a ramp." },
+      "options": [
+        { "text": "The car goes less far.", "why": "A higher ramp gives the car more speed, so it goes further." },
+        { "text": "The car does not move.", "why": "The car still rolls down the ramp." },
+        { "text": "The car goes further." },
+        { "text": "The car rolls back up the ramp.", "why": "Gravity pulls the car down the ramp." }
+      ],
+      "answer": 2,
+      "hints": ["Think about sliding down a tall slide and a short slide.", "On which slide do you go faster at the bottom?", "Ask: does more speed make the car go further or less far?"],
+      "explanation": "A higher ramp makes the car go faster at the bottom, so it rolls further.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.forces-motion.007", "skill": "s2.forces-motion", "type": "numeric", "difficulty": 4,
+      "prompt": "How much further did it roll from 3 blocks than 1 block?",
+      "figure": { "kind": "table", "caption": "Toy car and ramp", "head": ["Ramp height", "Distance the car rolled"], "rows": [["1 block", "40 cm"], ["2 blocks", "75 cm"], ["3 blocks", "110 cm"]], "alt": "Table: ramp 1 block high, car rolled 40 cm. 2 blocks high, 75 cm. 3 blocks high, 110 cm." },
+      "answer": 70,
+      "unit": "cm",
+      "hints": ["Find the rows for 1 block and 3 blocks.", "Further means the difference between the two distances.", "Start with 110 cm and take away 40 cm."],
+      "explanation": "From 3 blocks the car rolled 110 cm. From 1 block it rolled 40 cm. 110 take away 40 is 70, so it rolled 70 cm further.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.forces-motion.008", "skill": "s2.forces-motion", "type": "sort", "difficulty": 3,
+      "prompt": "Is the force a push or a pull? Sort the cards.",
+      "groups": ["Push", "Pull"],
+      "items": [
+        { "text": "wind blowing a sailboat", "group": 0 },
+        { "text": "pressing a stapler", "group": 0 },
+        { "text": "squeezing toothpaste", "group": 0 },
+        { "text": "a magnet lifting a pin", "group": 1 },
+        { "text": "a horse moving a cart", "group": 1 },
+        { "text": "a tow truck moving a car", "group": 1 }
+      ],
+      "hints": ["A push moves something away. A pull moves it closer.", "Think about where the force comes from in each card.", "Start with the horse. Is the cart behind it or in front of it?"],
+      "explanation": "The wind blowing a sailboat, pressing a stapler and squeezing toothpaste are pushes. A magnet lifting a pin, a horse moving a cart and a tow truck moving a car are pulls."
+    },
+    {
+      "id": "s2.forces-motion.009", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 4,
+      "prompt": "On which surface will a rolling toy car slow down fastest?",
+      "options": [
+        { "text": "ice", "why": "Ice is very smooth. The car slides a long way." },
+        { "text": "smooth tiles", "why": "Smooth tiles let the car roll a long way." },
+        { "text": "a rough doormat" },
+        { "text": "a glass table", "why": "Glass is smooth, so the car keeps rolling." }
+      ],
+      "answer": 2,
+      "hints": ["Think about how each surface feels.", "Rough surfaces rub against the wheels more.", "Ask: which one would be hardest to slide on in socks?"],
+      "explanation": "A rough doormat rubs against the wheels the most, so the car slows down fastest. Smooth surfaces let it roll further.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.forces-motion.010", "skill": "s2.forces-motion", "type": "text", "difficulty": 3,
+      "prompt": "The force that pulls things down towards the Earth is called ___.",
+      "blanks": [{ "answers": ["gravity"] }],
+      "hints": ["It is why a ball falls when you drop it.", "It pulls everything towards the ground.", "The word starts with g."],
+      "explanation": "Gravity pulls things down towards the Earth. That is why a dropped ball falls to the ground."
+    },
+    {
+      "id": "s2.forces-motion.011", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 5,
+      "prompt": "Leo drops a big rubber ball and a small rubber ball together. They fall from the same height. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ball", "label": "big ball" }, { "icon": "marble", "label": "small ball" }], "alt": "A big rubber ball and a small rubber ball held at the same height." },
+      "options": [
+        { "text": "The big ball lands much earlier.", "why": "Many people think this, but balls like these fall together." },
+        { "text": "The small ball lands much earlier.", "why": "Being small does not make the ball fall faster." },
+        { "text": "Neither ball falls.", "why": "Gravity pulls both balls down." },
+        { "text": "They land at about the same time." }
+      ],
+      "answer": 3,
+      "hints": ["Gravity pulls on both balls.", "Neither ball is light and floaty like a feather.", "Try it with two balls at home, with an adult."],
+      "explanation": "The two balls land at about the same time. Gravity makes them both speed up in the same way. Only very light things, like feathers, are slowed a lot by the air.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.forces-motion.012", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 4,
+      "prompt": "Why does a parachute fall slowly?",
+      "figure": { "kind": "icons", "items": [{ "icon": "parachute", "label": "parachute" }], "alt": "A parachute falling slowly through the air." },
+      "options": [
+        { "text": "Gravity stops pulling it.", "why": "Gravity still pulls the parachute down." },
+        { "text": "Air pushes up against it." },
+        { "text": "It is lighter than air.", "why": "A parachute is heavier than air, so it still falls." },
+        { "text": "The wind lifts it to the sky.", "why": "It still falls down, only slowly." }
+      ],
+      "answer": 1,
+      "hints": ["The parachute is big and wide.", "Think about running with an open umbrella.", "Ask: what pushes against the big cloth as it falls?"],
+      "explanation": "As the parachute falls, air pushes up against its wide cloth. This slows it down, but gravity still pulls it to the ground."
+    },
+    {
+      "id": "s2.forces-motion.013", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 3,
+      "prompt": "Sita holds a magnet near a steel paperclip. The paperclip moves before they touch. Why?",
+      "figure": { "kind": "icons", "items": [{ "icon": "magnet", "label": "magnet" }, { "icon": "paperclip", "label": "paperclip" }], "alt": "A magnet held close to a steel paperclip." },
+      "options": [
+        { "text": "Magnets can pull without touching." },
+        { "text": "The paperclip is alive.", "why": "A paperclip is never alive." },
+        { "text": "The wind blew it.", "why": "The pull comes from the magnet." },
+        { "text": "Sita pushed it with her hand.", "why": "The paperclip moved before anything touched it." }
+      ],
+      "answer": 0,
+      "hints": ["Steel is a magnetic material.", "Think about what a magnet does to steel.", "Ask: did anything touch the paperclip?"],
+      "explanation": "A magnet can pull magnetic things, like steel paperclips, without touching them."
+    },
+    {
+      "id": "s2.forces-motion.014", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 5,
+      "prompt": "Two magnets push apart when their ends are close. Kofi turns one magnet round. What happens?",
+      "figure": { "kind": "icons", "items": [{ "icon": "magnet", "label": "magnet 1" }, { "icon": "magnet", "label": "magnet 2" }], "alt": "Two magnets with their ends close together, pushing apart." },
+      "options": [
+        { "text": "They still push apart.", "why": "Turning one round changes which ends face each other." },
+        { "text": "They push apart even more.", "why": "Turning one magnet round makes different ends meet." },
+        { "text": "They stop being magnets.", "why": "Turning a magnet does not stop it being a magnet." },
+        { "text": "They pull together." }
+      ],
+      "answer": 3,
+      "hints": ["Each magnet has two different ends.", "Turning one magnet changes which ends meet.", "Ask: if the same ends push apart, what do different ends do?"],
+      "explanation": "Magnets have two ends, called poles. The same poles push apart. When Kofi turns one round, different poles meet and the magnets pull together.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.forces-motion.015", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 3,
+      "prompt": "Which one needs the biggest push to get it moving?",
+      "options": [
+        { "text": "an empty shopping trolley", "why": "An empty trolley is light, so a smaller push moves it." },
+        { "text": "a toy car", "why": "A toy car is very light." },
+        { "text": "a full shopping trolley" },
+        { "text": "a balloon", "why": "A balloon is very light. A tiny push moves it." }
+      ],
+      "answer": 2,
+      "hints": ["Think about how heavy each one is.", "Heavier things need a bigger push to start moving.", "Picture pushing a trolley before and after shopping."],
+      "explanation": "A full shopping trolley is the heaviest, so it needs the biggest push to start moving.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.forces-motion.016", "skill": "s2.forces-motion", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a child pushing a box and a child pulling a wagon. Use arrows to show each force.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws a child pushing a box", "points": 1 },
+        { "label": "Draws a child pulling a wagon", "points": 1 },
+        { "label": "Draws arrows that point the way each force acts", "points": 2 }
+      ] },
+      "hints": ["A push arrow points away from the child.", "A pull arrow points towards the child."],
+      "explanation": "Arrows show the direction of a force. A push goes away from the child and a pull goes towards the child."
+    }
+  ]
+}

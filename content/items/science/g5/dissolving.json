@@ -1,0 +1,229 @@
+{
+  "skill": "s5.dissolving",
+  "items": [
+    {
+      "id": "s5.dissolving.001",
+      "skill": "s5.dissolving",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the materials into soluble and insoluble in water.",
+      "groups": ["Soluble (dissolves)", "Insoluble (does not dissolve)"],
+      "items": [
+        { "text": "sugar", "group": 0 },
+        { "text": "salt", "group": 0 },
+        { "text": "instant coffee", "group": 0 },
+        { "text": "sand", "group": 1 },
+        { "text": "chalk", "group": 1 },
+        { "text": "flour", "group": 1 },
+        { "text": "iron filings", "group": 1 },
+        { "text": "glass marbles", "group": 1 }
+      ],
+      "hints": [
+        "A soluble material seems to disappear when you stir it into water.",
+        "An insoluble material can still be seen, or it settles at the bottom.",
+        "Think about stirring sugar into tea, then stirring sand into water."
+      ],
+      "explanation": "Sugar, salt and instant coffee dissolve in water, so they are soluble. Sand, chalk, flour, iron filings and marbles do not dissolve, so they are insoluble."
+    },
+    {
+      "id": "s5.dissolving.002",
+      "skill": "s5.dissolving",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        ["solute", "the solid that dissolves"],
+        ["solvent", "the liquid that does the dissolving"],
+        ["solution", "the mixture made when a solid dissolves"],
+        ["insoluble", "does not dissolve"]
+      ],
+      "hints": [
+        "In salty water, the salt is one part and the water is another part.",
+        "Solution is the name for the whole mixture, not for one part of it.",
+        "Start with the word insoluble. The letters in- at the start often mean not."
+      ],
+      "explanation": "In salty water, salt is the solute, water is the solvent and the salty water is the solution. A material that does not dissolve is insoluble."
+    },
+    {
+      "id": "s5.dissolving.003",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mira stirs sugar into warm water. The sugar seems to disappear. What has happened to it?",
+      "options": [
+        { "text": "It has melted.", "why": "Melting needs heat to turn one solid into a liquid on its own. Sugar in water dissolves." },
+        { "text": "It has gone forever.", "why": "The sugar is still there. You can taste it, and you can get it back by evaporating the water." },
+        { "text": "It has broken into pieces too small to see, spread through the water." },
+        { "text": "It has turned into water.", "why": "The sugar does not change into water. It mixes with the water." }
+      ],
+      "answer": 2,
+      "hints": [
+        "If the water tastes sweet, the sugar must still be in it somewhere.",
+        "Think about the difference between melting and dissolving.",
+        "Cross out the choices that say the sugar is gone or has changed into something else."
+      ],
+      "explanation": "The sugar has dissolved. It has broken up into particles too small to see, which spread out through the water, so the water tastes sweet."
+    },
+    {
+      "id": "s5.dissolving.004",
+      "skill": "s5.dissolving",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 ways to make sugar dissolve faster.",
+      "options": [
+        { "text": "stir the water" },
+        { "text": "use warmer water" },
+        { "text": "use bigger lumps of sugar", "why": "Bigger lumps dissolve more slowly. Smaller grains dissolve faster." },
+        { "text": "use colder water", "why": "Sugar dissolves more slowly in cold water." },
+        { "text": "put a lid on the glass", "why": "A lid does not change how fast sugar dissolves." }
+      ],
+      "answers": [0, 1],
+      "hints": [
+        "Think about how you make sugar dissolve in a cup of tea quickly.",
+        "Moving the water and heating the water both help the sugar to mix in.",
+        "Cross out the choices that would slow dissolving down or make no difference."
+      ],
+      "explanation": "Stirring and using warmer water both make sugar dissolve faster. Crushing the sugar into smaller grains would help too."
+    },
+    {
+      "id": "s5.dissolving.005",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Dewi dissolves 20 g of salt in 200 g of water. What is the mass of the salt solution?",
+      "answer": 220,
+      "unit": "g",
+      "hints": [
+        "When salt dissolves, it is still there, even though you cannot see it.",
+        "Nothing is lost when a solid dissolves, so the masses add together.",
+        "Start by adding the mass of the water to the mass of the salt."
+      ],
+      "explanation": "Dissolving does not destroy the salt, so its mass is still there. 200 g + 20 g = 220 g of salt solution.",
+      "solution": [
+        { "say": "The salt dissolves, but it does not disappear. Its mass is still in the glass.", "show": "No mass is lost" },
+        { "say": "Add the mass of the water and the mass of the salt.", "show": "200 g + 20 g = 220 g" }
+      ],
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.dissolving.006",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ahmad times how long a spoonful of sugar takes to dissolve in water at different temperatures. What does the bar chart show?",
+      "figure": {
+        "kind": "bars",
+        "categories": ["20 °C", "40 °C", "60 °C", "80 °C"],
+        "values": [120, 75, 45, 25],
+        "axisMax": 140,
+        "step": 20,
+        "yLabel": "Time to dissolve (seconds)",
+        "tone": "science",
+        "alt": "Bar chart of time for sugar to dissolve: 120 seconds at 20 °C, 75 seconds at 40 °C, 45 seconds at 60 °C and 25 seconds at 80 °C."
+      },
+      "options": [
+        { "text": "The hotter the water, the slower the sugar dissolves.", "why": "The bars get shorter as the water gets hotter, so dissolving takes less time." },
+        { "text": "Sugar does not dissolve in cold water.", "why": "At 20 °C the sugar still dissolved. It just took longer." },
+        { "text": "Temperature makes no difference.", "why": "The times are very different at each temperature." },
+        { "text": "The hotter the water, the faster the sugar dissolves." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Each bar shows the time taken. A shorter bar means a shorter time.",
+        "Compare the bar for the coldest water with the bar for the hottest water.",
+        "Read the time at 20 °C and at 80 °C. Decide which is quicker."
+      ],
+      "explanation": "The time to dissolve falls from 120 seconds at 20 °C to 25 seconds at 80 °C. So the hotter the water, the faster the sugar dissolves."
+    },
+    {
+      "id": "s5.dissolving.007",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which of these is dissolving, not melting?",
+      "options": [
+        { "text": "butter turning to liquid in a hot pan", "why": "Heat turns the butter from a solid into a liquid on its own. That is melting." },
+        { "text": "coffee granules mixing into hot water" },
+        { "text": "ice turning to water in the sun", "why": "That is melting. Only one material is involved." },
+        { "text": "chocolate going soft in your hand", "why": "Warmth from your hand melts the chocolate." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Melting needs only one material and heat. Dissolving needs a solid and a liquid.",
+        "For each choice, count how many different materials are involved.",
+        "Look for the choice where a solid mixes into a different liquid."
+      ],
+      "explanation": "Coffee granules dissolve when they mix into the water and spread through it. Butter, ice and chocolate melt because heat turns each one from a solid into a liquid on its own."
+    },
+    {
+      "id": "s5.dissolving.008",
+      "skill": "s5.dissolving",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Arif keeps adding salt to a glass of water and stirring. Soon, salt stays at the bottom however long he stirs. Why?",
+      "options": [
+        { "text": "The water cannot dissolve any more salt, so the solution is saturated." },
+        { "text": "The salt has turned into sand.", "why": "The salt is still salt. It stops dissolving because the water cannot hold any more." },
+        { "text": "Stirring has made the salt insoluble.", "why": "Stirring helps salt dissolve faster. It does not stop it dissolving." },
+        { "text": "All the water has evaporated.", "why": "The water is still in the glass. It simply cannot hold any more salt at this temperature." }
+      ],
+      "answer": 0,
+      "hints": [
+        "There is a limit to how much salt one glass of water can dissolve.",
+        "Think about what happens when you keep adding sugar to a small cup of tea.",
+        "Cross out the choices that say the salt or the water has changed into something else."
+      ],
+      "explanation": "A glass of water can only dissolve a certain amount of salt. When no more will dissolve, the solution is saturated, and any extra salt stays at the bottom.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.dissolving.009",
+      "skill": "s5.dissolving",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Ana says that sugar melts in tea. Is she right? Explain the difference between melting and dissolving, with an example of each.",
+      "rubric": {
+        "criteria": [
+          { "label": "Says that sugar dissolves in tea", "points": 1 },
+          { "label": "Explains dissolving: a solid spreads through a liquid", "points": 2 },
+          { "label": "Explains melting: heat turns one solid into a liquid", "points": 2 },
+          { "label": "Gives a correct example of each", "points": 1 }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 120,
+      "planning": [
+        "What happens to sugar in tea?",
+        "What happens to ice in the sun?",
+        "How many materials are involved each time?"
+      ],
+      "model": "Ana is wrong, because sugar dissolves in tea. Dissolving happens when a solid breaks into tiny pieces that spread through a liquid, like salt in water. Melting happens when heat turns a solid into a liquid on its own, like ice turning into water in the sun.",
+      "hints": [
+        "Think about whether the sugar needs the tea, or only heat, to change.",
+        "Melting needs heat and one material. Dissolving needs a solid and a liquid."
+      ],
+      "explanation": "Sugar dissolves in tea because it spreads through the liquid as tiny pieces. Melting is a change from solid to liquid caused by heat, with only one material involved."
+    },
+    {
+      "id": "s5.dissolving.010",
+      "skill": "s5.dissolving",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "At 20 °C, 100 g of water can dissolve about 36 g of salt. How much salt can 250 g of water dissolve at 20 °C?",
+      "answer": 90,
+      "unit": "g",
+      "hints": [
+        "The more water there is, the more salt it can dissolve.",
+        "250 g of water is two and a half lots of 100 g.",
+        "Find the salt for 200 g of water first, then the salt for the extra 50 g."
+      ],
+      "explanation": "250 g of water is 2.5 times 100 g, so it can dissolve 2.5 × 36 g = 90 g of salt. Any salt beyond this would stay undissolved.",
+      "solution": [
+        { "say": "100 g of water dissolves 36 g of salt, so 200 g of water dissolves twice as much.", "show": "36 g × 2 = 72 g" },
+        { "say": "50 g of water is half of 100 g, so it dissolves half of 36 g.", "show": "36 g ÷ 2 = 18 g" },
+        { "say": "Add the two parts together.", "show": "72 g + 18 g = 90 g" }
+      ],
+      "tags": ["imso"]
+    }
+  ]
+}

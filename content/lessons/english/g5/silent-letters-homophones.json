@@ -1,0 +1,90 @@
+{
+  "skill": "e5.silent-letters-homophones",
+  "title": "Silent letters and homophones",
+  "steps": [
+    {
+      "say": "Some words have letters that we write but do not say. These are silent letters.",
+      "show": "knee, wrist, thumb, listen, honest"
+    },
+    {
+      "say": "Silent letters often follow patterns: kn and wr at the start, mb at the end.",
+      "show": "knot, write, climb"
+    },
+    {
+      "say": "Homophones sound the same but have different spellings and meanings.",
+      "show": "there, their, they’re     piece, peace"
+    },
+    {
+      "say": "To choose the right homophone, think about the meaning of the sentence.",
+      "show": "Their bags are over there."
+    },
+    {
+      "say": "Make a memory trick for tricky pairs. A piece of pie has pie in it.",
+      "show": "a piece of pie"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.silent-letters-homophones.901",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word has a silent k?",
+      "options": [
+        {
+          "text": "knock"
+        },
+        {
+          "text": "kick",
+          "why": "You can hear both k sounds in kick."
+        },
+        {
+          "text": "kite",
+          "why": "You can hear the k at the start of kite."
+        },
+        {
+          "text": "milk",
+          "why": "You can hear the k at the end of milk."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say each word aloud.",
+        "A silent k often comes before n at the start of a word.",
+        "Look for a word that starts with kn."
+      ],
+      "explanation": "In knock, the k is written but not sounded, like knee and knife."
+    },
+    {
+      "id": "e5.silent-letters-homophones.902",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the correct word. I ate a ___ of cake.",
+      "options": [
+        {
+          "text": "peace",
+          "why": "Peace means a calm time with no fighting."
+        },
+        {
+          "text": "piece"
+        },
+        {
+          "text": "peas",
+          "why": "Peas are small green vegetables."
+        },
+        {
+          "text": "pies",
+          "why": "Pies is the plural of pie."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The missing word means a part of something.",
+        "Remember the memory trick about pie.",
+        "Find the spelling that has the word pie inside it."
+      ],
+      "explanation": "A piece is a part of something, and it has pie inside it: a piece of pie or a piece of cake."
+    }
+  ]
+}

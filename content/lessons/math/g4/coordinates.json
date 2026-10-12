@@ -1,0 +1,143 @@
+{
+  "skill": "m4.coordinates",
+  "title": "Coordinates and translation",
+  "steps": [
+    {
+      "say": "Coordinates tell you where a point is. Go across first, then go up.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 3,
+            "y": 2,
+            "label": "A"
+          }
+        ],
+        "alt": "A coordinate grid with point A 3 across and 2 up."
+      }
+    },
+    {
+      "say": "A is 3 across and 2 up, so A is at (3, 2).",
+      "show": "(3, 2)"
+    },
+    {
+      "say": "The order matters. (2, 3) is a different point.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 3,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "label": "B"
+          }
+        ],
+        "alt": "A coordinate grid with A at (3, 2) and B at (2, 3)."
+      },
+      "show": "A (3, 2) and B (2, 3)"
+    },
+    {
+      "say": "A translation slides a point without turning it. Move A 3 right and 2 up.",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 3,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": 6,
+            "y": 4,
+            "label": "C"
+          }
+        ],
+        "alt": "A coordinate grid with A at (3, 2) and C at (6, 4)."
+      },
+      "show": "(3 + 3, 2 + 2) = (6, 4)"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.coordinates.901",
+      "skill": "m4.coordinates",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "What are the coordinates of point P? P is at (___, ___).",
+      "blanks": [
+        {
+          "answers": [
+            "5"
+          ]
+        },
+        {
+          "answers": [
+            "1"
+          ]
+        }
+      ],
+      "hints": [
+        "Coordinates are written (across, up).",
+        "Count across from 0 first.",
+        "Then count up."
+      ],
+      "explanation": "P is 5 across and 1 up, so P is at (5, 1).",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 5,
+            "y": 1,
+            "label": "P"
+          }
+        ],
+        "alt": "A coordinate grid with point P 5 across and 1 up."
+      }
+    },
+    {
+      "id": "m4.coordinates.902",
+      "skill": "m4.coordinates",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Q is at (2, 4). It moves 3 squares right and 1 square down. Q is now at (___, ___).",
+      "blanks": [
+        {
+          "answers": [
+            "5"
+          ]
+        },
+        {
+          "answers": [
+            "3"
+          ]
+        }
+      ],
+      "hints": [
+        "Moving right adds to the first number.",
+        "Moving down takes away from the second number.",
+        "Start with 2 + 3."
+      ],
+      "explanation": "2 + 3 = 5 and 4 - 1 = 3. Q is now at (5, 3).",
+      "figure": {
+        "kind": "coordinates",
+        "size": 8,
+        "points": [
+          {
+            "x": 2,
+            "y": 4,
+            "label": "Q"
+          }
+        ],
+        "alt": "A coordinate grid with point Q at (2, 4)."
+      }
+    }
+  ]
+}

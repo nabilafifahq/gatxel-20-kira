@@ -1,0 +1,78 @@
+{
+  "skill": "e6.conditionals",
+  "title": "Conditional sentences",
+  "steps": [
+    {
+      "say": "Conditional sentences use if to show that one thing depends on another."
+    },
+    {
+      "say": "For facts that are always true, use the present tense in both parts.",
+      "show": "If you heat ice, it melts."
+    },
+    {
+      "say": "For real future possibilities, use the present after if and will in the result.",
+      "show": "If it rains, we will stay inside."
+    },
+    {
+      "say": "For imaginary situations, use the past after if and would in the result.",
+      "show": "If I had wings, I would fly."
+    },
+    {
+      "say": "For past situations that did not happen, use had and would have.",
+      "show": "If we had left earlier, we would have caught the bus."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.conditionals.901",
+      "skill": "e6.conditionals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is about an imaginary situation?",
+      "options": [
+        {
+          "text": "If you drop the glass, it will break.",
+          "why": "This could really happen."
+        },
+        {
+          "text": "If I were a fish, I would live in the sea."
+        },
+        {
+          "text": "If water boils, it turns into steam.",
+          "why": "This is a fact."
+        },
+        {
+          "text": "If the shop is open, I will buy bread.",
+          "why": "This is a real possibility."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Imaginary means it cannot really happen.",
+        "Imaginary conditions use were or the past after if, and would in the result.",
+        "Ask of each sentence: could this really happen?"
+      ],
+      "explanation": "People cannot be fish, so this is imaginary. It uses were and would."
+    },
+    {
+      "id": "e6.conditionals.902",
+      "skill": "e6.conditionals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Complete the sentence. If we had known about the party, we would ___ come.",
+      "blanks": [
+        {
+          "answers": [
+            "have"
+          ]
+        }
+      ],
+      "hints": [
+        "The sentence is about the past.",
+        "Had known in the if clause tells you that the result needs would plus one more small word.",
+        "Say it aloud: we would ... come. Which word fills the gap?"
+      ],
+      "explanation": "If we had known, we would have come. Had in the if clause goes with would have in the result."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "skill": "m6.negative-numbers",
+  "title": "Calculating with negative numbers",
+  "steps": [
+    {
+      "say": "Adding a positive number moves you to the right on the number line.",
+      "show": "−4 + 6 = 2",
+      "figure": {
+        "kind": "numberline",
+        "min": -6,
+        "max": 6,
+        "step": 1,
+        "jumps": [
+          {
+            "from": -4,
+            "to": 2,
+            "label": "+6"
+          }
+        ],
+        "alt": "A number line from −6 to 6 with a jump of 6 from −4 to 2."
+      }
+    },
+    {
+      "say": "Subtracting a positive number moves you to the left.",
+      "show": "3 − 8 = −5"
+    },
+    {
+      "say": "To find the difference between two temperatures, count the steps between them.",
+      "show": "From −4 °C to 6 °C",
+      "figure": {
+        "kind": "thermometer",
+        "min": -10,
+        "max": 10,
+        "value": 6,
+        "step": 2,
+        "alt": "A thermometer showing 6 degrees."
+      }
+    },
+    {
+      "say": "Count up to zero first, then on to the other number.",
+      "show": "4 + 6 = 10 degrees"
+    },
+    {
+      "say": "Adding a negative number moves you to the left, just like subtracting.",
+      "show": "5 + (−3) = 5 − 3 = 2"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.negative-numbers.901",
+      "skill": "m6.negative-numbers",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Work out −7 + 4.",
+      "hints": [
+        "Start at −7 on a number line.",
+        "Adding 4 means moving 4 steps to the right.",
+        "Moving right takes you closer to zero."
+      ],
+      "explanation": "From −7, moving 4 steps to the right lands on −3.",
+      "answer": -3,
+      "allowNegative": true
+    },
+    {
+      "id": "m6.negative-numbers.902",
+      "skill": "m6.negative-numbers",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "At night it is −5 °C. At midday it is 9 °C. How many degrees warmer is it at midday?",
+      "hints": [
+        "Find the difference between −5 and 9.",
+        "Count from −5 up to 0 first.",
+        "From −5 to 0 is 5 degrees."
+      ],
+      "explanation": "5 degrees takes you up to 0 °C, then 9 more to 9 °C. 5 + 9 = 14 degrees.",
+      "answer": 14,
+      "unit": "°C"
+    },
+    {
+      "id": "m6.negative-numbers.903",
+      "skill": "m6.negative-numbers",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Work out 2 − 9 + 3.",
+      "hints": [
+        "Work from left to right.",
+        "Start with 2 − 9.",
+        "Going below zero gives a negative number."
+      ],
+      "explanation": "2 − 9 = −7, and −7 + 3 = −4.",
+      "answer": -4,
+      "allowNegative": true
+    }
+  ]
+}

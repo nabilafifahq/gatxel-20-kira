@@ -1,0 +1,936 @@
+{
+  "skill": "m2.oly-shapes",
+  "items": [
+    {
+      "id": "m2.oly-shapes.001",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "This grid has 2 rows of 3 squares. How many squares of any size are there?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 3,
+        "alt": "A grid of 2 rows and 3 columns, 6 small squares in all."
+      },
+      "options": [
+        {
+          "text": "8"
+        },
+        {
+          "text": "9",
+          "why": "A 3 by 3 square does not fit. The grid has only 2 rows."
+        },
+        {
+          "text": "10",
+          "why": "Some shapes you counted are rectangles, not squares."
+        },
+        {
+          "text": "12",
+          "why": "Count only shapes with 4 equal sides."
+        },
+        {
+          "text": "18",
+          "why": "18 counts all rectangles. Only squares count here."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count small squares, then bigger squares.",
+        "A bigger square uses 2 rows and 2 columns.",
+        "A 2 by 2 square can start in the first or the second column."
+      ],
+      "explanation": "There are 6 small squares and 2 squares made of 2 by 2 small squares. That makes 6 + 2 = 8 squares.",
+      "solution": [
+        {
+          "say": "Small squares.",
+          "show": "6"
+        },
+        {
+          "say": "2 by 2 squares: one on the left, one on the right.",
+          "show": "2"
+        },
+        {
+          "say": "No 3 by 3 square fits.",
+          "show": "6 + 2 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-shapes.002",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The minute hand of a clock points to 12. It makes three quarters of a full turn clockwise. Which number does it point to now?",
+      "figure": {
+        "kind": "clock",
+        "h": 12,
+        "m": 0,
+        "alt": "A clock with the minute hand pointing to 12."
+      },
+      "options": [
+        {
+          "text": "3",
+          "why": "A quarter turn ends at 3. Three quarters goes further."
+        },
+        {
+          "text": "6",
+          "why": "A half turn ends at 6. Three quarters goes further."
+        },
+        {
+          "text": "8",
+          "why": "Each quarter turn moves 3 numbers: 3, 6, 9."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "10",
+          "why": "Three quarter turns move the hand 9 numbers from 12, not 10."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A full turn goes all the way round back to 12.",
+        "A quarter turn from 12 ends at 3.",
+        "Each quarter turn moves the hand 3 numbers on."
+      ],
+      "explanation": "A quarter turn from 12 ends at 3, a half turn at 6 and three quarters of a turn at 9.",
+      "solution": [
+        {
+          "say": "Quarter turn.",
+          "show": "12 to 3"
+        },
+        {
+          "say": "Half turn.",
+          "show": "12 to 6"
+        },
+        {
+          "say": "Three quarter turn.",
+          "show": "12 to 9"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-shapes.003",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two squares have sides of 3 cm. They are put side by side to make a rectangle. How long is the line all the way around the rectangle?",
+      "figure": {
+        "kind": "grid",
+        "rows": 1,
+        "cols": 2,
+        "alt": "Two squares side by side make a rectangle. Each square has sides of 3 cm."
+      },
+      "options": [
+        {
+          "text": "12 cm",
+          "why": "12 cm goes around one square only."
+        },
+        {
+          "text": "15 cm",
+          "why": "The rectangle has 6 small edges of 3 cm on the outside, not 5."
+        },
+        {
+          "text": "18 cm"
+        },
+        {
+          "text": "21 cm",
+          "why": "The rectangle has 6 small edges of 3 cm on the outside, not 7."
+        },
+        {
+          "text": "24 cm",
+          "why": "24 cm goes around both squares, but the side in the middle is not on the outside."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Draw the rectangle and mark the outside edges.",
+        "The rectangle is 6 cm long and 3 cm wide.",
+        "Count the 3 cm edges on the outside of the rectangle."
+      ],
+      "explanation": "The rectangle is 6 cm long and 3 cm wide. Around it is 6 + 3 + 6 + 3 = 18 cm. The side where the squares touch is inside, so it does not count.",
+      "solution": [
+        {
+          "say": "Length: 3 + 3 = 6 cm. Width: 3 cm.",
+          "show": "6 cm by 3 cm"
+        },
+        {
+          "say": "Add all four sides.",
+          "show": "6 + 3 + 6 + 3 = 18"
+        },
+        {
+          "say": "Or count the outside edges: 6 edges of 3 cm.",
+          "show": "3 + 3 + 3 + 3 + 3 + 3 = 18"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.004",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ana folds a paper square in half. She cuts a half circle out of the folded edge. Then she opens the paper. What shape is the hole?",
+      "figure": {
+        "kind": "shape",
+        "shape": "semicircle",
+        "alt": "A half circle, the shape Ana cuts out of the folded edge."
+      },
+      "options": [
+        {
+          "text": "A half circle",
+          "why": "The fold makes a mirror copy of the half circle."
+        },
+        {
+          "text": "A circle"
+        },
+        {
+          "text": "A heart",
+          "why": "A heart has a point. The cut has no points."
+        },
+        {
+          "text": "Two half circles",
+          "why": "The half circle was cut on the fold, so the two halves join together."
+        },
+        {
+          "text": "A square",
+          "why": "Curved cuts cannot make a square."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The fold works like a mirror.",
+        "The cut goes through both layers of paper at the fold.",
+        "Picture the half circle and its mirror copy joined at the fold."
+      ],
+      "explanation": "Cutting on the fold cuts both layers at once. When the paper opens, the half circle and its mirror copy join along the fold to make a full circle.",
+      "solution": [
+        {
+          "say": "The cut goes through both layers.",
+          "show": "2 half circles"
+        },
+        {
+          "say": "They meet along the fold line.",
+          "show": "half + half"
+        },
+        {
+          "say": "Opened up, they make a circle.",
+          "show": "circle"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.005",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Kim draws a square. She joins each corner to the opposite corner with a line. How many triangles can you find?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "A square with two lines crossing in the middle. Each line joins a corner to the opposite corner. The lines cut the square into 4 small triangles."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "Each line alone makes 2 triangles, but there are 2 lines."
+        },
+        {
+          "text": "4",
+          "why": "Look for bigger triangles made of 2 small ones."
+        },
+        {
+          "text": "5",
+          "why": "Count the big triangles again. There are 4."
+        },
+        {
+          "text": "6",
+          "why": "Each line makes 2 big triangles, so there are 4 big ones."
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Count the small triangles first.",
+        "Two small triangles next to each other can make a bigger triangle.",
+        "Each line on its own cuts the square into 2 big triangles."
+      ],
+      "explanation": "There are 4 small triangles. Each of the 2 lines also cuts the square into 2 big triangles, which makes 4 big triangles. So there are 4 + 4 = 8 triangles.",
+      "solution": [
+        {
+          "say": "Small triangles around the middle.",
+          "show": "4"
+        },
+        {
+          "say": "One line cuts the square into 2 big triangles.",
+          "show": "2"
+        },
+        {
+          "say": "The other line does the same.",
+          "show": "2"
+        },
+        {
+          "say": "Add them.",
+          "show": "4 + 2 + 2 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-shapes.006",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A shape is drawn on squared paper. It covers 5 whole squares and 4 half squares. How many whole squares is it the same as?",
+      "options": [
+        {
+          "text": "5",
+          "why": "The 4 half squares cover some space too."
+        },
+        {
+          "text": "6",
+          "why": "4 halves make 2 whole squares, not 1."
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "9",
+          "why": "Half squares count as half, not as whole squares."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Two half squares make one whole square.",
+        "Pair up the 4 half squares.",
+        "4 half squares make how many whole squares?"
+      ],
+      "explanation": "4 half squares make 2 whole squares. Add the 5 whole squares: 5 + 2 = 7 whole squares.",
+      "solution": [
+        {
+          "say": "Pair the halves.",
+          "show": "half + half = 1 whole"
+        },
+        {
+          "say": "4 halves make 2 wholes.",
+          "show": "2"
+        },
+        {
+          "say": "Add the whole squares.",
+          "show": "5 + 2 = 7"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-shapes.007",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A big cube is built from small cubes. It is 3 cubes long, 3 cubes wide and 3 cubes tall. How many small cubes are used?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "label": "3 by 3 by 3",
+        "alt": "A big cube made of small cubes, 3 cubes long, 3 cubes wide and 3 cubes tall."
+      },
+      "options": [
+        {
+          "text": "9",
+          "why": "9 cubes make only one layer."
+        },
+        {
+          "text": "27"
+        },
+        {
+          "text": "36",
+          "why": "There are 3 layers of 9, not 4."
+        },
+        {
+          "text": "54",
+          "why": "Count the layers again: 3 layers of 9."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of the big cube as layers.",
+        "One layer is 3 rows of 3 small cubes.",
+        "How many small cubes are in one layer?"
+      ],
+      "explanation": "One layer has 3 rows of 3, which is 9 small cubes. There are 3 layers, so 9 + 9 + 9 = 27 small cubes.",
+      "solution": [
+        {
+          "say": "One layer.",
+          "show": "3 + 3 + 3 = 9"
+        },
+        {
+          "say": "Three layers.",
+          "show": "9 + 9 + 9 = 27"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.008",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Leo faces north. He makes a quarter turn clockwise. Then he makes a half turn. Which way is he facing now?",
+      "options": [
+        {
+          "text": "North",
+          "why": "A quarter turn and a half turn do not bring him back to the start."
+        },
+        {
+          "text": "East",
+          "why": "He faces east after the quarter turn, but then he turns again."
+        },
+        {
+          "text": "South",
+          "why": "Check the first turn. A quarter turn clockwise from north faces east."
+        },
+        {
+          "text": "West"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Draw a compass: north at the top, east on the right.",
+        "A quarter turn clockwise from north makes him face east.",
+        "A half turn makes him face the opposite way."
+      ],
+      "explanation": "A quarter turn clockwise from north faces east. A half turn from east faces the opposite way, which is west.",
+      "solution": [
+        {
+          "say": "Start facing north.",
+          "show": "N"
+        },
+        {
+          "say": "Quarter turn clockwise.",
+          "show": "N to E"
+        },
+        {
+          "say": "Half turn: face the opposite way.",
+          "show": "E to W"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.009",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three squares with sides of 2 cm make an L shape. What is the distance all the way around the L shape?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "alt": "An L shape made of 3 squares: two squares side by side at the bottom and one square on top of the left one. Each square has sides of 2 cm."
+      },
+      "answer": 16,
+      "unit": "cm",
+      "hints": [
+        "Only the outside edges count.",
+        "Count the small outside edges of the L. Each edge is 2 cm.",
+        "Trace the outline with your finger and count the small edges."
+      ],
+      "explanation": "The L shape has 8 small edges on the outside. Each is 2 cm, so the distance around is 8 × 2 = 16 cm.",
+      "solution": [
+        {
+          "say": "Trace the outline and count the small edges.",
+          "show": "8 edges"
+        },
+        {
+          "say": "Each edge is 2 cm.",
+          "show": "8 × 2 = 16"
+        },
+        {
+          "say": "The 2 edges where squares touch are inside, so they do not count."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "hkimo"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.010",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A grid has 4 rows of 4 small squares. How many squares of any size can you find?",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 4,
+        "alt": "A grid of 4 rows and 4 columns, 16 small squares."
+      },
+      "answer": 30,
+      "hints": [
+        "Count each size of square separately.",
+        "The sizes are 1 by 1, 2 by 2, 3 by 3 and 4 by 4.",
+        "A 2 by 2 square can be in 3 places across and 3 places down."
+      ],
+      "explanation": "There are 16 squares of size 1, 9 of size 2, 4 of size 3 and 1 of size 4. That is 16 + 9 + 4 + 1 = 30.",
+      "solution": [
+        {
+          "say": "1 by 1 squares.",
+          "show": "16"
+        },
+        {
+          "say": "2 by 2 squares: 3 across and 3 down.",
+          "show": "9"
+        },
+        {
+          "say": "3 by 3 squares: 2 across and 2 down.",
+          "show": "4"
+        },
+        {
+          "say": "The whole grid.",
+          "show": "1"
+        },
+        {
+          "say": "Add them.",
+          "show": "16 + 9 + 4 + 1 = 30"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "timo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m2.oly-shapes.011",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Meja Ibu berbentuk persegi panjang. Panjangnya 4 jengkal dan lebarnya 2 jengkal. Ibu memasang renda di sekeliling pinggir meja. Berapa jengkal renda yang dibutuhkan?",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "sideLabels": [
+          "4 jengkal",
+          "2 jengkal"
+        ],
+        "alt": "Meja berbentuk persegi panjang, panjangnya 4 jengkal dan lebarnya 2 jengkal."
+      },
+      "options": [
+        {
+          "text": "6",
+          "why": "6 jengkal hanya panjang ditambah lebar. Renda mengelilingi keempat sisi."
+        },
+        {
+          "text": "8",
+          "why": "8 adalah 4 kali 2. Itu bukan panjang pinggir meja."
+        },
+        {
+          "text": "10",
+          "why": "Hitung lagi: dua sisi panjang dan dua sisi lebar."
+        },
+        {
+          "text": "12"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Renda dipasang di keempat sisi meja.",
+        "Meja punya 2 sisi panjang dan 2 sisi lebar.",
+        "Jumlahkan dulu kedua sisi panjang: 4 + 4."
+      ],
+      "explanation": "Keliling meja adalah 4 + 2 + 4 + 2 = 12 jengkal. Jadi renda yang dibutuhkan 12 jengkal.",
+      "solution": [
+        {
+          "say": "Dua sisi panjang.",
+          "show": "4 + 4 = 8"
+        },
+        {
+          "say": "Dua sisi lebar.",
+          "show": "2 + 2 = 4"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "8 + 4 = 12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "meja",
+          "en": "table"
+        },
+        {
+          "term": "persegi panjang",
+          "en": "rectangle"
+        },
+        {
+          "term": "panjang",
+          "en": "length"
+        },
+        {
+          "term": "lebar",
+          "en": "width"
+        },
+        {
+          "term": "jengkal",
+          "en": "hand span"
+        },
+        {
+          "term": "renda",
+          "en": "lace"
+        },
+        {
+          "term": "sekeliling",
+          "en": "all around"
+        },
+        {
+          "term": "pinggir",
+          "en": "edge"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-shapes.012",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Lantai teras ditutup ubin persegi. Ada 4 baris, setiap baris 4 ubin. Ubin di pinggir berwarna merah. Ubin lainnya putih. Berapa ubin putih?",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 4,
+        "alt": "Lantai teras dengan 4 baris ubin. Setiap baris berisi 4 ubin, semuanya 16 ubin."
+      },
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "8",
+          "why": "Hitung lagi ubin yang tidak menyentuh pinggir."
+        },
+        {
+          "text": "12",
+          "why": "12 adalah banyak ubin merah di pinggir."
+        },
+        {
+          "text": "16",
+          "why": "16 adalah semua ubin, merah dan putih."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Gambar 4 baris dengan 4 ubin.",
+        "Ubin putih adalah ubin yang tidak menyentuh pinggir.",
+        "Baris paling atas dan paling bawah semuanya merah."
+      ],
+      "explanation": "Baris atas dan bawah semuanya merah. Di dua baris tengah, hanya 2 ubin tengah yang putih. Jadi ubin putih ada 2 + 2 = 4.",
+      "solution": [
+        {
+          "say": "Baris pertama dan keempat semuanya di pinggir.",
+          "show": "merah"
+        },
+        {
+          "say": "Di baris kedua dan ketiga, ubin paling kiri dan paling kanan merah.",
+          "show": "2 putih di setiap baris"
+        },
+        {
+          "say": "Jumlahkan ubin putih.",
+          "show": "2 + 2 = 4",
+          "figure": {
+            "kind": "grid",
+            "rows": 4,
+            "cols": 4,
+            "shaded": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "alt": "Lantai 4 kali 4 ubin. Empat ubin di tengah yang diarsir adalah ubin putih."
+          }
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "lantai",
+          "en": "floor"
+        },
+        {
+          "term": "teras",
+          "en": "porch"
+        },
+        {
+          "term": "ubin",
+          "en": "tile"
+        },
+        {
+          "term": "baris",
+          "en": "row"
+        },
+        {
+          "term": "pinggir",
+          "en": "edge"
+        },
+        {
+          "term": "berwarna merah",
+          "en": "red"
+        },
+        {
+          "term": "putih",
+          "en": "white"
+        }
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.013",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A round martabak is cut with 3 straight cuts. Every cut goes through the centre. How many pieces are there?",
+      "figure": {
+        "kind": "shape",
+        "shape": "circle",
+        "alt": "A round martabak seen from above, before it is cut."
+      },
+      "options": [
+        {
+          "text": "3",
+          "why": "Each cut through the centre goes right across the martabak."
+        },
+        {
+          "text": "4",
+          "why": "4 pieces come from only 2 cuts through the centre."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8",
+          "why": "8 pieces need 4 cuts through the centre."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Draw a circle and try it.",
+        "One cut through the centre makes 2 pieces.",
+        "Each new cut through the centre crosses the other cuts and adds 2 pieces."
+      ],
+      "explanation": "The first cut makes 2 pieces. Each new cut through the centre adds 2 more pieces, so 3 cuts make 2 + 2 + 2 = 6 pieces.",
+      "solution": [
+        {
+          "say": "1 cut: 2 pieces.",
+          "show": "2"
+        },
+        {
+          "say": "2 cuts: 4 pieces.",
+          "show": "2 + 2 = 4"
+        },
+        {
+          "say": "3 cuts: 6 pieces.",
+          "show": "4 + 2 = 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m2.oly-shapes.014",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A garden is a rectangle, 6 m long and 4 m wide. A post stands at every corner. There is also a post every 2 m along the sides. How many posts are there?",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "sideLabels": [
+          "6 m",
+          "4 m"
+        ],
+        "alt": "A rectangle garden 6 m long and 4 m wide. Posts stand at every corner and every 2 m along each side."
+      },
+      "options": [
+        {
+          "text": "8",
+          "why": "Count the posts in the middle of the sides too."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12",
+          "why": "Corner posts are shared by two sides. Count them once."
+        },
+        {
+          "text": "14",
+          "why": "14 counts every corner post twice."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the distance all the way around.",
+        "Around the garden is 6 + 4 + 6 + 4 metres.",
+        "On a closed loop, the number of posts equals the number of 2 m gaps."
+      ],
+      "explanation": "The distance around is 6 + 4 + 6 + 4 = 20 m. That is 10 gaps of 2 m. On a closed loop there is one post for each gap, so there are 10 posts.",
+      "solution": [
+        {
+          "say": "Distance around.",
+          "show": "6 + 4 + 6 + 4 = 20 m"
+        },
+        {
+          "say": "Gaps of 2 m.",
+          "show": "20 ÷ 2 = 10 gaps"
+        },
+        {
+          "say": "On a loop the last gap ends at the first post, so posts and gaps match.",
+          "show": "10 posts"
+        },
+        {
+          "say": "Check: long sides have 4 posts, short sides 3, and the 4 corners are shared.",
+          "show": "4 + 4 + 3 + 3 - 4 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.015",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A big square is made of 4 small squares. The distance around the big square is 24 cm. What is the distance around one small square?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "alt": "A big square made of 4 small squares in 2 rows of 2. The distance around the big square is 24 cm."
+      },
+      "answer": 12,
+      "unit": "cm",
+      "hints": [
+        "Find the length of one side of the big square.",
+        "A square has 4 equal sides. 24 cm is shared between them.",
+        "Each side of the big square is made of 2 small sides."
+      ],
+      "explanation": "Each side of the big square is 24 ÷ 4 = 6 cm, which is 2 small sides, so a small side is 3 cm. One small square measures 3 + 3 + 3 + 3 = 12 cm around.",
+      "solution": [
+        {
+          "say": "Side of the big square.",
+          "show": "24 ÷ 4 = 6 cm"
+        },
+        {
+          "say": "Side of a small square.",
+          "show": "6 ÷ 2 = 3 cm"
+        },
+        {
+          "say": "Around a small square.",
+          "show": "3 + 3 + 3 + 3 = 12 cm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

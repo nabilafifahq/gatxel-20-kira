@@ -1,0 +1,456 @@
+{
+  "skill": "m5.oly-patterns",
+  "items": [
+    {
+      "id": "m5.oly-patterns.001",
+      "skill": "m5.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The pattern 2, 5, 10, 17, 26 continues in the same way. What is the 10th number?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "5",
+          "10",
+          "17",
+          "26",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 2, 5, 10, 17, 26, then an empty box."
+      },
+      "options": [
+        {
+          "text": "65",
+          "why": "65 is the 8th number."
+        },
+        {
+          "text": "82",
+          "why": "82 is the 9th number."
+        },
+        {
+          "text": "90",
+          "why": "Each number is 1 more than a square number."
+        },
+        {
+          "text": "100",
+          "why": "Each number is 1 more than a square number, so add 1 to 10 × 10."
+        },
+        {
+          "text": "101"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Compare each number with the square numbers 1, 4, 9, 16, 25.",
+        "Each number is 1 more than a square number.",
+        "The 10th square number is 10 × 10."
+      ],
+      "explanation": "The numbers are 1 × 1 + 1, 2 × 2 + 1, 3 × 3 + 1, and so on. The 10th number is 10 × 10 + 1 = 101.",
+      "solution": [
+        {
+          "say": "Compare with square numbers.",
+          "show": "1, 4, 9, 16, 25"
+        },
+        {
+          "say": "Each number is one more.",
+          "show": "2, 5, 10, 17, 26"
+        },
+        {
+          "say": "10th number.",
+          "show": "10 × 10 + 1 = 101"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-patterns.002",
+      "skill": "m5.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The fractions 1/2, 2/3, 3/4, 4/5 and so on follow a pattern. What is the product of the first 9 of them?",
+      "options": [
+        {
+          "text": "1/10"
+        },
+        {
+          "text": "1/9",
+          "why": "The 9th fraction is 9/10, so the last bottom number is 10."
+        },
+        {
+          "text": "1/2",
+          "why": "1/2 is only the first fraction."
+        },
+        {
+          "text": "9/10",
+          "why": "9/10 is the 9th fraction, not the product."
+        },
+        {
+          "text": "10/9",
+          "why": "Every fraction is less than 1, so the product is less than 1."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Write out the product with all 9 fractions.",
+        "1/2 × 2/3 × 3/4 × ... × 9/10.",
+        "Each top number cancels with the bottom number of the fraction before it."
+      ],
+      "explanation": "In 1/2 × 2/3 × 3/4 × ... × 9/10, each of 2, 3, ..., 9 appears once on top and once on the bottom, so they cancel. Only the 1 on top and the 10 on the bottom are left: 1/10.",
+      "solution": [
+        {
+          "say": "Write the product.",
+          "show": "1/2 × 2/3 × 3/4 × ... × 9/10"
+        },
+        {
+          "say": "Cancel matching numbers on top and bottom.",
+          "show": "2s, 3s, ..., 9s cancel"
+        },
+        {
+          "say": "What is left.",
+          "show": "1/10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-patterns.003",
+      "skill": "m5.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Whole numbers are written in rows. Row 1 has 1 number, row 2 has 3, row 3 has 5, and so on. Row 1 is 1 and row 2 is 2, 3, 4. What is the middle number of row 12?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Row",
+          "Numbers"
+        ],
+        "rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "2, 3, 4"
+          ],
+          [
+            "3",
+            "5, 6, 7, 8, 9"
+          ],
+          [
+            "4",
+            "10 to 16"
+          ]
+        ],
+        "alt": "Row 1: 1. Row 2: 2, 3, 4. Row 3: 5, 6, 7, 8, 9. Row 4: 10 to 16. Each row has 2 more numbers than the row before."
+      },
+      "options": [
+        {
+          "text": "122",
+          "why": "122 is the first number of row 12."
+        },
+        {
+          "text": "132",
+          "why": "Row 12 ends at 12 × 12 = 144 and has 23 numbers."
+        },
+        {
+          "text": "133"
+        },
+        {
+          "text": "134",
+          "why": "The middle of 23 numbers is the 12th one."
+        },
+        {
+          "text": "144",
+          "why": "144 is the last number of row 12."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the last number of each row: 1, 4, 9, 16.",
+        "Row n ends at n × n.",
+        "Row 11 ends at 121, so row 12 runs from 122 to 144."
+      ],
+      "explanation": "Each row ends at a square number, so row 11 ends at 121 and row 12 is 122 to 144. That is 23 numbers, and the middle one is the 12th: 122 + 11 = 133.",
+      "solution": [
+        {
+          "say": "Last number of each row.",
+          "show": "1, 4, 9, 16 = 1×1, 2×2, 3×3, 4×4"
+        },
+        {
+          "say": "Row 12.",
+          "show": "122 to 144"
+        },
+        {
+          "say": "Row 12 has 23 numbers. The middle one is the 12th.",
+          "show": "122 + 11 = 133"
+        },
+        {
+          "say": "Check: halfway between 122 and 144.",
+          "show": "(122 + 144) ÷ 2 = 133"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-patterns.004",
+      "skill": "m5.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the last digit of 7 × 7 × 7 × ... × 7, with 2026 sevens multiplied together?",
+      "options": [
+        {
+          "text": "1",
+          "why": "1 is the last digit after a multiple of 4 sevens."
+        },
+        {
+          "text": "3",
+          "why": "3 is the last digit after 3, 7, 11, ... sevens."
+        },
+        {
+          "text": "7",
+          "why": "7 is the last digit after 1, 5, 9, ... sevens."
+        },
+        {
+          "text": "9"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Work out the last digits of 7, 7 × 7, 7 × 7 × 7, and so on.",
+        "The last digits go 7, 9, 3, 1, then repeat.",
+        "Divide 2026 by 4 and look at the remainder."
+      ],
+      "explanation": "The last digits repeat 7, 9, 3, 1 every 4 sevens. 2026 = 4 × 506 + 2, so the last digit is the 2nd in the cycle, which is 9.",
+      "solution": [
+        {
+          "say": "Last digits.",
+          "show": "7, 49, 343, 2401: 7, 9, 3, 1"
+        },
+        {
+          "say": "The cycle is 4 long.",
+          "show": "2026 = 4 × 506 + 2"
+        },
+        {
+          "say": "The 2nd digit in the cycle.",
+          "show": "9"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-patterns.005",
+      "skill": "m5.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many numbers are there in the list 13, 20, 27, 34, ..., 699?",
+      "answer": 99,
+      "hints": [
+        "Find the jump between the numbers.",
+        "The numbers go up by 7 each time.",
+        "Find how many jumps of 7 take you from 13 to 699."
+      ],
+      "explanation": "From 13 to 699 is 686, and 686 ÷ 7 = 98 jumps. 98 jumps join 99 numbers.",
+      "solution": [
+        {
+          "say": "Distance from the first to the last.",
+          "show": "699 - 13 = 686"
+        },
+        {
+          "say": "Jumps of 7.",
+          "show": "686 ÷ 7 = 98"
+        },
+        {
+          "say": "Numbers = jumps + 1.",
+          "show": "98 + 1 = 99"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-patterns.006",
+      "skill": "m5.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A ball is dropped from 160 cm. After each bounce it rises to half the height it fell from. How high does it rise after the 4th bounce?",
+      "options": [
+        {
+          "text": "5 cm",
+          "why": "5 cm is after the 5th bounce."
+        },
+        {
+          "text": "10 cm"
+        },
+        {
+          "text": "20 cm",
+          "why": "20 cm is after the 3rd bounce."
+        },
+        {
+          "text": "40 cm",
+          "why": "40 cm is after the 2nd bounce."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Halve the height once for every bounce.",
+        "After the 1st bounce it rises to 80 cm.",
+        "Keep halving: 80, then 40, and so on."
+      ],
+      "explanation": "The heights after each bounce are 80, 40, 20 and 10 cm. So after the 4th bounce it rises to 10 cm.",
+      "solution": [
+        {
+          "say": "1st bounce.",
+          "show": "160 ÷ 2 = 80 cm"
+        },
+        {
+          "say": "2nd bounce.",
+          "show": "40 cm"
+        },
+        {
+          "say": "3rd bounce.",
+          "show": "20 cm"
+        },
+        {
+          "say": "4th bounce.",
+          "show": "10 cm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-patterns.007",
+      "skill": "m5.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The pattern 1, 3, 6, 10, 15 adds 2, then 3, then 4, then 5. What is the 20th number?",
+      "answer": 210,
+      "hints": [
+        "The nth number is 1 + 2 + 3 + ... + n.",
+        "The 20th number is 1 + 2 + ... + 20.",
+        "Pair 1 with 20, 2 with 19, and so on."
+      ],
+      "explanation": "The 20th number is 1 + 2 + ... + 20. Pairing 1 + 20, 2 + 19, and so on gives 10 pairs of 21, which is 210.",
+      "solution": [
+        {
+          "say": "The pattern adds 1 + 2 + 3 + ...",
+          "show": "1, 1+2, 1+2+3, ..."
+        },
+        {
+          "say": "20th number.",
+          "show": "1 + 2 + ... + 20"
+        },
+        {
+          "say": "Pairs make 21.",
+          "show": "10 × 21 = 210"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-patterns.008",
+      "skill": "m5.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "1 ÷ 7 = 0.142857142857..., where the digits 142857 repeat. What is the 2026th digit after the decimal point?",
+      "answer": 8,
+      "hints": [
+        "The digits repeat in a block of 6.",
+        "Divide 2026 by 6 and look at the remainder.",
+        "2026 = 6 × 337 + 4."
+      ],
+      "explanation": "The block 142857 has 6 digits. 2026 = 6 × 337 + 4, so the 2026th digit is the 4th digit of the block, which is 8.",
+      "solution": [
+        {
+          "say": "Block length.",
+          "show": "142857: 6 digits"
+        },
+        {
+          "say": "Full blocks.",
+          "show": "2026 = 6 × 337 + 4"
+        },
+        {
+          "say": "The 4th digit of the block.",
+          "show": "1, 4, 2, 8"
+        },
+        {
+          "say": "So the digit is 8.",
+          "show": "8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-patterns.009",
+      "skill": "m5.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The pattern 1, 1, 2, 3, 5, 8, 13 adds the two numbers before to get the next. How many of the first 30 numbers are even?",
+      "answer": 10,
+      "hints": [
+        "Write O for odd and E for even under each number.",
+        "The pattern of odd and even goes O, O, E, O, O, E.",
+        "Every third number is even."
+      ],
+      "explanation": "Odd + odd = even and odd + even = odd, so the pattern is odd, odd, even, repeating. Every third number is even, so the first 30 numbers contain 10 even ones.",
+      "solution": [
+        {
+          "say": "Odd or even.",
+          "show": "1, 1, 2, 3, 5, 8: O, O, E, O, O, E"
+        },
+        {
+          "say": "Why it repeats: odd + odd = even, odd + even = odd.",
+          "show": "O, O, E, ..."
+        },
+        {
+          "say": "Every third number is even.",
+          "show": "30 ÷ 3 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

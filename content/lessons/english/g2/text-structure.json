@@ -1,0 +1,59 @@
+{
+  "skill": "e2.text-structure",
+  "title": "How texts are built",
+  "steps": [
+    {
+      "say": "A story has characters, a problem and an ending.",
+      "show": "problem: the match is off"
+    },
+    {
+      "say": "Instructions have a list of things you need and numbered steps.",
+      "show": "You will need ... 1. First ..."
+    },
+    {
+      "say": "Steps and events use time words to show the order.",
+      "show": "first, next, then, after that, finally"
+    },
+    {
+      "say": "A fact text gives true information. It can have headings and captions.",
+      "show": "heading: What turtles eat"
+    },
+    {
+      "say": "A diary tells about the writer's own day. It often starts with a date.",
+      "show": "Saturday 12 July, Dear Diary"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.text-structure.901",
+      "skill": "e2.text-structure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word often starts the last step of instructions?",
+      "hints": [
+        "Steps go in order.",
+        "Think about the very end.",
+        "Which word means last of all?"
+      ],
+      "explanation": "Finally starts the last step.",
+      "options": [
+        {
+          "text": "First",
+          "why": "First starts the first step."
+        },
+        {
+          "text": "Next",
+          "why": "Next comes in the middle."
+        },
+        {
+          "text": "Finally"
+        },
+        {
+          "text": "Once",
+          "why": "Once often starts a story."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

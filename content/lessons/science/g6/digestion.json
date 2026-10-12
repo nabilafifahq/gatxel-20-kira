@@ -1,0 +1,109 @@
+{
+  "skill": "s6.digestion",
+  "title": "Where food goes",
+  "steps": [
+    {
+      "say": "Digestion breaks food into pieces small enough to pass into the blood. It starts in the mouth."
+    },
+    {
+      "say": "Teeth chew the food: incisors cut, canines tear and molars grind. Saliva wets the food and starts to digest starch.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "tooth",
+            "label": "teeth"
+          },
+          {
+            "icon": "tongue",
+            "label": "tongue"
+          }
+        ],
+        "alt": "Teeth and a tongue in the mouth, where digestion begins."
+      }
+    },
+    {
+      "say": "The oesophagus squeezes food down to the stomach. The stomach churns food with acid and digestive juices.",
+      "figure": {
+        "kind": "icons",
+        "arrows": "chain",
+        "items": [
+          {
+            "icon": "tooth",
+            "label": "mouth"
+          },
+          {
+            "icon": "stomach",
+            "label": "stomach"
+          }
+        ],
+        "alt": "Food moves from the mouth down to the stomach."
+      }
+    },
+    {
+      "say": "In the small intestine, food is digested further. Digested food passes through its walls into the blood."
+    },
+    {
+      "say": "The large intestine takes water back into the body. Waste is stored in the rectum until it leaves the body."
+    },
+    {
+      "say": "Fibre from plant foods helps the muscles of the gut push food along."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.digestion.901",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In which organ is most water taken back into the body?",
+      "options": [
+        {
+          "text": "the stomach",
+          "why": "The stomach churns food with acid. It takes back little water."
+        },
+        {
+          "text": "the oesophagus",
+          "why": "The oesophagus only moves food down to the stomach."
+        },
+        {
+          "text": "the large intestine"
+        },
+        {
+          "text": "the mouth",
+          "why": "The mouth chews food and adds saliva."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "This happens near the end of the digestive system.",
+        "By this point, digested food has already passed into the blood.",
+        "Think about the part of the gut just before the rectum."
+      ],
+      "explanation": "The large intestine takes water back into the body. What is left becomes solid waste."
+    },
+    {
+      "id": "s6.digestion.902",
+      "skill": "s6.digestion",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The tube that carries food from the mouth to the stomach is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "oesophagus",
+            "esophagus",
+            "gullet",
+            "food pipe"
+          ]
+        }
+      ],
+      "hints": [
+        "Its muscles squeeze food downwards when you swallow.",
+        "It runs down your neck and chest, behind the windpipe.",
+        "Its scientific name starts with the letters oe."
+      ],
+      "explanation": "The oesophagus is the muscular tube that carries food from the mouth to the stomach."
+    }
+  ]
+}

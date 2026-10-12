@@ -1,5 +1,47 @@
 [
   {
+    "id": "m2.numbers-to-100",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Numbers to 100",
+    "titleId": "Bilangan sampai 100",
+    "canDo": "I can count, read and write numbers up to 100 in figures and words.",
+    "order": 10,
+    "prerequisites": [
+      "m1.number-names",
+      "m1.place-value-20"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.sequences",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Nc",
+    "title": "Counting on and back in steps",
+    "titleId": "Membilang maju dan mundur dengan loncatan",
+    "canDo": "I can count on and back in 1s, 2s, 5s and 10s and continue a number pattern.",
+    "order": 20,
+    "prerequisites": [
+      "m1.skip-count",
+      "m2.numbers-to-100"
+    ],
+    "term": 1,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "esmo",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
     "id": "m2.arrays",
     "subject": "math",
     "grade": 2,
@@ -10,7 +52,466 @@
     "order": 30,
     "prerequisites": [],
     "term": 1,
-    "competitions": ["ikmc", "esmo", "kmnr"],
+    "competitions": [
+      "ikmc",
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.odd-even",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Nc",
+    "title": "Odd and even numbers to 100",
+    "titleId": "Bilangan ganjil dan genap sampai 100",
+    "canDo": "I can tell odd and even numbers apart and use clues to find a number.",
+    "order": 40,
+    "prerequisites": [
+      "m1.odd-even",
+      "m2.numbers-to-100"
+    ],
+    "term": 1,
+    "competitions": [
+      "kmnr",
+      "esmo",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.place-value",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Np",
+    "title": "Tens and ones",
+    "titleId": "Puluhan dan satuan",
+    "canDo": "I can say what each digit in a 2-digit number is worth and split it up.",
+    "order": 50,
+    "prerequisites": [
+      "m2.numbers-to-100"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.compare-order",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Np",
+    "title": "Comparing and ordering to 100",
+    "titleId": "Membandingkan dan mengurutkan sampai 100",
+    "canDo": "I can compare and order numbers to 100 using <, > and =.",
+    "order": 60,
+    "prerequisites": [
+      "m2.place-value"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.number-bonds",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Number bonds to 20 and 100",
+    "titleId": "Pasangan bilangan sampai 20 dan 100",
+    "canDo": "I can find pairs that make 20 and pairs of tens that make 100.",
+    "order": 70,
+    "prerequisites": [
+      "m1.number-bonds-10"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "timo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.addition",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Adding 2-digit numbers",
+    "titleId": "Penjumlahan bilangan 2 angka",
+    "canDo": "I can add 2-digit numbers using tens and ones.",
+    "order": 80,
+    "prerequisites": [
+      "m2.place-value",
+      "m2.number-bonds"
+    ],
+    "term": 1,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "ikmc",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.subtraction",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Subtracting 2-digit numbers",
+    "titleId": "Pengurangan bilangan 2 angka",
+    "canDo": "I can subtract 2-digit numbers and find the difference.",
+    "order": 90,
+    "prerequisites": [
+      "m2.addition"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "ikmc",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.doubles-halves",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Doubling and halving",
+    "titleId": "Menggandakan dan membagi dua",
+    "canDo": "I can double and halve numbers and use one to check the other.",
+    "order": 100,
+    "prerequisites": [
+      "m1.doubles",
+      "m1.halves"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.times-tables",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "2, 5 and 10 times tables",
+    "titleId": "Perkalian 2, 5, dan 10",
+    "canDo": "I can use equal groups and know my 2, 5 and 10 times tables.",
+    "order": 110,
+    "prerequisites": [
+      "m2.arrays"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "ikmc",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.division",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ni",
+    "title": "Sharing and grouping",
+    "titleId": "Berbagi rata dan mengelompokkan",
+    "canDo": "I can share equally, make equal groups and write a division.",
+    "order": 120,
+    "prerequisites": [
+      "m2.times-tables"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.money",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Nm",
+    "title": "Money: totals and change",
+    "titleId": "Uang: jumlah dan kembalian",
+    "canDo": "I can add up Rupiah coins and notes and work out change.",
+    "order": 130,
+    "prerequisites": [
+      "m1.money",
+      "m2.addition"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.fractions-shapes",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Nf",
+    "title": "Halves, quarters and thirds of shapes",
+    "titleId": "Setengah, seperempat, dan sepertiga bangun",
+    "canDo": "I can find and name halves, quarters and thirds of a shape.",
+    "order": 140,
+    "prerequisites": [
+      "m1.quarters"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "ikmc"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.fractions-amounts",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Nf",
+    "title": "Fractions of amounts",
+    "titleId": "Pecahan dari suatu jumlah",
+    "canDo": "I can find a half, a quarter, a third or three quarters of a number.",
+    "order": 150,
+    "prerequisites": [
+      "m2.fractions-shapes",
+      "m2.division"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.telling-time",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gt",
+    "title": "Telling the time to 5 minutes",
+    "titleId": "Membaca jam sampai 5 menit",
+    "canDo": "I can read quarter past, quarter to and 5-minute times on a clock.",
+    "order": 160,
+    "prerequisites": [
+      "m1.oclock-half-past"
+    ],
+    "term": 2,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.time-durations",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gt",
+    "title": "How long? Time and calendars",
+    "titleId": "Lama waktu dan kalender",
+    "canDo": "I can work out how long something takes and use a calendar.",
+    "order": 170,
+    "prerequisites": [
+      "m2.telling-time",
+      "m1.days-months"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.shapes-2d",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gg",
+    "title": "2D shapes: sides and vertices",
+    "titleId": "Bangun datar: sisi dan titik sudut",
+    "canDo": "I can name 2D shapes and count their sides and vertices.",
+    "order": 180,
+    "prerequisites": [
+      "m1.shapes-2d"
+    ],
+    "term": 1,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.shapes-3d",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gg",
+    "title": "3D shapes: faces, edges and vertices",
+    "titleId": "Bangun ruang: sisi, rusuk, dan titik sudut",
+    "canDo": "I can describe 3D shapes by their faces, edges and vertices.",
+    "order": 190,
+    "prerequisites": [
+      "m1.shapes-3d",
+      "m2.shapes-2d"
+    ],
+    "term": 2,
+    "competitions": [
+      "ikmc",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.symmetry",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gg",
+    "title": "Lines of symmetry",
+    "titleId": "Garis simetri",
+    "canDo": "I can find a line of symmetry in shapes, letters and patterns.",
+    "order": 200,
+    "prerequisites": [
+      "m2.shapes-2d"
+    ],
+    "term": 2,
+    "competitions": [
+      "ikmc",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.length",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gg",
+    "title": "Measuring length",
+    "titleId": "Mengukur panjang",
+    "canDo": "I can measure in centimetres and choose between centimetres and metres.",
+    "order": 210,
+    "prerequisites": [
+      "m1.measure-compare"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.mass-capacity",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gg",
+    "title": "Mass, capacity and temperature",
+    "titleId": "Massa, volume, dan suhu",
+    "canDo": "I can read scales, jugs and thermometers and use g, kg, ml and l.",
+    "order": 220,
+    "prerequisites": [
+      "m1.measure-compare"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.position-turns",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Gp",
+    "title": "Position, direction and turns",
+    "titleId": "Posisi, arah, dan putaran",
+    "canDo": "I can describe moves on a grid and make half and quarter turns.",
+    "order": 230,
+    "prerequisites": [
+      "m1.position-direction"
+    ],
+    "term": 3,
+    "competitions": [
+      "ikmc",
+      "kmnr",
+      "sasmo"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.charts",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ss",
+    "title": "Tally charts, pictograms and block graphs",
+    "titleId": "Turus, piktogram, dan diagram balok",
+    "canDo": "I can read and compare data in tally charts, pictograms and block graphs.",
+    "order": 240,
+    "prerequisites": [
+      "m1.pictograms-graphs"
+    ],
+    "term": 3,
+    "competitions": [
+      "esmo",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.carroll-venn",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Ss",
+    "title": "Carroll and Venn diagrams",
+    "titleId": "Diagram Carroll dan Venn",
+    "canDo": "I can sort numbers in Carroll and Venn diagrams and check where they go.",
+    "order": 250,
+    "prerequisites": [
+      "m2.odd-even"
+    ],
+    "term": 3,
+    "competitions": [
+      "ikmc",
+      "kmnr"
+    ],
+    "generator": true
+  },
+  {
+    "id": "m2.chance",
+    "subject": "math",
+    "grade": 2,
+    "strand": "Sp",
+    "title": "Chance: will, might or will not happen",
+    "titleId": "Peluang: pasti, mungkin, atau tidak mungkin terjadi",
+    "canDo": "I can say if something will happen, might happen or will not happen.",
+    "order": 260,
+    "prerequisites": [],
+    "term": 3,
+    "competitions": [
+      "kmnr"
+    ],
     "generator": true
   }
 ]

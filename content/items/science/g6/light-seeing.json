@@ -1,0 +1,214 @@
+{
+  "skill": "s6.light-seeing",
+  "items": [
+    {
+      "id": "s6.light-seeing.001",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How do we see a book on a table in a lit room?",
+      "options": [
+        { "text": "Light from a lamp or the Sun reflects off the book into our eyes." },
+        { "text": "Light comes out of our eyes and hits the book.", "why": "Our eyes do not give out light. About 1,000 years ago, Ibn al-Haytham showed that light enters the eye." },
+        { "text": "The book gives out its own light.", "why": "A book is not a light source. It only reflects light." },
+        { "text": "Our eyes can see without any light.", "why": "With no light at all, we cannot see anything." }
+      ],
+      "answer": 0,
+      "hints": [
+        "A book is not a light source.",
+        "Light must travel from a source to the book, then on to somewhere else.",
+        "Trace the light from the lamp to the book. Then decide where it goes next."
+      ],
+      "explanation": "Light from a source hits the book and reflects off it. Some of the reflected light enters our eyes, so we see the book.",
+      "tags": ["checkpoint", "iksc"]
+    },
+    {
+      "id": "s6.light-seeing.002",
+      "skill": "s6.light-seeing",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these surfaces into ones that give a clear reflection and ones that do not.",
+      "groups": ["Clear reflection", "No clear reflection"],
+      "items": [
+        { "text": "a flat mirror", "group": 0 },
+        { "text": "still water in a pond", "group": 0 },
+        { "text": "a polished metal tray", "group": 0 },
+        { "text": "a rough brick wall", "group": 1 },
+        { "text": "a black cloth", "group": 1 },
+        { "text": "a carpet", "group": 1 },
+        { "text": "a wooden board", "group": 1 }
+      ],
+      "hints": [
+        "A clear reflection needs a very smooth, shiny surface.",
+        "Rough surfaces scatter light in every direction.",
+        "Start with the mirror, then think about a pond on a calm day."
+      ],
+      "explanation": "Smooth, shiny surfaces such as mirrors, still water and polished metal reflect light neatly and give clear images. Rough or dark surfaces scatter or absorb light, so they give no clear reflection."
+    },
+    {
+      "id": "s6.light-seeing.003",
+      "skill": "s6.light-seeing",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A ray of light hits a flat mirror. The angle of incidence is 35°. What is the angle of reflection?",
+      "answer": 35,
+      "unit": "°",
+      "hints": [
+        "Both angles are measured from the normal, a line at right angles to the mirror.",
+        "For a flat mirror, the two angles follow a simple rule.",
+        "Ask how the angle of reflection compares with the angle of incidence."
+      ],
+      "explanation": "The angle of reflection always equals the angle of incidence. So the reflected ray leaves at 35° to the normal.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.light-seeing.004",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is the word AMBULANCE often written backwards on the front of an ambulance?",
+      "options": [
+        { "text": "Because ambulances drive backwards.", "why": "Ambulances drive forwards. The word is reversed for people looking in mirrors." },
+        { "text": "To make it look more interesting.", "why": "The reason is practical: mirrors flip the word." },
+        { "text": "Because it is written in another language.", "why": "It is the same English word, just reversed." },
+        { "text": "So drivers ahead can read it the right way round in their mirrors." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about how drivers see the vehicles behind them.",
+        "A mirror image is reversed from left to right.",
+        "Ask what happens to backwards writing when it is seen in a mirror."
+      ],
+      "explanation": "A mirror reverses an image from left to right. Writing the word backwards means drivers see it the right way round in their rear-view mirrors.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s6.light-seeing.005",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A straw in a glass of water looks bent at the water's surface. Why?",
+      "options": [
+        { "text": "The water bends the straw.", "why": "Take the straw out and it is still straight. Only the light changes direction." },
+        { "text": "Light changes direction as it passes from water into air." },
+        { "text": "Light travels in curves through water.", "why": "Light travels in straight lines inside the water. It changes direction at the surface." },
+        { "text": "The glass acts like a mirror.", "why": "The effect comes from light passing through the water's surface, not from a reflection." }
+      ],
+      "answer": 1,
+      "hints": [
+        "The straw is not really bent. Something happens to the light.",
+        "Light changes speed when it moves from one transparent material into another.",
+        "Look at where the straw seems to bend: exactly at the surface of the water."
+      ],
+      "explanation": "Light from the straw changes direction as it leaves the water and enters the air. This bending of light is called refraction, and it makes the straw look bent.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.light-seeing.006",
+      "skill": "s6.light-seeing",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these steps in order to explain how you see a flower in sunlight.",
+      "items": [
+        "light leaves the Sun",
+        "light travels to the flower",
+        "light reflects off the flower",
+        "light enters your eye",
+        "your eye sends a signal to your brain"
+      ],
+      "hints": [
+        "Start at the light source.",
+        "The flower does not make light. It reflects it.",
+        "The last step happens inside your head."
+      ],
+      "explanation": "Light travels from the Sun to the flower and reflects off it. The reflected light enters your eye, and nerves carry a signal to your brain.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.light-seeing.007",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why does a swimming pool look shallower than it really is?",
+      "options": [
+        { "text": "The water magnifies the tiles and brings them closer.", "why": "The effect comes from light changing direction at the surface, not from magnifying." },
+        { "text": "The pool floor rises during the day.", "why": "The floor does not move. Only the light changes direction." },
+        { "text": "Light from the bottom refracts as it leaves the water, so the bottom seems higher." },
+        { "text": "Water absorbs the light from the deep parts.", "why": "Some light is absorbed, but that does not make the pool look shallower." }
+      ],
+      "answer": 2,
+      "hints": [
+        "This is another effect of light bending at the surface of water.",
+        "Your brain assumes that light always travels in straight lines.",
+        "Trace light from the bottom of the pool to your eye, bending at the surface."
+      ],
+      "explanation": "Light from the bottom bends as it leaves the water. Your brain traces the light back in a straight line, so the bottom seems higher than it really is.",
+      "tip": "Always check the depth sign before you jump into a pool.",
+      "tags": ["checkpoint", "osn-sd"]
+    },
+    {
+      "id": "s6.light-seeing.008",
+      "skill": "s6.light-seeing",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a ray of light hitting a flat mirror and reflecting off it. Draw the normal, and label the angle of incidence and the angle of reflection.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws straight rays with arrows showing the direction of light", "points": 1 },
+          { "label": "Draws the normal at 90° to the mirror", "points": 2 },
+          { "label": "Makes the angle of reflection equal to the angle of incidence", "points": 2 },
+          { "label": "Labels both angles correctly", "points": 1 }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Use a ruler and a protractor.",
+        "Measure both angles from the normal, not from the mirror."
+      ],
+      "explanation": "The normal is a line at 90° to the mirror where the ray hits it. The angle of incidence equals the angle of reflection, and both are measured from the normal.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.light-seeing.009",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1666, Isaac Newton passed sunlight through a glass prism and saw a band of colours. What did this show?",
+      "options": [
+        { "text": "The prism adds colour to the light.", "why": "Newton used a second prism to join the colours back into white light, so the colours were already in sunlight." },
+        { "text": "White light is a mixture of many colours." },
+        { "text": "Sunlight is only yellow.", "why": "The band showed many colours, from red to violet." },
+        { "text": "Glass makes its own light.", "why": "Glass is not a light source. It only bends light passing through it." }
+      ],
+      "answer": 1,
+      "hints": [
+        "A prism is a block of glass that bends light.",
+        "Newton also used a second prism to join the colours back together.",
+        "Ask where the colours must have come from if a prism can turn them back into white light."
+      ],
+      "explanation": "The prism bent each colour by a different amount and spread them out. Because a second prism could join them back into white light, Newton showed that white light is a mixture of colours.",
+      "tags": ["iksc", "imso"]
+    },
+    {
+      "id": "s6.light-seeing.010",
+      "skill": "s6.light-seeing",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "You see a rainbow in the late afternoon. Where must the Sun be?",
+      "options": [
+        { "text": "in front of you, behind the rain", "why": "Rainbows are seen with the Sun behind you, shining onto raindrops in front of you." },
+        { "text": "directly above you", "why": "A rainbow cannot be seen when the Sun is very high in the sky." },
+        { "text": "behind you, shining on raindrops in front of you" },
+        { "text": "hidden behind thick clouds", "why": "Sunlight must reach the raindrops for a rainbow to form." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Raindrops split sunlight into colours and send some of it back towards you.",
+        "The light has to come from the Sun, hit the raindrops and then reach your eyes.",
+        "Picture the light coming back out of the raindrops. Decide where it must have come from."
+      ],
+      "explanation": "Sunlight enters raindrops, is split into colours and reflects back out towards you. So the Sun must be behind you and the rain in front of you.",
+      "tags": ["iksc", "osn-sd"]
+    }
+  ]
+}

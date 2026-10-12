@@ -1,0 +1,79 @@
+{
+  "skill": "e6.brackets-hyphens-commas",
+  "title": "Brackets, hyphens and commas",
+  "steps": [
+    {
+      "say": "Brackets hold extra information. The sentence must make sense without them.",
+      "show": "Lake Toba (in North Sumatra) is huge."
+    },
+    {
+      "say": "A pair of commas can do the same job as brackets.",
+      "show": "Pak Joko, the school gardener, grows orchids."
+    },
+    {
+      "say": "Hyphens join words that work together to describe a noun.",
+      "show": "a well-known singer     a ten-year-old girl"
+    },
+    {
+      "say": "A hyphen can change the meaning of a word.",
+      "show": "re-cover (cover again)     recover (get better)"
+    },
+    {
+      "say": "Read your sentence aloud to check that the punctuation makes the meaning clear."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.brackets-hyphens-commas.901",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which phrase is written correctly?",
+      "options": [
+        {
+          "text": "a sugar free-drink",
+          "why": "The hyphen should join sugar and free."
+        },
+        {
+          "text": "a sugar, free drink",
+          "why": "A comma does not join the words."
+        },
+        {
+          "text": "a (sugar) free drink",
+          "why": "Brackets do not join describing words."
+        },
+        {
+          "text": "a sugar-free drink"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Two words describe the drink together.",
+        "A hyphen joins words that work together before a noun.",
+        "Which two words describe the drink?"
+      ],
+      "explanation": "Sugar and free work together to describe the drink, so they are joined: a sugar-free drink."
+    },
+    {
+      "id": "e6.brackets-hyphens-commas.902",
+      "skill": "e6.brackets-hyphens-commas",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the words that should go in brackets. Mount Rinjani which is on Lombok is a volcano.",
+      "blanks": [
+        {
+          "answers": [
+            "which is on Lombok",
+            "(which is on Lombok)"
+          ]
+        }
+      ],
+      "hints": [
+        "Brackets hold extra information.",
+        "Read the sentence without some of the words. Does it still make sense?",
+        "Look at the words straight after Mount Rinjani."
+      ],
+      "explanation": "Which is on Lombok is extra information, so it can go in brackets: Mount Rinjani (which is on Lombok) is a volcano."
+    }
+  ]
+}

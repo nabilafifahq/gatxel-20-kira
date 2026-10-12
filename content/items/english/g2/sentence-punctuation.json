@@ -1,0 +1,536 @@
+{
+  "skill": "e2.sentence-punctuation",
+  "items": [
+    {
+      "id": "e2.sentence-punctuation.001",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What goes at the end? 'Do you like bananas'",
+      "hints": [
+        "Read it out loud.",
+        "Does it ask something?",
+        "Questions need a curly mark at the end."
+      ],
+      "explanation": "Do you like bananas? asks something, so it ends with a question mark.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "a question mark (?)"
+        },
+        {
+          "text": "a full stop (.)",
+          "why": "This sentence asks something."
+        },
+        {
+          "text": "an exclamation mark (!)",
+          "why": "This is not a shout or a strong feeling."
+        },
+        {
+          "text": "a comma (,)",
+          "why": "A comma does not end a sentence."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.sentence-punctuation.002",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is an exclamation?",
+      "hints": [
+        "An exclamation shows a strong feeling.",
+        "It ends with a special mark.",
+        "Look for surprise or excitement."
+      ],
+      "explanation": "What a big wave that is! shows surprise. It ends with an exclamation mark.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "The wave is big.",
+          "why": "This is a calm telling sentence."
+        },
+        {
+          "text": "What a big wave that is!"
+        },
+        {
+          "text": "Is the wave big?",
+          "why": "This is a question."
+        },
+        {
+          "text": "Waves come in.",
+          "why": "This is a calm telling sentence."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.sentence-punctuation.003",
+      "skill": "e2.sentence-punctuation",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences by the mark they need at the end.",
+      "hints": [
+        "Read each one out loud.",
+        "Is it telling, asking or a strong feeling?",
+        "Start with: Watch out. Is it calm, a question or a shout?"
+      ],
+      "explanation": "Telling sentences end with a full stop, questions with a question mark and strong feelings with an exclamation mark.",
+      "groups": [
+        "Full stop",
+        "Question mark",
+        "Exclamation mark"
+      ],
+      "items": [
+        {
+          "text": "My bag is blue",
+          "group": 0
+        },
+        {
+          "text": "Where is my bag",
+          "group": 1
+        },
+        {
+          "text": "Watch out",
+          "group": 2
+        },
+        {
+          "text": "Can I help you",
+          "group": 1
+        },
+        {
+          "text": "I have two pens",
+          "group": 0
+        },
+        {
+          "text": "Ouch, that hurts",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.004",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Check the first letter.",
+        "Check the names.",
+        "Check the end mark."
+      ],
+      "explanation": "His name is Omar. starts with a capital letter, has a capital for the name and ends with a full stop.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "my name is Lila.",
+          "why": "A sentence starts with a capital letter."
+        },
+        {
+          "text": "Her name is rosa.",
+          "why": "Rosa is a name, so it needs a capital."
+        },
+        {
+          "text": "His name is Omar."
+        },
+        {
+          "text": "his name is tim",
+          "why": "It needs capital letters and a full stop."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.sentence-punctuation.005",
+      "skill": "e2.sentence-punctuation",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write the sentence with capital letters where they belong. 'on saturday, rio and i went swimming.'",
+      "hints": [
+        "There are four capital letters to add.",
+        "Look for the start, a day, a name and the word i.",
+        "Begin with a capital O."
+      ],
+      "explanation": "On starts the sentence. Saturday is a day, Rio is a name and I is always a capital.",
+      "blanks": [
+        {
+          "answers": [
+            "On Saturday, Rio and I went swimming.",
+            "On Saturday Rio and I went swimming."
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.006",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How many sentences should this be? 'It is hot today we can swim in the pool'",
+      "hints": [
+        "Look for where one idea ends.",
+        "Each sentence has its own idea.",
+        "Read it aloud. Where would you pause?"
+      ],
+      "explanation": "It is hot today. We can swim in the pool. That is two sentences.",
+      "options": [
+        {
+          "text": "1",
+          "why": "There are two ideas here."
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "3",
+          "why": "Look for where one idea ends."
+        },
+        {
+          "text": "4",
+          "why": "There are not that many ideas."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.sentence-punctuation.007",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where should the full stop go? 'The sun set the sky turned orange'",
+      "hints": [
+        "There are two ideas.",
+        "What did the sun do?",
+        "What did the sky do?"
+      ],
+      "explanation": "The sun set. The sky turned orange. The full stop goes after set.",
+      "options": [
+        {
+          "text": "after set"
+        },
+        {
+          "text": "after The",
+          "why": "The is not a whole idea."
+        },
+        {
+          "text": "after sky",
+          "why": "The sun set the sky does not make sense."
+        },
+        {
+          "text": "after turned",
+          "why": "Orange belongs with turned."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.sentence-punctuation.008",
+      "skill": "e2.sentence-punctuation",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the sentences that are correct.",
+      "hints": [
+        "Three sentences are right.",
+        "Check the start of each sentence.",
+        "Check that the end mark matches the sentence."
+      ],
+      "explanation": "Can you help me?, Look out! and We are going home. all have a capital letter and the right end mark.",
+      "options": [
+        {
+          "text": "Can you help me?"
+        },
+        {
+          "text": "I am six years old?",
+          "why": "This tells something, so it ends with a full stop."
+        },
+        {
+          "text": "Look out!"
+        },
+        {
+          "text": "where do you live?",
+          "why": "It needs a capital letter."
+        },
+        {
+          "text": "We are going home."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.009",
+      "skill": "e2.sentence-punctuation",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing word. '___ am going to the shop.'",
+      "hints": [
+        "The word means me.",
+        "It is always a capital letter.",
+        "It is just one letter."
+      ],
+      "explanation": "I means me, and it is always a capital letter.",
+      "blanks": [
+        {
+          "answers": [
+            "I"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.010",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence shows someone is surprised?",
+      "hints": [
+        "Surprise is a strong feeling.",
+        "Look for a word like wow.",
+        "Look for the end mark for strong feelings."
+      ],
+      "explanation": "Wow, you made a cake! shows surprise. It ends with an exclamation mark.",
+      "options": [
+        {
+          "text": "You made a cake.",
+          "why": "This is calm."
+        },
+        {
+          "text": "Did you make a cake?",
+          "why": "This is a question."
+        },
+        {
+          "text": "Make a cake.",
+          "why": "This tells someone what to do."
+        },
+        {
+          "text": "Wow, you made a cake!"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.sentence-punctuation.011",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Check the start and the end.",
+        "Is it a question?",
+        "Find the capital letter and the question mark together."
+      ],
+      "explanation": "Where are you going? starts with a capital letter and ends with a question mark.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "Where are you going!",
+          "why": "This asks something, so it needs a question mark."
+        },
+        {
+          "text": "Where are you going?"
+        },
+        {
+          "text": "where is the bus?",
+          "why": "It needs a capital letter."
+        },
+        {
+          "text": "What time is it.",
+          "why": "This asks something, so it needs a question mark."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.sentence-punctuation.012",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word needs a capital letter? 'We went to the zoo in surabaya.'",
+      "hints": [
+        "Names of places need capitals.",
+        "Look for the name of a city.",
+        "Which word is a place name?"
+      ],
+      "explanation": "Surabaya is the name of a city, so it needs a capital S.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "We",
+          "why": "We is at the start and has a capital already."
+        },
+        {
+          "text": "zoo",
+          "why": "Zoo is not a name."
+        },
+        {
+          "text": "went",
+          "why": "Went is a doing word."
+        },
+        {
+          "text": "surabaya"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.sentence-punctuation.013",
+      "skill": "e2.sentence-punctuation",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "Start with the question word.",
+        "End with the word that has a question mark.",
+        "Think: Where did ___ find ___?"
+      ],
+      "explanation": "Where did you find the shell? starts with a question word and ends with a question mark.",
+      "items": [
+        "Where",
+        "did",
+        "you",
+        "find",
+        "the",
+        "shell?"
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.014",
+      "skill": "e2.sentence-punctuation",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Fix the capital letters. Write the sentence. 'my cat and i like the sun.'",
+      "hints": [
+        "Two letters need to be capitals.",
+        "Look at the start of the sentence.",
+        "Look for the word that means me."
+      ],
+      "explanation": "My starts the sentence, and I is always a capital: My cat and I like the sun.",
+      "blanks": [
+        {
+          "answers": [
+            "My cat and I like the sun."
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.015",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many mistakes? 'my sister ana is seven?'",
+      "hints": [
+        "Check the start of the sentence.",
+        "Look for a name.",
+        "Is it a question or a telling sentence?"
+      ],
+      "explanation": "My needs a capital, Ana is a name, and the sentence tells something, so it ends with a full stop.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "1",
+          "why": "Look at the start, the name and the end."
+        },
+        {
+          "text": "2",
+          "why": "Check the end mark too."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "The words sister, is and seven are fine."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.sentence-punctuation.016",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which group of sentences is written correctly?",
+      "hints": [
+        "Check each sentence one at a time.",
+        "Questions need a question mark.",
+        "Telling sentences need a full stop or an exclamation mark."
+      ],
+      "explanation": "I can swim tells, Can you swim asks and Let's go is excited. Only one group has the right marks.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "I can swim? Can you swim. Let's go!",
+          "why": "The question mark and the full stop are mixed up."
+        },
+        {
+          "text": "I can swim. Can you swim. Let's go?",
+          "why": "Can you swim asks something, and Let's go is not a question."
+        },
+        {
+          "text": "I can swim! Can you swim. Let's go.",
+          "why": "Can you swim asks something, so it needs a question mark."
+        },
+        {
+          "text": "I can swim. Can you swim? Let's go!"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.sentence-punctuation.017",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which mark ends a telling sentence?",
+      "hints": [
+        "A telling sentence tells you something.",
+        "It is calm.",
+        "It is the smallest mark, a dot."
+      ],
+      "explanation": "A telling sentence ends with a full stop.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "a full stop"
+        },
+        {
+          "text": "a question mark",
+          "why": "A question mark ends a question."
+        },
+        {
+          "text": "a comma",
+          "why": "A comma does not end a sentence."
+        },
+        {
+          "text": "an apostrophe",
+          "why": "An apostrophe is used in words like don't."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "skill": "m2.place-value",
+  "title": "What each digit is worth",
+  "steps": [
+    {
+      "say": "The place of a digit tells you its value.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 6,
+        "ones": 3,
+        "alt": "6 ten rods and 3 small cubes."
+      }
+    },
+    {
+      "say": "In 63, the 6 is in the tens place. It is worth 60.",
+      "show": "6 tens = 60"
+    },
+    {
+      "say": "The 3 is in the ones place. It is worth 3.",
+      "show": "63 = 60 + 3"
+    },
+    {
+      "say": "We can also split 63 as 5 tens and 13 ones.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 5,
+        "ones": 13,
+        "alt": "5 ten rods and 13 small cubes."
+      },
+      "show": "63 = 50 + 13"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.place-value.901",
+      "skill": "m2.place-value",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is the value of the 8 in 84?",
+      "hints": [
+        "Look at where the 8 is.",
+        "The left digit is tens.",
+        "The 8 is in the tens place. How many is 8 tens?"
+      ],
+      "explanation": "The 8 is in the tens place, so it is worth 80.",
+      "answer": 80
+    },
+    {
+      "id": "m2.place-value.902",
+      "skill": "m2.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the same as 45?",
+      "hints": [
+        "Split 45 into tens and ones.",
+        "The 4 is worth 40. The 5 is worth 5.",
+        "Work out each option and check."
+      ],
+      "explanation": "45 is 4 tens and 5 ones, so 45 = 40 + 5.",
+      "options": [
+        {
+          "text": "40 + 5"
+        },
+        {
+          "text": "4 + 5",
+          "why": "The 4 in 45 means 4 tens, which is 40."
+        },
+        {
+          "text": "50 + 4",
+          "why": "That makes 54. The tens and ones are swapped."
+        },
+        {
+          "text": "40 + 50",
+          "why": "That makes 90. The 5 is ones, not tens."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

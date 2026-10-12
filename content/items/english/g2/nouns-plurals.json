@@ -1,0 +1,600 @@
+{
+  "skill": "e2.nouns-plurals",
+  "items": [
+    {
+      "id": "e2.nouns-plurals.001",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a noun?",
+      "hints": [
+        "A noun names a person, place, animal or thing.",
+        "Could you point to it?",
+        "Which one could you put a cup on?"
+      ],
+      "explanation": "Table names a thing, so it is a noun.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "table"
+        },
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "happy",
+          "why": "Happy is a describing word."
+        },
+        {
+          "text": "slowly",
+          "why": "Slowly tells how something is done."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.nouns-plurals.002",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word matches the picture?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "box",
+            "count": 4
+          }
+        ],
+        "alt": "Four boxes."
+      },
+      "hints": [
+        "How many are there?",
+        "Box ends with x.",
+        "Words that end in x add -es."
+      ],
+      "explanation": "There is more than one box. Box ends in x, so we add -es: boxes.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "boxs",
+          "why": "Words that end in x add -es."
+        },
+        {
+          "text": "box",
+          "why": "Box is for one."
+        },
+        {
+          "text": "boxes"
+        },
+        {
+          "text": "boxies",
+          "why": "We add -es, not -ies."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.nouns-plurals.003",
+      "skill": "e2.nouns-plurals",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Add -s or -es? Sort the words.",
+      "hints": [
+        "Say each word for more than one.",
+        "Words ending in s, ss, x, sh or ch add -es.",
+        "Start with bench. Say two benches. Can you hear the extra sound?"
+      ],
+      "explanation": "Bench, dress and glass add -es. Frog, book and lamp add -s.",
+      "groups": [
+        "Add -s",
+        "Add -es"
+      ],
+      "items": [
+        {
+          "text": "bench",
+          "group": 1
+        },
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "dress",
+          "group": 1
+        },
+        {
+          "text": "book",
+          "group": 0
+        },
+        {
+          "text": "glass",
+          "group": 1
+        },
+        {
+          "text": "lamp",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.004",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the plural. 'one baby, two ___'",
+      "hints": [
+        "Baby ends with y.",
+        "Look at the letter before the y. It is not a vowel.",
+        "Change the y to i, then add the ending."
+      ],
+      "explanation": "Baby ends in a consonant and y, so we change y to i and add -es: babies.",
+      "blanks": [
+        {
+          "answers": [
+            "babies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.005",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which noun always needs a capital letter?",
+      "hints": [
+        "Names of people and places are special nouns.",
+        "They always start with a capital letter.",
+        "Which word is the name of a real place?"
+      ],
+      "explanation": "Jakarta is the name of a city, so it always has a capital letter: Jakarta.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "city",
+          "why": "City is a common noun."
+        },
+        {
+          "text": "river",
+          "why": "River is a common noun."
+        },
+        {
+          "text": "school",
+          "why": "School is a common noun."
+        },
+        {
+          "text": "jakarta"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.nouns-plurals.006",
+      "skill": "e2.nouns-plurals",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the nouns. 'The teacher put the books on the desk.'",
+      "hints": [
+        "Three words are nouns.",
+        "Look for a person and things.",
+        "Ask: who or what is in the sentence?"
+      ],
+      "explanation": "Teacher, books and desk are nouns. They name a person and things.",
+      "options": [
+        {
+          "text": "teacher"
+        },
+        {
+          "text": "put",
+          "why": "Put is a doing word."
+        },
+        {
+          "text": "books"
+        },
+        {
+          "text": "on",
+          "why": "On tells where."
+        },
+        {
+          "text": "desk"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.007",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the missing word. 'One child, two ___.'",
+      "hints": [
+        "Child does not follow the usual rule.",
+        "The word for more than one child is special.",
+        "Think: girls and boys together are ___."
+      ],
+      "explanation": "The plural of child is children. It is a special plural.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "childs",
+          "why": "Child does not just add s."
+        },
+        {
+          "text": "children"
+        },
+        {
+          "text": "childrens",
+          "why": "Children already means more than one."
+        },
+        {
+          "text": "childes",
+          "why": "Child does not add -es."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.008",
+      "skill": "e2.nouns-plurals",
+      "type": "match",
+      "difficulty": 4,
+      "prompt": "Match one to more than one.",
+      "hints": [
+        "These words do not add -s.",
+        "The middle of the word changes.",
+        "Start with man. What do we say for two?"
+      ],
+      "explanation": "Mouse becomes mice, foot becomes feet, tooth becomes teeth and man becomes men.",
+      "pairs": [
+        [
+          "mouse",
+          "mice"
+        ],
+        [
+          "foot",
+          "feet"
+        ],
+        [
+          "tooth",
+          "teeth"
+        ],
+        [
+          "man",
+          "men"
+        ]
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.009",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the plural. 'one lady, three ___'",
+      "hints": [
+        "Lady ends with y.",
+        "The letter before y is d, a consonant.",
+        "Change y to i, then add the ending."
+      ],
+      "explanation": "Lady becomes ladies. We change y to i and add -es.",
+      "blanks": [
+        {
+          "answers": [
+            "ladies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.010",
+      "skill": "e2.nouns-plurals",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the nouns. Names, or other nouns?",
+      "hints": [
+        "Names of people, places and days have capital letters.",
+        "Other nouns do not need capitals.",
+        "Start with Bali. Is it the name of a place?"
+      ],
+      "explanation": "Bali, Mr Lee and Monday are names, so they have capital letters. Beach, teacher and day are other nouns.",
+      "groups": [
+        "Names (capital letter)",
+        "Other nouns"
+      ],
+      "items": [
+        {
+          "text": "Bali",
+          "group": 0
+        },
+        {
+          "text": "beach",
+          "group": 1
+        },
+        {
+          "text": "Mr Lee",
+          "group": 0
+        },
+        {
+          "text": "teacher",
+          "group": 1
+        },
+        {
+          "text": "Monday",
+          "group": 0
+        },
+        {
+          "text": "day",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.011",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is the plural of sheep?",
+      "hints": [
+        "Some animal words do not change at all.",
+        "Fish is the same for one or many.",
+        "Say each choice after the word ten."
+      ],
+      "explanation": "Sheep is the same for one and for many: one sheep, ten sheep.",
+      "options": [
+        {
+          "text": "sheep"
+        },
+        {
+          "text": "sheeps",
+          "why": "Sheep does not add s."
+        },
+        {
+          "text": "sheepes",
+          "why": "Sheep does not add -es."
+        },
+        {
+          "text": "shoop",
+          "why": "This is not a word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.nouns-plurals.012",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is correct?",
+      "hints": [
+        "Three means more than one.",
+        "Fox ends with x.",
+        "Words that end with x add -es."
+      ],
+      "explanation": "Fox ends in x, so the plural is foxes.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I saw three foxs.",
+          "why": "Fox ends in x, so it adds -es."
+        },
+        {
+          "text": "I saw three fox.",
+          "why": "Three means more than one."
+        },
+        {
+          "text": "I saw three foxies.",
+          "why": "Fox adds -es, not -ies."
+        },
+        {
+          "text": "I saw three foxes."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.nouns-plurals.013",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Fix the plural. 'Two puppys played in the garden.' Write the right word.",
+      "hints": [
+        "Puppy ends with y.",
+        "The letter before y is p, a consonant.",
+        "Change y to i, then add the ending."
+      ],
+      "explanation": "Puppy becomes puppies. We change y to i and add -es.",
+      "blanks": [
+        {
+          "answers": [
+            "puppies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.014",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the plural of wolf?",
+      "hints": [
+        "Wolf ends with f.",
+        "Think of leaf and leaves.",
+        "Change f to v, then add the ending."
+      ],
+      "explanation": "Wolf becomes wolves. The f changes to v and we add -es, like leaf and leaves.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "wolfs",
+          "why": "Wolf changes its f before the ending."
+        },
+        {
+          "text": "wolves"
+        },
+        {
+          "text": "wolfes",
+          "why": "Wolf changes its f to v."
+        },
+        {
+          "text": "wolvs",
+          "why": "There is an e before the s."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.015",
+      "skill": "e2.nouns-plurals",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the plurals that end in -ies.",
+      "hints": [
+        "Three words are right.",
+        "Look at the letter before the y in the word for one.",
+        "Is the letter before y a vowel or not?"
+      ],
+      "explanation": "Cherry, story and fly change y to ies. Key and boy have a vowel before the y, so they just add s.",
+      "options": [
+        {
+          "text": "cherries"
+        },
+        {
+          "text": "keys",
+          "why": "Key ends in a vowel and y, so we just add s."
+        },
+        {
+          "text": "stories"
+        },
+        {
+          "text": "boys",
+          "why": "Boy ends in a vowel and y, so we just add s."
+        },
+        {
+          "text": "flies"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.016",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is NOT a plural?",
+      "hints": [
+        "Three words mean more than one.",
+        "Some plurals do not end in s.",
+        "A word can end in s and still be one thing."
+      ],
+      "explanation": "Bus means one bus. Mice, feet and teeth are special plurals.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "mice",
+          "why": "Mice is the plural of mouse."
+        },
+        {
+          "text": "feet",
+          "why": "Feet is the plural of foot."
+        },
+        {
+          "text": "bus"
+        },
+        {
+          "text": "teeth",
+          "why": "Teeth is the plural of tooth."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.nouns-plurals.017",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many nouns are in this sentence? 'Grandma gave Raka a mango and a pear.'",
+      "hints": [
+        "Names of people are nouns too.",
+        "Look for people and things.",
+        "Point to each noun as you count."
+      ],
+      "explanation": "Grandma, Raka, mango and pear are nouns. That makes 4.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "2",
+          "why": "Count the names too."
+        },
+        {
+          "text": "3",
+          "why": "Look at the end of the sentence again."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "Gave and and are not nouns."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.nouns-plurals.018",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the noun that finishes the sentence. 'I brush my teeth with a ___.'",
+      "hints": [
+        "A noun names a thing.",
+        "What do you hold when you brush?",
+        "Find the thing, not the action."
+      ],
+      "explanation": "Toothbrush is a noun. It names the thing we brush our teeth with.",
+      "options": [
+        {
+          "text": "clean",
+          "why": "Clean is a describing word."
+        },
+        {
+          "text": "brushing",
+          "why": "Brushing is a doing word."
+        },
+        {
+          "text": "white",
+          "why": "White is a describing word."
+        },
+        {
+          "text": "toothbrush"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

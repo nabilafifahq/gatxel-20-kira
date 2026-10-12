@@ -1,0 +1,40 @@
+{
+  "skill": "e4.persuasive-writing",
+  "title": "Persuade and report",
+  "steps": [
+    { "say": "A persuasive letter tries to make the reader agree and do something.", "show": "Please could we have a refill station?" },
+    { "say": "Give your reasons, and back them up with facts as evidence.", "show": "Firstly... Secondly... Finally..." },
+    { "say": "Answer an argument against your idea. This makes your letter stronger.", "show": "Some people might say... However..." },
+    { "say": "End politely. Use Yours sincerely if you know the person's name, and Yours faithfully if you do not.", "show": "Dear Mrs Wulan ... Yours sincerely" },
+    { "say": "A report gives facts about one topic. It uses a title, subheadings and the present tense.", "show": "Komodo dragons / What they look like / Hunting and eating" },
+    { "say": "Keep opinions out of a report. Check that every sentence could be proved." }
+  ],
+  "check": [
+    {
+      "id": "e4.persuasive-writing.901", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sign-off do you use when you know the person's name?",
+      "options": [
+        { "text": "Yours faithfully", "why": "Yours faithfully is for when you do not know the name." },
+        { "text": "Yours sincerely" },
+        { "text": "The end", "why": "The end finishes a story, not a letter." },
+        { "text": "Once upon a time", "why": "This starts a story." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the letter to Mrs Wulan.", "The class knew her name.", "How did they end their letter?"],
+      "explanation": "When you know the person's name, as in Dear Mrs Wulan, you end with Yours sincerely."
+    },
+    {
+      "id": "e4.persuasive-writing.902", "skill": "e4.persuasive-writing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence belongs in a report about tigers?",
+      "options": [
+        { "text": "Tigers are the coolest animals ever.", "why": "Coolest is an opinion." },
+        { "text": "Tigers have stripes that help them hide in long grass." },
+        { "text": "I would love to have a pet tiger.", "why": "This is the writer's wish, not a fact." },
+        { "text": "Please help save the tigers now!", "why": "This tries to persuade. A report gives facts." }
+      ],
+      "answer": 1,
+      "hints": ["A report gives facts.", "Facts can be checked.", "Which sentence could you check in a book about tigers?"],
+      "explanation": "Tigers have stripes that help them hide is a fact that can be checked, so it belongs in a report."
+    }
+  ]
+}

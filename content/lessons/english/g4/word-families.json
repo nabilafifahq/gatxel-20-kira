@@ -1,0 +1,33 @@
+{
+  "skill": "e4.word-families",
+  "title": "Root words and word families",
+  "steps": [
+    { "say": "A root word is the main word. Prefixes and suffixes are added to it.", "show": "un + help + ful = unhelpful" },
+    { "say": "Words built from the same root word make a word family.", "show": "help, helper, helpful, helpless, unhelpful" },
+    { "say": "Words in a family share a meaning. You can use one word to work out another.", "show": "act → actor, action, active" },
+    { "say": "Careful: two words that look alike may not be in the same family.", "show": "sign → signal (yes), single (no)" },
+    { "say": "To find the root, take off the prefix and the suffix.", "show": "unkindness → kind" }
+  ],
+  "check": [
+    {
+      "id": "e4.word-families.901", "skill": "e4.word-families", "type": "mcq", "difficulty": 1,
+      "prompt": "What is the root word of replayed?",
+      "options": [
+        { "text": "re", "why": "Re- is the prefix, not the root word." },
+        { "text": "play" },
+        { "text": "played", "why": "Played still has the -ed ending." },
+        { "text": "layed", "why": "Layed is not the main part of the word." }
+      ],
+      "answer": 1,
+      "hints": ["Take off the prefix at the start.", "Take off the ending as well.", "What main word is left in the middle?"],
+      "explanation": "Re + play + ed = replayed. The root word is play."
+    },
+    {
+      "id": "e4.word-families.902", "skill": "e4.word-families", "type": "text", "difficulty": 2,
+      "prompt": "Write the root word of teacher.",
+      "blanks": [{ "answers": ["teach"] }],
+      "hints": ["Teacher has a suffix at the end.", "The ending -er can mean a person who does something.", "Take off -er. What is left?"],
+      "explanation": "Teach + er = teacher. The root word is teach."
+    }
+  ]
+}

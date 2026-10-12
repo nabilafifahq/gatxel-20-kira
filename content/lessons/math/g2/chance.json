@@ -1,0 +1,138 @@
+{
+  "skill": "m2.chance",
+  "title": "Will it happen?",
+  "steps": [
+    {
+      "say": "Some things will happen and some things might happen. Some things will not happen at all."
+    },
+    {
+      "say": "This bag has only sweets. If you pick one, you will pick a sweet.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "sweet",
+            "count": 6
+          }
+        ],
+        "alt": "A bag with 6 sweets."
+      }
+    },
+    {
+      "say": "This bag has sweets and cookies. You might pick a cookie.",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "sweet",
+            "count": 4
+          },
+          {
+            "icon": "cookie",
+            "count": 2
+          }
+        ],
+        "alt": "A bag with 4 sweets and 2 cookies."
+      }
+    },
+    {
+      "say": "There are no apples in the bag. Picking an apple will not happen."
+    },
+    {
+      "say": "There are more sweets than cookies, so a sweet is more likely.",
+      "show": "4 sweets, 2 cookies"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.chance.901",
+      "skill": "m2.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A bag has 5 shells and 3 buttons. You pick one. Which will not happen?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "shell",
+            "count": 5
+          },
+          {
+            "icon": "button",
+            "count": 3
+          }
+        ],
+        "alt": "A bag with 5 shells and 3 buttons."
+      },
+      "hints": [
+        "Look at what is in the bag.",
+        "Will not happen means it can never happen.",
+        "Is there anything you could never pick?"
+      ],
+      "explanation": "There are no marbles in the bag, so picking a marble will not happen.",
+      "options": [
+        {
+          "text": "You pick a shell.",
+          "why": "There are shells in the bag, so it might happen."
+        },
+        {
+          "text": "You pick a marble."
+        },
+        {
+          "text": "You pick a button.",
+          "why": "There are buttons in the bag, so it might happen."
+        },
+        {
+          "text": "You pick a shell or a button.",
+          "why": "Everything in the bag is one of these, so it will happen."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m2.chance.902",
+      "skill": "m2.chance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A bag has 2 apples and 6 oranges. Which are you more likely to pick?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 2
+          },
+          {
+            "icon": "orange",
+            "count": 6
+          }
+        ],
+        "alt": "A bag with 2 apples and 6 oranges."
+      },
+      "hints": [
+        "Count each kind in the bag.",
+        "The kind with more in the bag is more likely.",
+        "Compare 2 and 6."
+      ],
+      "explanation": "There are 6 oranges and only 2 apples, so you are more likely to pick an orange.",
+      "options": [
+        {
+          "text": "Apples",
+          "why": "There are fewer apples than oranges."
+        },
+        {
+          "text": "Bananas",
+          "why": "There are no bananas in the bag."
+        },
+        {
+          "text": "Both are equally likely",
+          "why": "2 and 6 are not the same number."
+        },
+        {
+          "text": "Oranges"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

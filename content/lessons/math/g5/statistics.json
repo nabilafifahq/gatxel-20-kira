@@ -1,0 +1,126 @@
+{
+  "skill": "m5.statistics",
+  "title": "Mode, median, range and charts",
+  "steps": [
+    {
+      "say": "The mode is the value that appears most often.",
+      "show": "6, 2, 8, 4, 8, 9, 5: the mode is 8",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "6",
+          "2",
+          "8",
+          "4",
+          "8",
+          "9",
+          "5"
+        ],
+        "style": "circles",
+        "alt": "A row of circles with the values 6, 2, 8, 4, 8, 9 and 5."
+      }
+    },
+    {
+      "say": "The median is the middle value when the data is in order.",
+      "show": "2, 4, 5, 6, 8, 8, 9: the median is 6"
+    },
+    {
+      "say": "If there are two middle values, the median is halfway between them.",
+      "show": "3, 5, 9, 10: the median is 7"
+    },
+    {
+      "say": "The range is the biggest value minus the smallest value. It shows how spread out the data is.",
+      "show": "9 − 2 = 7"
+    },
+    {
+      "say": "A bar chart shows data as bars. Read across from the top of each bar to the scale.",
+      "show": "Most books were borrowed on Tuesday: 18",
+      "figure": {
+        "kind": "bars",
+        "title": "Books borrowed",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu"
+        ],
+        "values": [
+          12,
+          18,
+          9,
+          15
+        ],
+        "axisMax": 20,
+        "step": 5,
+        "yLabel": "Books",
+        "alt": "A bar chart of books borrowed: Monday 12, Tuesday 18, Wednesday 9, Thursday 15."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.statistics.901",
+      "skill": "m5.statistics",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Find the mode: 3, 7, 4, 7, 2, 7, 4",
+      "hints": [
+        "The mode is the value that appears most often.",
+        "Count how many times each number appears.",
+        "4 appears twice."
+      ],
+      "explanation": "7 appears three times, more than any other value, so the mode is 7.",
+      "answer": 7
+    },
+    {
+      "id": "m5.statistics.902",
+      "skill": "m5.statistics",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Find the median: 12, 5, 9, 15, 7",
+      "hints": [
+        "Put the numbers in order first.",
+        "Find the middle value.",
+        "There are 5 numbers, so the middle one is the 3rd."
+      ],
+      "explanation": "In order: 5, 7, 9, 12, 15. The middle value is 9.",
+      "answer": 9
+    },
+    {
+      "id": "m5.statistics.903",
+      "skill": "m5.statistics",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The bar chart shows books borrowed each day. What is the range?",
+      "figure": {
+        "kind": "bars",
+        "title": "Books borrowed",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "values": [
+          13,
+          22,
+          8,
+          17,
+          11
+        ],
+        "axisMax": 25,
+        "step": 5,
+        "yLabel": "Books",
+        "alt": "A bar chart of books borrowed: Monday 13, Tuesday 22, Wednesday 8, Thursday 17, Friday 11."
+      },
+      "hints": [
+        "The range is the biggest value minus the smallest value.",
+        "Find the tallest bar and the shortest bar.",
+        "The tallest bar is Tuesday."
+      ],
+      "explanation": "The tallest bar is 22 and the shortest is 8. 22 − 8 = 14.",
+      "answer": 14
+    }
+  ]
+}

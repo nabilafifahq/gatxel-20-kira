@@ -1,0 +1,79 @@
+{
+  "skill": "e2.commas-apostrophes",
+  "title": "Commas and apostrophes",
+  "steps": [
+    {
+      "say": "Use commas to separate the things in a list.",
+      "show": "eggs, rice, milk and bread"
+    },
+    {
+      "say": "Before and, we usually do not need a comma.",
+      "show": "red, blue and green"
+    },
+    {
+      "say": "An apostrophe can show that letters are missing.",
+      "show": "do not, don't"
+    },
+    {
+      "say": "Put the apostrophe exactly where the letters were.",
+      "show": "is not, isn't / I am, I'm"
+    },
+    {
+      "say": "Its with no apostrophe means belonging to it.",
+      "show": "The cat licked its paw."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.commas-apostrophes.901",
+      "skill": "e2.commas-apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is the short form of is not?",
+      "hints": [
+        "An apostrophe shows a missing letter.",
+        "Is not loses the o.",
+        "Put the apostrophe where the o was."
+      ],
+      "explanation": "Isn't is short for is not.",
+      "options": [
+        {
+          "text": "isn't"
+        },
+        {
+          "text": "isnt",
+          "why": "It needs an apostrophe."
+        },
+        {
+          "text": "is'nt",
+          "why": "The apostrophe goes where the o was."
+        },
+        {
+          "text": "i'snt",
+          "why": "The apostrophe goes where the o was."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.commas-apostrophes.902",
+      "skill": "e2.commas-apostrophes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the short form of do not.",
+      "hints": [
+        "Join the two words.",
+        "One letter goes away.",
+        "Put an apostrophe where the o was."
+      ],
+      "explanation": "Do not becomes don't.",
+      "blanks": [
+        {
+          "answers": [
+            "don't"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "skill": "s2.life-cycles",
+  "items": [
+    {
+      "id": "s2.life-cycles.001", "skill": "s2.life-cycles", "type": "order", "difficulty": 1,
+      "prompt": "Put the life cycle of a chicken in order. Start with the egg.",
+      "items": ["egg", "chick", "young chicken", "adult hen"],
+      "hints": ["The chicken life cycle starts with an egg.", "Ask: what hatches out of the egg?", "Put the egg first, then think about what comes out of it."],
+      "explanation": "A chick hatches from the egg. It grows into a young chicken and then an adult hen, which lays more eggs."
+    },
+    {
+      "id": "s2.life-cycles.002", "skill": "s2.life-cycles", "type": "order", "difficulty": 2,
+      "prompt": "Put the life cycle of a frog in order.",
+      "items": ["frogspawn", "tadpole", "froglet", "frog"],
+      "hints": ["Start with the eggs in the pond.", "Which stage has a tail and no legs?", "Frogspawn comes first. What hatches from it?"],
+      "explanation": "Frogspawn hatches into tadpoles. Tadpoles grow legs and become froglets, and froglets grow into adult frogs."
+    },
+    {
+      "id": "s2.life-cycles.003", "skill": "s2.life-cycles", "type": "order", "difficulty": 2,
+      "prompt": "Put the life cycle of a butterfly in order.",
+      "items": ["egg", "caterpillar", "chrysalis", "butterfly"],
+      "hints": ["A butterfly lays tiny eggs on a leaf.", "Which stage eats lots of leaves?", "Start with the egg. What hatches from it?"],
+      "explanation": "A caterpillar hatches from the egg and eats lots of leaves. It makes a chrysalis, and a butterfly comes out of it."
+    },
+    {
+      "id": "s2.life-cycles.004", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 1,
+      "prompt": "What hatches from a butterfly's egg?",
+      "figure": { "kind": "icons", "items": [{ "icon": "egg", "label": "butterfly egg" }, { "icon": "leaf", "label": "leaf" }], "alt": "A tiny butterfly egg on a leaf." },
+      "options": [
+        { "text": "a butterfly", "why": "The butterfly comes later, after the chrysalis." },
+        { "text": "a caterpillar" },
+        { "text": "a tadpole", "why": "Tadpoles hatch from frog eggs." },
+        { "text": "a chick", "why": "Chicks hatch from hen eggs." }
+      ],
+      "answer": 1,
+      "hints": ["The young butterfly does not look like its parent.", "Think about the stage that eats lots of leaves.", "Remember the order: egg, then what?"],
+      "explanation": "A caterpillar hatches from a butterfly's egg. Later it becomes a chrysalis and then a butterfly."
+    },
+    {
+      "id": "s2.life-cycles.005", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 2,
+      "prompt": "Which frog stage has a long tail and lives only in water?",
+      "figure": { "kind": "icons", "items": [{ "icon": "egg", "label": "frogspawn" }, { "icon": "tadpole", "label": "tadpole" }, { "icon": "frog", "label": "frog" }], "alt": "Stages of a frog: frogspawn, a tadpole with a long tail, and an adult frog." },
+      "options": [
+        { "text": "frogspawn", "why": "Frogspawn is the eggs. They do not have tails yet." },
+        { "text": "adult frog", "why": "An adult frog has no tail and can live on land." },
+        { "text": "tadpole" },
+        { "text": "froglet", "why": "A froglet has legs and only a tiny tail. It can leave the water." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the stage that swims like a little fish.", "Which stage has no legs at first?", "Remember the order: frogspawn, then what hatches?"],
+      "explanation": "A tadpole has a long tail and lives only in water. It breathes through gills, like a fish, until it grows legs and lungs."
+    },
+    {
+      "id": "s2.life-cycles.006", "skill": "s2.life-cycles", "type": "sort", "difficulty": 3,
+      "prompt": "How does each animal have young? Sort the cards.",
+      "groups": ["Lays eggs", "Gives birth to babies"],
+      "items": [
+        { "text": "hen", "group": 0 },
+        { "text": "turtle", "group": 0 },
+        { "text": "frog", "group": 0 },
+        { "text": "cow", "group": 1 },
+        { "text": "cat", "group": 1 },
+        { "text": "whale", "group": 1 }
+      ],
+      "hints": ["Birds, frogs and turtles lay eggs.", "Animals with fur or hair usually give birth and feed their babies milk.", "Start with the whale. Does the mother feed her baby milk?"],
+      "explanation": "Hens, turtles and frogs lay eggs. Cows, cats and whales give birth to babies and feed them milk."
+    },
+    {
+      "id": "s2.life-cycles.007", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 3,
+      "prompt": "Why do we call it a life cycle?",
+      "options": [
+        { "text": "It only happens to plants.", "why": "Animals and plants both have life cycles." },
+        { "text": "The stages repeat when adults have young." },
+        { "text": "Each animal walks round in circles.", "why": "Cycle here means the stages repeat. It is not about moving in circles." },
+        { "text": "It stops after the adult stage.", "why": "Adults have young, so the cycle starts again." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what a frog does once it is an adult.", "Where do new frogspawn eggs come from?", "Draw the stages in a circle in your mind. What joins the end to the start?"],
+      "explanation": "Adults have young, and the young grow up to have young of their own. The stages repeat again and again, like a circle."
+    },
+    {
+      "id": "s2.life-cycles.008", "skill": "s2.life-cycles", "type": "match", "difficulty": 2,
+      "prompt": "Match each young animal to its adult.",
+      "pairs": [["tadpole", "frog"], ["caterpillar", "butterfly"], ["duckling", "duck"], ["foal", "horse"], ["cub", "lion"]],
+      "hints": ["Some young animals look like their parents and some do not.", "Do the names you know first.", "Start with the tadpole. What does it turn into?"],
+      "explanation": "A tadpole becomes a frog and a caterpillar becomes a butterfly. A duckling grows into a duck, a foal into a horse and a cub into a lion."
+    },
+    {
+      "id": "s2.life-cycles.009", "skill": "s2.life-cycles", "type": "order", "difficulty": 3,
+      "prompt": "Put the life cycle of a plant in order.",
+      "items": ["seed", "seedling", "young plant", "flowering plant", "fruit with seeds"],
+      "hints": ["Every plant starts from something small in the soil.", "The flower comes before the fruit.", "Start with the seed. What grows from it first?"],
+      "explanation": "A seed grows into a seedling and then a young plant. The plant grows flowers, and the flowers turn into fruits with new seeds inside."
+    },
+    {
+      "id": "s2.life-cycles.010", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 3,
+      "prompt": "What is a seedling?",
+      "figure": { "kind": "icons", "items": [{ "icon": "seed", "label": "seed" }, { "icon": "seedling", "label": "seedling" }, { "icon": "plant", "label": "plant" }], "alt": "A seed, a seedling with a small shoot and two leaves, and a bigger plant." },
+      "options": [
+        { "text": "a kind of seed", "why": "A seedling has grown out of a seed. It has a shoot and roots." },
+        { "text": "an old tree", "why": "A seedling is very young." },
+        { "text": "a flower", "why": "Flowers come later, when the plant is older." },
+        { "text": "a very young plant" }
+      ],
+      "answer": 3,
+      "hints": ["Look at the middle picture.", "The word seedling has seed in it. What comes just after a seed?", "Ask: is it older or younger than a flowering plant?"],
+      "explanation": "A seedling is a very young plant that has just grown from a seed. It has a small shoot, roots and its first leaves."
+    },
+    {
+      "id": "s2.life-cycles.011", "skill": "s2.life-cycles", "type": "order", "difficulty": 2,
+      "prompt": "Put the stages of a human life in order.",
+      "items": ["baby", "child", "teenager", "adult", "older adult"],
+      "hints": ["Start with the youngest stage.", "Think of the people in your family from youngest to oldest.", "Put the baby first, then think who comes next."],
+      "explanation": "Humans grow from a baby to a child, a teenager, an adult and then an older adult. Adults can have babies, so the cycle goes on."
+    },
+    {
+      "id": "s2.life-cycles.012", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 5,
+      "prompt": "A whale lives in the sea like a fish. How is a baby whale born?",
+      "figure": { "kind": "icons", "items": [{ "icon": "whale", "label": "whale" }, { "icon": "sea", "label": "sea" }], "alt": "A whale swimming in the sea." },
+      "options": [
+        { "text": "It hatches from an egg.", "why": "Many fish lay eggs. Whales do not, because a whale is a mammal." },
+        { "text": "Its mother gives birth to it and feeds it milk." },
+        { "text": "It grows from a seed.", "why": "Seeds grow into plants." },
+        { "text": "It starts life as a tadpole.", "why": "Tadpoles grow into frogs." }
+      ],
+      "answer": 1,
+      "hints": ["Living in the sea does not make an animal a fish.", "Whales breathe air and feed their babies milk.", "Think about how a cow or a cat has its young."],
+      "explanation": "A whale is a mammal. The mother gives birth to a live baby and feeds it milk, just like a cow or a cat.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.life-cycles.013", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 4,
+      "prompt": "Which animal's life cycle has a resting stage in a hard case?",
+      "options": [
+        { "text": "frog", "why": "A tadpole changes slowly while it swims. It does not rest in a case." },
+        { "text": "chicken", "why": "A chick just grows bigger. It does not rest in a case." },
+        { "text": "cat", "why": "A kitten just grows bigger. It does not rest in a case." },
+        { "text": "butterfly" }
+      ],
+      "answer": 3,
+      "hints": ["Think about a stage that hangs still from a leaf or a twig.", "This stage is called a chrysalis.", "Ask: which animal has a chrysalis in its life cycle?"],
+      "explanation": "A caterpillar makes a hard case called a chrysalis. Inside it, the caterpillar changes into a butterfly.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.life-cycles.014", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 5,
+      "prompt": "In which pair do both young look very different from their parents?",
+      "options": [
+        { "text": "frog and butterfly" },
+        { "text": "cat and dog", "why": "Kittens and puppies look like small adults." },
+        { "text": "duck and cow", "why": "Ducklings look like small ducks, and calves look like small cows." },
+        { "text": "horse and lion", "why": "Foals and cubs look like small adults." }
+      ],
+      "answer": 0,
+      "hints": ["Think about the young of each animal.", "Which young animals change shape as they grow?", "Picture a tadpole and a caterpillar. What do they become?"],
+      "explanation": "A young frog is a tadpole and a young butterfly is a caterpillar. Both look very different from their parents and change a lot as they grow.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.life-cycles.015", "skill": "s2.life-cycles", "type": "numeric", "difficulty": 4,
+      "prompt": "A hen's egg takes about 21 days to hatch. Tegar's hen starts sitting on her eggs on 1 May. On what date in May should they hatch?",
+      "figure": { "kind": "icons", "items": [{ "icon": "hen", "label": "hen sitting on eggs" }, { "icon": "egg", "label": "21 days" }, { "icon": "chick", "label": "chick" }], "alt": "A hen sits on her eggs for 21 days before the chicks hatch." },
+      "answer": 22,
+      "hints": ["The eggs need about 21 days of sitting.", "Add 21 days to the start date.", "Start at 1 May and count on 21 days."],
+      "explanation": "1 May plus 21 days is 22 May. The chicks should hatch around 22 May.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.life-cycles.016", "skill": "s2.life-cycles", "type": "draw", "difficulty": 3,
+      "prompt": "Draw the life cycle of a frog. Use arrows to show the order.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws frogspawn, a tadpole, a froglet and a frog", "points": 2 },
+        { "label": "Puts the stages in the right order", "points": 1 },
+        { "label": "Uses arrows in a circle to show the cycle", "points": 1 },
+        { "label": "Labels each stage", "points": 1 }
+      ] },
+      "hints": ["Start with frogspawn in a pond.", "Draw arrows from each stage to the next, and from the frog back to the eggs."],
+      "explanation": "Frogspawn hatches into tadpoles, tadpoles become froglets and froglets grow into frogs. Adult frogs lay frogspawn, so the cycle starts again."
+    }
+  ]
+}

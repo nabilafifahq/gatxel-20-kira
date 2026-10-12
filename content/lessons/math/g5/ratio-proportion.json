@@ -1,0 +1,160 @@
+{
+  "skill": "m5.ratio-proportion",
+  "title": "Ratio and proportion",
+  "steps": [
+    {
+      "say": "A ratio compares parts. Here there are 2 red beads for every 3 blue beads.",
+      "show": "red : blue = 2 : 3",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "english"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          },
+          {
+            "shape": "circle",
+            "tone": "math"
+          }
+        ],
+        "alt": "A row of beads: 2 red then 3 blue, repeated twice."
+      }
+    },
+    {
+      "say": "Proportion compares a part with the whole. 2 out of every 5 beads are red.",
+      "show": "2/5 of the beads are red"
+    },
+    {
+      "say": "Use the ratio to scale up. With 10 red beads there are 5 groups, so there are 15 blue beads.",
+      "show": "2 × 5 = 10 and 3 × 5 = 15"
+    },
+    {
+      "say": "Recipes use proportion. If 2 eggs make 12 pancakes, then 6 eggs make 36 pancakes.",
+      "show": "3 times the eggs makes 3 times the pancakes",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Eggs",
+          "Pancakes"
+        ],
+        "rows": [
+          [
+            "2",
+            "12"
+          ],
+          [
+            "4",
+            "24"
+          ],
+          [
+            "6",
+            "36"
+          ]
+        ],
+        "alt": "A table: 2 eggs make 12 pancakes, 4 eggs make 24 and 6 eggs make 36."
+      }
+    },
+    {
+      "say": "To share in a ratio, add the parts first. To share 20 sweets in the ratio 1 : 3, there are 4 parts.",
+      "show": "1 + 3 = 4 parts, 20 ÷ 4 = 5 in each part"
+    },
+    {
+      "say": "One person gets 1 part and the other gets 3 parts.",
+      "show": "1 × 5 = 5 and 3 × 5 = 15"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.ratio-proportion.901",
+      "skill": "m5.ratio-proportion",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A shelter has 3 cats for every 1 dog. There are 4 dogs. How many cats are there?",
+      "hints": [
+        "Each dog goes with 3 cats.",
+        "Make 4 groups of 1 dog and 3 cats.",
+        "Count the cats in the 4 groups."
+      ],
+      "explanation": "4 groups of 3 cats make 4 × 3 = 12 cats.",
+      "answer": 12
+    },
+    {
+      "id": "m5.ratio-proportion.902",
+      "skill": "m5.ratio-proportion",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A recipe uses 150 g of flour for 6 muffins. How much flour is needed for 18 muffins?",
+      "hints": [
+        "How many times bigger is 18 than 6?",
+        "Multiply the flour by the same number.",
+        "18 ÷ 6 = 3."
+      ],
+      "explanation": "18 muffins is 3 times as many, so you need 150 × 3 = 450 g of flour.",
+      "answer": 450,
+      "unit": "g"
+    },
+    {
+      "id": "m5.ratio-proportion.903",
+      "skill": "m5.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tomi and Sari share 30 stickers in the ratio 2 : 3. How many stickers does Sari get?",
+      "hints": [
+        "Add the parts of the ratio.",
+        "Divide 30 by the total number of parts.",
+        "There are 5 parts in total."
+      ],
+      "explanation": "2 + 3 = 5 parts. 30 ÷ 5 = 6, so one part is 6. Sari gets 3 × 6 = 18 stickers.",
+      "options": [
+        {
+          "text": "20",
+          "why": "Find the size of one part first: 30 ÷ 5."
+        },
+        {
+          "text": "18"
+        },
+        {
+          "text": "12",
+          "why": "That is Tomi's share. Sari has 3 parts."
+        },
+        {
+          "text": "15",
+          "why": "That is half each. The ratio 2 : 3 does not share equally."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

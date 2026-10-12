@@ -1,0 +1,26 @@
+{
+  "skill": "e3.speaking",
+  "title": "Speaking to a group",
+  "steps": [
+    { "say": "When you speak to a group, stand still and look at your listeners." },
+    { "say": "Speak clearly, and loudly enough for the person at the back to hear you." },
+    { "say": "Plan what you will say. A short beginning, middle and end work well.", "show": "Hello. Today I will tell you about... That is why I..." },
+    { "say": "Use order words for steps and stories.", "show": "first, next, then, finally" },
+    { "say": "At the end, ask if anyone has a question. Listen carefully and answer politely.", "show": "Does anyone have a question?" }
+  ],
+  "check": [
+    {
+      "id": "e3.speaking.901", "skill": "e3.speaking", "type": "mcq", "difficulty": 1,
+      "prompt": "Which is the best way to start a short talk?",
+      "options": [
+        { "text": "Um, I don't know.", "why": "This does not tell listeners what your talk is about." },
+        { "text": "Hello. Today I will tell you about my cat." },
+        { "text": "Can I sit down now?", "why": "This does not start your talk." },
+        { "text": "Mumble while looking at the floor.", "why": "Nobody will hear or follow you." }
+      ],
+      "answer": 1,
+      "hints": ["A good start tells listeners what the talk is about.", "It is also friendly and clear.", "Which answer would make you want to listen?"],
+      "explanation": "Saying hello and telling listeners your topic is a clear, friendly way to start."
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+  "skill": "m1.oly-word-puzzles",
+  "items": [
+    {
+      "id": "m1.oly-word-puzzles.001",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A bus has 6 people on it. At the first stop, 2 get off and 3 get on. At the second stop, 4 get off. How many people are on the bus now?",
+      "options": [
+        {
+          "text": "3"
+        },
+        {
+          "text": "5",
+          "why": "Remember that 2 people got off at the first stop too."
+        },
+        {
+          "text": "7",
+          "why": "That is after the first stop. 4 more get off later."
+        },
+        {
+          "text": "11",
+          "why": "At the second stop, 4 people got off. Take them away."
+        },
+        {
+          "text": "15",
+          "why": "People who get off must be taken away, not added."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Follow the bus one stop at a time.",
+        "Getting off means take away. Getting on means add.",
+        "After the first stop: 6 take away 2, then add 3."
+      ],
+      "explanation": "After the first stop there are 6 - 2 + 3 = 7 people. After the second stop there are 7 - 4 = 3 people.",
+      "solution": [
+        {
+          "say": "Start with 6 people.",
+          "show": "6"
+        },
+        {
+          "say": "First stop: 2 get off and 3 get on.",
+          "show": "6 - 2 + 3 = 7"
+        },
+        {
+          "say": "Second stop: 4 get off.",
+          "show": "7 - 4 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-word-puzzles.002",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Lina is 7th in a queue, counting from the front. There are 3 children behind her. How many children are in the queue?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 is only the children behind Lina."
+        },
+        {
+          "text": "4",
+          "why": "Count everyone, not only from Lina to the back."
+        },
+        {
+          "text": "9",
+          "why": "There are 6 children in front of Lina, then Lina, then 3 more."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "11",
+          "why": "Lina is already counted in the 7, so do not add her again."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Draw the queue from the front.",
+        "Being 7th means there are 7 children up to and including Lina.",
+        "Draw 7 children, then draw the children behind Lina."
+      ],
+      "explanation": "Lina is 7th, so there are 7 children from the front up to Lina. With 3 more behind her, there are 7 + 3 = 10 children.",
+      "solution": [
+        {
+          "say": "Up to Lina there are 7 children, with Lina as the 7th.",
+          "show": "1 2 3 4 5 6 Lina"
+        },
+        {
+          "say": "Behind her are 3 more.",
+          "show": "Lina 8 9 10"
+        },
+        {
+          "say": "So the queue has 10 children.",
+          "show": "7 + 3 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-word-puzzles.003",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Ana, Ben and Cici share 12 marbles. Ben has 2 more than Ana. Cici has 2 more than Ben. How many marbles does Cici have?",
+      "options": [
+        {
+          "text": "2",
+          "why": "2 is how many Ana has."
+        },
+        {
+          "text": "3",
+          "why": "Then Ben would have 1, and Ana cannot have 2 fewer than 1."
+        },
+        {
+          "text": "4",
+          "why": "4 is how many Ben has."
+        },
+        {
+          "text": "5",
+          "why": "If Cici has 5, Ben has 3 and Ana has 1. That is only 9 marbles."
+        },
+        {
+          "text": "6"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Try a number for Ana and test it.",
+        "Ben has Ana's number plus 2. Cici has Ben's number plus 2.",
+        "Try Ana = 1. Then Ben = 3 and Cici = 5. Is the total 12?"
+      ],
+      "explanation": "If Ana has 2, Ben has 4 and Cici has 6. The total is 2 + 4 + 6 = 12, so Cici has 6 marbles.",
+      "solution": [
+        {
+          "say": "Guess and check. Try Ana = 1.",
+          "show": "1 + 3 + 5 = 9, too few"
+        },
+        {
+          "say": "Try Ana = 2.",
+          "show": "2 + 4 + 6 = 12"
+        },
+        {
+          "say": "The total is 12, so this works. Cici has 6 marbles.",
+          "show": "Cici: 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-word-puzzles.004",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Ibu membeli 3 buah mangga. Harga 1 mangga Rp2.000. Ibu membayar dengan uang Rp10.000. Berapa uang kembalian Ibu?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 10000,
+            "count": 1
+          }
+        ],
+        "alt": "Selembar uang Rp10.000 yang dipakai Ibu untuk membayar."
+      },
+      "options": [
+        {
+          "text": "Rp2.000",
+          "why": "Rp2.000 adalah harga 1 mangga saja."
+        },
+        {
+          "text": "Rp4.000"
+        },
+        {
+          "text": "Rp6.000",
+          "why": "Rp6.000 adalah harga 3 mangga. Kembalian adalah sisa uangnya."
+        },
+        {
+          "text": "Rp8.000",
+          "why": "Itu kembalian kalau Ibu membeli 1 mangga saja."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hitung dulu harga semua mangga.",
+        "Kembalian adalah uang yang dibayar dikurangi harga belanja.",
+        "Harga 3 mangga adalah Rp2.000 + Rp2.000 + Rp2.000."
+      ],
+      "explanation": "Harga 3 mangga adalah Rp2.000 + Rp2.000 + Rp2.000 = Rp6.000. Kembaliannya Rp10.000 - Rp6.000 = Rp4.000.",
+      "solution": [
+        {
+          "say": "Hitung harga 3 mangga.",
+          "show": "Rp2.000 + Rp2.000 + Rp2.000 = Rp6.000"
+        },
+        {
+          "say": "Kurangkan dari uang yang dibayar.",
+          "show": "Rp10.000 - Rp6.000 = Rp4.000"
+        },
+        {
+          "say": "Kembalian Ibu Rp4.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "membeli",
+          "en": "to buy"
+        },
+        {
+          "term": "mangga",
+          "en": "mango"
+        },
+        {
+          "term": "harga",
+          "en": "price"
+        },
+        {
+          "term": "membayar",
+          "en": "to pay"
+        },
+        {
+          "term": "uang kembalian",
+          "en": "change (money)"
+        }
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-word-puzzles.005",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "lang": "id",
+      "prompt": "Di parkiran ada sepeda dan mobil. Sepeda punya 2 roda dan mobil punya 4 roda. Ada 5 kendaraan dan 14 roda. Berapa banyak mobil?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "bicycle",
+            "count": 1
+          },
+          {
+            "icon": "car",
+            "count": 1
+          }
+        ],
+        "alt": "Sebuah sepeda dengan 2 roda dan sebuah mobil dengan 4 roda."
+      },
+      "options": [
+        {
+          "text": "1",
+          "why": "Kalau ada 1 mobil dan 4 sepeda, rodanya 4 + 8 = 12."
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "3",
+          "why": "Kalau ada 3 mobil dan 2 sepeda, rodanya 12 + 4 = 16."
+        },
+        {
+          "text": "4",
+          "why": "Kalau ada 4 mobil dan 1 sepeda, rodanya 16 + 2 = 18."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Coba tebak banyak mobil, lalu periksa rodanya.",
+        "Kalau semuanya sepeda, rodanya 2 + 2 + 2 + 2 + 2 = 10. Setiap mobil menambah 2 roda lagi.",
+        "Mulai dengan 1 mobil dan 4 sepeda. Berapa rodanya?"
+      ],
+      "explanation": "2 mobil punya 8 roda dan 3 sepeda punya 6 roda. Itu 5 kendaraan dan 14 roda, jadi ada 2 mobil.",
+      "solution": [
+        {
+          "say": "Coba 1 mobil dan 4 sepeda.",
+          "show": "4 + 2 + 2 + 2 + 2 = 12 roda, kurang"
+        },
+        {
+          "say": "Coba 2 mobil dan 3 sepeda.",
+          "show": "4 + 4 + 2 + 2 + 2 = 14 roda"
+        },
+        {
+          "say": "Rodanya tepat 14. Jadi ada 2 mobil."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "parkiran",
+          "en": "car park"
+        },
+        {
+          "term": "sepeda",
+          "en": "bicycle"
+        },
+        {
+          "term": "mobil",
+          "en": "car"
+        },
+        {
+          "term": "kendaraan",
+          "en": "vehicle"
+        },
+        {
+          "term": "roda",
+          "en": "wheel"
+        }
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-word-puzzles.006",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A classroom has 4 tables. Each table has 4 chairs. 9 children sit down. How many chairs are empty?",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "icon": "dot",
+        "container": "circle",
+        "alt": "4 tables shown as circles, each with 4 chairs shown as dots."
+      },
+      "options": [
+        {
+          "text": "7"
+        },
+        {
+          "text": "9",
+          "why": "9 is the number of children sitting down, not the empty chairs."
+        },
+        {
+          "text": "16",
+          "why": "16 is all the chairs. Some of them are taken."
+        },
+        {
+          "text": "25",
+          "why": "Taken chairs must be taken away, not added."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "First find how many chairs there are.",
+        "Count in 4s, once for each table.",
+        "There are 4 + 4 + 4 + 4 chairs. Then take away the children."
+      ],
+      "explanation": "There are 4 + 4 + 4 + 4 = 16 chairs. 9 are taken, so 16 - 9 = 7 chairs are empty.",
+      "solution": [
+        {
+          "say": "Count all the chairs.",
+          "show": "4 + 4 + 4 + 4 = 16"
+        },
+        {
+          "say": "9 children take 9 chairs.",
+          "show": "16 - 9 = 7"
+        },
+        {
+          "say": "So 7 chairs are empty."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-word-puzzles.007",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Bima plants 5 trees in a row. Each tree is 2 metres from the next one. How far is it from the first tree to the last tree?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "tree"
+          }
+        ],
+        "alt": "5 trees in a row with the same gap between each tree and the next. Each gap is 2 metres."
+      },
+      "answer": 8,
+      "unit": "m",
+      "hints": [
+        "Count the gaps, not the trees.",
+        "Between 5 trees in a row there are fewer gaps than trees.",
+        "Draw 5 trees and count the spaces between them."
+      ],
+      "explanation": "5 trees in a row have 4 gaps between them. Each gap is 2 metres, so the distance is 2 + 2 + 2 + 2 = 8 metres.",
+      "solution": [
+        {
+          "say": "Draw the trees and the gaps.",
+          "show": "T _ T _ T _ T _ T"
+        },
+        {
+          "say": "There are 4 gaps.",
+          "show": "4 gaps"
+        },
+        {
+          "say": "Each gap is 2 metres.",
+          "show": "2 + 2 + 2 + 2 = 8"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 210
+    },
+    {
+      "id": "m1.oly-word-puzzles.008",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ella gives half of her sweets to Tom. Then she eats 2 sweets. Now she has 3 sweets left. How many sweets did Ella have at first?",
+      "answer": 10,
+      "hints": [
+        "Work backwards from the end.",
+        "Undo each step: undo eating, then undo giving half away.",
+        "Before she ate 2 sweets, she had 3 + 2 sweets."
+      ],
+      "explanation": "Before eating, Ella had 3 + 2 = 5 sweets. That was half of her sweets, so at first she had 5 + 5 = 10 sweets.",
+      "solution": [
+        {
+          "say": "At the end Ella has 3 sweets.",
+          "show": "3"
+        },
+        {
+          "say": "Undo eating 2 sweets: add 2.",
+          "show": "3 + 2 = 5"
+        },
+        {
+          "say": "5 is the half she kept. The other half is also 5.",
+          "show": "5 + 5 = 10"
+        },
+        {
+          "say": "Check: half of 10 is 5, and 5 - 2 = 3."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 150
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "e1.rhyme-poems",
+  "title": "Rhyme and poems",
+  "steps": [
+    {
+      "say": "Words rhyme when they sound the same at the end.",
+      "show": "cat, hat, mat"
+    },
+    {
+      "say": "Say them aloud. Cat and hat both end with at.",
+      "show": "c-at, h-at"
+    },
+    {
+      "say": "Poems often have rhyming words at the end of lines.",
+      "show": "play, today"
+    },
+    {
+      "say": "Some poem words sound like the noise they name.",
+      "show": "drip, drop, splash"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.rhyme-poems.901",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with sun?",
+      "hints": [
+        "Rhyming words end the same.",
+        "Say sun, then each word.",
+        "Listen for un at the end."
+      ],
+      "explanation": "Sun and fun rhyme. They both end with un.",
+      "options": [
+        {
+          "text": "fun"
+        },
+        {
+          "text": "sit",
+          "why": "Sit ends with a different sound."
+        },
+        {
+          "text": "sad",
+          "why": "Sad ends with a different sound."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

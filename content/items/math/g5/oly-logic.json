@@ -1,0 +1,459 @@
+{
+  "skill": "m5.oly-logic",
+  "items": [
+    {
+      "id": "m5.oly-logic.001",
+      "skill": "m5.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Today is Wednesday. What day of the week was it 100 days ago?",
+      "options": [
+        {
+          "text": "Monday"
+        },
+        {
+          "text": "Tuesday",
+          "why": "Count again: 100 days is 14 weeks and 2 days."
+        },
+        {
+          "text": "Friday",
+          "why": "Friday is 100 days ahead, not 100 days back."
+        },
+        {
+          "text": "Saturday",
+          "why": "Count backwards: 2 days before Wednesday."
+        },
+        {
+          "text": "Sunday",
+          "why": "Go back only 2 days after taking away full weeks."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Full weeks do not change the day.",
+        "100 days is 14 weeks and 2 days.",
+        "Go back 2 days from Wednesday."
+      ],
+      "explanation": "100 = 7 × 14 + 2. Going back 14 weeks lands on a Wednesday again, and 2 more days back is Monday.",
+      "solution": [
+        {
+          "say": "Full weeks.",
+          "show": "100 = 7 × 14 + 2"
+        },
+        {
+          "say": "14 weeks back is a Wednesday.",
+          "show": "Wednesday"
+        },
+        {
+          "say": "2 more days back.",
+          "show": "Tuesday, Monday"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-logic.002",
+      "skill": "m5.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Four friends share a pizza with 12 slices. Each eats a different number of slices, and each eats at least 1. Ana eats the most. What is the smallest number Ana could eat?",
+      "options": [
+        {
+          "text": "3",
+          "why": "Four different numbers of at least 1 need a top of at least 4."
+        },
+        {
+          "text": "4",
+          "why": "If the top is 4, the most they can eat is 1 + 2 + 3 + 4 = 10."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "6 works, for example 1 + 2 + 3 + 6, but a smaller top is possible."
+        },
+        {
+          "text": "9",
+          "why": "9 works, but Ana could eat fewer."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "To make Ana's share small, make the others' shares as big as possible but still smaller than hers.",
+        "If Ana eats a certain number, the most the four can eat is that number plus the three numbers just below it.",
+        "Try Ana = 4 first: is 1 + 2 + 3 + 4 enough for 12 slices?"
+      ],
+      "explanation": "If Ana eats 4, the four can eat at most 1 + 2 + 3 + 4 = 10, which is less than 12. With Ana eating 5, the others can eat 1, 2 and 4: 1 + 2 + 4 + 5 = 12. So the smallest is 5.",
+      "solution": [
+        {
+          "say": "Ana eats 4: the others eat at most 1, 2, 3.",
+          "show": "1 + 2 + 3 + 4 = 10, too few"
+        },
+        {
+          "say": "Ana eats 5: the others can eat 1, 2, 4.",
+          "show": "1 + 2 + 4 + 5 = 12"
+        },
+        {
+          "say": "So the smallest is 5.",
+          "show": "5"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-logic.003",
+      "skill": "m5.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Knights always tell the truth and knaves always lie. P says, 'Q is a knave.' Q says, 'P and R are the same type.' What can we say about R?",
+      "options": [
+        {
+          "text": "R is a knight",
+          "why": "Test both cases for P. In each one, R turns out to be a knave."
+        },
+        {
+          "text": "R is a knave"
+        },
+        {
+          "text": "R is the same type as P",
+          "why": "If P is a knight, R is a knave, so they are different."
+        },
+        {
+          "text": "R is the same type as Q",
+          "why": "If Q is a knight, R is a knave, so they are different."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Both cases give the same answer for R."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try P as a knight, then P as a knave.",
+        "If P is a knight, Q is a knave. Then Q's words are false.",
+        "If P is a knave, Q is a knight. Then Q's words are true."
+      ],
+      "explanation": "If P is a knight, Q is a knave, so P and R are different and R is a knave. If P is a knave, Q is a knight, so P and R are the same and R is a knave. Either way, R is a knave.",
+      "solution": [
+        {
+          "say": "Case 1: P knight. Then Q is a knave and Q's words are false.",
+          "show": "P and R differ: R knave"
+        },
+        {
+          "say": "Case 2: P knave. Then Q is a knight and Q's words are true.",
+          "show": "P and R the same: R knave"
+        },
+        {
+          "say": "Both cases give the same answer.",
+          "show": "R is a knave"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-logic.004",
+      "skill": "m5.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A clock loses 5 minutes every hour. It shows the right time at 12 noon. What does it show at 6 pm?",
+      "options": [
+        {
+          "text": "5:00 pm",
+          "why": "It loses 5 minutes an hour, not 10."
+        },
+        {
+          "text": "5:15 pm",
+          "why": "In 6 hours it loses 6 × 5 = 30 minutes, not 45."
+        },
+        {
+          "text": "5:25 pm",
+          "why": "In 6 hours it loses 6 × 5 = 30 minutes, not 35."
+        },
+        {
+          "text": "5:30 pm"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find how many hours pass from noon to 6 pm.",
+        "In each of those hours the clock falls 5 minutes behind.",
+        "6 hours × 5 minutes is how far behind it is."
+      ],
+      "explanation": "From 12 noon to 6 pm is 6 hours. The clock loses 6 × 5 = 30 minutes, so it shows 5:30 pm.",
+      "solution": [
+        {
+          "say": "Hours passed.",
+          "show": "6"
+        },
+        {
+          "say": "Minutes lost.",
+          "show": "6 × 5 = 30"
+        },
+        {
+          "say": "Time shown.",
+          "show": "6:00 pm - 30 minutes = 5:30 pm"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-logic.005",
+      "skill": "m5.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a class of 40, 25 pupils take art and 18 take music. 7 take neither. How many take both?",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Art",
+          "Music"
+        ],
+        "items": [
+          {
+            "text": "?",
+            "region": "both"
+          },
+          {
+            "text": "7",
+            "region": "none"
+          }
+        ],
+        "alt": "A Venn diagram for 40 pupils: 25 take art, 18 take music, and 7 are outside both circles. The overlap is unknown."
+      },
+      "answer": 10,
+      "hints": [
+        "Find how many take at least one.",
+        "40 - 7 = 33 pupils take art, music or both.",
+        "25 + 18 counts the pupils who take both twice."
+      ],
+      "explanation": "33 pupils take at least one. 25 + 18 = 43 counts the pupils who take both twice, so 43 - 33 = 10 take both.",
+      "solution": [
+        {
+          "say": "At least one.",
+          "show": "40 - 7 = 33"
+        },
+        {
+          "say": "Add the groups.",
+          "show": "25 + 18 = 43"
+        },
+        {
+          "say": "Counted twice.",
+          "show": "43 - 33 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-logic.006",
+      "skill": "m5.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Sebuah toko buka pukul 08.00 dan tutup pukul 20.00. Toko itu buka setiap hari, kecuali hari Senin. Berapa jam toko itu buka dalam satu minggu?",
+      "options": [
+        {
+          "text": "60",
+          "why": "Hitung lagi: dari 08.00 sampai 20.00 adalah 12 jam."
+        },
+        {
+          "text": "72"
+        },
+        {
+          "text": "84",
+          "why": "Hari Senin toko tutup, jadi hanya 6 hari."
+        },
+        {
+          "text": "96",
+          "why": "Toko buka 12 jam sehari, bukan 16 jam."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hitung dulu berapa jam toko buka dalam satu hari.",
+        "Dari 08.00 sampai 20.00 adalah 12 jam.",
+        "Dalam seminggu, toko buka berapa hari?"
+      ],
+      "explanation": "Toko buka 12 jam sehari selama 6 hari. Jadi dalam seminggu toko buka 12 × 6 = 72 jam.",
+      "solution": [
+        {
+          "say": "Jam buka sehari.",
+          "show": "20.00 - 08.00 = 12 jam"
+        },
+        {
+          "say": "Hari buka.",
+          "show": "7 - 1 = 6 hari"
+        },
+        {
+          "say": "Jam buka seminggu.",
+          "show": "12 × 6 = 72 jam"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "toko",
+          "en": "shop"
+        },
+        {
+          "term": "buka",
+          "en": "open"
+        },
+        {
+          "term": "tutup",
+          "en": "closed, to close"
+        },
+        {
+          "term": "kecuali",
+          "en": "except"
+        },
+        {
+          "term": "satu minggu",
+          "en": "one week"
+        }
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m5.oly-logic.007",
+      "skill": "m5.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "In a family, each boy has as many brothers as sisters. Each girl has twice as many brothers as sisters. How many children are in the family?",
+      "answer": 7,
+      "hints": [
+        "A boy does not count himself as a brother.",
+        "With b boys and g girls, a boy has b - 1 brothers and g sisters, so b - 1 = g.",
+        "A girl has b brothers and g - 1 sisters."
+      ],
+      "explanation": "With b boys and g girls, a boy sees b - 1 brothers and g sisters, so b - 1 = g, and a girl sees b brothers and g - 1 sisters, so b = 2 × (g - 1). Trying g = 3 gives b = 4, and both rules work. So there are 4 + 3 = 7 children.",
+      "solution": [
+        {
+          "say": "A boy's view.",
+          "show": "boys - 1 = girls"
+        },
+        {
+          "say": "A girl's view.",
+          "show": "boys = 2 × (girls - 1)"
+        },
+        {
+          "say": "Try girls = 3, boys = 4.",
+          "show": "4 - 1 = 3 and 4 = 2 × 2"
+        },
+        {
+          "say": "Total.",
+          "show": "4 + 3 = 7"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-logic.008",
+      "skill": "m5.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Alice has at least one book. Ben says, 'She has more than 10 books.' Cara says, 'She has fewer than 10.' Dev says, 'She has at least 1.' Only one of them is right. How many books does Alice have?",
+      "answer": 10,
+      "hints": [
+        "Use the first sentence: is Dev right or wrong?",
+        "Dev is right, because Alice has at least one book. So Ben and Cara must both be wrong.",
+        "Ben is wrong, so Alice does not have more than 10 books. Now see what Cara being wrong tells you."
+      ],
+      "explanation": "Alice has at least one book, so Dev is right. Then Ben and Cara are both wrong: she has 10 or fewer and also 10 or more. The only number that fits is 10.",
+      "solution": [
+        {
+          "say": "Dev is right.",
+          "show": "at least 1: true"
+        },
+        {
+          "say": "So Ben is wrong.",
+          "show": "not more than 10"
+        },
+        {
+          "say": "And Cara is wrong.",
+          "show": "not fewer than 10"
+        },
+        {
+          "say": "Only one number fits.",
+          "show": "10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m5.oly-logic.009",
+      "skill": "m5.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In 4 years, Ben will be twice as old as he was 6 years ago. How old is Ben now?",
+      "answer": 16,
+      "hints": [
+        "The time between '6 years ago' and 'in 4 years' is 10 years.",
+        "His later age is twice his earlier age, and the two ages are 10 apart.",
+        "If one age is twice the other and they are 10 apart, the smaller age is 10."
+      ],
+      "explanation": "His ages 6 years ago and in 4 years are 10 years apart, and one is twice the other. So they are 10 and 20, and Ben is 10 + 6 = 16 now.",
+      "solution": [
+        {
+          "say": "Gap between the two ages.",
+          "show": "6 + 4 = 10 years"
+        },
+        {
+          "say": "Twice minus once is 10.",
+          "show": "age 6 years ago = 10"
+        },
+        {
+          "say": "Ben now.",
+          "show": "10 + 6 = 16"
+        },
+        {
+          "say": "Check: in 4 years he is 20, twice 10.",
+          "show": "20 = 2 × 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

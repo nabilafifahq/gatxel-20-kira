@@ -1,0 +1,531 @@
+{
+  "skill": "e2.speaking",
+  "items": [
+    {
+      "id": "e2.speaking.001",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Your friend is talking to you. What shows you are listening?",
+      "hints": [
+        "Good listeners use their eyes and ears.",
+        "Think about what your body does.",
+        "What could you do with your head to show you understand?"
+      ],
+      "explanation": "Looking at the speaker and nodding shows you are listening.",
+      "options": [
+        {
+          "text": "Look at your friend and nod."
+        },
+        {
+          "text": "Look away and hum a song.",
+          "why": "This shows you are not listening."
+        },
+        {
+          "text": "Talk at the same time.",
+          "why": "Wait for your turn to talk."
+        },
+        {
+          "text": "Walk away.",
+          "why": "Your friend will think you do not care."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.speaking.002",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Read the text aloud. Read clearly and not too fast.",
+      "hints": [
+        "Read it once in your head first.",
+        "Take a breath at each full stop."
+      ],
+      "explanation": "Pausing at each full stop helps the listener follow.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word correctly",
+            "points": 2
+          },
+          {
+            "label": "Pauses at full stops",
+            "points": 1
+          },
+          {
+            "label": "Clear voice, not too fast",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "Sam has a big black dog. The dog likes to run and dig. Sam and his dog play in the park every day."
+    },
+    {
+      "id": "e2.speaking.003",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You want to join a game. What do you say?",
+      "hints": [
+        "Ask in a kind way.",
+        "Use the magic word.",
+        "Which one is a polite question?"
+      ],
+      "explanation": "Can I play with you, please? is a kind and polite way to ask.",
+      "options": [
+        {
+          "text": "Give me the ball!",
+          "why": "This is bossy. Ask kindly."
+        },
+        {
+          "text": "Can I play with you, please?"
+        },
+        {
+          "text": "This game is boring.",
+          "why": "This is unkind."
+        },
+        {
+          "text": "Go away.",
+          "why": "This is unkind."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.speaking.004",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Read this aloud. Make your voice go up for the question. Sound excited for the shout.",
+      "hints": [
+        "Find the question mark and the exclamation marks first.",
+        "Practise the question in a curious voice."
+      ],
+      "explanation": "A question mark tells you to let your voice go up. An exclamation mark tells you to read with a big feeling.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word correctly",
+            "points": 2
+          },
+          {
+            "label": "Voice goes up for the question",
+            "points": 1
+          },
+          {
+            "label": "Excited voice for the exclamation",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "'Where is my hat?' asked Pak Tono. He looked under the bed. He looked behind the door. 'Here it is!' shouted his little girl. It was on his head!"
+    },
+    {
+      "id": "e2.speaking.005",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You did not hear what your teacher said. What is the polite thing to say?",
+      "hints": [
+        "Be polite to your teacher.",
+        "Use sorry and please.",
+        "Which one asks kindly?"
+      ],
+      "explanation": "Sorry, could you say that again, please? is polite and helps you find out.",
+      "options": [
+        {
+          "text": "What?!",
+          "why": "This sounds rude."
+        },
+        {
+          "text": "Say it again now.",
+          "why": "This is bossy."
+        },
+        {
+          "text": "Sorry, could you say that again, please?"
+        },
+        {
+          "text": "Never mind.",
+          "why": "Then you will not know what to do."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.speaking.006",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Describe your favourite animal. Say what it looks like, where it lives and what it eats.",
+      "hints": [
+        "Start with: My favourite animal is.",
+        "Use describing words, like stripy or fluffy."
+      ],
+      "explanation": "Give the listener details: how it looks, where it lives and what it eats.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Gives three facts or details",
+            "points": 2
+          },
+          {
+            "label": "Uses describing words",
+            "points": 1
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 90
+    },
+    {
+      "id": "e2.speaking.007",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which question would help you find out more about your friend's holiday?",
+      "hints": [
+        "The question should be about the holiday.",
+        "Good questions get a long answer.",
+        "Which question starts with what and asks about the holiday?"
+      ],
+      "explanation": "What was the best part of your holiday? is about the holiday and gets your friend talking.",
+      "options": [
+        {
+          "text": "Is it Monday today?",
+          "why": "This is not about the holiday."
+        },
+        {
+          "text": "Do you like my shoes?",
+          "why": "This is not about the holiday."
+        },
+        {
+          "text": "Can I have a pencil?",
+          "why": "This is not about the holiday."
+        },
+        {
+          "text": "What was the best part of your holiday?"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.speaking.008",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Think of a story you read this week. Retell it in your own words. Tell the beginning, the middle and the end.",
+      "hints": [
+        "Say who is in the story first.",
+        "Use first, then and in the end."
+      ],
+      "explanation": "A good retelling keeps the events in order and names the characters.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells the beginning, middle and end",
+            "points": 2
+          },
+          {
+            "label": "Uses time words, like first, then and in the end",
+            "points": 1
+          },
+          {
+            "label": "Names the characters",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 120
+    },
+    {
+      "id": "e2.speaking.009",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Your group is talking about a book. What is good group talk?",
+      "hints": [
+        "Everyone should get a turn.",
+        "Think about how the others feel.",
+        "What helps a group work well?"
+      ],
+      "explanation": "In good group talk, everyone takes turns and listens to each other.",
+      "options": [
+        {
+          "text": "Take turns and listen to others."
+        },
+        {
+          "text": "Talk the whole time.",
+          "why": "Others need a turn too."
+        },
+        {
+          "text": "Shout to be heard.",
+          "why": "Shouting makes it hard for everyone."
+        },
+        {
+          "text": "Only talk to your best friend.",
+          "why": "Talk to the whole group."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.speaking.010",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Tell someone how to make a sandwich. Give the steps in order.",
+      "hints": [
+        "Think about what you need first.",
+        "Say first, next, then and finally."
+      ],
+      "explanation": "Spoken instructions need the same things as written ones: steps in order and time words.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Steps are in order",
+            "points": 2
+          },
+          {
+            "label": "Uses first, next, then and finally",
+            "points": 1
+          },
+          {
+            "label": "Clear and easy to follow",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 90
+    },
+    {
+      "id": "e2.speaking.011",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A character in a story whispers a secret. How should you read that part aloud?",
+      "hints": [
+        "Think about what whispering sounds like.",
+        "Your voice should match the character.",
+        "Is a secret loud or quiet?"
+      ],
+      "explanation": "A whisper is quiet, so a quiet, soft voice fits a secret.",
+      "options": [
+        {
+          "text": "in a loud, shouting voice",
+          "why": "Shouting does not fit a secret."
+        },
+        {
+          "text": "in a quiet, soft voice"
+        },
+        {
+          "text": "in a fast, squeaky voice",
+          "why": "This does not fit a whisper."
+        },
+        {
+          "text": "in a singing voice",
+          "why": "Singing does not fit a whisper."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.speaking.012",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Read the poem aloud. Keep a steady beat and make the rhymes clear.",
+      "hints": [
+        "Clap the beat before you read.",
+        "Make the rhyming words clear: blue, too, run, sun."
+      ],
+      "explanation": "A steady beat and clear rhymes help the listener enjoy a poem.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word",
+            "points": 1
+          },
+          {
+            "label": "Keeps a steady rhythm",
+            "points": 2
+          },
+          {
+            "label": "Clear voice with expression",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "My kite is red and green and blue,\nit has a long tail, yellow too.\nI hold the string and run, run, run\nacross the field beneath the sun."
+    },
+    {
+      "id": "e2.speaking.013",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the best reply. 'How are you today?'",
+      "hints": [
+        "The question asks how you feel.",
+        "It is polite to ask back.",
+        "Find the answer about feeling."
+      ],
+      "explanation": "The question asks how you feel. The best reply answers it and politely asks back.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I am seven.",
+          "why": "This answers: How old are you?"
+        },
+        {
+          "text": "Yes, I do.",
+          "why": "This answers a question that starts with do."
+        },
+        {
+          "text": "It is a pen.",
+          "why": "This answers: What is it?"
+        },
+        {
+          "text": "I'm fine, thank you. And you?"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.speaking.014",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "You are telling the class about your weekend. What should you do?",
+      "hints": [
+        "Think about your voice.",
+        "Think about your eyes.",
+        "What helps everyone hear and enjoy your talk?"
+      ],
+      "explanation": "Speaking clearly and looking at the class helps everyone listen.",
+      "options": [
+        {
+          "text": "Speak very fast and look at the floor.",
+          "why": "The class will not hear or see you well."
+        },
+        {
+          "text": "Whisper so no one can hear.",
+          "why": "Everyone needs to hear you."
+        },
+        {
+          "text": "Speak clearly and look at your audience."
+        },
+        {
+          "text": "Read a book about someone else.",
+          "why": "Talk about your own weekend."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.speaking.015",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 4,
+      "prompt": "Which is better, a rainy day or a sunny day? Say what you think. Give two reasons and use because.",
+      "hints": [
+        "Start with: I think ... is better.",
+        "Then say: because ... and because ..."
+      ],
+      "explanation": "A good opinion says what you think and gives reasons with because.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Gives a clear opinion",
+            "points": 1
+          },
+          {
+            "label": "Gives two reasons",
+            "points": 2
+          },
+          {
+            "label": "Uses because",
+            "points": 1
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 90
+    },
+    {
+      "id": "e2.speaking.016",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the best reply. 'Would you like some more rice?'",
+      "hints": [
+        "The question offers you something.",
+        "We answer with please or thank you.",
+        "Which reply says no politely?"
+      ],
+      "explanation": "No, thank you. I'm full. is a polite way to say no to more food.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "No, thank you. I'm full."
+        },
+        {
+          "text": "Yes, I am.",
+          "why": "Would you like needs yes, please or no, thank you."
+        },
+        {
+          "text": "I like red.",
+          "why": "This does not answer the question."
+        },
+        {
+          "text": "It is Tuesday.",
+          "why": "This does not answer the question."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.speaking.017",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 5,
+      "prompt": "Pretend you are a guide at a market. Tell visitors what they can see, buy, smell and taste.",
+      "hints": [
+        "Picture a busy market first.",
+        "Talk to your visitors: Look! Smell this!",
+        "Use describing words for colours and smells."
+      ],
+      "explanation": "A good guide speaks to the listeners and uses the senses to bring a place to life.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Talks about at least three senses",
+            "points": 2
+          },
+          {
+            "label": "Uses interesting describing words",
+            "points": 1
+          },
+          {
+            "label": "Speaks to the audience, like 'Look over here!'",
+            "points": 1
+          },
+          {
+            "label": "Clear voice with expression",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 120
+    }
+  ]
+}

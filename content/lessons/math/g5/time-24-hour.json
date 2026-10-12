@@ -1,0 +1,134 @@
+{
+  "skill": "m5.time-24-hour",
+  "title": "The 24-hour clock and timetables",
+  "steps": [
+    {
+      "say": "The 24-hour clock counts the hours from midnight to midnight. It always uses four digits.",
+      "show": "3:40 pm = 15:40",
+      "figure": {
+        "kind": "clock",
+        "h": 15,
+        "m": 40,
+        "digital": true,
+        "alt": "A digital clock showing 15:40."
+      }
+    },
+    {
+      "say": "For times after midday, add 12 to the hour. 7:15 pm becomes 19:15.",
+      "show": "7 + 12 = 19"
+    },
+    {
+      "say": "Morning times keep their hour, with a zero in front if needed. 9:05 am is 09:05.",
+      "show": "9:05 am = 09:05"
+    },
+    {
+      "say": "Timetables show when things leave and arrive. Read down the column for one bus.",
+      "show": "Bus A reaches the park at 08:35",
+      "figure": {
+        "kind": "table",
+        "caption": "Bus timetable",
+        "head": [
+          "Stop",
+          "Bus A",
+          "Bus B"
+        ],
+        "rows": [
+          [
+            "Terminal",
+            "07:45",
+            "09:20"
+          ],
+          [
+            "Market",
+            "08:10",
+            "09:45"
+          ],
+          [
+            "Park",
+            "08:35",
+            "10:10"
+          ]
+        ],
+        "alt": "A bus timetable. Bus A: Terminal 07:45, Market 08:10, Park 08:35. Bus B: Terminal 09:20, Market 09:45, Park 10:10."
+      }
+    },
+    {
+      "say": "To find how long a trip takes, count on to the next hour, then on to the end time.",
+      "show": "07:45 to 08:00 is 15 minutes, 08:00 to 08:35 is 35 minutes"
+    },
+    {
+      "say": "Add the parts. Bus A takes 50 minutes from the terminal to the park.",
+      "show": "15 + 35 = 50 minutes"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.time-24-hour.901",
+      "skill": "m5.time-24-hour",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is 8:30 pm on the 24-hour clock?",
+      "hints": [
+        "Afternoon and evening times are pm times.",
+        "For a pm time, add 12 to the hour.",
+        "The minutes stay the same."
+      ],
+      "explanation": "8 + 12 = 20, so 8:30 pm is 20:30.",
+      "options": [
+        {
+          "text": "18:30",
+          "why": "8 + 12 is 20, not 18."
+        },
+        {
+          "text": "22:30",
+          "why": "22:30 is 10:30 pm."
+        },
+        {
+          "text": "20:30"
+        },
+        {
+          "text": "08:30",
+          "why": "08:30 is in the morning. Add 12 to the hour for pm times."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.time-24-hour.902",
+      "skill": "m5.time-24-hour",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A film starts at 14:50 and ends at 16:25. How many minutes long is it?",
+      "hints": [
+        "Count on from 14:50 to 15:00.",
+        "Then count on from 15:00 to 16:25.",
+        "14:50 to 15:00 is 10 minutes."
+      ],
+      "explanation": "10 minutes takes you to 15:00, then 85 minutes to 16:25. 10 + 85 = 95 minutes.",
+      "answer": 95,
+      "unit": "minutes"
+    },
+    {
+      "id": "m5.time-24-hour.903",
+      "skill": "m5.time-24-hour",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A train leaves at 09:35. The trip takes 2 hours 40 minutes. When does it arrive? Use the 24-hour clock.",
+      "hints": [
+        "Add the 2 hours first.",
+        "Then add the 40 minutes.",
+        "09:35 + 2 hours = 11:35."
+      ],
+      "explanation": "09:35 + 2 hours = 11:35. 11:35 + 40 minutes = 12:15.",
+      "blanks": [
+        {
+          "answers": [
+            "12:15",
+            "12.15",
+            "1215"
+          ]
+        }
+      ]
+    }
+  ]
+}

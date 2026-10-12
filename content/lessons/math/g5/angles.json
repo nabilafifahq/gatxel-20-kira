@@ -1,0 +1,110 @@
+{
+  "skill": "m5.angles",
+  "title": "Angles",
+  "steps": [
+    {
+      "say": "An angle is an amount of turn between two lines. We measure it in degrees with a protractor.",
+      "show": "50°",
+      "figure": {
+        "kind": "angle",
+        "degrees": 50,
+        "showProtractor": true,
+        "alt": "An angle of 50 degrees on a protractor."
+      }
+    },
+    {
+      "say": "A right angle is 90°. Acute angles are less than 90°, and obtuse angles are between 90° and 180°.",
+      "show": "acute < 90° < obtuse < 180°",
+      "figure": {
+        "kind": "angle",
+        "degrees": 120,
+        "label": "120°",
+        "alt": "An obtuse angle of 120 degrees."
+      }
+    },
+    {
+      "say": "Angles on a straight line add up to 180°.",
+      "show": "130° + ? = 180°"
+    },
+    {
+      "say": "To find the missing angle, subtract the angle you know from 180°.",
+      "show": "180° − 130° = 50°"
+    },
+    {
+      "say": "The three angles inside a triangle also add up to 180°.",
+      "show": "60° + 70° + 50° = 180°",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle with three angles."
+      }
+    },
+    {
+      "say": "Find the third angle by adding the two you know, then subtracting from 180°.",
+      "show": "180° − (60° + 70°) = 50°"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.angles.901",
+      "skill": "m5.angles",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "An angle is 125°. What type of angle is it?",
+      "hints": [
+        "Compare 125° with 90°.",
+        "Compare 125° with 180°.",
+        "Angles between 90° and 180° have a special name."
+      ],
+      "explanation": "125° is more than 90° and less than 180°, so it is obtuse.",
+      "options": [
+        {
+          "text": "Acute",
+          "why": "Acute angles are less than 90°."
+        },
+        {
+          "text": "Right angle",
+          "why": "A right angle is exactly 90°."
+        },
+        {
+          "text": "Reflex",
+          "why": "Reflex angles are more than 180°."
+        },
+        {
+          "text": "Obtuse"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.angles.902",
+      "skill": "m5.angles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Two angles sit on a straight line. One is 68°. What is the other?",
+      "hints": [
+        "Angles on a straight line add up to 180°.",
+        "Subtract 68° from 180°.",
+        "180 − 60 = 120."
+      ],
+      "explanation": "180° − 68° = 112°.",
+      "answer": 112,
+      "unit": "°"
+    },
+    {
+      "id": "m5.angles.903",
+      "skill": "m5.angles",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A triangle has angles of 45° and 75°. What is the third angle?",
+      "hints": [
+        "The angles in a triangle add up to 180°.",
+        "Add the two angles you know.",
+        "45 + 75 = 120."
+      ],
+      "explanation": "45° + 75° = 120°. 180° − 120° = 60°.",
+      "answer": 60,
+      "unit": "°"
+    }
+  ]
+}

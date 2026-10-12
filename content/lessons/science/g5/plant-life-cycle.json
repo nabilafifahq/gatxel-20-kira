@@ -1,0 +1,101 @@
+{
+  "skill": "s5.plant-life-cycle",
+  "title": "From seed to flower to seed",
+  "steps": [
+    {
+      "say": "A flowering plant starts life as a seed. With water and warmth, the seed germinates and grows into a seedling.",
+      "figure": {
+        "kind": "icons",
+        "arrows": "cycle",
+        "items": [
+          {
+            "icon": "seed",
+            "label": "seed"
+          },
+          {
+            "icon": "seedling",
+            "label": "seedling"
+          },
+          {
+            "icon": "plant",
+            "label": "adult plant"
+          },
+          {
+            "icon": "flower",
+            "label": "flower"
+          }
+        ],
+        "alt": "The life cycle of a flowering plant: seed, seedling, adult plant, flower, and back to seed."
+      }
+    },
+    {
+      "say": "The flower is where new seeds are made. Petals attract insects, and sepals protect the bud."
+    },
+    {
+      "say": "Anthers make pollen, and the stigma catches pollen. Moving pollen from an anther to a stigma is pollination.",
+      "show": "anther to stigma: pollination"
+    },
+    {
+      "say": "Insects and the wind carry pollen. Bright, scented flowers attract insects, while dull flowers with light pollen use the wind."
+    },
+    {
+      "say": "When pollen joins with an ovule, that is fertilisation. The ovule becomes a seed and the ovary becomes a fruit."
+    },
+    {
+      "say": "Seeds are spread by the wind, animals, water or bursting pods. Then the cycle starts again."
+    }
+  ],
+  "check": [
+    {
+      "id": "s5.plant-life-cycle.901",
+      "skill": "s5.plant-life-cycle",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does the stigma of a flower do?",
+      "options": [
+        {
+          "text": "makes pollen",
+          "why": "The anther makes pollen."
+        },
+        {
+          "text": "protects the bud",
+          "why": "The sepals protect the flower bud."
+        },
+        {
+          "text": "catches pollen"
+        },
+        {
+          "text": "attracts insects with its colour",
+          "why": "Coloured petals attract insects."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The stigma is at the top of the carpel.",
+        "It is often sticky.",
+        "Think about what sticks to it when an insect visits."
+      ],
+      "explanation": "The stigma is the sticky top of the carpel. It catches pollen during pollination."
+    },
+    {
+      "id": "s5.plant-life-cycle.902",
+      "skill": "s5.plant-life-cycle",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Moving pollen from an anther to a stigma is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "pollination"
+          ]
+        }
+      ],
+      "hints": [
+        "This step happens before fertilisation.",
+        "Insects and the wind help it to happen.",
+        "The word starts with the same letters as pollen."
+      ],
+      "explanation": "Pollination is the movement of pollen from an anther to a stigma."
+    }
+  ]
+}

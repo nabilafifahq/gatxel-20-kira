@@ -1,0 +1,356 @@
+{
+  "skill": "s5.friction-resistance",
+  "items": [
+    {
+      "id": "s5.friction-resistance.001",
+      "skill": "s5.friction-resistance",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "When the brake pads rub on a bicycle wheel, the force that slows the bicycle is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "friction"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what happens when two surfaces rub together.",
+        "This force always acts against the direction something is moving.",
+        "Rub your hands together quickly. The force you feel starts with the letter f."
+      ],
+      "explanation": "Friction acts between surfaces that rub together. The brake pads rub on the wheel, and friction slows the bicycle down."
+    },
+    {
+      "id": "s5.friction-resistance.002",
+      "skill": "s5.friction-resistance",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these into useful friction and unhelpful friction.",
+      "groups": [
+        "Useful friction",
+        "Unhelpful friction"
+      ],
+      "items": [
+        {
+          "text": "shoe soles gripping the floor",
+          "group": 0
+        },
+        {
+          "text": "brakes stopping a bicycle",
+          "group": 0
+        },
+        {
+          "text": "a pencil writing on paper",
+          "group": 0
+        },
+        {
+          "text": "striking a match",
+          "group": 0
+        },
+        {
+          "text": "a bicycle chain wearing out",
+          "group": 1
+        },
+        {
+          "text": "a door hinge squeaking",
+          "group": 1
+        },
+        {
+          "text": "car tyres wearing thin",
+          "group": 1
+        },
+        {
+          "text": "a heavy box that is hard to slide",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Friction is useful when we want grip or want to slow something down.",
+        "Friction is unhelpful when it wears things out, makes a noise or makes moving harder.",
+        "Start with the shoes. Think about walking on a floor with no friction at all."
+      ],
+      "explanation": "Friction helps shoes grip, brakes stop, pencils leave marks and matches light. It is unhelpful when it wears out chains and tyres, makes hinges squeak or makes boxes hard to slide."
+    },
+    {
+      "id": "s5.friction-resistance.003",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why does a parachute fall slowly?",
+      "options": [
+        {
+          "text": "It has no weight.",
+          "why": "A parachute has weight, so gravity still pulls it down."
+        },
+        {
+          "text": "Gravity does not pull on parachutes.",
+          "why": "Gravity pulls on everything that has mass, including parachutes."
+        },
+        {
+          "text": "It is made of plastic, which floats on air.",
+          "why": "Plastic does not float on air. The large shape is what slows it."
+        },
+        {
+          "text": "Its large surface pushes against lots of air, making big air resistance."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Air pushes against anything that moves through it.",
+        "Think about how the size of a surface changes how much air it pushes against.",
+        "Compare an open parachute with a closed one. Decide which falls more slowly."
+      ],
+      "explanation": "A parachute has a large surface, so it pushes against a lot of air as it falls. This makes a large air resistance force, which slows the fall."
+    },
+    {
+      "id": "s5.friction-resistance.004",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape moves most easily through water?",
+      "options": [
+        {
+          "text": "a smooth, pointed shape like a fish"
+        },
+        {
+          "text": "a flat, wide square",
+          "why": "A flat, wide shape pushes against lots of water, so it is slowed down."
+        },
+        {
+          "text": "a rough box with sharp corners",
+          "why": "Rough surfaces and sharp corners make more water resistance."
+        },
+        {
+          "text": "an open umbrella shape",
+          "why": "An open umbrella catches lots of water, so it is slowed down a lot."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Water pushes against things that move through it. This is water resistance.",
+        "Think about the shape of fast swimmers such as fish and dolphins.",
+        "Look for the shape with the smallest front and the smoothest sides."
+      ],
+      "explanation": "A smooth, pointed shape is streamlined, so water flows around it easily. Fish, dolphins and boats have streamlined shapes to reduce water resistance."
+    },
+    {
+      "id": "s5.friction-resistance.005",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sinta pulls the same shoe across four surfaces with a forcemeter. Which conclusion fits her results?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "tiles",
+          "wood",
+          "carpet",
+          "sandpaper"
+        ],
+        "values": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "axisMax": 8,
+        "step": 1,
+        "yLabel": "Force to pull the shoe (N)",
+        "tone": "science",
+        "alt": "Bar chart of the force needed to pull a shoe: tiles 2 N, wood 3 N, carpet 5 N and sandpaper 7 N."
+      },
+      "options": [
+        {
+          "text": "Smoother surfaces give more friction.",
+          "why": "The smooth tiles needed the smallest force, so they gave the least friction."
+        },
+        {
+          "text": "All surfaces give the same friction.",
+          "why": "The forces are different for each surface, from 2 N to 7 N."
+        },
+        {
+          "text": "Rougher surfaces give more friction."
+        },
+        {
+          "text": "The shoe is heavier on carpet.",
+          "why": "The same shoe was used each time, so its weight did not change."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A bigger force to pull the shoe means more friction.",
+        "Put the surfaces in order from smoothest to roughest.",
+        "Compare the bar for tiles with the bar for sandpaper."
+      ],
+      "explanation": "The smooth tiles needed only 2 N and rough sandpaper needed 7 N. Rougher surfaces give more friction, so a bigger force is needed to pull the shoe.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s5.friction-resistance.006",
+      "skill": "s5.friction-resistance",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the ways to reduce friction.",
+      "options": [
+        {
+          "text": "put oil on a squeaky hinge"
+        },
+        {
+          "text": "make the surfaces smoother"
+        },
+        {
+          "text": "put a heavy box on rollers"
+        },
+        {
+          "text": "spread sand on a slippery path",
+          "why": "Sand makes the path rougher, which increases friction so people can grip."
+        },
+        {
+          "text": "wear shoes with deep rubber grooves",
+          "why": "Deep grooves give more grip, which means more friction."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Friction is greater when surfaces are rough and pressed together.",
+        "Think about how a squeaky bicycle chain can be made to stop squeaking.",
+        "For each choice, ask whether the surfaces will grip more or slide more easily."
+      ],
+      "explanation": "Oil, smooth surfaces and rollers all let surfaces move past each other more easily, so they reduce friction. Sand and deep grooves increase friction to give more grip."
+    },
+    {
+      "id": "s5.friction-resistance.007",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1971, astronaut David Scott dropped a hammer and a feather on the Moon at the same time. They hit the ground together. Why?",
+      "options": [
+        {
+          "text": "The Moon has no gravity.",
+          "why": "Both objects fell, so the Moon's gravity was pulling on them."
+        },
+        {
+          "text": "There is no air on the Moon, so there is no air resistance."
+        },
+        {
+          "text": "The hammer and the feather have the same mass.",
+          "why": "The hammer has much more mass than the feather."
+        },
+        {
+          "text": "The feather is heavier on the Moon.",
+          "why": "Everything weighs less on the Moon, including the feather."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "On Earth, a feather falls slowly because air pushes against it.",
+        "Think about what is all around us on Earth but missing on the Moon.",
+        "Take the air out of the problem. Decide what would then slow the feather down."
+      ],
+      "explanation": "On Earth, air resistance slows a feather much more than a hammer. The Moon has no air, so there is no air resistance, and gravity makes both fall at the same rate.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.friction-resistance.008",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hana drops a flat sheet of paper and a crumpled ball of the same paper from the same height. Which lands first, and why?",
+      "options": [
+        {
+          "text": "The flat sheet, because it is heavier.",
+          "why": "Both are made from the same sheet of paper, so they have the same mass."
+        },
+        {
+          "text": "They land together, because they have the same mass.",
+          "why": "In air, shape changes the air resistance, so the flat sheet is slowed more."
+        },
+        {
+          "text": "The crumpled ball, because its smaller surface meets less air resistance."
+        },
+        {
+          "text": "The flat sheet, because air pushes it down.",
+          "why": "Air resistance pushes against the movement, so it slows the flat sheet."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Both pieces have the same mass, so gravity pulls on them equally.",
+        "Think about which shape pushes against more air as it falls.",
+        "Picture each one falling. Decide which has the bigger surface facing the air."
+      ],
+      "explanation": "The ball and the sheet have the same mass, but the flat sheet has a much bigger surface. It meets more air resistance, so the crumpled ball lands first.",
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.friction-resistance.009",
+      "skill": "s5.friction-resistance",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Four parachutes made of the same material carry the same toy. Order them from the slowest fall to the fastest fall.",
+      "items": [
+        "parachute 100 cm wide",
+        "parachute 60 cm wide",
+        "parachute 30 cm wide",
+        "parachute 10 cm wide"
+      ],
+      "hints": [
+        "A falling parachute is slowed by air resistance.",
+        "A bigger surface pushes against more air.",
+        "Decide whether a wide or a narrow parachute meets more air resistance, then sort them by width."
+      ],
+      "explanation": "The wider the parachute, the more air it pushes against and the bigger the air resistance. So the 100 cm parachute falls most slowly and the 10 cm parachute falls fastest.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s5.friction-resistance.010",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A skydiver jumps from a plane. At first she speeds up, but later she falls at a steady speed. Why does she stop speeding up?",
+      "options": [
+        {
+          "text": "Gravity switches off high in the sky.",
+          "why": "Gravity keeps pulling on her all the way down."
+        },
+        {
+          "text": "Her mass gets smaller as she falls.",
+          "why": "Her mass does not change during the fall."
+        },
+        {
+          "text": "Air resistance becomes zero.",
+          "why": "Air resistance is biggest when she falls fast. It does not become zero while she moves."
+        },
+        {
+          "text": "Air resistance grows as she speeds up, until it balances her weight."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Two forces act on her: her weight pulling down and air resistance pushing up.",
+        "Air resistance gets bigger the faster you move.",
+        "Ask what happens when the upward force grows until it matches the downward force."
+      ],
+      "explanation": "As she falls faster, air resistance grows. When it becomes as big as her weight, the forces are balanced, so she stops speeding up and falls at a steady speed.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    }
+  ]
+}

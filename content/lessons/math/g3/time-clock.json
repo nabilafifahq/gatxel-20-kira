@@ -1,0 +1,101 @@
+{
+  "skill": "m3.time-clock",
+  "title": "Tell the time to 5 minutes",
+  "steps": [
+    {
+      "say": "The short hand shows the hour. The long hand shows the minutes.",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 0,
+        "alt": "A clock showing 3 o'clock."
+      }
+    },
+    {
+      "say": "For the long hand, each number on the clock is 5 more minutes.",
+      "show": "1 is 5 minutes, 2 is 10 minutes, 3 is 15 minutes"
+    },
+    {
+      "say": "Here the long hand points to 4. That is 20 minutes past 3.",
+      "show": "3:20",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 20,
+        "alt": "A clock showing 20 minutes past 3."
+      }
+    },
+    {
+      "say": "After half past, we say minutes to the next hour.",
+      "show": "7:40 is 20 minutes to 8",
+      "figure": {
+        "kind": "clock",
+        "h": 7,
+        "m": 40,
+        "alt": "A clock showing 20 minutes to 8."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.time-clock.901",
+      "skill": "m3.time-clock",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What time does the clock show?",
+      "options": [
+        {
+          "text": "25 minutes past 9"
+        },
+        {
+          "text": "5 minutes past 9",
+          "why": "The long hand on 5 means 25 minutes."
+        },
+        {
+          "text": "9 minutes past 5",
+          "why": "The short hand shows the hour, and the long hand shows the minutes."
+        },
+        {
+          "text": "25 minutes past 10",
+          "why": "The short hand has not reached 10 yet."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the short hand first for the hour.",
+        "Count in 5s to the long hand.",
+        "The long hand points to 5."
+      ],
+      "explanation": "The short hand is just past 9. The long hand is on 5, which means 25 minutes. So it is 25 minutes past 9.",
+      "figure": {
+        "kind": "clock",
+        "h": 9,
+        "m": 25,
+        "alt": "A clock with the short hand just past 9 and the long hand on 5."
+      }
+    },
+    {
+      "id": "m3.time-clock.902",
+      "skill": "m3.time-clock",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write 10 minutes to 4 in digits. ___",
+      "blanks": [
+        {
+          "answers": [
+            "3:50",
+            "3.50",
+            "03:50",
+            "03.50"
+          ]
+        }
+      ],
+      "hints": [
+        "10 minutes to 4 is before 4 o'clock.",
+        "An hour has 60 minutes.",
+        "Work out 60 - 10."
+      ],
+      "explanation": "10 minutes to 4 is 50 minutes past 3, so it is 3:50."
+    }
+  ]
+}

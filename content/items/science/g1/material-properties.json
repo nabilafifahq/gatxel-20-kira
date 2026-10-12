@@ -1,0 +1,153 @@
+{
+  "skill": "s1.material-properties",
+  "items": [
+    {
+      "id": "s1.material-properties.001", "skill": "s1.material-properties", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word describes a pillow?",
+      "options": [
+        { "text": "hard", "why": "A pillow squashes when you press it, so it is not hard." },
+        { "text": "soft" },
+        { "text": "sharp", "why": "A pillow has no sharp edges or points." }
+      ],
+      "answer": 1,
+      "hints": ["Think about resting your head on a pillow.", "Does it squash when you press it?", "Press your hand into a cushion in your mind."],
+      "explanation": "A pillow is soft. It squashes when we press it, so it is comfortable."
+    },
+    {
+      "id": "s1.material-properties.002", "skill": "s1.material-properties", "type": "sort", "difficulty": 2,
+      "prompt": "Is it hard or soft? Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "rock", "label": "rock" }, { "icon": "brick", "label": "brick" }, { "icon": "spoon", "label": "metal spoon" }, { "icon": "sponge", "label": "sponge" }, { "icon": "sock", "label": "sock" }, { "icon": "feather", "label": "feather" }], "alt": "Six pictures: a rock, a brick, a metal spoon, a sponge, a sock and a feather." },
+      "groups": ["Hard", "Soft"],
+      "items": [
+        { "text": "rock", "group": 0 },
+        { "text": "brick", "group": 0 },
+        { "text": "metal spoon", "group": 0 },
+        { "text": "sponge", "group": 1 },
+        { "text": "sock", "group": 1 },
+        { "text": "feather", "group": 1 }
+      ],
+      "hints": ["Hard things do not squash when you press them.", "Imagine pressing each one with your thumb.", "Start with the rock. Does it change shape?"],
+      "explanation": "A rock, a brick and a metal spoon are hard. A sponge, a sock and a feather are soft."
+    },
+    {
+      "id": "s1.material-properties.003", "skill": "s1.material-properties", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one feels rough?",
+      "options": [
+        { "text": "a glass window", "why": "Glass feels smooth." },
+        { "text": "tree bark" },
+        { "text": "a balloon", "why": "A balloon feels smooth." }
+      ],
+      "answer": 1,
+      "hints": ["Rough things feel bumpy.", "Imagine running your finger over each one.", "Start with the glass window. Is it bumpy or smooth?"],
+      "explanation": "Tree bark is rough and bumpy. Glass and balloons feel smooth."
+    },
+    {
+      "id": "s1.material-properties.004", "skill": "s1.material-properties", "type": "match", "difficulty": 2,
+      "prompt": "Match each object to a word that describes it.",
+      "figure": { "kind": "icons", "items": [{ "icon": "mirror", "label": "mirror" }, { "icon": "rubber-band", "label": "rubber band" }, { "icon": "paper", "label": "sandpaper" }, { "icon": "feather", "label": "feather" }], "alt": "Four objects: a mirror, a rubber band, sandpaper and a feather." },
+      "pairs": [["mirror", "shiny"], ["rubber band", "stretchy"], ["sandpaper", "rough"], ["feather", "soft"]],
+      "hints": ["Think about how each object feels or looks.", "Do the one you are sure of first.", "Start with the rubber band. What happens when you pull it?"],
+      "explanation": "A mirror is shiny, a rubber band is stretchy, sandpaper is rough and a feather is soft."
+    },
+    {
+      "id": "s1.material-properties.005", "skill": "s1.material-properties", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one can you see through?",
+      "options": [
+        { "text": "a wooden door", "why": "Wood blocks the light. We cannot see through it." },
+        { "text": "a brick wall", "why": "Bricks block the light. We cannot see through them." },
+        { "text": "a clear glass window" }
+      ],
+      "answer": 2,
+      "hints": ["See-through things let light pass.", "Which one can you look out of?", "Picture each one in your house. Can you see the garden through it?"],
+      "explanation": "Clear glass is see-through, so we can see through a window. Wood and brick are not see-through."
+    },
+    {
+      "id": "s1.material-properties.006", "skill": "s1.material-properties", "type": "text", "difficulty": 2,
+      "prompt": "You can pull a rubber band to make it longer. It is ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "rubber-band", "label": "rubber band" }], "alt": "A rubber band." },
+      "blanks": [{ "answers": ["stretchy", "elastic"] }],
+      "hints": ["Think about what happens when you pull a rubber band.", "It gets longer, then goes back when you let go.", "The word starts with str."],
+      "explanation": "A rubber band is stretchy. It gets longer when we pull it and goes back when we let go."
+    },
+    {
+      "id": "s1.material-properties.007", "skill": "s1.material-properties", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the shiny things.",
+      "options": [
+        { "text": "a new coin" },
+        { "text": "a wooden block", "why": "Wood usually looks dull." },
+        { "text": "a mirror" },
+        { "text": "a sock", "why": "Fabric usually looks dull." },
+        { "text": "a metal spoon" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Shiny things reflect light.", "Imagine each one in the sunshine. Which ones sparkle?", "Start with the mirror. Can you see yourself in it?"],
+      "explanation": "A new coin, a mirror and a metal spoon are shiny. They reflect light. Wood and fabric look dull."
+    },
+    {
+      "id": "s1.material-properties.008", "skill": "s1.material-properties", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one is bendy?",
+      "options": [
+        { "text": "a brick", "why": "A brick is hard and stiff." },
+        { "text": "a wooden ruler", "why": "A wooden ruler is stiff. It snaps if you bend it too far." },
+        { "text": "a pipe cleaner" }
+      ],
+      "answer": 2,
+      "hints": ["Bendy things change shape when you bend them.", "Imagine trying to bend each one gently.", "Start with the brick. Can you bend it?"],
+      "explanation": "A pipe cleaner is bendy. We can bend it into many shapes. A brick and a wooden ruler are stiff."
+    },
+    {
+      "id": "s1.material-properties.009", "skill": "s1.material-properties", "type": "mcq", "difficulty": 3,
+      "prompt": "Lily's object is hard and smooth. Which one could it be?",
+      "options": [
+        { "text": "a marble" },
+        { "text": "a sponge", "why": "A sponge is soft and full of holes." },
+        { "text": "a pine cone", "why": "A pine cone is hard, but it is rough and bumpy." }
+      ],
+      "answer": 0,
+      "hints": ["The object must be hard and smooth at the same time.", "Check each one for both words.", "Start with the sponge. Is it hard?"],
+      "explanation": "A marble is hard and smooth. A sponge is soft, and a pine cone is rough."
+    },
+    {
+      "id": "s1.material-properties.010", "skill": "s1.material-properties", "type": "sort", "difficulty": 3,
+      "prompt": "Is it bendy or stiff? Sort the cards.",
+      "groups": ["Bendy", "Stiff"],
+      "items": [
+        { "text": "sock", "group": 0 },
+        { "text": "sheet of paper", "group": 0 },
+        { "text": "pipe cleaner", "group": 0 },
+        { "text": "brick", "group": 1 },
+        { "text": "stone", "group": 1 },
+        { "text": "wooden block", "group": 1 }
+      ],
+      "hints": ["Bendy things change shape when you bend them.", "Imagine trying to fold each one.", "Start with the sock. Can you fold it?"],
+      "explanation": "A sock, a sheet of paper and a pipe cleaner are bendy. A brick, a stone and a wooden block are stiff."
+    },
+    {
+      "id": "s1.material-properties.011", "skill": "s1.material-properties", "type": "mcq", "difficulty": 4,
+      "prompt": "Which one is shiny and is not see-through?",
+      "options": [
+        { "text": "a clear glass", "why": "Clear glass is shiny, but you can see through it." },
+        { "text": "a metal spoon" },
+        { "text": "a wooden block", "why": "A wooden block is not shiny." }
+      ],
+      "answer": 1,
+      "hints": ["Two things must be true at once.", "First find the shiny things. Then check which you cannot see through.", "Start with the metal spoon. Is it shiny?"],
+      "explanation": "A metal spoon is shiny, and we cannot see through it. Clear glass is shiny and see-through. A wooden block is not shiny.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.material-properties.012", "skill": "s1.material-properties", "type": "mcq", "difficulty": 5,
+      "prompt": "Which object goes in the box with the question mark?",
+      "figure": { "kind": "carroll", "cols": ["Bendy", "Not bendy"], "rows": ["Shiny", "Not shiny"], "cells": [["foil"], ["mirror"], ["sock"], ["?"]], "alt": "A sorting grid. Columns: bendy and not bendy. Rows: shiny and not shiny. Foil is shiny and bendy. A mirror is shiny and not bendy. A sock is not shiny and bendy. The box for not shiny and not bendy has a question mark." },
+      "options": [
+        { "text": "a metal spoon", "why": "A metal spoon is shiny, so it goes in the top row." },
+        { "text": "a sheet of paper", "why": "Paper is bendy, so it goes in the first column." },
+        { "text": "a brick" }
+      ],
+      "answer": 2,
+      "hints": ["Find the row and the column for the question mark.", "The object must be not shiny and not bendy.", "Test each object: is it shiny? Can it bend?"],
+      "explanation": "The question mark box is for things that are not shiny and not bendy. A brick is dull and stiff, so it goes there.",
+      "tags": ["iksc"]
+    }
+  ]
+}

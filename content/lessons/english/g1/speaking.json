@@ -1,0 +1,51 @@
+{
+  "skill": "e1.speaking",
+  "title": "Speaking and listening",
+  "steps": [
+    {
+      "say": "When you speak, use a clear voice that is not too fast.",
+      "show": "clear and steady"
+    },
+    {
+      "say": "Look at the person you are talking to.",
+      "show": "eyes on the listener"
+    },
+    {
+      "say": "When you listen, look at the speaker and wait for your turn.",
+      "show": "look, listen, wait"
+    },
+    {
+      "say": "Use kind words like please, thank you and sorry.",
+      "show": "please, thank you, sorry"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.speaking.901",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Someone helps you pick up your books. What do you say?",
+      "hints": [
+        "Someone was kind to you.",
+        "What do we say after someone helps?",
+        "It is two kind words."
+      ],
+      "explanation": "When someone helps you, you say thank you.",
+      "options": [
+        {
+          "text": "Thank you!"
+        },
+        {
+          "text": "Go away!",
+          "why": "That is not kind."
+        },
+        {
+          "text": "Sorry!",
+          "why": "Sorry is for a mistake."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

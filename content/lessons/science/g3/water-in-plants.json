@@ -1,0 +1,116 @@
+{
+  "skill": "s3.water-in-plants",
+  "title": "Water's journey through a plant",
+  "steps": [
+    {
+      "say": "Plants need water to stay firm and to make food. Water starts its journey in the soil.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "rain",
+            "label": "rain"
+          },
+          {
+            "icon": "soil",
+            "label": "soil"
+          },
+          {
+            "icon": "plant",
+            "label": "plant"
+          }
+        ],
+        "alt": "Rain falls on the soil where a plant grows."
+      }
+    },
+    {
+      "say": "Roots take in water from the soil. Tiny root hairs help them take in more.",
+      "show": "soil → roots"
+    },
+    {
+      "say": "The water travels up tiny tubes inside the stem. The tubes work like very thin straws.",
+      "show": "roots → stem"
+    },
+    {
+      "say": "The water reaches the leaves and flowers. Some escapes from the leaves into the air.",
+      "show": "stem → leaves"
+    },
+    {
+      "say": "You can see this happen. Stand a white flower in coloured water and the petals change colour.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "flower",
+            "label": "white flower"
+          },
+          {
+            "icon": "glass",
+            "label": "coloured water"
+          }
+        ],
+        "alt": "A white flower standing in a glass of coloured water."
+      }
+    },
+    {
+      "say": "A plant with no water wilts. Water it, and it becomes firm again.",
+      "show": "no water → wilting"
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.water-in-plants.901",
+      "skill": "s3.water-in-plants",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part takes in water from the soil?",
+      "options": [
+        {
+          "text": "the leaves",
+          "why": "Leaves are in the air, not the soil."
+        },
+        {
+          "text": "the flower",
+          "why": "Flowers make seeds."
+        },
+        {
+          "text": "the roots"
+        },
+        {
+          "text": "the petals",
+          "why": "Petals are part of the flower."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Water is under the ground.",
+        "Which part grows in the soil?",
+        "Think of the part you see when you pull up a weed."
+      ],
+      "explanation": "Roots grow in the soil and take in water."
+    },
+    {
+      "id": "s3.water-in-plants.902",
+      "skill": "s3.water-in-plants",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Water travels up the ___ to reach the leaves.",
+      "blanks": [
+        {
+          "answers": [
+            "stem",
+            "stems",
+            "the stem",
+            "stalk"
+          ]
+        }
+      ],
+      "hints": [
+        "This part is between the roots and the leaves.",
+        "It holds the plant up.",
+        "It has tiny tubes inside, like straws."
+      ],
+      "explanation": "The stem carries water from the roots up to the leaves."
+    }
+  ]
+}

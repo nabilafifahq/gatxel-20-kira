@@ -1,0 +1,482 @@
+{
+  "skill": "e1.write-sentences",
+  "items": [
+    {
+      "id": "e1.write-sentences.001",
+      "skill": "e1.write-sentences",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Find the word with a capital letter.",
+        "Find the word with a full stop.",
+        "Start with the capital letter."
+      ],
+      "explanation": "I like red apples. It starts with a capital letter and ends with a full stop.",
+      "items": [
+        "I",
+        "like",
+        "red",
+        "apples."
+      ]
+    },
+    {
+      "id": "e1.write-sentences.002",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 1,
+      "prompt": "Look at the picture. Write one sentence about the cat.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          }
+        ],
+        "alt": "A cat sitting down."
+      },
+      "hints": [
+        "Say your sentence out loud first.",
+        "Count the words on your fingers.",
+        "You can start with: The cat."
+      ],
+      "explanation": "A good sentence starts with a capital letter, has finger spaces and ends with a full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with a capital letter",
+            "points": 1
+          },
+          {
+            "label": "Ends with a full stop",
+            "points": 1
+          },
+          {
+            "label": "Finger spaces between words",
+            "points": 1
+          },
+          {
+            "label": "Tells something about the cat",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 3,
+      "maxWords": 20,
+      "planning": [
+        "What is the cat doing?",
+        "What colour could it be?"
+      ],
+      "model": "The cat is sitting on the mat."
+    },
+    {
+      "id": "e1.write-sentences.003",
+      "skill": "e1.write-sentences",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The first word has a capital letter.",
+        "The last word has a full stop.",
+        "Read your sentence. Does it make sense?"
+      ],
+      "explanation": "My dog can run fast. It starts with a capital letter and ends with a full stop.",
+      "items": [
+        "My",
+        "dog",
+        "can",
+        "run",
+        "fast."
+      ]
+    },
+    {
+      "id": "e1.write-sentences.004",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is a whole sentence?",
+      "hints": [
+        "A sentence tells a whole idea.",
+        "It needs who or what, and what they do.",
+        "Look for a capital letter and a full stop too."
+      ],
+      "explanation": "The cat sleeps on the bed tells us who and what they do. It is a whole sentence.",
+      "options": [
+        {
+          "text": "on the bed",
+          "why": "This does not tell us who or what."
+        },
+        {
+          "text": "The cat sleeps on the bed."
+        },
+        {
+          "text": "the cat",
+          "why": "This does not say what the cat does."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.write-sentences.005",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence has finger spaces?",
+      "hints": [
+        "Finger spaces go between words.",
+        "Look for squashed words.",
+        "Check each gap between the words."
+      ],
+      "explanation": "I can see a bird. has a space between every word.",
+      "options": [
+        {
+          "text": "Icansee abird.",
+          "why": "The words are squashed together."
+        },
+        {
+          "text": "I cansee a bird.",
+          "why": "Can and see need a space between them."
+        },
+        {
+          "text": "I can see a bird."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.write-sentences.006",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Write a sentence about your favourite food.",
+      "hints": [
+        "You can start with: My favourite food is.",
+        "Add a describing word, like sweet or crunchy."
+      ],
+      "explanation": "Name the food and say something about it. Remember the capital letter and the full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with a capital letter",
+            "points": 1
+          },
+          {
+            "label": "Ends with a full stop",
+            "points": 1
+          },
+          {
+            "label": "Names a food",
+            "points": 1
+          },
+          {
+            "label": "Says how it tastes or why you like it",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 4,
+      "maxWords": 25,
+      "planning": [
+        "What food do you like best?",
+        "How does it taste?"
+      ],
+      "model": "My favourite food is fried rice. It is yummy."
+    },
+    {
+      "id": "e1.write-sentences.007",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word makes the best sentence? 'I write with a ___.'",
+      "hints": [
+        "Read the sentence with each word.",
+        "Think about what you hold to write.",
+        "Which one would your teacher give you?"
+      ],
+      "explanation": "We write with a pencil, so I write with a pencil makes sense.",
+      "options": [
+        {
+          "text": "pencil"
+        },
+        {
+          "text": "banana",
+          "why": "You do not write with a banana."
+        },
+        {
+          "text": "bed",
+          "why": "You do not write with a bed."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.write-sentences.008",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Write two sentences about the weather today.",
+      "hints": [
+        "Look out of the window first.",
+        "Your first sentence can start with: It is."
+      ],
+      "explanation": "Two sentences means two capital letters and two full stops.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two sentences",
+            "points": 1
+          },
+          {
+            "label": "Capital letters at the start",
+            "points": 1
+          },
+          {
+            "label": "Full stops at the end",
+            "points": 1
+          },
+          {
+            "label": "Uses a weather word, like sunny or rainy",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 6,
+      "maxWords": 30,
+      "planning": [
+        "Is it sunny, rainy, windy or cloudy?",
+        "What can you see outside?"
+      ],
+      "model": "It is rainy today. I can see big grey clouds."
+    },
+    {
+      "id": "e1.write-sentences.009",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Check the first letter.",
+        "Check the end.",
+        "Find the one with a capital letter and a full stop."
+      ],
+      "explanation": "The sun is hot. starts with a capital letter and ends with a full stop.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "the sea is big",
+          "why": "It needs a capital letter and a full stop."
+        },
+        {
+          "text": "The sun is hot."
+        },
+        {
+          "text": "The sky is blue",
+          "why": "It needs a full stop at the end."
+        },
+        {
+          "text": "the moon is out.",
+          "why": "The first word needs a capital letter."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.write-sentences.010",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write two or three sentences about someone in your family.",
+      "hints": [
+        "Start with who the person is.",
+        "Then say what they like to do."
+      ],
+      "explanation": "Tell the reader who the person is and something they do. Names and I always have a capital letter.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two or three sentences",
+            "points": 1
+          },
+          {
+            "label": "Capital letters for names and for I",
+            "points": 2
+          },
+          {
+            "label": "Full stops",
+            "points": 1
+          },
+          {
+            "label": "Tells something about the person",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 8,
+      "maxWords": 45,
+      "planning": [
+        "Who is the person?",
+        "What do they like to do?",
+        "What do you do together?"
+      ],
+      "model": "My grandma is kind. She makes me rice cakes. I help her in the garden."
+    },
+    {
+      "id": "e1.write-sentences.011",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Look at the pictures. Write a sentence for each one.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "seed"
+          },
+          {
+            "icon": "seedling"
+          },
+          {
+            "icon": "flower"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "Three pictures joined by arrows: a seed, a small seedling, then a flower."
+      },
+      "hints": [
+        "Look at the first picture. What is it?",
+        "Use words like first, next and then."
+      ],
+      "explanation": "Write one sentence for each picture, in the same order as the pictures.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "A sentence for each picture",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          },
+          {
+            "label": "Words in an order that makes sense",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 10,
+      "maxWords": 40,
+      "planning": [
+        "What happens first?",
+        "What happens next?",
+        "What happens at the end?"
+      ],
+      "model": "I plant a seed. It grows into a small plant. Now it has a flower."
+    },
+    {
+      "id": "e1.write-sentences.012",
+      "skill": "e1.write-sentences",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The word with a capital letter starts the sentence.",
+        "The word with a comma comes second.",
+        "Read it aloud to check it makes sense."
+      ],
+      "explanation": "After school, we play in the park.",
+      "items": [
+        "After",
+        "school,",
+        "we",
+        "play",
+        "in",
+        "the",
+        "park."
+      ]
+    },
+    {
+      "id": "e1.write-sentences.013",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write three sentences about an animal you like. Use a describing word.",
+      "hints": [
+        "Start with: I like.",
+        "Use a describing word for its size, colour or fur."
+      ],
+      "explanation": "Say which animal you like, what it looks like and what it can do.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes three sentences",
+            "points": 1
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          },
+          {
+            "label": "Uses a describing word, like big or soft",
+            "points": 1
+          },
+          {
+            "label": "Gives facts about the animal",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 12,
+      "maxWords": 50,
+      "planning": [
+        "Which animal do you like?",
+        "What does it look like?",
+        "What can it do?"
+      ],
+      "model": "I like elephants. An elephant is big and grey. It has a long trunk."
+    },
+    {
+      "id": "e1.write-sentences.014",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 5,
+      "prompt": "Write a short story about a lost toy. Say what happens first, next and at the end.",
+      "hints": [
+        "Start with what the toy is.",
+        "Use first, next and then for the places you look.",
+        "End with how you feel."
+      ],
+      "explanation": "A story needs a beginning, a middle and an end. Time words like first, next and then show the order.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          },
+          {
+            "label": "Uses first, next or then",
+            "points": 1
+          },
+          {
+            "label": "Writes four or more sentences",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 80,
+      "planning": [
+        "What toy is lost?",
+        "Where do you look?",
+        "Where do you find it?",
+        "How do you feel at the end?"
+      ],
+      "model": "Yesterday I lost my teddy. First, I looked under my bed. Next, I looked in the garden. Then I found him in the toy box! I was so happy."
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "skill": "s6.photosynthesis",
+  "items": [
+    {
+      "id": "s6.photosynthesis.001",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Where does most photosynthesis happen in a plant?",
+      "options": [
+        { "text": "roots", "why": "Roots are in the dark soil. They take in water and minerals." },
+        { "text": "flowers", "why": "Flowers are for making seeds." },
+        { "text": "leaves" },
+        { "text": "seeds", "why": "Seeds store food for a new plant. They do not make food." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Photosynthesis needs light.",
+        "Look for the green, flat parts of a plant that face the sky.",
+        "Cross out the parts that are underground or used for making seeds."
+      ],
+      "explanation": "Most photosynthesis happens in the leaves, which are green and spread out to catch light. The green substance chlorophyll in leaves traps light energy.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.002",
+      "skill": "s6.photosynthesis",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Choose 3 things that a plant needs to make its own food.",
+      "options": [
+        { "text": "light" },
+        { "text": "water" },
+        { "text": "carbon dioxide" },
+        { "text": "soil", "why": "Soil holds the plant and gives it water and minerals, but the food is made in the leaves." },
+        { "text": "oxygen", "why": "Oxygen is given out by photosynthesis. It is not needed to make the food." },
+        { "text": "sugar", "why": "Sugar is the food that the plant makes." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": [
+        "Photosynthesis uses a gas from the air, a liquid from the soil and energy from the Sun.",
+        "One gas goes into the leaves and another comes out. Choose the one that goes in.",
+        "Cross out the food the plant makes and the gas it gives out."
+      ],
+      "explanation": "Plants need light, water and carbon dioxide to make food by photosynthesis. They make sugar and give out oxygen.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.003",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which gas do plants give out when they make food in sunlight?",
+      "options": [
+        { "text": "carbon dioxide", "why": "Plants take in carbon dioxide to make food." },
+        { "text": "nitrogen", "why": "Photosynthesis does not make nitrogen." },
+        { "text": "helium", "why": "Helium is a gas used in balloons. Plants do not make it." },
+        { "text": "oxygen" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Plants take in one gas and give out another.",
+        "The gas they give out is the one that animals need to breathe.",
+        "Cross out the gas that plants take in."
+      ],
+      "explanation": "When plants make food in sunlight, they give out oxygen. Animals, including people, breathe in this oxygen."
+    },
+    {
+      "id": "s6.photosynthesis.004",
+      "skill": "s6.photosynthesis",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part of a plant to its job in making food.",
+      "pairs": [
+        ["roots", "take in water from the soil"],
+        ["stem", "carries water up to the leaves"],
+        ["leaves", "catch light and make food"],
+        ["tiny holes in leaves", "let carbon dioxide in and oxygen out"],
+        ["chlorophyll", "the green substance that traps light"]
+      ],
+      "hints": [
+        "Follow the water from the soil to the leaves.",
+        "Gases go in and out of a leaf through very small openings.",
+        "Start with the roots. Think about where they are."
+      ],
+      "explanation": "Roots take in water, the stem carries it up, and leaves use light to make food. Tiny holes in the leaves let gases in and out, and green chlorophyll traps the light.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.005",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Many people think plants get their food from the soil. Which statement is correct?",
+      "options": [
+        { "text": "Plants suck ready-made food out of the soil.", "why": "Soil gives water and minerals, but no ready-made food." },
+        { "text": "Plants make their food in their leaves, using light, water and carbon dioxide." },
+        { "text": "Plants get their food from rain.", "why": "Rain gives water, which is only one of the things needed to make food." },
+        { "text": "Plants eat insects that live in the soil.", "why": "A few plants, such as pitcher plants, trap insects for minerals, but they still make their own food." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Soil gives plants water and minerals.",
+        "Think about the special job that green leaves do in sunlight.",
+        "Cross out every choice where the plant takes ready-made food from somewhere else."
+      ],
+      "explanation": "Plants make their own food by photosynthesis in their leaves. The soil gives water and minerals, which keep the plant healthy, but not ready-made food.",
+      "tags": ["iksc", "checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.006",
+      "skill": "s6.photosynthesis",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The green substance in leaves that traps light energy is called ___.",
+      "blanks": [{ "answers": ["chlorophyll"] }],
+      "hints": [
+        "It gives leaves their green colour.",
+        "It is found inside the cells of leaves and green stems.",
+        "It starts with the same letters as the word chlorine."
+      ],
+      "explanation": "Chlorophyll is the green substance in leaves. It traps light energy so the plant can make food by photosynthesis.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.007",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Arjun counts the oxygen bubbles from some pondweed with a lamp at different distances. What do his results show?",
+      "figure": {
+        "kind": "table",
+        "caption": "Bubbles from pondweed",
+        "head": ["Lamp distance (cm)", "Bubbles per minute"],
+        "rows": [
+          ["10", "40"],
+          ["20", "22"],
+          ["30", "12"],
+          ["40", "6"]
+        ],
+        "alt": "Table of results: lamp at 10 cm, 40 bubbles per minute; at 20 cm, 22; at 30 cm, 12; at 40 cm, 6."
+      },
+      "options": [
+        { "text": "The closer the lamp, the more oxygen the pondweed makes." },
+        { "text": "The further away the lamp, the more oxygen the pondweed makes.", "why": "The number of bubbles falls as the lamp moves away." },
+        { "text": "Light makes no difference to the pondweed.", "why": "The number of bubbles changes a lot as the lamp moves." },
+        { "text": "The pondweed stops making oxygen at 40 cm.", "why": "There are still 6 bubbles a minute at 40 cm." }
+      ],
+      "answer": 0,
+      "hints": [
+        "The bubbles are oxygen made by photosynthesis.",
+        "A lamp that is closer gives the pondweed more light.",
+        "Compare the bubbles at 10 cm with the bubbles at 40 cm."
+      ],
+      "explanation": "The pondweed makes 40 bubbles a minute at 10 cm but only 6 at 40 cm. More light means faster photosynthesis, so more oxygen is made.",
+      "tags": ["checkpoint", "imso"]
+    },
+    {
+      "id": "s6.photosynthesis.008",
+      "skill": "s6.photosynthesis",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "A plant is left in a dark cupboard for two weeks. Its leaves turn yellow and it becomes weak. Explain why.",
+      "rubric": {
+        "criteria": [
+          { "label": "Says the plant had no light", "points": 1 },
+          { "label": "Explains that plants need light to make food by photosynthesis", "points": 2 },
+          { "label": "Links the yellow leaves or weakness to having no food", "points": 2 },
+          { "label": "Uses scientific words such as photosynthesis or chlorophyll", "points": 1 }
+        ]
+      },
+      "minWords": 25,
+      "maxWords": 100,
+      "planning": [
+        "What was missing in the cupboard?",
+        "What does a plant use light for?",
+        "What happens to a plant that cannot make food?"
+      ],
+      "model": "The cupboard was dark, so the plant had no light. Plants need light to make their food by photosynthesis. Without light, the plant could not make food, so it became weak. Its leaves turned yellow because it stopped making green chlorophyll.",
+      "hints": [
+        "Think about what is missing inside a closed cupboard.",
+        "Ask what a plant uses light for."
+      ],
+      "explanation": "Without light, the plant cannot make food by photosynthesis, so it uses up its stored food and grows weak. Its leaves turn yellow because chlorophyll is not made in the dark.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.photosynthesis.009",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In the 1600s, Jan van Helmont grew a willow tree in a pot for five years. The tree gained about 75 kg, but the soil lost only about 60 g. Where did most of the new mass come from?",
+      "options": [
+        { "text": "the soil", "why": "The soil lost only about 60 g, which is far too little to explain 75 kg." },
+        { "text": "sunlight turned into wood", "why": "Light gives the energy, but light itself has no mass to add to the tree." },
+        { "text": "water and carbon dioxide, used to make food" },
+        { "text": "the clay pot", "why": "The pot did not change during the five years." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the mass the tree gained with the mass the soil lost.",
+        "Van Helmont watered the tree for five years, and air was all around it.",
+        "Think about what a plant uses to make food, apart from energy from light."
+      ],
+      "explanation": "The soil lost only 60 g, so it cannot explain the extra 75 kg. Most of the tree's new mass was made from water and carbon dioxide from the air, joined together using light energy.",
+      "tags": ["iksc", "imso"]
+    },
+    {
+      "id": "s6.photosynthesis.010",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A leaf has green parts and white parts. After a day in sunlight, it is tested with iodine, which turns blue-black where there is starch. Which parts turn blue-black?",
+      "options": [
+        { "text": "only the white parts", "why": "The white parts have no chlorophyll, so they cannot make food." },
+        { "text": "the whole leaf", "why": "Only the parts with chlorophyll can make sugar, which is stored as starch." },
+        { "text": "no part of the leaf", "why": "The green parts made food in the sunlight and stored it as starch." },
+        { "text": "only the green parts" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Starch is made from the sugar a leaf makes by photosynthesis.",
+        "Photosynthesis needs chlorophyll, the green substance in leaves.",
+        "Ask which parts of this leaf contain chlorophyll."
+      ],
+      "explanation": "Only the green parts have chlorophyll, so only they can make sugar and store it as starch. The iodine turns blue-black only where the leaf was green.",
+      "tags": ["checkpoint", "imso"]
+    }
+  ]
+}

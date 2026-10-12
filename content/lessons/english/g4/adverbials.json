@@ -1,0 +1,39 @@
+{
+  "skill": "e4.adverbials",
+  "title": "When, where and how",
+  "steps": [
+    { "say": "An adverb tells us more about a verb: how, when or where something happens.", "show": "She sang quietly. We left early. Come inside." },
+    { "say": "A preposition shows where or when, like under, through, after and during.", "show": "under the bed, through the forest, after lunch" },
+    { "say": "Use in for months, on for days and at for clock times.", "show": "in June, on Monday, at seven o'clock" },
+    { "say": "An adverbial can be one word or a phrase. When it moves to the front, it is a fronted adverbial.", "show": "We played chess after lunch. → After lunch, we played chess." },
+    { "say": "Put a comma straight after a fronted adverbial.", "show": "Without a sound, the cat crept past." }
+  ],
+  "check": [
+    {
+      "id": "e4.adverbials.901", "skill": "e4.adverbials", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word tells you when?\nWe will go swimming tomorrow.",
+      "options": [
+        { "text": "swimming", "why": "Swimming is the activity, not the time." },
+        { "text": "tomorrow" },
+        { "text": "go", "why": "Go is part of the verb." },
+        { "text": "we", "why": "We tells you who." }
+      ],
+      "answer": 1,
+      "hints": ["When means the time something happens.", "Ask: when will we go swimming?", "Look for a time word."],
+      "explanation": "Tomorrow tells us when we will go swimming, so it is an adverb of time."
+    },
+    {
+      "id": "e4.adverbials.902", "skill": "e4.adverbials", "type": "mcq", "difficulty": 2,
+      "prompt": "Where should the comma go?\nDuring the night the wind howled.",
+      "options": [
+        { "text": "During the night, the wind howled." },
+        { "text": "During, the night the wind howled.", "why": "During the night is one phrase. Do not split it." },
+        { "text": "During the night the wind, howled.", "why": "The comma goes after the fronted adverbial." },
+        { "text": "During the, night the wind howled.", "why": "Do not put a comma inside the phrase." }
+      ],
+      "answer": 0,
+      "hints": ["Find the words that tell you when.", "They are at the front of the sentence.", "Put the comma where those words end."],
+      "explanation": "During the night is a fronted adverbial, so the comma goes straight after it."
+    }
+  ]
+}

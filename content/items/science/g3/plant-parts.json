@@ -1,0 +1,398 @@
+{
+  "skill": "s3.plant-parts",
+  "items": [
+    {
+      "id": "s3.plant-parts.001",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of a plant takes in water from the soil?",
+      "options": [
+        {
+          "text": "the leaves",
+          "why": "Leaves are up in the air. Their job is to make food using light."
+        },
+        {
+          "text": "the flower",
+          "why": "The flower's job is to make seeds."
+        },
+        {
+          "text": "the roots"
+        },
+        {
+          "text": "the stem",
+          "why": "The stem carries water up the plant, but it does not take it from the soil."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which part touches the soil.",
+        "Water is in the soil, under the ground.",
+        "Picture a plant pulled out of a pot. Which part was in the soil?"
+      ],
+      "explanation": "The roots grow in the soil. They take in water and minerals and hold the plant in place."
+    },
+    {
+      "id": "s3.plant-parts.002",
+      "skill": "s3.plant-parts",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part of a plant to its job.",
+      "pairs": [
+        [
+          "roots",
+          "hold the plant in the soil and take in water"
+        ],
+        [
+          "stem",
+          "holds the plant up and carries water"
+        ],
+        [
+          "leaves",
+          "use light to make food"
+        ],
+        [
+          "flower",
+          "makes seeds"
+        ]
+      ],
+      "hints": [
+        "Each part has one main job.",
+        "Think about where each part is: under the ground, in the middle or at the top.",
+        "Start with the roots. What do they do in the soil?"
+      ],
+      "explanation": "Roots hold the plant and take in water, and the stem holds it up and carries water. Leaves use light to make food, and flowers make seeds."
+    },
+    {
+      "id": "s3.plant-parts.003",
+      "skill": "s3.plant-parts",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The ___ holds a plant up and carries water to the leaves.",
+      "blanks": [
+        {
+          "answers": [
+            "stem",
+            "the stem",
+            "stems",
+            "stalk",
+            "the stalk",
+            "trunk"
+          ]
+        }
+      ],
+      "hints": [
+        "This part is in the middle of the plant.",
+        "It joins the roots to the leaves, like a pipe.",
+        "The word starts with st."
+      ],
+      "explanation": "The stem holds the plant up towards the light. Tiny tubes inside it carry water from the roots to the leaves."
+    },
+    {
+      "id": "s3.plant-parts.004",
+      "skill": "s3.plant-parts",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Which part of the plant does each job? Sort the jobs.",
+      "groups": [
+        "Roots",
+        "Leaves",
+        "Flower"
+      ],
+      "items": [
+        {
+          "text": "take in water from the soil",
+          "group": 0
+        },
+        {
+          "text": "hold the plant firmly in the ground",
+          "group": 0
+        },
+        {
+          "text": "use sunlight to make food",
+          "group": 1
+        },
+        {
+          "text": "catch light with a wide, flat surface",
+          "group": 1
+        },
+        {
+          "text": "make seeds",
+          "group": 2
+        },
+        {
+          "text": "use bright petals to attract insects",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think about where each part is on the plant.",
+        "Jobs about soil belong to the part under the ground.",
+        "Start with make seeds. Which part grows seeds?"
+      ],
+      "explanation": "Roots work in the soil, holding the plant and taking in water. Leaves catch light to make food, and flowers attract insects and make seeds."
+    },
+    {
+      "id": "s3.plant-parts.005",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Many leaves are wide and flat. How does this help the plant?",
+      "options": [
+        {
+          "text": "It helps the leaves hold the plant in the soil.",
+          "why": "Holding the plant in the soil is the job of the roots."
+        },
+        {
+          "text": "It helps the leaves store seeds.",
+          "why": "Seeds are made in the flower, not in the leaves."
+        },
+        {
+          "text": "It helps the leaves carry water down to the roots.",
+          "why": "Water travels up from the roots, not down from the leaves."
+        },
+        {
+          "text": "It helps the leaves catch lots of light to make food."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what leaves need to do their job.",
+        "Leaves make food. What do they need to catch for that?",
+        "Imagine holding a big flat sheet in the sunshine. What lands on it?"
+      ],
+      "explanation": "Leaves use light to make food for the plant. A wide, flat leaf has a big surface to catch lots of light."
+    },
+    {
+      "id": "s3.plant-parts.006",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A tree trunk is one of the four main plant parts. Which part is it?",
+      "options": [
+        {
+          "text": "a stem"
+        },
+        {
+          "text": "a root",
+          "why": "Most roots are under the ground. The trunk stands above the ground."
+        },
+        {
+          "text": "a leaf",
+          "why": "Leaves grow from the branches. The trunk is thick and woody."
+        },
+        {
+          "text": "a flower",
+          "why": "Flowers make seeds. The trunk holds the tree up."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about what a trunk does for a tree.",
+        "Which part holds a plant up and carries water?",
+        "Compare a trunk with the green middle part of a small plant."
+      ],
+      "explanation": "A trunk is a thick, woody stem. Like any stem, it holds the tree up and carries water from the roots to the leaves."
+    },
+    {
+      "id": "s3.plant-parts.007",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dewi pulls a weed out of the ground. Long, thin threads hang from the bottom. What do they do?",
+      "options": [
+        {
+          "text": "They make food using sunlight.",
+          "why": "These threads grow under the ground in the dark. Leaves make the food."
+        },
+        {
+          "text": "They take in water and hold the plant in the soil."
+        },
+        {
+          "text": "They make seeds for new plants.",
+          "why": "Seeds are made in the flower."
+        },
+        {
+          "text": "They make the flowers smell nice.",
+          "why": "Roots do not make smells for flowers. They work in the soil."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about where the threads were growing.",
+        "These threads are a plant part you know.",
+        "Name the part that grows in the soil, then remember its jobs."
+      ],
+      "explanation": "The threads are roots. Roots take in water and minerals from the soil and hold the plant firmly in the ground."
+    },
+    {
+      "id": "s3.plant-parts.008",
+      "skill": "s3.plant-parts",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 jobs that roots do.",
+      "options": [
+        {
+          "text": "take in water from the soil"
+        },
+        {
+          "text": "make food from light",
+          "why": "Leaves make food using light."
+        },
+        {
+          "text": "make seeds",
+          "why": "Flowers make seeds."
+        },
+        {
+          "text": "hold the plant in the ground"
+        },
+        {
+          "text": "attract bees",
+          "why": "Bright flowers attract bees."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Roots grow under the ground.",
+        "Cross out any job that needs light.",
+        "Think about what happens when you try to pull up a plant."
+      ],
+      "explanation": "Roots take in water and minerals from the soil. They also spread out to hold the plant firmly in the ground."
+    },
+    {
+      "id": "s3.plant-parts.009",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Bees carry pollen from one flower to another. Why does the plant need this?",
+      "options": [
+        {
+          "text": "so the roots can take in more water",
+          "why": "Pollen does not help the roots. Roots take in water by themselves."
+        },
+        {
+          "text": "so the leaves get more light",
+          "why": "Bees do not change how much light the leaves get."
+        },
+        {
+          "text": "so the flower can make seeds"
+        },
+        {
+          "text": "so the stem grows thicker",
+          "why": "Pollen moves between flowers. It does not change the stem."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Pollen moves between flowers, so think about the flower's job.",
+        "What does a flower make for new plants?",
+        "Look for the answer that is about the flower, not the other parts."
+      ],
+      "explanation": "Pollen helps a flower make seeds. Bees carry pollen from flower to flower when they visit for nectar.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.plant-parts.010",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Caterpillars eat all the leaves on a chilli plant. Its roots and stem are fine. What will happen?",
+      "options": [
+        {
+          "text": "It grows faster because it is lighter.",
+          "why": "Leaves make the plant's food. Without them, the plant cannot grow well."
+        },
+        {
+          "text": "Nothing changes, because the roots make the food.",
+          "why": "Roots take in water and minerals. They do not make food."
+        },
+        {
+          "text": "The flowers start making all the food.",
+          "why": "Flowers make seeds. Leaves are the main food makers."
+        },
+        {
+          "text": "It cannot make enough food, so it grows poorly."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Which part of a plant makes its food?",
+        "Think about what the plant has lost.",
+        "Ask yourself: can the roots make food in the dark soil?"
+      ],
+      "explanation": "Leaves use light to make the plant's food. With no leaves, the plant cannot make enough food and grows poorly until new leaves grow.",
+      "tags": [
+        "iksc",
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.plant-parts.011",
+      "skill": "s3.plant-parts",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A cactus has sharp spines and a thick green stem. It has no wide leaves. Which part makes most of its food?",
+      "options": [
+        {
+          "text": "the green stem"
+        },
+        {
+          "text": "the spines",
+          "why": "Spines are thin and hard. They protect the cactus and help it lose less water."
+        },
+        {
+          "text": "the roots",
+          "why": "Roots are in the dark soil. They take in water, not light."
+        },
+        {
+          "text": "the flower",
+          "why": "A cactus flower makes seeds. It is not the main food maker."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Food is made in green parts that get lots of light.",
+        "Spines are too thin to catch much light.",
+        "Look for the biggest green part of the cactus."
+      ],
+      "explanation": "The thick green stem of a cactus catches light and makes food. Its spines are leaves that have changed shape to protect the plant and save water.",
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s3.plant-parts.012",
+      "skill": "s3.plant-parts",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a flowering plant. Label the roots, stem, leaves and flower.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws roots, a stem, leaves and a flower",
+            "points": 2
+          },
+          {
+            "label": "Puts the roots under the ground line",
+            "points": 1
+          },
+          {
+            "label": "Labels all four parts with lines",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Draw a line for the soil first.",
+        "Start with the roots under the line."
+      ],
+      "explanation": "A flowering plant has roots in the soil, a stem, leaves and at least one flower. Clear labels with lines show each part."
+    }
+  ]
+}

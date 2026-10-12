@@ -1,0 +1,372 @@
+{
+  "skill": "s4.earth-sun-moon",
+  "items": [
+    {
+      "id": "s4.earth-sun-moon.001",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is the Sun?",
+      "options": [
+        {
+          "text": "a planet",
+          "why": "The Sun is not a planet. Earth is a planet."
+        },
+        {
+          "text": "a moon",
+          "why": "A moon orbits a planet. The Sun does not."
+        },
+        {
+          "text": "a star"
+        },
+        {
+          "text": "a cloud of fire around Earth",
+          "why": "The Sun is a star, far away from Earth."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The Sun makes its own light and heat.",
+        "At night we can see others like it, far away.",
+        "They twinkle in the night sky."
+      ],
+      "explanation": "The Sun is a star. It is the closest star to Earth, which is why it looks so big and bright."
+    },
+    {
+      "id": "s4.earth-sun-moon.002",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What causes day and night?",
+      "options": [
+        {
+          "text": "The Sun moves around the Earth every day.",
+          "why": "It looks like the Sun moves, but really the Earth spins."
+        },
+        {
+          "text": "The Moon blocks the Sun at night.",
+          "why": "The Moon does not cause night."
+        },
+        {
+          "text": "Clouds cover the Sun at night.",
+          "why": "Clouds come and go. They do not cause night."
+        },
+        {
+          "text": "The Earth spins on its axis."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The Sun stays still compared to the Earth.",
+        "The Earth is turning all the time.",
+        "Is your side of the Earth facing the Sun or away from it?"
+      ],
+      "explanation": "The Earth spins on its axis. The side facing the Sun has day, and the side facing away has night."
+    },
+    {
+      "id": "s4.earth-sun-moon.003",
+      "skill": "s4.earth-sun-moon",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many hours does the Earth take to spin round once?",
+      "answer": 24,
+      "unit": "hours",
+      "hints": [
+        "One spin gives one day and one night.",
+        "How long is one whole day?",
+        "Count the hours from midnight to the next midnight."
+      ],
+      "explanation": "The Earth spins round once every 24 hours. That gives us one day and one night."
+    },
+    {
+      "id": "s4.earth-sun-moon.004",
+      "skill": "s4.earth-sun-moon",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each movement to the time it takes.",
+      "pairs": [
+        [
+          "the Earth spins once",
+          "about 24 hours"
+        ],
+        [
+          "the Moon orbits the Earth once",
+          "about 4 weeks"
+        ],
+        [
+          "the Earth orbits the Sun once",
+          "about 365 days"
+        ]
+      ],
+      "hints": [
+        "The shortest movement gives us one day.",
+        "A year is the longest.",
+        "The Moon's orbit takes about a month."
+      ],
+      "explanation": "The Earth spins once in about 24 hours. The Moon orbits the Earth in about 4 weeks, and the Earth orbits the Sun in about 365 days."
+    },
+    {
+      "id": "s4.earth-sun-moon.005",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why does the Sun seem to move across the sky during the day?",
+      "options": [
+        {
+          "text": "The Earth is spinning."
+        },
+        {
+          "text": "The Sun orbits the Earth every day.",
+          "why": "The Earth orbits the Sun, and that takes a whole year."
+        },
+        {
+          "text": "The wind blows it along.",
+          "why": "Wind cannot move the Sun."
+        },
+        {
+          "text": "The Moon pulls it.",
+          "why": "The Moon does not move the Sun."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about sitting on a spinning playground ride.",
+        "The things around you seem to move past.",
+        "Which is really moving: you or them?"
+      ],
+      "explanation": "The Earth spins, carrying us with it. This makes the Sun seem to rise, cross the sky and set.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.006",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "When it is 6 a.m. in Jakarta, it is 8 a.m. in Jayapura in Papua. Why does the Sun rise earlier in Papua?",
+      "options": [
+        {
+          "text": "Papua is closer to the Sun.",
+          "why": "Papua and Jakarta are almost the same distance from the Sun."
+        },
+        {
+          "text": "Papua is further east, and the Earth spins from west to east."
+        },
+        {
+          "text": "The Sun moves faster over Papua.",
+          "why": "The Sun does not move across the Earth. The Earth spins."
+        },
+        {
+          "text": "Clocks in Papua are set wrong.",
+          "why": "The clocks are set on purpose, to match the Sun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Sun rises in the east.",
+        "Find Papua and Jakarta on a map of Indonesia.",
+        "Which one turns to face the Sun first?"
+      ],
+      "explanation": "The Earth spins from west to east, so places further east turn to face the Sun first. Papua is far east of Jakarta, so its morning comes earlier.",
+      "tags": [
+        "ksnr",
+        "osn-sd",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.007",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The Moon shines brightly at night. Where does its light come from?",
+      "options": [
+        {
+          "text": "It makes its own light.",
+          "why": "The Moon is not a light source."
+        },
+        {
+          "text": "It reflects light from cities on Earth.",
+          "why": "City lights are far too weak to light up the Moon."
+        },
+        {
+          "text": "It reflects light from the Sun."
+        },
+        {
+          "text": "It is on fire.",
+          "why": "The Moon is cold rock. It is not burning."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The Moon is not a light source.",
+        "Something else lights it up.",
+        "What lights up the daytime sky?"
+      ],
+      "explanation": "The Moon does not make its own light. It reflects light from the Sun."
+    },
+    {
+      "id": "s4.earth-sun-moon.008",
+      "skill": "s4.earth-sun-moon",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort these. Is each one a star, a planet or a moon?",
+      "groups": [
+        "Star",
+        "Planet",
+        "Moon"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "Earth",
+          "group": 1
+        },
+        {
+          "text": "Mars",
+          "group": 1
+        },
+        {
+          "text": "Jupiter",
+          "group": 1
+        },
+        {
+          "text": "Venus",
+          "group": 1
+        },
+        {
+          "text": "our Moon",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "A star makes its own light.",
+        "Planets orbit the Sun.",
+        "A moon orbits a planet."
+      ],
+      "explanation": "The Sun is a star. Earth, Mars, Jupiter and Venus are planets that orbit the Sun, and our Moon orbits the Earth."
+    },
+    {
+      "id": "s4.earth-sun-moon.009",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When it is daytime in Indonesia, it is night-time in Brazil. Why?",
+      "options": [
+        {
+          "text": "The Sun switches off over Brazil.",
+          "why": "The Sun shines all the time."
+        },
+        {
+          "text": "Brazil is in the Moon's shadow.",
+          "why": "The Moon's shadow does not cause night."
+        },
+        {
+          "text": "Brazil is further from the Sun.",
+          "why": "Distance from the Sun is not what makes night."
+        },
+        {
+          "text": "Indonesia faces the Sun while Brazil faces away."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Brazil is on the other side of the Earth.",
+        "Only half of the Earth faces the Sun at a time.",
+        "Which side has day?"
+      ],
+      "explanation": "Brazil is on the opposite side of the Earth from Indonesia. When Indonesia faces the Sun, Brazil faces away and has night.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.010",
+      "skill": "s4.earth-sun-moon",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these in order of size, smallest first.",
+      "items": [
+        "the Moon",
+        "the Earth",
+        "the Sun"
+      ],
+      "hints": [
+        "The Moon orbits the Earth.",
+        "The Sun is a star.",
+        "Stars are enormous."
+      ],
+      "explanation": "The Moon is smaller than the Earth, and the Sun is far bigger than both. More than a million Earths could fit inside the Sun.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.011",
+      "skill": "s4.earth-sun-moon",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why does the Moon seem to change shape during a month?",
+      "options": [
+        {
+          "text": "We see different amounts of its sunlit half as it orbits the Earth."
+        },
+        {
+          "text": "The Earth's shadow covers part of it.",
+          "why": "This is a common mistake. The Earth's shadow only falls on the Moon during an eclipse."
+        },
+        {
+          "text": "Clouds cover part of it.",
+          "why": "The shapes change even on clear nights."
+        },
+        {
+          "text": "The Moon grows and shrinks.",
+          "why": "The Moon is always the same size."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The Sun always lights half of the Moon.",
+        "The Moon moves around the Earth.",
+        "From Earth, how much of the lit half can we see?"
+      ],
+      "explanation": "Half of the Moon is always lit by the Sun. As the Moon orbits the Earth, we see different amounts of the lit half, so its shape seems to change.",
+      "tags": [
+        "osn-sd",
+        "iksc"
+      ]
+    },
+    {
+      "id": "s4.earth-sun-moon.012",
+      "skill": "s4.earth-sun-moon",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw the Sun and the Earth. Shade the half of the Earth that has night.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws the Sun to one side of the Earth",
+            "points": 1
+          },
+          {
+            "label": "Shades the half of the Earth facing away from the Sun",
+            "points": 2
+          },
+          {
+            "label": "Labels day and night",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Draw the Sun on one side of the page.",
+        "The side of the Earth facing the Sun is lit."
+      ],
+      "explanation": "The half of the Earth facing the Sun has day. The half facing away is in darkness, so it has night."
+    }
+  ]
+}

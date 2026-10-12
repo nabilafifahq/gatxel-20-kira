@@ -1,0 +1,487 @@
+{
+  "skill": "m6.oly-patterns",
+  "items": [
+    {
+      "id": "m6.oly-patterns.001",
+      "skill": "m6.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In the pattern 2, 6, 18, 54, each number is 3 times the one before. What is the 6th number?",
+      "options": [
+        {
+          "text": "54",
+          "why": "54 is the 4th number."
+        },
+        {
+          "text": "162",
+          "why": "162 is the 5th number."
+        },
+        {
+          "text": "324",
+          "why": "Multiply by 3, not by 2: 162 × 3."
+        },
+        {
+          "text": "486"
+        },
+        {
+          "text": "1458",
+          "why": "1458 is the 7th number."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Keep multiplying by 3.",
+        "The 5th number is 54 × 3.",
+        "Then multiply the 5th number by 3 again."
+      ],
+      "explanation": "The numbers are 2, 6, 18, 54, 162, 486. So the 6th number is 486.",
+      "solution": [
+        {
+          "say": "5th number.",
+          "show": "54 × 3 = 162"
+        },
+        {
+          "say": "6th number.",
+          "show": "162 × 3 = 486"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-patterns.002",
+      "skill": "m6.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Leo adds odd numbers in order: 1 + 3 + 5 + 7 + ... He stops when the total is exactly 400. How many numbers did he add?",
+      "options": [
+        {
+          "text": "19",
+          "why": "19 odd numbers add up to 19 × 19 = 361."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "21",
+          "why": "21 odd numbers add up to 21 × 21 = 441."
+        },
+        {
+          "text": "39",
+          "why": "39 is the last number he adds, not how many."
+        },
+        {
+          "text": "200",
+          "why": "Odd numbers grow, so far fewer than 200 are needed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the running totals: 1, 4, 9, 16.",
+        "The total of the first n odd numbers is n × n.",
+        "Which number times itself makes 400?"
+      ],
+      "explanation": "The running totals are 1, 4, 9, 16, and so on, so the first n odd numbers add up to n × n. Since 20 × 20 = 400, he added 20 numbers.",
+      "solution": [
+        {
+          "say": "Running totals.",
+          "show": "1, 4, 9, 16, 25"
+        },
+        {
+          "say": "They are square numbers.",
+          "show": "n odd numbers add up to n × n"
+        },
+        {
+          "say": "20 × 20 = 400.",
+          "show": "20 numbers"
+        },
+        {
+          "say": "The last number he adds is the 20th odd number, 39."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-patterns.003",
+      "skill": "m6.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many digits are needed to write all the whole numbers from 1 to 2026?",
+      "options": [
+        {
+          "text": "6993",
+          "why": "From 1000 to 2026 there are 1027 numbers, not 1026."
+        },
+        {
+          "text": "6994",
+          "why": "From 100 to 999 there are 900 numbers, not 899."
+        },
+        {
+          "text": "6997"
+        },
+        {
+          "text": "7001",
+          "why": "From 1000 to 2026 there are 1027 numbers, not 1028."
+        },
+        {
+          "text": "8104",
+          "why": "8104 = 2026 × 4, but not every number has 4 digits."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Split the numbers by how many digits they have.",
+        "1 to 9: 9 numbers. 10 to 99: 90 numbers. 100 to 999: 900 numbers.",
+        "How many numbers are there from 1000 to 2026?"
+      ],
+      "explanation": "The 1-digit, 2-digit and 3-digit numbers use 9 + 180 + 2700 = 2889 digits. The 1027 four-digit numbers from 1000 to 2026 use 1027 × 4 = 4108 digits, so the total is 2889 + 4108 = 6997.",
+      "solution": [
+        {
+          "say": "1 to 9.",
+          "show": "9 × 1 = 9"
+        },
+        {
+          "say": "10 to 99.",
+          "show": "90 × 2 = 180"
+        },
+        {
+          "say": "100 to 999.",
+          "show": "900 × 3 = 2700"
+        },
+        {
+          "say": "1000 to 2026.",
+          "show": "1027 × 4 = 4108"
+        },
+        {
+          "say": "Total.",
+          "show": "9 + 180 + 2700 + 4108 = 6997"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-patterns.004",
+      "skill": "m6.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The pattern 3, 8, 13, 18 goes up by 5 each time. What is the 100th number?",
+      "options": [
+        {
+          "text": "495",
+          "why": "495 is 99 × 5. Add the starting number 3."
+        },
+        {
+          "text": "498"
+        },
+        {
+          "text": "500",
+          "why": "500 is 100 × 5, but there are only 99 jumps."
+        },
+        {
+          "text": "503",
+          "why": "503 is the 101st number."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the jumps from the 1st number to the 100th.",
+        "There are 99 jumps of 5.",
+        "Add 99 × 5 to the first number."
+      ],
+      "explanation": "The 100th number is 3 + 99 × 5 = 3 + 495 = 498.",
+      "solution": [
+        {
+          "say": "Jumps.",
+          "show": "99"
+        },
+        {
+          "say": "Jump total.",
+          "show": "99 × 5 = 495"
+        },
+        {
+          "say": "100th number.",
+          "show": "3 + 495 = 498"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-patterns.005",
+      "skill": "m6.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "What is the last digit of 2^2026 + 3^2026? Here 2^2026 means 2026 twos multiplied together.",
+      "answer": 3,
+      "hints": [
+        "Find the cycle of last digits for powers of 2 and for powers of 3.",
+        "Powers of 2 end in 2, 4, 8, 6. Powers of 3 end in 3, 9, 7, 1.",
+        "2026 leaves a remainder of 2 when divided by 4."
+      ],
+      "explanation": "Both cycles have length 4, and 2026 = 4 × 506 + 2. So 2^2026 ends in 4 and 3^2026 ends in 9. 4 + 9 = 13, which ends in 3.",
+      "solution": [
+        {
+          "say": "Cycle for 2.",
+          "show": "2, 4, 8, 6"
+        },
+        {
+          "say": "Cycle for 3.",
+          "show": "3, 9, 7, 1"
+        },
+        {
+          "say": "Position in the cycle.",
+          "show": "2026 = 4 × 506 + 2: 2nd place"
+        },
+        {
+          "say": "Last digits.",
+          "show": "4 + 9 = 13, which ends in 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-patterns.006",
+      "skill": "m6.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A dish of yeast cells doubles every 20 minutes. At 9:00 there are 50 cells. How many cells are there at 10:00?",
+      "options": [
+        {
+          "text": "150",
+          "why": "150 is 50 + 50 + 50. The number doubles, it does not add 50."
+        },
+        {
+          "text": "200",
+          "why": "200 is after 40 minutes. One more doubling is needed."
+        },
+        {
+          "text": "400"
+        },
+        {
+          "text": "800",
+          "why": "800 is after 80 minutes."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count how many times the number doubles in one hour.",
+        "60 minutes ÷ 20 minutes = 3 doublings.",
+        "Double 50 three times."
+      ],
+      "explanation": "In one hour the cells double 3 times: 50, 100, 200, 400. So there are 400 cells at 10:00.",
+      "solution": [
+        {
+          "say": "Doublings in an hour.",
+          "show": "60 ÷ 20 = 3"
+        },
+        {
+          "say": "Double three times.",
+          "show": "50, 100, 200, 400"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-patterns.007",
+      "skill": "m6.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the next number in this pattern?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "2",
+          "6",
+          "24",
+          "120",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 1, 2, 6, 24, 120, then an empty box."
+      },
+      "answer": 720,
+      "hints": [
+        "Divide each number by the one before it.",
+        "2 ÷ 1 = 2, 6 ÷ 2 = 3, 24 ÷ 6 = 4.",
+        "The multipliers go up by 1 each time."
+      ],
+      "explanation": "Each number is the one before multiplied by 2, then 3, then 4, then 5. The next multiplier is 6, so the next number is 120 × 6 = 720.",
+      "solution": [
+        {
+          "say": "Multipliers.",
+          "show": "× 2, × 3, × 4, × 5"
+        },
+        {
+          "say": "Next multiplier.",
+          "show": "× 6"
+        },
+        {
+          "say": "Next number.",
+          "show": "120 × 6 = 720"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-patterns.008",
+      "skill": "m6.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In the pattern 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, each number n appears n times. What is the 50th number?",
+      "answer": 10,
+      "hints": [
+        "Find where each number finishes.",
+        "The last 1 is the 1st term, the last 2 is the 3rd, the last 3 is the 6th.",
+        "The last 9 is the (1 + 2 + ... + 9)th term."
+      ],
+      "explanation": "The last 9 is the 45th term, because 1 + 2 + ... + 9 = 45. The 10s fill terms 46 to 55, so the 50th number is 10.",
+      "solution": [
+        {
+          "say": "Where each number ends.",
+          "show": "1, 3, 6, 10, 15, ..."
+        },
+        {
+          "say": "The last 9.",
+          "show": "1 + 2 + ... + 9 = 45"
+        },
+        {
+          "say": "The 10s.",
+          "show": "terms 46 to 55"
+        },
+        {
+          "say": "50th number.",
+          "show": "10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-patterns.009",
+      "skill": "m6.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A 5 by 5 multiplication table has the numbers 1 to 5 along the top and side. What is the sum of all 25 products in the table?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "×",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "rows": [
+          [
+            "1",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "2",
+            "2",
+            "4",
+            "6",
+            "8",
+            "10"
+          ],
+          [
+            "3",
+            "3",
+            "6",
+            "9",
+            "12",
+            "15"
+          ],
+          [
+            "4",
+            "4",
+            "8",
+            "12",
+            "16",
+            "20"
+          ],
+          [
+            "5",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25"
+          ]
+        ],
+        "alt": "A multiplication table for 1 to 5. Row 1: 1, 2, 3, 4, 5. Row 2: 2, 4, 6, 8, 10. Row 3: 3, 6, 9, 12, 15. Row 4: 4, 8, 12, 16, 20. Row 5: 5, 10, 15, 20, 25."
+      },
+      "answer": 225,
+      "hints": [
+        "Add one row first.",
+        "Row 1 adds up to 15. Row 2 is double row 1.",
+        "Each row is a multiple of row 1."
+      ],
+      "explanation": "Row 1 adds up to 1 + 2 + 3 + 4 + 5 = 15. Row k adds up to k × 15, so the total is 15 × (1 + 2 + 3 + 4 + 5) = 15 × 15 = 225.",
+      "solution": [
+        {
+          "say": "Row 1.",
+          "show": "1 + 2 + 3 + 4 + 5 = 15"
+        },
+        {
+          "say": "Rows 2 to 5.",
+          "show": "30, 45, 60, 75"
+        },
+        {
+          "say": "Total.",
+          "show": "15 + 30 + 45 + 60 + 75 = 225"
+        },
+        {
+          "say": "Shortcut.",
+          "show": "15 × 15 = 225"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

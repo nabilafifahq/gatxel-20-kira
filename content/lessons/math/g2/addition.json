@@ -1,0 +1,80 @@
+{
+  "skill": "m2.addition",
+  "title": "Adding 2-digit numbers",
+  "steps": [
+    {
+      "say": "Split both numbers into tens and ones.",
+      "show": "34 + 25: 30 + 20 and 4 + 5"
+    },
+    {
+      "say": "Add the tens, then add the ones.",
+      "show": "50 + 9 = 59"
+    },
+    {
+      "say": "If the ones make 10 or more, you get a new ten.",
+      "show": "38 + 25: 50 + 13 = 63"
+    },
+    {
+      "say": "For 47 + 6, jump to 50 first. Then add the rest.",
+      "figure": {
+        "kind": "numberline",
+        "min": 40,
+        "max": 60,
+        "step": 1,
+        "labels": [
+          40,
+          50,
+          60
+        ],
+        "jumps": [
+          {
+            "from": 47,
+            "to": 50,
+            "label": "+3"
+          },
+          {
+            "from": 50,
+            "to": 53,
+            "label": "+3"
+          }
+        ],
+        "alt": "A jump from 47 to 50, then a jump from 50 to 53."
+      },
+      "show": "47 + 6 = 53"
+    },
+    {
+      "say": "You can add in any order. The answer stays the same.",
+      "show": "25 + 38 = 38 + 25"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.addition.901",
+      "skill": "m2.addition",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "42 + 35 = ___",
+      "hints": [
+        "Split both numbers into tens and ones.",
+        "Add the tens: 40 + 30.",
+        "Then add the ones: 2 + 5."
+      ],
+      "explanation": "40 + 30 = 70 and 2 + 5 = 7. 70 + 7 = 77.",
+      "answer": 77
+    },
+    {
+      "id": "m2.addition.902",
+      "skill": "m2.addition",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "47 + 6 = ___",
+      "hints": [
+        "Can you make the next ten first?",
+        "Split 6 into 3 and 3.",
+        "47 + 3 = 50. Now add the rest."
+      ],
+      "explanation": "47 + 3 = 50, then 50 + 3 = 53.",
+      "answer": 53
+    }
+  ]
+}

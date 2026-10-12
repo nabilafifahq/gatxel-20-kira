@@ -1,0 +1,174 @@
+{
+  "skill": "m3.venn-carroll",
+  "title": "Venn and Carroll diagrams",
+  "steps": [
+    {
+      "say": "A Venn diagram sorts things into circles. Each circle has a rule.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Even numbers",
+          "More than 10"
+        ],
+        "items": [
+          {
+            "text": "4",
+            "region": "a"
+          },
+          {
+            "text": "12",
+            "region": "both"
+          },
+          {
+            "text": "15",
+            "region": "b"
+          },
+          {
+            "text": "7",
+            "region": "none"
+          }
+        ],
+        "alt": "Venn diagram. Even numbers only: 4. More than 10 only: 15. Both: 12. Outside: 7."
+      }
+    },
+    {
+      "say": "Numbers that fit both rules go in the middle, where the circles overlap.",
+      "show": "12 is even and more than 10"
+    },
+    {
+      "say": "Numbers that fit neither rule go outside the circles.",
+      "show": "7 is odd and not more than 10"
+    },
+    {
+      "say": "A Carroll diagram uses a grid. Each box has one rule from its row and one from its column.",
+      "figure": {
+        "kind": "carroll",
+        "cols": [
+          "Even",
+          "Not even"
+        ],
+        "rows": [
+          "More than 10",
+          "Not more than 10"
+        ],
+        "cells": [
+          [
+            "12"
+          ],
+          [
+            "15"
+          ],
+          [
+            "4"
+          ],
+          [
+            "7"
+          ]
+        ],
+        "alt": "Carroll diagram. Even and more than 10: 12. Not even and more than 10: 15. Even and not more than 10: 4. Neither: 7."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.venn-carroll.901",
+      "skill": "m3.venn-carroll",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The circles are even numbers and more than 10. Where does 18 go?",
+      "options": [
+        {
+          "text": "In the even numbers circle only",
+          "why": "18 is even and more than 10, so it fits both rules."
+        },
+        {
+          "text": "In both circles"
+        },
+        {
+          "text": "Outside both circles",
+          "why": "18 is even and more than 10, so it fits both rules."
+        },
+        {
+          "text": "In the more than 10 circle only",
+          "why": "18 is even and more than 10, so it fits both rules."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Test 18 against each rule.",
+        "Is 18 even? Is it more than 10?",
+        "Start with the first rule."
+      ],
+      "explanation": "18 is even and more than 10, so it goes in the middle, in both circles.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Even numbers",
+          "More than 10"
+        ],
+        "items": [],
+        "alt": "An empty Venn diagram with circles for even numbers and more than 10."
+      }
+    },
+    {
+      "id": "m3.venn-carroll.902",
+      "skill": "m3.venn-carroll",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Look at the Venn diagram. How many numbers are even?",
+      "answer": 5,
+      "hints": [
+        "The even numbers are inside the even numbers circle.",
+        "Count every number in that circle, including the overlap.",
+        "The overlap is part of both circles."
+      ],
+      "explanation": "3 numbers are in the even circle only and 2 are in the overlap. 3 + 2 = 5.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Even numbers",
+          "More than 10"
+        ],
+        "items": [
+          {
+            "text": "2",
+            "region": "a"
+          },
+          {
+            "text": "6",
+            "region": "a"
+          },
+          {
+            "text": "8",
+            "region": "a"
+          },
+          {
+            "text": "14",
+            "region": "both"
+          },
+          {
+            "text": "20",
+            "region": "both"
+          },
+          {
+            "text": "11",
+            "region": "b"
+          },
+          {
+            "text": "13",
+            "region": "b"
+          },
+          {
+            "text": "3",
+            "region": "none"
+          },
+          {
+            "text": "9",
+            "region": "none"
+          }
+        ],
+        "alt": "Venn diagram. Even numbers only: 2, 6, 8. Both: 14, 20. More than 10 only: 11, 13. Outside: 3, 9."
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "skill": "e2.reading-information",
+  "title": "Finding and working out answers",
+  "steps": [
+    {
+      "say": "Some answers are right there in the text. Find a key word and read around it.",
+      "show": "Why was the match off?"
+    },
+    {
+      "say": "Some answers are hidden. You use clues to work them out.",
+      "show": "Fajar sat with his arms folded."
+    },
+    {
+      "say": "Clues can be what a character does, says or how they look.",
+      "show": "folded arms and no talking: cross"
+    },
+    {
+      "say": "Always check your answer against the text.",
+      "show": "Does the text agree?"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.reading-information.901",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Read: 'Ben yawned and rubbed his eyes.' How did Ben feel?",
+      "hints": [
+        "Look at what Ben does.",
+        "When do people yawn?",
+        "Which feeling goes with yawning?"
+      ],
+      "explanation": "Yawning and rubbing your eyes are clues that Ben was tired.",
+      "options": [
+        {
+          "text": "excited",
+          "why": "Excited people do not usually yawn."
+        },
+        {
+          "text": "tired"
+        },
+        {
+          "text": "hungry",
+          "why": "Yawning does not show hunger."
+        },
+        {
+          "text": "angry",
+          "why": "Rubbing your eyes does not show anger."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.reading-information.902",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: 'The cat hid under the bed when the thunder boomed.' Why did the cat hide?",
+      "hints": [
+        "Look for the word when.",
+        "What happened at the same time?",
+        "How do loud noises make animals feel?"
+      ],
+      "explanation": "The cat hid when the thunder boomed, so it was scared of the noise.",
+      "options": [
+        {
+          "text": "It was scared of the thunder."
+        },
+        {
+          "text": "It was sleepy.",
+          "why": "The thunder is the clue."
+        },
+        {
+          "text": "It wanted to play.",
+          "why": "Hiding from thunder is not playing."
+        },
+        {
+          "text": "It was hungry.",
+          "why": "The text does not mention food."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

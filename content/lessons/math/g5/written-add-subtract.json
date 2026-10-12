@@ -1,0 +1,149 @@
+{
+  "skill": "m5.written-add-subtract",
+  "title": "Written addition and subtraction",
+  "steps": [
+    {
+      "say": "Write the numbers in columns with the ones lined up. Start adding from the ones.",
+      "show": "24,685 + 17,396",
+      "figure": {
+        "kind": "table",
+        "caption": "24,685 + 17,396",
+        "head": [
+          "Ten thousands",
+          "Thousands",
+          "Hundreds",
+          "Tens",
+          "Ones"
+        ],
+        "rows": [
+          [
+            "2",
+            "4",
+            "6",
+            "8",
+            "5"
+          ],
+          [
+            "1",
+            "7",
+            "3",
+            "9",
+            "6"
+          ]
+        ],
+        "alt": "A place value chart with 24,685 above 17,396."
+      }
+    },
+    {
+      "say": "5 + 6 = 11. Write 1 in the ones and carry 1 ten into the tens column.",
+      "show": "Ones: 5 + 6 = 11"
+    },
+    {
+      "say": "Keep going column by column, adding any carried digits.",
+      "show": "Tens: 8 + 9 + 1 = 18, Hundreds: 6 + 3 + 1 = 10, Thousands: 4 + 7 + 1 = 12"
+    },
+    {
+      "say": "In the ten thousands, 2 + 1 + 1 = 4. The total is 42,081.",
+      "show": "24,685 + 17,396 = 42,081"
+    },
+    {
+      "say": "To subtract, take each bottom digit from the top digit. If the top digit is smaller, exchange from the next column.",
+      "show": "6,203 − 2,758"
+    },
+    {
+      "say": "6,203 − 2,758 needs exchanges in three columns. The answer is 3,445.",
+      "show": "6,203 − 2,758 = 3,445"
+    },
+    {
+      "say": "Check a subtraction by adding. The answer plus the number taken away gives the starting number.",
+      "show": "3,445 + 2,758 = 6,203"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.written-add-subtract.901",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Work out 35,472 + 21,816.",
+      "hints": [
+        "Line up the ones, tens, hundreds, thousands and ten thousands.",
+        "Start adding in the ones column.",
+        "In the hundreds, 4 + 8 = 12, so carry 1."
+      ],
+      "explanation": "Adding column by column, with one carry from the hundreds into the thousands, gives 57,288.",
+      "options": [
+        {
+          "text": "57,288"
+        },
+        {
+          "text": "56,288",
+          "why": "You missed the 1 carried into the thousands column."
+        },
+        {
+          "text": "57,188",
+          "why": "4 + 8 = 12, so write 2 in the hundreds and carry 1."
+        },
+        {
+          "text": "13,656",
+          "why": "That is the difference. The question asks for the total."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.written-add-subtract.902",
+      "skill": "m5.written-add-subtract",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Work out 7,005 − 2,348.",
+      "hints": [
+        "Write the numbers in columns.",
+        "You cannot take 8 from 5, so you need to exchange.",
+        "There are no tens or hundreds in 7,005, so exchange from the thousands."
+      ],
+      "explanation": "Exchanging through the zeros gives 7,005 − 2,348 = 4,657. Check: 4,657 + 2,348 = 7,005.",
+      "blanks": [
+        {
+          "answers": [
+            "4657",
+            "4,657",
+            "4 657",
+            "4.657"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.written-add-subtract.903",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A school collected 12,450 bottle caps in May and 9,875 in June. How many more did it collect in May?",
+      "hints": [
+        "How many more means find the difference.",
+        "Subtract 9,875 from 12,450 in columns.",
+        "Start with the ones: you need to exchange because 0 is less than 5."
+      ],
+      "explanation": "12,450 − 9,875 = 2,575, so 2,575 more bottle caps were collected in May.",
+      "options": [
+        {
+          "text": "3,575",
+          "why": "After exchanging, the thousands digit is 1, so 11 − 9 = 2."
+        },
+        {
+          "text": "2,575"
+        },
+        {
+          "text": "22,325",
+          "why": "That is the total. How many more means find the difference."
+        },
+        {
+          "text": "2,675",
+          "why": "After exchanging, the hundreds digit of 12,450 is 3, not 4."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

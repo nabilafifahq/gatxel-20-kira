@@ -1,0 +1,128 @@
+{
+  "skill": "m5.sequences",
+  "title": "Number sequences",
+  "steps": [
+    {
+      "say": "A sequence is a list of numbers that follow a rule. The rule from one term to the next is the term-to-term rule.",
+      "show": "5, 9, 13, 17, ...",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "5",
+          "9",
+          "13",
+          "17",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A sequence of boxes: 5, 9, 13, 17 and an empty box."
+      }
+    },
+    {
+      "say": "Find the difference between neighbouring terms. Here each term is 4 more than the one before.",
+      "show": "+4, +4, +4"
+    },
+    {
+      "say": "Use the rule to find the next term. 17 + 4 = 21.",
+      "show": "5, 9, 13, 17, 21"
+    },
+    {
+      "say": "Sequences can go down too. 50, 43, 36, 29 has the rule subtract 7.",
+      "show": "−7 each time",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "50",
+          "43",
+          "36",
+          "29",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A sequence of boxes: 50, 43, 36, 29 and an empty box."
+      }
+    },
+    {
+      "say": "Some sequences cross zero. Keep using the same rule below zero.",
+      "show": "6, 2, −2, −6, −10"
+    },
+    {
+      "say": "Check that your rule works for every pair of terms in the sequence.",
+      "show": "9 − 5 = 4, 13 − 9 = 4, 17 − 13 = 4"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.sequences.901",
+      "skill": "m5.sequences",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is the next term? 7, 15, 23, 31, ___",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "7",
+          "15",
+          "23",
+          "31",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A sequence of boxes: 7, 15, 23, 31 and an empty box."
+      },
+      "hints": [
+        "Find the difference between 7 and 15.",
+        "Check that the same difference works for the other terms.",
+        "Add the difference to the last term."
+      ],
+      "explanation": "The rule is add 8. 31 + 8 = 39.",
+      "answer": 39
+    },
+    {
+      "id": "m5.sequences.902",
+      "skill": "m5.sequences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the term-to-term rule? 64, 55, 46, 37",
+      "hints": [
+        "Are the numbers getting bigger or smaller?",
+        "Find the difference between 64 and 55.",
+        "Check the difference between 55 and 46 as well."
+      ],
+      "explanation": "Each term is 9 less than the one before, so the rule is subtract 9.",
+      "options": [
+        {
+          "text": "Subtract 8",
+          "why": "64 − 8 = 56, not 55. Check the difference again."
+        },
+        {
+          "text": "Subtract 10",
+          "why": "64 − 10 = 54, not 55."
+        },
+        {
+          "text": "Subtract 9"
+        },
+        {
+          "text": "Add 9",
+          "why": "The numbers are getting smaller, so the rule subtracts."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.sequences.903",
+      "skill": "m5.sequences",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The rule is subtract 5. The first term is 12. What is the fourth term?",
+      "hints": [
+        "Write the first term, 12.",
+        "Subtract 5 to get each new term.",
+        "The second term is 7."
+      ],
+      "explanation": "The sequence is 12, 7, 2, −3. The fourth term is −3.",
+      "answer": -3,
+      "allowNegative": true
+    }
+  ]
+}

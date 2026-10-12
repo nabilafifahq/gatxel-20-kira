@@ -1,0 +1,102 @@
+{
+  "skill": "m3.compare-order",
+  "title": "Compare and order numbers to 1,000",
+  "steps": [
+    {
+      "say": "To compare two numbers, look at the hundreds first.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Number",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            "452",
+            "4",
+            "5",
+            "2"
+          ],
+          [
+            "429",
+            "4",
+            "2",
+            "9"
+          ]
+        ],
+        "alt": "A place value table for 452 and 429."
+      }
+    },
+    {
+      "say": "Both numbers have 4 hundreds. So look at the tens next.",
+      "show": "4 hundreds and 4 hundreds"
+    },
+    {
+      "say": "452 has 5 tens and 429 has 2 tens. 5 tens is more.",
+      "show": "50 > 20"
+    },
+    {
+      "say": "So 452 is greater than 429.",
+      "show": "452 > 429"
+    },
+    {
+      "say": "The sign < means less than. The small end points to the smaller number.",
+      "show": "429 < 452"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.compare-order.901",
+      "skill": "m3.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the greatest?",
+      "options": [
+        {
+          "text": "790"
+        },
+        {
+          "text": "699",
+          "why": "699 has only 6 hundreds."
+        },
+        {
+          "text": "709",
+          "why": "Both have 7 hundreds. 709 has 0 tens and 790 has 9 tens."
+        },
+        {
+          "text": "779",
+          "why": "779 has 7 tens. 790 has 9 tens."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the hundreds digits first.",
+        "If the hundreds are the same, compare the tens.",
+        "Cross out any number with fewer hundreds."
+      ],
+      "explanation": "790, 779 and 709 all have 7 hundreds. 790 has the most tens, so it is the greatest."
+    },
+    {
+      "id": "m3.compare-order.902",
+      "skill": "m3.compare-order",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write < or > in the gap. 563 ___ 536",
+      "blanks": [
+        {
+          "answers": [
+            ">"
+          ]
+        }
+      ],
+      "hints": [
+        "Both numbers have 5 hundreds.",
+        "Compare the tens digits next.",
+        "The sign opens towards the bigger number."
+      ],
+      "explanation": "563 has 6 tens and 536 has 3 tens, so 563 > 536."
+    }
+  ]
+}

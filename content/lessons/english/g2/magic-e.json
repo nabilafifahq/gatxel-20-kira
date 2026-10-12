@@ -1,0 +1,88 @@
+{
+  "skill": "e2.magic-e",
+  "title": "Magic e",
+  "steps": [
+    {
+      "say": "Magic e sits at the end of a word. It does not make a sound.",
+      "show": "cake"
+    },
+    {
+      "say": "It jumps over one letter and makes the vowel say its name.",
+      "show": "cap, cape"
+    },
+    {
+      "say": "Listen: kit has a short i. Kite has a long i.",
+      "show": "kit, kite",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "kite"
+          }
+        ],
+        "alt": "A kite flying in the sky."
+      }
+    },
+    {
+      "say": "It works with o and u too.",
+      "show": "hop, hope / tub, tube"
+    },
+    {
+      "say": "Some words end in e but stay short, like have and give. Learn them as tricky words.",
+      "show": "have, give, come"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.magic-e.901",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add magic e to pin. What word do you get?",
+      "hints": [
+        "Magic e goes at the end.",
+        "It makes the i say its name.",
+        "Write pin and add e."
+      ],
+      "explanation": "Pin plus e is pine, like a pine tree.",
+      "options": [
+        {
+          "text": "pin",
+          "why": "That is the word before you add e."
+        },
+        {
+          "text": "pine"
+        },
+        {
+          "text": "pen",
+          "why": "Pen has a different vowel."
+        },
+        {
+          "text": "pan",
+          "why": "Pan has a different vowel."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.902",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add magic e to hop. Write the new word.",
+      "hints": [
+        "Magic e goes at the end.",
+        "The o will say its name.",
+        "Write hop, then add one letter."
+      ],
+      "explanation": "Hop plus e is hope.",
+      "blanks": [
+        {
+          "answers": [
+            "hope"
+          ]
+        }
+      ]
+    }
+  ]
+}

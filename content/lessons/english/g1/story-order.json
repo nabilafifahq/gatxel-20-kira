@@ -1,0 +1,51 @@
+{
+  "skill": "e1.story-order",
+  "title": "Story order and fact texts",
+  "steps": [
+    {
+      "say": "A story has a beginning, a middle and an end.",
+      "show": "beginning, middle, end"
+    },
+    {
+      "say": "Words like first, next, then and at the end help us with the order.",
+      "show": "first, next, then, at the end"
+    },
+    {
+      "say": "To guess what happens next, think about what the characters like and do.",
+      "show": "What will happen next?"
+    },
+    {
+      "say": "A story tells us about characters. A fact text tells us true things.",
+      "show": "story: Where is Pip? / fact text: Frogs"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.story-order.901",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one is a fact?",
+      "hints": [
+        "A fact is true.",
+        "Can the sun eat? Can the moon sing?",
+        "Find the sentence that is true in real life."
+      ],
+      "explanation": "The sun is hot is true, so it is a fact.",
+      "options": [
+        {
+          "text": "The sun is hot."
+        },
+        {
+          "text": "The sun ate a cake.",
+          "why": "The sun cannot eat. That is from a story."
+        },
+        {
+          "text": "The moon sang a song.",
+          "why": "The moon cannot sing. That is from a story."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

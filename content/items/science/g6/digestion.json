@@ -1,0 +1,209 @@
+{
+  "skill": "s6.digestion",
+  "items": [
+    {
+      "id": "s6.digestion.001",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which teeth are best for grinding and chewing food?",
+      "options": [
+        { "text": "incisors", "why": "Incisors are the sharp, flat front teeth for biting and cutting." },
+        { "text": "canines", "why": "Canines are pointed teeth for gripping and tearing." },
+        { "text": "molars" },
+        { "text": "milk teeth", "why": "Milk teeth are a child's first set of teeth, and they include all three types." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Different teeth have different shapes for different jobs.",
+        "Grinding needs wide, flat teeth with bumpy tops.",
+        "Run your tongue over your back teeth and feel how wide they are."
+      ],
+      "explanation": "Molars are wide, flat teeth at the back of the mouth that grind and chew food. Incisors bite and cut, and canines grip and tear.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.digestion.002",
+      "skill": "s6.digestion",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these organs into the digestive system and other body systems.",
+      "groups": ["Digestive system", "Another body system"],
+      "items": [
+        { "text": "stomach", "group": 0 },
+        { "text": "oesophagus", "group": 0 },
+        { "text": "small intestine", "group": 0 },
+        { "text": "large intestine", "group": 0 },
+        { "text": "mouth", "group": 0 },
+        { "text": "lungs", "group": 1 },
+        { "text": "heart", "group": 1 },
+        { "text": "brain", "group": 1 },
+        { "text": "windpipe", "group": 1 }
+      ],
+      "hints": [
+        "The digestive system is the long tube that food passes through.",
+        "Ask of each organ whether food passes through it.",
+        "Start with the organs in your chest that move air and blood."
+      ],
+      "explanation": "Food passes through the mouth, oesophagus, stomach and intestines, so they are part of the digestive system. The lungs, heart, brain and windpipe belong to other body systems.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.digestion.003",
+      "skill": "s6.digestion",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these parts of the digestive system in the order that food passes through them.",
+      "items": ["mouth", "oesophagus", "stomach", "small intestine", "large intestine", "rectum"],
+      "hints": [
+        "Food enters at the top of the digestive system, and waste leaves at the bottom.",
+        "A tube from the mouth leads down to a stretchy bag that churns food.",
+        "Start with the mouth. Then think about the tube that food is swallowed into."
+      ],
+      "explanation": "Food goes from the mouth down the oesophagus to the stomach, then into the small intestine and the large intestine. Waste is stored in the rectum until it leaves the body.",
+      "tags": ["checkpoint", "osn-sd"]
+    },
+    {
+      "id": "s6.digestion.004",
+      "skill": "s6.digestion",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each organ to its main job.",
+      "pairs": [
+        ["mouth", "teeth chew food and saliva wets it"],
+        ["oesophagus", "muscles squeeze food down to the stomach"],
+        ["stomach", "churns food with acid and digestive juices"],
+        ["small intestine", "digested food passes into the blood"],
+        ["large intestine", "water is taken back into the body"]
+      ],
+      "hints": [
+        "Follow the food from the top: chewing, swallowing, churning, absorbing and drying out.",
+        "Most digested food passes into the blood in the longest part of the gut.",
+        "Start with the mouth. Think about what your teeth and saliva do."
+      ],
+      "explanation": "The mouth chews and wets food, the oesophagus squeezes it down, and the stomach churns it with acid. The small intestine absorbs digested food into the blood, and the large intestine takes back water.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.digestion.005",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where does most digested food pass into the blood?",
+      "options": [
+        { "text": "stomach", "why": "The stomach mixes and breaks down food. Most food passes into the blood later, further along the gut." },
+        { "text": "large intestine", "why": "The large intestine mainly takes back water." },
+        { "text": "oesophagus", "why": "The oesophagus is a tube that moves food to the stomach." },
+        { "text": "small intestine" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Digested food must pass through the wall of the gut into the blood.",
+        "This part of the gut is very long and has a huge inside surface.",
+        "Cross out the parts that only move food along or take back water."
+      ],
+      "explanation": "Most digested food passes through the wall of the small intestine into the blood. The small intestine is very long and folded, which gives a huge surface for absorbing food.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.digestion.006",
+      "skill": "s6.digestion",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "In an adult, the small intestine is about 6 m long and the large intestine is about 1.5 m long. How many times longer is the small intestine?",
+      "answer": 4,
+      "unit": "times",
+      "hints": [
+        "How many times longer means dividing one length by the other.",
+        "Divide the length of the small intestine by the length of the large intestine.",
+        "Count how many lots of 1.5 m fit into 6 m."
+      ],
+      "explanation": "6 ÷ 1.5 = 4, so the small intestine is about four times longer. Its great length gives plenty of time and surface for food to be absorbed.",
+      "tags": ["imso"]
+    },
+    {
+      "id": "s6.digestion.007",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is it good to eat foods with fibre, such as vegetables and brown rice?",
+      "options": [
+        { "text": "Fibre helps food and waste move through the intestines." },
+        { "text": "Fibre gives us most of our energy.", "why": "Most of our energy comes from carbohydrates such as starch and sugar, and from fats." },
+        { "text": "Fibre builds strong muscles.", "why": "Protein helps the body build and repair muscles." },
+        { "text": "Fibre is absorbed in the stomach.", "why": "Fibre is not digested or absorbed. It passes through the gut and helps it work well." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Fibre is the part of plant food that your body cannot digest.",
+        "Think about what undigested material does as it moves through the gut.",
+        "Cross out the jobs that belong to carbohydrates and proteins."
+      ],
+      "explanation": "Fibre is not digested, but it adds bulk that helps the muscles of the intestines push food and waste along. This keeps the digestive system working well."
+    },
+    {
+      "id": "s6.digestion.008",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Rina chews a piece of plain bread for two minutes without swallowing. It starts to taste sweet. Why?",
+      "options": [
+        { "text": "Her teeth add sugar to the bread.", "why": "Teeth only break food into smaller pieces. They do not add sugar." },
+        { "text": "Saliva breaks down some starch in the bread into sugar." },
+        { "text": "The bread melts in her warm mouth.", "why": "Bread does not melt. A digestive juice in saliva changes it." },
+        { "text": "Warm food always tastes sweet.", "why": "Warmth alone does not make food sweet. Saliva makes sugar from starch." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Bread contains a lot of starch, which does not taste sweet.",
+        "Saliva is a digestive juice, so digestion starts in the mouth.",
+        "Ask what saliva could turn the starch into, if the bread now tastes sweet."
+      ],
+      "explanation": "Saliva contains an enzyme that breaks starch down into sugar. Chewing for a long time gives it time to work, so the bread begins to taste sweet.",
+      "tags": ["iksc", "imso", "checkpoint"]
+    },
+    {
+      "id": "s6.digestion.009",
+      "skill": "s6.digestion",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw and label the digestive system: mouth, oesophagus, stomach, small intestine, large intestine and rectum.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws the organs in the correct order from top to bottom", "points": 2 },
+          { "label": "Labels at least five organs correctly", "points": 2 },
+          { "label": "Shows the small intestine as a long, folded tube", "points": 1 },
+          { "label": "Uses straight label lines that point to each organ", "points": 1 }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "Start with the mouth at the top and work downwards.",
+        "The small intestine is coiled up, and the large intestine goes around it like a frame."
+      ],
+      "explanation": "Food passes from the mouth down the oesophagus to the stomach, then through the small and large intestines to the rectum. The small intestine is long and folded, and the large intestine frames it.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.digestion.010",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In a model of the gut, Fatimah squeezes mashed banana along a stocking with her hands. Which part of digestion does the squeezing show?",
+      "options": [
+        { "text": "teeth biting and cutting food", "why": "The model has no teeth. Squeezing shows food being pushed along a tube." },
+        { "text": "saliva wetting the food", "why": "Wetting would need a liquid to be added. The squeezing shows movement." },
+        { "text": "digested food passing into the blood", "why": "That would be shown by liquid seeping out through the stocking." },
+        { "text": "muscles in the gut wall pushing food along" }
+      ],
+      "answer": 3,
+      "hints": [
+        "In a model, each part of the equipment stands for a part of the real body.",
+        "The stocking is a long tube, like the gut.",
+        "Ask what moves food along the real gut, where there are no hands."
+      ],
+      "explanation": "The hands squeezing the stocking model the muscles in the gut wall. These muscles squeeze in waves to push food along the oesophagus and intestines.",
+      "tags": ["iksc", "checkpoint"]
+    }
+  ]
+}

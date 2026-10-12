@@ -1,0 +1,216 @@
+{
+  "skill": "s5.light-shadows",
+  "items": [
+    {
+      "id": "s5.light-shadows.001",
+      "skill": "s5.light-shadows",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these into light sources and things that are not light sources.",
+      "groups": ["Light source", "Not a light source"],
+      "items": [
+        { "text": "the Sun", "group": 0 },
+        { "text": "a candle flame", "group": 0 },
+        { "text": "a torch that is switched on", "group": 0 },
+        { "text": "a firefly", "group": 0 },
+        { "text": "the Moon", "group": 1 },
+        { "text": "a mirror", "group": 1 },
+        { "text": "a shiny spoon", "group": 1 },
+        { "text": "a white sheet of paper", "group": 1 }
+      ],
+      "hints": [
+        "A light source makes its own light.",
+        "Some things look bright only because they reflect light from somewhere else.",
+        "Ask of each one whether it would still shine in a completely dark room."
+      ],
+      "explanation": "The Sun, a candle flame, a lit torch and a firefly all make their own light. The Moon, a mirror, a spoon and paper only reflect light from a source.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.light-shadows.002",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material would make the darkest shadow?",
+      "options": [
+        { "text": "clear glass", "why": "Clear glass is transparent, so almost all light passes through it." },
+        { "text": "tracing paper", "why": "Tracing paper is translucent. Some light passes through, so the shadow is pale." },
+        { "text": "a wooden board" },
+        { "text": "frosted glass", "why": "Frosted glass is translucent, so it lets some light through." }
+      ],
+      "answer": 2,
+      "hints": [
+        "A shadow forms where light is blocked.",
+        "The more light a material blocks, the darker its shadow.",
+        "Look for the material that lets no light through at all."
+      ],
+      "explanation": "Wood is opaque, so it blocks all the light and makes a dark shadow. Translucent materials make pale shadows, and transparent ones hardly make a shadow."
+    },
+    {
+      "id": "s5.light-shadows.003",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why does a shadow have the same outline shape as the object that makes it?",
+      "options": [
+        { "text": "Light travels in straight lines, so it cannot bend around the object." },
+        { "text": "The object gives out dark light.", "why": "There is no such thing as dark light. A shadow is where light cannot reach." },
+        { "text": "The shadow is a reflection of the object.", "why": "A reflection is light bouncing back. A shadow is where light is blocked." },
+        { "text": "Light curves around the edges of the object.", "why": "If light curved around objects, shadows would be fuzzy blobs." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the path light takes from a torch.",
+        "Light that misses the object reaches the wall. Light that hits the object is blocked.",
+        "Picture lines drawn from the torch past the edges of the object."
+      ],
+      "explanation": "Light travels in straight lines. The object blocks the light that hits it, while light passing its edges carries straight on, so the shadow has the object's outline."
+    },
+    {
+      "id": "s5.light-shadows.004",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "At what time of day is your shadow shortest on a sunny day?",
+      "options": [
+        { "text": "early in the morning", "why": "The Sun is low in the sky in the morning, so shadows are long." },
+        { "text": "late in the afternoon", "why": "The Sun is low again in the late afternoon, so shadows are long." },
+        { "text": "just before sunset", "why": "At sunset the Sun is very low, which makes very long shadows." },
+        { "text": "around midday" }
+      ],
+      "answer": 3,
+      "hints": [
+        "Shadow length depends on how high the Sun is in the sky.",
+        "Light from high above makes a short shadow. Light from low down makes a long shadow.",
+        "Think about when the Sun is highest during the day."
+      ],
+      "explanation": "The Sun is highest in the sky around midday, so light comes from almost overhead and shadows are short. In the morning and late afternoon the Sun is low, so shadows are long."
+    },
+    {
+      "id": "s5.light-shadows.005",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Wulan moves a puppet away from a torch, towards a screen. The table shows the height of its shadow. What happens to the shadow?",
+      "figure": {
+        "kind": "table",
+        "caption": "Height of the puppet's shadow",
+        "head": ["Distance from torch (cm)", "Shadow height (cm)"],
+        "rows": [
+          ["10", "48"],
+          ["20", "24"],
+          ["30", "16"],
+          ["40", "12"]
+        ],
+        "alt": "Table: at 10 cm from the torch the shadow is 48 cm tall, at 20 cm it is 24 cm, at 30 cm it is 16 cm and at 40 cm it is 12 cm."
+      },
+      "options": [
+        { "text": "The shadow gets bigger.", "why": "The heights fall from 48 cm to 12 cm, so the shadow shrinks." },
+        { "text": "The shadow gets smaller." },
+        { "text": "The shadow stays the same size.", "why": "The heights change a lot as the puppet moves." },
+        { "text": "The shadow disappears.", "why": "There is still a 12 cm shadow at 40 cm." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read down the table from the smallest distance to the largest.",
+        "Compare the shadow when the puppet is near the torch with when it is far away.",
+        "Look at the first and last rows of the table."
+      ],
+      "explanation": "As the puppet moves away from the torch, the shadow shrinks from 48 cm to 12 cm. Close to the light, the puppet blocks a wide spread of light, so it makes a big shadow.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.light-shadows.006",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "In the morning, the Sun is in the east. In which direction does the shadow of a flagpole point?",
+      "blanks": [{ "answers": ["west", "to the west", "towards the west", "the west", "w"] }],
+      "hints": [
+        "A shadow forms on the opposite side of an object from the light source.",
+        "In the morning, the light comes from the east.",
+        "Point to where the Sun is, then turn to face the other way."
+      ],
+      "explanation": "Light from the morning Sun comes from the east. The flagpole blocks it, so the shadow falls on the opposite side and points west.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.light-shadows.007",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The Moon is not a light source. We can see it because it ___ light from the Sun.",
+      "blanks": [{ "answers": ["reflects", "reflect", "bounces back", "bounces"] }],
+      "hints": [
+        "The Moon is a ball of rock that does not make its own light.",
+        "A mirror does the same thing to light as the Moon does.",
+        "Think of the word for light bouncing off a surface. It starts with the letter r."
+      ],
+      "explanation": "Sunlight hits the Moon and reflects off its rocky surface. Some of the reflected light reaches our eyes, so we can see the Moon.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s5.light-shadows.008",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two torches shine on a ball from different directions. Both torches are switched on. How many shadows does the ball make?",
+      "options": [
+        { "text": "one shadow that is twice as dark", "why": "Each torch makes its own shadow on the side away from it, so the shadows are in two places." },
+        { "text": "two shadows, one for each torch" },
+        { "text": "no shadow, because the two lights cancel out", "why": "Light does not cancel light. The ball still blocks each torch." },
+        { "text": "one shadow that is twice as big", "why": "The two shadows form in different places, one for each torch." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Each light source makes its own shadow on the side away from it.",
+        "Think about stage lights at a show. A dancer often has more than one shadow.",
+        "Picture one torch switched off and count the shadows. Then switch it back on."
+      ],
+      "explanation": "The ball blocks light from each torch, so each torch makes its own shadow on the opposite side of the ball. Two light sources from different directions make two shadows.",
+      "tags": ["iksc", "imso"]
+    },
+    {
+      "id": "s5.light-shadows.009",
+      "skill": "s5.light-shadows",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a torch, a ball and a screen. Draw the light rays, and show where the shadow forms.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws straight light rays from the torch", "points": 2 },
+          { "label": "Shows rays blocked by the ball", "points": 1 },
+          { "label": "Shows the shadow on the screen behind the ball", "points": 2 },
+          { "label": "Labels the torch, ball, screen and shadow", "points": 1 }
+        ]
+      },
+      "background": "blank",
+      "hints": [
+        "Use a ruler, because light travels in straight lines.",
+        "Draw two rays that just touch the top and bottom edges of the ball."
+      ],
+      "explanation": "Light travels in straight lines from the torch. The ball blocks some rays, so a dark shadow forms on the screen directly behind the ball."
+    },
+    {
+      "id": "s5.light-shadows.010",
+      "skill": "s5.light-shadows",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "On a few days each year, an upright pole in Indonesia has almost no shadow at midday. Why?",
+      "options": [
+        { "text": "The Sun is closest to the Earth on those days.", "why": "The Sun's distance hardly changes. It is the angle of the sunlight that matters." },
+        { "text": "Clouds block the Sun on those days.", "why": "It happens on clear days too, so clouds are not the reason." },
+        { "text": "The Sun is directly overhead, so its light shines straight down." },
+        { "text": "The pole becomes transparent at midday.", "why": "The pole is still opaque. The light simply comes from straight above it." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Shadow length depends on how high the Sun is in the sky.",
+        "Indonesia is near the equator, where the Sun can be almost straight above you.",
+        "Imagine light coming from exactly above the pole. Decide where its shadow could fall."
+      ],
+      "explanation": "Near the equator, the Sun passes directly overhead on a few days each year. At midday its light comes straight down, so the pole's shadow is hidden right underneath it.",
+      "tags": ["iksc", "osn-sd"]
+    }
+  ]
+}

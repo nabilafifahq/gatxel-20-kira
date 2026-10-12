@@ -1,12 +1,23 @@
 import type { ReactElement } from 'react'
-import { ICON_NAMES, type IconName } from '../spec'
-import { DIVIDER, INK } from '../palette'
+import type { IconName } from '../spec'
+import { ANIMAL_GLYPHS } from './glyphs-animals'
+import { BODY_GLYPHS } from './glyphs-body'
+import { FOOD_GLYPHS } from './glyphs-food'
+import { NATURE_GLYPHS } from './glyphs-nature'
+import { PLACE_GLYPHS } from './glyphs-places'
+import { SCIENCE_GLYPHS } from './glyphs-science'
+import { THING_GLYPHS } from './glyphs-things'
 
-/** Sementara: lingkaran polos. Diganti dengan gambar ikon sebenarnya. */
-const placeholder = (
-  <circle cx="24" cy="24" r="18" fill={DIVIDER} stroke={INK} strokeWidth="2.5" />
-)
-
-export const ICON_GLYPHS: Record<IconName, ReactElement> = Object.fromEntries(
-  ICON_NAMES.map((n) => [n, placeholder]),
-) as Record<IconName, ReactElement>
+/**
+ * Semua ikon 48 x 48, digabung dari file per kelompok. Tipe Record<IconName, ...>
+ * membuat typecheck gagal kalau satu nama di ICON_NAMES belum punya gambar.
+ */
+export const ICON_GLYPHS: Record<IconName, ReactElement> = {
+  ...FOOD_GLYPHS,
+  ...THING_GLYPHS,
+  ...ANIMAL_GLYPHS,
+  ...NATURE_GLYPHS,
+  ...SCIENCE_GLYPHS,
+  ...BODY_GLYPHS,
+  ...PLACE_GLYPHS,
+}

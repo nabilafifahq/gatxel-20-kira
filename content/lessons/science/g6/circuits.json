@@ -1,0 +1,101 @@
+{
+  "skill": "s6.circuits",
+  "title": "Changing circuits",
+  "steps": [
+    {
+      "say": "A circuit needs a complete loop with no gaps. A switch opens and closes a gap in the loop."
+    },
+    {
+      "say": "Scientists draw circuits with symbols. A cell is a long and a short line, and a bulb is a circle with a cross.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb-lit",
+          "switch-closed"
+        ],
+        "symbols": true,
+        "alt": "A circuit diagram with a battery, a lit bulb and a closed switch in one loop."
+      }
+    },
+    {
+      "say": "Adding more cells gives a bigger push, so bulbs get brighter. Too many cells can make a bulb burn out."
+    },
+    {
+      "say": "Adding more bulbs in the same loop makes each bulb dimmer. They share the push from the cells."
+    },
+    {
+      "say": "Conductors, such as metals, let electricity flow. Insulators, such as plastic and rubber, do not."
+    },
+    {
+      "say": "In 1800, Alessandro Volta made the first battery from zinc and copper discs with salty cardboard between them."
+    },
+    {
+      "say": "Never play with electricity from wall sockets. It is much more powerful than cells and is dangerous."
+    }
+  ],
+  "check": [
+    {
+      "id": "s6.circuits.901",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does a switch do in a circuit?",
+      "options": [
+        {
+          "text": "makes the cells stronger",
+          "why": "A switch does not change the cells."
+        },
+        {
+          "text": "changes the colour of the bulb",
+          "why": "A switch only turns the circuit on or off."
+        },
+        {
+          "text": "opens or closes a gap in the circuit"
+        },
+        {
+          "text": "stores electricity",
+          "why": "Cells store energy. A switch just opens or closes the loop."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Electricity flows only around a complete loop.",
+        "Think about what happens when you flick a light switch off.",
+        "Cross out the choices about colour and storing."
+      ],
+      "explanation": "A switch opens or closes a gap in the circuit. When it is closed, the loop is complete and electricity flows."
+    },
+    {
+      "id": "s6.circuits.902",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A circuit has 2 cells and 1 bulb. One cell is taken out and the wires are joined again. What happens to the bulb?",
+      "options": [
+        {
+          "text": "It gets brighter.",
+          "why": "Fewer cells give a smaller push, so the bulb does not get brighter."
+        },
+        {
+          "text": "It gets dimmer."
+        },
+        {
+          "text": "It stays the same.",
+          "why": "The push from the cells changes, so the brightness changes."
+        },
+        {
+          "text": "It flashes on and off.",
+          "why": "The bulb stays on, just less brightly."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Cells push electricity around the circuit.",
+        "Fewer cells give a smaller push.",
+        "Think about what a smaller push does to a bulb."
+      ],
+      "explanation": "With only one cell, the push is smaller, so less electricity flows and the bulb is dimmer."
+    }
+  ]
+}

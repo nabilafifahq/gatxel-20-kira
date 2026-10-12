@@ -1,0 +1,425 @@
+{
+  "skill": "m6.oly-counting",
+  "items": [
+    {
+      "id": "m6.oly-counting.001",
+      "skill": "m6.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How many 2-digit numbers can be divided exactly by 7?",
+      "options": [
+        {
+          "text": "12",
+          "why": "Count from 14 to 98: that is 7 × 2 up to 7 × 14."
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "14",
+          "why": "7 itself has only 1 digit, so start at 14."
+        },
+        {
+          "text": "15",
+          "why": "The last one is 98 = 7 × 14. 105 has 3 digits."
+        },
+        {
+          "text": "16",
+          "why": "Count again: 7 × 2 up to 7 × 14."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the smallest and the largest 2-digit multiples of 7.",
+        "The smallest is 14 = 7 × 2. The largest is 98 = 7 × 14.",
+        "Count the whole numbers from 2 to 14."
+      ],
+      "explanation": "The 2-digit multiples of 7 run from 7 × 2 = 14 to 7 × 14 = 98. That is 14 - 2 + 1 = 13 numbers.",
+      "solution": [
+        {
+          "say": "Smallest.",
+          "show": "14 = 7 × 2"
+        },
+        {
+          "say": "Largest.",
+          "show": "98 = 7 × 14"
+        },
+        {
+          "say": "Count.",
+          "show": "14 - 2 + 1 = 13"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-counting.002",
+      "skill": "m6.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A class of 6 must choose 2 pupils to be class monitors. How many different pairs can be chosen?",
+      "options": [
+        {
+          "text": "6",
+          "why": "Each pupil can pair with 5 others, so there are more than 6 pairs."
+        },
+        {
+          "text": "12",
+          "why": "Count again: 5 + 4 + 3 + 2 + 1."
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "30",
+          "why": "30 counts each pair twice: A with B and B with A."
+        },
+        {
+          "text": "36",
+          "why": "A pupil cannot be paired with themselves."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Name the pupils A to F.",
+        "A can pair with 5 others. B can pair with 4 new ones.",
+        "Add the new pairs for each pupil."
+      ],
+      "explanation": "The new pairs are 5 for A, 4 for B, 3 for C, 2 for D and 1 for E. That is 5 + 4 + 3 + 2 + 1 = 15 pairs.",
+      "solution": [
+        {
+          "say": "New pairs.",
+          "show": "5 + 4 + 3 + 2 + 1"
+        },
+        {
+          "say": "Total.",
+          "show": "15"
+        },
+        {
+          "say": "Or: 6 × 5 ÷ 2 = 15.",
+          "show": "15"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-counting.003",
+      "skill": "m6.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "How many different triangles have whole-number side lengths and a perimeter of 12 cm?",
+      "options": [
+        {
+          "text": "0",
+          "why": "4, 4, 4 is a triangle, so there is at least 1."
+        },
+        {
+          "text": "1",
+          "why": "4, 4, 4 works, but there are others."
+        },
+        {
+          "text": "2",
+          "why": "Check 3, 4, 5 and 2, 5, 5 as well as 4, 4, 4."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Check each list: the two shorter sides must add up to more than the longest."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "In a triangle, the two shorter sides must add up to more than the longest side.",
+        "The longest side must be less than half of 12, so at most 5.",
+        "List the triples with longest side 5, then 4."
+      ],
+      "explanation": "The longest side must be less than half of 12, so it is at most 5. The triangles are 2, 5, 5 and 3, 4, 5 and 4, 4, 4, which makes 3.",
+      "solution": [
+        {
+          "say": "Longest side less than half of 12.",
+          "show": "at most 5"
+        },
+        {
+          "say": "Longest side 5.",
+          "show": "2, 5, 5 and 3, 4, 5"
+        },
+        {
+          "say": "Longest side 4.",
+          "show": "4, 4, 4"
+        },
+        {
+          "say": "Total.",
+          "show": "3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.004",
+      "skill": "m6.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A 4-digit number uses each of the digits 1, 2, 3 and 4 once. How many such numbers can be divided exactly by 4?",
+      "options": [
+        {
+          "text": "2",
+          "why": "There are 3 good endings, not 1."
+        },
+        {
+          "text": "3",
+          "why": "Each ending can have the front two digits in 2 orders."
+        },
+        {
+          "text": "4",
+          "why": "Check the endings: 12, 24 and 32 all divide by 4."
+        },
+        {
+          "text": "6"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A number divides by 4 when its last two digits do.",
+        "Find the 2-digit endings from these digits that divide by 4.",
+        "The endings are 12, 24 and 32. The other two digits can go in 2 orders."
+      ],
+      "explanation": "The last two digits must divide by 4: 12, 24 or 32. For each ending, the other two digits can go in 2 orders, so there are 3 × 2 = 6 numbers.",
+      "solution": [
+        {
+          "say": "Endings that divide by 4.",
+          "show": "12, 24, 32"
+        },
+        {
+          "say": "Front digits in 2 orders.",
+          "show": "2 for each"
+        },
+        {
+          "say": "Total.",
+          "show": "3 × 2 = 6"
+        },
+        {
+          "say": "The numbers.",
+          "show": "3412, 4312, 1324, 3124, 1432, 4132"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.005",
+      "skill": "m6.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Eight friends split into two teams of 4 for a game. The teams have no names. How many different ways are there to split them?",
+      "answer": 35,
+      "hints": [
+        "Look at the team that includes one particular friend, say Ana.",
+        "Ana's team needs 3 more players from the other 7 friends.",
+        "Count the ways to choose 3 from 7."
+      ],
+      "explanation": "Ana's team needs 3 of the other 7 friends, and the rest form the other team. Choosing 3 from 7 can be done in 7 × 6 × 5 ÷ 6 = 35 ways.",
+      "solution": [
+        {
+          "say": "Fix Ana's team.",
+          "show": "choose 3 of the other 7"
+        },
+        {
+          "say": "Ordered choices.",
+          "show": "7 × 6 × 5 = 210"
+        },
+        {
+          "say": "The order of the 3 does not matter.",
+          "show": "210 ÷ 6 = 35"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.006",
+      "skill": "m6.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A safe has a 3-digit code using the digits 0 to 9. Siti remembers the code is odd and all its digits are different. How many codes are possible?",
+      "options": [
+        {
+          "text": "320",
+          "why": "The first digit of a code can be 0, so it has 9 choices once the last digit is picked."
+        },
+        {
+          "text": "360"
+        },
+        {
+          "text": "450",
+          "why": "The middle digit must differ from both other digits, so it has 8 choices."
+        },
+        {
+          "text": "500",
+          "why": "500 counts every odd code, even with repeated digits."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Fill in the last digit first.",
+        "The last digit must be odd: 1, 3, 5, 7 or 9.",
+        "Then the first digit can be any of the 9 digits left, and the middle any of the 8 left."
+      ],
+      "explanation": "The last digit has 5 choices. The first digit can be any of the other 9 digits, and the middle one any of the remaining 8. That is 5 × 9 × 8 = 360 codes.",
+      "solution": [
+        {
+          "say": "Last digit odd.",
+          "show": "5 choices"
+        },
+        {
+          "say": "First digit.",
+          "show": "9 choices"
+        },
+        {
+          "say": "Middle digit.",
+          "show": "8 choices"
+        },
+        {
+          "say": "Total.",
+          "show": "5 × 9 × 8 = 360"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.007",
+      "skill": "m6.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many squares of all sizes are there on an 8 by 8 chessboard?",
+      "answer": 204,
+      "hints": [
+        "Count each size of square separately.",
+        "There are 64 squares of size 1 and 49 of size 2.",
+        "A k by k square fits in (9 - k) × (9 - k) places."
+      ],
+      "explanation": "The counts for sizes 1 to 8 are 64, 49, 36, 25, 16, 9, 4 and 1. Their sum is 204.",
+      "solution": [
+        {
+          "say": "Sizes 1 to 4.",
+          "show": "64 + 49 + 36 + 25 = 174"
+        },
+        {
+          "say": "Sizes 5 to 8.",
+          "show": "16 + 9 + 4 + 1 = 30"
+        },
+        {
+          "say": "Total.",
+          "show": "174 + 30 = 204"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-counting.008",
+      "skill": "m6.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many whole numbers from 1 to 1000 cannot be divided exactly by 2, by 3 or by 5?",
+      "answer": 266,
+      "hints": [
+        "Count the numbers that can be divided by 2, 3 or 5, then subtract from 1000.",
+        "Use multiples of 2, 3 and 5, then of 6, 10 and 15, then of 30.",
+        "There are 500, 333 and 200 multiples of 2, 3 and 5."
+      ],
+      "explanation": "Multiples of 2, 3 or 5: 500 + 333 + 200 - 166 - 100 - 66 + 33 = 734. So 1000 - 734 = 266 numbers are left.",
+      "solution": [
+        {
+          "say": "Single lists.",
+          "show": "500 + 333 + 200 = 1033"
+        },
+        {
+          "say": "Remove numbers counted twice: multiples of 6, 10 and 15.",
+          "show": "166 + 100 + 66 = 332"
+        },
+        {
+          "say": "Add back multiples of 30, removed once too often.",
+          "show": "1033 - 332 + 33 = 734"
+        },
+        {
+          "say": "Not divisible by 2, 3 or 5.",
+          "show": "1000 - 734 = 266"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-counting.009",
+      "skill": "m6.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mira climbs 6 stairs. Each move she goes up 1, 2 or 3 stairs. In how many different ways can she reach the top?",
+      "answer": 24,
+      "hints": [
+        "Work up from small staircases.",
+        "The ways for 1, 2 and 3 stairs are 1, 2 and 4.",
+        "The ways to reach a stair add the ways for the three stairs below it."
+      ],
+      "explanation": "The ways for 1 to 6 stairs are 1, 2, 4, 7, 13 and 24, because each number is the sum of the three before it. So there are 24 ways.",
+      "solution": [
+        {
+          "say": "1, 2 and 3 stairs.",
+          "show": "1, 2, 4"
+        },
+        {
+          "say": "4 stairs.",
+          "show": "1 + 2 + 4 = 7"
+        },
+        {
+          "say": "5 stairs.",
+          "show": "2 + 4 + 7 = 13"
+        },
+        {
+          "say": "6 stairs.",
+          "show": "4 + 7 + 13 = 24"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

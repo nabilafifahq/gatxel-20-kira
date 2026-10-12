@@ -1,0 +1,95 @@
+{
+  "skill": "m4.angles",
+  "title": "Acute, obtuse and right angles",
+  "steps": [
+    {
+      "say": "A right angle is a square corner. It measures 90°.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 90,
+        "alt": "An angle of 90 degrees."
+      }
+    },
+    {
+      "say": "An acute angle is smaller than a right angle.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 50,
+        "alt": "An angle of 50 degrees."
+      }
+    },
+    {
+      "say": "An obtuse angle is bigger than a right angle and smaller than a straight line.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 130,
+        "alt": "An angle of 130 degrees."
+      }
+    },
+    {
+      "say": "A straight angle makes a straight line. It measures 180°.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 180,
+        "alt": "An angle of 180 degrees."
+      }
+    },
+    {
+      "say": "A whole turn is 360°, so a quarter turn is 90°.",
+      "show": "360 ÷ 4 = 90"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.angles.901",
+      "skill": "m4.angles",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What kind of angle is this?",
+      "options": [
+        {
+          "text": "Straight angle",
+          "why": "A straight angle makes a straight line."
+        },
+        {
+          "text": "Obtuse",
+          "why": "An obtuse angle is bigger than a right angle. This angle is smaller."
+        },
+        {
+          "text": "Acute"
+        },
+        {
+          "text": "Right angle",
+          "why": "A right angle is a square corner. This angle is smaller."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the angle with a square corner.",
+        "Is it smaller, the same, or bigger?",
+        "Look at how wide the arms open."
+      ],
+      "explanation": "This angle is smaller than a right angle, so it is acute.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 35,
+        "alt": "An angle of 35 degrees."
+      }
+    },
+    {
+      "id": "m4.angles.902",
+      "skill": "m4.angles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many degrees are in a half turn?",
+      "answer": 180,
+      "hints": [
+        "A whole turn is 360°.",
+        "A half turn is half of a whole turn.",
+        "Work out 360 ÷ 2."
+      ],
+      "explanation": "360 ÷ 2 = 180, so a half turn is 180°.",
+      "unit": "°"
+    }
+  ]
+}

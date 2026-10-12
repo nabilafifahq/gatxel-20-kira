@@ -1,0 +1,59 @@
+{
+  "skill": "e2.tricky-words",
+  "title": "Tricky words for Grade 2",
+  "steps": [
+    {
+      "say": "Tricky words have a part you cannot spell just by listening.",
+      "show": "because, could, friend, people"
+    },
+    {
+      "say": "Find the tricky part. Say the word in a funny way to remember it.",
+      "show": "be-cause, peo-ple"
+    },
+    {
+      "say": "Some words have a silent letter. Climb has a silent b.",
+      "show": "climb, knee, write"
+    },
+    {
+      "say": "Some words sound the same but mean different things.",
+      "show": "two, to, too / hour, our"
+    },
+    {
+      "say": "Use look, say, cover, write and check to practise.",
+      "show": "look, say, cover, write, check"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.tricky-words.901",
+      "skill": "e2.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt correctly?",
+      "hints": [
+        "All four try to spell the same word.",
+        "Say it in a funny way: peo-ple.",
+        "The middle has e and o together."
+      ],
+      "explanation": "People is spelt p, e, o, p, l, e.",
+      "options": [
+        {
+          "text": "peeple",
+          "why": "People has eo in the middle."
+        },
+        {
+          "text": "pepole",
+          "why": "Two letters are swapped."
+        },
+        {
+          "text": "people"
+        },
+        {
+          "text": "peopel",
+          "why": "The end is le."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

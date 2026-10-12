@@ -1,0 +1,89 @@
+{
+  "skill": "m2.money",
+  "title": "Totals and change",
+  "steps": [
+    {
+      "say": "Add coins and notes to find a total. Start with the biggest.",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 5000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 1
+          },
+          {
+            "value": 1000,
+            "count": 1
+          }
+        ],
+        "alt": "One Rp5.000 note, one Rp2.000 note and one Rp1.000 coin."
+      },
+      "show": "Rp5.000 + Rp2.000 + Rp1.000 = Rp8.000"
+    },
+    {
+      "say": "Change is the money you get back.",
+      "show": "Pay Rp10.000 for a toy that costs Rp7.000"
+    },
+    {
+      "say": "Count on from the price to the money you paid.",
+      "show": "Rp7.000 to Rp10.000 is Rp3.000"
+    },
+    {
+      "say": "Check: the price and the change make the money you paid.",
+      "show": "Rp7.000 + Rp3.000 = Rp10.000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.money.901",
+      "skill": "m2.money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How much money is this altogether?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 10000,
+            "count": 1
+          },
+          {
+            "value": 5000,
+            "count": 1
+          }
+        ],
+        "alt": "One Rp10.000 note and one Rp5.000 note."
+      },
+      "hints": [
+        "Start with the note worth the most.",
+        "Think in thousands: 10 thousand and 5 thousand.",
+        "Start at Rp10.000 and add the next note."
+      ],
+      "explanation": "Rp10.000 + Rp5.000 = Rp15.000.",
+      "answer": 15000,
+      "unit": "rupiah"
+    },
+    {
+      "id": "m2.money.902",
+      "skill": "m2.money",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A kite costs Rp6.000. Rafi pays with Rp10.000. How much change does Rafi get?",
+      "hints": [
+        "Change is the money you get back.",
+        "Take Rp6.000 away from Rp10.000.",
+        "Count on from 6 thousand to 10 thousand."
+      ],
+      "explanation": "Rp10.000 - Rp6.000 = Rp4.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "answer": 4000,
+      "unit": "rupiah"
+    }
+  ]
+}

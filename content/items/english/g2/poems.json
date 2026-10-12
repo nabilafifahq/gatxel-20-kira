@@ -1,0 +1,562 @@
+{
+  "skill": "e2.poems",
+  "items": [
+    {
+      "id": "e2.poems.001",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal croaks in the poem?",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Find the word croak.",
+        "Read the start of that line.",
+        "Which animal is beside the pond?"
+      ],
+      "explanation": "The poem says a frog goes croak beside the pond.",
+      "options": [
+        {
+          "text": "a frog"
+        },
+        {
+          "text": "a dog",
+          "why": "The dog barks."
+        },
+        {
+          "text": "an owl",
+          "why": "The owl hoots."
+        },
+        {
+          "text": "a gecko",
+          "why": "The gecko clicks."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.poems.002",
+      "skill": "e2.poems",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match the rhyming words from the poem.",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Rhyming words are often at the end of lines.",
+        "Look at lines that are next to each other.",
+        "Start with bed. Which word at the end of the next line rhymes?"
+      ],
+      "explanation": "Bed rhymes with overhead, pond with beyond, wall with fall and bark with dark.",
+      "pairs": [
+        [
+          "bed",
+          "overhead"
+        ],
+        [
+          "pond",
+          "beyond"
+        ],
+        [
+          "wall",
+          "fall"
+        ],
+        [
+          "bark",
+          "dark"
+        ]
+      ]
+    },
+    {
+      "id": "e2.poems.003",
+      "skill": "e2.poems",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the sound words in the poem.",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Three words are right.",
+        "Sound words copy the noise they name.",
+        "Say each word. Does it sound like a noise?"
+      ],
+      "explanation": "Croak, chirp and clicks are sound words. They copy the noises of the frog, the crickets and the gecko.",
+      "options": [
+        {
+          "text": "croak"
+        },
+        {
+          "text": "chirp"
+        },
+        {
+          "text": "clicks"
+        },
+        {
+          "text": "moon",
+          "why": "Moon is a thing, not a sound."
+        },
+        {
+          "text": "busy",
+          "why": "Busy describes the night."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e2.poems.004",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "When does the poem happen?",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Read the first two lines.",
+        "Where is the sun? Where is the moon?",
+        "Think about when you hear crickets and owls."
+      ],
+      "explanation": "The sun has gone to bed and the moon is out, so it is night.",
+      "options": [
+        {
+          "text": "in the morning",
+          "why": "The sun has gone to bed."
+        },
+        {
+          "text": "at night"
+        },
+        {
+          "text": "at lunchtime",
+          "why": "The moon is out."
+        },
+        {
+          "text": "after school",
+          "why": "The child is going to sleep."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.005",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How does the child feel at the end of the poem?",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Read the last line.",
+        "Find a feeling word.",
+        "What is the child ready to do?"
+      ],
+      "explanation": "The child says: I am sleepy now.",
+      "options": [
+        {
+          "text": "scared",
+          "why": "The sounds are gentle, and the child is calm."
+        },
+        {
+          "text": "angry",
+          "why": "Nothing in the poem makes the child angry."
+        },
+        {
+          "text": "sleepy"
+        },
+        {
+          "text": "hungry",
+          "why": "The poem does not talk about food."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.006",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why does the poet say the night is busy?",
+      "passage": "e2.p.night-sounds",
+      "hints": [
+        "Look at the middle of the poem.",
+        "Count the different sounds.",
+        "Who or what is making the noises?"
+      ],
+      "explanation": "The frog, the crickets, the gecko, the rain, the dog and the owl all make sounds, so the night is busy.",
+      "options": [
+        {
+          "text": "Lots of people are working.",
+          "why": "There are no people working in the poem."
+        },
+        {
+          "text": "The child is doing homework.",
+          "why": "The child is in bed."
+        },
+        {
+          "text": "The sun is shining.",
+          "why": "The sun has gone to bed."
+        },
+        {
+          "text": "There are lots of sounds from animals and rain."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.007",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What colour is the kite's tail?",
+      "passage": "e2.p.my-kite",
+      "hints": [
+        "Find the word tail.",
+        "Read the rest of that line.",
+        "Look for a colour word."
+      ],
+      "explanation": "The poem says the kite has a long tail, yellow too.",
+      "options": [
+        {
+          "text": "red",
+          "why": "The kite is red, green and blue."
+        },
+        {
+          "text": "green",
+          "why": "The kite is red, green and blue."
+        },
+        {
+          "text": "blue",
+          "why": "The kite is red, green and blue."
+        },
+        {
+          "text": "yellow"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.008",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word in the poem rhymes with high?",
+      "passage": "e2.p.my-kite",
+      "hints": [
+        "Find the word high.",
+        "Look at the end of the next line.",
+        "Say high, then say each choice."
+      ],
+      "explanation": "High and sky rhyme. They are at the ends of two lines next to each other.",
+      "options": [
+        {
+          "text": "sky"
+        },
+        {
+          "text": "higher",
+          "why": "Higher has an extra sound at the end."
+        },
+        {
+          "text": "bird",
+          "why": "Bird ends with a different sound."
+        },
+        {
+          "text": "slow",
+          "why": "Slow ends with a different sound."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.poems.009",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The kite swoops 'just like a bird'. What does this tell you?",
+      "passage": "e2.p.my-kite",
+      "hints": [
+        "Just like compares two things.",
+        "What does a bird do in the sky?",
+        "Is the poet saying the kite is a bird, or moves like one?"
+      ],
+      "explanation": "Just like a bird compares the kite to a bird. The kite swoops and climbs the way a bird does.",
+      "options": [
+        {
+          "text": "The kite is a real bird.",
+          "why": "The kite is not alive."
+        },
+        {
+          "text": "A bird is holding the kite.",
+          "why": "No bird holds the kite."
+        },
+        {
+          "text": "The kite moves like a flying bird."
+        },
+        {
+          "text": "The kite has feathers.",
+          "why": "The poem does not say this."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.010",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why does the kite come down in the evening?",
+      "passage": "e2.p.my-kite",
+      "hints": [
+        "Read the last part of the poem.",
+        "Find the word evening.",
+        "What happens to the wind?"
+      ],
+      "explanation": "When evening comes, the wind is slow, so the kite comes down.",
+      "options": [
+        {
+          "text": "The string breaks.",
+          "why": "The string does not break."
+        },
+        {
+          "text": "The wind is slow."
+        },
+        {
+          "text": "It starts to rain.",
+          "why": "There is no rain in this poem."
+        },
+        {
+          "text": "A bird pulls it down.",
+          "why": "No bird pulls the kite."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.011",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The word wind is used in two ways. What does wind mean in 'I wind it in'?",
+      "passage": "e2.p.my-kite",
+      "hints": [
+        "Wind can be air, or a doing word.",
+        "In this line, the child is doing something.",
+        "What do you do with the string to bring a kite down?"
+      ],
+      "explanation": "Here wind is a doing word that rhymes with find. It means to roll up the string.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "moving air",
+          "why": "That is wind in: The wind picks up."
+        },
+        {
+          "text": "a strong storm",
+          "why": "There is no storm in the poem."
+        },
+        {
+          "text": "run very fast",
+          "why": "Wind here is about the string."
+        },
+        {
+          "text": "roll up the string"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.012",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with moon?",
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say moon, then each word.",
+        "Listen for oon at the end."
+      ],
+      "explanation": "Moon and spoon rhyme. They both end with oon.",
+      "options": [
+        {
+          "text": "man",
+          "why": "Man ends with a different sound."
+        },
+        {
+          "text": "spoon"
+        },
+        {
+          "text": "mean",
+          "why": "Mean ends with a different sound."
+        },
+        {
+          "text": "morning",
+          "why": "Morning starts the same, but it does not rhyme."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.013",
+      "skill": "e2.poems",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Do they rhyme with light or with play?",
+      "hints": [
+        "Say each word aloud.",
+        "Listen to the end sound, not the spelling.",
+        "Start with kite. Does it sound like light or play?"
+      ],
+      "explanation": "Night, kite and white rhyme with light. Day, say and grey rhyme with play.",
+      "groups": [
+        "Rhymes with light",
+        "Rhymes with play"
+      ],
+      "items": [
+        {
+          "text": "night",
+          "group": 0
+        },
+        {
+          "text": "day",
+          "group": 1
+        },
+        {
+          "text": "kite",
+          "group": 0
+        },
+        {
+          "text": "say",
+          "group": 1
+        },
+        {
+          "text": "white",
+          "group": 0
+        },
+        {
+          "text": "grey",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.poems.014",
+      "skill": "e2.poems",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Finish the rhyme with a word for a small rug. 'I saw a cat / asleep on a ___.'",
+      "hints": [
+        "The word rhymes with cat.",
+        "It is something on the floor.",
+        "You wipe your feet on it."
+      ],
+      "explanation": "Mat rhymes with cat, and a mat is a small rug.",
+      "blanks": [
+        {
+          "answers": [
+            "mat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.poems.015",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which line has a repeating pattern?",
+      "hints": [
+        "Look for words that repeat.",
+        "Poets repeat words to make a rhythm.",
+        "Which line says the same word three times?"
+      ],
+      "explanation": "Run, run, run repeats the same word. Repeating words gives a poem rhythm.",
+      "options": [
+        {
+          "text": "The dog ate its dinner.",
+          "why": "No words repeat here."
+        },
+        {
+          "text": "My hat is on the bed.",
+          "why": "No words repeat here."
+        },
+        {
+          "text": "Run, run, run, as fast as you can!"
+        },
+        {
+          "text": "We go home at three.",
+          "why": "No words repeat here."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.016",
+      "skill": "e2.poems",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose 2 words that sound like what they mean.",
+      "hints": [
+        "Two words are right.",
+        "Say each word aloud.",
+        "Which words copy a noise?"
+      ],
+      "explanation": "Buzz sounds like a bee and splash sounds like water. They are sound words.",
+      "options": [
+        {
+          "text": "buzz"
+        },
+        {
+          "text": "splash"
+        },
+        {
+          "text": "table",
+          "why": "Table does not sound like a noise."
+        },
+        {
+          "text": "happy",
+          "why": "Happy is a feeling, not a sound."
+        },
+        {
+          "text": "green",
+          "why": "Green is a colour."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "e2.poems.017",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which pair of lines rhymes?",
+      "hints": [
+        "Look at the last word of each line.",
+        "Do the last words sound the same at the end?",
+        "Say the last two words of each pair aloud."
+      ],
+      "explanation": "Down and town rhyme, so that pair of lines rhymes.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The bird flew high / over the trees.",
+          "why": "High and trees do not rhyme."
+        },
+        {
+          "text": "The rain came down / all over the town."
+        },
+        {
+          "text": "I like to read / my book at night.",
+          "why": "Read and night do not rhyme."
+        },
+        {
+          "text": "The bus is red / and it is big.",
+          "why": "Red and big do not rhyme."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

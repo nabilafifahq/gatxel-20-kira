@@ -1,0 +1,55 @@
+{
+  "skill": "e6.speaking-debating",
+  "title": "Debating and adapting your speech",
+  "steps": [
+    {
+      "say": "In a debate, one side argues for the motion and the other side argues against it."
+    },
+    {
+      "say": "State your position clearly, then give reasons with examples or evidence."
+    },
+    {
+      "say": "Listen carefully to the other side so that you can answer their points.",
+      "show": "I understand that... however..."
+    },
+    {
+      "say": "Adapt your language to your audience: formal for an assembly, friendly for classmates."
+    },
+    {
+      "say": "Speak at a steady pace, pause after important points and finish with a strong summary."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.speaking-debating.901",
+      "skill": "e6.speaking-debating",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is a polite way to answer an opponent?",
+      "options": [
+        {
+          "text": "I see why my opponent thinks that; however, the facts suggest otherwise."
+        },
+        {
+          "text": "You obviously don’t know anything.",
+          "why": "This is rude and gives no reasons."
+        },
+        {
+          "text": "That’s not true, full stop.",
+          "why": "This disagrees without explaining why."
+        },
+        {
+          "text": "I’m not listening to that.",
+          "why": "Debaters must listen to and answer the other side."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A polite answer shows respect for the other speaker.",
+        "Look for a sentence that recognises their view before disagreeing.",
+        "Find the option that mentions facts."
+      ],
+      "explanation": "Recognising the other view and then pointing to facts is polite and persuasive."
+    }
+  ]
+}

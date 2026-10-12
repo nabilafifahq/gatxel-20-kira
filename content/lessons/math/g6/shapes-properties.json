@@ -1,0 +1,169 @@
+{
+  "skill": "m6.shapes-properties",
+  "title": "Properties of shapes and circles",
+  "steps": [
+    {
+      "say": "Quadrilaterals are sorted by their sides and angles. A parallelogram has two pairs of parallel sides.",
+      "show": "square, rectangle, rhombus, parallelogram, trapezium, kite",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "square",
+            "label": "square"
+          },
+          {
+            "shape": "rectangle",
+            "label": "rectangle"
+          },
+          {
+            "shape": "rhombus",
+            "label": "rhombus"
+          },
+          {
+            "shape": "parallelogram",
+            "label": "parallelogram"
+          },
+          {
+            "shape": "trapezium",
+            "label": "trapezium"
+          },
+          {
+            "shape": "kite",
+            "label": "kite"
+          }
+        ],
+        "alt": "Six quadrilaterals: a square, a rectangle, a rhombus, a parallelogram, a trapezium and a kite."
+      }
+    },
+    {
+      "say": "A rhombus is a parallelogram with four equal sides. A square is a rhombus with four right angles.",
+      "show": "Every square is a rhombus"
+    },
+    {
+      "say": "A circle has a centre. The radius goes from the centre to the edge.",
+      "show": "diameter = 2 × radius",
+      "figure": {
+        "kind": "shape",
+        "shape": "circle",
+        "alt": "A drawing of a circle."
+      }
+    },
+    {
+      "say": "The diameter goes right across the circle through the centre. It is twice as long as the radius.",
+      "show": "A radius of 4 cm gives a diameter of 8 cm"
+    },
+    {
+      "say": "3D shapes have faces, edges and vertices. A square-based pyramid has 5 faces, 8 edges and 5 vertices.",
+      "show": "5 faces, 8 edges, 5 vertices",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A square-based pyramid."
+      }
+    },
+    {
+      "say": "A net shows all the faces of a 3D shape laid flat. A net of a cube has 6 squares.",
+      "show": "6 squares fold into a cube",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "alt": "A cross-shaped net of 6 squares."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.shapes-properties.901",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which quadrilateral has 4 equal sides but no right angles?",
+      "hints": [
+        "Think about which shapes have 4 equal sides.",
+        "Then check which of those has no right angles.",
+        "A square has 4 equal sides too."
+      ],
+      "explanation": "A rhombus has 4 equal sides, and its angles are not right angles.",
+      "options": [
+        {
+          "text": "Square",
+          "why": "A square has 4 right angles."
+        },
+        {
+          "text": "Rectangle",
+          "why": "A rectangle has right angles, and its sides are not all equal."
+        },
+        {
+          "text": "Kite",
+          "why": "A kite has two pairs of equal sides next to each other."
+        },
+        {
+          "text": "Rhombus"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.shapes-properties.902",
+      "skill": "m6.shapes-properties",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A circle has a diameter of 18 cm. What is its radius?",
+      "hints": [
+        "The radius goes from the centre to the edge.",
+        "The diameter is twice the radius.",
+        "Halve the diameter."
+      ],
+      "explanation": "18 ÷ 2 = 9, so the radius is 9 cm.",
+      "answer": 9,
+      "unit": "cm"
+    },
+    {
+      "id": "m6.shapes-properties.903",
+      "skill": "m6.shapes-properties",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many edges does a triangular prism have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A drawing of a triangular prism."
+      },
+      "hints": [
+        "Count the edges on each triangle end.",
+        "Then count the edges that join the two ends.",
+        "Each triangle has 3 edges."
+      ],
+      "explanation": "3 edges on each triangle make 6, plus 3 edges joining them. 6 + 3 = 9 edges.",
+      "answer": 9
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "e3.inference",
+  "title": "Being a reading detective",
+  "steps": [
+    { "say": "Writers do not tell you everything. You can use clues to work out what they mean." },
+    { "say": "Look at what characters do and say. Their actions show their feelings.", "show": "Grandma gave Dewi a big hug. → Grandma is proud." },
+    { "say": "Use what you already know too. A clue plus what you know gives you an idea.", "show": "clue + what I know = my idea" },
+    { "say": "For a tricky word, read the sentences around it. Then try a word you know in its place.", "show": "The rain drummed on the leaves. → made a loud tapping sound" },
+    { "say": "Always check your idea against the text. Can you point to the clue?" }
+  ],
+  "check": [
+    {
+      "id": "e3.inference.901", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "prompt": "Mia yawned and rubbed her eyes. She could hardly keep them open.\nHow does Mia feel?",
+      "options": [
+        { "text": "tired" },
+        { "text": "angry", "why": "Yawning and rubbing your eyes are not signs of being angry." },
+        { "text": "hungry", "why": "Nothing in the text is about food." },
+        { "text": "excited", "why": "Excited people do not struggle to keep their eyes open." }
+      ],
+      "answer": 0,
+      "hints": ["What does Mia do?", "When do people yawn and rub their eyes?", "Think about how you feel late at night."],
+      "explanation": "Yawning, rubbing her eyes and hardly keeping them open are clues that Mia is tired."
+    },
+    {
+      "id": "e3.inference.902", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "prompt": "The path was slippery, so we walked slowly.\nWhat does slippery mean?",
+      "options": [
+        { "text": "dry and rough", "why": "A dry, rough path would not make you walk slowly." },
+        { "text": "easy to slide on" },
+        { "text": "very long", "why": "The word so tells us slippery is the reason for walking slowly." },
+        { "text": "full of flowers", "why": "Flowers would not make you walk carefully." }
+      ],
+      "answer": 1,
+      "hints": ["Why did they walk slowly?", "The word so links the path to walking slowly.", "Think of the word slip inside slippery."],
+      "explanation": "Slippery means easy to slide on. That is why they walked slowly."
+    }
+  ]
+}

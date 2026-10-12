@@ -1,0 +1,231 @@
+{
+  "skill": "s5.water-cycle",
+  "items": [
+    {
+      "id": "s5.water-cycle.001",
+      "skill": "s5.water-cycle",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each change of state to what happens.",
+      "pairs": [
+        ["melting", "solid to liquid"],
+        ["freezing", "liquid to solid"],
+        ["evaporating", "liquid to gas"],
+        ["condensing", "gas to liquid"]
+      ],
+      "hints": [
+        "Each change of state turns one state of matter into another.",
+        "Think of ice, water and water vapour, and which change turns one into the next.",
+        "Start with melting. Think about an ice lolly on a hot day."
+      ],
+      "explanation": "Melting turns a solid into a liquid and freezing turns a liquid into a solid. Evaporating turns a liquid into a gas, and condensing turns a gas back into a liquid."
+    },
+    {
+      "id": "s5.water-cycle.002",
+      "skill": "s5.water-cycle",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort these into solids, liquids and gases.",
+      "groups": ["Solid", "Liquid", "Gas"],
+      "items": [
+        { "text": "ice", "group": 0 },
+        { "text": "sand", "group": 0 },
+        { "text": "wooden block", "group": 0 },
+        { "text": "honey", "group": 1 },
+        { "text": "milk", "group": 1 },
+        { "text": "cooking oil", "group": 1 },
+        { "text": "water vapour", "group": 2 },
+        { "text": "air", "group": 2 },
+        { "text": "oxygen", "group": 2 }
+      ],
+      "hints": [
+        "Solids keep their shape, liquids flow and gases spread out to fill any space.",
+        "Some solids, such as sand, can be poured. Look at one grain to decide.",
+        "Start with the materials you cannot see, such as the air around you."
+      ],
+      "explanation": "Ice, sand and wood are solids, and each grain of sand keeps its own shape even though sand can be poured. Honey, milk and oil are liquids, while water vapour, air and oxygen are gases."
+    },
+    {
+      "id": "s5.water-cycle.003",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The thermometer shows the temperature of some water. What state is the water in?",
+      "figure": {
+        "kind": "thermometer",
+        "min": -20,
+        "max": 40,
+        "value": -5,
+        "step": 5,
+        "alt": "A thermometer showing minus 5 degrees Celsius."
+      },
+      "options": [
+        { "text": "solid ice" },
+        { "text": "liquid water", "why": "Water is a liquid between 0 °C and 100 °C. This temperature is below 0 °C." },
+        { "text": "water vapour", "why": "Water vapour is a gas. At this temperature water is frozen, and it would need a lot of heat to become a gas." },
+        { "text": "boiling water", "why": "Water boils at 100 °C, not below 0 °C." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the thermometer carefully. Check whether the temperature is above or below zero.",
+        "Pure water freezes at 0 °C and boils at 100 °C.",
+        "Compare the reading with 0 °C first."
+      ],
+      "explanation": "The thermometer shows minus 5 °C, which is below 0 °C, the temperature at which water freezes. So the water is solid ice."
+    },
+    {
+      "id": "s5.water-cycle.004",
+      "skill": "s5.water-cycle",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these stages of the water cycle in order, starting with the sea.",
+      "items": [
+        "the Sun heats water in the sea",
+        "water evaporates into water vapour",
+        "water vapour rises and cools",
+        "water vapour condenses into clouds",
+        "rain falls",
+        "rainwater flows in rivers back to the sea"
+      ],
+      "hints": [
+        "The water cycle is driven by heat from the Sun.",
+        "Water must become a gas before it can rise into the sky.",
+        "After the Sun heats the sea, think about what happens to the water at the surface."
+      ],
+      "explanation": "The Sun heats the sea and water evaporates into water vapour. The vapour rises, cools and condenses into clouds, then rain falls and rivers carry the water back to the sea.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.water-cycle.005",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Galih takes a glass of iced tea out of the fridge. Soon the outside of the glass is covered in drops of water. Where did the water come from?",
+      "options": [
+        { "text": "The tea leaked through the glass.", "why": "Glass has no holes. The drops form even on a glass that holds only ice." },
+        { "text": "The glass started to melt.", "why": "Glass melts only at very high temperatures." },
+        { "text": "Water vapour in the air cooled and condensed on the cold glass." },
+        { "text": "The ice gave off water vapour that passed through the glass.", "why": "Nothing passes through the glass. The water comes from the air around it." }
+      ],
+      "answer": 2,
+      "hints": [
+        "The air around us contains water vapour that you cannot see.",
+        "Think about what happens to water vapour when it touches something cold.",
+        "Ask whether water could get through solid glass. If not, look outside the glass."
+      ],
+      "explanation": "Air contains invisible water vapour. When it touches the cold glass, it cools and condenses into drops of liquid water.",
+      "tags": ["iksc", "osn-sd"]
+    },
+    {
+      "id": "s5.water-cycle.006",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A puddle on a concrete playground dries up on a sunny day. The water never reaches 100 °C. What happened to the water?",
+      "options": [
+        { "text": "It went into the air as tiny drops of liquid.", "why": "In the air, the water is a gas called water vapour, not drops of liquid." },
+        { "text": "It evaporated. Evaporation can happen below the boiling point." },
+        { "text": "It froze.", "why": "It is a sunny day, so the water is warm, not frozen." },
+        { "text": "It disappeared and no longer exists.", "why": "The water still exists as water vapour in the air." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Water does not have to boil to turn into a gas.",
+        "Think about how wet clothes dry on a line without ever boiling.",
+        "Cross out the choices that say the water froze or stopped existing."
+      ],
+      "explanation": "The water evaporated. Evaporation happens at the surface of a liquid at any temperature, and warmth from the Sun makes it faster."
+    },
+    {
+      "id": "s5.water-cycle.007",
+      "skill": "s5.water-cycle",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the things that help wet clothes dry faster.",
+      "options": [
+        { "text": "hanging them in the sun" },
+        { "text": "hanging them where the wind blows" },
+        { "text": "spreading them out" },
+        { "text": "folding them into a pile", "why": "Folding hides most of the cloth from the air, so less water can evaporate." },
+        { "text": "keeping them in a closed cupboard", "why": "Air in a closed cupboard is still and cool, so evaporation is slow." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": [
+        "Clothes dry when the water in them evaporates.",
+        "Think about what helps a puddle disappear quickly.",
+        "For each choice, ask whether more of the wet cloth is touching warm, moving air."
+      ],
+      "explanation": "Sun, wind and spreading the clothes out all help water evaporate faster. Folding clothes or shutting them in a cupboard slows evaporation down."
+    },
+    {
+      "id": "s5.water-cycle.008",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why is it often cooler and rainier on the high slopes of mountains in Java?",
+      "options": [
+        { "text": "Mountains make rain from their rock.", "why": "Rock does not make rain. Rain comes from water vapour that cools and condenses." },
+        { "text": "The mountain top is much nearer the Sun.", "why": "A mountain is only a few kilometres high, which makes almost no difference to the distance to the Sun." },
+        { "text": "There is more sea water on mountains.", "why": "There is no sea on a mountain. The water comes from water vapour in the air." },
+        { "text": "Rising air cools, so its water vapour condenses into clouds and rain." }
+      ],
+      "answer": 3,
+      "hints": [
+        "Air gets colder the higher it goes.",
+        "Think about what happens to water vapour when it cools down.",
+        "Picture moist air from the sea being pushed up a mountainside. Follow it upwards."
+      ],
+      "explanation": "Wind pushes moist air up the mountain, where the air is colder. The water vapour cools and condenses into clouds, which often bring rain.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s5.water-cycle.009",
+      "skill": "s5.water-cycle",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "A raindrop falls on a mountain in Java. Explain how the same water could end up in a cloud again. Use the words evaporate and condense.",
+      "rubric": {
+        "criteria": [
+          { "label": "Describes the water flowing or collecting, such as in a river or the sea", "points": 1 },
+          { "label": "Explains that the Sun's heat makes the water evaporate", "points": 2 },
+          { "label": "Explains water vapour rising, cooling and condensing into a cloud", "points": 2 },
+          { "label": "Uses evaporate and condense correctly", "points": 1 }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 120,
+      "planning": [
+        "Where does the raindrop go after it lands?",
+        "What makes the water turn into a gas?",
+        "What happens to the gas high in the sky?"
+      ],
+      "model": "The raindrop runs down the mountain into a river, and the river carries it to the sea. The Sun heats the sea, and the water evaporates into water vapour. The water vapour rises and cools high in the sky. It condenses into tiny drops of water, which make a cloud.",
+      "hints": [
+        "Follow the water downhill first.",
+        "Then think about what the Sun's heat does to water in rivers and the sea."
+      ],
+      "explanation": "Water flows into rivers and the sea, then evaporates into water vapour when the Sun heats it. The vapour rises, cools and condenses into tiny drops that form clouds."
+    },
+    {
+      "id": "s5.water-cycle.010",
+      "skill": "s5.water-cycle",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "When a kettle boils, a white cloud appears a few centimetres above the spout. What is the white cloud?",
+      "options": [
+        { "text": "water vapour, which is a white gas", "why": "Water vapour is invisible. You only see it after it condenses into tiny drops." },
+        { "text": "tiny drops of liquid water formed as water vapour cooled" },
+        { "text": "smoke from the hot kettle", "why": "Nothing is burning. The cloud is made of water." },
+        { "text": "air that has turned white from the heat", "why": "Air does not turn white when it is heated." }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look closely: there is a clear gap just above the spout before the cloud appears.",
+        "Water vapour is a gas that you cannot see.",
+        "Ask what happens to water vapour as it leaves the spout and meets cooler air."
+      ],
+      "explanation": "Water vapour is invisible, which is why there is a clear gap at the spout. As the vapour meets cooler air, it condenses into tiny drops of liquid water that make the white cloud.",
+      "tags": ["iksc", "imso"]
+    }
+  ]
+}

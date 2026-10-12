@@ -1,0 +1,95 @@
+{
+  "skill": "m6.squares-cubes",
+  "title": "Square numbers, cube numbers and roots",
+  "steps": [
+    {
+      "say": "A square number is a whole number multiplied by itself. We write 6 × 6 as 6².",
+      "show": "6² = 36",
+      "figure": {
+        "kind": "array",
+        "rows": 6,
+        "cols": 6,
+        "icon": "dot",
+        "alt": "An array of 6 rows of 6 dots."
+      }
+    },
+    {
+      "say": "A cube number is a whole number multiplied by itself three times. We write 3 × 3 × 3 as 3³.",
+      "show": "3³ = 27",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "label": "3 × 3 × 3",
+        "alt": "A cube labelled 3 × 3 × 3."
+      }
+    },
+    {
+      "say": "The first cube numbers are 1, 8, 27, 64 and 125. 10 cubed is 1,000.",
+      "show": "1³, 2³, 3³, 4³, 5³",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "8",
+          "27",
+          "64",
+          "125"
+        ],
+        "style": "boxes",
+        "alt": "A row of boxes with the cube numbers 1, 8, 27, 64 and 125."
+      }
+    },
+    {
+      "say": "A square root undoes squaring. The square root of 49 is 7, because 7 × 7 = 49.",
+      "show": "√49 = 7"
+    },
+    {
+      "say": "Learn the square numbers up to 12 × 12 = 144. Then you can find their roots quickly.",
+      "show": "√144 = 12"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.squares-cubes.901",
+      "skill": "m6.squares-cubes",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 9²?",
+      "hints": [
+        "The small 2 means squared.",
+        "Multiply 9 by itself.",
+        "Use the 9 times table."
+      ],
+      "explanation": "9² = 9 × 9 = 81.",
+      "answer": 81
+    },
+    {
+      "id": "m6.squares-cubes.902",
+      "skill": "m6.squares-cubes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 4³?",
+      "hints": [
+        "The small 3 means cubed.",
+        "Multiply 4 by itself three times.",
+        "4 × 4 = 16."
+      ],
+      "explanation": "4³ = 4 × 4 × 4 = 16 × 4 = 64.",
+      "answer": 64
+    },
+    {
+      "id": "m6.squares-cubes.903",
+      "skill": "m6.squares-cubes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is √121?",
+      "hints": [
+        "A square root undoes squaring.",
+        "Which number times itself makes 121?",
+        "10 × 10 = 100, so try a little more than 10."
+      ],
+      "explanation": "11 × 11 = 121, so √121 = 11.",
+      "answer": 11
+    }
+  ]
+}

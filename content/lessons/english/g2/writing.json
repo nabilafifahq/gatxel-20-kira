@@ -1,0 +1,90 @@
+{
+  "skill": "e2.writing",
+  "title": "Recounts and instructions",
+  "steps": [
+    {
+      "say": "A recount tells about something that really happened, in order.",
+      "show": "Last Sunday, I went to the zoo."
+    },
+    {
+      "say": "Recounts use past tense verbs and time words.",
+      "show": "went, saw, ate / first, then, after that"
+    },
+    {
+      "say": "Instructions tell someone how to do something.",
+      "show": "How to wash your hands"
+    },
+    {
+      "say": "Instructions start with a list of what you need, then steps in order.",
+      "show": "You will need: soap, water and a towel."
+    },
+    {
+      "say": "Each step starts with a time word and a bossy verb.",
+      "show": "First, wet your hands."
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.writing.901",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is from a recount?",
+      "hints": [
+        "A recount tells what really happened to you.",
+        "It is in the past.",
+        "Look for a time word and a past tense verb."
+      ],
+      "explanation": "Yesterday, we visited my uncle tells about a real event in the past.",
+      "options": [
+        {
+          "text": "Yesterday, we visited my uncle."
+        },
+        {
+          "text": "Mix the flour and the eggs.",
+          "why": "This is an instruction."
+        },
+        {
+          "text": "Cats have whiskers.",
+          "why": "This is a fact."
+        },
+        {
+          "text": "Once upon a time, a dragon slept.",
+          "why": "This is the start of a story."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.writing.902",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a bossy verb for an instruction step?",
+      "hints": [
+        "A bossy verb tells you what to do.",
+        "It is a doing word.",
+        "Try each one: ___ the soup."
+      ],
+      "explanation": "Stir tells you what to do: Stir the soup.",
+      "options": [
+        {
+          "text": "happy",
+          "why": "Happy is a describing word."
+        },
+        {
+          "text": "stir"
+        },
+        {
+          "text": "slowly",
+          "why": "Slowly tells how."
+        },
+        {
+          "text": "soup",
+          "why": "Soup is a naming word."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

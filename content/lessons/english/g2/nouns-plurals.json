@@ -1,0 +1,79 @@
+{
+  "skill": "e2.nouns-plurals",
+  "title": "Nouns and plurals",
+  "steps": [
+    {
+      "say": "A noun names a person, place, animal or thing.",
+      "show": "teacher, park, cat, book"
+    },
+    {
+      "say": "Names of people, places and days start with a capital letter.",
+      "show": "Raka, Bali, Monday"
+    },
+    {
+      "say": "Most nouns add s for more than one. Nouns ending in s, x, sh or ch add es.",
+      "show": "cats, boxes, dishes, benches"
+    },
+    {
+      "say": "If a noun ends in a consonant and y, change the y to i and add es.",
+      "show": "baby, babies / lady, ladies"
+    },
+    {
+      "say": "Some plurals are special. Learn them by heart.",
+      "show": "child, children / mouse, mice / foot, feet"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.nouns-plurals.901",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Choose the missing word. 'One dish, two ___.'",
+      "hints": [
+        "Two means more than one.",
+        "Dish ends with sh.",
+        "Words ending in sh add -es."
+      ],
+      "explanation": "Dish ends with sh, so the plural is dishes.",
+      "options": [
+        {
+          "text": "dishs",
+          "why": "Dish ends with sh, so it adds -es."
+        },
+        {
+          "text": "dishes"
+        },
+        {
+          "text": "dish",
+          "why": "Dish is for one."
+        },
+        {
+          "text": "dishies",
+          "why": "Dish adds -es, not -ies."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.902",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the plural of story.",
+      "hints": [
+        "Story ends with y.",
+        "The letter before y is r, a consonant.",
+        "Change y to i, then add -es."
+      ],
+      "explanation": "Story becomes stories.",
+      "blanks": [
+        {
+          "answers": [
+            "stories"
+          ]
+        }
+      ]
+    }
+  ]
+}

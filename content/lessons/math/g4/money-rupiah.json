@@ -1,0 +1,78 @@
+{
+  "skill": "m4.money-rupiah",
+  "title": "Money problems in rupiah",
+  "steps": [
+    {
+      "say": "Prices in rupiah use a point to group the thousands. Rp12.500 is twelve thousand five hundred rupiah.",
+      "show": "Rp12.500"
+    },
+    {
+      "say": "These notes and coins make Rp12.500.",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 10000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 1
+          },
+          {
+            "value": 500,
+            "count": 1
+          }
+        ],
+        "alt": "One Rp10.000 note, one Rp2.000 note and one Rp500 coin."
+      },
+      "show": "Rp10.000 + Rp2.000 + Rp500"
+    },
+    {
+      "say": "When the items cost the same, multiply to find the total.",
+      "show": "3 × Rp4.500 = Rp13.500"
+    },
+    {
+      "say": "To find change, take the total away from the money paid.",
+      "show": "Rp20.000 - Rp13.500 = Rp6.500"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.money-rupiah.901",
+      "skill": "m4.money-rupiah",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Arif buys 4 notebooks at Rp6.000 each. How much does Arif pay?",
+      "answer": 24000,
+      "hints": [
+        "Each notebook costs the same, so multiply.",
+        "Work out 4 × 6 thousand.",
+        "4 × 6 = 24."
+      ],
+      "explanation": "4 × Rp6.000 = Rp24.000.",
+      "unit": "rupiah",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.money-rupiah.902",
+      "skill": "m4.money-rupiah",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Bella buys a book for Rp35.500 and pays with Rp50.000. How much change does Bella get?",
+      "answer": 14500,
+      "hints": [
+        "Change is the money paid take away the price.",
+        "Count up from Rp35.500 to Rp36.000 first.",
+        "Then count up from Rp36.000 to Rp50.000."
+      ],
+      "explanation": "Rp35.500 to Rp36.000 is Rp500. Rp36.000 to Rp50.000 is Rp14.000. Rp500 + Rp14.000 = Rp14.500.",
+      "unit": "rupiah",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill": "e3.homophones",
+  "title": "Words that sound the same",
+  "steps": [
+    { "say": "Homophones are words that sound the same but are spelt differently. They also mean different things.", "show": "see and sea" },
+    { "say": "To choose the right spelling, think about the meaning in the sentence.", "show": "I can see the sea." },
+    { "say": "Two is the number 2, and too means also. To goes before a place or a verb.", "show": "My two friends want to come too." },
+    { "say": "There tells you where. Their means belonging to them.", "show": "Their bags are over there." },
+    { "say": "Write means put words on paper. Right means correct, or not left.", "show": "Write the right answer." }
+  ],
+  "check": [
+    {
+      "id": "e3.homophones.901", "skill": "e3.homophones", "type": "mcq", "difficulty": 1,
+      "prompt": "The ___ was very big and blue.",
+      "options": [
+        { "text": "see", "why": "See means to look with your eyes." },
+        { "text": "sea" },
+        { "text": "sey", "why": "Sey is not a word." },
+        { "text": "seas", "why": "Seas means more than one, but the sentence says was." }
+      ],
+      "answer": 1,
+      "hints": ["The missing word is something big and blue.", "See and sea sound the same.", "Which one is the salty water where fish live?"],
+      "explanation": "The sea is the big area of salty water. See means to look."
+    },
+    {
+      "id": "e3.homophones.902", "skill": "e3.homophones", "type": "text", "difficulty": 2,
+      "prompt": "Write here or hear.\nCan you ___ the birds singing?",
+      "blanks": [{ "answers": ["hear"] }],
+      "hints": ["The sentence is about sounds.", "One spelling has the word ear inside it.", "You use your ear to do this."],
+      "explanation": "Hear means to notice sounds with your ears. Here means in this place."
+    }
+  ]
+}

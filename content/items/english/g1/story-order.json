@@ -1,0 +1,394 @@
+{
+  "skill": "e1.story-order",
+  "items": [
+    {
+      "id": "e1.story-order.001",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the story in order.",
+      "passage": "e1.p.yellow-boots",
+      "hints": [
+        "Think about the start, the middle and the end.",
+        "What does Dewi get at the very start?",
+        "Find the sentence about the new boots first."
+      ],
+      "explanation": "First Dewi gets her boots. Then there is no rain and she is sad. Next the rain comes, and at the end she jumps in a puddle.",
+      "items": [
+        "Dewi gets new yellow boots.",
+        "Dewi is sad because there is no rain.",
+        "Grey clouds come and it rains.",
+        "Dewi jumps in a puddle."
+      ]
+    },
+    {
+      "id": "e1.story-order.002",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What might Dewi do the next time it rains?",
+      "passage": "e1.p.yellow-boots",
+      "hints": [
+        "Think about how Dewi feels about rain.",
+        "What did she do the last time it rained?",
+        "People often do a fun thing again."
+      ],
+      "explanation": "Dewi loves playing in the rain with her boots. She will probably do it again.",
+      "options": [
+        {
+          "text": "Put on her boots and play outside."
+        },
+        {
+          "text": "Hide under her bed.",
+          "why": "Dewi loves rain. She would not hide."
+        },
+        {
+          "text": "Throw her boots away.",
+          "why": "Dewi loves her boots."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.story-order.003",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the story in order.",
+      "passage": "e1.p.where-is-pip",
+      "hints": [
+        "Start at the beginning of the story.",
+        "Find the problem: someone is missing.",
+        "End with the happy part."
+      ],
+      "explanation": "Bima feeds Pip. Then Pip is missing. Bima hears her in the garden and finds an egg.",
+      "items": [
+        "Bima gives Pip some rice.",
+        "Pip is not in her box.",
+        "Bima hears a cluck in the garden.",
+        "Bima finds an egg."
+      ]
+    },
+    {
+      "id": "e1.story-order.004",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Where does Bima look first?",
+      "passage": "e1.p.where-is-pip",
+      "hints": [
+        "Find the part where Pip is missing.",
+        "Bima looks in three places.",
+        "Read the first place he looks."
+      ],
+      "explanation": "First Bima looks under the table. Then he looks behind the door.",
+      "options": [
+        {
+          "text": "behind the door",
+          "why": "He looks there next."
+        },
+        {
+          "text": "in the garden",
+          "why": "He finds Pip there at the end."
+        },
+        {
+          "text": "under the table"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.005",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What kind of text is 'Frogs'?",
+      "passage": "e1.p.frogs",
+      "hints": [
+        "Does it tell us true things?",
+        "Is there a character with a name?",
+        "Does it teach you about frogs?"
+      ],
+      "explanation": "It gives true facts about frogs, so it is a fact text (non-fiction).",
+      "options": [
+        {
+          "text": "a fact text"
+        },
+        {
+          "text": "a story",
+          "why": "A story has characters and things that happen to them."
+        },
+        {
+          "text": "a poem",
+          "why": "A poem often has rhyme and short lines."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.story-order.006",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put a frog's life in order.",
+      "passage": "e1.p.frogs",
+      "hints": [
+        "Find the part about the mother frog.",
+        "What comes out of the egg?",
+        "Start with what the mother frog lays."
+      ],
+      "explanation": "A frog starts as an egg. A tadpole comes out, grows legs and becomes a little frog.",
+      "items": [
+        "egg",
+        "tadpole",
+        "tadpole with legs",
+        "little frog"
+      ]
+    },
+    {
+      "id": "e1.story-order.007",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the story in order.",
+      "passage": "e1.p.at-the-market",
+      "hints": [
+        "Think about the start, the middle and the end.",
+        "Where do they go first?",
+        "End with the way home."
+      ],
+      "explanation": "They go to the market. Dad buys eggs and rice, Nina picks bananas, then she carries them home.",
+      "items": [
+        "Nina and Dad go to the market.",
+        "Dad buys eggs and rice.",
+        "Nina picks three bananas.",
+        "Nina carries the bananas home."
+      ]
+    },
+    {
+      "id": "e1.story-order.008",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What happens just after Nina picks the bananas?",
+      "passage": "e1.p.at-the-market",
+      "hints": [
+        "Find the part about the bananas.",
+        "Read the next sentence.",
+        "Look for what Dad does."
+      ],
+      "explanation": "After Nina picks the bananas, Dad pays the man.",
+      "options": [
+        {
+          "text": "Dad buys some rice.",
+          "why": "That happens before."
+        },
+        {
+          "text": "Dad pays the man."
+        },
+        {
+          "text": "They go to the market.",
+          "why": "That happens at the start."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.009",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How do many stories start?",
+      "hints": [
+        "Think about fairy tales.",
+        "This is often the very first line.",
+        "Which words tell you a story is beginning?"
+      ],
+      "explanation": "Many stories start with Once upon a time.",
+      "options": [
+        {
+          "text": "The end.",
+          "why": "The end is how many stories finish."
+        },
+        {
+          "text": "Once upon a time"
+        },
+        {
+          "text": "Goodbye!",
+          "why": "Goodbye is what we say when we leave."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.010",
+      "skill": "e1.story-order",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Story or fact? Sort the sentences.",
+      "hints": [
+        "Facts are true.",
+        "In stories, animals can talk and dance.",
+        "Start with: A cow gives us milk. Is it true?"
+      ],
+      "explanation": "A cow gives us milk and bees make honey are facts. Cows do not dance and bees do not tell jokes, so those are from stories.",
+      "groups": [
+        "Story",
+        "Fact"
+      ],
+      "items": [
+        {
+          "text": "A cow gives us milk.",
+          "group": 1
+        },
+        {
+          "text": "The cow put on a hat and danced.",
+          "group": 0
+        },
+        {
+          "text": "Bees make honey.",
+          "group": 1
+        },
+        {
+          "text": "The bee told the fox a joke.",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e1.story-order.011",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What picture comes next?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "seed"
+          },
+          {
+            "icon": "seedling"
+          },
+          {
+            "icon": "plant"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "A seed, then a small seedling, then a bigger plant, joined by arrows."
+      },
+      "hints": [
+        "Look at how the plant changes.",
+        "It gets bigger each time.",
+        "What does a plant grow when it is bigger?"
+      ],
+      "explanation": "A seed grows into a small plant, then a bigger plant, and then it can grow a flower.",
+      "options": [
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "seed"
+              }
+            ],
+            "alt": "A picture of a seed."
+          },
+          "why": "The seed comes at the start, not the end."
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "flower"
+              }
+            ],
+            "alt": "A flower."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "egg"
+              }
+            ],
+            "alt": "A picture of an egg."
+          },
+          "why": "An egg is not part of a plant story."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.012",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: 'Tom drops his ice cream on the floor.' How will Tom feel?",
+      "hints": [
+        "Think about how you would feel.",
+        "Can Tom eat it now?",
+        "Find the feeling for when something goes wrong."
+      ],
+      "explanation": "Tom cannot eat his ice cream now, so he will probably feel sad.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "proud",
+          "why": "Proud is how you feel when you do well."
+        },
+        {
+          "text": "sleepy",
+          "why": "Dropping food does not make you sleepy."
+        },
+        {
+          "text": "sad"
+        },
+        {
+          "text": "brave",
+          "why": "Brave is how you feel when you face something hard."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.013",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence would come last in a story?",
+      "hints": [
+        "Look at the first words of each sentence.",
+        "Some words start stories. Some words end them.",
+        "Which one tells what happened after everything else?"
+      ],
+      "explanation": "From that day on tells us how things ended, so it comes last.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Once upon a time, there was a fox.",
+          "why": "Once upon a time starts a story."
+        },
+        {
+          "text": "One morning, the fox went to the river.",
+          "why": "This sounds like the start or the middle."
+        },
+        {
+          "text": "At the river, the fox met a crab.",
+          "why": "This sounds like the middle of a story."
+        },
+        {
+          "text": "From that day on, they were best friends."
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

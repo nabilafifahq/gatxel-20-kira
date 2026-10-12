@@ -1,0 +1,99 @@
+{
+  "skill": "m3.equivalent-fractions",
+  "title": "Equal fractions and comparing",
+  "steps": [
+    {
+      "say": "Equivalent fractions are the same amount, written with different numbers.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 2,
+        "shaded": 1,
+        "alt": "A bar in 2 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Cut each half into 2 again. Now 2 out of 4 parts are shaded.",
+      "show": "1/2 = 2/4",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 4,
+        "shaded": 2,
+        "alt": "The same bar in 4 equal parts with 2 parts shaded."
+      }
+    },
+    {
+      "say": "Multiply the top and the bottom by the same number to make an equal fraction.",
+      "show": "1/2 = 2/4 = 3/6 = 4/8"
+    },
+    {
+      "say": "To compare unit fractions, look at the bottom number. More parts means smaller parts.",
+      "show": "1/3 > 1/5"
+    },
+    {
+      "say": "With the same bottom number, more parts means a bigger fraction.",
+      "show": "3/8 < 5/8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.equivalent-fractions.901",
+      "skill": "m3.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which fraction is equal to 1/2?",
+      "options": [
+        {
+          "text": "3/6"
+        },
+        {
+          "text": "1/4",
+          "why": "1/4 is half of a half."
+        },
+        {
+          "text": "3/4",
+          "why": "3/4 is more than half."
+        },
+        {
+          "text": "2/3",
+          "why": "2/3 is more than half: 2 out of 3 parts."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Half means 1 out of every 2 parts.",
+        "For a half, the top number is half of the bottom number.",
+        "Check each fraction in turn."
+      ],
+      "explanation": "3 is half of 6, so 3/6 = 1/2."
+    },
+    {
+      "id": "m3.equivalent-fractions.902",
+      "skill": "m3.equivalent-fractions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which fraction is bigger, 1/4 or 1/6?",
+      "options": [
+        {
+          "text": "1/6",
+          "why": "Sixths are smaller parts than quarters."
+        },
+        {
+          "text": "They are equal",
+          "why": "Both have 1 part, but the parts are different sizes."
+        },
+        {
+          "text": "1/4"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Both fractions have 1 part on top.",
+        "Picture a cake cut into 4 and a cake cut into 6.",
+        "Which cake has bigger pieces?"
+      ],
+      "explanation": "A cake cut into 4 has bigger pieces than a cake cut into 6. So 1/4 is bigger than 1/6."
+    }
+  ]
+}

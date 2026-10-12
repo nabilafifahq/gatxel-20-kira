@@ -1,0 +1,33 @@
+{
+  "skill": "s1.animal-groups",
+  "title": "Animal bodies",
+  "steps": [
+    { "say": "Animals have different body parts. These parts help them live.", "figure": { "kind": "icons", "items": [{ "icon": "bird", "label": "bird" }, { "icon": "fish", "label": "fish" }, { "icon": "cat", "label": "cat" }], "alt": "A bird, a fish and a cat." } },
+    { "say": "Birds have feathers, wings and a beak. Most birds can fly.", "show": "feathers, wings, beak" },
+    { "say": "Fish have fins and scales. They swim in water.", "show": "fins, scales" },
+    { "say": "Many animals have fur. Cats, rabbits and monkeys have fur.", "show": "fur" },
+    { "say": "We can sort animals by their legs. Insects have 6 legs and spiders have 8.", "figure": { "kind": "icons", "items": [{ "icon": "ant", "label": "ant: 6 legs" }, { "icon": "spider", "label": "spider: 8 legs" }], "alt": "An ant with 6 legs and a spider with 8 legs." } }
+  ],
+  "check": [
+    {
+      "id": "s1.animal-groups.901", "skill": "s1.animal-groups", "type": "mcq", "difficulty": 1,
+      "prompt": "Which animal has fins?",
+      "options": [
+        { "text": "a fish" },
+        { "text": "a cat", "why": "A cat has fur and legs." },
+        { "text": "a hen", "why": "A hen has feathers and wings." }
+      ],
+      "answer": 0,
+      "hints": ["Fins help an animal swim.", "Which animal lives in water?", "Think about an animal in a pond."],
+      "explanation": "A fish has fins. It uses them to swim through the water."
+    },
+    {
+      "id": "s1.animal-groups.902", "skill": "s1.animal-groups", "type": "numeric", "difficulty": 2,
+      "prompt": "How many legs does an insect have?",
+      "figure": { "kind": "icons", "items": [{ "icon": "ladybird", "label": "ladybird" }], "alt": "A ladybird, which is an insect, with 3 legs on each side." },
+      "answer": 6,
+      "hints": ["A ladybird is an insect.", "Count the legs on one side, then the other side.", "There are 3 legs on one side. Count on from 3."],
+      "explanation": "Insects have 6 legs, 3 on each side. Ladybirds, ants and bees are insects."
+    }
+  ]
+}

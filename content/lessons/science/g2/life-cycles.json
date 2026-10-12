@@ -1,0 +1,39 @@
+{
+  "skill": "s2.life-cycles",
+  "title": "Life cycles",
+  "steps": [
+    { "say": "A life cycle shows how a living thing grows and changes.", "show": "life cycle" },
+    { "say": "A frog starts as frogspawn. Then it is a tadpole, a froglet and a frog.", "figure": { "kind": "icons", "items": [{ "icon": "egg", "label": "frogspawn" }, { "icon": "tadpole", "label": "tadpole" }, { "icon": "frog", "label": "frog" }], "arrows": "cycle", "alt": "Life cycle of a frog: frogspawn, tadpole, frog, then back to frogspawn." } },
+    { "say": "A butterfly starts as an egg. Then it is a caterpillar, a chrysalis and a butterfly.", "figure": { "kind": "icons", "items": [{ "icon": "egg", "label": "egg" }, { "icon": "caterpillar", "label": "caterpillar" }, { "icon": "chrysalis", "label": "chrysalis" }, { "icon": "butterfly", "label": "butterfly" }], "arrows": "cycle", "alt": "Life cycle of a butterfly: egg, caterpillar, chrysalis, butterfly, then back to egg." } },
+    { "say": "A plant grows from a seed. It flowers and makes fruit with new seeds.", "figure": { "kind": "icons", "items": [{ "icon": "seed", "label": "seed" }, { "icon": "seedling", "label": "seedling" }, { "icon": "flower", "label": "flowering plant" }, { "icon": "apple", "label": "fruit with seeds" }], "arrows": "cycle", "alt": "Life cycle of a plant: seed, seedling, flowering plant, fruit with seeds, then back to seed." } },
+    { "say": "Adults have young, so the cycle starts again.", "show": "It goes round and round." }
+  ],
+  "check": [
+    {
+      "id": "s2.life-cycles.901", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 2,
+      "prompt": "In a butterfly's life cycle, what comes after the caterpillar?",
+      "options": [
+        { "text": "an egg", "why": "The egg comes before the caterpillar." },
+        { "text": "a chrysalis" },
+        { "text": "a frog", "why": "Frogs have a different life cycle." },
+        { "text": "a seed", "why": "Seeds are part of a plant's life cycle." }
+      ],
+      "answer": 1,
+      "hints": ["The caterpillar eats and grows first.", "Next it rests in a hard case.", "Remember the order: egg, caterpillar, then what?"],
+      "explanation": "After the caterpillar comes the chrysalis. Inside it, the caterpillar changes into a butterfly."
+    },
+    {
+      "id": "s2.life-cycles.902", "skill": "s2.life-cycles", "type": "mcq", "difficulty": 2,
+      "prompt": "What hatches from frogspawn?",
+      "options": [
+        { "text": "froglets", "why": "Froglets come later, after tadpoles grow legs." },
+        { "text": "chicks", "why": "Chicks hatch from hen eggs." },
+        { "text": "tadpoles" },
+        { "text": "caterpillars", "why": "Caterpillars hatch from butterfly eggs." }
+      ],
+      "answer": 2,
+      "hints": ["Frogspawn is frog eggs.", "The young frog lives in water and has a tail.", "Remember the order: frogspawn, then what?"],
+      "explanation": "Tadpoles hatch from frogspawn. They grow legs, become froglets and then frogs."
+    }
+  ]
+}

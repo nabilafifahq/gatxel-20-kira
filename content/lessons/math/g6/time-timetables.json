@@ -1,0 +1,153 @@
+{
+  "skill": "m6.time-timetables",
+  "title": "Time, timetables and time zones",
+  "steps": [
+    {
+      "say": "Find a duration by counting on in steps: to the next hour, then whole hours, then minutes.",
+      "show": "08:45 to 11:20 = 15 min + 2 h + 20 min = 2 h 35 min"
+    },
+    {
+      "say": "Read a timetable down a column to follow one train. Each column is a different train.",
+      "show": "Train 2 leaves Jakarta at 09:40",
+      "figure": {
+        "kind": "table",
+        "caption": "Train timetable",
+        "head": [
+          "Station",
+          "Train 1",
+          "Train 2",
+          "Train 3"
+        ],
+        "rows": [
+          [
+            "Jakarta",
+            "06:15",
+            "09:40",
+            "13:05"
+          ],
+          [
+            "Cirebon",
+            "09:05",
+            "12:30",
+            "15:55"
+          ],
+          [
+            "Semarang",
+            "12:20",
+            "15:45",
+            "19:10"
+          ]
+        ],
+        "alt": "A train timetable. Train 1: Jakarta 06:15, Cirebon 09:05, Semarang 12:20. Train 2: 09:40, 12:30, 15:45. Train 3: 13:05, 15:55, 19:10."
+      }
+    },
+    {
+      "say": "To find how long a trip takes, count on from the start time to the end time.",
+      "show": "Train 2: 09:40 to 15:45 is 6 h 5 min"
+    },
+    {
+      "say": "Indonesia has three time zones. Makassar is 1 hour ahead of Jakarta, and Jayapura is 2 hours ahead.",
+      "show": "WIB, WITA, WIT",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "City",
+          "Time zone",
+          "When Jakarta is 12:00"
+        ],
+        "rows": [
+          [
+            "Jakarta",
+            "WIB",
+            "12:00"
+          ],
+          [
+            "Makassar",
+            "WITA",
+            "13:00"
+          ],
+          [
+            "Jayapura",
+            "WIT",
+            "14:00"
+          ]
+        ],
+        "alt": "A table of time zones: when it is 12:00 in Jakarta, it is 13:00 in Makassar and 14:00 in Jayapura."
+      }
+    },
+    {
+      "say": "To change a time, add hours for a place that is ahead and take hours away for a place that is behind.",
+      "show": "10:30 in Jakarta is 11:30 in Makassar"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.time-timetables.901",
+      "skill": "m6.time-timetables",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A lesson starts at 13:35 and ends at 14:20. How many minutes long is it?",
+      "hints": [
+        "Count on from 13:35 to 14:00.",
+        "Then count on from 14:00 to 14:20.",
+        "13:35 to 14:00 is 25 minutes."
+      ],
+      "explanation": "25 minutes takes you to 14:00, then 20 more minutes. 25 + 20 = 45 minutes.",
+      "answer": 45,
+      "unit": "minutes"
+    },
+    {
+      "id": "m6.time-timetables.902",
+      "skill": "m6.time-timetables",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A flight leaves Jakarta at 07:50 and takes 2 hours 25 minutes. What time does it land in Jakarta time?",
+      "hints": [
+        "Add the 2 hours first.",
+        "Then add the 25 minutes.",
+        "07:50 + 2 hours = 09:50."
+      ],
+      "explanation": "07:50 + 2 hours = 09:50. 09:50 + 25 minutes = 10:15.",
+      "blanks": [
+        {
+          "answers": [
+            "10:15",
+            "10.15",
+            "1015"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.time-timetables.903",
+      "skill": "m6.time-timetables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "It is 16:00 in Jakarta. Jayapura is 2 hours ahead. What time is it in Jayapura?",
+      "hints": [
+        "Ahead means the clock shows a later time.",
+        "Add the time difference to the Jakarta time.",
+        "Count on one hour at a time from 16:00."
+      ],
+      "explanation": "Jayapura is 2 hours ahead, so 16:00 + 2 hours = 18:00.",
+      "options": [
+        {
+          "text": "16:00",
+          "why": "Jayapura is in a different time zone."
+        },
+        {
+          "text": "17:00",
+          "why": "That is the time in Makassar, 1 hour ahead."
+        },
+        {
+          "text": "18:00"
+        },
+        {
+          "text": "14:00",
+          "why": "That goes back 2 hours. Jayapura is ahead, so add."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

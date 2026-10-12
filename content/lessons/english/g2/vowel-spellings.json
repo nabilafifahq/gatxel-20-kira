@@ -1,0 +1,92 @@
+{
+  "skill": "e2.vowel-spellings",
+  "title": "One sound, different spellings",
+  "steps": [
+    {
+      "say": "A long vowel sound can be spelt in more than one way.",
+      "show": "rain, play"
+    },
+    {
+      "say": "Ai often goes in the middle of a word. Ay often goes at the end.",
+      "show": "rain, tail / play, day"
+    },
+    {
+      "say": "Long e can be ee or ea. You need to learn which one.",
+      "show": "tree, seed / sea, leaf"
+    },
+    {
+      "say": "Long i can be igh or ie. Long o can be oa or ow.",
+      "show": "night, pie / boat, snow"
+    },
+    {
+      "say": "Oo can be long, like moon, or short, like book.",
+      "show": "moon, food / book, foot"
+    },
+    {
+      "say": "If you are not sure, write the word both ways and see which looks right.",
+      "show": "dai or day?"
+    }
+  ],
+  "check": [
+    {
+      "id": "e2.vowel-spellings.901",
+      "skill": "e2.vowel-spellings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt correctly?",
+      "hints": [
+        "All four try to spell the same word.",
+        "The sound is at the end of the word.",
+        "At the end, long a is often ay."
+      ],
+      "explanation": "Day is spelt d, ay. Ay often spells long a at the end of a word.",
+      "options": [
+        {
+          "text": "dai",
+          "why": "Ai does not usually go at the end of a word."
+        },
+        {
+          "text": "day"
+        },
+        {
+          "text": "dae",
+          "why": "This is not how we spell it."
+        },
+        {
+          "text": "dey",
+          "why": "This is not how we spell it."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.vowel-spellings.902",
+      "skill": "e2.vowel-spellings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the word for this picture.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "boat"
+          }
+        ],
+        "alt": "A boat on the water."
+      },
+      "hints": [
+        "Say the word slowly.",
+        "The middle sound is a long o.",
+        "In the middle of a word, long o is often oa."
+      ],
+      "explanation": "Boat is spelt b, oa, t.",
+      "blanks": [
+        {
+          "answers": [
+            "boat"
+          ]
+        }
+      ]
+    }
+  ]
+}

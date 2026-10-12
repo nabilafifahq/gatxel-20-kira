@@ -1,0 +1,116 @@
+{
+  "skill": "m2.telling-time",
+  "title": "Quarter past, quarter to and 5 minutes",
+  "steps": [
+    {
+      "say": "The long hand shows the minutes. Each number is 5 minutes.",
+      "show": "3 is 15 minutes, 6 is 30 minutes, 9 is 45 minutes"
+    },
+    {
+      "say": "When the long hand points to 3, it is quarter past.",
+      "figure": {
+        "kind": "clock",
+        "h": 2,
+        "m": 15,
+        "alt": "A clock. The long minute hand points to 3. The short hour hand is between 2 and 3."
+      },
+      "show": "quarter past 2 = 2:15"
+    },
+    {
+      "say": "When the long hand points to 9, it is quarter to the next hour.",
+      "figure": {
+        "kind": "clock",
+        "h": 2,
+        "m": 45,
+        "alt": "A clock. The long minute hand points to 9. The short hour hand is between 2 and 3."
+      },
+      "show": "quarter to 3 = 2:45"
+    },
+    {
+      "say": "For other times, count in 5s round the clock from 12.",
+      "figure": {
+        "kind": "clock",
+        "h": 4,
+        "m": 25,
+        "alt": "A clock. The long minute hand points to 5. The short hour hand is between 4 and 5."
+      },
+      "show": "4:25"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.telling-time.901",
+      "skill": "m2.telling-time",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What time does the clock show?",
+      "figure": {
+        "kind": "clock",
+        "h": 6,
+        "m": 15,
+        "alt": "A clock. The long minute hand points to 3. The short hour hand is between 6 and 7."
+      },
+      "hints": [
+        "Look at the long hand first.",
+        "When the long hand points to 3, it is quarter past.",
+        "Which number has the short hand just passed?"
+      ],
+      "explanation": "The long hand points to 3 and the short hand has just passed 6, so it is quarter past 6.",
+      "options": [
+        {
+          "text": "quarter to 6",
+          "why": "At quarter to, the long hand points to 9."
+        },
+        {
+          "text": "half past 6",
+          "why": "At half past, the long hand points to 6."
+        },
+        {
+          "text": "quarter past 6"
+        },
+        {
+          "text": "3 o'clock",
+          "why": "The long hand on 3 means 15 minutes past, not 3 o'clock."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m2.telling-time.902",
+      "skill": "m2.telling-time",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which digital time matches the clock?",
+      "figure": {
+        "kind": "clock",
+        "h": 8,
+        "m": 40,
+        "alt": "A clock. The long minute hand points to 8. The short hour hand is between 8 and 9."
+      },
+      "hints": [
+        "The long hand shows the minutes.",
+        "Each number on the clock is 5 minutes for the long hand.",
+        "The long hand points to 8. Count 8 fives."
+      ],
+      "explanation": "The long hand points to 8, which is 40 minutes. The short hand is after 8. The time is 8:40.",
+      "options": [
+        {
+          "text": "8:08",
+          "why": "The long hand on 8 means 40 minutes, not 8."
+        },
+        {
+          "text": "9:40",
+          "why": "The short hand has not reached 9 yet."
+        },
+        {
+          "text": "8:45",
+          "why": "Count in 5s round the clock again."
+        },
+        {
+          "text": "8:40"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

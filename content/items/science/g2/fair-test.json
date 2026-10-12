@@ -1,0 +1,206 @@
+{
+  "skill": "s2.fair-test",
+  "items": [
+    {
+      "id": "s2.fair-test.001", "skill": "s2.fair-test", "type": "mcq", "difficulty": 1,
+      "prompt": "What is a prediction?",
+      "options": [
+        { "text": "what you think will happen" },
+        { "text": "what really happened", "why": "That is a result. A prediction comes before the test." },
+        { "text": "a kind of measuring tool", "why": "Tools measure things. A prediction is an idea." },
+        { "text": "a list of materials", "why": "A list of materials tells you what you need, not what will happen." }
+      ],
+      "answer": 0,
+      "hints": ["You make a prediction before you start a test.", "It is your best guess.", "Ask: do you know the answer yet when you predict?"],
+      "explanation": "A prediction is what you think will happen. You make it before the test, then check it against your results."
+    },
+    {
+      "id": "s2.fair-test.002", "skill": "s2.fair-test", "type": "mcq", "difficulty": 1,
+      "prompt": "Which tool measures how long a pencil is?",
+      "options": [
+        { "text": "a thermometer", "why": "A thermometer measures temperature." },
+        { "text": "a measuring jug", "why": "A measuring jug measures liquids." },
+        { "text": "a timer", "why": "A timer measures time." },
+        { "text": "a ruler" }
+      ],
+      "answer": 3,
+      "hints": ["How long something is, is called its length.", "Which tool has centimetres marked along it?", "Think about the tool in your pencil case."],
+      "explanation": "A ruler measures length. We read the length in centimetres."
+    },
+    {
+      "id": "s2.fair-test.003", "skill": "s2.fair-test", "type": "match", "difficulty": 2,
+      "prompt": "Match each tool to what it measures.",
+      "pairs": [["ruler", "length in cm"], ["thermometer", "temperature in °C"], ["measuring jug", "water in ml"], ["timer", "time in seconds"]],
+      "hints": ["Think about what each tool is used for.", "Look at the units: cm, °C, ml and seconds.", "Start with the ruler. Which unit is on a ruler?"],
+      "explanation": "A ruler measures length in centimetres, a thermometer measures temperature in degrees Celsius, a jug measures water in millilitres and a timer measures time in seconds."
+    },
+    {
+      "id": "s2.fair-test.004", "skill": "s2.fair-test", "type": "mcq", "difficulty": 3,
+      "prompt": "Sari tests which paper towel soaks up the most water. What must she keep the same?",
+      "figure": { "kind": "icons", "items": [{ "icon": "paper", "label": "paper towel A" }, { "icon": "paper", "label": "paper towel B" }, { "icon": "water-drop", "label": "water" }], "alt": "Two kinds of paper towel and some water." },
+      "options": [
+        { "text": "the kind of paper towel", "why": "That is the thing she is testing, so it changes." },
+        { "text": "the amount of water for each towel" },
+        { "text": "nothing at all", "why": "To be fair, everything except the towel must stay the same." },
+        { "text": "which towel wins", "why": "That is the result she will find out." }
+      ],
+      "answer": 1,
+      "hints": ["She is testing the towels, so the towels change.", "Everything else must be the same for each towel.", "Ask: what would make the test unfair if it was different?"],
+      "explanation": "Sari changes only the kind of towel. She keeps the amount of water the same, so the test is fair.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.fair-test.005", "skill": "s2.fair-test", "type": "mcq", "difficulty": 3,
+      "prompt": "In a fair test, how many things should you change?",
+      "options": [
+        { "text": "everything", "why": "If you change everything, you cannot tell what made the difference." },
+        { "text": "nothing", "why": "If nothing changes, there is nothing to test." },
+        { "text": "just one thing" },
+        { "text": "two things", "why": "With two changes, you cannot tell which one made the difference." }
+      ],
+      "answer": 2,
+      "hints": ["A fair test helps you find out what made a difference.", "If two things change, which one caused the result?", "Ask: how many things can you blame for a change?"],
+      "explanation": "In a fair test you change just one thing and keep everything else the same. Then you know that one thing caused any difference."
+    },
+    {
+      "id": "s2.fair-test.006", "skill": "s2.fair-test", "type": "numeric", "difficulty": 2,
+      "prompt": "How long is the leaf?",
+      "figure": { "kind": "ruler", "lengthCm": 15, "objectCm": 7, "object": "leaf", "alt": "A leaf next to a ruler. It starts at 0 and ends at 7 cm." },
+      "answer": 7,
+      "unit": "cm",
+      "hints": ["Check that the leaf starts at 0.", "Look at where the leaf ends.", "Read the number on the ruler at the tip of the leaf."],
+      "explanation": "The leaf starts at 0 and ends at 7, so it is 7 cm long."
+    },
+    {
+      "id": "s2.fair-test.007", "skill": "s2.fair-test", "type": "numeric", "difficulty": 3,
+      "prompt": "Children counted minibeasts in the school garden. How many more ants than snails did they find?",
+      "figure": { "kind": "tally", "rows": [{ "label": "Ants", "count": 12 }, { "label": "Ladybirds", "count": 5 }, { "label": "Snails", "count": 7 }, { "label": "Worms", "count": 3 }], "alt": "Tally chart of minibeasts: ants 12, ladybirds 5, snails 7, worms 3." },
+      "answer": 5,
+      "hints": ["Find the ants row and the snails row.", "Count each tally in groups of 5.", "Ants are 12. Take away the number of snails."],
+      "explanation": "They found 12 ants and 7 snails. 12 take away 7 is 5, so they found 5 more ants.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.fair-test.008", "skill": "s2.fair-test", "type": "mcq", "difficulty": 2,
+      "prompt": "Look at the bar chart. Which ball bounced highest?",
+      "figure": { "kind": "bars", "title": "Bounce height", "categories": ["tennis ball", "rubber ball", "ping-pong ball", "football"], "values": [55, 70, 40, 45], "step": 10, "yLabel": "Height in cm", "alt": "Bar chart of bounce height: tennis ball 55 cm, rubber ball 70 cm, ping-pong ball 40 cm, football 45 cm." },
+      "options": [
+        { "text": "tennis ball", "why": "The tennis ball bounced 55 cm. Another ball bounced higher." },
+        { "text": "rubber ball" },
+        { "text": "ping-pong ball", "why": "The ping-pong ball bounced 40 cm, the lowest." },
+        { "text": "football", "why": "The football bounced 45 cm. Another ball bounced higher." }
+      ],
+      "answer": 1,
+      "hints": ["Highest bounce means the tallest bar.", "Compare the tops of the bars.", "Read the number at the top of the tallest bar."],
+      "explanation": "The rubber ball has the tallest bar, at 70 cm. It bounced highest."
+    },
+    {
+      "id": "s2.fair-test.009", "skill": "s2.fair-test", "type": "numeric", "difficulty": 4,
+      "prompt": "How much higher did the rubber ball bounce than the football?",
+      "figure": { "kind": "bars", "title": "Bounce height", "categories": ["tennis ball", "rubber ball", "ping-pong ball", "football"], "values": [55, 70, 40, 45], "step": 10, "yLabel": "Height in cm", "alt": "Bar chart of bounce height: tennis ball 55 cm, rubber ball 70 cm, ping-pong ball 40 cm, football 45 cm." },
+      "answer": 25,
+      "unit": "cm",
+      "hints": ["Find the rubber ball bar and the football bar.", "Read the height of each bar.", "Start with 70 cm and take away the football's height."],
+      "explanation": "The rubber ball bounced 70 cm and the football bounced 45 cm. 70 take away 45 is 25, so the rubber ball bounced 25 cm higher.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.fair-test.010", "skill": "s2.fair-test", "type": "order", "difficulty": 3,
+      "prompt": "Put the steps of an investigation in order.",
+      "items": ["Ask a question.", "Make a prediction.", "Do a fair test.", "Record the results.", "Say what you found out."],
+      "hints": ["Every investigation starts with something you want to know.", "You predict before you test.", "Start with the question. What do you do before testing?"],
+      "explanation": "Ask a question, make a prediction, do a fair test, record the results and then say what you found out."
+    },
+    {
+      "id": "s2.fair-test.011", "skill": "s2.fair-test", "type": "mcq", "difficulty": 4,
+      "prompt": "Why do scientists repeat a measurement?",
+      "options": [
+        { "text": "to make the test take longer", "why": "Repeating helps you check your results." },
+        { "text": "to get a very different answer each time", "why": "Similar answers each time show the result can be trusted." },
+        { "text": "to check the result is right" },
+        { "text": "because the first result never counts", "why": "The first result counts. Repeating helps check it." }
+      ],
+      "answer": 2,
+      "hints": ["Sometimes a measurement goes wrong by accident.", "If you get the same answer twice, how sure are you?", "Ask: what would you do if one result looked strange?"],
+      "explanation": "Repeating a measurement checks the result. If the answers are close each time, we can trust them more.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.fair-test.012", "skill": "s2.fair-test", "type": "mcq", "difficulty": 4,
+      "prompt": "Wulan wants to know if plants grow better with more water. Which plan is fair?",
+      "options": [
+        { "text": "One plant in the sun with lots of water, one in the dark with a little.", "why": "Two things change, light and water. She cannot tell which one mattered." },
+        { "text": "Two different kinds of plant with the same water.", "why": "The water is the same, so this does not test water." },
+        { "text": "Just one plant with lots of water.", "why": "With one plant, there is nothing to compare." },
+        { "text": "The same kind of plant in the same place, but one gets more water." }
+      ],
+      "answer": 3,
+      "hints": ["She is testing water, so only the water should change.", "Check each plan. How many things are different?", "Look for the plan where everything is the same except the water."],
+      "explanation": "The fair plan uses the same kind of plant in the same place and changes only the water. Then any difference must come from the water.",
+      "tags": ["iksc", "ksnr"]
+    },
+    {
+      "id": "s2.fair-test.013", "skill": "s2.fair-test", "type": "numeric", "difficulty": 4,
+      "prompt": "Galih counts birds at the feeder. How many birds came on Monday and Wednesday altogether?",
+      "figure": { "kind": "pictogram", "title": "Birds at the feeder", "rows": [{ "label": "Monday", "count": 4 }, { "label": "Tuesday", "count": 6 }, { "label": "Wednesday", "count": 3 }], "icon": "bird", "key": 2, "alt": "Pictogram of birds at the feeder. Each bird symbol means 2 birds. Monday 4 symbols, Tuesday 6 symbols, Wednesday 3 symbols." },
+      "answer": 14,
+      "unit": "birds",
+      "hints": ["Read the key. Each symbol means 2 birds.", "Work out Monday, then Wednesday.", "Monday has 4 symbols. Count in 2s: 2, 4, 6, 8."],
+      "explanation": "Monday has 4 symbols, which is 8 birds. Wednesday has 3 symbols, which is 6 birds. 8 and 6 make 14 birds.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.fair-test.014", "skill": "s2.fair-test", "type": "mcq", "difficulty": 5,
+      "prompt": "Look at the results. What can you conclude?",
+      "figure": { "kind": "table", "caption": "Ice cubes melting", "head": ["Place", "Minutes to melt"], "rows": [["fridge", "90"], ["classroom", "30"], ["sunny window", "12"]], "alt": "Table of ice cubes melting: fridge 90 minutes, classroom 30 minutes, sunny window 12 minutes." },
+      "options": [
+        { "text": "Ice melts faster where it is colder.", "why": "The fridge was coldest, and the ice there took the longest." },
+        { "text": "Ice melts faster where it is warmer." },
+        { "text": "Ice melts at the same speed everywhere.", "why": "The times are different in each place." },
+        { "text": "Ice does not melt in a classroom.", "why": "It melted in 30 minutes in the classroom." }
+      ],
+      "answer": 1,
+      "hints": ["Which place is the warmest? Which is the coldest?", "Fewer minutes means the ice melted faster.", "Compare the sunny window with the fridge."],
+      "explanation": "The ice melted in 12 minutes by the warm sunny window and took 90 minutes in the cold fridge. Ice melts faster where it is warmer.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.fair-test.015", "skill": "s2.fair-test", "type": "mcq", "difficulty": 4,
+      "prompt": "Bayu predicted the big ball would bounce highest. The small ball bounced highest. What should he do?",
+      "options": [
+        { "text": "Change the results to match his prediction.", "why": "Results must be written down honestly, even when they surprise us." },
+        { "text": "Throw the results away.", "why": "Surprising results are still useful." },
+        { "text": "Say his prediction was wrong and explain the results." },
+        { "text": "Say the test was broken.", "why": "A surprising result can show something new. The test can still be fair." }
+      ],
+      "answer": 2,
+      "hints": ["Predictions are allowed to be wrong.", "Scientists always record what really happened.", "Ask: which choice is honest about the results?"],
+      "explanation": "A prediction can be wrong, and that is fine. Bayu should record the real results, say his prediction was wrong and explain what he found."
+    },
+    {
+      "id": "s2.fair-test.016", "skill": "s2.fair-test", "type": "sort", "difficulty": 4,
+      "prompt": "Mei tests which material keeps an ice cube frozen longest. Sort the cards.",
+      "groups": ["Change", "Keep the same"],
+      "items": [
+        { "text": "the material round the ice", "group": 0 },
+        { "text": "the size of the ice cube", "group": 1 },
+        { "text": "the place they are kept", "group": 1 },
+        { "text": "when she checks them", "group": 1 }
+      ],
+      "hints": ["She is testing materials.", "Only the thing being tested should change.", "Ask for each card: would changing it make the test unfair?"],
+      "explanation": "Mei changes only the material round the ice. She keeps the ice size, the place and the checking times the same, so the test is fair."
+    },
+    {
+      "id": "s2.fair-test.017", "skill": "s2.fair-test", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a table to record how high 3 balls bounce. Fill it in with your results.",
+      "background": "grid",
+      "rubric": { "criteria": [
+        { "label": "Draws a table with two columns and a heading for each", "points": 2 },
+        { "label": "Lists 3 balls in the first column", "points": 1 },
+        { "label": "Writes a height with cm for each ball", "points": 1 }
+      ] },
+      "hints": ["Write Ball at the top of the first column and Height at the top of the second.", "Measure each bounce with a ruler or a metre stick, with a helper."],
+      "explanation": "A table keeps results tidy. Each row shows one ball and how high it bounced, in centimetres."
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "skill": "m3.oly-logic",
+  "items": [
+    {
+      "id": "m3.oly-logic.001",
+      "skill": "m3.oly-logic",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Aldo, Bella and Chen sit on a bench with 3 seats. Aldo is not at the left end. Bella sits just to the right of Chen. Who sits in the middle?",
+      "options": [
+        {
+          "text": "Aldo",
+          "why": "If Aldo were in the middle, Chen and Bella could not sit next to each other."
+        },
+        {
+          "text": "Bella"
+        },
+        {
+          "text": "Chen",
+          "why": "If Chen were in the middle, Bella would be on the right and Aldo at the left end."
+        },
+        {
+          "text": "Bella or Chen",
+          "why": "Only one seating plan fits all the clues."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Try each place for Chen and Bella. Only one works."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Chen and Bella sit side by side, with Chen on the left.",
+        "They are either in the left and middle seats, or in the middle and right seats.",
+        "Where does Aldo sit in each case?"
+      ],
+      "explanation": "If Chen and Bella took the middle and right seats, Aldo would be at the left end, which is not allowed. So Chen is on the left, Bella in the middle and Aldo on the right.",
+      "solution": [
+        {
+          "say": "Chen and Bella sit together, Chen on the left.",
+          "show": "Chen, Bella"
+        },
+        {
+          "say": "Case 1: Chen middle, Bella right, Aldo left. Not allowed.",
+          "show": "Aldo at the left end"
+        },
+        {
+          "say": "Case 2: Chen left, Bella middle, Aldo right.",
+          "show": "Chen, Bella, Aldo"
+        },
+        {
+          "say": "So Bella sits in the middle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-logic.002",
+      "skill": "m3.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A bag has 5 red, 7 blue and 9 green balls. Jamal takes balls without looking. How many must he take to be sure of 3 balls of the same colour?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 balls could be one of each colour."
+        },
+        {
+          "text": "4",
+          "why": "4 balls could be 2 red and 2 blue."
+        },
+        {
+          "text": "6",
+          "why": "6 balls could be 2 red, 2 blue and 2 green."
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "9",
+          "why": "9 always works, but fewer is enough."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the unluckiest way it could go.",
+        "How many balls can he take with no 3 of the same colour?",
+        "He could take 2 of each colour without having 3 the same."
+      ],
+      "explanation": "With bad luck he could take 2 red, 2 blue and 2 green, which is 6 balls with no 3 the same. The 7th ball must make 3 of one colour. So 7 balls are enough.",
+      "solution": [
+        {
+          "say": "Worst case: 2 of each colour.",
+          "show": "2 + 2 + 2 = 6"
+        },
+        {
+          "say": "The next ball matches one colour for the third time.",
+          "show": "6 + 1 = 7"
+        },
+        {
+          "say": "So 7 balls are always enough."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.003",
+      "skill": "m3.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Each of three animals always tells the truth or always lies. Ant says, 'Bee lies.' Bee says, 'Cat lies.' Cat says, 'Ant and Bee both lie.' How many of them tell the truth?",
+      "options": [
+        {
+          "text": "0",
+          "why": "If all three lied, Cat's words would be true. That cannot happen."
+        },
+        {
+          "text": "1"
+        },
+        {
+          "text": "2",
+          "why": "Try it: two truth-tellers always lead to a clash."
+        },
+        {
+          "text": "3",
+          "why": "Ant says Bee lies, so they cannot both tell the truth."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Test the cases. Only one works."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Start with a guess for Bee and follow the clues.",
+        "If Bee tells the truth, then Cat lies, and Ant lies too.",
+        "Now check Cat's words in that case. Is Cat really lying?"
+      ],
+      "explanation": "If Bee tells the truth, Ant lies and Cat lies, and Cat's words 'Ant and Bee both lie' are indeed false, so this fits. If Bee lies, Ant and Cat both tell the truth, but Cat says Ant lies, which breaks. So only Bee tells the truth.",
+      "solution": [
+        {
+          "say": "Try Bee truthful. Then Cat lies, because Bee says so, and Ant lies, because Ant called Bee a liar.",
+          "show": "Ant lies, Bee true, Cat lies"
+        },
+        {
+          "say": "Check Cat: 'Ant and Bee both lie' is false, because Bee is truthful. So Cat lies. It fits.",
+          "show": "fits"
+        },
+        {
+          "say": "Try Bee lying. Then Ant is truthful and Cat is truthful.",
+          "show": "Ant true, Bee lies, Cat true"
+        },
+        {
+          "say": "But a truthful Cat would not say that Ant lies. That breaks.",
+          "show": "not possible"
+        },
+        {
+          "say": "So exactly 1 animal tells the truth.",
+          "show": "1"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-logic.004",
+      "skill": "m3.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Mum is 3 times as old as Lucy. In 10 years, Mum will be twice as old as Lucy. How old is Lucy now?",
+      "options": [
+        {
+          "text": "10"
+        },
+        {
+          "text": "15",
+          "why": "If Lucy is 15, Mum is 45. In 10 years they are 25 and 55, more than double."
+        },
+        {
+          "text": "20",
+          "why": "If Lucy is 20, Mum is 60. In 10 years they are 30 and 70."
+        },
+        {
+          "text": "25",
+          "why": "If Lucy is 25, Mum is 75. In 10 years they are 35 and 85."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try an age for Lucy and test it.",
+        "If Lucy is 5 now, Mum is 15. How old are they in 10 years?",
+        "Keep trying ages until Mum's age in 10 years is exactly double."
+      ],
+      "explanation": "If Lucy is 10, Mum is 30. In 10 years Lucy is 20 and Mum is 40, which is twice as old. So Lucy is 10.",
+      "solution": [
+        {
+          "say": "Try Lucy = 5: Mum 15. In 10 years: 15 and 25.",
+          "show": "25 is not double 15"
+        },
+        {
+          "say": "Try Lucy = 10: Mum 30. In 10 years: 20 and 40.",
+          "show": "40 = 2 × 20"
+        },
+        {
+          "say": "So Lucy is 10.",
+          "show": "10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.005",
+      "skill": "m3.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a class of 30, 18 pupils have a cat and 15 have a dog. 5 pupils have neither. How many pupils have both a cat and a dog?",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Have a cat",
+          "Have a dog"
+        ],
+        "items": [
+          {
+            "text": "?",
+            "region": "both"
+          },
+          {
+            "text": "5",
+            "region": "none"
+          }
+        ],
+        "alt": "A Venn diagram for 30 pupils. 18 have a cat, 15 have a dog, and 5 are outside both circles. The overlap is unknown."
+      },
+      "answer": 8,
+      "hints": [
+        "First find how many pupils have at least one pet.",
+        "30 - 5 = 25 pupils are inside the circles.",
+        "18 + 15 counts the pupils with both pets twice."
+      ],
+      "explanation": "25 pupils have at least one pet. 18 + 15 = 33 counts the pupils with both pets twice, so 33 - 25 = 8 pupils have both.",
+      "solution": [
+        {
+          "say": "Pupils with at least one pet.",
+          "show": "30 - 5 = 25"
+        },
+        {
+          "say": "Add the two groups.",
+          "show": "18 + 15 = 33"
+        },
+        {
+          "say": "The extra is the pupils counted twice.",
+          "show": "33 - 25 = 8"
+        },
+        {
+          "say": "Check: 10 cat only, 8 both, 7 dog only, 5 neither.",
+          "show": "10 + 8 + 7 + 5 = 30"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.006",
+      "skill": "m3.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Five friends must cross a river in a small boat. The boat holds at most 2 people and cannot cross empty. Count every trip across, in both directions. How many trips are needed?",
+      "options": [
+        {
+          "text": "5",
+          "why": "Someone has to bring the boat back after each trip, except the last one."
+        },
+        {
+          "text": "6",
+          "why": "After 6 trips, 2 friends and the boat are still on the start side."
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "9",
+          "why": "Each trip back brings only 1 person, so fewer trips are enough."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Draw both banks and move the friends one trip at a time.",
+        "Each trip over takes 2 people. Each trip back brings 1 person.",
+        "So each over-and-back pair of trips moves only 1 person across in total."
+      ],
+      "explanation": "Each over-and-back pair moves 1 friend across overall. After 3 pairs (6 trips), 3 friends are across and 2 are waiting. The 7th trip takes the last 2 across, so 7 trips are needed.",
+      "solution": [
+        {
+          "say": "Over and back moves 1 friend across overall.",
+          "show": "2 over, 1 back"
+        },
+        {
+          "say": "Three pairs of trips.",
+          "show": "6 trips: 3 across, 2 waiting"
+        },
+        {
+          "say": "The last trip takes the final 2 friends, with no trip back.",
+          "show": "trip 7"
+        },
+        {
+          "say": "Total.",
+          "show": "7 trips"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.007",
+      "skill": "m3.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Omar thinks of a number. He multiplies it by 3, takes away 7, then halves the result. He gets 10. What was his number?",
+      "answer": 9,
+      "hints": [
+        "Work backwards from 10.",
+        "Undo the steps in reverse order.",
+        "Undo halving first: 10 × 2."
+      ],
+      "explanation": "Undo halving: 10 × 2 = 20. Undo taking away 7: 20 + 7 = 27. Undo multiplying by 3: 27 ÷ 3 = 9.",
+      "solution": [
+        {
+          "say": "Undo halve.",
+          "show": "10 × 2 = 20"
+        },
+        {
+          "say": "Undo take away 7.",
+          "show": "20 + 7 = 27"
+        },
+        {
+          "say": "Undo multiply by 3.",
+          "show": "27 ÷ 3 = 9"
+        },
+        {
+          "say": "Check.",
+          "show": "9 × 3 = 27, 27 - 7 = 20, 20 ÷ 2 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.008",
+      "skill": "m3.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "There are 9 coins that look the same. One coin is fake and lighter than the others. What is the smallest number of weighings on a balance that always finds the fake?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "3 coins"
+        ],
+        "right": [
+          "3 coins"
+        ],
+        "tilt": "level",
+        "alt": "A balance with 3 coins on each side and 3 more coins waiting on the table. One of the 9 coins is lighter."
+      },
+      "answer": 2,
+      "hints": [
+        "A balance compares two groups at once.",
+        "Split the 9 coins into 3 groups of 3.",
+        "Weigh one group of 3 against another. What does each result tell you?"
+      ],
+      "explanation": "Weigh 3 coins against 3: the lighter side holds the fake, or if they balance it is among the 3 left over. Then weigh 1 coin against 1 from that group in the same way. So 2 weighings always find it.",
+      "solution": [
+        {
+          "say": "Split into 3 groups of 3. Weigh two groups.",
+          "show": "3 against 3"
+        },
+        {
+          "say": "The lighter side holds the fake. If level, the group left out holds it.",
+          "show": "3 coins left"
+        },
+        {
+          "say": "Weigh 1 coin against 1 of those 3.",
+          "show": "1 against 1"
+        },
+        {
+          "say": "The lighter coin is fake. If level, the coin left out is fake.",
+          "show": "2 weighings"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-logic.009",
+      "skill": "m3.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A cat, a dog and a rabbit weigh 10 kg together. The cat and the dog weigh 8 kg. The dog and the rabbit weigh 5 kg. How much does the dog weigh?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Animals",
+          "Mass"
+        ],
+        "rows": [
+          [
+            "cat, dog and rabbit",
+            "10 kg"
+          ],
+          [
+            "cat and dog",
+            "8 kg"
+          ],
+          [
+            "dog and rabbit",
+            "5 kg"
+          ]
+        ],
+        "alt": "A table: cat, dog and rabbit together 10 kg. Cat and dog 8 kg. Dog and rabbit 5 kg."
+      },
+      "answer": 3,
+      "unit": "kg",
+      "hints": [
+        "Compare the total with each pair.",
+        "All three weigh 10 kg, and the cat and dog weigh 8 kg. What is left for the rabbit?",
+        "The rabbit weighs 10 - 8 = 2 kg."
+      ],
+      "explanation": "The rabbit weighs 10 - 8 = 2 kg. The dog and rabbit weigh 5 kg, so the dog weighs 5 - 2 = 3 kg.",
+      "solution": [
+        {
+          "say": "Rabbit.",
+          "show": "10 - 8 = 2 kg"
+        },
+        {
+          "say": "Dog.",
+          "show": "5 - 2 = 3 kg"
+        },
+        {
+          "say": "Check: the cat is 10 - 5 = 5 kg.",
+          "show": "5 + 3 + 2 = 10"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

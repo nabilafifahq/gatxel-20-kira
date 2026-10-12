@@ -1,0 +1,88 @@
+{
+  "skill": "m6.area-triangles",
+  "title": "Area of triangles",
+  "steps": [
+    {
+      "say": "A triangle is half of a rectangle with the same base and height.",
+      "show": "Rectangle 6 × 4 = 24 cm², so the triangle is 12 cm²",
+      "figure": {
+        "kind": "shape",
+        "shape": "right-triangle",
+        "sideLabels": [
+          "4 cm",
+          "6 cm"
+        ],
+        "showRightAngles": true,
+        "alt": "A right-angled triangle with a height of 4 cm and a base of 6 cm."
+      }
+    },
+    {
+      "say": "So the area of a triangle is half of base × height.",
+      "show": "Area = 1/2 × base × height"
+    },
+    {
+      "say": "The height must be perpendicular to the base. It meets the base at a right angle.",
+      "show": "The height meets the base at 90°",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "alt": "A triangle standing on its base."
+      }
+    },
+    {
+      "say": "Now work it out for a base of 10 cm and a height of 7 cm.",
+      "show": "1/2 × 10 × 7 = 35 cm²"
+    },
+    {
+      "say": "Any side can be the base, as long as you use the height that goes with it.",
+      "show": "The area stays the same"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.area-triangles.901",
+      "skill": "m6.area-triangles",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A triangle has a base of 8 cm and a height of 5 cm. What is its area?",
+      "hints": [
+        "Area of a triangle = 1/2 × base × height.",
+        "Multiply the base by the height first.",
+        "8 × 5 = 40."
+      ],
+      "explanation": "8 × 5 = 40, and half of 40 is 20. The area is 20 cm².",
+      "answer": 20,
+      "unit": "cm²"
+    },
+    {
+      "id": "m6.area-triangles.902",
+      "skill": "m6.area-triangles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A triangle has a base of 9 m and a height of 6 m. What is its area?",
+      "hints": [
+        "Use 1/2 × base × height.",
+        "Half of 6 is 3.",
+        "Multiply 9 by half the height."
+      ],
+      "explanation": "1/2 × 9 × 6 = 9 × 3 = 27 m².",
+      "answer": 27,
+      "unit": "m²"
+    },
+    {
+      "id": "m6.area-triangles.903",
+      "skill": "m6.area-triangles",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A triangle has an area of 30 cm² and a base of 12 cm. What is its height?",
+      "hints": [
+        "Area = 1/2 × base × height.",
+        "Double the area to get base × height.",
+        "Base × height = 60."
+      ],
+      "explanation": "Double 30 is 60, and 60 ÷ 12 = 5. The height is 5 cm.",
+      "answer": 5,
+      "unit": "cm"
+    }
+  ]
+}

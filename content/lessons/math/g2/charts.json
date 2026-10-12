@@ -1,0 +1,133 @@
+{
+  "skill": "m2.charts",
+  "title": "Tallies, pictograms and block graphs",
+  "steps": [
+    {
+      "say": "A tally chart uses marks. A gate of 5 is quick to count.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 12
+          }
+        ],
+        "alt": "Tally chart: cats 12."
+      },
+      "show": "5 + 5 + 2 = 12"
+    },
+    {
+      "say": "A pictogram has a key. Here each star stands for 2 children.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite sport",
+        "rows": [
+          {
+            "label": "Football",
+            "count": 4
+          },
+          {
+            "label": "Swimming",
+            "count": 3
+          }
+        ],
+        "icon": "star",
+        "key": 2,
+        "alt": "Pictogram of favourite sport. Each star is 2 children. Football: 4 stars, Swimming: 3 stars."
+      },
+      "show": "4 stars = 8 children"
+    },
+    {
+      "say": "A block graph shows each total as a bar.",
+      "figure": {
+        "kind": "bars",
+        "title": "Favourite colour",
+        "categories": [
+          "Red",
+          "Blue",
+          "Green"
+        ],
+        "values": [
+          6,
+          10,
+          8
+        ],
+        "step": 2,
+        "yLabel": "Children",
+        "alt": "Block graph of favourite colour. Red: 6, Blue: 10, Green: 8."
+      }
+    },
+    {
+      "say": "To find how many more, take the smaller from the bigger.",
+      "show": "10 - 6 = 4"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.charts.901",
+      "skill": "m2.charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Each star stands for 2 children. How many children chose football?",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite sport",
+        "rows": [
+          {
+            "label": "Football",
+            "count": 5
+          },
+          {
+            "label": "Swimming",
+            "count": 3
+          },
+          {
+            "label": "Badminton",
+            "count": 4
+          }
+        ],
+        "icon": "star",
+        "key": 2,
+        "alt": "Pictogram of favourite sport. Each star is 2 children. Football: 5 stars, Swimming: 3 stars, Badminton: 4 stars."
+      },
+      "hints": [
+        "Look at the key first.",
+        "Each star is 2 children, so count in 2s.",
+        "Count the stars for football. Then double."
+      ],
+      "explanation": "Football has 5 stars. 5 × 2 = 10 children.",
+      "answer": 10
+    },
+    {
+      "id": "m2.charts.902",
+      "skill": "m2.charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more children chose blue than red?",
+      "figure": {
+        "kind": "bars",
+        "title": "Favourite colour",
+        "categories": [
+          "Red",
+          "Blue",
+          "Green"
+        ],
+        "values": [
+          6,
+          10,
+          8
+        ],
+        "step": 2,
+        "yLabel": "Children",
+        "alt": "Block graph of favourite colour. Red: 6, Blue: 10, Green: 8."
+      },
+      "hints": [
+        "Read the two bars.",
+        "How many more means find the difference.",
+        "Work out 10 - 6."
+      ],
+      "explanation": "Blue has 10 and red has 6. 10 - 6 = 4.",
+      "answer": 4
+    }
+  ]
+}

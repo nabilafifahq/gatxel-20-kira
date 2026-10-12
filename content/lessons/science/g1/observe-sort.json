@@ -1,0 +1,33 @@
+{
+  "skill": "s1.observe-sort",
+  "title": "Look closely and sort",
+  "steps": [
+    { "say": "Scientists observe. They look closely and use their senses.", "show": "observe" },
+    { "say": "A magnifying glass makes small things look bigger.", "show": "magnifying glass" },
+    { "say": "We can sort things into groups. First we choose a rule, like has wheels.", "show": "sorting rule" },
+    { "say": "We can count and record. Each tally mark stands for one thing.", "figure": { "kind": "tally", "rows": [{ "label": "Cats", "count": 3 }, { "label": "Dogs", "count": 5 }], "alt": "Tally chart: cats 3, dogs 5." } },
+    { "say": "A pictogram uses pictures to show how many.", "figure": { "kind": "pictogram", "rows": [{ "label": "Red", "count": 4 }, { "label": "Blue", "count": 2 }], "icon": "star", "key": 1, "alt": "Pictogram of favourite colours: red 4 stars, blue 2 stars. Each star means 1 child." } }
+  ],
+  "check": [
+    {
+      "id": "s1.observe-sort.901", "skill": "s1.observe-sort", "type": "numeric", "difficulty": 1,
+      "prompt": "How many dogs are there?",
+      "figure": { "kind": "tally", "rows": [{ "label": "Cats", "count": 3 }, { "label": "Dogs", "count": 5 }], "alt": "Tally chart: cats 3, dogs 5." },
+      "answer": 5,
+      "hints": ["Find the row for dogs.", "Each line stands for one dog.", "Count the lines in the dogs row: 1, 2, 3."],
+      "explanation": "The dogs row has a gate of 5 lines, so there are 5 dogs."
+    },
+    {
+      "id": "s1.observe-sort.902", "skill": "s1.observe-sort", "type": "mcq", "difficulty": 2,
+      "prompt": "Ana puts a fish, a whale and a crab in one group. What is her rule?",
+      "options": [
+        { "text": "lives in water" },
+        { "text": "has fur", "why": "Fish, whales and crabs do not have fur." },
+        { "text": "can fly", "why": "None of these animals can fly." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what all three animals share.", "Where do they all live?", "Start with the fish. Where does it swim?"],
+      "explanation": "A fish, a whale and a crab all live in water. Her rule was lives in water."
+    }
+  ]
+}

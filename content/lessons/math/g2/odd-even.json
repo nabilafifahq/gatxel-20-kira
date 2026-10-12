@@ -1,0 +1,80 @@
+{
+  "skill": "m2.odd-even",
+  "title": "Odd and even to 100",
+  "steps": [
+    {
+      "say": "Only the ones digit tells you if a number is odd or even.",
+      "show": "36 ends in 6, so 36 is even"
+    },
+    {
+      "say": "Even numbers make pairs with none left over. They end in 0, 2, 4, 6 or 8.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "icon": "shoe",
+        "container": "circle",
+        "alt": "8 shoes in 4 pairs."
+      }
+    },
+    {
+      "say": "Odd numbers end in 1, 3, 5, 7 or 9.",
+      "show": "47 ends in 7, so 47 is odd"
+    },
+    {
+      "say": "Odd and even numbers take turns when you count.",
+      "show": "31 odd, 32 even, 33 odd, 34 even"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.odd-even.901",
+      "skill": "m2.odd-even",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is even?",
+      "hints": [
+        "Only the ones digit matters.",
+        "Even numbers end in 0, 2, 4, 6 or 8.",
+        "Look at the last digit of each number."
+      ],
+      "explanation": "58 ends in 8, so it is even.",
+      "options": [
+        {
+          "text": "43",
+          "why": "43 ends in 3, so it is odd."
+        },
+        {
+          "text": "71",
+          "why": "71 ends in 1, so it is odd."
+        },
+        {
+          "text": "95",
+          "why": "95 ends in 5, so it is odd."
+        },
+        {
+          "text": "58"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m2.odd-even.902",
+      "skill": "m2.odd-even",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the next odd number after 64?",
+      "hints": [
+        "Count on from 64.",
+        "Odd and even numbers take turns.",
+        "Say the number after 64. Is it odd?"
+      ],
+      "explanation": "The number after 64 is 65, and 65 ends in 5, so it is odd.",
+      "answer": 65
+    }
+  ]
+}

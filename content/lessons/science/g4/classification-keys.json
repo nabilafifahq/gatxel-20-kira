@@ -1,0 +1,180 @@
+{
+  "skill": "s4.classification-keys",
+  "title": "Sorting animals and using keys",
+  "steps": [
+    {
+      "say": "Scientists sort living things into groups by their features. This helps us name and study them."
+    },
+    {
+      "say": "Vertebrates have a backbone. Invertebrates, like insects, spiders, worms and snails, do not.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish",
+            "label": "vertebrate"
+          },
+          {
+            "icon": "snail",
+            "label": "invertebrate"
+          }
+        ],
+        "alt": "A fish, which is a vertebrate, and a snail, which is an invertebrate."
+      }
+    },
+    {
+      "say": "There are five groups of vertebrates: fish, amphibians, reptiles, birds and mammals.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish",
+            "label": "fish"
+          },
+          {
+            "icon": "frog",
+            "label": "amphibian"
+          },
+          {
+            "icon": "snake",
+            "label": "reptile"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          },
+          {
+            "icon": "cat",
+            "label": "mammal"
+          }
+        ],
+        "alt": "A fish, a frog, a snake, a bird and a cat, one from each vertebrate group."
+      }
+    },
+    {
+      "say": "A key is a set of yes or no questions. Each answer sends you to the next question.",
+      "show": "question → yes or no → next question"
+    },
+    {
+      "say": "Always start at the first question. Follow the answers until the key gives you a name.",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to four minibeasts",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "go to 3"
+          ],
+          [
+            "2. Does it have 6 legs?",
+            "ant",
+            "spider"
+          ],
+          [
+            "3. Does it have a shell?",
+            "snail",
+            "earthworm"
+          ]
+        ],
+        "alt": "A key. Question 1: Does it have legs? Yes, go to 2. No, go to 3. Question 2: Does it have 6 legs? Yes, ant. No, spider. Question 3: Does it have a shell? Yes, snail. No, earthworm."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s4.classification-keys.901",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal is a vertebrate?",
+      "options": [
+        {
+          "text": "frog"
+        },
+        {
+          "text": "spider",
+          "why": "Spiders have no backbone."
+        },
+        {
+          "text": "snail",
+          "why": "Snails have no backbone."
+        },
+        {
+          "text": "butterfly",
+          "why": "Butterflies have no backbone."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Vertebrates have a backbone.",
+        "Insects, spiders and snails have no bones inside.",
+        "Which animal has bones inside its body?"
+      ],
+      "explanation": "A frog has a backbone, so it is a vertebrate."
+    },
+    {
+      "id": "s4.classification-keys.902",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use the key. An animal has 6 legs. What is it?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to four minibeasts",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 2",
+            "go to 3"
+          ],
+          [
+            "2. Does it have 6 legs?",
+            "ant",
+            "spider"
+          ],
+          [
+            "3. Does it have a shell?",
+            "snail",
+            "earthworm"
+          ]
+        ],
+        "alt": "A key. Question 1: Does it have legs? Yes, go to 2. No, go to 3. Question 2: Does it have 6 legs? Yes, ant. No, spider. Question 3: Does it have a shell? Yes, snail. No, earthworm."
+      },
+      "options": [
+        {
+          "text": "spider",
+          "why": "A spider has 8 legs."
+        },
+        {
+          "text": "ant"
+        },
+        {
+          "text": "snail",
+          "why": "A snail has no legs."
+        },
+        {
+          "text": "earthworm",
+          "why": "An earthworm has no legs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Start at question 1.",
+        "It has legs, so go to question 2.",
+        "Answer question 2."
+      ],
+      "explanation": "It has legs, so go to question 2. It has 6 legs, so the key says ant."
+    }
+  ]
+}

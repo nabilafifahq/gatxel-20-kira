@@ -1,0 +1,33 @@
+{
+  "skill": "e3.plurals",
+  "title": "More than one",
+  "steps": [
+    { "say": "A plural means more than one. Most words just add -s.", "show": "cat → cats, book → books", "figure": { "kind": "objects", "items": [{ "icon": "book", "count": 3 }], "alt": "Three books." } },
+    { "say": "Words ending in s, sh, ch, x or z add -es. Say them aloud and you can hear the extra sound.", "show": "bus → buses, dish → dishes, box → boxes" },
+    { "say": "If a word ends in a consonant and y, change the y to i. Then add -es.", "show": "baby → babies, city → cities" },
+    { "say": "If a word ends in a vowel and y, just add -s.", "show": "day → days, key → keys, toy → toys" },
+    { "say": "Check the letter before the y. It tells you which rule to use.", "show": "puppy → puppies, monkey → monkeys" }
+  ],
+  "check": [
+    {
+      "id": "e3.plurals.901", "skill": "e3.plurals", "type": "mcq", "difficulty": 1,
+      "prompt": "One dish, two ___.",
+      "options": [
+        { "text": "dishs", "why": "Dish ends in sh, so it needs -es." },
+        { "text": "dishes" },
+        { "text": "dishies", "why": "Dish does not end in y." },
+        { "text": "dish", "why": "Dish is for one. There are two." }
+      ],
+      "answer": 1,
+      "hints": ["Look at the last two letters of dish.", "Words ending in sh add -es.", "Say the plural aloud. Can you hear an extra sound at the end?"],
+      "explanation": "Dish ends in sh, so we add -es: dishes."
+    },
+    {
+      "id": "e3.plurals.902", "skill": "e3.plurals", "type": "text", "difficulty": 2,
+      "prompt": "One story, two ___.",
+      "blanks": [{ "answers": ["stories"] }],
+      "hints": ["Story ends in r and then y.", "A consonant before y means you change the y.", "Think of baby and babies."],
+      "explanation": "Story has a consonant before the y, so it becomes stories."
+    }
+  ]
+}

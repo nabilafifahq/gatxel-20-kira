@@ -1,0 +1,65 @@
+{
+  "skill": "m4.rounding",
+  "title": "Round to the nearest 10, 100 or 1,000",
+  "steps": [
+    {
+      "say": "To round to the nearest 1,000, look at the hundreds digit.",
+      "figure": {
+        "kind": "numberline",
+        "min": 4000,
+        "max": 5000,
+        "step": 100,
+        "labels": "ends",
+        "marks": [
+          {
+            "at": 4600,
+            "label": "4,600"
+          }
+        ],
+        "alt": "A number line from 4,000 to 5,000 with 4,600 marked."
+      }
+    },
+    {
+      "say": "4,600 has 6 hundreds. That is 5 or more, so it rounds up.",
+      "show": "4,600 rounds to 5,000"
+    },
+    {
+      "say": "To round to the nearest 100, look at the tens digit.",
+      "show": "4,640 rounds to 4,600"
+    },
+    {
+      "say": "Rounding helps you estimate. Round each number first, then work it out.",
+      "show": "396 + 512 is about 400 + 500 = 900"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.rounding.901",
+      "skill": "m4.rounding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Round 7,350 to the nearest 1,000.",
+      "answer": 7000,
+      "hints": [
+        "Which two thousands is 7,350 between?",
+        "Look at the hundreds digit.",
+        "A hundreds digit less than 5 rounds down."
+      ],
+      "explanation": "7,350 is between 7,000 and 8,000. The hundreds digit is 3, so it rounds down to 7,000."
+    },
+    {
+      "id": "m4.rounding.902",
+      "skill": "m4.rounding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Round 2,865 to the nearest 10.",
+      "answer": 2870,
+      "hints": [
+        "Which two tens is 2,865 between?",
+        "Look at the ones digit.",
+        "A ones digit of 5 or more rounds up."
+      ],
+      "explanation": "2,865 is between 2,860 and 2,870. The ones digit is 5, so it rounds up to 2,870."
+    }
+  ]
+}

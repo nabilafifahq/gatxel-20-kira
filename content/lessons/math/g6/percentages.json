@@ -1,0 +1,112 @@
+{
+  "skill": "m6.percentages",
+  "title": "Percentage problems",
+  "steps": [
+    {
+      "say": "Find 10% by dividing by 10. Find 1% by dividing by 100.",
+      "show": "10% of 240 = 24 and 1% of 240 = 2.4",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 1,
+        "label": "10%",
+        "alt": "A bar for 240 split into 10 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Build other percentages from these. 35% is 3 lots of 10% plus half of 10%.",
+      "show": "35% of 240 = 72 + 12 = 84"
+    },
+    {
+      "say": "For a discount, find the percentage, then subtract it from the price.",
+      "show": "20% of Rp150.000 is Rp30.000",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Price",
+          "Discount",
+          "Sale price"
+        ],
+        "rows": [
+          [
+            "Rp150.000",
+            "20%",
+            "Rp120.000"
+          ]
+        ],
+        "alt": "A table: the price is Rp150.000, the discount is 20% and the sale price is Rp120.000."
+      }
+    },
+    {
+      "say": "For an increase, find the percentage, then add it on.",
+      "show": "A 10% rise on 80 kg: 80 + 8 = 88 kg"
+    },
+    {
+      "say": "To write one amount as a percentage of another, make a fraction out of 100.",
+      "show": "18 out of 25 = 72/100 = 72%"
+    }
+  ],
+  "check": [
+    {
+      "id": "m6.percentages.901",
+      "skill": "m6.percentages",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 15% of 60?",
+      "hints": [
+        "Find 10% of 60 first.",
+        "5% is half of 10%.",
+        "10% of 60 is 6."
+      ],
+      "explanation": "10% of 60 is 6 and 5% is 3. 6 + 3 = 9.",
+      "answer": 9
+    },
+    {
+      "id": "m6.percentages.902",
+      "skill": "m6.percentages",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Shoes cost Rp200.000. In a sale they are 30% off. What is the sale price?",
+      "hints": [
+        "Find 10% of Rp200.000.",
+        "Work out 30% of the price.",
+        "Take the discount away from the price."
+      ],
+      "explanation": "30% of Rp200.000 is Rp60.000. Rp200.000 − Rp60.000 = Rp140.000.",
+      "options": [
+        {
+          "text": "Rp260.000",
+          "why": "A discount makes the price lower, not higher."
+        },
+        {
+          "text": "Rp140.000"
+        },
+        {
+          "text": "Rp60.000",
+          "why": "That is the discount. Take it away from Rp200.000."
+        },
+        {
+          "text": "Rp170.000",
+          "why": "That takes off Rp30.000. 30% of Rp200.000 is more than that."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.percentages.903",
+      "skill": "m6.percentages",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Wulan scored 21 out of 25 in a quiz. What percentage is that?",
+      "hints": [
+        "Write the score as a fraction.",
+        "Change the denominator to 100.",
+        "25 × 4 = 100."
+      ],
+      "explanation": "21/25 = 84/100 = 84%.",
+      "answer": 84,
+      "unit": "%"
+    }
+  ]
+}

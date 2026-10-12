@@ -1,0 +1,81 @@
+{
+  "skill": "m1.number-names",
+  "title": "Numbers and their words",
+  "steps": [
+    {
+      "say": "Every number has a word. We write 7 and say seven.",
+      "show": "7 = seven"
+    },
+    {
+      "say": "From 13 to 19, the words end in teen.",
+      "show": "14 = fourteen, 16 = sixteen, 19 = nineteen"
+    },
+    {
+      "say": "Some teen words change at the start. Listen carefully.",
+      "show": "13 = thirteen, 15 = fifteen"
+    },
+    {
+      "say": "Eleven and twelve are special words to learn.",
+      "show": "11 = eleven, 12 = twelve"
+    },
+    {
+      "say": "Twenty means 2 tens.",
+      "show": "20 = twenty",
+      "figure": {
+        "kind": "basetens",
+        "tens": 2,
+        "ones": 0,
+        "alt": "2 ten rods."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.number-names.901",
+      "skill": "m1.number-names",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word matches 15?",
+      "hints": [
+        "Say 15 out loud.",
+        "Numbers from 13 to 19 end in teen.",
+        "Read each word out loud. Which one says the number?"
+      ],
+      "explanation": "Fifteen is written 15. It is 1 ten and 5 ones.",
+      "options": [
+        {
+          "text": "fifty",
+          "why": "Fifty is 50. The word for 15 ends in teen."
+        },
+        {
+          "text": "five",
+          "why": "Five is 5."
+        },
+        {
+          "text": "fifteen"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m1.number-names.902",
+      "skill": "m1.number-names",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write 12 in words.",
+      "hints": [
+        "Say 12 out loud slowly.",
+        "The words for 11 and 12 do not end in teen.",
+        "It starts with tw, like two."
+      ],
+      "explanation": "12 is written twelve.",
+      "blanks": [
+        {
+          "answers": [
+            "twelve"
+          ]
+        }
+      ]
+    }
+  ]
+}

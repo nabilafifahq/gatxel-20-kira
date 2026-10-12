@@ -1,0 +1,94 @@
+{
+  "skill": "m1.count-on-back",
+  "title": "Counting on and back",
+  "steps": [
+    {
+      "say": "Counting on means saying the next numbers. Each step is 1 more.",
+      "figure": {
+        "kind": "numberline",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "labels": "all",
+        "jumps": [
+          {
+            "from": 4,
+            "to": 5
+          },
+          {
+            "from": 5,
+            "to": 6
+          },
+          {
+            "from": 6,
+            "to": 7
+          }
+        ],
+        "alt": "3 jumps of 1 from 4 to 7 on a number line from 0 to 10."
+      }
+    },
+    {
+      "say": "Counting back means saying the numbers before. Each step is 1 less.",
+      "figure": {
+        "kind": "numberline",
+        "min": 10,
+        "max": 20,
+        "step": 1,
+        "labels": "all",
+        "jumps": [
+          {
+            "from": 15,
+            "to": 14
+          },
+          {
+            "from": 14,
+            "to": 13
+          },
+          {
+            "from": 13,
+            "to": 12
+          }
+        ],
+        "alt": "3 jumps back from 15 to 12 on a number line from 10 to 20."
+      }
+    },
+    {
+      "say": "Start at 8 and count on 3.",
+      "show": "9, 10, 11"
+    },
+    {
+      "say": "So 3 more than 8 is 11.",
+      "show": "8 + 3 = 11"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.count-on-back.901",
+      "skill": "m1.count-on-back",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 1 more than 14?",
+      "hints": [
+        "1 more is the next number.",
+        "Count on one from 14.",
+        "Say 14. What comes next?"
+      ],
+      "explanation": "1 more than 14 is 15.",
+      "answer": 15
+    },
+    {
+      "id": "m1.count-on-back.902",
+      "skill": "m1.count-on-back",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Start at 12. Count back 3. Where do you land?",
+      "hints": [
+        "Counting back means the numbers get smaller.",
+        "Say the numbers before 12, one at a time.",
+        "One step back from 12 is 11. Keep going."
+      ],
+      "explanation": "Counting back 3 from 12: 11, 10, 9.",
+      "answer": 9
+    }
+  ]
+}

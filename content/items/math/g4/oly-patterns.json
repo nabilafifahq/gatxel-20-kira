@@ -1,0 +1,469 @@
+{
+  "skill": "m4.oly-patterns",
+  "items": [
+    {
+      "id": "m4.oly-patterns.001",
+      "skill": "m4.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sita counts in sevens: 7, 14, 21, 28 and so on. Which of these numbers will she say?",
+      "options": [
+        {
+          "text": "84"
+        },
+        {
+          "text": "85",
+          "why": "85 = 84 + 1, so it is 1 more than a multiple of 7."
+        },
+        {
+          "text": "86",
+          "why": "86 = 84 + 2, so it is not in the 7 times table."
+        },
+        {
+          "text": "87",
+          "why": "87 = 84 + 3, so it is not in the 7 times table."
+        },
+        {
+          "text": "88",
+          "why": "88 = 84 + 4, so it is not in the 7 times table."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "She says only numbers in the 7 times table.",
+        "70 = 7 × 10 is a handy place to start.",
+        "Count on in sevens from 70: 77, then the next one."
+      ],
+      "explanation": "Counting on from 70 gives 77, 84, 91 and so on. 84 = 7 × 12 is in the 7 times table, and 85 to 88 are not.",
+      "solution": [
+        {
+          "say": "Start at 70 = 7 × 10.",
+          "show": "70"
+        },
+        {
+          "say": "Count on in sevens.",
+          "show": "77, 84, 91"
+        },
+        {
+          "say": "Only 84 is a choice.",
+          "show": "84 = 7 × 12"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-patterns.002",
+      "skill": "m4.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In the pattern 1, 2, 4, 7, 11, 16, the jumps grow by 1 each time. What is the 10th number?",
+      "options": [
+        {
+          "text": "37",
+          "why": "37 is the 9th number. One more jump is needed."
+        },
+        {
+          "text": "45",
+          "why": "Start from 1, not 0. Add the jumps 1 to 9 to the first number."
+        },
+        {
+          "text": "46"
+        },
+        {
+          "text": "55",
+          "why": "55 is the sum of 1 to 10. The 10th number needs only 9 jumps."
+        },
+        {
+          "text": "56",
+          "why": "56 is the 11th number."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Write down the jumps.",
+        "The jumps are 1, 2, 3, 4, 5, and so on.",
+        "The 10th number is 1 plus the first 9 jumps."
+      ],
+      "explanation": "The 10th number is the 1st number plus 9 jumps: 1 + (1 + 2 + 3 + ... + 9) = 1 + 45 = 46.",
+      "solution": [
+        {
+          "say": "The jumps are 1, 2, 3, and so on.",
+          "show": "1, 2, 4, 7, 11, 16"
+        },
+        {
+          "say": "From the 1st to the 10th number there are 9 jumps.",
+          "show": "1 + 2 + ... + 9 = 45"
+        },
+        {
+          "say": "Add to the first number.",
+          "show": "1 + 45 = 46"
+        },
+        {
+          "say": "Check by listing.",
+          "show": "16, 22, 29, 37, 46"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-patterns.003",
+      "skill": "m4.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Odd numbers are written in rows. Row 1 is 1. Row 2 is 3, 5. Row 3 is 7, 9, 11. Each row has one more number than the row before. What is the sum of the numbers in row 6?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Row",
+          "Numbers"
+        ],
+        "rows": [
+          [
+            "1",
+            "1"
+          ],
+          [
+            "2",
+            "3, 5"
+          ],
+          [
+            "3",
+            "7, 9, 11"
+          ],
+          [
+            "4",
+            "13, 15, 17, 19"
+          ]
+        ],
+        "alt": "Rows of odd numbers. Row 1: 1. Row 2: 3, 5. Row 3: 7, 9, 11. Row 4: 13, 15, 17, 19."
+      },
+      "options": [
+        {
+          "text": "64",
+          "why": "64 is the sum of row 4."
+        },
+        {
+          "text": "125",
+          "why": "125 is the sum of row 5."
+        },
+        {
+          "text": "196",
+          "why": "Add again: 31 + 33 + 35 + 37 + 39 + 41."
+        },
+        {
+          "text": "216"
+        },
+        {
+          "text": "225",
+          "why": "225 is the sum of rows 1 to 5 together."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the numbers in row 6.",
+        "Rows 1 to 5 hold 1 + 2 + 3 + 4 + 5 = 15 odd numbers.",
+        "Row 6 starts at the 16th odd number, which is 31."
+      ],
+      "explanation": "Rows 1 to 5 use the first 15 odd numbers, so row 6 is 31, 33, 35, 37, 39, 41. Their sum is 216. The row sums 1, 8, 27, 64, 125, 216 also follow a pattern: 6 × 6 × 6 = 216.",
+      "solution": [
+        {
+          "say": "Odd numbers used before row 6.",
+          "show": "1 + 2 + 3 + 4 + 5 = 15"
+        },
+        {
+          "say": "The 16th odd number.",
+          "show": "2 × 16 - 1 = 31"
+        },
+        {
+          "say": "Row 6.",
+          "show": "31, 33, 35, 37, 39, 41"
+        },
+        {
+          "say": "Add by pairing: 31 + 41, 33 + 39, 35 + 37.",
+          "show": "72 × 3 = 216"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-patterns.004",
+      "skill": "m4.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The word MANGO is written again and again: MANGOMANGOMANGO and so on. What is the 2026th letter?",
+      "options": [
+        {
+          "text": "M"
+        },
+        {
+          "text": "A",
+          "why": "A is in places that are 2 more than a multiple of 5."
+        },
+        {
+          "text": "N",
+          "why": "N is in places that are 3 more than a multiple of 5."
+        },
+        {
+          "text": "G",
+          "why": "G is in places that are 4 more than a multiple of 5."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "MANGO has 5 letters, so the pattern repeats every 5 letters.",
+        "Letters 5, 10, 15, and so on are all O.",
+        "2025 is a multiple of 5. Which letter comes right after an O?"
+      ],
+      "explanation": "2025 = 5 × 405, so the 2025th letter is O, the end of a group. The 2026th letter starts a new group, so it is M.",
+      "solution": [
+        {
+          "say": "The pattern repeats every 5 letters.",
+          "show": "M A N G O"
+        },
+        {
+          "say": "2025 divides exactly by 5.",
+          "show": "2025 = 5 × 405"
+        },
+        {
+          "say": "The 2025th letter is O. The next one starts a new group.",
+          "show": "2026th: M"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-patterns.005",
+      "skill": "m4.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The pattern 3, 7, 11, 15 keeps going up by 4. How many of its numbers are less than 200?",
+      "answer": 50,
+      "hints": [
+        "Each number is 1 less than a multiple of 4.",
+        "3 = 4 - 1, 7 = 8 - 1, 11 = 12 - 1.",
+        "Find the biggest number of this kind that is still less than 200."
+      ],
+      "explanation": "The numbers are 4 - 1, 8 - 1, 12 - 1, and so on. The last one below 200 is 200 - 1 = 199, which is 4 × 50 - 1. So there are 50 numbers.",
+      "solution": [
+        {
+          "say": "Write each number as a multiple of 4, minus 1.",
+          "show": "4×1 - 1, 4×2 - 1, 4×3 - 1"
+        },
+        {
+          "say": "The largest one below 200.",
+          "show": "4 × 50 - 1 = 199"
+        },
+        {
+          "say": "The next one, 203, is too big. So there are 50 numbers.",
+          "show": "50"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-patterns.006",
+      "skill": "m4.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A bakery bakes bread every 3 days and cakes every 4 days. Both were baked on 1 March. On which date will both be baked again for the first time?",
+      "options": [
+        {
+          "text": "7 March",
+          "why": "On 7 March only bread is baked. Cakes are baked on 5 and 9 March."
+        },
+        {
+          "text": "12 March",
+          "why": "12 is the number of days to wait, not the date."
+        },
+        {
+          "text": "13 March"
+        },
+        {
+          "text": "25 March",
+          "why": "Both are baked on 25 March, but they meet earlier too."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "List the bread days and the cake days.",
+        "Bread days are 3 apart and cake days are 4 apart, starting from 1 March.",
+        "The wait is the smallest number that both 3 and 4 divide into."
+      ],
+      "explanation": "Both are baked again after a number of days that both 3 and 4 divide into. The smallest is 12, so the next date is 1 + 12 = 13 March.",
+      "solution": [
+        {
+          "say": "Bread days.",
+          "show": "1, 4, 7, 10, 13 March"
+        },
+        {
+          "say": "Cake days.",
+          "show": "1, 5, 9, 13 March"
+        },
+        {
+          "say": "The first match after 1 March.",
+          "show": "13 March"
+        },
+        {
+          "say": "The gap is 12 days because 12 is the smallest multiple of both 3 and 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-patterns.007",
+      "skill": "m4.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the next number in this pattern?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "6",
+          "12",
+          "20",
+          "30",
+          null
+        ],
+        "style": "boxes",
+        "alt": "A pattern: 2, 6, 12, 20, 30, then an empty box."
+      },
+      "answer": 42,
+      "hints": [
+        "Look at the jumps between the numbers.",
+        "The jumps are 4, 6, 8, 10.",
+        "Also try writing each number as two numbers multiplied: 2 = 1 × 2, 6 = 2 × 3."
+      ],
+      "explanation": "The jumps are 4, 6, 8, 10, so the next jump is 12 and the next number is 30 + 12 = 42. Also, each number is a number times the next one: 6 × 7 = 42.",
+      "solution": [
+        {
+          "say": "Jumps.",
+          "show": "+4, +6, +8, +10"
+        },
+        {
+          "say": "Next jump.",
+          "show": "30 + 12 = 42"
+        },
+        {
+          "say": "Another view.",
+          "show": "1×2, 2×3, 3×4, 4×5, 5×6, 6×7 = 42"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-patterns.008",
+      "skill": "m4.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Matchsticks make a grid of squares that is 2 rows high. With 1 column (2 squares) it uses 7 matchsticks. With 2 columns (4 squares) it uses 12. How many squares can be made with 52 matchsticks?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "alt": "A grid of matchstick squares, 2 rows high and 2 columns wide. It uses 12 matchsticks and makes 4 squares."
+      },
+      "answer": 20,
+      "hints": [
+        "How many matchsticks does each new column add?",
+        "From 7 to 12 is 5. Each new column adds 5 matchsticks.",
+        "After the first column, 52 - 7 = 45 matchsticks are left."
+      ],
+      "explanation": "The first column uses 7 matchsticks and each new column adds 5. The other 45 matchsticks make 9 more columns, so there are 10 columns of 2 squares: 20 squares.",
+      "solution": [
+        {
+          "say": "Each new column adds 3 across and 2 up.",
+          "show": "+5 matchsticks"
+        },
+        {
+          "say": "Matchsticks after the first column.",
+          "show": "52 - 7 = 45"
+        },
+        {
+          "say": "New columns.",
+          "show": "45 ÷ 5 = 9"
+        },
+        {
+          "say": "Squares.",
+          "show": "10 columns × 2 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-patterns.009",
+      "skill": "m4.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "In a year that is not a leap year, 1 January is a Monday. What is the date of the third Friday in March?",
+      "answer": 16,
+      "hints": [
+        "Find the day of the week for 1 March.",
+        "January has 31 days and February has 28. So 1 March is 59 days after 1 January.",
+        "59 days is 8 weeks and 3 days."
+      ],
+      "explanation": "1 March is 59 days after 1 January, which is 8 weeks and 3 days, so it is a Thursday. The first Friday is 2 March, the second 9 March and the third 16 March.",
+      "solution": [
+        {
+          "say": "Days from 1 January to 1 March.",
+          "show": "31 + 28 = 59"
+        },
+        {
+          "say": "Weeks and days.",
+          "show": "59 = 7 × 8 + 3"
+        },
+        {
+          "say": "Monday plus 3 days.",
+          "show": "1 March: Thursday"
+        },
+        {
+          "say": "Fridays in March.",
+          "show": "2, 9, 16"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

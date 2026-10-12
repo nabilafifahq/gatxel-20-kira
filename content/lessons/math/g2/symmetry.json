@@ -1,0 +1,89 @@
+{
+  "skill": "m2.symmetry",
+  "title": "Lines of symmetry",
+  "steps": [
+    {
+      "say": "A line of symmetry splits a shape into two matching halves.",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "lineOfSymmetry": "vertical",
+        "alt": "A rectangle with a dashed vertical line through the middle."
+      }
+    },
+    {
+      "say": "Fold along the line. If both halves match, it is a line of symmetry.",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "lineOfSymmetry": "vertical",
+        "alt": "A triangle with a dashed vertical line through the middle."
+      }
+    },
+    {
+      "say": "Some lines do not work. The halves do not match.",
+      "figure": {
+        "kind": "shape",
+        "shape": "parallelogram",
+        "lineOfSymmetry": "vertical",
+        "alt": "A parallelogram with a dashed vertical line through the middle."
+      }
+    },
+    {
+      "say": "Letters can have a line of symmetry too.",
+      "show": "A, H, M, T, U, V, W"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.symmetry.901",
+      "skill": "m2.symmetry",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which capital letter has a line of symmetry?",
+      "hints": [
+        "Imagine folding each letter down the middle.",
+        "Try a line from top to bottom.",
+        "Check each letter. Do both halves match?"
+      ],
+      "explanation": "T can be folded down the middle so both halves match.",
+      "options": [
+        {
+          "text": "T"
+        },
+        {
+          "text": "F",
+          "why": "F does not match itself when folded."
+        },
+        {
+          "text": "L",
+          "why": "L does not match itself when folded."
+        },
+        {
+          "text": "R",
+          "why": "R does not match itself when folded."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m2.symmetry.902",
+      "skill": "m2.symmetry",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many lines of symmetry does a rectangle have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "rectangle",
+        "alt": "A drawing of a rectangle."
+      },
+      "hints": [
+        "Imagine folding the rectangle so both halves match.",
+        "Try down the middle, across the middle and corner to corner.",
+        "Count every fold that works."
+      ],
+      "explanation": "A rectangle has 2 lines of symmetry: one down the middle and one across the middle.",
+      "answer": 2
+    }
+  ]
+}

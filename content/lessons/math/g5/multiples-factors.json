@@ -1,0 +1,133 @@
+{
+  "skill": "m5.multiples-factors",
+  "title": "Multiples and factors",
+  "steps": [
+    {
+      "say": "Multiples of a number are in its times table and beyond. The multiples of 6 are 6, 12, 18, 24 and so on.",
+      "show": "6 × 1, 6 × 2, 6 × 3, 6 × 4, ...",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "6",
+          "12",
+          "18",
+          "24",
+          "30",
+          "36"
+        ],
+        "style": "boxes",
+        "alt": "A row of boxes with the multiples 6, 12, 18, 24, 30 and 36."
+      }
+    },
+    {
+      "say": "Factors divide exactly into a number. Find them in pairs that multiply to make the number.",
+      "show": "24 = 1 × 24 = 2 × 12 = 3 × 8 = 4 × 6"
+    },
+    {
+      "say": "Arrays show factor pairs. 3 rows of 8 make 24, so 3 and 8 are factors of 24.",
+      "show": "3 × 8 = 24",
+      "figure": {
+        "kind": "array",
+        "rows": 3,
+        "cols": 8,
+        "icon": "dot",
+        "alt": "An array of 3 rows of 8 dots."
+      }
+    },
+    {
+      "say": "Common factors are factors of both numbers. 12 and 18 share the factors 1, 2, 3 and 6.",
+      "show": "The highest common factor of 12 and 18 is 6"
+    },
+    {
+      "say": "Common multiples are in both lists. The first one is the lowest common multiple.",
+      "show": "The lowest common multiple of 4 and 6 is 12",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Multiples of 4",
+          "Multiples of 6"
+        ],
+        "rows": [
+          [
+            "4",
+            "6"
+          ],
+          [
+            "8",
+            "12"
+          ],
+          [
+            "12",
+            "18"
+          ],
+          [
+            "16",
+            "24"
+          ]
+        ],
+        "alt": "A table of the first four multiples of 4 and of 6. 12 is in both columns."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.multiples-factors.901",
+      "skill": "m5.multiples-factors",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which number is a factor of 36?",
+      "hints": [
+        "A factor divides into 36 with no remainder.",
+        "Try dividing 36 by each option.",
+        "Think of the factor pairs of 36, starting with 1 × 36."
+      ],
+      "explanation": "36 ÷ 9 = 4 exactly, so 9 is a factor of 36.",
+      "options": [
+        {
+          "text": "72",
+          "why": "72 is a multiple of 36. A factor is never bigger than the number."
+        },
+        {
+          "text": "5",
+          "why": "36 does not end in 0 or 5, so 5 is not a factor."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "8",
+          "why": "36 ÷ 8 = 4 remainder 4, so 8 is not a factor."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.multiples-factors.902",
+      "skill": "m5.multiples-factors",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the highest common factor of 16 and 24?",
+      "hints": [
+        "List the factors of 16.",
+        "List the factors of 24.",
+        "Find the biggest number that is in both lists."
+      ],
+      "explanation": "The factors of 16 are 1, 2, 4, 8 and 16. The factors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24. The highest common factor is 8.",
+      "answer": 8
+    },
+    {
+      "id": "m5.multiples-factors.903",
+      "skill": "m5.multiples-factors",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the lowest common multiple of 6 and 8?",
+      "hints": [
+        "Write the first few multiples of 6.",
+        "Write the first few multiples of 8.",
+        "Look for the first number in both lists."
+      ],
+      "explanation": "Multiples of 6: 6, 12, 18, 24. Multiples of 8: 8, 16, 24. The lowest common multiple is 24.",
+      "answer": 24
+    }
+  ]
+}

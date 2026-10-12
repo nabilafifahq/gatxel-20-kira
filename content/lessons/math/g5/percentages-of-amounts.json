@@ -1,0 +1,115 @@
+{
+  "skill": "m5.percentages-of-amounts",
+  "title": "Percentages of amounts",
+  "steps": [
+    {
+      "say": "50% is half. Divide by 2 to find it.",
+      "show": "50% of 80 = 80 ÷ 2 = 40",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 2,
+        "shaded": 1,
+        "label": "50%",
+        "alt": "A bar split into 2 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "10% is one tenth. Divide by 10 to find it.",
+      "show": "10% of 80 = 80 ÷ 10 = 8",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 1,
+        "label": "10%",
+        "alt": "A bar split into 10 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Build other percentages from 10%. 30% is three lots of 10%.",
+      "show": "30% of 80 = 8 × 3 = 24",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 3,
+        "label": "30%",
+        "alt": "A bar split into 10 equal parts with 3 parts shaded."
+      }
+    },
+    {
+      "say": "25% is a quarter, and 5% is half of 10%.",
+      "show": "25% of 80 = 20 and 5% of 80 = 4"
+    },
+    {
+      "say": "Add parts to make harder percentages. 15% is 10% plus 5%.",
+      "show": "15% of 80 = 8 + 4 = 12"
+    },
+    {
+      "say": "Money works the same way. 10% of Rp45.000 is Rp4.500, so 20% is Rp9.000.",
+      "show": "20% of Rp45.000 = Rp4.500 × 2 = Rp9.000"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.percentages-of-amounts.901",
+      "skill": "m5.percentages-of-amounts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What is 10% of 350?",
+      "hints": [
+        "10% is one tenth.",
+        "Divide 350 by 10.",
+        "Each digit moves one place to the right."
+      ],
+      "explanation": "350 ÷ 10 = 35, so 10% of 350 is 35.",
+      "answer": 35
+    },
+    {
+      "id": "m5.percentages-of-amounts.902",
+      "skill": "m5.percentages-of-amounts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is 40% of 60?",
+      "hints": [
+        "Find 10% of 60 first.",
+        "40% is four lots of 10%.",
+        "10% of 60 is 6."
+      ],
+      "explanation": "10% of 60 is 6, so 40% is 6 × 4 = 24.",
+      "answer": 24
+    },
+    {
+      "id": "m5.percentages-of-amounts.903",
+      "skill": "m5.percentages-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A T-shirt costs Rp80.000. There is 25% off. How much is taken off the price?",
+      "hints": [
+        "25% is the same as one quarter.",
+        "Divide Rp80.000 by 4.",
+        "Half of Rp80.000 is Rp40.000."
+      ],
+      "explanation": "25% is a quarter. Rp80.000 ÷ 4 = Rp20.000, so Rp20.000 is taken off.",
+      "options": [
+        {
+          "text": "Rp20.000"
+        },
+        {
+          "text": "Rp60.000",
+          "why": "That is the new price. The question asks how much is taken off."
+        },
+        {
+          "text": "Rp25.000",
+          "why": "25% does not mean Rp25.000. Find a quarter of Rp80.000."
+        },
+        {
+          "text": "Rp8.000",
+          "why": "That is 10%. 25% is a quarter."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

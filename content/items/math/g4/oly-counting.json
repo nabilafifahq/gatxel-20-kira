@@ -1,0 +1,458 @@
+{
+  "skill": "m4.oly-counting",
+  "items": [
+    {
+      "id": "m4.oly-counting.001",
+      "skill": "m4.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Four children sit on a bench with 4 seats. Ana must sit at the left end. In how many different orders can they sit?",
+      "options": [
+        {
+          "text": "4",
+          "why": "List the orders of the other 3 children. There are more than 4."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "12",
+          "why": "Ana's seat is fixed, so only 3 children move."
+        },
+        {
+          "text": "18",
+          "why": "Ana's seat is fixed, so it is 3 × 2 × 1."
+        },
+        {
+          "text": "24",
+          "why": "24 is the number of orders when anyone can sit anywhere."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ana's seat is fixed. Only the other 3 children move.",
+        "The seat next to Ana can be taken by any of the 3 others.",
+        "After that, 2 children are left for the next seat."
+      ],
+      "explanation": "With Ana fixed, the other 3 children fill 3 seats: 3 choices for the first seat, 2 for the next and 1 for the last. That is 3 × 2 × 1 = 6 orders.",
+      "solution": [
+        {
+          "say": "Ana is fixed at the left.",
+          "show": "Ana _ _ _"
+        },
+        {
+          "say": "Choices for the other seats.",
+          "show": "3 × 2 × 1"
+        },
+        {
+          "say": "Orders.",
+          "show": "6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m4.oly-counting.002",
+      "skill": "m4.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How many 2-digit numbers have a tens digit bigger than the ones digit? For example, 52 counts but 25 does not.",
+      "options": [
+        {
+          "text": "36",
+          "why": "Do not forget numbers ending in 0, like 10 and 90."
+        },
+        {
+          "text": "40",
+          "why": "Count again for each tens digit: 1 number for tens digit 1, 2 for tens digit 2, and so on."
+        },
+        {
+          "text": "45"
+        },
+        {
+          "text": "50",
+          "why": "Numbers like 33 do not count: the tens digit must be bigger."
+        },
+        {
+          "text": "55",
+          "why": "Numbers like 44 do not count. The tens digit must be bigger."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count by the tens digit.",
+        "Tens digit 1: only 10 works. Tens digit 2: 20 and 21.",
+        "With a tens digit of 9, the ones digit can be 0 to 8."
+      ],
+      "explanation": "Tens digit 1 gives 1 number, tens digit 2 gives 2, and so on up to tens digit 9, which gives 9. That is 1 + 2 + ... + 9 = 45.",
+      "solution": [
+        {
+          "say": "Tens digit 1: 10.",
+          "show": "1"
+        },
+        {
+          "say": "Tens digit 2: 20, 21.",
+          "show": "2"
+        },
+        {
+          "say": "Tens digit 9: 90 to 98.",
+          "show": "9"
+        },
+        {
+          "say": "Total.",
+          "show": "1 + 2 + ... + 9 = 45"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-counting.003",
+      "skill": "m4.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Three points lie on one line. Three more points lie on a second line, parallel to the first. How many triangles have all three corners at these 6 points?",
+      "options": [
+        {
+          "text": "9",
+          "why": "Count triangles with 2 corners on either line, not just one of them."
+        },
+        {
+          "text": "12",
+          "why": "Each line gives 3 pairs, and each pair works with 3 points on the other line."
+        },
+        {
+          "text": "16",
+          "why": "Count each kind separately: 9 with two corners on the first line, 9 on the second."
+        },
+        {
+          "text": "18"
+        },
+        {
+          "text": "20",
+          "why": "20 includes choosing 3 points on the same line, which does not make a triangle."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A triangle cannot have all 3 corners on one line.",
+        "So a triangle uses 2 points from one line and 1 from the other.",
+        "From one line, pick a pair of points: there are 3 pairs."
+      ],
+      "explanation": "Two corners on the first line (3 pairs) and one on the second (3 points) give 9 triangles. The other way round gives 9 more. In all, 18 triangles.",
+      "solution": [
+        {
+          "say": "Pairs on a line of 3 points.",
+          "show": "3"
+        },
+        {
+          "say": "2 corners on line 1, 1 corner on line 2.",
+          "show": "3 × 3 = 9"
+        },
+        {
+          "say": "2 corners on line 2, 1 corner on line 1.",
+          "show": "3 × 3 = 9"
+        },
+        {
+          "say": "Total.",
+          "show": "9 + 9 = 18"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-counting.004",
+      "skill": "m4.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A locker code uses 3 different digits from 1, 2, 3, 4 and 5. The order of the digits matters. How many codes are possible?",
+      "options": [
+        {
+          "text": "10",
+          "why": "10 is the number of ways to choose the digits. Each choice can be put in 6 orders."
+        },
+        {
+          "text": "15",
+          "why": "The order matters, so each set of 3 digits gives 6 codes."
+        },
+        {
+          "text": "60"
+        },
+        {
+          "text": "125",
+          "why": "Digits cannot repeat, so 125 is too many."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Fill the code one place at a time.",
+        "The first place has 5 choices. The second place cannot use the same digit.",
+        "Multiply the choices for the three places."
+      ],
+      "explanation": "There are 5 choices for the first digit, 4 for the second and 3 for the third. That makes 5 × 4 × 3 = 60 codes.",
+      "solution": [
+        {
+          "say": "First digit.",
+          "show": "5 choices"
+        },
+        {
+          "say": "Second digit.",
+          "show": "4 choices"
+        },
+        {
+          "say": "Third digit.",
+          "show": "3 choices"
+        },
+        {
+          "say": "Total.",
+          "show": "5 × 4 × 3 = 60"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-counting.005",
+      "skill": "m4.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many whole numbers from 1 to 200 are multiples of 3 or multiples of 5?",
+      "answer": 93,
+      "hints": [
+        "Count multiples of 3 and multiples of 5 separately.",
+        "Some numbers, like 15 and 30, are in both lists.",
+        "Numbers in both lists are multiples of 15."
+      ],
+      "explanation": "There are 66 multiples of 3 and 40 multiples of 5. The 13 multiples of 15 are counted twice, so the total is 66 + 40 - 13 = 93.",
+      "solution": [
+        {
+          "say": "Multiples of 3 up to 200.",
+          "show": "200 ÷ 3 = 66 remainder 2, so 66"
+        },
+        {
+          "say": "Multiples of 5.",
+          "show": "200 ÷ 5 = 40"
+        },
+        {
+          "say": "Multiples of 15, counted twice.",
+          "show": "200 ÷ 15 = 13 remainder 5, so 13"
+        },
+        {
+          "say": "Total.",
+          "show": "66 + 40 - 13 = 93"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-counting.006",
+      "skill": "m4.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Nomor tiket undian adalah bilangan 3 angka dari 100 sampai 999. Tiket yang sama dibaca dari depan dan belakang, seperti 474, mendapat hadiah. Berapa banyak tiket berhadiah?",
+      "options": [
+        {
+          "text": "9",
+          "why": "Tiket seperti 111 dan 222 memang berhadiah, tetapi 474 dan 505 juga."
+        },
+        {
+          "text": "81",
+          "why": "Angka tengah boleh 0, seperti 101."
+        },
+        {
+          "text": "90"
+        },
+        {
+          "text": "100",
+          "why": "Angka pertama tidak boleh 0."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Bilangan seperti 474 punya angka pertama dan angka terakhir yang sama.",
+        "Pilih angka pertama, lalu pilih angka tengah.",
+        "Angka pertama bisa 1 sampai 9. Angka tengah bisa 0 sampai 9."
+      ],
+      "explanation": "Angka pertama bisa 1 sampai 9 (9 pilihan) dan angka tengah 0 sampai 9 (10 pilihan). Angka terakhir harus sama dengan angka pertama. Jadi ada 9 × 10 = 90 tiket berhadiah.",
+      "solution": [
+        {
+          "say": "Angka pertama.",
+          "show": "9 pilihan"
+        },
+        {
+          "say": "Angka tengah.",
+          "show": "10 pilihan"
+        },
+        {
+          "say": "Angka terakhir sama dengan angka pertama.",
+          "show": "1 pilihan"
+        },
+        {
+          "say": "Banyak tiket.",
+          "show": "9 × 10 = 90"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "nomor tiket",
+          "en": "ticket number"
+        },
+        {
+          "term": "undian",
+          "en": "lucky draw"
+        },
+        {
+          "term": "bilangan 3 angka",
+          "en": "3-digit number"
+        },
+        {
+          "term": "dibaca",
+          "en": "read"
+        },
+        {
+          "term": "dari depan dan belakang",
+          "en": "forwards and backwards"
+        },
+        {
+          "term": "hadiah",
+          "en": "prize"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-counting.007",
+      "skill": "m4.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Hugo climbs a staircase of 6 steps. Each move, he goes up 1 step or 2 steps. In how many different ways can he reach the top?",
+      "answer": 13,
+      "hints": [
+        "Start with small staircases: 1 step, 2 steps, 3 steps.",
+        "To reach a step, the last move came from 1 step below or from 2 steps below.",
+        "Ways for 1, 2 and 3 steps: 1, 2, 3. Now find the ways for 4 steps."
+      ],
+      "explanation": "The number of ways to reach each step is the sum of the ways for the two steps below it: 1, 2, 3, 5, 8, 13. So there are 13 ways for 6 steps.",
+      "solution": [
+        {
+          "say": "1 step: 1 way. 2 steps: 2 ways.",
+          "show": "1, 2"
+        },
+        {
+          "say": "Each step adds the ways for the two steps before it.",
+          "show": "3, 5, 8, 13"
+        },
+        {
+          "say": "6 steps: 13 ways.",
+          "show": "13"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-counting.008",
+      "skill": "m4.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A diagonal joins two corners of a shape that are not next to each other. How many diagonals does a hexagon have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "hexagon",
+        "alt": "A hexagon with 6 corners."
+      },
+      "answer": 9,
+      "hints": [
+        "Pick one corner and draw its diagonals.",
+        "A corner cannot join to itself or to its 2 neighbours.",
+        "Each corner has 3 diagonals, but each diagonal has 2 ends."
+      ],
+      "explanation": "Each of the 6 corners joins to 3 other corners by a diagonal. That counts 6 × 3 = 18 ends, and each diagonal has 2 ends, so there are 9 diagonals.",
+      "solution": [
+        {
+          "say": "Diagonals from one corner.",
+          "show": "6 - 1 - 2 = 3"
+        },
+        {
+          "say": "Count from every corner.",
+          "show": "6 × 3 = 18"
+        },
+        {
+          "say": "Each diagonal is counted twice.",
+          "show": "18 ÷ 2 = 9"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-counting.009",
+      "skill": "m4.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many 3-digit numbers have at least one digit 7?",
+      "answer": 252,
+      "hints": [
+        "It is easier to count the numbers with no 7 at all.",
+        "There are 900 three-digit numbers, from 100 to 999.",
+        "With no 7, the first digit has 8 choices and the other two have 9 each."
+      ],
+      "explanation": "Numbers with no 7: 8 × 9 × 9 = 648. There are 900 three-digit numbers, so 900 - 648 = 252 have at least one 7.",
+      "solution": [
+        {
+          "say": "All 3-digit numbers.",
+          "show": "999 - 100 + 1 = 900"
+        },
+        {
+          "say": "No 7: first digit 1 to 9 but not 7, other digits 0 to 9 but not 7.",
+          "show": "8 × 9 × 9 = 648"
+        },
+        {
+          "say": "At least one 7.",
+          "show": "900 - 648 = 252"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 240
+    }
+  ]
+}

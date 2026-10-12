@@ -1,0 +1,431 @@
+{
+  "skill": "e1.speaking",
+  "items": [
+    {
+      "id": "e1.speaking.001",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Your friend gives you a pencil. What do you say?",
+      "hints": [
+        "Your friend is being kind.",
+        "What do we say when someone gives us something?",
+        "It is two kind words."
+      ],
+      "explanation": "When someone gives you something, you say thank you.",
+      "options": [
+        {
+          "text": "Thank you!"
+        },
+        {
+          "text": "Goodbye!",
+          "why": "Goodbye is for when you leave."
+        },
+        {
+          "text": "Sorry!",
+          "why": "Sorry is for when you make a mistake."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.speaking.002",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Look at the picture. Say what you can see.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun"
+          },
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "bird"
+          },
+          {
+            "icon": "house"
+          }
+        ],
+        "alt": "A picture with the sun, a tree, a bird and a house."
+      },
+      "hints": [
+        "Start with: I can see.",
+        "Point to each thing as you say it."
+      ],
+      "explanation": "Name the things in full sentences, like 'I can see a bird.'",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names at least three things",
+            "points": 2
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 1
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1.speaking.003",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Your teacher is talking. What should you do?",
+      "hints": [
+        "Good listeners use their eyes and ears.",
+        "Think about what helps you learn.",
+        "What does good listening look like?"
+      ],
+      "explanation": "Good listeners look at the speaker and listen carefully.",
+      "options": [
+        {
+          "text": "Talk to my friend.",
+          "why": "Then you will miss what your teacher says."
+        },
+        {
+          "text": "Look at the teacher and listen."
+        },
+        {
+          "text": "Shout out.",
+          "why": "Wait for your turn to talk."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.speaking.004",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Read the sentence aloud.",
+      "hints": [
+        "Point to each word as you read.",
+        "Sound out any word you do not know."
+      ],
+      "explanation": "Read each word clearly and stop at the full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word",
+            "points": 2
+          },
+          {
+            "label": "Clear voice",
+            "points": 1
+          },
+          {
+            "label": "Stops at the full stop",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "I see a big red bus."
+    },
+    {
+      "id": "e1.speaking.005",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You want to use a crayon. What is the polite way to ask?",
+      "hints": [
+        "Polite words are kind words.",
+        "Look for the magic word.",
+        "Which one asks instead of tells?"
+      ],
+      "explanation": "Please may I use your crayon? is kind and polite.",
+      "options": [
+        {
+          "text": "Give me that crayon.",
+          "why": "This is bossy. Add please and ask."
+        },
+        {
+          "text": "Please may I use your crayon?"
+        },
+        {
+          "text": "Crayon now!",
+          "why": "This is rude. Ask kindly."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.speaking.006",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Read the sentences aloud.",
+      "hints": [
+        "Read it in your head first.",
+        "Take a breath at the full stop."
+      ],
+      "explanation": "Read clearly and take a little pause at each full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word",
+            "points": 2
+          },
+          {
+            "label": "Pauses at the full stop",
+            "points": 1
+          },
+          {
+            "label": "Clear voice, not too fast",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "The cat sat on a mat. It had a nap in the sun."
+    },
+    {
+      "id": "e1.speaking.007",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You bump into someone by mistake. What do you say?",
+      "hints": [
+        "It was a mistake.",
+        "Think about how the other person feels.",
+        "Which word do we say after a mistake?"
+      ],
+      "explanation": "When we bump into someone, we say sorry.",
+      "options": [
+        {
+          "text": "Thank you!",
+          "why": "Thank you is for when someone helps you."
+        },
+        {
+          "text": "Hello!",
+          "why": "Hello is for saying hi."
+        },
+        {
+          "text": "Sorry!"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.speaking.008",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Tell me about your favourite toy. What is it? What colour is it? How do you play with it?",
+      "hints": [
+        "Start with: My favourite toy is.",
+        "Use a describing word, like soft or shiny."
+      ],
+      "explanation": "Answer all three questions in full sentences.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says what the toy is",
+            "points": 1
+          },
+          {
+            "label": "Uses a describing word",
+            "points": 1
+          },
+          {
+            "label": "Says how to play with it",
+            "points": 1
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1.speaking.009",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which question asks about a place?",
+      "hints": [
+        "Look at the first word of each question.",
+        "Each question word asks about something different.",
+        "Which question word goes with places?"
+      ],
+      "explanation": "Where asks about a place. When asks about time and who asks about a person.",
+      "options": [
+        {
+          "text": "Where do you live?"
+        },
+        {
+          "text": "When do you eat lunch?",
+          "why": "When asks about time."
+        },
+        {
+          "text": "Who is your teacher?",
+          "why": "Who asks about a person."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.speaking.010",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Tell a story you know, like a story about an animal. Say what happens first, next and at the end.",
+      "hints": [
+        "Think of the story before you start.",
+        "Use first, next, then and at the end."
+      ],
+      "explanation": "A good story has a beginning, a middle and an end. Time words help the listener follow it.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "Uses first, next or then",
+            "points": 1
+          },
+          {
+            "label": "Clear voice",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 90
+    },
+    {
+      "id": "e1.speaking.011",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Read this aloud. Use an excited voice for the shout.",
+      "hints": [
+        "Find the exclamation marks first.",
+        "Make your voice go up for the shout."
+      ],
+      "explanation": "An exclamation mark tells you to read with a big feeling.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads every word",
+            "points": 1
+          },
+          {
+            "label": "Excited voice for the shout",
+            "points": 2
+          },
+          {
+            "label": "Pauses at full stops",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "Splash! Dewi jumps in the puddle. 'I love rain!' she shouts."
+    },
+    {
+      "id": "e1.speaking.012",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Choose the best answer. 'How are you?'",
+      "hints": [
+        "The question asks how you feel.",
+        "Think about what you say when someone greets you.",
+        "Find the answer about feeling."
+      ],
+      "explanation": "How are you? asks how you feel. I am fine, thank you is a good answer.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "I am six.",
+          "why": "This answers: How old are you?"
+        },
+        {
+          "text": "It is red.",
+          "why": "This answers: What colour is it?"
+        },
+        {
+          "text": "I am fine, thank you."
+        },
+        {
+          "text": "Yes, I can.",
+          "why": "This answers a question that starts with can."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.speaking.013",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 4,
+      "prompt": "Talk about your bedroom or your classroom. Name three things and say where they are.",
+      "hints": [
+        "Look around the room first.",
+        "Try: The book is on the desk."
+      ],
+      "explanation": "Place words like on, under and next to tell the listener where things are.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names three things",
+            "points": 1
+          },
+          {
+            "label": "Uses place words like on, under or next to",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly in full sentences",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 90
+    },
+    {
+      "id": "e1.speaking.014",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 5,
+      "prompt": "Tell me about your best day ever. Where were you? Who was with you? What happened? How did you feel?",
+      "hints": [
+        "Think about the day before you start.",
+        "Use first, then and at the end.",
+        "Finish with how you felt."
+      ],
+      "explanation": "Answer each question in order so the listener can follow your story.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says where and who",
+            "points": 1
+          },
+          {
+            "label": "Tells what happened in order",
+            "points": 2
+          },
+          {
+            "label": "Says how they felt",
+            "points": 1
+          },
+          {
+            "label": "Speaks clearly with expression",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 120
+    }
+  ]
+}

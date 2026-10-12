@@ -1,0 +1,217 @@
+{
+  "skill": "s2.healthy-living",
+  "items": [
+    {
+      "id": "s2.healthy-living.001", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 1,
+      "prompt": "Which habit keeps your teeth healthy?",
+      "figure": { "kind": "icons", "items": [{ "icon": "toothbrush", "label": "toothbrush" }, { "icon": "tooth", "label": "tooth" }], "alt": "A toothbrush and a tooth." },
+      "options": [
+        { "text": "eating sweets all day long", "why": "Sugar left on teeth all day can make holes in them." },
+        { "text": "brushing once a month", "why": "Teeth need brushing every day, in the morning and at night." },
+        { "text": "brushing them twice a day" },
+        { "text": "never visiting a dentist", "why": "A dentist checks that teeth are healthy." }
+      ],
+      "answer": 2,
+      "hints": ["Think about what you do in the bathroom each morning and night.", "Which choice cleans the teeth often?", "Ask: how many times a day do you use your toothbrush?"],
+      "explanation": "Brushing our teeth twice a day, in the morning and before bed, cleans away food and germs."
+    },
+    {
+      "id": "s2.healthy-living.002", "skill": "s2.healthy-living", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things that help keep you healthy.",
+      "options": [
+        { "text": "drinking water" },
+        { "text": "playing outside" },
+        { "text": "sleeping well" },
+        { "text": "never washing your hands", "why": "Washing hands removes germs that can make us ill." },
+        { "text": "staying up very late every night", "why": "Children need lots of sleep to grow and learn." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Think about what your body needs each day.", "Check each choice. Would it help your body or tire it out?", "Start with drinking water. Does your body need it?"],
+      "explanation": "Drinking water, playing outside and sleeping well all help keep us healthy. Washing hands and going to bed on time help too."
+    },
+    {
+      "id": "s2.healthy-living.003", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 1,
+      "prompt": "When should you wash your hands?",
+      "figure": { "kind": "icons", "items": [{ "icon": "soap", "label": "soap" }, { "icon": "hand", "label": "hands" }], "alt": "A bar of soap and a pair of hands." },
+      "options": [
+        { "text": "only on Sundays", "why": "Hands need washing many times every day." },
+        { "text": "only when they look dirty", "why": "Germs are too small to see, so hands can look clean and still have germs." },
+        { "text": "only after a bath", "why": "Wash hands many times each day, like before eating and after the toilet." },
+        { "text": "before eating" }
+      ],
+      "answer": 3,
+      "hints": ["Think about when germs could get into your mouth.", "Which choice happens every day, before food?", "Ask: what do your hands touch just before you eat?"],
+      "explanation": "We wash our hands before eating so that germs do not get onto our food. We also wash them after using the toilet."
+    },
+    {
+      "id": "s2.healthy-living.004", "skill": "s2.healthy-living", "type": "text", "difficulty": 2,
+      "prompt": "Washing your hands with ___ and water removes germs.",
+      "blanks": [{ "answers": ["soap", "hand soap", "liquid soap"] }],
+      "hints": ["It makes bubbles when you rub your hands.", "It comes as a bar or a liquid by the sink.", "Think about what you rub on your hands before rinsing."],
+      "explanation": "Soap and water wash germs off our hands. Rub for about 20 seconds, then rinse."
+    },
+    {
+      "id": "s2.healthy-living.005", "skill": "s2.healthy-living", "type": "sort", "difficulty": 3,
+      "prompt": "Is it an everyday food or a treat? Sort the cards.",
+      "groups": ["Eat every day", "Eat now and then"],
+      "items": [
+        { "text": "rice", "group": 0 },
+        { "text": "vegetables", "group": 0 },
+        { "text": "fruit", "group": 0 },
+        { "text": "eggs", "group": 0 },
+        { "text": "sweets", "group": 1 },
+        { "text": "fizzy drinks", "group": 1 },
+        { "text": "cake", "group": 1 }
+      ],
+      "hints": ["Some foods help us grow and give us energy every day.", "Treats taste nice, but they have lots of sugar.", "Start with the vegetables. Do you eat them most days?"],
+      "explanation": "Rice, vegetables, fruit and eggs are good to eat every day. Sweets, fizzy drinks and cake are treats to enjoy now and then."
+    },
+    {
+      "id": "s2.healthy-living.006", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 2,
+      "prompt": "Why do we need to drink water every day?",
+      "figure": { "kind": "icons", "items": [{ "icon": "water-drop", "label": "water" }, { "icon": "cup", "label": "cup" }], "alt": "A drop of water and a cup." },
+      "options": [
+        { "text": "Our body needs water to work well." },
+        { "text": "Water is only for washing.", "why": "We drink water too. Our body needs it inside." },
+        { "text": "We only need water on hot days.", "why": "We need water every day. We need even more when it is hot." },
+        { "text": "Water has lots of sugar.", "why": "Plain water has no sugar." }
+      ],
+      "answer": 0,
+      "hints": ["Think about how you feel when you are thirsty.", "Our body loses water when we sweat and breathe.", "Ask: what does a plant do without water? Our body needs it too."],
+      "explanation": "Our body needs water to work well. We lose water when we sweat and breathe, so we drink to replace it."
+    },
+    {
+      "id": "s2.healthy-living.007", "skill": "s2.healthy-living", "type": "match", "difficulty": 2,
+      "prompt": "Match each healthy habit to how it helps.",
+      "pairs": [["sleeping well", "rests the body and brain"], ["exercise", "makes the heart and muscles strong"], ["washing hands", "removes germs"], ["brushing teeth", "keeps teeth clean"], ["drinking water", "keeps the body working well"]],
+      "hints": ["Think about what each habit does for your body.", "Do the ones you are sure about first.", "Start with washing hands. What does soap wash away?"],
+      "explanation": "Sleep rests the body and brain, exercise makes the heart and muscles strong, washing hands removes germs, brushing keeps teeth clean and water keeps the body working well."
+    },
+    {
+      "id": "s2.healthy-living.008", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 3,
+      "prompt": "Dimas plays football in the hot sun. What should he do?",
+      "figure": { "kind": "icons", "items": [{ "icon": "running", "label": "playing football" }, { "icon": "sun", "label": "hot sun" }], "alt": "A boy running and playing football under the hot sun." },
+      "options": [
+        { "text": "drink only fizzy drinks", "why": "Fizzy drinks have lots of sugar. Water is better for his body." },
+        { "text": "drink water often" },
+        { "text": "drink nothing until he gets home", "why": "He loses water when he sweats, so he needs to drink while he plays." },
+        { "text": "play for longer without a rest", "why": "Resting in the shade helps his body cool down." }
+      ],
+      "answer": 1,
+      "hints": ["Think about what his body loses when he sweats.", "Which drink is best for the body?", "Picture a hot day at the playground. What do you reach for?"],
+      "explanation": "When we exercise in the heat, we sweat and lose water. Drinking water often keeps the body working well.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.healthy-living.009", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 3,
+      "prompt": "Children your age sleep every night. About how many hours do they need?",
+      "figure": { "kind": "icons", "items": [{ "icon": "bed", "label": "bed" }, { "icon": "moon", "label": "night" }], "alt": "A bed at night." },
+      "options": [
+        { "text": "about 3 hours", "why": "That is far too little. Children need much more sleep." },
+        { "text": "about 20 hours", "why": "That is almost the whole day. Children need time awake to learn and play." },
+        { "text": "about 10 hours" },
+        { "text": "about 5 hours", "why": "That is not enough. Children need about twice as much." }
+      ],
+      "answer": 2,
+      "hints": ["Children need more sleep than adults.", "Think about going to bed in the evening and waking up for school.", "Count the hours from 8 o'clock at night to 6 o'clock in the morning."],
+      "explanation": "Children aged 6 to 12 need about 9 to 12 hours of sleep each night. Sleep helps the body grow and the brain learn."
+    },
+    {
+      "id": "s2.healthy-living.010", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 3,
+      "prompt": "Why is exercise good for you?",
+      "options": [
+        { "text": "It means you need less sleep.", "why": "Active children still need plenty of sleep." },
+        { "text": "It means you never need to eat.", "why": "Exercise uses energy, so you still need food." },
+        { "text": "It makes your heart and muscles stronger." },
+        { "text": "It stops you growing.", "why": "Exercise helps your body grow strong." }
+      ],
+      "answer": 2,
+      "hints": ["Think about how you feel after running or swimming.", "Which body parts work hard when you exercise?", "Ask: what happens to your heartbeat when you run?"],
+      "explanation": "Exercise makes the heart and muscles work hard, and this makes them stronger. It also helps us sleep well."
+    },
+    {
+      "id": "s2.healthy-living.011", "skill": "s2.healthy-living", "type": "order", "difficulty": 3,
+      "prompt": "Put the handwashing steps in order.",
+      "items": ["Wet your hands.", "Rub them with soap for 20 seconds.", "Rinse off the soap.", "Dry your hands with a clean towel."],
+      "hints": ["Think about the last time you washed your hands.", "Soap works best on wet hands.", "Start with turning on the tap. What do you do first?"],
+      "explanation": "Wet your hands, rub them with soap for 20 seconds, rinse off the soap and dry them with a clean towel."
+    },
+    {
+      "id": "s2.healthy-living.012", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 4,
+      "prompt": "Germs are too small to see. How can you stop them spreading when you sneeze?",
+      "options": [
+        { "text": "sneeze into your hands, then hold a friend's hand", "why": "Germs on your hands spread to the people you touch." },
+        { "text": "sneeze into a tissue or your elbow" },
+        { "text": "sneeze towards a friend", "why": "Germs fly out in the sneeze and can reach your friend." },
+        { "text": "sneeze over the food", "why": "Germs from the sneeze land on the food." }
+      ],
+      "answer": 1,
+      "hints": ["A sneeze sprays out tiny drops with germs in them.", "Which choice catches the drops?", "Ask: where do the germs end up in each choice?"],
+      "explanation": "Sneezing into a tissue or your elbow catches the tiny drops. Then put the tissue in the bin and wash your hands.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.healthy-living.013", "skill": "s2.healthy-living", "type": "multi", "difficulty": 4,
+      "prompt": "Choose 3 healthy everyday choices for a school lunch box.",
+      "options": [
+        { "text": "rice" },
+        { "text": "vegetables" },
+        { "text": "a banana" },
+        { "text": "a bag of sweets", "why": "Sweets are a treat to have now and then." },
+        { "text": "a fizzy drink", "why": "Fizzy drinks have lots of sugar. Water is a better choice." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["An everyday lunch helps you grow and gives you energy.", "Look for foods that come from plants and are not sugary.", "Start with the rice. Do many families eat it every day?"],
+      "explanation": "Rice gives energy, vegetables and fruit like bananas help the body stay healthy. Sweets and fizzy drinks are treats with lots of sugar."
+    },
+    {
+      "id": "s2.healthy-living.014", "skill": "s2.healthy-living", "type": "numeric", "difficulty": 4,
+      "prompt": "Intan records the glasses of water she drinks. How many glasses did she drink on Wednesday?",
+      "figure": { "kind": "pictogram", "title": "Glasses of water", "rows": [{ "label": "Monday", "count": 3 }, { "label": "Tuesday", "count": 2 }, { "label": "Wednesday", "count": 4 }, { "label": "Thursday", "count": 3 }], "icon": "cup", "key": 2, "alt": "Pictogram of glasses of water. Each cup means 2 glasses. Monday 3 cups, Tuesday 2 cups, Wednesday 4 cups, Thursday 3 cups." },
+      "answer": 8,
+      "unit": "glasses",
+      "hints": ["Look at the key first. One cup stands for 2 glasses.", "Count the cups in the Wednesday row.", "Wednesday has 4 cups. Count in 2s for each cup."],
+      "explanation": "Wednesday has 4 cups. Each cup means 2 glasses, so count 2, 4, 6, 8. She drank 8 glasses.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.healthy-living.015", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 4,
+      "prompt": "Look at the chart. What does it show about exercise?",
+      "figure": { "kind": "bars", "title": "Heartbeats in one minute", "categories": ["Sitting", "Walking", "Running"], "values": [85, 110, 150], "step": 20, "axisMax": 160, "yLabel": "Beats", "alt": "Bar chart of heartbeats in one minute: sitting 85, walking 110, running 150." },
+      "options": [
+        { "text": "The heart beats slower when we run.", "why": "The running bar is the tallest, so the heart beats faster." },
+        { "text": "The heart beats the same all the time.", "why": "The bars are different heights, so the beats change." },
+        { "text": "Walking makes the heart stop.", "why": "The walking bar shows 110 beats, so the heart keeps beating." },
+        { "text": "The heart beats faster when we exercise harder." }
+      ],
+      "answer": 3,
+      "hints": ["Compare the heights of the three bars.", "Which activity is the hardest work for the body?", "Read the bars in order: sitting, walking, running. What happens to the numbers?"],
+      "explanation": "The heart beats 85 times sitting, 110 times walking and 150 times running. The harder we exercise, the faster the heart beats.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.healthy-living.016", "skill": "s2.healthy-living", "type": "numeric", "difficulty": 5,
+      "prompt": "Lily goes to sleep at 8 o'clock at night. She wakes up at 6 o'clock in the morning. How many hours does she sleep?",
+      "figure": { "kind": "icons", "items": [{ "icon": "moon", "label": "8 o'clock at night" }, { "icon": "bed", "label": "sleeping" }, { "icon": "sun", "label": "6 o'clock in the morning" }], "alt": "Lily goes to sleep at 8 o'clock at night and wakes at 6 o'clock in the morning.", "arrows": "chain" },
+      "answer": 10,
+      "unit": "hours",
+      "hints": ["Count the hours from bedtime to midnight first.", "From 8 o'clock to 12 o'clock is 4 hours.", "Now count from 12 o'clock to 6 o'clock in the morning."],
+      "explanation": "From 8 o'clock to midnight is 4 hours. From midnight to 6 o'clock is 6 hours. 4 and 6 make 10 hours of sleep.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.healthy-living.017", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 4,
+      "prompt": "Ana's hands look clean after playing in the garden. Should she wash them before eating?",
+      "options": [
+        { "text": "No, clean-looking hands have no germs.", "why": "Germs are so tiny that hands can look clean and still carry them." },
+        { "text": "No, only adults need to wash.", "why": "Everyone needs to wash their hands." },
+        { "text": "Yes, germs are too small to see." },
+        { "text": "Only if she touched a worm.", "why": "Soil, toys and door handles can all carry germs too." }
+      ],
+      "answer": 2,
+      "hints": ["Can you see germs with your eyes?", "Think about everything she touched in the garden.", "Ask: how would she know her hands had no germs?"],
+      "explanation": "Germs are too small to see, so hands can look clean and still carry them. Ana should wash her hands with soap before eating.",
+      "tags": ["iksc"]
+    }
+  ]
+}

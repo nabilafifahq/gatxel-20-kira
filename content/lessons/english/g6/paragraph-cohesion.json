@@ -1,0 +1,76 @@
+{
+  "skill": "e6.paragraph-cohesion",
+  "title": "Linking sentences and paragraphs",
+  "steps": [
+    {
+      "say": "A cohesive text flows smoothly from one idea to the next."
+    },
+    {
+      "say": "Start each paragraph with a topic sentence that tells the reader what it is about."
+    },
+    {
+      "say": "Use connectives to show how ideas link.",
+      "show": "However (contrast)     As a result (effect)     Meanwhile (time)"
+    },
+    {
+      "say": "Use pronouns and synonyms to avoid repeating a noun, but make sure the reader knows who or what they mean.",
+      "show": "Mount Bromo... The volcano... It..."
+    },
+    {
+      "say": "Every sentence in a paragraph should be about the same topic."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.paragraph-cohesion.901",
+      "skill": "e6.paragraph-cohesion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which connective shows a contrast?",
+      "options": [
+        {
+          "text": "As a result",
+          "why": "This shows an effect."
+        },
+        {
+          "text": "For example",
+          "why": "This introduces an example."
+        },
+        {
+          "text": "On the other hand"
+        },
+        {
+          "text": "In addition",
+          "why": "This adds another point."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A contrast shows a different or opposite idea.",
+        "Think about which connective you would use to give the other side.",
+        "Try each connective before: some people disagree."
+      ],
+      "explanation": "On the other hand introduces a contrasting idea."
+    },
+    {
+      "id": "e6.paragraph-cohesion.902",
+      "skill": "e6.paragraph-cohesion",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Write one pronoun to replace the second Pak Rudi. Pak Rudi is our football coach. Pak Rudi trains us every Tuesday.",
+      "blanks": [
+        {
+          "answers": [
+            "he"
+          ]
+        }
+      ],
+      "hints": [
+        "Pak Rudi is repeated.",
+        "A pronoun can stand for a person who has already been named.",
+        "Which pronoun is used for a man?"
+      ],
+      "explanation": "He replaces Pak Rudi in the second sentence, so the name is not repeated."
+    }
+  ]
+}

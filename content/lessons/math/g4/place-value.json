@@ -1,0 +1,77 @@
+{
+  "skill": "m4.place-value",
+  "title": "Place value to 10,000",
+  "steps": [
+    {
+      "say": "A 4-digit number has thousands, hundreds, tens and ones.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Th",
+          "H",
+          "T",
+          "O"
+        ],
+        "rows": [
+          [
+            "3",
+            "5",
+            "0",
+            "7"
+          ]
+        ],
+        "alt": "A place value table: 3 thousands, 5 hundreds, 0 tens and 7 ones."
+      }
+    },
+    {
+      "say": "3,507 is 3 thousands, 5 hundreds and 7 ones.",
+      "show": "3,000 + 500 + 7 = 3,507"
+    },
+    {
+      "say": "The 0 keeps the tens place. Without it, the number would be 357.",
+      "show": "3,507 and 357"
+    },
+    {
+      "say": "Multiply by 10 and each digit moves one place to the left.",
+      "show": "45 × 10 = 450"
+    },
+    {
+      "say": "Multiply by 100 and each digit moves two places to the left.",
+      "show": "45 × 100 = 4,500"
+    },
+    {
+      "say": "Divide by 10 and each digit moves one place to the right.",
+      "show": "450 ÷ 10 = 45"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.place-value.901",
+      "skill": "m4.place-value",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the 6 worth in 6,284?",
+      "answer": 6000,
+      "hints": [
+        "Find the place of the digit 6.",
+        "Count the places from the right: ones, tens, hundreds, thousands.",
+        "A digit in the thousands place is worth that many thousands."
+      ],
+      "explanation": "The 6 is in the thousands place, so it is worth 6,000."
+    },
+    {
+      "id": "m4.place-value.902",
+      "skill": "m4.place-value",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 38 × 100.",
+      "answer": 3800,
+      "hints": [
+        "Multiplying by 100 moves each digit two places to the left.",
+        "Fill the empty places with zeros.",
+        "38 × 10 = 380."
+      ],
+      "explanation": "38 × 100 = 3,800. The 3 moves to the thousands place and the 8 to the hundreds place."
+    }
+  ]
+}

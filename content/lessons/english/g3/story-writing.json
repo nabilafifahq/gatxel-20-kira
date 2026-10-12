@@ -1,0 +1,40 @@
+{
+  "skill": "e3.story-writing",
+  "title": "Planning a story",
+  "steps": [
+    { "say": "A story has a beginning, a middle and an end." },
+    { "say": "The beginning tells the reader who is in the story and where it happens.", "show": "Arif flew his kite in the field." },
+    { "say": "In the middle, something goes wrong. This is the problem.", "show": "Suddenly, the kite got stuck in a tree." },
+    { "say": "At the end, the problem is solved. Tell the reader how the character feels.", "show": "At last, Arif got his kite back and grinned." },
+    { "say": "Time words help the reader follow the story.", "show": "One day... Suddenly... Then... At last..." },
+    { "say": "Before you write, plan a few notes for each part.", "show": "Beginning / Middle / End" }
+  ],
+  "check": [
+    {
+      "id": "e3.story-writing.901", "skill": "e3.story-writing", "type": "mcq", "difficulty": 1,
+      "prompt": "Where does the problem usually go in a story?",
+      "options": [
+        { "text": "in the beginning", "why": "The beginning usually introduces the characters and the place." },
+        { "text": "in the middle" },
+        { "text": "after the end", "why": "Nothing comes after the end of a story." },
+        { "text": "in the title", "why": "The title is the name of the story." }
+      ],
+      "answer": 1,
+      "hints": ["Think of a story you know.", "What happens after we meet the characters?", "The end is where problems are solved."],
+      "explanation": "The middle of a story has the problem, and the end solves it."
+    },
+    {
+      "id": "e3.story-writing.902", "skill": "e3.story-writing", "type": "mcq", "difficulty": 2,
+      "prompt": "Which sentence would make a good ending?",
+      "options": [
+        { "text": "Suddenly, the lights went out.", "why": "Suddenly usually starts a problem in the middle." },
+        { "text": "Once there was a puppy called Max.", "why": "This sounds like a beginning." },
+        { "text": "At last, the puppy was safe at home." },
+        { "text": "The puppy ran away.", "why": "This is a problem, not an ending." }
+      ],
+      "answer": 2,
+      "hints": ["An ending solves the problem.", "Look for a time word that means finally.", "Which sentence makes the story feel finished?"],
+      "explanation": "At last shows the story is ending, and the puppy being safe shows the problem is solved."
+    }
+  ]
+}

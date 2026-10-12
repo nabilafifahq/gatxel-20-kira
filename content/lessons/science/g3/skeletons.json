@@ -1,0 +1,127 @@
+{
+  "skill": "s3.skeletons",
+  "title": "What skeletons do",
+  "steps": [
+    {
+      "say": "A skeleton is the frame of bones inside your body. An adult has about 206 bones.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "skeleton",
+            "label": "skeleton"
+          }
+        ],
+        "alt": "A human skeleton."
+      }
+    },
+    {
+      "say": "Your skeleton supports you. Without it, you could not stand up.",
+      "show": "support"
+    },
+    {
+      "say": "Your skeleton protects soft organs. The skull protects your brain, and the ribs protect your heart and lungs.",
+      "show": "protect"
+    },
+    {
+      "say": "Muscles pull on your bones to move them. So your skeleton helps you move.",
+      "show": "move"
+    },
+    {
+      "say": "Animals with a backbone inside, like fish, birds and cats, are vertebrates.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "fish",
+            "label": "fish"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          },
+          {
+            "icon": "cat",
+            "label": "cat"
+          }
+        ],
+        "alt": "A fish, a bird and a cat, which all have a backbone."
+      }
+    },
+    {
+      "say": "Insects and crabs have a hard exoskeleton outside. Worms and jellyfish have no skeleton.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ant",
+            "label": "ant"
+          },
+          {
+            "icon": "crab",
+            "label": "crab"
+          },
+          {
+            "icon": "worm",
+            "label": "worm"
+          }
+        ],
+        "alt": "An ant and a crab with exoskeletons, and a worm with no skeleton."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.skeletons.901",
+      "skill": "s3.skeletons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which job does your skull do?",
+      "options": [
+        {
+          "text": "It digests food.",
+          "why": "Your stomach digests food."
+        },
+        {
+          "text": "It pumps blood.",
+          "why": "Your heart pumps blood."
+        },
+        {
+          "text": "It protects your brain."
+        },
+        {
+          "text": "It helps you breathe.",
+          "why": "Your lungs help you breathe."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Your skull is in your head.",
+        "What soft organ is inside your head?",
+        "Think about why bike riders wear helmets."
+      ],
+      "explanation": "The skull protects your brain."
+    },
+    {
+      "id": "s3.skeletons.902",
+      "skill": "s3.skeletons",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Animals with a backbone are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vertebrates",
+            "vertebrate"
+          ]
+        }
+      ],
+      "hints": [
+        "The word comes from the small bones in your back.",
+        "Each small bone in your backbone is a vertebra.",
+        "It starts with v."
+      ],
+      "explanation": "Animals with a backbone are vertebrates. Fish, frogs, snakes, birds and cats are all vertebrates."
+    }
+  ]
+}

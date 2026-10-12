@@ -1,0 +1,432 @@
+{
+  "skill": "s3.light-shadows",
+  "items": [
+    {
+      "id": "s3.light-shadows.001",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a light source?",
+      "options": [
+        {
+          "text": "the Moon",
+          "why": "The Moon does not make light. It reflects light from the Sun."
+        },
+        {
+          "text": "a mirror",
+          "why": "A mirror reflects light. It does not make its own."
+        },
+        {
+          "text": "the Sun"
+        },
+        {
+          "text": "a shiny spoon",
+          "why": "A spoon reflects light. It does not give out light."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A light source makes its own light.",
+        "Some shiny things only bounce light back.",
+        "Ask of each one: does it make light, or just bounce it?"
+      ],
+      "explanation": "The Sun makes its own light, so it is a light source. The Moon, a mirror and a spoon only reflect light."
+    },
+    {
+      "id": "s3.light-shadows.002",
+      "skill": "s3.light-shadows",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these. Which are light sources?",
+      "groups": [
+        "Light source",
+        "Not a light source"
+      ],
+      "items": [
+        {
+          "text": "Sun",
+          "group": 0
+        },
+        {
+          "text": "candle flame",
+          "group": 0
+        },
+        {
+          "text": "torch that is on",
+          "group": 0
+        },
+        {
+          "text": "glowing firefly",
+          "group": 0
+        },
+        {
+          "text": "Moon",
+          "group": 1
+        },
+        {
+          "text": "mirror",
+          "group": 1
+        },
+        {
+          "text": "window",
+          "group": 1
+        },
+        {
+          "text": "white paper",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A light source gives out its own light.",
+        "Shiny or bright things may only reflect light.",
+        "Start with the Moon. Where does its light come from?"
+      ],
+      "explanation": "The Sun, a candle flame, a torch that is on and a glowing firefly make light. The Moon, a mirror, a window and white paper do not."
+    },
+    {
+      "id": "s3.light-shadows.003",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How is a shadow made?",
+      "options": [
+        {
+          "text": "Light bounces off a mirror.",
+          "why": "That is reflection, not a shadow."
+        },
+        {
+          "text": "Light passes through glass.",
+          "why": "Glass is transparent, so it makes almost no shadow."
+        },
+        {
+          "text": "The object gives out darkness.",
+          "why": "Objects do not give out darkness. A shadow is where light is blocked."
+        },
+        {
+          "text": "An opaque object blocks the light."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A shadow is a dark area.",
+        "Light cannot reach the shadow.",
+        "What stops the light getting there?"
+      ],
+      "explanation": "Light travels in straight lines. When an opaque object blocks the light, a dark shadow forms behind it."
+    },
+    {
+      "id": "s3.light-shadows.004",
+      "skill": "s3.light-shadows",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "transparent",
+          "lets almost all light through"
+        ],
+        [
+          "translucent",
+          "lets some light through"
+        ],
+        [
+          "opaque",
+          "lets no light through"
+        ]
+      ],
+      "hints": [
+        "Think of clear glass, tracing paper and cardboard.",
+        "Words starting with trans- let some or all light through.",
+        "Start with opaque. Can you see through cardboard?"
+      ],
+      "explanation": "Transparent materials let almost all light through and translucent ones let some through. Opaque materials let no light through."
+    },
+    {
+      "id": "s3.light-shadows.005",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dina moves a puppet closer to the torch. What happens to its shadow on the wall?",
+      "options": [
+        {
+          "text": "It gets bigger."
+        },
+        {
+          "text": "It gets smaller.",
+          "why": "Closer to the light, the puppet blocks more light, so the shadow grows."
+        },
+        {
+          "text": "It disappears.",
+          "why": "The puppet still blocks light, so there is still a shadow."
+        },
+        {
+          "text": "It changes colour.",
+          "why": "Shadows stay dark. Their size changes, not their colour."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try it with your hand and a torch.",
+        "Close to the torch, the puppet blocks more of the light.",
+        "More blocked light means a bigger or smaller shadow?"
+      ],
+      "explanation": "The closer the puppet is to the torch, the more light it blocks. So the shadow on the wall gets bigger.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.light-shadows.006",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When is your shadow shortest on a sunny day?",
+      "options": [
+        {
+          "text": "early in the morning",
+          "why": "The Sun is low in the morning, so shadows are long."
+        },
+        {
+          "text": "around midday"
+        },
+        {
+          "text": "late in the afternoon",
+          "why": "The Sun is low again in the late afternoon, so shadows are long."
+        },
+        {
+          "text": "at night",
+          "why": "At night there is no sunlight to make a shadow."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Shadow length depends on how high the Sun is.",
+        "A high Sun makes short shadows.",
+        "When is the Sun highest in the sky?"
+      ],
+      "explanation": "The Sun is highest around midday, so shadows are shortest then. In Indonesia, the midday Sun is almost overhead.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.light-shadows.007",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A stick's shadow was measured during the day. What pattern do the results show?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time",
+          "Shadow length (cm)"
+        ],
+        "rows": [
+          [
+            "8 a.m.",
+            "120"
+          ],
+          [
+            "10 a.m.",
+            "60"
+          ],
+          [
+            "12 noon",
+            "15"
+          ],
+          [
+            "2 p.m.",
+            "60"
+          ],
+          [
+            "4 p.m.",
+            "120"
+          ]
+        ],
+        "alt": "Table of shadow length: 8 a.m. 120 cm, 10 a.m. 60 cm, 12 noon 15 cm, 2 p.m. 60 cm, 4 p.m. 120 cm."
+      },
+      "options": [
+        {
+          "text": "The shadow got longer all day.",
+          "why": "The shadow got shorter until noon."
+        },
+        {
+          "text": "The shadow was longest at noon.",
+          "why": "At noon it was 15 cm, the shortest."
+        },
+        {
+          "text": "The shadow got shorter until noon, then longer again."
+        },
+        {
+          "text": "The shadow stayed the same length.",
+          "why": "It changed from 120 cm to 15 cm and back."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Read the lengths in time order.",
+        "Find the shortest shadow. When was it?",
+        "What happened before and after that time?"
+      ],
+      "explanation": "The shadow was long in the morning, shortest at noon and long again in the afternoon. This happens because the Sun's height in the sky changes.",
+      "tags": [
+        "ksnr"
+      ]
+    },
+    {
+      "id": "s3.light-shadows.008",
+      "skill": "s3.light-shadows",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In the morning, the Sun is in the east. Which way does a tree's shadow point?",
+      "options": [
+        {
+          "text": "towards the east",
+          "why": "Shadows form on the side away from the light."
+        },
+        {
+          "text": "straight up",
+          "why": "Shadows fall on the ground, away from the Sun."
+        },
+        {
+          "text": "towards the Sun",
+          "why": "A shadow always points away from the light source."
+        },
+        {
+          "text": "towards the west"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A shadow forms on the side away from the light.",
+        "The Sun is on the east side.",
+        "Which side is opposite east?"
+      ],
+      "explanation": "Shadows point away from the light source. With the Sun in the east, the tree's shadow points west.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s3.light-shadows.009",
+      "skill": "s3.light-shadows",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 things you need to make a shadow.",
+      "options": [
+        {
+          "text": "a light source"
+        },
+        {
+          "text": "a mirror",
+          "why": "A mirror reflects light. You do not need one to make a shadow."
+        },
+        {
+          "text": "an opaque object"
+        },
+        {
+          "text": "a transparent sheet",
+          "why": "A transparent sheet lets light through, so it makes almost no shadow."
+        },
+        {
+          "text": "total darkness",
+          "why": "You need light to make a shadow."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "A shadow is made when light is blocked.",
+        "Something must give out light.",
+        "Something must stop the light."
+      ],
+      "explanation": "You need a light source and an opaque object to block the light. A surface behind the object shows the shadow."
+    },
+    {
+      "id": "s3.light-shadows.010",
+      "skill": "s3.light-shadows",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The Moon does not make light. It ___ light from the Sun.",
+      "blanks": [
+        {
+          "answers": [
+            "reflects",
+            "reflect",
+            "bounces",
+            "bounces back"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what a mirror does to light.",
+        "The light hits the Moon and comes back to us.",
+        "The science word starts with r."
+      ],
+      "explanation": "The Moon reflects light from the Sun. That is why we can see it at night."
+    },
+    {
+      "id": "s3.light-shadows.011",
+      "skill": "s3.light-shadows",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Early one morning, a 1 m stick has a shadow 2 m long. At the same time, a flagpole's shadow is 10 m long. How tall is the flagpole?",
+      "answer": 5,
+      "unit": "m",
+      "hints": [
+        "Compare the stick's height with its shadow.",
+        "At that time, every shadow is twice as long as its object.",
+        "Halve the flagpole's shadow."
+      ],
+      "explanation": "At that time each shadow is twice the height of its object. The flagpole's shadow is 10 m, so the flagpole is 5 m tall.",
+      "solution": [
+        {
+          "say": "The stick is 1 m tall and its shadow is 2 m long.",
+          "show": "1 m → 2 m"
+        },
+        {
+          "say": "So every shadow is twice as long as its object.",
+          "show": "shadow = 2 × height"
+        },
+        {
+          "say": "The flagpole's shadow is 10 m. Half of 10 is 5.",
+          "show": "10 ÷ 2 = 5 m"
+        }
+      ],
+      "tags": [
+        "iksc",
+        "olympiad"
+      ]
+    },
+    {
+      "id": "s3.light-shadows.012",
+      "skill": "s3.light-shadows",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a torch, a ball and the ball's shadow on a wall. Show the light as straight lines.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Puts the shadow on the side of the ball away from the torch",
+            "points": 2
+          },
+          {
+            "label": "Draws light as straight lines",
+            "points": 1
+          },
+          {
+            "label": "Labels the torch, ball and shadow",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Light travels in straight lines from the torch.",
+        "The shadow is where the ball stops the light reaching the wall."
+      ],
+      "explanation": "Straight lines of light go from the torch past the ball. The shadow falls on the wall behind the ball, where light cannot reach."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "skill": "s3.seeds-and-growth",
+  "title": "From seed to healthy plant",
+  "steps": [
+    {
+      "say": "A seed holds a tiny plant and a store of food. When it starts to grow, we call it germination.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "seed",
+            "label": "seed"
+          },
+          {
+            "icon": "seedling",
+            "label": "seedling"
+          },
+          {
+            "icon": "plant",
+            "label": "plant"
+          }
+        ],
+        "arrows": "chain",
+        "alt": "A seed grows into a seedling, then into a plant."
+      }
+    },
+    {
+      "say": "Most seeds need water, warmth and air to germinate. They do not need light yet.",
+      "show": "water + warmth + air"
+    },
+    {
+      "say": "First a root grows down. Then a shoot grows up towards the light.",
+      "show": "root first, then shoot"
+    },
+    {
+      "say": "When the stored food runs out, the leaves must make food. Now the plant needs light.",
+      "show": "Seedlings need light."
+    },
+    {
+      "say": "To grow well, plants need light, water, air, warmth and minerals from the soil.",
+      "show": "light, water, air, warmth, minerals"
+    },
+    {
+      "say": "Plants grow towards light. Without light, they grow pale, thin and weak."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.seeds-and-growth.901",
+      "skill": "s3.seeds-and-growth",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these do most seeds need to germinate?",
+      "options": [
+        {
+          "text": "bright light",
+          "why": "Most seeds germinate in the dark."
+        },
+        {
+          "text": "soil",
+          "why": "Seeds can germinate on wet cotton wool."
+        },
+        {
+          "text": "cold",
+          "why": "Cold slows seeds down. They need warmth."
+        },
+        {
+          "text": "warmth"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think of seeds sprouting in a warm, dark cupboard.",
+        "Seeds need three things, and one of them is water.",
+        "Cross out anything a seed on wet cotton wool would not have."
+      ],
+      "explanation": "Most seeds need water, warmth and air to germinate. Light and soil are not needed at the start."
+    },
+    {
+      "id": "s3.seeds-and-growth.902",
+      "skill": "s3.seeds-and-growth",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "When a seed starts to grow, it is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "germination",
+            "germinating"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a science word you met in this lesson.",
+        "It starts with the letter g.",
+        "It ends with -ation."
+      ],
+      "explanation": "Germination is when a seed starts to grow."
+    }
+  ]
+}

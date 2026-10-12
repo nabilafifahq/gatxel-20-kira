@@ -1,0 +1,39 @@
+{
+  "skill": "e4.text-structure",
+  "title": "How texts are built",
+  "steps": [
+    { "say": "Writers organise texts into paragraphs. Each paragraph is about one main idea.", "show": "new idea → new paragraph" },
+    { "say": "Start a new paragraph for a new time, place, topic or speaker.", "show": "new time, new place, new topic, new speaker" },
+    { "say": "Reports use subheadings, so readers can find information quickly.", "show": "What they look like / Hunting and eating / Young dragons" },
+    { "say": "Letters, diaries, news reports and playscripts each have their own layout.", "show": "News report: headline, who, what, when, where, quotes" },
+    { "say": "Writers choose words on purpose. Similes and strong verbs help us picture things.", "show": "The notes bounced around the hall like rain on a tin roof." }
+  ],
+  "check": [
+    {
+      "id": "e4.text-structure.901", "skill": "e4.text-structure", "type": "mcq", "difficulty": 2,
+      "prompt": "When should a writer start a new paragraph?",
+      "options": [
+        { "text": "after every sentence", "why": "A paragraph usually has several sentences about one idea." },
+        { "text": "when the topic or the time changes" },
+        { "text": "only at the very end", "why": "Paragraphs are needed all through a text." },
+        { "text": "whenever they use a long word", "why": "Long words have nothing to do with paragraphs." }
+      ],
+      "answer": 1,
+      "hints": ["A paragraph is about one main idea.", "What happens when the writer moves on to something new?", "Think about the sections of the Komodo report."],
+      "explanation": "A new paragraph starts when the writer moves to a new topic, time, place or speaker."
+    },
+    {
+      "id": "e4.text-structure.902", "skill": "e4.text-structure", "type": "mcq", "difficulty": 2,
+      "prompt": "What does the first paragraph of a news report usually tell you?",
+      "options": [
+        { "text": "who, what, when and where" },
+        { "text": "the reporter's favourite food", "why": "That would not belong in a news report." },
+        { "text": "a joke", "why": "News reports start with the key facts." },
+        { "text": "how the report ends", "why": "The ending comes last." }
+      ],
+      "answer": 0,
+      "hints": ["News readers want the key facts quickly.", "Think about the first paragraph of the school garden report.", "What did it tell you straight away?"],
+      "explanation": "The first paragraph of a news report gives the key facts: who, what, when and where."
+    }
+  ]
+}

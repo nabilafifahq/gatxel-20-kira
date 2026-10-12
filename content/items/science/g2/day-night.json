@@ -1,0 +1,207 @@
+{
+  "skill": "s2.day-night",
+  "items": [
+    {
+      "id": "s2.day-night.001", "skill": "s2.day-night", "type": "mcq", "difficulty": 1,
+      "prompt": "When is the sky dark so we can see the stars?",
+      "figure": { "kind": "icons", "items": [{ "icon": "moon", "label": "Moon" }, { "icon": "star", "label": "stars" }], "alt": "The Moon and stars in a dark sky." },
+      "options": [
+        { "text": "at midday", "why": "At midday the Sun is high and the sky is bright." },
+        { "text": "at lunchtime", "why": "At lunchtime it is daytime and the sky is bright." },
+        { "text": "at night" },
+        { "text": "after breakfast", "why": "After breakfast it is daytime." }
+      ],
+      "answer": 2,
+      "hints": ["Think about when you go to bed.", "Stars are hard to see when the sky is bright.", "Ask: when does the sky turn dark?"],
+      "explanation": "At night our side of the Earth faces away from the Sun. The sky is dark, so we can see the stars."
+    },
+    {
+      "id": "s2.day-night.002", "skill": "s2.day-night", "type": "sort", "difficulty": 1,
+      "prompt": "Does it happen in the day or at night? Sort the cards.",
+      "groups": ["Day", "Night"],
+      "items": [
+        { "text": "the Sun is in the sky", "group": 0 },
+        { "text": "children go to school", "group": 0 },
+        { "text": "the sky is bright blue", "group": 0 },
+        { "text": "the stars come out", "group": 1 },
+        { "text": "owls hunt", "group": 1 },
+        { "text": "most people sleep", "group": 1 }
+      ],
+      "hints": ["Think about what you see and do in the day.", "Then think about what happens when it is dark.", "Start with the stars. When can you see them?"],
+      "explanation": "In the day the Sun is in the bright blue sky and children go to school. At night the stars come out, owls hunt and most people sleep."
+    },
+    {
+      "id": "s2.day-night.003", "skill": "s2.day-night", "type": "mcq", "difficulty": 2,
+      "prompt": "Why do we have day and night?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "earth", "label": "Earth" }], "alt": "The Sun and the Earth." },
+      "options": [
+        { "text": "The Sun goes around the Earth each day.", "why": "Many people once thought this. The Earth spins, and the Sun only seems to move." },
+        { "text": "The Earth spins round." },
+        { "text": "The Sun switches off at night.", "why": "The Sun always shines. Our side of the Earth turns away from it." },
+        { "text": "Clouds cover the Sun at night.", "why": "Night comes even when there are no clouds." }
+      ],
+      "answer": 1,
+      "hints": ["The Sun always shines.", "Think about a ball turning in front of a torch.", "Ask: which one moves, the Earth or the Sun?"],
+      "explanation": "The Earth spins round. When our side faces the Sun, we have day. When it turns away from the Sun, we have night.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.004", "skill": "s2.day-night", "type": "numeric", "difficulty": 3,
+      "prompt": "How many hours does the Earth take to spin round once?",
+      "answer": 24,
+      "unit": "hours",
+      "hints": ["One spin gives us one day and one night.", "Think about how many hours there are in one whole day.", "A day has 12 hours on the clock twice."],
+      "explanation": "The Earth spins round once in about 24 hours. That gives us one day and one night."
+    },
+    {
+      "id": "s2.day-night.005", "skill": "s2.day-night", "type": "mcq", "difficulty": 3,
+      "prompt": "How does the Sun seem to move across the sky?",
+      "options": [
+        { "text": "It rises in the west and sets in the east.", "why": "The Sun rises in the east." },
+        { "text": "It stays in one place all day.", "why": "The Sun seems to move across the sky during the day." },
+        { "text": "It rises in the north.", "why": "The Sun rises in the east." },
+        { "text": "It rises in the east and sets in the west." }
+      ],
+      "answer": 3,
+      "hints": ["Think about where the Sun is in the morning.", "Sunrise and sunset happen on opposite sides of the sky.", "Remember: the Sun rises in the east."],
+      "explanation": "The Sun seems to rise in the east, cross the sky and set in the west. It only seems to move because the Earth is spinning."
+    },
+    {
+      "id": "s2.day-night.006", "skill": "s2.day-night", "type": "order", "difficulty": 2,
+      "prompt": "Put the times of day in order, starting with sunrise.",
+      "items": ["sunrise", "morning", "midday", "afternoon", "sunset"],
+      "hints": ["The day starts when the Sun comes up.", "Midday is in the middle of the day.", "Put sunrise first. What comes after it?"],
+      "explanation": "The day goes sunrise, morning, midday, afternoon and sunset. Then it is night."
+    },
+    {
+      "id": "s2.day-night.007", "skill": "s2.day-night", "type": "mcq", "difficulty": 4,
+      "prompt": "At midday the Sun is high in the sky. What are shadows like?",
+      "options": [
+        { "text": "very long", "why": "Long shadows happen when the Sun is low, in the morning and evening." },
+        { "text": "the same as at sunset", "why": "At sunset the Sun is low, so shadows are long." },
+        { "text": "short" },
+        { "text": "longer than in the evening", "why": "Evening shadows are long because the Sun is low." }
+      ],
+      "answer": 2,
+      "hints": ["Shadows change as the Sun moves across the sky.", "Shine a torch from high above a toy. Is the shadow long or short?", "Ask: is the Sun high or low at midday?"],
+      "explanation": "At midday the Sun is high, so shadows are short. In the morning and evening the Sun is low, so shadows are long.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.008", "skill": "s2.day-night", "type": "sort", "difficulty": 2,
+      "prompt": "When is each animal most active? Sort the cards.",
+      "groups": ["In the day", "At night"],
+      "items": [
+        { "text": "butterfly", "group": 0 },
+        { "text": "bee", "group": 0 },
+        { "text": "hen", "group": 0 },
+        { "text": "owl", "group": 1 },
+        { "text": "bat", "group": 1 },
+        { "text": "firefly", "group": 1 }
+      ],
+      "hints": ["Some animals sleep in the day and wake at night.", "Think about which animals you see on the way to school.", "Start with the bat. When do you see bats flying?"],
+      "explanation": "Butterflies, bees and hens are busy in the day. Owls, bats and fireflies are active at night. Night animals are called nocturnal."
+    },
+    {
+      "id": "s2.day-night.009", "skill": "s2.day-night", "type": "text", "difficulty": 4,
+      "prompt": "An animal active at night and asleep in the day is ___.",
+      "blanks": [{ "answers": ["nocturnal"] }],
+      "hints": ["Owls and bats are like this.", "The word is used in science for night animals.", "It starts with noc and has 9 letters."],
+      "explanation": "An animal that is active at night is nocturnal. Owls, bats and fireflies are nocturnal."
+    },
+    {
+      "id": "s2.day-night.010", "skill": "s2.day-night", "type": "mcq", "difficulty": 4,
+      "prompt": "It is daytime in Jakarta. What is it like on the other side of the Earth?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "earth", "label": "Earth" }], "alt": "The Sun shining on one side of the Earth." },
+      "options": [
+        { "text": "It is daytime there too.", "why": "The other side is turned away from the Sun." },
+        { "text": "It is always winter there.", "why": "Day and night do not decide the seasons." },
+        { "text": "It is night there." },
+        { "text": "The Sun is closer there.", "why": "The other side faces away from the Sun." }
+      ],
+      "answer": 2,
+      "hints": ["Only one half of the Earth faces the Sun at a time.", "Jakarta is on the half that faces the Sun now.", "Ask: what is it like on the half facing away?"],
+      "explanation": "Only the half of the Earth that faces the Sun has day. The other side faces away, so it is night there.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.011", "skill": "s2.day-night", "type": "mcq", "difficulty": 5,
+      "prompt": "The Earth also travels around the Sun. How long does one trip take?",
+      "options": [
+        { "text": "one day", "why": "One day is one spin of the Earth." },
+        { "text": "one year" },
+        { "text": "one hour", "why": "One hour is much too short. The trip is very long." },
+        { "text": "one week", "why": "One week is 7 spins of the Earth." }
+      ],
+      "answer": 1,
+      "hints": ["One spin takes one day. The trip around the Sun is much longer.", "Think about how often your birthday comes.", "Ask: what do we call 365 days?"],
+      "explanation": "The Earth takes about one year, or 365 days, to travel around the Sun. It spins round once every day on the way.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.012", "skill": "s2.day-night", "type": "mcq", "difficulty": 4,
+      "prompt": "Why can we not see the stars in the daytime?",
+      "options": [
+        { "text": "Stars go away in the day.", "why": "The stars are still there. The sunlight hides them." },
+        { "text": "Stars only shine at night.", "why": "Stars shine all the time." },
+        { "text": "Clouds always hide them.", "why": "Even on a clear day we cannot see stars." },
+        { "text": "The Sun's light is too bright." }
+      ],
+      "answer": 3,
+      "hints": ["Stars shine all the time.", "Think about seeing a torch beam on a sunny day.", "Ask: what makes the daytime sky so bright?"],
+      "explanation": "Stars shine all the time. In the day, the Sun's light is so bright that we cannot see the faint stars.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.013", "skill": "s2.day-night", "type": "numeric", "difficulty": 3,
+      "prompt": "In Jakarta the Sun rises at about 6 o'clock in the morning. It sets at about 6 o'clock in the evening. About how many hours of daylight are there?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "sunrise, 6 o'clock" }, { "icon": "sun", "label": "sunset, 6 o'clock" }], "arrows": "chain", "alt": "Sunrise at 6 o'clock in the morning and sunset at 6 o'clock in the evening." },
+      "answer": 12,
+      "unit": "hours",
+      "hints": ["Count the hours from morning to evening.", "From 6 o'clock to 12 o'clock is 6 hours.", "Now count from 12 o'clock to 6 o'clock in the evening."],
+      "explanation": "From 6 in the morning to 12 is 6 hours, and from 12 to 6 in the evening is 6 more. 6 and 6 make 12 hours of daylight.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.day-night.014", "skill": "s2.day-night", "type": "mcq", "difficulty": 4,
+      "prompt": "Rafi sees the Sun low in the east. What time of day is it?",
+      "options": [
+        { "text": "morning" },
+        { "text": "midday", "why": "At midday the Sun is high in the sky." },
+        { "text": "evening", "why": "In the evening the Sun is low in the west." },
+        { "text": "midnight", "why": "At midnight the Sun cannot be seen." }
+      ],
+      "answer": 0,
+      "hints": ["The Sun rises in the east.", "Low in the sky means near the start or end of the day.", "Ask: which part of the day starts with sunrise?"],
+      "explanation": "The Sun rises in the east. Seeing it low in the east means it has just risen, so it is morning.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.day-night.015", "skill": "s2.day-night", "type": "mcq", "difficulty": 5,
+      "prompt": "Which one is true about the Sun and the Earth?",
+      "options": [
+        { "text": "The Sun moves around the Earth every day.", "why": "It looks that way, but the Earth is spinning." },
+        { "text": "The Earth spins, so the Sun seems to move across our sky." },
+        { "text": "The Sun goes under the sea at night.", "why": "The Sun is far away in space. Our side of the Earth turns away from it." },
+        { "text": "The Sun is closer to the Earth at night.", "why": "At night our side of the Earth faces away from the Sun." }
+      ],
+      "answer": 1,
+      "hints": ["What we see is not always what is really happening.", "Think about a car ride. The trees seem to move past you.", "Ask: which one is really moving each day, the Earth or the Sun?"],
+      "explanation": "The Earth spins once a day. As it spins, the Sun seems to move across our sky, just like trees seem to move past a moving car.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.day-night.016", "skill": "s2.day-night", "type": "draw", "difficulty": 3,
+      "prompt": "Draw the Sun and the Earth. Colour the side of the Earth that has night.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws the Sun and the Earth", "points": 1 },
+        { "label": "Shows the side facing the Sun as day", "points": 1 },
+        { "label": "Colours the side facing away from the Sun as night", "points": 2 },
+        { "label": "Labels day and night", "points": 1 }
+      ] },
+      "hints": ["The side of the Earth facing the Sun gets light.", "The other side is in darkness."],
+      "explanation": "The half of the Earth that faces the Sun has day. The half that faces away has night. As the Earth spins, places move from day to night."
+    }
+  ]
+}

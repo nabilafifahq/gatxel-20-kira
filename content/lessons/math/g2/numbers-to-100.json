@@ -1,0 +1,96 @@
+{
+  "skill": "m2.numbers-to-100",
+  "title": "Numbers to 100",
+  "steps": [
+    {
+      "say": "A number like 47 has tens and ones.",
+      "figure": {
+        "kind": "basetens",
+        "tens": 4,
+        "ones": 7,
+        "alt": "4 ten rods and 7 small cubes."
+      },
+      "show": "47 = 4 tens and 7 ones"
+    },
+    {
+      "say": "Count the rods in 10s, then count on the cubes.",
+      "show": "10, 20, 30, 40, 41, 42, 43, 44, 45, 46, 47"
+    },
+    {
+      "say": "Say the tens word, then the ones word.",
+      "show": "47 = forty-seven"
+    },
+    {
+      "say": "Most tens words end in ty.",
+      "show": "twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.numbers-to-100.901",
+      "skill": "m2.numbers-to-100",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "What number do 6 tens and 3 ones make?",
+      "hints": [
+        "Each ten is 10. Each one is 1.",
+        "Count the tens in 10s first.",
+        "6 tens is 60. Then add the ones."
+      ],
+      "explanation": "6 tens and 3 ones make 63.",
+      "answer": 63
+    },
+    {
+      "id": "m2.numbers-to-100.902",
+      "skill": "m2.numbers-to-100",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is seventy-two?",
+      "hints": [
+        "Say seventy-two slowly.",
+        "Seventy means 7 tens.",
+        "Write the tens digit first, then the ones digit."
+      ],
+      "explanation": "Seventy-two is 7 tens and 2 ones, so we write 72.",
+      "options": [
+        {
+          "text": "27",
+          "why": "27 is twenty-seven. The tens come first in seventy-two."
+        },
+        {
+          "text": "702",
+          "why": "702 is seven hundred and two. Seventy-two is 70 and 2."
+        },
+        {
+          "text": "72"
+        },
+        {
+          "text": "62",
+          "why": "62 is sixty-two."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m2.numbers-to-100.903",
+      "skill": "m2.numbers-to-100",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write 58 in words.",
+      "hints": [
+        "Say 58 out loud slowly.",
+        "Write the tens word first, then the ones word.",
+        "58 has 5 tens. 50 is fifty."
+      ],
+      "explanation": "58 is written fifty-eight.",
+      "blanks": [
+        {
+          "answers": [
+            "fifty-eight",
+            "fifty eight"
+          ]
+        }
+      ]
+    }
+  ]
+}

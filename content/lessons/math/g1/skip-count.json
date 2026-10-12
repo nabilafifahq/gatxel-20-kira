@@ -1,0 +1,99 @@
+{
+  "skill": "m1.skip-count",
+  "title": "Counting in 2s, 5s and 10s",
+  "steps": [
+    {
+      "say": "We can count in jumps instead of ones. It is faster.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "icon": "sock",
+        "container": "circle",
+        "alt": "4 pairs of socks."
+      }
+    },
+    {
+      "say": "Counting in 2s, we say every other number.",
+      "show": "2, 4, 6, 8, 10"
+    },
+    {
+      "say": "Counting in 5s, we add 5 each time.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "icon": "dot",
+        "container": "circle",
+        "alt": "4 groups of 5 dots."
+      },
+      "show": "5, 10, 15, 20"
+    },
+    {
+      "say": "Counting in 10s, we add 10 each time.",
+      "show": "10, 20, 30, 40, 50"
+    }
+  ],
+  "check": [
+    {
+      "id": "m1.skip-count.901",
+      "skill": "m1.skip-count",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Count in 10s. What comes next?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "10",
+          "20",
+          "30",
+          null
+        ],
+        "style": "stones",
+        "alt": "Stones in a row: 10, 20, 30, a blank stone."
+      },
+      "hints": [
+        "What is added each time?",
+        "These numbers count on in 10s.",
+        "The last number is 30. Add 10."
+      ],
+      "explanation": "The numbers count on in 10s. 30 + 10 = 40.",
+      "answer": 40
+    },
+    {
+      "id": "m1.skip-count.902",
+      "skill": "m1.skip-count",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Count in 5s. What comes after 15?",
+      "hints": [
+        "Counting in 5s adds 5 each time.",
+        "Say the 5s: 5, 10, 15.",
+        "Add 5 to 15."
+      ],
+      "explanation": "15 + 5 = 20, so 20 comes after 15.",
+      "options": [
+        {
+          "text": "16",
+          "why": "That is 1 more. Counting in 5s adds 5."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "25",
+          "why": "That skips a number. 20 comes first."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

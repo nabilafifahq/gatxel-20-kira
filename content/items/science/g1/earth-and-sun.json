@@ -1,0 +1,160 @@
+{
+  "skill": "s1.earth-and-sun",
+  "items": [
+    {
+      "id": "s1.earth-and-sun.001", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 1,
+      "prompt": "What is the name of the planet we live on?",
+      "figure": { "kind": "icons", "items": [{ "icon": "earth", "label": "our planet" }], "alt": "Our planet, round with blue seas and green and brown land." },
+      "options": [
+        { "text": "the Moon", "why": "The Moon goes around our planet. We do not live on it." },
+        { "text": "Earth" },
+        { "text": "the Sun", "why": "The Sun is a star. We live on a planet." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the planet under your feet.", "It has land, seas and lots of living things.", "The name is also a word for soil."],
+      "explanation": "We live on planet Earth. It has land, water and lots of living things."
+    },
+    {
+      "id": "s1.earth-and-sun.002", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 1,
+      "prompt": "What does the Sun give us?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }], "alt": "The Sun shining." },
+      "options": [
+        { "text": "rain", "why": "Rain falls from clouds." },
+        { "text": "darkness", "why": "The Sun makes the day bright." },
+        { "text": "light and heat" }
+      ],
+      "answer": 2,
+      "hints": ["Think about a sunny day.", "How does the Sun make you feel when you stand in it?", "Picture the playground at midday."],
+      "explanation": "The Sun gives us light and heat. It makes the day bright and warms the land and the sea."
+    },
+    {
+      "id": "s1.earth-and-sun.003", "skill": "s1.earth-and-sun", "type": "text", "difficulty": 2,
+      "prompt": "The Sun is a huge ball of very hot gas. It is a ___.",
+      "blanks": [{ "answers": ["star"] }],
+      "hints": ["At night we see many tiny ones twinkling.", "The Sun is one of these, but it is much closer to us.", "It is a 4-letter word and also a shape with points."],
+      "explanation": "The Sun is a star. It looks bigger and brighter than other stars because it is much closer to Earth."
+    },
+    {
+      "id": "s1.earth-and-sun.004", "skill": "s1.earth-and-sun", "type": "multi", "difficulty": 2,
+      "prompt": "Choose all the things we can find on the Earth's land.",
+      "options": [
+        { "text": "mountains" },
+        { "text": "the Sun", "why": "The Sun is far away in space." },
+        { "text": "rivers" },
+        { "text": "stars", "why": "Stars are far away in space." },
+        { "text": "rocks" }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Think about what you see when you travel.", "Ask: could I stand on it or next to it?", "Start with the mountains. Are they on the land?"],
+      "explanation": "Mountains, rivers and rocks are on the Earth's land. The Sun and the stars are far away in space."
+    },
+    {
+      "id": "s1.earth-and-sun.005", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 2,
+      "prompt": "Why must you never look straight at the Sun?",
+      "options": [
+        { "text": "It will make you sleepy.", "why": "The danger is to your eyes. The Sun is too bright." },
+        { "text": "It can hurt your eyes." },
+        { "text": "The Sun will go away.", "why": "The Sun stays in the sky when you look at it." }
+      ],
+      "answer": 1,
+      "hints": ["The Sun is very, very bright.", "Which body part do you use to look?", "Think about why people wear sun hats and sunglasses outside."],
+      "explanation": "The Sun is so bright that looking straight at it can hurt your eyes. Never look at it, even with sunglasses on.",
+      "tip": "Never look straight at the Sun.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.earth-and-sun.006", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 2,
+      "prompt": "What covers most of the Earth?",
+      "figure": { "kind": "icons", "items": [{ "icon": "earth", "label": "Earth" }], "alt": "The Earth from space, mostly blue sea with some green and brown land." },
+      "options": [
+        { "text": "sand", "why": "There are sandy deserts, but much more of the Earth is sea." },
+        { "text": "ice", "why": "Some places are icy, but much more of the Earth is sea." },
+        { "text": "water" }
+      ],
+      "answer": 2,
+      "hints": ["Look at a globe. What colour is most of it?", "Ask: what do the blue parts on a map stand for?", "Compare the blue parts with the green and brown parts."],
+      "explanation": "Most of the Earth is covered by water in seas and oceans. That is why the Earth looks blue from space."
+    },
+    {
+      "id": "s1.earth-and-sun.007", "skill": "s1.earth-and-sun", "type": "sort", "difficulty": 3,
+      "prompt": "Is it on Earth or in space? Sort the cards.",
+      "figure": { "kind": "icons", "items": [{ "icon": "sea", "label": "sea" }, { "icon": "volcano", "label": "volcano" }, { "icon": "forest", "label": "forest" }, { "icon": "sun", "label": "Sun" }, { "icon": "moon", "label": "Moon" }, { "icon": "star", "label": "stars" }], "alt": "Six pictures: the sea, a volcano, a forest, the Sun, the Moon and stars." },
+      "groups": ["On Earth", "In space"],
+      "items": [
+        { "text": "sea", "group": 0 },
+        { "text": "volcano", "group": 0 },
+        { "text": "forest", "group": 0 },
+        { "text": "the Sun", "group": 1 },
+        { "text": "the Moon", "group": 1 },
+        { "text": "stars", "group": 1 }
+      ],
+      "hints": ["Space is far above the sky.", "Ask: could I walk or swim there?", "Start with the sea. Can you swim in it?"],
+      "explanation": "The sea, volcanoes and forests are on Earth. The Sun, the Moon and the stars are in space."
+    },
+    {
+      "id": "s1.earth-and-sun.008", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 3,
+      "prompt": "What shape is the Earth?",
+      "options": [
+        { "text": "flat like a plate", "why": "Photos taken from space show that the Earth is round." },
+        { "text": "round like a ball" },
+        { "text": "square like a box", "why": "The Earth has no corners." }
+      ],
+      "answer": 1,
+      "hints": ["Think about the globe in your classroom.", "Photos taken from space show its shape.", "Picture the Earth from a rocket."],
+      "explanation": "The Earth is round like a ball. Photos from space show its round shape."
+    },
+    {
+      "id": "s1.earth-and-sun.009", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 3,
+      "prompt": "Citra hangs wet clothes outside on a sunny day. Why do they dry?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "sock", "label": "wet clothes" }], "alt": "Wet clothes hanging outside in the sunshine." },
+      "options": [
+        { "text": "The Sun's heat dries them." },
+        { "text": "The Moon dries them.", "why": "The Moon does not give out heat." },
+        { "text": "The clothes get colder.", "why": "Cold makes wet things dry more slowly." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what the Sun gives us.", "Do clothes dry faster on hot days or cold days?", "Picture clothes on a line at midday."],
+      "explanation": "The Sun's heat warms the wet clothes, and the water dries up into the air.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s1.earth-and-sun.010", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 4,
+      "prompt": "The Sun is huge, but it looks small in the sky. Why?",
+      "options": [
+        { "text": "It is smaller than a car.", "why": "The Sun is much bigger than the whole Earth." },
+        { "text": "It is behind the clouds.", "why": "Even on a clear day it looks small because it is so far away." },
+        { "text": "It is very far away." }
+      ],
+      "answer": 2,
+      "hints": ["Think about how a plane looks high in the sky.", "Things look smaller when they are far away.", "Compare a bus near you with a bus far down the road."],
+      "explanation": "The Sun is huge, much bigger than the Earth. It looks small because it is very, very far away.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s1.earth-and-sun.011", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 3,
+      "prompt": "Why is the Sun important for living things?",
+      "options": [
+        { "text": "It gives light and warmth." },
+        { "text": "It makes the night dark.", "why": "Night is dark because the Sun's light is not reaching us." },
+        { "text": "It gives us water to drink.", "why": "Our water comes from rain, rivers and wells." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what plants and animals need.", "What does the Sun give to the Earth?", "Picture a plant growing in a sunny garden."],
+      "explanation": "The Sun gives light and warmth. Plants need light to grow, and animals need plants for food."
+    },
+    {
+      "id": "s1.earth-and-sun.012", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 5,
+      "prompt": "The Sun is a star. Why does it look brighter than other stars?",
+      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "star", "label": "other stars" }], "alt": "The bright Sun and some small, faint stars." },
+      "options": [
+        { "text": "Other stars are tiny lights.", "why": "Other stars are huge too. They are much further away." },
+        { "text": "It is much closer to Earth than other stars." },
+        { "text": "Only the Sun is hot.", "why": "All stars are very hot balls of gas." }
+      ],
+      "answer": 1,
+      "hints": ["Remember what happens to things that are far away.", "Other stars are suns too, but where are they?", "Compare how far away the Sun is with the night stars."],
+      "explanation": "The Sun is the closest star to Earth. Other stars are so far away that they look like tiny dots of light.",
+      "tags": ["iksc"]
+    }
+  ]
+}

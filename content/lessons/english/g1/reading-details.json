@@ -1,0 +1,78 @@
+{
+  "skill": "e1.reading-details",
+  "title": "Finding answers in a text",
+  "steps": [
+    {
+      "say": "Read the question first. Then you know what to look for.",
+      "show": "What colour is the hat?"
+    },
+    {
+      "say": "Find a key word from the question in the text.",
+      "show": "key word: hat"
+    },
+    {
+      "say": "Read the sentence with the key word. The answer is often there.",
+      "show": "The hat is red."
+    },
+    {
+      "say": "To find a feeling, look at what a character says and does.",
+      "show": "Bima smiles. He is happy."
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.reading-details.901",
+      "skill": "e1.reading-details",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Read: 'Lina has a red kite.' What colour is the kite?",
+      "hints": [
+        "Find the word kite.",
+        "Look at the word before it.",
+        "It is a colour word."
+      ],
+      "explanation": "The sentence says Lina has a red kite.",
+      "options": [
+        {
+          "text": "red"
+        },
+        {
+          "text": "blue",
+          "why": "The sentence does not say blue."
+        },
+        {
+          "text": "green",
+          "why": "Look for the colour word before kite."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.reading-details.902",
+      "skill": "e1.reading-details",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: 'Ali cries. His toy is broken.' How does Ali feel?",
+      "hints": [
+        "Look at what Ali does.",
+        "Why is he crying?",
+        "How do you feel when a toy breaks?"
+      ],
+      "explanation": "Ali cries because his toy is broken, so he feels sad.",
+      "options": [
+        {
+          "text": "happy",
+          "why": "Crying does not show that Ali is happy."
+        },
+        {
+          "text": "sad"
+        },
+        {
+          "text": "sleepy",
+          "why": "Ali cries because of his toy."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "skill": "e6.spelling-homonyms",
+  "title": "Tricky endings and homonyms",
+  "steps": [
+    {
+      "say": "Some endings sound the same but are spelt differently. Learn the patterns.",
+      "show": "official, special     partial, essential"
+    },
+    {
+      "say": "-cial usually follows a vowel, and -tial usually follows a consonant.",
+      "show": "offi-cial     par-tial"
+    },
+    {
+      "say": "Adjectives ending in -ent make nouns ending in -ence. Those ending in -ant make nouns ending in -ance.",
+      "show": "confident, confidence     important, importance"
+    },
+    {
+      "say": "If a verb is stressed on its last syllable, double the final consonant before -ed or -ing.",
+      "show": "prefer, preferred     visit, visited"
+    },
+    {
+      "say": "Homonyms are spelt the same but have different meanings. Use the rest of the sentence to choose the meaning.",
+      "show": "the bank of a river     money in the bank"
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.spelling-homonyms.901",
+      "skill": "e6.spelling-homonyms",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is spelt correctly?",
+      "options": [
+        {
+          "text": "importence",
+          "why": "Important ends in -ant, so the noun ends in -ance."
+        },
+        {
+          "text": "importance"
+        },
+        {
+          "text": "importanse",
+          "why": "The ending is spelt with a c."
+        },
+        {
+          "text": "importants",
+          "why": "This is not the noun form."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of the adjective: important.",
+        "Adjectives ending in -ant make nouns ending in -ance.",
+        "Write important, then change the ending."
+      ],
+      "explanation": "Important ends in -ant, so the noun is importance."
+    },
+    {
+      "id": "e6.spelling-homonyms.902",
+      "skill": "e6.spelling-homonyms",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add -ing to begin. Write the new word.",
+      "blanks": [
+        {
+          "answers": [
+            "beginning"
+          ]
+        }
+      ],
+      "hints": [
+        "Say be-GIN. Which syllable is stressed?",
+        "The stress is on the last syllable, which ends in one vowel and one consonant.",
+        "Double the final consonant, then add -ing."
+      ],
+      "explanation": "Begin is stressed at the end, so the n doubles: beginning."
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "skill": "s2.electricity",
+  "items": [
+    {
+      "id": "s2.electricity.001", "skill": "s2.electricity", "type": "mcq", "difficulty": 1,
+      "prompt": "Which one uses electricity?",
+      "options": [
+        { "text": "a kite", "why": "A kite is moved by the wind." },
+        { "text": "a book", "why": "A book does not need electricity." },
+        { "text": "a broom", "why": "A broom is moved by a person." },
+        { "text": "a fridge" }
+      ],
+      "answer": 3,
+      "hints": ["Think about things that plug into the wall.", "Which one would stop working in a power cut?", "Ask: which one keeps food cold?"],
+      "explanation": "A fridge uses electricity to keep food cold. A kite, a book and a broom do not need electricity."
+    },
+    {
+      "id": "s2.electricity.002", "skill": "s2.electricity", "type": "sort", "difficulty": 2,
+      "prompt": "Does it use electricity? Sort the cards.",
+      "groups": ["Uses electricity", "Does not"],
+      "items": [
+        { "text": "TV", "group": 0 },
+        { "text": "rice cooker", "group": 0 },
+        { "text": "fan", "group": 0 },
+        { "text": "torch", "group": 0 },
+        { "text": "bicycle", "group": 1 },
+        { "text": "drum", "group": 1 },
+        { "text": "pencil", "group": 1 }
+      ],
+      "hints": ["Things that use electricity need a plug or batteries.", "Ask: would it still work in a power cut with no batteries?", "Start with the rice cooker. Does it have a plug?"],
+      "explanation": "A TV, a rice cooker, a fan and a torch use electricity. A bicycle, a drum and a pencil do not."
+    },
+    {
+      "id": "s2.electricity.003", "skill": "s2.electricity", "type": "sort", "difficulty": 3,
+      "prompt": "Mains or batteries? Sort the cards.",
+      "groups": ["Plugs into the wall", "Uses batteries"],
+      "items": [
+        { "text": "fridge", "group": 0 },
+        { "text": "washing machine", "group": 0 },
+        { "text": "electric kettle", "group": 0 },
+        { "text": "TV remote", "group": 1 },
+        { "text": "torch", "group": 1 },
+        { "text": "wall clock", "group": 1 }
+      ],
+      "hints": ["Big machines usually plug into the wall.", "Small things we carry often use batteries.", "Start with the TV remote. Does it have a cable?"],
+      "explanation": "A fridge, a washing machine and an electric kettle plug into the wall for mains electricity. A TV remote, a torch and a wall clock use batteries."
+    },
+    {
+      "id": "s2.electricity.004", "skill": "s2.electricity", "type": "mcq", "difficulty": 2,
+      "prompt": "Which one is safe to do?",
+      "options": [
+        { "text": "Touch a switch with wet hands.", "why": "Water and electricity are a dangerous mix. Dry your hands first." },
+        { "text": "Push a pencil into a socket.", "why": "Never put anything into a socket." },
+        { "text": "Ask an adult to plug things in." },
+        { "text": "Pull a plug out by its cable.", "why": "Pulling the cable can break it. An adult should hold the plug itself." }
+      ],
+      "answer": 2,
+      "hints": ["Three of these could give someone a shock.", "Think about water, sockets and cables.", "Ask: which choice keeps you away from danger?"],
+      "explanation": "Asking an adult to plug things in is safe. Wet hands, poking things into sockets and pulling cables can all be dangerous.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.electricity.005", "skill": "s2.electricity", "type": "multi", "difficulty": 3,
+      "prompt": "Choose all the safe rules for electricity.",
+      "options": [
+        { "text": "Keep drinks away from a computer." },
+        { "text": "Fly kites far from power lines." },
+        { "text": "Dry your hands before touching a switch." },
+        { "text": "Climb an electricity pole to get a kite.", "why": "Never climb an electricity pole. Ask an adult for help." },
+        { "text": "Use a hairdryer in the bath.", "why": "Never use electrical things near water. It can give a dangerous shock." }
+      ],
+      "answers": [0, 1, 2],
+      "hints": ["Water and electricity must be kept apart.", "Power lines carry very strong electricity.", "Start with the drinks. What could happen if a drink spills on a computer?"],
+      "explanation": "Keeping drinks away from computers, flying kites far from power lines and drying your hands are safe rules. Never climb poles or use electrical things near water."
+    },
+    {
+      "id": "s2.electricity.006", "skill": "s2.electricity", "type": "text", "difficulty": 1,
+      "prompt": "A torch gets its electricity from a ___.",
+      "figure": { "kind": "icons", "items": [{ "icon": "torch", "label": "torch" }], "alt": "A torch with its back opened." },
+      "blanks": [{ "answers": ["battery", "batteries"] }],
+      "hints": ["It goes inside the torch.", "You can buy them in sizes like AA.", "A TV remote uses the same thing."],
+      "explanation": "A torch gets electricity from batteries. Batteries store a small amount of electricity."
+    },
+    {
+      "id": "s2.electricity.007", "skill": "s2.electricity", "type": "mcq", "difficulty": 4,
+      "prompt": "Why is mains electricity more dangerous than a small battery?",
+      "options": [
+        { "text": "It is much stronger." },
+        { "text": "It is always hot.", "why": "Mains electricity is not hot. It is much stronger than a battery." },
+        { "text": "It is wet.", "why": "Electricity is not wet. Water can carry it to you." },
+        { "text": "It makes loud noises.", "why": "Noise is not the danger. Its strength is." }
+      ],
+      "answer": 0,
+      "hints": ["Think about what mains electricity can power.", "A battery runs a torch. The mains runs a washing machine.", "Ask: which one has more power behind it?"],
+      "explanation": "Mains electricity is much stronger than a small battery. It can give a very dangerous shock, so we never play with sockets.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.electricity.008", "skill": "s2.electricity", "type": "mcq", "difficulty": 4,
+      "prompt": "Which bulb will light up?",
+      "options": [
+        { "figure": { "kind": "circuit", "parts": ["battery", "bulb", "gap"], "alt": "A battery and a bulb with a gap in the wire." }, "why": "There is a gap, so electricity cannot flow all the way round." },
+        { "figure": { "kind": "circuit", "parts": ["battery", "bulb"], "alt": "A battery and a bulb joined in a complete loop of wire." } },
+        { "figure": { "kind": "circuit", "parts": ["battery", "bulb", "switch-open"], "alt": "A battery, a bulb and an open switch." }, "why": "The switch is open, so there is a gap in the circuit." },
+        { "figure": { "kind": "circuit", "parts": ["bulb", "switch-closed"], "alt": "A bulb and a closed switch with no battery." }, "why": "There is no battery, so there is no electricity." }
+      ],
+      "answer": 1,
+      "hints": ["A bulb needs a battery and a complete loop.", "Look for gaps and open switches.", "Check each circuit: is there a battery? Is there a gap?"],
+      "explanation": "The bulb lights when there is a battery and the wires make a complete loop with no gaps.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.electricity.009", "skill": "s2.electricity", "type": "mcq", "difficulty": 4,
+      "prompt": "What does a switch do in a circuit?",
+      "figure": { "kind": "circuit", "parts": ["battery", "bulb-lit", "switch-closed"], "alt": "A circuit with a battery, a lit bulb and a closed switch." },
+      "options": [
+        { "text": "It makes the battery bigger.", "why": "A switch does not change the battery." },
+        { "text": "It changes the colour of the bulb.", "why": "A switch turns the bulb on or off. It does not change colour." },
+        { "text": "It opens or closes a gap in the circuit." },
+        { "text": "It stores electricity.", "why": "Batteries store electricity. A switch opens or closes the circuit." }
+      ],
+      "answer": 2,
+      "hints": ["Think about the light switch in your room.", "What happens to the bulb when you press the switch?", "Ask: what does a gap in a circuit do?"],
+      "explanation": "A switch opens or closes a gap in the circuit. When it is closed, electricity flows and the bulb lights. When it is open, the bulb goes off."
+    },
+    {
+      "id": "s2.electricity.010", "skill": "s2.electricity", "type": "match", "difficulty": 3,
+      "prompt": "Match each object to where it gets its electricity.",
+      "pairs": [["TV remote", "small batteries"], ["fridge", "mains socket"], ["mobile phone", "battery charged from a socket"], ["solar garden lamp", "sunlight on a solar panel"]],
+      "hints": ["Some things use batteries and some use the mains.", "A phone has a battery that needs charging.", "Start with the fridge. Where is its plug?"],
+      "explanation": "A TV remote uses small batteries and a fridge plugs into the mains. A phone's battery is charged from a socket, and a solar lamp uses sunlight."
+    },
+    {
+      "id": "s2.electricity.011", "skill": "s2.electricity", "type": "mcq", "difficulty": 3,
+      "prompt": "A power line has fallen down after a storm. What should Bayu do?",
+      "figure": { "kind": "icons", "items": [{ "icon": "wire", "label": "fallen power line" }, { "icon": "lightning", "label": "storm" }], "alt": "A power line lying on the ground after a storm." },
+      "options": [
+        { "text": "Touch it with a stick.", "why": "Never go near a fallen power line, even with a stick." },
+        { "text": "Step over it carefully.", "why": "Stay far away. The wire may still carry electricity." },
+        { "text": "Pick it up and move it.", "why": "Never touch a fallen power line." },
+        { "text": "Stay far away and tell an adult." }
+      ],
+      "answer": 3,
+      "hints": ["Power lines carry very strong electricity.", "A fallen wire may still be live.", "Ask: which choice keeps Bayu far away from the wire?"],
+      "explanation": "A fallen power line can still carry electricity. Bayu should stay far away and tell an adult, who can call for help.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.electricity.012", "skill": "s2.electricity", "type": "mcq", "difficulty": 4,
+      "prompt": "Why must we keep water away from plugs and sockets?",
+      "options": [
+        { "text": "Water switches the electricity off.", "why": "Water does not switch electricity off. It can carry it." },
+        { "text": "Water can carry electricity into your body." },
+        { "text": "Water makes sockets cold.", "why": "Cold is not the danger. Water can carry electricity." },
+        { "text": "Water is too heavy for plugs.", "why": "Weight is not the danger. Water can carry electricity." }
+      ],
+      "answer": 1,
+      "hints": ["Think about why bathrooms have special rules for electricity.", "Electricity can travel through water.", "Ask: what could happen if wet hands touch a socket?"],
+      "explanation": "Water can carry electricity. If water touches a plug or a socket, electricity could flow through the water into your body and give a shock.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.electricity.013", "skill": "s2.electricity", "type": "numeric", "difficulty": 5,
+      "prompt": "How many more of these things use batteries than mains?",
+      "figure": { "kind": "table", "head": ["Object", "Power"], "rows": [["fridge", "mains"], ["torch", "batteries"], ["TV", "mains"], ["clock", "batteries"], ["fan", "mains"], ["remote control", "batteries"], ["toy car", "batteries"]], "alt": "Table: fridge, mains. Torch, batteries. TV, mains. Clock, batteries. Fan, mains. Remote control, batteries. Toy car, batteries." },
+      "answer": 1,
+      "hints": ["Count the batteries rows first.", "Then count the mains rows.", "Take the smaller number away from the bigger number."],
+      "explanation": "4 things use batteries and 3 use mains. 4 take away 3 is 1, so 1 more thing uses batteries.",
+      "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.electricity.014", "skill": "s2.electricity", "type": "order", "difficulty": 4,
+      "prompt": "Put the steps in order to make the bulb light up.",
+      "items": ["Join a wire to one end of the battery.", "Join that wire to the bulb.", "Join a second wire from the bulb to the other end of the battery.", "The bulb lights up."],
+      "hints": ["The electricity starts at the battery.", "The wires must make a complete loop.", "Start at the battery. What do you join to it first?"],
+      "explanation": "Join a wire from the battery to the bulb, then a second wire from the bulb back to the battery. The loop is complete, so the bulb lights up."
+    },
+    {
+      "id": "s2.electricity.015", "skill": "s2.electricity", "type": "mcq", "difficulty": 5,
+      "prompt": "The bulb is not lit. Which change will make it light?",
+      "figure": { "kind": "circuit", "parts": ["battery", "bulb", "switch-open"], "alt": "A circuit with a battery, an unlit bulb and an open switch." },
+      "options": [
+        { "text": "Take out the battery.", "why": "Without a battery, there is no electricity." },
+        { "text": "Add another gap.", "why": "A gap stops the electricity flowing." },
+        { "text": "Close the switch." },
+        { "text": "Open the switch more.", "why": "An open switch makes a gap. Closing it completes the circuit." }
+      ],
+      "answer": 2,
+      "hints": ["Look at the switch in the picture.", "An open switch leaves a gap in the circuit.", "Ask: how can the gap be closed?"],
+      "explanation": "The switch is open, so there is a gap. Closing the switch completes the circuit, and the bulb lights up.",
+      "tags": ["iksc"]
+    },
+    {
+      "id": "s2.electricity.016", "skill": "s2.electricity", "type": "draw", "difficulty": 3,
+      "prompt": "Draw a safety poster about electricity. Show one rule and write it.",
+      "background": "blank",
+      "rubric": { "criteria": [
+        { "label": "Draws a clear picture of one safety rule", "points": 2 },
+        { "label": "Writes the rule in a short sentence", "points": 1 },
+        { "label": "The rule is correct and safe", "points": 1 }
+      ] },
+      "hints": ["Think about water, sockets or power lines.", "Keep your rule short, like: Keep water away from sockets."],
+      "explanation": "Electricity can hurt us. Good rules are: never touch switches with wet hands, never poke things into sockets and fly kites far from power lines."
+    }
+  ]
+}

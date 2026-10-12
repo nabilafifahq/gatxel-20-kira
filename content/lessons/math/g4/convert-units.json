@@ -1,0 +1,97 @@
+{
+  "skill": "m4.convert-units",
+  "title": "Convert units of length, mass and capacity",
+  "steps": [
+    {
+      "say": "Each bigger unit is made of a number of smaller units.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Unit",
+          "Equals"
+        ],
+        "rows": [
+          [
+            "1 cm",
+            "10 mm"
+          ],
+          [
+            "1 m",
+            "100 cm"
+          ],
+          [
+            "1 km",
+            "1,000 m"
+          ],
+          [
+            "1 kg",
+            "1,000 g"
+          ],
+          [
+            "1 l",
+            "1,000 ml"
+          ]
+        ],
+        "alt": "Table: 1 cm = 10 mm, 1 m = 100 cm, 1 km = 1,000 m, 1 kg = 1,000 g, 1 l = 1,000 ml."
+      }
+    },
+    {
+      "say": "To change to a smaller unit, multiply.",
+      "show": "3 m = 3 × 100 = 300 cm"
+    },
+    {
+      "say": "To change to a bigger unit, divide.",
+      "show": "4,000 g = 4,000 ÷ 1,000 = 4 kg"
+    },
+    {
+      "say": "For mixed units, change the big part, then add the small part.",
+      "show": "2 kg 350 g = 2,000 g + 350 g = 2,350 g"
+    },
+    {
+      "say": "Decimals work too. 1.5 l is 1 litre and half a litre.",
+      "show": "1.5 l = 1,500 ml"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.convert-units.901",
+      "skill": "m4.convert-units",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "6 km = ___ m",
+      "answer": 6000,
+      "hints": [
+        "How many metres are in 1 km?",
+        "1 km = 1,000 m.",
+        "Multiply 6 by 1,000."
+      ],
+      "explanation": "6 × 1,000 = 6,000, so 6 km = 6,000 m.",
+      "unit": "m"
+    },
+    {
+      "id": "m4.convert-units.902",
+      "skill": "m4.convert-units",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "3,250 ml = ___ l ___ ml",
+      "blanks": [
+        {
+          "answers": [
+            "3"
+          ]
+        },
+        {
+          "answers": [
+            "250"
+          ]
+        }
+      ],
+      "hints": [
+        "1 l = 1,000 ml.",
+        "How many whole litres are in 3,250 ml?",
+        "The rest goes in the second gap."
+      ],
+      "explanation": "3,000 ml = 3 l, and 250 ml are left. So 3,250 ml = 3 l 250 ml."
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "skill": "m5.fractions-decimals-percentages",
+  "title": "Fractions, decimals and percentages",
+  "steps": [
+    {
+      "say": "Per cent means out of 100. 35% means 35 out of 100.",
+      "show": "35% = 35/100 = 0.35",
+      "figure": {
+        "kind": "grid",
+        "rows": 10,
+        "cols": 10,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "alt": "A 10 by 10 grid with 35 squares shaded."
+      }
+    },
+    {
+      "say": "Learn the key facts. One half is 50%, and one quarter is 25%.",
+      "show": "1/2 = 0.5 = 50% and 1/4 = 0.25 = 25%",
+      "figure": {
+        "kind": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 1,
+        "label": "25%",
+        "alt": "A circle split into 4 equal parts with 1 part shaded."
+      }
+    },
+    {
+      "say": "Three quarters is 75%, and one tenth is 10%.",
+      "show": "3/4 = 0.75 = 75% and 1/10 = 0.1 = 10%"
+    },
+    {
+      "say": "To change a fraction to a percentage, make the denominator 100.",
+      "show": "3/5 = 60/100 = 60%",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 5,
+        "shaded": 3,
+        "label": "60%",
+        "alt": "A bar split into 5 equal parts with 3 parts shaded."
+      }
+    },
+    {
+      "say": "To change a decimal to a percentage, multiply by 100.",
+      "show": "0.07 = 7% and 0.7 = 70%"
+    }
+  ],
+  "check": [
+    {
+      "id": "m5.fractions-decimals-percentages.901",
+      "skill": "m5.fractions-decimals-percentages",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is the same as 1/4?",
+      "hints": [
+        "Per cent means out of 100.",
+        "How many quarters make a whole?",
+        "Find a fraction with a denominator of 100 that equals 1/4."
+      ],
+      "explanation": "1/4 = 25/100, which is 25%.",
+      "options": [
+        {
+          "text": "40%",
+          "why": "40% is the same as 2/5."
+        },
+        {
+          "text": "0.14",
+          "why": "1/4 is 0.25. The digits 1 and 4 do not go after the point."
+        },
+        {
+          "text": "25%"
+        },
+        {
+          "text": "14%",
+          "why": "1/4 does not mean 14%. It means 1 of 4 equal parts."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.fractions-decimals-percentages.902",
+      "skill": "m5.fractions-decimals-percentages",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Write 0.62 as a percentage.",
+      "hints": [
+        "Per cent means out of 100.",
+        "Multiply 0.62 by 100.",
+        "Move each digit two places to the left."
+      ],
+      "explanation": "0.62 = 62/100 = 62%.",
+      "answer": 62,
+      "unit": "%",
+      "allowDecimal": true
+    },
+    {
+      "id": "m5.fractions-decimals-percentages.903",
+      "skill": "m5.fractions-decimals-percentages",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which list is in order from smallest to largest?",
+      "hints": [
+        "Change each number into a percentage.",
+        "2/5 = 40/100.",
+        "0.3 = 30/100."
+      ],
+      "explanation": "0.3 = 30% and 2/5 = 40%, and 45% stays the same. So the order is 0.3, 2/5, 45%.",
+      "options": [
+        {
+          "text": "45%, 2/5, 0.3",
+          "why": "This list goes from largest to smallest."
+        },
+        {
+          "text": "2/5, 0.3, 45%",
+          "why": "2/5 = 0.4, which is more than 0.3."
+        },
+        {
+          "text": "0.3, 45%, 2/5",
+          "why": "45% = 0.45, which is more than 2/5 = 0.4."
+        },
+        {
+          "text": "0.3, 2/5, 45%"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

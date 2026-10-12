@@ -1,0 +1,72 @@
+{
+  "skill": "m4.divide-written",
+  "title": "Divide by a 1-digit number",
+  "steps": [
+    {
+      "say": "To work out 84 ÷ 4, split 84 into parts that are easy to divide.",
+      "show": "84 = 80 + 4"
+    },
+    {
+      "say": "Divide each part, then add.",
+      "show": "80 ÷ 4 = 20 and 4 ÷ 4 = 1, so 84 ÷ 4 = 21"
+    },
+    {
+      "say": "Some divisions leave a remainder.",
+      "figure": {
+        "kind": "groups",
+        "groups": [
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        "icon": "marble",
+        "container": "bag",
+        "alt": "45 marbles in 5 bags of 9, with 2 more marbles left over."
+      },
+      "show": "47 ÷ 5 = 9 r 2"
+    },
+    {
+      "say": "In a story, think about what the remainder means. 26 children travel in cars of 4.",
+      "show": "26 ÷ 4 = 6 r 2"
+    },
+    {
+      "say": "6 cars leave 2 children behind, so 7 cars are needed.",
+      "show": "7 cars"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.divide-written.901",
+      "skill": "m4.divide-written",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Work out 96 ÷ 3.",
+      "answer": 32,
+      "hints": [
+        "Split 96 into 90 and 6.",
+        "Divide each part by 3.",
+        "90 ÷ 3 = 30."
+      ],
+      "explanation": "90 ÷ 3 = 30 and 6 ÷ 3 = 2. 30 + 2 = 32."
+    },
+    {
+      "id": "m4.divide-written.902",
+      "skill": "m4.divide-written",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Eggs are packed in boxes of 6. How many boxes are needed for 40 eggs?",
+      "answer": 7,
+      "hints": [
+        "Work out 40 ÷ 6.",
+        "Is there a remainder?",
+        "Every egg needs a place in a box."
+      ],
+      "explanation": "40 ÷ 6 = 6 r 4. The 4 extra eggs need one more box, so 7 boxes are needed.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

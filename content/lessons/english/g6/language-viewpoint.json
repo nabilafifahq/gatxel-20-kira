@@ -1,0 +1,87 @@
+{
+  "skill": "e6.language-viewpoint",
+  "title": "Language effects, viewpoint and comparison",
+  "steps": [
+    {
+      "say": "Writers choose words and images to create effects. Ask what each choice makes you think or feel."
+    },
+    {
+      "say": "Similes, metaphors and personification help the reader picture things in a new way.",
+      "show": "the knuckles of a giant hand"
+    },
+    {
+      "say": "Short sentences and repetition can build tension or make a point stand out."
+    },
+    {
+      "say": "To find the writer’s viewpoint, separate facts, which can be checked, from opinions.",
+      "show": "Fact: Jakarta holds Car Free Days.     Opinion: I believe..."
+    },
+    {
+      "say": "When comparing texts, look at the purpose, the language and the way each text presents the topic."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.language-viewpoint.901",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is an opinion?",
+      "options": [
+        {
+          "text": "Durian grows in South-East Asia.",
+          "why": "This can be checked, so it is a fact."
+        },
+        {
+          "text": "Durian has a spiky skin.",
+          "why": "This can be checked by looking."
+        },
+        {
+          "text": "Durian is the most delicious fruit in the world."
+        },
+        {
+          "text": "Durian is sold in many Indonesian markets.",
+          "why": "This can be checked, so it is a fact."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A fact can be checked. An opinion is what someone thinks.",
+        "Look for words that show a personal view, such as most delicious.",
+        "Ask: would everyone agree with this sentence?"
+      ],
+      "explanation": "Not everyone agrees that durian is delicious, so this is an opinion."
+    },
+    {
+      "id": "e6.language-viewpoint.902",
+      "skill": "e6.language-viewpoint",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read: The waves roared and clawed at the sand. What effect does the personification create?",
+      "options": [
+        {
+          "text": "It makes the sea seem fierce and dangerous."
+        },
+        {
+          "text": "It makes the sea seem calm and gentle.",
+          "why": "Roared and clawed are fierce actions."
+        },
+        {
+          "text": "It shows that the sea was cold.",
+          "why": "The words are about behaviour, not temperature."
+        },
+        {
+          "text": "It shows that animals lived in the sea.",
+          "why": "Clawed describes the waves, not real animals."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the verbs roared and clawed.",
+        "Think about what kind of creature roars and claws.",
+        "Ask: does the sea seem friendly or frightening?"
+      ],
+      "explanation": "Roared and clawed are actions of a fierce animal, so the sea seems wild and dangerous."
+    }
+  ]
+}

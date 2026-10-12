@@ -1,0 +1,40 @@
+{
+  "skill": "s2.weather-seasons",
+  "title": "Weather and seasons",
+  "steps": [
+    { "say": "Weather is what the air outside is like each day.", "show": "sunny, rainy, cloudy, windy, stormy" },
+    { "say": "We measure weather with tools. A thermometer measures temperature.", "figure": { "kind": "thermometer", "min": 20, "max": 40, "value": 30, "step": 5, "alt": "A thermometer showing 30 degrees Celsius." } },
+    { "say": "A rain gauge measures rain. A windsock shows which way the wind blows.", "show": "rain gauge, windsock" },
+    { "say": "Much of Indonesia has a rainy season and a dry season.", "figure": { "kind": "icons", "items": [{ "icon": "rain", "label": "rainy season" }, { "icon": "sun", "label": "dry season" }], "alt": "Rain for the rainy season and sun for the dry season." } },
+    { "say": "Some countries have four seasons: spring, summer, autumn and winter.", "show": "4 seasons" },
+    { "say": "In a thunderstorm, go inside a building.", "figure": { "kind": "icons", "items": [{ "icon": "lightning", "label": "thunderstorm" }, { "icon": "house", "label": "go inside" }], "alt": "Lightning in a storm and a house to shelter in." } }
+  ],
+  "check": [
+    {
+      "id": "s2.weather-seasons.901", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 2,
+      "prompt": "Which tool measures how much rain falls?",
+      "options": [
+        { "text": "a thermometer", "why": "A thermometer measures temperature." },
+        { "text": "a rain gauge" },
+        { "text": "a windsock", "why": "A windsock shows which way the wind blows." },
+        { "text": "a ruler", "why": "A ruler measures length." }
+      ],
+      "answer": 1,
+      "hints": ["Look for the word rain.", "This tool collects rain in a container.", "Ask: which tool has rain in its name?"],
+      "explanation": "A rain gauge collects rain and shows how much fell."
+    },
+    {
+      "id": "s2.weather-seasons.902", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 2,
+      "prompt": "In which season do rivers fill up and puddles form?",
+      "options": [
+        { "text": "dry season", "why": "Little rain falls in the dry season, so rivers are low." },
+        { "text": "spring", "why": "Spring is a season in countries with four seasons." },
+        { "text": "rainy season" },
+        { "text": "winter", "why": "Most of Indonesia does not have a cold winter." }
+      ],
+      "answer": 2,
+      "hints": ["Rivers fill up after lots of rain.", "Indonesia has two main seasons.", "Ask: which season brings lots of rain?"],
+      "explanation": "In the rainy season lots of rain falls, so rivers fill up and puddles form."
+    }
+  ]
+}

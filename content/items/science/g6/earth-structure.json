@@ -1,0 +1,332 @@
+{
+  "skill": "s6.earth-structure",
+  "items": [
+    {
+      "id": "s6.earth-structure.001",
+      "skill": "s6.earth-structure",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the layers of the Earth in order, from the outside to the centre.",
+      "items": [
+        "crust",
+        "mantle",
+        "outer core",
+        "inner core"
+      ],
+      "hints": [
+        "The Earth is made of layers, a bit like a boiled egg.",
+        "The thin outer layer is the one we live on.",
+        "Start with the thin rocky layer under your feet."
+      ],
+      "explanation": "From the outside in, the Earth has a thin crust, a thick mantle, a liquid outer core and a solid inner core.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.002",
+      "skill": "s6.earth-structure",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each layer of the Earth to its description.",
+      "pairs": [
+        [
+          "crust",
+          "thin outer layer of solid rock"
+        ],
+        [
+          "mantle",
+          "thick layer of hot rock that flows very slowly"
+        ],
+        [
+          "outer core",
+          "liquid iron and nickel"
+        ],
+        [
+          "inner core",
+          "solid ball of iron and nickel at the centre"
+        ]
+      ],
+      "hints": [
+        "Two layers are made of rock and two are made of metal.",
+        "Only one layer is liquid.",
+        "Start with the crust. It is the layer we live on."
+      ],
+      "explanation": "The crust is thin solid rock, and the mantle is hot rock that flows very slowly. The outer core is liquid iron and nickel, and the inner core is a solid ball of iron and nickel.",
+      "tags": [
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.003",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why does Indonesia have so many volcanoes and earthquakes?",
+      "options": [
+        {
+          "text": "It is close to the equator.",
+          "why": "Many places on the equator have no volcanoes. The edges of plates are what matter."
+        },
+        {
+          "text": "It lies where several tectonic plates meet and push against each other."
+        },
+        {
+          "text": "It has many islands surrounded by sea.",
+          "why": "Many island countries have few volcanoes. Indonesia's volcanoes come from moving plates."
+        },
+        {
+          "text": "It has a very hot climate.",
+          "why": "Hot weather does not make volcanoes. Heat from deep inside the Earth does."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Earth's crust is broken into huge pieces called tectonic plates.",
+        "Volcanoes and earthquakes are most common where plates meet.",
+        "Think about where Indonesia sits on a map of the plates."
+      ],
+      "explanation": "Indonesia lies where several tectonic plates meet, including the Indo-Australian, Eurasian and Pacific plates. Their movement causes earthquakes and lets magma rise to form volcanoes.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.004",
+      "skill": "s6.earth-structure",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Molten rock that has erupted onto the Earth's surface is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "lava"
+          ]
+        }
+      ],
+      "hints": [
+        "Melted rock has two names, depending on where it is.",
+        "While it is still underground, molten rock is called magma.",
+        "The word has four letters and rhymes with Java."
+      ],
+      "explanation": "Lava is molten rock that has erupted onto the Earth's surface. Before it erupts, while it is still underground, it is called magma."
+    },
+    {
+      "id": "s6.earth-structure.005",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tectonic plates move at about the same speed as your fingernails grow. About how far do they move in a year?",
+      "options": [
+        {
+          "text": "a few metres",
+          "why": "That would be far faster than fingernails grow."
+        },
+        {
+          "text": "a few kilometres",
+          "why": "That would be extremely fast. Plates move very slowly."
+        },
+        {
+          "text": "no distance, because plates never move",
+          "why": "Plates do move, slowly but all the time."
+        },
+        {
+          "text": "a few centimetres"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about how much your fingernails grow in a month.",
+        "Fingernails grow a few millimetres each month.",
+        "Multiply a few millimetres by 12 months, then change the answer into centimetres."
+      ],
+      "explanation": "Fingernails grow about 3 to 4 mm a month, which is a few centimetres a year. Plates move at about the same rate, and over millions of years that adds up to thousands of kilometres.",
+      "tags": [
+        "iksc"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.006",
+      "skill": "s6.earth-structure",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the safe things to do indoors during an earthquake.",
+      "options": [
+        {
+          "text": "drop down to the floor"
+        },
+        {
+          "text": "take cover under a strong table"
+        },
+        {
+          "text": "hold on until the shaking stops"
+        },
+        {
+          "text": "run outside while the ground is shaking",
+          "why": "Falling glass and bricks make it dangerous to run outside during shaking."
+        },
+        {
+          "text": "stand next to a window",
+          "why": "Windows can break and cut you."
+        },
+        {
+          "text": "use the lift to get out quickly",
+          "why": "Lifts can stop working. Use the stairs once the shaking has stopped."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "During shaking, the biggest danger is things falling on you.",
+        "Find something strong to protect your head and body.",
+        "Cross out any action that puts you near glass or keeps you moving while the ground shakes."
+      ],
+      "explanation": "Dropping down, taking cover and holding on protects you from falling objects. Running outside, standing by windows or using a lift during shaking can put you in more danger.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.007",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A strong earthquake shakes the sea floor. Why should people on the coast move to high ground, even if the sea looks calm?",
+      "options": [
+        {
+          "text": "The beach sand may turn into lava.",
+          "why": "Sand does not turn into lava. The danger is a giant wave."
+        },
+        {
+          "text": "A huge wave called a tsunami may arrive within minutes."
+        },
+        {
+          "text": "Earthquakes always bring heavy rain.",
+          "why": "Earthquakes do not cause rain. The danger comes from the sea."
+        },
+        {
+          "text": "High ground is warmer after an earthquake.",
+          "why": "Temperature is not the reason. High ground is safe from a tsunami."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An undersea earthquake can suddenly push a huge amount of water upwards.",
+        "That pushed water spreads out as giant waves.",
+        "Ask why high ground would be safer than the beach."
+      ],
+      "explanation": "An undersea earthquake can push up a huge amount of water, which travels as a tsunami. It can reach the coast within minutes, so people should move to high ground quickly.",
+      "tags": [
+        "osn-sd"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.008",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1912, Alfred Wegener noticed that the coasts of South America and Africa fit together like jigsaw pieces. Fossils of the same small lake reptile were found on both. What did he suggest?",
+      "options": [
+        {
+          "text": "The continents were once joined and have slowly drifted apart."
+        },
+        {
+          "text": "The reptile swam across the ocean.",
+          "why": "This small reptile lived in lakes and could not cross a wide ocean."
+        },
+        {
+          "text": "People carried the fossils from one continent to the other.",
+          "why": "The fossils were in rocks millions of years old, long before there were people."
+        },
+        {
+          "text": "The oceans were once dry land everywhere.",
+          "why": "The matching coastlines and fossils point to moving continents."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at a world map and slide South America towards Africa.",
+        "A small lake reptile could not have crossed a whole ocean.",
+        "Ask how the same reptile could live in two places that are now far apart."
+      ],
+      "explanation": "Wegener suggested that the continents were once joined together and have slowly drifted apart. Today we know that moving tectonic plates carry the continents.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.009",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The inner core is even hotter than the outer core, but it is solid. Why?",
+      "options": [
+        {
+          "text": "The inner core is made of ice.",
+          "why": "The inner core is made of iron and nickel at over 5,000 °C."
+        },
+        {
+          "text": "The inner core is cold.",
+          "why": "The inner core is the hottest part of the Earth."
+        },
+        {
+          "text": "The huge pressure at the centre squeezes it into a solid."
+        },
+        {
+          "text": "The Sun's gravity keeps it solid.",
+          "why": "The Sun's gravity does not make the core solid. Pressure from the layers above does."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The inner core has the weight of the whole Earth pressing down on it.",
+        "Very high pressure can stop a material from melting.",
+        "Compare the pressure at the centre with the pressure in the outer core."
+      ],
+      "explanation": "The weight of all the layers above creates enormous pressure at the centre. This pressure squeezes the hot iron and nickel so hard that they stay solid.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.earth-structure.010",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In 1815, Mount Tambora in Indonesia erupted and threw ash and gases high into the sky. The next year was unusually cold in Europe and North America. Why?",
+      "options": [
+        {
+          "text": "The volcano cooled the Sun.",
+          "why": "A volcano cannot change the Sun. Something blocked some of its light."
+        },
+        {
+          "text": "Lava flowed all the way to Europe.",
+          "why": "Lava from Tambora stayed on the island of Sumbawa."
+        },
+        {
+          "text": "The eruption moved the Earth further from the Sun.",
+          "why": "An eruption cannot change the Earth's orbit."
+        },
+        {
+          "text": "Tiny particles high in the air blocked some sunlight from reaching the ground."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The eruption sent tiny particles very high into the atmosphere.",
+        "Winds high up can carry these particles around the whole world.",
+        "Ask what these particles would do to sunlight on its way to the ground."
+      ],
+      "explanation": "Tambora threw tiny particles and gases high into the atmosphere, where winds spread them around the world. They reflected some sunlight back into space, so 1816 was unusually cold in many places.",
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    }
+  ]
+}

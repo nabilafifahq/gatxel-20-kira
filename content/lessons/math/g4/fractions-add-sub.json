@@ -1,0 +1,86 @@
+{
+  "skill": "m4.fractions-add-sub",
+  "title": "Add and subtract fractions",
+  "steps": [
+    {
+      "say": "3/8 of this bar is shaded.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 3,
+        "alt": "A bar in 8 equal parts with 3 parts shaded."
+      }
+    },
+    {
+      "say": "Shade 2/8 more. Now 5/8 is shaded.",
+      "figure": {
+        "kind": "fraction",
+        "shape": "bar",
+        "parts": 8,
+        "shaded": 5,
+        "alt": "A bar in 8 equal parts with 5 parts shaded."
+      },
+      "show": "3/8 + 2/8 = 5/8"
+    },
+    {
+      "say": "When the bottom numbers are the same, add the top numbers. The bottom number stays the same.",
+      "show": "3 + 2 = 5"
+    },
+    {
+      "say": "Subtracting works the same way.",
+      "show": "7/10 - 4/10 = 3/10"
+    },
+    {
+      "say": "One whole is 8/8, so you can take a fraction away from 1.",
+      "show": "8/8 - 3/8 = 5/8"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.fractions-add-sub.901",
+      "skill": "m4.fractions-add-sub",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "2/7 + 4/7 = ___",
+      "blanks": [
+        {
+          "answers": [
+            "6/7",
+            "6 / 7"
+          ]
+        }
+      ],
+      "hints": [
+        "The bottom numbers are the same.",
+        "Add the top numbers.",
+        "Keep the bottom number as 7."
+      ],
+      "explanation": "2 + 4 = 6, so 2/7 + 4/7 = 6/7."
+    },
+    {
+      "id": "m4.fractions-add-sub.902",
+      "skill": "m4.fractions-add-sub",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Maya eats 3/10 of a pizza. What fraction of the pizza is left? ___",
+      "blanks": [
+        {
+          "answers": [
+            "7/10",
+            "7 / 10"
+          ]
+        }
+      ],
+      "hints": [
+        "The whole pizza is 10/10.",
+        "Take away the part that Maya eats.",
+        "Work out 10 - 3 for the top number."
+      ],
+      "explanation": "10/10 - 3/10 = 7/10, so 7/10 of the pizza is left.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

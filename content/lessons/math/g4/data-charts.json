@@ -1,0 +1,128 @@
+{
+  "skill": "m4.data-charts",
+  "title": "Pictograms and bar charts",
+  "steps": [
+    {
+      "say": "In this pictogram, each symbol means 4 children.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Favourite sport",
+        "rows": [
+          {
+            "label": "Football",
+            "count": 4
+          },
+          {
+            "label": "Swimming",
+            "count": 2.5
+          },
+          {
+            "label": "Badminton",
+            "count": 3
+          }
+        ],
+        "icon": "ball",
+        "key": 4,
+        "alt": "Pictogram of favourite sports. Each symbol means 4 children. Football: 4 symbols. Swimming: 2 and a half symbols. Badminton: 3 symbols."
+      }
+    },
+    {
+      "say": "Half a symbol means half of 4, which is 2.",
+      "show": "Swimming: 4 + 4 + 2 = 10"
+    },
+    {
+      "say": "This bar chart goes up in 10s. A bar halfway between 20 and 30 shows 25.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "values": [
+          25,
+          40,
+          15,
+          30
+        ],
+        "step": 10,
+        "yLabel": "Books",
+        "alt": "Bar chart of books borrowed: Monday 25, Tuesday 40, Wednesday 15, Thursday 30."
+      }
+    },
+    {
+      "say": "To compare two bars, take the smaller value away from the bigger one.",
+      "show": "Tuesday - Wednesday: 40 - 15 = 25"
+    }
+  ],
+  "check": [
+    {
+      "id": "m4.data-charts.901",
+      "skill": "m4.data-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Each symbol means 10 books. How many books were sold on Saturday?",
+      "answer": 45,
+      "hints": [
+        "Look at the key first.",
+        "Each whole symbol means 10. Half a symbol means 5.",
+        "Count the symbols in the Saturday row."
+      ],
+      "explanation": "Saturday has 4 and a half symbols. 4 × 10 = 40, and half a symbol is 5. 40 + 5 = 45.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Books sold",
+        "rows": [
+          {
+            "label": "Friday",
+            "count": 3
+          },
+          {
+            "label": "Saturday",
+            "count": 4.5
+          },
+          {
+            "label": "Sunday",
+            "count": 6
+          }
+        ],
+        "icon": "book",
+        "key": 10,
+        "alt": "Pictogram of books sold. Each symbol means 10 books. Friday: 3 symbols. Saturday: 4 and a half symbols. Sunday: 6 symbols."
+      }
+    },
+    {
+      "id": "m4.data-charts.902",
+      "skill": "m4.data-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more children chose red than blue?",
+      "answer": 15,
+      "hints": [
+        "Read the Red bar and the Blue bar.",
+        "A bar between two lines is halfway.",
+        "Take the smaller number away from the bigger number."
+      ],
+      "explanation": "Red is 35 and blue is 20. 35 - 20 = 15.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Red",
+          "Blue",
+          "Green",
+          "Yellow"
+        ],
+        "values": [
+          35,
+          20,
+          10,
+          25
+        ],
+        "step": 10,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite colours: Red 35, Blue 20, Green 10, Yellow 25."
+      }
+    }
+  ]
+}

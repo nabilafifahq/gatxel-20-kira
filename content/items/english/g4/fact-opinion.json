@@ -1,0 +1,178 @@
+{
+  "skill": "e4.fact-opinion",
+  "items": [
+    {
+      "id": "e4.fact-opinion.001", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.refill-station-letter",
+      "prompt": "Which sentence from the letter is a fact?",
+      "options": [
+        { "text": "We think this is far too many.", "why": "We think shows that this is an opinion." },
+        { "text": "Last week, our class counted the plastic bottles in the school bins." },
+        { "text": "We believe a refill station is the best idea our school could have this year.", "why": "We believe and best show that this is an opinion." },
+        { "text": "A refill station would help in several ways.", "why": "This is what the class thinks will happen. It is an opinion." }
+      ],
+      "answer": 1,
+      "hints": ["A fact can be checked and proved.", "Opinions often use words like think, believe and best.", "Which sentence tells you about something that really happened?"],
+      "explanation": "Counting the bottles is something the class really did, so it can be checked. The other sentences show what the class thinks.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.fact-opinion.002", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.refill-station-letter",
+      "prompt": "Which sentence from the letter is an opinion?",
+      "options": [
+        { "text": "Last week, our class counted the plastic bottles in the school bins.", "why": "This tells us what happened. It can be checked." },
+        { "text": "We will hold a cake sale every Friday for a month.", "why": "This is a plan, not an opinion." },
+        { "text": "We believe a refill station is the best idea our school could have this year." },
+        { "text": "Plastic bottles can take hundreds of years to break down.", "why": "This is a fact that scientists have checked." }
+      ],
+      "answer": 2,
+      "hints": ["An opinion is what someone thinks or feels.", "Look for words like believe, think or best.", "Could everyone agree that the sentence is true?"],
+      "explanation": "We believe and the best show that this is the class's opinion. Other people might think a different idea is best.",
+      "tags": ["reading", "iklc"], "expectedSeconds": 120
+    },
+    {
+      "id": "e4.fact-opinion.003", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.komodo-dragons",
+      "prompt": "Which sentence is a fact from the report?",
+      "options": [
+        { "text": "Komodo dragons are the scariest animals in the world.", "why": "Scariest is an opinion. Not everyone feels the same." },
+        { "text": "Everyone should visit Komodo.", "why": "Should shows an opinion." },
+        { "text": "Komodo dragons are beautiful.", "why": "Beautiful is an opinion." },
+        { "text": "Komodo National Park was set up in 1980." }
+      ],
+      "answer": 3,
+      "hints": ["Facts can be checked in a book or on a map.", "Opinions use words like beautiful, scariest and should.", "Which sentence has a date that you could check?"],
+      "explanation": "The year the park was set up can be checked, so it is a fact. The other sentences say what someone thinks or feels.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.fact-opinion.004", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 4,
+      "passage": "e4.p.komodo-dragons",
+      "prompt": "Why does the Komodo dragon report use facts, not opinions?",
+      "options": [
+        { "text": "Its job is to give the reader true information." },
+        { "text": "The writer did not like Komodo dragons.", "why": "The report does not tell us the writer's feelings." },
+        { "text": "Facts are always shorter than opinions.", "why": "Facts can be short or long." },
+        { "text": "Reports must always be about animals.", "why": "Reports can be about many different topics." }
+      ],
+      "answer": 0,
+      "hints": ["Think about why people read a report.", "Does the report try to make you feel something, or teach you something?", "What would happen if a report was full of opinions?"],
+      "explanation": "A report gives the reader true information. Facts can be checked, so the reader can trust them.",
+      "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.005", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.sunrise-diary",
+      "prompt": "Which sentence from the diary is an opinion?",
+      "options": [
+        { "text": "I think everybody should watch the sun rise over Bromo at least once." },
+        { "text": "We woke up at three o'clock this morning.", "why": "This is something that happened. It can be checked." },
+        { "text": "Then we climbed more than two hundred steps to the edge of the crater.", "why": "The steps can be counted, so this is a fact." },
+        { "text": "Mum said it was sulphur.", "why": "This tells us what Mum said." }
+      ],
+      "answer": 0,
+      "hints": ["Look for a sentence that shows what Lintang thinks.", "Opinion words include think and should.", "Could someone else disagree with the sentence?"],
+      "explanation": "I think and should show that this is Lintang's opinion. Someone else might not want to wake up at three o'clock!",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.fact-opinion.006", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 3,
+      "passage": "e4.p.beach-clean-up",
+      "prompt": "Which line from the play is an opinion?",
+      "options": [
+        { "text": "We came to look for shells.", "why": "This tells us why Hana and Dani came." },
+        { "text": "Somebody else should clean it up." },
+        { "text": "Last month, I found a young turtle tangled up in an old net.", "why": "This tells us what happened." },
+        { "text": "I'll fetch some sacks from my boat.", "why": "This is a plan, not an opinion." }
+      ],
+      "answer": 1,
+      "hints": ["An opinion tells you what someone thinks.", "Look for a word that shows what someone thinks ought to happen.", "Which line could another character disagree with?"],
+      "explanation": "Somebody else should clean it up is Dani's opinion. Later he changes his mind, which shows it was only an opinion.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.fact-opinion.007", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 2,
+      "passage": "e4.p.school-garden-news",
+      "prompt": "Which sentence from the news report is an opinion?",
+      "options": [
+        { "text": "The judges visited the school on 12 September.", "why": "A date can be checked, so this is a fact." },
+        { "text": "Class 4A built six raised beds from old wooden boxes.", "why": "The beds can be counted, so this is a fact." },
+        { "text": "I think our tomatoes taste better than any tomatoes from the shop." },
+        { "text": "The class plans to spend the prize money on fruit trees.", "why": "This is a plan that you could check with the class." }
+      ],
+      "answer": 2,
+      "hints": ["Look for a sentence where someone says what they believe.", "An opinion is what one person thinks.", "Could someone else say that shop tomatoes taste better?"],
+      "explanation": "Daniel says I think, and taste better is about his own taste. Someone else might disagree, so it is an opinion.",
+      "tags": ["reading"], "expectedSeconds": 150
+    },
+    {
+      "id": "e4.fact-opinion.008", "skill": "e4.fact-opinion", "type": "sort", "difficulty": 3,
+      "passage": "e4.p.school-garden-news",
+      "prompt": "Sort the sentences about the school garden into facts and opinions.",
+      "groups": ["Fact", "Opinion"],
+      "items": [
+        { "text": "The judges visited on 12 September.", "group": 0 }, { "text": "Class 4A built six raised beds.", "group": 0 }, { "text": "The prize money is Rp2.000.000.", "group": 0 },
+        { "text": "Our tomatoes taste better.", "group": 1 }, { "text": "It is a wonderful example.", "group": 1 }, { "text": "Gardening is the best hobby.", "group": 1 }
+      ],
+      "hints": ["A fact can be checked. An opinion is what someone thinks.", "Words like better, best and wonderful often show an opinion.", "Start with the sentence about the date. Could you check it?"],
+      "explanation": "Dates, numbers and amounts of money can be checked, so those sentences are facts. Better, best and wonderful show what people think, so those are opinions.",
+      "tags": ["reading"], "expectedSeconds": 120
+    },
+    {
+      "id": "e4.fact-opinion.009", "skill": "e4.fact-opinion", "type": "sort", "difficulty": 2,
+      "prompt": "Sort the sentences into facts and opinions.",
+      "groups": ["Fact", "Opinion"],
+      "items": [
+        { "text": "Jakarta is in Indonesia.", "group": 0 }, { "text": "A week has seven days.", "group": 0 }, { "text": "Spiders have eight legs.", "group": 0 }, { "text": "The sun rises in the east.", "group": 0 },
+        { "text": "Cats are the best pets.", "group": 1 }, { "text": "Rainy days are boring.", "group": 1 }, { "text": "Mango is the tastiest fruit.", "group": 1 }, { "text": "Maths is more fun than art.", "group": 1 }
+      ],
+      "hints": ["Ask: could I prove that this is true?", "Opinion words include best, boring and tastiest.", "Start with A week has seven days. Could you check it on a calendar?"],
+      "explanation": "Facts can be checked, like the number of days in a week. Opinions are what people think, like which fruit is the tastiest."
+    },
+    {
+      "id": "e4.fact-opinion.010", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 1,
+      "prompt": "Which sentence is an opinion?",
+      "options": [
+        { "text": "A spider has eight legs.", "why": "You can count a spider's legs, so this is a fact." },
+        { "text": "Indonesia has many islands.", "why": "You can check this on a map." },
+        { "text": "Football is the most exciting sport." },
+        { "text": "Rice grows in wet fields.", "why": "This can be checked, so it is a fact." }
+      ],
+      "answer": 2,
+      "hints": ["An opinion is what someone thinks.", "Not everyone would agree with an opinion.", "Which sentence might your friend disagree with?"],
+      "explanation": "Most exciting is what someone thinks. Other people might find a different sport more exciting, so it is an opinion.",
+      "tags": ["iklc"]
+    },
+    {
+      "id": "e4.fact-opinion.011", "skill": "e4.fact-opinion", "type": "multi", "difficulty": 4,
+      "prompt": "Choose all the sentences that are opinions.",
+      "options": [
+        { "text": "I think homework is too long." },
+        { "text": "The library opens at eight o'clock.", "why": "You can check the opening time, so this is a fact." },
+        { "text": "Blue is the nicest colour." },
+        { "text": "Our class has 28 pupils.", "why": "You can count the pupils, so this is a fact." },
+        { "text": "Everyone should learn to swim." },
+        { "text": "Bali is an island.", "why": "You can check this on a map, so it is a fact." }
+      ],
+      "answers": [0, 2, 4],
+      "hints": ["Opinions show what someone thinks or feels.", "Look for words like think, nicest and should.", "For each sentence, ask: could someone prove it is true?"],
+      "explanation": "I think, nicest and should show opinions. The library time, the number of pupils and Bali being an island can all be checked."
+    },
+    {
+      "id": "e4.fact-opinion.012", "skill": "e4.fact-opinion", "type": "mcq", "difficulty": 5,
+      "passage": "e4.p.refill-station-letter",
+      "prompt": "The class thinks there are far too many bottles. Which fact from the letter best supports this opinion?",
+      "options": [
+        { "text": "We believe a refill station is the best idea.", "why": "This is another opinion, not a fact." },
+        { "text": "We would be happy to answer any questions.", "why": "This is polite, but it is not evidence." },
+        { "text": "Please could we visit your office?", "why": "This is a question, not a fact." },
+        { "text": "In just five days, we found 214 bottles!" }
+      ],
+      "answer": 3,
+      "hints": ["The opinion is that there are far too many bottles.", "Evidence is a fact that helps to prove an opinion.", "Which sentence gives a number that you could check?"],
+      "explanation": "The class counted 214 bottles in five days. This fact is evidence that helps persuade the reader there are far too many.",
+      "tags": ["reading"], "expectedSeconds": 90
+    }
+  ]
+}

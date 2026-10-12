@@ -1,0 +1,98 @@
+{
+  "skill": "s3.fair-tests",
+  "title": "Making a test fair",
+  "steps": [
+    {
+      "say": "Scientists test ideas to answer questions. A fair test is a test we can trust."
+    },
+    {
+      "say": "In a fair test, you change only one thing. You keep everything else the same.",
+      "show": "Change 1 thing. Keep the rest the same."
+    },
+    {
+      "say": "Then you measure what happens. Use the right tool and the right unit.",
+      "show": "length: cm   time: s   temperature: °C",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "thermometer",
+            "label": "thermometer"
+          },
+          {
+            "icon": "clock",
+            "label": "timer"
+          }
+        ],
+        "alt": "A thermometer and a timer."
+      }
+    },
+    {
+      "say": "Before you start, make a prediction. Say what you think will happen and why.",
+      "show": "I think ... because ..."
+    },
+    {
+      "say": "Repeat your measurements if you can. Similar results help you trust them."
+    },
+    {
+      "say": "To test balls, drop each one from the same height onto the same floor.",
+      "show": "Same height. Same floor. Different ball."
+    }
+  ],
+  "check": [
+    {
+      "id": "s3.fair-tests.901",
+      "skill": "s3.fair-tests",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool measures temperature?",
+      "options": [
+        {
+          "text": "a thermometer"
+        },
+        {
+          "text": "a ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "a stopwatch",
+          "why": "A stopwatch measures time."
+        },
+        {
+          "text": "a measuring jug",
+          "why": "A measuring jug measures volume."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Temperature is how hot or cold something is.",
+        "Think about what a doctor uses when you have a fever.",
+        "Look for the tool with a scale in °C."
+      ],
+      "explanation": "A thermometer measures temperature in degrees Celsius (°C)."
+    },
+    {
+      "id": "s3.fair-tests.902",
+      "skill": "s3.fair-tests",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The unit cm is short for ___.",
+      "blanks": [
+        {
+          "answers": [
+            "centimetres",
+            "centimetre",
+            "centimeters",
+            "centimeter"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the letters c and m.",
+        "It is a unit on a ruler.",
+        "There are 100 of these in a metre."
+      ],
+      "explanation": "cm is short for centimetres. A ruler is marked in centimetres."
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "skill": "m2.carroll-venn",
+  "title": "Carroll and Venn diagrams",
+  "steps": [
+    {
+      "say": "A Venn diagram sorts things into circles.",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Even",
+          "More than 10"
+        ],
+        "items": [
+          {
+            "text": "4",
+            "region": "a"
+          },
+          {
+            "text": "8",
+            "region": "a"
+          },
+          {
+            "text": "13",
+            "region": "b"
+          },
+          {
+            "text": "17",
+            "region": "b"
+          },
+          {
+            "text": "12",
+            "region": "both"
+          },
+          {
+            "text": "16",
+            "region": "both"
+          },
+          {
+            "text": "5",
+            "region": "none"
+          }
+        ],
+        "alt": "Venn diagram. Even only: 4, 8. More than 10 only: 13, 17. In both: 12, 16. Outside: 5."
+      }
+    },
+    {
+      "say": "The overlap holds things that fit both rules.",
+      "show": "12 is even and more than 10"
+    },
+    {
+      "say": "A Carroll diagram sorts things into four boxes.",
+      "figure": {
+        "kind": "carroll",
+        "cols": [
+          "Odd",
+          "Not odd"
+        ],
+        "rows": [
+          "Less than 10",
+          "Not less than 10"
+        ],
+        "cells": [
+          [
+            "3",
+            "7"
+          ],
+          [
+            "2",
+            "6"
+          ],
+          [
+            "11",
+            "15"
+          ],
+          [
+            "10",
+            "14"
+          ]
+        ],
+        "alt": "A Carroll diagram. Odd and less than 10: 3, 7. Not odd and less than 10: 2, 6. Odd and not less than 10: 11, 15. Not odd and not less than 10: 10, 14."
+      }
+    },
+    {
+      "say": "Check the column rule, then the row rule.",
+      "show": "7 is odd and less than 10"
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.carroll-venn.901",
+      "skill": "m2.carroll-venn",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The circles are Even and More than 10. Which number goes in the overlap?",
+      "hints": [
+        "The overlap needs both rules.",
+        "The number must be even and more than 10.",
+        "Check each number against both rules."
+      ],
+      "explanation": "14 is even and more than 10, so it goes in the overlap.",
+      "options": [
+        {
+          "text": "8",
+          "why": "8 is even but not more than 10."
+        },
+        {
+          "text": "13",
+          "why": "13 is more than 10 but not even."
+        },
+        {
+          "text": "14"
+        },
+        {
+          "text": "5",
+          "why": "5 is not even and not more than 10."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m2.carroll-venn.902",
+      "skill": "m2.carroll-venn",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where does 15 go in this Carroll diagram?",
+      "figure": {
+        "kind": "carroll",
+        "cols": [
+          "Odd",
+          "Not odd"
+        ],
+        "rows": [
+          "Less than 10",
+          "Not less than 10"
+        ],
+        "cells": [
+          [
+            "3",
+            "7"
+          ],
+          [
+            "2",
+            "6"
+          ],
+          [
+            "11"
+          ],
+          [
+            "10",
+            "14"
+          ]
+        ],
+        "alt": "A Carroll diagram. Columns: odd, not odd. Rows: less than 10, not less than 10."
+      },
+      "hints": [
+        "Check one rule at a time.",
+        "Is 15 odd? Is 15 less than 10?",
+        "Start with the column: does 15 end in 1, 3, 5, 7 or 9?"
+      ],
+      "explanation": "15 is odd and not less than 10, so it goes in that box.",
+      "options": [
+        {
+          "text": "Odd, less than 10",
+          "why": "15 is not less than 10."
+        },
+        {
+          "text": "Not odd, not less than 10",
+          "why": "15 ends in 5, so it is odd."
+        },
+        {
+          "text": "Not odd, less than 10",
+          "why": "Check both rules again."
+        },
+        {
+          "text": "Odd, not less than 10"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

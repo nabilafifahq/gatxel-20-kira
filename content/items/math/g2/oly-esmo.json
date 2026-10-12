@@ -1,0 +1,2236 @@
+{
+  "skill": "m2.oly-esmo",
+  "items": [
+    {
+      "id": "m2.oly-esmo.001",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Lanjutkan pola bilangan ini. Bilangan berapa yang datang sesudah 11?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "5",
+          "8",
+          "11",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Pola bilangan: 2, 5, 8, 11, lalu kotak kosong."
+      },
+      "options": [
+        {
+          "text": "11",
+          "why": "11 sudah ada di pola. Cari bilangan sesudahnya."
+        },
+        {
+          "text": "12",
+          "why": "Pola ini tambah 3, bukan tambah 1."
+        },
+        {
+          "text": "13",
+          "why": "Pola ini tambah 3, bukan tambah 2."
+        },
+        {
+          "text": "14"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Cari selisih dua bilangan yang berurutan.",
+        "Dari 2 ke 5 bertambah 3. Periksa 5 ke 8.",
+        "Tambahkan selisih yang sama ke 11."
+      ],
+      "explanation": "Setiap bilangan bertambah 3: 2, 5, 8, 11, 14. Jadi sesudah 11 adalah 14.",
+      "solution": [
+        {
+          "say": "Cari aturannya.",
+          "show": "2, 5, 8, 11 (tambah 3)"
+        },
+        {
+          "say": "Tambahkan 3 ke 11.",
+          "show": "11 + 3 = 14"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "lanjutkan",
+          "en": "continue"
+        },
+        {
+          "term": "pola bilangan",
+          "en": "number pattern"
+        },
+        {
+          "term": "sesudah",
+          "en": "after"
+        },
+        {
+          "term": "selisih",
+          "en": "difference"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.002",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Gambar disusun berulang seperti ini. Gambar apa yang ke-11?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          }
+        ],
+        "alt": "Pola gambar: lingkaran, segitiga, segitiga, persegi, lingkaran, segitiga, segitiga, persegi. Empat gambar itu terus berulang."
+      },
+      "options": [
+        {
+          "text": "Lingkaran",
+          "why": "Lingkaran adalah gambar ke-9."
+        },
+        {
+          "text": "Segitiga"
+        },
+        {
+          "text": "Persegi",
+          "why": "Persegi adalah gambar ke-12."
+        },
+        {
+          "text": "Bintang",
+          "why": "Bintang tidak ada dalam pola ini."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Cari kelompok gambar yang berulang.",
+        "Satu kelompok berisi 4 gambar. Dua kelompok berisi 8 gambar.",
+        "Gambar ke-9 adalah awal kelompok ketiga."
+      ],
+      "explanation": "Kelompoknya lingkaran, segitiga, segitiga, persegi. Gambar ke-9 lingkaran, ke-10 segitiga, dan ke-11 segitiga.",
+      "solution": [
+        {
+          "say": "Satu kelompok ada 4 gambar.",
+          "show": "lingkaran, segitiga, segitiga, persegi"
+        },
+        {
+          "say": "Dua kelompok penuh sampai gambar ke-8.",
+          "show": "4 + 4 = 8"
+        },
+        {
+          "say": "Lanjutkan: ke-9 lingkaran, ke-10 segitiga, ke-11 segitiga.",
+          "show": "segitiga"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "berulang",
+          "en": "repeating"
+        },
+        {
+          "term": "ke-11",
+          "en": "eleventh"
+        },
+        {
+          "term": "lingkaran",
+          "en": "circle"
+        },
+        {
+          "term": "segitiga",
+          "en": "triangle"
+        },
+        {
+          "term": "persegi",
+          "en": "square"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.003",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Perhatikan pola 50, 46, 42, 38, dan seterusnya. Bilangan ke-8 adalah berapa?",
+      "options": [
+        {
+          "text": "18",
+          "why": "18 adalah bilangan ke-9."
+        },
+        {
+          "text": "22"
+        },
+        {
+          "text": "26",
+          "why": "26 adalah bilangan ke-7."
+        },
+        {
+          "text": "30",
+          "why": "30 adalah bilangan ke-6."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Pola ini turun. Cari selisihnya.",
+        "Setiap bilangan berkurang 4.",
+        "Tulis terus polanya sampai bilangan ke-8."
+      ],
+      "explanation": "Setiap bilangan berkurang 4: 50, 46, 42, 38, 34, 30, 26, 22. Bilangan ke-8 adalah 22.",
+      "solution": [
+        {
+          "say": "Aturannya kurang 4.",
+          "show": "50, 46, 42, 38"
+        },
+        {
+          "say": "Lanjutkan.",
+          "show": "34, 30, 26, 22"
+        },
+        {
+          "say": "Bilangan ke-8 adalah 22."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "perhatikan",
+          "en": "look at"
+        },
+        {
+          "term": "dan seterusnya",
+          "en": "and so on"
+        },
+        {
+          "term": "ke-8",
+          "en": "eighth"
+        },
+        {
+          "term": "berkurang",
+          "en": "decreases"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.004",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Lihat pola 1, 3, 6, 10, 15. Bilangan berapa yang datang berikutnya?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "3",
+          "6",
+          "10",
+          "15",
+          null
+        ],
+        "style": "circles",
+        "alt": "Pola bilangan: 1, 3, 6, 10, 15, lalu lingkaran kosong."
+      },
+      "options": [
+        {
+          "text": "17",
+          "why": "Selisihnya terus bertambah, jadi tidak tambah 2."
+        },
+        {
+          "text": "19",
+          "why": "Selisih berikutnya 6, bukan 4."
+        },
+        {
+          "text": "20",
+          "why": "Selisih berikutnya 6, bukan 5."
+        },
+        {
+          "text": "21"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Cari selisih setiap dua bilangan.",
+        "Selisihnya 2, 3, 4, 5. Selisihnya juga membentuk pola.",
+        "Selisih berikutnya 1 lebih besar dari 5."
+      ],
+      "explanation": "Selisihnya 2, 3, 4, 5, lalu 6. Jadi bilangan berikutnya 15 + 6 = 21.",
+      "solution": [
+        {
+          "say": "Tulis selisihnya.",
+          "show": "+2, +3, +4, +5"
+        },
+        {
+          "say": "Selisih berikutnya +6.",
+          "show": "15 + 6 = 21"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "selisih",
+          "en": "difference"
+        },
+        {
+          "term": "berikutnya",
+          "en": "next"
+        },
+        {
+          "term": "pola",
+          "en": "pattern"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.005",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Jam ini menunjukkan pukul berapa?",
+      "figure": {
+        "kind": "clock",
+        "h": 7,
+        "m": 30,
+        "alt": "Jam dinding. Jarum panjang menunjuk angka 6. Jarum pendek berada di antara angka 7 dan 8."
+      },
+      "options": [
+        {
+          "text": "Pukul tujuh",
+          "why": "Pada pukul tujuh, jarum panjang menunjuk angka 12."
+        },
+        {
+          "text": "Setengah tujuh",
+          "why": "Setengah tujuh adalah pukul 06.30. Jarum pendek sudah lewat angka 7."
+        },
+        {
+          "text": "Pukul delapan",
+          "why": "Jarum pendek belum sampai angka 8."
+        },
+        {
+          "text": "Setengah delapan"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Lihat jarum panjang dulu.",
+        "Jarum panjang di angka 6 berarti 30 menit.",
+        "Jarum pendek di antara 7 dan 8. Ingat, 07.30 dibaca setengah menuju jam berikutnya."
+      ],
+      "explanation": "Jarum panjang di angka 6 berarti 30 menit, dan jarum pendek di antara 7 dan 8. Jadi pukul 07.30, yang dibaca setengah delapan.",
+      "solution": [
+        {
+          "say": "Jarum panjang di angka 6: lewat 30 menit.",
+          "show": "30 menit"
+        },
+        {
+          "say": "Jarum pendek di antara 7 dan 8.",
+          "show": "pukul 07.30"
+        },
+        {
+          "say": "Dalam bahasa Indonesia, 07.30 dibaca setengah delapan.",
+          "show": "setengah delapan"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "setengah delapan",
+          "en": "half past seven (7.30)"
+        },
+        {
+          "term": "setengah tujuh",
+          "en": "half past six (6.30)"
+        },
+        {
+          "term": "jarum panjang",
+          "en": "minute hand"
+        },
+        {
+          "term": "jarum pendek",
+          "en": "hour hand"
+        },
+        {
+          "term": "menunjukkan",
+          "en": "to show"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.006",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Rina mulai belajar pukul 15.00. Ia belajar selama 1 jam 30 menit. Pukul berapa Rina selesai belajar?",
+      "options": [
+        {
+          "text": "Pukul 15.30",
+          "why": "Itu baru 30 menit. Tambahkan juga 1 jam."
+        },
+        {
+          "text": "Pukul 16.00",
+          "why": "Itu baru 1 jam. Tambahkan juga 30 menit."
+        },
+        {
+          "text": "Pukul 16.30"
+        },
+        {
+          "text": "Pukul 17.30",
+          "why": "Itu 2 jam 30 menit sesudah pukul 15.00."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Tambahkan jamnya dulu, lalu menitnya.",
+        "1 jam sesudah pukul 15.00 adalah pukul 16.00.",
+        "Sekarang tambahkan 30 menit ke pukul 16.00."
+      ],
+      "explanation": "Pukul 15.00 ditambah 1 jam menjadi 16.00. Ditambah 30 menit lagi menjadi 16.30.",
+      "solution": [
+        {
+          "say": "Tambah 1 jam.",
+          "show": "15.00 + 1 jam = 16.00"
+        },
+        {
+          "say": "Tambah 30 menit.",
+          "show": "16.00 + 30 menit = 16.30"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "mulai",
+          "en": "to start"
+        },
+        {
+          "term": "belajar",
+          "en": "to study"
+        },
+        {
+          "term": "selama",
+          "en": "for (a length of time)"
+        },
+        {
+          "term": "selesai",
+          "en": "to finish"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.007",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Film dimulai pukul 09.15 dan selesai pukul 10.45. Berapa lama film itu?",
+      "options": [
+        {
+          "text": "1 jam",
+          "why": "Dari 09.15 sampai 10.15 baru 1 jam. Film masih berlanjut."
+        },
+        {
+          "text": "1 jam 15 menit",
+          "why": "Hitung lagi menitnya: dari 10.15 ke 10.45 adalah 30 menit."
+        },
+        {
+          "text": "1 jam 20 menit",
+          "why": "Dari .15 ke .45 adalah 30 menit, bukan 20 menit."
+        },
+        {
+          "text": "1 jam 30 menit"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Hitung jam penuh dulu, lalu sisa menitnya.",
+        "Dari 09.15 sampai 10.15 adalah 1 jam.",
+        "Berapa menit dari 10.15 sampai 10.45?"
+      ],
+      "explanation": "Dari 09.15 sampai 10.15 adalah 1 jam. Dari 10.15 sampai 10.45 adalah 30 menit. Jadi lamanya 1 jam 30 menit.",
+      "solution": [
+        {
+          "say": "Jam penuh.",
+          "show": "09.15 sampai 10.15 = 1 jam"
+        },
+        {
+          "say": "Sisa menit.",
+          "show": "10.15 sampai 10.45 = 30 menit"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "1 jam 30 menit"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "film",
+          "en": "film"
+        },
+        {
+          "term": "dimulai",
+          "en": "starts"
+        },
+        {
+          "term": "selesai",
+          "en": "ends"
+        },
+        {
+          "term": "berapa lama",
+          "en": "how long"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.008",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Sekarang pukul 08.40. Pukul berapa 25 menit lagi?",
+      "figure": {
+        "kind": "clock",
+        "h": 8,
+        "m": 40,
+        "alt": "Jam menunjukkan pukul 08.40."
+      },
+      "options": [
+        {
+          "text": "Pukul 08.55",
+          "why": "Itu baru 15 menit lagi."
+        },
+        {
+          "text": "Pukul 08.65",
+          "why": "Satu jam hanya 60 menit. Sesudah 08.59 datang 09.00."
+        },
+        {
+          "text": "Pukul 09.05"
+        },
+        {
+          "text": "Pukul 09.15",
+          "why": "Itu 35 menit lagi."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Tambahkan menit sampai jam berikutnya dulu.",
+        "Dari 08.40 ke 09.00 ada 20 menit.",
+        "25 menit sama dengan 20 menit ditambah 5 menit."
+      ],
+      "explanation": "Dari 08.40 ke 09.00 ada 20 menit. Masih tersisa 5 menit, jadi pukul 09.05.",
+      "solution": [
+        {
+          "say": "Sampai jam penuh.",
+          "show": "08.40 + 20 menit = 09.00"
+        },
+        {
+          "say": "Sisa menit.",
+          "show": "25 - 20 = 5 menit"
+        },
+        {
+          "say": "Tambah sisanya.",
+          "show": "09.00 + 5 menit = 09.05"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "sekarang",
+          "en": "now"
+        },
+        {
+          "term": "25 menit lagi",
+          "en": "25 minutes from now"
+        },
+        {
+          "term": "pukul",
+          "en": "at (a time), o'clock"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.009",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Hari ini hari Rabu. Kemarin hari apa?",
+      "options": [
+        {
+          "text": "Senin",
+          "why": "Senin adalah 2 hari yang lalu."
+        },
+        {
+          "text": "Selasa"
+        },
+        {
+          "text": "Kamis",
+          "why": "Kamis adalah besok, bukan kemarin."
+        },
+        {
+          "text": "Jumat",
+          "why": "Jumat adalah 2 hari lagi."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Kemarin adalah satu hari sebelum hari ini.",
+        "Ingat urutan hari: Senin, Selasa, Rabu.",
+        "Hari apa yang datang tepat sebelum Rabu?"
+      ],
+      "explanation": "Urutannya Senin, Selasa, Rabu. Hari sebelum Rabu adalah Selasa, jadi kemarin hari Selasa.",
+      "solution": [
+        {
+          "say": "Tulis urutan hari.",
+          "show": "Senin, Selasa, Rabu, Kamis"
+        },
+        {
+          "say": "Kemarin adalah satu hari sebelum Rabu.",
+          "show": "Selasa"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "hari ini",
+          "en": "today"
+        },
+        {
+          "term": "kemarin",
+          "en": "yesterday"
+        },
+        {
+          "term": "Rabu",
+          "en": "Wednesday"
+        },
+        {
+          "term": "Selasa",
+          "en": "Tuesday"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.010",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Tanggal 5 Mei adalah hari Jumat. Tanggal 12 Mei hari apa?",
+      "options": [
+        {
+          "text": "Jumat"
+        },
+        {
+          "text": "Sabtu",
+          "why": "Sabtu adalah tanggal 13 Mei."
+        },
+        {
+          "text": "Minggu",
+          "why": "Hitung lagi: 12 - 5 = 7 hari, tepat satu minggu."
+        },
+        {
+          "text": "Senin",
+          "why": "Senin adalah tanggal 15 Mei."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Hitung selisih tanggalnya.",
+        "Dari tanggal 5 ke tanggal 12 ada 7 hari.",
+        "Satu minggu ada berapa hari?"
+      ],
+      "explanation": "Dari tanggal 5 ke tanggal 12 ada 7 hari, yaitu tepat satu minggu. Jadi tanggal 12 Mei juga hari Jumat.",
+      "solution": [
+        {
+          "say": "Selisih tanggal.",
+          "show": "12 - 5 = 7 hari"
+        },
+        {
+          "say": "7 hari adalah satu minggu, jadi nama harinya sama.",
+          "show": "Jumat"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "tanggal",
+          "en": "date"
+        },
+        {
+          "term": "Mei",
+          "en": "May"
+        },
+        {
+          "term": "Jumat",
+          "en": "Friday"
+        },
+        {
+          "term": "minggu",
+          "en": "week"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.011",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Tanggal 1 Agustus hari Senin. Tanggal 17 Agustus hari apa?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Sen",
+          "Sel",
+          "Rab",
+          "Kam",
+          "Jum",
+          "Sab",
+          "Min"
+        ],
+        "rows": [
+          [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        ],
+        "alt": "Kalender minggu pertama Agustus: tanggal 1 hari Senin, tanggal 2 Selasa, dan seterusnya sampai tanggal 7 hari Minggu."
+      },
+      "options": [
+        {
+          "text": "Senin",
+          "why": "Senin jatuh pada tanggal 1, 8, dan 15."
+        },
+        {
+          "text": "Selasa",
+          "why": "Selasa jatuh pada tanggal 16."
+        },
+        {
+          "text": "Rabu"
+        },
+        {
+          "text": "Kamis",
+          "why": "Kamis jatuh pada tanggal 18."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Cari tanggal-tanggal lain yang juga hari Senin.",
+        "Tambah 7 hari: tanggal 8 dan 15 juga hari Senin.",
+        "Dari Senin tanggal 15, hitung maju 2 hari."
+      ],
+      "explanation": "Tanggal 1, 8, dan 15 Agustus adalah hari Senin. Tanggal 16 hari Selasa, jadi tanggal 17 hari Rabu.",
+      "solution": [
+        {
+          "say": "Tambah 7 hari berkali-kali.",
+          "show": "1, 8, 15: Senin"
+        },
+        {
+          "say": "Hitung maju dari tanggal 15.",
+          "show": "16 Selasa, 17 Rabu"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "tanggal",
+          "en": "date"
+        },
+        {
+          "term": "Agustus",
+          "en": "August"
+        },
+        {
+          "term": "Senin",
+          "en": "Monday"
+        },
+        {
+          "term": "Rabu",
+          "en": "Wednesday"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.012",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Bulan Februari tahun ini ada 28 hari. Tanggal 1 Februari hari Minggu. Tanggal 1 Maret hari apa?",
+      "options": [
+        {
+          "text": "Senin",
+          "why": "Februari punya tepat 4 minggu, jadi harinya tidak bergeser."
+        },
+        {
+          "text": "Selasa",
+          "why": "Hitung lagi: 28 hari adalah tepat 4 minggu."
+        },
+        {
+          "text": "Sabtu",
+          "why": "Sabtu adalah tanggal 28 Februari, sehari sebelumnya."
+        },
+        {
+          "text": "Minggu"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Berapa minggu ada dalam 28 hari?",
+        "28 hari adalah 4 kali 7 hari.",
+        "Tanggal 1 Maret adalah 28 hari sesudah tanggal 1 Februari."
+      ],
+      "explanation": "Februari punya 28 hari, yaitu tepat 4 minggu. Jadi tanggal 1 Maret, 28 hari sesudah hari Minggu tanggal 1 Februari, juga hari Minggu.",
+      "solution": [
+        {
+          "say": "Hitung minggunya.",
+          "show": "28 = 7 + 7 + 7 + 7"
+        },
+        {
+          "say": "Tanggal 1 Maret tepat 28 hari sesudah 1 Februari.",
+          "show": "4 minggu"
+        },
+        {
+          "say": "Nama harinya sama: Minggu."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "bulan",
+          "en": "month"
+        },
+        {
+          "term": "tahun ini",
+          "en": "this year"
+        },
+        {
+          "term": "Februari",
+          "en": "February"
+        },
+        {
+          "term": "Maret",
+          "en": "March"
+        },
+        {
+          "term": "hari Minggu",
+          "en": "Sunday"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.013",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Bangun datar ini punya 4 sisi sama panjang dan 4 sudut siku-siku. Bangun apakah itu?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "showRightAngles": true,
+        "alt": "Sebuah bangun datar dengan 4 sisi sama panjang dan 4 sudut siku-siku."
+      },
+      "options": [
+        {
+          "text": "Persegi"
+        },
+        {
+          "text": "Persegi panjang",
+          "why": "Persegi panjang punya 2 sisi panjang dan 2 sisi pendek."
+        },
+        {
+          "text": "Segitiga",
+          "why": "Segitiga hanya punya 3 sisi."
+        },
+        {
+          "text": "Lingkaran",
+          "why": "Lingkaran tidak punya sisi lurus dan sudut."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Hitung sisi setiap bangun.",
+        "Bangun itu punya 4 sisi. Pikirkan bangun bersisi 4.",
+        "Sisinya harus sama panjang semuanya."
+      ],
+      "explanation": "Bangun dengan 4 sisi sama panjang dan 4 sudut siku-siku adalah persegi.",
+      "solution": [
+        {
+          "say": "4 sisi dan 4 sudut siku-siku: persegi atau persegi panjang.",
+          "show": "persegi, persegi panjang"
+        },
+        {
+          "say": "Semua sisinya sama panjang, jadi persegi.",
+          "show": "persegi"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "bangun datar",
+          "en": "flat shape"
+        },
+        {
+          "term": "sisi",
+          "en": "side"
+        },
+        {
+          "term": "sama panjang",
+          "en": "equal in length"
+        },
+        {
+          "term": "sudut siku-siku",
+          "en": "right angle"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.014",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Sebuah persegi dipotong menurut kedua garis diagonalnya. Berapa potong segitiga kecil yang terbentuk?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "alt": "Sebuah persegi. Garis diagonal menghubungkan dua sudut yang berhadapan."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "Itu kalau hanya satu garis diagonal."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "6",
+          "why": "Hitung lagi segitiga kecilnya: ada satu di setiap sisi persegi."
+        },
+        {
+          "text": "8",
+          "why": "8 adalah semua segitiga, besar dan kecil. Soal menanyakan potongan segitiga kecil."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Garis diagonal menghubungkan dua sudut yang berhadapan.",
+        "Satu garis diagonal membelah persegi menjadi 2 bagian.",
+        "Garis diagonal kedua memotong kedua bagian itu."
+      ],
+      "explanation": "Kedua garis diagonal bersilangan di tengah dan membagi persegi menjadi 4 segitiga kecil, satu di setiap sisi persegi.",
+      "solution": [
+        {
+          "say": "Satu diagonal: 2 segitiga besar.",
+          "show": "2"
+        },
+        {
+          "say": "Diagonal kedua membelah setiap segitiga besar menjadi 2.",
+          "show": "2 + 2 = 4"
+        },
+        {
+          "say": "Jadi ada 4 potong segitiga kecil."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "dipotong",
+          "en": "is cut"
+        },
+        {
+          "term": "garis diagonal",
+          "en": "diagonal line"
+        },
+        {
+          "term": "segitiga kecil",
+          "en": "small triangle"
+        },
+        {
+          "term": "terbentuk",
+          "en": "formed"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.015",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Ada 2 segi lima dan 3 segitiga. Berapa jumlah semua sisinya?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "pentagon"
+          },
+          {
+            "shape": "pentagon"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "triangle"
+          }
+        ],
+        "alt": "Dua segi lima dan tiga segitiga."
+      },
+      "options": [
+        {
+          "text": "15",
+          "why": "15 adalah 5 × 3. Ada 2 segi lima, bukan 3."
+        },
+        {
+          "text": "17",
+          "why": "Segi lima punya 5 sisi, bukan 4."
+        },
+        {
+          "text": "19"
+        },
+        {
+          "text": "21",
+          "why": "Ada 2 segi lima dan 3 segitiga, bukan sebaliknya."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ingat berapa sisi segi lima dan segitiga.",
+        "Segi lima punya 5 sisi. Segitiga punya 3 sisi.",
+        "Hitung dulu sisi kedua segi lima: 5 + 5."
+      ],
+      "explanation": "Dua segi lima punya 5 + 5 = 10 sisi. Tiga segitiga punya 3 + 3 + 3 = 9 sisi. Semuanya 10 + 9 = 19 sisi.",
+      "solution": [
+        {
+          "say": "Sisi segi lima.",
+          "show": "5 + 5 = 10"
+        },
+        {
+          "say": "Sisi segitiga.",
+          "show": "3 + 3 + 3 = 9"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "10 + 9 = 19"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "segi lima",
+          "en": "pentagon"
+        },
+        {
+          "term": "segitiga",
+          "en": "triangle"
+        },
+        {
+          "term": "jumlah",
+          "en": "total"
+        },
+        {
+          "term": "sisi",
+          "en": "side"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.016",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Sebuah papan dibagi menjadi 2 baris dan 2 kolom kotak persegi. Berapa banyak persegi pada papan itu?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "alt": "Papan persegi yang dibagi menjadi 2 baris dan 2 kolom. Ada 4 kotak kecil."
+      },
+      "options": [
+        {
+          "text": "1",
+          "why": "1 adalah persegi besarnya saja."
+        },
+        {
+          "text": "4",
+          "why": "Jangan lupa persegi besar yang terdiri dari 4 kotak."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "Bangun dari 2 kotak adalah persegi panjang, bukan persegi."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Persegi bisa kecil atau besar.",
+        "Hitung persegi kecil dulu, lalu persegi yang lebih besar.",
+        "Ada 4 persegi kecil. Apakah papan itu sendiri juga persegi?"
+      ],
+      "explanation": "Ada 4 persegi kecil dan 1 persegi besar, yaitu papan itu sendiri. Semuanya 4 + 1 = 5 persegi.",
+      "solution": [
+        {
+          "say": "Persegi kecil.",
+          "show": "4"
+        },
+        {
+          "say": "Persegi besar dari 4 kotak.",
+          "show": "1"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "4 + 1 = 5"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "papan",
+          "en": "board"
+        },
+        {
+          "term": "baris",
+          "en": "row"
+        },
+        {
+          "term": "kolom",
+          "en": "column"
+        },
+        {
+          "term": "kotak",
+          "en": "box, square"
+        },
+        {
+          "term": "persegi",
+          "en": "square"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.017",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Aku bilangan genap di antara 40 dan 50. Angka satuanku sama dengan angka puluhanku. Siapakah aku?",
+      "options": [
+        {
+          "text": "44"
+        },
+        {
+          "text": "45",
+          "why": "45 adalah bilangan ganjil."
+        },
+        {
+          "text": "46",
+          "why": "Angka puluhan 46 adalah 4 dan angka satuannya 6. Keduanya tidak sama."
+        },
+        {
+          "text": "48",
+          "why": "Angka satuan 48 adalah 8, bukan 4."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Tulis bilangan dari 40 sampai 50.",
+        "Angka puluhan semua bilangan itu adalah 4.",
+        "Angka satuannya harus sama dengan angka puluhannya."
+      ],
+      "explanation": "Bilangan antara 40 dan 50 punya angka puluhan 4. Angka satuannya juga harus 4, jadi bilangannya 44. 44 juga genap.",
+      "solution": [
+        {
+          "say": "Angka puluhan: 4.",
+          "show": "4 puluhan"
+        },
+        {
+          "say": "Angka satuan sama: 4.",
+          "show": "44"
+        },
+        {
+          "say": "Periksa: 44 genap dan ada di antara 40 dan 50.",
+          "show": "44"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "bilangan genap",
+          "en": "even number"
+        },
+        {
+          "term": "di antara",
+          "en": "between"
+        },
+        {
+          "term": "angka satuan",
+          "en": "ones digit"
+        },
+        {
+          "term": "angka puluhan",
+          "en": "tens digit"
+        },
+        {
+          "term": "sama dengan",
+          "en": "the same as"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.018",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Aku bilangan dua angka. Jumlah kedua angkaku 10. Angka puluhanku 4 lebih besar dari angka satuanku. Siapakah aku?",
+      "options": [
+        {
+          "text": "37",
+          "why": "Pada 37, angka puluhannya lebih kecil, bukan lebih besar."
+        },
+        {
+          "text": "64",
+          "why": "6 + 4 = 10, tetapi 6 hanya 2 lebih besar dari 4."
+        },
+        {
+          "text": "73"
+        },
+        {
+          "text": "82",
+          "why": "8 + 2 = 10, tetapi 8 adalah 6 lebih besar dari 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Daftar bilangan dua angka yang jumlah angkanya 10.",
+        "Contohnya 19, 28, 37, 46, 55, 64, 73, 82, dan 91.",
+        "Cari yang angka puluhannya 4 lebih besar dari angka satuannya."
+      ],
+      "explanation": "Angka puluhan dan satuan berjumlah 10 dan berselisih 4. Pasangan itu adalah 7 dan 3, jadi bilangannya 73.",
+      "solution": [
+        {
+          "say": "Jumlah angka 10, selisih 4.",
+          "show": "7 + 3 = 10, 7 - 3 = 4"
+        },
+        {
+          "say": "Angka puluhan yang lebih besar: 7.",
+          "show": "73"
+        },
+        {
+          "say": "Periksa: 7 + 3 = 10 dan 7 adalah 4 lebih besar dari 3.",
+          "show": "73"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "bilangan dua angka",
+          "en": "two-digit number"
+        },
+        {
+          "term": "jumlah",
+          "en": "sum"
+        },
+        {
+          "term": "kedua angkaku",
+          "en": "both my digits"
+        },
+        {
+          "term": "lebih besar dari",
+          "en": "greater than"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.019",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Sebuah bilangan ditambah 15 hasilnya 42. Bilangan berapakah itu?",
+      "options": [
+        {
+          "text": "27"
+        },
+        {
+          "text": "33",
+          "why": "Periksa: 33 + 15 = 48, bukan 42."
+        },
+        {
+          "text": "37",
+          "why": "Periksa: 37 + 15 = 52, bukan 42."
+        },
+        {
+          "text": "57",
+          "why": "57 adalah 42 + 15. Seharusnya 42 dikurangi 15."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Kebalikan dari menambah adalah mengurangi.",
+        "Bilangan itu sama dengan 42 dikurangi 15.",
+        "42 - 10 = 32. Lalu kurangi 5 lagi."
+      ],
+      "explanation": "Bilangan itu adalah 42 - 15 = 27. Periksa: 27 + 15 = 42.",
+      "solution": [
+        {
+          "say": "Kurangi 42 dengan 15.",
+          "show": "42 - 15 = 27"
+        },
+        {
+          "say": "Periksa.",
+          "show": "27 + 15 = 42"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "ditambah",
+          "en": "added to"
+        },
+        {
+          "term": "hasilnya",
+          "en": "the result is"
+        },
+        {
+          "term": "bilangan",
+          "en": "number"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.020",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 5,
+      "lang": "id",
+      "prompt": "Aku bilangan dua angka. Jumlah kedua angkaku 5. Jika kedua angkaku ditukar, aku bertambah 27. Siapakah aku?",
+      "options": [
+        {
+          "text": "14"
+        },
+        {
+          "text": "23",
+          "why": "Jika ditukar menjadi 32. 32 - 23 = 9, bukan 27."
+        },
+        {
+          "text": "32",
+          "why": "Jika ditukar menjadi 23, bilangannya malah berkurang."
+        },
+        {
+          "text": "41",
+          "why": "Jika ditukar menjadi 14, bilangannya malah berkurang."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Daftar bilangan dua angka yang jumlah angkanya 5.",
+        "Bilangannya 14, 23, 32, 41, atau 50. Tukar angka-angkanya.",
+        "Supaya bertambah, angka satuan harus lebih besar dari angka puluhan."
+      ],
+      "explanation": "Jika 14 ditukar, hasilnya 41, dan 41 - 14 = 27. Jadi bilangannya 14.",
+      "solution": [
+        {
+          "say": "Bilangan yang jumlah angkanya 5.",
+          "show": "14, 23, 32, 41, 50"
+        },
+        {
+          "say": "Tukar dan cari selisihnya.",
+          "show": "41 - 14 = 27, 32 - 23 = 9"
+        },
+        {
+          "say": "Hanya 14 yang bertambah 27.",
+          "show": "14"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "jumlah",
+          "en": "sum"
+        },
+        {
+          "term": "ditukar",
+          "en": "swapped"
+        },
+        {
+          "term": "bertambah",
+          "en": "increases by"
+        },
+        {
+          "term": "siapakah aku",
+          "en": "who am I"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.021",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Berapa jumlah uang pada gambar?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 5000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 2
+          },
+          {
+            "value": 1000,
+            "count": 1
+          }
+        ],
+        "alt": "Satu lembar Rp5.000, dua lembar Rp2.000, dan satu koin Rp1.000."
+      },
+      "options": [
+        {
+          "text": "Rp7.000",
+          "why": "Ada dua lembar Rp2.000 dan satu koin Rp1.000. Hitung semuanya."
+        },
+        {
+          "text": "Rp8.000",
+          "why": "Ada dua lembar Rp2.000. Hitung keduanya."
+        },
+        {
+          "text": "Rp9.000",
+          "why": "Jangan lupa koin Rp1.000."
+        },
+        {
+          "text": "Rp10.000"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Mulai dari uang yang paling besar.",
+        "Rp5.000 ditambah dua lembar Rp2.000.",
+        "Rp5.000 + Rp2.000 + Rp2.000 = Rp9.000. Masih ada satu koin lagi."
+      ],
+      "explanation": "Rp5.000 + Rp2.000 + Rp2.000 + Rp1.000 = Rp10.000.",
+      "solution": [
+        {
+          "say": "Uang kertas.",
+          "show": "Rp5.000 + Rp2.000 + Rp2.000 = Rp9.000"
+        },
+        {
+          "say": "Tambah koin.",
+          "show": "Rp9.000 + Rp1.000 = Rp10.000"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "jumlah uang",
+          "en": "amount of money"
+        },
+        {
+          "term": "lembar",
+          "en": "note (paper money)"
+        },
+        {
+          "term": "koin",
+          "en": "coin"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.022",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Harga sebuah pensil Rp3.500. Dodi membayar dengan uang Rp5.000. Berapa uang kembalian Dodi?",
+      "options": [
+        {
+          "text": "Rp1.000",
+          "why": "Hitung lagi: dari Rp3.500 ke Rp5.000 ada Rp1.500."
+        },
+        {
+          "text": "Rp1.500"
+        },
+        {
+          "text": "Rp2.500",
+          "why": "Hitung lagi: Rp5.000 - Rp3.500."
+        },
+        {
+          "text": "Rp8.500",
+          "why": "Kembalian dihitung dengan mengurangi, bukan menambah."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Kembalian adalah uang yang dibayar dikurangi harga.",
+        "Hitung Rp5.000 - Rp3.500.",
+        "Dari Rp3.500 ke Rp4.000 ada Rp500. Lalu dari Rp4.000 ke Rp5.000."
+      ],
+      "explanation": "Rp5.000 - Rp3.500 = Rp1.500. Jadi kembalian Dodi Rp1.500.",
+      "solution": [
+        {
+          "say": "Hitung maju dari Rp3.500 ke Rp4.000.",
+          "show": "Rp500"
+        },
+        {
+          "say": "Dari Rp4.000 ke Rp5.000.",
+          "show": "Rp1.000"
+        },
+        {
+          "say": "Jumlahkan.",
+          "show": "Rp500 + Rp1.000 = Rp1.500"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "harga",
+          "en": "price"
+        },
+        {
+          "term": "pensil",
+          "en": "pencil"
+        },
+        {
+          "term": "membayar",
+          "en": "to pay"
+        },
+        {
+          "term": "uang kembalian",
+          "en": "change (money)"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.023",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Rina punya 3 lembar uang Rp2.000 dan 4 koin Rp500. Ia membeli roti seharga Rp6.500. Berapa sisa uang Rina?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 2000,
+            "count": 3
+          },
+          {
+            "value": 500,
+            "count": 4
+          }
+        ],
+        "alt": "Uang Rina: tiga lembar Rp2.000 dan empat koin Rp500."
+      },
+      "options": [
+        {
+          "text": "Rp500",
+          "why": "Hitung lagi uang Rina: 4 koin Rp500 sama dengan Rp2.000."
+        },
+        {
+          "text": "Rp1.000",
+          "why": "Hitung lagi: Rp8.000 - Rp6.500."
+        },
+        {
+          "text": "Rp1.500"
+        },
+        {
+          "text": "Rp2.500",
+          "why": "Rp2.500 adalah sisa kalau uang Rina Rp9.000."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hitung dulu semua uang Rina.",
+        "3 lembar Rp2.000 = Rp6.000. 4 koin Rp500 = Rp2.000.",
+        "Uang Rina Rp8.000. Kurangi dengan harga roti."
+      ],
+      "explanation": "Uang Rina Rp6.000 + Rp2.000 = Rp8.000. Sesudah membeli roti, sisanya Rp8.000 - Rp6.500 = Rp1.500.",
+      "solution": [
+        {
+          "say": "Uang kertas.",
+          "show": "3 × Rp2.000 = Rp6.000"
+        },
+        {
+          "say": "Uang koin.",
+          "show": "4 × Rp500 = Rp2.000"
+        },
+        {
+          "say": "Semua uang.",
+          "show": "Rp6.000 + Rp2.000 = Rp8.000"
+        },
+        {
+          "say": "Sisa uang.",
+          "show": "Rp8.000 - Rp6.500 = Rp1.500"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "lembar",
+          "en": "note (paper money)"
+        },
+        {
+          "term": "koin",
+          "en": "coin"
+        },
+        {
+          "term": "seharga",
+          "en": "costing"
+        },
+        {
+          "term": "sisa uang",
+          "en": "money left"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.024",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 5,
+      "lang": "id",
+      "prompt": "Ibu menukar uang Rp15.000 dengan lembaran Rp2.000 dan koin Rp1.000. Banyak lembaran Rp2.000 sama dengan banyak koin Rp1.000. Berapa lembar Rp2.000 yang Ibu dapat?",
+      "options": [
+        {
+          "text": "3",
+          "why": "3 lembar dan 3 koin hanya Rp9.000."
+        },
+        {
+          "text": "4",
+          "why": "4 lembar dan 4 koin hanya Rp12.000."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "6 lembar dan 6 koin menjadi Rp18.000, terlalu banyak."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Pasangkan satu lembar Rp2.000 dengan satu koin Rp1.000.",
+        "Satu pasang bernilai Rp3.000.",
+        "Berapa pasang Rp3.000 yang membuat Rp15.000?"
+      ],
+      "explanation": "Satu lembar Rp2.000 dan satu koin Rp1.000 bernilai Rp3.000. Rp15.000 adalah 5 pasang, jadi Ibu mendapat 5 lembar Rp2.000 dan 5 koin Rp1.000.",
+      "solution": [
+        {
+          "say": "Satu pasang.",
+          "show": "Rp2.000 + Rp1.000 = Rp3.000"
+        },
+        {
+          "say": "Banyak pasang.",
+          "show": "5 × Rp3.000 = Rp15.000"
+        },
+        {
+          "say": "Jadi ada 5 lembar Rp2.000.",
+          "show": "5"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "menukar",
+          "en": "to exchange"
+        },
+        {
+          "term": "lembaran",
+          "en": "notes"
+        },
+        {
+          "term": "koin",
+          "en": "coin"
+        },
+        {
+          "term": "banyak",
+          "en": "number of"
+        },
+        {
+          "term": "sama dengan",
+          "en": "the same as"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.025",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 2,
+      "lang": "id",
+      "prompt": "Berapa hasil 25 + 37?",
+      "options": [
+        {
+          "text": "52",
+          "why": "Jangan lupa menyimpan: 5 + 7 = 12, jadi puluhannya bertambah 1."
+        },
+        {
+          "text": "62"
+        },
+        {
+          "text": "63",
+          "why": "Hitung lagi satuannya: 5 + 7 = 12."
+        },
+        {
+          "text": "72",
+          "why": "Hitung lagi puluhannya: 20 + 30 + 10 = 60."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Jumlahkan puluhan dan satuan secara terpisah.",
+        "Puluhan: 20 + 30. Satuan: 5 + 7.",
+        "5 + 7 = 12. Itu 1 puluhan dan 2 satuan."
+      ],
+      "explanation": "20 + 30 = 50 dan 5 + 7 = 12. Jadi 50 + 12 = 62.",
+      "solution": [
+        {
+          "say": "Puluhan.",
+          "show": "20 + 30 = 50"
+        },
+        {
+          "say": "Satuan.",
+          "show": "5 + 7 = 12"
+        },
+        {
+          "say": "Gabungkan.",
+          "show": "50 + 12 = 62"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "hasil",
+          "en": "result"
+        },
+        {
+          "term": "puluhan",
+          "en": "tens"
+        },
+        {
+          "term": "satuan",
+          "en": "ones"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.026",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Berapa hasil 8 × 5 - 12?",
+      "options": [
+        {
+          "text": "28"
+        },
+        {
+          "text": "36",
+          "why": "Hitung lagi: 8 × 5 = 40, lalu 40 - 12."
+        },
+        {
+          "text": "40",
+          "why": "40 adalah 8 × 5. Masih harus dikurangi 12."
+        },
+        {
+          "text": "52",
+          "why": "Tanda terakhir adalah kurang, bukan tambah."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Kerjakan perkalian dulu.",
+        "8 × 5 sama dengan 8 kelompok berisi 5.",
+        "8 × 5 = 40. Langkah berikutnya mengurangi 12."
+      ],
+      "explanation": "8 × 5 = 40, lalu 40 - 12 = 28.",
+      "solution": [
+        {
+          "say": "Kalikan.",
+          "show": "8 × 5 = 40"
+        },
+        {
+          "say": "Kurangi.",
+          "show": "40 - 12 = 28"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "hasil",
+          "en": "result"
+        },
+        {
+          "term": "kali",
+          "en": "times"
+        },
+        {
+          "term": "kurang",
+          "en": "minus"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.027",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Bilangan berapa yang tepat untuk kotak kosong? ☐ - 18 = 25 + 9",
+      "options": [
+        {
+          "text": "16",
+          "why": "16 adalah 34 - 18. Seharusnya 34 ditambah 18."
+        },
+        {
+          "text": "34",
+          "why": "34 adalah hasil sisi kanan. Kotak itu masih dikurangi 18."
+        },
+        {
+          "text": "43",
+          "why": "Hitung lagi: 34 + 18."
+        },
+        {
+          "text": "52"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Hitung dulu sisi kanan.",
+        "25 + 9 = 34. Jadi ☐ - 18 = 34.",
+        "Kebalikan dari mengurangi 18 adalah menambah 18."
+      ],
+      "explanation": "25 + 9 = 34. Bilangan yang dikurangi 18 menjadi 34 adalah 34 + 18 = 52.",
+      "solution": [
+        {
+          "say": "Sisi kanan.",
+          "show": "25 + 9 = 34"
+        },
+        {
+          "say": "Kebalikannya.",
+          "show": "34 + 18 = 52"
+        },
+        {
+          "say": "Periksa.",
+          "show": "52 - 18 = 34"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "kotak kosong",
+          "en": "empty box"
+        },
+        {
+          "term": "tepat",
+          "en": "correct"
+        },
+        {
+          "term": "sisi kanan",
+          "en": "right side"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.028",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 3,
+      "lang": "id",
+      "prompt": "Di kebun ada 4 pohon mangga. Setiap pohon berbuah 6 mangga. Ayah memetik 5 mangga. Berapa mangga yang masih di pohon?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "tree",
+            "count": 4
+          }
+        ],
+        "alt": "Empat pohon mangga. Setiap pohon berbuah 6 mangga."
+      },
+      "options": [
+        {
+          "text": "15",
+          "why": "Hitung lagi semua mangga: 4 pohon dengan 6 mangga."
+        },
+        {
+          "text": "19"
+        },
+        {
+          "text": "24",
+          "why": "24 adalah semua mangga sebelum Ayah memetik."
+        },
+        {
+          "text": "29",
+          "why": "Memetik berarti mangga di pohon berkurang."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Hitung dulu semua mangga.",
+        "4 pohon dengan 6 mangga: 6 + 6 + 6 + 6.",
+        "Ada 24 mangga. Lalu Ayah memetik 5."
+      ],
+      "explanation": "Semua mangga ada 6 + 6 + 6 + 6 = 24. Sesudah Ayah memetik 5, masih ada 24 - 5 = 19 mangga di pohon.",
+      "solution": [
+        {
+          "say": "Semua mangga.",
+          "show": "6 + 6 + 6 + 6 = 24"
+        },
+        {
+          "say": "Dipetik 5.",
+          "show": "24 - 5 = 19"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "kebun",
+          "en": "garden, orchard"
+        },
+        {
+          "term": "pohon",
+          "en": "tree"
+        },
+        {
+          "term": "berbuah",
+          "en": "bears fruit"
+        },
+        {
+          "term": "memetik",
+          "en": "to pick"
+        },
+        {
+          "term": "masih",
+          "en": "still"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.029",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Doni dan Rudi punya 30 kelereng. Kelereng Doni 6 lebih banyak dari kelereng Rudi. Berapa kelereng Rudi?",
+      "options": [
+        {
+          "text": "12"
+        },
+        {
+          "text": "15",
+          "why": "Kalau sama banyak, masing-masing 15. Tetapi Doni punya 6 lebih banyak."
+        },
+        {
+          "text": "18",
+          "why": "18 adalah kelereng Doni."
+        },
+        {
+          "text": "24",
+          "why": "24 adalah 30 - 6. Bagi dua dulu."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Coba tebak, lalu periksa.",
+        "Kalau kelereng Doni diambil 6, mereka sama banyak.",
+        "30 - 6 = 24. Bagi 24 sama banyak."
+      ],
+      "explanation": "30 - 6 = 24, lalu dibagi dua menjadi 12. Rudi punya 12 kelereng dan Doni 18. Periksa: 12 + 18 = 30.",
+      "solution": [
+        {
+          "say": "Ambil selisihnya.",
+          "show": "30 - 6 = 24"
+        },
+        {
+          "say": "Bagi dua.",
+          "show": "24 ÷ 2 = 12 (Rudi)"
+        },
+        {
+          "say": "Kelereng Doni.",
+          "show": "12 + 6 = 18"
+        },
+        {
+          "say": "Periksa.",
+          "show": "12 + 18 = 30"
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "kelereng",
+          "en": "marble"
+        },
+        {
+          "term": "lebih banyak dari",
+          "en": "more than"
+        },
+        {
+          "term": "punya",
+          "en": "to have"
+        }
+      ],
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-esmo.030",
+      "skill": "m2.oly-esmo",
+      "type": "mcq",
+      "difficulty": 5,
+      "lang": "id",
+      "prompt": "Sebuah bus membawa 35 penumpang. Di halte pertama, 8 orang turun dan 5 orang naik. Di halte kedua, separuh penumpang turun. Berapa penumpang yang masih di bus?",
+      "options": [
+        {
+          "text": "11",
+          "why": "Di halte pertama, 5 orang naik, jadi ditambah, bukan dikurangi."
+        },
+        {
+          "text": "16"
+        },
+        {
+          "text": "20",
+          "why": "Jangan lupa 8 orang turun di halte pertama."
+        },
+        {
+          "text": "32",
+          "why": "Itu sesudah halte pertama. Di halte kedua separuh penumpang turun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Ikuti bus dari halte ke halte.",
+        "Sesudah halte pertama: 35 - 8 + 5.",
+        "Separuh berarti dibagi dua sama banyak."
+      ],
+      "explanation": "Sesudah halte pertama ada 35 - 8 + 5 = 32 penumpang. Di halte kedua separuhnya turun, jadi tersisa 32 ÷ 2 = 16 penumpang.",
+      "solution": [
+        {
+          "say": "Halte pertama.",
+          "show": "35 - 8 + 5 = 32"
+        },
+        {
+          "say": "Halte kedua: separuh turun.",
+          "show": "32 ÷ 2 = 16"
+        },
+        {
+          "say": "Masih ada 16 penumpang."
+        }
+      ],
+      "tags": [
+        "esmo",
+        "id",
+        "keep-order"
+      ],
+      "terms": [
+        {
+          "term": "penumpang",
+          "en": "passenger"
+        },
+        {
+          "term": "halte",
+          "en": "bus stop"
+        },
+        {
+          "term": "turun",
+          "en": "to get off"
+        },
+        {
+          "term": "naik",
+          "en": "to get on"
+        },
+        {
+          "term": "separuh",
+          "en": "half"
+        }
+      ],
+      "expectedSeconds": 75
+    }
+  ]
+}

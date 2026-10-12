@@ -1,0 +1,227 @@
+{
+  "skill": "s6.circuits",
+  "items": [
+    {
+      "id": "s6.circuits.001",
+      "skill": "s6.circuits",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each circuit symbol to the component it stands for.",
+      "pairs": [
+        ["a circle with a cross inside", "bulb"],
+        ["a long line next to a short, thick line", "cell"],
+        ["a circle with the letter M inside", "motor"],
+        ["a line lifted up to leave a gap", "open switch"]
+      ],
+      "hints": [
+        "Circuit symbols are simple drawings that people all over the world understand.",
+        "Some symbols use a letter or a cross to show what they are.",
+        "Start with the symbol that has a letter in it. It is the first letter of the component."
+      ],
+      "explanation": "A bulb is a circle with a cross, and a cell is a long line next to a short, thick line. A motor is a circle with M inside, and an open switch has a lifted line that leaves a gap.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.circuits.002",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the circuit diagram. Will the bulb light?",
+      "figure": {
+        "kind": "circuit",
+        "parts": ["battery", "bulb", "switch-open"],
+        "symbols": true,
+        "alt": "A circuit diagram with a battery, a bulb and an open switch, all in one loop."
+      },
+      "options": [
+        { "text": "No, because the switch is open, so the circuit is not complete." },
+        { "text": "Yes, because the battery is connected.", "why": "The battery needs a complete loop. The open switch leaves a gap." },
+        { "text": "Yes, because bulbs light whenever a battery is nearby.", "why": "Electricity only flows around a complete circuit." },
+        { "text": "No, because a circuit needs two bulbs.", "why": "One bulb is enough in a complete circuit." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Electricity can only flow around a complete loop with no gaps.",
+        "Look closely at the switch symbol in the diagram.",
+        "Decide whether the switch is open or closed."
+      ],
+      "explanation": "The switch is open, so there is a gap in the circuit. Electricity cannot flow across a gap, so the bulb does not light.",
+      "tags": ["checkpoint", "osn-sd"]
+    },
+    {
+      "id": "s6.circuits.003",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A circuit has one cell and one bulb. What happens to the bulb if you add a second cell?",
+      "options": [
+        { "text": "It gets dimmer.", "why": "More cells push more electricity through the bulb, so it does not get dimmer." },
+        { "text": "It stays the same.", "why": "An extra cell changes how much electricity flows." },
+        { "text": "It gets brighter." },
+        { "text": "It goes out.", "why": "The circuit is still complete, so the bulb stays lit." }
+      ],
+      "answer": 2,
+      "hints": [
+        "Cells push electricity around a circuit.",
+        "More cells in a row give a bigger push.",
+        "Think about what a bigger push does to the bulb."
+      ],
+      "explanation": "Two cells give a bigger push than one, so more electricity flows through the bulb and it shines brighter. Too many cells for one bulb can make it burn out.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.circuits.004",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A circuit has one cell and one bulb. What happens if you add a second bulb in the same loop?",
+      "options": [
+        { "text": "Both bulbs are brighter.", "why": "The same cell now has to push electricity through two bulbs, so each gets less." },
+        { "text": "Both bulbs are dimmer than the single bulb was." },
+        { "text": "Only the new bulb lights.", "why": "Both bulbs are in the same loop, so both light up together." },
+        { "text": "The cell gets stronger.", "why": "Adding a bulb does not change the cell." }
+      ],
+      "answer": 1,
+      "hints": [
+        "The cell's push now has to drive electricity through two bulbs instead of one.",
+        "Think about what happens to brightness when more bulbs share the same push.",
+        "Compare one bulb on one cell with two bulbs on one cell."
+      ],
+      "explanation": "With two bulbs in one loop, the same cell pushes less electricity through each bulb. Both bulbs light, but they are dimmer than one bulb on its own.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.circuits.005",
+      "skill": "s6.circuits",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Compare each circuit with a circuit of 1 cell and 1 bulb in one loop. Are its bulbs brighter, dimmer or about the same?",
+      "groups": ["Brighter", "Dimmer", "About the same"],
+      "items": [
+        { "text": "2 cells, 1 bulb", "group": 0 },
+        { "text": "3 cells, 2 bulbs", "group": 0 },
+        { "text": "1 cell, 2 bulbs", "group": 1 },
+        { "text": "1 cell, 3 bulbs", "group": 1 },
+        { "text": "2 cells, 3 bulbs", "group": 1 },
+        { "text": "2 cells, 2 bulbs", "group": 2 },
+        { "text": "3 cells, 3 bulbs", "group": 2 }
+      ],
+      "hints": [
+        "More cells make bulbs brighter. More bulbs in one loop make them dimmer.",
+        "Compare the number of cells with the number of bulbs in each circuit.",
+        "Start with 2 cells and 2 bulbs. Each bulb gets one cell's worth of push."
+      ],
+      "explanation": "When there are more cells than bulbs, the bulbs are brighter, and when there are more bulbs than cells, they are dimmer. Equal numbers of cells and bulbs give about the same brightness as 1 cell and 1 bulb.",
+      "tags": ["checkpoint", "imso"]
+    },
+    {
+      "id": "s6.circuits.006",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the circuit diagram. Which object, placed in the gap, would make the bulb light?",
+      "figure": {
+        "kind": "circuit",
+        "parts": ["battery", "bulb", "gap"],
+        "symbols": true,
+        "alt": "A circuit diagram with a battery, a bulb and a gap where an object can be placed to complete the circuit."
+      },
+      "options": [
+        { "text": "a plastic ruler", "why": "Plastic is an electrical insulator, so it does not complete the circuit." },
+        { "text": "a rubber eraser", "why": "Rubber is an electrical insulator." },
+        { "text": "a dry wooden stick", "why": "Dry wood is an electrical insulator." },
+        { "text": "a steel key" }
+      ],
+      "answer": 3,
+      "hints": [
+        "The object must let electricity flow through it to complete the circuit.",
+        "Materials that let electricity flow are called electrical conductors.",
+        "Look for the object made of metal."
+      ],
+      "explanation": "A steel key is made of metal, which is a good electrical conductor, so it completes the circuit. Plastic, rubber and dry wood are insulators.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.circuits.007",
+      "skill": "s6.circuits",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Each cell in a torch gives 1.5 volts. How many volts do 3 cells in a row give?",
+      "answer": 4.5,
+      "unit": "V",
+      "allowDecimal": true,
+      "hints": [
+        "Cells in a row add their pushes together.",
+        "Multiply the voltage of one cell by the number of cells.",
+        "Start with 2 cells: 1.5 + 1.5. Then add one more cell."
+      ],
+      "explanation": "Cells in a row add up, so 3 × 1.5 V = 4.5 V. A bigger voltage gives a bigger push to the electricity in the circuit.",
+      "tags": ["imso"]
+    },
+    {
+      "id": "s6.circuits.008",
+      "skill": "s6.circuits",
+      "type": "draw",
+      "difficulty": 4,
+      "prompt": "Draw a circuit diagram using symbols. Put 2 cells, 1 bulb, 1 buzzer and an open switch in one loop.",
+      "rubric": {
+        "criteria": [
+          { "label": "Draws 2 correct cell symbols joined together", "points": 1 },
+          { "label": "Draws a correct bulb symbol", "points": 1 },
+          { "label": "Draws a correct buzzer symbol", "points": 1 },
+          { "label": "Draws a correct open switch symbol", "points": 1 },
+          { "label": "Joins every part in one complete loop with straight lines", "points": 2 }
+        ]
+      },
+      "background": "grid",
+      "hints": [
+        "Use a ruler to draw the wires as straight lines with square corners.",
+        "Draw the switch with its lever lifted to show that it is open."
+      ],
+      "explanation": "A circuit diagram uses standard symbols joined by straight lines in one loop. Because the switch is open, the bulb and buzzer would be off.",
+      "tags": ["checkpoint"]
+    },
+    {
+      "id": "s6.circuits.009",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Kai builds a circuit with a cell, a bulb and a closed switch, but the bulb does not light. Which of these could explain it?",
+      "options": [
+        { "text": "The bulb is broken." },
+        { "text": "The switch is closed.", "why": "A closed switch completes the circuit, so it helps the bulb light." },
+        { "text": "The wires are made of copper.", "why": "Copper is a good conductor, so it is the right material for wires." },
+        { "text": "The cell is brand new.", "why": "A new cell has plenty of energy to light the bulb." }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check each part of the circuit in turn.",
+        "Ask whether each choice would stop electricity flowing or stop the bulb working.",
+        "Cross out the choices that describe parts working properly."
+      ],
+      "explanation": "A broken bulb has a snapped filament, which leaves a gap, so it cannot light. A closed switch, copper wires and a new cell all help the circuit to work.",
+      "tags": ["osn-sd"]
+    },
+    {
+      "id": "s6.circuits.010",
+      "skill": "s6.circuits",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A bulb is connected in one loop with two switches, A and B. When does the bulb light?",
+      "options": [
+        { "text": "when either switch is closed", "why": "Both switches are in the same loop, so an open one still leaves a gap." },
+        { "text": "only when both switches are open", "why": "Open switches leave gaps, so no electricity can flow." },
+        { "text": "whenever switch A is closed", "why": "If switch B is open, there is still a gap in the loop." },
+        { "text": "only when both switches are closed" }
+      ],
+      "answer": 3,
+      "hints": [
+        "In a single loop, electricity must pass through every part, one after another.",
+        "An open switch leaves a gap in the loop.",
+        "Picture switch A closed and switch B open. Check whether there is still a gap."
+      ],
+      "explanation": "Both switches are in the same loop, so electricity must pass through both. If either switch is open there is a gap, so the bulb lights only when both are closed.",
+      "tags": ["iksc", "imso", "checkpoint"]
+    }
+  ]
+}

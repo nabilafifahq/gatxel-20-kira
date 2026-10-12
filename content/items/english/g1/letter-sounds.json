@@ -1,0 +1,457 @@
+{
+  "skill": "e1.letter-sounds",
+  "items": [
+    {
+      "id": "e1.letter-sounds.001",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which picture starts with the sound s?",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen to the very first sound you say.",
+        "Say sss slowly, then say each picture name after it."
+      ],
+      "explanation": "Sun starts with the sound s. Cat starts with c, and bus starts with b.",
+      "options": [
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "cat"
+              }
+            ],
+            "alt": "A picture of a cat."
+          },
+          "why": "Cat starts with c. Listen: c, at."
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "bus"
+              }
+            ],
+            "alt": "A picture of a bus."
+          },
+          "why": "Bus ends with s, but it starts with b."
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "sun"
+              }
+            ],
+            "alt": "The sun."
+          }
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.002",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Look at the picture. What is the first sound?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "dog"
+          }
+        ],
+        "alt": "A picture of a dog."
+      },
+      "hints": [
+        "Say the word for the picture out loud.",
+        "Say the word very slowly and listen to the start.",
+        "Do your lips touch, or does your tongue tap behind your teeth?"
+      ],
+      "explanation": "The picture is a dog. Dog starts with the sound d.",
+      "options": [
+        {
+          "text": "b",
+          "why": "b and d look alike. Watch your mouth: your lips do not touch at the start."
+        },
+        {
+          "text": "d"
+        },
+        {
+          "text": "g",
+          "why": "g is the last sound you hear in this word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.003",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word starts with m?",
+      "hints": [
+        "Look at the first letter of each word.",
+        "The sound m is a humming sound: mmm.",
+        "Find the word whose first letter makes the humming sound."
+      ],
+      "explanation": "Mat starts with m. Hat and cat only change the first letter.",
+      "options": [
+        {
+          "text": "hat",
+          "why": "Hat starts with h."
+        },
+        {
+          "text": "cat",
+          "why": "Cat starts with c."
+        },
+        {
+          "text": "mat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.004",
+      "skill": "e1.letter-sounds",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing letter: c ___ t",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          }
+        ],
+        "alt": "A picture of a cat."
+      },
+      "hints": [
+        "Say the name of the animal slowly.",
+        "Listen for the sound in the middle.",
+        "The middle sound is a vowel. Try each vowel and read the word."
+      ],
+      "explanation": "Cat is spelt c, a, t. The middle sound is a.",
+      "blanks": [
+        {
+          "answers": [
+            "a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.005",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which picture ends with the sound t?",
+      "hints": [
+        "Say each picture name.",
+        "Listen to the very last sound.",
+        "Say the word, then say only the last sound you hear."
+      ],
+      "explanation": "Hat ends with t. Cup ends with p and bus ends with s.",
+      "options": [
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "hat"
+              }
+            ],
+            "alt": "A picture of a hat."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "cup"
+              }
+            ],
+            "alt": "A picture of a cup."
+          },
+          "why": "Cup ends with p."
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "bus"
+              }
+            ],
+            "alt": "A picture of a bus."
+          },
+          "why": "Bus ends with s."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.letter-sounds.006",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word has the sound i in the middle, like sit?",
+      "hints": [
+        "Look at the middle letter of each word.",
+        "Say sit, then say each word.",
+        "Listen for the same middle sound as in sit."
+      ],
+      "explanation": "Pig has i in the middle, just like sit.",
+      "options": [
+        {
+          "text": "pig"
+        },
+        {
+          "text": "bag",
+          "why": "Bag has a in the middle."
+        },
+        {
+          "text": "hot",
+          "why": "Hot has o in the middle."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.letter-sounds.007",
+      "skill": "e1.letter-sounds",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its last sound.",
+      "hints": [
+        "Read each word slowly.",
+        "Look at the last letter of each word.",
+        "Start with dog. Say it and listen to the end."
+      ],
+      "explanation": "In these words, the last letter makes the last sound: dog, g; bus, s; cat, t; hen, n.",
+      "pairs": [
+        [
+          "dog",
+          "g"
+        ],
+        [
+          "bus",
+          "s"
+        ],
+        [
+          "cat",
+          "t"
+        ],
+        [
+          "hen",
+          "n"
+        ]
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.008",
+      "skill": "e1.letter-sounds",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Do they start with b or d?",
+      "hints": [
+        "b and d look alike, so look carefully.",
+        "Say each word and listen to the first sound.",
+        "For b, your lips touch. Say bed. Do your lips touch?"
+      ],
+      "explanation": "Bed, bag and bun start with b. Dog, dig and dot start with d.",
+      "groups": [
+        "Starts with b",
+        "Starts with d"
+      ],
+      "items": [
+        {
+          "text": "bed",
+          "group": 0
+        },
+        {
+          "text": "dog",
+          "group": 1
+        },
+        {
+          "text": "bag",
+          "group": 0
+        },
+        {
+          "text": "dig",
+          "group": 1
+        },
+        {
+          "text": "bun",
+          "group": 0
+        },
+        {
+          "text": "dot",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.009",
+      "skill": "e1.letter-sounds",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the word for this picture.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bus"
+          }
+        ],
+        "alt": "A picture of a bus."
+      },
+      "hints": [
+        "Say the word slowly.",
+        "Write one letter for each sound you hear.",
+        "There are three sounds. Write the first one, then keep going."
+      ],
+      "explanation": "Bus has three sounds: b, u, s.",
+      "blanks": [
+        {
+          "answers": [
+            "bus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.010",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Change the first letter of cat to h. What word is it now?",
+      "hints": [
+        "Only one letter changes.",
+        "Keep the a and the t the same.",
+        "Put h at the start and read the new word."
+      ],
+      "explanation": "Cat with h at the start is hat. Only the first letter changed.",
+      "options": [
+        {
+          "text": "hot",
+          "why": "Only the first letter changes. The a stays the same."
+        },
+        {
+          "text": "hat"
+        },
+        {
+          "text": "cut",
+          "why": "Cut changes the middle letter, and it still starts with c."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.011",
+      "skill": "e1.letter-sounds",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose 2 words that start with the sound s.",
+      "hints": [
+        "Two words are right.",
+        "Listen carefully: s and sh sound different.",
+        "Say each word and stop after the first sound."
+      ],
+      "explanation": "Sun and sock start with s. Ship starts with sh, which is a different sound.",
+      "options": [
+        {
+          "text": "sun"
+        },
+        {
+          "text": "ship",
+          "why": "Ship starts with sh. That is a different sound."
+        },
+        {
+          "text": "sock"
+        },
+        {
+          "text": "cat",
+          "why": "Cat starts with c."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.012",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word does NOT start like ball?",
+      "hints": [
+        "Say ball. What is the first sound?",
+        "Three words start the same way. One does not.",
+        "Say each word and listen only to the first sound."
+      ],
+      "explanation": "Ball, bat, bed and bus start with b. Doll starts with d.",
+      "tags": [
+        "esmo"
+      ],
+      "options": [
+        {
+          "text": "bat",
+          "why": "Bat starts with b, like ball."
+        },
+        {
+          "text": "bed",
+          "why": "Bed starts with b, like ball."
+        },
+        {
+          "text": "doll"
+        },
+        {
+          "text": "bus",
+          "why": "Bus starts with b, like ball."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.013",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "I start like fish. I end like dog. My middle sound is like hot. What word am I?",
+      "hints": [
+        "Take one sound from each word.",
+        "First sound of fish, middle sound of hot, last sound of dog.",
+        "Fish starts with f. Now find the middle sound of hot."
+      ],
+      "explanation": "Fish gives f, hot gives o and dog gives g. Put them together: fog.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "fig",
+          "why": "The middle of hot is o, so the middle cannot be i."
+        },
+        {
+          "text": "dog",
+          "why": "Dog starts with d, but fish starts with f."
+        },
+        {
+          "text": "fog"
+        },
+        {
+          "text": "fox",
+          "why": "Fox ends with x, but dog ends with g."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

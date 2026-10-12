@@ -1,0 +1,34 @@
+{
+  "skill": "e3.suffixes",
+  "title": "Endings that change words",
+  "steps": [
+    { "say": "A suffix is a group of letters added to the end of a word. It changes the meaning or the job of the word.", "show": "help + ful = helpful" },
+    { "say": "The suffix -ful means full of. A helpful friend is full of help.", "show": "helpful, careful, colourful" },
+    { "say": "The suffix -less means without. A fearless explorer is without fear.", "show": "careless, fearless, endless" },
+    { "say": "The suffix -ly tells us how something is done.", "show": "quick + ly = quickly" },
+    { "say": "Watch the tricky ones. A consonant and y changes y to i, and -le changes to -ly.", "show": "happy → happily, gentle → gently" },
+    { "say": "Remember: -ful always has just one l.", "show": "hopeful, beautiful, careful" }
+  ],
+  "check": [
+    {
+      "id": "e3.suffixes.901", "skill": "e3.suffixes", "type": "mcq", "difficulty": 1,
+      "prompt": "Which word means without help?",
+      "options": [
+        { "text": "helpful", "why": "Helpful means full of help." },
+        { "text": "helpless" },
+        { "text": "helply", "why": "Helply is not a word." },
+        { "text": "helper", "why": "A helper is a person who helps." }
+      ],
+      "answer": 1,
+      "hints": ["Which ending means without?", "-ful means full of. The ending you need means the opposite.", "Look at the end of each word, not the start."],
+      "explanation": "The suffix -less means without, so helpless means without help."
+    },
+    {
+      "id": "e3.suffixes.902", "skill": "e3.suffixes", "type": "text", "difficulty": 2,
+      "prompt": "Add -ly to sad.\nMei waved ___ as the bus drove away.",
+      "blanks": [{ "answers": ["sadly"] }],
+      "hints": ["The missing word tells us how Mei waved.", "Sad does not end in y or -le, so it does not change.", "Write sad, then add the two letters of the suffix."],
+      "explanation": "Sad + ly = sadly. It tells us how Mei waved."
+    }
+  ]
+}

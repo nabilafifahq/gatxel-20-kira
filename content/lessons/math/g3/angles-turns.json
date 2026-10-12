@@ -1,0 +1,86 @@
+{
+  "skill": "m3.angles-turns",
+  "title": "Right angles and turns",
+  "steps": [
+    {
+      "say": "A right angle is a square corner, like the corner of a book.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 90,
+        "alt": "An angle of 90 degrees."
+      }
+    },
+    {
+      "say": "Some angles are smaller than a right angle.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 45,
+        "alt": "An angle of 45 degrees."
+      }
+    },
+    {
+      "say": "Some angles are bigger than a right angle.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 130,
+        "alt": "An angle of 130 degrees."
+      }
+    },
+    {
+      "say": "A quarter turn is a right angle. Two quarter turns make a half turn.",
+      "show": "quarter turn = 1 right angle"
+    },
+    {
+      "say": "Four quarter turns make a whole turn. You end up facing the same way.",
+      "show": "whole turn = 4 right angles"
+    }
+  ],
+  "check": [
+    {
+      "id": "m3.angles-turns.901",
+      "skill": "m3.angles-turns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Is this angle smaller or bigger than a right angle?",
+      "options": [
+        {
+          "text": "Bigger than a right angle"
+        },
+        {
+          "text": "Exactly a right angle",
+          "why": "A right angle is a square corner. This angle opens wider."
+        },
+        {
+          "text": "Smaller than a right angle",
+          "why": "The arms open wider than a square corner."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the angle with a square corner.",
+        "Put the corner of a book in the angle.",
+        "Do the arms open wider than the book corner?"
+      ],
+      "explanation": "The arms open wider than a square corner, so the angle is bigger than a right angle.",
+      "figure": {
+        "kind": "angle",
+        "degrees": 120,
+        "alt": "An angle of 120 degrees."
+      }
+    },
+    {
+      "id": "m3.angles-turns.902",
+      "skill": "m3.angles-turns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many right angles are in a half turn?",
+      "answer": 2,
+      "hints": [
+        "A quarter turn is one right angle.",
+        "How many quarter turns make a half turn?",
+        "Turn a quarter, then turn a quarter again."
+      ],
+      "explanation": "A half turn is 2 quarter turns, so it is 2 right angles."
+    }
+  ]
+}

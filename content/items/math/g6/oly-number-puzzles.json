@@ -1,0 +1,430 @@
+{
+  "skill": "m6.oly-number-puzzles",
+  "items": [
+    {
+      "id": "m6.oly-number-puzzles.001",
+      "skill": "m6.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is 20% of 25% of 400?",
+      "options": [
+        {
+          "text": "5",
+          "why": "Find 25% of 400 first: it is 100, not 25."
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "45",
+          "why": "Percentages of percentages multiply, they do not add."
+        },
+        {
+          "text": "80",
+          "why": "80 is 20% of 400. Take 25% first."
+        },
+        {
+          "text": "100",
+          "why": "100 is 25% of 400. Now take 20% of it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work from the inside out.",
+        "25% is a quarter and 20% is a fifth.",
+        "Start by finding a quarter of 400."
+      ],
+      "explanation": "25% of 400 is 100, and 20% of 100 is 20.",
+      "solution": [
+        {
+          "say": "25% of 400.",
+          "show": "400 ÷ 4 = 100"
+        },
+        {
+          "say": "20% of 100.",
+          "show": "100 ÷ 5 = 20"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m6.oly-number-puzzles.002",
+      "skill": "m6.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The average of 4 numbers is 15. When a fifth number is added, the average becomes 17. What is the fifth number?",
+      "options": [
+        {
+          "text": "17",
+          "why": "17 is the new average, not the new number."
+        },
+        {
+          "text": "19",
+          "why": "Compare the totals: 5 × 17 and 4 × 15."
+        },
+        {
+          "text": "21",
+          "why": "Compare the totals: 5 × 17 = 85 and 4 × 15 = 60."
+        },
+        {
+          "text": "25"
+        },
+        {
+          "text": "32",
+          "why": "32 is 15 + 17. Use the totals instead."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Work with totals, not averages.",
+        "The 4 numbers add up to 4 × 15 = 60.",
+        "The 5 numbers add up to 5 × 17."
+      ],
+      "explanation": "The 4 numbers add up to 60 and the 5 numbers add up to 85. The fifth number is 85 - 60 = 25.",
+      "solution": [
+        {
+          "say": "Total of 4.",
+          "show": "4 × 15 = 60"
+        },
+        {
+          "say": "Total of 5.",
+          "show": "5 × 17 = 85"
+        },
+        {
+          "say": "Fifth number.",
+          "show": "85 - 60 = 25"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.003",
+      "skill": "m6.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the sum of the digits of the number 10^25 - 25? Here 10^25 is 1 followed by 25 zeros.",
+      "options": [
+        {
+          "text": "207",
+          "why": "Do not forget the last two digits, 7 and 5."
+        },
+        {
+          "text": "210",
+          "why": "Count the nines again: there are 23 of them."
+        },
+        {
+          "text": "219"
+        },
+        {
+          "text": "228",
+          "why": "There are 23 nines before the 75, not 24."
+        },
+        {
+          "text": "237",
+          "why": "There are 23 nines, because the last two places hold 7 and 5."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try a smaller case: 1000 - 25 = 975.",
+        "10^25 - 25 is a long row of 9s followed by 75.",
+        "The number has 25 digits. The last two are 7 and 5."
+      ],
+      "explanation": "10^25 - 25 has 25 digits: 23 nines followed by 7 and 5, just like 1000 - 25 = 975. The digit sum is 23 × 9 + 7 + 5 = 207 + 12 = 219.",
+      "solution": [
+        {
+          "say": "Small case.",
+          "show": "1000 - 25 = 975"
+        },
+        {
+          "say": "Pattern.",
+          "show": "23 nines, then 7 and 5"
+        },
+        {
+          "say": "Digit sum.",
+          "show": "23 × 9 + 7 + 5 = 219"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-number-puzzles.004",
+      "skill": "m6.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Work out (1 + 1/2) × (1 + 1/3) × (1 + 1/4) × ... × (1 + 1/9).",
+      "options": [
+        {
+          "text": "4",
+          "why": "Write each bracket as a fraction: 3/2, 4/3, 5/4 and so on, then cancel."
+        },
+        {
+          "text": "9/2",
+          "why": "The last bracket is 1 + 1/9 = 10/9, so the top number left is 10."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "10",
+          "why": "The first bottom number, 2, does not cancel."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Write each bracket as one fraction.",
+        "1 + 1/2 = 3/2, 1 + 1/3 = 4/3, 1 + 1/4 = 5/4.",
+        "Multiply them and look for numbers that cancel."
+      ],
+      "explanation": "The product is 3/2 × 4/3 × 5/4 × ... × 10/9. Each top number cancels with the next bottom number, leaving 10/2 = 5.",
+      "solution": [
+        {
+          "say": "Write as fractions.",
+          "show": "3/2 × 4/3 × 5/4 × ... × 10/9"
+        },
+        {
+          "say": "Cancel.",
+          "show": "3s, 4s, ..., 9s cancel"
+        },
+        {
+          "say": "What is left.",
+          "show": "10/2 = 5"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.005",
+      "skill": "m6.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "What is the smallest whole number n such that 2n is a square number and 3n is a cube number?",
+      "answer": 72,
+      "hints": [
+        "Write n using only the primes 2 and 3.",
+        "In a square number every prime appears an even number of times. In a cube, a multiple of 3 times.",
+        "Count the 2s: 2n needs an even number of 2s and 3n a multiple of 3."
+      ],
+      "explanation": "Write n with a twos and b threes: 2n is a square when a + 1 and b are even, and 3n is a cube when a and b + 1 are multiples of 3. The smallest choice is a = 3 and b = 2, so n = 8 × 9 = 72. Check: 144 = 12 × 12 and 216 = 6 × 6 × 6.",
+      "solution": [
+        {
+          "say": "Twos: a + 1 even and a a multiple of 3.",
+          "show": "a = 3"
+        },
+        {
+          "say": "Threes: b even and b + 1 a multiple of 3.",
+          "show": "b = 2"
+        },
+        {
+          "say": "n.",
+          "show": "2 × 2 × 2 × 3 × 3 = 72"
+        },
+        {
+          "say": "Check.",
+          "show": "2 × 72 = 144 = 12 × 12, 3 × 72 = 216 = 6 × 6 × 6"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "expectedSeconds": 240
+    },
+    {
+      "id": "m6.oly-number-puzzles.006",
+      "skill": "m6.oly-number-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "lang": "id",
+      "prompt": "Pak Joko membeli sepeda bekas seharga Rp800.000. Ia menjualnya lagi dengan untung 25%. Berapa harga jual sepeda itu?",
+      "options": [
+        {
+          "text": "Rp825.000",
+          "why": "Untung 25% bukan Rp25.000. Hitung 25% dari Rp800.000."
+        },
+        {
+          "text": "Rp900.000",
+          "why": "25% dari Rp800.000 adalah Rp200.000, bukan Rp100.000."
+        },
+        {
+          "text": "Rp1.000.000"
+        },
+        {
+          "text": "Rp1.200.000",
+          "why": "Untungnya 25%, bukan 50%."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hitung dulu besar untungnya.",
+        "25% sama dengan seperempat.",
+        "Seperempat dari Rp800.000 adalah Rp200.000."
+      ],
+      "explanation": "Untung 25% dari Rp800.000 adalah Rp200.000. Harga jualnya Rp800.000 + Rp200.000 = Rp1.000.000.",
+      "solution": [
+        {
+          "say": "Besar untung.",
+          "show": "25% × Rp800.000 = Rp200.000"
+        },
+        {
+          "say": "Harga jual.",
+          "show": "Rp800.000 + Rp200.000 = Rp1.000.000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "id"
+      ],
+      "terms": [
+        {
+          "term": "membeli",
+          "en": "to buy"
+        },
+        {
+          "term": "sepeda bekas",
+          "en": "second-hand bicycle"
+        },
+        {
+          "term": "seharga",
+          "en": "costing"
+        },
+        {
+          "term": "menjual",
+          "en": "to sell"
+        },
+        {
+          "term": "untung",
+          "en": "profit"
+        },
+        {
+          "term": "harga jual",
+          "en": "selling price"
+        }
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.007",
+      "skill": "m6.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three bells ring every 12, 18 and 30 minutes. They all ring together at 9:00. After how many minutes do they next ring together?",
+      "answer": 180,
+      "unit": "minutes",
+      "hints": [
+        "They ring together after a number of minutes that is a multiple of 12, 18 and 30.",
+        "Find the smallest number that 12, 18 and 30 all divide into.",
+        "12 = 2 × 2 × 3, 18 = 2 × 3 × 3 and 30 = 2 × 3 × 5."
+      ],
+      "explanation": "The smallest common multiple of 12, 18 and 30 is 2 × 2 × 3 × 3 × 5 = 180. So they next ring together after 180 minutes, at 12:00.",
+      "solution": [
+        {
+          "say": "Prime factors.",
+          "show": "12 = 2×2×3, 18 = 2×3×3, 30 = 2×3×5"
+        },
+        {
+          "say": "Smallest common multiple.",
+          "show": "2 × 2 × 3 × 3 × 5 = 180"
+        },
+        {
+          "say": "Next time together.",
+          "show": "180 minutes, at 12:00"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.008",
+      "skill": "m6.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the remainder when 1 + 2 + 3 + ... + 100 is divided by 7?",
+      "answer": 3,
+      "hints": [
+        "Find the sum first.",
+        "Pair 1 with 100, 2 with 99, and so on.",
+        "The sum is 50 pairs of 101. Divide that total by 7."
+      ],
+      "explanation": "1 + 2 + ... + 100 = 50 × 101 = 5050. 5050 = 7 × 721 + 3, so the remainder is 3.",
+      "solution": [
+        {
+          "say": "Sum by pairing.",
+          "show": "50 × 101 = 5050"
+        },
+        {
+          "say": "Divide by 7.",
+          "show": "7 × 721 = 5047"
+        },
+        {
+          "say": "Remainder.",
+          "show": "5050 - 5047 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "expectedSeconds": 180
+    },
+    {
+      "id": "m6.oly-number-puzzles.009",
+      "skill": "m6.oly-number-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the sum of all the whole numbers that divide exactly into 36?",
+      "answer": 91,
+      "hints": [
+        "List the factors in pairs.",
+        "1 × 36, 2 × 18, 3 × 12, 4 × 9 and 6 × 6.",
+        "Count 6 only once."
+      ],
+      "explanation": "The factors of 36 are 1, 2, 3, 4, 6, 9, 12, 18 and 36. Their sum is 91.",
+      "solution": [
+        {
+          "say": "Factor pairs.",
+          "show": "1×36, 2×18, 3×12, 4×9, 6×6"
+        },
+        {
+          "say": "Factors.",
+          "show": "1, 2, 3, 4, 6, 9, 12, 18, 36"
+        },
+        {
+          "say": "Sum.",
+          "show": "1 + 2 + 3 + 4 + 6 + 9 + 12 + 18 + 36 = 91"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "expectedSeconds": 180
+    }
+  ]
+}

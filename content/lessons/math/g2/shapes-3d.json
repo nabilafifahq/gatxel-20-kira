@@ -1,0 +1,88 @@
+{
+  "skill": "m2.shapes-3d",
+  "title": "Faces, edges and vertices",
+  "steps": [
+    {
+      "say": "A face is a flat surface. An edge is where two faces meet.",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A solid shape with 6 flat square faces, all the same size."
+      },
+      "show": "cube: 6 faces, 12 edges"
+    },
+    {
+      "say": "A vertex is a corner where edges meet.",
+      "show": "cube: 8 vertices"
+    },
+    {
+      "say": "A square-based pyramid has a square base and 4 triangle faces.",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A solid shape with a square base and 4 triangle faces that meet at a point."
+      },
+      "show": "5 faces, 8 edges, 5 vertices"
+    },
+    {
+      "say": "A cylinder has 2 flat circle faces and 1 curved face.",
+      "figure": {
+        "kind": "solid",
+        "solid": "cylinder",
+        "alt": "A solid shape with 2 flat circle faces and 1 curved face."
+      }
+    }
+  ],
+  "check": [
+    {
+      "id": "m2.shapes-3d.901",
+      "skill": "m2.shapes-3d",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many edges does a cube have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A solid shape with 6 flat square faces, all the same size."
+      },
+      "hints": [
+        "An edge is where two faces meet.",
+        "Count the edges round the top, then round the bottom.",
+        "Then count the edges going up the sides."
+      ],
+      "explanation": "A cube has 4 edges on top, 4 on the bottom and 4 up the sides. That is 12.",
+      "answer": 12
+    },
+    {
+      "id": "m2.shapes-3d.902",
+      "skill": "m2.shapes-3d",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What shape are the faces of a cube?",
+      "hints": [
+        "Imagine printing one face on paper.",
+        "Count the sides of the face.",
+        "Are all the sides the same length?"
+      ],
+      "explanation": "Each face of a cube is a square.",
+      "options": [
+        {
+          "text": "square"
+        },
+        {
+          "text": "circle",
+          "why": "A cube has no curved faces."
+        },
+        {
+          "text": "triangle",
+          "why": "Each face of a cube has 4 sides."
+        },
+        {
+          "text": "pentagon",
+          "why": "Each face of a cube has 4 sides."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}
