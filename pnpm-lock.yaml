@@ -127,6 +127,46 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(@types/node@22.20.5)(vite@8.3.4(@types/node@22.20.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
 
+  apps/worker:
+    dependencies:
+      '@kira/content':
+        specifier: workspace:*
+        version: link:../../packages/content
+      '@kira/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@kira/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      drizzle-orm:
+        specifier: 0.45.4
+        version: 0.45.4(postgres@3.4.9)
+      nodemailer:
+        specifier: 10.0.16
+        version: 10.0.16
+      postgres:
+        specifier: 3.4.9
+        version: 3.4.9
+      zod:
+        specifier: 4.6.5
+        version: 4.6.5
+    devDependencies:
+      '@types/node':
+        specifier: 22.20.5
+        version: 22.20.5
+      esbuild:
+        specifier: 0.28.2
+        version: 0.28.2
+      tsx:
+        specifier: 4.23.15
+        version: 4.23.15
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+      vitest:
+        specifier: 5.0.3
+        version: 5.0.3(@types/node@22.20.5)(vite@8.3.4(@types/node@22.20.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
+
   packages/content:
     dependencies:
       '@kira/core':
@@ -2049,6 +2089,10 @@ packages:
       sass:
         optional: true
 
+  nodemailer@10.0.16:
+    resolution: {integrity: sha512-VL9xKErxN+el77o8eBOuYKUPMyEx7F9hfnDCuiUKJRp9v3wnWMOudYgP/SWbwSHy8rUL4cylobuXtki1LpQS7A==}
+    engines: {node: '>=20.0.0'}
+
   obug@2.2.1:
     resolution: {integrity: sha512-XrsrhT5sybtKI6wakr2SPOlGZWWYbUXZ7a0jT8/QOeAPau+1X/bSegNe5YR75oJmEZQbKningirmGOEJCIk61Q==}
     engines: {node: '>=12.20.0'}
@@ -3851,6 +3895,8 @@ snapshots:
       - '@babel/core'
       - '@types/node'
       - babel-plugin-macros
+
+  nodemailer@10.0.16: {}
 
   obug@2.2.1: {}
 

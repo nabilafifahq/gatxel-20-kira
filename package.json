@@ -10,11 +10,12 @@
   },
   "scripts": {
     "dev": "pnpm --filter @kira/web dev",
+    "worker:dev": "pnpm --filter @kira/worker dev",
     "build": "pnpm --filter @kira/web build && pnpm --filter @kira/worker build",
     "typecheck": "pnpm -r --no-bail typecheck",
     "lint": "eslint . --max-warnings=0 && node scripts/check-copy.mjs",
     "lint:copy": "node scripts/check-copy.mjs",
-    "test": "vitest run --project core --project content --project figures --project web",
+    "test": "vitest run --project core --project content --project figures --project web --project worker",
     "test:db": "vitest run --project db",
     "test:all": "vitest run",
     "content:check": "tsx packages/content/scripts/check.ts",
