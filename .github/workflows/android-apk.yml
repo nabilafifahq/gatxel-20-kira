@@ -90,9 +90,7 @@ jobs:
           zip="$RUNNER_TEMP/.gradle-actions/gradle-installations/downloads/gradle-$GRADLE_VERSION-bin.zip"
           if [ -f "$zip" ]; then
             echo "$GRADLE_SHA256  $zip" | sha256sum --check --strict
-            echo "::notice title=gradle-checksum::zip verified at $zip"
           else
-            echo "::notice title=gradle-checksum::no zip, runner image gradle: $(gradle --version | grep '^Gradle')"
             # setup-gradle tidak mengunduh bila Gradle versi yang sama sudah ada di image runner.
             [[ "$(gradle --version)" == *"Gradle $GRADLE_VERSION"* ]]
             echo "Gradle $GRADLE_VERSION dari image runner."
@@ -145,21 +143,7 @@ jobs:
           KIRA_KEY_PASSWORD: ${{ steps.signing.outputs.variant == 'release' && secrets.KIRA_KEY_PASSWORD || '' }}
         run: |
           if [ "$VARIANT" = "release" ]; then task=assembleRelease; else task=assembleDebug; fi
-          gradle --no-daemon --stacktrace "-PkiraUrl=$KIRA_URL" "$task" 2>&1 | tee "$RUNNER_TEMP/gradle.log"
-
-      - name: DEBUG annotate failure
-        if: failure()
-        run: |
-          python3 - <<'PY'
-          import os, re
-          p = os.path.join(os.environ['RUNNER_TEMP'], 'gradle.log')
-          lines = open(p, errors='replace').read().splitlines() if os.path.exists(p) else ['no gradle.log']
-          key = [l for l in lines if re.search(r"^e: |^w: |error|FAILURE|What went wrong|Could not|^> |Exception|Caused by|Minimum supported|requires", l)]
-          out = key[:150] + ['--- tail ---'] + lines[-80:]
-          for i in range(0, min(len(out), 300), 60):
-              chunk = '\n'.join(out[i:i+60])
-              print('::error title=gradle %d::%s' % (i // 60, chunk.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')))
-          PY
+          gradle --no-daemon --stacktrace "-PkiraUrl=$KIRA_URL" "$task"
 
       - name: Remove signing key
         if: always()
@@ -207,63 +191,6 @@ jobs:
             echo "| $size byte | \`$sha256\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: DEBUG annotate success
-        if: success()
-        working-directory: apps/android
-        env:
-          APK: ${{ steps.apk.outputs.path }}
-        run: |
-          {
-            echo "== apksigner"; apksigner verify --verbose --print-certs "$APK" 2>&1 | head -20
-            echo "== badging"; aapt2 dump badging "$APK" | grep -E "^(package|sdkVersion|targetSdkVersion|application-label|uses-permission|launchable)"
-            echo "== unzip"; unzip -l "$APK" | grep -vE "res/|META-INF/" | head -40; unzip -l "$APK" | tail -n 1
-            echo "== size"; stat -c %s "$APK"
-            echo "== buildEnvironment"; gradle --no-daemon -q buildEnvironment 2>&1 | grep -E "kotlin-gradle-plugin:|com.android.tools.build:gradle:" | head -8
-            echo "== runtime classpath"; gradle --no-daemon -q :app:dependencies --configuration debugRuntimeClasspath 2>&1 | grep -E "^[+\\]--- " | head -20
-            echo "== warnings"; grep -E "^w: |warning:|Deprecated" "$RUNNER_TEMP/gradle.log" | head -40
-          } > "$RUNNER_TEMP/info.txt" 2>&1 || true
-          python3 - <<'PY'
-          import os
-          lines = open(os.path.join(os.environ['RUNNER_TEMP'], 'info.txt'), errors='replace').read().splitlines()
-          for i in range(0, min(len(lines), 400), 50):
-              chunk = '\n'.join(lines[i:i+50])
-              print('::notice title=info %d::%s' % (i // 50, chunk.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')))
-          PY
-
-      - name: DEBUG release dry run
-        if: success()
-        working-directory: apps/android
-        env:
-          KIRA_URL: ${{ steps.server.outputs.url }}
-        run: |
-          {
-            echo "== partial signing config must fail"
-            if KIRA_KEY_ALIAS=x gradle --no-daemon -q help > "$RUNNER_TEMP/partial.log" 2>&1; then echo "UNEXPECTED SUCCESS"; else grep -m1 -o "Kunci rilis butuh keempat nilai[^.]*" "$RUNNER_TEMP/partial.log" || tail -5 "$RUNNER_TEMP/partial.log"; fi
-            echo "== http kiraUrl must fail"
-            if gradle --no-daemon -q help -PkiraUrl=http://kira.example.ts.net > "$RUNNER_TEMP/url.log" 2>&1; then echo "UNEXPECTED SUCCESS"; else grep -m1 -o "kiraUrl harus[^,]*" "$RUNNER_TEMP/url.log" || tail -5 "$RUNNER_TEMP/url.log"; fi
-            echo "== release build with throwaway key"
-            keytool -genkeypair -storetype PKCS12 -keystore "$RUNNER_TEMP/dry.jks" -alias dry -keyalg RSA -keysize 2048 -validity 2 -dname "CN=dry" -storepass drypass123 -keypass drypass123 -noprompt
-            if KIRA_KEYSTORE_FILE="$RUNNER_TEMP/dry.jks" KIRA_KEYSTORE_PASSWORD=drypass123 KIRA_KEY_ALIAS=dry KIRA_KEY_PASSWORD=drypass123 \
-              gradle --no-daemon "-PkiraUrl=$KIRA_URL" assembleRelease > "$RUNNER_TEMP/release.log" 2>&1; then
-              ls -l app/build/outputs/apk/release/
-              apksigner verify --print-certs app/build/outputs/apk/release/*.apk | head -3
-              aapt2 dump badging app/build/outputs/apk/release/*.apk | grep -E "^(package|minSdkVersion|targetSdkVersion):"
-              unzip -l app/build/outputs/apk/release/*.apk | tail -n 1
-              grep -E "^w: |warning" "$RUNNER_TEMP/release.log" | head -20
-            else
-              echo "RELEASE FAILED"
-              grep -E "^e: |error|What went wrong|^> |Lint found|Caused by" "$RUNNER_TEMP/release.log" | head -60
-              tail -60 "$RUNNER_TEMP/release.log"
-            fi
-          } > "$RUNNER_TEMP/dry.txt" 2>&1 || true
-          python3 - <<'PY'
-          import os
-          lines = open(os.path.join(os.environ['RUNNER_TEMP'], 'dry.txt'), errors='replace').read().splitlines()
-          for i in range(0, min(len(lines), 300), 50):
-              chunk = '\n'.join(lines[i:i+50])
-              print('::notice title=dry %d::%s' % (i // 50, chunk.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')))
-          PY
-
       - name: Upload artifact
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
@@ -273,32 +200,6 @@ jobs:
           retention-days: 30
           # APK sudah berupa zip.
           compression-level: 0
-
-  debug-artifact:
-    name: DEBUG artifact round trip
-    needs: build
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        with:
-          name: kira-apk
-          path: dl
-      - env:
-          VERSION_NAME: ${{ needs.build.outputs.version_name }}
-          APK_SHA256: ${{ needs.build.outputs.sha256 }}
-        run: |
-          {
-            ls -l dl
-            echo "expected sha256 $APK_SHA256"
-            sha256sum "dl/kira-$VERSION_NAME.apk"
-            unzip -l "dl/kira-$VERSION_NAME.apk" | head -12
-            unzip -l "dl/kira-$VERSION_NAME.apk" | tail -n 1
-          } > info.txt 2>&1 || true
-          python3 - <<'PY'
-          lines = open('info.txt', errors='replace').read().splitlines()
-          chunk = '\n'.join(lines[:60])
-          print('::notice title=artifact::%s' % chunk.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A'))
-          PY
 
   release:
     name: GitHub Release
