@@ -6,20 +6,26 @@ import { NOTICE_VERSION, TERMS_VERSION } from './auth/accounts'
  * Isi halaman Kebijakan Privasi dan Ketentuan untuk pemasangan server rumah.
  * Identitas pengelola diambil dari .env (KIRA_LEGAL_*) supaya tidak ada isian kosong.
  */
+/** Nilai .env yang kosong dianggap belum diisi. */
+function legalEnv(name: string): string | null {
+  const v = process.env[name]?.trim()
+  return v ? v : null
+}
+
 function entity() {
   return {
-    name: process.env.KIRA_LEGAL_NAME ?? 'Pengelola Kira (isi KIRA_LEGAL_NAME di .env)',
-    address: process.env.KIRA_LEGAL_ADDRESS ?? 'Alamat pengelola belum diisi (KIRA_LEGAL_ADDRESS)',
-    email: process.env.KIRA_LEGAL_EMAIL ?? 'email-pengelola@belum-diisi.invalid',
-    phone: process.env.KIRA_LEGAL_PHONE ?? null,
-    courtCity: process.env.KIRA_LEGAL_COURT ?? 'Jakarta Selatan',
+    name: legalEnv('KIRA_LEGAL_NAME') ?? 'Pengelola Kira (isi KIRA_LEGAL_NAME di .env)',
+    address: legalEnv('KIRA_LEGAL_ADDRESS') ?? 'Alamat pengelola belum diisi (KIRA_LEGAL_ADDRESS)',
+    email: legalEnv('KIRA_LEGAL_EMAIL') ?? 'email-pengelola@belum-diisi.invalid',
+    phone: legalEnv('KIRA_LEGAL_PHONE'),
+    courtCity: legalEnv('KIRA_LEGAL_COURT') ?? 'Jakarta Selatan',
   }
 }
 
 export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
-    meta: { version: NOTICE_VERSION, effectiveDate: process.env.KIRA_LEGAL_EFFECTIVE ?? '2026-10-12' },
+    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-12' },
     storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
     purposes: [
       { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Wajib untuk memakai Kira.' },
@@ -51,7 +57,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
 export function termsData(): TermsData {
   return {
     entity: entity(),
-    meta: { version: TERMS_VERSION, effectiveDate: process.env.KIRA_LEGAL_EFFECTIVE ?? '2026-10-12' },
+    meta: { version: TERMS_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-12' },
     reportResponseWorkdays: 3,
   }
 }

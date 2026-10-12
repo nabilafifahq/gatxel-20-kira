@@ -1,0 +1,7 @@
+# Tambahan khusus CI: buka Postgres di 127.0.0.1:5432 supaya tes e2e bisa membuat data contoh.
+# Jangan dipakai di server rumah.
+services:
+  db:
+    networks: [internal, egress]
+    ports:
+      - "127.0.0.1:5432:5432"

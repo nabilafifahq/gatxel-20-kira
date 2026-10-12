@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, db, expectNoSeriousA11y, loginAdult, noHorizontalScroll, seedOrgId, TUTOR, watchErrors } from './helpers'
+import { closeDb, db, expectNoSeriousA11y, learnerId, loginAdult, noHorizontalScroll, seedOrgId, TUTOR, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -33,7 +33,7 @@ test('semua halaman konsol tampil tanpa error, lolos axe, dan tidak bergeser di 
     await expect(page.getByRole('heading', { level: 1 }).first()).toBeVisible()
     await noHorizontalScroll(page)
   }
-  const [{ id: aisha }] = (await db()`select user_id as id from learner_profile where name = 'Aisha' and org_id = ${await seedOrgId()}`) as unknown as { id: string }[]
+  const aisha = await learnerId('Aisha')
   await page.setViewportSize({ width: 1280, height: 900 })
   await page.goto(`/konsol/learner/${aisha}`)
   await expect(page.getByRole('heading', { level: 1 }).first()).toContainText('Aisha')
@@ -43,8 +43,7 @@ test('semua halaman konsol tampil tanpa error, lolos axe, dan tidak bergeser di 
 
 test('catatan tutor tersimpan', async ({ page }) => {
   await loginAdult(page, TUTOR)
-  const org = await seedOrgId()
-  const [{ id: raka }] = (await db()`select user_id as id from learner_profile where name = 'Raka' and org_id = ${org}`) as unknown as { id: string }[]
+  const raka = await learnerId('Raka')
   await page.goto(`/konsol/learner/${raka}`)
   const note = `Catatan e2e ${Date.now()}`
   await page.getByRole('textbox').first().fill(note)

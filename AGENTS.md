@@ -17,13 +17,14 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 | `pnpm test:db` | Tes RLS dan otorisasi di Postgres sungguhan, butuh `DATABASE_URL_*` |
 | `pnpm content:check` | Validasi semua soal, pelajaran, dan generator |
 | `pnpm db:migrate` | Jalankan migrasi (role kira_owner) |
-| `pnpm e2e` | Playwright dan axe terhadap server lokal |
+| `pnpm e2e` | Playwright dan axe terhadap server lokal (butuh `DATABASE_URL_OWNER`; tes offline butuh `E2E_PROD=1` dan `next start`) |
+| `pnpm admin status` | Perintah admin server: `status`, `reset-link <email>`, `unlock <email>`, `pin-unlock <nama>` |
 
 ## Peta repo
 
 - `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (en-GB), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4. Komponen layar ada di `src/screens`, menerima DTO dari `src/lib/dto.ts`.
-- `apps/worker`: proses Node untuk job AI (Claude Code CLI atau endpoint OpenAI-compatible), PDF batch, email, laporan mingguan, backup, dan retensi.
-- `apps/android`: cangkang Capacitor untuk APK tablet, dibangun di GitHub Actions.
+- `apps/worker`: proses Node untuk job AI (Claude Code CLI atau endpoint OpenAI-compatible), impor PDF, email, laporan mingguan, retensi, dan penghapusan akun. Cadangan database dijalankan layanan `backup` di Docker Compose.
+- `apps/android`: aplikasi tablet Kotlin (WebView ke alamat Tailscale, jembatan suara `KiraNative`), APK dibangun di GitHub Actions. Lihat `docs/android.md`.
 - `packages/core`: mesin belajar murni (theta, pemilih soal, FSRS, gerbang, XP, level, streak, skor preset lomba, waktu Asia/Jakarta).
 - `packages/db`: skema Drizzle, migrasi SQL, role, RLS, seed.
 - `packages/content`: skema konten Zod, generator Math, pemeriksa jawaban, pemuat konten (dibaca dari folder `content/` saat server mulai).

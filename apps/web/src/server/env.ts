@@ -37,7 +37,10 @@ let cached: Env | null = null
 
 export function env(): Env {
   if (cached) return cached
-  const parsed = schema.safeParse(process.env)
+  // Nilai kosong (misalnya SMTP_URL= di .env atau KIRA_SETUP_TOKEN: "" dari Docker Compose) dianggap tidak diisi.
+  const cleaned: Record<string, string | undefined> = {}
+  for (const [k, v] of Object.entries(process.env)) cleaned[k] = typeof v === 'string' && v.trim() === '' ? undefined : v
+  const parsed = schema.safeParse(cleaned)
   if (!parsed.success) {
     const issues = parsed.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')
     throw new Error(`Konfigurasi server tidak lengkap. ${issues}`)

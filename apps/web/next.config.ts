@@ -26,6 +26,14 @@ const securityHeaders = [
   { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
 ]
 
+const publicHost = (() => {
+  try {
+    return process.env.KIRA_ORIGIN ? new URL(process.env.KIRA_ORIGIN).host : null
+  } catch {
+    return null
+  }
+})()
+
 const baseConfig: NextConfig = {
   output: 'standalone',
   outputFileTracingRoot: fileURLToPath(new URL('../../', import.meta.url)),
@@ -46,8 +54,12 @@ const baseConfig: NextConfig = {
   logging: { serverFunctions: false, incomingRequests: { ignore: [/\/api\/heartbeat/] } },
   transpilePackages: ['@kira/core', '@kira/content', '@kira/figures', '@kira/db'],
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
-  // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
-  experimental: { serverActions: { bodySizeLimit: '61mb' }, globalNotFound: true },
+  experimental: {
+    // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
+    // allowedOrigins: alamat Tailscale (KIRA_ORIGIN saat build image) bila proxy tidak meneruskan host aslinya.
+    serverActions: { bodySizeLimit: '61mb', ...(publicHost ? { allowedOrigins: [publicHost] } : {}) },
+    globalNotFound: true,
+  },
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },

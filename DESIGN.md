@@ -1,7 +1,7 @@
 # DESIGN.md
 
 Proyek: Kira. Versi 0.2, 12 Oktober 2026. Pemilik: Nabila.
-Setiap warna, font, radius, jarak, bayangan, dan kurva easing di kode merujuk token di file ini. Token yang sama ada di `apps/web/src/app/tokens.css` dan diperiksa oleh `scripts/check-copy.mjs` (hex di luar daftar ini ditolak).
+Setiap warna, font, radius, jarak, bayangan, dan kurva easing di kode merujuk token di file ini. Token yang sama ada di `apps/web/src/app/globals.css` (blok `@theme`) dan `packages/figures/src/palette.ts`, dan diperiksa oleh `scripts/check-copy.mjs` (hex di luar daftar ini ditolak).
 
 Perubahan dari 0.1: skala jenjang kelas 1 sampai 6 (bagian 3a), token `--review`, fokus learner dan konsol dipisah, komponen dibangun dengan elemen HTML asli tanpa pustaka komponen.
 

@@ -1,0 +1,22 @@
+# Konteks build Docker: hanya sumber yang dibutuhkan untuk membangun web dan worker.
+**/node_modules
+**/.next
+**/dist
+**/coverage
+**/test-results
+**/playwright-report
+**/*.log
+.git
+.github
+.kira-local
+.env
+.env.*
+!.env.example
+data
+backups
+apps/android
+docs/standards
+e2e/test-results
+**/*.apk
+**/*.keystore
+**/*.jks

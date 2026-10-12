@@ -1,0 +1,182 @@
+# Kira di server rumah (Windows 11 + Docker Desktop). Panduan: docs/pasang-windows.md
+# Semua nilai rahasia ada di .env (salin dari .env.example). Hanya web yang terbuka, di 127.0.0.1:3000,
+# lalu Tailscale serve meneruskan https://<nama-pc>.<tailnet>.ts.net ke sana.
+
+name: kira
+
+x-ca: &ca-mount
+  type: volume
+  source: kira-ca
+  target: /certs
+  read_only: true
+
+services:
+  certs:
+    image: alpine:3.22
+    restart: "no"
+    entrypoint: ["/bin/sh", "/certs.sh"]
+    volumes:
+      - ./deploy/docker/certs.sh:/certs.sh:ro
+      - kira-db-tls:/tls
+      - kira-ca:/ca
+
+  db:
+    # postgres:17, digest sama dengan CI (12 Oktober 2026). Naikkan bersama tag-nya.
+    image: postgres:17@sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3
+    restart: unless-stopped
+    depends_on:
+      certs:
+        condition: service_completed_successfully
+    command:
+      - postgres
+      - -c
+      - ssl=on
+      - -c
+      - ssl_cert_file=/tls/server.crt
+      - -c
+      - ssl_key_file=/tls/server.key
+      - -c
+      - ssl_min_protocol_version=TLSv1.2
+      - -c
+      - hba_file=/etc/kira/pg_hba.conf
+      - -c
+      - password_encryption=scram-sha-256
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?isi POSTGRES_PASSWORD di .env}
+      KIRA_OWNER_PASSWORD: ${KIRA_OWNER_PASSWORD:?isi KIRA_OWNER_PASSWORD di .env}
+      KIRA_APP_PASSWORD: ${KIRA_APP_PASSWORD:?isi KIRA_APP_PASSWORD di .env}
+      KIRA_AUTH_PASSWORD: ${KIRA_AUTH_PASSWORD:?isi KIRA_AUTH_PASSWORD di .env}
+      KIRA_WORKER_PASSWORD: ${KIRA_WORKER_PASSWORD:?isi KIRA_WORKER_PASSWORD di .env}
+    volumes:
+      - kira-pgdata:/var/lib/postgresql/data
+      - kira-db-tls:/tls:ro
+      - ./deploy/db/init:/docker-entrypoint-initdb.d:ro
+      - ./deploy/db/pg_hba.conf:/etc/kira/pg_hba.conf:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d kira -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [internal]
+
+  migrate:
+    image: kira-web:latest
+    pull_policy: never
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["node", "tools/migrate.mjs"]
+    environment:
+      DATABASE_URL_OWNER: postgres://kira_owner:${KIRA_OWNER_PASSWORD}@db:5432/kira
+      PGSSLROOTCERT: /certs/ca.crt
+      KIRA_ORIGIN: ${KIRA_ORIGIN}
+    volumes:
+      - *ca-mount
+    networks: [internal]
+
+  web:
+    build:
+      context: .
+      dockerfile: deploy/docker/web.Dockerfile
+      args:
+        KIRA_ORIGIN: ${KIRA_ORIGIN}
+    image: kira-web:latest
+    restart: unless-stopped
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    environment:
+      KIRA_ORIGIN: ${KIRA_ORIGIN:?isi KIRA_ORIGIN di .env dengan alamat https Tailscale}
+      KIRA_RP_NAME: ${KIRA_RP_NAME:-Kira}
+      KIRA_SECRET: ${KIRA_SECRET:?isi KIRA_SECRET di .env}
+      KIRA_SETUP_TOKEN: ${KIRA_SETUP_TOKEN:-}
+      KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN:?isi KIRA_INTERNAL_TOKEN di .env}
+      DATABASE_URL_APP: postgres://kira_app:${KIRA_APP_PASSWORD}@db:5432/kira
+      DATABASE_URL_AUTH: postgres://kira_auth:${KIRA_AUTH_PASSWORD}@db:5432/kira
+      PGSSLROOTCERT: /certs/ca.crt
+      KIRA_DATA_DIR: /data
+      KIRA_BACKUP_DIR: /backups
+      KIRA_BACKUP_LABEL: ${KIRA_HOST_BACKUPS:-./backups}
+      KIRA_MAX_LEARNERS: ${KIRA_MAX_LEARNERS:-10}
+      KIRA_MCP: ${KIRA_MCP:-on}
+      KIRA_HIBP: ${KIRA_HIBP:-on}
+      SMTP_URL: ${SMTP_URL:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      AI_PROVIDER: ${AI_PROVIDER:-claude-code}
+      AI_MONTHLY_JOB_LIMIT: ${AI_MONTHLY_JOB_LIMIT:-400}
+      KIRA_LEGAL_NAME: ${KIRA_LEGAL_NAME:-}
+      KIRA_LEGAL_ADDRESS: ${KIRA_LEGAL_ADDRESS:-}
+      KIRA_LEGAL_EMAIL: ${KIRA_LEGAL_EMAIL:-}
+      KIRA_LEGAL_PHONE: ${KIRA_LEGAL_PHONE:-}
+      KIRA_LEGAL_COURT: ${KIRA_LEGAL_COURT:-}
+      KIRA_LEGAL_EFFECTIVE: ${KIRA_LEGAL_EFFECTIVE:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - *ca-mount
+      - ${KIRA_HOST_DATA:-./data}:/data
+      - type: bind
+        source: ${KIRA_HOST_BACKUPS:-./backups}
+        target: /backups
+        read_only: true
+    networks: [internal, egress]
+
+  worker:
+    build:
+      context: .
+      dockerfile: deploy/docker/worker.Dockerfile
+    image: kira-worker:latest
+    restart: unless-stopped
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    stop_grace_period: 10s
+    environment:
+      DATABASE_URL_WORKER: postgres://kira_worker:${KIRA_WORKER_PASSWORD}@db:5432/kira
+      PGSSLROOTCERT: /certs/ca.crt
+      KIRA_DATA_DIR: /data
+      KIRA_INTERNAL_URL: http://web:3000
+      KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN}
+      SMTP_URL: ${SMTP_URL:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      AI_PROVIDER: ${AI_PROVIDER:-claude-code}
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+      CLAUDE_MODEL_AUTHOR: ${CLAUDE_MODEL_AUTHOR:-claude-sonnet-5-5}
+      CLAUDE_MODEL_FAST: ${CLAUDE_MODEL_FAST:-claude-haiku-5-5}
+      AI_BASE_URL: ${AI_BASE_URL:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-}
+    volumes:
+      - *ca-mount
+      - ${KIRA_HOST_DATA:-./data}:/data
+    networks: [internal, egress]
+
+  backup:
+    image: postgres:17@sha256:2d2b8998d31037bf721cfdf764d76ba74171b4fab3431b7f72c27c56ddbdf9e3
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "/backup.sh"]
+    environment:
+      DATABASE_URL_OWNER: postgres://kira_owner:${KIRA_OWNER_PASSWORD}@db:5432/kira
+      BACKUP_KEEP_DAILY: ${BACKUP_KEEP_DAILY:-14}
+      BACKUP_KEEP_WEEKLY: ${BACKUP_KEEP_WEEKLY:-8}
+    volumes:
+      - ./deploy/backup/backup.sh:/backup.sh:ro
+      - *ca-mount
+      - ${KIRA_HOST_BACKUPS:-./backups}:/backups
+    networks: [internal]
+
+networks:
+  # Database hanya di jaringan internal tanpa akses internet.
+  internal:
+    internal: true
+  # Web (cek password HaveIBeenPwned) dan worker (Claude, SMTP) butuh internet keluar.
+  egress: {}
+
+volumes:
+  kira-pgdata:
+  kira-db-tls:
+  kira-ca:
