@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "e2e"
+
+# Supply chain: a release must be at least 3 days old before pnpm installs it.
+minimumReleaseAge: 4320
+
+# Lifecycle scripts of dependencies stay blocked except for these.
+onlyBuiltDependencies:
+  - esbuild

@@ -1,0 +1,53 @@
+# GTX-ENG-001 C-03. The antithesis frame, in all the shapes it actually takes.
+#
+# Why this needs its own rule file: the single regex most teams ship
+# ("it's not just X, it's Y") catches one variant out of about twenty, and
+# none of the Indonesian ones. The frame survives paraphrase because it is a
+# STRUCTURE, not a phrase. This file targets the structure.
+#
+# The frame: negate a small claim, then reveal a bigger one. It reads as
+# insight and carries none, because the negated half was never in dispute.
+# Nobody thought it was just a tool.
+#
+# Fix: delete the negated half and say the second thing. If the second thing
+# cannot stand alone, it was not a claim.
+#
+# Install: copy this folder to .vale/styles/ and add Gatxel to BasedOnStyles.
+
+extends: existence
+message: "GTX-ENG-001 C-03: antithesis frame. Delete the negated half and say the thing. Found: '%s'"
+link: https://github.com/gatxel/build-standard#c-03
+level: error
+ignorecase: true
+scope: raw
+nonword: false
+tokens:
+  # --- English: the "not just / not merely" family, one sentence -----------
+  # Keyed on negation + intensifier + reveal, so it catches every subject and
+  # both the contracted ("isn't just") and expanded ("is not just") forms.
+  - "(isn'?t|aren'?t|'?s not|'?re not|is not|are not|'?m not) (just|merely|simply|only|really) [^.!?\\n]{1,60}[,;] ?(it'?s|that'?s|this is|we'?re|they'?re|you'?re|it is|they are|but)"
+  - "not (just|merely|simply|only) (a|an|the) [^.!?\\n]{1,50}[,;]? but (a|an|the)"
+  - "(is|are|was|were) not (just|merely|simply|only) about [^.!?\\n]{1,50}[,;.] (it'?s|they'?re|that'?s)? ?about"
+
+  # --- English: the two-sentence variant. This is the common one now, -----
+  #     because writers learned to avoid the comma splice above.
+  - "(isn'?t|is not|aren'?t|are not|wasn'?t) (just )?(a|an|the|about) [^.!?\\n]{1,60}[.!] ?(It|They|That|This) ?('?s| is| are) (a|an|the|about)"
+  - "(this|that|it) (is|'?s) (not|never) (a|an|the) [^.!?\\n]{1,50}[.!] ?(It|This|That) ?('?s| is) (a|an|the)"
+
+  # --- English: the comparative and "beyond" variants ----------------------
+  - "(more|much more|far more) than (just )?(a|an|the) [^.!?\\n]{1,40}[.,]"
+  - "(less|not) about [^.!?\\n]{1,40}[,.] (and )?more about"
+  - "think less [^.!?\\n]{1,30}[,;] more"
+  - "goes (well )?beyond (just )?(a|an|the|simple|basic)"
+  - "(the real|the actual|the important) (question|problem|issue|point) (isn'?t|is not) [^.!?\\n]{1,60}[,.] (it'?s|it is)"
+  - "it'?s not (that|because) [^.!?\\n]{1,60}[,;] it'?s (that|because)"
+
+  # --- English: stacked negation resolving into a reveal -------------------
+  #     "No setup. No config. No hassle. Just results."
+  - "\\bNo [A-Za-z-]+\\. ?No [A-Za-z-]+\\. ?(No [A-Za-z-]+\\. ?)?(Just|Only|Simply) "
+
+  # --- Indonesian ---------------------------------------------------------
+  - "bukan (sekadar|sekedar|hanya|cuma) [^.!?\\n]{1,60}[,;] (tapi|tetapi|melainkan|namun)"
+  - "bukan (soal|tentang|masalah) [^.!?\\n]{1,50}[,;.] ?(tapi|tetapi|melainkan) (soal|tentang)"
+  - "lebih dari (sekadar|sekedar|sekedar sebuah|sebuah)"
+  - "(ini|itu) bukan [^.!?\\n]{1,50}[.!] ?(Ini|Itu) adalah"
