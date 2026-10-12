@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/kira_ripple_on_math">
+    <item>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/radius_control" />
+                    <solid android:color="@color/kira_border" />
+                </shape>
+            </item>
+            <item android:state_focused="true">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/radius_control" />
+                    <solid android:color="@color/kira_math" />
+                    <stroke android:width="3dp" android:color="@color/kira_fg" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/radius_control" />
+                    <solid android:color="@color/kira_math" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

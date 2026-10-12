@@ -1,0 +1,18 @@
+# Semua versi dipatok persis dan sudah berumur minimal tiga hari saat dipilih (12 Oktober 2026).
+# Kotlin memakai Kotlin bawaan AGP 9: AGP 9.4.1 membawa Kotlin Gradle Plugin 2.2.10, jadi
+# plugin org.jetbrains.kotlin.android tidak dipasang terpisah.
+# androidx.core tertahan di 1.18.0 karena 1.19.x butuh compileSdk 37.
+
+[versions]
+agp = "9.4.1"
+androidx-core = "1.18.0"
+androidx-activity = "1.13.0"
+androidx-webkit = "1.17.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
+androidx-webkit = { module = "androidx.webkit:webkit", version.ref = "androidx-webkit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
