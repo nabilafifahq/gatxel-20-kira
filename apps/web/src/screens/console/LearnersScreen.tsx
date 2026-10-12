@@ -44,7 +44,8 @@ const AVATAR_LABEL: Record<AvatarName, string> = {
 }
 
 const GRADES = [1, 2, 3, 4, 5, 6]
-const NAME_MAX = 20
+/** Sama dengan batas server (addLearner, updateLearner). */
+const NAME_MAX = 40
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
 /** Judul tujuan sama dengan halaman Privasi keluarga (LearnersDTO tidak membawa daftar tujuan). */
@@ -172,7 +173,7 @@ export function LearnersScreen({ data, actions }: LearnersScreenProps) {
             </div>
           )}
           <p className="m-0 max-w-[72ch] text-small text-fg-muted">
-            Mengubah grade memindahkan quest ke bab grade baru mulai Senin berikutnya. Bintang, streak, dan riwayat di grade lama tetap tersimpan.
+            Mengubah grade memindahkan quest otomatis ke bab grade baru mulai quest berikutnya yang dibuat. Slot di rencana tidak ikut berubah. Bintang, streak, dan riwayat di grade lama tetap tersimpan.
           </p>
         </section>
       </div>
@@ -486,7 +487,11 @@ function AddLearnerDialog({
     }
     const r = await add.run({ name: name.trim(), grade, avatar, pin, guardianEmail: em || null })
     if (!r.ok) {
-      if (r.fieldErrors) setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.guardianEmail, pin: r.fieldErrors.pin })
+      if (r.fieldErrors) {
+        setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.guardianEmail, pin: r.fieldErrors.pin })
+        const field = r.fieldErrors.name ? 'learner-nama' : r.fieldErrors.pin ? 'learner-pin' : r.fieldErrors.guardianEmail ? 'learner-email' : null
+        if (field) document.getElementById(field)?.focus()
+      }
       return
     }
     const learner: Learner = {
@@ -525,18 +530,22 @@ function AddLearnerDialog({
         }
       >
         <div className="flex flex-col gap-4">
-          {done.email ? (
-            <InlineAlert tone="success" title={`Permintaan persetujuan dikirim ke ${done.email}.`} live="status">
-              Email berisi Kebijakan Privasi, Syarat dan Ketentuan, dan tombol untuk menyetujui.
+          {done.email && done.inviteLink ? (
+            <InlineAlert tone="success" title={`Undangan orang tua dikirim ke ${done.email}.`} live="status">
+              Setelah membuat akun dari undangan, orang tua membaca Kebijakan Privasi lalu memberi persetujuan di halaman Privasi.
+            </InlineAlert>
+          ) : done.email ? (
+            <InlineAlert tone="success" title={`${done.email} sudah punya akun orang tua di Kira.`} live="status">
+              {done.learner.name} sudah ditautkan ke akun itu. Permintaan persetujuan dikirim lewat email dan menunggu di halaman Privasi orang tua.
             </InlineAlert>
           ) : (
             <p className="m-0 text-body">Tanpa email orang tua, persetujuan bisa dicatat offline dari formulir kertas atau tatap muka.</p>
           )}
           {done.inviteLink ? (
-            <CopyLink link={done.inviteLink} label="Tautan persetujuan untuk orang tua" />
+            <CopyLink link={done.inviteLink} label="Tautan undangan untuk orang tua" />
           ) : null}
           {done.inviteLink ? (
-            <p className="m-0 text-small text-fg-muted">Kirim tautan ini lewat pesan bila email tidak sampai. Tautan hanya bisa dipakai sekali.</p>
+            <p className="m-0 text-small text-fg-muted">Kirim tautan ini lewat pesan bila email tidak sampai. Tautan berlaku 7 hari dan hanya bisa dipakai sekali.</p>
           ) : null}
         </div>
       </Dialog>
@@ -593,7 +602,7 @@ function AddLearnerDialog({
         <TextField
           id="learner-email"
           label="Email orang tua (opsional)"
-          hint="Permintaan persetujuan dikirim ke email ini bersama Kebijakan Privasi dan Syarat dan Ketentuan. Kosongkan bila persetujuan dicatat offline."
+          hint="Undangan untuk membuat akun orang tua dan memberi persetujuan dikirim ke email ini. Kosongkan bila persetujuan dicatat offline."
           type="email"
           inputMode="email"
           autoComplete="off"
@@ -699,7 +708,7 @@ function EditLearnerDialog({
           <GradePicker value={grade} onChange={setGrade} />
           {gradeChanged ? (
             <InlineAlert tone="warn" title={`Grade berubah dari ${learner.grade} ke ${grade}.`} live="status">
-              Quest pindah ke bab Grade {grade} mulai Senin berikutnya. Bintang, streak, dan riwayat di Grade {learner.grade} tetap tersimpan.
+              Quest otomatis memakai bab Grade {grade} mulai quest berikutnya yang dibuat. Slot di rencana tidak ikut berubah. Bintang, streak, dan riwayat di Grade {learner.grade} tetap tersimpan.
             </InlineAlert>
           ) : null}
           <ActionError error={save.error} />

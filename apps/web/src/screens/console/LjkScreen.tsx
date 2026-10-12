@@ -26,15 +26,16 @@ export type LjkScreenProps = { data: LjkDTO; actions: LjkActions }
 export function LjkScreen({ data, actions }: LjkScreenProps) {
   const toast = useToast()
   const sel = data.selected
+  const selId = sel?.attemptId ?? null
   const [answers, setAnswers] = useState<(string | null)[]>(() => sel?.answers ?? [])
-  const [src, setSrc] = useState(sel)
-  const [score, setScore] = useState<string | null>(null)
+  const [srcId, setSrcId] = useState(selId)
+  // Nilai terakhir tetap tampil setelah lembarnya keluar dari daftar (refresh sesudah dinilai).
+  const [scored, setScored] = useState<{ title: string; learnerName: string; score: string } | null>(null)
   const [confirmOpen, setConfirmOpen] = useState(false)
   const save = useAction(actions.saveLjk)
-  if (src !== sel) {
-    setSrc(sel)
+  if (srcId !== selId) {
+    setSrcId(selId)
     setAnswers(sel?.answers ?? [])
-    setScore(null)
   }
 
   const filled = answers.filter((a) => a != null && a !== '').length
@@ -45,7 +46,7 @@ export function LjkScreen({ data, actions }: LjkScreenProps) {
     const r = await save.run({ attemptId: sel.attemptId, answers, submit })
     if (r.ok) {
       if (submit) {
-        setScore(r.data.score)
+        setScored({ title: sel.title, learnerName: sel.learnerName, score: r.data.score })
         toast({ tone: 'success', title: `Nilai ${sel.title} tersimpan: ${r.data.score}.` })
       } else {
         toast({ tone: 'success', title: `${filled} jawaban tersimpan sebagai draf.` })
@@ -67,6 +68,20 @@ export function LjkScreen({ data, actions }: LjkScreenProps) {
           </ButtonLink>
         }
       />
+
+      {scored ? (
+        <InlineAlert
+          tone="success"
+          title={`Nilai ${scored.title}, ${scored.learnerName}, tersimpan: ${scored.score}.`}
+          action={
+            <ButtonLink href={CONSOLE_ROUTES.inbox} variant="secondary" size="S">
+              Lihat di Hasil
+            </ButtonLink>
+          }
+        >
+          Nilai masuk ke riwayat attempt dan peta penguasaan.
+        </InlineAlert>
+      ) : null}
 
       {data.sheets.length === 0 ? (
         <EmptyState
@@ -131,26 +146,12 @@ export function LjkScreen({ data, actions }: LjkScreenProps) {
                 {sel.shortAnswerFrom ? `, nomor ${sel.shortAnswerFrom} ke atas isian` : ''}. Di laptop, huruf di keyboard langsung mengisi nomor yang sedang fokus.
               </p>
 
-              {score ? (
-                <InlineAlert
-                  tone="success"
-                  title={`Nilai tersimpan: ${score}.`}
-                  action={
-                    <ButtonLink href={CONSOLE_ROUTES.inbox} variant="secondary" size="S">
-                      Lihat di Hasil
-                    </ButtonLink>
-                  }
-                >
-                  Nilai masuk ke riwayat attempt dan peta penguasaan.
-                </InlineAlert>
-              ) : null}
-
               <LjkGrid
                 answers={answers}
                 optionCount={sel.optionCount}
                 shortAnswerFrom={sel.shortAnswerFrom}
                 onChange={(i, v) => {
-                  setScore(null)
+                  setScored(null)
                   setAnswers((a) => a.map((x, j) => (j === i ? v : x)))
                 }}
               />

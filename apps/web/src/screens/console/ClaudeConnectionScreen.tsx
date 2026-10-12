@@ -20,8 +20,8 @@ import { useAction } from '@/components/console/useAction'
 /**
  * T14 Koneksi Claude (papan KoneksiClaude, KoneksiClaudeBelum). Dua koneksi:
  * AI di worker untuk Studio AI dan saran nilai (Claude Code atau endpoint
- * OpenAI-compatible, dites dari sini), dan server MCP baca-saja supaya Claude
- * milik tutor bisa membaca hasil belajar dengan token per perangkat.
+ * OpenAI-compatible, dites dari sini), dan server MCP supaya Claude Code milik
+ * tutor bisa membaca hasil belajar dan mengirim draf soal, dengan token per perangkat.
  */
 
 export type ClaudeConnectionScreenProps = { data: ClaudeConnectionDTO; actions: ClaudeConnectionActions }
@@ -41,24 +41,48 @@ const STATUS: Record<ClaudeConnectionDTO['status'], { label: string; dot: string
 }
 
 const READS = [
-  'Menit belajar, quest selesai, dan akurasi per mapel per minggu',
-  'Penguasaan skill dan bintang',
-  'Skor attempt tanpa teks jawaban',
-  'Rencana mingguan yang sudah terbit dan kalender lomba',
+  'Daftar learner sebagai Learner 1, Learner 2, dengan grade dan status aktif',
+  'Bintang dan gerbang setiap skill yang sudah dilatih',
+  'Akurasi per mapel per minggu, empat minggu terakhir',
+  'Skill kurikulum dan soal di Bank soal, termasuk kunci jawabannya',
 ]
 const NEVER = [
-  'Foto lembar jawaban dan rekaman suara',
+  'Nama anak, foto lembar jawaban, dan rekaman suara',
   'Teks jawaban, tulisan, dan gambar',
   'Catatan pribadi tutor',
   'Email, password, dan data akun orang dewasa',
 ]
 const TOOLS: { name: string; what: string; ask: string }[] = [
-  { name: 'get_weekly_summary', what: 'Ringkasan satu minggu per learner', ask: 'Ringkas minggu 12 sampai 18 Oktober untuk learner_1.' },
-  { name: 'get_skill_mastery', what: 'Penguasaan skill per mapel per minggu', ask: 'Skill Math mana yang turun dua minggu berturut-turut?' },
-  { name: 'list_attempts', what: 'Attempt dengan skor dan waktu, tanpa teks jawaban', ask: 'Quest English mana yang di bawah 70% bulan ini?' },
-  { name: 'get_week_plan', what: 'Rencana minggu yang sudah terbit', ask: 'Usulkan paper minggu depan dari rencana dan hasil minggu ini.' },
-  { name: 'list_competitions', what: 'Kalender lomba dan status pendaftaran', ask: 'Berapa minggu lagi sampai final ESMO?' },
+  { name: 'list_learners', what: 'Daftar learner dengan label, grade, dan status aktif', ask: 'Siapa saja learner di Kira dan grade berapa?' },
+  { name: 'learner_progress', what: 'Bintang dan gerbang per skill, akurasi per mapel empat minggu terakhir', ask: 'Skill Math mana yang perlu diulang Learner 1?' },
+  { name: 'list_skills', what: 'Skill kurikulum per mapel dan grade', ask: 'Skill apa saja di English Grade 2?' },
+  { name: 'get_item', what: 'Satu soal lengkap dengan kunci, hint, dan pembahasan', ask: 'Tampilkan soal m2.oly-patterns.003 beserta kuncinya.' },
+  { name: 'search_items', what: 'Cari soal per skill atau kata di teks soal', ask: 'Cari soal tentang jam di Math Grade 2.' },
+  { name: 'create_draft_items', what: 'Kirim draf soal ke antrean Studio AI; dipakai setelah disetujui tutor', ask: 'Buat 5 soal cerita Numbers to 100 bertema pasar, lalu kirim sebagai draf.' },
 ]
+
+const SETUP_STEPS: Record<ClaudeConnectionDTO['provider'], { title: string; steps: string[] }> = {
+  'claude-code': {
+    title: 'Cara menyambungkan Claude Code',
+    steps: [
+      'Di komputer yang sudah masuk ke akun Claude, jalankan claude setup-token.',
+      'Isi token itu sebagai CLAUDE_CODE_OAUTH_TOKEN di file .env worker di server rumah.',
+      'Jalankan ulang worker, lalu tekan Tes koneksi.',
+    ],
+  },
+  'openai-compatible': {
+    title: 'Cara menyambungkan endpoint OpenAI-compatible',
+    steps: ['Isi AI_BASE_URL, AI_MODEL, dan AI_API_KEY di file .env worker di server rumah.', 'Jalankan ulang worker, lalu tekan Tes koneksi.'],
+  },
+  none: {
+    title: 'Cara menyalakan AI',
+    steps: [
+      'Isi AI_PROVIDER dengan claude-code atau openai-compatible di file .env web dan worker.',
+      'Lengkapi token atau alamat AI di .env worker.',
+      'Jalankan ulang web dan worker, lalu tekan Tes koneksi.',
+    ],
+  },
+}
 
 export function ClaudeConnectionScreen({ data, actions }: ClaudeConnectionScreenProps) {
   return (
@@ -73,7 +97,7 @@ export function ClaudeConnectionScreen({ data, actions }: ClaudeConnectionScreen
         </nav>
         <PageHeader
           title="Koneksi Claude"
-          description="Claude dan Claude Code membaca hasil belajar langsung dari Kira lewat MCP. Koneksi ini hanya membaca, jadi Claude tidak bisa mengubah rencana, nilai, soal, atau pengaturan."
+          description="Claude Code membaca hasil belajar dari Kira lewat MCP dan bisa mengirim draf soal ke Studio AI. Claude tidak bisa mengubah rencana, nilai, atau pengaturan, dan draf baru dipakai setelah disetujui tutor."
         />
         <div className="flex flex-wrap items-start gap-6">
           <ProviderCard data={data} actions={actions} />
@@ -103,7 +127,7 @@ export function ClaudeConnectionScreen({ data, actions }: ClaudeConnectionScreen
               ))}
             </ul>
             <p className="m-0 text-small text-fg-muted">
-              Learner tampil dengan nama samaran learner_1, learner_2, dan seterusnya. Data yang dibaca Claude diproses Anthropic di luar Indonesia. Isi
+              Learner tampil dengan nama samaran Learner 1, Learner 2, dan seterusnya. Data yang dibaca Claude diproses Anthropic di luar Indonesia. Isi
               percakapan mengikuti pengaturan akun Claude milik tutor.
             </p>
           </Card>
@@ -112,7 +136,7 @@ export function ClaudeConnectionScreen({ data, actions }: ClaudeConnectionScreen
               <h2 id="tools-mcp" className="m-0 text-h3 font-bold">
                 Tools yang tersedia
               </h2>
-              <span className="text-body text-fg-muted">Lima tool, semuanya hanya membaca. Mengubah rencana tetap lewat Perencana.</span>
+              <span className="text-body text-fg-muted">Enam tool. Lima hanya membaca; create_draft_items menaruh draf di antrean tinjau Studio AI.</span>
             </div>
             <DataTable
               caption="Tools MCP Kira"
@@ -185,13 +209,11 @@ function ProviderCard({ data, actions }: ClaudeConnectionScreenProps) {
       </p>
       {result.status === 'not-configured' ? (
         <div className="flex flex-col gap-2 rounded-control border border-divider bg-bg px-4 py-3.5">
-          <span className="text-body font-bold">Cara menyambungkan Claude Code</span>
-          <ol className="m-0 flex list-decimal flex-col gap-1 pl-5 text-body">
-            <li>
-              Di komputer yang sudah masuk ke akun Claude, jalankan <code className="rounded-sm bg-surface px-1 font-body font-bold">claude setup-token</code>.
-            </li>
-            <li>Simpan token itu di pengaturan worker Kira (file .env di server rumah).</li>
-            <li>Jalankan ulang worker, lalu tekan Tes koneksi.</li>
+          <span className="text-body font-bold">{SETUP_STEPS[data.provider].title}</span>
+          <ol className="m-0 flex list-decimal flex-col gap-1 pl-5 text-body [overflow-wrap:anywhere]">
+            {SETUP_STEPS[data.provider].steps.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
           </ol>
         </div>
       ) : null}
@@ -284,13 +306,20 @@ function McpCard({ data }: { data: ClaudeConnectionDTO }) {
           </p>
           <CopyRow label="Alamat server MCP" value={data.mcp.url} copyLabel="Salin alamat" toastTitle="Alamat server disalin." />
           <div className="flex flex-col gap-1.5">
-            <span className="text-small font-bold">Aplikasi Claude di web, desktop, atau HP</span>
+            <span className="text-small font-bold">Claude Code di laptop yang tersambung ke Tailscale</span>
             <ol className="m-0 flex list-decimal flex-col gap-1 pl-5 text-body">
-              <li>Buka Settings, lalu Connectors.</li>
-              <li>Pilih Add custom connector, beri nama Kira, lalu tempel alamat di atas.</li>
-              <li>Masuk dengan akun Kira bila diminta, lalu setujui akses baca.</li>
+              <li>Buat token di bawah dengan nama laptop itu.</li>
+              <li>Jalankan perintah yang muncul bersama token di terminal laptop.</li>
+              <li>Jalankan /mcp di Claude Code untuk memastikan Kira tersambung.</li>
             </ol>
+            <code className="rounded-control border border-divider bg-bg px-3 py-2 font-body text-small font-semibold [overflow-wrap:anywhere]">
+              {claudeCodeCommand(data.mcp.url, '<token>')}
+            </code>
           </div>
+          <p className="m-0 text-small text-fg-muted">
+            Aplikasi Claude di web, desktop, dan HP menyambung ke server MCP dari server Anthropic lewat internet publik, jadi tidak bisa menjangkau Kira
+            yang hanya ada di jaringan Tailscale rumah.
+          </p>
         </>
       ) : (
         <InlineAlert tone="info" title="Server MCP sedang mati." live="none">
@@ -424,7 +453,7 @@ function TokensSection({ data, actions }: ClaudeConnectionScreenProps) {
             compact
             icon="key"
             title="Belum ada token."
-            body="Claude belum bisa membaca data Kira. Buat token pertama untuk perangkat yang memakai Claude Code atau aplikasi Claude."
+            body="Claude belum bisa membaca data Kira. Buat token pertama untuk laptop yang memakai Claude Code."
           />
         ) : (
           <DataTable caption="Token akses MCP" minWidth={560} rows={tokens} rowKey={(t) => t.id} columns={columns} />

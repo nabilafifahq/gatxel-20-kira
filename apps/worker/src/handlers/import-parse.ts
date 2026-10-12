@@ -142,8 +142,8 @@ export function findMarkers(s: string, seen: Set<number>, expectLower: boolean |
 // ---------------------------------------------------------------------------
 // Kunci jawaban
 
-const KEY_HEADING = /^\s*(kunci\s+jawaban|kunci|answer\s+key|answers|jawaban|key)\b\s*[:.\-]?\s*(.*)$/i
-const KEY_ENTRY = /(?:^|[\s|;,])(\d{1,3})\s*(?:[.):=|\-]\s*|\s+)\(?([A-Ea-e])\)?(?=$|[\s|;,.])/g
+const KEY_HEADING = /^\s*(kunci\s+jawaban|kunci|answer\s+key|answers|jawaban|key)\b\s*[:.-]?\s*(.*)$/i
+const KEY_ENTRY = /(?:^|[\s|;,])(\d{1,3})\s*(?:[.):=|-]\s*|\s+)\(?([A-Ea-e])\)?(?=$|[\s|;,.])/g
 const LABEL_WORD = /^(no\.?|nomor|soal|number|question|jawaban|jwb\.?|kunci|answer|answers|key|ans\.?)$/i
 
 function tableRow(raw: string): string[] {
@@ -190,7 +190,7 @@ function keyOnly(raw: string): boolean {
   return tokens.length > 0 && (tokens.every((x) => /^\d{1,3}$/.test(x)) || tokens.every((x) => /^[A-Ea-e]$/.test(x)))
 }
 
-const KEY_LINE_START = /^\s*\d{1,3}\s*(?:[.):=|\-]\s*|\s+)\(?[A-Ea-e]\)?(?=$|[\s|;,.])/
+const KEY_LINE_START = /^\s*\d{1,3}\s*(?:[.):=|-]\s*|\s+)\(?[A-Ea-e]\)?(?=$|[\s|;,.])/
 
 /**
  * Baris berurutan yang membentuk bagian kunci, mulai dari `from`. Entri boleh diikuti catatan
@@ -241,6 +241,7 @@ const FIGURE = /\b(gambar|tabel|grafik|diagram|bagan|denah|peta|picture|figure|i
 const KEY_TEXT = /\b(kunci\s*(?:jawaban|:)|jawaban\s*[:=]|jwb\s*[:=]|answer\s*[:=]|ans\s*[:=])/i
 // Karakter pengganti, area pribadi (font matematika tanpa peta Unicode), karakter kontrol, dan
 // mojibake pecahan Latin-1 seperti "\u00C2\u00BD".
+// eslint-disable-next-line no-control-regex -- karakter kontrol memang yang dicari di teks PDF
 const MANGLED = /[\uFFFD\uE000-\uF8FF\u0001-\u0008\u000e-\u001f]|\u00C2[\u00BC-\u00BE]/
 
 function digitColumns(s: string): number[] {

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { addDays } from '@kira/core/time'
 import { Avatar } from '@kira/figures'
 import type { LearnerDetailActions, LearnerDetailDTO, Subject } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
@@ -31,28 +32,55 @@ const STATUS_LINE: Record<ReturnType<typeof levelOf>, string> = {
   empty: 'Belum ada soal skill ini di minggu tersebut.',
 }
 
-function firstSelection(data: LearnerDetailDTO): string | null {
+type HeatGroups = LearnerDetailDTO['heatmap']
+
+function firstSelection(weeks: LearnerDetailDTO['weeks'], groups: HeatGroups): string | null {
   // Pilih sel ajar ulang terbaru, kalau tidak ada sel terakhir skill pertama.
-  const last = data.weeks.length - 1
-  for (const g of data.heatmap) {
+  const last = weeks.length - 1
+  for (const g of groups) {
     for (const s of g.skills) {
       const c = s.cells[last]
       if (c && levelOf(c) === 'reteach') return cellKey(s.id, last)
     }
   }
-  const s0 = data.heatmap[0]?.skills[0]
+  const s0 = groups[0]?.skills[0]
   return s0 ? cellKey(s0.id, Math.max(0, last)) : null
+}
+
+/** Skill yang punya jawaban di jendela peta atau sudah punya bintang. */
+function practicedOnly(groups: HeatGroups): HeatGroups {
+  return groups
+    .map((g) => ({ ...g, skills: g.skills.filter((s) => s.stars > 0 || s.cells.some((c) => c.answers > 0)) }))
+    .filter((g) => g.skills.length > 0)
+}
+
+function skillCount(groups: HeatGroups): number {
+  return groups.reduce((n, g) => n + g.skills.length, 0)
 }
 
 export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps) {
   const toast = useToast()
-  const [selected, setSelected] = useState<string | null>(() => firstSelection(data))
+  const practiced = useMemo(() => practicedOnly(data.heatmap), [data.heatmap])
+  // Peta memuat semua skill grade learner; tampilan awal hanya skill yang sudah dilatih.
+  const [scope, setScope] = useState<'practiced' | 'all'>('practiced')
+  const groups = scope === 'practiced' && practiced.length > 0 ? practiced : data.heatmap
+  const [selected, setSelected] = useState<string | null>(() => firstSelection(data.weeks, practiced.length > 0 ? practiced : data.heatmap))
   const [subject, setSubject] = useState<Subject | 'all'>('all')
   const [note, setNote] = useState('')
   const [noteError, setNoteError] = useState<string | null>(null)
+  const [notesSrc, setNotesSrc] = useState(data.notes)
   const [notes, setNotes] = useState(data.notes)
   const save = useAction(actions.addNote)
   const { learner } = data
+  // Catatan dari server menggantikan salinan lokal setelah halaman diperbarui.
+  if (notesSrc !== data.notes) {
+    setNotesSrc(data.notes)
+    setNotes(data.notes)
+  }
+  const q = `?learner=${encodeURIComponent(learner.id)}`
+  const thisWeek = data.weeks[data.weeks.length - 1]?.weekStart
+  const planHref = `${CONSOLE_ROUTES.plan}${q}`
+  const nextPlanHref = thisWeek ? `${planHref}&minggu=${addDays(thisWeek, 7)}` : planHref
 
   const detail = useMemo(() => {
     if (!selected) return null
@@ -112,10 +140,10 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <ButtonLink href={CONSOLE_ROUTES.reports} variant="secondary">
+          <ButtonLink href={`${CONSOLE_ROUTES.reports}${q}`} variant="secondary">
             Laporan minggu ini
           </ButtonLink>
-          <ButtonLink href={CONSOLE_ROUTES.plan} variant="primary">
+          <ButtonLink href={nextPlanHref} variant="primary">
             Buka rencana minggu depan
           </ButtonLink>
         </div>
@@ -126,12 +154,37 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
           <h2 id="penguasaan" className="m-0 text-h2 font-bold max-sm:text-h3">
             Penguasaan skill per minggu
           </h2>
-          <span className="text-body text-fg-muted">Akurasi 10 soal terakhir di tiap skill, jawaban pertama tanpa hint. Pilih sel untuk melihat rinciannya.</span>
+          <span className="text-body text-fg-muted">
+            Persen jawaban pertama yang benar tanpa hint, per minggu. Warna sel mengikuti status skill di akhir minggu itu. Pilih sel untuk melihat rinciannya.
+          </span>
         </div>
+        {hasHeat && practiced.length > 0 && skillCount(practiced) < skillCount(data.heatmap) ? (
+          <div role="group" aria-label="Skill yang ditampilkan" className="flex flex-wrap gap-1.5">
+            {(
+              [
+                ['practiced', `Sudah dilatih, ${skillCount(practiced)} skill`],
+                ['all', `Semua skill, ${skillCount(data.heatmap)}`],
+              ] as const
+            ).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                aria-pressed={scope === value}
+                onClick={() => setScope(value)}
+                className={cx(
+                  'h-9 cursor-pointer rounded-pill border-2 px-3 text-small font-bold text-fg',
+                  scope === value ? 'border-fg bg-bg' : 'border-divider bg-surface hover:border-fg',
+                )}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        ) : null}
         {hasHeat ? (
           <div className="flex flex-wrap items-start gap-6">
             <Card padding="none" className="flex-[2_1_600px] px-6 py-5 max-sm:px-3 max-sm:py-4">
-              <MasteryHeatmap weeks={data.weeks} groups={data.heatmap} selected={selected} onSelect={setSelected} learnerName={learner.name} />
+              <MasteryHeatmap weeks={data.weeks} groups={groups} selected={selected} onSelect={setSelected} learnerName={learner.name} />
             </Card>
             <aside aria-live="polite" aria-label="Rincian sel terpilih" className="flex min-w-0 flex-[1_1_300px] flex-col gap-3 rounded-card border border-divider bg-surface px-6 py-5">
               {detail && detail.cell ? (
@@ -153,7 +206,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
                       <p className="m-0 text-body">
                         {lv === 'empty'
                           ? `Tidak ada soal ${detail.skill.title} yang dikerjakan di minggu ini.`
-                          : `${Math.round(acc ?? 0)}% benar dari ${num(detail.cell.answers)} jawaban minggu ini.`}
+                          : `${Math.round(acc ?? 0)}% benar tanpa hint dari ${num(detail.cell.answers)} jawaban minggu ini.`}
                       </p>
                       <p className={cx('m-0 text-body font-bold', lv === 'reteach' ? 'text-warn' : lv === 'empty' ? 'text-fg-muted' : 'text-fg')}>
                         {STATUS_LINE[lv]}
@@ -176,7 +229,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
                         </p>
                       ) : null}
                       {lv === 'reteach' || lv === 'review' ? (
-                        <ButtonLink href={CONSOLE_ROUTES.plan} variant="primary" className="self-start">
+                        <ButtonLink href={planHref} variant="primary" className="self-start">
                           {lv === 'reteach' ? 'Tambahkan pelajaran ke rencana' : 'Tambahkan satu sesi latihan'}
                         </ButtonLink>
                       ) : null}
@@ -195,7 +248,7 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
             title="Peta penguasaan masih kosong."
             body={`Peta terisi setelah ${learner.name} menyelesaikan quest pertama. Setiap skill butuh paling sedikit satu jawaban di minggu itu.`}
             actions={
-              <ButtonLink href={CONSOLE_ROUTES.plan} variant="primary">
+              <ButtonLink href={planHref} variant="primary">
                 Susun rencana minggu ini
               </ButtonLink>
             }

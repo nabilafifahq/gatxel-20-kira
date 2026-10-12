@@ -1,5 +1,6 @@
 // Screenshot halaman untuk pemeriksaan visual.
 // Pemakaian: node scripts/shot.mjs <url> <out.png> [lebar] [tinggi] [--full]
+/* global document -- dipakai di dalam page.evaluate, yang berjalan di browser */
 import { chromium } from '@playwright/test'
 
 const [url, out, w = '1180', h = '820'] = process.argv.slice(2)

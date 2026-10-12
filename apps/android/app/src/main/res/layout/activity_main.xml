@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Satu activity: WebView Kira, layar tidak terhubung, dan layar alamat server. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kira_bg">
+
+    <FrameLayout
+        android:id="@+id/web_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_gravity="top"
+        android:importantForAccessibility="no"
+        android:max="100"
+        android:progressBackgroundTint="@color/kira_divider"
+        android:progressTint="@color/kira_math"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/offline_screen"
+        style="@style/KiraScreen">
+
+        <com.gatxel.kira.MaxWidthLayout style="@style/KiraContent">
+
+            <TextView
+                style="@style/KiraTitle"
+                android:accessibilityHeading="true"
+                android:text="@string/offline_title" />
+
+            <TextView
+                style="@style/KiraBody"
+                android:text="@string/offline_body" />
+
+            <TextView
+                android:id="@+id/offline_detail"
+                style="@style/KiraDetail"
+                android:textIsSelectable="true" />
+
+            <Button
+                android:id="@+id/offline_retry"
+                style="@style/KiraButtonPrimary"
+                android:text="@string/offline_retry" />
+
+            <Button
+                android:id="@+id/offline_change"
+                style="@style/KiraButtonSecondary"
+                android:text="@string/offline_change" />
+        </com.gatxel.kira.MaxWidthLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/setup_screen"
+        style="@style/KiraScreen">
+
+        <com.gatxel.kira.MaxWidthLayout style="@style/KiraContent">
+
+            <TextView
+                style="@style/KiraTitle"
+                android:accessibilityHeading="true"
+                android:text="@string/setup_title" />
+
+            <TextView
+                style="@style/KiraBody"
+                android:text="@string/setup_body" />
+
+            <TextView
+                style="@style/KiraLabel"
+                android:labelFor="@+id/setup_input"
+                android:text="@string/setup_label" />
+
+            <EditText
+                android:id="@+id/setup_input"
+                style="@style/KiraInput"
+                android:imeOptions="actionGo"
+                android:importantForAutofill="no"
+                android:inputType="textUri"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/setup_error"
+                style="@style/KiraError"
+                android:accessibilityLiveRegion="polite"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/setup_save"
+                style="@style/KiraButtonPrimary"
+                android:text="@string/setup_save" />
+
+            <Button
+                android:id="@+id/setup_cancel"
+                style="@style/KiraButtonSecondary"
+                android:text="@string/setup_cancel"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/KiraDetail"
+                android:text="@string/setup_note" />
+        </com.gatxel.kira.MaxWidthLayout>
+    </ScrollView>
+</FrameLayout>

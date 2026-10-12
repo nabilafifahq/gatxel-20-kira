@@ -1,8 +1,8 @@
-import { renderToStaticMarkup } from 'react-dom/server'
 import type { CSSProperties, ReactNode } from 'react'
 import { BG, DIVIDER, INK, MATH, MATH_50, MUTED, WHITE } from '@kira/figures/palette'
 import type { WeekSummaryDTO } from '@/lib/dto'
 import { dateId } from '@/components/console/format'
+import { renderStaticMarkup } from './staticMarkup'
 import { emailSubject, questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
 
 /**
@@ -12,6 +12,9 @@ import { emailSubject, questLine, starsLine, studyLine, SUBJECT_NAME } from './s
  *
  * `opts` opsional: alamat absolut halaman laporan dan privasi (DTO tidak membawa origin)
  * dan baris identitas pengendali data untuk footer.
+ *
+ * HTML dibuat dengan renderStaticMarkup (./staticMarkup), bukan react-dom/server, karena
+ * Next.js menolak react-dom/server di Server Action dan Route Handler tempat email ini dibuat.
  */
 
 export type WeekSummaryEmailOptions = {
@@ -56,7 +59,7 @@ function List({ items }: { items: ReactNode[] }) {
   )
 }
 
-function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEmailOptions }) {
+export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEmailOptions }) {
   const subject = emailSubject(s)
   return (
     <table role="presentation" width="100%" cellPadding={0} cellSpacing={0} style={{ background: BG, borderCollapse: 'collapse' }}>
@@ -202,7 +205,7 @@ function textVersion(s: WeekSummaryDTO, opts: WeekSummaryEmailOptions): string {
 
 export function renderWeekSummaryEmail(dto: WeekSummaryDTO, opts: WeekSummaryEmailOptions = {}): { subject: string; html: string; text: string } {
   const subject = emailSubject(dto)
-  const body = renderToStaticMarkup(<EmailBody s={dto} opts={opts} />)
+  const body = renderStaticMarkup(<EmailBody s={dto} opts={opts} />)
   const html =
     '<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
     `<meta name="color-scheme" content="light"><title>${escapeHtml(subject)}</title></head>` +

@@ -23,9 +23,11 @@ export function FamilyShell({
   learnerName?: string
   children: ReactNode
 }) {
+  // Anak yang sedang dipilih ikut pindah antara Ringkasan dan Privasi.
+  const q = shell.currentLearnerId ? `?learner=${encodeURIComponent(shell.currentLearnerId)}` : ''
   const nav = [
-    { key: 'home', label: 'Ringkasan', href: FAMILY_ROUTES.home, icon: 'report' as const },
-    { key: 'privacy', label: 'Privasi', href: FAMILY_ROUTES.privacy, icon: 'shield' as const },
+    { key: 'home', label: 'Ringkasan', href: `${FAMILY_ROUTES.home}${q}`, icon: 'report' as const },
+    { key: 'privacy', label: 'Privasi', href: `${FAMILY_ROUTES.privacy}${q}`, icon: 'shield' as const },
   ]
   return (
     <ToastProvider>

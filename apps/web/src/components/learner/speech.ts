@@ -1,33 +1,20 @@
 'use client'
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
+import { hasNativeBridge, nativeReady, nativeSpeak, nativeStop, nativeTtsReady } from '@/lib/native'
 
 /**
- * Baca suara. Di APK tablet memakai plugin Capacitor TextToSpeech bila ada,
- * di browser memakai Web Speech API dengan suara en-GB atau id-ID.
+ * Baca suara. Di APK tablet memakai TextToSpeech Android lewat jembatan KiraNative (lib/native.ts),
+ * di browser memakai Web Speech API dengan suara en-GB atau id-ID. WebView Android tidak punya
+ * suara Web Speech, jadi jembatan dipakai lebih dulu bila sudah siap.
  * Hanya satu teks dibaca pada satu waktu; tombol lain kembali ke idle.
  */
 
 export type SpeechLang = 'en-GB' | 'id'
 export type SpeechStatus = 'idle' | 'reading' | 'unavailable'
 
-type TtsPlugin = {
-  speak(opts: { text: string; lang: string; rate?: number }): Promise<void>
-  stop(): Promise<void>
-}
-
-declare global {
-  interface Window {
-    Capacitor?: { Plugins?: { TextToSpeech?: TtsPlugin } }
-  }
-}
-
 const EVENT = 'kira:speech-start'
-
-function plugin(): TtsPlugin | null {
-  if (typeof window === 'undefined') return null
-  return window.Capacitor?.Plugins?.TextToSpeech ?? null
-}
+const RATE = 0.9
 
 function pickVoice(lang: SpeechLang): SpeechSynthesisVoice | null {
   if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null
@@ -40,11 +27,7 @@ function pickVoice(lang: SpeechLang): SpeechSynthesisVoice | null {
 
 /** Hentikan semua bacaan yang sedang berjalan. */
 export function stopSpeech(): void {
-  const p = plugin()
-  if (p) {
-    void p.stop().catch(() => undefined)
-    return
-  }
+  if (hasNativeBridge()) nativeStop()
   try {
     window.speechSynthesis?.cancel()
   } catch {
@@ -64,25 +47,38 @@ export function useSpeech(lang: SpeechLang): {
   const token = useRef(0)
 
   useEffect(() => {
-    if (plugin()) {
-      setAvailable(true)
-      return
+    let cancelled = false
+    let detach: (() => void) | undefined
+    const checkWebSpeech = () => {
+      if (!('speechSynthesis' in window)) {
+        setAvailable(false)
+        return
+      }
+      const check = () => setAvailable(pickVoice(lang) !== null)
+      if (window.speechSynthesis.getVoices().length > 0) {
+        check()
+        return
+      }
+      // Daftar suara dimuat terlambat di beberapa browser.
+      window.speechSynthesis.addEventListener('voiceschanged', check)
+      const t = window.setTimeout(check, 1500)
+      detach = () => {
+        window.speechSynthesis.removeEventListener('voiceschanged', check)
+        window.clearTimeout(t)
+      }
     }
-    if (!('speechSynthesis' in window)) {
-      setAvailable(false)
-      return
+    if (hasNativeBridge()) {
+      void nativeReady().then((ready) => {
+        if (cancelled) return
+        if (ready?.tts) setAvailable(true)
+        else checkWebSpeech()
+      })
+    } else {
+      checkWebSpeech()
     }
-    const check = () => setAvailable(pickVoice(lang) !== null)
-    if (window.speechSynthesis.getVoices().length > 0) {
-      check()
-      return
-    }
-    // Daftar suara dimuat terlambat di beberapa browser.
-    window.speechSynthesis.addEventListener('voiceschanged', check)
-    const t = window.setTimeout(check, 1500)
     return () => {
-      window.speechSynthesis.removeEventListener('voiceschanged', check)
-      window.clearTimeout(t)
+      cancelled = true
+      detach?.()
     }
   }, [lang])
 
@@ -124,30 +120,43 @@ export function useSpeech(lang: SpeechLang): {
         setReading(false)
         onEnd?.()
       }
-      const p = plugin()
-      if (p) {
+      const speakWeb = () => {
+        const voice = pickVoice(lang)
+        if (!voice || !('speechSynthesis' in window)) {
+          setReading(false)
+          setAvailable(false)
+          return
+        }
+        try {
+          window.speechSynthesis.cancel()
+          const u = new SpeechSynthesisUtterance(text)
+          u.voice = voice
+          u.lang = voice.lang
+          u.rate = RATE
+          u.onend = finish
+          u.onerror = finish
+          setReading(true)
+          window.speechSynthesis.speak(u)
+        } catch {
+          setReading(false)
+        }
+      }
+      if (nativeTtsReady()) {
         setReading(true)
-        p.speak({ text, lang: lang === 'id' ? 'id-ID' : 'en-GB', rate: 0.9 }).then(finish, finish)
+        nativeSpeak(text, lang, RATE).then(finish, finish)
         return
       }
-      const voice = pickVoice(lang)
-      if (!voice || !('speechSynthesis' in window)) {
-        setAvailable(false)
+      if (hasNativeBridge()) {
+        // Jembatan ada tetapi belum menjawab hello: tunggu sebentar, lalu pilih jalurnya.
+        setReading(true)
+        void nativeReady().then((ready) => {
+          if (token.current !== my) return
+          if (ready?.tts) nativeSpeak(text, lang, RATE).then(finish, finish)
+          else speakWeb()
+        })
         return
       }
-      try {
-        window.speechSynthesis.cancel()
-        const u = new SpeechSynthesisUtterance(text)
-        u.voice = voice
-        u.lang = voice.lang
-        u.rate = 0.9
-        u.onend = finish
-        u.onerror = finish
-        setReading(true)
-        window.speechSynthesis.speak(u)
-      } catch {
-        setReading(false)
-      }
+      speakWeb()
     },
     [id, lang],
   )

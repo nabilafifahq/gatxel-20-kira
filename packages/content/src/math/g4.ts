@@ -132,10 +132,10 @@ const placeValue4: Generator = {
 
     const times10 = (): GeneratedItem => {
       const kind = rng.int(0, 3)
-      let q = ''
-      let ans = 0
-      let a = 0
-      let k = 10
+      let q: string
+      let ans: number
+      let a: number
+      let k: number
       if (kind === 0) {
         a = rng.int(12, 999)
         k = 10
@@ -298,7 +298,7 @@ const compareOrder4: Generator = {
         arr[3 - p] = d
         return Number(arr.join(''))
       }
-      let a = digs(x)
+      const a = digs(x)
       let b = digs(y)
       if (p < 2) {
         const hi = digitAt(a, 2)
@@ -4775,7 +4775,6 @@ const chance4: Generator = {
   generate({ rng, level }) {
     const name = pickName(rng)
     const choice = (ans: Chance5) => textChoice(rng, ans, rng.shuffle(CHANCE5.filter((w) => w !== ans)).map((w) => ({ value: w, why: CHANCE5_WHY[w] })))
-    const kindFor = (part: number, whole: number): Chance5 => (part === 0 ? 'Impossible' : part === whole ? 'Certain' : part * 2 === whole ? 'Even chance' : part * 2 > whole ? 'Likely' : 'Unlikely')
 
     const event = (): GeneratedItem => {
       const e = rng.pick(EVENTS4)

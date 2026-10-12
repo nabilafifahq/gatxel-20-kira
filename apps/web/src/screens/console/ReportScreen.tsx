@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { addDays } from '@kira/core/time'
+import { addDays, jakartaDate, weekStart as mondayOf } from '@kira/core/time'
 import type { ReportActions, ReportDTO } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
@@ -49,7 +49,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
   const toast = useToast()
   const s = data.summary
   const [note, setNote] = useState(s.tutorNote ?? '')
-  const [sent, setSent] = useState(false)
+  const [sent, setSent] = useState(Boolean(data.sentAt))
   const [fmt, setFmt] = useState<'md' | 'json'>('md')
   const [withName, setWithName] = useState(false)
   const [json, setJson] = useState<{ filename: string; json: string } | null>(null)
@@ -100,6 +100,9 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
   }
 
   const noteTooLong = note.trim().length > 600
+  // Learner tetap terpilih saat pindah minggu; minggu depan belum punya data.
+  const weekHref = (days: number) => `?learner=${encodeURIComponent(data.learnerId)}&minggu=${addDays(data.weekStart, days)}`
+  const hasNextWeek = addDays(data.weekStart, 7) <= mondayOf(jakartaDate())
 
   return (
     <ConsoleShell shell={data.shell} active="reports">
@@ -114,12 +117,14 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
           </p>
         </div>
         <nav aria-label="Pilih minggu" className="flex gap-2">
-          <ButtonLink href={`?minggu=${addDays(data.weekStart, -7)}`} variant="secondary" icon="chevronLeft">
+          <ButtonLink href={weekHref(-7)} variant="secondary" icon="chevronLeft">
             Minggu sebelumnya
           </ButtonLink>
-          <ButtonLink href={`?minggu=${addDays(data.weekStart, 7)}`} variant="secondary" iconAfter="chevronRight" aria-label="Minggu berikutnya">
-            <span className="max-sm:hidden">Berikutnya</span>
-          </ButtonLink>
+          {hasNextWeek ? (
+            <ButtonLink href={weekHref(7)} variant="secondary" iconAfter="chevronRight" aria-label="Minggu berikutnya">
+              <span className="max-sm:hidden">Berikutnya</span>
+            </ButtonLink>
+          ) : null}
         </nav>
       </header>
 
@@ -216,7 +221,7 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
                 Salin Markdown
               </Button>
             ) : (
-              <Button variant="primary" icon="download" disabled={!json} onClick={() => json && download(json.filename, exportText, 'application/json')}>
+              <Button variant="primary" icon="download" disabled={!json} onClick={() => json && download(reveal(json.filename), exportText, 'application/json')}>
                 Unduh JSON
               </Button>
             )}
@@ -225,7 +230,9 @@ export function ReportScreen({ data, actions }: ReportScreenProps) {
             </ButtonLink>
           </div>
           <p className="m-0 text-small text-fg-muted">
-            Ekspor hanya berisi angka dan nama skill. Jawaban mentah, foto, rekaman, dan catatan pribadi tutor tidak ikut.
+            {fmt === 'md'
+              ? 'Markdown hanya berisi angka dan nama skill. Jawaban mentah, foto, rekaman, dan catatan pribadi tutor tidak ikut.'
+              : 'JSON berisi salinan lengkap data belajar, termasuk jawaban dan catatan tutor, tanpa foto dan rekaman. Periksa isinya sebelum dibagikan.'}
           </p>
         </section>
       </div>

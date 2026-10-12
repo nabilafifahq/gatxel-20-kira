@@ -30,7 +30,7 @@ async function main(): Promise<void> {
   try {
     env = loadEnv()
   } catch (e) {
-    console.error(e instanceof EnvError ? e.message : `Konfigurasi worker tidak terbaca: ${(e as Error).message}`)
+    log.error(e instanceof EnvError ? e.message : `Konfigurasi worker tidak terbaca: ${(e as Error).message}`)
     process.exit(1)
   }
 

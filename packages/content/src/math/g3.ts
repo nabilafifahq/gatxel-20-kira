@@ -1417,8 +1417,6 @@ const addSubColumns: Generator = {
 // Ni: perkalian dan pembagian
 // ---------------------------------------------------------------------------
 
-const TABLES3 = [2, 3, 4, 5, 6, 8, 9, 10] as const
-
 const GROUP_STORIES: readonly { t: number | null; make: (n: number, t: number) => string; unit: string }[] = [
   { t: 8, make: (n) => `A spider has 8 legs. How many legs do ${n} spiders have?`, unit: 'legs' },
   { t: 6, make: (n) => `An ant has 6 legs. How many legs do ${n} ants have?`, unit: 'legs' },
@@ -4399,8 +4397,6 @@ function mapFig(points: readonly MapPoint[]): Fig {
   }
 }
 
-const KEY = (pts: readonly MapPoint[]) => pts.map((p) => `${p.label} is the ${p.name}`).join(', ')
-
 const positionDirection3: Generator = {
   skill: 'm3.position-direction',
   levels: [1, 2, 3, 4, 5],
@@ -4432,8 +4428,8 @@ const positionDirection3: Generator = {
       const used = new Set<string>()
       const pts: MapPoint[] = []
       for (const pl of rng.sample(PLACES3, n)) {
-        let x = 0
-        let y = 0
+        let x: number
+        let y: number
         do {
           x = rng.int(0, 7)
           y = rng.int(0, 7)
@@ -4750,7 +4746,7 @@ const pictogramsBars3: Generator = {
     }
 
     const readPicto = (key: number, halves: boolean): GeneratedItem => {
-      const { s, labels, counts, values, figure } = picto(key, halves)
+      const { labels, counts, values, figure } = picto(key, halves)
       const i = halves ? Math.max(0, counts.findIndex((c) => c % 1 !== 0)) : rng.int(0, 3)
       return {
         type: 'numeric',

@@ -73,7 +73,7 @@ export function FamilyHomeScreen({ data }: FamilyHomeScreenProps) {
       <WeekSummary summary={s} />
 
       <div className="flex flex-col gap-2.5">
-        <ButtonLink href={FAMILY_ROUTES.privacy} variant="secondary" icon="shield" className="h-12 w-full">
+        <ButtonLink href={`${FAMILY_ROUTES.privacy}?learner=${encodeURIComponent(data.selectedLearnerId)}`} variant="secondary" icon="shield" className="h-12 w-full">
           Privasi dan data {s.learnerName}
         </ButtonLink>
       </div>

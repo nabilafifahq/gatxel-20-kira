@@ -111,7 +111,9 @@ export function CompetitionCalendarScreen({ data, actions }: CompetitionCalendar
   }
 
   function openEdit(r: CompetitionRow) {
-    const fromCatalog = data.catalog.find((c) => c.name === r.name)
+    // Id katalog dan preset dari server; tebakan dari nama hanya untuk data lama tanpa id.
+    const fromCatalog = r.competitionId !== undefined ? data.catalog.find((c) => c.id === r.competitionId) : data.catalog.find((c) => c.name === r.name)
+    const presetId = r.presetId !== undefined ? (r.presetId ?? '') : (data.presets.find((p) => p.title === r.presetLabel)?.id ?? '')
     openNew({
       eventId: r.id,
       competitionId: fromCatalog?.id ?? '',
@@ -120,7 +122,7 @@ export function CompetitionCalendarScreen({ data, actions }: CompetitionCalendar
       date: r.date ?? '',
       dateIsEstimate: r.dateIsEstimate,
       registrationClose: r.registrationClose ?? '',
-      presetId: data.presets.find((p) => p.title === r.presetLabel)?.id ?? '',
+      presetId,
       link: r.link ?? '',
       learnerIds: r.learnerIds,
     })

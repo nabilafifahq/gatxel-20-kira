@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { jakartaDate } from '@kira/core/time'
 import type { PlanSlotDTO, PlannerActions, PlannerDTO, Subject } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
@@ -12,6 +13,7 @@ import { RadioGroup, TextField } from '@/components/console/Field'
 import { SUBJECT_LABEL, SUBJECTS } from '@/components/console/format'
 import { ConsoleIcon } from '@/components/console/icons'
 import { Pill, Section, SectionHeading, SubjectChip } from '@/components/console/Layout'
+import { CONSOLE_ROUTES } from '@/components/console/routes'
 import { SkillPicker } from '@/components/console/SkillPicker'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
@@ -22,6 +24,8 @@ import { MODE_LABEL, WeekPlannerGrid } from '@/components/console/WeekPlannerGri
  * dialog tambah dan ubah slot dengan pemilih skill, pindah slot lewat pilihan hari
  * (tanpa seret), hari istirahat, usulan dengan alasan, peringatan batas waktu layar, terbitkan.
  * Perubahan yang berhasil langsung tampil di layar; data server menggantikannya saat halaman diperbarui.
+ * Minggu yang sudah terbit tetap terbit saat diubah. Slot paper (skillId null) dibuat Penyusun paper:
+ * di sini hanya bisa dipindah atau dihapus. Hari yang sudah lewat tidak bisa diubah.
  */
 
 export type PlannerScreenProps = { data: PlannerDTO; actions: PlannerActions }
@@ -36,8 +40,13 @@ type SlotForm = {
   questionCount: string
 }
 
+/** Batas yang sama dengan server (upsertSlot). */
+const COUNT_MIN = 4
+const COUNT_MAX = 30
+
+/** Sama dengan estimateMinutes di @kira/core: 1,5 menit per soal, dibulatkan ke 5 menit. */
 function estimateMinutes(count: number): number {
-  return Math.max(5, Math.round(count * 1.5))
+  return Math.max(5, Math.round((count * 1.5) / 5) * 5)
 }
 
 export function PlannerScreen({ data, actions }: PlannerScreenProps) {
@@ -57,11 +66,12 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
   }
 
   const [form, setForm] = useState<SlotForm | null>(null)
-  const [formErrors, setFormErrors] = useState<{ skill?: string; count?: string }>({})
+  const [formErrors, setFormErrors] = useState<{ skill?: string; count?: string; mode?: string }>({})
   const [moving, setMoving] = useState<PlanSlotDTO | null>(null)
   const [moveTo, setMoveTo] = useState<string>('')
   const [moveError, setMoveError] = useState<string | null>(null)
   const [deleting, setDeleting] = useState<PlanSlotDTO | null>(null)
+  const [paperSlot, setPaperSlot] = useState<PlanSlotDTO | null>(null)
   const [restPending, setRestPending] = useState<string | null>(null)
 
   const upsert = useAction(actions.upsertSlot)
@@ -84,16 +94,26 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
   const dayLabel = (date: string) => data.days.find((d) => d.date === date)?.label ?? date
   const skillTitle = (id: string | null) => data.skills.find((s) => s.id === id)?.title ?? ''
 
-  function markDraft() {
-    setStatus('draft')
+  /** Hari yang sudah lewat tidak berpengaruh lagi pada quest; server juga menolaknya. */
+  function pastGuard(date: string): boolean {
+    if (date >= jakartaDate()) return false
+    toast({ tone: 'info', title: `${dayLabel(date)} sudah lewat.`, body: 'Rencana hanya bisa diubah untuk hari ini dan hari berikutnya.' })
+    return true
   }
 
   function openAdd(date: string, subject: Subject) {
+    if (pastGuard(date)) return
     setFormErrors({})
     upsert.reset()
     setForm({ date, subject, kind: 'quest', skillId: null, mode: 'latihan', questionCount: '10' })
   }
   function openEdit(slot: PlanSlotDTO) {
+    if (slot.skillId === null) {
+      // Slot paper: isinya diatur Penyusun paper.
+      del.reset()
+      setPaperSlot(slot)
+      return
+    }
     setFormErrors({})
     upsert.reset()
     setForm({
@@ -109,14 +129,16 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
 
   async function saveSlot() {
     if (!form) return
-    const errs: { skill?: string; count?: string } = {}
+    const errs: { skill?: string; count?: string; mode?: string } = {}
     const count = Number(form.questionCount.trim())
     if (!form.skillId) errs.skill = 'Pilih satu skill untuk slot ini.'
-    if (!Number.isInteger(count) || count < 3 || count > 40) {
-      errs.count = `Jumlah soal harus angka bulat 3 sampai 40.${form.questionCount.trim() ? ` Isian sekarang: ${form.questionCount.trim()}.` : ''}`
+    // Mode Kertas hanya untuk paper (dicetak lalu dinilai lewat Input LJK); slot skill selalu di tablet.
+    if (form.mode === 'kertas') errs.mode = 'Mode Kertas hanya untuk paper dari Penyusun paper. Pilih Belajar, Latihan, atau Tes.'
+    if (!form.questionCount.trim() || !Number.isInteger(count) || count < COUNT_MIN || count > COUNT_MAX) {
+      errs.count = `Jumlah soal harus angka bulat ${COUNT_MIN} sampai ${COUNT_MAX}.${form.questionCount.trim() ? ` Isian sekarang: ${form.questionCount.trim()}.` : ''}`
     }
     setFormErrors(errs)
-    if (errs.skill || errs.count || !form.skillId) return
+    if (errs.skill || errs.count || errs.mode || !form.skillId) return
     const r = await upsert.run({
       learnerId: data.learnerId,
       slotId: form.slotId,
@@ -139,8 +161,12 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       minutes: estimateMinutes(count),
       questionCount: count,
     }
-    setSlots((list) => (form.slotId ? list.map((s) => (s.id === form.slotId ? next : s)) : [...list, next]))
-    markDraft()
+    // Slot quest baru menggantikan slot quest lain di mapel dan hari yang sama (aturan server).
+    setSlots((list) =>
+      form.slotId
+        ? list.map((s) => (s.id === form.slotId ? next : s))
+        : [...list.filter((s) => !(next.kind === 'quest' && s.kind === 'quest' && s.date === next.date && s.subject === next.subject)), next],
+    )
     toast({ tone: 'success', title: form.slotId ? 'Slot diperbarui.' : `${next.title} masuk ke ${dayLabel(form.date)}.` })
     setForm(null)
   }
@@ -154,7 +180,6 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
     const r = await move.run({ slotId: moving.id, date: moveTo })
     if (!r.ok) return
     setSlots((list) => list.map((s) => (s.id === moving.id ? { ...s, date: moveTo } : s)))
-    markDraft()
     toast({ tone: 'success', title: `${moving.title} pindah ke ${dayLabel(moveTo)}.` })
     setMoving(null)
   }
@@ -164,13 +189,14 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
     const r = await del.run(deleting.id)
     if (!r.ok) return
     setSlots((list) => list.filter((s) => s.id !== deleting.id))
-    markDraft()
     toast({ tone: 'success', title: `${deleting.title} dihapus dari ${dayLabel(deleting.date)}.` })
     setDeleting(null)
     setForm(null)
+    setPaperSlot(null)
   }
 
   async function toggleRest(date: string, makeRest: boolean) {
+    if (pastGuard(date)) return
     setRestPending(date)
     const r = await rest.run({ learnerId: data.learnerId, date, rest: makeRest })
     setRestPending(null)
@@ -184,7 +210,6 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       else n.delete(date)
       return n
     })
-    markDraft()
   }
 
   async function applyIds(ids: string[]) {
@@ -205,7 +230,6 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       }))
     setSlots((list) => [...list.filter((x) => !added.some((a) => a.id === x.id)), ...added])
     setSugState((st) => ({ ...st, ...Object.fromEntries(ids.map((i) => [i, 'applied' as const])) }))
-    markDraft()
     toast({ tone: 'success', title: ids.length === 1 ? 'Usulan diterapkan.' : `${ids.length} usulan diterapkan.` })
   }
 
@@ -218,17 +242,20 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
 
   const openSugs = data.suggestions.filter((s) => (sugState[s.id] ?? 'open') === 'open')
   const formSkills = form ? data.skills.filter((s) => s.subject === form.subject) : []
+  const today = moving ? jakartaDate() : ''
   const moveOptions = moving
     ? days.map((d) => ({
         value: d.date,
         label: d.label,
-        disabled: d.rest || d.date === moving.date,
+        disabled: d.rest || d.date === moving.date || d.date < today,
         description:
           d.date === moving.date
-            ? 'Hari ini, slot sudah di sini'
-            : d.rest
-              ? 'Hari istirahat'
-              : `${d.totalMinutes} mnt terisi, jadi ${d.totalMinutes + moving.minutes} mnt${d.totalMinutes + moving.minutes > data.screenLimitMin ? `, lewat batas ${data.screenLimitMin}` : ''}`,
+            ? 'Posisi slot sekarang'
+            : d.date < today
+              ? 'Sudah lewat'
+              : d.rest
+                ? 'Hari istirahat'
+                : `${d.totalMinutes} mnt terisi, jadi ${d.totalMinutes + moving.minutes} mnt${d.totalMinutes + moving.minutes > data.screenLimitMin ? `, lewat batas ${data.screenLimitMin}` : ''}`,
       }))
     : []
 
@@ -270,7 +297,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
 
       <ActionError error={publish.error} />
 
-      {over.length > 0 && status !== 'published' ? (
+      {over.length > 0 ? (
         <InlineAlert
           tone="warn"
           live="status"
@@ -283,13 +310,15 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
             ) : undefined
           }
         >
-          Rencana tetap bisa diterbitkan, tapi quest berhenti saat batas tercapai.
+          {status === 'published'
+            ? 'Quest di tablet berhenti saat batas tercapai. Kurangi jumlah soal atau pindahkan slot ke hari lain.'
+            : 'Rencana tetap bisa diterbitkan, tapi quest di tablet berhenti saat batas tercapai.'}
         </InlineAlert>
       ) : null}
 
       {status === 'published' ? (
         <InlineAlert tone="success" title="Rencana minggu ini sudah terbit." live="status">
-          Quest hari pertama muncul di tablet mulai malam sebelumnya. Perubahan baru membuat rencana kembali menjadi draf.
+          Tablet memakai rencana ini untuk hari yang quest-nya belum dibuat. Perubahan berikutnya tetap terbit dan berlaku mulai hari yang belum dimulai.
         </InlineAlert>
       ) : null}
 
@@ -327,7 +356,12 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         </SectionHeading>
         <ActionError error={apply.error} />
         {data.suggestions.length === 0 ? (
-          <EmptyState compact icon="checkCircle" title="Tidak ada usulan minggu ini." body="Semua skill di atas 70% atau sudah terjadwal. Usulan muncul saat ada skill yang turun." />
+          <EmptyState
+            compact
+            icon="checkCircle"
+            title="Tidak ada usulan untuk minggu ini."
+            body="Usulan hanya mengisi hari yang masih kosong dan belum lewat: skill di bawah 70%, review yang seminggu tidak dilatih, skill baru berikutnya, dan persiapan lomba."
+          />
         ) : (
           <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0">
             {data.suggestions.map((s) => {
@@ -453,10 +487,14 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                 name="mode"
                 legend="Mode"
                 value={form.mode}
-                onChange={(v) => setForm({ ...form, mode: v })}
-                options={(['belajar', 'latihan', 'tes', 'kertas'] as const).map((m) => ({ value: m, label: MODE_LABEL[m] }))}
+                onChange={(v) => {
+                  setForm({ ...form, mode: v })
+                  setFormErrors((x) => ({ ...x, mode: undefined }))
+                }}
+                options={(['belajar', 'latihan', 'tes'] as const).map((m) => ({ value: m, label: MODE_LABEL[m] }))}
                 layout="row"
-                hint="Tes dan Kertas tidak menampilkan kunci sebelum dikumpulkan."
+                hint="Tes tidak menampilkan kunci sebelum dikumpulkan. Paper untuk dikerjakan di kertas disusun di Penyusun paper."
+                error={formErrors.mode}
               />
               <TextField
                 label="Jumlah soal"
@@ -469,7 +507,9 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                 }}
                 error={formErrors.count}
                 hint={
-                  Number(form.questionCount) > 0 ? `Sekitar ${estimateMinutes(Number(form.questionCount))} menit` : '3 sampai 40 soal'
+                  Number(form.questionCount) > 0
+                    ? `Sekitar ${estimateMinutes(Number(form.questionCount))} menit`
+                    : `${COUNT_MIN} sampai ${COUNT_MAX} soal`
                 }
               />
             </div>
@@ -513,6 +553,65 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
               error={moveError}
             />
             <ActionError error={move.error} />
+          </div>
+        ) : null}
+      </Dialog>
+
+      {/* Slot paper dari Penyusun paper: pindah atau hapus */}
+      <Dialog
+        open={paperSlot != null}
+        onClose={() => setPaperSlot(null)}
+        title={paperSlot?.title ?? 'Slot paper'}
+        description={paperSlot ? `${SUBJECT_LABEL[paperSlot.subject]}, ${dayLabel(paperSlot.date)}` : undefined}
+        footer={
+          paperSlot ? (
+            <>
+              <Button
+                variant="quiet"
+                icon="trash"
+                tone="danger"
+                className="mr-auto"
+                onClick={() => {
+                  del.reset()
+                  setDeleting(paperSlot)
+                }}
+              >
+                Hapus slot
+              </Button>
+              <Button
+                variant="secondary"
+                icon="move"
+                onClick={() => {
+                  const s = paperSlot
+                  setPaperSlot(null)
+                  move.reset()
+                  setMoveTo('')
+                  setMoveError(null)
+                  setMoving(s)
+                }}
+              >
+                Pindah
+              </Button>
+              <Button variant="primary" onClick={() => setPaperSlot(null)}>
+                Tutup
+              </Button>
+            </>
+          ) : null
+        }
+      >
+        {paperSlot ? (
+          <div className="flex flex-col gap-3">
+            <p className="m-0 text-body">
+              Paper {paperSlot.questionCount} soal, sekitar {paperSlot.minutes} menit, mode {MODE_LABEL[paperSlot.mode]}
+              {paperSlot.kind === 'bonus' ? ', sebagai quest bonus' : ''}.
+            </p>
+            <InlineAlert tone="info" live="none">
+              Soal dan waktu paper diubah di{' '}
+              <Link href={CONSOLE_ROUTES.paper} className="font-bold">
+                Penyusun paper
+              </Link>
+              . Di rencana, slot paper bisa dipindah ke hari lain atau dihapus.
+            </InlineAlert>
           </div>
         ) : null}
       </Dialog>

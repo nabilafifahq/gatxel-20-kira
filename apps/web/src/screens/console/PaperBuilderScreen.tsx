@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useState, useTransition } from 'react'
+import { jakartaDate } from '@kira/core/time'
 import type { PaperBuilderActions, PaperBuilderDTO, PaperDTO, Subject } from '@/lib/dto'
 import { Button, ButtonLink, IconButton } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
@@ -22,6 +24,8 @@ import { useAction } from '@/components/console/useAction'
  * T04 Penyusun paper (papan PenyusunPaper): pilih soal dari bank dengan filter,
  * daftar berurutan dengan tombol naik, turun, dan hapus, pratinjau kertas, tautan
  * cetak paper dan kunci, serta memberikan paper ke learner.
+ * Kolam soal dikirim per mapel dan grade: mengganti mapel atau grade memuat kolam baru lewat
+ * parameter URL `mapel` dan `grade`. Paper tersimpan dibuka lewat `paper`.
  */
 
 export type PaperBuilderScreenProps = {
@@ -42,16 +46,50 @@ function secondsLabel(sec: number): string {
 
 export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
   const toast = useToast()
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [poolPending, startPool] = useTransition()
   const paper = data.paper
   const [paperId, setPaperId] = useState<string | null>(paper?.id ?? null)
   const [title, setTitle] = useState(paper?.title ?? '')
-  const [subject, setSubject] = useState<Subject>(paper?.subject ?? data.items[0]?.subject ?? 'math')
-  const [grade, setGrade] = useState(String(paper?.grade ?? data.items[0]?.grade ?? 2))
+  const [subject, setSubject] = useState<Subject>(data.items[0]?.subject ?? paper?.subject ?? 'math')
+  const [grade, setGrade] = useState(String(data.items[0]?.grade ?? paper?.grade ?? 2))
   const [minutes, setMinutes] = useState(String(paper?.minutes ?? 15))
   const [mode, setMode] = useState<PaperDTO['mode']>(paper?.mode ?? 'kertas')
-  const [refs, setRefs] = useState<string[]>(paper?.itemRefs ?? [])
-  const [dirty, setDirty] = useState(false)
+  const [refs, setRefs] = useState<string[]>(paper?.itemRefs ?? data.draftRefs ?? [])
+  const [dirty, setDirty] = useState(!paper && Boolean(data.draftRefs?.length))
   const [errors, setErrors] = useState<{ title?: string; minutes?: string; items?: string }>({})
+
+  // Soal yang pernah dimuat (kolam mapel atau grade lain, hasil isi otomatis) tetap dikenal,
+  // supaya daftar Isi paper tetap lengkap setelah kolam berganti.
+  const [known, setKnown] = useState(() => new Map(data.items.map((i) => [i.ref, i])))
+  const [knownSrc, setKnownSrc] = useState(data.items)
+  if (knownSrc !== data.items) {
+    setKnownSrc(data.items)
+    setKnown((m) => {
+      const n = new Map(m)
+      for (const i of data.items) n.set(i.ref, i)
+      return n
+    })
+  }
+
+  // Paper lain dibuka dari daftar Paper tersimpan (?paper= berganti): isi formulir mengikuti paper itu.
+  const [srcPaperId, setSrcPaperId] = useState(paper?.id ?? null)
+  if ((paper?.id ?? null) !== srcPaperId) {
+    setSrcPaperId(paper?.id ?? null)
+    if (paper && paper.id !== paperId) {
+      setPaperId(paper.id)
+      setTitle(paper.title)
+      setSubject(paper.subject)
+      setGrade(String(paper.grade))
+      setMinutes(String(paper.minutes))
+      setMode(paper.mode)
+      setRefs(paper.itemRefs)
+      setDirty(false)
+      setErrors({})
+    }
+  }
 
   // Filter bank soal
   const [skill, setSkill] = useState('')
@@ -76,8 +114,28 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
   const assign = useAction(actions.assignPaper)
   const remove = useAction(actions.deletePaper)
 
-  const byRef = useMemo(() => new Map(data.items.map((i) => [i.ref, i])), [data.items])
+  const byRef = known
   const subjectItems = data.items.filter((i) => i.subject === subject && String(i.grade) === grade)
+
+  /** Muat kolam soal mapel dan grade lain dari server; isi formulir tetap. */
+  function loadPool(nextSubject: Subject, nextGrade: string) {
+    const p = new URLSearchParams(searchParams.toString())
+    p.set('mapel', nextSubject)
+    p.set('grade', nextGrade)
+    p.delete('tambah')
+    if (paperId) p.set('paper', paperId)
+    startPool(() => router.replace(`${pathname}?${p.toString()}`, { scroll: false }))
+  }
+
+  /** Alamat halaman ikut paper yang sedang dibuka, tanpa memuat ulang data. */
+  function syncPaperParam(id: string | null) {
+    const p = new URLSearchParams(window.location.search)
+    if (id) p.set('paper', id)
+    else p.delete('paper')
+    p.delete('tambah')
+    const qs = p.toString()
+    window.history.replaceState(null, '', qs ? `${pathname}?${qs}` : pathname)
+  }
   const skills = Array.from(new Map(subjectItems.map((i) => [i.skillId, i.skillTitle])).entries()).sort((a, b) => a[1].localeCompare(b[1]))
   const types = Array.from(new Set(subjectItems.map((i) => i.type)))
   const pool = subjectItems.filter(
@@ -126,6 +184,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
     if (e.title || e.minutes || e.items) return
     const r = await save.run({ paperId: paperId ?? undefined, title: title.trim(), subject, grade: Number(grade), minutes: m, mode, itemRefs: refs })
     if (r.ok) {
+      if (r.data.paperId !== paperId) syncPaperParam(r.data.paperId)
       setPaperId(r.data.paperId)
       setDirty(false)
       toast({ tone: 'success', title: 'Paper tersimpan.', body: 'Tautan cetak paper dan kunci sudah bisa dipakai.' })
@@ -136,8 +195,8 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
     const count = Number(autoCount)
     const lo = Number(autoMin)
     const hi = Number(autoMax)
-    if (!Number.isInteger(count) || count < 1 || count > 40) {
-      setAutoError(`Jumlah soal harus 1 sampai 40. Isian sekarang: ${autoCount || 'kosong'}.`)
+    if (!Number.isInteger(count) || count < 1 || count > 60) {
+      setAutoError(`Jumlah soal harus 1 sampai 60. Isian sekarang: ${autoCount || 'kosong'}.`)
       return
     }
     if (lo > hi) {
@@ -147,9 +206,22 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
     setAutoError(null)
     const r = await generate.run({ subject, grade: Number(grade), skillIds: autoSkills, count, difficulty: [lo, hi] })
     if (r.ok) {
+      const picked = r.data.items ?? []
+      if (picked.length) {
+        setKnown((m) => {
+          const n = new Map(m)
+          for (const i of picked) n.set(i.ref, i)
+          return n
+        })
+      }
       change(() => setRefs(r.data.itemRefs))
       setAutoOpen(false)
-      toast({ tone: 'success', title: `${r.data.itemRefs.length} soal dipilih otomatis.`, body: 'Periksa urutannya, lalu simpan paper.' })
+      const got = r.data.itemRefs.length
+      toast(
+        got < count
+          ? { tone: 'success', title: `${got} dari ${count} soal dipilih otomatis.`, body: `Soal yang cocok di bank hanya ${got}. Periksa urutannya, lalu simpan paper.` }
+          : { tone: 'success', title: `${got} soal dipilih otomatis.`, body: 'Periksa urutannya, lalu simpan paper.' },
+      )
     }
   }
 
@@ -164,7 +236,11 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
     if (r.ok) {
       setAssignOpen(false)
       const who = data.shell.learners.find((l) => l.id === assignLearner)?.name ?? 'learner'
-      toast({ tone: 'success', title: `Paper masuk rencana ${who}, ${dateId(assignDate, true)}.` })
+      toast({
+        tone: 'success',
+        title: `Paper masuk rencana ${who}, ${dateId(assignDate, true)}.`,
+        body: mode === 'kertas' ? 'Lembar jawaban (LJK) siap dicetak di Input LJK.' : 'Quest ini muncul di tablet bila rencana minggu itu sudah terbit.',
+      })
     }
   }
 
@@ -172,6 +248,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
     if (!paperId) return
     const r = await remove.run(paperId)
     if (r.ok) {
+      syncPaperParam(null)
       setConfirmDelete(false)
       setPaperId(null)
       setRefs([])
@@ -245,6 +322,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
                   setSubject(v)
                   setSkill('')
                   setType('')
+                  loadPool(v, grade)
                 })
               }
               options={SUBJECTS.map((s) => ({ value: s, label: SUBJECT_LABEL[s] }))}
@@ -254,7 +332,14 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
             <Select
               label="Grade"
               value={grade}
-              onChange={(e) => change(() => setGrade(e.target.value))}
+              onChange={(e) => {
+                const g = e.target.value
+                change(() => {
+                  setGrade(g)
+                  setSkill('')
+                  loadPool(subject, g)
+                })
+              }}
               options={[1, 2, 3, 4, 5, 6].map((g) => ({ value: String(g), label: `Grade ${g}` }))}
             />
             <Select
@@ -273,8 +358,15 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
             />
             <TextField label="Cari" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Teks soal atau ID" autoComplete="off" />
           </div>
-          <FilterChips resultText={`${pool.length} soal cocok`} chips={chips} onClearAll={() => (setSkill(''), setType(''), setQ(''))} />
-          {subjectItems.length === 0 ? (
+          <div className="flex flex-wrap items-center gap-3" aria-busy={poolPending || undefined}>
+            <FilterChips resultText={`${pool.length} soal cocok`} chips={chips} onClearAll={() => (setSkill(''), setType(''), setQ(''))} />
+            {poolPending ? <span className="text-small text-fg-muted">Memuat soal {SUBJECT_LABEL[subject]} Grade {grade}</span> : null}
+          </div>
+          {poolPending && subjectItems.length === 0 ? (
+            <p className="m-0 rounded-control bg-bg px-3 py-2.5 text-body text-fg-muted">
+              Memuat soal {SUBJECT_LABEL[subject]} Grade {grade} dari bank.
+            </p>
+          ) : subjectItems.length === 0 ? (
             <EmptyState
               compact
               title={`Belum ada soal ${SUBJECT_LABEL[subject]} Grade ${grade} di bank.`}
@@ -556,7 +648,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
             onChange={setAssignLearner}
             options={data.shell.learners.map((l) => ({ value: l.id, label: `${l.name}, Grade ${l.grade}` }))}
           />
-          <TextField label="Tanggal" type="date" value={assignDate} onChange={(e) => setAssignDate(e.target.value)} error={assignError} />
+          <TextField label="Tanggal" type="date" min={jakartaDate()} value={assignDate} onChange={(e) => setAssignDate(e.target.value)} error={assignError} />
           <ActionError error={assign.error} />
         </div>
       </Dialog>

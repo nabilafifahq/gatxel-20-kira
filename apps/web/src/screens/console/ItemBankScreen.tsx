@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useRef, useState, useTransition } from 'react'
+import { Fragment, useEffect, useRef, useState, useTransition } from 'react'
 import type { BankItemRow, ItemBankDTO, Subject } from '@/lib/dto'
 import { ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
@@ -37,6 +37,21 @@ const PARAM: Record<keyof Filters, string> = {
   difficulty: 'kesulitan',
   source: 'sumber',
   q: 'q',
+}
+
+/** Ref panjang (gen:m6.decimals-multiply-divide:1) boleh turun baris setelah titik, titik dua, atau tanda hubung. */
+function RefText({ value }: { value: string }) {
+  const parts = value.split(/(?<=[.:-])/)
+  return (
+    <>
+      {parts.map((p, i) => (
+        <Fragment key={i}>
+          {p}
+          {i < parts.length - 1 ? <wbr /> : null}
+        </Fragment>
+      ))}
+    </>
+  )
 }
 
 function toQuery(f: Filters, extra: Record<string, string | null> = {}): string {
@@ -105,7 +120,9 @@ export function ItemBankScreen({ data }: ItemBankScreenProps) {
           aria-current={data.preview?.row.ref === r.ref ? 'true' : undefined}
           className="flex max-w-[460px] flex-col items-start gap-0.5 text-left font-normal text-fg no-underline hover:text-fg"
         >
-          <span className={cx('text-small font-bold whitespace-nowrap tabular', SUBJECT_TEXT[r.subject])}>{r.ref}</span>
+          <span className={cx('text-small font-bold tabular', SUBJECT_TEXT[r.subject])}>
+            <RefText value={r.ref} />
+          </span>
           <span className="line-clamp-2 text-body underline decoration-divider decoration-2 underline-offset-3">{r.promptPreview}</span>
         </Link>
       ),
@@ -279,7 +296,7 @@ export function ItemBankScreen({ data }: ItemBankScreenProps) {
         )
       ) : (
         <div className="flex flex-wrap items-start gap-6">
-          <div className="flex min-w-0 flex-[2_1_560px] flex-col">
+          <div className="flex min-w-0 flex-[2_1_700px] flex-col">
             <DataTable
               caption={`Bank soal, ${data.total} soal${filtered ? ' sesuai filter' : ''}, halaman ${data.page} dari ${pages}`}
               columns={columns}

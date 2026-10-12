@@ -179,7 +179,7 @@ function Grader({
         {g.mediaKind === 'audio' && g.mediaUrl ? (
           <>
             <AudioPlayer src={g.mediaUrl} label={`Putar rekaman ${g.learnerName}`} />
-            <span className="text-small text-fg-muted">Rekaman tidak dikirim ke AI dan terhapus otomatis 30 hari setelah direkam.</span>
+            <span className="text-small text-fg-muted">Rekaman tidak dikirim ke AI dan terhapus otomatis 90 hari setelah direkam.</span>
           </>
         ) : null}
         {g.mediaKind === 'image' && g.mediaUrl ? (

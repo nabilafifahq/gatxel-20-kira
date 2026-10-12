@@ -44,7 +44,14 @@ const DRAFT_KIND: Record<string, string> = {
   hints: 'Hint',
   translate: 'Terjemahan',
   rubric: 'Rubrik',
+  grade: 'Saran nilai',
+  import: 'Baca PDF impor',
+  test: 'Tes koneksi',
+  mcp: 'Draf dari Claude (MCP)',
 }
+
+/** Ref soal di Bank soal: m2.oly-patterns.003, org:<uuid>, atau gen:<skill>:<level>:<seed>. */
+const ITEM_REF = /^[a-z0-9][a-z0-9.:_-]{2,199}$/i
 
 const JOB_STATUS = {
   queued: { tone: 'muted' as const, icon: 'clock' as const, label: 'Menunggu antrean' },
@@ -246,9 +253,15 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
   const [instructions, setInstructions] = useState('')
   const [errors, setErrors] = useState<{ skill?: string; count?: string; ref?: string; text?: string }>({})
   const request = useAction(actions.requestDrafts)
+  const [srcDrafts, setSrcDrafts] = useState(data.drafts)
   const [drafts, setDrafts] = useState(data.drafts)
   const [sel, setSel] = useState<string | null>(data.drafts.find((d) => d.status === 'pending')?.id ?? data.drafts[0]?.id ?? null)
-  const needsRef = kind === 'variants' || kind === 'hints' || kind === 'translate'
+  // Data baru dari server (setelah action atau muat ulang) menggantikan status lokal.
+  if (srcDrafts !== data.drafts) {
+    setSrcDrafts(data.drafts)
+    setDrafts(data.drafts)
+  }
+  const needsRef = kind === 'variants' || kind === 'hints' || kind === 'translate' || kind === 'rubric'
   const pct = Math.min(100, Math.round((data.usage.used / Math.max(1, data.usage.limit)) * 100))
   const pending = drafts.filter((d) => d.status === 'pending').length
   const current = drafts.find((d) => d.id === sel) ?? null
@@ -258,7 +271,7 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
     const n = Number(count)
     if (!skillId) e.skill = 'Pilih skill dulu.'
     if (!Number.isInteger(n) || n < 1 || n > 10) e.count = `Jumlah draf 1 sampai 10. Isian sekarang: ${count || 'kosong'}.`
-    if (needsRef && !/^[A-Z]{2,5}-[A-Z]-\d{3,5}$|^ORG-[A-Z0-9-]+$/.test(itemRef.trim())) e.ref = 'Tulis ID soal asal, misalnya KRA-M-0413.'
+    if (needsRef && !ITEM_REF.test(itemRef.trim())) e.ref = 'Tulis ID soal asal dari Bank soal, misalnya m2.oly-patterns.003.'
     if (/@|\b\d{16}\b/.test(instructions)) e.text = 'Instruksi tidak boleh memuat email, NIK, atau data pribadi.'
     setErrors(e)
     if (e.skill || e.count || e.ref || e.text || !skillId) return
@@ -343,9 +356,11 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
                 <TextField
                   label="ID soal asal"
                   value={itemRef}
-                  onChange={(e) => (setItemRef(e.target.value.toUpperCase()), setErrors((x) => ({ ...x, ref: undefined })))}
+                  onChange={(e) => (setItemRef(e.target.value), setErrors((x) => ({ ...x, ref: undefined })))}
                   error={errors.ref}
-                  placeholder="KRA-M-0413"
+                  hint="Skill draf mengikuti soal asal."
+                  placeholder="m2.oly-patterns.003"
+                  autoCapitalize="none"
                   autoComplete="off"
                   spellCheck={false}
                 />
@@ -413,7 +428,7 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
             <span className="ml-auto text-body font-bold tabular">{pending} menunggu</span>
           </div>
           {drafts.length === 0 ? (
-            <EmptyState compact icon="sparkle" title="Belum ada draf." body="Kirim permintaan di sebelah kiri. Draf muncul di sini setelah job selesai." />
+            <EmptyState compact icon="sparkle" title="Belum ada draf." body="Kirim permintaan lewat formulir Minta draf. Draf muncul di sini setelah job selesai." />
           ) : (
             <ul className="m-0 flex list-none flex-col gap-2 p-0">
               {drafts.map((d) => {

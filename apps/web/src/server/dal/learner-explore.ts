@@ -7,7 +7,7 @@ import type { CorrectionBookDTO, LessonDTO, MapDTO, MapSkillDTO, MeDTO, Subject 
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, promptPreview, resolveItems, skill, skillsFor, strandName, toClient } from './content'
-import { badgesOf, dayRecords, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
+import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
 import { buildQuestItems, SUBJECT_ORDER } from './learner-today'
 
 const { reviewCard, attempt, skillState, quest } = tables

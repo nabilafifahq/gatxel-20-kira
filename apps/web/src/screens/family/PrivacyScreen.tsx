@@ -245,7 +245,7 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
             <div className="flex flex-col gap-0.5">
               <span className="text-body font-bold">Hapus akun {name}</span>
               <span className="text-body">
-                Profil dan data belajar dihapus paling lambat 30 hari setelah permintaan. Bukti persetujuan tetap disimpan sesuai kewajiban hukum.
+                Profil dan data belajar dihapus 7 hari setelah permintaan, sesuai Kebijakan Privasi. Bukti persetujuan tetap disimpan sesuai kewajiban hukum.
               </span>
             </div>
             {deletion.scheduledFor ? (
@@ -326,8 +326,8 @@ export function PrivacyScreen({ data, actions }: PrivacyScreenProps) {
         open={deleteOpen}
         onClose={() => setDeleteOpen(false)}
         title={`Hapus akun ${name}?`}
-        body={`Profil, jawaban, skor, rekaman, dan foto ${name} dihapus paling lambat 30 hari dari sekarang. Selama masa itu ${name} tidak bisa masuk, dan permintaan masih bisa dibatalkan dari halaman ini.`}
-        warning="Setelah 30 hari data tidak bisa dikembalikan. Unduh salinan data dulu bila perlu."
+        body={`Profil, jawaban, skor, rekaman, dan foto ${name} dihapus 7 hari dari sekarang. Selama masa itu ${name} tidak bisa masuk, dan permintaan masih bisa dibatalkan dari halaman ini.`}
+        warning="Setelah 7 hari data tidak bisa dikembalikan. Unduh salinan data dulu bila perlu."
         confirmLabel="Hapus akun dan data"
         confirmText={name}
         confirmTextLabel={`Ketik ${name} untuk melanjutkan`}

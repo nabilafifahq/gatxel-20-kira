@@ -108,7 +108,9 @@ async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: LearnerRow, q:
     if (p[0]) {
       const resolved = await resolveItems(tx, p[0].itemRefs)
       items = p[0].itemRefs.map((ref, i) => ({ ref, section: 'core' as const, position: i + 1, difficulty: resolved.get(ref)?.difficulty ?? 3 }))
-      if (p[0].mode === 'tes') {
+      // Mode slot rencana dicatat saat paper dimasukkan; paper yang sama boleh diberikan lagi dengan mode
+      // lain (misalnya Tes untuk satu learner, Kertas untuk learner lain), jadi mode slot yang menentukan.
+      if (q.mode === 'tes') {
         timeLimit = p[0].minutes * 60
         mode = 'tes'
       }
@@ -161,6 +163,10 @@ export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: Learne
 
   for (const subject of SUBJECT_ORDER) {
     const slot = slots.find((s) => s.subject === subject && s.kind === 'quest')
+    // Paper mode Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi mapel ini tidak punya
+    // quest tablet hari ini. refreshDayRecord menghitung quest yang ada, sehingga quests_required
+    // hanya berisi quest tablet dan hari tetap bisa selesai.
+    if (slot?.mode === 'kertas') continue
     let skillId = slot?.skillId ?? null
     let mode: 'belajar' | 'latihan' | 'tes' | 'kertas' = slot?.mode ?? 'latihan'
     if (!slot) {
@@ -316,10 +322,12 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
   const stops = daily.map((q, i) => stopFor(q, q.attemptId ? progress.get(q.attemptId) : undefined, i === activeIdx))
   const bonusQ = quests.find((q) => q.kind === 'bonus')
   const allDone = daily.length > 0 && activeIdx === -1
+  // Hari dengan paper Kertas punya kurang dari tiga quest tablet; teks jumlah mengikuti.
+  const n = daily.length
   const bonusStop: QuestStopDTO | null = bonusQ
     ? stopFor(bonusQ, bonusQ.attemptId ? progress.get(bonusQ.attemptId) : undefined, false)
     : daily.length > 0
-      ? { questId: null, subject: 'bonus', state: 'locked', title: 'Bonus quest', meta: 'Opens after all three', total: 0, answered: 0, segments: [], href: null, ctaLabel: 'Locked', offlineReady: false }
+      ? { questId: null, subject: 'bonus', state: 'locked', title: 'Bonus quest', meta: n >= 3 ? 'Opens after all three' : n === 2 ? 'Opens after both quests' : 'Opens after your quest', total: 0, answered: 0, segments: [], href: null, ctaLabel: 'Locked', offlineReady: false }
       : null
   const minutes = await minutesOn(tx, learner.userId, date)
   const streak = await streakDTO(tx, learner, date)
@@ -342,12 +350,16 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
         ? 'That is enough screen time for today. Well done.'
         : variant === 'all-done'
           ? bonusQ && bonusQ.status !== 'done'
-            ? 'All three are done. A bonus quest is open.'
-            : 'All three quests are done. See you tomorrow.'
+            ? `${n >= 3 ? 'All three are' : n === 2 ? 'Both quests are' : 'Your quest is'} done. A bonus quest is open.`
+            : `${n >= 3 ? 'All three quests are' : n === 2 ? 'Both quests are' : 'Your quest is'} done. See you tomorrow.`
           : active?.state === 'in-progress'
             ? `${SUBJECT_LABEL[(active.subject === 'bonus' ? 'math' : active.subject) as Subject]} is ${active.answered * 2 >= active.total ? 'half done' : 'started'}.`
             : doneCount === 0
-              ? 'Three quests today. Start with the big one.'
+              ? n >= 3
+                ? 'Three quests today. Start with the big one.'
+                : n === 2
+                  ? 'Two quests today. Start with the big one.'
+                  : 'One quest today.'
               : `${doneCount} of ${daily.length} done. Keep going.`
   const comp = await nextCompetition(tx, learner.userId, date)
   return {

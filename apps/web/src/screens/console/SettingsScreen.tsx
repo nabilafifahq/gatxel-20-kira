@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import type { PasskeyRegisterFn, SettingsActions, SettingsDTO } from '@/lib/dto'
-import { Button } from '@/components/console/Button'
+import { Button, buttonClass } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
 import { cx } from '@/components/console/cx'
 import { ConfirmDialog, Dialog } from '@/components/console/Dialog'
@@ -98,6 +98,16 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
   const [revokingInvite, setRevokingInvite] = useState<SettingsDTO['invites'][number] | null>(null)
   const revokeInv = useAction(actions.revokeInvite)
 
+  // Setelah action, server mengirim data baru: daftar lokal diganti supaya id sementara
+  // (undangan dan passkey yang baru dibuat) menjadi id asli yang bisa dicabut atau dihapus.
+  const [src, setSrc] = useState(data)
+  if (src !== data) {
+    setSrc(data)
+    setDevices(data.devices)
+    setInvites(data.invites)
+    setPasskeys(data.account.passkeys)
+  }
+
   async function doRevoke() {
     if (!revoking) return
     const r = await revoke.run(revoking.id)
@@ -176,7 +186,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
     try {
       const r = await registerPasskey(n)
       if (r.ok) {
-        setPasskeys((list) => [...list, { id: `baru-${Date.now()}`, name: n, createdAt: new Date().toISOString(), lastUsedAt: null }])
+        setPasskeys((list) => (list.some((k) => k.name === n && Date.now() - Date.parse(k.createdAt) < 60_000) ? list : [...list, { id: `baru-${Date.now()}`, name: n, createdAt: new Date().toISOString(), lastUsedAt: null }]))
         setPkOpen(false)
         toast({ tone: 'success', title: `Passkey ${n} tersimpan.` })
       } else setPkError({ message: r.message, reference: r.reference })
@@ -205,7 +215,11 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
     const r = await invite.run({ email: em, role: invRole, learnerIds: invLearners })
     if (r.ok) {
       setInvLink(r.data.link)
-      setInvites((list) => [...list, { id: `inv-${Date.now()}`, email: em, role: invRole, expiresAt: new Date(Date.now() + 7 * 864e5).toISOString() }])
+      setInvites((list) =>
+        list.some((i) => i.email.toLowerCase() === em.toLowerCase())
+          ? list
+          : [...list, { id: `inv-${Date.now()}`, email: em, role: invRole, expiresAt: new Date(Date.now() + 7 * 864e5).toISOString() }],
+      )
     }
   }
 
@@ -386,6 +400,35 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
             </table>
           </div>
         )}
+        {data.apk ? (
+          <Card as="section" aria-labelledby="apk-tablet" className="flex flex-col gap-3">
+            <h3 id="apk-tablet" className="m-0 text-body-lg font-bold">
+              Aplikasi tablet Android
+            </h3>
+            {data.apk.available ? (
+              <>
+                <ol className="m-0 flex list-decimal flex-col gap-1 pl-6 text-body">
+                  <li>Unduh APK di tablet anak, lalu pasang. Izinkan pemasangan dari peramban bila tablet memintanya.</li>
+                  <li>Buka Kira, lalu masuk sebagai tutor.</li>
+                  <li>
+                    Daftarkan tablet lewat Daftarkan perangkat ini di halaman ini, atau buka <span className="font-semibold">/perangkat</span>.
+                  </li>
+                </ol>
+                <span className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <a href="/api/apk" download="kira.apk" className={buttonClass('secondary', 'M')}>
+                    <ConsoleIcon name="download" size={18} strokeWidth={2.25} />
+                    Unduh APK{data.apk.size ? `, ${data.apk.size}` : ''}
+                  </a>
+                  {data.apk.updatedAt ? <span className="text-small text-fg-muted">Diperbarui {dateTimeId(data.apk.updatedAt)}</span> : null}
+                </span>
+              </>
+            ) : (
+              <p className="m-0 text-body text-fg-muted">
+                APK belum ada di server ini. Panduan pemasangan menjelaskan cara menaruh berkas kira.apk di folder data server.
+              </p>
+            )}
+          </Card>
+        ) : null}
       </Section>
 
       <div className="grid gap-6 lg:grid-cols-2">

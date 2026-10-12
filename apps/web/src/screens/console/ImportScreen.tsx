@@ -28,7 +28,16 @@ import { useAction, type ActionFailure } from '@/components/console/useAction'
 export type ImportScreenProps = { data: ImportDTO; actions: ImportActions }
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
-const MAX_PDF_MB = 20
+/**
+ * Batas efektif unggah dari browser: Server Action menerima paling banyak 12 MB
+ * (experimental.serverActions.bodySizeLimit di next.config.ts), dikurangi ruang untuk kolom
+ * formulir lain. Server sendiri menerima PDF sampai 60 MB (limitFor('pdf')).
+ */
+const MAX_PDF_MB = 12
+const MAX_PDF_BYTES = MAX_PDF_MB * 1024 * 1024 - 64 * 1024
+/** Sama dengan itemSchema: teks soal 900 karakter, opsi 160 karakter. */
+const PROMPT_MAX = 900
+const OPTION_MAX = 160
 
 const STATUS_LABEL: Record<ImportItemDTO['status'], string> = {
   ok: 'Lolos',
@@ -46,7 +55,8 @@ const BATCH_STATUS: Record<ImportDTO['batches'][number]['status'], { label: stri
   failed: { label: 'Gagal dibaca', tone: 'danger' },
 }
 
-const LEFTOVER_RE = /\s*(#\s*kunci\s*:?\s*[a-f])\s*$/i
+/** Sisa kunci di akhir teks soal: "#Kunci: B", "Kunci jawaban: B", "Jawaban: B", "Jwb: (B)", "Answer: B". */
+const LEFTOVER_RE = /\s*((?:#\s*)?(?:kunci(?:\s*jawaban)?|jawaban|jwb|answer|ans)\s*[:=]?\s*\(?[a-e]\)?\.?)\s*$/i
 const BROKEN_FRACTION_RE = /^\s*(\d+)\s+(\d+)\s*$/
 
 function splitLeftover(prompt: string): { text: string; leftover: string | null } {
@@ -214,7 +224,7 @@ function UploadCard({ actions }: { actions: ImportActions }) {
     if (!file) next.file = 'Pilih file PDF paket dulu.'
     else if (!(file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')))
       next.file = `File ${file.name} bukan PDF. Simpan atau ekspor paketnya sebagai PDF, lalu pilih lagi.`
-    else if (file.size > MAX_PDF_MB * 1024 * 1024)
+    else if (file.size > MAX_PDF_BYTES)
       next.file = `Ukuran file ${(file.size / 1024 / 1024).toFixed(1).replace('.', ',')} MB, batasnya ${MAX_PDF_MB} MB. Pisahkan PDF per bagian, lalu unggah satu per satu.`
     if (tags.length > 120) next.tags = `Label paling banyak 120 karakter, sekarang ${tags.length}.`
     if (!owned) next.owned = 'Centang pernyataan ini dulu. Hanya paket milik keluarga yang boleh diimpor.'
@@ -1000,11 +1010,11 @@ function EditItemDialog({
     const next: typeof errors = {}
     const p = prompt.trim()
     if (!p) next.prompt = 'Teks soal masih kosong. Salin teks dari halaman PDF.'
-    else if (p.length > 2000) next.prompt = `Teks soal paling banyak 2.000 karakter, sekarang ${p.length}.`
+    else if (p.length > PROMPT_MAX) next.prompt = `Teks soal paling banyak ${PROMPT_MAX} karakter, sekarang ${p.length}.`
     const optErr: Record<number, string> = {}
     options.forEach((o, i) => {
       if (!o.trim()) optErr[i] = `Opsi ${letter(i)} masih kosong.`
-      else if (o.length > 300) optErr[i] = `Opsi ${letter(i)} paling banyak 300 karakter, sekarang ${o.length}.`
+      else if (o.trim().length > OPTION_MAX) optErr[i] = `Opsi ${letter(i)} paling banyak ${OPTION_MAX} karakter, sekarang ${o.trim().length}.`
     })
     if (Object.keys(optErr).length) next.options = optErr
     if (answer === '') next.answer = 'Pilih kunci yang benar.'

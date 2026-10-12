@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teks layar native dibaca orang dewasa yang menyiapkan tablet, jadi berbahasa Indonesia. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="id">
+    <string name="app_name">Kira</string>
+
+    <string name="setup_title">Alamat server Kira</string>
+    <string name="setup_body">Isi alamat Kira dari Tailscale, misalnya https://kira-server.nama-tailnet.ts.net</string>
+    <string name="setup_label">Alamat server</string>
+    <string name="setup_save">Simpan dan buka</string>
+    <string name="setup_cancel">Batal</string>
+    <string name="setup_note">Tablet ini harus masuk ke tailnet yang sama lewat aplikasi Tailscale.</string>
+    <string name="setup_error_empty">Isi alamat server dulu.</string>
+    <string name="setup_error_https">Alamat harus memakai https.</string>
+    <string name="setup_error_host">Nama host belum lengkap. Contoh: kira-server.nama-tailnet.ts.net</string>
+    <string name="setup_error_invalid">Alamat ini tidak bisa dibaca. Periksa lagi penulisannya.</string>
+
+    <string name="offline_title">Kira tidak bisa dihubungi.</string>
+    <string name="offline_body">Pastikan Tailscale menyala di tablet ini dan server di rumah hidup.</string>
+    <string name="offline_detail">Alamat: %1$s\nKode: %2$s</string>
+    <string name="offline_retry">Coba lagi</string>
+    <string name="offline_retrying">Menghubungkan…</string>
+    <string name="offline_change">Ubah alamat server</string>
+    <string name="webview_missing">WebView Android tidak tersedia atau sedang diperbarui</string>
+
+    <string name="chooser_title">Tambahkan foto</string>
+    <string name="chooser_camera">Ambil foto dengan kamera</string>
+    <string name="chooser_files">Pilih dari galeri atau berkas</string>
+    <string name="camera_denied">Izin kamera tidak diberikan. Pilih foto dari galeri.</string>
+    <string name="camera_missing">Aplikasi kamera tidak ditemukan. Pilih foto dari galeri.</string>
+    <string name="picker_missing">Pemilih berkas tidak tersedia di tablet ini.</string>
+
+    <string name="download_started">Mengunduh %1$s</string>
+    <string name="download_failed">Unduhan gagal dimulai. Coba lagi.</string>
+    <string name="download_blocked">Berkas ini tidak bisa diunduh di aplikasi. Buka Kira lewat browser untuk mengunduhnya.</string>
+    <string name="external_missing">Tidak ada aplikasi untuk membuka tautan ini.</string>
+</resources>

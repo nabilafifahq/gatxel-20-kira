@@ -1048,7 +1048,7 @@ const timesTables: Generator = {
     if (level === 1) {
       const s = rng.pick([2, 5, 10])
       const g = rng.int(3, 6)
-      const thing = rng.pick(GROUP_THINGS.filter((x) => s <= 10))
+      const thing = rng.pick(GROUP_THINGS.filter(() => s <= 10))
       const figure: Fig = { kind: 'groups', groups: Array.from({ length: g }, () => s), icon: thing.icon, container: thing.container, alt: `${g} ${thing.holders} with ${s} ${thing.many} ${thing.in} each.` }
       if (rng.chance(0.5)) {
         return {

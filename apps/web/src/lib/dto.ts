@@ -483,10 +483,13 @@ export type PaperBuilderDTO = {
   items: (BankItemRow & { preview: ClientItem })[]
   presets: { id: string; title: string }[]
   papers: PaperDTO[]
+  /** Isi awal paper baru, misalnya dari Tambah ke paper di bank soal (?tambah=). */
+  draftRefs?: string[]
 }
 export type PaperBuilderActions = {
   savePaper(input: { paperId?: string; title: string; subject: Subject; grade: number; minutes: number; mode: PaperDTO['mode']; itemRefs: string[] }): Promise<ActionResult<{ paperId: string }>>
-  generatePaper(input: { subject: Subject; grade: number; skillIds: string[]; count: number; difficulty: [number, number] }): Promise<ActionResult<{ itemRefs: string[] }>>
+  /** `items` membawa pratinjau soal terpilih yang belum ada di `PaperBuilderDTO.items` (instans generator baru). */
+  generatePaper(input: { subject: Subject; grade: number; skillIds: string[]; count: number; difficulty: [number, number] }): Promise<ActionResult<{ itemRefs: string[]; items?: (BankItemRow & { preview: ClientItem })[] }>>
   assignPaper(input: { paperId: string; learnerId: string; date: string }): Promise<ActionResult>
   deletePaper(paperId: string): Promise<ActionResult>
 }
@@ -556,6 +559,9 @@ export type CompetitionRow = {
   presetVerified: boolean | null
   link: string | null
   learnerIds: string[]
+  /** Id katalog dan preset tersimpan, supaya form Ubah tidak menebak dari nama. */
+  competitionId?: string | null
+  presetId?: string | null
 }
 export type CompetitionCalendarDTO = {
   shell: ConsoleShell
@@ -580,6 +586,8 @@ export type ReportDTO = {
   markdown: string
   summary: WeekSummaryDTO
   outbox: { id: string; to: string; subject: string; status: 'queued' | 'sent' | 'failed' | 'no-smtp'; createdAt: string }[]
+  /** Waktu laporan minggu ini terakhir dikirim (week_report.sent_at), supaya status Terkirim bertahan setelah muat ulang. */
+  sentAt?: string | null
 }
 export type ReportActions = {
   sendReport(input: { learnerId: string; weekStart: string; note: string }): Promise<ActionResult>
@@ -596,6 +604,8 @@ export type SettingsDTO = {
   invites: { id: string; email: string; role: 'tutor' | 'guardian'; expiresAt: string }[]
   email: { configured: boolean; from: string | null }
   backups: { lastAt: string | null; lastSize: string | null; folder: string }
+  /** APK tablet di <KIRA_DATA_DIR>/apk/kira.apk, diunduh lewat /api/apk. */
+  apk?: { available: boolean; size: string | null; updatedAt: string | null }
 }
 export type SettingsActions = {
   updateLearnerLimits(input: { learnerId: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean }): Promise<ActionResult>
