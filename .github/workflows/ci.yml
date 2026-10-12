@@ -100,7 +100,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Digest image Postgres (sementara, untuk pin)
-        run: docker image inspect postgres:17 --format '{{join .RepoDigests " "}}'
+        run: echo "::notice title=postgres-digest::$(docker image inspect postgres:17 --format '{{join .RepoDigests " "}}')"
       - name: Buat database dan role Kira
         run: sh deploy/db/init/00-roles.sh
       - name: Migrasi (role kira_owner)
