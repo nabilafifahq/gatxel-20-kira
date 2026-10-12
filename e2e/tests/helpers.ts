@@ -54,7 +54,16 @@ export async function loginAdult(page: Page, who: { email: string; password: str
   await page.getByLabel('Email').first().fill(who.email)
   await page.getByLabel('Password', { exact: true }).fill(who.password)
   await page.getByRole('button', { name: 'Masuk', exact: true }).click()
-  await page.waitForURL((u) => !u.pathname.startsWith('/masuk'))
+  await waitForPath(page, (p) => !p.startsWith('/masuk'))
+}
+
+/**
+ * Tunggu sampai alamat halaman cocok. Dipakai sebagai ganti waitForURL karena action yang mengganti
+ * cookie lalu redirect bisa membatalkan satu navigasi di tengah jalan (net::ERR_ABORTED) di CI yang lambat.
+ */
+export async function waitForPath(page: Page, ok: (pathname: string) => boolean, timeout = 30_000): Promise<void> {
+  await expect.poll(() => ok(new URL(page.url()).pathname), { timeout, intervals: [100, 250, 500] }).toBe(true)
+  await page.waitForLoadState('domcontentloaded').catch(() => {})
 }
 
 /** Daftarkan browser ini sebagai tablet learner (tutor masuk, lalu otomatis keluar). */
@@ -64,16 +73,16 @@ export async function registerTablet(page: Page, learners: LearnerName[] = ['Ais
   await page.getByLabel('Nama tablet').fill(name)
   for (const l of learners) await page.getByRole('checkbox', { name: l }).check()
   await page.getByRole('button', { name: 'Daftarkan tablet' }).click()
-  await page.waitForURL((u) => u.pathname === '/')
+  await waitForPath(page, (p) => p === '/')
 }
 
 /** Pilih learner di tablet lalu masukkan PIN gambar. */
 export async function pinLogin(page: Page, name: LearnerName): Promise<void> {
   await page.goto('/')
   await page.getByRole('link', { name: new RegExp(`^${name}, Grade`) }).click()
-  await page.waitForURL(/\/pin\//)
+  await waitForPath(page, (p) => p.startsWith('/pin/'))
   for (const p of LEARNERS[name].pin) await page.getByRole('button', { name: p, exact: true }).click()
-  await page.waitForURL((u) => u.pathname === '/today')
+  await waitForPath(page, (p) => p === '/today')
 }
 
 /** Item MCQ dari konten repo untuk satu skill (dipakai untuk attempt tes yang bisa ditebak isinya). */

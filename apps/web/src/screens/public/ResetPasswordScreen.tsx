@@ -59,7 +59,7 @@ export function ResetPasswordScreen({ token, valid, resetPassword }: ResetPasswo
           </h1>
           <p className="m-0 text-body text-fg-muted">Setelah disimpan, masuk lagi dengan password baru ini.</p>
         </div>
-        <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
           <PasswordField
             id="reset-password"
             name="new-password"

@@ -85,7 +85,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
             {inv.learnerNames.length ? ` untuk ${joinNames(inv.learnerNames)}` : ''}. Berlaku sampai {dateTimeId(inv.expiresAt)}.
           </p>
         </div>
-        <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
           <TextField
             id="undangan-email"
             name="email"

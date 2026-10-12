@@ -8,6 +8,9 @@ import { NextResponse, type NextRequest } from 'next/server'
 export function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const dev = process.env.NODE_ENV !== 'production'
+  // upgrade-insecure-requests hanya bila Kira memang dibuka lewat https (Tailscale). Di http://localhost
+  // (CI, uji build produksi) arahan ini membuat browser pindah ke https yang tidak ada.
+  const httpsOrigin = (process.env.KIRA_ORIGIN ?? '').startsWith('https://')
   const csp = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${dev ? " 'unsafe-eval'" : ''}`,
@@ -22,7 +25,7 @@ export function proxy(request: NextRequest) {
     "base-uri 'self'",
     "form-action 'self'",
     "frame-ancestors 'none'",
-    ...(dev ? [] : ['upgrade-insecure-requests']),
+    ...(!dev && httpsOrigin ? ['upgrade-insecure-requests'] : []),
   ].join('; ')
 
   const headers = new Headers(request.headers)

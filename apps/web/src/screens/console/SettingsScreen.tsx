@@ -658,7 +658,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
           </>
         }
       >
-        <form
+        <form method="post"
           className="flex flex-col gap-4"
           onSubmit={(e) => {
             e.preventDefault()

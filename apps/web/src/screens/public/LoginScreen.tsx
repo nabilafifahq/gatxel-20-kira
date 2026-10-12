@@ -113,7 +113,7 @@ function LoginForm({
           </InlineAlert>
         </div>
       ) : null}
-      <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+      <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
         <TextField
           id="masuk-email"
           name="email"
@@ -208,7 +208,7 @@ function ForgotForm({
           Bila ada akun Kira dengan email itu, link untuk membuat password baru sudah dikirim. Link hanya bisa dipakai sekali. Cek juga folder spam.
         </InlineAlert>
       ) : (
-        <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
           <TextField
             id="lupa-email"
             name="email"

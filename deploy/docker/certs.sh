@@ -5,6 +5,14 @@
 #   /tls/server.crt, /tls/server.key  dipakai db (pemilik uid 999 = postgres di image resmi)
 #   /ca/ca.crt                         dipakai web, worker, backup untuk memverifikasi server
 set -eu
+
+# Folder data dipakai web dan worker sebagai user node (uid 1000). Di Linux, folder bind mount baru
+# milik root; di Windows (Docker Desktop) chown tidak berpengaruh dan diabaikan.
+if [ -d /data ]; then
+  mkdir -p /data/media /data/apk
+  chown 1000:1000 /data /data/media /data/apk 2>/dev/null || true
+fi
+
 apk add --no-cache openssl >/dev/null
 
 if [ -f /tls/server.crt ] && openssl x509 -checkend 2592000 -noout -in /tls/server.crt >/dev/null 2>&1 && [ -f /ca/ca.crt ]; then

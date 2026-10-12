@@ -403,7 +403,7 @@ function TokensSection({ data, actions }: ClaudeConnectionScreenProps) {
         <span className="text-body text-fg-muted">Satu token untuk setiap perangkat. Token yang dicabut langsung berhenti bekerja.</span>
       </div>
       <Card className="flex flex-col gap-4">
-        <form noValidate onSubmit={submit} className="flex flex-col gap-3">
+        <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-3">
           <TextField
             label="Nama token baru"
             hint="Nama perangkat yang memakai Claude, misalnya Laptop kerja."

@@ -1,10 +1,12 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, GUARDIAN, loginAdult, TUTOR, watchErrors } from './helpers'
+import { closeDb, GUARDIAN, loginAdult, TUTOR, waitForPath, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
 
 test('password salah memberi pesan umum tanpa membocorkan akun', async ({ page }) => {
   await page.goto('/masuk')
+  // Tanpa JavaScript pun password tidak pernah masuk ke URL.
+  for (const method of await page.locator('form').evaluateAll((fs) => fs.map((f) => f.getAttribute('method')))) expect(method).toBe('post')
   await page.getByLabel('Email').first().fill(TUTOR.email)
   await page.getByLabel('Password', { exact: true }).fill('password-yang-salah-sekali')
   await page.getByRole('button', { name: 'Masuk', exact: true }).click()
@@ -30,7 +32,7 @@ test('tutor masuk ke konsol dan keluar lagi', async ({ page }) => {
   await expect(page).toHaveURL(/\/konsol$/)
   await expect(page.getByRole('heading', { level: 1, name: 'Hari ini' })).toBeVisible()
   await page.getByRole('button', { name: 'Keluar' }).first().click()
-  await page.waitForURL(/\/masuk/)
+  await waitForPath(page, (p) => p === '/masuk')
   await page.goto('/konsol')
   await expect(page).toHaveURL(/\/masuk\?next=/)
   expect(errors).toEqual([])

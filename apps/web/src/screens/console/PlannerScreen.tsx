@@ -445,7 +445,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         }
       >
         {form ? (
-          <form
+          <form method="post"
             className="flex flex-col gap-5"
             onSubmit={(e) => {
               e.preventDefault()

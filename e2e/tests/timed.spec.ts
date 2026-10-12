@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, createPracticeAttempt, db, mcqItems, pinLogin, registerTablet } from './helpers'
+import { closeDb, createPracticeAttempt, db, mcqItems, pinLogin, registerTablet, waitForPath } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -26,7 +26,7 @@ test('tes berwaktu: jam mulai saat dibuka dan jawaban dikumpulkan otomatis saat 
   await expect(dialog.getByText(/Your answers are saved/)).toBeVisible()
   await expect.poll(async () => (await db()`select status from attempt where id = ${attemptId}`)[0]!.status, { timeout: 20_000 }).toBe('submitted')
   await dialog.getByRole('link', { name: /See my score/ }).or(dialog.getByRole('button', { name: /See my score/ })).first().click()
-  await page.waitForURL(new RegExp(`/results/${attemptId}`), { timeout: 30_000 })
+  await waitForPath(page, (p) => p === `/results/${attemptId}`)
   const [a] = await db()`select status, elapsed_s from attempt where id = ${attemptId}`
   expect(a!.status).toBe('submitted')
   expect(a!.elapsed_s).toBeLessThanOrEqual(120)

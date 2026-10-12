@@ -92,7 +92,7 @@ export function RegisterDeviceScreen({ learners, registered, registerDevice }: R
             </ButtonLink>
           </>
         ) : (
-          <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+          <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
             <TextField
               id="perangkat-nama"
               label="Nama tablet"

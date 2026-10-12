@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test'
-import { closeDb, createPracticeAttempt, db, expectNoSeriousA11y, learnerId, mcqItems, noHorizontalScroll, pinLogin, registerTablet, watchErrors } from './helpers'
+import { closeDb, createPracticeAttempt, db, expectNoSeriousA11y, learnerId, mcqItems, noHorizontalScroll, pinLogin, registerTablet, waitForPath, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -15,7 +15,7 @@ test('PIN salah memberi sisa percobaan, PIN benar membuka Today', async ({ page 
   await expectNoSeriousA11y(page, 'pilih learner')
 
   await page.getByRole('link', { name: /^Aisha, Grade 2/ }).click()
-  await page.waitForURL(/\/pin\//)
+  await waitForPath(page, (p) => p.startsWith('/pin/'))
   for (const p of ['Ball', 'Ball', 'Ball', 'Ball']) await page.getByRole('button', { name: p, exact: true }).click()
   await expect(page.getByRole('alert').filter({ hasText: /4 more tries/ })).toBeVisible()
   await expectNoSeriousA11y(page, 'PIN')
@@ -62,7 +62,7 @@ test('latihan: jawab, lihat umpan balik, selesai, dan hasil tersimpan', async ({
     const it = items[Number(pos ?? '3') - 1]!
     await answerMcq(page, it.options[it.answer]!.text!)
   }
-  await page.waitForURL(new RegExp(`/results/${attemptId}`))
+  await waitForPath(page, (p) => p === `/results/${attemptId}`)
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expectNoSeriousA11y(page, 'hasil')
 
@@ -83,7 +83,7 @@ test('ganti learner mengakhiri sesi dan kembali ke pilihan learner', async ({ pa
   await pinLogin(page, 'Aisha')
   await page.goto('/me')
   await page.getByRole('link', { name: 'Switch learner' }).click()
-  await page.waitForURL((u) => u.pathname === '/')
+  await waitForPath(page, (p) => p === '/')
   await page.goto('/today')
   await expect(page).toHaveURL((u) => u.pathname === '/')
   await pinLogin(page, 'Raka')

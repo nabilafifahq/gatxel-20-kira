@@ -11,6 +11,7 @@ x-ca: &ca-mount
   read_only: true
 
 services:
+  # Sekali jalan: sertifikat TLS database dan izin folder data.
   certs:
     image: alpine:3.22
     restart: "no"
@@ -19,6 +20,7 @@ services:
       - ./deploy/docker/certs.sh:/certs.sh:ro
       - kira-db-tls:/tls
       - kira-ca:/ca
+      - ${KIRA_HOST_DATA:-./data}:/data
 
   db:
     # postgres:17, digest sama dengan CI (12 Oktober 2026). Naikkan bersama tag-nya.

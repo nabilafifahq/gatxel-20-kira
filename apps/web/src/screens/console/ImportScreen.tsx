@@ -249,7 +249,7 @@ function UploadCard({ actions }: { actions: ImportActions }) {
       <h2 id="unggah-heading" className="m-0 text-h3 font-bold">
         Unggah PDF paket
       </h2>
-      <form noValidate onSubmit={submit} className="flex flex-col gap-4">
+      <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-4">
         <div className="flex min-w-0 flex-col gap-1.5">
           <span id={`${fileId}-label`} className="text-small font-bold">
             File PDF

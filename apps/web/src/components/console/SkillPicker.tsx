@@ -65,7 +65,13 @@ export function SkillPicker({
       <span id={`${id}-count`} role="status" className="text-small text-fg-muted tabular">
         {q.trim() ? `${list.length} skill cocok dengan "${q.trim()}"` : `${skills.length} skill`}
       </span>
-      <div className={cx('max-h-64 overflow-y-auto overscroll-contain rounded-control border-2 bg-surface', error ? 'border-danger' : 'border-divider')}>
+      {/* Daftar yang bisa digulir harus bisa dicapai keyboard (axe scrollable-region-focusable). */}
+      <div
+        tabIndex={0}
+        role="group"
+        aria-label="Daftar skill"
+        className={cx('max-h-64 overflow-y-auto overscroll-contain rounded-control border-2 bg-surface', error ? 'border-danger' : 'border-divider')}
+      >
         {list.length === 0 ? (
           <p className="m-0 p-3 text-body text-fg-muted">
             Tidak ada skill dengan kata &quot;{q.trim()}&quot;.{' '}

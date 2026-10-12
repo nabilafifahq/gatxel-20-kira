@@ -67,7 +67,7 @@ export function SetupScreen({ createOrg }: SetupScreenProps) {
           </h1>
           <p className="m-0 text-body text-fg-muted">Buat akun keluarga dan akun tutor pertama. Akun ini menjadi pemilik server dan bisa menambah learner.</p>
         </div>
-        <form noValidate onSubmit={submit} className="flex flex-col gap-5">
+        <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
           <TextField
             id="setup-setupToken"
             name="setup-token"
