@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+@import '@fontsource/andika/400.css';
+@import '@fontsource/andika/700.css';
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+@import '@fontsource/mohave/500.css';
+@import '@fontsource/mohave/600.css';
+@import '@fontsource/mohave/700.css';
+
+/*
+ * Token DESIGN.md v0.2. Ini satu-satunya tempat nilai warna, font, radius,
+ * dan easing ditulis. Utilitas Tailwind bawaan untuk warna dan font dimatikan
+ * supaya kode hanya bisa memakai token.
+ */
+@theme {
+  --color-*: initial;
+  --color-bg: #f5f8fc;
+  --color-surface: #ffffff;
+  --color-fg: #14202e;
+  --color-fg-muted: #4a5a6e;
+  --color-border: #7a8899;
+  --color-divider: #d3dce6;
+  --color-math: #1f6fb2;
+  --color-math-50: #e7f0f9;
+  --color-english: #b4442f;
+  --color-english-50: #faece8;
+  --color-science: #2e7d4f;
+  --color-science-50: #e7f3ec;
+  --color-accent: #1f6fb2;
+  --color-success: #2e7d4f;
+  --color-success-50: #e7f3ec;
+  --color-warn: #b54708;
+  --color-warn-50: #fdf1e7;
+  --color-star: #f2b10e;
+  --color-danger: #b42318;
+  --color-danger-50: #fceaea;
+  --color-review: #a3b1c2;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-*: initial;
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-reading: Andika, Verdana, sans-serif;
+  --font-display: Mohave, 'Arial Narrow', sans-serif;
+
+  --text-display: 64px;
+  --text-display--line-height: 68px;
+  --text-h1: 32px;
+  --text-h1--line-height: 40px;
+  --text-h2: 24px;
+  --text-h2--line-height: 32px;
+  --text-h3: 20px;
+  --text-h3--line-height: 28px;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 29px;
+  --text-body: 16px;
+  --text-body--line-height: 26px;
+  --text-small: 14px;
+  --text-small--line-height: 22px;
+
+  --radius-card: 16px;
+  --radius-control: 12px;
+  --radius-pill: 9999px;
+
+  --ease-kira: cubic-bezier(0.25, 1, 0.5, 1);
+  --shadow-*: initial;
+}
+
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-celebrate: 900ms;
+  --question-size: clamp(22px, 1.1rem + 0.8vw, 26px);
+  --question-measure: 60ch;
+  color-scheme: light;
+}
+
+[data-jenjang='1-2'] {
+  --question-size: clamp(22px, 1.1rem + 0.8vw, 26px);
+  --question-measure: 60ch;
+}
+[data-jenjang='3-4'] {
+  --question-size: clamp(20px, 1rem + 0.6vw, 24px);
+  --question-measure: 66ch;
+}
+[data-jenjang='5-6'] {
+  --question-size: clamp(18px, 0.95rem + 0.5vw, 22px);
+  --question-measure: 72ch;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background: var(--color-bg);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-fg);
+    outline-offset: 2px;
+  }
+  [data-area='console'] :focus-visible,
+  [data-area='family'] :focus-visible,
+  [data-area='public'] :focus-visible {
+    outline-color: var(--color-accent);
+  }
+  [id] {
+    scroll-margin-top: 96px;
+  }
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: inherit;
+  }
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+  a {
+    color: var(--color-accent);
+    text-underline-offset: 3px;
+  }
+  @media (hover: hover) {
+    a:hover {
+      color: var(--color-fg);
+    }
+  }
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+  dialog::backdrop {
+    background: rgb(20 32 46 / 0.45);
+  }
+}
+
+@layer components {
+  .text-question {
+    font-family: var(--font-reading);
+    font-size: var(--question-size);
+    line-height: 1.5;
+    max-width: var(--question-measure);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .paper-grid {
+    background-color: var(--color-surface);
+    background-image:
+      linear-gradient(var(--color-math-50) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-math-50) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .motion-fade {
+    transition: opacity var(--duration-base) var(--ease-kira), transform var(--duration-base) var(--ease-kira);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-property: opacity !important;
+    transition-duration: 120ms !important;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

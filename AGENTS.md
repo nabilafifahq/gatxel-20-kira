@@ -16,18 +16,17 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 | `pnpm test` | Vitest unit (core, content, figures, web) |
 | `pnpm test:db` | Tes RLS dan otorisasi di Postgres sungguhan, butuh `DATABASE_URL_*` |
 | `pnpm content:check` | Validasi semua soal, pelajaran, dan generator |
-| `pnpm content:sync` | Tulis konten repo ke database (role kira_owner) |
 | `pnpm db:migrate` | Jalankan migrasi (role kira_owner) |
 | `pnpm e2e` | Playwright dan axe terhadap server lokal |
 
 ## Peta repo
 
-- `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (en-GB), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4.
+- `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (en-GB), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4. Komponen layar ada di `src/screens`, menerima DTO dari `src/lib/dto.ts`.
 - `apps/worker`: proses Node untuk job AI (Claude Code CLI atau endpoint OpenAI-compatible), PDF batch, email, laporan mingguan, backup, dan retensi.
 - `apps/android`: cangkang Capacitor untuk APK tablet, dibangun di GitHub Actions.
 - `packages/core`: mesin belajar murni (theta, pemilih soal, FSRS, gerbang, XP, level, streak, skor preset lomba, waktu Asia/Jakarta).
 - `packages/db`: skema Drizzle, migrasi SQL, role, RLS, seed.
-- `packages/content`: skema konten Zod, generator Math, pemeriksa, sinkron ke database.
+- `packages/content`: skema konten Zod, generator Math, pemeriksa jawaban, pemuat konten (dibaca dari folder `content/` saat server mulai).
 - `packages/figures`: komponen SVG dari FigureSpec.
 - `content/`: soal, pelajaran, skill, dan katalog lomba dalam JSON.
 
@@ -39,8 +38,8 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 4. Kunci jawaban mode Tes, Simulasi, dan Kertas tidak pernah dikirim ke client sebelum attempt dikumpulkan. Skor selalu dihitung ulang di server.
 5. Route group `(learner)` tidak memuat skrip pihak ketiga, iframe, font dari luar, atau tautan keluar.
 6. Tidak ada rahasia dengan awalan `NEXT_PUBLIC_`. Modul yang memegang rahasia mengimpor `server-only`.
-7. Semua teks UI lewat kamus di `apps/web/src/i18n`: learner en-GB, tutor dan orang tua id.
-8. Warna, font, radius, jarak, dan easing hanya dari token DESIGN.md (`tokens.css`).
+7. Bahasa per area tetap: layar learner en-GB, konsol tutor, halaman orang tua, dan halaman publik id. Teks ditulis langsung di komponen layar area itu.
+8. Warna, font, radius, dan easing hanya dari token DESIGN.md lewat kelas Tailwind (`bg-surface`, `text-fg-muted`, `rounded-card`, `font-reading`). Nilai arbitrer Tailwind hanya untuk ukuran tata letak, tidak pernah untuk warna atau font. Hex hanya ada di `globals.css` dan `packages/figures/src/palette.ts`.
 9. Tanggal belajar dihitung di Asia/Jakarta lewat `@kira/core/time`.
 10. Data contoh ditandai `__GTX_SEED__` dan tidak pernah masuk ke database produksi.
 11. Teks yang dibaca pengguna: tanpa em dash, tanpa kosakata terlarang GTX, tanpa bingkai antitesis.

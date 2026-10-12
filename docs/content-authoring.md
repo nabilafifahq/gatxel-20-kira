@@ -47,7 +47,7 @@ Skema resmi: `packages/content/src/schema.ts` (soal, skill, pelajaran, bacaan, l
 - Kode skill adalah kode Kira sendiri. Jangan menulis kode resmi Cambridge (misalnya 2Nc.01) di mana pun.
 - `order` menentukan urutan di peta belajar (kelipatan 10 supaya mudah disisipi). `prerequisites` hanya skill yang benar-benar dibutuhkan, boleh dari grade sebelumnya.
 - `title` en-GB paling banyak 60 karakter, sentence case. `titleId` Bahasa Indonesia untuk konsol tutor. `canDo` kalimat "I can ..." untuk anak.
-- `competitions`: id lomba yang relevan (`ikmc`, `iklc`, `iksc`, `esmo`, `sasmo`, `kmnr`, `ksnr`, `seamo`, `hkimo`, `timo`, `osn`, `cambridge-checkpoint`).
+- `competitions`: id lomba yang relevan (`ikmc`, `iklc`, `iksc`, `esmo`, `sasmo`, `kmnr`, `ksnr`, `seamo`, `hkimo`, `timo`, `imso`, `osn-sd`, `cambridge-checkpoint`).
 
 ## 3. Soal
 
