@@ -94,6 +94,7 @@ Objek `window.KiraNative` hanya ada di aplikasi, hanya di frame utama dari origi
 | Aplikasi ke halaman | `{"type":"speech-end","id":"s1","interrupted":false}` | `interrupted` true bila dihentikan atau dipotong bacaan berikutnya. |
 | Aplikasi ke halaman | `{"type":"speech-error","id":"s1","reason":"invalid"}` | `reason` berisi `invalid`, `unavailable`, atau `engine`. |
 | Halaman ke aplikasi | `{"type":"stop"}` | Menghentikan bacaan yang berjalan. |
+| Halaman ke aplikasi | `{"type":"keep-awake","on":true}` | Layar tetap menyala selama runner terbuka (`FLAG_KEEP_SCREEN_ON`). `on:false` atau pindah halaman mematikannya lagi. |
 
 Pesan dengan jenis lain, lebih dari 16 KB, atau JSON bersarang lebih dari dua tingkat diabaikan. Isi pesan tidak pernah dijalankan sebagai kode. `nativeSpeak()` selesai saat `speech-end` atau `speech-error` datang, atau setelah batas waktu (10 detik menunggu `speech-start`, lalu perkiraan lama bacaan), jadi halaman tidak pernah menunggu tanpa akhir.
 

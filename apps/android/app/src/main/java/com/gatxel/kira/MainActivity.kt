@@ -16,6 +16,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.webkit.CookieManager
@@ -261,7 +262,16 @@ class MainActivity : ComponentActivity() {
             download(serverOrigin, url, userAgent, contentDisposition, mimeType)
         }
         // Didaftarkan sebelum loadUrl supaya objek KiraNative ada sejak dokumen pertama.
-        bridge = NativeBridge.attach(this, view, serverOrigin)
+        bridge = NativeBridge.attach(this, view, serverOrigin) { on -> setKeepScreenOn(on) }
+    }
+
+    /** Layar tetap menyala selama runner terbuka (pesan keep-awake dari halaman). */
+    private fun setKeepScreenOn(on: Boolean) {
+        if (on) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
     }
 
     private fun dropWebView() {
@@ -289,6 +299,8 @@ class MainActivity : ComponentActivity() {
 
         override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
             bridge?.stopSpeech()
+            // Halaman baru memutuskan sendiri apakah layar perlu tetap menyala (runner mengirim keep-awake).
+            setKeepScreenOn(false)
         }
 
         override fun onPageFinished(view: WebView, url: String?) {

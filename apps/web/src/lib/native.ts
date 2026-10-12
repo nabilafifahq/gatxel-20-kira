@@ -188,3 +188,49 @@ export function nativeStop(): void {
   }
   for (const id of [...pending.keys()]) settle(id)
 }
+
+/**
+ * Jaga layar tetap menyala selama runner terbuka. Aplikasi Android memakai FLAG_KEEP_SCREEN_ON lewat
+ * jembatan; browser biasa memakai Screen Wake Lock API bila tersedia. Mengembalikan fungsi pelepas.
+ */
+export function keepScreenAwake(): () => void {
+  const target = bridge()
+  if (target) {
+    try {
+      target.postMessage(JSON.stringify({ type: 'keep-awake', on: true }))
+    } catch {
+      // WebView sedang ditutup.
+    }
+    return () => {
+      try {
+        target.postMessage(JSON.stringify({ type: 'keep-awake', on: false }))
+      } catch {
+        // WebView sedang ditutup.
+      }
+    }
+  }
+  type WakeLock = { release(): Promise<void> }
+  const nav = navigator as Navigator & { wakeLock?: { request(type: 'screen'): Promise<WakeLock> } }
+  if (!nav.wakeLock) return () => {}
+  let lock: WakeLock | null = null
+  let stopped = false
+  const acquire = () => {
+    if (stopped || document.visibilityState !== 'visible') return
+    nav.wakeLock!
+      .request('screen')
+      .then((l) => {
+        if (stopped) void l.release()
+        else lock = l
+      })
+      .catch(() => {
+        // Ditolak browser (baterai hemat atau tidak didukung): layar mengikuti pengaturan perangkat.
+      })
+  }
+  acquire()
+  document.addEventListener('visibilitychange', acquire)
+  return () => {
+    stopped = true
+    document.removeEventListener('visibilitychange', acquire)
+    void lock?.release().catch(() => {})
+  }
+}

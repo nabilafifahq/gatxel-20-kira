@@ -1,0 +1,31 @@
+# Pembaruan dependensi mingguan. cooldown 3 hari sama dengan minimumReleaseAge pnpm (pnpm-workspace.yaml).
+# Setiap PR melewati CI (lint, typecheck, tes, build, Docker Compose, e2e) sebelum digabung.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Asia/Jakarta
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 5
+    groups:
+      next-react:
+        patterns: ['next', 'react', 'react-dom', '@types/react', '@types/react-dom']
+      tooling:
+        patterns: ['eslint', 'typescript-eslint', 'prettier', 'vitest', 'tsx', 'typescript', '@playwright/test', '@axe-core/playwright', 'drizzle-kit']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 3
+  - package-ecosystem: docker
+    directory: /deploy/docker
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 3

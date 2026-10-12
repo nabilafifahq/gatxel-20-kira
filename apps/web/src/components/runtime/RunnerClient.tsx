@@ -6,6 +6,7 @@ import type { ActionResult, AnswerPayload, AnswerResult, RunnerDTO, SavedRespons
 import { checkAnswer } from '@kira/content/check'
 import { isNetworkError, localAnswers, queueAnswer, queueSubmit } from '@/lib/offline/outbox'
 import { reportProblemAction, saveAnswerAction, submitAttemptAction } from '@/server/actions/learner'
+import { keepScreenAwake } from '@/lib/native'
 
 /**
  * Pembungkus runner: jawaban yang gagal terkirim karena jaringan masuk kotak keluar
@@ -13,6 +14,9 @@ import { reportProblemAction, saveAnswerAction, submitAttemptAction } from '@/se
  */
 export function RunnerClient({ data }: { data: RunnerDTO }) {
   const [local, setLocal] = useState<AnswerPayload[] | null>(null)
+
+  // Layar tidak padam di tengah soal (tablet anak biasanya cepat terkunci).
+  useEffect(() => keepScreenAwake(), [])
 
   useEffect(() => {
     let alive = true

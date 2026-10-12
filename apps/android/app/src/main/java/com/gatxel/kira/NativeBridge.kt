@@ -24,6 +24,7 @@ import java.util.Locale
  *   {"type":"hello"}
  *   {"type":"speak","id":"s1","text":"...","lang":"en-GB"|"id","rate":0.5..1.5}
  *   {"type":"stop"}
+ *   {"type":"keep-awake","on":true|false}  layar tetap menyala selama runner terbuka
  * Ke halaman:
  *   {"type":"ready","tts":true|false,"app":"1.0.12"}
  *   {"type":"speech-start","id":"s1","lang":"en-GB","fallback":false}
@@ -33,6 +34,7 @@ import java.util.Locale
 class NativeBridge private constructor(
     context: Context,
     private val origin: String,
+    private val onKeepAwake: (Boolean) -> Unit,
 ) : WebViewCompat.WebMessageListener, TextToSpeech.OnInitListener {
 
     private enum class TtsState { STARTING, READY, FAILED }
@@ -84,6 +86,10 @@ class NativeBridge private constructor(
             }
             "speak" -> speak(json, replyProxy)
             "stop" -> stopSpeech()
+            "keep-awake" -> {
+                val on = json.opt("on") as? Boolean ?: return
+                main.post { if (!closed) onKeepAwake(on) }
+            }
             // Jenis lain diabaikan.
         }
     }
@@ -226,9 +232,9 @@ class NativeBridge private constructor(
         )
 
         /** Pasang jembatan sebelum halaman dimuat. Null bila WebView terlalu lama untuk WEB_MESSAGE_LISTENER. */
-        fun attach(context: Context, view: WebView, origin: String): NativeBridge? {
+        fun attach(context: Context, view: WebView, origin: String, onKeepAwake: (Boolean) -> Unit): NativeBridge? {
             if (!WebViewFeature.isFeatureSupported(WebViewFeature.WEB_MESSAGE_LISTENER)) return null
-            val bridge = NativeBridge(context, origin)
+            val bridge = NativeBridge(context, origin, onKeepAwake)
             return try {
                 WebViewCompat.addWebMessageListener(view, OBJECT_NAME, setOf(origin), bridge)
                 bridge
