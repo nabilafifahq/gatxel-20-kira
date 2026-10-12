@@ -52,6 +52,11 @@ export async function loadAttempt(tx: Tx, learnerId: string, attemptId: string):
   return rows[0]
 }
 
+/** Seed urutan tampil opsi dan kartu. Pembahasan memakai seed yang sama supaya urutannya sama dengan saat dikerjakan. */
+export function presentationSeed(a: Pick<AttemptRow, 'id' | 'mode'>): string {
+  return HIDDEN_MODES.has(a.mode) ? runnerSeed(a.id) : a.id
+}
+
 /** Awal jam attempt: saat pertama dibuka di runner, atau saat dibuat bila belum pernah dibuka. */
 export function clockStart(a: Pick<AttemptRow, 'openedAt' | 'startedAt'>): Date {
   return a.openedAt ?? a.startedAt
@@ -91,7 +96,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
   const hints = modeAllowsHints(mode)
   // Mode tanpa umpan balik: urutan tampil dan label pilihan dihitung dari KIRA_SECRET (lihat server/labels.ts).
   const hidden = HIDDEN_MODES.has(a.mode)
-  const seed = hidden ? runnerSeed(a.id) : a.id
+  const seed = presentationSeed(a)
   const byPosition = new Map<number, { item: Item; perm: LabelPerm | null }>()
   const runnerItems: RunnerItem[] = []
   for (const it of items) {

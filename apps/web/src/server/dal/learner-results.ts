@@ -8,7 +8,7 @@ import type { Tx } from '../db'
 import { resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner } from './learner-core'
-import { exitFor, latestByPosition, loadAttempt, type AttemptItem } from './learner-runner'
+import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 
 const { response } = tables
 
@@ -144,7 +144,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
     const why = choice !== undefined && item.type === 'mcq' && choice !== item.answer ? (item.options[choice]?.why ?? null) : null
     questions.push({
       position: it.position,
-      item: toClient(item, { ref: it.ref, seed: a.id, includeKey: true, includeHints: true }),
+      item: toClient(item, { ref: it.ref, seed: presentationSeed(a), includeKey: true, includeHints: true }),
       yourAnswerText: yourAnswerText(item, r?.answer ?? null),
       correctAnswerText: item.type === 'write' || item.type === 'speak' || item.type === 'draw' ? 'Your tutor will mark this.' : answerText(item),
       status,
