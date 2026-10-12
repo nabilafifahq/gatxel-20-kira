@@ -15,7 +15,9 @@ export const LEARNER_ROUTES = {
   pick: '/',
   pin: (learnerId: string) => `/pin/${encodeURIComponent(learnerId)}`,
   /** Halaman masuk dewasa (tutor atau orang tua). */
-  grownUp: '/login',
+  grownUp: '/masuk',
+  /** Ganti learner: akhiri sesi anak lalu kembali ke pilihan learner. */
+  switchLearner: '/bye',
 } as const
 
 export type LearnerNavKey = 'today' | 'map' | 'review' | 'me'

@@ -21,7 +21,7 @@ const NOTICE: Record<NonNullable<LoginScreenProps['notice']>, { tone: 'danger' |
   locked: {
     tone: 'danger',
     title: 'Akun dikunci sementara.',
-    body: 'Terlalu banyak percobaan password yang salah. Link untuk membuka kunci lebih cepat sudah dikirim ke email akun ini. Passkey tetap bisa dipakai.',
+    body: 'Terlalu banyak percobaan password yang salah. Tunggu 15 menit atau pakai Lupa password. Passkey tetap bisa dipakai.',
   },
   'reset-done': { tone: 'success', title: 'Password baru tersimpan.', body: 'Masuk dengan password baru.' },
   'signed-out': { tone: 'info', title: 'Sudah keluar dari Kira.', body: 'Masuk lagi kapan saja dengan email dan password.' },

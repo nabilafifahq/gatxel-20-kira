@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   devIndicators: false,
+  // Jangan pernah mencatat argumen Server Action (bisa berisi password atau PIN).
+  logging: { serverFunctions: false, incomingRequests: { ignore: [/\/api\/heartbeat/] } },
   transpilePackages: ['@kira/core', '@kira/content', '@kira/figures', '@kira/db'],
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
   experimental: { serverActions: { bodySizeLimit: '12mb' }, globalNotFound: true },
