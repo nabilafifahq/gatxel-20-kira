@@ -1,0 +1,539 @@
+{
+  "competitions": [
+    {
+      "id": "ikmc",
+      "name": "International Kangaroo Mathematics Contest (IKMC)",
+      "organizer": "Klinik Pendidikan MIPA (KPM), anggota Kangourou sans Frontières untuk Indonesia",
+      "scope": "international",
+      "subjects": ["math"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Pilihan ganda dengan 5 pilihan jawaban (Internal Regulations KSF 2021). Satu level untuk dua kelas: Pre Ecolier kelas 1-2, Ecolier kelas 3-4, Benjamin kelas 5-6. Pre Ecolier menurut data tutor: 24 soal dalam 75 menit, soal 1-8 bernilai 3, soal 9-16 bernilai 4, soal 17-24 bernilai 5, tanpa pengurangan.",
+      "usualMonths": "Maret, Kamis ketiga (artikel jurnal Januari 2026)",
+      "website": "https://kpm.read1institute.org",
+      "verified": false,
+      "sources": [
+        "https://www.aksf.org/countries.xhtml",
+        "https://www.aksf.org/documents/KSF-Internal-Regulations-English.pdf"
+      ],
+      "notes": "Penyelenggara Indonesia dicek di aksf.org. Situs KPM tidak bisa diakses saat riset 12 Oktober 2026, jadi juknis IKMC belum terbaca. Pembagian level dan jadwal dari artikel jurnal Octaria dan Saputra (ejournal.uika-bogor.ac.id, Januari 2026). Bahasa soal dan aturan pengurangan nilai perlu dicek tutor."
+    },
+    {
+      "id": "iklc",
+      "name": "International Kangaroo Linguistic Contest (IKLC)",
+      "organizer": "Penyelenggara di Indonesia belum dicek",
+      "scope": "international",
+      "subjects": ["english"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Lomba bahasa Inggris bermerek Kangaroo. Level per kelas, jumlah soal, waktu, dan penilaian belum dicek dari sumber resmi 2025 atau 2026.",
+      "usualMonths": "Belum dicek",
+      "verified": false,
+      "sources": [],
+      "notes": "Lomba masih berjalan: hasil pencarian memuat berita siswa Indonesia meraih emas IKLC (journalarta.com, 6 Oktober 2026) dan situs IKLC Pakistan (iklc.kangaroo.org.pk). Situs Surya Institute memuat tag IKLC, tetapi penyelenggara IKLC di Indonesia belum dipastikan. Jenjang kelas 1 sampai 6 belum dicek."
+    },
+    {
+      "id": "iksc",
+      "name": "International Kangaroo Science Contest (IKSC)",
+      "organizer": "Surya Institute for the Promotion of Science (penyelenggara IKSC 2023 di Indonesia)",
+      "scope": "international",
+      "subjects": ["science"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Level 1 kelas 1-2, Level 2 kelas 3-4, Level 3 kelas 5-6 (halaman hasil IKSC 2023). Jumlah soal, waktu, dan penilaian belum dicek.",
+      "usualMonths": "Oktober (IKSC 2023 diadakan 14 Oktober 2023)",
+      "website": "https://suryainstitute.org",
+      "verified": false,
+      "sources": ["https://suryainstitute.org/result-of-the-international-kangarooscience-contest-iksc-2023-indonesia/"],
+      "notes": "Sumber resmi yang terbuka masih dari 2023. Penyelenggara, jadwal, bahasa soal, dan format 2025 atau 2026 perlu dicek tutor."
+    },
+    {
+      "id": "sasmo",
+      "name": "Singapore and Asian Schools Math Olympiad (SASMO)",
+      "organizer": "Singapore International Math Contests Centre (SIMCC)",
+      "scope": "international",
+      "subjects": ["math"],
+      "grades": [2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "25 soal. Bagian A: 15 pilihan ganda, benar 2 poin, salah minus 1, kosong 0. Bagian B: 10 soal non-rutin, benar 4 poin, salah tidak dikurangi. Semua peserta mulai dengan 15 poin supaya skor tidak negatif, total maksimal 85. Durasi tidak tertulis di halaman resmi.",
+      "usualMonths": "April, satu babak per tahun",
+      "website": "https://simcc.org/contest/sasmo/",
+      "verified": true,
+      "sources": ["https://simcc.org/contest/sasmo/"],
+      "notes": "Halaman resmi menyebut peserta Grade 2 sampai 10 dalam 9 divisi mulai Primary 2, jadi kelas 1 belum bisa ikut. Durasi, bahasa soal, dan mitra penyelenggara di Indonesia belum dicek."
+    },
+    {
+      "id": "seamo",
+      "name": "Southeast Asian Mathematical Olympiad (SEAMO)",
+      "organizer": "Panitia SEAMO (seamo-official.org)",
+      "scope": "international",
+      "subjects": ["math"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Paper A sampai F: 20 pilihan ganda dan 5 isian bebas dalam 90 menit. Soal 1-10 bernilai 3, soal 11-20 bernilai 4, soal 21-25 bernilai 6, total 100. Paper K: 15 pilihan ganda dalam 40 menit. Pengurangan untuk jawaban salah tidak tertulis.",
+      "usualMonths": "Belum dicek",
+      "website": "https://seamo-official.org",
+      "verified": true,
+      "sources": ["https://seamo-official.org/page/guidelines"],
+      "notes": "Halaman pedoman resmi tidak menyebut tahun dan tidak memetakan paper ke kelas; peserta ditempatkan otomatis sesuai kelas saat mendaftar. Situs juga punya SEAMO X dengan pedoman terpisah yang belum dicek. Bahasa soal belum dicek."
+    },
+    {
+      "id": "hkimo",
+      "name": "Hong Kong International Mathematical Olympiad (HKIMO)",
+      "organizer": "Belum dicek dari sumber resmi",
+      "scope": "international",
+      "subjects": ["math"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Ada babak Heat menurut judul blog pihak ketiga (HKIMO Heat 2026). Babak lain, jumlah soal, waktu, dan penilaian belum dicek.",
+      "usualMonths": "Belum dicek",
+      "verified": false,
+      "sources": [],
+      "notes": "Hanya muncul di hasil pencarian situs bimbel dan blog (pw.live, competitivekids.org); tidak ada sumber resmi yang dibuka. HKMO dari EDB Hong Kong adalah lomba lain untuk sekolah di Hong Kong. Jenjang kelas dan bahasa soal belum dicek."
+    },
+    {
+      "id": "timo",
+      "name": "Thailand International Mathematical Olympiad (TIMO)",
+      "organizer": "Belum dicek dari sumber resmi",
+      "scope": "international",
+      "subjects": ["math"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Ada babak Heat menurut formulir pendaftaran TIMO Heat Round 2025-2026. Babak lain, jumlah soal, waktu, dan penilaian belum dicek.",
+      "usualMonths": "Belum dicek",
+      "verified": false,
+      "sources": [],
+      "notes": "Hanya muncul di hasil pencarian: formulir Heat Round 2025-2026 (form.jotform.com) dan brosur sekolah di Thailand bertanggal Agustus 2025. Situs resmi, mitra Indonesia, jenjang kelas, dan bahasa soal perlu dicari tutor."
+    },
+    {
+      "id": "imso",
+      "name": "International Mathematics and Science Olympiad (IMSO)",
+      "organizer": "Panitia IMSO; IMSO ke-23 diadakan di Depok, Jawa Barat, 2 sampai 7 Oktober 2026",
+      "scope": "international",
+      "subjects": ["math", "science"],
+      "grades": [4, 5, 6],
+      "lang": ["en-GB"],
+      "format": "Olimpiade Matematika dan IPA untuk siswa SD berusia paling tinggi 13 tahun, ikut sebagai tim negara. Komponen tes, jumlah soal, dan waktu belum dicek dari sumber resmi.",
+      "usualMonths": "Oktober (2025: 5 sampai 9 Oktober, 2026: 2 sampai 7 Oktober)",
+      "website": "https://imso-official.org",
+      "verified": false,
+      "sources": [],
+      "notes": "Jadwal dan batas usia dari sites.google.com/view/imso-hq, yang menyatakan diri tidak berhubungan dengan panitia resmi. Kelas 4 sampai 6 adalah perkiraan Kira dari batas usia. Isi imso-official.org dan cara seleksi tim Indonesia belum dicek."
+    },
+    {
+      "id": "esmo",
+      "name": "ESMO",
+      "organizer": "Belum dicek dari web; tertera di paket resmi ESMO milik keluarga",
+      "scope": "international",
+      "subjects": ["math", "english"],
+      "grades": [1, 2],
+      "lang": ["id", "en-GB"],
+      "format": "Level 1 (kelas 1-2) menurut paket resmi: Math 40 soal dalam 50 menit dengan soal berbahasa Indonesia, English 40 soal dalam 40 menit. Pilihan ganda 4 opsi, benar 1 poin, salah dan kosong 0, skor diskalakan ke 100, batas lulus 70. Paket latihan: 10 soal, Math 13 menit, English 10 menit.",
+      "usualMonths": "Belum dicek",
+      "verified": true,
+      "sources": [],
+      "notes": "Sumber: 60 PDF paket latihan resmi ESMO milik keluarga, dipetakan 11 Oktober 2026. Paket tidak masuk repo dan diimpor lewat konsol. Nama lengkap, penyelenggara, jadwal, dan level lain tidak ditemukan lewat pencarian web 12 Oktober 2026. Cakupan internasional mengikuti daftar tutor."
+    },
+    {
+      "id": "cambridge-checkpoint",
+      "name": "Cambridge Primary Checkpoint",
+      "organizer": "Cambridge International Education",
+      "scope": "school",
+      "subjects": ["math", "english", "science"],
+      "grades": [6],
+      "lang": ["en-GB"],
+      "format": "Tes di akhir Cambridge Primary (Stage 6) untuk English, Mathematics, dan Science yang memberi umpan balik tentang kekuatan dan kelemahan learner. Jumlah paper, durasi, dan nilai belum dicek dari dokumen 2025 atau 2026.",
+      "usualMonths": "Belum dicek, jadwal diatur sekolah",
+      "website": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/assessment/cambridge-primary-checkpoint/",
+      "verified": false,
+      "sources": [
+        "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/assessment/cambridge-primary-checkpoint/"
+      ],
+      "notes": "Dipakai Kira sebagai latihan menjelang akhir kelas 6. Isi utama halaman resmi tidak terbaca saat riset (yang terbaca hanya navigasi dan deskripsi halaman), jadi susunan paper perlu dicek dari sekolah atau dokumen Cambridge."
+    },
+    {
+      "id": "osn-sd",
+      "name": "Olimpiade Sains Nasional (OSN) SD",
+      "organizer": "Pusat Prestasi Nasional (Puspresnas), Kemendikdasmen",
+      "scope": "national",
+      "subjects": ["math", "science"],
+      "grades": [4, 5],
+      "lang": ["id"],
+      "format": "Bidang Matematika, IPA, dan IPS (IPS di luar cakupan Kira). Tahap 2026: OSN-S di sekolah, OSN-K daring lewat ANBK, OSN-P, lalu semifinal dan final nasional luring. Jumlah soal, durasi, dan penilaian belum dicek dari pedoman resmi.",
+      "usualMonths": "OSN-S Jan sampai Feb, OSN-K Jun, OSN-P Jul, nasional Agu (jadwal 2026)",
+      "website": "https://pusatprestasinasional.kemdikbud.go.id",
+      "verified": false,
+      "sources": [],
+      "notes": "Jadwal 2026 dan syarat peserta (kelas IV dan V dengan rekomendasi kepala sekolah) dari ringkasan tirto.id atas Pedoman OSN SD 2026. Berkas pedoman ada di Google Drive yang tidak bisa diunduh dari lingkungan riset, jadi tutor perlu membaca pedoman aslinya."
+    },
+    {
+      "id": "kmnr",
+      "name": "Kompetisi Matematika Nalaria Realistik (KMNR)",
+      "organizer": "Klinik Pendidikan MIPA (KPM)",
+      "scope": "national",
+      "subjects": ["math"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["id"],
+      "format": "Babak penyisihan, semifinal, dan final menurut berita sekolah. Level per kelas, jumlah soal, waktu, dan penilaian belum dicek karena juknis belum ditemukan.",
+      "usualMonths": "Penyisihan Januari, final sekitar April (dari berita, belum dicek)",
+      "website": "https://kpm.read1institute.org",
+      "verified": false,
+      "sources": [],
+      "notes": "Hasil pencarian memuat berita pwmu.co tentang penyisihan KMNR ke-20 (Januari) dan siswa yang lolos semifinal (Februari), serta berita Republika tentang final KMNR ke-19 pada 27 April 2024. Situs KPM tidak bisa diakses saat riset 12 Oktober 2026. Jenjang kelas 1 sampai 6 belum dicek."
+    },
+    {
+      "id": "ksnr",
+      "name": "Kompetisi Sains Nalaria Realistik (KSNR)",
+      "organizer": "Belum dicek; kemungkinan Klinik Pendidikan MIPA (KPM), final di Bogor",
+      "scope": "national",
+      "subjects": ["science"],
+      "grades": [1, 2, 3, 4, 5, 6],
+      "lang": ["id"],
+      "format": "Babak semifinal dan final menurut berita sekolah. Level per kelas, jumlah soal, waktu, dan penilaian belum dicek.",
+      "usualMonths": "Sekitar September (dari berita, belum dicek)",
+      "verified": false,
+      "sources": [],
+      "notes": "Lomba ini ada: hasil pencarian memuat berita pwmu.co tentang siswa SD yang meraih medali KSNR, peserta yang lolos semifinal KSNR ke-16, dan siswa yang maju ke final KSNR di Bogor. Situs resmi dan juknis belum ditemukan. Jenjang kelas 1 sampai 6 belum dicek."
+    }
+  ],
+  "presets": [
+    {
+      "id": "ikmc-pre-ecolier-2027",
+      "competition": "ikmc",
+      "title": "IKMC Pre-Ecolier",
+      "subject": "math",
+      "grades": [1, 2],
+      "lang": "en-GB",
+      "year": 2027,
+      "verified": true,
+      "rules": {
+        "questionCount": 24,
+        "timeLimitMin": 75,
+        "sections": [
+          { "from": 1, "to": 8, "points": 3, "label": "3-point questions" },
+          { "from": 9, "to": 16, "points": 4, "label": "4-point questions" },
+          { "from": 17, "to": 24, "points": 5, "label": "5-point questions" }
+        ],
+        "optionCount": 5
+      },
+      "howItWorks": [
+        "There are 24 questions and you have 75 minutes.",
+        "Questions 1 to 8 are worth 3 points.",
+        "Questions 9 to 16 are worth 4 points.",
+        "Questions 17 to 24 are worth 5 points.",
+        "Each question has 5 choices, and only one is right.",
+        "A wrong answer does not take away points."
+      ],
+      "tip": "The questions get harder as you go. If one takes too long, skip it and come back later.",
+      "itemTags": ["ikmc"],
+      "notes": "Format dari data tutor: 24 soal, 75 menit, 3/4/5 poin, tanpa pengurangan. Lima pilihan jawaban sesuai Internal Regulations KSF 2021. Juknis IKMC dari KPM belum terbaca karena situsnya tidak bisa diakses saat riset 12 Oktober 2026, jadi aturan pengurangan nilai perlu dicek di juknis 2027."
+    },
+    {
+      "id": "esmo-math-2026",
+      "competition": "esmo",
+      "title": "ESMO Math Level 1",
+      "subject": "math",
+      "grades": [1, 2],
+      "lang": "id",
+      "year": 2026,
+      "verified": true,
+      "rules": {
+        "questionCount": 40,
+        "timeLimitMin": 50,
+        "sections": [{ "from": 1, "to": 40, "points": 1 }],
+        "scaleTo": 100,
+        "passMark": 70,
+        "optionCount": 4
+      },
+      "howItWorks": [
+        "There are 40 questions and you have 50 minutes.",
+        "The questions are in Bahasa Indonesia. Tap Terms to see a word in English.",
+        "Each right answer is worth 1 point.",
+        "A wrong answer does not take away points.",
+        "Your score is out of 100.",
+        "70 or more is a pass."
+      ],
+      "tip": "Answer every question. A guess cannot lose you points.",
+      "itemTags": ["esmo"],
+      "notes": "Format dari paket latihan resmi ESMO milik keluarga (60 PDF, dipetakan 11 Oktober 2026). Paket tidak masuk repo dan diimpor lewat konsol sebagai soal privat org."
+    },
+    {
+      "id": "esmo-english-2026",
+      "competition": "esmo",
+      "title": "ESMO English Level 1",
+      "subject": "english",
+      "grades": [1, 2],
+      "lang": "en-GB",
+      "year": 2026,
+      "verified": true,
+      "rules": {
+        "questionCount": 40,
+        "timeLimitMin": 40,
+        "sections": [{ "from": 1, "to": 40, "points": 1 }],
+        "scaleTo": 100,
+        "passMark": 70,
+        "optionCount": 4
+      },
+      "howItWorks": [
+        "There are 40 questions and you have 40 minutes.",
+        "That is about 1 minute for each question.",
+        "Each right answer is worth 1 point.",
+        "A wrong answer does not take away points.",
+        "Your score is out of 100.",
+        "70 or more is a pass."
+      ],
+      "tip": "Answer every question. A guess cannot lose you points.",
+      "itemTags": ["esmo"],
+      "notes": "Format dari paket latihan resmi ESMO milik keluarga (60 PDF, dipetakan 11 Oktober 2026). Paket tidak masuk repo dan diimpor lewat konsol sebagai soal privat org."
+    },
+    {
+      "id": "esmo-practice-math-2026",
+      "competition": "esmo",
+      "title": "ESMO Math practice pack",
+      "subject": "math",
+      "grades": [1, 2],
+      "lang": "id",
+      "year": 2026,
+      "verified": true,
+      "rules": {
+        "questionCount": 10,
+        "timeLimitMin": 13,
+        "sections": [{ "from": 1, "to": 10, "points": 1 }],
+        "scaleTo": 100,
+        "optionCount": 4
+      },
+      "howItWorks": [
+        "There are 10 questions and you have 13 minutes.",
+        "The questions are in Bahasa Indonesia. Tap Terms to see a word in English.",
+        "Each right answer is worth 1 point.",
+        "A wrong answer does not take away points.",
+        "Your score is out of 100."
+      ],
+      "tip": "You have just over 1 minute for each question.",
+      "itemTags": ["esmo"],
+      "notes": "Format paket latihan dari paket resmi ESMO milik keluarga (60 PDF, dipetakan 11 Oktober 2026)."
+    },
+    {
+      "id": "esmo-practice-english-2026",
+      "competition": "esmo",
+      "title": "ESMO English practice pack",
+      "subject": "english",
+      "grades": [1, 2],
+      "lang": "en-GB",
+      "year": 2026,
+      "verified": true,
+      "rules": {
+        "questionCount": 10,
+        "timeLimitMin": 10,
+        "sections": [{ "from": 1, "to": 10, "points": 1 }],
+        "scaleTo": 100,
+        "optionCount": 4
+      },
+      "howItWorks": [
+        "There are 10 questions and you have 10 minutes.",
+        "Each right answer is worth 1 point.",
+        "A wrong answer does not take away points.",
+        "Your score is out of 100."
+      ],
+      "tip": "You have about 1 minute for each question.",
+      "itemTags": ["esmo"],
+      "notes": "Format paket latihan dari paket resmi ESMO milik keluarga (60 PDF, dipetakan 11 Oktober 2026)."
+    },
+    {
+      "id": "sasmo-2027",
+      "competition": "sasmo",
+      "title": "SASMO Grade 2",
+      "subject": "math",
+      "grades": [2],
+      "lang": "en-GB",
+      "year": 2027,
+      "verified": false,
+      "rules": {
+        "questionCount": 25,
+        "timeLimitMin": 90,
+        "startScore": 15,
+        "sections": [
+          { "from": 1, "to": 15, "points": 2, "wrongPenalty": 1, "label": "Section A, multiple choice" },
+          { "from": 16, "to": 25, "points": 4, "label": "Section B, non-routine" }
+        ]
+      },
+      "howItWorks": [
+        "There are 25 questions and you have 90 minutes.",
+        "Everyone starts with 15 points.",
+        "Questions 1 to 15 are multiple choice. Right is 2 points, wrong loses 1 point.",
+        "A multiple choice question left blank scores 0.",
+        "Questions 16 to 25 are worth 4 points, and a wrong answer loses nothing.",
+        "Your score can never go below 0."
+      ],
+      "tip": "On multiple choice, only guess if you can cross out two wrong answers first.",
+      "itemTags": ["sasmo"],
+      "notes": "Skor dan jumlah soal sesuai simcc.org (dibuka 12 Oktober 2026): 15 pilihan ganda +2/-1, 10 non-rutin +4, mulai 15 poin, maksimal 85. SASMO dimulai dari Grade 2, jadi preset hanya untuk kelas 2. Durasi 90 menit dan jumlah pilihan jawaban belum dicek, jadi verified tetap false."
+    },
+    {
+      "id": "kmnr-2026",
+      "competition": "kmnr",
+      "title": "KMNR practice",
+      "subject": "math",
+      "grades": [1, 2],
+      "lang": "id",
+      "year": 2026,
+      "verified": false,
+      "rules": {
+        "questionCount": 30,
+        "timeLimitMin": 60,
+        "sections": [{ "from": 1, "to": 30, "points": 1 }]
+      },
+      "howItWorks": [
+        "There are 30 questions and you have 60 minutes.",
+        "The questions are in Bahasa Indonesia.",
+        "Each right answer is worth 1 point.",
+        "These are practice rules. The real KMNR rules may be different."
+      ],
+      "tip": "Draw a quick picture of the story before you choose an answer.",
+      "itemTags": ["kmnr"],
+      "notes": "Aturan sementara buatan Kira (30 soal, 60 menit, 1 poin per soal, tanpa pengurangan) karena juknis KMNR belum ditemukan. Setelah juknis dibaca, ganti aturannya, tambahkan sumber di katalog, lalu ubah verified menjadi true."
+    },
+    {
+      "id": "cambridge-checkpoint-math",
+      "competition": "cambridge-checkpoint",
+      "title": "Checkpoint Mathematics practice",
+      "subject": "math",
+      "grades": [6],
+      "lang": "en-GB",
+      "year": 2026,
+      "verified": false,
+      "rules": {
+        "questionCount": 30,
+        "timeLimitMin": 45,
+        "sections": [
+          { "from": 1, "to": 20, "points": 1, "label": "Short questions" },
+          { "from": 21, "to": 30, "points": 2, "label": "Longer problems" }
+        ]
+      },
+      "howItWorks": [
+        "This is a practice test in the Checkpoint style.",
+        "There are 30 questions and you have 45 minutes.",
+        "Questions 1 to 20 are worth 1 point.",
+        "Questions 21 to 30 are worth 2 points.",
+        "A wrong answer does not take away points."
+      ],
+      "tip": "Write your working on paper, then check that the answer makes sense.",
+      "itemTags": ["checkpoint"],
+      "notes": "Latihan buatan Kira. Susunan soal, durasi, dan nilai belum dicek dari dokumen resmi Cambridge, jadi preset ini tidak dipakai untuk skor kesiapan."
+    },
+    {
+      "id": "cambridge-checkpoint-english",
+      "competition": "cambridge-checkpoint",
+      "title": "Checkpoint English practice",
+      "subject": "english",
+      "grades": [6],
+      "lang": "en-GB",
+      "year": 2026,
+      "verified": false,
+      "rules": {
+        "questionCount": 30,
+        "timeLimitMin": 50,
+        "sections": [
+          { "from": 1, "to": 20, "points": 1, "label": "Reading" },
+          { "from": 21, "to": 30, "points": 1, "label": "Grammar and punctuation" }
+        ]
+      },
+      "howItWorks": [
+        "This is a practice test in the Checkpoint style.",
+        "There are 30 questions and you have 50 minutes.",
+        "Questions 1 to 20 are about a reading text.",
+        "Questions 21 to 30 check grammar and punctuation.",
+        "Each right answer is worth 1 point."
+      ],
+      "tip": "Read the text once for the story, then again to find each answer.",
+      "itemTags": ["checkpoint"],
+      "notes": "Latihan buatan Kira. Bagian menulis dilatih terpisah dan dinilai tutor. Susunan soal, durasi, dan nilai belum dicek dari dokumen resmi Cambridge, jadi preset ini tidak dipakai untuk skor kesiapan."
+    },
+    {
+      "id": "cambridge-checkpoint-science",
+      "competition": "cambridge-checkpoint",
+      "title": "Checkpoint Science practice",
+      "subject": "science",
+      "grades": [6],
+      "lang": "en-GB",
+      "year": 2026,
+      "verified": false,
+      "rules": {
+        "questionCount": 30,
+        "timeLimitMin": 45,
+        "sections": [
+          { "from": 1, "to": 20, "points": 1, "label": "Science knowledge" },
+          { "from": 21, "to": 30, "points": 2, "label": "Thinking and working scientifically" }
+        ]
+      },
+      "howItWorks": [
+        "This is a practice test in the Checkpoint style.",
+        "There are 30 questions and you have 45 minutes.",
+        "Questions 1 to 20 are worth 1 point.",
+        "Questions 21 to 30 are about investigations and are worth 2 points.",
+        "A wrong answer does not take away points."
+      ],
+      "tip": "In a fair test, change one thing and keep everything else the same.",
+      "itemTags": ["checkpoint"],
+      "notes": "Latihan buatan Kira. Susunan soal, durasi, dan nilai belum dicek dari dokumen resmi Cambridge, jadi preset ini tidak dipakai untuk skor kesiapan."
+    },
+    {
+      "id": "iklc-2027",
+      "competition": "iklc",
+      "title": "IKLC English practice",
+      "subject": "english",
+      "grades": [1, 2],
+      "lang": "en-GB",
+      "year": 2027,
+      "verified": false,
+      "rules": {
+        "questionCount": 24,
+        "timeLimitMin": 75,
+        "sections": [
+          { "from": 1, "to": 8, "points": 3, "label": "3-point questions" },
+          { "from": 9, "to": 16, "points": 4, "label": "4-point questions" },
+          { "from": 17, "to": 24, "points": 5, "label": "5-point questions" }
+        ]
+      },
+      "howItWorks": [
+        "There are 24 questions and you have 75 minutes.",
+        "Questions 1 to 8 are worth 3 points.",
+        "Questions 9 to 16 are worth 4 points.",
+        "Questions 17 to 24 are worth 5 points.",
+        "These are practice rules. The real IKLC rules may be different."
+      ],
+      "tip": "Read the whole sentence before you choose a word.",
+      "itemTags": ["iklc"],
+      "notes": "Aturan sementara meniru pembagian poin IKMC Pre-Ecolier karena format resmi IKLC belum dicek. Jumlah soal, waktu, poin, pengurangan, dan jumlah pilihan jawaban perlu diganti setelah tutor membaca juknis."
+    },
+    {
+      "id": "iksc-2027",
+      "competition": "iksc",
+      "title": "IKSC Level 1 practice",
+      "subject": "science",
+      "grades": [1, 2],
+      "lang": "en-GB",
+      "year": 2027,
+      "verified": false,
+      "rules": {
+        "questionCount": 24,
+        "timeLimitMin": 75,
+        "sections": [
+          { "from": 1, "to": 8, "points": 3, "label": "3-point questions" },
+          { "from": 9, "to": 16, "points": 4, "label": "4-point questions" },
+          { "from": 17, "to": 24, "points": 5, "label": "5-point questions" }
+        ]
+      },
+      "howItWorks": [
+        "There are 24 questions and you have 75 minutes.",
+        "Questions 1 to 8 are worth 3 points.",
+        "Questions 9 to 16 are worth 4 points.",
+        "Questions 17 to 24 are worth 5 points.",
+        "These are practice rules. The real IKSC rules may be different."
+      ],
+      "tip": "Look closely at every picture before you answer.",
+      "itemTags": ["iksc"],
+      "notes": "Aturan sementara meniru pembagian poin IKMC Pre-Ecolier karena format resmi IKSC belum dicek. Level 1 untuk kelas 1-2 sesuai halaman hasil IKSC 2023 dari Surya Institute."
+    }
+  ]
+}
