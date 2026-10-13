@@ -392,11 +392,11 @@ export function Gallery({
 
           <Section id="timer" title="Timer">
             <Row label="countdown, 1 minute left, time up, stopwatch">
-              <Timer mode="countdown" seconds={512} />
-              <Timer mode="countdown" seconds={48} />
-              <Timer mode="countdown" seconds={0} />
+              <Timer mode="countdown" seconds={512} total={600} />
+              <Timer mode="countdown" seconds={48} total={120} />
+              <Timer mode="countdown" seconds={0} total={120} />
               <Timer mode="stopwatch" seconds={754} />
-              <Timer mode="countdown" seconds={8} warnAt={10} compact />
+              <Timer mode="countdown" seconds={8} total={60} warnAt={10} compact tick={false} />
             </Row>
           </Section>
 
