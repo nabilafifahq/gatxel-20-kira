@@ -58,6 +58,7 @@ export function PrivacyNoticePage({ data }: PrivacyNoticePageProps) {
             Data disimpan di {data.storageLocation}.
             {abroad ? ' Sebagian kecil dikirim ke penerima di luar Indonesia, dengan persetujuan terpisah.' : ''}
           </li>
+          <li>Lalu lintas ke Kira lewat pusat data Cloudflare, sebagian di luar Indonesia, lalu diteruskan lewat Cloudflare Tunnel ke server di rumah Pengelola.</li>
           <li>Persetujuan bisa ditarik kapan saja dari halaman Privasi keluarga. Pemrosesan berhenti paling lambat 3 x 24 jam.</li>
           <li>Kira tidak memuat iklan dan tidak menjual data.</li>
         </ul>

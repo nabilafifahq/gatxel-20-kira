@@ -16,7 +16,7 @@ import { setPin } from './pin'
 const { userAccount, invite, resetToken } = tables
 
 export const TERMS_VERSION = '2026-10-12'
-export const NOTICE_VERSION = '2026-10-12'
+export const NOTICE_VERSION = '2026-10-13'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 
@@ -121,7 +121,7 @@ export async function createInvite(ctx: { orgId: string; userId: string }, input
       input.role === 'guardian'
         ? 'Kamu diundang sebagai orang tua di Kira untuk melihat ringkasan belajar mingguan dan mengatur persetujuan data anak.'
         : 'Kamu diundang sebagai tutor di Kira.',
-      'Tautan ini berlaku 7 hari dan hanya bisa dipakai sekali. Kira hanya bisa dibuka dari perangkat yang tersambung ke jaringan Tailscale keluarga.',
+      'Tautan ini berlaku 7 hari dan hanya bisa dipakai sekali. Buka tautan ini dari browser di HP atau laptop, tidak perlu memasang aplikasi tambahan.',
     ],
     buttonLabel: 'Terima undangan',
     buttonUrl: link,
