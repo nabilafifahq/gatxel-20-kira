@@ -65,6 +65,20 @@ const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
 const text = (max: number) => z.string().trim().min(1).max(max)
 const httpsUrl = z.url().refine((u) => u.startsWith('https://'), 'Alamat harus https://')
 
+/** Satu PDF resmi dengan data paper-nya (kelas, tahun, bagian), supaya impor otomatis tidak perlu menebak. */
+export const pdfFileSchema = z
+  .object({
+    url: httpsUrl,
+    title: text(120),
+    grade,
+    year: z.number().int().min(2000).max(2035),
+    subject: subject.optional(),
+    section: text(20).optional(),
+    minutes: z.number().int().min(1).max(300).optional(),
+  })
+  .strict()
+export type PdfFile = z.infer<typeof pdfFileSchema>
+
 export const fetchSchema = z.discriminatedUnion('kind', [
   /** Satu atau beberapa berkas teks (XML, JSONL) lewat HTTPS. */
   z.object({ kind: z.literal('http-text'), urls: z.array(httpsUrl).min(1).max(6) }).strict(),
@@ -75,7 +89,7 @@ export const fetchSchema = z.discriminatedUnion('kind', [
   /** Folder di <KIRA_DATA_DIR>/sources yang diisi admin (misalnya tugas Bebras yang berlisensi). */
   z.object({ kind: z.literal('local-dir'), dir: z.string().regex(/^[a-z0-9-]+$/) }).strict(),
   /** PDF gratis resmi dari penyelenggara; masuk antrean impor tutor, tidak pernah ke repo. */
-  z.object({ kind: z.literal('official-pdf'), urls: z.array(httpsUrl).min(1).max(40) }).strict(),
+  z.object({ kind: z.literal('official-pdf'), files: z.array(pdfFileSchema).min(1).max(60) }).strict(),
 ])
 export type SourceFetch = z.infer<typeof fetchSchema>
 
@@ -154,8 +168,9 @@ export function allowedHosts(s: Source): string[] {
   if (!f) return []
   switch (f.kind) {
     case 'http-text':
-    case 'official-pdf':
       return [...new Set(f.urls.map((u) => new URL(u).hostname))]
+    case 'official-pdf':
+      return [...new Set(f.files.map((x) => new URL(x.url).hostname))]
     case 'hf-rows':
       return ['datasets-server.huggingface.co']
     case 'opentdb-api':

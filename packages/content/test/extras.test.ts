@@ -51,7 +51,7 @@ describe('registri sumber: aturan lisensi', () => {
   })
 
   it('PDF resmi hanya dengan lisensi unduhan gratis resmi, dan sebaliknya', () => {
-    const pdf = { ...base, license: 'official-free', format: 'pdf', importer: undefined, fetch: { kind: 'official-pdf', urls: ['https://example.org/a.pdf'] } }
+    const pdf = { ...base, license: 'official-free', format: 'pdf', importer: undefined, fetch: { kind: 'official-pdf', files: [{ url: 'https://example.org/a.pdf', title: 'Contoh 2023', grade: 2, year: 2023 }] } }
     expect(sourceSchema.safeParse(pdf).success).toBe(true)
     expect(sourceSchema.safeParse({ ...pdf, license: 'cc-by' }).success).toBe(false)
     expect(sourceSchema.safeParse({ ...base, license: 'official-free' }).success).toBe(false)

@@ -6,8 +6,17 @@
       "id": "asdiv",
       "name": "ASDiv",
       "site": "https://github.com/chaochun/nlu-asdiv-dataset",
-      "subjects": ["math"],
-      "grades": [1, 2, 3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2020",
       "license": "cc-by-nc",
       "licenseNote": "CC BY-NC 4.0: nonkomersial. Dipakai hanya di server keluarga ini, tidak dimasukkan ke repo.",
@@ -16,7 +25,12 @@
       "format": "xml",
       "access": "auto",
       "importer": "asdiv",
-      "fetch": { "kind": "http-text", "urls": ["https://raw.githubusercontent.com/chaochun/nlu-asdiv-dataset/master/dataset/ASDiv.xml"] },
+      "fetch": {
+        "kind": "http-text",
+        "urls": [
+          "https://raw.githubusercontent.com/chaochun/nlu-asdiv-dataset/master/dataset/ASDiv.xml"
+        ]
+      },
       "maxPerRun": 60,
       "notes": "Soal cerita Math berlabel kelas 1 sampai 6, dengan kunci dari penyusun."
     },
@@ -24,8 +38,15 @@
       "id": "gsm8k",
       "name": "GSM8K",
       "site": "https://github.com/openai/grade-school-math",
-      "subjects": ["math"],
-      "grades": [3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2021",
       "license": "mit",
       "licenseUrl": "https://github.com/openai/grade-school-math/blob/master/LICENSE",
@@ -47,8 +68,15 @@
       "id": "arc-easy",
       "name": "ARC Easy",
       "site": "https://huggingface.co/datasets/allenai/ai2_arc",
-      "subjects": ["science"],
-      "grades": [3, 4, 5, 6],
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2018",
       "license": "cc-by-sa",
       "licenseNote": "CC BY-SA 4.0: dipakai hanya di server keluarga ini, tidak dimasukkan ke repo.",
@@ -57,7 +85,12 @@
       "format": "json",
       "access": "auto",
       "importer": "arc-easy",
-      "fetch": { "kind": "hf-rows", "dataset": "allenai/ai2_arc", "config": "ARC-Easy", "split": "test" },
+      "fetch": {
+        "kind": "hf-rows",
+        "dataset": "allenai/ai2_arc",
+        "config": "ARC-Easy",
+        "split": "test"
+      },
       "maxPerRun": 60,
       "notes": "Pilihan ganda Science dari ujian negara bagian AS kelas 3 sampai 9. Kelas diambil dari kode soal, yang di bawah kelas 3 atau di atas kelas 6 dilewati."
     },
@@ -65,8 +98,15 @@
       "id": "openbookqa",
       "name": "OpenBookQA",
       "site": "https://github.com/allenai/OpenBookQA",
-      "subjects": ["science"],
-      "grades": [3, 4, 5, 6],
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2018",
       "license": "apache-2.0",
       "licenseNote": "Repositori resmi allenai/OpenBookQA berlisensi Apache 2.0. Kartu dataset di Hugging Face menulis lisensi belum diketahui, jadi tutor mengecek soal sebelum dipakai.",
@@ -75,7 +115,12 @@
       "format": "json",
       "access": "auto",
       "importer": "openbookqa",
-      "fetch": { "kind": "hf-rows", "dataset": "allenai/openbookqa", "config": "main", "split": "train" },
+      "fetch": {
+        "kind": "hf-rows",
+        "dataset": "allenai/openbookqa",
+        "config": "main",
+        "split": "train"
+      },
       "maxPerRun": 60,
       "notes": "Fakta Science tingkat SD dalam bentuk pilihan ganda. Tanpa label kelas, jadi dipetakan ke kelas 4."
     },
@@ -83,8 +128,13 @@
       "id": "opentdb",
       "name": "Open Trivia DB",
       "site": "https://opentdb.com",
-      "subjects": ["science"],
-      "grades": [3, 4],
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        3,
+        4
+      ],
       "years": "semua",
       "license": "cc-by-sa",
       "licenseNote": "CC BY-SA 4.0: dipakai hanya di server keluarga ini, tidak dimasukkan ke repo.",
@@ -93,7 +143,15 @@
       "format": "json",
       "access": "auto",
       "importer": "opentdb",
-      "fetch": { "kind": "opentdb-api", "categories": [9, 17, 22, 27] },
+      "fetch": {
+        "kind": "opentdb-api",
+        "categories": [
+          9,
+          17,
+          22,
+          27
+        ]
+      },
       "maxPerRun": 40,
       "notes": "Hanya tingkat mudah dan kategori yang aman untuk anak: Pengetahuan Umum, Sains dan Alam, Geografi, Hewan. Pengetahuan Umum disimpan tanpa skill untuk Arena Pengetahuan."
     },
@@ -101,8 +159,16 @@
       "id": "bebras",
       "name": "Bebras (tugas berlisensi)",
       "site": "https://www.bebras.org",
-      "subjects": ["math"],
-      "grades": [2, 3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "semua",
       "license": "cc-by-sa",
       "licenseNote": "Tugas Bebras berlisensi CC BY-SA per tugas. Importer hanya menerima berkas yang menulis lisensinya, dan tutor tetap menyetujui tiap soal.",
@@ -111,7 +177,10 @@
       "format": "json",
       "access": "auto",
       "importer": "bebras",
-      "fetch": { "kind": "local-dir", "dir": "bebras" },
+      "fetch": {
+        "kind": "local-dir",
+        "dir": "bebras"
+      },
       "maxPerRun": 30,
       "notes": "Tidak ada unduhan massal yang stabil. Admin menaruh berkas JSON tugas di KIRA_DATA_DIR/sources/bebras, satu tugas per berkas (lihat apps/worker/src/sourcing/datasets/bebras.ts)."
     },
@@ -119,8 +188,17 @@
       "id": "kangaroo-ikmc",
       "name": "IKMC (Kangaroo Math), paper resmi",
       "site": "https://kpm.read1institute.org",
-      "subjects": ["math"],
-      "grades": [1, 2, 3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2021 ke atas",
       "license": "unknown",
       "licenseNote": "Hak cipta penyelenggara. Cek apakah penyelenggara memberi unduhan gratis; kalau tidak, tutor mengunggah PDF milik keluarga.",
@@ -134,8 +212,17 @@
       "id": "kangaroo-iksc",
       "name": "IKSC (Kangaroo Science), paper resmi",
       "site": "https://suryainstitute.org",
-      "subjects": ["science"],
-      "grades": [1, 2, 3, 4, 5, 6],
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2021 ke atas",
       "license": "unknown",
       "licenseNote": "Hak cipta penyelenggara. Tutor mengunggah PDF milik keluarga.",
@@ -149,8 +236,16 @@
       "id": "sasmo-papers",
       "name": "SASMO, paper resmi",
       "site": "https://simcc.org/contest/sasmo/",
-      "subjects": ["math"],
-      "grades": [2, 3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2021 ke atas",
       "license": "paid",
       "licenseNote": "Buku paper SASMO dijual. Keluarga membeli bukunya, tutor mengunggah PDF milik keluarga.",
@@ -164,8 +259,17 @@
       "id": "seamo-papers",
       "name": "SEAMO, paper resmi",
       "site": "https://seamo-official.org",
-      "subjects": ["math"],
-      "grades": [1, 2, 3, 4, 5, 6],
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "years": "2021 ke atas",
       "license": "paid",
       "licenseNote": "Paper dijual penyelenggara. Tutor mengunggah PDF milik keluarga.",
@@ -179,8 +283,14 @@
       "id": "cambridge-checkpoint-papers",
       "name": "Cambridge Primary Checkpoint, contoh paper",
       "site": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/assessment/cambridge-primary-checkpoint/",
-      "subjects": ["math", "english", "science"],
-      "grades": [6],
+      "subjects": [
+        "math",
+        "english",
+        "science"
+      ],
+      "grades": [
+        6
+      ],
       "years": "semua",
       "license": "restricted",
       "licenseNote": "Contoh paper ada di situs resmi, sebagian butuh akun sekolah. Tidak diambil otomatis; tutor mengunggah PDF yang sah dipakai keluarga.",
@@ -189,6 +299,470 @@
       "access": "listed",
       "competition": "cambridge-checkpoint",
       "notes": "Dicatat sebagai calon sumber."
+    },
+    {
+      "id": "kangaroo-france-kangourou",
+      "name": "Kangourou des mathematiques - sujets et solutions (France), niveau Ecolier",
+      "site": "https://www.mathkang.org/concours/sujsol2026.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5
+      ],
+      "years": "2015-2026",
+      "license": "official-free",
+      "licenseNote": "Copyright ACL - Les Editions du Kangourou; PDFs linked openly, no explicit reuse licence stated",
+      "attribution": "ACL - Les Editions du Kangourou (Kangourou Sans Frontieres member)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "French language; pictorial/logic questions, usable for grades 3-5 with translation. Level e covers French CE2-CM2 (about Indonesian kelas 3-5). Archive index pages: https://www.mathkang.org/concours/toutk{YYYY}.html. No Pre-Ecolier (grade 1-2) level in France. Petunjuk ambil: https://www.mathkang.org/pdf/kangourou{YYYY}e.pdf (e = Ecolier CE2-CM2; b = Benjamin 6e-5e). YYYY 2015..2026 return 200..."
+    },
+    {
+      "id": "ikmc-pakistan-past-papers",
+      "name": "IKMC past papers 2005-2023 (Pre-Ecolier, Ecolier, Benjamin and higher)",
+      "site": "https://ikmc.kangaroo.org.pk/past_papers/3162",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2005-2023",
+      "license": "official-free",
+      "licenseNote": "All rights reserved by Kangaroo Pakistan; published openly for download, no reuse licence stated",
+      "attribution": "Kangaroo Pakistan (Kangaroo Sans Frontieres member)",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "ikmc",
+      "notes": "English, official IKMC paper set. Best free source for IKMC Pre-Ecolier (grades 1-2), Ecolier (3-4), Benjamin (5-6) in English. 2023 verified (PDF 200); 2015 page lists hashed PDF names. Answer key file present at least for 2023; check other years. Kunci jawaban ada di PDF terpisah (Answer Key), jadi AI mengerjakan soal dua kali dan mengusulkan kunci; tutor tetap memilih kuncinya.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/8-PreEcolier_compressed.pdf",
+            "title": "IKMC 2023 Pre-Ecolier",
+            "grade": 2,
+            "year": 2023
+          },
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/0-Ecolier_compressed.pdf",
+            "title": "IKMC 2023 Ecolier",
+            "grade": 3,
+            "year": 2023
+          },
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/1-PreEcolier.pdf",
+            "title": "IKMC 2022 Pre-Ecolier",
+            "grade": 2,
+            "year": 2022
+          },
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/1-Ecolier.pdf",
+            "title": "IKMC 2022 Ecolier",
+            "grade": 3,
+            "year": 2022
+          },
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/c-PreEcolier_IKMC21.pdf",
+            "title": "IKMC 2021 Pre-Ecolier",
+            "grade": 2,
+            "year": 2021
+          },
+          {
+            "url": "https://ikmc.kangaroo.org.pk/uploads/ikmc/documents/f-Ecolier_IKMC21.pdf",
+            "title": "IKMC 2021 Ecolier",
+            "grade": 3,
+            "year": 2021
+          }
+        ]
+      },
+      "maxPerRun": 2
+    },
+    {
+      "id": "mathkangaroo-usa-free-samples",
+      "name": "Math Kangaroo USA - free sample questions 2006-2026",
+      "site": "https://mathkangaroo.org/mks/practice/free-question-samples/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2006-2026",
+      "license": "official-free",
+      "licenseNote": "Copyright 2003-2026 Math Kangaroo USA NFP Inc., all rights reserved; free to download, redistribution not permitted",
+      "attribution": "Math Kangaroo USA, NFP, Inc.",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Sample (subset) of each year's questions across all grade bands; solutions only in the store. Questions are the standard IKMC pool translated to US English. Petunjuk ambil: https://mathkangaroo.org/mks/wp-content/uploads/YYYY/MM/YYYY-MK-Sample-Questions.pdf (folder and filename vary; scrape hrefs from the page, 22 PDFs found; 2026 = /2026/04/2026-MK-Sample-Questions.pdf)"
+    },
+    {
+      "id": "mathkangaroo-usa-store-full-exams",
+      "name": "Math Kangaroo USA - full past exams with solutions, grades 1-2 to 5-6",
+      "site": "https://mathkangaroo.org/mks/practice/grades-1-2/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2005-2026",
+      "license": "paid",
+      "licenseNote": "Copyright Math Kangaroo USA, all rights reserved",
+      "attribution": "Math Kangaroo USA, NFP, Inc.",
+      "format": "pdf",
+      "access": "manual-upload",
+      "notes": "Page offers past exam PDFs 2005-2026 with written solutions plus online practice exams; only the 2010 and 2020 online exams and the 2015 and 2025 PDF exams are free. Same pages exist for grades-3-4 and grades-5-6 under /mks/practice/. Tutor must buy or upload."
+    },
+    {
+      "id": "kaenguru-germany-aufgaben",
+      "name": "Mathe-Kaenguru Aufgaben (Klassen 3-4, 5-6)",
+      "site": "https://www.mathe-kaenguru.de/chronik/aufgaben/index.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2020-2026 (older numbered f...",
+      "license": "official-free",
+      "licenseNote": "Copyright Mathe-Kaenguru e.V.; PDFs openly downloadable, no reuse licence stated",
+      "attribution": "Mathematikwettbewerb Kaenguru e.V. (Germany)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "German language. Same IKMC question pool, many picture-based. Solutions may be in a separate file or the participant booklet; not verified. Petunjuk ambil: https://www.mathe-kaenguru.de/chronik/aufgaben/downloads/kaenguru{YYYY}_34.pdf (Klassen 3-4) and kaenguru{YYYY}_56.pdf (Klassen 5-6); YYYY 2020..2026 listed; kaenguru2026_34.pdf verified 200 application/pdf"
+    },
+    {
+      "id": "kangur-poland-testy",
+      "name": "Kangur Matematyczny - testy konkursowe (Zaczek, Maluch, Beniamin)",
+      "site": "https://www.kangur-mat.pl/testy_konkursowe.php",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2023-2025 (page also has od...",
+      "license": "official-free",
+      "licenseNote": "Copyright Kangur Matematyczny; PDFs openly downloadable, no reuse licence stated",
+      "attribution": "Stowarzyszenie na rzecz Edukacji Matematycznej (Kangur Matematyczny, Poland)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Polish language. Category-to-grade mapping uses Polish school grades, not Indonesian; Zaczek is roughly IKMC Pre-Ecolier/Ecolier. Petunjuk ambil: https://www.kangur-mat.pl/dokumenty/testy/{YYYY}/{z|m|b|k|j|s}_{YYYY}.pdf (z = Zaczek, m = Maluch, b = Beniamin; z_2024.pdf and m_2023.pdf verified 200 application/pdf). Answers e.g. https://www.kangur-mat.pl/dokumenty/odpowiedzi2026.pdf"
+    },
+    {
+      "id": "kangourou-italia-finali",
+      "name": "Kangourou Italia - testi e soluzioni delle finali (Ecolier, Benjamin)",
+      "site": "https://www.kangourou.it/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2022-2026 (finals)",
+      "license": "official-free",
+      "licenseNote": "Copyright Kangourou Italia; PDFs openly downloadable, no reuse licence stated",
+      "attribution": "Kangourou Italia",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Italian language, finals (harder than the qualifying round) with solutions. Petunjuk ambil: Scrape hrefs on the home page containing testifinale. Examples (200 application/pdf): /testifinale/2026/F2026-Ecolier-testi-e-soluzioni.pdf, /testifinale/2022/Finale individuale 2022 - ecolier testi e soluzioni.pdf (URL-encode spaces), /testifinale/2023/Ecolier2023RFIN.pdf"
+    },
+    {
+      "id": "kengura-lithuania-uzduotys",
+      "name": "Kengura uzduotys 2000-2008 (LT/PL/RU, with ATS answer files)",
+      "site": "https://www.kengura.lt/uzduotys.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2000-2008",
+      "license": "official-free",
+      "licenseNote": "Copyright Kengura Lithuania; no reuse licence stated",
+      "attribution": "Lietuvos Kengura (Lithuania)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Only old papers are on the listing page; low priority. Uppercase .PDF extension. Petunjuk ambil: https://www.kengura.lt/uzduotys/{YYYY}{LT|PL|RU|ATS}.PDF (YYYY 2000..2008; 2019 returned 404)"
+    },
+    {
+      "id": "mathkangaroo-india-past-year",
+      "name": "Math Kangaroo India - past year papers (E-Book) 2014-2023",
+      "site": "https://www.mathkangaroo.in/past-year-paper",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2014-2023",
+      "license": "unknown",
+      "licenseNote": "Site states no part of its content may be copied without prior written consent",
+      "attribution": "Math Kangaroo India",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Page is titled E-Book with grade bands 1-2 up to 11-12; could not confirm whether download is free or paid, so left unknown. Mock tests live on a separate registration-based site."
+    },
+    {
+      "id": "sof-imo-sample-papers",
+      "name": "SOF IMO (International Mathematics Olympiad) sample papers class 1-12",
+      "site": "https://sofworld.org/sof-international-mathematics-olympiad-sample-papers",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026-27 sample set",
+      "license": "official-free",
+      "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
+      "attribution": "Science Olympiad Foundation (SOF), India",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "sof-imo",
+      "notes": "Class 1-3 are the priority. Indian curriculum alignment; one sample paper per class only (previous-year papers are sold via mtg.in, see sof-previous-year-papers-mtg). Answer key not confirmed inside the PDF.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://sofworld.org/download/file/fid/73711",
+            "title": "SOF IMO sample paper class 1",
+            "grade": 1,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73712",
+            "title": "SOF IMO sample paper class 2",
+            "grade": 2,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73713",
+            "title": "SOF IMO sample paper class 3",
+            "grade": 3,
+            "year": 2026,
+            "section": "penuh"
+          }
+        ]
+      },
+      "maxPerRun": 2
+    },
+    {
+      "id": "sof-ieo-sample-papers",
+      "name": "SOF IEO (International English Olympiad) sample papers class 1-12",
+      "site": "https://sofworld.org/sof-international-english-olympiad-sample-papers",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026-27 sample set",
+      "license": "official-free",
+      "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
+      "attribution": "Science Olympiad Foundation (SOF), India",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "sof-ieo",
+      "notes": "Reading, grammar, vocabulary, spoken and written expression; written for Indian English-medium schools. No audio.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://sofworld.org/download/file/fid/73653",
+            "title": "SOF IEO sample paper class 1",
+            "grade": 1,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73656",
+            "title": "SOF IEO sample paper class 2",
+            "grade": 2,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73658",
+            "title": "SOF IEO sample paper class 3",
+            "grade": 3,
+            "year": 2026,
+            "section": "penuh"
+          }
+        ]
+      },
+      "maxPerRun": 2
+    },
+    {
+      "id": "sof-nso-iso-sample-papers",
+      "name": "SOF NSO / ISO (National then International Science Olympiad) sample papers cl...",
+      "site": "https://sofworld.org/sof-international-science-olympiad-sample-papers",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026-27 sample set",
+      "license": "official-free",
+      "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
+      "attribution": "Science Olympiad Foundation (SOF), India",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "sof-iso",
+      "notes": "NSO was renamed ISO; page title says ISO but URLs keep nso. Includes logical reasoning and achiever section.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://sofworld.org/download/file/fid/73689",
+            "title": "SOF ISO sample paper class 1",
+            "grade": 1,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73690",
+            "title": "SOF ISO sample paper class 2",
+            "grade": 2,
+            "year": 2026,
+            "section": "penuh"
+          },
+          {
+            "url": "https://sofworld.org/download/file/fid/73691",
+            "title": "SOF ISO sample paper class 3",
+            "grade": 3,
+            "year": 2026,
+            "section": "penuh"
+          }
+        ]
+      },
+      "maxPerRun": 2
+    },
+    {
+      "id": "sof-igko-sample-papers",
+      "name": "SOF IGKO (International General Knowledge Olympiad) sample papers class 1-10",
+      "site": "https://sofworld.org/igko/class-1/sample-model-test-papers/igko-sample-papers-class-1",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026-27 sample set",
+      "license": "official-free",
+      "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
+      "attribution": "Science Olympiad Foundation (SOF), India",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "General knowledge with India-centric content (Indian geography and culture); filter before use for an Indonesian child. Petunjuk ambil: https://sofworld.org/igko/class-{n}/sample-model-test-papers/igko-sample-papers-class-{n} -> /download/file/fid/{N}. fids class 1-6: 73701,73702,73703,73704,73705,73706 (class 1 verified application/pdf)"
+    },
+    {
+      "id": "sof-icso-sample-papers",
+      "name": "SOF ICSO (International Cyber Olympiad) sample papers class 1-10",
+      "site": "https://sofworld.org/icso/class-1/sample-model-test-papers/icso-sample-papers-class-1",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026-27 sample set",
+      "license": "official-free",
+      "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
+      "attribution": "Science Olympiad Foundation (SOF), India",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Computer fundamentals plus logical reasoning and achiever section; useful for the logic/computational-thinking track. Petunjuk ambil: https://sofworld.org/icso/class-{n}/sample-model-test-papers/icso-sample-papers-class-{n} -> /download/file/fid/{N}. fids class 1-6: 73668,73669,73920,73921,73922,73673 (class 1 verified application/pdf)"
+    },
+    {
+      "id": "sof-previous-year-papers-mtg",
+      "name": "SOF previous-year olympiad papers (sold via MTG)",
+      "site": "https://sofworld.org/",
+      "subjects": [
+        "math",
+        "english",
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2025 set A and B (per sofwo...",
+      "license": "paid",
+      "licenseNote": "Commercial book, all rights reserved",
+      "attribution": "Science Olympiad Foundation / MTG Learning Media",
+      "format": "pdf",
+      "access": "manual-upload",
+      "notes": "SOF home page promotes previous-year papers for sale on mtg.in; the shop itself was not opened or checked. Tutor must buy or upload."
     }
   ]
 }
