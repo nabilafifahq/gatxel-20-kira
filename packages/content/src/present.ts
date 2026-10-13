@@ -1,6 +1,7 @@
 import { createRng } from '@kira/core/rng'
 import type { FigureSpec } from '@kira/figures/spec'
 import { keyOf, type AnswerKey } from './check'
+import { flattenGrid, gridValues, type GridPuzzle } from './grid'
 import type { LabelPerm } from './labels'
 import type { Item, Passage, SolutionStep } from './schema'
 
@@ -11,6 +12,21 @@ import type { Item, Passage, SolutionStep } from './schema'
  */
 
 export type ClientOption = { i: number; text?: string; figure?: FigureSpec }
+
+/** Satu pertanyaan di soal cerita bertahap, dalam bentuk yang dikenali widget pilihan ganda, angka, dan isian. */
+export type ClientPart = {
+  type: 'mcq' | 'numeric' | 'text'
+  prompt: string
+  options?: ClientOption[]
+  unit?: string
+  allowDecimal?: boolean
+  allowNegative?: boolean
+}
+
+export type ClientHotspot = { regions: { label: string; x: number; y: number; w: number; h: number }[]; count: number }
+export type ClientLabelDiagram = { spots: { x: number; y: number }[]; labels: string[] }
+export type ClientTable = { caption?: string; head: string[]; rows: string[][]; blanks: { row: number; col: number; numeric: boolean; extra: string[] }[] }
+export type ClientGrid = { puzzle: GridPuzzle; size: number; given: number[]; values: number[] }
 
 export type ClientItem = {
   ref: string
@@ -42,6 +58,17 @@ export type ClientItem = {
   maxWords?: number
   planning?: string[]
   drawBackground?: 'blank' | 'grid' | 'lines' | 'dots'
+  parts?: ClientPart[]
+  /** Teks yang dibacakan suara (listen dan spell). Dikirim ke perangkat supaya bisa dibacakan, tetapi tidak pernah ditampilkan atau masuk speakableText. */
+  listenText?: string
+  spellLength?: number
+  spellExtra?: string[]
+  tiles?: string[]
+  cloze?: string[][]
+  hotspot?: ClientHotspot
+  labelDiagram?: ClientLabelDiagram
+  table?: ClientTable
+  grid?: ClientGrid
   terms?: { term: string; en: string }[]
   expectedSeconds: number
   points?: number
@@ -68,6 +95,7 @@ export type PresentOptions = {
 const EXPECTED: Record<Item['type'], number> = {
   mcq: 45, multi: 60, numeric: 60, text: 60, order: 60, match: 75, sort: 75, numberline: 45, clock: 45, fraction: 45,
   write: 600, speak: 120, draw: 300,
+  story: 150, listen: 45, tiles: 60, spell: 45, cloze: 60, hotspot: 30, label: 75, table: 90, grid: 180, photo: 300,
 }
 
 export function presentItem(item: Item, opt: PresentOptions): ClientItem {
@@ -141,6 +169,90 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
     case 'draw':
       out.rubric = item.rubric.criteria
       out.drawBackground = item.background
+      break
+    case 'photo':
+      out.rubric = item.rubric.criteria
+      break
+    case 'story': {
+      let at = 0
+      out.parts = item.parts.map((part, k): ClientPart => {
+        if (part.type === 'mcq') {
+          const partRng = createRng(`${opt.seed}:${item.id}:p${k}`)
+          const base = at
+          at += part.options.length
+          const opts = part.options.map((o, j) => ({ i: j + base, ...(o.text ? { text: o.text } : {}), ...(o.figure ? { figure: o.figure } : {}) }))
+          // Tanpa label, i adalah indeks dalam pertanyaan ini; dengan label, i adalah label global.
+          const local = perm ? relabel(partRng.shuffle(opts)) : partRng.shuffle(opts).map((o) => ({ ...o, i: o.i - base }))
+          return { type: 'mcq', prompt: part.prompt, options: local }
+        }
+        if (part.type === 'numeric') {
+          return {
+            type: 'numeric',
+            prompt: part.prompt,
+            ...(part.unit ? { unit: part.unit } : {}),
+            allowDecimal: part.allowDecimal || !Number.isInteger(part.answer),
+            allowNegative: part.allowNegative || part.answer < 0,
+          }
+        }
+        return { type: 'text', prompt: part.prompt }
+      })
+      break
+    }
+    case 'listen': {
+      const opts = item.options.map((o, i) => ({ i, ...(o.text ? { text: o.text } : {}), ...(o.figure ? { figure: o.figure } : {}) }))
+      out.options = relabel(rng.shuffle(opts))
+      out.listenText = item.listenText
+      break
+    }
+    case 'tiles': {
+      const order = item.answer.split(/\s+/).filter(Boolean)
+      const tiles = [...order, ...item.distractors]
+      let shuffled = rng.shuffle(tiles)
+      for (let tries = 0; tries < 6 && shuffled.join(' ') === order.join(' '); tries++) shuffled = rng.shuffle(tiles)
+      out.tiles = shuffled
+      break
+    }
+    case 'spell':
+      out.listenText = item.sentence ? `${item.word}. ${item.sentence} ${item.word}.` : `${item.word}.`
+      out.spellLength = item.word.length
+      {
+        const extra = [...new Set([item.word, ...item.alsoAccept].join('').split('').filter((c) => c === "'" || c === '-'))]
+        if (extra.length > 0) out.spellExtra = extra
+      }
+      break
+    case 'cloze':
+      out.cloze = item.gaps.map((g) => rng.shuffle(g.options))
+      break
+    case 'hotspot':
+      out.hotspot = {
+        // Urutan baca dari atas ke bawah, bukan urutan di file soal.
+        regions: [...item.regions]
+          .map((r) => ({ label: r.label, x: r.x, y: r.y, w: r.w, h: r.h }))
+          .sort((a, b) => Math.round(a.y / 12) - Math.round(b.y / 12) || a.x - b.x),
+        count: item.answers.length,
+      }
+      break
+    case 'label':
+      out.labelDiagram = { spots: item.spots.map((sp) => ({ x: sp.x, y: sp.y })), labels: rng.shuffle([...item.labels, ...item.extraLabels]) }
+      break
+    case 'table': {
+      const blankAt = new Set(item.blanks.map((b) => `${b.row}:${b.col}`))
+      out.table = {
+        ...(item.caption ? { caption: item.caption } : {}),
+        head: item.head,
+        rows: item.rows.map((row, r) => row.map((cell, c) => (blankAt.has(`${r}:${c}`) ? '' : cell))),
+        blanks: item.blanks.map((b) => ({
+          row: b.row,
+          col: b.col,
+          numeric: b.answers.every((a) => /^-?[\d.,/ ]+$/.test(a)),
+          // Tanda selain huruf dan angka di jawaban (titik desimal, garis miring, tanda hubung, spasi), supaya papan tidak menampilkan tombol yang tidak perlu.
+          extra: [...new Set(b.answers.join('').split('').filter((c) => !/[A-Za-z0-9]/.test(c)))],
+        })),
+      }
+      break
+    }
+    case 'grid':
+      out.grid = { puzzle: item.puzzle, size: item.size, given: flattenGrid(item.given), values: gridValues(item.puzzle, item.size, flattenGrid(item.filled)) }
       break
   }
 

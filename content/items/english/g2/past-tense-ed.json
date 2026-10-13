@@ -543,6 +543,46 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e2.past-tense-ed.019",
+      "skill": "e2.past-tense-ed",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence about the past.",
+      "hints": [
+        "The sentence starts with a word that tells you when.",
+        "The doing word ends in -ed.",
+        "Say where the children played."
+      ],
+      "explanation": "Yesterday we played in the park. Played ends in -ed because it happened in the past.",
+      "answer": "Yesterday we played in the park.",
+      "distractors": [
+        "play"
+      ]
+    },
+    {
+      "id": "e2.past-tense-ed.020",
+      "skill": "e2.past-tense-ed",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Yesterday we ___ at the clown.",
+      "hints": [
+        "Yesterday means it already happened.",
+        "Past tense words often end in -ed.",
+        "Which word ends in -ed?"
+      ],
+      "explanation": "Laughed is the past tense of laugh. It ends in -ed.",
+      "gaps": [
+        {
+          "options": [
+            "laugh",
+            "laughs",
+            "laughed"
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

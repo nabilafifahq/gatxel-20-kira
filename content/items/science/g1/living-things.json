@@ -167,6 +167,111 @@
       ] },
       "hints": ["Look around the room for ideas.", "A pet or a plant is living. A chair is not living."],
       "explanation": "Living things grow and need food and water, like a plant or a pet. Non-living things, like a chair or a cup, do not."
+    },
+    {
+      "id": "s1.living-things.014",
+      "skill": "s1.living-things",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "A rock is not ___ because it does not grow.",
+      "hints": [
+        "Living things grow, eat and breathe.",
+        "A rock never changes by itself.",
+        "The word means the opposite of dead."
+      ],
+      "explanation": "A rock is not alive. Living things grow and need food and water.",
+      "gaps": [
+        {
+          "options": [
+            "alive",
+            "hot",
+            "small"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s1.living-things.015",
+      "skill": "s1.living-things",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the thing that is not alive.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bird",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rock",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: cat, tree, bird and rock."
+      },
+      "hints": [
+        "Living things grow and need food and water.",
+        "Look for the thing that never grows.",
+        "It is hard and heavy."
+      ],
+      "explanation": "A rock is not alive. It does not grow or eat.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "cat",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "tree",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "bird",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "rock",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        3
+      ]
     }
   ]
 }

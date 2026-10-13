@@ -143,6 +143,56 @@
       "hints": ["Sounds are made when things move very quickly.", "Think about touching a speaker that is playing music.", "Picture resting your fingers lightly on the drum."],
       "explanation": "When a drum makes a sound, its skin shakes very fast. This shaking is called vibrating, and it makes the sound.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.sounds.013",
+      "skill": "s1.sounds",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which animal makes this sound?",
+      "hints": [
+        "Listen to the sound the speaker makes.",
+        "It is an animal you can have as a pet.",
+        "It barks."
+      ],
+      "explanation": "The speaker said, \"Woof woof!\" A dog makes a woof sound.",
+      "listenText": "Woof woof!",
+      "options": [
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "cat"
+              }
+            ],
+            "alt": "A picture of a cat."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "dog"
+              }
+            ],
+            "alt": "A picture of a dog."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "cow"
+              }
+            ],
+            "alt": "A picture of a cow."
+          }
+        }
+      ],
+      "answer": 1
     }
   ]
 }

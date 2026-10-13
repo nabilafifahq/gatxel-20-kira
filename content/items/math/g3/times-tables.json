@@ -1,0 +1,89 @@
+{
+  "skill": "m3.times-tables",
+  "items": [
+    {
+      "id": "m3.times-tables.001",
+      "skill": "m3.times-tables",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A box holds 6 eggs. Mum buys 4 boxes. She uses 5 eggs to make a cake.",
+      "hints": [
+        "Find how many eggs in 4 boxes.",
+        "4 groups of 6.",
+        "Take 5 away from the total."
+      ],
+      "explanation": "4 x 6 = 24 eggs. Then 24 - 5 = 19 eggs are left.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many eggs are in 4 boxes?",
+          "answer": 24
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many eggs are left after the cake?",
+          "answer": 19
+        }
+      ]
+    },
+    {
+      "id": "m3.times-tables.002",
+      "skill": "m3.times-tables",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the 4 times table.",
+      "hints": [
+        "Add 4 each time.",
+        "4, 8, 12, ...",
+        "5 times 4 is 20."
+      ],
+      "explanation": "3 x 4 = 12, 5 x 4 = 20 and 7 x 4 = 28.",
+      "caption": "The 4 times table",
+      "head": [
+        "Number",
+        "Times 4"
+      ],
+      "rows": [
+        [
+          "2",
+          "8"
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "5",
+          ""
+        ],
+        [
+          "7",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "12"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "20"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "28"
+          ]
+        }
+      ]
+    }
+  ]
+}

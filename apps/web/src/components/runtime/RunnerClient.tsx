@@ -71,9 +71,9 @@ export function RunnerClient({ data }: { data: RunnerDTO }) {
     [],
   )
 
-  const onUpload = async (blob: Blob, kind: 'audio' | 'drawing', ctx: { attemptId: string; position: number }) => {
+  const onUpload = async (blob: Blob, kind: 'audio' | 'drawing' | 'image', ctx: { attemptId: string; position: number }) => {
     const form = new FormData()
-    form.set('file', blob, kind === 'audio' ? 'rekaman.webm' : 'gambar.png')
+    form.set('file', blob, kind === 'audio' ? 'rekaman.webm' : kind === 'image' ? 'foto.jpg' : 'gambar.png')
     form.set('kind', kind)
     form.set('attemptId', ctx.attemptId)
     form.set('position', String(ctx.position))

@@ -3,7 +3,7 @@ import { randomBytes } from 'node:crypto'
 import { and, asc, desc, eq, gte, inArray, isNull, like, sql } from 'drizzle-orm'
 import { addDays, createRng, formatDateId, jakartaDate, weekStart, type IsoDate, type Rng } from '@kira/core'
 import { tables } from '@kira/db'
-import { ITEM_ID, type Item } from '@kira/content'
+import { isPaperType, ITEM_ID, type Item } from '@kira/content'
 import { genRef, newSeed, parseGenRef, type Level } from '@kira/content/math'
 import type { PaperBuilderDTO, PaperDTO, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
@@ -251,7 +251,7 @@ export async function generatePaper(
   if (unknown.length) throw invalid(`Skill ${unknown.slice(0, 3).join(', ')} tidak dikenal. Muat ulang halaman lalu pilih skill lagi.`)
   const skillIds = input.skillIds.length ? [...new Set(input.skillIds)] : all
   const pools: SkillPool[] = []
-  for (const id of skillIds) pools.push({ skillId: id, candidates: await poolForSkill(tx, ctx.orgId, id, { allowManual: false }) })
+  for (const id of skillIds) pools.push({ skillId: id, candidates: await poolForSkill(tx, ctx.orgId, id, { allowManual: false, paperOnly: true }) })
   const rng = createRng(`${ctx.userId}:${Date.now()}:${randomBytes(6).toString('hex')}`)
   const picked = pickPaperItems(pools, input.count, [lo, hi], rng)
   const where = `${SUBJECT_ID_LABEL[input.subject]} Grade ${input.grade}`
@@ -279,6 +279,16 @@ export async function savePaper(tx: Tx, ctx: OrgContext, input: SavePaperInput):
   const missing = input.itemRefs.filter((r) => !resolved.has(r))
   if (missing.length) {
     throw invalid(`${missing.length === 1 ? 'Soal' : `${missing.length} soal`} ${missing.slice(0, 3).join(', ')} tidak ada lagi di bank soal. Hapus dari paper lalu simpan lagi.`)
+  }
+  if (input.mode === 'kertas') {
+    // Paper kertas dicetak dan dijawab lewat LJK: jenis soal layar saja (cerita, dengar, susun kata, dan sebangsanya) tidak bisa masuk.
+    const screenOnly = input.itemRefs.filter((r) => {
+      const it = resolved.get(r)
+      return it !== undefined && !isPaperType(it.type)
+    })
+    if (screenOnly.length) {
+      throw invalid(`Soal ${screenOnly.slice(0, 3).join(', ')} hanya bisa dikerjakan di layar, jadi tidak bisa dicetak di paper kertas. Hapus dari paper atau ubah mode menjadi tes.`)
+    }
   }
   const values = { title: input.title, subject: input.subject, grade: input.grade, minutes: input.minutes, mode: input.mode, itemRefs: input.itemRefs }
 

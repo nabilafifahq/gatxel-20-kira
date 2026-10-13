@@ -472,6 +472,54 @@
         "Opposite poles attract."
       ],
       "explanation": "The magnets attract when a north pole faces a south pole."
+    },
+    {
+      "id": "s3.magnets.013",
+      "skill": "s3.magnets",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Which things are magnetic? Write Yes or No.",
+      "hints": [
+        "A magnet pulls on some metals.",
+        "A plastic spoon is not a metal.",
+        "An iron nail is a magnetic metal."
+      ],
+      "explanation": "An iron nail is magnetic. A plastic spoon and a wooden block are not.",
+      "caption": "Magnetic?",
+      "head": [
+        "Object",
+        "Magnetic?"
+      ],
+      "rows": [
+        [
+          "Iron nail",
+          ""
+        ],
+        [
+          "Plastic spoon",
+          ""
+        ],
+        [
+          "Steel paperclip",
+          "Yes"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "Yes"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "No"
+          ]
+        }
+      ]
     }
   ]
 }

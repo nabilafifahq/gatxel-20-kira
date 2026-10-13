@@ -126,6 +126,44 @@
       "hints": ["All four words end in y.", "Look at the letter just before the y in each word.", "If that letter is a vowel, the word just adds -s."],
       "explanation": "Donkey has the vowel e before the y, so it just adds -s: donkeys. The others change y to -ies.",
       "tags": ["iklc"]
+    },
+    {
+      "id": "e3.plurals.013",
+      "skill": "e3.plurals",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has six letters.",
+        "It is more than one. It does not end in s.",
+        "The word baby changes y to ies."
+      ],
+      "explanation": "The word is babies. When a word ends in a consonant and y, change the y to ies.",
+      "word": "babies",
+      "sentence": "The babies are asleep."
+    },
+    {
+      "id": "e3.plurals.014",
+      "skill": "e3.plurals",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "There are three ___ in the tree.",
+      "hints": [
+        "Three means more than one.",
+        "Most words add s.",
+        "Which word is spelled correctly?"
+      ],
+      "explanation": "Birds is the plural of bird. We just add s.",
+      "gaps": [
+        {
+          "options": [
+            "birdes",
+            "birds",
+            "bird"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }

@@ -150,6 +150,1115 @@
       "hints": ["Flying does not make an animal a bird.", "What do all birds have?", "Check: does a bat have feathers?"],
       "explanation": "A bat is not a bird because it has fur and no feathers. All birds have feathers.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.animal-groups.013",
+      "skill": "s1.animal-groups",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "Count the legs. Fill in the empty boxes.",
+      "hints": [
+        "Look at the picture names in the table.",
+        "A bird has two legs. A spider has more than a bird.",
+        "A spider has eight legs."
+      ],
+      "explanation": "A cat has 4 legs, a bird has 2 legs and a spider has 8 legs.",
+      "caption": "Legs",
+      "head": [
+        "Animal",
+        "Legs"
+      ],
+      "rows": [
+        [
+          "Cat",
+          "4"
+        ],
+        [
+          "Bird",
+          ""
+        ],
+        [
+          "Spider",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "2"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s1.animal-groups.014",
+      "skill": "s1.animal-groups",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table about animal coverings.",
+      "hints": [
+        "Think about what covers the animal's body.",
+        "Birds have soft feathers on their bodies.",
+        "Fish are covered with scales."
+      ],
+      "explanation": "Birds are covered in feathers and fish are covered in scales. Cats have fur.",
+      "caption": "What covers the body",
+      "head": [
+        "Animal",
+        "Covering"
+      ],
+      "rows": [
+        [
+          "Cat",
+          "fur"
+        ],
+        [
+          "Bird",
+          ""
+        ],
+        [
+          "Fish",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "feathers",
+            "feather"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "scales",
+            "scale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s1.animal-groups.015",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part a bird uses to peck its food.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                96,
+                112
+              ],
+              [
+                40,
+                82
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 138,
+            "y1": 158,
+            "x2": 132,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 164,
+            "y1": 158,
+            "x2": 170,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 118,
+            "y1": 198,
+            "x2": 140,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 158,
+            "y1": 198,
+            "x2": 182,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 118,
+            "rx": 62,
+            "ry": 42,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 214,
+            "cy": 82,
+            "r": 27,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                238,
+                76
+              ],
+              [
+                272,
+                88
+              ],
+              [
+                238,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 222,
+            "cy": 76,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 116,
+            "rx": 38,
+            "ry": 20,
+            "rot": -18,
+            "tone": "english",
+            "fill": "light"
+          }
+        ],
+        "alt": "A yellow bird standing on two legs. It has a beak, a wing, a tail and feathers."
+      },
+      "hints": [
+        "A bird has no hands to hold food.",
+        "This part is hard and pointed.",
+        "It is at the front of the head."
+      ],
+      "explanation": "A bird uses its beak to peck and pick up food.",
+      "regions": [
+        {
+          "label": "beak",
+          "x": 80.6,
+          "y": 40,
+          "w": 15.6,
+          "h": 18.2
+        },
+        {
+          "label": "wing",
+          "x": 43.8,
+          "y": 52.7,
+          "w": 28.1,
+          "h": 22.7
+        },
+        {
+          "label": "tail",
+          "x": 19.4,
+          "y": 48.2,
+          "w": 18.8,
+          "h": 27.3
+        },
+        {
+          "label": "leg",
+          "x": 43.1,
+          "y": 84.5,
+          "w": 15.6,
+          "h": 22.7
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s1.animal-groups.016",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part a bird uses to fly.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                96,
+                112
+              ],
+              [
+                40,
+                82
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 138,
+            "y1": 158,
+            "x2": 132,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 164,
+            "y1": 158,
+            "x2": 170,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 118,
+            "y1": 198,
+            "x2": 140,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 158,
+            "y1": 198,
+            "x2": 182,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 118,
+            "rx": 62,
+            "ry": 42,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 214,
+            "cy": 82,
+            "r": 27,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                238,
+                76
+              ],
+              [
+                272,
+                88
+              ],
+              [
+                238,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 222,
+            "cy": 76,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 116,
+            "rx": 38,
+            "ry": 20,
+            "rot": -18,
+            "tone": "english",
+            "fill": "light"
+          }
+        ],
+        "alt": "A yellow bird standing on two legs. It has a beak, a wing, a tail and feathers."
+      },
+      "hints": [
+        "Look at the sides of the bird's body.",
+        "It is covered in feathers.",
+        "It flaps up and down."
+      ],
+      "explanation": "A bird flies by flapping its wings.",
+      "regions": [
+        {
+          "label": "beak",
+          "x": 80.6,
+          "y": 40,
+          "w": 15.6,
+          "h": 18.2
+        },
+        {
+          "label": "wing",
+          "x": 43.8,
+          "y": 52.7,
+          "w": 28.1,
+          "h": 22.7
+        },
+        {
+          "label": "tail",
+          "x": 19.4,
+          "y": 48.2,
+          "w": 18.8,
+          "h": 27.3
+        },
+        {
+          "label": "leg",
+          "x": 43.1,
+          "y": 84.5,
+          "w": 15.6,
+          "h": 22.7
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s1.animal-groups.017",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part a fish uses to see.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                228,
+                92
+              ],
+              [
+                292,
+                46
+              ],
+              [
+                292,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                116,
+                56
+              ],
+              [
+                158,
+                18
+              ],
+              [
+                198,
+                56
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                128,
+                130
+              ],
+              [
+                150,
+                162
+              ],
+              [
+                182,
+                132
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 92,
+            "rx": 84,
+            "ry": 44,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 86,
+            "cy": 80,
+            "r": 6,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 112,
+            "y1": 64,
+            "x2": 112,
+            "y2": 120,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                70,
+                98
+              ],
+              [
+                82,
+                100
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A blue fish swimming to the left. It has a tail, fins on the top and bottom, an eye and gills."
+      },
+      "hints": [
+        "A fish has this part on each side of its head.",
+        "You use the same kind of part to see.",
+        "It is small and round."
+      ],
+      "explanation": "A fish sees with its eyes, just like you.",
+      "regions": [
+        {
+          "label": "tail",
+          "x": 83.8,
+          "y": 51.1,
+          "w": 18.8,
+          "h": 50
+        },
+        {
+          "label": "fin",
+          "x": 49.4,
+          "y": 20,
+          "w": 21.9,
+          "h": 22.2
+        },
+        {
+          "label": "eye",
+          "x": 26.9,
+          "y": 44.4,
+          "w": 11.3,
+          "h": 20
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s1.animal-groups.018",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part a fish moves from side to side to push itself forward.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                228,
+                92
+              ],
+              [
+                292,
+                46
+              ],
+              [
+                292,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                116,
+                56
+              ],
+              [
+                158,
+                18
+              ],
+              [
+                198,
+                56
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                128,
+                130
+              ],
+              [
+                150,
+                162
+              ],
+              [
+                182,
+                132
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 92,
+            "rx": 84,
+            "ry": 44,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 86,
+            "cy": 80,
+            "r": 6,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 112,
+            "y1": 64,
+            "x2": 112,
+            "y2": 120,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                70,
+                98
+              ],
+              [
+                82,
+                100
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A blue fish swimming to the left. It has a tail, fins on the top and bottom, an eye and gills."
+      },
+      "hints": [
+        "Look at the back end of the fish.",
+        "This part is big and flat.",
+        "It is not the fin on the top."
+      ],
+      "explanation": "A fish swims forward by moving its tail from side to side.",
+      "regions": [
+        {
+          "label": "tail",
+          "x": 83.8,
+          "y": 51.1,
+          "w": 18.8,
+          "h": 50
+        },
+        {
+          "label": "fin",
+          "x": 49.4,
+          "y": 20,
+          "w": 21.9,
+          "h": 22.2
+        },
+        {
+          "label": "eye",
+          "x": 26.9,
+          "y": 44.4,
+          "w": 11.3,
+          "h": 20
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s1.animal-groups.019",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the animal that has feathers.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "dog",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: cat, hen, fish and dog."
+      },
+      "hints": [
+        "Feathers are light and soft.",
+        "Look for an animal that can fly or lays eggs.",
+        "It lives on a farm and says cluck."
+      ],
+      "explanation": "A hen is a bird. All birds have feathers.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "cat",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "hen",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "fish",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "dog",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s1.animal-groups.020",
+      "skill": "s1.animal-groups",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the bird. One label is not a bird part.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                96,
+                112
+              ],
+              [
+                40,
+                82
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 138,
+            "y1": 158,
+            "x2": 132,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 164,
+            "y1": 158,
+            "x2": 170,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 118,
+            "y1": 198,
+            "x2": 140,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 158,
+            "y1": 198,
+            "x2": 182,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 118,
+            "rx": 62,
+            "ry": 42,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 214,
+            "cy": 82,
+            "r": 27,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                238,
+                76
+              ],
+              [
+                272,
+                88
+              ],
+              [
+                238,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 222,
+            "cy": 76,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 116,
+            "rx": 38,
+            "ry": 20,
+            "rot": -18,
+            "tone": "english",
+            "fill": "light"
+          }
+        ],
+        "alt": "A yellow bird standing on two legs. It has a beak, a wing, a tail and feathers."
+      },
+      "hints": [
+        "A bird uses this part to eat.",
+        "A bird uses this part to fly.",
+        "A fin is not a part of a bird."
+      ],
+      "explanation": "The bird has a beak, a wing, a tail and legs. A fin belongs to a fish.",
+      "labels": [
+        "beak",
+        "wing",
+        "tail",
+        "leg"
+      ],
+      "spots": [
+        {
+          "x": 80.6,
+          "y": 40
+        },
+        {
+          "x": 43.8,
+          "y": 52.7
+        },
+        {
+          "x": 19.4,
+          "y": 48.2
+        },
+        {
+          "x": 43.1,
+          "y": 84.5
+        }
+      ],
+      "extraLabels": [
+        "fin"
+      ]
+    },
+    {
+      "id": "s1.animal-groups.021",
+      "skill": "s1.animal-groups",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the fish. One label is not a fish part.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                228,
+                92
+              ],
+              [
+                292,
+                46
+              ],
+              [
+                292,
+                138
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                116,
+                56
+              ],
+              [
+                158,
+                18
+              ],
+              [
+                198,
+                56
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                128,
+                130
+              ],
+              [
+                150,
+                162
+              ],
+              [
+                182,
+                132
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 92,
+            "rx": 84,
+            "ry": 44,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 86,
+            "cy": 80,
+            "r": 6,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 112,
+            "y1": 64,
+            "x2": 112,
+            "y2": 120,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                70,
+                98
+              ],
+              [
+                82,
+                100
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A blue fish swimming to the left. It has a tail, fins on the top and bottom, an eye and gills."
+      },
+      "hints": [
+        "A fish uses this part to push itself forward.",
+        "A fish sees with this part.",
+        "A fish does not have wings."
+      ],
+      "explanation": "The fish has a tail, a fin and an eye. A wing belongs to a bird.",
+      "labels": [
+        "tail",
+        "fin",
+        "eye"
+      ],
+      "spots": [
+        {
+          "x": 83.8,
+          "y": 51.1
+        },
+        {
+          "x": 49.4,
+          "y": 20
+        },
+        {
+          "x": 26.9,
+          "y": 44.4
+        }
+      ],
+      "extraLabels": [
+        "wing"
+      ]
     }
   ]
 }

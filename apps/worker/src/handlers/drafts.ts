@@ -5,6 +5,7 @@ import {
   HINTS_SCHEMA,
   RUBRIC_SCHEMA,
   MANUAL_ITEM_TYPES,
+  NO_VARIANT_TYPES,
   isAiItemType,
   itemForPrompt,
   itemJsonSchema,
@@ -30,9 +31,9 @@ type Obj = Record<string, unknown>
 const isObj = (v: unknown): v is Obj => v !== null && typeof v === 'object' && !Array.isArray(v)
 
 const DEFAULT_TYPES: Record<Subject, AiItemType[]> = {
-  math: ['mcq', 'numeric'],
-  english: ['mcq', 'text', 'multi', 'order', 'match', 'sort'],
-  science: ['mcq', 'multi', 'sort', 'match'],
+  math: ['mcq', 'numeric', 'numberline', 'clock', 'fraction', 'story'],
+  english: ['mcq', 'text', 'multi', 'order', 'match', 'sort', 'listen', 'tiles', 'spell', 'cloze', 'story'],
+  science: ['mcq', 'multi', 'sort', 'match', 'cloze', 'table', 'hotspot', 'story'],
 }
 
 type Draft = { body: Obj; problems: string[] }
@@ -80,6 +81,21 @@ export function structureProblems(source: Item, t: Obj): string[] {
     case 'match':
       if (len(t.pairs) !== source.pairs.length) p.push('Jumlah pasangan berubah dari soal asal.')
       break
+    case 'story':
+      if (len(t.parts) !== source.parts.length) p.push('Jumlah pertanyaan cerita berubah dari soal asal.')
+      break
+    case 'listen':
+      if (t.answer !== source.answer || len(t.options) !== source.options.length) p.push('Posisi jawaban benar berubah dari soal asal.')
+      break
+    case 'tiles':
+      if (typeof t.answer === 'string' && t.answer.split(/\s+/).filter(Boolean).length !== source.answer.split(/\s+/).filter(Boolean).length) p.push('Jumlah kata di kalimat berubah dari soal asal.')
+      break
+    case 'cloze':
+      if (len(t.gaps) !== source.gaps.length) p.push('Jumlah celah berubah dari soal asal.')
+      break
+    case 'table':
+      if (len(t.blanks) !== source.blanks.length || len(t.rows) !== source.rows.length) p.push('Bentuk tabel berubah dari soal asal.')
+      break
     case 'sort': {
       const groupsOf = Array.isArray(t.items) ? (t.items as Obj[]).map((i) => i?.group) : []
       if (len(t.groups) !== source.groups.length || JSON.stringify(groupsOf) !== JSON.stringify(source.items.map((i) => i.group))) p.push('Pengelompokan berubah dari soal asal.')
@@ -113,7 +129,7 @@ function plan(input: AiInputOf<'items' | 'variants' | 'hints' | 'translate' | 'r
     }
     case 'variants': {
       const source = sourceItem(input.item)
-      if (!isAiItemType(source.type)) throw new JobError(`Jenis soal ${source.type} belum didukung untuk varian AI.`, { retryable: false })
+      if (!isAiItemType(source.type) || NO_VARIANT_TYPES.includes(source.type)) throw new JobError(`Jenis soal ${source.type} belum didukung untuk varian AI.`, { retryable: false })
       const type = source.type
       return {
         system,
@@ -140,7 +156,7 @@ function plan(input: AiInputOf<'items' | 'variants' | 'hints' | 'translate' | 'r
     }
     case 'translate': {
       const source = sourceItem(input.item)
-      if (!isAiItemType(source.type)) throw new JobError(`Jenis soal ${source.type} belum didukung untuk terjemahan AI.`, { retryable: false })
+      if (!isAiItemType(source.type) || NO_VARIANT_TYPES.includes(source.type)) throw new JobError(`Jenis soal ${source.type} belum didukung untuk terjemahan AI.`, { retryable: false })
       return {
         system,
         schema: itemJsonSchema([source.type]),
@@ -165,7 +181,7 @@ function plan(input: AiInputOf<'items' | 'variants' | 'hints' | 'translate' | 'r
     }
     case 'rubric': {
       const source = sourceItem(input.item)
-      if (!MANUAL_ITEM_TYPES.includes(source.type)) throw new JobError('Rubrik hanya untuk soal write, speak, atau draw.', { retryable: false })
+      if (!MANUAL_ITEM_TYPES.includes(source.type)) throw new JobError('Rubrik hanya untuk soal write, speak, draw, atau photo.', { retryable: false })
       return {
         system,
         schema: RUBRIC_SCHEMA,

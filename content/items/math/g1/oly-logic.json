@@ -431,6 +431,104 @@
         "timo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.009",
+      "skill": "m1.oly-logic",
+      "type": "grid",
+      "difficulty": 1,
+      "prompt": "Fill the grid with the numbers 1 to 3. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 1, 2, 3.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "m1.oly-logic.010",
+      "skill": "m1.oly-logic",
+      "type": "grid",
+      "difficulty": 1,
+      "prompt": "Fill the grid with the numbers 1 to 3. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 2, 3, 1.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ]
     }
   ]
 }

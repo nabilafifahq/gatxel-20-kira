@@ -1,0 +1,33 @@
+{
+  "skill": "m3.add-sub-columns",
+  "items": [
+    {
+      "id": "m3.add-sub-columns.001",
+      "skill": "m3.add-sub-columns",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Use column subtraction to work out 523 - 187 on paper. Then take a photo.",
+      "hints": [
+        "Line up the ones, tens and hundreds.",
+        "You need to exchange from the tens."
+      ],
+      "explanation": "523 - 187 = 336.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes the numbers in columns",
+            "points": 1
+          },
+          {
+            "label": "Exchanges correctly",
+            "points": 2
+          },
+          {
+            "label": "Gets the answer 336",
+            "points": 2
+          }
+        ]
+      }
+    }
+  ]
+}

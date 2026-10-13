@@ -900,6 +900,104 @@
         "seamo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-puzzles.016",
+      "skill": "m2.oly-number-puzzles",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill in the magic square. Use the numbers 1 to 9 once each. Every row, every column and both long diagonals must add up to 15.",
+      "hints": [
+        "Find a line that has only one empty box.",
+        "Add up the two numbers you can see. Then work out what makes 15.",
+        "Start with a line that has two numbers. Then use the new number in another line."
+      ],
+      "explanation": "Every line adds up to 15. For example, the top row is 2 + 7 + 6 = 15.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          0,
+          1
+        ],
+        [
+          4,
+          3,
+          8
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          7,
+          6
+        ],
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          4,
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "id": "m2.oly-number-puzzles.017",
+      "skill": "m2.oly-number-puzzles",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill in the magic square. Use the numbers 1 to 9 once each. Every row, every column and both long diagonals must add up to 15.",
+      "hints": [
+        "Find a line that has only one empty box.",
+        "Add up the two numbers you can see. Then work out what makes 15.",
+        "Start with a line that has two numbers. Then use the new number in another line."
+      ],
+      "explanation": "Every line adds up to 15. For example, the top row is 6 + 1 + 8 = 15.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          6,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          3
+        ],
+        [
+          0,
+          9,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          6,
+          1,
+          8
+        ],
+        [
+          7,
+          5,
+          3
+        ],
+        [
+          2,
+          9,
+          4
+        ]
+      ]
     }
   ]
 }

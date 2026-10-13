@@ -1,0 +1,24 @@
+{
+  "skill": "m3.fractions",
+  "items": [
+    {
+      "id": "m3.fractions.001",
+      "skill": "m3.fractions",
+      "type": "fraction",
+      "difficulty": 3,
+      "prompt": "Shade three quarters of the bar.",
+      "hints": [
+        "The bar is cut into 8 equal parts.",
+        "A quarter is 2 parts, because 8 split into 4 is 2.",
+        "Three quarters is 3 groups of 2 parts."
+      ],
+      "explanation": "One quarter of 8 parts is 2 parts, so three quarters is 6 parts. Shade 6 parts.",
+      "shape": "bar",
+      "parts": 8,
+      "answer": {
+        "num": 3,
+        "den": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "skill": "m1.add-within-20",
+  "items": [
+    {
+      "id": "m1.add-within-20.001",
+      "skill": "m1.add-within-20",
+      "type": "story",
+      "difficulty": 1,
+      "prompt": "There are 9 ducks on the pond. 4 more ducks swim to the pond. Then 3 ducks fly away.",
+      "hints": [
+        "Add for the ducks that join.",
+        "9 + 4 is the number on the pond after the 4 arrive.",
+        "Take 3 away from that number."
+      ],
+      "explanation": "9 + 4 = 13 ducks. Then 13 - 3 = 10 ducks. 10 is more than the 9 at the start.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many ducks are on the pond after 4 more swim to it?",
+          "answer": 13
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many ducks are on the pond after 3 fly away?",
+          "answer": 10
+        },
+        {
+          "type": "mcq",
+          "prompt": "Are there more ducks or fewer ducks than at the start?",
+          "options": [
+            {
+              "text": "fewer"
+            },
+            {
+              "text": "more"
+            },
+            {
+              "text": "the same"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    }
+  ]
+}

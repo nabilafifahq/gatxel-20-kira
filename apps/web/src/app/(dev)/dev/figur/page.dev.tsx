@@ -230,6 +230,27 @@ const SAMPLES: Record<FigureKind, Sample[]> = {
     { note: 'wide blocks', spec: { kind: 'balance', left: ['250 g', '250 g', '500 g', '100 g'], right: ['1 kg', '?'], tilt: 'right', alt: 'A balance with four masses on the left and 1 kg and a missing mass on the right.' } },
     { note: '6 blocks', spec: { kind: 'balance', left: ['1', '2', '3', '4', '5', '6'], right: ['21'], alt: 'A level balance with 1 to 6 on the left and 21 on the right.' } },
   ],
+  scene: [
+    {
+      note: 'plant with soil',
+      spec: {
+        kind: 'scene',
+        width: 320,
+        height: 260,
+        shapes: [
+          { t: 'rect', x: 0, y: 190, w: 320, h: 70, tone: 'warn' },
+          { t: 'line', x1: 160, y1: 190, x2: 160, y2: 80, tone: 'science', width: 6 },
+          { t: 'ellipse', cx: 205, cy: 140, rx: 38, ry: 15, rot: -30, tone: 'science', fill: 'solid' },
+          { t: 'ellipse', cx: 115, cy: 120, rx: 38, ry: 15, rot: 30, tone: 'science', fill: 'solid' },
+          { t: 'circle', cx: 160, cy: 62, r: 24, tone: 'star' },
+          { t: 'line', x1: 160, y1: 190, x2: 120, y2: 235, tone: 'warn', width: 3 },
+          { t: 'line', x1: 160, y1: 190, x2: 200, y2: 235, tone: 'warn', width: 3 },
+          { t: 'icon', icon: 'sun', x: 262, y: 8, size: 48 },
+        ],
+        alt: 'A plant with a yellow flower, a straight stem, two green leaves and roots in brown soil, with a sun in the corner.',
+      },
+    },
+  ],
 }
 
 export default async function FigureGallery({ searchParams }: { searchParams: Promise<{ kind?: string | string[] }> }) {

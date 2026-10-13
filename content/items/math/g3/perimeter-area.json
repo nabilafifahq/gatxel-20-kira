@@ -1,0 +1,89 @@
+{
+  "skill": "m3.perimeter-area",
+  "items": [
+    {
+      "id": "m3.perimeter-area.001",
+      "skill": "m3.perimeter-area",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Find the area of each rectangle. Fill in the empty boxes.",
+      "hints": [
+        "Area is length times width.",
+        "For rectangle B, 4 times 3.",
+        "For rectangle C, 5 times 2."
+      ],
+      "explanation": "The area of rectangle A is 3 x 2 = 6, B is 4 x 3 = 12 and C is 5 x 2 = 10 square units.",
+      "caption": "Rectangles",
+      "head": [
+        "Rectangle",
+        "Length",
+        "Width",
+        "Area"
+      ],
+      "rows": [
+        [
+          "A",
+          "3",
+          "2",
+          "6"
+        ],
+        [
+          "B",
+          "4",
+          "3",
+          ""
+        ],
+        [
+          "C",
+          "5",
+          "2",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 3,
+          "answers": [
+            "12"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "answers": [
+            "10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m3.perimeter-area.002",
+      "skill": "m3.perimeter-area",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Draw a rectangle on squared paper that covers 12 squares. Write its length and width. Then take a photo.",
+      "hints": [
+        "3 x 4 = 12.",
+        "Other pairs also work, like 2 x 6."
+      ],
+      "explanation": "A 3 by 4 rectangle covers 12 squares. A 2 by 6 or a 1 by 12 rectangle also works.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a rectangle on the squares",
+            "points": 2
+          },
+          {
+            "label": "The rectangle covers 12 squares",
+            "points": 2
+          },
+          {
+            "label": "Writes the length and width",
+            "points": 1
+          }
+        ]
+      }
+    }
+  ]
+}

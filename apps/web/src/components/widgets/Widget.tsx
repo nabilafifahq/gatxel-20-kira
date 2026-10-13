@@ -2,16 +2,26 @@
 
 import type { ReactElement } from 'react'
 import { ClockWidget } from './ClockWidget'
+import { ClozeWidget } from './ClozeWidget'
 import { DrawWidget } from './DrawWidget'
 import { FractionWidget } from './FractionWidget'
+import { GridWidget } from './GridWidget'
+import { HotspotWidget } from './HotspotWidget'
+import { LabelWidget } from './LabelWidget'
+import { ListenWidget } from './ListenWidget'
 import { MatchWidget } from './MatchWidget'
 import { McqWidget, MultiWidget } from './McqWidget'
 import { NumberLineWidget } from './NumberLineWidget'
 import { NumericWidget } from './NumericWidget'
 import { OrderWidget } from './OrderWidget'
+import { PhotoWidget } from './PhotoWidget'
 import { SortWidget } from './SortWidget'
 import { SpeakWidget } from './SpeakWidget'
+import { SpellWidget } from './SpellWidget'
+import { StoryWidget } from './StoryWidget'
+import { TableWidget } from './TableWidget'
 import { TextWidget } from './TextWidget'
+import { TilesWidget } from './TilesWidget'
 import type { WidgetProps } from './types'
 import { WriteWidget } from './WriteWidget'
 
@@ -45,5 +55,25 @@ export function Widget(props: WidgetProps): ReactElement {
       return <SpeakWidget key={k} {...props} />
     case 'draw':
       return <DrawWidget key={k} {...props} />
+    case 'photo':
+      return <PhotoWidget key={k} {...props} />
+    case 'story':
+      return <StoryWidget key={k} {...props} />
+    case 'listen':
+      return <ListenWidget key={k} {...props} />
+    case 'tiles':
+      return <TilesWidget key={k} {...props} />
+    case 'spell':
+      return <SpellWidget key={k} {...props} />
+    case 'cloze':
+      return <ClozeWidget key={k} {...props} />
+    case 'hotspot':
+      return <HotspotWidget key={k} {...props} />
+    case 'label':
+      return <LabelWidget key={k} {...props} />
+    case 'table':
+      return <TableWidget key={k} {...props} />
+    case 'grid':
+      return <GridWidget key={k} {...props} />
   }
 }

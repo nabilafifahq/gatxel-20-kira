@@ -526,6 +526,151 @@
         ]
       },
       "maxSeconds": 120
+    },
+    {
+      "id": "e2.speaking.018",
+      "skill": "e2.speaking",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. Where is the cat?",
+      "hints": [
+        "Listen for the little word before the table.",
+        "The word tells you the place.",
+        "Is the cat on top, next to the table, or below it?"
+      ],
+      "explanation": "The speaker said, \"The cat is under the table.\" Under means below.",
+      "listenText": "The cat is under the table.",
+      "options": [
+        {
+          "text": "on the table"
+        },
+        {
+          "text": "next to the table"
+        },
+        {
+          "text": "under the table"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.speaking.019",
+      "skill": "e2.speaking",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal that is on the table.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 178,
+            "w": 320,
+            "h": 22,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 114,
+            "x2": 104,
+            "y2": 178,
+            "tone": "warn",
+            "width": 7
+          },
+          {
+            "t": "line",
+            "x1": 216,
+            "y1": 114,
+            "x2": 216,
+            "y2": 178,
+            "tone": "warn",
+            "width": 7
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 100,
+            "w": 152,
+            "h": 14,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 132,
+            "y": 44,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "bird",
+            "x": 138,
+            "y": 0,
+            "size": 44
+          },
+          {
+            "t": "icon",
+            "icon": "ball",
+            "x": 136,
+            "y": 126,
+            "size": 44
+          },
+          {
+            "t": "icon",
+            "icon": "bag",
+            "x": 250,
+            "y": 122,
+            "size": 56
+          }
+        ],
+        "alt": "A table. A cat sits on the table, a bird flies above it, a ball is under it and a bag stands next to it."
+      },
+      "hints": [
+        "On means on the top.",
+        "There is more than one animal. One sits on top of the table.",
+        "It has whiskers and says meow."
+      ],
+      "explanation": "The cat is on the table. The bird is above the table, flying in the air.",
+      "regions": [
+        {
+          "label": "cat",
+          "x": 50,
+          "y": 36,
+          "w": 18.8,
+          "h": 30
+        },
+        {
+          "label": "bird",
+          "x": 50,
+          "y": 11,
+          "w": 15.6,
+          "h": 22
+        },
+        {
+          "label": "ball",
+          "x": 49.4,
+          "y": 74,
+          "w": 18.8,
+          "h": 28
+        },
+        {
+          "label": "bag",
+          "x": 86.9,
+          "y": 75,
+          "w": 18.8,
+          "h": 30
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

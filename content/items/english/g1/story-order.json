@@ -389,6 +389,121 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e1.story-order.014",
+      "skill": "e1.story-order",
+      "type": "story",
+      "difficulty": 1,
+      "prompt": "Ben woke up. He brushed his teeth. Then he ate breakfast. After that he went to school.",
+      "hints": [
+        "Look for the words first, then, and after that.",
+        "Put the things in order in your head.",
+        "First is at the beginning and last is at the end."
+      ],
+      "explanation": "The order is woke up, brushed teeth, ate breakfast, went to school.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What did Ben do first?",
+          "options": [
+            {
+              "text": "ate breakfast"
+            },
+            {
+              "text": "woke up"
+            },
+            {
+              "text": "went to school"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "What did Ben do just before school?",
+          "options": [
+            {
+              "text": "ate breakfast"
+            },
+            {
+              "text": "brushed his teeth"
+            },
+            {
+              "text": "woke up"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What did Ben brush? Write one word.",
+          "answers": [
+            "teeth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.story-order.015",
+      "skill": "e1.story-order",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Put the words first, next and last on the pictures in order.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "seed",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "seedling",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "Look for the picture of the smallest plant.",
+        "The seed is first. The big plant is last.",
+        "The middle picture shows the next step."
+      ],
+      "explanation": "The pictures show a seed first, then a seedling next, then a plant last.",
+      "labels": [
+        "first",
+        "next",
+        "last"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ]
     }
   ]
 }

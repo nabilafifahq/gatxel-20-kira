@@ -275,7 +275,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     if (st.hintsUsed < hints.length) patch(index, { hintsUsed: st.hintsUsed + 1 })
   }
 
-  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
+  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing' | 'image') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
   const skip = manual
     ? () => {
         patch(index, { phase: 'skipped' })

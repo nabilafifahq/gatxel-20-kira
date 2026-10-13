@@ -452,6 +452,194 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.014",
+      "skill": "e1.letter-sounds",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which word did you hear?",
+      "hints": [
+        "Listen to the first sound.",
+        "Listen to the last sound too.",
+        "Check the first sound and the last sound together."
+      ],
+      "explanation": "The speaker said \"sun\". It starts with the sound s and ends with the sound n.",
+      "listenText": "sun",
+      "options": [
+        {
+          "text": "sun"
+        },
+        {
+          "text": "sit"
+        },
+        {
+          "text": "run"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.letter-sounds.015",
+      "skill": "e1.letter-sounds",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Tap the picture of the word you hear.",
+      "hints": [
+        "Listen again. It is an animal.",
+        "It is a bird that lives on a farm.",
+        "It clucks and lays eggs."
+      ],
+      "explanation": "The speaker said \"a hen\". A hen is a farm bird that lays eggs.",
+      "listenText": "A hen.",
+      "options": [
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "cat"
+              }
+            ],
+            "alt": "A picture of a cat."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "dog"
+              }
+            ],
+            "alt": "A picture of a dog."
+          }
+        },
+        {
+          "figure": {
+            "kind": "icons",
+            "items": [
+              {
+                "icon": "hen"
+              }
+            ],
+            "alt": "A picture of a hen."
+          }
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.016",
+      "skill": "e1.letter-sounds",
+      "type": "spell",
+      "difficulty": 1,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has three letters.",
+        "It starts with the sound h.",
+        "Say each sound: h, a, t."
+      ],
+      "explanation": "The word is hat. Each letter makes one sound: h, a, t.",
+      "word": "hat",
+      "sentence": "I wear a hat."
+    },
+    {
+      "id": "e1.letter-sounds.017",
+      "skill": "e1.letter-sounds",
+      "type": "spell",
+      "difficulty": 1,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has three letters.",
+        "It starts with the letter s.",
+        "Say each sound: s, u, n."
+      ],
+      "explanation": "The word is sun. Each letter makes one sound: s, u, n.",
+      "word": "sun",
+      "sentence": "The sun is hot."
+    },
+    {
+      "id": "e1.letter-sounds.018",
+      "skill": "e1.letter-sounds",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the picture that starts with the sound b.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "ball",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: ball, sun, cat and hen."
+      },
+      "hints": [
+        "Say the name of each picture.",
+        "Listen to the first sound.",
+        "It is something you can throw and catch."
+      ],
+      "explanation": "The word ball starts with the sound b.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "ball",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "sun",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "cat",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "hen",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

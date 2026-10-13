@@ -478,6 +478,341 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-logic.010",
+      "skill": "m3.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 4, 3, 2, 1.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          3,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          4
+        ]
+      ],
+      "filled": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-logic.011",
+      "skill": "m3.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 1, 3, 2, 4.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          0,
+          2,
+          4
+        ],
+        [
+          2,
+          4,
+          0,
+          3
+        ],
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          2,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          3,
+          1,
+          4,
+          2
+        ],
+        [
+          4,
+          2,
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-logic.012",
+      "skill": "m3.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 2, 4, 1, 3.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          4,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          4,
+          2
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          4,
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          4,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-logic.013",
+      "skill": "m3.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 1, 2, 3, 4.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          1,
+          2
+        ],
+        [
+          4,
+          1,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          4,
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-logic.014",
+      "skill": "m3.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 2, 1, 4, 3.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          2,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ]
+      ]
     }
   ]
 }

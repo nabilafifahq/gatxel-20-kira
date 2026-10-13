@@ -131,6 +131,46 @@
       "hints": ["Last Sunday tells you everything happened in the past.", "Find every verb: go, built and will eat.", "Check each verb. Is it in the past tense?"],
       "explanation": "Go should be went, and will eat should be ate. Built is already in the past, so 2 verbs are wrong.",
       "tags": ["iklc"]
+    },
+    {
+      "id": "e3.tenses.013",
+      "skill": "e3.tenses",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence about the future.",
+      "hints": [
+        "The sentence starts with a word that tells you when.",
+        "The future needs the helper word will.",
+        "The last word has a full stop and names the place."
+      ],
+      "explanation": "Tomorrow we will visit the zoo. Will before the doing word shows the future.",
+      "answer": "Tomorrow we will visit the zoo.",
+      "distractors": [
+        "visited"
+      ]
+    },
+    {
+      "id": "e3.tenses.014",
+      "skill": "e3.tenses",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Tomorrow we ___ to the museum.",
+      "hints": [
+        "Tomorrow means the future.",
+        "The future often uses the helper word will.",
+        "Which choice has will?"
+      ],
+      "explanation": "Will go shows something that has not happened yet.",
+      "gaps": [
+        {
+          "options": [
+            "went",
+            "will go",
+            "goes"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }

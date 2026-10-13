@@ -557,6 +557,54 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e2.irregular-past.019",
+      "skill": "e2.irregular-past",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence about the past.",
+      "hints": [
+        "The sentence starts with words that tell you when.",
+        "The doing word changes in the past. It does not end in -ed.",
+        "Think about the past of buy."
+      ],
+      "explanation": "Last week Mum bought some mangoes. The past of buy is bought.",
+      "answer": "Last week Mum bought some mangoes.",
+      "distractors": [
+        "buy"
+      ]
+    },
+    {
+      "id": "e2.irregular-past.020",
+      "skill": "e2.irregular-past",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Last night I ___ my dinner and then I ___ to bed.",
+      "hints": [
+        "Last night means the past.",
+        "Some past tense words do not end in -ed.",
+        "Say the sentence aloud with each choice. Which one sounds right?"
+      ],
+      "explanation": "Ate is the past of eat and went is the past of go. They are irregular, so they do not end in -ed.",
+      "gaps": [
+        {
+          "options": [
+            "ate",
+            "eat",
+            "eaten"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "goed",
+            "go",
+            "went"
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

@@ -150,6 +150,236 @@
       ] },
       "hints": ["A drum or a bird makes a sound.", "Flowers and food often have a smell."],
       "explanation": "We hear sounds with our ears and smell with our nose. A drum makes a sound and a flower has a smell."
+    },
+    {
+      "id": "s1.senses.013",
+      "skill": "s1.senses",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen to the sound. Which part of your body do you use to hear it?",
+      "hints": [
+        "Think about how you notice sounds.",
+        "You have two of them, one on each side of your head.",
+        "You do not hear with your eyes or your nose."
+      ],
+      "explanation": "You hear with your ears. The speaker made a bell sound, so you use your sense of hearing.",
+      "listenText": "Ding dong! Ding dong! The school bell is ringing.",
+      "options": [
+        {
+          "text": "eyes"
+        },
+        {
+          "text": "ears"
+        },
+        {
+          "text": "nose"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s1.senses.014",
+      "skill": "s1.senses",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "We use our ___ to hear.",
+      "hints": [
+        "Think about which part of your body is for hearing.",
+        "You have one on each side of your head.",
+        "It is not your eyes or your nose."
+      ],
+      "explanation": "We hear with our ears.",
+      "gaps": [
+        {
+          "options": [
+            "eyes",
+            "nose",
+            "ears"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s1.senses.015",
+      "skill": "s1.senses",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part of the body you use to smell.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "ear",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "nose",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tongue",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hand",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "5 pictures: eye, ear, nose, tongue and hand."
+      },
+      "hints": [
+        "You smell flowers and food with this part.",
+        "It is in the middle of your face.",
+        "It is not your eyes or your ears."
+      ],
+      "explanation": "You smell with your nose.",
+      "regions": [
+        {
+          "x": 16.7,
+          "y": 25,
+          "label": "eye",
+          "w": 31.3,
+          "h": 47
+        },
+        {
+          "x": 50,
+          "y": 25,
+          "label": "ear",
+          "w": 31.3,
+          "h": 47
+        },
+        {
+          "x": 83.3,
+          "y": 25,
+          "label": "nose",
+          "w": 31.3,
+          "h": 47
+        },
+        {
+          "x": 16.7,
+          "y": 75,
+          "label": "tongue",
+          "w": 31.3,
+          "h": 47
+        },
+        {
+          "x": 50,
+          "y": 75,
+          "label": "hand",
+          "w": 31.3,
+          "h": 47
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s1.senses.016",
+      "skill": "s1.senses",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Which sense do you use with each part of the body?",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "ear",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "nose",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tongue",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hand",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "5 pictures to label."
+      },
+      "hints": [
+        "Tap a word, then tap a picture.",
+        "You see with your eyes and hear with your ears.",
+        "You taste with your tongue."
+      ],
+      "explanation": "You see with your eyes, hear with your ears, smell with your nose, taste with your tongue and touch with your hands.",
+      "labels": [
+        "seeing",
+        "hearing",
+        "smelling",
+        "tasting",
+        "touching"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 25
+        },
+        {
+          "x": 50,
+          "y": 25
+        },
+        {
+          "x": 83.3,
+          "y": 25
+        },
+        {
+          "x": 16.7,
+          "y": 75
+        },
+        {
+          "x": 50,
+          "y": 75
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "skill": "m1.number-names",
+  "items": [
+    {
+      "id": "m1.number-names.001",
+      "skill": "m1.number-names",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which number did you hear?",
+      "hints": [
+        "Listen to the end of the word. Is it teen or ty?",
+        "The word ends in teen, so it is a number between 13 and 19.",
+        "It comes after thirteen."
+      ],
+      "explanation": "The speaker said \"fourteen\". Numbers that end in teen are in the teens, so fourteen is 14.",
+      "listenText": "fourteen",
+      "options": [
+        {
+          "text": "14"
+        },
+        {
+          "text": "40"
+        },
+        {
+          "text": "41"
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

@@ -148,6 +148,24 @@ const SAMPLES: Record<FigureKind, FigureSpecInput[]> = {
     { kind: 'balance', left: ['3', '4'], right: ['?'], tilt: 'level', alt: 'A balance with 3 and 4 on the left and a missing number.' },
     { kind: 'balance', left: ['5', '5', '5'], right: ['20'], tilt: 'right', alt: 'A balance tipped to the right.' },
   ],
+  scene: [
+    {
+      kind: 'scene',
+      width: 240,
+      height: 200,
+      shapes: [
+        { t: 'rect', x: 0, y: 150, w: 240, h: 50, tone: 'warn' },
+        { t: 'line', x1: 120, y1: 150, x2: 120, y2: 60, tone: 'science', width: 5 },
+        { t: 'ellipse', cx: 150, cy: 100, rx: 28, ry: 12, rot: -30, tone: 'science', fill: 'solid' },
+        { t: 'circle', cx: 120, cy: 50, r: 18, tone: 'star' },
+        { t: 'poly', points: [[100, 150], [90, 190], [110, 190]], closed: false, tone: 'warn' },
+        { t: 'icon', icon: 'sun', x: 190, y: 8, size: 40 },
+        { t: 'text', x: 60, y: 30, text: 'Plant', tone: 'science' },
+      ],
+      alt: 'A small plant with a stem, one leaf, a flower and a root in the soil, and a sun in the corner.',
+    },
+    { kind: 'scene', width: 160, height: 100, shapes: [{ t: 'rect', x: 10, y: 10, w: 60, h: 40 }], alt: 'A plain box on a pale background.' },
+  ],
 }
 
 function esc(s: string): string {

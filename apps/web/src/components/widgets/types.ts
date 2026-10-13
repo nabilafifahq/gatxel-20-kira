@@ -14,10 +14,10 @@ export type WidgetProps = {
   disabled?: boolean
   feedback?: WidgetFeedback
   subject: Subject
-  onUpload?(blob: Blob, kind: 'audio' | 'drawing'): Promise<{ mediaId: string } | null>
+  onUpload?(blob: Blob, kind: 'audio' | 'drawing' | 'image'): Promise<{ mediaId: string } | null>
   /**
-   * Tambahan di luar kontrak: soal bicara dan gambar boleh dilewati bila tidak bisa
-   * dikerjakan di perangkat ini (mikrofon mati, gambar di kertas). Runner yang mengisinya.
+   * Tambahan di luar kontrak: soal bicara, gambar, dan foto boleh dilewati bila tidak bisa
+   * dikerjakan di perangkat ini (mikrofon mati, gambar di kertas, kamera tidak ada). Runner yang mengisinya.
    */
   onSkip?(): void
 }

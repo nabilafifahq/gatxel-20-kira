@@ -139,6 +139,32 @@
       "maxSeconds": 90,
       "hints": ["Picture yourself walking in through the gate.", "Use words like turn left, go past and next to."],
       "explanation": "Clear directions describe each part of the route in order, with position words that a new pupil can follow."
+    },
+    {
+      "id": "e3.speaking.012",
+      "skill": "e3.speaking",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen to the notice. What do you need to bring?",
+      "hints": [
+        "Listen for the word bring.",
+        "There are two things to bring.",
+        "You will use them to plant seeds."
+      ],
+      "explanation": "The speaker said to bring a small pot and a spoon for planting beans.",
+      "listenText": "Tomorrow we will plant beans in the school garden. Please bring a small pot and a spoon.",
+      "options": [
+        {
+          "text": "A pot and a spoon"
+        },
+        {
+          "text": "Beans and water"
+        },
+        {
+          "text": "A hat and a bag"
+        }
+      ],
+      "answer": 0
     }
   ]
 }

@@ -465,6 +465,81 @@
         "keep-order",
         "iksc"
       ]
+    },
+    {
+      "id": "s3.food-groups.014",
+      "skill": "s3.food-groups",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Rice and bread give us ___ to run and play.",
+      "hints": [
+        "Food helps your body do things.",
+        "You feel full of this after a good meal.",
+        "It is the power that lets you move."
+      ],
+      "explanation": "Foods like rice and bread give our bodies energy.",
+      "gaps": [
+        {
+          "options": [
+            "noise",
+            "energy",
+            "water"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s3.food-groups.015",
+      "skill": "s3.food-groups",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Which food group does each food belong to?",
+      "hints": [
+        "Rice gives us energy.",
+        "Chicken helps our bodies grow and repair.",
+        "Fruit and vegetables have vitamins."
+      ],
+      "explanation": "Rice is a carbohydrate and chicken is a protein. Oranges give us vitamins.",
+      "caption": "Food groups",
+      "head": [
+        "Food",
+        "Group"
+      ],
+      "rows": [
+        [
+          "Rice",
+          ""
+        ],
+        [
+          "Chicken",
+          "protein"
+        ],
+        [
+          "Orange",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "carbohydrate",
+            "carbohydrates",
+            "carbs"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "vitamins",
+            "fruit",
+            "vitamin"
+          ]
+        }
+      ]
     }
   ]
 }

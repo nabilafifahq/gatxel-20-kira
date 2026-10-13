@@ -1,0 +1,31 @@
+{
+  "skill": "m1.money",
+  "items": [
+    {
+      "id": "m1.money.001",
+      "skill": "m1.money",
+      "type": "story",
+      "difficulty": 1,
+      "prompt": "Rina has two Rp1.000 coins. She gets one more Rp1.000 coin from Mum.",
+      "hints": [
+        "Count the coins.",
+        "2 coins and 1 more coin.",
+        "Each coin is Rp1.000."
+      ],
+      "explanation": "Rina has 3 coins. 3 coins of Rp1.000 is Rp3.000.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many coins does Rina have now?",
+          "answer": 3
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many rupiah is that in all?",
+          "answer": 3000,
+          "unit": "rupiah"
+        }
+      ]
+    }
+  ]
+}

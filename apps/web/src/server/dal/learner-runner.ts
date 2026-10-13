@@ -197,8 +197,38 @@ function validAnswer(item: Item, answer: unknown): boolean {
       return typeof a.text === 'string' && a.text.length <= 8000
     case 'speak':
     case 'draw':
+    case 'photo':
       return typeof a.mediaId === 'string' && z.string().uuid().safeParse(a.mediaId).success
+    case 'story':
+      return Array.isArray(a.parts) && a.parts.length <= item.parts.length && a.parts.every((p, k) => p === null || validPart(item.parts[k], p))
+    case 'listen':
+      return isInt(a.choice)
+    case 'tiles':
+      return Array.isArray(a.words) && a.words.length <= 14 && a.words.every((w) => typeof w === 'string' && w.length <= 30)
+    case 'spell':
+      return typeof a.value === 'string' && a.value.length <= 24
+    case 'cloze':
+      return strings(a.texts, 4, 40)
+    case 'hotspot':
+      return strings(a.texts, 8, 40)
+    case 'label':
+      return strings(a.texts, 6, 40)
+    case 'table':
+      return strings(a.texts, 8, 40)
+    case 'grid':
+      return Array.isArray(a.cells) && a.cells.length === item.size * item.size && a.cells.every((c) => typeof c === 'number' && Number.isInteger(c) && c >= 0 && c < 100)
   }
+}
+
+const strings = (v: unknown, max: number, len: number): boolean => Array.isArray(v) && v.length <= max && v.every((t) => typeof t === 'string' && t.length <= len)
+
+/** Bentuk jawaban satu pertanyaan di soal cerita bertahap. */
+function validPart(part: Extract<Item, { type: 'story' }>['parts'][number] | undefined, p: unknown): boolean {
+  if (!part || p === null || typeof p !== 'object' || Array.isArray(p)) return false
+  const a = p as Record<string, unknown>
+  if (part.type === 'mcq') return typeof a.choice === 'number' && Number.isInteger(a.choice) && a.choice >= -1 && a.choice < 100
+  if (part.type === 'numeric') return typeof a.value === 'string' && a.value.length <= 40
+  return strings(a.texts, 1, 120)
 }
 
 export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: AnswerPayload): Promise<AnswerResult> {
@@ -227,7 +257,7 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
   // Mode tanpa umpan balik: perangkat mengirim label rahasia, basis data menyimpan indeks asli.
   const answer = answerFromLabels(item, p.answer, HIDDEN_MODES.has(a.mode) ? labelPerm(a.id, slot.ref, labelCount(item)) : null) as AnswerPayload['answer']
   if (!validAnswer(item, answer)) throw invalid('Bentuk jawaban tidak sesuai soal.')
-  if ((item.type === 'speak' || item.type === 'draw') && answer) {
+  if ((item.type === 'speak' || item.type === 'draw' || item.type === 'photo') && answer) {
     const mediaId = (answer as { mediaId: string }).mediaId
     const m = await tx.select({ id: media.id }).from(media).where(and(eq(media.id, mediaId), eq(media.learnerId, learnerId))).limit(1)
     if (!m[0]) throw invalid('Rekaman atau gambar tidak ditemukan.')
@@ -254,7 +284,7 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
     retry: a.retryOf !== null,
     clientId: p.clientId,
     answeredAt: new Date(p.answeredAt),
-    mediaId: item.type === 'speak' || item.type === 'draw' ? ((answer as { mediaId?: string } | null)?.mediaId ?? null) : null,
+    mediaId: item.type === 'speak' || item.type === 'draw' || item.type === 'photo' ? ((answer as { mediaId?: string } | null)?.mediaId ?? null) : null,
   }
   if (HIDDEN_MODES.has(a.mode)) {
     // Tes: jawaban boleh diganti sampai dikumpulkan; mesin belajar diperbarui saat kumpul.

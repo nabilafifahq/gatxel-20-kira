@@ -100,7 +100,7 @@ describe('normaliseAiItem', () => {
 
   it('bentuk yang tidak terbaca ditolak dengan alasan', () => {
     expect(normaliseAiItem('teks', { skill: 'm2.x' }).reason).toBe('bukan objek JSON')
-    expect(normaliseAiItem({ type: 'clock', prompt: 'x' }, { skill: 'm2.x' }).reason).toMatch(/jenis soal tidak dikenal/)
+    expect(normaliseAiItem({ type: 'carousel', prompt: 'x' }, { skill: 'm2.x' }).reason).toMatch(/jenis soal tidak dikenal/)
     expect(normaliseAiItem({ type: 'mcq', prompt: '  ' }, { skill: 'm2.x' }).reason).toBe('prompt kosong')
   })
 

@@ -177,6 +177,230 @@
       ] },
       "hints": ["Start with frogspawn in a pond.", "Draw arrows from each stage to the next, and from the frog back to the eggs."],
       "explanation": "Frogspawn hatches into tadpoles, tadpoles become froglets and froglets grow into frogs. Adult frogs lay frogspawn, so the cycle starts again."
+    },
+    {
+      "id": "s2.life-cycles.017",
+      "skill": "s2.life-cycles",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A tadpole grows into a ___.",
+      "hints": [
+        "Tadpoles live in water and grow legs.",
+        "The grown-up animal can jump.",
+        "It says croak."
+      ],
+      "explanation": "A tadpole grows into a frog. Frogs begin as eggs, then tadpoles.",
+      "gaps": [
+        {
+          "options": [
+            "fish",
+            "egg",
+            "frog"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s2.life-cycles.018",
+      "skill": "s2.life-cycles",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Put the frog life cycle in the table. Fill in the missing stages.",
+      "hints": [
+        "A frog starts as an egg.",
+        "The second stage lives in water and has a tail.",
+        "The last stage can jump."
+      ],
+      "explanation": "The stages are egg, tadpole and frog.",
+      "caption": "Frog life cycle",
+      "head": [
+        "Stage",
+        "Name"
+      ],
+      "rows": [
+        [
+          "1",
+          ""
+        ],
+        [
+          "2",
+          "tadpole"
+        ],
+        [
+          "3",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "egg"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "frog"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2.life-cycles.019",
+      "skill": "s2.life-cycles",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Draw the life cycle of a butterfly on paper. Draw arrows between the stages. Then take a photo.",
+      "hints": [
+        "A butterfly starts as an egg.",
+        "A caterpillar hatches and eats leaves."
+      ],
+      "explanation": "The stages are egg, caterpillar, chrysalis and butterfly. Arrows show the order.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws all four stages",
+            "points": 2
+          },
+          {
+            "label": "Puts the stages in the right order",
+            "points": 2
+          },
+          {
+            "label": "Uses arrows to show the order",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "s2.life-cycles.020",
+      "skill": "s2.life-cycles",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the stages of the frog life cycle.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "egg",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "A frog begins life as an egg.",
+        "The second stage lives in water and has a tail.",
+        "The last stage can jump."
+      ],
+      "explanation": "The stages are egg, tadpole and frog, in that order.",
+      "labels": [
+        "egg",
+        "tadpole",
+        "frog"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ]
+    },
+    {
+      "id": "s2.life-cycles.021",
+      "skill": "s2.life-cycles",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the stages of the butterfly life cycle. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "caterpillar",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "chrysalis",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "butterfly",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "A caterpillar hatches from an egg.",
+        "The chrysalis is where the caterpillar changes.",
+        "The grown-up insect has wings."
+      ],
+      "explanation": "The stages shown are caterpillar, chrysalis and butterfly. The egg comes before them.",
+      "labels": [
+        "caterpillar",
+        "chrysalis",
+        "butterfly"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "egg"
+      ]
     }
   ]
 }

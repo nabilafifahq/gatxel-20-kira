@@ -1,0 +1,23 @@
+{
+  "skill": "m3.time-clock",
+  "items": [
+    {
+      "id": "m3.time-clock.001",
+      "skill": "m3.time-clock",
+      "type": "clock",
+      "difficulty": 3,
+      "prompt": "Show twenty to nine on the clock.",
+      "hints": [
+        "To means minutes before the next hour.",
+        "Twenty to nine is 20 minutes before 9 o'clock.",
+        "The long hand points to 8."
+      ],
+      "explanation": "Twenty to nine is 8:40. The long hand is on 8 and the short hand is just before 9.",
+      "answer": {
+        "h": 8,
+        "m": 40
+      },
+      "stepMinutes": 5
+    }
+  ]
+}

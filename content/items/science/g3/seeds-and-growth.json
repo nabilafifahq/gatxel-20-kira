@@ -407,6 +407,43 @@
         "iksc",
         "olympiad"
       ]
+    },
+    {
+      "id": "s3.seeds-and-growth.012",
+      "skill": "s3.seeds-and-growth",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Mia measured her bean plant. On Monday it was 4 cm tall. On Friday it was 9 cm tall.",
+      "hints": [
+        "Find the two heights in the story.",
+        "To find how much it grew, take the first height from the second.",
+        "9 take away 4."
+      ],
+      "explanation": "The plant grew 9 take away 4, which is 5 cm. A table is a clear way to record measurements.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many centimetres did the plant grow?",
+          "answer": 5,
+          "unit": "cm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which is a clear way to record the heights?",
+          "options": [
+            {
+              "text": "in a table"
+            },
+            {
+              "text": "in a riddle"
+            },
+            {
+              "text": "in a song"
+            }
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

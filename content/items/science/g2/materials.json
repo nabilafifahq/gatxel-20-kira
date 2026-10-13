@@ -214,6 +214,54 @@
       "hints": ["Find the row for Fabric B.", "Some water came through. The rest was stopped.", "Start with 10 spoons and take away the ones that came through."],
       "explanation": "10 spoons were poured on Fabric B and 3 came through. 10 take away 3 is 7, so Fabric B stopped 7 spoons.",
       "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.materials.018",
+      "skill": "s2.materials",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Which things are waterproof? Write Yes or No.",
+      "hints": [
+        "Waterproof means water cannot go through.",
+        "Think about what keeps you dry in the rain.",
+        "Paper gets soggy in water."
+      ],
+      "explanation": "A raincoat and a plastic bag are waterproof. Paper is not waterproof.",
+      "caption": "Waterproof?",
+      "head": [
+        "Object",
+        "Waterproof?"
+      ],
+      "rows": [
+        [
+          "Raincoat",
+          "Yes"
+        ],
+        [
+          "Paper",
+          ""
+        ],
+        [
+          "Plastic bag",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "No"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "Yes"
+          ]
+        }
+      ]
     }
   ]
 }

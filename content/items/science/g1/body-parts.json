@@ -148,6 +148,942 @@
       "answers": [0, 2, 4],
       "hints": ["A bend lets part of your body fold.", "Gently try moving each part.", "Start with your elbow. Can your arm fold there?"],
       "explanation": "The elbow, the knee and the wrist are joints. Joints are places where the body bends. The nose and the chin do not bend."
+    },
+    {
+      "id": "s1.body-parts.014",
+      "skill": "s1.body-parts",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Draw yourself on paper. Label your head, arm and leg. Then take a photo.",
+      "hints": [],
+      "explanation": "Your tutor checks that you drew a body and labelled three parts.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a whole body",
+            "points": 2
+          },
+          {
+            "label": "Labels head, arm and leg",
+            "points": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1.body-parts.015",
+      "skill": "s1.body-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the head.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "hints": [
+        "Look at the top of the body.",
+        "Your eyes, nose and mouth are here.",
+        "You wear a hat on it."
+      ],
+      "explanation": "The head is at the top of the body. It has the eyes, nose, mouth and ears.",
+      "regions": [
+        {
+          "label": "head",
+          "x": 50,
+          "y": 15,
+          "w": 26.7,
+          "h": 20
+        },
+        {
+          "label": "arm",
+          "x": 71.7,
+          "y": 40.6,
+          "w": 16.7,
+          "h": 17.5
+        },
+        {
+          "label": "leg",
+          "x": 58.3,
+          "y": 75,
+          "w": 16.7,
+          "h": 28.1
+        },
+        {
+          "label": "foot",
+          "x": 61.7,
+          "y": 93.1,
+          "w": 20.8,
+          "h": 9.4
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s1.body-parts.016",
+      "skill": "s1.body-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part that you stand on.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "hints": [
+        "Look at the bottom of the body.",
+        "You put a shoe on it.",
+        "It is at the end of the leg."
+      ],
+      "explanation": "The foot is at the end of the leg. We stand and walk on our feet.",
+      "regions": [
+        {
+          "label": "head",
+          "x": 50,
+          "y": 15,
+          "w": 26.7,
+          "h": 20
+        },
+        {
+          "label": "arm",
+          "x": 71.7,
+          "y": 40.6,
+          "w": 16.7,
+          "h": 17.5
+        },
+        {
+          "label": "tummy",
+          "x": 50,
+          "y": 46.9,
+          "w": 20.8,
+          "h": 18.8
+        },
+        {
+          "label": "foot",
+          "x": 61.7,
+          "y": 93.1,
+          "w": 20.8,
+          "h": 9.4
+        }
+      ],
+      "answers": [
+        3
+      ]
+    },
+    {
+      "id": "s1.body-parts.017",
+      "skill": "s1.body-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the arm.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "hints": [
+        "You use this part to wave and to carry things.",
+        "It is at the side of the body.",
+        "It joins the shoulder to the hand."
+      ],
+      "explanation": "The arm is at the side of the body. We use our arms to carry, reach and wave.",
+      "regions": [
+        {
+          "label": "head",
+          "x": 50,
+          "y": 15,
+          "w": 26.7,
+          "h": 20
+        },
+        {
+          "label": "arm",
+          "x": 71.7,
+          "y": 40.6,
+          "w": 16.7,
+          "h": 17.5
+        },
+        {
+          "label": "leg",
+          "x": 58.3,
+          "y": 75,
+          "w": 16.7,
+          "h": 28.1
+        },
+        {
+          "label": "foot",
+          "x": 61.7,
+          "y": 93.1,
+          "w": 20.8,
+          "h": 9.4
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s1.body-parts.018",
+      "skill": "s1.body-parts",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the body.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The head is at the top.",
+        "The foot is at the bottom of the leg."
+      ],
+      "explanation": "The head is at the top, the arm is at the side, the leg is below the body and the foot is at the end of the leg.",
+      "labels": [
+        "head",
+        "arm",
+        "leg",
+        "foot"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 15
+        },
+        {
+          "x": 71.7,
+          "y": 40.6
+        },
+        {
+          "x": 58.3,
+          "y": 75
+        },
+        {
+          "x": 61.7,
+          "y": 93.1
+        }
+      ]
+    },
+    {
+      "id": "s1.body-parts.019",
+      "skill": "s1.body-parts",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the body. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "Your hand is at the end of your arm.",
+        "Your tummy is in the middle of your body."
+      ],
+      "explanation": "The labels are head, hand, tummy and foot. The knee is not needed.",
+      "labels": [
+        "head",
+        "hand",
+        "tummy",
+        "foot"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 15
+        },
+        {
+          "x": 80.8,
+          "y": 52.5
+        },
+        {
+          "x": 50,
+          "y": 46.9
+        },
+        {
+          "x": 61.7,
+          "y": 93.1
+        }
+      ],
+      "extraLabels": [
+        "knee"
+      ]
     }
   ]
 }

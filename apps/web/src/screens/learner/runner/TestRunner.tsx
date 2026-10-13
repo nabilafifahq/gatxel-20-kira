@@ -184,7 +184,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const many = items.length > 20
   const showTermsBtn = data.showTerms && !!item.terms && item.terms.length > 0
   const syncState = !online ? 'offline' : queue.stuck && queue.pending > 0 ? 'pending' : queue.justSynced ? 'synced' : null
-  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
+  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing' | 'image') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg lg:h-svh lg:overflow-hidden">

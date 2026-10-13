@@ -144,6 +144,745 @@
       "hints": ["Look at which part of the cactus is fat and green.", "Spines are thin. Could they hold much water?", "Find the thickest part of the cactus in the picture."],
       "explanation": "A cactus stores water in its thick, green stem. This helps it live in dry places like deserts. The spines keep animals away.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.plant-parts.013",
+      "skill": "s1.plant-parts",
+      "type": "spell",
+      "difficulty": 1,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has four letters.",
+        "It starts with the letter l.",
+        "It is the green part of a plant that catches sunlight."
+      ],
+      "explanation": "The word is leaf. A leaf catches sunlight to help the plant make food.",
+      "word": "leaf",
+      "sentence": "The leaf is green."
+    },
+    {
+      "id": "s1.plant-parts.014",
+      "skill": "s1.plant-parts",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "The ___ holds the leaves and flowers up in the air.",
+      "hints": [
+        "Think about the part that stands up straight.",
+        "It is the long part between the roots and the leaves.",
+        "It is not the part under the ground."
+      ],
+      "explanation": "The stem holds the leaves and flowers up. It also carries water to them.",
+      "gaps": [
+        {
+          "options": [
+            "seed",
+            "stem",
+            "root"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s1.plant-parts.015",
+      "skill": "s1.plant-parts",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Draw a plant on paper. Label the leaf, the stem and the root. Then take a photo.",
+      "hints": [],
+      "explanation": "A plant has a leaf, a stem and a root. Your tutor checks your drawing and labels.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a plant with stem, leaves and roots",
+            "points": 2
+          },
+          {
+            "label": "Labels leaf, stem and root",
+            "points": 2
+          },
+          {
+            "label": "Labels are next to the right parts",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "s1.plant-parts.016",
+      "skill": "s1.plant-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the flower.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "hints": [
+        "Look at the top of the plant.",
+        "The flower is often bright and colourful.",
+        "It has petals."
+      ],
+      "explanation": "The flower is at the top of the plant. It has petals around the middle.",
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 64.6,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s1.plant-parts.017",
+      "skill": "s1.plant-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part that takes in water from the soil.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "hints": [
+        "Think about what is under the ground.",
+        "These parts hold the plant in the soil.",
+        "They drink water like thin straws."
+      ],
+      "explanation": "The roots take in water from the soil. They also hold the plant in place.",
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 64.6,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        3
+      ]
+    },
+    {
+      "id": "s1.plant-parts.018",
+      "skill": "s1.plant-parts",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the plant.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The roots are under the soil.",
+        "The flower is at the top."
+      ],
+      "explanation": "The flower is at the top, the leaf is on the side, the stem is in the middle and the roots are under the ground.",
+      "labels": [
+        "flower",
+        "leaf",
+        "stem",
+        "roots"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 25.4
+        },
+        {
+          "x": 71.3,
+          "y": 43.8
+        },
+        {
+          "x": 50,
+          "y": 64.6
+        },
+        {
+          "x": 50,
+          "y": 89.2
+        }
+      ]
+    },
+    {
+      "id": "s1.plant-parts.019",
+      "skill": "s1.plant-parts",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label three parts of the plant. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "Only three places need a label.",
+        "The part with petals is not one of the places."
+      ],
+      "explanation": "The leaf, the stem and the roots are labelled. The flower is not needed here.",
+      "labels": [
+        "leaf",
+        "stem",
+        "roots"
+      ],
+      "spots": [
+        {
+          "x": 71.3,
+          "y": 43.8
+        },
+        {
+          "x": 50,
+          "y": 64.6
+        },
+        {
+          "x": 50,
+          "y": 89.2
+        }
+      ],
+      "extraLabels": [
+        "flower"
+      ]
     }
   ]
 }
