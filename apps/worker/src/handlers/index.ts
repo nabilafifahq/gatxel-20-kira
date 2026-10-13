@@ -4,6 +4,7 @@ import { gradeHandler } from './grade'
 import { importHandler } from './import'
 import { learnerDeleteHandler } from './learner-delete'
 import { testHandler } from './test'
+import { ttsBatchHandler, ttsClipHandler } from './tts'
 import type { Handler } from './types'
 
 /** Satu handler untuk setiap JOB_KINDS di packages/db/src/jobs.ts. */
@@ -17,4 +18,6 @@ export const HANDLERS: Record<JobKind, Handler> = {
   'ai.import': importHandler,
   'ai.test': testHandler,
   'learner.delete': learnerDeleteHandler,
+  'tts.batch': ttsBatchHandler,
+  'tts.clip': ttsClipHandler,
 }

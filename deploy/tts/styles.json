@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "language": "English",
+  "models": {
+    "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "custom": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+  },
+  "styles": {
+    "narrator": {
+      "label": "Warm storyteller",
+      "model": "design",
+      "gapMs": 400,
+      "voices": [
+        { "design": "A warm, gentle British woman in her thirties reading a bedtime story to a child. Soft, expressive and unhurried." },
+        { "design": "A kind British man with a calm, deep and cosy voice, telling a story by the fire. Warm and unhurried." },
+        { "design": "A cheerful young Australian woman telling a story. Bright, lively and clear, with a gentle storytelling rhythm." }
+      ],
+      "tone": {
+        "statement": "Tell it warmly, with gentle pauses and a storytelling rhythm.",
+        "question": "Sound curious and inviting, with a clear rise at the end as if asking the listener.",
+        "instruction": "Speak kindly and clearly, as if guiding the child through the story.",
+        "praise": "Sound delighted and proud, warm and smiling."
+      }
+    },
+    "teacher": {
+      "label": "Friendly teacher",
+      "model": "design",
+      "gapMs": 300,
+      "voices": [
+        { "design": "A friendly young British woman, a primary school teacher in her late twenties. Clear, patient and warm, medium-slow pace, speaking to seven-year-old children." },
+        { "design": "A kind British man in his forties, a primary school teacher. Steady, calm and clear, gentle and encouraging, medium-slow pace." },
+        { "design": "A cheerful British woman in her fifties, a much-loved class teacher. Warm, clear and a little playful, medium-slow pace." }
+      ],
+      "tone": {
+        "statement": "Explain it simply and clearly in a friendly tone.",
+        "question": "Ask the question clearly and kindly, with a gentle rise at the end.",
+        "instruction": "Give the instruction clearly and calmly, slightly slower than usual.",
+        "praise": "Sound proud and delighted, bright and encouraging."
+      }
+    },
+    "quizhost": {
+      "label": "Quiz host",
+      "model": "custom",
+      "gapMs": 250,
+      "voices": [
+        { "speaker": "Ryan" },
+        { "speaker": "Aiden" }
+      ],
+      "tone": {
+        "statement": "Say it like an upbeat game show host, lively and clear.",
+        "question": "Ask it like an excited quiz host building suspense. Clear, quick and easy to follow.",
+        "instruction": "Announce it clearly and energetically, like a game show host.",
+        "praise": "Celebrate like a game show host, with real excitement and joy."
+      }
+    },
+    "child": {
+      "label": "Child",
+      "model": "design",
+      "gapMs": 300,
+      "voices": [
+        { "design": "A friendly seven-year-old British girl. Bright, cheerful and a little shy, with a natural child voice and clear pronunciation." },
+        { "design": "A cheerful eight-year-old British boy. Bouncy and curious, with a natural child voice and clear pronunciation." },
+        { "design": "A friendly six-year-old girl with a soft, sweet voice. Speaks slowly and clearly." }
+      ],
+      "tone": {
+        "statement": "Talk naturally, like a child chatting with a friend.",
+        "question": "Ask it with childlike curiosity, rising at the end.",
+        "instruction": "Say it like a child explaining a game to a friend.",
+        "praise": "Sound thrilled and giggly."
+      }
+    },
+    "robot": {
+      "label": "Robot",
+      "model": "design",
+      "gapMs": 350,
+      "voices": [
+        { "design": "A friendly cartoon robot with a slightly metallic, synthetic voice. Clear and slow, with a flat but cheerful pitch." },
+        { "design": "A small, cute helper robot with a high-pitched, bouncy electronic voice. Clear and cheerful." },
+        { "design": "A calm robot butler with a deep, formal, evenly paced mechanical voice. Very clear." }
+      ],
+      "tone": {
+        "statement": "Speak evenly and precisely, like a friendly robot.",
+        "question": "Ask it like a curious robot, with a small rise at the end.",
+        "instruction": "Give the instruction in a precise, helpful robot voice.",
+        "praise": "Sound happily electronic and pleased."
+      }
+    },
+    "grandpa": {
+      "label": "Grandpa",
+      "model": "design",
+      "gapMs": 450,
+      "voices": [
+        { "design": "A kind elderly British grandfather. Slow, warm and slightly gravelly, speaking gently." },
+        { "design": "A jolly old man with a deep, chuckling voice. Slow and storytelling, very clear." },
+        { "design": "A wise grandfather with a soft, slightly raspy voice and a thoughtful pace." }
+      ],
+      "tone": {
+        "statement": "Speak slowly and warmly, like a grandfather chatting.",
+        "question": "Ask it gently and kindly, with a small rise at the end.",
+        "instruction": "Say it kindly and patiently, like a grandfather helping a grandchild.",
+        "praise": "Sound proud and fond, with a warm chuckle in the voice."
+      }
+    },
+    "dictation": {
+      "label": "Slow and clear",
+      "model": "design",
+      "gapMs": 700,
+      "voices": [
+        { "design": "A clear British woman reading a dictation to young children. Very slow, with precise pronunciation of every word, evenly paced and calm." },
+        { "design": "A clear British man reading a dictation. Very slow and precise, each word distinct, calm and neutral." },
+        { "design": "A calm young British woman reading aloud. Slow and crisp, with short pauses between phrases." }
+      ],
+      "tone": {
+        "statement": "Speak very slowly and very clearly, pronouncing every word and every sound.",
+        "question": "Speak very slowly and clearly, with a gentle rise at the end.",
+        "instruction": "Speak very slowly and clearly, evenly paced.",
+        "praise": "Speak slowly and warmly, clearly pleased."
+      }
+    }
+  }
+}

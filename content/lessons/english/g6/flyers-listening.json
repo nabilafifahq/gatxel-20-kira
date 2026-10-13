@@ -1,0 +1,79 @@
+{
+  "skill": "e6.flyers-listening",
+  "title": "listen and choose",
+  "steps": [
+    {
+      "say": "Listening means using your ears to find out what someone says.",
+      "show": "ear"
+    },
+    {
+      "say": "First, listen to the whole talk. Do not choose too early.",
+      "show": "listen, then choose"
+    },
+    {
+      "say": "Listen for key words: names, numbers, colours, days and places.",
+      "show": "name, number, colour, day"
+    },
+    {
+      "say": "You can listen again. Press the speaker as many times as you like.",
+      "show": "press the speaker"
+    },
+    {
+      "say": "Listen for opinions and reasons. Words like although, so and if show how ideas connect.",
+      "show": "although, so, if"
+    },
+    {
+      "say": "Say each choice to yourself. Pick the one that matches what you heard.",
+      "show": "A, B or C"
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.flyers-listening.901",
+      "skill": "e6.flyers-listening",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which words help you most when you listen?",
+      "hints": [
+        "Think about what helps you most.",
+        "Look back at the steps in this lesson.",
+        "Try each choice. Which one makes sense?"
+      ],
+      "explanation": "Key words carry the meaning.",
+      "options": [
+        {
+          "text": "Names, numbers and colours"
+        },
+        {
+          "text": "Only the first word"
+        },
+        {
+          "text": "The last letter of each word"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e6.flyers-listening.902",
+      "skill": "e6.flyers-listening",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Listen to the whole talk before you ___.",
+      "hints": [
+        "Read the sentence slowly.",
+        "Look back at the steps in this lesson.",
+        "Write one word in the gap."
+      ],
+      "explanation": "The first step is to listen to all of it.",
+      "blanks": [
+        {
+          "answers": [
+            "choose",
+            "answer",
+            "pick"
+          ]
+        }
+      ]
+    }
+  ]
+}

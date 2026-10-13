@@ -18,7 +18,7 @@ import { Timer } from '@/components/learner/Timer'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { WidgetDensityContext } from '@/components/widgets/density'
 import { QuestionView, TermsPanel } from '@/components/widgets/QuestionView'
-import { speakableText } from '@/components/widgets/speakable'
+import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
 import { ExitControl, ReportControl } from './parts'
 import { savedByPosition, sortedItems, testWord, type RunnerUpload } from './shared'
@@ -325,7 +325,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           <UiIcon name={cur.flagged ? 'flag-filled' : 'flag'} size={22} className={cur.flagged ? 'text-warn' : undefined} />
           Look again
         </Button>
-        <ReadAloudButton text={speakableText(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
         <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} className="max-md:hidden" />
         <div className="ml-auto flex gap-3">
           <Button variant="secondary" icon="arrow-left" disabled={index === 0 || locked} onClick={() => go(index - 1)} className="max-sm:px-3">

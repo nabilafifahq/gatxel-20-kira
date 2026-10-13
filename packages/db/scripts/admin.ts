@@ -10,6 +10,7 @@ import postgres from 'postgres'
  *   reset-link <email>     tautan atur ulang password (berlaku 30 menit), bila email belum diatur
  *   unlock <email>         hapus kunci masuk setelah terlalu banyak percobaan salah
  *   pin-unlock <nama>      buka kunci PIN learner (nama persis seperti di konsol)
+ *   tts-batch              jadwalkan job tts.batch (membuat suara bahasa Inggris yang belum ada) untuk setiap org
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
  */
@@ -84,14 +85,30 @@ async function pinUnlock(name: string | undefined): Promise<void> {
   console.log(`PIN ${name} bisa dipakai lagi.`)
 }
 
+/** Antrekan job tts.batch bila belum ada yang menunggu atau berjalan. Worker butuh TTS_URL dan layanan tts jalan. */
+async function ttsBatch(): Promise<void> {
+  const orgs = await sql<{ id: string }[]>`select id from org order by created_at`
+  for (const o of orgs) {
+    const open = await sql`select id from job where org_id = ${o.id} and kind = 'tts.batch' and status in ('queued', 'running') limit 1`
+    if (open[0]) {
+      console.log(`Org ${o.id}: sudah ada job tts.batch yang menunggu atau berjalan.`)
+      continue
+    }
+    const [row] = await sql<{ id: string }[]>`insert into job (org_id, kind, payload) values (${o.id}, 'tts.batch', '{"scope":"all"}'::jsonb) returning id`
+    await sql`select pg_notify('kira_job', ${row!.id})`
+    console.log(`Org ${o.id}: job tts.batch ${row!.id} dijadwalkan. Lihat kemajuannya dengan: docker compose logs -f worker`)
+  }
+}
+
 const [cmd, arg] = process.argv.slice(2)
 try {
   if (cmd === 'status') await status()
   else if (cmd === 'reset-link') await resetLink(arg)
   else if (cmd === 'unlock') await unlock(arg)
   else if (cmd === 'pin-unlock') await pinUnlock(arg)
+  else if (cmd === 'tts-batch') await ttsBatch()
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner>')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

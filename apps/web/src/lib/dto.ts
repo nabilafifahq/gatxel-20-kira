@@ -174,6 +174,8 @@ export type RunnerDTO = {
   showTerms: boolean
   /** Paket offline: semua yang dibutuhkan untuk menyelesaikan tanpa jaringan. */
   offline: boolean
+  /** Sesi English Skills: listening menyembunyikan teks soal, speaking membacakan soal sebagai penguji. */
+  englishArea?: 'listening' | 'speaking' | 'writing'
 }
 
 export type AnswerPayload = {

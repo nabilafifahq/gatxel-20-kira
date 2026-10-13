@@ -8,6 +8,8 @@ export const LEARNER_ROUTES = {
   /** L14 Selesai hari ini: ringkasan kerja hari ini. */
   doneToday: '/today/done',
   map: '/map',
+  /** English Skills: listening, speaking, writing, dan Spelling Bee. */
+  english: '/english',
   review: '/review',
   me: '/me',
   esmo: '/esmo',
@@ -20,4 +22,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'me'

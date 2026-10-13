@@ -7,7 +7,9 @@
     ".": "./src/index.ts",
     "./time": "./src/time.ts",
     "./rng": "./src/rng.ts",
-    "./scoring": "./src/scoring.ts"
+    "./scoring": "./src/scoring.ts",
+    "./tts": "./src/tts.ts",
+    "./english-skills": "./src/english-skills.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",

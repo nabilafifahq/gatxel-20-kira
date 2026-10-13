@@ -99,6 +99,8 @@ services:
       DATABASE_URL_AUTH: postgres://kira_auth:${KIRA_AUTH_PASSWORD}@db:5432/kira
       PGSSLROOTCERT: /certs/ca.crt
       KIRA_DATA_DIR: /data
+      # Kosong: suara bahasa Inggris memakai suara bawaan tablet. Diisi http://tts:8000 saat profil tts dipakai.
+      TTS_URL: ${TTS_URL:-}
       KIRA_BACKUP_DIR: /backups
       KIRA_BACKUP_LABEL: ${KIRA_HOST_BACKUPS:-./backups}
       KIRA_MAX_LEARNERS: ${KIRA_MAX_LEARNERS:-10}
@@ -141,6 +143,8 @@ services:
       KIRA_DATA_DIR: /data
       KIRA_INTERNAL_URL: http://web:3000
       KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN}
+      KIRA_CONTENT_DIR: /app/content
+      TTS_URL: ${TTS_URL:-}
       SMTP_URL: ${SMTP_URL:-}
       SMTP_FROM: ${SMTP_FROM:-}
       AI_PROVIDER: ${AI_PROVIDER:-claude-code}
@@ -172,6 +176,47 @@ services:
       - ${KIRA_HOST_BACKUPS:-./backups}:/backups
     networks: [internal]
 
+  # Suara bahasa Inggris (Qwen3-TTS). Hanya jalan bila profil tts diaktifkan, jadi docker compose up biasa
+  # tidak membangun atau menjalankannya. Hanya di jaringan internal tanpa internet dan tanpa port ke host.
+  # Bobot model ada di volume kira-tts-models (diunduh sekali lewat profil tts-setup). GPU: docker-compose.tts-gpu.yml.
+  # Panduan: docs/pasang-windows.md bagian "Suara bahasa Inggris (TTS)".
+  tts:
+    profiles: ["tts"]
+    build: &tts-build
+      context: .
+      dockerfile: deploy/docker/tts.Dockerfile
+      args:
+        TORCH_INDEX: ${TTS_TORCH_INDEX:-https://download.pytorch.org/whl/cu128}
+    image: kira-tts:latest
+    restart: unless-stopped
+    environment:
+      KIRA_INTERNAL_TOKEN: ${KIRA_INTERNAL_TOKEN:?isi KIRA_INTERNAL_TOKEN di .env}
+      # auto: GPU bila terlihat, kalau tidak CPU. cuda: wajib GPU. cpu: paksa CPU.
+      TTS_DEVICE: ${TTS_DEVICE:-auto}
+      # Model dibongkar (memori GPU kembali penuh) setelah sekian detik tanpa permintaan.
+      TTS_IDLE_SECONDS: ${TTS_IDLE_SECONDS:-600}
+      # Model tidak dimuat bila GPU punya memori kosong kurang dari ini (program lain sedang memakainya).
+      TTS_MIN_FREE_MIB: ${TTS_MIN_FREE_MIB:-7000}
+      TTS_OOM_FALLBACK: ${TTS_OOM_FALLBACK:-none}
+      TTS_CPU_DTYPE: ${TTS_CPU_DTYPE:-float32}
+      HF_HUB_OFFLINE: "1"
+    volumes:
+      - kira-tts-models:/models
+    networks: [internal]
+
+  # Sekali jalan: unduh bobot model ke volume. docker compose --profile tts-setup run --rm tts-fetch
+  tts-fetch:
+    profiles: ["tts-setup"]
+    build: *tts-build
+    image: kira-tts:latest
+    restart: "no"
+    command: ["python", "fetch_models.py"]
+    environment:
+      HF_HUB_OFFLINE: "0"
+    volumes:
+      - kira-tts-models:/models
+    networks: [egress]
+
 networks:
   # Database hanya di jaringan internal tanpa akses internet.
   internal:
@@ -183,3 +228,5 @@ volumes:
   kira-pgdata:
   kira-db-tls:
   kira-ca:
+  # Bobot model suara (sekitar 9 GB), dipakai profil tts dan tts-setup.
+  kira-tts-models:

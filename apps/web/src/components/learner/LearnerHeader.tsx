@@ -18,6 +18,7 @@ const NAV: { key: LearnerNavKey; label: string; short?: string; icon: UiIconName
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
   { key: 'competitions', label: 'Competitions', short: 'Contests', icon: 'trophy', href: LEARNER_ROUTES.competitions },
+  { key: 'english', label: 'English Skills', short: 'English', icon: 'speaker', href: LEARNER_ROUTES.english },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -67,7 +68,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex h-19 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 text-small no-underline',
+                'relative flex h-19 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 text-center text-small leading-tight no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
               )}
             >
@@ -90,7 +91,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 text-body no-underline',
+                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-tight no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
               )}
             >
