@@ -31,6 +31,16 @@ def log(msg: str) -> None:
     print(f"[engine] {msg}", flush=True)
 
 
+def local_model_path(repo: str) -> str:
+    """Folder model di volume /models. Dibaca langsung supaya tidak ada panggilan ke huggingface.co (layanan tanpa internet)."""
+    from huggingface_hub import snapshot_download
+
+    try:
+        return snapshot_download(repo_id=repo, local_files_only=True)
+    except Exception as e:  # noqa: BLE001
+        raise RuntimeError(f"Model {repo} belum diunduh. Jalankan: docker compose --profile tts-setup run --rm tts-fetch") from e
+
+
 def is_oom(e: BaseException) -> bool:
     name = type(e).__name__
     return name == "OutOfMemoryError" or "out of memory" in str(e).lower()
@@ -113,7 +123,7 @@ def engine_main(conn: Any) -> None:
                     dtype = torch.bfloat16 if req.get("cpuDtype") == "bfloat16" else torch.float32
                 t0 = time.monotonic()
                 log(f"memuat {styles['models'][kind]} di {device} ({str(dtype).replace('torch.', '')})")
-                model = Qwen3TTSModel.from_pretrained(styles["models"][kind], device_map=device, dtype=dtype)
+                model = Qwen3TTSModel.from_pretrained(local_model_path(styles["models"][kind]), device_map=device, dtype=dtype)
                 loaded_kind, loaded_device = kind, device
                 log(f"model siap dalam {time.monotonic() - t0:.1f} detik")
 

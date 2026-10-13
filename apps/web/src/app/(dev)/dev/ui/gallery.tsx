@@ -384,7 +384,6 @@ export function Gallery({
                 <HintList hints={['Count the dots in one row.', 'Count in 2s for each row.']} opened={2} />
                 <Row label="ReadAloudButton">
                   <ReadAloudButton text="How many dots are there?" subject="math" />
-                  <ReadAloudButton text="Berapa banyak titik?" lang="id" subject="math" compact />
                 </Row>
               </div>
             </div>

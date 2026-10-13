@@ -8,7 +8,8 @@ import { isClipText, ttsKeyInput } from '@kira/core/tts'
 import { generate } from '../src/handlers/tts'
 import type { HandlerCtx } from '../src/handlers/types'
 import { createTtsClient } from '../src/tts/client'
-import { dedupe, itemClips, passageClips, repoClips } from '../src/tts/collect'
+import { passageSpeechClips as passageClips } from '@kira/content/speech'
+import { dedupe, itemClips, repoClips } from '../src/tts/collect'
 import { clipKey, hasClip, writeClip } from '../src/tts/store'
 
 const mcq = (over: Partial<Item> = {}): Item =>

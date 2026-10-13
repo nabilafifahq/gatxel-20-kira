@@ -5,13 +5,18 @@
  *   simpanan dipakai saat internet rumah putus. Jawaban offline disimpan di IndexedDB oleh halaman.
  * - Konsol tutor, halaman orang tua, cetak, masuk, dan semua /api tidak pernah disimpan.
  * - Ganti learner (/bye) atau kembali ke pilihan learner menghapus simpanan halaman.
+ * - Klip suara bahasa Inggris (/tts/<sha256>.mp3): cache dulu. Klip untuk sesi hari ini disimpan di muka
+ *   (pesan precache-audio dari TtsRuntime) supaya suara tetap ada saat internet rumah putus.
  */
 const VERSION = 'kira-v1'
 const STATIC_CACHE = `${VERSION}-static`
 const PAGE_CACHE = `${VERSION}-pages`
+const AUDIO_CACHE = `${VERSION}-audio`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
+const MAX_AUDIO = 900
+const CLIP = /^\/tts\/[0-9a-f]{64}\.mp3$/
 
 const LEARNER_PAGES = [
   /^\/today$/,
@@ -75,6 +80,40 @@ async function cacheFirst(request) {
     void trim(STATIC_CACHE, MAX_STATIC)
   }
   return res
+}
+
+/** Klip suara tidak pernah berubah (nama berkas = sha256 isinya), jadi simpanan dipakai lebih dulu. */
+async function audioCacheFirst(request) {
+  const cache = await caches.open(AUDIO_CACHE)
+  const hit = await cache.match(request.url)
+  if (hit) return hit
+  const res = await fetch(request)
+  if (res.ok && res.type === 'basic') {
+    await cache.put(request.url, res.clone())
+    void trim(AUDIO_CACHE, MAX_AUDIO)
+  }
+  return res
+}
+
+async function precacheAudio(urls) {
+  const cache = await caches.open(AUDIO_CACHE)
+  for (const raw of urls.slice(0, 600)) {
+    let url
+    try {
+      url = new URL(raw, self.location.origin)
+    } catch {
+      continue
+    }
+    if (url.origin !== self.location.origin || !CLIP.test(url.pathname)) continue
+    if (await cache.match(url.href)) continue
+    try {
+      const res = await fetch(url.href, { credentials: 'same-origin' })
+      if (res.ok && res.type === 'basic') await cache.put(url.href, res)
+    } catch {
+      // offline atau server sibuk: klip berikutnya, sisanya dicoba lagi saat halaman berikutnya dibuka
+    }
+  }
+  await trim(AUDIO_CACHE, MAX_AUDIO)
 }
 
 async function offlineFallback() {
@@ -141,6 +180,9 @@ self.addEventListener('message', (event) => {
   if (data.type === 'precache' && Array.isArray(data.urls)) {
     event.waitUntil(precache(data.urls.filter((u) => typeof u === 'string')))
   }
+  if (data.type === 'precache-audio' && Array.isArray(data.urls)) {
+    event.waitUntil(precacheAudio(data.urls.filter((u) => typeof u === 'string')))
+  }
   if (data.type === 'clear-pages') event.waitUntil(caches.delete(PAGE_CACHE))
 })
 
@@ -150,6 +192,10 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url)
   if (url.origin !== self.location.origin) return
   if (url.pathname.startsWith('/api/')) return
+  if (CLIP.test(url.pathname)) {
+    event.respondWith(audioCacheFirst(request))
+    return
+  }
 
   if (isStatic(url.pathname)) {
     event.respondWith(cacheFirst(request))

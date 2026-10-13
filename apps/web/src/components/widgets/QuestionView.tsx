@@ -2,6 +2,7 @@
 
 import { useId, useState, type ReactElement, type ReactNode } from 'react'
 import type { ClientItem } from '@kira/content/present'
+import { styleForPassageKind } from '@kira/core/tts'
 import type { Subject } from '@/lib/dto'
 import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -9,7 +10,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { FigureFrame } from '@/components/learner/FigureFrame'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
-import { speakableText } from './speakable'
+import { speakableClipParts, speakableStyle } from './speakable-parts'
 import { TextPrompt } from './TextWidget'
 import type { WidgetFeedback } from './types'
 
@@ -77,6 +78,7 @@ function PassagePanel({ passage, lang }: { passage: NonNullable<ClientItem['pass
         </Button>
       </div>
       <div id={bodyId} hidden={!open} lang={lang} className="max-h-[40svh] overflow-y-auto px-4 pb-4">
+        <ReadAloudButton text={passage.text} style={styleForPassageKind(passage.kind)} lang={lang} subject="english" showNote={false} className="mb-3" />
         {passage.text.split(/\n{2,}/).map((para, i) => (
           <p key={i} className="text-question mt-0 mb-3 last:mb-0">
             {para}
@@ -150,7 +152,7 @@ export function QuestionView({
       {children ? <div className="md:ml-14.5">{children}</div> : null}
       {!hideTools ? (
         <div className="flex flex-wrap items-center gap-3 md:ml-14.5">
-          <ReadAloudButton text={speakableText(item)} lang={item.lang} subject={subject} />
+          <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} />
           {hasTerms ? (
             <Button variant="secondary" icon="book" aria-expanded={termsOpen} onClick={() => setTermsOpen((o) => !o)}>
               Terms

@@ -18,7 +18,7 @@ import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
-import { speakableText } from '@/components/widgets/speakable'
+import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
 import { ExitControl, ReportControl } from './parts'
 import { hintsOf, savedByPosition, sortedItems, type RunnerUpload } from './shared'
@@ -316,7 +316,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         </section>
         <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
-          <ReadAloudButton text={speakableText(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+          <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
           {selfSend ? null : (
             <Button
               onClick={() => void check()}

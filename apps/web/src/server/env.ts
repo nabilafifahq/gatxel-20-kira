@@ -23,6 +23,8 @@ const schema = z.object({
   KIRA_MAX_LEARNERS: z.coerce.number().int().min(1).max(50).default(10),
   /** Rahasia bersama web dan worker untuk /api/internal/*. Tanpa nilai ini endpoint internal menolak semua permintaan. */
   KIRA_INTERNAL_TOKEN: z.string().min(32, 'KIRA_INTERNAL_TOKEN minimal 32 karakter').optional(),
+  /** Alamat layanan suara (Qwen3-TTS) untuk worker. Web hanya memeriksa apakah ada: kosong berarti tablet memakai suara bawaan. */
+  TTS_URL: z.string().url().optional(),
   /** Endpoint MCP di /api/mcp untuk Claude (Claude Code atau Claude Desktop) dengan token dari konsol. */
   KIRA_MCP: z.enum(['on', 'off']).default('on'),
   /** Folder cadangan yang dipasang read-only ke container web (berisi status.json dari layanan backup). */
