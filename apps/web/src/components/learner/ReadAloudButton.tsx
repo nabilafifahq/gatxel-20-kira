@@ -23,6 +23,7 @@ export function ReadAloudButton({
   compact = false,
   showNote = true,
   style,
+  labels,
   className,
 }: {
   /** Satu teks, atau bagian berurutan (prompt lalu tiap opsi) yang masing-masing menjadi klip suara. */
@@ -35,6 +36,8 @@ export function ReadAloudButton({
   showNote?: boolean
   /** Gaya suara Qwen (guru, pencerita, dikte). Bawaan: guru. */
   style?: TtsStyleId
+  /** Label tombol bila bukan Read aloud (misalnya Play the question). */
+  labels?: { idle: string; busy: string }
   className?: string
 }): ReactElement | null {
   const { status, toggle } = useSpeech(lang)
@@ -62,7 +65,7 @@ export function ReadAloudButton({
         )}
       >
         <UiIcon name={off ? 'speaker-off' : reading ? 'waveform' : 'speaker'} size={22} />
-        {compact ? null : reading ? 'Reading' : 'Read aloud'}
+        {compact ? null : reading ? (labels?.busy ?? 'Reading') : (labels?.idle ?? 'Read aloud')}
       </button>
       {off ? (
         <span id={noteId} className={cx('text-body text-fg-muted', showNote ? '' : 'visually-hidden')}>

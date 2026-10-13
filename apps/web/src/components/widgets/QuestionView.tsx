@@ -89,6 +89,38 @@ function PassagePanel({ passage, lang }: { passage: NonNullable<ClientItem['pass
   )
 }
 
+/** Soal listening: teks soal disembunyikan, anak mendengar suaranya lalu memilih jawaban. Teks bisa dibuka. */
+function ListenPrompt({ item, subject, promptId }: { item: ClientItem; subject: Subject; promptId: string }): ReactElement {
+  const [shown, setShown] = useState(false)
+  const wordsId = useId()
+  // Hanya prompt (dan teks bacaan) yang diputar; pilihan jawaban terlihat di layar.
+  const parts = speakableClipParts(item).slice(0, item.readText ? 2 : 1)
+  return (
+    <div className="flex min-w-0 flex-1 flex-col gap-3">
+      <p id={promptId} className="text-question m-0 font-bold">
+        Listen, then choose the answer.
+      </p>
+      <div className="flex flex-wrap items-center gap-3">
+        <ReadAloudButton
+          text={parts}
+          style={speakableStyle(item)}
+          lang={item.lang}
+          subject={subject}
+          showNote={false}
+          labels={{ idle: 'Play the question', busy: 'Playing' }}
+        />
+        <Button variant="quiet" size="M" aria-expanded={shown} aria-controls={wordsId} onClick={() => setShown((o) => !o)} className="px-3">
+          {shown ? 'Hide the words' : 'Show the words'}
+          <UiIcon name={shown ? 'chevron-up' : 'chevron-down'} size={20} />
+        </Button>
+      </div>
+      <p id={wordsId} hidden={!shown} lang={item.lang} className="text-question m-0 whitespace-pre-line">
+        {item.prompt}
+      </p>
+    </div>
+  )
+}
+
 export function QuestionView({
   item,
   number,
@@ -98,6 +130,7 @@ export function QuestionView({
   showTerms = true,
   children,
   figurePaper,
+  listen = false,
   className,
 }: {
   item: ClientItem
@@ -111,18 +144,23 @@ export function QuestionView({
   /** Isi tambahan di bawah figur, misalnya daftar hint. */
   children?: ReactNode
   figurePaper?: boolean
+  /** Sesi listening English Skills: sembunyikan teks soal pilihan ganda dan putar suaranya. */
+  listen?: boolean
   className?: string
 }): ReactElement {
   const [termsOpen, setTermsOpen] = useState(false)
   const promptId = useId()
   const hasTerms = showTerms && !!item.terms && item.terms.length > 0
   const inlineBlanks = item.type === 'text' && !!answer
+  const listenMode = listen && (item.type === 'mcq' || item.type === 'multi') && item.lang === 'en-GB'
   return (
     <div className={cx('flex flex-col gap-4 md:gap-5', className)}>
       {item.passage ? <PassagePanel passage={item.passage} lang={item.lang} /> : null}
       <div className="flex items-start gap-3.5">
         <NumberPill n={number} subject={subject} className="mt-1" />
-        {inlineBlanks && answer ? (
+        {listenMode ? (
+          <ListenPrompt item={item} subject={subject} promptId={promptId} />
+        ) : inlineBlanks && answer ? (
           <TextPrompt
             id={promptId}
             item={item}

@@ -14,6 +14,7 @@ import { useDeviceWord, useMediaQuery, useOnline } from '@/components/learner/ho
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ProgressSegments } from '@/components/learner/ProgressSegments'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
@@ -87,6 +88,19 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const item = items[index]
   const st = states[index]
   const subject = data.subject
+  const englishArea = data.englishArea
+
+  // Penguji (speaking): soal dibacakan begitu muncul. Browser boleh memblokir pemutaran otomatis; tombol baca tetap ada.
+  const examiner = useSpeech('en-GB')
+  const examinerRef = useRef(examiner)
+  useEffect(() => {
+    examinerRef.current = examiner
+  })
+  const itemRef = item?.ref
+  useEffect(() => {
+    if (englishArea !== 'speaking' || !item || item.lang !== 'en-GB') return
+    examinerRef.current.speak(speakableClipParts(item).slice(0, 1), undefined, { style: speakableStyle(item) })
+  }, [englishArea, itemRef])
 
   const patch = useCallback((i: number, p: Partial<QState>) => {
     setStates((list) => list.map((s, k) => (k === i ? { ...s, ...p } : s)))
@@ -295,6 +309,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             number={item.position}
             subject={subject}
             hideTools
+            listen={englishArea === 'listening'}
             answer={{ value: st.value, onChange: (v) => answering && patch(index, { value: v }), disabled: !answering, feedback }}
           >
             {answering && st.hintsUsed > 0 ? <HintList hints={hints} opened={st.hintsUsed} /> : null}
@@ -316,7 +331,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         </section>
         <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
-          <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+          {englishArea === 'listening' ? null : (
+            <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+          )}
           {selfSend ? null : (
             <Button
               onClick={() => void check()}

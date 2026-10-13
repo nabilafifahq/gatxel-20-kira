@@ -10,6 +10,7 @@ import { invalid, notFound } from '../errors'
 import { labelPerm, runnerSeed } from '../labels'
 import { resolveItems, skill, toClient } from './content'
 import { effectiveRules, presetForAttempt } from './learner-competition'
+import { areaOfSessionRef } from '@kira/core/english-skills'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
 
 const { attempt, response, quest, media, skillState } = tables
@@ -38,7 +39,8 @@ export function dtoKind(kind: AttemptRow['kind']): RunnerDTO['kind'] {
   }
 }
 
-export function exitFor(a: Pick<AttemptRow, 'kind'>): string {
+export function exitFor(a: Pick<AttemptRow, 'kind'> & { refId?: string | null }): string {
+  if (areaOfSessionRef(a.refId)) return '/english'
   if (a.kind === 'esmo-pack' || a.kind === 'esmo-mock') return '/esmo'
   if (a.kind === 'simulation') return '/competitions'
   if (a.kind === 'review') return '/review'
@@ -140,6 +142,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     doneHref: `/results/${a.id}`,
     showTerms: runnerItems.some((i) => (i.terms?.length ?? 0) > 0),
     offline: true,
+    ...(areaOfSessionRef(a.refId) ? { englishArea: areaOfSessionRef(a.refId)! } : {}),
   }
 }
 
