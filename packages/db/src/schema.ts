@@ -212,6 +212,8 @@ export const learnerProfile = pgTable(
     orgId: orgId(),
     name: text('name').notNull(),
     avatar: text('avatar').notNull().default('fox'),
+    /** Aksesori avatar yang dipakai; hanya yang sudah didapat dari level jalur XP (migrasi 0007). */
+    avatarAccessory: text('avatar_accessory'),
     grade: smallint('grade').notNull(),
     screenLimitMin: integer('screen_limit_min').notNull().default(60),
     restWeekdays: integer('rest_weekdays').array().notNull().default(sql`'{0}'::int[]`),
@@ -505,13 +507,63 @@ export const xpEvent = pgTable(
     reason: text('reason').notNull(),
     ref: text('ref'),
     date: date('date').notNull(),
+    /** Jalur XP: belajar (bawaan), hitung (Quick Maths), pengetahuan (Quiz Arena). Migrasi 0007. */
+    track: text('track', { enum: ['belajar', 'hitung', 'pengetahuan'] }).notNull().default('belajar'),
     createdAt: createdAt(),
   },
   (t) => [
     index('xp_event_learner_idx').on(t.learnerId, t.date),
+    index('xp_event_track_idx').on(t.learnerId, t.track, t.date),
+    uniqueIndex('xp_event_arena_once').on(t.learnerId, t.reason, t.ref).where(sql`${t.track} <> 'belajar'`),
     // Migrasi 0004: XP pelajaran sekali per learner, skill, dan tanggal.
     uniqueIndex('xp_event_lesson_once').on(t.learnerId, t.ref, t.date).where(sql`${t.reason} = 'lesson'`),
   ],
+)
+
+/** Satu ronde arena (Quick Maths atau Quiz Arena). Soal dibuat ulang dari seed; kunci jawaban tidak disimpan di client. */
+export const arenaSession = pgTable(
+  'arena_session',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    arena: text('arena', { enum: ['hitung', 'pengetahuan'] }).notNull(),
+    mode: text('mode').notNull(),
+    missionStep: text('mission_step'),
+    topic: text('topic'),
+    seed: text('seed').notNull(),
+    config: jsonb('config').notNull(),
+    date: date('date').notNull(),
+    startedAt: ts('started_at').notNull().defaultNow(),
+    finishedAt: ts('finished_at'),
+    answers: jsonb('answers').notNull().default(sql`'[]'::jsonb`),
+    total: integer('total').notNull().default(0),
+    answered: integer('answered'),
+    correct: integer('correct'),
+    durationMs: integer('duration_ms'),
+    ppm: real('ppm'),
+    xp: integer('xp').notNull().default(0),
+    result: jsonb('result'),
+    createdAt: createdAt(),
+  },
+  (t) => [
+    index('arena_session_learner_idx').on(t.learnerId, t.arena, t.date).where(sql`${t.finishedAt} is not null`),
+    index('arena_session_open_idx').on(t.learnerId, t.startedAt).where(sql`${t.finishedAt} is null`),
+    uniqueIndex('arena_session_mission_once').on(t.learnerId, t.date, t.missionStep).where(sql`${t.missionStep} is not null and ${t.finishedAt} is not null`),
+  ],
+)
+
+/** Kemajuan arena per learner: level adaptif, rekor, strategi selesai, fakta yang sudah dikenal. */
+export const arenaState = pgTable(
+  'arena_state',
+  {
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    arena: text('arena', { enum: ['hitung', 'pengetahuan'] }).notNull(),
+    data: jsonb('data').notNull().default(sql`'{}'::jsonb`),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.arena] })],
 )
 
 export const dayRecord = pgTable(
@@ -750,10 +802,12 @@ export const TENANT_TABLES = [
   'plan_week', 'plan_slot', 'rest_day', 'paper', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
+  'arena_session', 'arena_state',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
 export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'note', 'week_report',
+  'arena_session', 'arena_state',
 ] as const

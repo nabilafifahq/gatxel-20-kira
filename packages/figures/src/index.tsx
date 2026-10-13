@@ -1,4 +1,6 @@
 export * from './spec'
 export * from './palette'
-export { Icon, IconGlyph, Avatar } from './icons'
+export { Icon, IconGlyph, Avatar, PlanetArt } from './icons'
+export { ACCESSORY_ART_IDS, isAccessoryArtId, type AccessoryArtId } from './icons/accessories'
+export { PLANET_ART_NAMES, type PlanetArtName } from './icons/planets'
 export { Figure, figureBox } from './render'

@@ -8,6 +8,8 @@
 import type { ClientItem } from '@kira/content/present'
 import type { SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures/spec'
+import type { AccessoryId } from '@kira/core'
+import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 
 import type { SessionType } from '@kira/core'
 
@@ -30,6 +32,8 @@ export type LearnerShell = {
   learnerId: string
   name: string
   avatar: AvatarName
+  /** Aksesori avatar yang dipakai (didapat dari level jalur XP). */
+  accessory?: AccessoryId | null
   grade: number
   jenjang: Jenjang
   /** Tampilkan tombol Review di navigasi bila Buku Koreksi aktif (Fase 2). */
@@ -114,6 +118,8 @@ export type TodayDTO = {
   esmo: { href: string; label: string } | null
   minutesToday: number
   screenLimitMin: number
+  /** Tiga bar XP (Belajar, Quick Maths, Quiz); diisi halaman Today. */
+  tracks?: XpTrackDTO[]
 }
 
 // L03 Pembuka quest
@@ -328,13 +334,19 @@ export type MeDTO = {
   xpIntoLevel: number
   xpLevelSpan: number
   xpToNext: number
-  badges: { id: string; title: string; description: string; earnedAt: string | null; isNew: boolean }[]
+  badges: { id: string; title: string; description: string; earnedAt: string | null; isNew: boolean; glyph?: string }[]
+  /** Tiga bar XP dengan level per jalur. */
+  tracks?: XpTrackDTO[]
+  accessories?: AccessoryDTO[]
   monthLabel: string
   calendar: { date: string; day: number; status: DayStatus; inMonth: boolean }[]
   streakLine: string
   avatars: AvatarName[]
 }
-export type MeActions = { changeAvatar(avatar: AvatarName): Promise<ActionResult> }
+export type MeActions = {
+  changeAvatar(avatar: AvatarName): Promise<ActionResult>
+  changeAccessory?(accessory: AccessoryId | null): Promise<ActionResult>
+}
 
 // L11 Buku Koreksi
 export type CorrectionBookDTO = {
@@ -459,6 +471,8 @@ export type LearnerDetailDTO = {
   heatmap: { subject: Subject; skills: { id: string; title: string; stars: number; cells: HeatCell[] }[] }[]
   attempts: { id: string; date: string; title: string; subject: Subject; score: string; minutes: number; href: string }[]
   notes: { id: string; author: string; date: string; body: string }[]
+  /** Ringkasan arena (Quick Maths dan Quiz Arena) untuk tutor. */
+  arena?: ArenaTutorDTO
 }
 export type LearnerDetailActions = { addNote(learnerId: string, body: string): Promise<ActionResult> }
 

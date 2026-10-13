@@ -4,6 +4,7 @@ import { Avatar } from '@kira/figures'
 import type { AvatarName, LearnerShell } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
+import { MoreNav } from './MoreNav'
 import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
 
 /**
@@ -12,13 +13,18 @@ import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
  * ukuran teks soal mengikuti jenjang learner.
  */
 
-/** `short` dipakai bar bawah di HP, tempat label panjang tidak muat. */
-const NAV: { key: LearnerNavKey; label: string; short?: string; icon: UiIconName; href: string }[] = [
+/**
+ * Delapan tujuan utama. Rel tablet menampilkan semuanya. Bar bawah di HP hanya memuat PHONE_PRIMARY;
+ * sisanya ada di lembar "More" (MoreNav).
+ */
+const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }[] = [
   { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
-  { key: 'competitions', label: 'Competitions', short: 'Contests', icon: 'trophy', href: LEARNER_ROUTES.competitions },
-  { key: 'english', label: 'English Skills', short: 'English', icon: 'speaker', href: LEARNER_ROUTES.english },
+  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions },
+  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english },
+  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths },
+  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -37,6 +43,9 @@ export function avatarLabel(avatar: AvatarName): string {
   return `${AVATAR_WORD[avatar]} avatar`
 }
 
+/** Tujuan yang selalu terlihat di bar bawah HP. Review hanya bila learner memakainya. */
+const PHONE_PRIMARY: readonly LearnerNavKey[] = ['today', 'map', 'review', 'me']
+
 function navItems(shell: LearnerShell) {
   return NAV.filter((n) => n.key !== 'review' || shell.showReview)
 }
@@ -53,13 +62,15 @@ function ReviewCount({ shell }: { shell: LearnerShell }): ReactElement | null {
 
 export function LearnerNav({ shell, current }: { shell: LearnerShell; current: LearnerNavKey | null }): ReactElement {
   const items = navItems(shell)
+  const phone = items.filter((n) => PHONE_PRIMARY.includes(n.key))
+  const more = items.filter((n) => !PHONE_PRIMARY.includes(n.key))
   return (
     <>
       <nav
         aria-label="Main"
-        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-3 border-r border-divider bg-surface px-1 py-7 md:flex"
+        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 border-r border-divider bg-surface px-1 overflow-y-auto py-5 md:flex"
       >
-        <div className="mb-5 font-display text-h1 font-bold">Kira</div>
+        <div className="mb-3 font-display text-h1 font-bold">Kira</div>
         {items.map((n) => {
           const on = n.key === current
           return (
@@ -68,7 +79,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex h-19 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 text-center text-small leading-tight no-underline',
+                'relative flex min-h-16 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 py-1.5 text-center text-small leading-tight no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
               )}
             >
@@ -83,7 +94,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         aria-label="Main"
         className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 border-t border-divider bg-surface px-4 py-1.5 md:hidden"
       >
-        {items.map((n) => {
+        {phone.map((n) => {
           const on = n.key === current
           return (
             <Link
@@ -91,17 +102,17 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-tight no-underline',
+                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
               )}
             >
               <UiIcon name={n.icon} size={24} />
-              <span aria-hidden={n.short ? 'true' : undefined}>{n.short ?? n.label}</span>
-              {n.short ? <span className="visually-hidden">{n.label}</span> : null}
+              {n.label}
               {n.key === 'review' ? <ReviewCount shell={shell} /> : null}
             </Link>
           )
         })}
+        <MoreNav items={more} current={current} />
       </nav>
     </>
   )
@@ -147,7 +158,7 @@ export function LearnerHeader({
   return (
     <header className={cx('flex flex-wrap items-center justify-between gap-x-6 gap-y-4', className)}>
       <div className="flex min-w-0 items-center gap-3 md:gap-4">
-        <Avatar name={shell.avatar} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
+        <Avatar name={shell.avatar} accessory={shell.accessory ?? null} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
         <div className="flex min-w-0 flex-col">
           <h1 className="m-0 text-h1 font-bold break-words">{title ?? `Hi, ${shell.name}`}</h1>
           {subline ? <p className="m-0 text-body-lg text-fg-muted">{subline}</p> : null}

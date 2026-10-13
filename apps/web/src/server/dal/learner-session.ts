@@ -53,7 +53,7 @@ const MANUAL_STRANDS = new Set(['Wc', 'SL', 'Wp'])
 const RUNNER_SESSIONS: ReadonlySet<SessionType> = new Set(['latihan', 'tes', 'paper', 'reading'])
 
 /** Tujuan sesi tautan. Halaman arena dan keterampilan English dibuat fase lain; alamatnya ada di sini saja. */
-const LINK_HREF = { review: '/review', 'quick-maths': '/quick-maths', knowledge: '/quiz', esmo: '/esmo' } as const
+const LINK_HREF = { review: '/review', 'quick-maths': '/quick-maths', knowledge: '/quiz-arena', esmo: '/esmo' } as const
 
 export function isLinkQuest(q: Pick<QuestRow, 'session'>): boolean {
   return !RUNNER_SESSIONS.has(q.session)

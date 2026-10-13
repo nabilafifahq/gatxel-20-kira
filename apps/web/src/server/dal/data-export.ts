@@ -1,5 +1,5 @@
 import 'server-only'
-import { asc, eq, inArray } from 'drizzle-orm'
+import { and, asc, eq, inArray, isNotNull } from 'drizzle-orm'
 import { jakartaDate } from '@kira/core/time'
 import { tables } from '@kira/db'
 import type { Tx } from '../db'
@@ -21,7 +21,7 @@ import { loadLearner } from './learner-core'
  * (status benar atau salah sama dengan membocorkan kunci jawaban sebelum dikumpulkan).
  */
 
-const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile } = tables
+const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile, arenaSession, arenaState } = tables
 
 export const EXPORT_PSEUDONYM = 'learner_1'
 const HIDDEN_MODES = new Set(['tes', 'simulasi', 'kertas'])
@@ -175,10 +175,16 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
     .where(eq(weekReport.learnerId, learnerId))
     .orderBy(asc(weekReport.weekStart))
   const xp = await tx
-    .select({ date: xpEvent.date, amount: xpEvent.amount, reason: xpEvent.reason })
+    .select({ date: xpEvent.date, amount: xpEvent.amount, reason: xpEvent.reason, track: xpEvent.track })
     .from(xpEvent)
     .where(eq(xpEvent.learnerId, learnerId))
     .orderBy(asc(xpEvent.id))
+  const arena = await tx
+    .select({ arena: arenaSession.arena, mode: arenaSession.mode, topic: arenaSession.topic, date: arenaSession.date, finishedAt: arenaSession.finishedAt, answered: arenaSession.answered, correct: arenaSession.correct, durationMs: arenaSession.durationMs, xp: arenaSession.xp })
+    .from(arenaSession)
+    .where(and(eq(arenaSession.learnerId, learnerId), isNotNull(arenaSession.finishedAt)))
+    .orderBy(asc(arenaSession.startedAt))
+  const arenaProgress = await tx.select({ arena: arenaState.arena, data: arenaState.data, updatedAt: arenaState.updatedAt }).from(arenaState).where(eq(arenaState.learnerId, learnerId))
   const badges = await tx
     .select({ badgeId: badgeAward.badgeId, awardedAt: badgeAward.awardedAt })
     .from(badgeAward)
@@ -284,6 +290,8 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
     tutorNotes: notes.map((n) => ({ at: iso(n.createdAt), author: who(n.authorId), body: n.body })),
     weekReports: reports.map((r) => ({ weekStart: r.weekStart, note: r.note, sentAt: iso(r.sentAt) })),
     xpEvents: xp,
+    arenaRounds: arena.map((a) => ({ ...a, finishedAt: iso(a.finishedAt) })),
+    arenaProgress: arenaProgress.map((a) => ({ arena: a.arena, data: a.data, updatedAt: iso(a.updatedAt) })),
     badges: badges.map((b) => ({ badgeId: b.badgeId, awardedAt: iso(b.awardedAt) })),
     dayRecords: days,
     media: files.map((f) => ({ id: f.id, kind: f.kind, mime: f.mime, size: f.size, createdAt: iso(f.createdAt), expiresAt: iso(f.expiresAt), deletedAt: iso(f.deletedAt) })),

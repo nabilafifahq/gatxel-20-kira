@@ -15,6 +15,7 @@ import { content, promptPreview, resolveItems, skillsFor } from './content'
 import { skillTitle, SUBJECT_ID_LABEL, SUBJECT_ORDER } from './console-common'
 import { shellIn } from './console-shell'
 import { answerTextId, attemptMinutes, emptyCells, heatCells, scoreText, weekColumns, type ReplayAnswer } from './console-learner-logic'
+import { arenaTutorDTO } from './arena-tutor'
 import { loadLearner, streakFor, totalXp, type LearnerRow } from './learner-core'
 import { yourAnswerText } from './learner-results'
 
@@ -213,6 +214,7 @@ export async function learnerDetailDTO(actor: Actor, learnerId: string): Promise
       heatmap: await heatmapFor(tx, learner, weeks.map((w) => w.weekStart)),
       attempts: await recentAttempts(tx, learner.userId),
       notes: await notesFor(tx, learner.userId),
+      arena: await arenaTutorDTO(tx, learner.userId, learner.grade),
     }
   })
 }

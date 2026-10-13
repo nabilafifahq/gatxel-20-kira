@@ -11,6 +11,7 @@ import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { FreezePill, StreakChain, StreakCount } from '@/components/learner/StreakChain'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_NAME } from '@/components/learner/subject'
+import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 
 /**
  * L02 Today (papan TodayA dan variannya, TodayAHP untuk HP). Jalur sesi wajib dikelompokkan per mapel
@@ -129,6 +130,12 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
         </section>
 
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
+
+        {data.tracks ? (
+          <section aria-label="Your levels" className="rounded-card border border-divider bg-surface px-4 py-3.5 md:px-6">
+            <XpTrackBars tracks={data.tracks} variant="compact" />
+          </section>
+        ) : null}
 
         <section aria-labelledby="today-quests" className="relative flex flex-col gap-6 md:gap-8">
           <h2 id="today-quests" className="visually-hidden">
