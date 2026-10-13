@@ -92,6 +92,13 @@ export type PresentOptions = {
   labels?: LabelPerm
 }
 
+/** Teks yang diputar tombol dengar: soal dengar memakai listenText, soal eja memakai kata lalu kalimat contoh. */
+export function listenTextOf(item: Item): string | null {
+  if (item.type === 'listen') return item.listenText
+  if (item.type === 'spell') return item.sentence ? `${item.word}. ${item.sentence} ${item.word}.` : `${item.word}.`
+  return null
+}
+
 const EXPECTED: Record<Item['type'], number> = {
   mcq: 45, multi: 60, numeric: 60, text: 60, order: 60, match: 75, sort: 75, numberline: 45, clock: 45, fraction: 45,
   write: 600, speak: 120, draw: 300,
@@ -213,7 +220,7 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
       break
     }
     case 'spell':
-      out.listenText = item.sentence ? `${item.word}. ${item.sentence} ${item.word}.` : `${item.word}.`
+      out.listenText = listenTextOf(item) ?? ''
       out.spellLength = item.word.length
       {
         const extra = [...new Set([item.word, ...item.alsoAccept].join('').split('').filter((c) => c === "'" || c === '-'))]

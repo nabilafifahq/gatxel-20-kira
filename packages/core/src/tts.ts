@@ -210,6 +210,11 @@ export function letterClip(index: number): string {
   return `Option ${LETTERS[index] ?? String(index + 1)}.`
 }
 
+/** Klip penanda isian ke-n di soal cloze (dihitung dari 0). */
+export function blankClip(index: number): string {
+  return `Blank ${index + 1}.`
+}
+
 /** Bentuk netral isi soal yang bisa dibacakan. Web mengisinya dari ClientItem, worker dari Item. */
 export type SpeakableFields = {
   prompt: string
@@ -221,6 +226,16 @@ export type SpeakableFields = {
   matchRight?: string[] | undefined
   sortGroups?: string[] | undefined
   sortItems?: string[] | undefined
+  /** Soal cerita bertahap: pertanyaan tiap bagian beserta opsinya (opsi diberi penanda huruf seperti pilihan ganda). */
+  parts?: { prompt: string; options?: string[] | undefined }[] | undefined
+  /** Kepingan kata. Urutannya diacak per anak, jadi tiap keping menjadi klipnya sendiri. */
+  tiles?: string[] | undefined
+  /** Pilihan tiap isian soal cloze. Urutannya diacak, jadi tiap pilihan menjadi klipnya sendiri. */
+  cloze?: string[][] | undefined
+  /** Label yang disediakan untuk diagram (diacak, tiap label klipnya sendiri). */
+  labels?: string[] | undefined
+  /** Tabel: judul kolom lalu tiap baris dibacakan sebagai satu bagian. Sel isian kosong dibacakan "blank". */
+  table?: { head: string[]; rows: string[][] } | undefined
 }
 
 /**
@@ -236,6 +251,24 @@ export function speakableParts(f: SpeakableFields): string[] {
     if (o) parts.push(o)
   })
   for (const list of [f.orderItems, f.matchLeft, f.matchRight, f.sortGroups, f.sortItems]) for (const t of list ?? []) parts.push(t)
+  for (const part of f.parts ?? []) {
+    parts.push(spokenBlanks(part.prompt))
+    part.options?.forEach((o, i) => {
+      parts.push(letterClip(i))
+      if (o) parts.push(o)
+    })
+  }
+  for (const t of f.tiles ?? []) parts.push(t)
+  f.cloze?.forEach((opts, g) => {
+    parts.push(blankClip(g))
+    for (const t of opts) parts.push(t)
+  })
+  for (const t of f.labels ?? []) parts.push(t)
+  if (f.table) {
+    const row = (cells: readonly string[]) => cells.map((c) => (c.trim() === '' ? 'blank' : c)).join(', ')
+    parts.push(row(f.table.head))
+    for (const r of f.table.rows) parts.push(row(r))
+  }
   return parts.map((p) => p.trim()).filter(Boolean)
 }
 

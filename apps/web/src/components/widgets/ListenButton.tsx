@@ -4,6 +4,7 @@ import { useId, useState, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import type { TtsStyleId } from '@kira/core/tts'
 import { useSpeech, type SpeechLang } from '@/components/learner/speech'
 
 /**
@@ -20,6 +21,7 @@ export function ListenButton({
   subject,
   label = 'Play the audio',
   disabled = false,
+  style,
   className,
 }: {
   text: string
@@ -27,6 +29,8 @@ export function ListenButton({
   subject: Subject
   label?: string
   disabled?: boolean
+  /** Gaya suara klip (soal eja memakai suara dikte yang pelan). Harus sama dengan gaya klip batch di worker. */
+  style?: TtsStyleId
   className?: string
 }): ReactElement {
   const { status, toggle } = useSpeech(lang)
@@ -43,7 +47,7 @@ export function ListenButton({
         disabled={off || disabled}
         onClick={() => {
           setPlayed(true)
-          toggle(text)
+          toggle(text, style ? { style } : undefined)
         }}
         className={cx(
           'inline-flex h-16 min-w-16 flex-none items-center justify-center gap-3 rounded-control px-6 text-body-lg font-bold transition-transform duration-150 ease-kira',

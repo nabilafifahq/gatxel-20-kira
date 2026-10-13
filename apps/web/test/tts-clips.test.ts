@@ -26,6 +26,12 @@ describe('klip suara: sisi web sama dengan sisi worker', () => {
         const asked = clipPlan(speakableClipParts(client), speakableStyle(client)).map((c) => ttsKeyInput(c.text, c.style))
         const batch = new Set(itemSpeechClips(item).map((c) => ttsKeyInput(c.text, c.style)))
         for (const k of asked) expect(batch.has(k), `${item.id}: ${k.slice(0, 80)}`).toBe(true)
+        // Teks dengar soal dengar dan eja diputar ListenButton dengan gaya soal: klipnya harus ikut dibuat batch.
+        if (client.listenText) {
+          const heard = clipPlan(client.listenText, speakableStyle(client)).map((c) => ttsKeyInput(c.text, c.style))
+          expect(heard.length, item.id).toBeGreaterThan(0)
+          for (const k of heard) expect(batch.has(k), `${item.id} listenText: ${k.slice(0, 80)}`).toBe(true)
+        }
       }
       checked++
     }

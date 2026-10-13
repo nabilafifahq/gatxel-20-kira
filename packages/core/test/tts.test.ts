@@ -96,6 +96,20 @@ describe('bagian soal yang dibacakan', () => {
     const b = new Set(clipTextsOf(speakableParts({ prompt: 'Pick one.', options: ['dog', 'cat'] })))
     expect([...a].filter((t) => !t.startsWith('Option')).sort()).toEqual([...b].filter((t) => !t.startsWith('Option')).sort())
   })
+  it('jenis soal baru dibacakan per bagian: cerita bertahap, kepingan, isian, label, dan tabel', () => {
+    const parts = speakableParts({
+      prompt: 'Mia has 8 mangoes.',
+      parts: [{ prompt: 'How many?' }, { prompt: 'Who?', options: ['Mia', 'Sam'] }],
+      tiles: ['we', 'eat'],
+      cloze: [['walks', 'walk']],
+      labels: ['root'],
+      table: { head: ['Animal', 'Legs'], rows: [['Cat', '4'], ['Bird', '']] },
+    })
+    expect(parts).toEqual([
+      'Mia has 8 mangoes.', 'How many?', 'Who?', 'Option A.', 'Mia', 'Option B.', 'Sam', 'we', 'eat',
+      'Blank 1.', 'walks', 'walk', 'root', 'Animal, Legs', 'Cat, 4', 'Bird, blank',
+    ])
+  })
   it('gaya mengikuti skill dan jenis bacaan', () => {
     expect(styleForSkill('e2.spelling-bee')).toBe('dictation')
     expect(styleForSkill('e2.dictation')).toBe('dictation')

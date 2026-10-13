@@ -8,6 +8,7 @@ import { itemSchema, type Item } from '@kira/content/schema'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
 import { speakableText } from '@/components/widgets/speakable'
+import { speakableClipParts } from '@/components/widgets/speakable-parts'
 import { remainingTiles } from '@/components/widgets/TilesWidget'
 import { Widget } from '@/components/widgets/Widget'
 
@@ -90,6 +91,29 @@ describe('speakableText never reads the hidden text', () => {
     expect(speakableText(present(cloze))).toContain('Gap 1')
     expect(speakableText(present(table))).toContain('Animal, Legs')
     expect(speakableText(present(story))).toContain('How many?')
+  })
+})
+
+describe('speakableClipParts (klip suara Qwen)', () => {
+  it('never include the hidden listen text or the spelling word', () => {
+    const l = speakableClipParts(present(listen))
+    expect(l.join(' ')).toContain('Which animal did you hear?')
+    expect(l.join(' ')).not.toContain('on the mat')
+    expect(speakableClipParts(present(spell))).toEqual(['Listen, then spell the word.'])
+  })
+
+  it('read the options of a listen item with their letters, like a multiple choice item', () => {
+    expect(speakableClipParts(present(listen))).toEqual(expect.arrayContaining(['Option A.', 'Option B.', 'Option C.', 'dog', 'cat', 'hen']))
+  })
+
+  it('read cards, gaps, labels, tables and story parts, and nothing from tap-on-image, grid or photo but the prompt', () => {
+    expect(speakableClipParts(present(tiles))).toEqual(expect.arrayContaining(['we', 'rice', 'drink']))
+    expect(speakableClipParts(present(cloze))).toEqual(expect.arrayContaining(['Blank 1.', 'Blank 2.', 'walks', 'meets']))
+    expect(speakableClipParts(present(cloze))[0]).toBe('She blank to school and blank her friends.')
+    expect(speakableClipParts(present(label))).toEqual(expect.arrayContaining(['root', 'stem', 'petal']))
+    expect(speakableClipParts(present(table))).toEqual(['Fill in.', 'Animal, Legs', 'Cat, 4', 'Bird, blank'])
+    expect(speakableClipParts(present(story))).toEqual(['Mia has 8 mangoes.', 'How many?', 'Who?', 'Option A.', expect.stringMatching(/^(Mia|Sam)$/), 'Option B.', expect.stringMatching(/^(Mia|Sam)$/)])
+    for (const only of [hotspot, grid, photo]) expect(speakableClipParts(present(only))).toEqual([only.prompt])
   })
 })
 
@@ -181,6 +205,7 @@ describe('every new-type item in content/', () => {
         const without = { ...c, listenText: undefined }
         const sub = it.skill.startsWith('s') ? 'science' : it.skill.startsWith('m') ? 'math' : 'english'
         expect(speakableText(c), it.id).toBe(speakableText(without))
+        expect(speakableClipParts(c), it.id).toEqual(speakableClipParts(without))
         expect(html === renderToStaticMarkup(createElement(Widget, { ...widgetProps(without), subject: sub })), it.id).toBe(true)
       }
       expect(isAnswerComplete(c, null), it.id).toBe(false)

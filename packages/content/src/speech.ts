@@ -1,4 +1,5 @@
 import { clipTextsOf, isClipText, speakableParts, splitClipText, styleForPassageKind, styleForSkill, type SpeakableFields, type TtsClipRequest } from '@kira/core/tts'
+import { listenTextOf } from './present'
 import type { Item, Lesson, Passage } from './schema'
 
 /**
@@ -12,8 +13,26 @@ export function speakableFieldsOf(item: Item): SpeakableFields {
   switch (item.type) {
     case 'mcq':
     case 'multi':
+    case 'listen':
       f.options = item.options.map((o) => o.text ?? o.figure?.alt ?? '')
       break
+    case 'story':
+      f.parts = item.parts.map((p) => ({ prompt: p.prompt, ...(p.type === 'mcq' ? { options: p.options.map((o) => o.text ?? o.figure?.alt ?? '') } : {}) }))
+      break
+    case 'tiles':
+      f.tiles = [...item.answer.split(/\s+/).filter(Boolean), ...item.distractors]
+      break
+    case 'cloze':
+      f.cloze = item.gaps.map((g) => g.options)
+      break
+    case 'label':
+      f.labels = [...item.labels, ...item.extraLabels]
+      break
+    case 'table': {
+      const blankAt = new Set(item.blanks.map((b) => `${b.row}:${b.col}`))
+      f.table = { head: item.head, rows: item.rows.map((row, r) => row.map((cell, c) => (blankAt.has(`${r}:${c}`) ? '' : cell))) }
+      break
+    }
     case 'order':
       f.orderItems = item.items
       break
@@ -39,6 +58,9 @@ export function itemSpeechClips(item: Item): TtsClipRequest[] {
   if (item.lang !== 'en-GB') return []
   const style = styleForSkill(item.skill)
   const out: TtsClipRequest[] = clipTextsOf(speakableParts(speakableFieldsOf(item))).map((text) => ({ text, style }))
+  // Soal dengar dan eja: teks dengarnya diputar ListenButton (bukan tombol baca), dengan gaya yang sama.
+  const heard = listenTextOf(item)
+  if (heard) for (const text of splitClipText(heard)) if (isClipText(text)) out.push({ text, style })
   // Langkah pembahasan dibacakan SolutionPlayer dengan gaya guru.
   for (const step of item.solution ?? []) for (const text of splitClipText(step.say)) if (isClipText(text)) out.push({ text, style: 'teacher' })
   return out

@@ -7,6 +7,7 @@ import { SUBJECT_STYLE } from '@/components/learner/subject'
 import { asValue } from './answers'
 import { CharKeypad, LETTERS_AZ } from './CharKeypad'
 import { ListenButton } from './ListenButton'
+import { speakableStyle } from './speakable-parts'
 import type { WidgetProps } from './types'
 
 /**
@@ -32,7 +33,7 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
   const boxes = Math.max(length, letters.length)
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} label="Hear the word" />
+      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label="Hear the word" />
       <output
         aria-live="polite"
         aria-label={letters === '' ? 'Your spelling is empty' : `Your spelling: ${letters.split('').join(' ')}`}
