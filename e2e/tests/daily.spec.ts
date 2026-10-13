@@ -56,8 +56,8 @@ test('Today: 9 sesi wajib per mapel, Test terkunci, Competitions ada di menu', a
   await expectNoSeriousA11y(page, 'Today 9 sesi')
   await noHorizontalScroll(page)
 
-  const [{ n }] = await db()`select count(*)::int as n from quest where learner_id = ${await learnerId('Aisha')} and date = ${jakartaToday()} and kind = 'daily'`
-  expect(n).toBe(9)
+  const [count] = await db()`select count(*)::int as n from quest where learner_id = ${await learnerId('Aisha')} and date = ${jakartaToday()} and kind = 'daily'`
+  expect(count!.n).toBe(9)
 
   await page.getByRole('link', { name: 'Competitions' }).first().click()
   await waitForPath(page, (p) => p === '/competitions')

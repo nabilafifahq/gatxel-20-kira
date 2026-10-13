@@ -125,7 +125,7 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 
 ## 9. Page structures in use
 
-- Today: header dengan avatar, sapaan, rantai bintang streak; quest aktif besar, dua quest lain kecil; quest bonus; lomba berikutnya di bawah.
+- Today: header dengan avatar, sapaan, rantai bintang streak; bar progres sesi; jalur 9 sesi wajib dikelompokkan per mapel (Practice, Test, Paper) dengan sesi aktif besar dan sesi lain kecil; bagian Extra today untuk sesi opsional; lomba berikutnya di bawah.
 - Runner: bar atas (keluar, progres bersegmen, timer bila ada), area soal, area jawaban, bar bawah (hint, baca suara, Check). Tablet landscape: figur di kiri, jawaban di kanan.
 - Hasil dan pembahasan: skor, lalu daftar soal; setiap soal membuka jawaban learner, kunci, penjelasan, dan SolutionPlayer.
 - Konsol tutor: Perlu perhatian, status hari ini per mapel, tren mingguan.

@@ -239,7 +239,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
       toast({
         tone: 'success',
         title: `Paper masuk rencana ${who}, ${dateId(assignDate, true)}.`,
-        body: mode === 'kertas' ? 'Lembar jawaban (LJK) siap dicetak di Input LJK.' : 'Quest ini muncul di tablet bila rencana minggu itu sudah terbit.',
+        body: mode === 'kertas' ? 'Lembar jawaban (LJK) siap dicetak di Input LJK.' : 'Paper ini menjadi sesi Paper hari itu di tablet bila rencana minggu itu sudah terbit.',
       })
     }
   }
@@ -628,7 +628,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
         onClose={() => setAssignOpen(false)}
         dismissible={!assign.pending}
         title="Masukkan ke rencana"
-        description={`${title || 'Paper ini'} muncul sebagai quest di tanggal yang dipilih.`}
+        description={`${title || 'Paper ini'} menggantikan sesi Paper otomatis mapelnya di tanggal yang dipilih (Latihan dan Tes hari itu tetap).`}
         footer={
           <>
             <Button variant="secondary" onClick={() => setAssignOpen(false)} disabled={assign.pending}>

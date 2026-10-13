@@ -65,8 +65,8 @@ function SlotCard({ slot, dayLabel, onEdit, onMove }: { slot: PlanSlotDTO; dayLa
   return (
     <div className={cx('flex min-w-0 flex-col items-start gap-1 rounded-control border bg-surface p-2', slot.auto ? 'border-dashed border-border' : 'border-divider')}>
       <span className="flex flex-wrap items-center gap-1">
-        <span className={cx('inline-flex h-6 items-center rounded-pill border px-2 text-small leading-5 font-bold', SUBJECT_BG50[slot.subject], SUBJECT_BORDER[slot.subject])}>{slotChip(slot)}</span>
-        {slot.auto ? <span className="text-small font-semibold text-fg-muted">Otomatis</span> : null}
+        <span className={cx('inline-flex h-6 items-center rounded-pill border px-2 text-small leading-5 font-bold whitespace-nowrap', SUBJECT_BG50[slot.subject], SUBJECT_BORDER[slot.subject])}>{slotChip(slot)}</span>
+        {slot.auto ? <span className="visually-hidden">Otomatis, dipilih Kira</span> : null}
       </span>
       <button
         type="button"
@@ -220,7 +220,7 @@ export function WeekPlannerGrid({ days, slots, screenLimitMin, onAdd, onEdit, on
     <>
       {/* Tablet dan layar lebar: tabel 7 hari kali 3 mapel */}
       <div role="region" aria-labelledby="jadwal-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface p-4 max-md:hidden">
-        <table className="w-full min-w-[1080px] table-fixed border-separate border-spacing-2">
+        <table className="w-full min-w-[1200px] table-fixed border-separate border-spacing-2">
           <caption id="jadwal-cap" className="visually-hidden">
             Jadwal minggu ini, 7 hari kali 3 mapel
           </caption>
