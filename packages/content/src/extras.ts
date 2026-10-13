@@ -76,7 +76,7 @@ export function loadMedals(dir: string): { entries: MedalEntry[]; errors: Proble
   return { entries: parsed.data.entries, errors }
 }
 
-const BANNED_CHARS = /[—–]/
+const BANNED_CHARS = new RegExp(`[${String.fromCharCode(0x2014, 0x2013)}]`)
 
 /** Pemeriksaan silang untuk content:check: skill program ada dan cocok mapel dan grade, id lomba ada di katalog. */
 export function checkExtras(dir: string, index: ContentIndex): Problem[] {
