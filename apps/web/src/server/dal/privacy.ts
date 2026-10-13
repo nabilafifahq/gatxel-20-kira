@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, desc, eq, inArray, isNull } from 'drizzle-orm'
+import { and, desc, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { addDays, formatDateId, jakartaDate, jakartaMidnight, type IsoDate } from '@kira/core/time'
 import { tables } from '@kira/db'
 import type { ConsentPurpose, ConsoleShell, PrivacyDTO } from '@/lib/dto'
@@ -202,6 +202,7 @@ export async function requestDeletionTx(tx: Tx, ctx: OrgContext, input: { guardi
     .values({ orgId: ctx.orgId, learnerId: input.learnerId, requestedBy: input.guardianId, reference, scheduledFor })
     .returning({ id: deletionRequest.id })
   await enqueueJobTx(tx, ctx, 'learner.delete', { learnerId: input.learnerId, deletionRequestId: row!.id }, runAfter)
+  await deactivateLearnerTx(tx, ctx, input.learnerId)
   await auditTx(tx, ctx, 'deletion.requested', input.learnerId, { reference, scheduledFor })
   return { reference, scheduledFor, learnerName: learner.name }
 }
@@ -220,13 +221,16 @@ export async function cancelDeletionTx(tx: Tx, ctx: OrgContext, input: { guardia
 }
 
 /**
- * Learner langsung tidak aktif setelah permintaan hapus. Orang tua tidak boleh mengubah
- * learner_profile (RLS hanya staf), jadi ditulis dengan konteks sistem setelah permintaan tersimpan.
+ * Learner langsung tidak aktif setelah permintaan hapus. Ditulis di transaksi yang sama dengan
+ * permintaannya: tidak ada saat permintaan sudah tercatat tetapi learner masih aktif, dan
+ * permintaan tidak tertinggal tanpa pause bila prosesnya mati di antara dua transaksi.
+ * Orang tua tidak boleh mengubah learner_profile (RLS hanya staf), jadi peran transaksi ini
+ * dinaikkan ke peran sistem (tutor) hanya untuk satu UPDATE sempit, lalu dikembalikan.
  */
-export async function deactivateLearner(orgId: string, learnerId: string): Promise<void> {
-  await inOrg(systemCtx(orgId), (tx) =>
-    tx.update(tables.learnerProfile).set({ active: false, updatedAt: new Date() }).where(eq(tables.learnerProfile.userId, learnerId)),
-  )
+export async function deactivateLearnerTx(tx: Tx, ctx: OrgContext, learnerId: string): Promise<void> {
+  await tx.execute(sql`select set_config('app.role', ${systemCtx(ctx.orgId).role}, true)`)
+  await tx.update(tables.learnerProfile).set({ active: false, updatedAt: new Date() }).where(eq(tables.learnerProfile.userId, learnerId))
+  await tx.execute(sql`select set_config('app.role', ${ctx.role}, true)`)
 }
 
 /** Email konfirmasi ke orang tua yang meminta: kode referensi, tanggal hapus, dan cara membatalkan. */
