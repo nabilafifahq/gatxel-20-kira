@@ -183,6 +183,9 @@ const PREVIEWS: Record<string, Render> = {
           uploadPdf: fake({ batchId: 'imp-0005' }, fail, 'PDF belum terunggah.'),
           updateImportItem: fake(undefined, fail, 'Perubahan soal belum tersimpan.'),
           approveImportItems: fake({ created: 7 }, fail, 'Soal belum masuk Bank soal.'),
+          updateImportMeta: fake(undefined, fail, 'Data paper belum tersimpan.'),
+          attachFigure: fake({ url: '/api/media/00000000-0000-4000-8000-000000000001' }, fail, 'Gambar belum terpasang.'),
+          removeFigure: fake(undefined, fail, 'Gambar belum dilepas.'),
         }}
       />
     )

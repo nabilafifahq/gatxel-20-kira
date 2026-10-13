@@ -3,8 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { and, eq, inArray } from 'drizzle-orm'
 import { tables, withOrg, type ImportStoredItem } from '@kira/db'
-import { O } from '../ai/item-schema'
-import { AI_TIMEOUT_MS } from '../ai/types'
+import { reviewKeys, type Review, type ReviewInput } from '../ai/solve'
 import { JobError, UsageLimitError, isAbortError } from '../errors'
 import { deleteStored, readStored, storeFile } from '../media'
 import { ProcSpawnError, runProcess } from '../proc'
@@ -16,13 +15,14 @@ import type { Handler, HandlerCtx } from './types'
  * Job ai.import: membaca PDF paket resmi milik keluarga menjadi `import_batch.items`
  * (ImportStoredItem[]) dan gambar halaman (`import_batch.pages`, id media jenis page).
  * Teks dibaca dengan poppler (pdftotext -layout) dan diurai tanpa AI. Bila provider AI siap,
- * satu pemeriksaan tambahan menandai soal yang kuncinya berbeda dengan jawaban AI (key-mismatch);
- * kegagalan pemeriksaan ini tidak menggagalkan impor.
+ * satu pemeriksaan tambahan menandai soal yang kuncinya berbeda dengan jawaban AI (key-mismatch),
+ * mengisi bendera keyCheck, dan mengusulkan kunci untuk soal tanpa kunci bila AI menjawab dua kali dengan hasil sama;
+ * kegagalan pemeriksaan ini tidak menggagalkan impor. Halaman dirender 150 DPI supaya potongan gambar soal tajam.
  * Status batch: parsing, lalu review, atau failed dengan pesan bahasa Indonesia.
  */
 
 export const MAX_PAGES = 60
-const DPI = '110'
+const DPI = '150'
 
 async function tool(h: HandlerCtx, cmd: string, args: string[], timeoutMs: number): Promise<string> {
   let r
@@ -52,40 +52,43 @@ export function pageCount(pdfinfoOut: string): number | null {
   return m ? Number(m[1]) : null
 }
 
-const KEY_CHECK_SCHEMA = O({
-  answers: {
-    type: 'array',
-    items: O({ number: { type: 'integer' }, answer: { type: ['integer', 'null'], description: 'Zero-based index of the correct option (A is 0), or null when unsure.' } }),
-  },
-})
+/** Hasil pemeriksaan kunci satu soal impor. key = kunci yang boleh dipakai (kunci sumber, atau kunci AI bila dua jawabannya sama). */
+export type ImportReview = Review & { key: number | null }
 
-/** Pemeriksaan kunci dengan AI. Mengembalikan nomor soal yang jawabannya berbeda dengan kunci, atau null bila dilewati. */
-export async function aiKeyCheck(h: HandlerCtx, items: ImportStoredItem[], subject: string, grade: number): Promise<{ mismatched: Set<number>; model: string } | null> {
-  const candidates = items.filter((i) => i.answerFromKey !== null && i.options.length >= 2 && i.status !== 'needs-check')
+/**
+ * Periksa kunci soal impor dengan AI. Soal yang punya kunci dari PDF dikerjakan sekali (cocok atau beda);
+ * soal tanpa kunci dikerjakan dua kali dengan cara berbeda dan kuncinya hanya diusulkan bila keduanya sama.
+ * Null bila dilewati (AI belum siap, batas pemakaian, atau gagal); kegagalan ini tidak menggagalkan impor.
+ */
+export async function aiKeyReview(h: HandlerCtx, items: ImportStoredItem[], subject: string, grade: number): Promise<{ reviews: Map<number, ImportReview>; model: string } | null> {
+  const candidates = items.filter((i) => i.options.length >= 2 && i.prompt.trim() && (i.answerFromKey !== null ? i.status !== 'needs-check' : true))
   if (!h.ai.ready || candidates.length === 0) return null
-  const questions = candidates.map((i) => ({ number: i.number, prompt: i.prompt, options: i.options.map((o, k) => `${'ABCDE'[k]}. ${o}`) }))
+  const inputs: ReviewInput[] = candidates.map((i) => ({ id: i.number, prompt: i.prompt, options: i.options, sourceKey: i.answerFromKey }))
   try {
-    const out = await h.ai.run({
-      system: `You check the answer key of a multiple choice contest paper for primary school children (${subject}, Grade ${grade}). Solve each question carefully. Reply only with the JSON object described by the schema.`,
-      prompt: `For every question, give the zero-based index of the correct option (A is 0). Use null when the question needs a picture you cannot see or when you are not sure.\n\n${JSON.stringify(questions)}`,
-      jsonSchema: KEY_CHECK_SCHEMA,
-      tier: 'author',
-      timeoutMs: AI_TIMEOUT_MS,
-      signal: h.signal,
-    })
-    const answers = (out.json as { answers?: { number?: unknown; answer?: unknown }[] }).answers ?? []
-    const byNumber = new Map(candidates.map((i) => [i.number, i]))
-    const mismatched = new Set<number>()
-    for (const a of answers) {
-      const item = typeof a.number === 'number' ? byNumber.get(a.number) : undefined
-      if (item && typeof a.answer === 'number' && a.answer !== item.answerFromKey) mismatched.add(item.number)
-    }
-    return { mismatched, model: out.model }
+    const r = await reviewKeys(h.ai, inputs, { subject, grade, signal: h.signal })
+    return { reviews: r.reviews, model: r.model }
   } catch (e) {
     if (isAbortError(e)) throw e
     h.log.warn('pemeriksaan kunci AI dilewati', { reason: e instanceof UsageLimitError ? 'batas pemakaian' : e instanceof Error ? e.message : 'tidak diketahui' })
     return null
   }
+}
+
+/** Pemeriksaan kunci saja untuk soal yang sudah punya kunci: nomor soal yang jawaban AI-nya berbeda dengan kunci. */
+export async function aiKeyCheck(h: HandlerCtx, items: ImportStoredItem[], subject: string, grade: number): Promise<{ mismatched: Set<number>; model: string } | null> {
+  const r = await aiKeyReview(h, items.filter((i) => i.answerFromKey !== null), subject, grade)
+  if (!r) return null
+  return { mismatched: new Set([...r.reviews].filter(([, v]) => v.verdict === 'disagree').map(([k]) => k)), model: r.model }
+}
+
+/** Tambahkan hasil pemeriksaan ke soal: bendera keyCheck, jawaban AI, status key-mismatch, dan kunci usulan AI. */
+export function applyReview(item: ImportStoredItem, review: ImportReview | undefined): ImportStoredItem {
+  if (!review) return item
+  const base: ImportStoredItem = { ...item, aiAnswer: review.aiAnswer, keyCheck: review.verdict === 'unverified' ? 'skipped' : review.verdict }
+  if (review.verdict === 'disagree') return { ...base, status: worseStatus(item.status, 'key-mismatch') }
+  // Kunci buatan AI hanya usulan: soal tetap perlu dicek tutor sampai disetujui.
+  if (review.verdict === 'ai-only') return { ...base, answer: review.key, status: worseStatus(item.status, 'needs-check') }
+  return base
 }
 
 async function setBatch(h: HandlerCtx, batchId: string, fields: { status: 'parsing' | 'review' | 'failed' | 'uploaded'; error: string | null }): Promise<void> {
@@ -149,8 +152,8 @@ export const importHandler: Handler = {
         .filter((x): x is { f: string; n: string } => Boolean(x.n))
         .sort((a, b) => Number(a.n) - Number(b.n))
 
-      const check = await aiKeyCheck(h, parsed.items, input.subject, input.grade)
-      const items = parsed.items.map((i) => (check?.mismatched.has(i.number) ? { ...i, status: worseStatus(i.status, 'key-mismatch') } : i))
+      const check = await aiKeyReview(h, parsed.items, input.subject, input.grade)
+      const items = parsed.items.map((i) => applyReview(i, check?.reviews.get(i.number)))
 
       const createdBy = h.job.created_by ?? batch.createdBy
       const stored: { path: string; sha256: string; size: number }[] = []

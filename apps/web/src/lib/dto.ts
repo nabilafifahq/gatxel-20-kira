@@ -656,17 +656,30 @@ export type ImportItemDTO = {
   pageImage: string | null
   status: 'ok' | 'key-mismatch' | 'leftover-key-text' | 'broken-fraction' | 'needs-check'
   approved: boolean
+  /** Hasil pemeriksaan kunci oleh AI (lihat ImportStoredItem.keyCheck) dan jawaban AI sebagai indeks opsi. */
+  keyCheck: 'agree' | 'disagree' | 'ai-only' | 'skipped' | null
+  aiAnswer: number | null
+  /** Gambar soal hasil potong dari halaman PDF. */
+  figure: { url: string; width: number; height: number; alt: string } | null
 }
+/** Data paper lomba pada paket impor (migrasi 0009). */
+export type ImportMetaDTO = { competition: string | null; year: number | null; section: string | null; originalMinutes: number | null; source: string | null }
 export type ImportDTO = {
   shell: ConsoleShell
   /** `error`: pesan worker (bahasa Indonesia) bila paket gagal dibaca. */
   batches: { id: string; title: string; status: 'uploaded' | 'parsing' | 'review' | 'done' | 'failed'; createdAt: string; itemCount: number; approved: number; error?: string | null }[]
-  selected: { id: string; title: string; subject: Subject; grade: number; tags: string[]; pages: string[]; items: ImportItemDTO[] } | null
+  selected: { id: string; title: string; subject: Subject; grade: number; tags: string[]; pages: string[]; items: ImportItemDTO[]; meta: ImportMetaDTO } | null
+  /** Pilihan lomba untuk isian data paper. */
+  competitions: { id: string; name: string }[]
 }
 export type ImportActions = {
   uploadPdf(form: FormData): Promise<ActionResult<{ batchId: string }>>
   updateImportItem(input: { batchId: string; index: number; prompt: string; options: string[]; answer: number | null }): Promise<ActionResult>
   approveImportItems(input: { batchId: string; indexes: number[] }): Promise<ActionResult<{ created: number }>>
+  updateImportMeta(input: { batchId: string } & ImportMetaDTO): Promise<ActionResult>
+  /** Potong gambar dari halaman PDF (kotak pecahan 0 sampai 1) dan pasang ke satu soal. */
+  attachFigure(input: { batchId: string; index: number; page: number; rect: { x: number; y: number; w: number; h: number }; alt: string }): Promise<ActionResult<{ url: string }>>
+  removeFigure(input: { batchId: string; index: number }): Promise<ActionResult>
 }
 
 // T13 Learner dan grade

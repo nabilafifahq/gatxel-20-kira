@@ -11,10 +11,12 @@ import { auditTx } from '../audit'
 import type { OrgContext, Tx } from '../db'
 import { inOrg } from '../db'
 import { conflict, invalid, notFound } from '../errors'
-import { deleteStored, limitFor, sniff, storeFile } from '../media'
+import { deleteStored, limitFor, readStored, sniff, storeFile } from '../media'
+import { cropPngFraction, PngError, type CropRect } from '../png-crop'
 import { shellIn } from './console-shell'
 import { enqueueAiJobTx, schemaIssues } from './console-studio'
 import { competitions, presets, skillsFor } from './content'
+import { syncLibraryEntryTx, type BatchMeta } from './paper-library'
 
 /**
  * T12 Impor paket resmi. Tutor mengunggah PDF paket milik keluarga; worker membaca soal dan tabel kunci
@@ -167,7 +169,7 @@ const EXPLANATION: Record<Lang, string> = {
 
 /** Soal pilihan ganda dari hasil impor, divalidasi dengan itemSchema dan pemeriksaan konten yang sama dengan content:check. */
 export function buildImportedItem(
-  s: Pick<ImportStoredItem, 'prompt' | 'options' | 'answer'>,
+  s: Pick<ImportStoredItem, 'prompt' | 'options' | 'answer'> & { figure?: ImportStoredItem['figure'] },
   ctx: { skillId: string; lang: Lang; tags: string[] },
 ): { ok: true; item: Item } | { ok: false; message: string } {
   if (s.answer === null) return { ok: false, message: 'belum punya kunci' }
@@ -187,6 +189,7 @@ export function buildImportedItem(
     explanation: EXPLANATION[ctx.lang],
     tags: ctx.tags,
     source: 'imported',
+    ...(s.figure ? { figure: { kind: 'clip', mediaId: s.figure.mediaId, width: s.figure.width, height: s.figure.height, alt: s.figure.alt } } : {}),
   })
   if (!parsed.success) return { ok: false, message: schemaIssues(parsed.error, 2) }
   const problems = semanticProblems(parsed.data)
@@ -221,6 +224,9 @@ const storedItem = z.object({
   status: z.enum(['ok', 'key-mismatch', 'leftover-key-text', 'broken-fraction', 'needs-check']),
   approved: z.boolean(),
   orgItemId: z.string().nullable().optional(),
+  aiAnswer: z.number().int().nullable().optional(),
+  keyCheck: z.enum(['agree', 'disagree', 'ai-only', 'skipped']).optional(),
+  figure: z.object({ mediaId: z.string().uuid(), width: z.number().int(), height: z.number().int(), alt: z.string() }).nullable().optional(),
 })
 type Stored = z.infer<typeof storedItem>
 
@@ -254,7 +260,7 @@ export async function importDTO(actor: Actor, paket: string | null): Promise<Imp
     let selected: ImportDTO['selected'] = null
     if (paket) {
       const [b] = await tx
-        .select({ id: importBatch.id, title: importBatch.title, subject: importBatch.subject, grade: importBatch.grade, tags: importBatch.tags, pages: importBatch.pages, items: importBatch.items, status: importBatch.status })
+        .select({ id: importBatch.id, title: importBatch.title, subject: importBatch.subject, grade: importBatch.grade, tags: importBatch.tags, pages: importBatch.pages, items: importBatch.items, status: importBatch.status, competition: importBatch.competition, year: importBatch.year, section: importBatch.section, originalMinutes: importBatch.originalMinutes, source: importBatch.source })
         .from(importBatch)
         .where(eq(importBatch.id, paket))
         .limit(1)
@@ -276,15 +282,28 @@ export async function importDTO(actor: Actor, paket: string | null): Promise<Imp
             // Soal tanpa kunci tidak bisa lolos: tampil di Perlu dicek supaya tutor memilih kuncinya.
             status: it.status === 'ok' && it.answer === null && !it.approved ? 'needs-check' : it.status,
             approved: it.approved,
+            keyCheck: it.keyCheck ?? null,
+            aiAnswer: it.aiAnswer ?? null,
+            figure: it.figure ? { url: mediaUrl(it.figure.mediaId), width: it.figure.width, height: it.figure.height, alt: it.figure.alt } : null,
           })
         })
-        selected = { id: b.id, title: b.title, subject: b.subject, grade: b.grade, tags: b.tags, pages: b.pages.map(mediaUrl), items }
+        selected = {
+          id: b.id,
+          title: b.title,
+          subject: b.subject,
+          grade: b.grade,
+          tags: b.tags,
+          pages: b.pages.map(mediaUrl),
+          items,
+          meta: { competition: b.competition, year: b.year, section: b.section, originalMinutes: b.originalMinutes, source: b.source },
+        }
       }
     }
     return {
       shell,
       batches: rows.map((r) => ({ id: r.id, title: r.title, status: r.status, createdAt: r.createdAt.toISOString(), itemCount: Number(r.itemCount), approved: Number(r.approved), error: r.status === 'failed' ? (r.error ?? null) : null })),
       selected,
+      competitions: competitions().map((c) => ({ id: c.id, name: c.name })),
     }
   })
 }
@@ -292,7 +311,7 @@ export async function importDTO(actor: Actor, paket: string | null): Promise<Imp
 // ---------------------------------------------------------------------------
 // Unggah, edit, setujui
 
-export type UploadInput = { buf: Buffer; title: string; subject: Subject; grade: number; labels: string[] }
+export type UploadInput = { buf: Buffer; title: string; subject: Subject; grade: number; labels: string[]; meta?: Partial<BatchMeta> }
 
 export async function createImportBatch(actor: Actor, input: UploadInput): Promise<string> {
   const max = limitFor('pdf')
@@ -309,7 +328,21 @@ export async function createImportBatch(actor: Actor, input: UploadInput): Promi
         .returning({ id: media.id })
       const [b] = await tx
         .insert(importBatch)
-        .values({ orgId: actor.orgId, title: input.title, subject: input.subject, grade: input.grade, tags: input.labels, mediaId: m!.id, status: 'uploaded', createdBy: actor.userId })
+        .values({
+          orgId: actor.orgId,
+          title: input.title,
+          subject: input.subject,
+          grade: input.grade,
+          tags: input.labels,
+          mediaId: m!.id,
+          status: 'uploaded',
+          createdBy: actor.userId,
+          competition: input.meta?.competition ?? null,
+          year: input.meta?.year ?? null,
+          section: input.meta?.section ?? null,
+          originalMinutes: input.meta?.originalMinutes ?? null,
+          source: input.meta?.source ?? null,
+        })
         .returning({ id: importBatch.id })
       await enqueueAiJobTx(tx, ctx, { kind: 'import', batchId: b!.id, mediaId: m!.id, subject: input.subject, grade: input.grade, title: input.title })
       await auditTx(tx, ctx, 'import.uploaded', b!.id, { size: input.buf.length, subject: input.subject, grade: input.grade })
@@ -323,7 +356,7 @@ export async function createImportBatch(actor: Actor, input: UploadInput): Promi
 
 async function lockBatch(tx: Tx, batchId: string) {
   const [b] = await tx
-    .select({ id: importBatch.id, title: importBatch.title, subject: importBatch.subject, grade: importBatch.grade, tags: importBatch.tags, status: importBatch.status, items: importBatch.items, createdBy: importBatch.createdBy })
+    .select({ id: importBatch.id, title: importBatch.title, subject: importBatch.subject, grade: importBatch.grade, tags: importBatch.tags, status: importBatch.status, items: importBatch.items, createdBy: importBatch.createdBy, competition: importBatch.competition, year: importBatch.year, section: importBatch.section, originalMinutes: importBatch.originalMinutes, source: importBatch.source })
     .from(importBatch)
     .where(eq(importBatch.id, batchId))
     .limit(1)
@@ -359,7 +392,8 @@ export async function approveImportItemsTx(tx: Tx, ctx: OrgContext, input: { bat
   const pending = indexes.filter((i) => !items[i]!.approved)
   if (pending.length === 0) return { created: 0 }
 
-  const competition = detectCompetition(b.tags, b.title, catalog())
+  // Lomba dari isian tutor lebih dipercaya daripada tebakan dari label dan nama berkas.
+  const competition = (b.competition ? catalog().find((c) => c.id === b.competition) : null) ?? detectCompetition(b.tags, b.title, catalog())
   const lang = detectLang(b.subject, competitionLang(competition, b.subject), items.map((x) => x?.prompt ?? ''))
   const skillId = pickImportSkill(skillsFor(b.subject, b.grade), competition?.id ?? null)
   if (!skillId) throw invalid(`Belum ada skill ${b.subject} Grade ${b.grade} di konten. Ubah grade paket lewat unggah ulang.`)
@@ -414,6 +448,101 @@ export async function approveImportItemsTx(tx: Tx, ctx: OrgContext, input: { bat
   }
   const allDone = storedItems(raw).every((x) => x?.approved)
   await tx.update(importBatch).set({ items: raw, updatedAt: now, ...(allDone ? { status: 'done' as const } : {}) }).where(eq(importBatch.id, b.id))
+  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta: metaOf(b), refs: libraryRefs(storedItems(raw)) })
   await auditTx(tx, ctx, 'import.items.approved', b.id, { count: built.length, collection })
   return { created: built.length }
+}
+
+function metaOf(b: { competition: string | null; year: number | null; section: string | null; originalMinutes: number | null; source: string | null }): BatchMeta {
+  return { competition: b.competition, year: b.year, section: b.section, originalMinutes: b.originalMinutes, source: b.source }
+}
+
+/** Ref org soal yang sudah disetujui, urut nomor soal, untuk pustaka paper. */
+export function libraryRefs(items: readonly (Stored | null)[]): string[] {
+  return items
+    .filter((x): x is Stored => Boolean(x?.approved && x.orgItemId))
+    .sort((a, b) => a.number - b.number)
+    .map((x) => `org:${x.orgItemId}`)
+}
+
+// ---------------------------------------------------------------------------
+// Data paper, gambar soal
+
+export type MetaEdit = { batchId: string } & BatchMeta
+
+export async function updateImportMetaTx(tx: Tx, ctx: OrgContext, input: MetaEdit): Promise<void> {
+  const [b] = await tx
+    .select({ id: importBatch.id, subject: importBatch.subject, grade: importBatch.grade, createdBy: importBatch.createdBy, items: importBatch.items })
+    .from(importBatch)
+    .where(eq(importBatch.id, input.batchId))
+    .limit(1)
+    .for('update')
+  if (!b) throw notFound('Paket impor tidak ditemukan. Muat ulang halaman impor.')
+  if (input.competition && !competitions().some((c) => c.id === input.competition)) throw invalid('Lomba itu tidak ada di katalog. Pilih dari daftar.', { competition: 'Pilih lomba dari daftar.' })
+  const meta: BatchMeta = { competition: input.competition, year: input.year, section: input.section, originalMinutes: input.originalMinutes, source: input.source }
+  await tx.update(importBatch).set({ ...meta, updatedAt: new Date() }).where(eq(importBatch.id, b.id))
+  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta, refs: libraryRefs(storedItems(b.items)) })
+  await auditTx(tx, ctx, 'import.meta.updated', b.id, { competition: meta.competition, year: meta.year, section: meta.section })
+}
+
+export type FigureInput = { batchId: string; index: number; page: number; rect: CropRect; alt: string }
+
+/**
+ * Potong gambar dari halaman PDF (kotak pecahan 0 sampai 1) dan pasang ke satu soal. Hasilnya disimpan sebagai
+ * media org jenis figure; soal yang disetujui kemudian memuat figur jenis clip. Gambar lama soal itu dihapus.
+ */
+export async function attachFigureTx(tx: Tx, ctx: OrgContext, input: FigureInput): Promise<{ url: string }> {
+  const b = await lockBatch(tx, input.batchId)
+  const raw = Array.isArray(b.items) ? [...(b.items as unknown[])] : []
+  const it = storedItems(raw)[input.index]
+  if (!it) throw notFound('Soal itu tidak ada di paket ini. Muat ulang halaman impor.')
+  if (it.approved) throw conflict(`Soal ${it.number} sudah disetujui dan masuk Bank soal. Gambar tidak bisa diubah dari sini.`)
+  const [batchRow] = await tx.select({ pages: importBatch.pages }).from(importBatch).where(eq(importBatch.id, b.id)).limit(1)
+  const pageId = batchRow?.pages[input.page - 1]
+  if (!pageId) throw notFound('Halaman itu tidak ada di paket ini. Muat ulang halaman impor.')
+  const [pageMedia] = await tx.select({ path: media.path }).from(media).where(and(eq(media.id, pageId), eq(media.kind, 'page'))).limit(1)
+  if (!pageMedia) throw notFound('Gambar halaman tidak ditemukan di server. Unggah ulang PDF-nya.')
+  let cropped: ReturnType<typeof cropPngFraction>
+  try {
+    cropped = cropPngFraction(await readStored(pageMedia.path), input.rect)
+  } catch (e) {
+    if (e instanceof PngError) throw invalid(e.message, { rect: e.message })
+    throw e
+  }
+  const stored = await storeFile(ctx.orgId, cropped.png, 'png')
+  try {
+    const [row] = await tx
+      .insert(media)
+      .values({ orgId: ctx.orgId, learnerId: null, kind: 'figure', path: stored.path, mime: 'image/png', size: cropped.png.length, sha256: stored.sha256, createdBy: ctx.userId })
+      .returning({ id: media.id })
+    const old = it.figure
+    raw[input.index] = { ...(raw[input.index] as object), figure: { mediaId: row!.id, width: cropped.width, height: cropped.height, alt: input.alt } }
+    await tx.update(importBatch).set({ items: raw, updatedAt: new Date() }).where(eq(importBatch.id, b.id))
+    if (old) await dropFigureMedia(tx, old.mediaId)
+    await auditTx(tx, ctx, 'import.figure.attached', b.id, { index: input.index, page: input.page })
+    return { url: mediaUrl(row!.id) }
+  } catch (e) {
+    await deleteStored(stored.path).catch(() => undefined)
+    throw e
+  }
+}
+
+export async function removeFigureTx(tx: Tx, ctx: OrgContext, input: { batchId: string; index: number }): Promise<void> {
+  const b = await lockBatch(tx, input.batchId)
+  const raw = Array.isArray(b.items) ? [...(b.items as unknown[])] : []
+  const it = storedItems(raw)[input.index]
+  if (!it) throw notFound('Soal itu tidak ada di paket ini. Muat ulang halaman impor.')
+  if (it.approved) throw conflict(`Soal ${it.number} sudah disetujui dan masuk Bank soal. Gambar tidak bisa diubah dari sini.`)
+  if (!it.figure) return
+  raw[input.index] = { ...(raw[input.index] as object), figure: null }
+  await tx.update(importBatch).set({ items: raw, updatedAt: new Date() }).where(eq(importBatch.id, b.id))
+  await dropFigureMedia(tx, it.figure.mediaId)
+  await auditTx(tx, ctx, 'import.figure.removed', b.id, { index: input.index })
+}
+
+async function dropFigureMedia(tx: Tx, mediaId: string): Promise<void> {
+  const [m] = await tx.select({ path: media.path }).from(media).where(and(eq(media.id, mediaId), eq(media.kind, 'figure'))).limit(1)
+  if (!m) return
+  await tx.delete(media).where(eq(media.id, mediaId))
+  await deleteStored(m.path).catch(() => undefined)
 }

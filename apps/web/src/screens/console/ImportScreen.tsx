@@ -16,6 +16,7 @@ import { Card, PageHeader, Pill, SubjectChip } from '@/components/console/Layout
 import { CONSOLE_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction, type ActionFailure } from '@/components/console/useAction'
+import { emptyForm, FigureCropper, FigureThumb, formToPayload, KeyCheckNote, PaperMetaCard, PaperMetaFields, validateForm, type FormErrors } from './ImportPaperTools'
 
 /**
  * T12 Impor paket resmi (papan ImporPaket). Tutor mengunggah PDF paket latihan
@@ -104,9 +105,9 @@ export function ImportScreen({ data, actions }: ImportScreenProps) {
           )}
         </nav>
         {sel ? (
-          <BatchReview key={sel.id} batch={sel} meta={meta} orgName={data.shell.orgName} actions={actions} />
+          <BatchReview key={sel.id} batch={sel} meta={meta} orgName={data.shell.orgName} actions={actions} competitions={data.competitions} />
         ) : (
-          <ImportHome batches={data.batches} actions={actions} />
+          <ImportHome batches={data.batches} actions={actions} competitions={data.competitions} />
         )}
       </div>
     </ConsoleShell>
@@ -116,7 +117,7 @@ export function ImportScreen({ data, actions }: ImportScreenProps) {
 // ---------------------------------------------------------------------------
 // Tanpa paket terpilih: unggah dan daftar paket
 
-function ImportHome({ batches, actions }: { batches: ImportDTO['batches']; actions: ImportActions }) {
+function ImportHome({ batches, actions, competitions }: { batches: ImportDTO['batches']; actions: ImportActions; competitions: ImportDTO['competitions'] }) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const parsing = batches.some((b) => b.status === 'parsing' || b.status === 'uploaded')
@@ -127,7 +128,7 @@ function ImportHome({ batches, actions }: { batches: ImportDTO['batches']; actio
         description="Unggah PDF paket latihan milik keluarga. Kira membaca soal dan tabel kuncinya, lalu setiap soal dicek di sini sebelum masuk Bank soal."
       />
       <div className="flex flex-wrap items-start gap-6">
-        <UploadCard actions={actions} />
+        <UploadCard actions={actions} competitions={competitions} />
         <section aria-labelledby="paket-heading" className="flex min-w-0 flex-[1.4_1_480px] flex-col gap-3">
           <div className="flex flex-wrap items-center gap-3">
             <h2 id="paket-heading" className="m-0 text-h2 font-bold max-sm:text-h3">
@@ -206,7 +207,7 @@ function BatchRow({ batch: b }: { batch: ImportDTO['batches'][number] }) {
   )
 }
 
-function UploadCard({ actions }: { actions: ImportActions }) {
+function UploadCard({ actions, competitions }: { actions: ImportActions; competitions: ImportDTO['competitions'] }) {
   const router = useRouter()
   const upload = useAction(actions.uploadPdf)
   const fileRef = useRef<HTMLInputElement>(null)
@@ -218,6 +219,8 @@ function UploadCard({ actions }: { actions: ImportActions }) {
   const [owned, setOwned] = useState(false)
   const [fileName, setFileName] = useState('')
   const [errors, setErrors] = useState<{ file?: string; owned?: string; tags?: string }>({})
+  const [paper, setPaper] = useState(() => emptyForm())
+  const [paperErrors, setPaperErrors] = useState<FormErrors>({})
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -231,6 +234,12 @@ function UploadCard({ actions }: { actions: ImportActions }) {
     if (tags.length > 120) next.tags = `Label paling banyak 120 karakter, sekarang ${tags.length}.`
     if (!owned) next.owned = 'Centang pernyataan ini dulu. Hanya paket milik keluarga yang boleh diimpor.'
     setErrors(next)
+    const pe = validateForm(paper)
+    setPaperErrors(pe)
+    if (Object.keys(pe).length > 0 && Object.keys(next).length === 0) {
+      document.getElementById(pe.year ? 'upload-tahun' : pe.minutes ? 'upload-menit' : pe.section ? 'upload-bagian' : 'upload-url')?.focus()
+      return
+    }
     if (Object.keys(next).length > 0) {
       const first = next.file ? fileId : next.tags ? 'impor-label' : 'impor-milik'
       document.getElementById(first)?.focus()
@@ -242,6 +251,12 @@ function UploadCard({ actions }: { actions: ImportActions }) {
     form.set('grade', grade)
     form.set('tags', tags.trim())
     form.set('owned', 'yes')
+    const meta = formToPayload(paper)
+    form.set('competition', meta.competition ?? '')
+    form.set('year', meta.year != null ? String(meta.year) : '')
+    form.set('section', meta.section ?? '')
+    form.set('originalMinutes', meta.originalMinutes != null ? String(meta.originalMinutes) : '')
+    form.set('source', meta.source ?? '')
     const r = await upload.run(form)
     if (r.ok) router.push(`${CONSOLE_ROUTES.import}?paket=${encodeURIComponent(r.data.batchId)}`)
   }
@@ -323,6 +338,10 @@ function UploadCard({ actions }: { actions: ImportActions }) {
           onChange={(e) => setTags(e.target.value)}
           autoComplete="off"
         />
+        <fieldset className="m-0 flex min-w-0 flex-col gap-3 rounded-control border border-divider p-4">
+          <legend className="px-1 text-small font-bold">Data paper lomba (opsional)</legend>
+          <PaperMetaFields form={paper} onChange={setPaper} errors={paperErrors} competitions={competitions} idPrefix="upload" />
+        </fieldset>
         <div className="flex flex-col gap-1.5">
           <Checkbox
             id="impor-milik"
@@ -359,11 +378,13 @@ function BatchReview({
   meta,
   orgName,
   actions,
+  competitions,
 }: {
   batch: Batch
   meta: ImportDTO['batches'][number] | undefined
   orgName: string
   actions: ImportActions
+  competitions: ImportDTO['competitions']
 }) {
   const toast = useToast()
   const [src, setSrc] = useState(batch)
@@ -377,6 +398,8 @@ function BatchReview({
   const [editing, setEditing] = useState<ImportItemDTO | null>(null)
   const viewerRef = useRef<HTMLElement>(null)
   const approveAll = useAction(actions.approveImportItems)
+  const removeFig = useAction(actions.removeFigure)
+  const [cropping, setCropping] = useState(false)
 
   if (src !== batch) {
     setSrc(batch)
@@ -402,6 +425,11 @@ function BatchReview({
     if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches) {
       viewerRef.current?.scrollIntoView({ block: 'start' })
     }
+  }
+
+  async function dropFigure(it: ImportItemDTO) {
+    const r = await removeFig.run({ batchId: batch.id, index: it.index })
+    if (r.ok) patch(it.index, { figure: null })
   }
 
   async function runApproveAll() {
@@ -453,6 +481,8 @@ function BatchReview({
         }
       />
       <ActionError error={approveAll.error} />
+
+      <PaperMetaCard batchId={batch.id} meta={batch.meta} competitions={competitions} actions={actions} />
 
       <Card as="section" aria-label="Ringkasan impor" className="flex flex-wrap items-center gap-x-8 gap-y-4">
         <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-2.5">
@@ -563,6 +593,25 @@ function BatchReview({
                   ? `Soal di halaman ini: ${joinNumbers(onPage)}. Bandingkan teks hasil baca di samping dengan halaman ini sebelum menyetujui.`
                   : 'Halaman ini tidak berisi soal yang terbaca, misalnya sampul atau tabel kunci.'}
               </p>
+              {cropping ? (
+                <FigureCropper
+                  key={page}
+                  batchId={batch.id}
+                  pageUrl={batch.pages[page]!}
+                  pageNumber={page + 1}
+                  pageAlt={`Halaman ${page + 1} dari ${batch.title}, untuk memotong gambar soal.`}
+                  items={items.filter((i) => pageOf(i) === page && !i.approved)}
+                  actions={actions}
+                  onClose={() => setCropping(false)}
+                />
+              ) : (
+                <div>
+                  <Button variant="secondary" size="S" icon="edit" onClick={() => setCropping(true)}>
+                    Potong gambar soal
+                  </Button>
+                </div>
+              )}
+              <ActionError error={removeFig.error} />
             </>
           ) : (
             <p className="m-0 text-body text-fg-muted">Gambar halaman PDF belum tersedia untuk paket ini.</p>
@@ -589,6 +638,7 @@ function BatchReview({
                     actions={actions}
                     onShowPage={() => showPage(it)}
                     onEdit={() => setEditing(it)}
+                    onRemoveFigure={() => dropFigure(it)}
                     onSkip={() => setSkipped((s) => new Set(s).add(it.index))}
                     onApproved={(change) => {
                       patch(it.index, { ...change, approved: true })
@@ -603,7 +653,7 @@ function BatchReview({
             <Card as="section" padding="none" aria-label="Soal yang lolos validator" className="px-6 py-2 max-sm:px-4">
               <ul className="m-0 flex list-none flex-col p-0">
                 {passed.map((it) => (
-                  <PassedRow key={it.index} item={it} onEdit={() => setEditing(it)} onShowPage={() => showPage(it)} hasPage={pageOf(it) >= 0} />
+                  <PassedRow key={it.index} item={it} onEdit={() => setEditing(it)} onShowPage={() => showPage(it)} hasPage={pageOf(it) >= 0} onRemoveFigure={() => dropFigure(it)} />
                 ))}
               </ul>
             </Card>
@@ -729,6 +779,7 @@ function CheckArticle({
   actions,
   onShowPage,
   onEdit,
+  onRemoveFigure,
   onSkip,
   onApproved,
 }: {
@@ -739,6 +790,7 @@ function CheckArticle({
   actions: ImportActions
   onShowPage: () => void
   onEdit: () => void
+  onRemoveFigure: () => void
   onSkip: () => void
   onApproved: (change: Partial<ImportItemDTO>) => void
 }) {
@@ -752,7 +804,8 @@ function CheckArticle({
   const update = useAction(actions.updateImportItem)
   const approve = useAction(actions.approveImportItems)
 
-  const needsKey = !edited && !it.approved && (it.status === 'key-mismatch' || it.answer == null)
+  // Kunci usulan AI (PDF tanpa kunci) tidak dipakai otomatis: tutor memilih kunci sendiri.
+  const needsKey = !edited && !it.approved && (it.status === 'key-mismatch' || it.answer == null || it.keyCheck === 'ai-only')
   const chosen = needsKey ? (key === '' ? null : Number(key)) : it.answer
   const { text, leftover } = splitLeftover(it.prompt)
   const showLeftover = it.status === 'leftover-key-text' && !edited && !it.approved && leftover
@@ -863,6 +916,9 @@ function CheckArticle({
         })}
       </ol>
 
+      <FigureThumb item={it} onRemove={onRemoveFigure} />
+      <KeyCheckNote item={it} />
+
       {it.figureNote ? (
         <p className="m-0 flex items-start gap-2 text-small text-fg-muted">
           <ConsoleIcon name="infoCircle" size={18} className="mt-0.5" />
@@ -953,7 +1009,7 @@ function SkippedRow({ item, onReopen }: { item: ImportItemDTO; onReopen: () => v
   )
 }
 
-function PassedRow({ item: it, onEdit, onShowPage, hasPage }: { item: ImportItemDTO; onEdit: () => void; onShowPage: () => void; hasPage: boolean }) {
+function PassedRow({ item: it, onEdit, onShowPage, hasPage, onRemoveFigure }: { item: ImportItemDTO; onEdit: () => void; onShowPage: () => void; hasPage: boolean; onRemoveFigure: () => void }) {
   return (
     <li className="flex flex-wrap items-center gap-x-4 gap-y-1.5 border-b border-divider py-2.5 last:border-b-0">
       <span className="w-16 flex-none text-body font-bold tabular">Soal {it.number}</span>
@@ -961,6 +1017,8 @@ function PassedRow({ item: it, onEdit, onShowPage, hasPage }: { item: ImportItem
         {it.prompt}
       </span>
       <span className="flex-none text-small font-bold tabular">{it.answer != null ? `Kunci ${letter(it.answer)}` : 'Tanpa kunci'}</span>
+      {it.keyCheck === 'agree' ? <Pill>Cocok dengan AI</Pill> : null}
+      {it.figure ? <Pill>Ada gambar</Pill> : null}
       {it.approved ? (
         <Pill tone="success">
           <ConsoleIcon name="check" size={14} strokeWidth={3} className="text-success" />
@@ -972,6 +1030,7 @@ function PassedRow({ item: it, onEdit, onShowPage, hasPage }: { item: ImportItem
       <span className="flex flex-none gap-1">
         {hasPage ? <IconButton icon="eye" label={`Lihat halaman soal ${it.number}`} size="S" variant="quiet" onClick={onShowPage} /> : null}
         {!it.approved ? <IconButton icon="edit" label={`Edit soal ${it.number}`} size="S" variant="quiet" onClick={onEdit} /> : null}
+        {!it.approved && it.figure ? <IconButton icon="close" label={`Lepas gambar soal ${it.number}`} size="S" variant="quiet" onClick={onRemoveFigure} /> : null}
       </span>
     </li>
   )
