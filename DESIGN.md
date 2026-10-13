@@ -151,6 +151,7 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 ## 9. Page structures in use
 
 - Today: header dengan avatar, sapaan, rantai bintang streak; bar progres sesi; jalur 9 sesi wajib dikelompokkan per mapel (Practice, Test, Paper) dengan sesi aktif besar dan sesi lain kecil; bagian Extra today untuk sesi opsional; lomba berikutnya di bawah.
+- Navigasi learner: delapan tujuan (Today, Map, Review, Competitions, English Skills, Quick Maths, Quiz Arena, Me). Tablet: rel kiri memuat semuanya dan bisa digulir bila layar pendek. HP: bar bawah memuat Today, Map, Review (bila dipakai), dan Me, ditambah tombol More yang membuka lembar berisi sisanya. Lembar More memakai <dialog> asli, hanya ketuk, target minimal 56 px, dan tombolnya menyala bila layar yang terbuka ada di dalam lembar.
 - Runner: bar atas (keluar, progres bersegmen, timer bila ada), area soal, area jawaban, bar bawah (hint, baca suara, Check). Tablet landscape: figur di kiri, jawaban di kanan.
 - Hasil dan pembahasan: skor, lalu daftar soal; setiap soal membuka jawaban learner, kunci, penjelasan, dan SolutionPlayer.
 - Konsol tutor: Perlu perhatian, status hari ini per mapel, tren mingguan.
