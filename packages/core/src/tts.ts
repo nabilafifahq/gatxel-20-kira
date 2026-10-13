@@ -164,12 +164,12 @@ function breakLong(sentence: string, max: number): string[] {
 export type TtsClipRequest = { text: string; style: TtsStyleId }
 
 /**
- * Teks yang layak dibacakan: ada huruf, bukan hanya angka atau tanda baca, dan tidak terlalu panjang
+ * Teks yang layak dibacakan: ada huruf atau angka, bukan hanya tanda baca, dan tidak terlalu panjang
  * untuk satu klip. Dipakai worker dan endpoint permintaan sebelum membuat klip.
  */
 export function isClipText(text: string): boolean {
   const t = normalizeTtsText(text)
-  return t.length >= 1 && t.length <= TTS_CLIP_MAX_CHARS && /[A-Za-z]/.test(t)
+  return t.length >= 1 && t.length <= TTS_CLIP_MAX_CHARS && /[A-Za-z0-9]/.test(t)
 }
 
 /** Teks di layar memakai ___ untuk isian. Dibacakan sebagai kata "blank". */
@@ -192,3 +192,68 @@ export function styleForContext(ctx: TtsContext): TtsStyleId {
       return 'teacher'
   }
 }
+
+/** Gaya menurut jenis bacaan: cerita dan puisi dibawakan pencerita, teks informasi oleh guru. */
+export function styleForPassageKind(kind: string): TtsStyleId {
+  return kind === 'story' || kind === 'poem' || kind === 'diary' || kind === 'letter' || kind === 'dialogue' ? 'narrator' : 'teacher'
+}
+
+/** Soal ejaan dan dikte dibacakan dengan suara pelan dan jelas. Gaya mengikuti id skill (mis. e2.spelling-bee). */
+export function styleForSkill(skillId: string): TtsStyleId {
+  return /(?:^|[.-])(?:dictation|spelling|spell)(?:$|[.-])/.test(skillId) ? 'dictation' : 'teacher'
+}
+
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
+
+/** Klip penanda pilihan jawaban. Dibuat untuk semua gaya yang dipakai soal. */
+export function letterClip(index: number): string {
+  return `Option ${LETTERS[index] ?? String(index + 1)}.`
+}
+
+/** Bentuk netral isi soal yang bisa dibacakan. Web mengisinya dari ClientItem, worker dari Item. */
+export type SpeakableFields = {
+  prompt: string
+  readText?: string | undefined
+  /** Teks tiap opsi menurut urutan tampil; opsi tanpa teks diberi deskripsi gambarnya. */
+  options?: string[] | undefined
+  orderItems?: string[] | undefined
+  matchLeft?: string[] | undefined
+  matchRight?: string[] | undefined
+  sortGroups?: string[] | undefined
+  sortItems?: string[] | undefined
+}
+
+/**
+ * Bagian-bagian yang dibacakan untuk satu soal, berurutan. Setiap bagian lalu dipecah `splitClipText`
+ * menjadi klip. Opsi dibacakan satu per satu dengan penanda hurufnya, jadi urutan opsi yang diacak
+ * tidak membuat klip baru: setiap klip hanya bergantung pada satu teks.
+ */
+export function speakableParts(f: SpeakableFields): string[] {
+  const parts: string[] = [spokenBlanks(f.prompt)]
+  if (f.readText) parts.push(f.readText)
+  f.options?.forEach((o, i) => {
+    parts.push(letterClip(i))
+    if (o) parts.push(o)
+  })
+  for (const list of [f.orderItems, f.matchLeft, f.matchRight, f.sortGroups, f.sortItems]) for (const t of list ?? []) parts.push(t)
+  return parts.map((p) => p.trim()).filter(Boolean)
+}
+
+/** Semua klip (teks yang sudah dipecah dan layak dibacakan) dari bagian-bagian. */
+export function clipTextsOf(parts: readonly string[]): string[] {
+  return parts.flatMap((p) => splitClipText(p)).filter(isClipText)
+}
+
+/**
+ * Kalimat tetap yang dibacakan layar learner di luar soal (Keterampilan English, pujian). Worker membuatnya
+ * di setiap batch supaya layar itu selalu punya suara.
+ */
+export const TTS_FIXED_LINES: TtsClipRequest[] = [
+  { text: 'Well done!', style: 'teacher' },
+  { text: 'Great job!', style: 'teacher' },
+  { text: 'Not quite. Listen again.', style: 'teacher' },
+  { text: 'Listen carefully.', style: 'teacher' },
+  { text: 'Now it is your turn.', style: 'teacher' },
+  { text: 'Hello! I am your English examiner today.', style: 'teacher' },
+  { text: 'Thank you. That is the end of the speaking test.', style: 'teacher' },
+]

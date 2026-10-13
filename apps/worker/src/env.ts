@@ -16,6 +16,8 @@ const schema = z
     KIRA_DATA_DIR: z.string({ error: 'wajib diisi' }).min(1, 'wajib diisi'),
     KIRA_INTERNAL_URL: z.url({ error: 'harus berupa URL, misalnya http://web:3000' }).default('http://web:3000'),
     KIRA_INTERNAL_TOKEN: z.string({ error: 'wajib diisi' }).min(32, 'minimal 32 karakter'),
+    /** Alamat layanan suara, mis. http://tts:8000. Kosong: tidak ada suara Qwen, layar learner memakai suara tablet. */
+    TTS_URL: z.url({ error: 'harus berupa URL, misalnya http://tts:8000' }).optional(),
     SMTP_URL: z.string().regex(/^smtps?:\/\/\S+$/, 'harus diawali smtp:// atau smtps://').optional(),
     SMTP_FROM: z.string().optional(),
     AI_PROVIDER: z.enum(['claude-code', 'openai-compatible', 'none'], { error: 'pilih claude-code, openai-compatible, atau none' }).default('claude-code'),

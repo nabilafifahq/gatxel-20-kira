@@ -14,6 +14,11 @@ import {
   splitClipText,
   splitSentences,
   toSegments,
+  clipTextsOf,
+  letterClip,
+  speakableParts,
+  styleForPassageKind,
+  styleForSkill,
   ttsKeyFromFile,
   ttsKeyInput,
   ttsSeed,
@@ -111,7 +116,29 @@ describe('pemecah klip', () => {
   })
   it('isClipText menolak teks tanpa huruf atau terlalu panjang', () => {
     expect(isClipText('cat')).toBe(true)
-    expect(isClipText('12 + 3')).toBe(false)
+    expect(isClipText('12')).toBe(true)
+    expect(isClipText('?!')).toBe(false)
     expect(isClipText('a'.repeat(TTS_CLIP_MAX_CHARS + 1))).toBe(false)
+  })
+})
+
+describe('bagian soal yang dibacakan', () => {
+  it('opsi dibacakan satu per satu dengan penanda huruf, tanpa tergantung urutan lain', () => {
+    const parts = speakableParts({ prompt: 'The cat is ___ the box.', options: ['on', 'in', 'under'] })
+    expect(parts).toEqual(['The cat is blank the box.', 'Option A.', 'on', 'Option B.', 'in', 'Option C.', 'under'])
+    expect(clipTextsOf(parts)).toEqual(parts)
+    expect(letterClip(1)).toBe('Option B.')
+  })
+  it('opsi yang diacak menghasilkan himpunan klip yang sama', () => {
+    const a = new Set(clipTextsOf(speakableParts({ prompt: 'Pick one.', options: ['cat', 'dog'] })))
+    const b = new Set(clipTextsOf(speakableParts({ prompt: 'Pick one.', options: ['dog', 'cat'] })))
+    expect([...a].filter((t) => !t.startsWith('Option')).sort()).toEqual([...b].filter((t) => !t.startsWith('Option')).sort())
+  })
+  it('gaya mengikuti skill dan jenis bacaan', () => {
+    expect(styleForSkill('e2.spelling-bee')).toBe('dictation')
+    expect(styleForSkill('e2.dictation')).toBe('dictation')
+    expect(styleForSkill('e2.magic-e')).toBe('teacher')
+    expect(styleForPassageKind('story')).toBe('narrator')
+    expect(styleForPassageKind('information')).toBe('teacher')
   })
 })

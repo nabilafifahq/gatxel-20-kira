@@ -1,4 +1,4 @@
-import { and, eq, isNull } from 'drizzle-orm'
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import type postgres from 'postgres'
 import { addDays, jakartaDate, jakartaMidnight, weekStart, weekday } from '@kira/core/time'
 import { tables, withOrg, type Db, type WeeklyReportRequest } from '@kira/db'
@@ -11,6 +11,7 @@ import { deleteStored } from './media'
  * Jadwal berkala, semua dalam WIB (Asia/Jakarta, UTC+7 tanpa DST):
  * - retention: setiap hari 03.15 WIB, memanggil kira_retention() lalu menghapus berkasnya.
  * - weekly-report: setiap Minggu 19.00 WIB, meminta web menyiapkan laporan mingguan per learner.
+ * - tts-batch: setiap hari 01.30 WIB, menjadwalkan job tts.batch (suara bahasa Inggris) bila TTS_URL diisi.
  * Tabel schedule_state mencatat waktu jalan terakhir. Slot diklaim dengan upsert bersyarat
  * sebelum dijalankan, jadi restart atau dua worker tidak menjalankan slot yang sama dua kali.
  * Slot yang terlewat (server mati) dijalankan sekali saat worker hidup lagi.
@@ -125,9 +126,29 @@ export async function runWeeklyReport(deps: ScheduleDeps, slotAt: Date, signal: 
   return `selesai: ${ok} dari ${targets.length} learner${pending.length ? `, ${pending.length} gagal dihubungi` : ''}${rejected ? `, ${rejected} ditolak web (kode ${[...statuses].join(', ')})` : ''}`
 }
 
+/** Jadwalkan job tts.batch per org, kecuali sudah ada yang menunggu atau berjalan. Tanpa TTS_URL tidak melakukan apa pun. */
+export async function runTtsBatchEnqueue(deps: ScheduleDeps): Promise<string> {
+  if (!deps.env.TTS_URL) return 'dilewati: TTS_URL belum diisi'
+  let queued = 0
+  for (const orgId of await listOrgIds(deps.client)) {
+    const ctx = workerCtx(orgId, null)
+    const open = await withOrg(deps.db, ctx, (tx) =>
+      tx.select({ id: tables.job.id }).from(tables.job).where(and(eq(tables.job.kind, 'tts.batch'), inArray(tables.job.status, ['queued', 'running']))).limit(1),
+    )
+    if (open.length > 0) continue
+    await withOrg(deps.db, ctx, async (tx) => {
+      const [row] = await tx.insert(tables.job).values({ orgId, kind: 'tts.batch', payload: { scope: 'all' } }).returning({ id: tables.job.id })
+      await tx.execute(sql`select pg_notify('kira_job', ${row!.id})`)
+    })
+    queued++
+  }
+  return `selesai: ${queued} job batch suara dijadwalkan`
+}
+
 export const SCHEDULES: Schedule[] = [
   { name: 'retention', slot: { kind: 'daily', hour: 3, minute: 15 }, run: (d) => runRetention(d) },
   { name: 'weekly-report', slot: { kind: 'weekly', weekday: 0, hour: 19, minute: 0 }, maxLateMs: 2 * DAY_MS, run: runWeeklyReport },
+  { name: 'tts-batch', slot: { kind: 'daily', hour: 1, minute: 30 }, run: (d) => runTtsBatchEnqueue(d) },
 ]
 
 export class Scheduler {

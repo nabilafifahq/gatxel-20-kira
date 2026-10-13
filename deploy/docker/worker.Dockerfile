@@ -32,9 +32,11 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && npm install -g "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}" \
  && npm cache clean --force
-ENV NODE_ENV=production KIRA_DATA_DIR=/data CLAUDE_BIN=claude DISABLE_AUTOUPDATER=1
+ENV NODE_ENV=production KIRA_DATA_DIR=/data KIRA_CONTENT_DIR=/app/content CLAUDE_BIN=claude DISABLE_AUTOUPDATER=1
 WORKDIR /app
 COPY --from=build --chown=node:node /repo/apps/worker/dist ./dist
+# Soal, pelajaran, dan bacaan: job tts.batch membaca teks bahasa Inggris dari sini untuk membuat suaranya.
+COPY --from=build --chown=node:node /repo/content ./content
 RUN mkdir -p /data && chown node:node /data
 USER node
 HEALTHCHECK --interval=60s --timeout=5s --start-period=60s --retries=3 \

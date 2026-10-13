@@ -1,0 +1,14 @@
+# Tambahan opsional: beri layanan tts akses ke GPU NVIDIA (Docker Desktop dengan WSL2).
+# Tanpa file ini layanan tts berjalan di CPU (jauh lebih lambat). Pakai bersama profil tts:
+#   docker compose -f docker-compose.yml -f docker-compose.tts-gpu.yml --profile tts up -d --build
+# atau isi di .env: COMPOSE_FILE=docker-compose.yml;docker-compose.tts-gpu.yml  dan  COMPOSE_PROFILES=tts
+# Panduan lengkap: docs/pasang-windows.md bagian "Suara bahasa Inggris (TTS)".
+services:
+  tts:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
