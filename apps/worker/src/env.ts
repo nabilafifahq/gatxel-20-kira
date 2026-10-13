@@ -26,6 +26,8 @@ const schema = z
     AI_BASE_URL: z.url({ error: 'harus berupa URL, misalnya https://ai.gatxel.com/v1' }).optional(),
     AI_API_KEY: z.string().optional(),
     AI_MODEL: z.string().optional(),
+    /** Batas panggilan AI per minggu untuk pembaruan sumber soal otomatis (cek kunci, impor PDF, draf skill tipis). */
+    AI_WEEKLY_CONTENT_JOBS: z.coerce.number({ error: 'harus berupa angka' }).int('harus bilangan bulat').min(0, 'tidak boleh negatif').max(1000, 'paling banyak 1000').default(60),
   })
 
 export type Env = z.infer<typeof schema>

@@ -57,7 +57,7 @@ async function main(): Promise<void> {
 
   const queue = new JobQueue({ db, client, env, ai, log, handlers: HANDLERS })
   const outbox = new OutboxSender({ db, client, env, log, mailer })
-  const scheduler = new Scheduler({ db, client, env, log })
+  const scheduler = new Scheduler({ db, client, env, log, ai })
 
   let lastBeat = 0
   const heartbeat = async () => {

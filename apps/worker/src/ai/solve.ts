@@ -68,7 +68,8 @@ export function decideKey(input: { sourceKey: number | null; ai1: number | null;
   return { aiAnswer: input.ai1, verdict: 'unverified', key: null }
 }
 
-export type SolveOptions = { subject: string; grade: number; variant: SolveVariant; signal?: AbortSignal }
+/** grade boleh teks, misalnya "1 to 6" bila satu panggilan memuat beberapa kelas. */
+export type SolveOptions = { subject: string; grade: number | string; variant: SolveVariant; signal?: AbortSignal }
 
 /** Satu panggilan AI untuk sekumpulan soal. Hasil dipetakan ke nomor soal; nomor yang tidak dijawab bernilai null. */
 export async function solveBatch(ai: AiProvider, questions: readonly SolveQuestion[], opts: SolveOptions): Promise<{ answers: Map<number, number | null>; model: string }> {

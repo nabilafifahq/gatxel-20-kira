@@ -390,6 +390,15 @@ export function jobSummary(j: JobRow, titleOf: (skillId: string) => string): str
     case 'test':
       base = 'Tes koneksi AI'
       break
+    case 'sourcing':
+      // Pembaruan mingguan sumber soal (worker): draf yang antre di Studio berasal dari sini.
+      base = 'Pembaruan soal mingguan dari sumber terbuka'
+      if (j.status === 'done') {
+        const published = int(output.published)
+        const queued = int(output.queued)
+        if (published !== null || queued !== null) base += `, ${published ?? 0} masuk bank dan ${queued ?? 0} antre untuk disetujui`
+      }
+      break
     case 'mcp':
       base = `${count ?? 'Beberapa'} draf${title ? ` ${title}` : ''} dari Claude lewat MCP`
       break

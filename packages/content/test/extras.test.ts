@@ -50,11 +50,23 @@ describe('registri sumber: aturan lisensi', () => {
     }
   })
 
-  it('PDF resmi hanya dengan lisensi unduhan gratis resmi, dan sebaliknya', () => {
+  it('PDF boleh dari unduhan gratis resmi atau lisensi terbuka, tidak dari lisensi berbayar; official-free hanya untuk PDF', () => {
     const pdf = { ...base, license: 'official-free', format: 'pdf', importer: undefined, fetch: { kind: 'official-pdf', files: [{ url: 'https://example.org/a.pdf', title: 'Contoh 2023', grade: 2, year: 2023 }] } }
     expect(sourceSchema.safeParse(pdf).success).toBe(true)
-    expect(sourceSchema.safeParse({ ...pdf, license: 'cc-by' }).success).toBe(false)
+    expect(sourceSchema.safeParse({ ...pdf, license: 'ogl-3.0' }).success).toBe(true)
+    expect(sourceSchema.safeParse({ ...pdf, license: 'paid' }).success).toBe(false)
+    expect(sourceSchema.safeParse({ ...pdf, importer: 'asdiv' }).success).toBe(false)
     expect(sourceSchema.safeParse({ ...base, license: 'official-free' }).success).toBe(false)
+  })
+
+  it('tahun berkas PDF boleh kosong (paper contoh tanpa tahun) tetapi harus masuk akal bila ada', () => {
+    const file = (extra: object) => ({ ...base, license: 'official-free', format: 'pdf', importer: undefined, fetch: { kind: 'official-pdf', files: [{ url: 'https://example.org/a.pdf', title: 'A', grade: 2, ...extra }] } })
+    expect(sourceSchema.safeParse(file({})).success).toBe(true)
+    expect(sourceSchema.safeParse(file({ year: 1850 })).success).toBe(false)
+  })
+
+  it('lisensi OGL boleh diambil otomatis tetapi tidak masuk repo', () => {
+    expect(LICENSE_POLICY['ogl-3.0']).toMatchObject({ autoFetch: true, commit: false, attribution: true })
   })
 
   it('alamat harus https dan sumber manual tidak boleh punya fetch', () => {
