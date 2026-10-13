@@ -69,9 +69,12 @@ export function sectionOrder(section: string): number {
 }
 
 /** "IKMC 2023, Grade 2, part A" untuk learner (en-GB) dan konsol. */
-export function paperTitle(p: { competition: string | null; year: number | null; grade: number; section: string }): string {
-  const name = p.competition ? p.competition.toUpperCase() : 'Contest paper'
+export function paperTitle(p: { competition: string | null; year: number | null; grade: number; section: string; name?: string | null }): string {
   const part = p.section === 'penuh' ? 'full paper' : `part ${p.section.toUpperCase()}`
+  // Tanpa lomba di katalog, nama paket (misalnya "Bebras Indonesia 2020 SD") yang dipakai; nama itu sudah memuat tahunnya.
+  const own = p.competition ? null : p.name?.replace(/\.pdf$/i, '').replace(/\s+/g, ' ').trim() || null
+  if (own) return `${own}, Grade ${p.grade}, ${part}`
+  const name = p.competition ? p.competition.toUpperCase() : 'Contest paper'
   return `${name}${p.year ? ` ${p.year}` : ''}, Grade ${p.grade}, ${part}`
 }
 

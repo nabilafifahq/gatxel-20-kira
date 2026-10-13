@@ -34,7 +34,7 @@ export function normalizeSection(raw: string | null | undefined): string {
   return code || 'penuh'
 }
 
-export type LibrarySync = { id: string; subject: Subject; grade: number; createdBy: string; meta: BatchMeta; refs: string[] }
+export type LibrarySync = { id: string; subject: Subject; grade: number; createdBy: string; meta: BatchMeta; refs: string[]; /** Nama paket, dipakai sebagai judul bila lomba tidak ada di katalog. */ name?: string }
 
 /**
  * Samakan baris pustaka dengan paket impor: dibuat atau diperbarui bila paket punya data paper dan sedikitnya
@@ -56,7 +56,7 @@ export async function syncLibraryEntryTx(tx: Tx, ctx: OrgContext, b: LibrarySync
     subject: b.subject,
     grade: b.grade,
     section,
-    title: paperTitle({ competition: b.meta.competition, year: b.meta.year, grade: b.grade, section }),
+    title: paperTitle({ competition: b.meta.competition, year: b.meta.year, grade: b.grade, section, name: b.name ?? null }),
     minutes,
     source: b.meta.source?.trim() || SOURCE_UPLOAD_LABEL,
     itemRefs: b.refs,

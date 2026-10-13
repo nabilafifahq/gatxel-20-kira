@@ -185,122 +185,6 @@
       "notes": "Tidak ada unduhan massal yang stabil. Admin menaruh berkas JSON tugas di KIRA_DATA_DIR/sources/bebras, satu tugas per berkas (lihat apps/worker/src/sourcing/datasets/bebras.ts)."
     },
     {
-      "id": "kangaroo-ikmc",
-      "name": "IKMC (Kangaroo Math), paper resmi",
-      "site": "https://kpm.read1institute.org",
-      "subjects": [
-        "math"
-      ],
-      "grades": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "years": "2021 ke atas",
-      "license": "unknown",
-      "licenseNote": "Hak cipta penyelenggara. Cek apakah penyelenggara memberi unduhan gratis; kalau tidak, tutor mengunggah PDF milik keluarga.",
-      "attribution": "International Kangaroo Math Contest, Association Kangourou sans Frontieres.",
-      "format": "pdf",
-      "access": "manual-upload",
-      "competition": "ikmc",
-      "notes": "Impor lewat Impor paket resmi. Paper tinggal di server keluarga, tidak masuk repo."
-    },
-    {
-      "id": "kangaroo-iksc",
-      "name": "IKSC (Kangaroo Science), paper resmi",
-      "site": "https://suryainstitute.org",
-      "subjects": [
-        "science"
-      ],
-      "grades": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "years": "2021 ke atas",
-      "license": "unknown",
-      "licenseNote": "Hak cipta penyelenggara. Tutor mengunggah PDF milik keluarga.",
-      "attribution": "International Kangaroo Science Contest, Surya Institute.",
-      "format": "pdf",
-      "access": "manual-upload",
-      "competition": "iksc",
-      "notes": "Pustaka paper Science kelas 2 tipis, jadi pemilih paper memakai Paper gaya lomba buatan Kira bila perlu."
-    },
-    {
-      "id": "sasmo-papers",
-      "name": "SASMO, paper resmi",
-      "site": "https://simcc.org/contest/sasmo/",
-      "subjects": [
-        "math"
-      ],
-      "grades": [
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "years": "2021 ke atas",
-      "license": "paid",
-      "licenseNote": "Buku paper SASMO dijual. Keluarga membeli bukunya, tutor mengunggah PDF milik keluarga.",
-      "attribution": "Singapore and Asian Schools Math Olympiad, SIMCC.",
-      "format": "pdf",
-      "access": "manual-upload",
-      "competition": "sasmo",
-      "notes": "Tandai unggah manual. Tidak pernah diambil otomatis."
-    },
-    {
-      "id": "seamo-papers",
-      "name": "SEAMO, paper resmi",
-      "site": "https://seamo-official.org",
-      "subjects": [
-        "math"
-      ],
-      "grades": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "years": "2021 ke atas",
-      "license": "paid",
-      "licenseNote": "Paper dijual penyelenggara. Tutor mengunggah PDF milik keluarga.",
-      "attribution": "Southeast Asian Mathematical Olympiad (SEAMO).",
-      "format": "pdf",
-      "access": "manual-upload",
-      "competition": "seamo",
-      "notes": "Tandai unggah manual."
-    },
-    {
-      "id": "cambridge-checkpoint-papers",
-      "name": "Cambridge Primary Checkpoint, contoh paper",
-      "site": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/assessment/cambridge-primary-checkpoint/",
-      "subjects": [
-        "math",
-        "english",
-        "science"
-      ],
-      "grades": [
-        6
-      ],
-      "years": "semua",
-      "license": "restricted",
-      "licenseNote": "Contoh paper ada di situs resmi, sebagian butuh akun sekolah. Tidak diambil otomatis; tutor mengunggah PDF yang sah dipakai keluarga.",
-      "attribution": "Cambridge University Press and Assessment.",
-      "format": "pdf",
-      "access": "listed",
-      "competition": "cambridge-checkpoint",
-      "notes": "Dicatat sebagai calon sumber."
-    },
-    {
       "id": "kangaroo-france-kangourou",
       "name": "Kangourou des mathematiques - sujets et solutions (France), niveau Ecolier",
       "site": "https://www.mathkang.org/concours/sujsol2026.html",
@@ -315,7 +199,7 @@
       "years": "2015-2026",
       "license": "official-free",
       "licenseNote": "Copyright ACL - Les Editions du Kangourou; PDFs linked openly, no explicit reuse licence stated",
-      "attribution": "ACL - Les Editions du Kangourou (Kangourou Sans Frontieres member)",
+      "attribution": "ACL - Les Editions du Kangourou (Kangourou Sans Frontieres member). Kangourou des mathematiques - sujets et solutions (France), niveau Ecolier",
       "format": "pdf",
       "access": "listed",
       "notes": "French language; pictorial/logic questions, usable for grades 3-5 with translation. Level e covers French CE2-CM2 (about Indonesian kelas 3-5). Archive index pages: https://www.mathkang.org/concours/toutk{YYYY}.html. No Pre-Ecolier (grade 1-2) level in France. Petunjuk ambil: https://www.mathkang.org/pdf/kangourou{YYYY}e.pdf (e = Ecolier CE2-CM2; b = Benjamin 6e-5e). YYYY 2015..2026 return 200..."
@@ -338,7 +222,7 @@
       "years": "2005-2023",
       "license": "official-free",
       "licenseNote": "All rights reserved by Kangaroo Pakistan; published openly for download, no reuse licence stated",
-      "attribution": "Kangaroo Pakistan (Kangaroo Sans Frontieres member)",
+      "attribution": "Kangaroo Pakistan (Kangaroo Sans Frontieres member). IKMC past papers 2005-2023 (Pre-Ecolier, Ecolier, Benjamin and higher)",
       "format": "pdf",
       "access": "auto",
       "competition": "ikmc",
@@ -384,7 +268,7 @@
           }
         ]
       },
-      "maxPerRun": 2
+      "maxPerRun": 1
     },
     {
       "id": "mathkangaroo-usa-free-samples",
@@ -404,7 +288,7 @@
       "years": "2006-2026",
       "license": "official-free",
       "licenseNote": "Copyright 2003-2026 Math Kangaroo USA NFP Inc., all rights reserved; free to download, redistribution not permitted",
-      "attribution": "Math Kangaroo USA, NFP, Inc.",
+      "attribution": "Math Kangaroo USA, NFP, Inc.. Math Kangaroo USA - free sample questions 2006-2026",
       "format": "pdf",
       "access": "listed",
       "notes": "Sample (subset) of each year's questions across all grade bands; solutions only in the store. Questions are the standard IKMC pool translated to US English. Petunjuk ambil: https://mathkangaroo.org/mks/wp-content/uploads/YYYY/MM/YYYY-MK-Sample-Questions.pdf (folder and filename vary; scrape hrefs from the page, 22 PDFs found; 2026 = /2026/04/2026-MK-Sample-Questions.pdf)"
@@ -427,7 +311,7 @@
       "years": "2005-2026",
       "license": "paid",
       "licenseNote": "Copyright Math Kangaroo USA, all rights reserved",
-      "attribution": "Math Kangaroo USA, NFP, Inc.",
+      "attribution": "Math Kangaroo USA, NFP, Inc.. Math Kangaroo USA - full past exams with solutions, grades 1-2 to 5-6",
       "format": "pdf",
       "access": "manual-upload",
       "notes": "Page offers past exam PDFs 2005-2026 with written solutions plus online practice exams; only the 2010 and 2020 online exams and the 2015 and 2025 PDF exams are free. Same pages exist for grades-3-4 and grades-5-6 under /mks/practice/. Tutor must buy or upload."
@@ -447,8 +331,8 @@
       ],
       "years": "2020-2026 (older numbered f...",
       "license": "official-free",
-      "licenseNote": "Copyright Mathe-Kaenguru e.V.; PDFs openly downloadable, no reuse licence stated",
-      "attribution": "Mathematikwettbewerb Kaenguru e.V. (Germany)",
+      "licenseNote": "Copyright Mathe-Kaenguru; PDFs openly downloadable, no reuse licence stated",
+      "attribution": "Mathe-Kaenguru (Germany). Mathe-Kaenguru Aufgaben (Klassen 3-4, 5-6)",
       "format": "pdf",
       "access": "listed",
       "notes": "German language. Same IKMC question pool, many picture-based. Solutions may be in a separate file or the participant booklet; not verified. Petunjuk ambil: https://www.mathe-kaenguru.de/chronik/aufgaben/downloads/kaenguru{YYYY}_34.pdf (Klassen 3-4) and kaenguru{YYYY}_56.pdf (Klassen 5-6); YYYY 2020..2026 listed; kaenguru2026_34.pdf verified 200 application/pdf"
@@ -470,7 +354,7 @@
       "years": "2023-2025 (page also has od...",
       "license": "official-free",
       "licenseNote": "Copyright Kangur Matematyczny; PDFs openly downloadable, no reuse licence stated",
-      "attribution": "Stowarzyszenie na rzecz Edukacji Matematycznej (Kangur Matematyczny, Poland)",
+      "attribution": "Kangur Matematyczny (Poland). Kangur Matematyczny - testy konkursowe (Zaczek, Maluch, Beniamin)",
       "format": "pdf",
       "access": "listed",
       "notes": "Polish language. Category-to-grade mapping uses Polish school grades, not Indonesian; Zaczek is roughly IKMC Pre-Ecolier/Ecolier. Petunjuk ambil: https://www.kangur-mat.pl/dokumenty/testy/{YYYY}/{z|m|b|k|j|s}_{YYYY}.pdf (z = Zaczek, m = Maluch, b = Beniamin; z_2024.pdf and m_2023.pdf verified 200 application/pdf). Answers e.g. https://www.kangur-mat.pl/dokumenty/odpowiedzi2026.pdf"
@@ -491,7 +375,7 @@
       "years": "2022-2026 (finals)",
       "license": "official-free",
       "licenseNote": "Copyright Kangourou Italia; PDFs openly downloadable, no reuse licence stated",
-      "attribution": "Kangourou Italia",
+      "attribution": "Kangourou Italia. Kangourou Italia - testi e soluzioni delle finali (Ecolier, Benjamin)",
       "format": "pdf",
       "access": "listed",
       "notes": "Italian language, finals (harder than the qualifying round) with solutions. Petunjuk ambil: Scrape hrefs on the home page containing testifinale. Examples (200 application/pdf): /testifinale/2026/F2026-Ecolier-testi-e-soluzioni.pdf, /testifinale/2022/Finale individuale 2022 - ecolier testi e soluzioni.pdf (URL-encode spaces), /testifinale/2023/Ecolier2023RFIN.pdf"
@@ -512,7 +396,7 @@
       "years": "2000-2008",
       "license": "official-free",
       "licenseNote": "Copyright Kengura Lithuania; no reuse licence stated",
-      "attribution": "Lietuvos Kengura (Lithuania)",
+      "attribution": "Lietuvos Kengura (Lithuania). Kengura uzduotys 2000-2008 (LT/PL/RU, with ATS answer files)",
       "format": "pdf",
       "access": "listed",
       "notes": "Only old papers are on the listing page; low priority. Uppercase .PDF extension. Petunjuk ambil: https://www.kengura.lt/uzduotys/{YYYY}{LT|PL|RU|ATS}.PDF (YYYY 2000..2008; 2019 returned 404)"
@@ -535,7 +419,7 @@
       "years": "2014-2023",
       "license": "unknown",
       "licenseNote": "Site states no part of its content may be copied without prior written consent",
-      "attribution": "Math Kangaroo India",
+      "attribution": "Math Kangaroo India. Math Kangaroo India - past year papers (E-Book) 2014-2023",
       "format": "pdf",
       "access": "listed",
       "notes": "Page is titled E-Book with grade bands 1-2 up to 11-12; could not confirm whether download is free or paid, so left unknown. Mock tests live on a separate registration-based site."
@@ -558,7 +442,7 @@
       "years": "2026-27 sample set",
       "license": "official-free",
       "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
-      "attribution": "Science Olympiad Foundation (SOF), India",
+      "attribution": "Science Olympiad Foundation (SOF), India. SOF IMO (International Mathematics Olympiad) sample papers class 1-12",
       "format": "pdf",
       "access": "auto",
       "competition": "sof-imo",
@@ -589,7 +473,7 @@
           }
         ]
       },
-      "maxPerRun": 2
+      "maxPerRun": 1
     },
     {
       "id": "sof-ieo-sample-papers",
@@ -609,7 +493,7 @@
       "years": "2026-27 sample set",
       "license": "official-free",
       "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
-      "attribution": "Science Olympiad Foundation (SOF), India",
+      "attribution": "Science Olympiad Foundation (SOF), India. SOF IEO (International English Olympiad) sample papers class 1-12",
       "format": "pdf",
       "access": "auto",
       "competition": "sof-ieo",
@@ -640,7 +524,7 @@
           }
         ]
       },
-      "maxPerRun": 2
+      "maxPerRun": 1
     },
     {
       "id": "sof-nso-iso-sample-papers",
@@ -660,7 +544,7 @@
       "years": "2026-27 sample set",
       "license": "official-free",
       "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
-      "attribution": "Science Olympiad Foundation (SOF), India",
+      "attribution": "Science Olympiad Foundation (SOF), India. SOF NSO / ISO (National then International Science Olympiad) sample papers class 1-10",
       "format": "pdf",
       "access": "auto",
       "competition": "sof-iso",
@@ -691,7 +575,7 @@
           }
         ]
       },
-      "maxPerRun": 2
+      "maxPerRun": 1
     },
     {
       "id": "sof-igko-sample-papers",
@@ -711,7 +595,7 @@
       "years": "2026-27 sample set",
       "license": "official-free",
       "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
-      "attribution": "Science Olympiad Foundation (SOF), India",
+      "attribution": "Science Olympiad Foundation (SOF), India. SOF IGKO (International General Knowledge Olympiad) sample papers class 1-10",
       "format": "pdf",
       "access": "listed",
       "notes": "General knowledge with India-centric content (Indian geography and culture); filter before use for an Indonesian child. Petunjuk ambil: https://sofworld.org/igko/class-{n}/sample-model-test-papers/igko-sample-papers-class-{n} -> /download/file/fid/{N}. fids class 1-6: 73701,73702,73703,73704,73705,73706 (class 1 verified application/pdf)"
@@ -734,7 +618,7 @@
       "years": "2026-27 sample set",
       "license": "official-free",
       "licenseNote": "Copyright 2024 Science Olympiad Foundation, all rights reserved; sample papers openly downloadable",
-      "attribution": "Science Olympiad Foundation (SOF), India",
+      "attribution": "Science Olympiad Foundation (SOF), India. SOF ICSO (International Cyber Olympiad) sample papers class 1-10",
       "format": "pdf",
       "access": "listed",
       "notes": "Computer fundamentals plus logical reasoning and achiever section; useful for the logic/computational-thinking track. Petunjuk ambil: https://sofworld.org/icso/class-{n}/sample-model-test-papers/icso-sample-papers-class-{n} -> /download/file/fid/{N}. fids class 1-6: 73668,73669,73920,73921,73922,73673 (class 1 verified application/pdf)"
@@ -759,10 +643,1522 @@
       "years": "2025 set A and B (per sofwo...",
       "license": "paid",
       "licenseNote": "Commercial book, all rights reserved",
-      "attribution": "Science Olympiad Foundation / MTG Learning Media",
+      "attribution": "Science Olympiad Foundation / MTG Learning Media. SOF previous-year olympiad papers (sold via MTG)",
       "format": "pdf",
       "access": "manual-upload",
       "notes": "SOF home page promotes previous-year papers for sale on mtg.in; the shop itself was not opened or checked. Tutor must buy or upload."
+    },
+    {
+      "id": "svamp",
+      "name": "SVAMP",
+      "site": "https://github.com/arkilpatel/SVAMP",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "years": "2021",
+      "license": "mit",
+      "licenseUrl": "https://github.com/arkilpatel/SVAMP/blob/main/LICENSE",
+      "attribution": "Patel, Bhattamishra, dan Goyal (2021), Are NLP Models really able to Solve Simple Math Word Problems? Lisensi MIT.",
+      "format": "json",
+      "access": "auto",
+      "importer": "svamp",
+      "fetch": {
+        "kind": "http-text",
+        "urls": [
+          "https://raw.githubusercontent.com/arkilpatel/SVAMP/main/SVAMP.json"
+        ]
+      },
+      "maxPerRun": 60,
+      "notes": "Soal cerita satu hitungan (tambah, kurang, kali, bagi) sampai kelas 4. Kelas ditebak dari jenis hitungan dan besar bilangan."
+    },
+    {
+      "id": "scienceqa",
+      "name": "ScienceQA",
+      "site": "https://huggingface.co/datasets/derek-thomas/ScienceQA",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2022",
+      "license": "cc-by-nc-sa",
+      "licenseNote": "Kartu Hugging Face menulis CC BY-SA 4.0 dan README GitHub menulis CC BY-NC-SA 4.0. Dipakai yang lebih ketat: nonkomersial dan share-alike, hanya di server keluarga ini.",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "Lu dkk. (2022), Learn to Explain: Multimodal Reasoning via Thought Chains for Science Question Answering (ScienceQA).",
+      "format": "json",
+      "access": "auto",
+      "importer": "scienceqa",
+      "fetch": {
+        "kind": "hf-rows",
+        "dataset": "derek-thomas/ScienceQA",
+        "config": "default",
+        "split": "test"
+      },
+      "maxPerRun": 60,
+      "notes": "Hanya soal natural science tanpa gambar, label kelas 1 sampai 6, dengan penjelasan dari penyusun. Satu-satunya sumber terbuka dengan soal Science kelas 1 dan 2."
+    },
+    {
+      "id": "sil-pakistan-kangaroo-linguistic-past-papers",
+      "name": "Kangaroo Linguistic Contest (SiL) past papers, English, CEFR Pre-A1 to B2",
+      "site": "https://sil.kangaroo.org.pk/past_papers/3231",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2015-2023",
+      "license": "official-free",
+      "licenseNote": "All rights reserved by Kangaroo Pakistan; published openly for download, no reuse licence stated",
+      "attribution": "Kangaroo Pakistan (SiL, Kangaroo Linguistic contest). Kangaroo Linguistic Contest (SiL) past papers, English, CEFR Pre-A1 to B2",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "iklc",
+      "notes": "This is the Pakistan edition of the International Kangaroo Linguistic Contest (IKLC) in English; Pre-A1 and A1 levels suit a grade 2 learner. Indonesia's own IKLC is run by IDEA/Abak Academy (see iklc-indonesia). An older IKLC24 link (c-1-RF_IKLC24.pdf) returned 404. Question format is multiple choice, 24 questions for grades 1-4 per the site; no audio found. Edisi Pakistan dari IKLC (English)....",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/9-PreEcolier.pdf",
+            "title": "IKLC 2023 Pre-Ecolier",
+            "grade": 2,
+            "year": 2023
+          },
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/5-Ecolier.pdf",
+            "title": "IKLC 2023 Ecolier",
+            "grade": 3,
+            "year": 2023
+          },
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/2-IKLC_2022_PreEcolier_final-com.pdf",
+            "title": "IKLC 2022 Pre-Ecolier",
+            "grade": 2,
+            "year": 2022
+          },
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/8-IKLC_2022_Ecolier_final.pdf",
+            "title": "IKLC 2022 Ecolier",
+            "grade": 3,
+            "year": 2022
+          },
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/c-PreEcolier.pdf",
+            "title": "IKLC 2021 Pre-Ecolier",
+            "grade": 2,
+            "year": 2021
+          },
+          {
+            "url": "https://sil.kangaroo.org.pk/uploads/sil/documents/4-Ecolier.pdf",
+            "title": "IKLC 2021 Ecolier",
+            "grade": 3,
+            "year": 2021
+          }
+        ]
+      },
+      "maxPerRun": 1
+    },
+    {
+      "id": "iksc-issc-pakistan-past-papers",
+      "name": "ISSC (Kangaroo-style international science contest) past papers 2017-2024",
+      "site": "https://issc.kangaroo.org.pk/past_papers/3203",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2017-2024",
+      "license": "official-free",
+      "licenseNote": "All rights reserved by Kangaroo Pakistan; published openly for download, no reuse licence stated",
+      "attribution": "Kangaroo Pakistan (ISSC). ISSC (Kangaroo-style international science contest) past papers 2017-2024",
+      "format": "pdf",
+      "access": "listed",
+      "competition": "iksc",
+      "notes": "Site says the first such science contest ran in 2008 (Brazil, Czech...). Level to grade mapping not read, so grades left empty; likely starts at upper primary. Treat as grade 4-6 stretch material until a PDF is inspected. This is the closest public source for the IKSC format. Petunjuk ambil: Index https://issc.kangaroo.org.pk/past_papers/3203 -> year pages https://issc.kangaroo.org.pk/docs/{id}..."
+    },
+    {
+      "id": "iklc-indonesia",
+      "name": "IKLC Indonesia (International Kangaroo Linguistic Contest)",
+      "site": "https://iklcindonesia.com/",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026 guidebook only",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Institute for the Development of Educational Assessment (IDEA) with Abak Academy, Indonesia. IKLC Indonesia (International Kangaroo Linguistic Contest)",
+      "format": "other",
+      "access": "listed",
+      "competition": "iklc",
+      "notes": "Contest is for grades 3-12 per the about page. The File Download 2026 page (https://iklcindonesia.com/file-download-2025-2/) only offers the Panduan IKLC 2026 guidebook through a Google Drive folder; no past papers found. Use sil-pakistan-kangaroo-linguistic-past-papers for format practice."
+    },
+    {
+      "id": "iksc-indonesia-sips",
+      "name": "IKSC Indonesia (International Kangaroo Science Contest)",
+      "site": "https://suryainstitute.org/result-of-the-international-kangarooscience-contest-iksc-2023-indonesia/",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2023 results only",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Surya Institute for the Promotion of Science (SIPS), Indonesia. IKSC Indonesia (International Kangaroo Science Contest)",
+      "format": "other",
+      "access": "listed",
+      "competition": "iksc",
+      "notes": "SIPS page lists 2023 results and a contact (mat.asyik@gmail.com); no practice papers mentioned. Ask the organiser for past papers. Kelas belum dibaca, jadi diperkirakan kelas 4 sampai 6."
+    },
+    {
+      "id": "ikmc-indonesia-kpm",
+      "name": "IKMC Indonesia (International Kangaroo Mathematics Contest), levels Pre-Ecoli...",
+      "site": "https://kpm.read1institute.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Klinik Pendidikan MIPA (KPM), Bogor. IKMC Indonesia (International Kangaroo Mathematics Contest), levels Pre-Ecolier/Ecolier/Benjamin",
+      "format": "other",
+      "access": "listed",
+      "competition": "ikmc",
+      "notes": "A journal article says Indonesian registration runs through KPM Bogor; format per article: Pre-Ecolier (grade 1-2) and Ecolier (3-4) 24 questions 75 minutes, Benjamin (5-6) 30 questions 90 minutes. KPM site returned 403 to automated fetch, so no past-paper availability was verified. Use ikmc-pakistan-past-papers for the same question style in English. kangaroo-indonesia.id is a water-purifier c..."
+    },
+    {
+      "id": "kmnr-ksnr-kpm",
+      "name": "KMNR (Kompetisi Matematika Nalaria Realistik) and KSNR (Kompetisi Sains Nalar...",
+      "site": "https://kpm.read1institute.org/",
+      "subjects": [
+        "math",
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Klinik Pendidikan MIPA (KPM), Bogor. KMNR (Kompetisi Matematika Nalaria Realistik) and KSNR (Kompetisi Sains Nalaria Realistik)",
+      "format": "other",
+      "access": "listed",
+      "competition": "kmnr",
+      "notes": "KMNR is open to grade 1 to grade 12 with district, province and national rounds; KPM reportedly sells a Kumpulan Soal Kompetisi through online shops (not verified). KPM site returned 403 to automated fetch. The Republika 2021 article (https://news.republika.co.id/berita/qtgnwa380/kpm-buka-pendaftaran-olimpiade-matematika-dan-ipa) loads and names KSNR; KMNR is not named there. Tutor should reque..."
+    },
+    {
+      "id": "kmnr-contoh-soal-tirto",
+      "name": "Contoh soal KMNR kelas 2 SD dan jawabannya (Tirto article)",
+      "site": "https://tirto.id/contoh-soal-kmnr-kelas-2-sd-dan-jawabannya-hpBL",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Copyright Tirto.id; terms not read",
+      "attribution": "Tirto.id (editorial, not KPM). Contoh soal KMNR kelas 2 SD dan jawabannya (Tirto article)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Search listing shows sample KMNR grade 2 questions with answers. The page returned 403 to automated fetchers, so content was not verified. Do not scrape; a tutor can read it manually."
+    },
+    {
+      "id": "osn-sd-ksn-puspresnas",
+      "name": "OSN SD / KSN SD (Kompetisi Sains Nasional jenjang SD: Matematika, IPA)",
+      "site": "https://pusatprestasinasional.kemendikdasmen.go.id/",
+      "subjects": [
+        "math",
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2023 schedule letter found",
+      "license": "restricted",
+      "licenseNote": "Government site; no open licence stated",
+      "attribution": "Pusat Prestasi Nasional (Puspresnas), Kemendikdasmen. OSN SD / KSN SD (Kompetisi Sains Nasional jenjang SD: Matematika, IPA)",
+      "format": "other",
+      "access": "manual-upload",
+      "competition": "osn-sd",
+      "notes": "Site loads (needs curl -k; certificate chain not trusted by WebFetch). No public soal or kisi-kisi download found; per the 2023 notice, OSN-K and OSN-P SD exams are delivered through an Android app and questions are downloaded the day before by registered participants. Commercial practice books exist (Gramedia). Old domain pusatprestasinasional.kemdikbud.go.id no longer resolves."
+    },
+    {
+      "id": "tirto-osn-sd-contoh-soal",
+      "name": "Contoh soal OSN-P 2023 SD Matematika dan jawabannya (Tirto article)",
+      "site": "https://tirto.id/contoh-soal-olimpiade-osn-p-2023-sd-matematika-dan-jawabannya-gGiy",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2023",
+      "license": "unknown",
+      "licenseNote": "Copyright Tirto.id; terms not read",
+      "attribution": "Tirto.id (editorial). Contoh soal OSN-P 2023 SD Matematika dan jawabannya (Tirto article)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Search listing says province-level sample questions are included. Page returned 403 to automated fetchers; not verified. Manual reading only."
+    },
+    {
+      "id": "imso-past-problems",
+      "name": "IMSO (International Mathematics and Science Olympiad for primary school) past...",
+      "site": "https://imso-official.org/auth/imsoPastproblem/",
+      "subjects": [
+        "math",
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2022-2025 (19th-22nd)",
+      "license": "official-free",
+      "licenseNote": "Copyright IMSO; zips openly downloadable without login (page sits under /auth/ path)",
+      "attribution": "IMSO organising board (23rd IMSO hosted in Indonesia, October 2026, with Kemendikdasmen and KPM). IMSO (International Mathematics and Science Olympiad for primary school) past problems 19th-22nd",
+      "format": "pdf",
+      "access": "listed",
+      "competition": "imso",
+      "notes": "English problems only, no solutions in the sampled zips. Primary school contest (roughly grades 4-6), so a stretch for grade 2; useful as a long-term target. Site: imso-official.org (footer 2026 23rd IMSO; contact is a Gmail address). Petunjuk ambil: https://imso-official.org/assets/pastProblem/math/mathimso{19..22}.zip and https://imso-official.org/assets/pastProblem/science/scienceimso{19..22..."
+    },
+    {
+      "id": "seamo-sample-papers",
+      "name": "SEAMO sample papers K, A-F and syllabus",
+      "site": "https://www.seamo-official.org/resources",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "sample set (undated)",
+      "license": "official-free",
+      "licenseNote": "Copyright SEAMO; sample papers linked openly, no reuse licence stated",
+      "attribution": "SEAMO (Southeast Asian Mathematical Olympiad). SEAMO sample papers K, A-F and syllabus",
+      "format": "pdf",
+      "access": "auto",
+      "competition": "seamo",
+      "notes": "Paper A = Years 1-2, B = 3-4, C = 5-6, K = kindergarten (per testing-centre pages). One sample paper per level only. Exam period 10 Oct 2026, registration 10 Aug to 19 Sep 2026 per the site. Paper A untuk Years 1-2 dan B untuk Years 3-4; satu contoh per jenjang, tanpa tahun.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://seamo.sgp1.digitaloceanspaces.com/images/resources/paper-A.pdf",
+            "title": "SEAMO sample paper A (Years 1-2)",
+            "grade": 2,
+            "section": "A"
+          },
+          {
+            "url": "https://seamo.sgp1.digitaloceanspaces.com/images/resources/paper-B.pdf",
+            "title": "SEAMO sample paper B (Years 3-4)",
+            "grade": 3,
+            "section": "B"
+          }
+        ]
+      },
+      "maxPerRun": 1
+    },
+    {
+      "id": "seamo-past-year-book-series",
+      "name": "SEAMO Past Year Book Series (Paper A-F, primary to pre-university)",
+      "site": "https://www.seamo-official.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "paid",
+      "licenseNote": "Commercial books, all rights reserved",
+      "attribution": "SEAMO / SAP Education (sapgrp.com). SEAMO Past Year Book Series (Paper A-F, primary to pre-university)",
+      "format": "pdf",
+      "access": "manual-upload",
+      "competition": "seamo",
+      "notes": "SEAMO home page links the Past Year Book Series to a sapgrp.com product page (returned 403 to automated fetch, so price and content unverified). Tutor must buy or upload."
+    },
+    {
+      "id": "sasmo-simcc",
+      "name": "SASMO (Singapore and Asian Schools Math Olympiad)",
+      "site": "https://www.simcc.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Singapore International Math Contests Centre (SIMCC). SASMO (Singapore and Asian Schools Math Olympiad)",
+      "format": "other",
+      "access": "listed",
+      "competition": "sasmo",
+      "notes": "simcc.org and form.simcc.org returned 403 to automated fetch, so sample or past paper availability could not be verified. WARNING: sasmo.sg redirects to an unrelated arcade site; do not use. Third-party PDF copies of SASMO papers circulate (Scribd, blogs) and are not listed here. Per a Grade 2 description: 25 questions, 1 point deducted for a wrong multiple-choice answer."
+    },
+    {
+      "id": "simoc-singapore",
+      "name": "SIMOC (Singapore International Math Olympiad Challenge)",
+      "site": "https://www.medcom.id/pendidikan/news-pendidikan/Zkea9zOk-borong-115-emas-indonesia-berjaya-di-olimpiade-matematika-di-singapura",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Believed SIMCC / related Singapore organiser (not confirmed). SIMOC (Singapore International Math Olympiad Challenge)",
+      "format": "other",
+      "access": "listed",
+      "notes": "No official SIMOC site or past papers found. The URL is a Medcom news article about Indonesia winning 115 golds at SIMOC 2024 (three rounds: individual, team, Math Warriors Challenge). Search results mention SIMOC as a qualifier for AMO, SASMO and SMGF."
+    },
+    {
+      "id": "hkimo-ocec",
+      "name": "HKIMO (Hong Kong International Mathematical Olympiad)",
+      "site": "https://www.ocecthai.com/hkimo.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Olympiad Champion Education Centre (OCEC), Hong Kong. HKIMO (Hong Kong International Mathematical Olympiad)",
+      "format": "other",
+      "access": "listed",
+      "competition": "hkimo",
+      "notes": "The Thai partner page loads but shows no past-paper downloads. Third-party listings say registered students receive past papers with answer keys (unconfirmed). The domain olympiadchampion.com returned a redirect/ad page and is not listed as a source."
+    },
+    {
+      "id": "timo-ocec",
+      "name": "TIMO (Thailand International Mathematical Olympiad)",
+      "site": "https://www.ocecthai.com/timo.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Olympiad Champion Education Centre (OCEC), Hong Kong, with Thai partner. TIMO (Thailand International Mathematical Olympiad)",
+      "format": "other",
+      "access": "listed",
+      "competition": "timo",
+      "notes": "Organiser page loads (background and registration only). Format per a third-party booklet: 25 questions, 5 areas, 4 marks each, no negative marking. Copies on pdfcoffee, CliffsNotes, Scribd are unauthorised and deliberately not listed."
+    },
+    {
+      "id": "ukmt-primary-kangaroo",
+      "name": "UKMT Primary Kangaroo past papers (the older Primary Mathematics Challenge is...",
+      "site": "https://ukmt.org.uk/junior-challenges/primary-kangaroo",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2025-2026 plus sample problems",
+      "license": "official-free",
+      "licenseNote": "Copyright UKMT; free past papers, no reuse licence stated (older papers are sold in the UKMT shop)",
+      "attribution": "UK Mathematics Trust (UKMT). UKMT Primary Kangaroo past papers (the older Primary Mathematics Challenge is not listed on the page)",
+      "format": "pdf",
+      "access": "auto",
+      "notes": "For UK Year 5/6 or below (ages 9-11). Grade fit: about Indonesian kelas 4-6; hard for kelas 2. Upload folder date is not the paper year. The UKMT page does not mention the Primary Mathematics Challenge, and ukmt.org.uk/competitions/solo/primary-mathematics-challenge returns 404; PMC is probably the predecessor but that is unconfirmed. UKMT sells older competition papers in its shop. Untuk UK Ye...",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://ukmt.org.uk/wp-content/uploads/2026/04/Primary_Kangaroo_Paper_2026_v2.pdf",
+            "title": "UKMT Primary Kangaroo 2026",
+            "grade": 4,
+            "year": 2026
+          },
+          {
+            "url": "https://ukmt.org.uk/wp-content/uploads/2025/05/PrimaryKangarooPaper2025v5.pdf",
+            "title": "UKMT Primary Kangaroo 2025",
+            "grade": 4,
+            "year": 2025
+          }
+        ]
+      },
+      "maxPerRun": 1
+    },
+    {
+      "id": "ukmt-free-team-and-senior-papers",
+      "name": "UKMT free past papers: Team Maths Challenge and Senior Mathematical Challenge",
+      "site": "https://ukmt.org.uk/current-past-papers",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2014-2026",
+      "license": "official-free",
+      "licenseNote": "Copyright UKMT; free download, no reuse licence stated",
+      "attribution": "UK Mathematics Trust (UKMT). UKMT free past papers: Team Maths Challenge and Senior Mathematical Challenge",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Grade fit: NOT suitable for grades 1-6 (Team Maths Challenge is Year 8-9, Senior Challenge is Year 12-13). Listed only to record the grade-fit finding; autoFetch false on purpose. Petunjuk ambil: https://ukmt.org.uk/wp-content/uploads/YYYY/MM/<file>.pdf (YYYY/MM is upload date; scrape the page) Kelas belum dibaca, jadi diperkirakan kelas 4 sampai 6."
+    },
+    {
+      "id": "amc8-live-poshenloh-archive",
+      "name": "AMC 8 problems 1985-2026 with answer keys and solutions (LIVE by Po-Shen Loh...",
+      "site": "https://live.poshenloh.com/past-contests",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        5,
+        6
+      ],
+      "years": "1985-2026 (2021 not listed)",
+      "license": "official-free",
+      "licenseNote": "Problems copyright MAA; site states they are hosted with official legal permission of the MAA; personal practice only",
+      "attribution": "Mathematical Association of America (MAA); hosted by LIVE with stated MAA permission. AMC 8 problems 1985-2026 with answer keys and solutions (LIVE by Po-Shen Loh archive)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "AMC 8 is for students in grade 8 and below (25 questions, 40 minutes). Grade fit: realistic from about grade 5-6; too hard for grade 2 except the first 5-8 questions of each paper. Petunjuk ambil: https://live.poshenloh.com/images/past-contests/pdf/amc8-{YYYY}-exam.pdf (2024, 2015, 2005 verified 200 application/pdf); web pages https://live.poshenloh.com/past-contests/amc8/{YYYY} and /solutions;..."
+    },
+    {
+      "id": "amc8-maa-official",
+      "name": "AMC 8 official MAA pages and AMC Publications",
+      "site": "https://www.maa.org/math-competitions/amc-8",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Copyright MAA; solutions pamphlets carry integrity notices",
+      "attribution": "Mathematical Association of America (MAA). AMC 8 official MAA pages and AMC Publications",
+      "format": "other",
+      "access": "listed",
+      "notes": "maa.org and the AoPS wiki (artofproblemsolving.com/wiki) return 403 to automated clients, so access could not be verified. A search snippet says MAA sells collections of past competitions and also lists past tests under AMC Publications. Prefer the LIVE archive entry."
+    },
+    {
+      "id": "moems-contests",
+      "name": "MOEMS (Math Olympiads for Elementary and Middle Schools) contests",
+      "site": "https://www.moems.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "restricted",
+      "licenseNote": "Copyright MOEMS",
+      "attribution": "MOEMS. MOEMS (Math Olympiads for Elementary and Middle Schools) contests",
+      "format": "other",
+      "access": "manual-upload",
+      "notes": "Division E is grades 4-6 and Division M grades 6-8. Contests are run through enrolled schools; additional practice problems are sold in the MOEMS store. Sample contests location was not confirmed."
+    },
+    {
+      "id": "moems-problem-of-the-week",
+      "name": "MOEMS Problem of the Week (problems and solutions)",
+      "site": "https://www.moems.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "current",
+      "license": "official-free",
+      "licenseNote": "Copyright MOEMS; posted publicly, no reuse licence stated",
+      "attribution": "MOEMS. MOEMS Problem of the Week (problems and solutions)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Per the home page, Problem of the Week problems and solutions are shared as public Google Slides links with no enrollment mentioned. Google Slides are not a stable download source, hence autoFetch false."
+    },
+    {
+      "id": "noetic-learning-math-contest",
+      "name": "Noetic Learning Math Contest past tests and solutions, grades 2-8",
+      "site": "https://www.noetic-learning.com/mathcontest/pasttests.jsp",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "Fall 2023 to Spring 2026",
+      "license": "paid",
+      "licenseNote": "Sold for use within the buyer's home or classroom only; no redistribution, no commercial use",
+      "attribution": "Noetic Learning. Noetic Learning Math Contest past tests and solutions, grades 2-8",
+      "format": "pdf",
+      "access": "manual-upload",
+      "notes": "Priced at about US$9 per test or US$45 per grade bundle (as of the page). The grade 2 and grade 3 tests are the best-fitting commercial contest papers found. Tutor must buy."
+    },
+    {
+      "id": "amc-australia-amt-past-papers",
+      "name": "Australian Mathematics Competition (AMC) past papers",
+      "site": "https://amt.edu.au/department/past-papers",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "paid",
+      "licenseNote": "Copyright AMT",
+      "attribution": "Australian Maths Trust (AMT). Australian Mathematics Competition (AMC) past papers",
+      "format": "pdf",
+      "access": "manual-upload",
+      "notes": "The page says to order PDF versions of AMC past papers from the AMT bookshop. Middle Primary (Years 3-4) and Upper Primary (Years 5-6) papers exist. The AMT site returns 403 to curl but WebFetch could read it. Tutor must buy."
+    },
+    {
+      "id": "bebras-indonesia-pembahasan-pdf",
+      "name": "Buku Pembahasan Soal Bebras Indonesia (Siaga SD, Penggalang SMP, SiKecil) 201...",
+      "site": "https://bebras.or.id/v4/soal/pembahasan-soal",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2016-2020",
+      "license": "official-free",
+      "licenseNote": "Copyright Bebras Indonesia (Hak Cipta Dilindungi); no open licence stated. International Bebras task template pages state CC BY-SA 4.0, but this site does not",
+      "attribution": "Bebras Indonesia (site links to TOKI and Kemdikbud). Buku Pembahasan Soal Bebras Indonesia (Siaga SD, Penggalang SMP, SiKecil) 2016-2020",
+      "format": "pdf",
+      "access": "auto",
+      "notes": "Best Indonesian-language logic and computational thinking source: full task sets with solutions and CT explanation. Siaga = SD level, SiKecil (2020 only) = PAUD/TK, good for grade 1-2. Private family use; ask Bebras Indonesia before redistributing. Bahasa Indonesia, dengan pembahasan. Kelas hanya perkiraan: buku SD ke Grade 2 dan SiKecil (PAUD/TK) ke Grade 1. Banyak soal bergambar, jadi hasil b...",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://bebras.or.id/v3/wp-content/uploads/2024/10/Bebras-Indonesia-Book-2020-SD-OK-Okt2024.pdf",
+            "title": "Bebras Indonesia 2020 SD",
+            "grade": 2,
+            "year": 2020
+          },
+          {
+            "url": "https://bebras.or.id/v3/wp-content/uploads/2024/10/Bebras-Indonesia-Book-2020-SiKecil-OK-Okt2024.pdf",
+            "title": "Bebras Indonesia 2020 SiKecil",
+            "grade": 1,
+            "year": 2020
+          },
+          {
+            "url": "https://bebras.or.id/v3/wp-content/uploads/2018/07/BukuBebras2017_SD.pdf",
+            "title": "Bebras Indonesia 2017 SD",
+            "grade": 2,
+            "year": 2017
+          },
+          {
+            "url": "https://bebras.or.id/v3/wp-content/uploads/2019/10/Bebras-Challenge-2016_Siaga.pdf",
+            "title": "Bebras Indonesia 2016 Siaga",
+            "grade": 2,
+            "year": 2016
+          }
+        ]
+      },
+      "maxPerRun": 1
+    },
+    {
+      "id": "bebras-indonesia-contoh-soal-web",
+      "name": "Bebras Indonesia sample tasks Siaga SD (web) and Latihan",
+      "site": "https://bebras.or.id/v4/soal/siaga-sd",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "sample (undated); challenge...",
+      "license": "official-free",
+      "licenseNote": "Copyright 2026 Bebras Indonesia, Hak Cipta Dilindungi",
+      "attribution": "Bebras Indonesia. Bebras Indonesia sample tasks Siaga SD (web) and Latihan",
+      "format": "other",
+      "access": "listed",
+      "notes": "Page shows one sample Siaga task (Dress code untuk Berang-berang) with options and solution. Site nav links Bebras Challenge archives for 2016-2026 and a Latihan page (https://bebras.or.id/v4/latihan); archive pages for 2022-2026 were not opened. No PDFs on this page."
+    },
+    {
+      "id": "bebras-uk-practice",
+      "name": "UK Bebras practice challenges, Kits (age 6-8) and Castors (age 8-10)",
+      "site": "https://www.bebras.uk/index.php?action=user_competitions",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "years": "past challenges (years not...",
+      "license": "official-free",
+      "licenseNote": "Site terms: copyright owned by UK Bebras or its licensors; users must seek consent to re-use any content",
+      "attribution": "UK Bebras. UK Bebras practice challenges, Kits (age 6-8) and Castors (age 8-10)",
+      "format": "other",
+      "access": "listed",
+      "notes": "FAQ says the practice challenges are open without a login. Kits (6-8) matches grade 1-3; interactive web tasks, so not scrapable and reuse needs consent. Terms page: https://www.bebras.uk/index.php?action=content&id=44"
+    },
+    {
+      "id": "bebras-international",
+      "name": "Bebras international task collections (bebras.org)",
+      "site": "https://www.bebras.org/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "A task template page (bebras.di.unimi.it) states Creative Commons Attribution-ShareAlike 4.0; archive terms not verified",
+      "attribution": "Bebras International Community. Bebras international task collections (bebras.org)",
+      "format": "other",
+      "access": "listed",
+      "notes": "bebras.org is a JavaScript app that returned an almost empty page to fetchers, so the task archive and per-task licence could not be verified. Tasks are shared by national organisers each November; youngest international groups start at age 6-8 or 8-10. Prefer the national Bebras entries above."
+    },
+    {
+      "id": "cs-unplugged",
+      "name": "CS Unplugged activities (computational thinking without computers)",
+      "site": "https://www.csunplugged.org/en/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "ongoing",
+      "license": "cc-by-sa",
+      "licenseNote": "Creative Commons Attribution-ShareAlike 4.0 International (stated on site)",
+      "attribution": "University of Canterbury, New Zealand. CS Unplugged activities (computational thinking without computers)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Offline activities, printables and lesson plans rather than a question bank; useful as a source for original logic and pattern questions. The GitHub path github.com/csunplugged/csunplugged returned 404 (repo location not confirmed)."
+    },
+    {
+      "id": "govuk-ks1-maths-tests",
+      "name": "KS1 (Year 2) mathematics test papers with mark schemes",
+      "site": "https://www.gov.uk/government/collections/national-curriculum-assessments-practice-materials",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3
+      ],
+      "years": "2016-2026 (2024-2026 option...",
+      "license": "ogl-3.0",
+      "licenseNote": "Open Government Licence v3.0 except where otherwise stated (collection page); each year ships a copyright ownership PDF listing third-party items",
+      "attribution": "UK Standards and Testing Agency (DfE) via GOV.UK. KS1 (Year 2) mathematics test papers with mark schemes",
+      "format": "pdf",
+      "access": "auto",
+      "notes": "Exact grade 2 fit (Year 2, age 6-7). Paper 1 arithmetic and Paper 2 reasoning; mark schemes are separate PDFs. Read aloud by an adult for younger pupils is allowed in the administering guide. Hanya Paper 2 (reasoning), Year 2 Inggris. Banyak soal isian, jadi tutor mengecek hasil baca di Impor; kunci di PDF mark scheme terpisah. Paper 1 (hitungan isian) tidak diambil otomatis.",
+      "fetch": {
+        "kind": "official-pdf",
+        "files": [
+          {
+            "url": "https://assets.publishing.service.gov.uk/media/6a1576120a1a96d9418d284f/2026_KS1_mathematics_Paper2_reasoning.pdf",
+            "title": "KS1 maths 2026 Paper 2 reasoning",
+            "grade": 2,
+            "year": 2026,
+            "section": "Paper 2"
+          },
+          {
+            "url": "https://assets.publishing.service.gov.uk/media/6835861f3dd61280f46c03aa/2025_KS1_mathematics_Paper2_reasoning.pdf",
+            "title": "KS1 maths 2025 Paper 2 reasoning",
+            "grade": 2,
+            "year": 2025,
+            "section": "Paper 2"
+          },
+          {
+            "url": "https://assets.publishing.service.gov.uk/media/6655bdc316cf36f4d63ebb13/STA248808e_2024_ks1_mathematics_Paper2_reasoning.pdf",
+            "title": "KS1 maths 2024 Paper 2 reasoning",
+            "grade": 2,
+            "year": 2024,
+            "section": "Paper 2"
+          }
+        ]
+      },
+      "maxPerRun": 1
+    },
+    {
+      "id": "govuk-ks1-english-tests",
+      "name": "KS1 (Year 2) English reading and grammar, punctuation and spelling test papers",
+      "site": "https://www.gov.uk/government/collections/national-curriculum-assessments-practice-materials",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        2,
+        3
+      ],
+      "years": "2016-2026 (2024-2026 verifi...",
+      "license": "ogl-3.0",
+      "licenseNote": "Open Government Licence v3.0 except where otherwise stated; reading passages may contain third-party copyright items (see each year's copyright ownership PDF)",
+      "attribution": "UK Standards and Testing Agency (DfE) via GOV.UK. KS1 (Year 2) English reading and grammar, punctuation and spelling test papers",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Spelling paper is read aloud by the adult (no audio file). Reading is British English; good for a Year 2 level English reader. Check the copyright PDF before redistributing passages. Petunjuk ambil: GET https://www.gov.uk/api/content/government/publications/{slug} -> details.attachments[].url. Slugs: optional-key-stage-1-tests-{2024|2025|2026}-english-reading-test-materials (7 attachments: read..."
+    },
+    {
+      "id": "govuk-ks2-maths-tests",
+      "name": "KS2 (Year 6) mathematics SATs papers with mark schemes",
+      "site": "https://www.gov.uk/government/collections/national-curriculum-assessments-practice-materials",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        5,
+        6
+      ],
+      "years": "2016-2026 (2025-2026 verifi...",
+      "license": "ogl-3.0",
+      "licenseNote": "Open Government Licence v3.0 except where otherwise stated; copyright ownership PDF per year",
+      "attribution": "UK Standards and Testing Agency (DfE) via GOV.UK. KS2 (Year 6) mathematics SATs papers with mark schemes",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Year 6 (age 10-11) level for later years; includes arithmetic and reasoning. Too advanced for grade 2. Petunjuk ambil: GET https://www.gov.uk/api/content/government/publications/key-stage-2-tests-{YYYY}-mathematics-test-materials -> details.attachments[].url (2026: Paper 1 arithmetic, Papers 2 and 3 reasoning, administering guides, mark schemes). Slug exists for 2016-2022, 2024-2026 (2023 reque..."
+    },
+    {
+      "id": "govuk-ks2-english-tests",
+      "name": "KS2 (Year 6) English reading and SPaG SATs papers with mark schemes",
+      "site": "https://www.gov.uk/government/collections/national-curriculum-assessments-practice-materials",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        5,
+        6
+      ],
+      "years": "2016-2026 (2025-2026 verifi...",
+      "license": "ogl-3.0",
+      "licenseNote": "Open Government Licence v3.0 except where otherwise stated; reading texts often include third-party material listed in the copyright ownership PDF",
+      "attribution": "UK Standards and Testing Agency (DfE) via GOV.UK. KS2 (Year 6) English reading and SPaG SATs papers with mark schemes",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Later-grade reading and grammar target. Third-party text rights are the main caveat. Petunjuk ambil: GET https://www.gov.uk/api/content/government/publications/key-stage-2-tests-{YYYY}-english-reading-test-materials and ...-english-grammar-punctuation-and-spelling-test-materials -> details.attachments[].url (2025 reading 5 attachments, SPaG 6)"
+    },
+    {
+      "id": "cambridge-yle-sample-papers",
+      "name": "Cambridge English Young Learners sample papers (Pre A1 Starters, A1 Movers, A...",
+      "site": "https://www.cambridgeenglish.org/exams-and-tests/qualifications/young-learners/paper/starters/preparation/",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "Volume 1 (2018 audio) and V...",
+      "license": "official-free",
+      "licenseNote": "Copyright Cambridge University Press and Assessment; free to download for preparation, no reuse licence stated",
+      "attribution": "Cambridge University Press and Assessment (Cambridge English). Cambridge English Young Learners sample papers (Pre A1 Starters, A1 Movers, A2 Flyers) with listening audio",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Each volume holds sample papers for all three levels (reading and writing, listening, speaking). Answer keys and tapescripts are normally part of Cambridge sample volumes but the PDFs were not text-searched, so unverified. Pre A1 Starters suits a grade 2 learner; Movers grade 3-4. Same page also lists poster packs, flashcards, handbook, lesson plans (zips). Petunjuk ambil: PDF: https://www.camb..."
+    },
+    {
+      "id": "cambridge-yle-word-lists",
+      "name": "Cambridge Young Learners word lists (Starters, Movers, Flyers) and picture books",
+      "site": "https://www.cambridgeenglish.org/exams-and-tests/qualifications/young-learners/paper/starters/preparation/",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2018 and 2025 editions",
+      "license": "official-free",
+      "licenseNote": "Copyright Cambridge University Press and Assessment; free download, no reuse licence stated",
+      "attribution": "Cambridge University Press and Assessment (Cambridge English). Cambridge Young Learners word lists (Starters, Movers, Flyers) and picture books",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "Official vocabulary syllabus for the three levels: the best grade-appropriate English word source for generating own questions. Petunjuk ambil: https://www.cambridgeenglish.org/Images/506166-starters-movers-flyers-word-list-2025.pdf ; /Images/351849-pre-a1-starters-word-list-2018.pdf ; /Images/351851-a2-flyers-wordlist-picture-book.pdf (all 200 application/pdf)"
+    },
+    {
+      "id": "cambridge-primary-checkpoint",
+      "name": "Cambridge Primary Checkpoint (English 0058, Mathematics 0096/0845, Science 00...",
+      "site": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-primary/assessment/cambridge-primary-checkpoint",
+      "subjects": [
+        "math",
+        "english",
+        "science"
+      ],
+      "grades": [
+        6
+      ],
+      "years": "unknown",
+      "license": "restricted",
+      "licenseNote": "Copyright Cambridge; school-only access",
+      "attribution": "Cambridge University Press and Assessment (Cambridge International). Cambridge Primary Checkpoint (English 0058, Mathematics 0096/0845, Science 0097) papers",
+      "format": "pdf",
+      "access": "manual-upload",
+      "competition": "cambridge-checkpoint",
+      "notes": "The past-papers page says registered Cambridge International schools find papers and resources on password-protected sites and the School Support Hub (schoolsupporthub.cambridge.org). No public specimen paper links were found. Checkpoint is taken at Stage 6, so it is a grade 6 target. A tutor attached to a Cambridge school could upload papers."
+    },
+    {
+      "id": "learnenglish-kids-british-council",
+      "name": "LearnEnglish Kids (games, songs, stories, listening, printables)",
+      "site": "https://learnenglishkids.britishcouncil.org/",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "ongoing",
+      "license": "official-free",
+      "licenseNote": "Copyright British Council; terms of use not read, so reuse is not assumed",
+      "attribution": "British Council. LearnEnglish Kids (games, songs, stories, listening, printables)",
+      "format": "other",
+      "access": "listed",
+      "notes": "WebFetch loads it (curl did not). Listening practice levels 1-3 and a Print and make section (worksheets, flashcards). Link out only; do not scrape."
+    },
+    {
+      "id": "scripps-spelling-bee-study-resources",
+      "name": "Scripps National Spelling Bee study resources",
+      "site": "https://spellingbee.com/study-resources",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2019 round two list; undate...",
+      "license": "official-free",
+      "licenseNote": "Copyright Scripps; terms not read",
+      "attribution": "Scripps National Spelling Bee. Scripps National Spelling Bee study resources",
+      "format": "other",
+      "access": "listed",
+      "notes": "Page lists a Preliminaries Sample Test, 2019 Round Two Study List and Study Guide, and a Merriam-Webster affixes dictionary as free resources for spellers. Words of the Champions and the Study Guide book were not on the page and are likely sold separately (not verified). No Indonesian spelling bee source was verified. Grade fit is estimated, not stated by the site."
+    },
+    {
+      "id": "oak-national-academy-api",
+      "name": "Oak National Academy curriculum API and bulk download (Years 1-6 maths, Engli...",
+      "site": "https://open-api.thenational.academy/",
+      "subjects": [
+        "math",
+        "english",
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "current",
+      "license": "ogl-3.0",
+      "licenseNote": "Open Government Licence per the API home page (version not stated); API key and acceptance of Oak API terms required",
+      "attribution": "Oak National Academy (UK). Oak National Academy curriculum API and bulk download (Years 1-6 maths, English, science with quizzes)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Lessons, slide decks, video transcripts and starter/exit quizzes with answers; also misconceptions data. autoFetch is false because a key must be requested first; after that it is fully scriptable. Year 2 maths has 19 units on the public site. Petunjuk ambil: Request a free key via the form on https://open-api.thenational.academy/ ; docs /docs ; bulk JSON per subject and phase at /bulk-download..."
+    },
+    {
+      "id": "illustrative-mathematics-k5",
+      "name": "Illustrative Mathematics K-5 curriculum (lessons, practice problems, assessme...",
+      "site": "https://im.kendallhunt.com/k5/curriculum.html",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "years": "current",
+      "license": "cc-by",
+      "licenseNote": "Creative Commons Attribution 4.0 (site footer); Illustrative Mathematics name and logo excluded",
+      "attribution": "Illustrative Mathematics / Kendall Hunt. Illustrative Mathematics K-5 curriculum (lessons, practice problems, assessments)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Full grade 1-5 curriculum with practice problems and end-of-unit assessments, Spanish versions exist. Whether PDF downloads are free was not confirmed on the page. Strong grade 2 fit. Petunjuk ambil: Grade pages e.g. https://im.kendallhunt.com/K5/teachers/grade-2/units.html (200); Spanish under /K5_ES/"
+    },
+    {
+      "id": "engageny-eureka-archive",
+      "name": "EngageNY / Eureka Math and ELA curriculum modules archive (Grades K-12)",
+      "site": "https://www.nysed.gov/standards-instruction/standards-resources-and-supports",
+      "subjects": [
+        "math",
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "archived 2022",
+      "license": "cc-by-nc-sa",
+      "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA), stated on the NYSED page",
+      "attribution": "New York State Education Department (NYSED). EngageNY / Eureka Math and ELA curriculum modules archive (Grades K-12)",
+      "format": "pdf",
+      "access": "listed",
+      "notes": "NYSED stopped supporting engageny.org on 2022-07-07 and archived the files, which remain free. Math modules include end-of-module assessments with rubrics. Petunjuk ambil: Files are in SharePoint folders linked from the NYSED page (Mathematics Curriculum Modules and ELA Curriculum Modules); not directly scriptable"
+    },
+    {
+      "id": "pusmendik-akm-simulasi",
+      "name": "Simulasi AKM (Literasi Membaca dan Literasi Matematika) jenjang SD/MI",
+      "site": "https://pusmendik.kemendikdasmen.go.id/an/simulasi_akm/",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "current",
+      "license": "official-free",
+      "licenseNote": "Government site; no open licence stated",
+      "attribution": "Pusat Asesmen Pendidikan (Pusmendik), Kemendikdasmen. Simulasi AKM (Literasi Membaca dan Literasi Matematika) jenjang SD/MI",
+      "format": "other",
+      "access": "listed",
+      "notes": "Public page offers Materi (Literasi Membaca / Literasi Matematika) and Jenjang (SD/MI, SMP/MTs, SMA). The page source contains commented Level 1-6 options (Level 1 = Kelas 1 and 2), so the intended level split is by class pair. Interactive simulation, not a download; the question content was not opened. Download pages (/an/page/download) only hold policy documents (schedules, frameworks)."
+    },
+    {
+      "id": "pusmendik-tka-sd",
+      "name": "Tes Kemampuan Akademik (TKA) SD/MI: simulasi and kerangka asesmen",
+      "site": "https://pusmendik.kemendikdasmen.go.id/tka/simulasi_tka",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        6
+      ],
+      "years": "2025-2026",
+      "license": "official-free",
+      "licenseNote": "Government site; no open licence stated",
+      "attribution": "Pusat Asesmen Pendidikan (Pusmendik), Kemendikdasmen. Tes Kemampuan Akademik (TKA) SD/MI: simulasi and kerangka asesmen",
+      "format": "other",
+      "access": "listed",
+      "notes": "TKA is for final-year students (grade 6 in SD/MI); items are multiple choice and complex multiple choice, curriculum-based with reasoning emphasis. The simulation page loads with a jenjang selector; sample content not opened. A grade 6 goal for Kira, not grade 2. Petunjuk ambil: Assessment framework PDFs listed on https://pusmendik.kemendikdasmen.go.id/tka/page/download (Perkaban 47/2025 for SD..."
+    },
+    {
+      "id": "sibi-buku-teks-kemendikdasmen",
+      "name": "SIBI Buku Teks Kurikulum Merdeka SD (Matematika, IPAS, Bahasa Indonesia, Baha...",
+      "site": "https://buku.kemendikdasmen.go.id/",
+      "subjects": [
+        "math",
+        "science",
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "Kurikulum Merdeka",
+      "license": "unknown",
+      "licenseNote": "Per book; not verified",
+      "attribution": "Pusat Perbukuan, Kemendikdasmen (SIBI - Sistem Informasi Perbukuan Indonesia). SIBI Buku Teks Kurikulum Merdeka SD (Matematika, IPAS, Bahasa Indonesia, Bahasa Inggris)",
+      "format": "other",
+      "access": "listed",
+      "notes": "The portal is a React app (JS bundle references api.buku.kemendikdasmen.go.id and a katalog); it returned only a JavaScript shell, so free download terms and per-book licences were not verified. Official textbooks are expected to be freely readable, but this is unconfirmed. Old buku.kemdikbud.go.id no longer resolves."
+    },
+    {
+      "id": "timss-2023-example-items",
+      "name": "TIMSS 2023 example items (grade 4 and grade 8 mathematics and science)",
+      "site": "https://timss2023.org/restricted-items/",
+      "subjects": [
+        "math",
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2023",
+      "license": "official-free",
+      "licenseNote": "Copyright 2025 TIMSS and PIRLS International Study Center, all rights reserved; web viewing only, no download offered",
+      "attribution": "TIMSS and PIRLS International Study Center, Boston College (IEA). TIMSS 2023 example items (grade 4 and grade 8 mathematics and science)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Each item has description, scoring rules and a video. The released-items download pages from earlier cycles (timssandpirls.bc.edu/timss2019/released-items.html) returned 404. Grade fit starts at grade 4."
+    },
+    {
+      "id": "naep-questions-tool",
+      "name": "NAEP Questions Tool (released grade 4 mathematics, science, reading questions)",
+      "site": "https://www.nationsreportcard.gov/nqt/",
+      "subjects": [
+        "math",
+        "science",
+        "english"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "multiple years",
+      "license": "official-free",
+      "licenseNote": "US federal government source; terms not read, third-party reading passages may carry their own copyright",
+      "attribution": "National Center for Education Statistics (NCES), US Department of Education. NAEP Questions Tool (released grade 4 mathematics, science, reading questions)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Page loads (nces.ed.gov/nationsreportcard/nqt redirects here) but only the title was readable (JavaScript app). Earliest NAEP grade is 4, so grade fit starts at grade 4."
+    },
+    {
+      "id": "mawps-dataset",
+      "name": "MAWPS (Math Word Problem Repository), about 1.77k problems",
+      "site": "https://huggingface.co/datasets/mwpt5/MAWPS",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "years": "2016",
+      "license": "unknown",
+      "licenseNote": "No licence declared (HF card licence undefined; GitHub sroy9/mawps shows no licence)",
+      "attribution": "Koncel-Kedziorski, Roy, Amini, Kushman, Hajishirzi (University of Washington / Allen AI). MAWPS (Math Word Problem Repository), about 1.77k problems",
+      "format": "other",
+      "access": "listed",
+      "notes": "Left as unknown because no licence is stated anywhere checked; the unofficial HF mirror is not the authors' release. SVAMP and ASDiv already cover this ground with clearer terms. Petunjuk ambil: https://huggingface.co/datasets/mwpt5/MAWPS/resolve/main/MAWPS.csv (200 text/plain, columns Question, Equation, Answer, Numbers, about 1.77k rows). The github.com/sroy9/mawps repo is Java tooling, not t..."
+    },
+    {
+      "id": "tabmwp-dataset",
+      "name": "TabMWP (Tabular Math Word Problems), grades 1-8",
+      "site": "https://github.com/lupantech/PromptPG",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2022",
+      "license": "cc-by-nc",
+      "licenseNote": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 for the dataset (code is MIT)",
+      "attribution": "Lu et al. (UCLA / Allen AI), PromptPG. TabMWP (Tabular Math Word Problems), grades 1-8",
+      "format": "json",
+      "access": "listed",
+      "notes": "About 38k table-based math problems in total (train file verified at 23,059) with a grade field 1-8, collected from an online learning site. Non-commercial, share-alike. Good for table and chart reading practice at grade 2-3. Petunjuk ambil: https://raw.githubusercontent.com/lupantech/PromptPG/main/data/tabmwp/problems_train.json (200; 23,059 train problems, JSON object keyed by id; fields ques..."
+    },
+    {
+      "id": "sciq-dataset",
+      "name": "SciQ: 13,679 crowdsourced science exam questions",
+      "site": "https://huggingface.co/datasets/allenai/sciq",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "2017",
+      "license": "cc-by-nc",
+      "licenseNote": "CC BY-NC 3.0 (HF card); non-commercial",
+      "attribution": "Allen Institute for AI (AI2). SciQ: 13,679 crowdsourced science exam questions",
+      "format": "json",
+      "access": "listed",
+      "notes": "Physics, chemistry, biology, earth science questions with a supporting paragraph. Level is closer to upper primary through junior high, so use selectively. Petunjuk ambil: https://huggingface.co/datasets/allenai/sciq/resolve/main/data/train-00000-of-00001.parquet (200)"
+    },
+    {
+      "id": "qasc-dataset",
+      "name": "QASC (Question Answering via Sentence Composition), 9,980 grade-school scienc...",
+      "site": "https://huggingface.co/datasets/allenai/qasc",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2019",
+      "license": "cc-by",
+      "licenseNote": "CC BY 4.0 (HF card)",
+      "attribution": "Allen Institute for AI (AI2). QASC (Question Answering via Sentence Composition), 9,980 grade-school science questions",
+      "format": "json",
+      "access": "listed",
+      "notes": "Eight-way multiple choice with two supporting facts (fact1, fact2, combined fact), useful as ready-made explanations. Most permissive licence of the AI2 science sets. Petunjuk ambil: https://huggingface.co/datasets/allenai/qasc/resolve/main/data/train-00000-of-00001.parquet (200)"
+    },
+    {
+      "id": "ai2d-diagrams",
+      "name": "AI2 Diagrams (AI2D): about 5k grade-school science diagrams with questions",
+      "site": "https://ai2-public-datasets.s3.amazonaws.com/diagrams/ai2d-all.zip",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2016",
+      "license": "unknown",
+      "licenseNote": "Not stated at the download location",
+      "attribution": "Allen Institute for AI (AI2). AI2 Diagrams (AI2D): about 5k grade-school science diagrams with questions",
+      "format": "other",
+      "access": "listed",
+      "notes": "Diagram parsing and diagram questions drawn from grade 1-6 science material. The allenai.org/data/diagrams page redirects straight to the zip, so no licence text was seen. Large download; format is images plus JSON, listed as web for lack of a better enum value. Petunjuk ambil: https://ai2-public-datasets.s3.amazonaws.com/diagrams/ai2d-all.zip (HEAD 200, about 991 MB). HF mirror lmms-lab/ai2d h..."
+    },
+    {
+      "id": "indommlu-dataset",
+      "name": "IndoMMLU: Indonesian school exam questions (SD subset about 2,650)",
+      "site": "https://huggingface.co/datasets/indolem/IndoMMLU",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "collected 2022-2023",
+      "license": "mit",
+      "licenseNote": "MIT (HF card and GitHub fajri91/IndoMMLU). Questions were collected from third-party Indonesian exam websites and blogs (daunpendidikan.com, muttaqin.id, academia.edu...), so upstream copyright is unresolved",
+      "attribution": "Koto, Aisyah, Li, Baldwin (MBZUAI / IndoLEM). IndoMMLU: Indonesian school exam questions (SD subset about 2,650)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Counted in the CSV: SD level has 2,650 rows. IPA 488 (kelas 1: 6, kelas 3: 13, kelas 4-6: 469), IPS 300, PPKN 99, Kesenian 200, Penjaskes 49, Agama 300, regional languages (Sunda 718, Jawa 396, Madura 100). There is NO Matematika and NO Bahasa Indonesia at SD level. Questions are multiple choice (A-E); use for private family practice, not redistribution. Petunjuk ambil: https://huggingface.co/d..."
+    },
+    {
+      "id": "opentriviaqa-github",
+      "name": "OpenTriviaQA (uberspot) trivia question files",
+      "site": "https://github.com/uberspot/OpenTriviaQA",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        4,
+        5,
+        6
+      ],
+      "years": "repo updated 2026-05",
+      "license": "cc-by-sa",
+      "licenseNote": "CC BY-SA 4.0 (GitHub licence detection)",
+      "attribution": "uberspot (GitHub). OpenTriviaQA (uberspot) trivia question files",
+      "format": "other",
+      "access": "listed",
+      "notes": "Plain-text multiple choice trivia. The for-kids file is not strictly primary level (first item is about an internet cartoon), so review before use; most other categories are general adult trivia. Needs content filtering. Petunjuk ambil: https://raw.githubusercontent.com/uberspot/OpenTriviaQA/master/categories/{name} with 22 category files (animals, brain-teasers, for-kids, general, geography, h..."
+    },
+    {
+      "id": "the-trivia-api",
+      "name": "The Trivia API (the-trivia-api.com)",
+      "site": "https://the-trivia-api.com/",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "ongoing",
+      "license": "official-free",
+      "licenseNote": "Free without a key for non-commercial use (site statement); data licence not read; up to 50 multiple-choice questions per request without a key",
+      "attribution": "The Trivia API. The Trivia API (the-trivia-api.com)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Family use qualifies as non-commercial. Question source and licence for redistribution are not stated on the home page; keep calls live rather than storing a copy. Petunjuk ambil: https://the-trivia-api.com/v2/questions?limit=10&difficulties=easy (200 application/json); about 14,800 approved questions in 10 categories"
+    },
+    {
+      "id": "wikidata-sparql",
+      "name": "Wikidata (structured facts for knowledge questions)",
+      "site": "https://query.wikidata.org/",
+      "subjects": [
+        "science"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "live",
+      "license": "cc0",
+      "licenseNote": "CC0 1.0 for Wikidata data (Wikidata:Licensing page loads)",
+      "attribution": "Wikimedia Foundation. Wikidata (structured facts for knowledge questions)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Source of facts (capitals, animals, planets, Indonesian provinces, languages) to generate questions with Indonesian labels (id) and English labels. Respect query timeouts and rate limits; cache results. Petunjuk ambil: SPARQL: https://query.wikidata.org/sparql?format=json&query=<URL-encoded SPARQL> with a descriptive User-Agent header (test query returned 200). Entity JSON: https://www.wikidata..."
+    },
+    {
+      "id": "simplewiki-idwiki-dumps",
+      "name": "Simple English Wikipedia and Indonesian Wikipedia dumps",
+      "site": "https://dumps.wikimedia.org/simplewiki/latest/",
+      "subjects": [
+        "science",
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "latest dumps",
+      "license": "cc-by-sa",
+      "licenseNote": "CC BY-SA 4.0 (and GFDL) for Wikipedia text; individual images have separate licences",
+      "attribution": "Wikimedia Foundation. Simple English Wikipedia and Indonesian Wikipedia dumps",
+      "format": "other",
+      "access": "listed",
+      "notes": "Not a question bank: reading passages and facts for generating comprehension and general knowledge items. Simple English is lower reading level. Licence text taken from Wikimedia standard terms, not re-read on the dump page. Petunjuk ambil: https://dumps.wikimedia.org/simplewiki/latest/simplewiki-latest-pages-articles.xml.bz2 and https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-art..."
+    },
+    {
+      "id": "project-gutenberg-gutendex",
+      "name": "Project Gutenberg children's books (via Gutendex API)",
+      "site": "https://www.gutenberg.org/",
+      "subjects": [
+        "english"
+      ],
+      "grades": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "public domain works",
+      "license": "public-domain",
+      "licenseNote": "Most eBooks are public domain in the US (permission page loads); check each book and the PG trademark rules; status differs outside the US",
+      "attribution": "Project Gutenberg. Project Gutenberg children's books (via Gutendex API)",
+      "format": "other",
+      "access": "listed",
+      "notes": "Passages for reading comprehension and cloze items; old-fashioned language, so pick carefully for a grade 2 child. Gutendex is a third-party mirror API. Petunjuk ambil: https://gutendex.com/books/?topic=children (200); catalogue search https://www.gutenberg.org/ebooks/search/?query=children"
+    },
+    {
+      "id": "kangaroo-malaysia",
+      "name": "Kangaroo Math Malaysia past test papers (Pre-Ecolier and other categories)",
+      "site": "https://kangaroomath.com.my/?p=15026",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown (a Pre-Ecolier 2014...",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Kangaroo Math Malaysia. Kangaroo Math Malaysia past test papers (Pre-Ecolier and other categories)",
+      "format": "other",
+      "access": "listed",
+      "notes": "A search snippet says the site shares past papers by category (Pre-Ecolier 2014 for Pre-School to Year 2) and points to an Our Store page for solutions from previous years. The page itself rendered only a title to fetchers, so whether papers are free was not verified. Nearest English-language regional organiser to Indonesia."
+    },
+    {
+      "id": "kangaroo-canada-past-papers",
+      "name": "Canadian Math Kangaroo past papers",
+      "site": "https://mathkangaroo.ca/past-papers",
+      "subjects": [
+        "math"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "unknown",
+      "license": "unknown",
+      "licenseNote": "Not stated",
+      "attribution": "Math Kangaroo Canada. Canadian Math Kangaroo past papers",
+      "format": "other",
+      "access": "listed",
+      "notes": "The /past-papers and /resources pages return 200 but are JavaScript-rendered, so contents and terms could not be read. Search results call it the official Canadian Math Kangaroo website."
+    },
+    {
+      "id": "soal-ujian-sd-kurmer-synthetic",
+      "name": "Soal Ujian SD Kurikulum Merdeka kelas 1-6 (15,000 questions, LLM-generated)",
+      "site": "https://huggingface.co/datasets/erzanugroho/soal-ujian-sd-kurikulum-merdeka",
+      "subjects": [
+        "math",
+        "science",
+        "english"
+      ],
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "years": "2026",
+      "license": "cc-by",
+      "licenseNote": "CC BY 4.0 (dataset card)",
+      "attribution": "Erza Nugroho (Hugging Face community dataset). Soal Ujian SD Kurikulum Merdeka kelas 1-6 (15,000 questions, LLM-generated)",
+      "format": "other",
+      "access": "listed",
+      "notes": "WARNING: generated by an LLM and only structurally validated; the card itself says there is no guarantee of factual correctness and teacher review is needed. 500 worksheets per grade (2,500 questions per grade), aligned to Kurikulum Merdeka phases A-C. Useful as draft material for grade 1-3 Indonesian-language items; every item used must be reviewed. Format listed as csv because the file is par..."
     }
   ]
 }

@@ -448,7 +448,7 @@ export async function approveImportItemsTx(tx: Tx, ctx: OrgContext, input: { bat
   }
   const allDone = storedItems(raw).every((x) => x?.approved)
   await tx.update(importBatch).set({ items: raw, updatedAt: now, ...(allDone ? { status: 'done' as const } : {}) }).where(eq(importBatch.id, b.id))
-  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta: metaOf(b), refs: libraryRefs(storedItems(raw)) })
+  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta: metaOf(b), refs: libraryRefs(storedItems(raw)), name: b.title })
   await auditTx(tx, ctx, 'import.items.approved', b.id, { count: built.length, collection })
   return { created: built.length }
 }
@@ -472,7 +472,7 @@ export type MetaEdit = { batchId: string } & BatchMeta
 
 export async function updateImportMetaTx(tx: Tx, ctx: OrgContext, input: MetaEdit): Promise<void> {
   const [b] = await tx
-    .select({ id: importBatch.id, subject: importBatch.subject, grade: importBatch.grade, createdBy: importBatch.createdBy, items: importBatch.items })
+    .select({ id: importBatch.id, title: importBatch.title, subject: importBatch.subject, grade: importBatch.grade, createdBy: importBatch.createdBy, items: importBatch.items })
     .from(importBatch)
     .where(eq(importBatch.id, input.batchId))
     .limit(1)
@@ -481,7 +481,7 @@ export async function updateImportMetaTx(tx: Tx, ctx: OrgContext, input: MetaEdi
   if (input.competition && !competitions().some((c) => c.id === input.competition)) throw invalid('Lomba itu tidak ada di katalog. Pilih dari daftar.', { competition: 'Pilih lomba dari daftar.' })
   const meta: BatchMeta = { competition: input.competition, year: input.year, section: input.section, originalMinutes: input.originalMinutes, source: input.source }
   await tx.update(importBatch).set({ ...meta, updatedAt: new Date() }).where(eq(importBatch.id, b.id))
-  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta, refs: libraryRefs(storedItems(b.items)) })
+  await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta, refs: libraryRefs(storedItems(b.items)), name: b.title })
   await auditTx(tx, ctx, 'import.meta.updated', b.id, { competition: meta.competition, year: meta.year, section: meta.section })
 }
 
