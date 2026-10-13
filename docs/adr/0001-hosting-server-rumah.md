@@ -1,6 +1,6 @@
 # ADR 0001: Hosting di server rumah dengan Docker Desktop dan Tailscale
 
-Status: diterima, 12 Oktober 2026. Menggantikan rencana Vercel, Supabase, dan Fly.io di dokumen arsitektur.
+Status: diterima, 12 Oktober 2026. Menggantikan rencana Vercel, Supabase, dan Fly.io di dokumen arsitektur. Bagian akses lewat Tailscale digantikan oleh [ADR 0008](0008-akses-cloudflare-tunnel.md) (Cloudflare Tunnel di kira.gatxel.com).
 
 ## Konteks
 

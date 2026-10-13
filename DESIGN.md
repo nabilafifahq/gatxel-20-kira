@@ -7,7 +7,7 @@ Perubahan dari 0.1: skala jenjang kelas 1 sampai 6 (bagian 3a), token `--review`
 
 ## 1. What this is
 
-**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (kurikulum Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses lewat Tailscale.
+**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (kurikulum Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses di https://kira.gatxel.com lewat Cloudflare Tunnel.
 **Who uses it:** Syakira (Grade 2) di tablet sepulang sekolah, 45 sampai 60 menit sehari. Nabila sebagai tutor di laptop dan HP. Mama di HP untuk laporan dan persetujuan. Sepupu lain bisa ditambahkan sebagai learner berikutnya.
 **The one action:** learner menyelesaikan tiga Daily Quest hari ini tanpa dibantu.
 **Language:** layar learner en-GB (`<html lang="en-GB">`). Konsol tutor, halaman orang tua, dan halaman hukum id-ID (`<html lang="id">`). Soal ESMO Math boleh berbahasa Indonesia dengan tombol Terms.

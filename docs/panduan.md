@@ -1,6 +1,6 @@
 # Panduan memakai Kira
 
-Kira punya tiga area: layar anak di tablet (bahasa Inggris), konsol tutor (laptop dan HP), dan halaman orang tua (HP). Semua dibuka dari alamat Tailscale yang sama.
+Kira punya tiga area: layar anak di tablet (bahasa Inggris), konsol tutor (laptop dan HP), dan halaman orang tua (HP). Semua dibuka dari alamat yang sama, https://kira.gatxel.com.
 
 ## Untuk anak (tablet)
 
@@ -36,10 +36,10 @@ Kebiasaan mingguan yang disarankan: Minggu sore buka Rencana dan terbitkan mingg
 
 ### Menghubungkan Claude Code ke Kira (MCP)
 
-Di Koneksi Claude, buat token, lalu di komputer tutor yang terhubung ke tailnet:
+Di Koneksi Claude, buat token, lalu di komputer tutor:
 
 ```sh
-claude mcp add --transport http kira https://<alamat>/api/mcp --header "Authorization: Bearer <token>"
+claude mcp add --transport http kira https://kira.gatxel.com/api/mcp --header "Authorization: Bearer <token>"
 ```
 
 Claude Code lalu bisa melihat daftar learner (tanpa nama, hanya label seperti Learner 1), kemajuan skill, mencari soal, dan membuat draf soal yang masuk ke Studio AI untuk ditinjau. Token bisa dicabut kapan saja.

@@ -21,5 +21,5 @@ Status: diterima, 12 Oktober 2026. Menggantikan versi pertama ADR ini (Capacitor
 - Plugin keep-awake dan status bar dari rencana Capacitor tidak dibawa. Bar sistem ditangani edge-to-edge di activity. Layar tetap menyala selama quest belum ada.
 - Setiap kemampuan native baru berarti jenis pesan baru di `NativeBridge.kt` dan `apps/web/src/lib/native.ts`, dengan validasi di kedua sisi dan catatan di `docs/android.md`.
 - Pada Android System WebView yang belum mendukung `WEB_MESSAGE_LISTENER`, aplikasi tetap membuka Kira, tetapi baca suara tidak tersedia.
-- Tablet harus terpasang Tailscale dan masuk ke tailnet yang sama.
+- Tablet harus terpasang Tailscale dan masuk ke tailnet yang sama. Digantikan [ADR 0008](0008-akses-cloudflare-tunnel.md): Kira dibuka lewat https://kira.gatxel.com tanpa aplikasi tambahan.
 - APK debug dari CI ditandatangani kunci acak per run, jadi versi baru tidak bisa dipasang menimpa versi lama. Pemakaian harian memakai APK rilis dengan kunci tetap (`docs/android.md` bagian 3).
