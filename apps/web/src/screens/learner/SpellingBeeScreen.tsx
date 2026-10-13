@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState, type FormEvent, type ReactElement } from 'react'
+import { TTS_BEE_PRAISE, TTS_BEE_RETRY } from '@kira/core/tts'
 import type { ActionResult } from '@/lib/dto'
 import type { SpellingAnswerInput, SpellingResultDTO, SpellingRoundDTO } from '@/lib/dto-english'
 import { Button, ButtonLink } from '@/components/ui/Button'
@@ -116,7 +117,11 @@ export function SpellingBeeScreen({
     if (!guess) return
     if (guess.toLowerCase() === current.word.toLowerCase()) {
       setPhase('correct')
+      speech.speak([TTS_BEE_PRAISE], undefined, { style: 'teacher' })
       return
+    }
+    if (misses === 0) {
+      speech.speak([TTS_BEE_RETRY], () => speech.speak([current.word], undefined, { style: 'dictation' }), { style: 'teacher' })
     }
     setMisses(misses + 1)
     setPhase(misses === 0 ? 'second-try' : 'revealed')

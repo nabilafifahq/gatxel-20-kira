@@ -244,16 +244,9 @@ export function clipTextsOf(parts: readonly string[]): string[] {
   return parts.flatMap((p) => splitClipText(p)).filter(isClipText)
 }
 
-/**
- * Kalimat tetap yang dibacakan layar learner di luar soal (Keterampilan English, pujian). Worker membuatnya
- * di setiap batch supaya layar itu selalu punya suara.
- */
-export const TTS_FIXED_LINES: TtsClipRequest[] = [
-  { text: 'Well done!', style: 'teacher' },
-  { text: 'Great job!', style: 'teacher' },
-  { text: 'Not quite. Listen again.', style: 'teacher' },
-  { text: 'Listen carefully.', style: 'teacher' },
-  { text: 'Now it is your turn.', style: 'teacher' },
-  { text: 'Hello! I am your English examiner today.', style: 'teacher' },
-  { text: 'Thank you. That is the end of the speaking test.', style: 'teacher' },
-]
+/** Kalimat tetap layar English Skills. Worker membuatnya di setiap batch supaya layar itu selalu punya suara. */
+export const TTS_EXAMINER_INTRO = 'Hello! I am your English examiner today.'
+export const TTS_BEE_PRAISE = 'Well done!'
+export const TTS_BEE_RETRY = 'Not quite. Listen again.'
+
+export const TTS_FIXED_LINES: TtsClipRequest[] = [TTS_EXAMINER_INTRO, TTS_BEE_PRAISE, TTS_BEE_RETRY].map((text) => ({ text, style: 'teacher' as const }))

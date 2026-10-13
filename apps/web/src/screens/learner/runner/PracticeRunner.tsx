@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import { checkAnswer } from '@kira/content/check'
+import { TTS_EXAMINER_INTRO } from '@kira/core/tts'
 import { answerXp } from '@kira/core'
 import type { RunnerActions, RunnerDTO, RunnerItem, SegmentState } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
@@ -99,7 +100,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const itemRef = item?.ref
   useEffect(() => {
     if (englishArea !== 'speaking' || !item || item.lang !== 'en-GB') return
-    examinerRef.current.speak(speakableClipParts(item).slice(0, 1), undefined, { style: speakableStyle(item) })
+    // Soal pertama diawali perkenalan penguji.
+    const ask = speakableClipParts(item).slice(0, 1)
+    examinerRef.current.speak(index === 0 ? [TTS_EXAMINER_INTRO, ...ask] : ask, undefined, { style: speakableStyle(item) })
   }, [englishArea, itemRef])
 
   const patch = useCallback((i: number, p: Partial<QState>) => {

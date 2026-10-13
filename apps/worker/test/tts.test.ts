@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { loadContent } from '@kira/content/load'
 import type { Item } from '@kira/content/schema'
-import { isClipText, ttsKeyInput } from '@kira/core/tts'
+import { isClipText, TTS_BEE_PRAISE, TTS_EXAMINER_INTRO, ttsKeyInput } from '@kira/core/tts'
 import { generate } from '../src/handlers/tts'
 import type { HandlerCtx } from '../src/handlers/types'
 import { createTtsClient } from '../src/tts/client'
@@ -57,6 +57,9 @@ describe('konten repo', () => {
     expect(clips.every((c) => isClipText(c.text))).toBe(true)
     const keys = new Set(clips.map((c) => ttsKeyInput(c.text, c.style)))
     expect(keys.size).toBe(clips.length)
+    // Kalimat tetap layar English Skills ikut dibuat.
+    expect(clips.some((c) => c.text === TTS_EXAMINER_INTRO && c.style === 'teacher')).toBe(true)
+    expect(clips.some((c) => c.text === TTS_BEE_PRAISE)).toBe(true)
   })
   it('bacaan cerita memakai pencerita', () => {
     const story = [...index.passages.values()].find((p) => p.kind === 'story' && p.lang === 'en-GB')!
