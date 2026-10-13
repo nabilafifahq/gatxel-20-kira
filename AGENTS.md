@@ -1,6 +1,6 @@
 # Kira
 
-Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah (Windows 11, Docker Desktop) dan diakses lewat Tailscale. Standar: GTX-ENG-001 v1.7.
+Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah (Windows 11, Docker Desktop) dan diakses di https://kira.gatxel.com lewat Cloudflare Tunnel (tanpa Tailscale, ADR 0008). Standar: GTX-ENG-001 v1.7.
 
 @DESIGN.md
 @docs/standards/gtx/GTX-ENG-001.md
@@ -24,7 +24,7 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 
 - `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (en-GB), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4. Komponen layar ada di `src/screens`, menerima DTO dari `src/lib/dto.ts`.
 - `apps/worker`: proses Node untuk job AI (Claude Code CLI atau endpoint OpenAI-compatible), impor PDF, email, laporan mingguan, retensi, dan penghapusan akun. Cadangan database dijalankan layanan `backup` di Docker Compose.
-- `apps/android`: aplikasi tablet Kotlin (WebView ke alamat Tailscale, jembatan suara `KiraNative`), APK dibangun di GitHub Actions. Lihat `docs/android.md`.
+- `apps/android`: aplikasi tablet Kotlin (WebView ke https://kira.gatxel.com, jembatan suara `KiraNative`), APK dibangun di GitHub Actions. Lihat `docs/android.md`.
 - `packages/core`: mesin belajar murni (theta, pemilih soal, FSRS, gerbang, XP, level, streak, skor preset lomba, waktu Asia/Jakarta).
 - `packages/db`: skema Drizzle, migrasi SQL, role, RLS, seed.
 - `packages/content`: skema konten Zod, generator Math, pemeriksa jawaban, pemuat konten (dibaca dari folder `content/` saat server mulai).

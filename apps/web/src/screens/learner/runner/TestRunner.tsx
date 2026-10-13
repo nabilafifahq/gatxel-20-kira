@@ -11,6 +11,7 @@ import { joinAnd } from '@/components/learner/format'
 import { useMediaQuery, useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
 import { Timer } from '@/components/learner/Timer'
@@ -66,6 +67,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const cur = answers[index]
   const subject = data.subject
   const style = SUBJECT_STYLE[subject]
+  useEffect(() => primeSfx(), [])
   const locked = phase === 'timeup' || submit.state === 'busy' || submit.state === 'done'
 
   // Catat waktu per soal (dipakai sebagai timeMs).
@@ -125,6 +127,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   const toggleFlag = () => {
     if (locked || !cur) return
+    playSfx('tap')
     const a = { ...cur, flagged: !cur.flagged }
     setAnswers((list) => list.map((x, k) => (k === index ? a : x)))
     // Tanda tanpa jawaban hanya disimpan di perangkat; tanda dengan jawaban ikut tersimpan.
@@ -133,6 +136,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   const go = (i: number) => {
     if (i < 0 || i >= items.length || locked) return
+    playSfx('tap')
     setAnswers((list) => list.map((a, k) => (k === index && a.startedAt ? { ...a, spentMs: a.spentMs + (Date.now() - a.startedAt), startedAt: 0 } : a)))
     setTermsOpen(false)
     setIndex(i)
@@ -222,7 +226,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             Terms
           </Button>
         ) : null}
-        {remaining !== null ? <Timer mode="countdown" seconds={remaining} compact={narrow} /> : <Timer mode="stopwatch" seconds={elapsed} compact={narrow} />}
+        {remaining !== null ? <Timer mode="countdown" seconds={remaining} total={data.timeLimitSec ?? undefined} compact={narrow} /> : <Timer mode="stopwatch" seconds={elapsed} compact={narrow} />}
       </header>
 
       <nav aria-label="Questions" className={cx('flex flex-none flex-wrap items-center gap-6 px-4 md:px-8', many ? 'pb-3' : 'pb-4')}>
@@ -396,7 +400,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         size="sm"
         title={
           <span className="flex flex-col items-center gap-3.5">
-            <span className="flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg bg-bg">
+            <span className="kira-pop flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg bg-bg">
               <UiIcon name="clock" size={60} />
             </span>
             Time&apos;s up

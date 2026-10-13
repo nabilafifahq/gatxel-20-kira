@@ -4,18 +4,18 @@
     <string name="app_name">Kira</string>
 
     <string name="setup_title">Alamat server Kira</string>
-    <string name="setup_body">Isi alamat Kira dari Tailscale, misalnya https://kira-server.nama-tailnet.ts.net</string>
+    <string name="setup_body">Isi alamat Kira, misalnya https://kira.gatxel.com</string>
     <string name="setup_label">Alamat server</string>
     <string name="setup_save">Simpan dan buka</string>
     <string name="setup_cancel">Batal</string>
-    <string name="setup_note">Tablet ini harus masuk ke tailnet yang sama lewat aplikasi Tailscale.</string>
+    <string name="setup_note">Tablet ini butuh internet untuk membuka Kira. Tidak perlu aplikasi tambahan.</string>
     <string name="setup_error_empty">Isi alamat server dulu.</string>
     <string name="setup_error_https">Alamat harus memakai https.</string>
-    <string name="setup_error_host">Nama host belum lengkap. Contoh: kira-server.nama-tailnet.ts.net</string>
+    <string name="setup_error_host">Nama host belum lengkap. Contoh: kira.gatxel.com</string>
     <string name="setup_error_invalid">Alamat ini tidak bisa dibaca. Periksa lagi penulisannya.</string>
 
     <string name="offline_title">Kira tidak bisa dihubungi.</string>
-    <string name="offline_body">Pastikan Tailscale menyala di tablet ini dan server di rumah hidup.</string>
+    <string name="offline_body">Pastikan tablet ini terhubung ke internet dan server di rumah hidup.</string>
     <string name="offline_detail">Alamat: %1$s\nKode: %2$s</string>
     <string name="offline_retry">Coba lagi</string>
     <string name="offline_retrying">Menghubungkan…</string>

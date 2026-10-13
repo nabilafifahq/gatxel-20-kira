@@ -1,6 +1,6 @@
 # APK tablet Kira dari apps/android. Panduan: docs/android.md, keputusan: docs/adr/0006-apk-android.md.
 #
-# workflow_dispatch: isi kira_url (alamat Tailscale server Kira). release: true membuat GitHub Release
+# workflow_dispatch: isi kira_url (alamat publik server Kira, https://kira.gatxel.com). release: true membuat GitHub Release
 #   apk-<versi> dan butuh empat secret kunci rilis (KIRA_KEYSTORE_BASE64, KIRA_KEYSTORE_PASSWORD,
 #   KIRA_KEY_ALIAS, KIRA_KEY_PASSWORD).
 # push ke main atau ci/android-*: build uji APK debug dengan alamat dari variabel repo KIRA_URL,
@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       kira_url:
-        description: 'Alamat server Kira, misalnya https://kira-server.nama-tailnet.ts.net'
+        description: 'Alamat server Kira, misalnya https://kira.gatxel.com'
         required: true
         type: string
       release:
@@ -102,11 +102,11 @@ jobs:
           INPUT_URL: ${{ inputs.kira_url }}
           REPO_URL: ${{ vars.KIRA_URL }}
         run: |
-          url="${INPUT_URL:-${REPO_URL:-https://kira.example.ts.net}}"
+          url="${INPUT_URL:-${REPO_URL:-https://kira.gatxel.com}}"
           url="${url%/}"
           pattern='^https://[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+(:[0-9]{1,5})?$'
           if [[ ! "$url" =~ $pattern ]]; then
-            echo "::error title=kira_url::Alamat harus berbentuk https://nama-host.domain tanpa path, misalnya https://kira-server.nama-tailnet.ts.net"
+            echo "::error title=kira_url::Alamat harus berbentuk https://nama-host.domain tanpa path, misalnya https://kira.gatxel.com"
             exit 1
           fi
           echo "url=$url" >> "$GITHUB_OUTPUT"

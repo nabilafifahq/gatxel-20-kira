@@ -210,6 +210,12 @@ export type ResultQuestion = {
   skillTitle: string
 }
 
+/** Posisi di level untuk bar XP di akhir sesi: `into` dari `span` XP di level itu. */
+export type XpBarDTO = {
+  before: { level: number; into: number; span: number }
+  after: { level: number; into: number; span: number }
+}
+
 export type ResultsDTO = {
   shell: LearnerShell
   attemptId: string
@@ -237,6 +243,8 @@ export type ResultsDTO = {
   tone: 'full' | 'normal' | 'low'
   /** Ulang sesi: null bila sesi ini tidak bisa diulang. */
   retry: RetryDTO | null
+  /** Bar XP di perayaan akhir sesi. Kosong: bar tidak ditampilkan. */
+  xpBar?: XpBarDTO
 }
 
 export type RetryDTO = {

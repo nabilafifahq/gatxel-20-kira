@@ -306,7 +306,7 @@ function McpCard({ data }: { data: ClaudeConnectionDTO }) {
           </p>
           <CopyRow label="Alamat server MCP" value={data.mcp.url} copyLabel="Salin alamat" toastTitle="Alamat server disalin." />
           <div className="flex flex-col gap-1.5">
-            <span className="text-small font-bold">Claude Code di laptop yang tersambung ke Tailscale</span>
+            <span className="text-small font-bold">Claude Code di laptop</span>
             <ol className="m-0 flex list-decimal flex-col gap-1 pl-5 text-body">
               <li>Buat token di bawah dengan nama laptop itu.</li>
               <li>Jalankan perintah yang muncul bersama token di terminal laptop.</li>
@@ -317,8 +317,8 @@ function McpCard({ data }: { data: ClaudeConnectionDTO }) {
             </code>
           </div>
           <p className="m-0 text-small text-fg-muted">
-            Aplikasi Claude di web, desktop, dan HP menyambung ke server MCP dari server Anthropic lewat internet publik, jadi tidak bisa menjangkau Kira
-            yang hanya ada di jaringan Tailscale rumah.
+            Server MCP Kira memakai token Bearer. Pakai Claude Code atau klien MCP lain yang bisa mengirim header Authorization. Aplikasi Claude di web,
+            desktop, dan HP belum bisa dipakai untuk ini.
           </p>
         </>
       ) : (

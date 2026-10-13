@@ -4,6 +4,8 @@
  * - Halaman learner (Today, pembuka quest, runner, hasil, peta, Review, pelajaran): jaringan dulu,
  *   simpanan dipakai saat internet rumah putus. Jawaban offline disimpan di IndexedDB oleh halaman.
  * - Konsol tutor, halaman orang tua, cetak, masuk, dan semua /api tidak pernah disimpan.
+ * - Server tidak terjangkau (502 sampai 504 dan 520 sampai 530 dari Cloudflare, atau jaringan putus):
+ *   halaman tersimpan atau halaman offline.
  * - Ganti learner (/bye) atau kembali ke pilihan learner menghapus simpanan halaman.
  */
 const VERSION = 'kira-v1'
@@ -12,6 +14,8 @@ const PAGE_CACHE = `${VERSION}-pages`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
+// Efek suara learner (sekitar 45 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
+const SOUNDS = ['correct', 'notyet', 'combo', 'levelup', 'badge', 'complete', 'tick', 'timeup', 'tap'].map((n) => `/sounds/${n}.mp3`)
 
 const LEARNER_PAGES = [
   /^\/today$/,
@@ -35,6 +39,7 @@ function isStatic(pathname) {
   return (
     pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/icons/') ||
+    pathname.startsWith('/sounds/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest' ||
     pathname === OFFLINE_URL
@@ -45,7 +50,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(STATIC_CACHE)
-      .then((cache) => cache.addAll([OFFLINE_URL, '/icons/icon-192.png', '/manifest.webmanifest']))
+      .then((cache) => cache.addAll([OFFLINE_URL, '/icons/icon-192.png', '/manifest.webmanifest', ...SOUNDS]))
       .then(() => self.skipWaiting()),
   )
 })
@@ -77,22 +82,42 @@ async function cacheFirst(request) {
   return res
 }
 
+/**
+ * Kira di rumah tidak terjangkau. Cloudflare menjawab 502 sampai 504 saat server mati atau lambat, dan
+ * 520 sampai 530 saat Cloudflare Tunnel putus (misalnya 521 dan 530). Jawaban itu diperlakukan seperti
+ * internet putus: halaman tersimpan dipakai, atau halaman offline.
+ */
+function isUnreachable(status) {
+  return (status >= 502 && status <= 504) || (status >= 520 && status <= 530)
+}
+
 async function offlineFallback() {
   return (await caches.match(OFFLINE_URL)) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
 }
 
-async function networkFirstPage(request) {
-  const cache = await caches.open(PAGE_CACHE)
+/** Halaman yang tidak disimpan: jaringan, dan halaman offline bila server tidak terjangkau. */
+async function fetchOrOffline(request) {
   try {
     const res = await fetch(request)
+    return isUnreachable(res.status) ? offlineFallback() : res
+  } catch {
+    return offlineFallback()
+  }
+}
+
+async function networkFirstPage(request) {
+  const cache = await caches.open(PAGE_CACHE)
+  const cached = async () => (await cache.match(request)) || (await cache.match(request, { ignoreSearch: true }))
+  try {
+    const res = await fetch(request)
+    if (isUnreachable(res.status)) return (await cached()) || offlineFallback()
     if (res.ok && res.type === 'basic' && !res.redirected) {
       await cache.put(request, res.clone())
       void trim(PAGE_CACHE, MAX_PAGES)
     }
     return res
   } catch {
-    const hit = (await cache.match(request)) || (await cache.match(request, { ignoreSearch: true }))
-    return hit || offlineFallback()
+    return (await cached()) || offlineFallback()
   }
 }
 
@@ -160,12 +185,12 @@ self.addEventListener('fetch', (event) => {
   // Pergantian learner: halaman anak sebelumnya tidak boleh tersisa di tablet.
   if (url.pathname === '/bye' || url.pathname === '/' || url.pathname.startsWith('/pin/')) {
     event.waitUntil(caches.delete(PAGE_CACHE))
-    event.respondWith(fetch(request).catch(offlineFallback))
+    event.respondWith(fetchOrOffline(request))
     return
   }
   if (isLearnerPage(url.pathname)) {
     event.respondWith(networkFirstPage(request))
     return
   }
-  event.respondWith(fetch(request).catch(offlineFallback))
+  event.respondWith(fetchOrOffline(request))
 })

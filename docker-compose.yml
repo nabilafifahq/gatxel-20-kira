@@ -1,6 +1,7 @@
 # Kira di server rumah (Windows 11 + Docker Desktop). Panduan: docs/pasang-windows.md
 # Semua nilai rahasia ada di .env (salin dari .env.example). Hanya web yang terbuka, di 127.0.0.1:3000,
-# lalu Tailscale serve meneruskan https://<nama-pc>.<tailnet>.ts.net ke sana.
+# lalu Cloudflare Tunnel (cloudflared) meneruskan https://kira.gatxel.com ke sana. Bila port 3000 sudah
+# dipakai proses lain, terbitkan port lain lewat docker-compose.override.yml (server Kira: 127.0.0.1:3030).
 
 name: kira
 
@@ -89,7 +90,7 @@ services:
       migrate:
         condition: service_completed_successfully
     environment:
-      KIRA_ORIGIN: ${KIRA_ORIGIN:?isi KIRA_ORIGIN di .env dengan alamat https Tailscale}
+      KIRA_ORIGIN: ${KIRA_ORIGIN:?isi KIRA_ORIGIN di .env dengan alamat https publik Kira}
       KIRA_RP_NAME: ${KIRA_RP_NAME:-Kira}
       KIRA_SECRET: ${KIRA_SECRET:?isi KIRA_SECRET di .env}
       KIRA_SETUP_TOKEN: ${KIRA_SETUP_TOKEN:-}

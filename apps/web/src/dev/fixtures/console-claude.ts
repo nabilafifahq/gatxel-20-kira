@@ -10,7 +10,7 @@ export const claudeConnected: ClaudeConnectionDTO = {
   lastCheckAt: wib('2026-10-16', '07:30'),
   mcp: {
     enabled: true,
-    url: 'https://kira-rumah.tail4f2c1.ts.net/mcp',
+    url: 'https://kira.gatxel.com/api/mcp',
     tokens: [
       { id: 'mcp-1', name: 'Laptop Dina', createdAt: wib('2026-10-14', '20:15'), lastUsedAt: wib('2026-10-16', '07:42') },
       { id: 'mcp-2', name: 'HP Dina', createdAt: wib('2026-10-15', '21:00'), lastUsedAt: null },

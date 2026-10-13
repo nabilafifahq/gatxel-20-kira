@@ -14,6 +14,7 @@ import { useDeviceWord, useMediaQuery, useOnline } from '@/components/learner/ho
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ProgressSegments } from '@/components/learner/ProgressSegments'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
@@ -83,6 +84,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const phone = useMediaQuery('(max-width: 767px)')
   const narrow = useMediaQuery('(max-width: 639px)')
   const submitClientId = useRef(newClientId())
+  const combo = useRef(0)
+  useEffect(() => primeSfx(), [])
 
   const item = items[index]
   const st = states[index]
@@ -139,8 +142,13 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     }
     if (correct) {
       const xp = answerXp({ difficulty: item.difficulty, correct: true, hintsUsed: st.hintsUsed, attemptNo: st.attemptNo })
+      // Kombo: tiga benar beruntun di percobaan pertama.
+      combo.current = st.attemptNo === 1 ? combo.current + 1 : 0
+      playSfx(combo.current >= 3 ? 'combo' : 'correct')
       patch(index, { phase: 'correct', xp, first: st.first ?? 'correct' })
     } else {
+      combo.current = 0
+      playSfx('notyet')
       const retry = data.allowRetry && st.attemptNo === 1
       patch(index, { phase: retry ? 'not-yet' : 'revealed', first: st.first ?? 'not-yet' })
     }
@@ -169,6 +177,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   }, [actions, data.attemptId, data.doneHref, queue, router])
 
   const next = useCallback(() => {
+    playSfx('tap')
     const after = states.findIndex((s, k) => k > index && !DONE.includes(s.phase))
     const before = states.findIndex((s, k) => k < index && !DONE.includes(s.phase))
     const target = after >= 0 ? after : before
@@ -272,7 +281,10 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const nextLabel = isLast ? 'Finish' : 'Next'
 
   const openHint = () => {
-    if (st.hintsUsed < hints.length) patch(index, { hintsUsed: st.hintsUsed + 1 })
+    if (st.hintsUsed < hints.length) {
+      playSfx('tap')
+      patch(index, { hintsUsed: st.hintsUsed + 1 })
+    }
   }
 
   const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing' | 'image') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
@@ -348,7 +360,13 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               className="max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0"
               primary={
                 st.phase === 'not-yet'
-                  ? { label: 'Try again', onClick: () => patch(index, { phase: 'answer', attemptNo: 2, value: null, startedAt: Date.now() }) }
+                  ? {
+                      label: 'Try again',
+                      onClick: () => {
+                        playSfx('tap')
+                        patch(index, { phase: 'answer', attemptNo: 2, value: null, startedAt: Date.now() })
+                      },
+                    }
                   : { label: nextLabel, onClick: next, icon: 'arrow-right' }
               }
             />

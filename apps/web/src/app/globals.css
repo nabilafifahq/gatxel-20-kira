@@ -185,10 +185,56 @@
   }
 }
 
+/*
+ * Gerak timer dan perayaan akhir sesi (DESIGN.md bagian 6a). Hanya transform dan opacity,
+ * kurva --ease-kira, tanpa pantulan. Dengan reduced motion semuanya langsung ke keadaan akhir.
+ */
+@keyframes kira-pop {
+  from {
+    opacity: 0.4;
+    transform: scale(1.12);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kira-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes kira-hop {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-14px);
+  }
+}
+@layer components {
+  .kira-pop {
+    animation: kira-pop 300ms var(--ease-kira) both;
+  }
+  .kira-rise {
+    animation: kira-rise 420ms var(--ease-kira) var(--kira-delay, 0ms) both;
+  }
+  .kira-hop {
+    animation: kira-hop 700ms var(--ease-kira) var(--kira-delay, 0ms) var(--kira-count, 1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
+    animation-delay: 0ms !important;
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
     transition-property: opacity !important;
