@@ -58,5 +58,8 @@ while true; do
   next=$(( (now / 86400) * 86400 + 19 * 3600 ))
   [ "$next" -le "$now" ] && next=$(( next + 86400 ))
   sleep $(( next - now ))
+  # Jam container di Docker Desktop (WSL2) bisa bangun beberapa detik sebelum jadwal. Tanpa penantian ini
+  # putaran berikutnya memilih jadwal yang sama lagi dan cadangan malam itu dibuat dua kali.
+  while [ "$(date -u +%s)" -lt "$next" ]; do sleep 1; done
   run_backup || true
 done
