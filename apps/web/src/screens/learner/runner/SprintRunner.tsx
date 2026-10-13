@@ -10,6 +10,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
+import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { Timer } from '@/components/learner/Timer'
 import { XpPill } from '@/components/learner/XpPill'
@@ -45,6 +46,8 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
   const loadedAt = useRef(Date.now())
   const startedAt = useRef(Date.now())
   const submitClientId = useRef(newClientId())
+  const combo = useRef(0)
+  useEffect(() => primeSfx(), [])
   const limit = data.timeLimitSec ?? 60
   const over = index >= items.length
   const now = useTicker(!over && submit.state === 'idle', 250)
@@ -91,6 +94,10 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
       setRight((n) => n + 1)
       setXp((n) => n + answerXp({ difficulty: item.difficulty, correct: true, hintsUsed: 0 }))
     }
+    if (ok !== null) {
+      combo.current = ok ? combo.current + 1 : 0
+      playSfx(!ok ? 'notyet' : combo.current >= 3 ? 'combo' : 'correct')
+    }
     setFlash(ok === null ? null : ok ? 'correct' : 'not-yet')
     window.setTimeout(
       () => {
@@ -135,12 +142,12 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
           <UiIcon name="check-circle" size={24} className="text-success" />
           {right} right
         </span>
-        <Timer mode="countdown" seconds={remaining} compact warnAt={10} />
+        <Timer mode="countdown" seconds={remaining} total={limit} compact warnAt={10} />
       </header>
       <main className="flex flex-1 items-start justify-center px-4 pb-8 md:items-center md:px-8">
         {finished ? (
           <section aria-label="Sprint done" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-8 py-10 text-center">
-            <h1 className="m-0 font-display text-display font-semibold">{remaining === 0 ? "Time's up" : 'All done'}</h1>
+            <h1 className="kira-pop m-0 font-display text-display font-semibold">{remaining === 0 ? "Time's up" : 'All done'}</h1>
             <p className="m-0 text-body-lg">
               You got {right} right in {limit} seconds.
             </p>
