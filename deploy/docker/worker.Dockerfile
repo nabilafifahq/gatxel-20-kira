@@ -35,7 +35,8 @@ RUN apt-get update \
 ENV NODE_ENV=production KIRA_DATA_DIR=/data KIRA_CONTENT_DIR=/app/content CLAUDE_BIN=claude DISABLE_AUTOUPDATER=1
 WORKDIR /app
 COPY --from=build --chown=node:node /repo/apps/worker/dist ./dist
-# Soal, pelajaran, dan bacaan: job tts.batch membaca teks bahasa Inggris dari sini untuk membuat suaranya.
+# Konten repo (skill, soal, bacaan, registri sumber): job tts.batch membaca teks bahasa Inggris dari sini untuk membuat suaranya,
+# dan pembaruan mingguan sumber soal membaca registri sumber.
 COPY --from=build --chown=node:node /repo/content ./content
 RUN mkdir -p /data && chown node:node /data
 USER node

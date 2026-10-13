@@ -30,6 +30,7 @@ export type ConsoleNavKey =
   | 'settings'
   | 'studio'
   | 'import'
+  | 'library'
   | 'learners'
   | 'claude'
 
@@ -49,6 +50,7 @@ function toolItems(aiEnabled: boolean): NavItem[] {
   return [
     ...(aiEnabled ? [{ key: 'studio' as const, label: 'Studio AI', icon: 'sparkle' as const, href: CONSOLE_ROUTES.studio, match: ['studio' as const] }] : []),
     { key: 'import', label: 'Impor', icon: 'import', href: CONSOLE_ROUTES.import, match: ['import'] },
+    { key: 'library', label: 'Pustaka paper', icon: 'paper', href: CONSOLE_ROUTES.library, match: ['library'] },
     { key: 'learners', label: 'Learner', icon: 'learners', href: CONSOLE_ROUTES.learners, match: ['learners'] },
     { key: 'claude', label: 'Koneksi Claude', icon: 'plug', href: CONSOLE_ROUTES.claude, match: ['claude'] },
   ]

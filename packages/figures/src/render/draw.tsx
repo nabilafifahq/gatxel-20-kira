@@ -19,6 +19,7 @@ import { drawScene } from './scene'
 import { drawPattern, drawSequence } from './sequence'
 import { drawCarroll, drawVenn } from './sets'
 import { drawShape, drawShapes, drawSolid } from './shapes'
+import { drawClip } from './clip'
 
 function dispatch(spec: FigureSpec, ctx: Ctx): Drawn {
   switch (spec.kind) {
@@ -52,6 +53,7 @@ function dispatch(spec: FigureSpec, ctx: Ctx): Drawn {
     case 'circuit': return drawCircuit(spec)
     case 'balance': return drawBalance(spec)
     case 'scene': return drawScene(spec)
+    case 'clip': return drawClip(spec)
     default: return fallback(String((spec as { kind?: unknown }).kind ?? 'figure'))
   }
 }

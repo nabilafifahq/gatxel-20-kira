@@ -5,13 +5,16 @@ import { tables, withOrg, type Db, type WeeklyReportRequest } from '@kira/db'
 import { listOrgIds, workerCtx } from './db'
 import type { Env } from './env'
 import type { Logger } from './log'
+import type { AiProvider } from './ai/types'
 import { deleteStored } from './media'
+import { runWeeklySourcing } from './sourcing/run'
 
 /**
  * Jadwal berkala, semua dalam WIB (Asia/Jakarta, UTC+7 tanpa DST):
  * - retention: setiap hari 03.15 WIB, memanggil kira_retention() lalu menghapus berkasnya.
  * - weekly-report: setiap Minggu 19.00 WIB, meminta web menyiapkan laporan mingguan per learner.
  * - tts-batch: setiap hari 01.30 WIB, menjadwalkan job tts.batch (suara bahasa Inggris) bila TTS_URL diisi.
+ * - weekly-sourcing: setiap Minggu 02.00 WIB, mengambil soal baru dari registri sumber terbuka (lihat sourcing/run.ts).
  * Tabel schedule_state mencatat waktu jalan terakhir. Slot diklaim dengan upsert bersyarat
  * sebelum dijalankan, jadi restart atau dua worker tidak menjalankan slot yang sama dua kali.
  * Slot yang terlewat (server mati) dijalankan sekali saat worker hidup lagi.
@@ -47,7 +50,7 @@ export function dueCheck(slot: Slot, lastRunAt: Date | null, now: Date, maxLateM
   return { due, slotAt, tooLate }
 }
 
-export type ScheduleDeps = { db: Db; client: postgres.Sql; env: Env; log: Logger; fetchImpl?: typeof fetch; sleep?: (ms: number, signal: AbortSignal) => Promise<void> }
+export type ScheduleDeps = { db: Db; client: postgres.Sql; env: Env; log: Logger; ai?: AiProvider; fetchImpl?: typeof fetch; sleep?: (ms: number, signal: AbortSignal) => Promise<void> }
 
 type Schedule = { name: string; slot: Slot; maxLateMs?: number; run: (deps: ScheduleDeps, slotAt: Date, signal: AbortSignal) => Promise<string> }
 
@@ -149,6 +152,8 @@ export const SCHEDULES: Schedule[] = [
   { name: 'retention', slot: { kind: 'daily', hour: 3, minute: 15 }, run: (d) => runRetention(d) },
   { name: 'weekly-report', slot: { kind: 'weekly', weekday: 0, hour: 19, minute: 0 }, maxLateMs: 2 * DAY_MS, run: runWeeklyReport },
   { name: 'tts-batch', slot: { kind: 'daily', hour: 1, minute: 30 }, run: (d) => runTtsBatchEnqueue(d) },
+  // Minggu dini hari, sebelum laporan mingguan. Terlambat sampai 3 hari masih dijalankan (server sempat mati); lebih dari itu dilewati.
+  { name: 'weekly-sourcing', slot: { kind: 'weekly', weekday: 0, hour: 2, minute: 0 }, maxLateMs: 3 * DAY_MS, run: runWeeklySourcing },
 ]
 
 export class Scheduler {

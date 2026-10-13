@@ -322,10 +322,19 @@ const scene = z.object({
   alt,
 }).strict()
 
+/** Potongan gambar dari halaman paper (media org jenis figure). Ukuran asli dipakai untuk rasio tampilan. */
+const clip = z.object({
+  kind: z.literal('clip'),
+  mediaId: z.string().uuid(),
+  width: z.number().int().min(16).max(4000),
+  height: z.number().int().min(16).max(4000),
+  alt,
+}).strict()
+
 export const figureSpec = z.discriminatedUnion('kind', [
   array, groups, objects, numberline, clock, shape, shapes, solid, grid, fraction, bars, pictogram, tally, table,
   basetens, money, ruler, thermometer, scale, jug, sequence, pattern, venn, carroll, coordinates, angle, icons,
-  circuit, balance, scene,
+  circuit, balance, scene, clip,
 ])
 
 export type FigureSpec = z.infer<typeof figureSpec>

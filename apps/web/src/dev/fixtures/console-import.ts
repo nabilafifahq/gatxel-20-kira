@@ -188,6 +188,12 @@ function pageSvg(page: number, total: number): string {
   return svgUrl(parts.join(''))
 }
 
+const COMPETITIONS: ImportDTO['competitions'] = [
+  { id: 'esmo', name: 'ESMO' },
+  { id: 'ikmc', name: 'IKMC' },
+  { id: 'sasmo', name: 'SASMO' },
+]
+
 const PAGE_COUNT = 4
 const PAGES = Array.from({ length: PAGE_COUNT }, (_, i) => pageSvg(i + 1, PAGE_COUNT))
 
@@ -202,6 +208,9 @@ const ITEMS: ImportItemDTO[] = RAW.map((r, i) => ({
   pageImage: PAGES[r.page - 1] ?? null,
   status: r.status,
   approved: false,
+  keyCheck: r.answerFromKey === null ? null : i === 3 ? 'disagree' : 'agree',
+  aiAnswer: r.answerFromKey,
+  figure: null,
 }))
 
 const BATCHES: ImportDTO['batches'] = [
@@ -222,9 +231,11 @@ export const importReview: ImportDTO = {
     tags: ['ESMO', 'Level 1'],
     pages: PAGES,
     items: ITEMS,
+    meta: { competition: 'esmo', year: 2026, section: 'A', originalMinutes: 40, source: 'unggahan tutor' },
   },
+  competitions: COMPETITIONS,
 }
 
-export const importList: ImportDTO = { shell, batches: BATCHES, selected: null }
+export const importList: ImportDTO = { shell, batches: BATCHES, selected: null, competitions: COMPETITIONS }
 
-export const importEmpty: ImportDTO = { shell, batches: [], selected: null }
+export const importEmpty: ImportDTO = { shell, batches: [], selected: null, competitions: COMPETITIONS }

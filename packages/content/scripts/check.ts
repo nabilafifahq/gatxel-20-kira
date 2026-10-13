@@ -1,3 +1,4 @@
+import { checkExtras } from '../src/extras'
 import { checkGenerators, findContentDir, loadContent } from '../src/load'
 import { SUBJECTS } from '../src/schema'
 import { GENERATORS } from '../src/math'
@@ -15,7 +16,8 @@ const errors = loaded.errors.filter(inScope)
 const warnings = loaded.warnings.filter(inScope)
 const genProblems = checkGenerators(index.skills, Number(process.env.SEEDS ?? 25)).filter(inScope)
 const spelling = loadSpelling(dir)
-const allErrors = [...errors, ...genProblems, ...spelling.errors.filter(inScope)]
+const extraProblems = checkExtras(dir, index).filter(inScope)
+const allErrors = [...errors, ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems]
 if (scopes.length) console.log(`Scope: ${scopes.join(', ')} (error di luar scope disembunyikan: ${loaded.errors.length - errors.length})`)
 
 const rows: string[] = []

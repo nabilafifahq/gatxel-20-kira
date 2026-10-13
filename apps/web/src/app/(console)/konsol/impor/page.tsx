@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { ImportScreen } from '@/screens/console/ImportScreen'
 import { pageActor } from '@/server/auth/actor'
-import { approveImportItemsAction, updateImportItemAction, uploadPdfAction } from '@/server/actions/console-import'
+import { approveImportItemsAction, attachFigureAction, removeFigureAction, updateImportItemAction, updateImportMetaAction, uploadPdfAction } from '@/server/actions/console-import'
 import { importDTO } from '@/server/dal/console-import'
 import { load } from '@/server/page'
 import { spUuid, type SearchParams } from '@/server/params'
@@ -13,5 +13,5 @@ export default async function ImportPage({ searchParams }: { searchParams: Promi
   const actor = await pageActor(['tutor'], '/konsol/impor')
   const sp = await searchParams
   const data = await load(() => importDTO(actor, spUuid(sp, 'paket')))
-  return <ImportScreen data={data} actions={{ uploadPdf: uploadPdfAction, updateImportItem: updateImportItemAction, approveImportItems: approveImportItemsAction }} />
+  return <ImportScreen data={data} actions={{ uploadPdf: uploadPdfAction, updateImportItem: updateImportItemAction, approveImportItems: approveImportItemsAction, updateImportMeta: updateImportMetaAction, attachFigure: attachFigureAction, removeFigure: removeFigureAction }} />
 }

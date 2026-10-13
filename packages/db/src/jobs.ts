@@ -112,6 +112,16 @@ export type ImportStoredItem = {
   status: 'ok' | 'key-mismatch' | 'leftover-key-text' | 'broken-fraction' | 'needs-check'
   approved: boolean
   orgItemId: string | null
+  /** Jawaban AI (indeks opsi mulai 0) dari pemeriksaan kunci; null bila AI ragu. */
+  aiAnswer?: number | null
+  /**
+   * Hasil pemeriksaan kunci oleh AI. agree: kunci PDF sama dengan jawaban AI. disagree: berbeda.
+   * ai-only: PDF tanpa kunci, AI mengerjakan dua kali dengan hasil sama (kunci usulan di `answer`, tutor tetap mengecek).
+   * skipped: AI belum siap, gagal, atau ragu.
+   */
+  keyCheck?: 'agree' | 'disagree' | 'ai-only' | 'skipped'
+  /** Gambar soal hasil potong dari halaman PDF (media org jenis figure), dipasang ke soal saat disetujui. */
+  figure?: { mediaId: string; width: number; height: number; alt: string } | null
 }
 
 /**

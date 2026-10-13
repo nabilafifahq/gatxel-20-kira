@@ -11,6 +11,9 @@ export const LEARNER_ROUTES = {
   /** English Skills: listening, speaking, writing, dan Spelling Bee. */
   english: '/english',
   review: '/review',
+  /** Fix-it Book (Buku Salah) dan awal sesi ulangnya. */
+  fixIt: '/fix-it',
+  fixItStart: '/fix-it/start',
   me: '/me',
   quickMaths: '/quick-maths',
   quizArena: '/quiz-arena',

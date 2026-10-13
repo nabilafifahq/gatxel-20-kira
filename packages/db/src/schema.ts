@@ -597,7 +597,7 @@ export const media = pgTable('media', {
   id: id(),
   orgId: orgId(),
   learnerId: uuid('learner_id'),
-  kind: text('kind', { enum: ['audio', 'image', 'drawing', 'pdf', 'page'] }).notNull(),
+  kind: text('kind', { enum: ['audio', 'image', 'drawing', 'pdf', 'page', 'figure'] }).notNull(),
   path: text('path').notNull(),
   mime: text('mime').notNull(),
   size: integer('size').notNull(),
@@ -717,6 +717,12 @@ export const importBatch = pgTable('import_batch', {
   items: jsonb('items').notNull().default(sql`'[]'::jsonb`),
   pages: text('pages').array().notNull().default(sql`'{}'::text[]`),
   error: text('error'),
+  /** Metadata paper lomba (migrasi 0009): id lomba katalog, tahun, bagian (A, B, C, penuh), waktu asli, sumber. */
+  competition: text('competition'),
+  year: smallint('year'),
+  section: text('section'),
+  originalMinutes: integer('original_minutes'),
+  source: text('source'),
   createdBy: uuid('created_by').notNull(),
   createdAt: createdAt(),
   updatedAt: ts('updated_at').notNull().defaultNow(),
@@ -796,6 +802,123 @@ export const scheduleState = pgTable('schedule_state', {
   lastResult: text('last_result'),
 })
 
+
+// ---------------------------------------------------------------------------
+// Pustaka paper, Buku Salah, program olimpiade, sumber soal (migrasi 0009)
+
+/** Satu bagian paper lomba (atau paper penuh) di pustaka keluarga. Dibuat dari paket impor, disusun dari soal org (ref org:<id>). */
+export const paperLibrary = pgTable(
+  'paper_library',
+  {
+    id: id(),
+    orgId: orgId(),
+    importBatchId: uuid('import_batch_id'),
+    origin: text('origin', { enum: ['official', 'kira-made'] }).notNull().default('official'),
+    competition: text('competition'),
+    year: smallint('year'),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    grade: smallint('grade').notNull(),
+    /** A, B, C, dan seterusnya, atau "penuh" untuk paper utuh. */
+    section: text('section').notNull().default('penuh'),
+    title: text('title').notNull(),
+    minutes: integer('minutes').notNull(),
+    /** Alamat sumber atau "unggahan tutor". */
+    source: text('source').notNull(),
+    itemRefs: text('item_refs').array().notNull(),
+    createdBy: uuid('created_by').notNull(),
+    createdAt: createdAt(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+    retiredAt: ts('retired_at'),
+  },
+  (t) => [
+    uniqueIndex('paper_library_batch_uq').on(t.importBatchId).where(sql`${t.importBatchId} is not null`),
+    index('paper_library_pick_idx').on(t.orgId, t.subject, t.grade),
+  ],
+)
+
+/** Paper harian yang sudah dipilih untuk learner: dipakai agar pilihan hari yang sama tetap, dan agar bagian yang sudah keluar tidak dipilih lagi. */
+export const paperPick = pgTable(
+  'paper_pick',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    date: date('date').notNull(),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    kind: text('kind', { enum: ['mini', 'full'] }).notNull(),
+    libraryId: uuid('library_id'),
+    origin: text('origin', { enum: ['official', 'kira-made'] }).notNull(),
+    competition: text('competition'),
+    year: smallint('year'),
+    title: text('title').notNull(),
+    minutes: integer('minutes').notNull(),
+    source: text('source').notNull(),
+    itemRefs: text('item_refs').array().notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [uniqueIndex('paper_pick_day_uq').on(t.learnerId, t.date, t.subject, t.kind)],
+)
+
+/** Program persiapan olimpiade yang dijalankan untuk satu learner. slot_ids = baris plan_slot yang dibuat program ini. */
+export const programRun = pgTable(
+  'program_run',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    programId: text('program_id').notNull(),
+    startDate: date('start_date').notNull(),
+    endDate: date('end_date').notNull(),
+    status: text('status', { enum: ['active', 'cancelled'] }).notNull().default('active'),
+    slotIds: uuid('slot_ids').array().notNull().default(sql`'{}'::uuid[]`),
+    createdBy: uuid('created_by').notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [index('program_run_learner_idx').on(t.learnerId, t.status)],
+)
+
+/** Catatan setiap soal atau PDF yang diambil dari registri sumber. Kunci unik (org, content_hash) membuang yang dobel. */
+export const sourceRecord = pgTable(
+  'source_record',
+  {
+    id: id(),
+    orgId: orgId(),
+    sourceId: text('source_id').notNull(),
+    kind: text('kind', { enum: ['item', 'pdf'] }).notNull(),
+    externalId: text('external_id'),
+    contentHash: text('content_hash').notNull(),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }),
+    grade: smallint('grade'),
+    skillId: text('skill_id'),
+    body: jsonb('body').notNull(),
+    keyOrigin: text('key_origin', { enum: ['source', 'ai', 'none'] }).notNull().default('none'),
+    verify: text('verify', { enum: ['agree', 'disagree', 'ai-only', 'unverified'] }).notNull().default('unverified'),
+    status: text('status', { enum: ['fetched', 'unmapped', 'published', 'queued', 'rejected', 'imported'] }).notNull().default('fetched'),
+    orgItemId: uuid('org_item_id'),
+    aiDraftId: uuid('ai_draft_id'),
+    importBatchId: uuid('import_batch_id'),
+    license: text('license').notNull(),
+    attribution: text('attribution').notNull(),
+    createdAt: createdAt(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex('source_record_hash_uq').on(t.orgId, t.contentHash), index('source_record_source_idx').on(t.orgId, t.sourceId, t.status)],
+)
+
+/** Status pengambilan per sumber: kapan terakhir, hasilnya, dan penanda lanjut (misalnya offset). */
+export const sourceState = pgTable(
+  'source_state',
+  {
+    orgId: orgId(),
+    sourceId: text('source_id').notNull(),
+    enabled: boolean('enabled').notNull().default(true),
+    cursor: jsonb('cursor'),
+    lastRunAt: ts('last_run_at'),
+    lastResult: text('last_result'),
+  },
+  (t) => [primaryKey({ columns: [t.orgId, t.sourceId] })],
+)
+
 /** Tabel tenant yang wajib RLS. Dipakai migrasi RLS dan tes. */
 export const TENANT_TABLES = [
   'org', 'member_profile', 'learner_profile', 'guardian_link', 'consent_event', 'deletion_request', 'skill_state',
@@ -803,6 +926,7 @@ export const TENANT_TABLES = [
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state',
+  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
@@ -810,4 +934,5 @@ export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'note', 'week_report',
   'arena_session', 'arena_state',
+  'paper_pick',
 ] as const

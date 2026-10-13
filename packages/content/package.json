@@ -15,7 +15,11 @@
     "./load": "./src/load.ts",
     "./speech": "./src/speech.ts",
     "./spelling": "./src/spelling.ts",
-    "./knowledge": "./src/knowledge/index.ts"
+    "./knowledge": "./src/knowledge/index.ts",
+    "./sources": "./src/sources.ts",
+    "./programs": "./src/programs.ts",
+    "./medals": "./src/medals.ts",
+    "./extras": "./src/extras.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",

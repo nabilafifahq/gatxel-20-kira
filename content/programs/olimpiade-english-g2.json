@@ -1,0 +1,61 @@
+{
+  "id": "olimpiade-english-g2",
+  "title": "Persiapan Olimpiade English Kelas 2 (8 minggu)",
+  "subject": "english",
+  "grade": 2,
+  "competitions": ["iklc", "esmo"],
+  "summary": "Delapan minggu persiapan untuk IKLC, ESMO English, dan Cambridge Starters. Pola sama dengan program Math: fondasi, jenis soal, campuran, lalu simulasi bertimer.",
+  "weeks": 8,
+  "phases": [
+    {
+      "id": "fondasi",
+      "name": "Fondasi",
+      "weeks": [1, 2],
+      "focus": "Ejaan, kosakata, kata sifat, dan kata benda jamak",
+      "summary": "Ejaan vokal panjang dan magic e, kata sulit, lawan dan persamaan kata, kata sifat, dan kata benda jamak. Empat soal kosakata cepat di sesi Tes.",
+      "latihan": ["e2.vowel-spellings", "e2.magic-e", "e2.tricky-words", "e2.synonyms-opposites", "e2.adjectives", "e2.nouns-plurals"],
+      "tes": ["e2.tricky-words", "e2.synonyms-opposites", "e2.vowel-spellings"],
+      "latihanQuestions": 10,
+      "tesQuestions": 4,
+      "note": "Ejaan dan kosakata dilatih sedikit tapi setiap hari. Kata yang salah masuk Buku Salah."
+    },
+    {
+      "id": "jenis-soal",
+      "name": "Jenis soal",
+      "weeks": [3, 4],
+      "focus": "Satu jenis soal tata bahasa atau bacaan per hari",
+      "summary": "Kata ganti, bentuk lampau, kata sambung, tanda baca, koma dan apostrof, lalu soal membaca. Satu jenis soal per hari, ditambah rekaman membaca nyaring.",
+      "latihan": ["e2.pronouns", "e2.past-tense-ed", "e2.irregular-past", "e2.joining-words", "e2.sentence-punctuation", "e2.commas-apostrophes", "e2.nouns-plurals", "e2.adjectives", "e2.reading-information", "e2.text-structure", "e2.poems", "e2.speaking"],
+      "tes": "previous",
+      "latihanQuestions": 10,
+      "tesQuestions": 10,
+      "note": "Satu jenis soal per hari. Minta Syakira membaca nyaring dan menjelaskan jawabannya lewat rekaman."
+    },
+    {
+      "id": "campuran",
+      "name": "Campuran dan kecepatan",
+      "weeks": [5, 6],
+      "focus": "Set campuran membaca, tata bahasa, dan kosakata",
+      "summary": "Set campuran soal membaca, tata bahasa, dan kosakata. Buku Salah dipakai untuk mengulang yang lemah.",
+      "latihan": ["e2.reading-information", "e2.text-structure", "e2.past-tense-ed", "e2.joining-words", "e2.synonyms-opposites", "e2.poems"],
+      "tes": ["e2.irregular-past", "e2.sentence-punctuation", "e2.commas-apostrophes", "e2.pronouns"],
+      "latihanQuestions": 12,
+      "tesQuestions": 10,
+      "note": "Hari Sabtu Syakira mengulang Buku Salah."
+    },
+    {
+      "id": "simulasi",
+      "name": "Simulasi",
+      "weeks": [7, 8],
+      "focus": "Simulasi bertimer dari paper asli",
+      "summary": "Satu simulasi bertimer 30 sampai 40 menit setiap minggu dari paper asli. Dua sampai tiga hari terakhir hanya latihan ringan atau istirahat.",
+      "latihan": ["e2.reading-information", "e2.text-structure", "e2.tricky-words", "e2.irregular-past", "e2.synonyms-opposites"],
+      "tes": "previous",
+      "latihanQuestions": 10,
+      "tesQuestions": 10,
+      "note": "Hari Sabtu memakai satu paper penuh bertimer."
+    }
+  ],
+  "taper": { "days": 3, "skills": ["e2.poems", "e2.magic-e", "e2.adjectives"], "questions": 4 },
+  "simulation": { "weeks": [7, 8], "minMinutes": 30, "maxMinutes": 40 }
+}

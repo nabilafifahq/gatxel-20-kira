@@ -166,6 +166,10 @@ const SAMPLES: Record<FigureKind, FigureSpecInput[]> = {
     },
     { kind: 'scene', width: 160, height: 100, shapes: [{ t: 'rect', x: 10, y: 10, w: 60, h: 40 }], alt: 'A plain box on a pale background.' },
   ],
+  clip: [
+    { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a11', width: 320, height: 200, alt: 'A picture of a row of coloured counters from the paper.' },
+    { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a12', width: 1200, height: 900, alt: 'A large picture of a grid with some squares shaded.' },
+  ],
 }
 
 function esc(s: string): string {

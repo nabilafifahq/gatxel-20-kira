@@ -251,6 +251,10 @@ const SAMPLES: Record<FigureKind, Sample[]> = {
       },
     },
   ],
+  clip: [
+    { note: 'small clip', spec: { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a11', width: 320, height: 200, alt: 'A picture of a row of coloured counters from the paper.' } },
+    { note: 'large clip', spec: { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a12', width: 1200, height: 900, alt: 'A large picture of a grid with some squares shaded.' } },
+  ],
 }
 
 export default async function FigureGallery({ searchParams }: { searchParams: Promise<{ kind?: string | string[] }> }) {
