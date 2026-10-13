@@ -438,6 +438,11 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
     else if (a.kind === 'simulation') await completeLinkedSession(tx, learnerId, date, { session: 'simulation', subject: a.subject as Subject, ...(a.refId ? { presetId: a.refId } : {}) })
     else if (a.kind === 'esmo-mock' || a.kind === 'esmo-pack') await completeLinkedSession(tx, learnerId, date, { session: 'esmo', subject: a.subject as Subject })
+    else {
+      // Sesi English Skills (listening, speaking, writing): bila tutor memberinya sebagai sesi hari ini, sesi itu selesai.
+      const area = areaOfSessionRef(a.refId)
+      if (area) await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: area })
+    }
   }
   if (a.kind === 'lesson' && items[0]) {
     const skillId = resolved.get(items[0].ref)?.skill

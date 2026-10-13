@@ -3,7 +3,7 @@ import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { answerToLabels, labelCount, type Item } from '@kira/content'
 import { createDb, withOrg, type Db, type OrgContext, type Tx } from '@kira/db/client'
-import { computeStreak, retryXp, saturdayFullSubject } from '@kira/core'
+import { computeStreak, jakartaDate, retryXp, saturdayFullSubject, weekStart } from '@kira/core'
 
 /**
  * Alur sesi harian di Postgres sungguhan: 9 sesi wajib, Tes terkunci sampai Latihan selesai, batas waktu Tes dan Paper,
@@ -45,11 +45,33 @@ describe.skipIf(!ready)('sesi harian', () => {
     return m.core.loadLearner(tx, learnerId)
   }
 
-  /** Jawaban benar untuk soal pilihan ganda atau angka; soal lain dibiarkan kosong. */
+  /** Jawaban benar untuk soal yang dinilai otomatis; soal yang dinilai tutor (tulis, bicara, gambar, foto) dibiarkan kosong. */
   function correctAnswer(item: Item): unknown | null {
-    if (item.type === 'mcq') return { choice: item.answer }
-    if (item.type === 'numeric') return { value: String(item.answer) }
-    return null
+    switch (item.type) {
+      case 'mcq':
+      case 'listen':
+        return { choice: item.answer }
+      case 'numeric':
+        return { value: String(item.answer) }
+      case 'story':
+        return { parts: item.parts.map((p) => (p.type === 'mcq' ? { choice: p.answer } : p.type === 'numeric' ? { value: String(p.answer) } : { texts: [p.answers[0]] })) }
+      case 'tiles':
+        return { words: item.answer.split(/\s+/) }
+      case 'spell':
+        return { value: item.word }
+      case 'cloze':
+        return { texts: item.gaps.map((g) => g.options[g.answer]) }
+      case 'hotspot':
+        return { texts: item.answers.map((i) => item.regions[i]!.label) }
+      case 'label':
+        return { texts: item.labels }
+      case 'table':
+        return { texts: item.blanks.map((b) => b.answers[0]) }
+      case 'grid':
+        return { cells: item.filled.flat() }
+      default:
+        return null
+    }
   }
 
   /** Jawab sebagian soal sebuah attempt dengan benar (maksimal `limit` soal, atau semua), lalu kembalikan jumlah yang dijawab. */
@@ -331,6 +353,37 @@ describe.skipIf(!ready)('sesi harian', () => {
     // Badge sesi: tes sempurna tidak diberikan karena jawaban dibiarkan sebagian kosong.
     const [pt] = await owner`select count(*)::int as n from badge_award where learner_id = ${learnerId} and badge_id = 'perfect-test'`
     expect(pt!.n).toBe(0)
+  })
+
+  it('tugas English dari tutor selesai saat sesi English Skills yang cocok dikumpulkan, dan tugas lain tetap terbuka', async () => {
+    const today = jakartaDate()
+    const found = await owner`select id from plan_week where learner_id = ${learnerId} and week_start = ${weekStart(today)}`
+    const weekId =
+      found[0]?.id ??
+      (
+        await owner`insert into plan_week (org_id, learner_id, week_start, status, published_at, created_by)
+          values (${orgId}, ${learnerId}, ${weekStart(today)}, 'published', now(), ${tutorId}) returning id`
+      )[0]!.id
+    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, mode, question_count, config)
+      values (${orgId}, ${weekId}, ${learnerId}, ${today}, 'english', 'quest', 'english-skill', false, 'latihan', 6, ${owner.json({ task: 'listening' })}),
+             (${orgId}, ${weekId}, ${learnerId}, ${today}, 'english', 'quest', 'english-skill', false, 'latihan', 6, ${owner.json({ task: 'writing' })})`
+    const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), today))
+    const tasks = day.filter((q) => q.session === 'english-skill')
+    expect(tasks).toHaveLength(2)
+    expect(tasks.every((q) => q.status !== 'done')).toBe(true)
+
+    const english = await import('@/server/dal/english-skills')
+    const attemptId = await run((tx) => english.startEnglishSession(tx, ctx, learnerId, 'listening'))
+    await answer(attemptId, 2)
+    await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, attemptId))
+    const done = (await quests(today)).filter((q) => q.session === 'english-skill')
+    const cfgOf = async (id: string) => ((await owner`select config from quest where id = ${id}`)[0]!.config as { task: string }).task
+    const byTask = new Map<string, string>()
+    for (const q of done) byTask.set(await cfgOf(q.id), q.status)
+    expect(byTask.get('listening')).toBe('done')
+    expect(byTask.get('writing')).not.toBe('done')
+    // Mengumpulkan sesi yang sama dua kali tidak menyelesaikan tugas lain.
+    expect(await run((tx) => m.session.completeLinkedSession(tx, learnerId, today, { session: 'english-skill', subject: 'english', task: 'listening' }))).toBe(false)
   })
 
   it('Sabtu: satu mapel mengerjakan paper penuh dengan waktu preset, dua lainnya paper mini', async () => {
