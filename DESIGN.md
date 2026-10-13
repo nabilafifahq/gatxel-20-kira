@@ -109,6 +109,25 @@ Fokus: layar learner outline 3px `--fg` jarak 2px; konsol outline 3px `--accent`
 
 Hanya `transform` dan `opacity`. Dengan `prefers-reduced-motion: reduce` semua menjadi crossfade 120ms, dan SolutionPlayer menampilkan langkah satu per satu dengan tombol Next.
 
+## 6a. Sound, celebration, and timer motion
+
+**Sound.**
+- Setiap bunyi di layar learner bisa dimatikan. Tombol Sound on dan Sound off ada di halaman Me, pilihannya disimpan per perangkat, dan semua bunyi (termasuk tik timer) lewat `playSfx` di `components/learner/sfx.ts`, yang selalu memeriksa pilihan itu. Tidak ada jalur lain untuk memutar bunyi.
+- Berkas bunyi hanya dari `public/sounds` (CC0, Kenney; lihat `LICENSE-sounds.txt`). Area learner tidak memuat aset dari luar.
+- Bunyi pendek (di bawah 1,2 detik), tanpa musik latar, dan tidak pernah menjadi satu-satunya penanda. Benar dan Not yet tetap ditandai ikon, warna, dan teks. Bunyi Not yet lembut, tidak menghukum.
+
+**Celebration.**
+- Confetti, bunyi sesi selesai, dan lompatan avatar hanya di akhir sesi (halaman hasil), sekali untuk tiap sesi, dan tidak pernah di setiap jawaban benar.
+- Bintang 1 sampai 3 dari bagian soal yang benar: 90 persen ke atas 3 bintang, 60 persen ke atas 2 bintang, selain itu 1 bintang. Confetti hanya untuk 2 bintang ke atas.
+- Confetti digambar di kanvas sendiri, sekitar 2,6 detik, tidak menangkap sentuhan, warnanya dari token. Bar XP terisi dengan `--duration-celebrate`.
+- Reduced motion: tanpa confetti dan tanpa lompatan; bintang dan bar langsung tampil penuh.
+
+**Timer motion.**
+- Cincin menyusut halus dengan `stroke-dashoffset` linear. Ini satu-satunya pengecualian aturan transform dan opacity, karena gerak itu adalah data, bukan hiasan. Warna `success` di atas 50 persen, `warn` sampai 20 persen, `danger` di bawahnya.
+- 10 detik terakhir: angka membesar 125 persen (transform), cincin menebal, dan ada tik tiap detik. Tanpa easing memantul; hanya `--ease`.
+- Waktu habis: satu gerakan `kira-pop` 300ms dan satu bunyi, lalu jawaban dikirim otomatis. Server tetap penentu batas waktu.
+- Reduced motion: hanya warna yang berubah. Cincin turun per detik tanpa transisi, angka dan cincin tidak membesar.
+
 ## 7. Voice
 
 **Tone:** hangat, singkat, spesifik. Tidak pernah menyindir atau membuat anak merasa bersalah.
