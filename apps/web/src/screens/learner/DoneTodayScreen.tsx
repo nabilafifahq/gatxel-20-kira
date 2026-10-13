@@ -16,7 +16,7 @@ import { XpPill } from '@/components/learner/XpPill'
  * karena DTO belum membawa penanda berhenti; nama hari diambil dari rantai streak.
  */
 
-const SCORE = /^\d+ of \d+$/
+const SCORE = /^(\d+ (out )?of \d+|Done)$/
 
 export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { data: DoneTodayDTO; todayHref?: string }): ReactElement {
   const limit = data.variant === 'time-limit'
@@ -60,19 +60,22 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
 
         <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card border border-divider bg-surface p-5 md:p-8 lg:flex-[1.05]">
           <h2 id="done-quests" className="m-0 mb-2 text-h2 font-bold">
-            Today&apos;s quests
+            Today&apos;s sessions
           </h2>
           <ul className="m-0 flex list-none flex-col p-0">
-            {data.quests.map((q) => {
+            {data.quests.map((q, i) => {
               const style = SUBJECT_STYLE[q.subject]
               const done = SCORE.test(q.score)
               return (
-                <li key={`${q.subject}-${q.title}`} className="flex min-h-21 items-center gap-4 border-b border-divider py-2">
+                <li key={`${q.subject}-${q.session}-${i}`} className="flex min-h-21 items-center gap-4 border-b border-divider py-2">
                   <span className={cx('flex h-14 w-14 flex-none items-center justify-center rounded-control border-3', style.border, style.tint)}>
                     <SubjectIcon subject={q.subject} size={32} />
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col">
-                    <span className="text-body-lg font-bold">{SUBJECT_NAME[q.subject]}</span>
+                    <span className="text-body-lg font-bold">
+                      {SUBJECT_NAME[q.subject]} {q.session.toLowerCase()}
+                      {q.required ? '' : ', extra'}
+                    </span>
                     <span className="text-body text-fg-muted">{q.title}</span>
                   </div>
                   {done ? (

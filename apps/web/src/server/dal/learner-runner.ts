@@ -411,7 +411,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     if (skillId) await tx.update(skillState).set({ lessonDoneAt: new Date() }).where(and(eq(skillState.learnerId, learnerId), eq(skillState.skillId, skillId)))
   }
 
-  const newBadges = await awardBadges(tx, ctx, learner, date)
+  // Hasil disimpan lebih dulu: lencana dihitung dari hasil attempt ini juga (paper, tes sempurna, ulang yang membaik).
   await tx
     .update(attempt)
     .set({
@@ -422,9 +422,11 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       scoreMax,
       scoreScaled: scaled,
       xp,
-      result: { ...result, newBadges },
+      result: { ...result, newBadges: [] },
     })
     .where(eq(attempt.id, a.id))
+  const newBadges = await awardBadges(tx, ctx, learner, date)
+  if (newBadges.length > 0) await tx.update(attempt).set({ result: { ...result, newBadges } }).where(eq(attempt.id, a.id))
   return { redirectTo }
 }
 

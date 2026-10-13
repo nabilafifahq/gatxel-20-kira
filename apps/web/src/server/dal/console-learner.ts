@@ -54,11 +54,13 @@ function learnerSince(l: LearnerRow): IsoDate {
 }
 
 /** Judul attempt untuk konsol: jenis dalam bahasa Indonesia, lalu judul asli (en-GB untuk quest). */
-export function attemptTitle(a: { kind: string; mode: string; subject: Subject; title: string; questKind: string | null }): string {
+const QUEST_SESSION_ID: Record<string, string> = { latihan: 'Latihan', tes: 'Tes', paper: 'Paper', reading: 'Membaca', lesson: 'Pelajaran' }
+
+export function attemptTitle(a: { kind: string; mode: string; subject: Subject; title: string; questKind: string | null; questSession?: string | null }): string {
   const subject = SUBJECT_ID_LABEL[a.subject]
   switch (a.kind) {
     case 'quest':
-      return `${a.questKind === 'bonus' ? 'Quest bonus' : 'Quest'} ${subject}: ${a.title}`
+      return `${QUEST_SESSION_ID[a.questSession ?? 'latihan'] ?? 'Sesi'}${a.questKind === 'extra' || a.questKind === 'bonus' ? ' opsional' : ''} ${subject}: ${a.title}`
     case 'test':
       return `Latihan ${subject}: ${a.title}`
     case 'review':
@@ -143,6 +145,7 @@ async function recentAttempts(tx: Tx, learnerId: string): Promise<LearnerDetailD
       scoreScaled: attempt.scoreScaled,
       itemCount: sql<number>`jsonb_array_length(${attempt.items})`,
       questKind: quest.kind,
+      questSession: quest.session,
     })
     .from(attempt)
     .leftJoin(quest, eq(quest.attemptId, attempt.id))
@@ -259,6 +262,7 @@ export async function attemptDetailDTO(actor: Actor, learnerId: string, attemptI
         scoreMax: attempt.scoreMax,
         scoreScaled: attempt.scoreScaled,
         questKind: quest.kind,
+        questSession: quest.session,
       })
       .from(attempt)
       .leftJoin(quest, eq(quest.attemptId, attempt.id))

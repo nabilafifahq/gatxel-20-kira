@@ -91,8 +91,9 @@ export const MAX_LATIHAN_WARMUP = 2
 /**
  * Susun satu sesi harian. Latihan: soal mudah (peluang benar 85 sampai 95 persen) dengan paling banyak dua
  * kartu Buku Koreksi di awal. Tes: soal sedang sampai sulit (55 sampai 75 persen) tanpa pemanasan.
- * `avoid` berisi soal yang sudah dipakai sesi lain hari itu atau percobaan sebelumnya: dihindari bila
- * masih ada pilihan lain, dipakai lagi hanya kalau bank soal skill itu habis.
+ * `avoid` berisi soal yang sudah dipakai sesi lain hari itu atau percobaan sebelumnya. Dengan `reuse` (bawaan)
+ * soal itu dipakai lagi bila bank soal skill habis; tanpa `reuse` hasilnya bisa kurang dari `count` supaya
+ * pemanggil bisa mengisi sisanya dari skill lain sebelum memakai soal ulang.
  */
 export function assembleSession(input: {
   kind: 'latihan' | 'tes'
@@ -101,6 +102,7 @@ export function assembleSession(input: {
   candidates: readonly Candidate[]
   count: number
   avoid?: ReadonlySet<string>
+  reuse?: boolean
   rng: Rng
 }): QuestSlot[] {
   const slots: QuestSlot[] = []
@@ -117,7 +119,7 @@ export function assembleSession(input: {
   const pickFrom = (exclude: ReadonlySet<string>, n: number) =>
     pickItems({ candidates: input.candidates, theta: input.theta, count: n, band, rng: input.rng, exclude })
   let core = pickFrom(new Set([...used, ...avoid]), want)
-  if (core.length < want) {
+  if (core.length < want && (input.reuse ?? true)) {
     // Bank soal skill ini kurang: isi sisanya dengan soal yang sudah pernah dipakai.
     const have = new Set([...used, ...core.map((c) => c.candidate.ref)])
     const more = pickFrom(have, want - core.length)

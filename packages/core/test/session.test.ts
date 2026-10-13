@@ -239,6 +239,13 @@ describe('susunan Latihan dan Tes', () => {
     expect(tes).toHaveLength(8)
     expect(new Set(tes.map((t) => t.ref)).size).toBe(8)
   })
+  it('tanpa reuse hasilnya bisa kurang dari jumlah soal supaya skill lain mengisi dulu', () => {
+    const small = Array.from({ length: 9 }, (_, i) => ({ ref: `s-${i}`, difficulty: 3 }))
+    const avoid = new Set(small.slice(0, 5).map((s) => s.ref))
+    const strict = assembleSession({ kind: 'tes', theta: 0, candidates: small, count: 8, avoid, reuse: false, rng: createRng(7) })
+    expect(strict).toHaveLength(4)
+    expect(strict.some((s) => avoid.has(s.ref))).toBe(false)
+  })
   it('Latihan memakai paling banyak dua kartu Buku Koreksi di awal', () => {
     const due = [1, 2, 3, 4].map((n) => ({ ref: `due-${n}`, difficulty: 2 }))
     const lat = assembleSession({ kind: 'latihan', theta: 0, dueRefs: due, candidates: pool, count: 10, rng: createRng(5) })

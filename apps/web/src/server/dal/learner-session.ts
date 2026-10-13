@@ -163,8 +163,15 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   } else if (input.style) {
     const count = input.length ?? (input.style === 'test' ? TES_COUNT : LATIHAN_COUNT)
     const avoid = input.avoid ?? new Set<string>()
-    slots = assembleSession({ kind: input.style === 'test' ? 'tes' : 'latihan', theta, dueRefs, candidates: withSeen(pool), count, avoid, rng })
+    slots = assembleSession({ kind: input.style === 'test' ? 'tes' : 'latihan', theta, dueRefs, candidates: withSeen(pool), count, avoid, reuse: false, rng })
+    // Bank soal skill ini kurang: isi dari skill lain mapel yang sama, dan baru terakhir dengan soal yang dihindari.
     slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng })
+    if (slots.length < count) {
+      const used = new Set(slots.map((s) => s.ref))
+      const band: [number, number] = input.style === 'test' ? [0.55, 0.75] : [0.85, 0.95]
+      const more = pickItems({ candidates: withSeen(pool), theta, count: count - slots.length, band, rng, exclude: used })
+      slots = [...slots, ...more.map((p) => ({ ref: p.candidate.ref, section: 'core' as const, difficulty: p.candidate.difficulty }))]
+    }
   } else {
     slots = assembleQuest({ mode: input.mode, theta, dueRefs, candidates: withSeen(pool), length: input.length ?? questLength(learner, input.mode), rng })
   }

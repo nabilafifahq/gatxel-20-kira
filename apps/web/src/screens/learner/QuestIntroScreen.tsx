@@ -48,7 +48,7 @@ export function QuestIntroScreen({
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex h-18 flex-none items-center gap-3 px-4 md:h-22 md:gap-4 md:px-8">
         <IconLink href={backHref} icon="arrow-left" label="Back to Today" />
-        <span className="min-w-0 text-body-lg font-bold">Today&apos;s {name} quest</span>
+        <span className="min-w-0 text-body-lg font-bold">Today&apos;s {name} session</span>
         {!isOnline ? (
           <span className="ml-auto">
             <OfflineBanner state="offline" />
@@ -81,11 +81,11 @@ export function QuestIntroScreen({
               </li>
               <li className="flex items-center gap-2 text-body-lg">
                 <UiIcon name="clock" size={22} className="flex-none" />
-                About {plural(data.minutes, 'minute', 'minutes')}
+                {data.timeLimitMin ? `${plural(data.timeLimitMin, 'minute', 'minutes')} on the clock` : `About ${plural(data.minutes, 'minute', 'minutes')}`}
               </li>
               <li className="flex items-center gap-2 text-body-lg">
                 <UiIcon name="hint" size={22} className="flex-none" />
-                {data.hintsPerQuestion > 0 ? `${plural(data.hintsPerQuestion, 'hint', 'hints')} for each question` : 'No hints in this quest'}
+                {data.hintsPerQuestion > 0 ? `${plural(data.hintsPerQuestion, 'hint', 'hints')} for each question` : 'No hints in this session'}
               </li>
             </ul>
             {data.youWillPractise.length > 0 ? (
@@ -104,7 +104,7 @@ export function QuestIntroScreen({
               <div role="alert" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3 text-body-lg">
                 <UiIcon name="warning" size={22} className="mt-1 flex-none text-warn" />
                 <span>
-                  This quest is not on this {device} yet.{' '}
+                  This session is not on this {device} yet.{' '}
                   {altName ? `${altName} is saved here, so you can do ${altName} first.` : 'Connect to the internet to start it.'}
                 </span>
               </div>

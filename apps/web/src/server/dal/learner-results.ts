@@ -6,7 +6,7 @@ import { answerText, type Item } from '@kira/content'
 import { bestIndex } from '@kira/core'
 import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
 import type { Tx } from '../db'
-import { resolveItems, skill, toClient } from './content'
+import { preset, resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner } from './learner-core'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
@@ -91,7 +91,8 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const correct = questions.filter((q) => q.status === 'correct').length
   const pending = questions.filter((q) => q.status === 'pending').length
   const total = items.length
-  const p = presetForAttempt(a)
+  // Paper harian dinilai dengan preset yang tersimpan di attempt (poin lomba), bukan hanya jumlah benar.
+  const p = presetForAttempt(a) ?? (a.presetId ? preset(a.presetId) : undefined)
   const scaledTarget = p?.rules.passMark ?? (a.kind.startsWith('esmo') ? 70 : null)
   const pct = total > 0 ? correct / Math.max(1, total - pending) : 0
   const tone = headlineFor(pct, pending)
