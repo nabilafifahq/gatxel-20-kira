@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import { digitsToNumber, type QmPrompt, type QmReviewRow } from '@kira/core'
@@ -199,8 +198,10 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
     await chain.current.catch(() => undefined)
     try {
       const res = await actions.finish(data.id)
-      if (res.ok) setResult(res.data)
-      else {
+      if (res.ok) {
+        // sfx: complete, then levelup or badge when result.reward has them
+        setResult(res.data)
+      } else {
         finishCalled.current = false
         setError({ message: res.message, reference: res.reference })
       }
@@ -274,6 +275,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         const call = chain.current.then(() => sendAnswer(answer, ms))
         chain.current = call
         void call.then((res) => {
+          // sfx: correct or notyet (timed rounds play it when the server answers)
           if (res?.correct) setRight((n) => n + 1)
         })
         advance()
@@ -284,6 +286,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
       setBusy(false)
       if (!res) return
       if (res.correct) setRight((n) => n + 1)
+      // sfx: correct or notyet
       setFeedback({ ok: res.correct, ...(res.answer !== undefined ? { answer: res.answer } : {}), ...(res.hint ? { hint: res.hint } : {}) })
       if (res.correct) {
         await sleep(reduced ? 500 : NEXT_DELAY_MS)
@@ -328,7 +331,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         />
         <div className="flex min-w-0 flex-1 flex-col">
           <span className="truncate text-body-lg font-bold">{data.mission ? `Daily mission: ${data.mission.title}` : data.title}</span>
-          <span className="hidden truncate text-body text-fg-muted sm:block">{progress ?? data.subtitle}</span>
+          <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -470,12 +473,6 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           </section>
         ) : null}
       </main>
-      <p className="visually-hidden" aria-live="polite">
-        {progress ?? ''}
-      </p>
-      <Link href={data.exitHref} className="visually-hidden">
-        Back to Quick Maths
-      </Link>
     </div>
   )
 }

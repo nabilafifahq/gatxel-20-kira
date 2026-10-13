@@ -55,6 +55,34 @@ export function updateLevels(
   return { levels: out, ppm, changes }
 }
 
+/**
+ * Seperti updateLevels, tetapi hasil ronde pendek dikumpulkan dulu: ronde campuran hanya berisi dua atau tiga
+ * soal per operasi, jadi level dinilai setelah terkumpul 8 jawaban untuk operasi itu, lalu hitungan mulai lagi.
+ */
+export function updateLevelsAccumulated(
+  levels: QmLevels,
+  pending: Partial<Record<QmOp, OpRoundStat>>,
+  round: Partial<Record<QmOp, OpRoundStat>>,
+  prevPpm: Partial<Record<QmOp, number>>,
+): { levels: QmLevels; ppm: Partial<Record<QmOp, number>>; changes: LevelChange[]; pending: Partial<Record<QmOp, OpRoundStat>> } {
+  const merged: Partial<Record<QmOp, OpRoundStat>> = {}
+  for (const op of QM_OPS) {
+    const a = pending[op]
+    const b = round[op]
+    if (a || b) merged[op] = { answered: (a?.answered ?? 0) + (b?.answered ?? 0), correct: (a?.correct ?? 0) + (b?.correct ?? 0), totalMs: (a?.totalMs ?? 0) + (b?.totalMs ?? 0) }
+  }
+  const ready: Partial<Record<QmOp, OpRoundStat>> = {}
+  const rest: Partial<Record<QmOp, OpRoundStat>> = {}
+  for (const op of QM_OPS) {
+    const m = merged[op]
+    if (!m) continue
+    if (m.answered >= ADAPT_MIN_ANSWERED) ready[op] = m
+    else rest[op] = m
+  }
+  const u = updateLevels(levels, ready, prevPpm)
+  return { ...u, pending: rest }
+}
+
 /** Level Flash Anzan dan sempoa: naik pada 80 persen benar, turun pada 35 persen atau kurang. */
 export function nextSimpleLevel(level: number, correct: number, total: number, max: number): number {
   if (total <= 0) return level

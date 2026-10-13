@@ -136,6 +136,9 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 - Hasil dan pembahasan: skor, lalu daftar soal; setiap soal membuka jawaban learner, kunci, penjelasan, dan SolutionPlayer.
 - Konsol tutor: Perlu perhatian, status hari ini per mapel, tren mingguan.
 - Halaman cetak: header paper, petunjuk, bagian soal, footer kode dan nomor halaman.
+- Quick Maths (`/quick-maths`, nada `--mental`): misi harian, pilihan permainan, pengaturan, pelajaran strategi, statistik. Ronde: angka soal Mohave besar, keypad 64px di kanan pada tablet, sempoa virtual yang hanya diketuk (tanpa seret).
+- Quiz Arena (`/quiz-arena`, nada `--knowledge`): dua belas topik dengan bar kemajuan, halaman topik dengan tiga mode (Learn, Quiz, Speed quiz), ronde dengan pilihan jawaban yang selalu diacak. Gambar hanya dari berkas sendiri (bendera `public/flags`, ikon dan planet `@kira/figures`), tanpa emoji.
+- Today dan Me menampilkan tiga bar XP (Belajar, Quick Maths, Quiz) dengan level masing-masing. Aksesori avatar didapat dari level jalur dan dipakai dari Me; teksnya selalu "Earn", bukan kata terlarang GTX.
 
 ## 10. Required states
 

@@ -190,6 +190,40 @@ export function factLabel(fact: string): string {
   return fact
 }
 
+const FACT_NAMES_ID: Record<string, string> = {
+  'add:bond10': 'Pasangan 10',
+  'add:double': 'Dobel',
+  'add:near-double': 'Hampir dobel',
+  'add:within10': 'Tambah sampai 10',
+  'add:bridge10': 'Tambah lewat 10',
+  'sub:within10': 'Kurang sampai 10',
+  'sub:bridge10': 'Kurang lewat 10',
+  'sub:teens': 'Kurang dari bilangan belasan',
+  'comp:add': 'Tambah bilangan hampir puluhan',
+  'comp:sub': 'Kurang bilangan hampir puluhan',
+  'mul:2d1d': 'Kali 2 digit dengan 1 digit',
+  'mul:2d2d': 'Kali 2 digit dengan 2 digit',
+  'mul:3d1d': 'Kali 3 digit dengan 1 digit',
+  'div:2d1d': 'Bagi 2 digit dengan 1 digit',
+  'div:3d1d': 'Bagi 3 digit dengan 1 digit',
+}
+
+/** Nama jenis soal untuk laporan tutor (Indonesia). */
+export function factLabelId(fact: string): string {
+  const known = FACT_NAMES_ID[fact]
+  if (known) return known
+  const [kind, rest = ''] = fact.split(':')
+  if (kind === 'mul' && /^d+$/.test(rest)) return `Tabel perkalian ${rest}`
+  if (kind === 'div' && /^d+$/.test(rest)) return `Pembagian dengan ${rest}`
+  const m = /^(d)d(d)d([+-]?)$/.exec(rest)
+  if (m && (kind === 'add' || kind === 'sub')) {
+    const verb = kind === 'add' ? 'ditambah' : 'dikurangi'
+    const extra = m[3] === '+' ? ', dengan simpanan' : m[3] === '-' ? ', dengan pinjaman' : ''
+    return `${m[1]} digit ${verb} ${m[2]} digit${extra}`
+  }
+  return fact
+}
+
 // ---------------------------------------------------------------------------
 // Soal per operasi
 

@@ -31,7 +31,7 @@ import {
   strategyById,
   summariseQm,
   trackLevels,
-  updateLevels,
+  updateLevelsAccumulated,
   type IsoDate,
   type QmConfig,
   type QmOp,
@@ -142,6 +142,7 @@ export async function startQmRound(tx: Tx, ctx: OrgContext, learnerId: string, i
   }
   cfg.flashLevel = input.flashLevel && !missionStep ? input.flashLevel : state.flashLevel
   cfg.sorobanLevel = input.sorobanLevel && !missionStep ? input.sorobanLevel : state.soroban[cfg.sorobanStage]
+  if (missionStep === 'tables') cfg.count = 12
   if (cfg.focus) {
     cfg.mode = 'practice'
     cfg.count = 5
@@ -253,9 +254,10 @@ export async function finishQmRound(tx: Tx, ctx: OrgContext, learnerId: string, 
   // Level adaptif (hanya ronde otomatis berisi soal aritmetika campuran, bukan pelajaran strategi)
   const arithmetic = ['practice', 'sprint60', 'sprint120', 'target20'].includes(cfg.mode) && !cfg.focus
   if (arithmetic && cfg.auto) {
-    const u = updateLevels(state.levels, r.perOp, state.ppm)
+    const u = updateLevelsAccumulated(state.levels, state.pending, r.perOp, state.ppm)
     state.levels = u.levels
     state.ppm = { ...state.ppm, ...u.ppm }
+    state.pending = u.pending
     for (const c of u.changes) {
       levelNotes.push(c.to > c.from ? `${OP_WORD[c.op]} is now level ${c.to}: ${describeLevel(c.op, c.to)}.` : `Kira moved ${OP_WORD[c.op].toLowerCase()} to level ${c.to} so it feels just right.`)
     }

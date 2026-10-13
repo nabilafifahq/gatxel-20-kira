@@ -106,6 +106,18 @@ describe('Quiz Arena: data', () => {
     expect(PROVINCES.find((p) => p.name === 'Sulawesi Selatan')?.capital).toBe('Makassar')
   })
 
+  it('pertanyaan dengan dua jawaban benar dihindari: negara dua benua dan tulang lawan kerangka', () => {
+    const ids = topicById('continents').facts.map((f) => f.id)
+    for (const iso of ['ru', 'tr', 'eg']) expect(ids).not.toContain(`cont:in-${iso}`)
+    expect(ids).toContain('cont:in-id')
+    for (const seed of SEEDS) {
+      for (let i = 0; i < 6; i++) {
+        const q = questionFor(topicById('body'), 'body:bone', seed, i)
+        if (q.client.kind === 'mc' && q.client.prompt.includes('do the bones do')) expect(q.client.options.map((o) => o.label)).not.toContain('It holds the body up and protects the organs.')
+      }
+    }
+  })
+
   it('gambar yang dipakai soal ada: ikon valid, planet valid, bendera ada', () => {
     const icons = new Set<string>(ICON_NAMES)
     const planets = new Set<string>(PLANET_NAMES)

@@ -8,6 +8,7 @@ import type { LearnerDetailActions, LearnerDetailDTO, Subject } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
 import { cx } from '@/components/console/cx'
+import { ArenaReport } from '@/components/console/ArenaReport'
 import { ActionError, EmptyState } from '@/components/console/Feedback'
 import { TextArea } from '@/components/console/Field'
 import { dateId, dateTimeId, num, shortDateId, SUBJECT_LABEL, SUBJECTS } from '@/components/console/format'
@@ -255,6 +256,8 @@ export function LearnerDetailScreen({ data, actions }: LearnerDetailScreenProps)
           />
         )}
       </Section>
+
+      {data.arena ? <ArenaReport data={data.arena} /> : null}
 
       <div className="flex flex-wrap items-start gap-6">
         <Section labelledBy="riwayat" className="flex-[2_1_600px]">

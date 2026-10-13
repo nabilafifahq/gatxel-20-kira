@@ -26,6 +26,7 @@ import {
   sorobanDigits,
   summariseQm,
   updateLevels,
+  updateLevelsAccumulated,
   type QmConfig,
   type QmOp,
   type QmProblem,
@@ -334,6 +335,25 @@ describe('Quick Maths: adaptif', () => {
       { op: 'mul', from: 2, to: 1 },
     ])
     expect(r.ppm.add).toBe(24)
+  })
+
+  it('updateLevelsAccumulated mengumpulkan ronde pendek sampai 8 jawaban per operasi', () => {
+    const levels = { add: 3, sub: 3, mul: 2, div: 1 }
+    const short = { add: { answered: 3, correct: 3, totalMs: 6000 } }
+    const a = updateLevelsAccumulated(levels, {}, short, {})
+    expect(a.levels).toEqual(levels)
+    expect(a.pending.add).toEqual({ answered: 3, correct: 3, totalMs: 6000 })
+    const b = updateLevelsAccumulated(a.levels, a.pending, { add: { answered: 3, correct: 3, totalMs: 6000 } }, {})
+    expect(b.levels.add).toBe(3)
+    expect(b.pending.add?.answered).toBe(6)
+    const c = updateLevelsAccumulated(b.levels, b.pending, { add: { answered: 3, correct: 3, totalMs: 6000 } }, {})
+    expect(c.levels.add).toBe(4)
+    expect(c.changes).toEqual([{ op: 'add', from: 3, to: 4 }])
+    expect(c.pending.add).toBeUndefined()
+    // Operasi lain tidak terpengaruh
+    const d = updateLevelsAccumulated(c.levels, c.pending, { mul: { answered: 2, correct: 0, totalMs: 9000 } }, {})
+    expect(d.levels).toEqual(c.levels)
+    expect(d.pending.mul?.answered).toBe(2)
   })
 
   it('nextSimpleLevel untuk Flash Anzan lima soal', () => {

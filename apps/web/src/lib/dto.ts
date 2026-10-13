@@ -9,7 +9,7 @@ import type { ClientItem } from '@kira/content/present'
 import type { SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures/spec'
 import type { AccessoryId } from '@kira/core'
-import type { AccessoryDTO, XpTrackDTO } from './dto-arena'
+import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 
 export type Subject = 'math' | 'english' | 'science'
 export type QuestSubject = Subject | 'bonus'
@@ -423,6 +423,8 @@ export type LearnerDetailDTO = {
   heatmap: { subject: Subject; skills: { id: string; title: string; stars: number; cells: HeatCell[] }[] }[]
   attempts: { id: string; date: string; title: string; subject: Subject; score: string; minutes: number; href: string }[]
   notes: { id: string; author: string; date: string; body: string }[]
+  /** Ringkasan arena (Quick Maths dan Quiz Arena) untuk tutor. */
+  arena?: ArenaTutorDTO
 }
 export type LearnerDetailActions = { addNote(learnerId: string, body: string): Promise<ActionResult> }
 

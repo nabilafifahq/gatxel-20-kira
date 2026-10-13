@@ -264,7 +264,7 @@ export type ArenaTutorDTO = {
     rekorSprint: number | null
     rekorTarget: number | null
     minggu: { tanggal: string; label: string; ronde: number; benar: number; soalPerMenit: number }[]
-    terlambat: { jenis: string; rataDetik: number; akurasi: number; jumlah: number }[]
+    palingLambat: { jenis: string; rataDetik: number; akurasi: number; jumlah: number }[]
     level: { operasi: string; level: number }[]
     flashLevel: number
     strategi: number

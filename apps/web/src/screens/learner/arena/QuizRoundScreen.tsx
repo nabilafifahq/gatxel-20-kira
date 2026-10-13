@@ -263,8 +263,10 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
     await chain.current.catch(() => undefined)
     try {
       const res = await actions.finish(data.id)
-      if (res.ok) setResult(res.data)
-      else {
+      if (res.ok) {
+        // sfx: complete, then levelup or badge when result.reward has them
+        setResult(res.data)
+      } else {
         finishCalled.current = false
         setError({ message: res.message, reference: res.reference })
       }
@@ -316,6 +318,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
       setBusy(false)
       if (!res) return
       if (res.correct) setRight((n) => n + 1)
+      // sfx: correct or notyet
       setFeedback({ ok: res.correct, chosen: answer, ...(res.explain ? { explain: res.explain } : {}), ...(res.answerLabel ? { answerLabel: res.answerLabel } : {}) })
       if (res.correct) {
         await sleep(reduced ? 900 : AUTO_NEXT_MS)

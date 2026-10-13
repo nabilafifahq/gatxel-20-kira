@@ -11,6 +11,7 @@ import { applyAccessory, assertAccessoryEarned } from '@/server/dal/arena-tracks
 import { trackTotals } from '@/server/dal/arena-state'
 import { learnerShell, loadLearner, totalXp } from '@/server/dal/learner-core'
 import { AppError } from '@/server/errors'
+import { learnerExport } from '@/server/dal/data-export'
 
 /**
  * Tes DAL arena di Postgres sungguhan (migrasi 0007 dan RLS): ronde Quick Maths dan Quiz Arena, XP per jalur,
@@ -138,6 +139,13 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
     expect(next.levels.find((x) => x.op === 'add')?.level).toBe(4)
     expect(next.levels.find((x) => x.op === 'sub')?.level).toBe(3)
     expect(next.stats.rounds).toBe(1)
+  })
+
+  it('ronde campuran pendek tetap menggerakkan level karena hasilnya dikumpulkan per operasi', async () => {
+    const l = await newLearner()
+    for (let k = 0; k < 6; k++) await playQm(l, { ...base, op: 'mixed' })
+    const hub = await l.run((tx) => qmHubDTO(tx, l.id))
+    expect(hub.levels.reduce((n, x) => n + x.level, 0)).toBeGreaterThan(9)
   })
 
   it('ronde milik learner lain tidak bisa dibaca atau dijawab', async () => {
@@ -315,6 +323,18 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
     await expect(set('crown')).rejects.toBeInstanceOf(AppError)
     await set(null)
     expect((await l.run(async (tx) => learnerShell(tx, await loadLearner(tx, l.id)))).accessory).toBeNull()
+  })
+
+  it('salinan data learner memuat jalur XP dan ronde arena', async () => {
+    const l = await newLearner()
+    await playQm(l, base)
+    const tutor = { orgId, userId: randomUUID(), role: 'tutor' as const }
+    const out = await withOrg(app.db, tutor, (tx) => learnerExport(tx, l.id))
+    const json = JSON.parse(out.json) as { xpEvents: { track: string }[]; arenaRounds: { arena: string; mode: string; answered: number }[]; arenaProgress: { arena: string }[] }
+    expect(json.xpEvents.map((e) => e.track)).toContain('hitung')
+    expect(json.arenaRounds).toHaveLength(1)
+    expect(json.arenaRounds[0]).toMatchObject({ arena: 'hitung', mode: 'practice', answered: 10 })
+    expect(json.arenaProgress.map((a) => a.arena)).toEqual(['hitung'])
   })
 
   it('batas layar harian menghentikan ronde baru', async () => {

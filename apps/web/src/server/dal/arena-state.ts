@@ -29,6 +29,8 @@ export type ArenaKind = 'hitung' | 'pengetahuan'
 export type QmState = {
   levels: QmLevels
   ppm: Partial<Record<QmOp, number>>
+  /** Jawaban yang belum cukup untuk menilai level satu operasi (ronde campuran pendek). */
+  pending: Partial<Record<QmOp, { answered: number; correct: number; totalMs: number }>>
   flashLevel: number
   flashCleared: number
   soroban: { read: number; set: number; anzan: number }
@@ -53,11 +55,19 @@ export function normaliseQmState(raw: unknown, grade: number): QmState {
   for (const op of QM_OPS) levels[op] = int(lv[op], 1, 8, base[op])
   const ppm: Partial<Record<QmOp, number>> = {}
   if (isRecord(data.ppm)) for (const op of QM_OPS) if (typeof data.ppm[op] === 'number') ppm[op] = data.ppm[op] as number
+  const pending: QmState['pending'] = {}
+  if (isRecord(data.pending)) {
+    for (const op of QM_OPS) {
+      const e = data.pending[op]
+      if (isRecord(e) && typeof e.answered === 'number' && typeof e.correct === 'number' && typeof e.totalMs === 'number') pending[op] = { answered: Math.max(0, e.answered), correct: Math.max(0, e.correct), totalMs: Math.max(0, e.totalMs) }
+    }
+  }
   const sob = isRecord(data.soroban) ? data.soroban : {}
   const list = <T>(v: unknown, ok: (x: unknown) => x is T, max = 100): T[] => (Array.isArray(v) ? (v.filter(ok).slice(-max) as T[]) : [])
   return {
     levels,
     ppm,
+    pending,
     flashLevel: int(data.flashLevel, 1, FLASH_MAX_LEVEL, 1),
     flashCleared: int(data.flashCleared, 0, FLASH_MAX_LEVEL, 0),
     soroban: { read: int(sob.read, 1, SOROBAN_MAX_LEVEL, 1), set: int(sob.set, 1, SOROBAN_MAX_LEVEL, 1), anzan: int(sob.anzan, 1, SOROBAN_MAX_LEVEL, 1) },
