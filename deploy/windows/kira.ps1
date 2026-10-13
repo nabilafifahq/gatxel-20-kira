@@ -45,7 +45,7 @@ switch ($Command) {
     # saat Docker Compose membaca .env.
     [IO.File]::WriteAllText($envPath, (([string[]]$lines) -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
     if ($filled.Count -gt 0) { Write-Host ('Diisi acak: ' + ($filled -join ', ')) } else { Write-Host 'Tidak ada nilai GANTI yang tersisa.' }
-    Write-Host 'Isi sendiri di Notepad: KIRA_ORIGIN (alamat tailscale serve), KIRA_LEGAL_NAME, KIRA_LEGAL_ADDRESS, KIRA_LEGAL_EMAIL, CLAUDE_CODE_OAUTH_TOKEN.'
+    Write-Host 'Isi sendiri di Notepad: KIRA_ORIGIN (alamat publik lewat Cloudflare Tunnel), KIRA_LEGAL_NAME, KIRA_LEGAL_ADDRESS, KIRA_LEGAL_EMAIL, CLAUDE_CODE_OAUTH_TOKEN.'
     Write-Host 'Token untuk halaman /setup ada di baris KIRA_SETUP_TOKEN.'
   }
   'start' {

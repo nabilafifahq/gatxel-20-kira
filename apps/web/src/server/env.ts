@@ -53,7 +53,7 @@ export function isProd(): boolean {
   return process.env.NODE_ENV === 'production'
 }
 
-/** Origin publik (tanpa garis miring akhir), misalnya https://kira.tailnet.ts.net */
+/** Origin publik (tanpa garis miring akhir), misalnya https://kira.gatxel.com */
 export function origin(): string {
   return env().KIRA_ORIGIN.replace(/\/$/, '')
 }

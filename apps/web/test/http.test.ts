@@ -3,7 +3,7 @@ import { readTextCapped, requestHosts, sameOrigin, seeOther } from '@/server/htt
 
 // Server standalone (Docker) menyusun req.url dari HOSTNAME=0.0.0.0, bukan dari alamat browser.
 const STANDALONE_URL = 'http://0.0.0.0:3000/keluar'
-const TAILNET = 'https://kira-pc.tail1234.ts.net'
+const PUBLIC = 'https://kira.gatxel.com'
 
 function post(headers: Record<string, string>): Request {
   return new Request(STANDALONE_URL, { method: 'POST', headers })
@@ -16,22 +16,24 @@ describe('sameOrigin', () => {
     ).toBe(true)
   })
 
-  it('menerima Tailscale serve lewat X-Forwarded-Host atau KIRA_ORIGIN', () => {
+  it('menerima Cloudflare Tunnel lewat Host asli, X-Forwarded-Host, atau KIRA_ORIGIN', () => {
     expect(
       sameOrigin(
-        post({ host: '127.0.0.1:3000', 'x-forwarded-host': 'kira-pc.tail1234.ts.net', origin: TAILNET }),
+        post({ host: '127.0.0.1:3000', 'x-forwarded-host': 'kira.gatxel.com', origin: PUBLIC }),
         undefined,
       ),
     ).toBe(true)
-    expect(sameOrigin(post({ host: '127.0.0.1:3000', origin: TAILNET }), TAILNET)).toBe(true)
+    expect(sameOrigin(post({ host: '127.0.0.1:3000', origin: PUBLIC }), PUBLIC)).toBe(true)
+    // Cloudflare Tunnel meneruskan Host asli ke server.
+    expect(sameOrigin(post({ host: 'kira.gatxel.com', origin: PUBLIC }), undefined)).toBe(true)
   })
 
   it('menolak situs lain, origin null, dan origin yang tidak bisa dibaca', () => {
-    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'https://contoh-jahat.test' }), TAILNET)).toBe(
+    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'https://contoh-jahat.test' }), PUBLIC)).toBe(
       false,
     )
-    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'null' }), TAILNET)).toBe(false)
-    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'bukan url' }), TAILNET)).toBe(false)
+    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'null' }), PUBLIC)).toBe(false)
+    expect(sameOrigin(post({ host: 'localhost:3000', origin: 'bukan url' }), PUBLIC)).toBe(false)
   })
 
   it('port berbeda dianggap host berbeda', () => {
@@ -41,7 +43,7 @@ describe('sameOrigin', () => {
   })
 
   it('klien tanpa Origin lolos ke pemeriksaan sesi', () => {
-    expect(sameOrigin(post({ host: 'localhost:3000' }), TAILNET)).toBe(true)
+    expect(sameOrigin(post({ host: 'localhost:3000' }), PUBLIC)).toBe(true)
   })
 })
 
@@ -49,10 +51,10 @@ describe('requestHosts', () => {
   it('memakai nilai pertama X-Forwarded-Host dan huruf kecil', () => {
     expect(
       requestHosts(
-        post({ host: 'LOCALHOST:3000', 'x-forwarded-host': 'Kira-PC.tail1234.ts.net, proxy-lain' }),
-        TAILNET,
+        post({ host: 'LOCALHOST:3000', 'x-forwarded-host': 'Kira.Gatxel.com, proxy-lain' }),
+        PUBLIC,
       ),
-    ).toEqual(['kira-pc.tail1234.ts.net', 'localhost:3000'])
+    ).toEqual(['kira.gatxel.com', 'localhost:3000'])
   })
 })
 

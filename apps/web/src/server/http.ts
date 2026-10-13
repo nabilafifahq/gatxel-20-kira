@@ -21,7 +21,7 @@ export function prefetchRefused(): Response {
 /*
  * Jangan memakai req.url untuk origin atau tujuan redirect. Server standalone Next (image Docker,
  * HOSTNAME=0.0.0.0) menyusun req.url sebagai http://0.0.0.0:3000/..., bukan alamat yang dibuka
- * browser. Alamat yang benar ada di header Host, X-Forwarded-Host (Tailscale serve), dan KIRA_ORIGIN.
+ * browser. Alamat yang benar ada di header Host, X-Forwarded-Host (bila ada proxy), dan KIRA_ORIGIN. Cloudflare Tunnel meneruskan Host asli, yaitu alamat publik Kira.
  */
 
 function hostOf(value: string | null | undefined): string | null {
@@ -66,7 +66,7 @@ export function sameOrigin(
 
 /**
  * Redirect 303 dengan Location relatif. Browser menyelesaikannya terhadap alamat yang sedang dibuka,
- * jadi benar di http://localhost:3000, di balik Tailscale serve, dan di server standalone.
+ * jadi benar di http://localhost:3000, di balik Cloudflare Tunnel, dan di server standalone.
  */
 export function seeOther(path: string): Response {
   if (!path.startsWith('/') || path.startsWith('//') || path.includes('\\'))

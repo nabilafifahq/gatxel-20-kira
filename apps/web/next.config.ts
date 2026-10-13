@@ -56,16 +56,18 @@ const baseConfig: NextConfig = {
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
   experimental: {
     // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
-    // allowedOrigins: alamat Tailscale (KIRA_ORIGIN saat build image) bila proxy tidak meneruskan host aslinya.
+    // allowedOrigins: alamat publik Kira (KIRA_ORIGIN saat build image) bila proxy tidak meneruskan host aslinya.
     serverActions: { bodySizeLimit: '61mb', ...(publicHost ? { allowedOrigins: [publicHost] } : {}) },
     globalNotFound: true,
   },
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },
-      { source: '/((?!_next/static|fonts|icons|sounds).*)', headers: [{ key: 'Cache-Control', value: 'no-store, max-age=0' }] },
+      // no-transform: Cloudflare tidak boleh mengubah isi halaman (misalnya menyisipkan skrip analitik),
+      // karena CSP learner melarang skrip luar.
+      { source: '/((?!_next/static|fonts|icons|sounds).*)', headers: [{ key: 'Cache-Control', value: 'no-store, no-transform, max-age=0' }] },
       // Efek suara CC0 (public/sounds): berkas kecil yang tidak berubah, boleh disimpan sehari.
-      { source: '/sounds/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400' }] },
+      { source: '/sounds/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, no-transform' }] },
     ]
   },
 }
