@@ -1,0 +1,265 @@
+{
+  "skill": "e1.starters-speaking",
+  "items": [
+    {
+      "id": "e1.starters-speaking.001",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Hello! What is your name? How old are you?",
+      "hints": [
+        "Say your name first.",
+        "Then say your age. For example: I am seven."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 20,
+      "tags": [
+        "examiner"
+      ]
+    },
+    {
+      "id": "e1.starters-speaking.002",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Look at the picture. What can you see?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          },
+          {
+            "icon": "dog"
+          },
+          {
+            "icon": "fish"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A cat, a dog and a fish."
+      },
+      "hints": [
+        "Say the animal words you know.",
+        "You can say: I can see a cat."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30,
+      "tags": [
+        "examiner"
+      ]
+    },
+    {
+      "id": "e1.starters-speaking.003",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Look at the picture. What is this? Tell me about it.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ball"
+          }
+        ],
+        "arrows": "none",
+        "alt": "Picture of a ball."
+      },
+      "hints": [
+        "Say what it is.",
+        "You can say how it is used: We kick it."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30,
+      "tags": [
+        "examiner"
+      ]
+    },
+    {
+      "id": "e1.starters-speaking.004",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Look at the picture. Which fruit do you like? Why?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "apple"
+          },
+          {
+            "icon": "banana"
+          },
+          {
+            "icon": "orange"
+          }
+        ],
+        "arrows": "none",
+        "alt": "An apple, a banana and an orange."
+      },
+      "hints": [
+        "Pick one fruit.",
+        "You can say: I like apples because they are sweet."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30,
+      "tags": [
+        "examiner"
+      ]
+    },
+    {
+      "id": "e1.starters-speaking.005",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Tell me about your house.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "house"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A house."
+      },
+      "hints": [
+        "Say what rooms you have.",
+        "You can say: My house has a big kitchen."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30,
+      "tags": [
+        "examiner"
+      ]
+    },
+    {
+      "id": "e1.starters-speaking.006",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Look at the picture. What do you do at school?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "school"
+          },
+          {
+            "icon": "book"
+          },
+          {
+            "icon": "pencil"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A school, a book and a pencil."
+      },
+      "hints": [
+        "Think about the things in the picture.",
+        "You can say: I read books at school."
+      ],
+      "explanation": "Answer in full sentences if you can. Speak clearly and take your time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers the question that was asked",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words and says them well",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30,
+      "tags": [
+        "examiner"
+      ]
+    }
+  ]
+}

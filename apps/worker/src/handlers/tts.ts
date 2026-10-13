@@ -1,6 +1,8 @@
 import { and, eq, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
-import { loadContent } from '@kira/content/load'
+import { findContentDir, loadContent } from '@kira/content/load'
+import { loadSpelling } from '@kira/content/spelling'
+import { spellingSpeechClips } from '@kira/content/speech'
 import { itemSchema } from '@kira/content/schema'
 import { isClipText, isTtsStyle, TTS_STYLE_MODEL, type TtsClipRequest } from '@kira/core/tts'
 import { tables, withOrg } from '@kira/db'
@@ -121,7 +123,9 @@ export const ttsBatchHandler: Handler = {
 
     const { index, errors } = loadContent()
     if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
-    const clips = dedupe([...repoClips(index), ...(await orgClips(h))]).filter((c) => isClipText(c.text))
+    const spelling = loadSpelling(findContentDir())
+    const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
+    const clips = dedupe([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
     h.log.info('batch suara mulai', { clips: clips.length })
     const t = await generate(h, clips, { heartbeat: true })
     h.log.info('batch suara selesai', { ...t })

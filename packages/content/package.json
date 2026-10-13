@@ -10,7 +10,9 @@
     "./present": "./src/present.ts",
     "./labels": "./src/labels.ts",
     "./math": "./src/math/index.ts",
-    "./load": "./src/load.ts"
+    "./load": "./src/load.ts",
+    "./speech": "./src/speech.ts",
+    "./spelling": "./src/spelling.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
