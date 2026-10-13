@@ -1,0 +1,61 @@
+{
+  "id": "olimpiade-science-g2",
+  "title": "Persiapan Olimpiade Science Kelas 2 (8 minggu)",
+  "subject": "science",
+  "grade": 2,
+  "competitions": ["iksc", "ksnr"],
+  "summary": "Delapan minggu persiapan untuk IKSC dan KSNR. Amati, tebak, lalu jelaskan; satu percobaan kecil di rumah setiap minggu, difoto.",
+  "weeks": 8,
+  "phases": [
+    {
+      "id": "fondasi",
+      "name": "Fondasi",
+      "weeks": [1, 2],
+      "focus": "Makhluk hidup, tumbuhan, siklus hidup, habitat, bahan",
+      "summary": "Makhluk hidup, kebutuhan tumbuhan, siklus hidup, hidup sehat, habitat, dan bahan. Empat soal cepat di sesi Tes.",
+      "latihan": ["s2.living-things", "s2.plants-grow", "s2.life-cycles", "s2.healthy-living", "s2.habitats", "s2.materials"],
+      "tes": ["s2.fair-test", "s2.living-things", "s2.materials"],
+      "latihanQuestions": 10,
+      "tesQuestions": 4,
+      "note": "Minta Syakira mengamati dulu, menebak, lalu menjelaskan alasannya."
+    },
+    {
+      "id": "jenis-soal",
+      "name": "Jenis soal",
+      "weeks": [3, 4],
+      "focus": "Satu topik per hari: bahan, gaya, cahaya, listrik, bumi",
+      "summary": "Perubahan bahan, gaya dan gerak, cahaya, listrik, batuan dan tanah, cuaca, siang dan malam. Satu topik per hari, ditambah rekaman penjelasan.",
+      "latihan": ["s2.changing-materials", "s2.forces-motion", "s2.light-dark", "s2.electricity", "s2.rocks-soil", "s2.weather-seasons", "s2.day-night", "s2.fair-test", "s2.habitats", "s2.materials", "s2.forces-motion", "s2.electricity"],
+      "tes": "previous",
+      "latihanQuestions": 10,
+      "tesQuestions": 10,
+      "note": "Satu topik per hari. Satu percobaan kecil di rumah setiap minggu, difoto, lalu Syakira menjelaskan hasilnya lewat rekaman."
+    },
+    {
+      "id": "campuran",
+      "name": "Campuran dan kecepatan",
+      "weeks": [5, 6],
+      "focus": "Set campuran, membaca diagram dan tabel sederhana",
+      "summary": "Set campuran dari semua topik, membaca diagram dan tabel sederhana, mengelompokkan benda dan makhluk hidup. Buku Salah dipakai untuk mengulang yang lemah.",
+      "latihan": ["s2.living-things", "s2.forces-motion", "s2.weather-seasons", "s2.electricity", "s2.fair-test", "s2.light-dark"],
+      "tes": ["s2.plants-grow", "s2.materials", "s2.day-night", "s2.rocks-soil"],
+      "latihanQuestions": 12,
+      "tesQuestions": 10,
+      "note": "Hari Sabtu Syakira mengulang Buku Salah."
+    },
+    {
+      "id": "simulasi",
+      "name": "Simulasi",
+      "weeks": [7, 8],
+      "focus": "Simulasi bertimer dari paper asli",
+      "summary": "Satu simulasi bertimer 30 sampai 40 menit setiap minggu dari paper asli. Dua sampai tiga hari terakhir hanya latihan ringan atau istirahat.",
+      "latihan": ["s2.fair-test", "s2.living-things", "s2.forces-motion", "s2.electricity", "s2.weather-seasons"],
+      "tes": "previous",
+      "latihanQuestions": 10,
+      "tesQuestions": 10,
+      "note": "Hari Sabtu memakai satu paper penuh bertimer."
+    }
+  ],
+  "taper": { "days": 3, "skills": ["s2.life-cycles", "s2.day-night", "s2.light-dark"], "questions": 4 },
+  "simulation": { "weeks": [7, 8], "minMinutes": 30, "maxMinutes": 40 }
+}

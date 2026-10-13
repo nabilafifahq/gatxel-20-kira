@@ -10,7 +10,11 @@
     "./present": "./src/present.ts",
     "./labels": "./src/labels.ts",
     "./math": "./src/math/index.ts",
-    "./load": "./src/load.ts"
+    "./load": "./src/load.ts",
+    "./sources": "./src/sources.ts",
+    "./programs": "./src/programs.ts",
+    "./medals": "./src/medals.ts",
+    "./extras": "./src/extras.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
