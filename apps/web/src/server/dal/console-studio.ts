@@ -155,7 +155,12 @@ export function childDataProblem(text: string, learnerNames: readonly string[]):
   return null
 }
 
-const AI_ITEM_TYPES: readonly string[] = ['mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'write', 'speak', 'draw']
+// Sama dengan AI_ITEM_TYPES di apps/worker/src/ai/item-schema.ts, tanpa hotspot dan label (bentuknya bergantung pada gambar buatan, jadi tidak ada varian atau terjemahan AI).
+const AI_ITEM_TYPES: readonly string[] = [
+  'mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction',
+  'story', 'listen', 'tiles', 'spell', 'cloze', 'table', 'grid',
+  'write', 'speak', 'draw', 'photo',
+]
 
 export type DraftKind = 'items' | 'variants' | 'hints' | 'translate' | 'rubric'
 export type DraftRequest = { kind: DraftKind; skillId: string; count: number; difficulty: number; itemRef?: string; instructions: string }
@@ -209,7 +214,7 @@ export async function requestDraftsTx(tx: Tx, ctx: OrgContext, req: DraftRequest
     const item = (await resolveItems(tx, [ref])).get(ref)
     if (!item) throw notFound(`Soal ${ref} tidak ditemukan. Salin ID soal dari Bank soal, lalu kirim lagi.`)
     if (req.kind === 'rubric' && !MANUAL_TYPES.includes(item.type)) {
-      throw invalid(`Soal ${ref} berjenis ${item.type}. Rubrik hanya untuk soal write, speak, atau draw.`, { itemRef: 'Pilih soal write, speak, atau draw.' })
+      throw invalid(`Soal ${ref} berjenis ${item.type}. Rubrik hanya untuk soal write, speak, draw, atau photo.`, { itemRef: 'Pilih soal write, speak, draw, atau photo.' })
     }
     if ((req.kind === 'variants' || req.kind === 'translate') && !AI_ITEM_TYPES.includes(item.type)) {
       throw invalid(`Jenis soal ${item.type} belum bisa dibuatkan ${req.kind === 'variants' ? 'varian' : 'terjemahan'} oleh AI. Pilih soal lain.`, { itemRef: 'Jenis soal ini belum didukung.' })

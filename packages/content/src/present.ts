@@ -1,7 +1,7 @@
 import { createRng } from '@kira/core/rng'
 import type { FigureSpec } from '@kira/figures/spec'
 import { keyOf, type AnswerKey } from './check'
-import { flatten, gridValues, type GridPuzzle } from './grid'
+import { flattenGrid, gridValues, type GridPuzzle } from './grid'
 import type { LabelPerm } from './labels'
 import type { Item, Passage, SolutionStep } from './schema'
 
@@ -246,7 +246,7 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
       break
     }
     case 'grid':
-      out.grid = { puzzle: item.puzzle, size: item.size, given: flatten(item.given), values: gridValues(item.puzzle, item.size, flatten(item.filled)) }
+      out.grid = { puzzle: item.puzzle, size: item.size, given: flattenGrid(item.given), values: gridValues(item.puzzle, item.size, flattenGrid(item.filled)) }
       break
   }
 

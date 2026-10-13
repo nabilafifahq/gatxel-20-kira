@@ -1,4 +1,4 @@
-import { flatten, gridRulesOk, gridValues, type GridPuzzle } from './grid'
+import { flattenGrid, gridRulesOk, gridValues, type GridPuzzle } from './grid'
 import type { Item } from './schema'
 
 /**
@@ -99,8 +99,8 @@ export function keyOf(item: Item): AnswerKey {
     case 'table':
       return { type: 'table', blanks: item.blanks.map((b) => b.answers) }
     case 'grid': {
-      const solution = flatten(item.filled)
-      return { type: 'grid', puzzle: item.puzzle, size: item.size, given: flatten(item.given), solution, values: gridValues(item.puzzle, item.size, solution) }
+      const solution = flattenGrid(item.filled)
+      return { type: 'grid', puzzle: item.puzzle, size: item.size, given: flattenGrid(item.given), solution, values: gridValues(item.puzzle, item.size, solution) }
     }
     case 'write':
     case 'speak':

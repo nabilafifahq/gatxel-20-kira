@@ -21,12 +21,12 @@ const WRITING_RULES = [
   'Never use these words: leverage, harness, embark, unleash, streamline, empower, supercharge, elevate, unlock, delve, utilise, seamless, robust, comprehensive, pivotal, crucial, holistic, tapestry, testament.',
   'Never write a contrast frame such as "not just X, but Y" or "this is not X, it is Y". Say the thing directly.',
   'Use everyday contexts from Indonesia and around the world: markets, rice fields, mangoes, buses, school trips, football. Use common first names only.',
-  'Items have no pictures. Never refer to a picture, diagram, table or figure the child cannot see.',
+  'Items have no pictures, except where a type below builds its own picture or table. Never refer to a picture, diagram, table or figure the child cannot see.',
 ]
 
 const ITEM_RULES = [
   'difficulty is a whole number from 1 to 5 and matches the request.',
-  'hints: exactly 3 for every auto-marked type, in this order: a gentle nudge, a more specific clue, then the method without the final answer. For write, speak and draw give at most 3 hints.',
+  'hints: exactly 3 for every auto-marked type, in this order: a gentle nudge, a more specific clue, then the method without the final answer. For write, speak, draw and photo give at most 3 hints.',
   'explanation: one or two short sentences that say why the answer is right.',
   'mcq and multi: every option is plausible. A wrong option has a short why that names the likely mistake; a correct option has why null. Vary the position of the correct answer.',
   'mcq answer is the zero-based index of the correct option. multi answers lists the zero-based index of every correct option, at least one and never all of them.',
@@ -35,7 +35,16 @@ const ITEM_RULES = [
   'order: list the cards in the correct order; the site shuffles them.',
   'match: every left text and every right text is different.',
   'sort: 2 to 4 groups, each card gives its group as a zero-based index, every group gets at least one card.',
-  'write, speak and draw: a rubric of 2 to 5 criteria, each worth 1 to 4 points, that a tutor can check quickly.',
+  'write, speak, draw and photo: a rubric of 2 to 5 criteria, each worth 1 to 4 points, that a tutor can check quickly. photo: the child works on paper and sends a photo, so the prompt says what to do on the paper.',
+  'numberline, clock and fraction: use them only when the skill is about number lines, telling the time, or shading fractions of a shape. The site draws the number line, clock face and shape itself.',
+  'story: the prompt is a short story of 2 to 5 sentences and parts holds 2 to 4 questions about it, easier first, each of type mcq, numeric or text. Later questions may build on earlier answers.',
+  'listen: listenText is read aloud by the site and never shown, so the prompt must not repeat it (for example "Listen. Which animal did you hear?"). The options are words or numbers the child could hear.',
+  'tiles: answer is one sentence of 3 to 9 words; the site turns each word into a card, so write capital letters and full stops exactly as the cards should show. Add 1 to 3 single-word distractors that are not in the sentence.',
+  'spell: word is a word the grade can learn to spell. The prompt never contains the word. sentence uses the word naturally, or is null.',
+  'cloze: the prompt has one ___ for each entry in gaps, and each gap has 2 to 4 words with exactly one right.',
+  'table: write every cell correctly in rows, then list the cells to hide in blanks. Hide cells whose answer is a number or one short word.',
+  'grid: only for puzzles with exactly one solution. magic is a 3x3 magic square with the numbers 1 to 9 where every row, column and diagonal adds up to 15. sudoku is 4x4 with the numbers 1 to 4 once in every row, column and 2x2 box. latin has no boxes. given uses 0 for empty cells and keeps at least 2 empty cells; filled is the finished grid.',
+  'hotspot and label: choose pictures from the allowed icon names. The site shows only the pictures, never their labels. hotspot asks the child to tap the picture that matches the prompt (answers lists the labels of the right pictures). label asks the child to put each label on its picture.',
   'tags: lowercase words joined with hyphens, or an empty list.',
   'Check every answer twice before you reply.',
 ]

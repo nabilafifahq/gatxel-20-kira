@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { figureSpec } from '@kira/figures/spec'
 
+export { ICON_NAMES } from '@kira/figures/spec'
+export type { IconName } from '@kira/figures/spec'
+
 /**
  * Skema konten Kira. Semua JSON di content/ divalidasi dengan skema ini oleh
  * `pnpm content:check`. Teks learner memakai ejaan en-GB.
@@ -220,6 +223,9 @@ export type ItemInput = z.input<typeof itemSchema>
 export type ItemType = Item['type']
 export const ITEM_TYPES = itemSchema.options.map((o) => o.shape.type.value) as ItemType[]
 export const MANUAL_TYPES: readonly ItemType[] = ['write', 'speak', 'draw', 'photo']
+/** Jenis soal yang bisa dicetak di kertas dan dijawab lewat LJK. Jenis lain hanya untuk layar. */
+export const PAPER_TYPES: readonly ItemType[] = ['mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction']
+export const isPaperType = (type: ItemType): boolean => PAPER_TYPES.includes(type)
 
 export const itemFileSchema = z.object({ skill: z.string().regex(SKILL_ID), items: z.array(itemSchema).min(1) }).strict()
 

@@ -9,6 +9,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { FigureFrame } from '@/components/learner/FigureFrame'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { ClozePrompt } from './ClozeWidget'
 import { speakableText } from './speakable'
 import { TextPrompt } from './TextWidget'
 import type { WidgetFeedback } from './types'
@@ -115,12 +116,25 @@ export function QuestionView({
   const promptId = useId()
   const hasTerms = showTerms && !!item.terms && item.terms.length > 0
   const inlineBlanks = item.type === 'text' && !!answer
+  const inlineGaps = item.type === 'cloze' && !!answer
+  // Soal ketuk di gambar dan beri label menampilkan figurnya di area jawaban, lengkap dengan lapisan ketuk.
+  const figureInAnswer = item.type === 'hotspot' || item.type === 'label'
   return (
     <div className={cx('flex flex-col gap-4 md:gap-5', className)}>
       {item.passage ? <PassagePanel passage={item.passage} lang={item.lang} /> : null}
       <div className="flex items-start gap-3.5">
         <NumberPill n={number} subject={subject} className="mt-1" />
-        {inlineBlanks && answer ? (
+        {inlineGaps && answer ? (
+          <ClozePrompt
+            id={promptId}
+            item={item}
+            value={answer.value}
+            onChange={answer.onChange}
+            disabled={answer.disabled}
+            feedback={answer.feedback ?? null}
+            subject={subject}
+          />
+        ) : inlineBlanks && answer ? (
           <TextPrompt
             id={promptId}
             item={item}
@@ -144,7 +158,7 @@ export function QuestionView({
           </p>
         </div>
       ) : null}
-      {item.figure ? (
+      {item.figure && !figureInAnswer ? (
         <FigureFrame spec={item.figure} paper={figurePaper ?? subject === 'math'} className="self-start md:ml-14.5" />
       ) : null}
       {children ? <div className="md:ml-14.5">{children}</div> : null}

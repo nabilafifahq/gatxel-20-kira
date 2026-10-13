@@ -29,6 +29,28 @@ function textsOf(c: Obj): string[] {
   push(c.tip)
   push(c.model)
   push(c.readText)
+  push(c.listenText)
+  push(c.sentence)
+  push(c.caption)
+  if (c.type === 'tiles') push(c.answer)
+  for (const a of Array.isArray(c.alternatives) ? c.alternatives : []) push(a)
+  for (const d of Array.isArray(c.distractors) ? c.distractors : []) push(d)
+  for (const l of Array.isArray(c.labels) ? c.labels : []) push(l)
+  for (const l of Array.isArray(c.extraLabels) ? c.extraLabels : []) push(l)
+  for (const r of Array.isArray(c.regions) ? c.regions : []) if (isObj(r)) push(r.label)
+  for (const h of Array.isArray(c.head) ? c.head : []) push(h)
+  for (const row of Array.isArray(c.rows) ? c.rows : []) if (Array.isArray(row)) row.forEach(push)
+  for (const g of Array.isArray(c.gaps) ? c.gaps : []) if (isObj(g) && Array.isArray(g.options)) g.options.forEach(push)
+  for (const part of Array.isArray(c.parts) ? c.parts : []) {
+    if (!isObj(part)) continue
+    push(part.prompt)
+    for (const o of Array.isArray(part.options) ? part.options : []) {
+      if (!isObj(o)) continue
+      push(o.text)
+      push(o.why)
+    }
+    for (const a of Array.isArray(part.answers) ? part.answers : []) push(a)
+  }
   for (const h of Array.isArray(c.hints) ? c.hints : []) push(h)
   for (const o of Array.isArray(c.options) ? c.options : []) {
     if (!isObj(o)) continue
@@ -55,11 +77,11 @@ function rawProblems(c: Obj): string[] {
   if (!MANUAL_ITEM_TYPES.includes(type) && hints.length !== 3) p.push(`Hint harus tepat 3 untuk soal yang dinilai otomatis, sekarang ${hints.length}.`)
   if (MANUAL_ITEM_TYPES.includes(type) && hints.length > 3) p.push('Hint paling banyak 3.')
   if (typeof c.explanation !== 'string' || !c.explanation.trim()) p.push('Penjelasan kosong.')
-  if (type === 'mcq' || type === 'multi') {
+  if (type === 'mcq' || type === 'multi' || type === 'listen') {
     const opts = Array.isArray(c.options) ? c.options : []
     const keys = opts.map((o) => (isObj(o) && typeof o.text === 'string' ? o.text.trim().toLowerCase() : ''))
     if (new Set(keys).size !== keys.length) p.push('Opsi kembar')
-    const answers = type === 'mcq' ? [c.answer] : Array.isArray(c.answers) ? c.answers : [c.answers]
+    const answers = type === 'mcq' || type === 'listen' ? [c.answer] : Array.isArray(c.answers) ? c.answers : [c.answers]
     if (answers.some((a) => typeof a !== 'number' || !Number.isInteger(a) || a < 0 || a >= opts.length)) p.push('answer di luar opsi')
   }
   for (const t of textsOf(c)) {
@@ -73,7 +95,7 @@ function rawProblems(c: Obj): string[] {
 function coveredByRaw(issue: z.core.$ZodIssue, c: Obj): boolean {
   const [head, ...rest] = issue.path.map(String)
   if (rest.length === 0 && (head === 'hints' || head === 'explanation')) return true
-  return (c.type === 'mcq' || c.type === 'multi') && (head === 'answer' || head === 'answers')
+  return (c.type === 'mcq' || c.type === 'multi' || c.type === 'listen') && (head === 'answer' || head === 'answers')
 }
 
 function zodProblem(issue: z.core.$ZodIssue): string {
@@ -119,8 +141,25 @@ export function jaccard(a: string[], b: string[]): number {
 function answerSignature(c: Obj): string {
   const norm = (v: unknown) => JSON.stringify(v ?? null).toLowerCase()
   switch (c.type) {
+    case 'story':
+      return norm(c.parts)
+    case 'tiles':
+      return norm(c.answer)
+    case 'spell':
+      return norm(c.word)
+    case 'cloze':
+      return norm(c.gaps)
+    case 'table':
+      return norm([c.rows, c.blanks])
+    case 'grid':
+      return norm(c.filled)
+    case 'hotspot':
+      return norm([c.regions, c.answers])
+    case 'label':
+      return norm(c.labels)
     case 'mcq':
     case 'multi':
+    case 'listen':
       return norm([Array.isArray(c.options) ? c.options.map((o) => (isObj(o) ? String(o.text ?? '').trim() : '')) : [], c.answer ?? c.answers])
     case 'numeric':
       return norm(c.answer)
@@ -165,7 +204,9 @@ export function checkDraft(candidate: Obj, ctx: { source?: Obj | null; siblings?
     if (problems.length === 0) problems.push('Draf belum lolos skema soal. Periksa JSON-nya sebelum disetujui.')
   }
   for (const t of textsOf(body)) if (ANTITHESIS.test(t)) problems.push(`Ada bingkai antitesis: "${t.slice(0, 50)}"`)
-  if (!ctx.hasFigure && typeof body.prompt === 'string' && MENTIONS_FIGURE.test(body.prompt)) {
+  // Tabel, ketuk di gambar, dan label menggambar visualnya sendiri.
+  const ownVisual = Boolean(ctx.hasFigure) || Boolean(body.figure) || body.type === 'table'
+  if (!ownVisual && typeof body.prompt === 'string' && MENTIONS_FIGURE.test(body.prompt)) {
     problems.push('Prompt menyebut gambar, tabel, atau diagram, padahal draf ini tidak punya figur.')
   }
   if (ctx.source && nearDuplicate(body, ctx.source)) problems.push('Terlalu mirip dengan soal asal.')

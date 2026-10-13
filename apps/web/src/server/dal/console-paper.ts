@@ -251,7 +251,7 @@ export async function generatePaper(
   if (unknown.length) throw invalid(`Skill ${unknown.slice(0, 3).join(', ')} tidak dikenal. Muat ulang halaman lalu pilih skill lagi.`)
   const skillIds = input.skillIds.length ? [...new Set(input.skillIds)] : all
   const pools: SkillPool[] = []
-  for (const id of skillIds) pools.push({ skillId: id, candidates: await poolForSkill(tx, ctx.orgId, id, { allowManual: false }) })
+  for (const id of skillIds) pools.push({ skillId: id, candidates: await poolForSkill(tx, ctx.orgId, id, { allowManual: false, paperOnly: true }) })
   const rng = createRng(`${ctx.userId}:${Date.now()}:${randomBytes(6).toString('hex')}`)
   const picked = pickPaperItems(pools, input.count, [lo, hi], rng)
   const where = `${SUBJECT_ID_LABEL[input.subject]} Grade ${input.grade}`

@@ -2,7 +2,7 @@ import 'server-only'
 import { eq } from 'drizzle-orm'
 import { formatDateEn, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
-import { answerText, type Item } from '@kira/content'
+import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
 import type { ResultsDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
 import type { Tx } from '../db'
 import { resolveItems, skill, toClient } from './content'
@@ -51,6 +51,42 @@ export function yourAnswerText(item: Item, answer: unknown): string {
       return 'Voice recording sent'
     case 'draw':
       return 'Drawing sent'
+    case 'photo':
+      return 'Photo sent'
+    case 'story':
+      return (
+        ((a.parts as (Record<string, unknown> | null)[]) ?? [])
+          .map((p, k) => {
+            const part = item.parts[k]
+            if (!part || !p) return `${k + 1}. No answer`
+            if (part.type === 'mcq') {
+              const o = part.options[p.choice as number]
+              return `${k + 1}. ${o?.text ?? 'No answer'}`
+            }
+            if (part.type === 'numeric') return `${k + 1}. ${String(p.value ?? '')}${part.unit ? ` ${part.unit}` : ''}`
+            return `${k + 1}. ${((p.texts as string[]) ?? [])[0] ?? ''}`
+          })
+          .join('; ') || 'No answer'
+      )
+    case 'listen': {
+      const o = item.options[a.choice as number]
+      return o ? (o.text ?? String.fromCharCode(65 + (a.choice as number))) : 'No answer'
+    }
+    case 'tiles':
+      return ((a.words as string[]) ?? []).join(' ') || 'No answer'
+    case 'spell':
+      return (a.value as string) || 'No answer'
+    case 'cloze':
+    case 'hotspot':
+    case 'table':
+      return ((a.texts as string[]) ?? []).filter(Boolean).join(', ') || 'No answer'
+    case 'label':
+      return ((a.texts as string[]) ?? []).map((t, i) => `${i + 1}. ${t || '?'}`).join('; ') || 'No answer'
+    case 'grid': {
+      const cells = (a.cells as number[]) ?? []
+      const n = item.size
+      return Array.from({ length: n }, (_, r) => cells.slice(r * n, r * n + n).map((c) => (c === 0 ? '_' : String(c))).join(' ')).join(' / ')
+    }
   }
 }
 
@@ -146,7 +182,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
       position: it.position,
       item: toClient(item, { ref: it.ref, seed: presentationSeed(a), includeKey: true, includeHints: true }),
       yourAnswerText: yourAnswerText(item, r?.answer ?? null),
-      correctAnswerText: item.type === 'write' || item.type === 'speak' || item.type === 'draw' ? 'Your tutor will mark this.' : answerText(item),
+      correctAnswerText: MANUAL_TYPES.includes(item.type) ? 'Your tutor will mark this.' : answerText(item),
       status,
       explanation: item.explanation,
       whyYourAnswer: why,

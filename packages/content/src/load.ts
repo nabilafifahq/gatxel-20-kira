@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { validateRules } from '@kira/core/scoring'
 import { z } from 'zod'
-import { flatten, gridRulesOk, gridValues, sizeAllowed, solveGrid } from './grid'
+import { flattenGrid, gridRulesOk, gridValues, sizeAllowed, solveGrid } from './grid'
 import { GENERATORS, generateUncached, genRef } from './math'
 import {
   catalogSchema,
@@ -198,7 +198,7 @@ function newTypeProblems(item: Item): string[] {
       if (item.labels.length !== item.spots.length) p.push(`labels ${item.labels.length} tidak sama dengan spots ${item.spots.length}`)
       if (dup([...item.labels, ...item.extraLabels])) p.push('Label kembar')
       for (let i = 0; i < item.spots.length; i++) {
-        for (let j = i + 1; j < item.spots.length; j++) if (!apart(item.spots[i]!, item.spots[j]!, 14)) p.push(`Titik ${i} dan ${j} terlalu dekat untuk diketuk`)
+        for (let j = i + 1; j < item.spots.length; j++) if (!apart(item.spots[i]!, item.spots[j]!, 18)) p.push(`Titik ${i} dan ${j} terlalu dekat untuk diketuk`)
       }
       break
     }
@@ -229,8 +229,8 @@ function newTypeProblems(item: Item): string[] {
         p.push(`given dan filled harus ${n}x${n}`)
         break
       }
-      const given = flatten(item.given)
-      const solution = flatten(item.filled)
+      const given = flattenGrid(item.given)
+      const solution = flattenGrid(item.filled)
       const values = gridValues(item.puzzle, n, solution)
       if (!gridRulesOk(item.puzzle, n, solution, values)) p.push('filled tidak memenuhi aturan teka-teki')
       if (given.some((g, i) => g !== 0 && g !== solution[i])) p.push('given tidak cocok dengan filled')

@@ -4,7 +4,7 @@ import type { RunnerDTO, RunnerItem, SavedResponse } from '@/lib/dto'
 /** Fungsi unggah media untuk widget bicara dan gambar (di luar RunnerActions). */
 export type RunnerUpload = (
   blob: Blob,
-  kind: 'audio' | 'drawing',
+  kind: 'audio' | 'drawing' | 'image',
   ctx: { attemptId: string; position: number },
 ) => Promise<{ mediaId: string } | null>
 

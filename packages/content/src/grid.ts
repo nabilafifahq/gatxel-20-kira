@@ -6,7 +6,7 @@
 
 export type GridPuzzle = 'magic' | 'sudoku' | 'latin'
 
-export const flatten = (rows: readonly (readonly number[])[]): number[] => rows.flatMap((r) => [...r])
+export const flattenGrid = (rows: readonly (readonly number[])[]): number[] => rows.flatMap((r) => [...r])
 
 /** Ukuran yang boleh untuk tiap jenis teka-teki. */
 export function sizeAllowed(puzzle: GridPuzzle, size: number): boolean {

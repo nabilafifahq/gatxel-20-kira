@@ -6,9 +6,22 @@
  * Batas panjang dan jumlah tidak ada di sini; itemSchema yang memeriksanya setelah normalisasi.
  */
 
-export const AI_ITEM_TYPES = ['mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'write', 'speak', 'draw'] as const
+import { iconRowScene } from '@kira/content/scenes'
+import { ICON_NAMES, type IconName } from '@kira/content/schema'
+
+/**
+ * Jenis soal yang bisa dibuat AI. hotspot dan label dibuat dari gambar ikon yang dipilih model, jadi bukan dari
+ * diagram buatan tangan; draf varian dan terjemahan untuk keduanya tidak didukung (lihat console-studio.ts).
+ */
+export const AI_ITEM_TYPES = [
+  'mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction',
+  'story', 'listen', 'tiles', 'spell', 'cloze', 'table', 'grid', 'hotspot', 'label',
+  'write', 'speak', 'draw', 'photo',
+] as const
 export type AiItemType = (typeof AI_ITEM_TYPES)[number]
-export const MANUAL_ITEM_TYPES: readonly string[] = ['write', 'speak', 'draw']
+export const MANUAL_ITEM_TYPES: readonly string[] = ['write', 'speak', 'draw', 'photo']
+/** Jenis yang tidak bisa dijadikan varian atau terjemahan karena bentuknya bergantung pada gambar buatan. */
+export const NO_VARIANT_TYPES: readonly string[] = ['hotspot', 'label']
 
 export function isAiItemType(t: unknown): t is AiItemType {
   return typeof t === 'string' && (AI_ITEM_TYPES as readonly string[]).includes(t)
@@ -36,7 +49,7 @@ const COMMON: Record<string, Json> = {
   difficulty: I('Whole number from 1 (easiest) to 5 (hardest).'),
   lang: E(['en-GB', 'id'], 'Language of every text the child sees.'),
   prompt: S('The question the child reads. Plain text, no markdown.'),
-  hints: A(S(), 'Exactly 3 hints for auto-marked types; at most 3 for write, speak and draw.'),
+  hints: A(S(), 'Exactly 3 hints for auto-marked types; at most 3 for write, speak, draw and photo.'),
   explanation: S('One or two short sentences that explain the correct answer.'),
   tip: SN('A short tip for next time, or null.'),
   tags: A(S(), 'Lowercase tags with hyphens, can be empty.'),
@@ -73,6 +86,78 @@ const TYPE_FIELDS: Record<AiItemType, Record<string, Json>> = {
   },
   speak: { rubric: RUBRIC, readText: SN('Text the child reads aloud, or null.'), maxSeconds: I('Recording limit in seconds, 10 to 180.') },
   draw: { rubric: RUBRIC, background: E(['blank', 'grid', 'lines', 'dots']) },
+  photo: { rubric: RUBRIC },
+  numberline: {
+    min: N('Left end of the line.'),
+    max: N('Right end of the line.'),
+    step: N('Distance between two tick marks.'),
+    answer: N('The point the child must mark.'),
+    tolerance: N('Allowed difference from the answer, usually 0.'),
+  },
+  clock: {
+    hour: I('Hour of the time to show, 0 to 23.'),
+    minute: I('Minute of the time to show, 0 to 59.'),
+    stepMinutes: I('How far the minute hand moves per tap: 1, 5, 15 or 30.'),
+  },
+  fraction: {
+    shape: E(['bar', 'circle', 'square']),
+    parts: I('Number of equal parts the shape is cut into, 2 to 16.'),
+    numerator: I('Numerator of the fraction the child must shade.'),
+    denominator: I('Denominator of the fraction. parts times numerator must divide exactly by the denominator.'),
+  },
+  story: {
+    parts: A(
+      O({
+        type: E(['mcq', 'numeric', 'text']),
+        prompt: S('One question about the story, at most 120 characters.'),
+        options: A(OPTION, 'For mcq: 3 or 4 options. Empty for numeric and text.'),
+        answerIndex: IN('For mcq: zero-based index of the correct option, otherwise null.'),
+        answerNumber: { type: ['number', 'null'], description: 'For numeric: the correct number, otherwise null.' },
+        unit: SN('For numeric: unit word after the answer, or null.'),
+        accepted: A(S(), 'For text: every accepted one-word or short answer. Empty for mcq and numeric.'),
+      }),
+      '2 to 4 questions, easier first. The story itself goes in prompt, 2 to 5 short sentences.',
+    ),
+  },
+  listen: {
+    listenText: S('What the child hears: 1 or 2 short sentences, read aloud by the site. Never shown on screen.'),
+    options: A(OPTION, '3 or 4 options (words or numbers) the child chooses from. The prompt must not repeat listenText.'),
+    answer: I('Zero-based index of the correct option.'),
+  },
+  tiles: {
+    answer: S('The correct sentence. Words are separated by single spaces; each word becomes one card. 3 to 9 words.'),
+    alternatives: A(S(), 'Other correct sentences that use exactly the same cards, or an empty list.'),
+    distractors: A(S(), '0 to 3 extra single-word cards that do not appear in the sentence.'),
+  },
+  spell: {
+    word: S('The word to spell: letters only, apostrophe or hyphen allowed. The prompt must not contain it.'),
+    sentence: SN('A short sentence that uses the word, read aloud after the word, or null.'),
+  },
+  cloze: {
+    gaps: A(O({ options: A(S(), '2 to 4 words to choose from.'), answer: I('Zero-based index of the correct word.') }), 'One entry per ___ in the prompt, in order.'),
+  },
+  table: {
+    caption: SN('A short title for the table, or null.'),
+    head: A(S(), '2 to 4 column headings.'),
+    rows: A(A(S(), 'The cells of one row, with the correct value in every cell.'), '2 to 5 rows, each with one cell per heading.'),
+    blanks: A(
+      O({ row: I('Zero-based row index of a cell the child fills in.'), col: I('Zero-based column index.'), alsoAccept: A(S(), 'Other accepted spellings or forms, can be empty.') }),
+      '1 to 6 cells to hide. The site takes the correct answer from rows.',
+    ),
+  },
+  grid: {
+    puzzle: E(['magic', 'sudoku', 'latin']),
+    given: A(A(I(), 'One row. 0 means an empty cell.'), 'magic: 3 rows of 3. sudoku: 4 rows of 4. latin: 3 or 4 rows. The puzzle must have exactly one solution.'),
+    filled: A(A(I(), 'One row of the finished puzzle.'), 'The full solution. magic: use 1 to 9 once each and every row, column and diagonal adds up to 15.'),
+  },
+  hotspot: {
+    pictures: A(O({ icon: E([...ICON_NAMES], 'The picture to show.'), label: S('Short name of what the picture shows.') }), '3 to 6 pictures the child can tap.'),
+    answers: A(S(), 'Labels of the picture or pictures the child must tap (1 to 3).'),
+  },
+  label: {
+    pictures: A(O({ icon: E([...ICON_NAMES], 'The picture to show.'), label: S('Short name for this picture. The child places this label on the picture.') }), '2 to 5 pictures.'),
+    extraLabels: A(S(), '0 to 2 extra labels that match none of the pictures.'),
+  },
 }
 
 /** Skema satu soal untuk jenis-jenis yang diizinkan (anyOf bila lebih dari satu). */
@@ -200,8 +285,109 @@ export function normaliseAiItem(raw: unknown, ctx: { skill: string; lang?: 'en-G
       out.rubric = rubric(raw.rubric)
       out.background = typeof raw.background === 'string' ? raw.background : 'blank'
       break
+    case 'photo':
+      out.rubric = rubric(raw.rubric)
+      break
+    case 'numberline':
+      out.min = raw.min
+      out.max = raw.max
+      out.step = raw.step
+      out.answer = raw.answer
+      out.tolerance = typeof raw.tolerance === 'number' ? raw.tolerance : 0
+      break
+    case 'clock':
+      out.answer = { h: raw.hour, m: raw.minute }
+      out.stepMinutes = typeof raw.stepMinutes === 'number' ? raw.stepMinutes : 5
+      break
+    case 'fraction':
+      out.shape = raw.shape
+      out.parts = raw.parts
+      out.answer = { num: raw.numerator, den: raw.denominator }
+      break
+    case 'story':
+      out.parts = arr(raw.parts).map(storyPart)
+      break
+    case 'listen': {
+      const heard = str(raw.listenText)
+      if (heard) out.listenText = heard
+      out.options = options(raw.options)
+      out.answer = raw.answer
+      break
+    }
+    case 'tiles': {
+      const answer = str(raw.answer)
+      if (answer) out.answer = answer.replace(/\s+/g, ' ')
+      out.alternatives = strArr(raw.alternatives).map((a) => a.replace(/\s+/g, ' '))
+      out.distractors = strArr(raw.distractors)
+      break
+    }
+    case 'spell': {
+      const word = str(raw.word)
+      if (word) out.word = word
+      const sentence = str(raw.sentence)
+      if (sentence) out.sentence = sentence
+      break
+    }
+    case 'cloze':
+      out.gaps = arr(raw.gaps).map((g) => (isObj(g) ? { options: strArr(g.options), answer: g.answer } : g))
+      break
+    case 'table': {
+      const caption = str(raw.caption)
+      if (caption) out.caption = caption
+      out.head = strArr(raw.head)
+      const rows = arr(raw.rows).map((r) => arr(r).map((c) => (typeof c === 'string' ? c.trim() : typeof c === 'number' ? String(c) : '')))
+      const blanks = arr(raw.blanks).map((b) => {
+        if (!isObj(b)) return b
+        const cell = typeof b.row === 'number' && typeof b.col === 'number' ? rows[b.row]?.[b.col] : undefined
+        return { row: b.row, col: b.col, answers: cell ? [cell, ...strArr(b.alsoAccept).filter((a) => a !== cell)] : [] }
+      })
+      for (const b of blanks) {
+        if (isObj(b) && typeof b.row === 'number' && typeof b.col === 'number' && rows[b.row]?.[b.col] !== undefined) rows[b.row]![b.col] = ''
+      }
+      out.rows = rows
+      out.blanks = blanks
+      break
+    }
+    case 'grid': {
+      const given = arr(raw.given).map((r) => arr(r))
+      out.puzzle = raw.puzzle
+      out.size = given.length
+      out.given = given
+      out.filled = arr(raw.filled).map((r) => arr(r))
+      break
+    }
+    case 'hotspot':
+    case 'label': {
+      const pictures = arr(raw.pictures).map((p) => (isObj(p) ? { icon: p.icon, label: str(p.label) ?? '' } : null))
+      const valid = pictures.length >= 2 && pictures.length <= 6 && pictures.every((p): p is { icon: IconName; label: string } => p !== null && p.label !== '' && (ICON_NAMES as readonly string[]).includes(String(p.icon)))
+      if (valid) {
+        const scene = iconRowScene(pictures)
+        out.figure = scene.figure
+        if (type === 'hotspot') {
+          out.regions = pictures.map((p, i) => ({ label: p.label, x: scene.centres[i]!.x, y: scene.centres[i]!.y, w: scene.cell.w, h: scene.cell.h }))
+          const wanted = new Set(strArr(raw.answers).map((a) => a.toLowerCase()))
+          out.answers = pictures.flatMap((p, i) => (wanted.has(p.label.toLowerCase()) ? [i] : []))
+        } else {
+          out.labels = pictures.map((p) => p.label)
+          out.spots = scene.centres.map((c) => ({ x: c.x, y: c.y }))
+          out.extraLabels = strArr(raw.extraLabels)
+        }
+      }
+      break
+    }
   }
   return { candidate: out, reason: null }
+}
+
+function storyPart(p: unknown): unknown {
+  if (!isObj(p)) return p
+  const prompt = str(p.prompt) ?? ''
+  if (p.type === 'mcq') return { type: 'mcq', prompt, options: options(p.options), answer: p.answerIndex }
+  if (p.type === 'numeric') {
+    const unit = str(p.unit)
+    return { type: 'numeric', prompt, answer: p.answerNumber, ...(unit ? { unit } : {}) }
+  }
+  return { type: 'text', prompt, answers: strArr(p.accepted) }
 }
 
 /** Soal Kira sebagai bahan prompt: tanpa id, figure, passage, dan solution supaya model tidak meniru figur. */
