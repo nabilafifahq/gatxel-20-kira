@@ -64,21 +64,26 @@ export function LabelWidget({ item, value, onChange, disabled = false, feedback 
                 aria-label={label !== '' ? `Place ${s + 1}: ${label}${st === 'correct' ? ', right' : st === 'not-yet' ? ', not yet' : ''}` : `Place ${s + 1}, empty`}
                 onClick={() => tapSpot(s)}
                 style={pinStyle(sp.x, sp.y)}
-                className={cx(
-                  'absolute flex items-center justify-center rounded-pill border-3 font-bold tabular-nums transition-transform duration-150 ease-kira',
-                  st === 'correct'
-                    ? 'border-success bg-success-50 text-fg'
-                    : st === 'not-yet'
-                      ? 'border-warn bg-surface text-fg'
-                      : label !== ''
-                        ? cx(style.border, style.solid, 'text-white')
-                        : target
-                          ? cx('border-dashed bg-surface text-fg', style.border)
-                          : 'border-fg bg-surface text-fg',
-                  !locked && 'cursor-pointer active:scale-97',
-                )}
+                className={cx('absolute flex items-center justify-center p-0 transition-transform duration-150 ease-kira', !locked && 'cursor-pointer active:scale-97')}
               >
-                <span className="text-body-lg">{s + 1}</span>
+                {/* Tombol 56 px untuk jari, lingkaran 36 px yang terlihat supaya gambar tidak tertutup. */}
+                <span
+                  aria-hidden="true"
+                  className={cx(
+                    'flex h-9 w-9 items-center justify-center rounded-pill border-3 text-body-lg font-bold tabular-nums',
+                    st === 'correct'
+                      ? 'border-success bg-success-50 text-fg'
+                      : st === 'not-yet'
+                        ? 'border-warn bg-surface text-fg'
+                        : label !== ''
+                          ? cx(style.border, style.solid, 'text-white')
+                          : target
+                            ? cx('border-dashed bg-surface text-fg', style.border)
+                            : 'border-fg bg-surface text-fg',
+                  )}
+                >
+                  {s + 1}
+                </span>
               </button>
             )
           })}

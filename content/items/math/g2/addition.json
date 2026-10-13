@@ -1,0 +1,29 @@
+{
+  "skill": "m2.addition",
+  "items": [
+    {
+      "id": "m2.addition.001",
+      "skill": "m2.addition",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Work out 36 + 27 on paper. Show your working. Then take a photo.",
+      "hints": [
+        "Add the ones first.",
+        "Then add the tens."
+      ],
+      "explanation": "36 + 27 = 63. Adding the ones gives 13, so carry 1 ten.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Shows the working",
+            "points": 2
+          },
+          {
+            "label": "Gets the answer 63",
+            "points": 2
+          }
+        ]
+      }
+    }
+  ]
+}

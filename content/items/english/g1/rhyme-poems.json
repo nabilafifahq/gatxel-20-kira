@@ -459,6 +459,114 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e1.rhyme-poems.016",
+      "skill": "e1.rhyme-poems",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. Which word rhymes with the word you hear?",
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say the word you heard. Change only the first sound.",
+        "You can wear it on your head."
+      ],
+      "explanation": "The speaker said \"cat\". Hat rhymes with cat because both end with at.",
+      "listenText": "cat",
+      "options": [
+        {
+          "text": "dog"
+        },
+        {
+          "text": "cup"
+        },
+        {
+          "text": "hat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.017",
+      "skill": "e1.rhyme-poems",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the picture whose name rhymes with tree.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "bee",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "dog",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: bee, cat, dog and sun."
+      },
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say tree, then try each picture name.",
+        "It buzzes and makes honey."
+      ],
+      "explanation": "Bee rhymes with tree because both end with the long e sound.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "bee",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "cat",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "dog",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "sun",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

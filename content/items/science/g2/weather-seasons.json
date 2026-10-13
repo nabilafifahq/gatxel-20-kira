@@ -215,6 +215,70 @@
       "hints": ["Read the key first. Each symbol means 2 days.", "Count the symbols in the sunny row.", "Count in 2s for each symbol: 2, 4, 6."],
       "explanation": "The sunny row has 9 symbols. Each symbol means 2 days, so 9 lots of 2 is 18 sunny days.",
       "tags": ["ksnr"]
+    },
+    {
+      "id": "s2.weather-seasons.018",
+      "skill": "s2.weather-seasons",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has five letters.",
+        "It starts with the letter c.",
+        "It floats in the sky and can bring rain."
+      ],
+      "explanation": "The word is cloud. Clouds are made of tiny drops of water.",
+      "word": "cloud",
+      "sentence": "A grey cloud is in the sky."
+    },
+    {
+      "id": "s2.weather-seasons.019",
+      "skill": "s2.weather-seasons",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "What should we wear? Fill in the boxes.",
+      "hints": [
+        "Think about the weather in each row.",
+        "You wear this on your head when it is sunny.",
+        "You wear this to stay dry when it rains."
+      ],
+      "explanation": "We wear a hat in the sun and a raincoat in the rain.",
+      "caption": "Weather and clothes",
+      "head": [
+        "Weather",
+        "What to wear"
+      ],
+      "rows": [
+        [
+          "Sunny",
+          ""
+        ],
+        [
+          "Rainy",
+          ""
+        ],
+        [
+          "Cold",
+          "coat"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "hat"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "raincoat",
+            "coat"
+          ]
+        }
+      ]
     }
   ]
 }

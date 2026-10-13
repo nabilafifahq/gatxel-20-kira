@@ -537,6 +537,157 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e2.text-structure.019",
+      "skill": "e2.text-structure",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Mum made a banana cake. First she mashed the bananas. Then she added flour and eggs. Last she baked the cake for 30 minutes.",
+      "hints": [
+        "The words first, then and last tell the order.",
+        "Find the word first.",
+        "Look for the number in the last sentence."
+      ],
+      "explanation": "Mum mashed the bananas first. She baked the cake for 30 minutes.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What did Mum do first?",
+          "options": [
+            {
+              "text": "baked the cake"
+            },
+            {
+              "text": "added eggs"
+            },
+            {
+              "text": "mashed the bananas"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many minutes did she bake the cake?",
+          "answer": 30,
+          "unit": "minutes"
+        }
+      ]
+    },
+    {
+      "id": "e2.text-structure.020",
+      "skill": "e2.text-structure",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the letter. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 8,
+            "y": 8,
+            "w": 224,
+            "h": 284,
+            "r": 8,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 24,
+            "y": 44,
+            "text": "Dear Sam,",
+            "size": 18,
+            "anchor": "start"
+          },
+          {
+            "t": "line",
+            "x1": 24,
+            "y1": 84,
+            "x2": 216,
+            "y2": 84,
+            "tone": "muted",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 24,
+            "y1": 106,
+            "x2": 216,
+            "y2": 106,
+            "tone": "muted",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 24,
+            "y1": 128,
+            "x2": 216,
+            "y2": 128,
+            "tone": "muted",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 24,
+            "y1": 150,
+            "x2": 216,
+            "y2": 150,
+            "tone": "muted",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 24,
+            "y1": 172,
+            "x2": 150,
+            "y2": 172,
+            "tone": "muted",
+            "width": 5
+          },
+          {
+            "t": "text",
+            "x": 24,
+            "y": 232,
+            "text": "Love from Mia",
+            "size": 18,
+            "anchor": "start"
+          }
+        ],
+        "alt": "A short letter. It starts with Dear Sam, has five lines of writing in the middle and ends with Love from Mia."
+      },
+      "hints": [
+        "A letter starts with a greeting.",
+        "The middle holds the news.",
+        "The sign-off says who it is from."
+      ],
+      "explanation": "A letter has a greeting at the top, the body in the middle and a sign-off at the end.",
+      "labels": [
+        "greeting",
+        "body",
+        "sign-off"
+      ],
+      "spots": [
+        {
+          "x": 29.2,
+          "y": 14.7
+        },
+        {
+          "x": 50,
+          "y": 42.7
+        },
+        {
+          "x": 33.3,
+          "y": 77.3
+        }
+      ],
+      "extraLabels": [
+        "title"
+      ]
     }
   ]
 }

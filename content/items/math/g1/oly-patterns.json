@@ -564,6 +564,55 @@
         "hkimo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-patterns.009",
+      "skill": "m1.oly-patterns",
+      "type": "grid",
+      "difficulty": 1,
+      "prompt": "Fill the grid with the numbers 1 to 3. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 3, 1, 2.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "filled": [
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ]
     }
   ]
 }

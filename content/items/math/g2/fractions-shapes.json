@@ -1,0 +1,43 @@
+{
+  "skill": "m2.fractions-shapes",
+  "items": [
+    {
+      "id": "m2.fractions-shapes.001",
+      "skill": "m2.fractions-shapes",
+      "type": "fraction",
+      "difficulty": 2,
+      "prompt": "Shade one half of the square.",
+      "hints": [
+        "The square is cut into 4 equal parts.",
+        "A half is the same as 2 out of 4.",
+        "Shade 2 parts."
+      ],
+      "explanation": "One half is the same as 2 out of 4 equal parts, so shade 2 parts.",
+      "shape": "square",
+      "parts": 4,
+      "answer": {
+        "num": 1,
+        "den": 2
+      }
+    },
+    {
+      "id": "m2.fractions-shapes.002",
+      "skill": "m2.fractions-shapes",
+      "type": "fraction",
+      "difficulty": 2,
+      "prompt": "Shade two thirds of the circle.",
+      "hints": [
+        "Thirds are three equal parts.",
+        "The circle is cut into 3 parts.",
+        "Two thirds means 2 of the 3 parts."
+      ],
+      "explanation": "Two thirds means 2 out of 3 equal parts. Shade 2 parts of the circle.",
+      "shape": "circle",
+      "parts": 3,
+      "answer": {
+        "num": 2,
+        "den": 3
+      }
+    }
+  ]
+}

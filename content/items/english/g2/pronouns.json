@@ -536,6 +536,46 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e2.pronouns.018",
+      "skill": "e2.pronouns",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "The sentence is about you and your friends.",
+        "It ends with the place where you learn."
+      ],
+      "explanation": "We love our school. We and our are pronouns that show it is about us.",
+      "answer": "We love our school.",
+      "distractors": [
+        "us"
+      ]
+    },
+    {
+      "id": "e2.pronouns.019",
+      "skill": "e2.pronouns",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Ana is my sister. ___ is seven years old.",
+      "hints": [
+        "A pronoun takes the place of a name.",
+        "Ana is a girl.",
+        "Which pronoun is for a girl?"
+      ],
+      "explanation": "Ana is a girl, so we use the pronoun she.",
+      "gaps": [
+        {
+          "options": [
+            "He",
+            "They",
+            "She"
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

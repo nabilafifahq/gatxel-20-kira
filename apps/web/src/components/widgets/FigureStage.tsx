@@ -21,9 +21,11 @@ export function pinStyle(x: number, y: number): CSSProperties {
 
 export function FigureStage({ spec, children, className }: { spec: FigureSpec; children: ReactNode; className?: string }): ReactElement {
   const box = figureBox(spec)
+  // Figur kecil diperbesar sampai 1,5 kali (paling lebar 480 px) supaya titik dan area ketuk 56 px tidak menutupi gambar.
+  const width = Math.min(Math.max(Math.round(box.width * 1.5), 280), 480)
   return (
-    <div className={cx('relative mx-auto w-full rounded-control border border-divider bg-surface', className)} style={{ maxWidth: Math.min(Math.max(box.width, 260), 480) }}>
-      <Figure spec={spec} />
+    <div className={cx('relative mx-auto w-full rounded-control border border-divider bg-surface', className)} style={{ maxWidth: width }}>
+      <Figure spec={spec} maxWidth={width} />
       {children}
     </div>
   )

@@ -201,6 +201,134 @@
       ] },
       "hints": ["Write Ball at the top of the first column and Height at the top of the second.", "Measure each bounce with a ruler or a metre stick, with a helper."],
       "explanation": "A table keeps results tidy. Each row shows one ball and how high it bounced, in centimetres."
+    },
+    {
+      "id": "s2.fair-test.018",
+      "skill": "s2.fair-test",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Kai tested two paper towels. He poured the same amount of water onto each one. Towel A soaked up 12 drops and towel B soaked up 8 drops.",
+      "hints": [
+        "A fair test changes only one thing.",
+        "Look at what Kai kept the same.",
+        "Subtract the smaller number from the larger number."
+      ],
+      "explanation": "Kai changed the kind of towel and kept the amount of water the same. 12 take away 8 is 4, so towel A soaked up 4 more drops.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What did Kai change?",
+          "options": [
+            {
+              "text": "the amount of water"
+            },
+            {
+              "text": "the kind of paper towel"
+            },
+            {
+              "text": "the number of drops"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "What did Kai keep the same?",
+          "options": [
+            {
+              "text": "the amount of water"
+            },
+            {
+              "text": "the colour of the towel"
+            },
+            {
+              "text": "the kind of towel"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many more drops did towel A soak up than towel B?",
+          "answer": 4
+        }
+      ]
+    },
+    {
+      "id": "s2.fair-test.019",
+      "skill": "s2.fair-test",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "A plant in the light grows 2 cm every day. Complete the table.",
+      "hints": [
+        "Look at how the height changes from one day to the next.",
+        "Add 2 each day.",
+        "Day 3 is 6 cm. What is Day 4?"
+      ],
+      "explanation": "The plant grows 2 cm each day: 2, 4, 6, 8 cm.",
+      "caption": "Plant in the light",
+      "head": [
+        "Day",
+        "Height (cm)"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          ""
+        ],
+        [
+          "3",
+          "6"
+        ],
+        [
+          "4",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "4"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2.fair-test.020",
+      "skill": "s2.fair-test",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Write a table of your own results on paper. Use two columns, Day and Height, for a bean plant. Then take a photo.",
+      "hints": [
+        "Draw a table with two columns.",
+        "Write Day in the first column heading."
+      ],
+      "explanation": "A good results table has clear headings and numbers in rows.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a table with two column headings",
+            "points": 2
+          },
+          {
+            "label": "Writes numbers in the rows",
+            "points": 2
+          }
+        ]
+      }
     }
   ]
 }

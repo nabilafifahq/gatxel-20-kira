@@ -180,6 +180,53 @@
       "hints": ["Think of a drinking straw.", "What is in the middle of a straw?", "Picture a bamboo tube used to make an angklung."],
       "explanation": "Hollow means empty inside, like a straw. That is why bamboo tubes can be used to make musical notes.",
       "tags": ["reading"], "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.013",
+      "skill": "e3.inference",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Tom put on his coat and woolly hat. He rubbed his hands together and breathed out a white cloud.",
+      "hints": [
+        "The story does not say the weather. Use the clues.",
+        "Think about why someone wears a woolly hat.",
+        "Rubbing hands and a white breath show how the air feels."
+      ],
+      "explanation": "Tom wears warm clothes and rubs his hands, so the weather must be cold.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What is the weather like?",
+          "options": [
+            {
+              "text": "hot"
+            },
+            {
+              "text": "cold"
+            },
+            {
+              "text": "rainy"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which clue helps most?",
+          "options": [
+            {
+              "text": "Tom has a coat and woolly hat"
+            },
+            {
+              "text": "Tom has a name"
+            },
+            {
+              "text": "Tom has two hands"
+            }
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

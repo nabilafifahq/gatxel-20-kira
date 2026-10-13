@@ -25,7 +25,7 @@ export type ClientPart = {
 
 export type ClientHotspot = { regions: { label: string; x: number; y: number; w: number; h: number }[]; count: number }
 export type ClientLabelDiagram = { spots: { x: number; y: number }[]; labels: string[] }
-export type ClientTable = { caption?: string; head: string[]; rows: string[][]; blanks: { row: number; col: number; numeric: boolean }[] }
+export type ClientTable = { caption?: string; head: string[]; rows: string[][]; blanks: { row: number; col: number; numeric: boolean; extra: string[] }[] }
 export type ClientGrid = { puzzle: GridPuzzle; size: number; given: number[]; values: number[] }
 
 export type ClientItem = {
@@ -241,7 +241,13 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
         ...(item.caption ? { caption: item.caption } : {}),
         head: item.head,
         rows: item.rows.map((row, r) => row.map((cell, c) => (blankAt.has(`${r}:${c}`) ? '' : cell))),
-        blanks: item.blanks.map((b) => ({ row: b.row, col: b.col, numeric: b.answers.every((a) => /^-?[\d.,/ ]+$/.test(a)) })),
+        blanks: item.blanks.map((b) => ({
+          row: b.row,
+          col: b.col,
+          numeric: b.answers.every((a) => /^-?[\d.,/ ]+$/.test(a)),
+          // Tanda selain huruf dan angka di jawaban (titik desimal, garis miring, tanda hubung, spasi), supaya papan tidak menampilkan tombol yang tidak perlu.
+          extra: [...new Set(b.answers.join('').split('').filter((c) => !/[A-Za-z0-9]/.test(c)))],
+        })),
       }
       break
     }

@@ -1,0 +1,28 @@
+{
+  "skill": "m2.charts",
+  "items": [
+    {
+      "id": "m2.charts.001",
+      "skill": "m2.charts",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Ask 10 people their favourite fruit. Draw a block graph of the results on paper. Then take a photo.",
+      "hints": [
+        "Draw one block for each person."
+      ],
+      "explanation": "A block graph shows each answer as a column of blocks.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a graph with a title or labels",
+            "points": 2
+          },
+          {
+            "label": "Blocks match the votes",
+            "points": 2
+          }
+        ]
+      }
+    }
+  ]
+}

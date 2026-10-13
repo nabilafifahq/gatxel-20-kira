@@ -231,6 +231,196 @@
       "answers": [0, 1, 2],
       "hints": ["Think about what an animal needs to stay alive.", "Animals need to eat, drink and stay safe.", "Start with food. Does every animal need it?"],
       "explanation": "A habitat gives an animal food, water and shelter, a safe place to rest and raise its young."
+    },
+    {
+      "id": "s2.habitats.018",
+      "skill": "s2.habitats",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "A pond has fish, frogs and ducks. Water plants grow in the pond. The plants give the fish food and a place to hide.",
+      "hints": [
+        "Read the first sentence for the animals.",
+        "The last sentence tells what the plants give.",
+        "A habitat is where an animal lives."
+      ],
+      "explanation": "Fish live in the water all their life. The water plants give them food and a place to hide.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which animal lives in the water all its life?",
+          "options": [
+            {
+              "text": "frog"
+            },
+            {
+              "text": "fish"
+            },
+            {
+              "text": "duck"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "What do the water plants give the fish?",
+          "options": [
+            {
+              "text": "food and a place to hide"
+            },
+            {
+              "text": "warm fur"
+            },
+            {
+              "text": "a nest in a tree"
+            }
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s2.habitats.019",
+      "skill": "s2.habitats",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal that lives in the desert.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "camel",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "penguin",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "whale",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: camel, penguin, fish and whale."
+      },
+      "hints": [
+        "A desert is very hot and dry.",
+        "This animal can go for days without water.",
+        "It has a hump."
+      ],
+      "explanation": "A camel is well suited to the desert. It can go a long time without water.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "camel",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "penguin",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "fish",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "whale",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s2.habitats.020",
+      "skill": "s2.habitats",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Put each animal label on its home.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "pond",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "desert",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "arctic",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "Think about where each animal can live.",
+        "A frog needs water. A camel lives in a hot dry place.",
+        "A penguin lives where it is very cold."
+      ],
+      "explanation": "A frog lives by a pond, a camel in the desert and a penguin in the cold Arctic.",
+      "labels": [
+        "frog",
+        "camel",
+        "penguin"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ]
     }
   ]
 }

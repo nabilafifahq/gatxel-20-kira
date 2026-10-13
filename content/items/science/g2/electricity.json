@@ -201,6 +201,524 @@
       ] },
       "hints": ["Think about water, sockets or power lines.", "Keep your rule short, like: Keep water away from sockets."],
       "explanation": "Electricity can hurt us. Good rules are: never touch switches with wet hands, never poke things into sockets and fly kites far from power lines."
+    },
+    {
+      "id": "s2.electricity.017",
+      "skill": "s2.electricity",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part that gives the circuit its energy.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          }
+        ],
+        "alt": "A simple circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom."
+      },
+      "hints": [
+        "A circuit needs something to push the electricity round.",
+        "It is the part that you put into a torch.",
+        "It runs out when it is old."
+      ],
+      "explanation": "The battery gives the circuit energy so the bulb can light.",
+      "regions": [
+        {
+          "label": "battery",
+          "x": 18.8,
+          "y": 50,
+          "w": 20,
+          "h": 44.4
+        },
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 27.8,
+          "w": 21.9,
+          "h": 38.9
+        },
+        {
+          "label": "switch",
+          "x": 50,
+          "y": 72.2,
+          "w": 21.9,
+          "h": 38.9
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s2.electricity.018",
+      "skill": "s2.electricity",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part you use to turn the circuit on and off.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          }
+        ],
+        "alt": "A simple circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom."
+      },
+      "hints": [
+        "You press or flick this part.",
+        "It opens and closes a gap in the circuit.",
+        "Most lights at home have one on the wall."
+      ],
+      "explanation": "A switch opens or closes the circuit. When it is closed, electricity can flow.",
+      "regions": [
+        {
+          "label": "battery",
+          "x": 18.8,
+          "y": 50,
+          "w": 20,
+          "h": 44.4
+        },
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 27.8,
+          "w": 21.9,
+          "h": 38.9
+        },
+        {
+          "label": "switch",
+          "x": 50,
+          "y": 72.2,
+          "w": 21.9,
+          "h": 38.9
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s2.electricity.019",
+      "skill": "s2.electricity",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the circuit. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          }
+        ],
+        "alt": "A simple circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom."
+      },
+      "hints": [
+        "The battery gives energy.",
+        "The bulb gives light.",
+        "The switch turns the circuit on and off."
+      ],
+      "explanation": "The labels are battery, bulb and switch. The wire joins the parts.",
+      "labels": [
+        "battery",
+        "bulb",
+        "switch"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 27.8
+        },
+        {
+          "x": 50,
+          "y": 72.2
+        }
+      ],
+      "extraLabels": [
+        "wire"
+      ]
+    },
+    {
+      "id": "s2.electricity.020",
+      "skill": "s2.electricity",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label all four parts of the circuit.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          }
+        ],
+        "alt": "A simple circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The line that joins everything is a wire.",
+        "The battery gives the energy."
+      ],
+      "explanation": "A circuit has a battery, a bulb, a switch and wires that join them.",
+      "labels": [
+        "battery",
+        "bulb",
+        "switch",
+        "wire"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 27.8
+        },
+        {
+          "x": 50,
+          "y": 72.2
+        },
+        {
+          "x": 81.3,
+          "y": 50
+        }
+      ]
     }
   ]
 }

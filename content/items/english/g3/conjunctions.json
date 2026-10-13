@@ -149,6 +149,46 @@
       "hints": ["Think about which thing happened first.", "Three of these words are about time.", "Try each word. Picture what happens first in each sentence."],
       "explanation": "After means the rain stopped first, and then we played outside.",
       "tags": ["iklc"]
+    },
+    {
+      "id": "e3.conjunctions.013",
+      "skill": "e3.conjunctions",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence has two parts joined by and then.",
+        "There is a comma after the first part.",
+        "Lunch comes before football."
+      ],
+      "explanation": "I ate my lunch, and then I played football. And then shows the order of events.",
+      "answer": "I ate my lunch, and then I played football.",
+      "distractors": [
+        "because"
+      ]
+    },
+    {
+      "id": "e3.conjunctions.014",
+      "skill": "e3.conjunctions",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "I will take an umbrella ___ it might rain.",
+      "hints": [
+        "The second part gives a reason.",
+        "Which joining word explains why?",
+        "It is the word you use to answer a why question."
+      ],
+      "explanation": "Because gives the reason for taking an umbrella.",
+      "gaps": [
+        {
+          "options": [
+            "but",
+            "because",
+            "or"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }

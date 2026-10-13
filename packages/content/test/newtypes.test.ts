@@ -276,7 +276,7 @@ describe('presentItem', () => {
   it('table blanks are emptied and flagged numeric', () => {
     const c = present(table)
     expect(c.table!.rows).toEqual([['Cat', '4'], ['Bird', ''], ['Spider', '']])
-    expect(c.table!.blanks).toEqual([{ row: 1, col: 1, numeric: true }, { row: 2, col: 1, numeric: false }])
+    expect(c.table!.blanks).toEqual([{ row: 1, col: 1, numeric: true, extra: [] }, { row: 2, col: 1, numeric: false, extra: [] }])
   })
 
   it('story parts get their own options, local indices without labels', () => {

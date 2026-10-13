@@ -450,6 +450,576 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.015",
+      "skill": "e1.word-meanings",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which word is the opposite of the word you hear?",
+      "hints": [
+        "An opposite means the other way.",
+        "Think of the weather. What is the other way for the word you heard?",
+        "It is a word you use for ice."
+      ],
+      "explanation": "The speaker said \"hot\". The opposite of hot is cold.",
+      "listenText": "hot",
+      "options": [
+        {
+          "text": "cold"
+        },
+        {
+          "text": "warm"
+        },
+        {
+          "text": "big"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.016",
+      "skill": "e1.word-meanings",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the door.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 40,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 200,
+            "y": 50,
+            "w": 22,
+            "h": 44,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": 100,
+            "w": 160,
+            "h": 100,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                62,
+                102
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                258,
+                102
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 145,
+            "y": 140,
+            "w": 34,
+            "h": 60,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 172,
+            "cy": 172,
+            "r": 3,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 98,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 116,
+            "y1": 120,
+            "x2": 116,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 98,
+            "y1": 138,
+            "x2": 134,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 120,
+            "x2": 208,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 138,
+            "x2": 226,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 4,
+            "y": 140,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 262,
+            "y": 6,
+            "size": 52
+          }
+        ],
+        "alt": "A house with a red roof, a chimney, a blue door and two windows. A tree stands on the left and the sun shines in the corner."
+      },
+      "hints": [
+        "Look at the middle of the house.",
+        "You open it to go inside.",
+        "It is blue."
+      ],
+      "explanation": "The door is the blue part you open to go into the house.",
+      "regions": [
+        {
+          "label": "roof",
+          "x": 38.8,
+          "y": 32.5,
+          "w": 31.3,
+          "h": 25
+        },
+        {
+          "label": "door",
+          "x": 50.6,
+          "y": 77.5,
+          "w": 13.8,
+          "h": 28.3
+        },
+        {
+          "label": "window",
+          "x": 36.3,
+          "y": 57.5,
+          "w": 15,
+          "h": 20
+        },
+        {
+          "label": "tree",
+          "x": 12.5,
+          "y": 73.3,
+          "w": 21.9,
+          "h": 33.3
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "e1.word-meanings.017",
+      "skill": "e1.word-meanings",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the roof.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 40,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 200,
+            "y": 50,
+            "w": 22,
+            "h": 44,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": 100,
+            "w": 160,
+            "h": 100,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                62,
+                102
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                258,
+                102
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 145,
+            "y": 140,
+            "w": 34,
+            "h": 60,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 172,
+            "cy": 172,
+            "r": 3,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 98,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 116,
+            "y1": 120,
+            "x2": 116,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 98,
+            "y1": 138,
+            "x2": 134,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 120,
+            "x2": 208,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 138,
+            "x2": 226,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 4,
+            "y": 140,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 262,
+            "y": 6,
+            "size": 52
+          }
+        ],
+        "alt": "A house with a red roof, a chimney, a blue door and two windows. A tree stands on the left and the sun shines in the corner."
+      },
+      "hints": [
+        "Look at the top of the house.",
+        "It keeps the rain out.",
+        "It is red and shaped like a triangle."
+      ],
+      "explanation": "The roof is at the top of the house. It keeps the rain out.",
+      "regions": [
+        {
+          "label": "roof",
+          "x": 38.8,
+          "y": 32.5,
+          "w": 31.3,
+          "h": 25
+        },
+        {
+          "label": "door",
+          "x": 50.6,
+          "y": 77.5,
+          "w": 13.8,
+          "h": 28.3
+        },
+        {
+          "label": "window",
+          "x": 36.3,
+          "y": 57.5,
+          "w": 15,
+          "h": 20
+        },
+        {
+          "label": "chimney",
+          "x": 65.9,
+          "y": 30,
+          "w": 11.3,
+          "h": 23.3
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "e1.word-meanings.018",
+      "skill": "e1.word-meanings",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the house.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 40,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 200,
+            "y": 50,
+            "w": 22,
+            "h": 44,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": 100,
+            "w": 160,
+            "h": 100,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                62,
+                102
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                258,
+                102
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 145,
+            "y": 140,
+            "w": 34,
+            "h": 60,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 172,
+            "cy": 172,
+            "r": 3,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 98,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 116,
+            "y1": 120,
+            "x2": 116,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 98,
+            "y1": 138,
+            "x2": 134,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 120,
+            "x2": 208,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 138,
+            "x2": 226,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 4,
+            "y": 140,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 262,
+            "y": 6,
+            "size": 52
+          }
+        ],
+        "alt": "A house with a red roof, a chimney, a blue door and two windows. A tree stands on the left and the sun shines in the corner."
+      },
+      "hints": [
+        "Tap a word, then tap its number.",
+        "The roof is at the top.",
+        "You use the door to go inside."
+      ],
+      "explanation": "The house has a roof, a window and a door.",
+      "labels": [
+        "roof",
+        "window",
+        "door"
+      ],
+      "spots": [
+        {
+          "x": 38.8,
+          "y": 32.5
+        },
+        {
+          "x": 36.3,
+          "y": 57.5
+        },
+        {
+          "x": 50.6,
+          "y": 77.5
+        }
+      ]
     }
   ]
 }

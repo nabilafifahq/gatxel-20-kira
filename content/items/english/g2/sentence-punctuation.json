@@ -531,6 +531,43 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e2.sentence-punctuation.018",
+      "skill": "e2.sentence-punctuation",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "Questions often start with a helper word like can.",
+        "End with a question mark.",
+        "You are asking about the moon."
+      ],
+      "explanation": "Can you see the moon? A question ends with a question mark.",
+      "answer": "Can you see the moon?",
+      "distractors": [
+        "sees"
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.019",
+      "skill": "e2.sentence-punctuation",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order. Two sentences are right, so choose one.",
+      "hints": [
+        "The two sentences use the same words.",
+        "Both are about what you do on Monday.",
+        "You can start with we or with on."
+      ],
+      "explanation": "Both we swim on Monday and on Monday we swim are correct. The cards have no capital letters, so either order works.",
+      "answer": "we swim on Monday",
+      "alternatives": [
+        "on Monday we swim"
+      ],
+      "distractors": [
+        "swims"
+      ]
     }
   ]
 }

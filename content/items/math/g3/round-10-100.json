@@ -1,0 +1,22 @@
+{
+  "skill": "m3.round-10-100",
+  "items": [
+    {
+      "id": "m3.round-10-100.001",
+      "skill": "m3.round-10-100",
+      "type": "numberline",
+      "difficulty": 3,
+      "prompt": "Tap the number that 68 rounds to, to the nearest 10.",
+      "hints": [
+        "Find 68 between two tens.",
+        "68 is between 60 and 70.",
+        "Is 68 closer to 60 or to 70?"
+      ],
+      "explanation": "68 is closer to 70 than to 60, so it rounds to 70.",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "answer": 70
+    }
+  ]
+}

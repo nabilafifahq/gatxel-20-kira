@@ -1,0 +1,31 @@
+{
+  "skill": "m3.place-value",
+  "items": [
+    {
+      "id": "m3.place-value.001",
+      "skill": "m3.place-value",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. Which number did you hear?",
+      "hints": [
+        "Listen for the hundreds first.",
+        "There are 4 hundreds.",
+        "There are no tens, so the tens digit is 0."
+      ],
+      "explanation": "The speaker said \"four hundred and six\". That is 4 hundreds, 0 tens and 6 ones, so the number is 406.",
+      "listenText": "four hundred and six",
+      "options": [
+        {
+          "text": "460"
+        },
+        {
+          "text": "416"
+        },
+        {
+          "text": "406"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

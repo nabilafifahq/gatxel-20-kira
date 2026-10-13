@@ -149,6 +149,200 @@
       "hints": ["Natural materials come from plants, animals or the ground.", "Where does this rubber come from?", "Think about the tree in the picture."],
       "explanation": "Rubber from rubber trees is a natural material because it comes from a plant. Indonesia grows many rubber trees.",
       "tags": ["iksc", "ksnr"]
+    },
+    {
+      "id": "s1.materials.013",
+      "skill": "s1.materials",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "What are these things made of? Fill in the boxes.",
+      "hints": [
+        "Think about how each thing feels.",
+        "You can see through a window.",
+        "A chair is often made of wood."
+      ],
+      "explanation": "A spoon can be metal, a window is made of glass and a chair can be wood.",
+      "caption": "Materials",
+      "head": [
+        "Object",
+        "Made of"
+      ],
+      "rows": [
+        [
+          "Spoon",
+          "metal"
+        ],
+        [
+          "Window",
+          ""
+        ],
+        [
+          "Chair",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "glass"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "wood"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s1.materials.014",
+      "skill": "s1.materials",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the object made of glass.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "paper",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fabric",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: glass, wooden spoon, paper and fabric."
+      },
+      "hints": [
+        "Glass is hard and smooth.",
+        "You can see through it.",
+        "You drink from it."
+      ],
+      "explanation": "The glass is made of glass. You can see through it.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "glass",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "wooden spoon",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "paper",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "fabric",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "s1.materials.015",
+      "skill": "s1.materials",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Which material is each object made of? One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "paper",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "Wood comes from trees.",
+        "You can see through glass.",
+        "Paper is thin and flat."
+      ],
+      "explanation": "The spoon is wood, the glass is glass and the sheet is paper. Metal is not needed.",
+      "labels": [
+        "wood",
+        "glass",
+        "paper"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "metal"
+      ]
     }
   ]
 }

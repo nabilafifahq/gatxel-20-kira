@@ -584,6 +584,61 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.reading-information.020",
+      "skill": "e2.reading-information",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Bats sleep during the day. They hang upside down in dark places. At night they fly out to find insects to eat.",
+      "hints": [
+        "Find the word night in the text.",
+        "Read the sentence about where bats hang.",
+        "The last sentence tells what bats eat."
+      ],
+      "explanation": "Bats sleep in the day, hang upside down, and eat insects at night.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "When do bats sleep?",
+          "options": [
+            {
+              "text": "at night"
+            },
+            {
+              "text": "during the day"
+            },
+            {
+              "text": "only in winter"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "How do bats sleep?",
+          "options": [
+            {
+              "text": "upside down"
+            },
+            {
+              "text": "on the ground"
+            },
+            {
+              "text": "in the water"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What do bats eat? Write one word.",
+          "answers": [
+            "insects",
+            "insect"
+          ]
+        }
+      ]
     }
   ]
 }

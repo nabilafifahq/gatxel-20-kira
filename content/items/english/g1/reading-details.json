@@ -418,6 +418,239 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e1.reading-details.016",
+      "skill": "e1.reading-details",
+      "type": "story",
+      "difficulty": 1,
+      "prompt": "Sam has a red kite. The wind is strong and the kite goes high in the sky. Sam holds the string tightly.",
+      "hints": [
+        "Read the story again, slowly.",
+        "The answers are in the story.",
+        "Find the colour word and the doing word."
+      ],
+      "explanation": "The story says Sam has a red kite and holds the string tightly.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What colour is the kite?",
+          "options": [
+            {
+              "text": "red"
+            },
+            {
+              "text": "blue"
+            },
+            {
+              "text": "green"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What does Sam hold?",
+          "options": [
+            {
+              "text": "the wind"
+            },
+            {
+              "text": "the string"
+            },
+            {
+              "text": "a ball"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.reading-details.017",
+      "skill": "e1.reading-details",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the window on the right.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 40,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 200,
+            "y": 50,
+            "w": 22,
+            "h": 44,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 80,
+            "y": 100,
+            "w": 160,
+            "h": 100,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                62,
+                102
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                258,
+                102
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 145,
+            "y": 140,
+            "w": 34,
+            "h": 60,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 172,
+            "cy": 172,
+            "r": 3,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 98,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 116,
+            "y1": 120,
+            "x2": 116,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 98,
+            "y1": 138,
+            "x2": 134,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 120,
+            "w": 36,
+            "h": 36,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 208,
+            "y1": 120,
+            "x2": 208,
+            "y2": 156,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 138,
+            "x2": 226,
+            "y2": 138,
+            "tone": "math",
+            "width": 2
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 4,
+            "y": 140,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 262,
+            "y": 6,
+            "size": 52
+          }
+        ],
+        "alt": "A house with a red roof, a chimney, a blue door and two windows. A tree stands on the left and the sun shines in the corner."
+      },
+      "hints": [
+        "There are two windows.",
+        "Look at which side is your right hand.",
+        "It is the one next to the chimney side."
+      ],
+      "explanation": "The window on the right is the one on the right-hand side of the door.",
+      "regions": [
+        {
+          "label": "left window",
+          "x": 36.3,
+          "y": 57.5,
+          "w": 15,
+          "h": 20
+        },
+        {
+          "label": "right window",
+          "x": 65,
+          "y": 57.5,
+          "w": 15,
+          "h": 20
+        },
+        {
+          "label": "door",
+          "x": 50.6,
+          "y": 77.5,
+          "w": 13.8,
+          "h": 28.3
+        },
+        {
+          "label": "roof",
+          "x": 38.8,
+          "y": 32.5,
+          "w": 31.3,
+          "h": 25
+        }
+      ],
+      "answers": [
+        1
+      ]
     }
   ]
 }

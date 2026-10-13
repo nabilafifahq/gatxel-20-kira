@@ -557,6 +557,63 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e2.joining-words.019",
+      "skill": "e2.joining-words",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence has two ideas joined by a joining word.",
+        "There is a comma before the joining word.",
+        "The joining word shows the first idea is the reason for the second."
+      ],
+      "explanation": "I was tired, so I went to bed. The joining word so shows what happened because of the first idea.",
+      "answer": "I was tired, so I went to bed.",
+      "distractors": [
+        "but"
+      ]
+    },
+    {
+      "id": "e2.joining-words.020",
+      "skill": "e2.joining-words",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence has a reason in it.",
+        "The word because comes in the middle.",
+        "Why did they stay inside? Because of the weather."
+      ],
+      "explanation": "We stayed inside because it was raining. Because joins the action to its reason.",
+      "answer": "We stayed inside because it was raining.",
+      "distractors": [
+        "but"
+      ]
+    },
+    {
+      "id": "e2.joining-words.021",
+      "skill": "e2.joining-words",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "I wanted to play outside, ___ it was raining.",
+      "hints": [
+        "Read both parts of the sentence.",
+        "The two parts do not agree with each other.",
+        "Which joining word shows a surprise or a problem?"
+      ],
+      "explanation": "But shows that the second part is different from what you wanted. I wanted to play, but it was raining.",
+      "gaps": [
+        {
+          "options": [
+            "but",
+            "and",
+            "so"
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

@@ -26,6 +26,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
   const at = Math.min(active, Math.max(0, blanks.length - 1))
   const current = blanks[at]
   const numeric = current?.numeric ?? false
+  const extra = current?.extra ?? []
   const key = item.key?.type === 'table' ? item.key.blanks : null
   const blankIndex = (r: number, c: number) => blanks.findIndex((b) => b.row === r && b.col === c)
 
@@ -39,7 +40,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
     return (key[i] ?? []).some((a) => cellMatches(texts[i] ?? '', a))
   }
 
-  const keys = numeric ? [...DIGITS_0_9, '.', '/', '-'] : [...LETTERS_AZ, ' ', '-', "'"]
+  const keys = numeric ? [...DIGITS_0_9, ...extra] : [...LETTERS_AZ, ...extra]
   const cell = texts[at] ?? ''
 
   return (
@@ -118,7 +119,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
           </div>
           <CharKeypad
             keys={keys}
-            columns={numeric ? 6 : 7}
+            columns={numeric ? 5 : 7}
             label={numeric ? 'Numbers' : 'Letters'}
             subject={subject}
             onKey={(k) => cell.length < 16 && set(at, cell + k)}

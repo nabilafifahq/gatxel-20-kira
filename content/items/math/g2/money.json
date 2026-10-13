@@ -1,0 +1,45 @@
+{
+  "skill": "m2.money",
+  "items": [
+    {
+      "id": "m2.money.001",
+      "skill": "m2.money",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Dewi has Rp5.000. She buys a pencil for Rp1.500 and a rubber for Rp1.000.",
+      "hints": [
+        "Add the prices of the two things.",
+        "Then take that total away from Rp5.000.",
+        "Rp1.500 + Rp1.000 = Rp2.500."
+      ],
+      "explanation": "Dewi spends 1500 + 1000 = 2500 rupiah. She has 5000 - 2500 = 2500 rupiah left. A ruler costs 3000, which is more than 2500.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many rupiah does Dewi spend?",
+          "answer": 2500,
+          "unit": "rupiah"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many rupiah does she have left?",
+          "answer": 2500,
+          "unit": "rupiah"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Can she now buy a ruler that costs Rp3.000?",
+          "options": [
+            {
+              "text": "Yes"
+            },
+            {
+              "text": "No"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    }
+  ]
+}

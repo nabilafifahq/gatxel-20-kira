@@ -1001,6 +1001,189 @@
         "seamo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.016",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 3. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 1, 3, 2.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          1,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "m2.oly-logic.017",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 1, 2, 3, 4.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          0,
+          1
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "m2.oly-logic.018",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 2, 1, 4, 3.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ]
+      ]
     }
   ]
 }

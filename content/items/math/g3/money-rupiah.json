@@ -1,0 +1,32 @@
+{
+  "skill": "m3.money-rupiah",
+  "items": [
+    {
+      "id": "m3.money-rupiah.001",
+      "skill": "m3.money-rupiah",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A banana costs Rp2.000. Dad buys 3 bananas and pays with a Rp10.000 note.",
+      "hints": [
+        "Find the cost of 3 bananas by adding or multiplying.",
+        "3 times 2000.",
+        "Change is the note take away the cost."
+      ],
+      "explanation": "3 bananas cost 3 x 2000 = 6000 rupiah. The change is 10000 - 6000 = 4000 rupiah.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many rupiah do the 3 bananas cost?",
+          "answer": 6000,
+          "unit": "rupiah"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many rupiah of change does Dad get?",
+          "answer": 4000,
+          "unit": "rupiah"
+        }
+      ]
+    }
+  ]
+}

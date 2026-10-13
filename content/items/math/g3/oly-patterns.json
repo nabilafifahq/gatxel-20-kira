@@ -648,6 +648,73 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m3.oly-patterns.010",
+      "skill": "m3.oly-patterns",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row and every column must have each number once.",
+      "hints": [
+        "Find a row or a column with only one empty box.",
+        "Look at which numbers are already there. Which one is missing?",
+        "Check the row and the column together."
+      ],
+      "explanation": "Every row and column has each number once. For example, the first row is 4, 3, 2, 1.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
     }
   ]
 }

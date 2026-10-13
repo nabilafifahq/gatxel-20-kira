@@ -394,6 +394,46 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e1.naming-doing-words.014",
+      "skill": "e1.naming-doing-words",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Find the naming word first.",
+        "Find the doing word. What can a bird do?",
+        "End with the word that has a full stop."
+      ],
+      "explanation": "The bird can fly. The naming word is bird and the doing word is fly.",
+      "answer": "The bird can fly.",
+      "distractors": [
+        "flies"
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.015",
+      "skill": "e1.naming-doing-words",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "The cat can ___ fast.",
+      "hints": [
+        "A doing word tells what someone does.",
+        "Which word can a cat do?",
+        "Try each word in the gap."
+      ],
+      "explanation": "Run is a doing word. The cat can run fast.",
+      "gaps": [
+        {
+          "options": [
+            "red",
+            "run",
+            "happy"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }
