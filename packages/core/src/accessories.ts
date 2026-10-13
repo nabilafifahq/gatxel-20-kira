@@ -13,7 +13,7 @@ export const ACCESSORIES: readonly AccessoryDef[] = [
   { id: 'star-pin', label: 'Star pin', track: 'belajar', level: 3 },
   { id: 'scarf', label: 'Scarf', track: 'belajar', level: 6 },
   { id: 'crown', label: 'Crown', track: 'belajar', level: 10 },
-  { id: 'visor', label: 'Sports visor', track: 'hitung', level: 3 },
+  { id: 'visor', label: 'Purple cap', track: 'hitung', level: 3 },
   { id: 'glasses', label: 'Round glasses', track: 'hitung', level: 6 },
   { id: 'headphones', label: 'Headphones', track: 'hitung', level: 10 },
   { id: 'bow-tie', label: 'Bow tie', track: 'pengetahuan', level: 3 },

@@ -16,6 +16,8 @@ const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }
   { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
+  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths },
+  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -65,7 +67,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex h-19 w-20 flex-col items-center justify-center gap-1 rounded-control border-2 text-body no-underline',
+                'relative flex min-h-19 w-20 flex-col items-center justify-center gap-1 rounded-control border-2 px-1 py-2 text-center text-body leading-5 no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
               )}
             >
@@ -88,7 +90,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 text-body no-underline',
+                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
               )}
             >
@@ -143,7 +145,7 @@ export function LearnerHeader({
   return (
     <header className={cx('flex flex-wrap items-center justify-between gap-x-6 gap-y-4', className)}>
       <div className="flex min-w-0 items-center gap-3 md:gap-4">
-        <Avatar name={shell.avatar} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
+        <Avatar name={shell.avatar} accessory={shell.accessory ?? null} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
         <div className="flex min-w-0 flex-col">
           <h1 className="m-0 text-h1 font-bold break-words">{title ?? `Hi, ${shell.name}`}</h1>
           {subline ? <p className="m-0 text-body-lg text-fg-muted">{subline}</p> : null}

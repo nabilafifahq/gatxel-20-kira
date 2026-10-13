@@ -3,6 +3,7 @@
 import { useState, type ReactElement } from 'react'
 import { Avatar } from '@kira/figures'
 import { jakartaDate } from '@kira/core/time'
+import type { AccessoryId } from '@kira/core'
 import type { AvatarName, MeActions, MeDTO } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -12,6 +13,7 @@ import { BadgeTile } from '@/components/learner/BadgeTile'
 import { avatarLabel, LearnerFrame } from '@/components/learner/LearnerHeader'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { DayGlyph, dayStatusWord } from '@/components/learner/StreakChain'
+import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 import { ActionError } from './common'
 
 /**
@@ -107,20 +109,37 @@ function AvatarDialog({
 function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
   const toast = useToast()
   const [avatar, setAvatar] = useState<AvatarName>(data.shell.avatar)
+  const [accessory, setAccessory] = useState<AccessoryId | null>(data.shell.accessory ?? null)
+  const [accessoryBusy, setAccessoryBusy] = useState(false)
   const [picking, setPicking] = useState(false)
   // Kunci baru setiap kali dialog dibuka supaya pilihan mulai dari avatar yang sedang dipakai.
   const [openCount, setOpenCount] = useState(0)
-  const shell = { ...data.shell, avatar }
+  const shell = { ...data.shell, avatar, accessory }
   const earned = data.badges.filter((b) => b.earnedAt !== null)
   const pct = data.xpLevelSpan > 0 ? Math.min(100, Math.round((data.xpIntoLevel / data.xpLevelSpan) * 100)) : 0
   const xpLine = `${data.xpIntoLevel} of ${data.xpLevelSpan} XP to level ${data.level + 1}`
   const todayIso = jakartaDate()
+  const changeAccessory = async (next: AccessoryId | null) => {
+    if (!actions.changeAccessory || accessoryBusy || next === accessory) return
+    setAccessoryBusy(true)
+    try {
+      const res = await actions.changeAccessory(next)
+      if (res.ok) {
+        setAccessory(next)
+        toast({ kind: 'success', title: next ? 'Accessory saved' : 'Accessory taken off' })
+      } else toast({ kind: 'error', title: res.message })
+    } catch {
+      toast({ kind: 'error', title: 'Your accessory was not saved. Check the internet and try again.' })
+    } finally {
+      setAccessoryBusy(false)
+    }
+  }
   const isToday = (c: MeDTO['calendar'][number]) => c.status === 'today' || (c.inMonth && c.date === todayIso)
 
   return (
     <LearnerFrame shell={shell} current="me" className="flex flex-col gap-6">
       <header className="flex flex-wrap items-center gap-5">
-        <Avatar name={avatar} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
+        <Avatar name={avatar} accessory={accessory} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
         <div className="flex min-w-0 flex-col items-start gap-1.5">
           <h1 className="m-0 text-h1 font-bold break-words">{data.shell.name}</h1>
           <div className="flex flex-wrap gap-2">
@@ -154,6 +173,67 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
         </div>
       </header>
 
+      {data.tracks ? (
+        <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7">
+          <h2 id="me-tracks" className="m-0 text-h2 font-bold">
+            XP and levels
+          </h2>
+          <XpTrackBars tracks={data.tracks} />
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
+              Quick Maths
+            </ButtonLink>
+            <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
+              Quiz Arena
+            </ButtonLink>
+          </div>
+        </section>
+      ) : null}
+
+      {data.accessories && actions.changeAccessory ? (
+        <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
+          <h2 id="me-accessories" className="m-0 text-h2 font-bold">
+            Accessories
+          </h2>
+          <p className="m-0 text-body-lg text-fg-muted">Earn accessories by reaching levels in Learning, Quick Maths and Quiz.</p>
+          <div role="radiogroup" aria-label="Accessories" className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            <button
+              type="button"
+              role="radio"
+              aria-checked={accessory === null}
+              disabled={accessoryBusy}
+              onClick={() => void changeAccessory(null)}
+              className={cx('flex min-h-32 cursor-pointer flex-col items-center justify-center gap-1 rounded-control p-2 text-center', accessory === null ? 'border-3 border-fg bg-bg' : 'border-2 border-border bg-surface hover:border-fg')}
+            >
+              <Avatar name={avatar} size={64} />
+              <span className="text-body font-bold">None</span>
+            </button>
+            {data.accessories.map((a) => (
+              <button
+                key={a.id}
+                type="button"
+                role="radio"
+                aria-checked={accessory === a.id}
+                aria-disabled={!a.earned}
+                disabled={accessoryBusy}
+                onClick={() => (a.earned ? void changeAccessory(a.id) : undefined)}
+                className={cx(
+                  'flex min-h-32 flex-col items-center justify-center gap-1 rounded-control p-2 text-center',
+                  a.earned ? 'cursor-pointer' : 'cursor-default border-dashed',
+                  accessory === a.id ? 'border-3 border-fg bg-bg' : a.earned ? 'border-2 border-border bg-surface hover:border-fg' : 'border-2 border-border bg-bg',
+                )}
+              >
+                <span className={a.earned ? undefined : 'opacity-50'}>
+                  <Avatar name={avatar} accessory={a.id} size={64} />
+                </span>
+                <span className="text-body font-bold">{a.label}</span>
+                {!a.earned ? <span className="text-body leading-5 text-fg-muted">{a.howToEarn}</span> : null}
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">
         <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-[1.15]">
           <div className="flex items-center gap-3">
@@ -170,7 +250,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
             <ul className="m-0 grid list-none grid-cols-2 gap-3 p-0 sm:grid-cols-4">
               {data.badges.map((b) => (
                 <li key={b.id} className="flex">
-                  <BadgeTile id={b.id} title={b.title} description={b.description} earnedAt={b.earnedAt} isNew={b.isNew} className="w-full" />
+                  <BadgeTile id={b.id} title={b.title} description={b.description} earnedAt={b.earnedAt} isNew={b.isNew} {...(b.glyph ? { glyph: b.glyph } : {})} className="w-full" />
                 </li>
               ))}
             </ul>

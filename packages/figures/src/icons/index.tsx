@@ -2,6 +2,8 @@ import type { ReactElement } from 'react'
 import type { AvatarName, IconName } from '../spec'
 import { ICON_GLYPHS } from './glyphs'
 import { AVATAR_GLYPHS } from './avatars'
+import { ACCESSORY_ART, isAccessoryArtId } from './accessories'
+import { PLANET_GLYPHS, type PlanetArtName } from './planets'
 
 /**
  * Ikon 48 x 48 bergaris tinta. `ICON_GLYPHS[name]` berisi elemen SVG tanpa
@@ -27,7 +29,7 @@ export function Icon({ name, size = 48, title, className }: { name: IconName; si
   )
 }
 
-export function Avatar({ name, size = 64, title, className }: { name: AvatarName; size?: number; title?: string; className?: string }): ReactElement {
+export function Avatar({ name, size = 64, title, className, accessory }: { name: AvatarName; size?: number; title?: string; className?: string; accessory?: string | null }): ReactElement {
   return (
     <svg
       width={size}
@@ -37,6 +39,16 @@ export function Avatar({ name, size = 64, title, className }: { name: AvatarName
       {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}
     >
       {AVATAR_GLYPHS[name]}
+      {accessory && isAccessoryArtId(accessory) ? ACCESSORY_ART[accessory] : null}
+    </svg>
+  )
+}
+
+/** Planet, Matahari, atau Bulan untuk Quiz Arena. */
+export function PlanetArt({ name, size = 48, title, className }: { name: PlanetArtName; size?: number; title?: string; className?: string }): ReactElement {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" className={className} {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}>
+      {PLANET_GLYPHS[name]}
     </svg>
   )
 }
