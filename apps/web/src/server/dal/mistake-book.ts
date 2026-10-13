@@ -98,6 +98,14 @@ async function redoHistory(tx: Tx, learnerId: string): Promise<{ date: string; c
 // ---------------------------------------------------------------------------
 // Sisi learner (en-GB)
 
+/** Jumlah soal Buku Salah yang bisa dikerjakan ulang sekarang (soalnya masih ada di bank). */
+export async function fixItOpenCount(tx: Tx, learnerId: string): Promise<number> {
+  const open = await openMistakes(tx, learnerId)
+  if (open.length === 0) return 0
+  const resolved = await resolveItems(tx, open.map((o) => o.ref))
+  return open.filter((o) => resolved.has(o.ref)).length
+}
+
 export async function fixItDTO(tx: Tx, learnerId: string): Promise<FixItDTO> {
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()

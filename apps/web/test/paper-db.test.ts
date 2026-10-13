@@ -154,6 +154,13 @@ describe.skipIf(!ready)('DAL pustaka paper di Postgres', () => {
       values (${orgId}, ${sess}, ${learnerId}, 1, 'm2.oly-patterns.001', 'm2.oly-patterns', 'math', 'mcq', 3, 'correct', ${randomUUID()}, now())`
     const after = await dal.inOrg({ orgId, userId: learnerId, role: 'learner' }, (tx) => dal.mist.openMistakes(tx, learnerId))
     expect(after.map((o) => o.ref)).toEqual(['m2.oly-logic.001'])
+    // Today: perhentian opsional Fix-it Book hanya hari Sabtu dan hanya bila masih ada soal terbuka.
+    const today = await import('@/server/dal/learner-today')
+    const learnerCtx = { orgId, userId: learnerId, role: 'learner' as const }
+    const sat = await dal.inOrg(learnerCtx, (tx) => today.fixItExtra(tx, learnerId, '2026-10-17'))
+    expect(sat).toMatchObject({ href: '/fix-it', required: false, questId: null, sessionLabel: 'Fix-it Book', state: 'ready' })
+    expect(sat!.meta).toBe('1 question from tests and papers to try again')
+    expect(await dal.inOrg(learnerCtx, (tx) => today.fixItExtra(tx, learnerId, '2026-10-16'))).toBeNull()
     // Laporan tutor: jenis kesalahan dan soal terbuka.
     const report = await dal.mist.mistakeReportDTO({ userId: tutorId, orgId, role: 'tutor', name: 'Tutor PL' } as never, learnerId)
     expect(report.open).toBe(1)

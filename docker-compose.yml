@@ -155,7 +155,6 @@ services:
       AI_API_KEY: ${AI_API_KEY:-}
       AI_MODEL: ${AI_MODEL:-}
       AI_WEEKLY_CONTENT_JOBS: ${AI_WEEKLY_CONTENT_JOBS:-60}
-      KIRA_CONTENT_DIR: /app/content
     volumes:
       - *ca-mount
       - ${KIRA_HOST_DATA:-./data}:/data

@@ -1,4 +1,4 @@
-import { and, eq, isNull, sql } from 'drizzle-orm'
+import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { findContentDir, loadContent } from '@kira/content/load'
 import { loadSpelling } from '@kira/content/spelling'
@@ -102,9 +102,25 @@ export async function generate(h: HandlerCtx, clips: TtsClipRequest[], opts: { h
   return t
 }
 
-async function orgClips(h: HandlerCtx): Promise<TtsClipRequest[]> {
+/**
+ * Muatan tts.batch: `{ scope: "all" }` dari jadwal malam, atau `{ source: "weekly-sourcing", refs: ["org:<id>", ...] }` dari
+ * pembaruan mingguan sumber soal (hanya soal org yang baru masuk). `waits` ditambahkan batch sendiri saat menunggu GPU.
+ */
+const batchPayload = z
+  .object({
+    scope: z.literal('all').optional(),
+    source: z.string().max(40).optional(),
+    refs: z.array(z.string().regex(/^org:[0-9a-f-]{36}$/)).max(1000).optional(),
+    waits: z.number().optional(),
+  })
+  .passthrough()
+
+async function orgClips(h: HandlerCtx, only?: readonly string[]): Promise<TtsClipRequest[]> {
   const rows = await withOrg(h.db, h.org, (tx) =>
-    tx.select({ body: tables.orgItem.body }).from(tables.orgItem).where(and(eq(tables.orgItem.orgId, h.org.orgId), isNull(tables.orgItem.retiredAt))),
+    tx
+      .select({ body: tables.orgItem.body })
+      .from(tables.orgItem)
+      .where(and(eq(tables.orgItem.orgId, h.org.orgId), isNull(tables.orgItem.retiredAt), ...(only ? [inArray(tables.orgItem.id, [...only])] : []))),
   )
   const out: TtsClipRequest[] = []
   for (const r of rows) {
@@ -121,12 +137,20 @@ export const ttsBatchHandler: Handler = {
     const health = await client.health(h.signal)
     if (!health.ok) return { skipped: 'Layanan suara (tts) tidak terjangkau. Jalankan profil tts lalu coba lagi.' }
 
-    const { index, errors } = loadContent()
-    if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
-    const spelling = loadSpelling(findContentDir())
-    const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-    const clips = dedupe([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
-    h.log.info('batch suara mulai', { clips: clips.length })
+    // Soal org yang baru masuk (pembaruan mingguan): hanya klipnya, tanpa menghitung ulang seluruh konten repo.
+    const scoped = batchPayload.safeParse(h.job.payload)
+    const refs = scoped.success ? (scoped.data.refs ?? []) : []
+    let clips: TtsClipRequest[]
+    if (refs.length > 0) {
+      clips = dedupe(await orgClips(h, refs.map((r) => r.slice('org:'.length)))).filter((c) => isClipText(c.text))
+    } else {
+      const { index, errors } = loadContent()
+      if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
+      const spelling = loadSpelling(findContentDir())
+      const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
+      clips = dedupe([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
+    }
+    h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length })
     const t = await generate(h, clips, { heartbeat: true })
     h.log.info('batch suara selesai', { ...t })
 

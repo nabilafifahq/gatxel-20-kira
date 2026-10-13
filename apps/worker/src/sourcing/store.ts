@@ -172,8 +172,8 @@ export const enqueueItemsDraft = (tx: Tx, orgId: string, input: Extract<AiJobInp
 export const enqueueImport = (tx: Tx, orgId: string, input: Extract<AiJobInput, { kind: 'import' }>) => enqueueAi(tx, orgId, 'ai.import', input)
 
 /**
- * Antrekan pembuatan suara untuk soal English baru. Jenis job `tts.batch` ditambahkan agen suara; selama belum ada
- * di JOB_KINDS, tidak ada yang ditulis. Muatan: { source: "weekly-sourcing", refs: ["org:<id>", ...] }.
+ * Antrekan pembuatan suara untuk soal English baru. Muatan: { source: "weekly-sourcing", refs: ["org:<id>", ...] }; job
+ * tts.batch (handlers/tts.ts) membuat klip hanya untuk soal org itu.
  */
 export const TTS_JOB_KIND = 'tts.batch'
 

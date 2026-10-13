@@ -36,6 +36,13 @@ describe('klip dari soal', () => {
     expect(new Set(clips.map((c) => c.style))).toEqual(new Set(['teacher']))
     expect(itemClips(mcq({ skill: 'e2.spelling-bee' } as Partial<Item>)).every((c) => c.style === 'dictation')).toBe(true)
   })
+  it('soal dengar membuat klip opsi dan klip teks dengarnya, soal eja memakai gaya dikte', () => {
+    const listen = itemClips(mcq({ type: 'listen', listenText: 'I can see a cat on the mat.' } as Partial<Item>))
+    expect(listen.map((c) => c.text)).toEqual(expect.arrayContaining(['Option A.', 'in', 'I can see a cat on the mat.']))
+    const spell = itemClips({ id: 'e2.spelling-bee.001', skill: 'e2.spelling-bee', type: 'spell', word: 'hat', sentence: 'I wear a hat.', alsoAccept: [], difficulty: 1, prompt: 'Listen, then spell the word.', lang: 'en-GB', hints: ['a', 'b', 'c'], explanation: 'x', tags: [], source: 'kira-original' } as unknown as Item)
+    expect(spell.map((c) => c.text)).toEqual(['Listen, then spell the word.', 'hat. I wear a hat. hat.'])
+    expect(new Set(spell.map((c) => c.style))).toEqual(new Set(['dictation']))
+  })
   it('soal berbahasa Indonesia tidak dibacakan', () => {
     expect(itemClips(mcq({ lang: 'id' } as Partial<Item>))).toEqual([])
   })

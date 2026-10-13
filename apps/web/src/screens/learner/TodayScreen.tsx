@@ -166,7 +166,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
               <p className="m-0 text-body text-fg-muted">From your tutor. Optional, and your streak does not change.</p>
             </div>
             {extras.map((stop) => (
-              <QuestStopRow key={stop.questId ?? stop.session} stop={stop} size="auto" />
+              <QuestStopRow key={stop.questId ?? stop.href ?? stop.session} stop={stop} size="auto" />
             ))}
           </section>
         ) : null}

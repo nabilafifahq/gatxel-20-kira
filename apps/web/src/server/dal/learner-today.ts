@@ -1,12 +1,13 @@
 import 'server-only'
 import { and, asc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
-import { addDays, bestIndex, daysBetween, formatDateEn, jakartaDate, sessionMinutes, weekdayNameEn, type IsoDate, type SessionType } from '@kira/core'
+import { addDays, bestIndex, daysBetween, formatDateEn, jakartaDate, sessionMinutes, weekday, weekdayNameEn, type IsoDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
 import type { DoneTodayDTO, QuestIntroDTO, QuestStopDTO, SegmentState, Subject, TodayDTO, TodayGroupDTO } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { lesson, skill } from './content'
 import { learnerShell, loadLearner, minutesOn, skillStates, streakDTO, isRestDay } from './learner-core'
+import { fixItOpenCount } from './mistake-book'
 import {
   SUBJECT_LABEL,
   SUBJECT_ORDER,
@@ -179,6 +180,34 @@ function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
   }
 }
 
+/**
+ * Sabtu: perhentian opsional "Fix-it Book" bila masih ada soal Tes atau Paper yang belum benar (rencana bagian 10.6,
+ * ulang soal setiap Sabtu). Tidak memengaruhi streak dan bukan sesi tutor, jadi tidak punya baris quest.
+ */
+export async function fixItExtra(tx: Tx, learnerId: string, date: IsoDate): Promise<QuestStopDTO | null> {
+  if (weekday(date) !== 6) return null
+  const open = await fixItOpenCount(tx, learnerId)
+  if (open === 0) return null
+  return {
+    questId: null,
+    subject: 'bonus',
+    state: 'ready',
+    session: 'review',
+    sessionLabel: 'Fix-it Book',
+    required: false,
+    timed: false,
+    best: null,
+    title: 'Fix-it Book',
+    meta: `${open} ${open === 1 ? 'question' : 'questions'} from tests and papers to try again`,
+    total: 0,
+    answered: 0,
+    segments: [],
+    href: '/fix-it',
+    ctaLabel: 'Open',
+    offlineReady: false,
+  }
+}
+
 export async function nextCompetition(tx: Tx, learnerId: string, today: IsoDate) {
   const rows = await tx
     .select({ name: competitionEvent.name, date: competitionEvent.date, ids: competitionEvent.learnerIds })
@@ -245,6 +274,10 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
     .filter((q) => q.kind === 'extra')
     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime() || a.id.localeCompare(b.id))
     .map(stopOf)
+  if (!rest) {
+    const fixIt = await fixItExtra(tx, learnerId, date)
+    if (fixIt) extras.push(fixIt)
+  }
 
   const flat = groups.flatMap((g) => g.stops)
   const active = flat.find((s) => s.state === 'in-progress') ?? flat.find((s) => s.state === 'ready') ?? null
