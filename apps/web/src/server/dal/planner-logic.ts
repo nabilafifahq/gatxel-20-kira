@@ -1,7 +1,8 @@
 import 'server-only'
-import { addDays, daysBetween, estimateMinutes, weekDates, weekStart, weekdayNameId, type Gate, type IsoDate } from '@kira/core'
-import type { PlannerDTO, Subject } from '@/lib/dto'
-import { daysLeftLabel, shortDateId, SUBJECT_ORDER, weekLabelId } from './console-common'
+import { LATIHAN_COUNT, TES_COUNT, addDays, daysBetween, estimateMinutes, weekDates, weekStart, weekdayNameId, type DayTemplate, type Gate, type IsoDate, type SessionType } from '@kira/core'
+import type { PlannerDay, Subject } from '@/lib/dto'
+import { invalid } from '../errors'
+import { daysLeftLabel, shortDateId, SUBJECT_ID_LABEL, SUBJECT_ORDER, weekLabelId } from './console-common'
 
 /**
  * Logika murni perencana mingguan (T03): rentang minggu, label hari, menit per hari,
@@ -51,10 +52,32 @@ export function firstPlannableDate(today: IsoDate, todayQuestsCreated: boolean):
   return todayQuestsCreated ? addDays(today, 1) : today
 }
 
-/** Jumlah soal yang dibuat Today untuk mode itu (sama dengan questLength di learner-today). */
-export function defaultQuestionCount(mode: PlanMode, grade: number): number {
+/** Jumlah soal bawaan sesi: Latihan 10, Tes 8 (Belajar lama 6). Sama untuk semua grade. */
+export function defaultQuestionCount(mode: PlanMode, _grade?: number): number {
   if (mode === 'belajar') return 6
-  return grade <= 1 ? 8 : 10
+  return mode === 'tes' ? TES_COUNT : LATIHAN_COUNT
+}
+
+/** Nama sesi di konsol (Indonesia). */
+export const SESSION_LABEL_ID: Record<SessionType, string> = {
+  latihan: 'Latihan',
+  tes: 'Tes',
+  paper: 'Paper',
+  lesson: 'Pelajaran',
+  simulation: 'Simulasi lomba',
+  esmo: 'Paket ESMO',
+  review: 'Ulang kartu',
+  'quick-maths': 'Hitung Cepat',
+  knowledge: 'Kuis Pengetahuan',
+  'english-skill': 'Tugas English',
+  reading: 'Membaca',
+}
+
+/** Nama template hari di konsol (Indonesia). */
+export const TEMPLATE_LABEL_ID: Record<DayTemplate, string> = {
+  school: 'Hari sekolah',
+  saturday: 'Sabtu paper penuh',
+  light: 'Hari ringan',
 }
 
 /** Menit slot: paper memakai menit paper, skill memakai perkiraan 1,5 menit per soal. */
@@ -67,7 +90,7 @@ export function plannerDays(
   rest: ReadonlySet<IsoDate>,
   slots: readonly { date: IsoDate; minutes: number }[],
   screenLimitMin: number,
-): PlannerDTO['days'] {
+): Pick<PlannerDay, 'date' | 'label' | 'rest' | 'totalMinutes' | 'overLimit'>[] {
   return week.map((date) => {
     const isRest = rest.has(date)
     const total = isRest ? 0 : slots.filter((s) => s.date === date).reduce((a, s) => a + s.minutes, 0)
@@ -104,7 +127,18 @@ export type SkillStateLite = {
 
 export type UpcomingCompetition = { name: string; date: IsoDate; competitionId: string | null; subjects: readonly string[] }
 
-export type ExistingSlot = { date: IsoDate; subject: Subject; kind: 'quest' | 'bonus'; skillId: string | null; minutes: number }
+export type ExistingSlot = {
+  date: IsoDate
+  subject: Subject
+  kind: 'quest' | 'bonus'
+  skillId: string | null
+  minutes: number
+  /** Jenis sesi dan wajib atau tidak; kosong berarti Latihan wajib (slot lama). */
+  session?: SessionType
+  required?: boolean
+  /** Sesi dasar dari template tanpa slot: ikut menghitung menit, tidak mengisi sel usulan. */
+  auto?: boolean
+}
 
 export type SuggestInput = {
   today: IsoDate
@@ -238,9 +272,8 @@ function candidatesFor(subject: Subject, input: SuggestInput, scheduled: Readonl
   return out
 }
 
-function modeFor(c: Candidate): PlanMode {
-  if (c.kind === 'reteach') return 'belajar'
-  if (c.kind === 'new') return c.skill.hasLesson ? 'belajar' : 'latihan'
+/** Usulan selalu Latihan 10 soal; pelajaran skill baru ditawarkan di pembuka sesi, bukan sebagai mode lain. */
+function modeFor(_c: Candidate): PlanMode {
   return 'latihan'
 }
 
@@ -254,7 +287,10 @@ function modeFor(c: Candidate): PlanMode {
  */
 export function suggestWeek(input: SuggestInput): Suggestion[] {
   const scheduled = new Set(input.slots.map((s) => s.skillId).filter((x): x is string => Boolean(x)))
-  const filled = new Set(input.slots.filter((s) => s.kind === 'quest').map((s) => `${s.date}:${s.subject}`))
+  // Sel terisi bila tutor sudah menetapkan Latihan wajib untuk mapel itu; sesi lain dan sesi dasar tidak mengisinya.
+  const filled = new Set(
+    input.slots.filter((s) => s.kind === 'quest' && !s.auto && (s.session ?? 'latihan') === 'latihan' && (s.required ?? true)).map((s) => `${s.date}:${s.subject}`),
+  )
   const minutes = new Map<IsoDate, number>()
   for (const s of input.slots) minutes.set(s.date, (minutes.get(s.date) ?? 0) + s.minutes)
   const open = input.days.filter((d) => !d.rest && d.date >= input.firstPlannable).map((d) => d.date)
@@ -269,8 +305,8 @@ export function suggestWeek(input: SuggestInput): Suggestion[] {
       if (!c) break
       const mode = modeFor(c)
       const questionCount = defaultQuestionCount(mode, input.learnerGrade)
-      const total = (minutes.get(date) ?? 0) + estimateMinutes(questionCount)
-      const limitNote = total > input.screenLimitMin ? `${weekdayNameId(date)} jadi ${total} menit kalau ditambah.` : null
+      const total = minutes.get(date) ?? 0
+      const limitNote = total > input.screenLimitMin ? `${weekdayNameId(date)} sudah ${total} menit, lewat batas ${input.screenLimitMin}.` : null
       out.push({
         id: `${date}:${subject}:${c.skill.id}`,
         date,
@@ -285,4 +321,126 @@ export function suggestWeek(input: SuggestInput): Suggestion[] {
     }
   }
   return out.sort((a, b) => a.date.localeCompare(b.date) || SUBJECT_ORDER.indexOf(a.subject) - SUBJECT_ORDER.indexOf(b.subject))
+}
+
+// ---------------------------------------------------------------------------
+// Validasi slot
+
+export type NormaliseSlotInput = {
+  session: SessionType
+  subject: Subject
+  required: boolean
+  skillId: string | null
+  mode: PlanMode
+  questionCount: number
+  paperKind: 'mini' | 'full' | null
+  config: { presetId?: string | undefined; task?: string | undefined; perQuestionSec?: number | undefined } | null
+  /** Skill dari konten repo bila skillId diisi, atau null bila tidak ada. */
+  skill: { id: string; subject: Subject; title: string } | null
+  skillHasLesson: boolean
+  /** Mapel preset bila config.presetId diisi dan preset itu ada. */
+  presetSubject: Subject | null
+}
+
+export type NormalisedSlot = {
+  session: SessionType
+  subject: Subject
+  required: boolean
+  skillId: string | null
+  mode: PlanMode
+  questionCount: number
+  paperKind: 'mini' | 'full' | null
+  config: Record<string, string | number> | null
+}
+
+const CORE: readonly SessionType[] = ['latihan', 'tes', 'paper']
+const TASKS = ['listening', 'reading', 'writing', 'speaking']
+export const PER_QUESTION_MIN = 30
+export const PER_QUESTION_MAX = 180
+
+function fail(field: string, message: string): never {
+  throw invalid(message, { [field]: message })
+}
+
+/**
+ * Aturan slot per jenis sesi. Latihan dan Tes butuh skill (Tes boleh kosong: mengikuti Latihan hari itu),
+ * Paper butuh jenis mini atau penuh, Pelajaran butuh skill yang punya pelajaran, Simulasi butuh preset,
+ * Tugas English butuh jenis tugas. Hanya Latihan, Tes, dan Paper yang boleh wajib; sesi lain selalu opsional.
+ */
+export function normaliseSlot(i: NormaliseSlotInput): NormalisedSlot {
+  const out: NormalisedSlot = {
+    session: i.session,
+    subject: i.subject,
+    required: CORE.includes(i.session) ? i.required : false,
+    skillId: null,
+    mode: i.session === 'tes' ? 'tes' : 'latihan',
+    questionCount: LATIHAN_COUNT,
+    paperKind: null,
+    config: null,
+  }
+  const needSkill = i.session === 'latihan' || i.session === 'reading' || i.session === 'lesson'
+  if (i.skillId !== null && i.skill === null) fail('skillId', 'Skill itu tidak ada di konten Kira. Pilih skill dari daftar.')
+  if (i.skill && i.skill.subject !== i.subject) {
+    fail('skillId', `${i.skill.title} bukan skill ${SUBJECT_ID_LABEL[i.subject]}. Pilih skill dari mapel ${SUBJECT_ID_LABEL[i.subject]}.`)
+  }
+  if (needSkill && !i.skill) fail('skillId', 'Pilih satu skill untuk sesi ini.')
+  if (i.session === 'latihan' || i.session === 'tes' || i.session === 'reading') {
+    const n = i.questionCount
+    if (!Number.isInteger(n) || n < QUESTION_COUNT_MIN || n > QUESTION_COUNT_MAX) {
+      fail('questionCount', `Jumlah soal harus angka bulat ${QUESTION_COUNT_MIN} sampai ${QUESTION_COUNT_MAX}.`)
+    }
+    out.questionCount = n
+  }
+  switch (i.session) {
+    case 'latihan':
+      out.skillId = i.skill!.id
+      break
+    case 'tes': {
+      out.skillId = i.skill?.id ?? null
+      const sec = i.config?.perQuestionSec
+      if (sec !== undefined) {
+        if (!Number.isInteger(sec) || sec < PER_QUESTION_MIN || sec > PER_QUESTION_MAX) {
+          fail('perQuestionSec', `Waktu per soal harus ${PER_QUESTION_MIN} sampai ${PER_QUESTION_MAX} detik.`)
+        }
+        if (sec !== 75) out.config = { perQuestionSec: sec }
+      }
+      break
+    }
+    case 'reading':
+      if (i.subject !== 'english') fail('subject', 'Sesi Membaca hanya untuk English.')
+      out.skillId = i.skill!.id
+      break
+    case 'lesson':
+      if (!i.skillHasLesson) fail('skillId', 'Skill ini belum punya pelajaran. Pilih skill lain.')
+      out.skillId = i.skill!.id
+      break
+    case 'paper':
+      if (i.paperKind !== 'mini' && i.paperKind !== 'full') fail('paperKind', 'Pilih paper mini atau paper penuh.')
+      out.paperKind = i.paperKind
+      break
+    case 'simulation': {
+      const id = i.config?.presetId
+      if (!id || i.presetSubject === null) fail('presetId', 'Pilih satu simulasi lomba dari daftar.')
+      if (i.presetSubject !== i.subject) fail('presetId', `Simulasi itu untuk ${SUBJECT_ID_LABEL[i.presetSubject!]}. Pilih mapel yang sama.`)
+      out.config = { presetId: id }
+      break
+    }
+    case 'esmo':
+      if (i.subject === 'science') fail('subject', 'Paket ESMO hanya untuk Math dan English.')
+      break
+    case 'english-skill': {
+      if (i.subject !== 'english') fail('subject', 'Tugas English hanya untuk mapel English.')
+      const task = i.config?.task
+      if (!task || !TASKS.includes(task)) fail('task', 'Pilih jenis tugas: listening, reading, writing, atau speaking.')
+      out.config = { task }
+      break
+    }
+    case 'quick-maths':
+      if (i.subject !== 'math') fail('subject', 'Tantangan Hitung Cepat hanya untuk Math.')
+      break
+    case 'review':
+    case 'knowledge':
+      break
+  }
+  return out
 }

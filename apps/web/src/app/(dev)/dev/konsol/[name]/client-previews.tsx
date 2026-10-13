@@ -76,6 +76,8 @@ const PREVIEWS: Record<string, Render> = {
           setRestDay: fake(undefined, fail, 'Hari istirahat belum tersimpan.'),
           applySuggestions: fake(undefined, fail, 'Usulan belum diterapkan.'),
           publishWeek: fake(undefined, fail, 'Rencana belum terbit.'),
+          setDayTemplate: fake(undefined, fail, 'Template belum tersimpan.'),
+          copyWeek: fake({ copied: 12, skipped: 2 }, fail, 'Minggu belum tersalin.'),
         }}
       />
     )

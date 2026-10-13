@@ -4,6 +4,7 @@ import {
   defaultQuestionCount,
   firstPlannableDate,
   isRestDate,
+  normaliseSlot,
   normaliseWeek,
   plannerDays,
   slotMinutes,
@@ -11,6 +12,7 @@ import {
   weekLabelLong,
   weekOf,
   type ExistingSlot,
+  type NormaliseSlotInput,
   type SkillMeta,
   type SkillStateLite,
   type SuggestInput,
@@ -97,10 +99,11 @@ describe('menit per hari', () => {
     expect(slotMinutes({ questionCount: 20, paperMinutes: null })).toBe(30)
   })
 
-  it('jumlah soal default sama dengan panjang quest di Today', () => {
+  it('jumlah soal default: Latihan 10, Tes 8, Belajar lama 6, untuk semua grade', () => {
     expect(defaultQuestionCount('belajar', 2)).toBe(6)
-    expect(defaultQuestionCount('latihan', 1)).toBe(8)
+    expect(defaultQuestionCount('latihan', 1)).toBe(10)
     expect(defaultQuestionCount('latihan', 4)).toBe(10)
+    expect(defaultQuestionCount('tes', 2)).toBe(8)
   })
 
   it('menjumlahkan menit, menandai lewat batas, dan menolkan hari istirahat', () => {
@@ -145,10 +148,10 @@ describe('usulan', () => {
       ['2026-10-20', 'm2.place-value', 'review'],
       ['2026-10-21', 'm2.add', 'new'],
     ])
-    expect(math[0]).toMatchObject({ id: '2026-10-19:math:m2.money', mode: 'belajar', questionCount: 6, reason: 'Akurasi 46% di 10 soal terakhir.' })
+    expect(math[0]).toMatchObject({ id: '2026-10-19:math:m2.money', mode: 'latihan', questionCount: 10, reason: 'Akurasi 46% di 10 soal terakhir.' })
     expect(math[1]).toMatchObject({ mode: 'latihan', questionCount: 10, reason: 'Belum dilatih 9 hari.' })
-    // m2.add punya pelajaran: mode Belajar; prasyaratnya review di grade yang sama.
-    expect(math[2]).toMatchObject({ mode: 'belajar', reason: 'Lanjutan dari T m2.place-value.' })
+    // m2.add punya pelajaran: pelajarannya ditawarkan di pembuka Latihan; prasyaratnya review di grade yang sama.
+    expect(math[2]).toMatchObject({ mode: 'latihan', reason: 'Lanjutan dari T m2.place-value.' })
     // m2.time review tapi baru dilatih 2 hari lalu: tidak diusulkan.
     expect(out.some((s) => s.skillId === 'm2.time')).toBe(false)
     // Prasyarat lintas grade tanpa data dianggap terpenuhi.
@@ -208,10 +211,10 @@ describe('usulan', () => {
   })
 
   it('menyebut menit hari itu bila usulan membuat hari lewat batas', () => {
-    const slots: ExistingSlot[] = [{ date: '2026-10-19', subject: 'english', kind: 'quest', skillId: null, minutes: 50 }]
+    const slots: ExistingSlot[] = [{ date: '2026-10-19', subject: 'english', kind: 'quest', skillId: null, minutes: 70 }]
     const out = suggestWeek(input({ list, slots }))
     const monMath = out.find((s) => s.date === '2026-10-19' && s.subject === 'math')
-    expect(monMath?.reason).toBe('Skill berikutnya di urutan Grade 2. Senin jadi 65 menit kalau ditambah.')
+    expect(monMath?.reason).toBe('Skill berikutnya di urutan Grade 2. Senin sudah 70 menit, lewat batas 60.')
     const tueMath = out.find((s) => s.date === '2026-10-20' && s.subject === 'math')
     expect(tueMath).toBeUndefined()
   })
@@ -237,5 +240,89 @@ describe('usulan', () => {
     expect(new Set(keys).size).toBe(keys.length)
     const full: ExistingSlot[] = week.flatMap((date) => (['math', 'english', 'science'] as const).map((subject) => ({ date, subject, kind: 'quest' as const, skillId: null, minutes: 10 })))
     expect(suggestWeek(input({ list, states, slots: full }))).toEqual([])
+  })
+})
+
+describe('usulan dengan sesi baru', () => {
+  const place = sk('m2.place-value', 10)
+  const list = [place, sk('m2.money', 40), sk('e2.phonics', 10), sk('s2.plants', 10)]
+  const states = new Map<string, SkillStateLite>([['m2.money', st('reteach', { recent: [0, 0, 1], nAnswers: 10 })]])
+
+  it('sesi dasar dari template tidak mengisi sel, jadi usulan tetap muncul', () => {
+    const autos: ExistingSlot[] = week.map((date) => ({ date, subject: 'math' as const, kind: 'quest' as const, skillId: null, minutes: 7, session: 'latihan' as const, required: true, auto: true }))
+    const out = suggestWeek(input({ list, states, slots: autos })).filter((s) => s.subject === 'math')
+    expect(out.length).toBeGreaterThan(0)
+  })
+
+  it('Tes atau sesi opsional mapel itu tidak mengisi sel Latihan', () => {
+    const slots: ExistingSlot[] = [
+      { date: '2026-10-19', subject: 'math', kind: 'quest', skillId: 'm2.sub', minutes: 10, session: 'tes', required: true },
+      { date: '2026-10-20', subject: 'math', kind: 'quest', skillId: 'm2.sub', minutes: 7, session: 'latihan', required: false },
+    ]
+    const out = suggestWeek(input({ list, states, slots })).filter((s) => s.subject === 'math')
+    expect(out.map((s) => s.date)).toContain('2026-10-19')
+    expect(out.map((s) => s.date)).toContain('2026-10-20')
+  })
+
+  it('Latihan wajib yang diatur tutor mengisi sel', () => {
+    const slots: ExistingSlot[] = [{ date: '2026-10-19', subject: 'math', kind: 'quest', skillId: 'm2.sub', minutes: 7, session: 'latihan', required: true }]
+    const out = suggestWeek(input({ list, states, slots })).filter((s) => s.subject === 'math')
+    expect(out.map((s) => s.date)).not.toContain('2026-10-19')
+  })
+})
+
+describe('normaliseSlot', () => {
+  const skill = { id: 'm2.place-value', subject: 'math' as const, title: 'Place value' }
+  const base = { subject: 'math' as const, required: true, skillId: null, mode: 'latihan' as const, questionCount: 10, paperKind: null, config: null, skill: null, skillHasLesson: false, presetSubject: null }
+  const run = (over: Partial<NormaliseSlotInput>) => normaliseSlot({ session: 'latihan', ...base, ...over })
+  const fails = (over: Partial<NormaliseSlotInput>) => {
+    try {
+      run(over)
+    } catch (e) {
+      return e as { userMessage: string; fieldErrors?: Record<string, string> }
+    }
+    return null
+  }
+
+  it('Latihan butuh skill dari mapel yang sama dan 4 sampai 30 soal', () => {
+    expect(fails({})?.fieldErrors?.skillId).toMatch(/Pilih satu skill/)
+    expect(fails({ skillId: 'm2.place-value', skill: { ...skill, subject: 'english' } })?.fieldErrors?.skillId).toMatch(/bukan skill Math/)
+    expect(fails({ skillId: 'x', skill: null })?.fieldErrors?.skillId).toMatch(/tidak ada di konten/)
+    expect(fails({ skillId: skill.id, skill, questionCount: 3 })?.fieldErrors?.questionCount).toMatch(/4 sampai 30/)
+    expect(run({ skillId: skill.id, skill })).toMatchObject({ session: 'latihan', required: true, skillId: skill.id, mode: 'latihan', questionCount: 10 })
+  })
+
+  it('Tes boleh tanpa skill (ikut Latihan) dan membatasi detik per soal', () => {
+    expect(run({ session: 'tes', questionCount: 8 })).toMatchObject({ session: 'tes', skillId: null, mode: 'tes', questionCount: 8, config: null })
+    expect(run({ session: 'tes', questionCount: 8, config: { perQuestionSec: 60 } }).config).toEqual({ perQuestionSec: 60 })
+    expect(run({ session: 'tes', questionCount: 8, config: { perQuestionSec: 75 } }).config).toBeNull()
+    expect(fails({ session: 'tes', questionCount: 8, config: { perQuestionSec: 10 } })?.fieldErrors?.perQuestionSec).toMatch(/30 sampai 180/)
+  })
+
+  it('Paper butuh jenis mini atau penuh', () => {
+    expect(fails({ session: 'paper' })?.fieldErrors?.paperKind).toMatch(/mini atau paper penuh/)
+    expect(run({ session: 'paper', paperKind: 'full' })).toMatchObject({ paperKind: 'full', required: true, skillId: null })
+  })
+
+  it('sesi di luar Latihan, Tes, dan Paper selalu opsional', () => {
+    expect(run({ session: 'review', required: true }).required).toBe(false)
+    expect(run({ session: 'quick-maths', required: true }).required).toBe(false)
+  })
+
+  it('simulasi butuh preset yang cocok mapel, tugas English butuh jenis', () => {
+    expect(fails({ session: 'simulation' })?.fieldErrors?.presetId).toBeDefined()
+    expect(fails({ session: 'simulation', config: { presetId: 'iklc-2027' }, presetSubject: 'english' })?.fieldErrors?.presetId).toMatch(/untuk English/)
+    expect(run({ session: 'simulation', config: { presetId: 'ikmc-pre-ecolier-2027' }, presetSubject: 'math' }).config).toEqual({ presetId: 'ikmc-pre-ecolier-2027' })
+    expect(fails({ session: 'english-skill', subject: 'math', config: { task: 'listening' } })?.fieldErrors?.subject).toBeDefined()
+    expect(fails({ session: 'english-skill', subject: 'english' })?.fieldErrors?.task).toBeDefined()
+    expect(run({ session: 'english-skill', subject: 'english', config: { task: 'speaking' } }).config).toEqual({ task: 'speaking' })
+  })
+
+  it('Pelajaran butuh skill yang punya pelajaran, Hitung Cepat hanya Math, ESMO bukan Science', () => {
+    expect(fails({ session: 'lesson', skillId: skill.id, skill })?.fieldErrors?.skillId).toMatch(/belum punya pelajaran/)
+    expect(run({ session: 'lesson', skillId: skill.id, skill, skillHasLesson: true }).skillId).toBe(skill.id)
+    expect(fails({ session: 'quick-maths', subject: 'english' })?.fieldErrors?.subject).toBeDefined()
+    expect(fails({ session: 'esmo', subject: 'science' })?.fieldErrors?.subject).toBeDefined()
+    expect(fails({ session: 'reading', subject: 'math', skillId: skill.id, skill })?.fieldErrors?.subject).toMatch(/hanya untuk English/)
   })
 })
