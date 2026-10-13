@@ -1,0 +1,77 @@
+{
+  "skill": "e3.movers-speaking",
+  "title": "picture questions",
+  "steps": [
+    {
+      "say": "In a speaking test, an examiner asks you questions. You answer out loud.",
+      "show": "question, answer"
+    },
+    {
+      "say": "Listen to the whole question. Then answer it.",
+      "show": "listen, then speak"
+    },
+    {
+      "say": "Answer with a full sentence if you can. I can see a cat is better than cat.",
+      "show": "I can see a cat."
+    },
+    {
+      "say": "If you do not know a word, say something near it, and keep talking.",
+      "show": "keep talking"
+    },
+    {
+      "say": "Give a reason. Because tells the examiner why you think or like something.",
+      "show": "I like it because"
+    },
+    {
+      "say": "Speak clearly and not too fast. Take a breath at the end of a sentence.",
+      "show": "clear and calm"
+    }
+  ],
+  "check": [
+    {
+      "id": "e3.movers-speaking.901",
+      "skill": "e3.movers-speaking",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "The examiner asks: What can you see? Which answer is best?",
+      "hints": [
+        "Think about what helps you most.",
+        "Look back at the steps in this lesson.",
+        "Try each choice. Which one makes sense?"
+      ],
+      "explanation": "A full sentence with the right words is best.",
+      "options": [
+        {
+          "text": "I can see a cat and a dog."
+        },
+        {
+          "text": "Cat."
+        },
+        {
+          "text": "Yes."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.movers-speaking.902",
+      "skill": "e3.movers-speaking",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "I ___ see a cat in the picture.",
+      "hints": [
+        "Read the sentence slowly.",
+        "Look back at the steps in this lesson.",
+        "Write one word in the gap."
+      ],
+      "explanation": "We say I can see.",
+      "blanks": [
+        {
+          "answers": [
+            "can"
+          ]
+        }
+      ]
+    }
+  ]
+}

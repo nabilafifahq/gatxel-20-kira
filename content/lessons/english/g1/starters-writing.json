@@ -1,0 +1,74 @@
+{
+  "skill": "e1.starters-writing",
+  "title": "pictures and journal",
+  "steps": [
+    {
+      "say": "Look at the picture first. Think about what you can say about it.",
+      "show": "picture, think"
+    },
+    {
+      "say": "Start every sentence with a capital letter. End it with a full stop.",
+      "show": "The cat sat. "
+    },
+    {
+      "say": "Say your sentence in your head before you write it down.",
+      "show": "say it, then write it"
+    },
+    {
+      "say": "Check your spelling. Sound out each word slowly.",
+      "show": "sound it out"
+    },
+    {
+      "say": "In a journal, use time words like first, then and after that.",
+      "show": "first, then, after that"
+    }
+  ],
+  "check": [
+    {
+      "id": "e1.starters-writing.901",
+      "skill": "e1.starters-writing",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is written correctly?",
+      "hints": [
+        "Think about what helps you most.",
+        "Look back at the steps in this lesson.",
+        "Try each choice. Which one makes sense?"
+      ],
+      "explanation": "Capital letter at the start, full stop at the end.",
+      "options": [
+        {
+          "text": "The cat is on the mat."
+        },
+        {
+          "text": "the cat is on the mat"
+        },
+        {
+          "text": "The cat on is mat the."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.starters-writing.902",
+      "skill": "e1.starters-writing",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A sentence starts with a ___ letter.",
+      "hints": [
+        "Read the sentence slowly.",
+        "Look back at the steps in this lesson.",
+        "Write one word in the gap."
+      ],
+      "explanation": "The first letter is a capital letter.",
+      "blanks": [
+        {
+          "answers": [
+            "capital",
+            "big"
+          ]
+        }
+      ]
+    }
+  ]
+}
