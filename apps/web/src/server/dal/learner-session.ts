@@ -100,6 +100,11 @@ export type BuildInput = {
   /** Soal yang dihindari bila masih ada pilihan lain (sesi lain hari itu, percobaan sebelumnya). */
   avoid?: ReadonlySet<string>
   allowManual?: boolean
+  /**
+   * Soal foto jawaban (science dan math) boleh masuk Latihan. Hanya untuk sesi yang dipilihkan tutor: pemilih
+   * otomatis harian tidak memakainya karena MANUAL_STRANDS hanya memuat strand menulis dan bicara.
+   */
+  allowPhoto?: boolean
 }
 
 function questLength(learner: LearnerRow, mode: string): number {
@@ -135,7 +140,7 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const rng = createRng(input.seedKey)
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
-  const pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual })
+  const pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)
   const theta = states.get(input.skillId)?.theta ?? 0
@@ -209,6 +214,8 @@ type PlanSpec = {
   perQuestionSec: number | null
   date: IsoDate
   seedKey: string
+  /** Sesi berasal dari slot rencana tutor (bukan pilihan otomatis): soal foto jawaban boleh ikut Latihan. */
+  assigned: boolean
 }
 
 function paperItems(refs: readonly string[], resolved: Map<string, { difficulty: number }>): AttemptItem[] {
@@ -243,6 +250,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
       seedKey: spec.seedKey,
       ...(legacy ? { length: spec.count ?? 6 } : { style: 'easy' as const, length: spec.count ?? LATIHAN_COUNT }),
       avoid,
+      ...(spec.assigned ? { allowPhoto: true } : {}),
     })
     return { title: skill(spec.skillId)?.title ?? SUBJECT_LABEL[subject], mode: legacy ? 'belajar' : 'latihan', items, timeLimitS: null, presetId: null }
   }
@@ -337,6 +345,7 @@ export async function createAttemptFor(tx: Tx, ctx: OrgContext, learner: Learner
       perQuestionSec: cfg.perQuestionSec ?? null,
       date: q.date,
       seedKey: seedKeyOf(q),
+      assigned: q.planSlotId !== null,
     },
     avoid,
   )
@@ -466,6 +475,7 @@ export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: Learne
           perQuestionSec: typeof cfgIn.perQuestionSec === 'number' ? cfgIn.perQuestionSec : null,
           date,
           seedKey,
+          assigned: Boolean(row?.skillId),
         },
         session === 'tes' ? await refsFor(subject) : new Set(),
       )

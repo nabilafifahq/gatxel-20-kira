@@ -386,6 +386,23 @@ describe.skipIf(!ready)('sesi harian', () => {
     expect(await run((tx) => m.session.completeLinkedSession(tx, learnerId, today, { session: 'english-skill', subject: 'english', task: 'listening' }))).toBe(false)
   })
 
+  it('soal foto jawaban hanya masuk Latihan yang dipilihkan tutor, tidak ke pemilih otomatis', async () => {
+    const photo = 's2.life-cycles.019'
+    const base = { skillId: 's2.life-cycles', subject: 'science' as const, mode: 'latihan' as const, date: WEDNESDAY, style: 'easy' as const, length: 10 }
+    const pools = await run(async (tx) => ({
+      auto: (await m.content.poolForSkill(tx, orgId, base.skillId, { allowManual: false })).map((c) => c.ref),
+      assigned: (await m.content.poolForSkill(tx, orgId, base.skillId, { allowManual: false, allowPhoto: true })).map((c) => c.ref),
+    }))
+    expect(pools.auto).not.toContain(photo)
+    expect(pools.assigned).toContain(photo)
+    // Sesi panjang memakai semua soal skill itu, jadi soal foto pasti ikut bila diizinkan dan tidak pernah bila tidak.
+    const long = { ...base, length: 80 }
+    const refsAuto = await run(async (tx) => (await m.session.buildQuestItems(tx, ctx, await learnerRow(tx), { ...long, seedKey: 'foto-auto' })).map((x) => x.ref))
+    const refsAssigned = await run(async (tx) => (await m.session.buildQuestItems(tx, ctx, await learnerRow(tx), { ...long, seedKey: 'foto-tutor', allowPhoto: true })).map((x) => x.ref))
+    expect(refsAuto).not.toContain(photo)
+    expect(refsAssigned).toContain(photo)
+  })
+
   it('Sabtu: satu mapel mengerjakan paper penuh dengan waktu preset, dua lainnya paper mini', async () => {
     const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), SATURDAY))
     const papers = day.filter((q) => q.session === 'paper')

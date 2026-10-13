@@ -118,11 +118,16 @@ export function toClient(item: Item, opts: { ref: string; seed: string; includeK
 export type PoolCandidate = { ref: string; difficulty: number; unlimited?: boolean; manual?: boolean }
 
 /** Kandidat soal untuk satu skill: soal repo, soal org, dan tingkat generator. */
-export async function poolForSkill(tx: Tx, orgId: string, skillId: string, opts: { allowManual: boolean; paperOnly?: boolean }): Promise<PoolCandidate[]> {
+export async function poolForSkill(
+  tx: Tx,
+  orgId: string,
+  skillId: string,
+  opts: { allowManual: boolean; paperOnly?: boolean; /** Soal foto jawaban boleh ikut walau soal manual lain tidak (sesi dari tutor). */ allowPhoto?: boolean },
+): Promise<PoolCandidate[]> {
   const out: PoolCandidate[] = []
   for (const item of content().itemsBySkill.get(skillId) ?? []) {
     const manual = MANUAL_TYPES.includes(item.type)
-    if (manual && !opts.allowManual) continue
+    if (manual && !opts.allowManual && !(opts.allowPhoto && item.type === 'photo')) continue
     if (item.type === 'draw') continue
     if (opts.paperOnly && !isPaperType(item.type)) continue
     if (item.lang === 'id' && !item.tags.includes('esmo') && !item.tags.includes('kmnr')) continue
@@ -134,7 +139,7 @@ export async function poolForSkill(tx: Tx, orgId: string, skillId: string, opts:
     .where(and(eq(tables.orgItem.orgId, orgId), eq(tables.orgItem.skillId, skillId), isNull(tables.orgItem.retiredAt)))
   for (const r of orgRows) {
     const body = r.body as { difficulty?: number; type?: string }
-    if (body.type && MANUAL_TYPES.includes(body.type as Item['type']) && !opts.allowManual) continue
+    if (body.type && MANUAL_TYPES.includes(body.type as Item['type']) && !opts.allowManual && !(opts.allowPhoto && body.type === 'photo')) continue
     if (opts.paperOnly && body.type && !isPaperType(body.type as Item['type'])) continue
     out.push({ ref: `org:${r.id}`, difficulty: body.difficulty ?? 3 })
   }

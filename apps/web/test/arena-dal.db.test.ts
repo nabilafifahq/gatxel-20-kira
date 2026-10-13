@@ -12,6 +12,8 @@ import { trackTotals } from '@/server/dal/arena-state'
 import { learnerShell, loadLearner, totalXp } from '@/server/dal/learner-core'
 import { AppError } from '@/server/errors'
 import { learnerExport } from '@/server/dal/data-export'
+import { ensureTodayQuests } from '@/server/dal/learner-session'
+import { weekStart } from '@kira/core'
 
 /**
  * Tes DAL arena di Postgres sungguhan (migrasi 0007 dan RLS): ronde Quick Maths dan Quiz Arena, XP per jalur,
@@ -69,6 +71,11 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
   }
 
   beforeAll(async () => {
+    // ensureTodayQuests memanggil pemilih paper harian, yang membuka koneksi lewat server/db.ts (env dibaca saat pertama dipakai).
+    process.env.KIRA_ORIGIN ??= 'http://localhost:3199'
+    process.env.KIRA_SECRET ??= 'x'.repeat(40)
+    process.env.DATABASE_URL_AUTH ??= urls.app
+    process.env.KIRA_DATA_DIR ??= '.kira-local/data'
     await owner`insert into org (id, name) values (${orgId}, 'Org Arena __GTX_SEED__')`
   })
 
@@ -306,6 +313,34 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
     expect(cards.reward.xp).toBeLessThanOrEqual(10)
     expect(cards.reward.xp).toBeGreaterThan(0)
     expect(cards.title).toBe('Cards done')
+  })
+
+  it('ronde yang berakhir menyelesaikan sesi Quick Maths dan Quiz Arena dari tutor, dan hanya yang cocok', async () => {
+    const l = await newLearner()
+    const tutorId = randomUUID()
+    await owner`insert into member_profile (user_id, org_id, name, role, email) values (${tutorId}, ${orgId}, 'Tutor Arena', 'tutor', 'tutor-arena-link@example.test')`
+    await owner`update learner_profile set rest_weekdays = '{}' where user_id = ${l.id}`
+    const [week] = await owner`insert into plan_week (org_id, learner_id, week_start, status, published_at, created_by) values (${orgId}, ${l.id}, ${weekStart(today)}, 'published', now(), ${tutorId}) returning id`
+    await owner`insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, session, required, mode, question_count)
+      values (${orgId}, ${week!.id}, ${l.id}, ${today}, 'math', 'quest', 'quick-maths', false, 'latihan', 10),
+             (${orgId}, ${week!.id}, ${l.id}, ${today}, 'science', 'quest', 'knowledge', false, 'latihan', 10)`
+    const day = await l.run(async (tx) => ensureTodayQuests(tx, l.ctx, await loadLearner(tx, l.id), today))
+    const statusOf = async (session: string) => (await owner`select status from quest where learner_id = ${l.id} and date = ${today} and session = ${session}`)[0]!.status
+    expect(day.filter((q) => q.kind === 'extra').map((q) => q.session).sort()).toEqual(['knowledge', 'quick-maths'])
+
+    await playQm(l, base, { count: 5 })
+    expect(await statusOf('quick-maths')).toBe('done')
+    expect(await statusOf('knowledge')).not.toBe('done')
+
+    const { roundId } = await l.run((tx) => startQuizRound(tx, l.ctx, l.id, { topic: 'flags', mode: 'quiz' }))
+    const rows = await owner`select seed, config from arena_session where id = ${roundId}`
+    const plan = (rows[0]!.config as { plan: string[] }).plan
+    for (let i = 0; i < plan.length; i++) {
+      const key = roundQuestion(plan, rows[0]!.seed as string, i).key
+      await l.run((tx) => answerQuizRound(tx, l.id, { roundId, index: i, answer: key.correct, ms: 1500 }))
+    }
+    await l.run((tx) => finishQuizRound(tx, l.ctx, l.id, roundId))
+    expect(await statusOf('knowledge')).toBe('done')
   })
 
   it('aksesori hanya bisa dipakai setelah didapat dari level jalur', async () => {
