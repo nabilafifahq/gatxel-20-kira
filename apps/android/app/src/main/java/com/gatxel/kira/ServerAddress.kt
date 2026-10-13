@@ -9,7 +9,7 @@ import java.net.URISyntaxException
 import java.util.Locale
 
 /**
- * Alamat server Kira disimpan sebagai origin, misalnya https://kira-server.nama-tailnet.ts.net.
+ * Alamat server Kira disimpan sebagai origin, misalnya https://kira.gatxel.com.
  * Hanya https, host harus memuat titik, tanpa userinfo. Path, query, dan fragmen dibuang.
  */
 object ServerAddress {
