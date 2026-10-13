@@ -288,8 +288,8 @@ function divTable(rng: Rng, tables: readonly number[], level: number): QmProblem
 }
 
 function genDivMulti(rng: Rng, kind: 'easy' | '2d1d' | '3d1d', level: number): QmProblem {
-  let d = 2
-  let q = 11
+  let d: number
+  let q: number
   if (kind === 'easy') {
     d = rng.int(2, 4)
     const q10 = rng.int(1, Math.floor(9 / d))
