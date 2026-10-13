@@ -9,6 +9,9 @@ export const LEARNER_ROUTES = {
   doneToday: '/today/done',
   map: '/map',
   review: '/review',
+  /** Fix-it Book (Buku Salah) dan awal sesi ulangnya. */
+  fixIt: '/fix-it',
+  fixItStart: '/fix-it/start',
   me: '/me',
   esmo: '/esmo',
   competitions: '/competitions',

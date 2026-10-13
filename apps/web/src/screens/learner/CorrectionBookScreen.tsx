@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { ReactElement, ReactNode } from 'react'
 import type { CorrectionBookDTO, Subject } from '@/lib/dto'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -44,7 +44,7 @@ function SubjectTag({ subject }: { subject: Subject }): ReactElement {
   )
 }
 
-export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today }: { data: CorrectionBookDTO; todayHref?: string }): ReactElement {
+export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, extra }: { data: CorrectionBookDTO; todayHref?: string; extra?: ReactNode }): ReactElement {
   const empty = data.dueCount === 0 || data.cards.length === 0
   const grouped = empty ? [] : groupCards(data.groups, data.cards)
   return (
@@ -60,6 +60,8 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today }:
           </ButtonLink>
         ) : null}
       </header>
+
+      {extra}
 
       {empty ? (
         <section role="status" className="flex flex-1 flex-col items-center justify-center gap-3.5 rounded-card border-2 border-dashed border-border bg-surface px-6 py-10 text-center md:p-10">

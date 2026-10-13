@@ -113,7 +113,16 @@ export type ProgramsDTO = {
   minStart: string
 }
 
-export type ProgramStartResult = { runId: string; slots: number; restDaysSkipped: number; conflictsSkipped: number; simulations: number }
+export type ProgramStartResult = {
+  runId: string
+  slots: number
+  restDaysSkipped: number
+  conflictsSkipped: number
+  /** Jumlah Sabtu simulasi yang masuk rencana. */
+  simulations: number
+  /** Minggu yang sudah ada sebagai draf dan belum diterbitkan di Rencana. */
+  draftWeeks: number
+}
 
 export type ProgramActions = {
   startProgram(input: { learnerId: string; programId: string; startDate: string }): Promise<ActionResult<ProgramStartResult>>

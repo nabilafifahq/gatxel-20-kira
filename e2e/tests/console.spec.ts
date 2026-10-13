@@ -15,6 +15,10 @@ const PAGES: { path: string; h1: RegExp }[] = [
   { path: '/konsol/pengaturan', h1: /Pengaturan/ },
   { path: '/konsol/studio-ai', h1: /Studio AI/ },
   { path: '/konsol/impor', h1: /Impor/ },
+  { path: '/konsol/pustaka', h1: /Pustaka paper/ },
+  { path: '/konsol/pustaka/buku-salah', h1: /Buku Salah/ },
+  { path: '/konsol/pustaka/program', h1: /Program olimpiade/ },
+  { path: '/konsol/pustaka/sumber', h1: /Sumber soal/ },
   { path: '/konsol/learner', h1: /Learner/ },
   { path: '/konsol/koneksi-claude', h1: /Claude/ },
 ]
