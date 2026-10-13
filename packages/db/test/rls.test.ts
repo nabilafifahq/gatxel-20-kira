@@ -159,4 +159,65 @@ describe.skipIf(!ready)('RLS dan role database', () => {
     const r = await app`select kira_org_count() as n`
     expect(r[0]!.n).toBeGreaterThanOrEqual(2)
   })
+  describe('arena (migrasi 0007)', () => {
+    beforeAll(async () => {
+      for (const [org, learner] of [[orgA, learnerA1], [orgA, learnerA2], [orgB, learnerB]] as const) {
+        await owner`insert into arena_session (org_id, learner_id, arena, mode, seed, config, date) values (${org}, ${learner}, 'hitung', 'sprint60', 'seed', '{}'::jsonb, '2026-10-13')`
+        await owner`insert into arena_state (org_id, learner_id, arena, data) values (${org}, ${learner}, 'hitung', '{"levels":{}}'::jsonb)`
+      }
+    })
+
+    it('learner hanya melihat ronde dan kemajuan arena miliknya', async () => {
+      const sessions = await as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`select learner_id from arena_session`)
+      expect(sessions.map((r) => r.learner_id)).toEqual([learnerA1])
+      const state = await as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`select learner_id from arena_state`)
+      expect(state.map((r) => r.learner_id)).toEqual([learnerA1])
+    })
+
+    it('tutor melihat semua learner org A dan tidak melihat org B', async () => {
+      const rows = await as(app, { org: orgA, user: tutorA, role: 'tutor' }, (tx) => tx`select learner_id from arena_session`)
+      expect(rows.map((r) => r.learner_id).sort()).toEqual([learnerA1, learnerA2].sort())
+    })
+
+    it('orang tua hanya melihat arena anak yang tertaut', async () => {
+      const rows = await as(app, { org: orgA, user: guardianA, role: 'guardian' }, (tx) => tx`select learner_id from arena_session`)
+      expect(rows.map((r) => r.learner_id)).toEqual([learnerA1])
+    })
+
+    it('learner tidak bisa menulis ronde atau kemajuan learner lain, dan org lain ditolak', async () => {
+      await expect(
+        as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`insert into arena_session (org_id, learner_id, arena, mode, seed, config, date) values (${orgA}, ${learnerA2}, 'hitung', 'practice', 's', '{}'::jsonb, '2026-10-13')`),
+      ).rejects.toThrow(/row-level security/)
+      await expect(
+        as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`insert into arena_session (org_id, learner_id, arena, mode, seed, config, date) values (${orgB}, ${learnerB}, 'hitung', 'practice', 's', '{}'::jsonb, '2026-10-13')`),
+      ).rejects.toThrow(/row-level security/)
+      const changed = await as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`update arena_state set data = '{}'::jsonb where learner_id = ${learnerA2} returning learner_id`)
+      expect(changed).toEqual([])
+    })
+
+    it('tabel arena memakai ENABLE dan FORCE RLS, dan kira_auth tidak punya hak', async () => {
+      const flags = await owner`select relname, relrowsecurity, relforcerowsecurity from pg_class where relname in ('arena_session', 'arena_state') order by relname`
+      expect(flags.map((f) => [f.relname, f.relrowsecurity, f.relforcerowsecurity])).toEqual([
+        ['arena_session', true, true],
+        ['arena_state', true, true],
+      ])
+      await expect(authDb`select count(*) from arena_session`).rejects.toThrow(/permission denied/)
+      const grants = await owner`select r, t, p from unnest(array['kira_app', 'kira_worker']) r, unnest(array['arena_session', 'arena_state']) t, unnest(array['SELECT', 'INSERT', 'UPDATE', 'DELETE']) p where not has_table_privilege(r, t, p)`
+      expect(grants).toEqual([])
+    })
+
+    it('xp_event.track bawaan belajar, hanya tiga nilai yang sah, dan XP arena tidak bisa ganda', async () => {
+      const row = await as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`insert into xp_event (org_id, learner_id, amount, reason, date) values (${orgA}, ${learnerA1}, 5, 'answer', '2026-10-13') returning track`)
+      expect(row[0]!.track).toBe('belajar')
+      await expect(
+        as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`insert into xp_event (org_id, learner_id, amount, reason, date, track) values (${orgA}, ${learnerA1}, 5, 'round', '2026-10-13', 'lain')`),
+      ).rejects.toThrow(/xp_event_track_ck/)
+      const insert = (tx: postgres.TransactionSql) =>
+        tx`insert into xp_event (org_id, learner_id, amount, reason, ref, date, track) values (${orgA}, ${learnerA1}, 7, 'round', 'sesi-1', '2026-10-13', 'hitung')`
+      await as(app, { org: orgA, user: learnerA1, role: 'learner' }, insert)
+      await expect(as(app, { org: orgA, user: learnerA1, role: 'learner' }, insert)).rejects.toThrow(/xp_event_arena_once/)
+      const sums = await as(app, { org: orgA, user: learnerA1, role: 'learner' }, (tx) => tx`select track, sum(amount)::int as n from xp_event group by track order by track`)
+      expect(sums.map((r) => [r.track, r.n])).toEqual([['belajar', 5], ['hitung', 7]])
+    })
+  })
 })
