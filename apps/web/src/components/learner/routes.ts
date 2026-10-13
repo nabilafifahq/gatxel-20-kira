@@ -20,4 +20,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'me'

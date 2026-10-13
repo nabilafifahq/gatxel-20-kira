@@ -7,9 +7,11 @@ import { load } from '@/server/page'
 import { spDate, spUuid, type SearchParams } from '@/server/params'
 import {
   applySuggestionsAction,
+  copyWeekAction,
   deleteSlotAction,
   moveSlotAction,
   publishWeekAction,
+  setDayTemplateAction,
   setRestDayAction,
   upsertSlotAction,
 } from '@/server/actions/console-planner'
@@ -33,6 +35,8 @@ export default async function PlannerPage({ searchParams }: { searchParams: Prom
         setRestDay: setRestDayAction,
         applySuggestions: applySuggestionsAction,
         publishWeek: publishWeekAction,
+        setDayTemplate: setDayTemplateAction,
+        copyWeek: copyWeekAction,
       }}
     />
   )

@@ -57,6 +57,11 @@ function Row({ label, children }: { label: string; children: ReactNode }): React
 function stop(p: Partial<QuestStopDTO> & Pick<QuestStopDTO, 'subject' | 'state'>): QuestStopDTO {
   return {
     questId: `seed-${p.subject}-${p.state}`,
+    session: 'latihan',
+    sessionLabel: 'Practice',
+    required: true,
+    timed: false,
+    best: null,
     title: 'Arrays and skip counting',
     meta: '10 questions, about 15 minutes',
     total: 10,

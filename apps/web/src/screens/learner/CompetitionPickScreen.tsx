@@ -12,7 +12,7 @@ import { LearnerFrame } from '@/components/learner/LearnerHeader'
 
 export function CompetitionPickScreen({ data }: { data: CompetitionPickDTO }): ReactElement {
   return (
-    <LearnerFrame shell={data.shell} current={null} className="flex flex-col gap-6 md:gap-7">
+    <LearnerFrame shell={data.shell} current="competitions" className="flex flex-col gap-6 md:gap-7">
       <header className="flex flex-col gap-1.5">
         <h1 className="m-0 text-h1 font-bold">Competition practice</h1>
         <p className="m-0 text-body-lg text-fg-muted">Practise like the real day. No hints, and the clock keeps going.</p>

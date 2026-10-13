@@ -84,7 +84,7 @@ export function QuestStamp({ stop, size = 'L' }: { stop: QuestStopDTO; size?: St
 }
 
 function stopAria(stop: QuestStopDTO): string {
-  const name = SUBJECT_NAME[stop.subject]
+  const name = `${SUBJECT_NAME[stop.subject]} ${stop.sessionLabel.toLowerCase()}`
   if (stop.state === 'in-progress') return `${name}, ${stop.answered} of ${stop.total} done`
   return `${name}, ${STATE_WORD[stop.state]}`
 }
@@ -97,34 +97,16 @@ function stopAria(stop: QuestStopDTO): string {
 export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: StampSize }): ReactElement {
   const quiet = stop.state === 'locked' || stop.state === 'rest'
   const open = !!stop.href && !quiet
-  const name = SUBJECT_NAME[stop.subject]
-  const bonus = stop.subject === 'bonus'
-  const ownTitle = !bonus && !!stop.title && stop.title !== name
-  const fullTitle = ownTitle ? `${name}: ${stop.title}` : name
-  const shortTitle = name
-  const shortMeta = ownTitle ? stop.title : stop.meta
-  const title =
-    size === 'L' ? fullTitle : size === 'S' ? shortTitle : (
-      <>
-        <span className="md:hidden">{shortTitle}</span>
-        <span className="hidden md:inline">{fullTitle}</span>
-      </>
-    )
-  const meta =
-    size === 'L' ? stop.meta : size === 'S' ? shortMeta : (
-      <>
-        <span className="md:hidden">{shortMeta}</span>
-        <span className="hidden md:inline">{stop.meta}</span>
-      </>
-    )
+  const topic = stop.title && stop.title !== stop.sessionLabel ? stop.title : null
   const inner = (
     <>
       <span className={cx('flex flex-none justify-center', size === 'L' ? 'w-36' : size === 'S' ? 'w-28' : 'w-28 md:w-36')}>
         <QuestStamp stop={stop} size={size} />
       </span>
       <span className="flex min-w-0 flex-col gap-0.5">
-        <span className={cx('text-body-lg font-bold', quiet ? 'text-fg-muted' : 'text-fg')}>{title}</span>
-        <span className="text-body text-fg-muted">{meta}</span>
+        <span className={cx('text-body-lg font-bold', quiet ? 'text-fg-muted' : 'text-fg')}>{stop.sessionLabel}</span>
+        {topic ? <span className={cx('text-body font-semibold break-words', quiet ? 'text-fg-muted' : 'text-fg')}>{topic}</span> : null}
+        <span className="text-body text-fg-muted">{stop.meta}</span>
         {stop.offlineReady && !quiet && stop.state !== 'done' ? (
           <span className="inline-flex items-center gap-1.5 text-body font-semibold text-fg">
             <UiIcon name="check-circle" size={18} className="text-success" />
@@ -150,9 +132,9 @@ export function QuestStopRow({ stop, size = 'L' }: { stop: QuestStopDTO; size?: 
 }
 
 /** Perhentian aktif ukuran 2 kali (144 px tablet, 112 px HP). */
-export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; headingLevel?: 2 | 3 }): ReactElement {
+export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; headingLevel?: 2 | 3 | 4 }): ReactElement {
   const style = SUBJECT_STYLE[stop.subject]
-  const Heading = headingLevel === 3 ? 'h3' : 'h2'
+  const Heading = headingLevel === 4 ? 'h4' : headingLevel === 3 ? 'h3' : 'h2'
   const bonus = stop.subject === 'bonus'
   const showBar = stop.state === 'in-progress'
   return (
@@ -172,7 +154,10 @@ export function QuestStopBig({ stop, headingLevel = 2 }: { stop: QuestStopDTO; h
         </span>
       </span>
       <div className="flex min-w-0 flex-col items-start gap-2.5 md:pt-1.5">
-        <Heading className="m-0 text-h3 font-bold md:text-h2">{stop.title}</Heading>
+        <Heading className="m-0 text-h3 font-bold md:text-h2">
+          {stop.sessionLabel}
+          {stop.title && stop.title !== stop.sessionLabel ? `: ${stop.title}` : ''}
+        </Heading>
         <div className="flex flex-wrap items-center gap-3">
           <span className="hidden md:inline-flex">
             <SubjectChip subject={stop.subject} size="S" />

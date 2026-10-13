@@ -1,5 +1,5 @@
 // __GTX_SEED__
-import type { PlanSlotDTO, PlannerDTO, Subject } from '@/lib/dto'
+import type { DayTemplateId, PlanSlotDTO, PlannerDTO, PlannerDay, SessionType, Subject } from '@/lib/dto'
 import { shell } from './console-shared'
 
 const DAYS = [
@@ -12,37 +12,74 @@ const DAYS = [
   ['2026-10-25', 'Minggu 25 Okt'],
 ] as const
 
+const TEMPLATE_LABEL: Record<DayTemplateId, string> = { school: 'Hari sekolah', saturday: 'Sabtu paper penuh', light: 'Hari ringan' }
+const TEMPLATES: DayTemplateId[] = ['school', 'school', 'light', 'school', 'school', 'saturday', 'school']
+const SUBJECTS: Subject[] = ['math', 'english', 'science']
+
 let n = 0
-function slot(day: number, subject: Subject, skillId: string, title: string, minutes: number, mode: PlanSlotDTO['mode'] = 'latihan', kind: PlanSlotDTO['kind'] = 'quest'): PlanSlotDTO {
+function session(day: number, subject: Subject, kind: SessionType, o: Partial<PlanSlotDTO> & { title: string; minutes: number }): PlanSlotDTO {
   n += 1
-  return { id: `slot-${n}`, date: DAYS[day]![0], subject, kind, skillId, title, mode, minutes, questionCount: Math.round(minutes / 1.5) }
+  return {
+    id: o.auto ? `auto:${DAYS[day]![0]}:${subject}:${kind}:0` : `slot-${n}`,
+    auto: false,
+    fromPaper: false,
+    date: DAYS[day]![0],
+    subject,
+    kind: 'quest',
+    session: kind,
+    required: true,
+    paperKind: kind === 'paper' ? 'mini' : null,
+    skillId: null,
+    mode: kind === 'tes' ? 'tes' : 'latihan',
+    questionCount: kind === 'latihan' ? 10 : 8,
+    config: null,
+    ...o,
+  }
+}
+
+/** Hari sekolah: tiga sesi wajib per mapel, sebagian sudah diatur tutor dan sisanya dipilih Kira. */
+function schoolDay(day: number, skills: [string, string][], fullPaper: Subject | null = null): PlanSlotDTO[] {
+  return SUBJECTS.flatMap((subject, i) => {
+    const [skillId, title] = skills[i]!
+    return [
+      session(day, subject, 'latihan', { skillId, title, minutes: 7 }),
+      session(day, subject, 'tes', { title: 'Skill sama dengan Latihan', minutes: 10, auto: true }),
+      session(day, subject, 'paper', fullPaper === subject ? { paperKind: 'full', title: 'Paper penuh, dipilih Kira', minutes: 75, auto: true } : { title: 'Paper mini, dipilih Kira', minutes: 15, auto: true }),
+    ]
+  })
 }
 
 const slots: PlanSlotDTO[] = [
-  slot(0, 'math', 'm2-arrays', 'Arrays', 15, 'belajar'),
-  slot(0, 'english', 'e2-past-ed', 'Past tense -ed', 15),
-  slot(0, 'science', 's2-habitats', 'Habitat', 15),
-  slot(1, 'math', 'm2-skip', 'Skip counting', 15),
-  slot(1, 'english', 'e2-plural', 'Plural tak beraturan', 15),
-  slot(1, 'science', 's2-food-chains', 'Rantai makanan', 15),
-  slot(2, 'math', 'm2-arrays', 'Arrays lanjut', 15),
-  slot(2, 'english', 'e2-reading-short', 'Bacaan pendek', 20),
-  slot(2, 'science', 's2-living', 'Hidup dan tak hidup', 15),
-  slot(3, 'math', 'm2-times-2-5-10', 'Kali 2, 5, 10', 15),
-  slot(3, 'english', 'e2-vocab', 'Kosakata dalam kalimat', 15),
-  slot(3, 'science', 's2-plants', 'Bagian tumbuhan', 15),
-  slot(4, 'math', 'm2-weekly', 'Tes mingguan Math', 15, 'tes'),
-  slot(4, 'english', 'e2-weekly', 'Tes mingguan English', 15, 'tes'),
-  slot(4, 'science', 's2-weekly', 'Tes mingguan Science', 15, 'tes'),
-  slot(5, 'math', 'm2-patterns', 'Paper pola bilangan', 25, 'kertas'),
-  slot(5, 'math', 'm2-count-100', 'Count to 100', 10, 'latihan', 'bonus'),
-  slot(5, 'english', 'e2-reading-short', 'Bacaan pendek: The lost kite', 20),
-  slot(5, 'english', 'e2-vocab', 'Kosakata', 10, 'latihan', 'bonus'),
-  slot(5, 'science', 's2-habitats', 'Habitat', 10, 'latihan', 'bonus'),
+  ...schoolDay(0, [['m2-arrays', 'Arrays'], ['e2-past-ed', 'Past tense -ed'], ['s2-habitats', 'Habitat']]),
+  ...schoolDay(1, [['m2-skip', 'Skip counting'], ['e2-plural', 'Plural tak beraturan'], ['s2-food-chains', 'Rantai makanan']]),
+  ...SUBJECTS.map((subject, i) => session(2, subject, 'latihan', { skillId: ['m2-arrays', 'e2-reading-short', 's2-living'][i]!, title: ['Arrays lanjut', 'Bacaan pendek', 'Hidup dan tak hidup'][i]!, minutes: 7 })),
+  ...schoolDay(3, [['m2-times-2-5-10', 'Kali 2, 5, 10'], ['e2-vocab', 'Kosakata dalam kalimat'], ['s2-plants', 'Bagian tumbuhan']]),
+  ...schoolDay(4, [['m2-patterns', 'Pola bilangan'], ['e2-vocab', 'Kosakata'], ['s2-habitats', 'Habitat']]),
+  ...schoolDay(5, [['m2-patterns', 'Pola bilangan'], ['e2-reading-short', 'Bacaan pendek'], ['s2-habitats', 'Habitat']], 'science'),
+  session(0, 'math', 'review', { title: 'Ulang kartu', minutes: 5, required: false, questionCount: 0 }),
+  session(1, 'math', 'quick-maths', { title: 'Tantangan Hitung Cepat', minutes: 5, required: false, questionCount: 0 }),
+  session(3, 'english', 'english-skill', { title: 'Tugas English: listening', minutes: 10, required: false, questionCount: 0, config: { task: 'listening' } }),
+  session(5, 'math', 'simulation', { title: 'IKMC Pre-Ecolier', minutes: 75, required: false, questionCount: 0, config: { presetId: 'ikmc-pre-ecolier-2027' } }),
 ]
 
-function total(date: string): number {
-  return slots.filter((s) => s.date === date).reduce((a, s) => a + s.minutes, 0)
+function day(i: number, limit: number): PlannerDay {
+  const [date, label] = DAYS[i]!
+  const rest = i === 6
+  const mine = rest ? [] : slots.filter((s) => s.date === date)
+  const total = mine.reduce((a, s) => a + s.minutes, 0)
+  const template = TEMPLATES[i]!
+  return {
+    date,
+    label,
+    rest,
+    totalMinutes: total,
+    requiredMinutes: mine.filter((s) => s.required).reduce((a, s) => a + s.minutes, 0),
+    overLimit: !rest && total > limit,
+    template,
+    templateLabel: TEMPLATE_LABEL[template],
+    requiredCount: mine.filter((s) => s.required).length,
+    extraCount: mine.filter((s) => !s.required).length,
+  }
 }
 
 export const planner: PlannerDTO = {
@@ -51,8 +88,8 @@ export const planner: PlannerDTO = {
   weekStart: '2026-10-19',
   weekLabel: 'Senin 19 sampai Minggu 25 Oktober 2026',
   status: 'draft',
-  days: DAYS.map(([date, label], i) => ({ date, label, rest: i === 6, totalMinutes: i === 6 ? 0 : total(date), overLimit: i !== 6 && total(date) > 60 })),
-  slots,
+  days: DAYS.map((_, i) => day(i, 120)),
+  slots: slots.filter((s) => s.date !== DAYS[6]![0]),
   suggestions: [
     {
       id: 'sug-arrays',
@@ -60,7 +97,7 @@ export const planner: PlannerDTO = {
       subject: 'math',
       skillId: 'm2-arrays',
       title: 'Tambah latihan Arrays',
-      reason: 'Arrays baru 64% benar di 10 soal terakhir. Rabu jadi 65 menit kalau ditambah.',
+      reason: 'Arrays baru 64% benar di 10 soal terakhir.',
     },
     {
       id: 'sug-time',
@@ -80,38 +117,43 @@ export const planner: PlannerDTO = {
     },
   ],
   skills: [
-    { id: 'm2-count-100', subject: 'math', grade: 2, title: 'Count to 100', stars: 3 },
-    { id: 'm2-arrays', subject: 'math', grade: 2, title: 'Arrays', stars: 1 },
-    { id: 'm2-skip', subject: 'math', grade: 2, title: 'Skip counting', stars: 2 },
-    { id: 'm2-time', subject: 'math', grade: 2, title: 'Waktu dan jam', stars: 1 },
-    { id: 'm2-patterns', subject: 'math', grade: 2, title: 'Pola bilangan', stars: 3 },
-    { id: 'm2-times-2-5-10', subject: 'math', grade: 2, title: 'Kali 2, 5, 10', stars: 2 },
-    { id: 'm2-halves', subject: 'math', grade: 2, title: 'Setengah dan seperempat', stars: 0 },
-    { id: 'm2-money', subject: 'math', grade: 2, title: 'Uang rupiah', stars: 0 },
-    { id: 'm2-data', subject: 'math', grade: 2, title: 'Diagram batang', stars: 1 },
-    { id: 'm2-weekly', subject: 'math', grade: 2, title: 'Tes mingguan Math', stars: 0 },
-    { id: 'm3-place-value', subject: 'math', grade: 3, title: 'Nilai tempat sampai 1.000', stars: 0 },
-    { id: 'e2-past-ed', subject: 'english', grade: 2, title: 'Past tense -ed', stars: 3 },
-    { id: 'e2-plural', subject: 'english', grade: 2, title: 'Plural tak beraturan', stars: 2 },
-    { id: 'e2-vocab', subject: 'english', grade: 2, title: 'Kosakata dalam kalimat', stars: 3 },
-    { id: 'e2-reading-short', subject: 'english', grade: 2, title: 'Bacaan pendek', stars: 2 },
-    { id: 'e2-weekly', subject: 'english', grade: 2, title: 'Tes mingguan English', stars: 0 },
-    { id: 's2-habitats', subject: 'science', grade: 2, title: 'Habitat', stars: 2 },
-    { id: 's2-living', subject: 'science', grade: 2, title: 'Hidup dan tak hidup', stars: 2 },
-    { id: 's2-food-chains', subject: 'science', grade: 2, title: 'Rantai makanan', stars: 1 },
-    { id: 's2-plants', subject: 'science', grade: 2, title: 'Bagian tumbuhan', stars: 1 },
-    { id: 's2-weekly', subject: 'science', grade: 2, title: 'Tes mingguan Science', stars: 0 },
+    { id: 'm2-count-100', subject: 'math', grade: 2, title: 'Count to 100', stars: 3, hasLesson: true },
+    { id: 'm2-arrays', subject: 'math', grade: 2, title: 'Arrays', stars: 1, hasLesson: true },
+    { id: 'm2-skip', subject: 'math', grade: 2, title: 'Skip counting', stars: 2, hasLesson: false },
+    { id: 'm2-time', subject: 'math', grade: 2, title: 'Waktu dan jam', stars: 1, hasLesson: true },
+    { id: 'm2-patterns', subject: 'math', grade: 2, title: 'Pola bilangan', stars: 3, hasLesson: false },
+    { id: 'm2-times-2-5-10', subject: 'math', grade: 2, title: 'Kali 2, 5, 10', stars: 2, hasLesson: false },
+    { id: 'm2-halves', subject: 'math', grade: 2, title: 'Setengah dan seperempat', stars: 0, hasLesson: false },
+    { id: 'm2-money', subject: 'math', grade: 2, title: 'Uang rupiah', stars: 0, hasLesson: false },
+    { id: 'm2-data', subject: 'math', grade: 2, title: 'Diagram batang', stars: 1, hasLesson: false },
+    { id: 'm3-place-value', subject: 'math', grade: 3, title: 'Nilai tempat sampai 1.000', stars: 0, hasLesson: false },
+    { id: 'e2-past-ed', subject: 'english', grade: 2, title: 'Past tense -ed', stars: 3, hasLesson: true },
+    { id: 'e2-plural', subject: 'english', grade: 2, title: 'Plural tak beraturan', stars: 2, hasLesson: false },
+    { id: 'e2-vocab', subject: 'english', grade: 2, title: 'Kosakata dalam kalimat', stars: 3, hasLesson: false },
+    { id: 'e2-reading-short', subject: 'english', grade: 2, title: 'Bacaan pendek', stars: 2, hasLesson: false },
+    { id: 's2-habitats', subject: 'science', grade: 2, title: 'Habitat', stars: 2, hasLesson: true },
+    { id: 's2-living', subject: 'science', grade: 2, title: 'Hidup dan tak hidup', stars: 2, hasLesson: false },
+    { id: 's2-food-chains', subject: 'science', grade: 2, title: 'Rantai makanan', stars: 1, hasLesson: false },
+    { id: 's2-plants', subject: 'science', grade: 2, title: 'Bagian tumbuhan', stars: 1, hasLesson: false },
   ],
-  screenLimitMin: 60,
+  presets: [
+    { id: 'ikmc-pre-ecolier-2027', subject: 'math', title: 'IKMC Pre-Ecolier', minutes: 75 },
+    { id: 'kmnr-2026', subject: 'math', title: 'KMNR practice', minutes: 60 },
+    { id: 'esmo-english-2026', subject: 'english', title: 'ESMO English Level 1', minutes: 40 },
+    { id: 'iksc-2027', subject: 'science', title: 'IKSC Level 1 practice', minutes: 75 },
+  ],
+  screenLimitMin: 120,
   prevWeekHref: '/dev/konsol/rencana?minggu=2026-10-12',
   nextWeekHref: '/dev/konsol/rencana?minggu=2026-10-26',
 }
 
 export const plannerPublished: PlannerDTO = { ...planner, status: 'published' }
 
+/** Belum ada slot dari tutor: semua sesi wajib otomatis dari template, tanpa sesi opsional. */
 export const plannerEmpty: PlannerDTO = {
   ...planner,
-  slots: [],
+  slots: planner.slots
+    .filter((s) => s.required)
+    .map((s) => (s.auto ? s : { ...s, auto: true, skillId: null, title: s.session === 'paper' ? 'Paper mini, dipilih Kira' : 'Skill dipilih Kira', id: `auto:${s.date}:${s.subject}:${s.session}:0` })),
   suggestions: [],
-  days: planner.days.map((d) => ({ ...d, totalMinutes: 0, overLimit: false })),
 }

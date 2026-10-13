@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import { jakartaDate } from '@kira/core/time'
-import type { PlanSlotDTO, PlannerActions, PlannerDTO, Subject } from '@/lib/dto'
+import { sessionMinutes, type SessionType } from '@kira/core'
+import { addDays, jakartaDate } from '@kira/core/time'
+import type { DayTemplateId, PlanSlotConfig, PlanSlotDTO, PlannerActions, PlannerDTO, PlannerDay, Subject, UpsertSlotInput } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
 import { cx } from '@/components/console/cx'
 import { ConfirmDialog, Dialog } from '@/components/console/Dialog'
 import { ActionError, EmptyState, InlineAlert } from '@/components/console/Feedback'
-import { RadioGroup, TextField } from '@/components/console/Field'
+import { RadioGroup, Select, TextField } from '@/components/console/Field'
 import { SUBJECT_LABEL, SUBJECTS } from '@/components/console/format'
 import { ConsoleIcon } from '@/components/console/icons'
 import { Pill, Section, SectionHeading, SubjectChip } from '@/components/console/Layout'
@@ -17,36 +18,89 @@ import { CONSOLE_ROUTES } from '@/components/console/routes'
 import { SkillPicker } from '@/components/console/SkillPicker'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
-import { MODE_LABEL, WeekPlannerGrid } from '@/components/console/WeekPlannerGrid'
+import { MODE_LABEL, SESSION_LABEL, WeekPlannerGrid, slotChip } from '@/components/console/WeekPlannerGrid'
 
 /**
- * T03 Perencana mingguan (papan Perencana, WeekPlannerGrid): grid 7 hari kali 3 mapel,
- * dialog tambah dan ubah slot dengan pemilih skill, pindah slot lewat pilihan hari
- * (tanpa seret), hari istirahat, usulan dengan alasan, peringatan batas waktu layar, terbitkan.
+ * T03 Perencana mingguan (papan Perencana, WeekPlannerGrid): grid 7 hari kali 3 mapel dengan sesi wajib
+ * (Latihan, Tes, Paper) dan sesi opsional, template hari (Hari sekolah, Sabtu paper penuh, Hari ringan),
+ * meteran batas waktu layar, salin minggu, dialog tambah dan ubah slot, pindah slot lewat pilihan hari
+ * (tanpa seret), hari istirahat, usulan dengan alasan, dan terbitkan.
  * Perubahan yang berhasil langsung tampil di layar; data server menggantikannya saat halaman diperbarui.
- * Minggu yang sudah terbit tetap terbit saat diubah. Slot paper (skillId null) dibuat Penyusun paper:
- * di sini hanya bisa dipindah atau dihapus. Hari yang sudah lewat tidak bisa diubah.
+ * Minggu yang sudah terbit tetap terbit saat diubah. Slot paper dari Penyusun paper hanya bisa dipindah atau dihapus.
+ * Hari yang sudah lewat tidak bisa diubah.
  */
 
 export type PlannerScreenProps = { data: PlannerDTO; actions: PlannerActions }
 
 type SlotForm = {
   slotId?: string
+  /** Dibuka dari sesi otomatis template: menyimpan membuat slot yang menggantikannya. */
+  fromAuto: boolean
   date: string
   subject: Subject
-  kind: 'quest' | 'bonus'
+  session: SessionType
+  required: boolean
   skillId: string | null
-  mode: PlanSlotDTO['mode']
+  /** Tes tanpa skill sendiri memakai skill Latihan hari itu. */
+  sameAsLatihan: boolean
   questionCount: string
+  perQuestionSec: string
+  paperKind: 'mini' | 'full'
+  presetId: string
+  task: NonNullable<PlanSlotConfig['task']>
 }
 
-/** Batas yang sama dengan server (upsertSlot). */
+type FormErrors = { skill?: string; count?: string; perQuestion?: string; preset?: string; session?: string }
+
+/** Batas yang sama dengan server (normaliseSlot). */
 const COUNT_MIN = 4
 const COUNT_MAX = 30
+const PER_MIN = 30
+const PER_MAX = 180
 
-/** Sama dengan estimateMinutes di @kira/core: 1,5 menit per soal, dibulatkan ke 5 menit. */
-function estimateMinutes(count: number): number {
-  return Math.max(5, Math.round((count * 1.5) / 5) * 5)
+const CORE_SESSIONS: SessionType[] = ['latihan', 'tes', 'paper']
+
+const SESSION_OPTIONS: { value: SessionType; label: string }[] = [
+  { value: 'latihan', label: 'Latihan: 10 soal mudah, tanpa waktu' },
+  { value: 'tes', label: 'Tes: 8 soal sedang sampai sulit, dengan waktu' },
+  { value: 'paper', label: 'Paper: gaya lomba, mini atau penuh, dengan waktu' },
+  { value: 'lesson', label: 'Pelajaran: satu skill' },
+  { value: 'simulation', label: 'Simulasi lomba: salah satu preset' },
+  { value: 'esmo', label: 'Paket ESMO' },
+  { value: 'review', label: 'Ulang kartu (Buku Koreksi)' },
+  { value: 'quick-maths', label: 'Tantangan Hitung Cepat' },
+  { value: 'knowledge', label: 'Kuis Pengetahuan' },
+  { value: 'english-skill', label: 'Tugas English: listening, reading, writing, speaking' },
+  { value: 'reading', label: 'Membaca: latihan bacaan English' },
+]
+
+const TASK_LABEL: Record<NonNullable<PlanSlotConfig['task']>, string> = { listening: 'Listening', reading: 'Reading', writing: 'Writing', speaking: 'Speaking' }
+
+const TEMPLATE_OPTIONS: { value: DayTemplateId; label: string; description: string }[] = [
+  { value: 'school', label: 'Hari sekolah', description: '9 sesi wajib: Latihan, Tes, dan Paper mini untuk tiap mapel.' },
+  { value: 'saturday', label: 'Sabtu paper penuh', description: '9 sesi wajib. Satu mapel bergiliran mengerjakan paper penuh dengan waktu asli lomba, dua mapel lain paper mini.' },
+  { value: 'light', label: 'Hari ringan', description: 'Hanya satu Latihan per mapel (3 sesi wajib). Untuk hari sakit atau hari sekolah yang berat; streak tetap terjaga.' },
+]
+
+function emptyForm(date: string, subject: Subject): SlotForm {
+  return {
+    fromAuto: false,
+    date,
+    subject,
+    session: 'latihan',
+    required: false,
+    skillId: null,
+    sameAsLatihan: true,
+    questionCount: '10',
+    perQuestionSec: '75',
+    paperKind: 'mini',
+    presetId: '',
+    task: 'listening',
+  }
+}
+
+function defaultCount(session: SessionType): string {
+  return session === 'tes' ? '8' : '10'
 }
 
 export function PlannerScreen({ data, actions }: PlannerScreenProps) {
@@ -55,24 +109,29 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
   const [src, setSrc] = useState(data)
   const [slots, setSlots] = useState(data.slots)
   const [restDays, setRestDays] = useState(() => new Set(data.days.filter((d) => d.rest).map((d) => d.date)))
+  const [templates, setTemplates] = useState<Record<string, DayTemplateId>>(() => Object.fromEntries(data.days.map((d) => [d.date, d.template])))
   const [status, setStatus] = useState(data.status)
   const [sugState, setSugState] = useState<Record<string, 'open' | 'applied' | 'ignored'>>({})
   if (src !== data) {
     setSrc(data)
     setSlots(data.slots)
     setRestDays(new Set(data.days.filter((d) => d.rest).map((d) => d.date)))
+    setTemplates(Object.fromEntries(data.days.map((d) => [d.date, d.template])))
     setStatus(data.status)
     setSugState({})
   }
 
   const [form, setForm] = useState<SlotForm | null>(null)
-  const [formErrors, setFormErrors] = useState<{ skill?: string; count?: string; mode?: string }>({})
+  const [formErrors, setFormErrors] = useState<FormErrors>({})
   const [moving, setMoving] = useState<PlanSlotDTO | null>(null)
   const [moveTo, setMoveTo] = useState<string>('')
   const [moveError, setMoveError] = useState<string | null>(null)
   const [deleting, setDeleting] = useState<PlanSlotDTO | null>(null)
   const [paperSlot, setPaperSlot] = useState<PlanSlotDTO | null>(null)
   const [restPending, setRestPending] = useState<string | null>(null)
+  const [templateDay, setTemplateDay] = useState<PlannerDay | null>(null)
+  const [templatePick, setTemplatePick] = useState<DayTemplateId>('school')
+  const [copying, setCopying] = useState(false)
 
   const upsert = useAction(actions.upsertSlot)
   const move = useAction(actions.moveSlot)
@@ -80,21 +139,36 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
   const rest = useAction(actions.setRestDay)
   const apply = useAction(actions.applySuggestions)
   const publish = useAction(actions.publishWeek)
+  const setTemplate = useAction(actions.setDayTemplate)
+  const copy = useAction(actions.copyWeek)
 
   const days = useMemo(
     () =>
       data.days.map((d) => {
         const isRest = restDays.has(d.date)
-        const total = isRest ? 0 : slots.filter((s) => s.date === d.date && s.kind !== 'rest').reduce((a, s) => a + s.minutes, 0)
-        return { ...d, rest: isRest, totalMinutes: total, overLimit: !isRest && total > data.screenLimitMin }
+        const mine = isRest ? [] : slots.filter((s) => s.date === d.date && s.kind !== 'rest')
+        const total = mine.reduce((a, s) => a + s.minutes, 0)
+        const template = templates[d.date] ?? d.template
+        const opt = TEMPLATE_OPTIONS.find((t) => t.value === template)
+        return {
+          ...d,
+          rest: isRest,
+          template,
+          templateLabel: opt?.label ?? d.templateLabel,
+          totalMinutes: total,
+          requiredMinutes: mine.filter((s) => s.required).reduce((a, s) => a + s.minutes, 0),
+          requiredCount: mine.filter((s) => s.required).length,
+          extraCount: mine.filter((s) => !s.required).length,
+          overLimit: !isRest && total > data.screenLimitMin,
+        }
       }),
-    [data.days, data.screenLimitMin, restDays, slots],
+    [data.days, data.screenLimitMin, restDays, slots, templates],
   )
   const over = days.filter((d) => d.overLimit)
   const dayLabel = (date: string) => data.days.find((d) => d.date === date)?.label ?? date
   const skillTitle = (id: string | null) => data.skills.find((s) => s.id === id)?.title ?? ''
 
-  /** Hari yang sudah lewat tidak berpengaruh lagi pada quest; server juga menolaknya. */
+  /** Hari yang sudah lewat tidak berpengaruh lagi pada sesi; server juga menolaknya. */
   function pastGuard(date: string): boolean {
     if (date >= jakartaDate()) return false
     toast({ tone: 'info', title: `${dayLabel(date)} sudah lewat.`, body: 'Rencana hanya bisa diubah untuk hari ini dan hari berikutnya.' })
@@ -105,69 +179,134 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
     if (pastGuard(date)) return
     setFormErrors({})
     upsert.reset()
-    setForm({ date, subject, kind: 'quest', skillId: null, mode: 'latihan', questionCount: '10' })
+    setForm(emptyForm(date, subject))
   }
+
   function openEdit(slot: PlanSlotDTO) {
-    if (slot.skillId === null) {
+    if (slot.fromPaper || slot.mode === 'kertas') {
       // Slot paper: isinya diatur Penyusun paper.
       del.reset()
       setPaperSlot(slot)
       return
     }
+    if (pastGuard(slot.date)) return
     setFormErrors({})
     upsert.reset()
+    const cfg = slot.config
     setForm({
-      slotId: slot.id,
-      date: slot.date,
-      subject: slot.subject,
-      kind: slot.kind === 'bonus' ? 'bonus' : 'quest',
+      ...emptyForm(slot.date, slot.subject),
+      ...(slot.auto ? {} : { slotId: slot.id }),
+      fromAuto: slot.auto,
+      session: slot.session,
+      required: slot.required,
       skillId: slot.skillId,
-      mode: slot.mode,
-      questionCount: String(slot.questionCount),
+      sameAsLatihan: slot.session === 'tes' ? slot.skillId === null : true,
+      questionCount: slot.auto ? defaultCount(slot.session) : String(slot.questionCount),
+      perQuestionSec: String(cfg?.perQuestionSec ?? 75),
+      paperKind: slot.paperKind ?? 'mini',
+      presetId: cfg?.presetId ?? '',
+      task: cfg?.task ?? 'listening',
     })
   }
 
+  function setSession(session: SessionType) {
+    if (!form) return
+    const subject = session === 'quick-maths' ? 'math' : session === 'english-skill' || session === 'reading' ? 'english' : form.subject
+    const required = CORE_SESSIONS.includes(session) ? form.required : false
+    setForm({
+      ...form,
+      session,
+      subject,
+      required,
+      skillId: subject === form.subject ? form.skillId : null,
+      questionCount: defaultCount(session),
+      sameAsLatihan: true,
+    })
+    setFormErrors({})
+  }
+
+  const needsSkill = form ? form.session === 'latihan' || form.session === 'reading' || form.session === 'lesson' || (form.session === 'tes' && !form.sameAsLatihan) : false
+  const needsCount = form ? form.session === 'latihan' || form.session === 'tes' || form.session === 'reading' : false
+
   async function saveSlot() {
     if (!form) return
-    const errs: { skill?: string; count?: string; mode?: string } = {}
+    const errs: FormErrors = {}
     const count = Number(form.questionCount.trim())
-    if (!form.skillId) errs.skill = 'Pilih satu skill untuk slot ini.'
-    // Mode Kertas hanya untuk paper (dicetak lalu dinilai lewat Input LJK); slot skill selalu di tablet.
-    if (form.mode === 'kertas') errs.mode = 'Mode Kertas hanya untuk paper dari Penyusun paper. Pilih Belajar, Latihan, atau Tes.'
-    if (!form.questionCount.trim() || !Number.isInteger(count) || count < COUNT_MIN || count > COUNT_MAX) {
+    const per = Number(form.perQuestionSec.trim())
+    const skill = needsSkill ? form.skillId : null
+    if (needsSkill && !form.skillId) errs.skill = 'Pilih satu skill untuk sesi ini.'
+    if (needsCount && (!form.questionCount.trim() || !Number.isInteger(count) || count < COUNT_MIN || count > COUNT_MAX)) {
       errs.count = `Jumlah soal harus angka bulat ${COUNT_MIN} sampai ${COUNT_MAX}.${form.questionCount.trim() ? ` Isian sekarang: ${form.questionCount.trim()}.` : ''}`
     }
+    if (form.session === 'tes' && (!Number.isInteger(per) || per < PER_MIN || per > PER_MAX)) errs.perQuestion = `Waktu per soal harus ${PER_MIN} sampai ${PER_MAX} detik.`
+    if (form.session === 'simulation' && !form.presetId) errs.preset = 'Pilih satu simulasi lomba.'
     setFormErrors(errs)
-    if (errs.skill || errs.count || errs.mode || !form.skillId) return
-    const r = await upsert.run({
+    if (Object.keys(errs).length > 0) return
+
+    const core = CORE_SESSIONS.includes(form.session)
+    const config: PlanSlotConfig | null =
+      form.session === 'simulation'
+        ? { presetId: form.presetId }
+        : form.session === 'english-skill'
+          ? { task: form.task }
+          : form.session === 'tes' && per !== 75
+            ? { perQuestionSec: per }
+            : null
+    const input: UpsertSlotInput = {
       learnerId: data.learnerId,
-      slotId: form.slotId,
+      ...(form.slotId ? { slotId: form.slotId } : {}),
       date: form.date,
       subject: form.subject,
-      kind: form.kind,
-      skillId: form.skillId,
-      mode: form.mode,
-      questionCount: count,
-    })
+      session: form.session,
+      required: core ? form.required : false,
+      skillId: skill,
+      mode: form.session === 'tes' ? 'tes' : 'latihan',
+      questionCount: needsCount ? count : 10,
+      paperKind: form.session === 'paper' ? form.paperKind : null,
+      config,
+    }
+    const r = await upsert.run(input)
     if (!r.ok) return
+    const presetMinutes = form.session === 'simulation' ? data.presets.find((p) => p.id === form.presetId)?.minutes : undefined
+    const minutes = sessionMinutes({ session: form.session, questionCount: needsCount ? count : 10, paper: form.session === 'paper' ? form.paperKind : null, ...(presetMinutes ? { fixedMinutes: presetMinutes } : {}), ...(form.session === 'tes' ? { perQuestionSec: per } : {}) })
+    const title =
+      form.session === 'paper'
+        ? form.paperKind === 'full'
+          ? 'Paper penuh gaya lomba'
+          : 'Paper mini gaya lomba'
+        : form.session === 'simulation'
+          ? (data.presets.find((p) => p.id === form.presetId)?.title ?? 'Simulasi lomba')
+          : form.session === 'english-skill'
+            ? `Tugas English: ${form.task}`
+            : skill
+              ? skillTitle(skill)
+              : form.session === 'tes'
+                ? 'Skill sama dengan Latihan'
+                : SESSION_LABEL[form.session]
     const next: PlanSlotDTO = {
       id: form.slotId ?? `baru-${Date.now()}`,
+      auto: false,
+      fromPaper: false,
       date: form.date,
       subject: form.subject,
-      kind: form.kind,
-      skillId: form.skillId,
-      title: skillTitle(form.skillId),
-      mode: form.mode,
-      minutes: estimateMinutes(count),
-      questionCount: count,
+      kind: 'quest',
+      session: form.session,
+      required: input.required,
+      paperKind: input.paperKind,
+      skillId: skill,
+      title,
+      mode: input.mode,
+      minutes,
+      questionCount: input.questionCount,
+      config,
     }
-    // Slot quest baru menggantikan slot quest lain di mapel dan hari yang sama (aturan server).
-    setSlots((list) =>
-      form.slotId
-        ? list.map((s) => (s.id === form.slotId ? next : s))
-        : [...list.filter((s) => !(next.kind === 'quest' && s.kind === 'quest' && s.date === next.date && s.subject === next.subject)), next],
-    )
-    toast({ tone: 'success', title: form.slotId ? 'Slot diperbarui.' : `${next.title} masuk ke ${dayLabel(form.date)}.` })
+    setSlots((list) => {
+      if (form.slotId) return list.map((s) => (s.id === form.slotId ? next : s))
+      // Slot wajib menggantikan sesi dasar template yang sama.
+      const idx = next.required ? list.findIndex((s) => s.auto && s.date === next.date && s.subject === next.subject && s.session === next.session) : -1
+      return idx >= 0 ? list.map((s, i) => (i === idx ? next : s)) : [...list, next]
+    })
+    toast({ tone: 'success', title: form.slotId ? 'Sesi diperbarui.' : `${next.title} masuk ke ${dayLabel(form.date)}.` })
     setForm(null)
   }
 
@@ -219,16 +358,25 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       .filter((s) => ids.includes(s.id))
       .map((s) => ({
         id: `usulan-${s.id}`,
+        auto: false,
+        fromPaper: false,
         date: s.date,
         subject: s.subject,
         kind: 'quest' as const,
+        session: 'latihan' as const,
+        required: true,
+        paperKind: null,
         skillId: s.skillId,
         title: s.title,
         mode: 'latihan' as const,
-        minutes: estimateMinutes(10),
+        minutes: sessionMinutes({ session: 'latihan', questionCount: 10 }),
         questionCount: 10,
+        config: null,
       }))
-    setSlots((list) => [...list.filter((x) => !added.some((a) => a.id === x.id)), ...added])
+    setSlots((list) => {
+      const rest0 = list.filter((x) => !added.some((a) => a.id === x.id) && !added.some((a) => x.auto && x.date === a.date && x.subject === a.subject && x.session === 'latihan'))
+      return [...rest0, ...added]
+    })
     setSugState((st) => ({ ...st, ...Object.fromEntries(ids.map((i) => [i, 'applied' as const])) }))
     toast({ tone: 'success', title: ids.length === 1 ? 'Usulan diterapkan.' : `${ids.length} usulan diterapkan.` })
   }
@@ -240,8 +388,40 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
     toast({ tone: 'success', title: 'Rencana minggu ini sudah terbit.' })
   }
 
+  function openTemplate(date: string) {
+    if (pastGuard(date)) return
+    const d = days.find((x) => x.date === date)
+    if (!d) return
+    setTemplate.reset()
+    setTemplatePick(d.template)
+    setTemplateDay(d)
+  }
+
+  async function confirmTemplate() {
+    if (!templateDay) return
+    const r = await setTemplate.run({ learnerId: data.learnerId, date: templateDay.date, template: templatePick })
+    if (!r.ok) return
+    setTemplates((t) => ({ ...t, [templateDay.date]: templatePick }))
+    toast({ tone: 'success', title: `${dayLabel(templateDay.date)} memakai ${TEMPLATE_OPTIONS.find((t) => t.value === templatePick)?.label}.` })
+    setTemplateDay(null)
+  }
+
+  const prevWeek = addDays(data.weekStart, -7)
+  async function confirmCopy() {
+    const r = await copy.run({ learnerId: data.learnerId, fromWeekStart: prevWeek, toWeekStart: data.weekStart })
+    if (!r.ok) return
+    toast({
+      tone: 'success',
+      title: `${r.data.copied} sesi disalin dari minggu sebelumnya.`,
+      ...(r.data.skipped > 0 ? { body: `${r.data.skipped} dilewati: hari yang sudah lewat, hari istirahat, atau paper kertas.` } : {}),
+    })
+    setCopying(false)
+  }
+
   const openSugs = data.suggestions.filter((s) => (sugState[s.id] ?? 'open') === 'open')
-  const formSkills = form ? data.skills.filter((s) => s.subject === form.subject) : []
+  const formSkills = form
+    ? data.skills.filter((s) => s.subject === form.subject && (form.session !== 'lesson' || s.hasLesson))
+    : []
   const today = moving ? jakartaDate() : ''
   const moveOptions = moving
     ? days.map((d) => ({
@@ -258,6 +438,8 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                 : `${d.totalMinutes} mnt terisi, jadi ${d.totalMinutes + moving.minutes} mnt${d.totalMinutes + moving.minutes > data.screenLimitMin ? `, lewat batas ${data.screenLimitMin}` : ''}`,
       }))
     : []
+  const isCore = form ? CORE_SESSIONS.includes(form.session) : false
+  const presetOptions = form ? data.presets.filter((p) => p.subject === form.subject) : []
 
   return (
     <ConsoleShell shell={data.shell} active="plan">
@@ -289,6 +471,16 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
               <span className="visually-hidden">Minggu berikutnya</span>
             </ButtonLink>
           </nav>
+          <Button
+            variant="secondary"
+            icon="copy"
+            onClick={() => {
+              copy.reset()
+              setCopying(true)
+            }}
+          >
+            Salin minggu lalu
+          </Button>
           <Button variant="primary" onClick={doPublish} loading={publish.pending} disabled={status === 'published'}>
             {status === 'published' ? 'Sudah terbit' : 'Terbitkan'}
           </Button>
@@ -311,14 +503,14 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
           }
         >
           {status === 'published'
-            ? 'Quest di tablet berhenti saat batas tercapai. Kurangi jumlah soal atau pindahkan slot ke hari lain.'
-            : 'Rencana tetap bisa diterbitkan, tapi quest di tablet berhenti saat batas tercapai.'}
+            ? 'Sesi di tablet berhenti saat batas tercapai. Pakai template Hari ringan, kurangi sesi opsional, atau pindahkan sesi ke hari lain.'
+            : 'Rencana tetap bisa diterbitkan, tapi sesi di tablet berhenti saat batas tercapai.'}
         </InlineAlert>
       ) : null}
 
       {status === 'published' ? (
         <InlineAlert tone="success" title="Rencana minggu ini sudah terbit." live="status">
-          Tablet memakai rencana ini untuk hari yang quest-nya belum dibuat. Perubahan berikutnya tetap terbit dan berlaku mulai hari yang belum dimulai.
+          Tablet memakai rencana ini untuk hari yang sesinya belum dibuat. Perubahan berikutnya tetap terbit dan berlaku mulai hari yang belum dimulai. Sesi opsional bisa ditambah kapan saja.
         </InlineAlert>
       ) : null}
 
@@ -336,6 +528,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
             setMoveError(null)
           }}
           onToggleRest={toggleRest}
+          onTemplate={openTemplate}
           restPending={restPending}
         />
       </section>
@@ -360,7 +553,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
             compact
             icon="checkCircle"
             title="Tidak ada usulan untuk minggu ini."
-            body="Usulan hanya mengisi hari yang masih kosong dan belum lewat: skill di bawah 70%, review yang seminggu tidak dilatih, skill baru berikutnya, dan persiapan lomba."
+            body="Usulan hanya mengisi Latihan di hari yang masih kosong dan belum lewat: skill di bawah 70%, review yang seminggu tidak dilatih, skill baru berikutnya, dan persiapan lomba. Tes hari itu memakai skill yang sama."
           />
         ) : (
           <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0">
@@ -412,7 +605,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         onClose={() => setForm(null)}
         dismissible={!upsert.pending}
         size="lg"
-        title={form?.slotId ? 'Ubah slot' : 'Tambah slot'}
+        title={form?.slotId ? 'Ubah sesi' : form?.fromAuto ? 'Atur sesi' : 'Tambah sesi'}
         description={form ? `${SUBJECT_LABEL[form.subject]}, ${dayLabel(form.date)}` : undefined}
         footer={
           form ? (
@@ -431,7 +624,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                     }
                   }}
                 >
-                  Hapus slot
+                  Hapus sesi
                 </Button>
               ) : null}
               <Button variant="secondary" onClick={() => setForm(null)} disabled={upsert.pending}>
@@ -445,7 +638,8 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         }
       >
         {form ? (
-          <form method="post"
+          <form
+            method="post"
             className="flex flex-col gap-5"
             onSubmit={(e) => {
               e.preventDefault()
@@ -457,74 +651,179 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                 name="mapel"
                 legend="Mapel"
                 value={form.subject}
-                onChange={(v) => setForm({ ...form, subject: v, skillId: v === form.subject ? form.skillId : null })}
+                onChange={(v) => setForm({ ...form, subject: v, skillId: v === form.subject ? form.skillId : null, presetId: '' })}
                 options={SUBJECTS.map((s) => ({ value: s, label: SUBJECT_LABEL[s] }))}
                 layout="row"
               />
+              {isCore ? (
+                <RadioGroup
+                  name="wajib"
+                  legend="Wajib atau opsional"
+                  value={form.required ? 'wajib' : 'opsional'}
+                  onChange={(v) => setForm({ ...form, required: v === 'wajib' })}
+                  options={[
+                    { value: 'wajib', label: 'Sesi wajib', description: 'Dihitung untuk streak. Menggantikan sesi dasar template yang sama.' },
+                    { value: 'opsional', label: 'Sesi opsional', description: 'Tambahan, tidak dihitung streak (paling banyak 10 per hari).' },
+                  ]}
+                />
+              ) : (
+                <p className="m-0 self-end text-small text-fg-muted">Sesi jenis ini selalu opsional dan tidak dihitung streak.</p>
+              )}
+            </div>
+            <Select
+              label="Jenis sesi"
+              value={form.session}
+              onChange={(e) => setSession(e.target.value as SessionType)}
+              options={SESSION_OPTIONS}
+              {...(formErrors.session ? { error: formErrors.session } : {})}
+            />
+            {form.session === 'tes' ? (
               <RadioGroup
-                name="jenis"
-                legend="Jenis"
-                value={form.kind}
-                onChange={(v) => setForm({ ...form, kind: v })}
+                name="tes-skill"
+                legend="Skill Tes"
+                value={form.sameAsLatihan ? 'sama' : 'lain'}
+                onChange={(v) => setForm({ ...form, sameAsLatihan: v === 'sama' })}
                 options={[
-                  { value: 'quest', label: 'Quest wajib' },
-                  { value: 'bonus', label: 'Quest bonus', description: 'Opsional, tidak dihitung streak' },
+                  { value: 'sama', label: 'Sama dengan Latihan hari itu', description: 'Soalnya lain dari soal Latihan.' },
+                  { value: 'lain', label: 'Pilih skill sendiri' },
                 ]}
               />
-            </div>
-            <SkillPicker
-              skills={formSkills}
-              value={form.skillId}
-              onChange={(id) => {
-                setForm({ ...form, skillId: id })
-                setFormErrors((e) => ({ ...e, skill: undefined }))
-              }}
-              error={formErrors.skill}
-              legend={`Skill ${SUBJECT_LABEL[form.subject]}`}
-            />
-            <div className="grid gap-5 sm:grid-cols-[minmax(0,1fr)_200px]">
+            ) : null}
+            {needsSkill ? (
+              <SkillPicker
+                skills={formSkills}
+                value={form.skillId}
+                onChange={(id) => {
+                  setForm({ ...form, skillId: id })
+                  setFormErrors((e) => ({ ...e, skill: undefined }))
+                }}
+                error={formErrors.skill ?? null}
+                legend={`Skill ${SUBJECT_LABEL[form.subject]}`}
+              />
+            ) : null}
+            {needsCount ? (
+              <div className="grid gap-5 sm:grid-cols-2">
+                <TextField
+                  label="Jumlah soal"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={form.questionCount}
+                  onChange={(e) => {
+                    setForm({ ...form, questionCount: e.target.value })
+                    setFormErrors((x) => ({ ...x, count: undefined }))
+                  }}
+                  error={formErrors.count ?? null}
+                  hint={
+                    form.session === 'tes'
+                      ? `Bawaan 8 soal. Waktu ${Math.round((Number(form.questionCount) * Number(form.perQuestionSec)) / 60) || 0} menit.`
+                      : `Bawaan 10 soal, sekitar ${sessionMinutes({ session: form.session, questionCount: Number(form.questionCount) || 10 })} menit`
+                  }
+                />
+                {form.session === 'tes' ? (
+                  <TextField
+                    label="Detik per soal"
+                    inputMode="numeric"
+                    autoComplete="off"
+                    value={form.perQuestionSec}
+                    onChange={(e) => {
+                      setForm({ ...form, perQuestionSec: e.target.value })
+                      setFormErrors((x) => ({ ...x, perQuestion: undefined }))
+                    }}
+                    error={formErrors.perQuestion ?? null}
+                    hint={`Bawaan 75 detik. Antara ${PER_MIN} dan ${PER_MAX}.`}
+                  />
+                ) : null}
+              </div>
+            ) : null}
+            {form.session === 'paper' ? (
               <RadioGroup
-                name="mode"
-                legend="Mode"
-                value={form.mode}
-                onChange={(v) => {
-                  setForm({ ...form, mode: v })
-                  setFormErrors((x) => ({ ...x, mode: undefined }))
-                }}
-                options={(['belajar', 'latihan', 'tes'] as const).map((m) => ({ value: m, label: MODE_LABEL[m] }))}
-                layout="row"
-                hint="Tes tidak menampilkan kunci sebelum dikumpulkan. Paper untuk dikerjakan di kertas disusun di Penyusun paper."
-                error={formErrors.mode}
+                name="paper-jenis"
+                legend="Jenis paper"
+                value={form.paperKind}
+                onChange={(v) => setForm({ ...form, paperKind: v })}
+                options={[
+                  { value: 'mini', label: 'Paper mini', description: '8 soal dalam 15 menit, dari paper gaya lomba.' },
+                  { value: 'full', label: 'Paper penuh', description: 'Jumlah soal dan waktu asli lomba. Cocok untuk hari Sabtu.' },
+                ]}
+                hint="Paper cetak yang dinilai lewat Input LJK disusun di Penyusun paper."
               />
-              <TextField
-                label="Jumlah soal"
-                inputMode="numeric"
-                autoComplete="off"
-                value={form.questionCount}
+            ) : null}
+            {form.session === 'simulation' ? (
+              <Select
+                label="Simulasi lomba"
+                value={form.presetId}
                 onChange={(e) => {
-                  setForm({ ...form, questionCount: e.target.value })
-                  setFormErrors((x) => ({ ...x, count: undefined }))
+                  setForm({ ...form, presetId: e.target.value })
+                  setFormErrors((x) => ({ ...x, preset: undefined }))
                 }}
-                error={formErrors.count}
-                hint={
-                  Number(form.questionCount) > 0
-                    ? `Sekitar ${estimateMinutes(Number(form.questionCount))} menit`
-                    : `${COUNT_MIN} sampai ${COUNT_MAX} soal`
-                }
+                options={[{ value: '', label: 'Pilih simulasi' }, ...presetOptions.map((p) => ({ value: p.id, label: p.title }))]}
+                error={formErrors.preset ?? (presetOptions.length === 0 ? `Belum ada simulasi untuk ${SUBJECT_LABEL[form.subject]}.` : null)}
               />
-            </div>
+            ) : null}
+            {form.session === 'english-skill' ? (
+              <RadioGroup
+                name="tugas"
+                legend="Jenis tugas"
+                value={form.task}
+                onChange={(v) => setForm({ ...form, task: v })}
+                options={(['listening', 'reading', 'writing', 'speaking'] as const).map((t) => ({ value: t, label: TASK_LABEL[t] }))}
+                layout="row"
+              />
+            ) : null}
             <ActionError error={upsert.error} />
             <button type="submit" className="hidden" tabIndex={-1} aria-hidden="true" />
           </form>
         ) : null}
       </Dialog>
 
+      {/* Template hari */}
+      <Dialog
+        open={templateDay != null}
+        onClose={() => setTemplateDay(null)}
+        dismissible={!setTemplate.pending}
+        title="Template hari"
+        description={templateDay ? `${templateDay.label}. Template menentukan sesi wajib dasar hari itu.` : undefined}
+        footer={
+          <>
+            <Button variant="secondary" onClick={() => setTemplateDay(null)} disabled={setTemplate.pending}>
+              Batal
+            </Button>
+            <Button variant="primary" onClick={confirmTemplate} loading={setTemplate.pending}>
+              Pakai template
+            </Button>
+          </>
+        }
+      >
+        {templateDay ? (
+          <div className="flex flex-col gap-4">
+            <RadioGroup name="template" legend="Template" hideLegend value={templatePick} onChange={setTemplatePick} options={TEMPLATE_OPTIONS} />
+            {templateDay.date === jakartaDate() ? (
+              <InlineAlert tone="info" live="none">
+                Hari ini hanya bisa dijadikan Hari ringan bila sesi hari ini sudah dibuat di tablet. Tes dan Paper yang belum dikerjakan dibuang, dan rencana minggu ini harus sudah terbit.
+              </InlineAlert>
+            ) : null}
+            <ActionError error={setTemplate.error} />
+          </div>
+        ) : null}
+      </Dialog>
+
+      {/* Salin minggu */}
+      <ConfirmDialog
+        open={copying}
+        onClose={() => setCopying(false)}
+        title="Salin rencana minggu lalu ke minggu ini?"
+        body={`Sesi dan template hari dari minggu sebelumnya disalin ke ${data.weekLabel}. Sesi di minggu ini pada hari yang masih bisa diubah diganti. Hari yang sudah lewat, hari istirahat, dan paper kertas dilewati.`}
+        confirmLabel="Salin"
+        onConfirm={confirmCopy}
+        error={copy.error ? <ActionError error={copy.error} /> : null}
+      />
+
       {/* Pindah slot */}
       <Dialog
         open={moving != null}
         onClose={() => setMoving(null)}
         dismissible={!move.pending}
-        title={moving ? `Pindah ${moving.title}` : 'Pindah slot'}
+        title={moving ? `Pindah ${moving.title}` : 'Pindah sesi'}
         description={moving ? `${SUBJECT_LABEL[moving.subject]}, sekarang di ${dayLabel(moving.date)}. Pilih hari tujuan.` : undefined}
         footer={
           <>
@@ -576,7 +875,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
                   setDeleting(paperSlot)
                 }}
               >
-                Hapus slot
+                Hapus sesi
               </Button>
               <Button
                 variant="secondary"
@@ -602,8 +901,8 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         {paperSlot ? (
           <div className="flex flex-col gap-3">
             <p className="m-0 text-body">
-              Paper {paperSlot.questionCount} soal, sekitar {paperSlot.minutes} menit, mode {MODE_LABEL[paperSlot.mode]}
-              {paperSlot.kind === 'bonus' ? ', sebagai quest bonus' : ''}.
+              {slotChip(paperSlot)} {paperSlot.questionCount} soal, sekitar {paperSlot.minutes} menit, mode {MODE_LABEL[paperSlot.mode]}
+              {paperSlot.required ? ', sesi wajib' : ', sesi opsional'}.
             </p>
             <InlineAlert tone="info" live="none">
               Soal dan waktu paper diubah di{' '}
@@ -619,9 +918,9 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       <ConfirmDialog
         open={deleting != null}
         onClose={() => setDeleting(null)}
-        title={deleting ? `Hapus ${deleting.title} dari ${dayLabel(deleting.date)}?` : 'Hapus slot?'}
-        body="Slot ini hilang dari rencana. Jawaban yang sudah dikerjakan tetap tersimpan di riwayat."
-        confirmLabel="Hapus slot"
+        title={deleting ? `Hapus ${deleting.title} dari ${dayLabel(deleting.date)}?` : 'Hapus sesi?'}
+        body="Sesi ini hilang dari rencana. Jawaban yang sudah dikerjakan tetap tersimpan di riwayat."
+        confirmLabel="Hapus sesi"
         onConfirm={confirmDelete}
         error={del.error ? <ActionError error={del.error} /> : null}
       />

@@ -12,6 +12,10 @@ export type Band = readonly [number, number]
 export const CORE_BAND: Band = [0.75, 0.85]
 export const LEARN_BAND: Band = [0.8, 0.9]
 export const CHALLENGE_BAND: Band = [0.55, 0.7]
+/** Latihan harian: soal mudah, peluang benar 85 sampai 95 persen. */
+export const EASY_BAND: Band = [0.85, 0.95]
+/** Tes harian: soal sedang sampai sulit, peluang benar 55 sampai 75 persen. */
+export const TEST_BAND: Band = [0.55, 0.75]
 
 export type Candidate = {
   ref: string

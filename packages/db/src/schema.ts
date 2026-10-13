@@ -33,6 +33,8 @@ const bytea = customType<{ data: Uint8Array; driverData: Buffer }>({
   fromDriver: (v) => new Uint8Array(v),
 })
 
+const SESSION_ENUM = ['latihan', 'tes', 'paper', 'lesson', 'simulation', 'esmo', 'review', 'quick-maths', 'knowledge', 'english-skill', 'reading'] as const
+
 const ts = (name: string) => timestamp(name, { withTimezone: true, mode: 'date' })
 const createdAt = () => ts('created_at').notNull().defaultNow()
 const id = () => uuid('id').primaryKey().default(sql`gen_random_uuid()`)
@@ -296,6 +298,8 @@ export const planWeek = pgTable(
     learnerId: uuid('learner_id').notNull(),
     weekStart: date('week_start').notNull(),
     status: text('status', { enum: ['draft', 'published'] }).notNull().default('draft'),
+    /** Template per hari: { "2026-10-14": "light" }. Hari tanpa catatan memakai hari sekolah atau Sabtu (migrasi 0006). */
+    dayTemplates: jsonb('day_templates').notNull().default(sql`'{}'::jsonb`),
     publishedAt: ts('published_at'),
     createdBy: uuid('created_by').notNull(),
     createdAt: createdAt(),
@@ -314,6 +318,14 @@ export const planSlot = pgTable(
     date: date('date').notNull(),
     subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
     kind: text('kind', { enum: ['quest', 'bonus'] }).notNull(),
+    /** Jenis sesi (migrasi 0006). Slot lama bermode tes atau kertas dipetakan ke tes atau paper. */
+    session: text('session', { enum: SESSION_ENUM }).notNull().default('latihan'),
+    /** Sesi wajib dihitung untuk streak, sesi opsional tidak. */
+    required: boolean('required').notNull().default(true),
+    /** Paper tanpa paper tertentu: mini (8 soal, 15 menit) atau penuh. */
+    paperKind: text('paper_kind', { enum: ['mini', 'full'] }),
+    /** Pilihan tambahan sesi opsional: preset simulasi, jenis tugas English, detik per soal Tes. */
+    config: jsonb('config'),
     skillId: text('skill_id'),
     paperId: uuid('paper_id'),
     mode: text('mode', { enum: ['belajar', 'latihan', 'tes', 'kertas'] }).notNull().default('latihan'),
@@ -363,7 +375,14 @@ export const quest = pgTable(
     learnerId: uuid('learner_id').notNull(),
     date: date('date').notNull(),
     subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
-    kind: text('kind', { enum: ['daily', 'bonus'] }).notNull(),
+    /** daily = sesi wajib, extra = sesi opsional dari tutor, bonus = quest bonus lama (tidak dibuat lagi). */
+    kind: text('kind', { enum: ['daily', 'bonus', 'extra'] }).notNull(),
+    /** Jenis sesi (migrasi 0006). */
+    session: text('session', { enum: SESSION_ENUM }).notNull().default('latihan'),
+    /** Nomor urut dalam kelompok (mapel, kind, sesi). */
+    seq: smallint('seq').notNull().default(0),
+    planSlotId: uuid('plan_slot_id'),
+    config: jsonb('config'),
     skillId: text('skill_id'),
     paperId: uuid('paper_id'),
     mode: text('mode', { enum: ['belajar', 'latihan', 'tes', 'kertas'] }).notNull(),
@@ -373,7 +392,10 @@ export const quest = pgTable(
     createdAt: createdAt(),
     completedAt: ts('completed_at'),
   },
-  (t) => [uniqueIndex('quest_day_uq').on(t.learnerId, t.date, t.subject, t.kind)],
+  (t) => [
+    uniqueIndex('quest_day_uq').on(t.learnerId, t.date, t.subject, t.kind, t.session, t.seq),
+    uniqueIndex('quest_plan_slot_uq').on(t.planSlotId).where(sql`${t.planSlotId} is not null`),
+  ],
 )
 
 export const attempt = pgTable(
@@ -401,9 +423,18 @@ export const attempt = pgTable(
     xp: integer('xp').notNull().default(0),
     result: jsonb('result'),
     code: text('code'),
+    /** Percobaan resmi yang diulang. Kosong untuk percobaan pertama, yang dipakai laporan dan streak (migrasi 0006). */
+    retryOf: uuid('retry_of'),
+    retryNo: smallint('retry_no').notNull().default(0),
+    /** Preset lomba yang menilai paper harian di tablet. */
+    presetId: text('preset_id'),
     createdAt: createdAt(),
   },
-  (t) => [index('attempt_learner_idx').on(t.learnerId, t.startedAt), uniqueIndex('attempt_code_uq').on(t.orgId, t.code)],
+  (t) => [
+    index('attempt_learner_idx').on(t.learnerId, t.startedAt),
+    uniqueIndex('attempt_code_uq').on(t.orgId, t.code),
+    index('attempt_retry_idx').on(t.retryOf).where(sql`${t.retryOf} is not null`),
+  ],
 )
 
 export const response = pgTable(
@@ -428,6 +459,8 @@ export const response = pgTable(
     timeMs: integer('time_ms').notNull().default(0),
     flagged: boolean('flagged').notNull().default(false),
     xp: integer('xp').notNull().default(0),
+    /** Jawaban dari percobaan ulang sesi; tidak masuk laporan dan penguasaan (migrasi 0006). */
+    retry: boolean('retry').notNull().default(false),
     clientId: text('client_id').notNull(),
     answeredAt: ts('answered_at').notNull().defaultNow(),
     gradedBy: uuid('graded_by'),
@@ -488,7 +521,7 @@ export const dayRecord = pgTable(
     learnerId: uuid('learner_id').notNull(),
     date: date('date').notNull(),
     questsDone: integer('quests_done').notNull().default(0),
-    questsRequired: integer('quests_required').notNull().default(3),
+    questsRequired: integer('quests_required').notNull().default(9),
     minutes: integer('minutes').notNull().default(0),
     lastPingAt: ts('last_ping_at'),
     rest: boolean('rest').notNull().default(false),

@@ -19,6 +19,8 @@ import {
   weekCompleteCount,
   weekdayNameEn,
   answerXp,
+  retryXp,
+  DEFAULT_REQUIRED_SESSIONS,
   type BadgeStats,
   type CardState,
   type DayRecord,
@@ -89,7 +91,7 @@ export async function dayRecords(tx: Tx, learner: LearnerRow, since: IsoDate): P
   const byDate = new Map<string, DayRecord>()
   for (const r of records) byDate.set(r.date, { date: r.date, questsDone: r.questsDone, questsRequired: r.questsRequired, rest: r.rest })
   for (const r of rests) {
-    const cur = byDate.get(r.date) ?? { date: r.date, questsDone: 0, questsRequired: 3 }
+    const cur = byDate.get(r.date) ?? { date: r.date, questsDone: 0, questsRequired: DEFAULT_REQUIRED_SESSIONS }
     byDate.set(r.date, { ...cur, rest: r.rest })
   }
   return [...byDate.values()]
@@ -174,10 +176,12 @@ export async function applyOutcome(
     mode: string
     date: IsoDate
     attemptId: string
+    /** Percobaan ulang seluruh sesi: tidak mengubah penguasaan, dan XP hanya 25 persen. */
+    retry?: boolean
   },
 ): Promise<number> {
   const { learner, item } = input
-  if (input.attemptNo === 1) {
+  if (input.attemptNo === 1 && !input.retry) {
     const rows = await tx
       .select()
       .from(skillState)
@@ -220,7 +224,8 @@ export async function applyOutcome(
         .onConflictDoNothing()
     }
   }
-  const xp = answerXp({ difficulty: item.difficulty, correct: input.correct, hintsUsed: input.hintsUsed, attemptNo: input.attemptNo })
+  const full = answerXp({ difficulty: item.difficulty, correct: input.correct, hintsUsed: input.hintsUsed, attemptNo: input.attemptNo })
+  const xp = input.retry ? retryXp(full) : full
   if (xp > 0) {
     await tx.insert(xpEvent).values({ orgId: ctx.orgId, learnerId: learner.userId, amount: xp, reason: 'answer', ref: input.attemptId, date: input.date })
   }
@@ -248,10 +253,15 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   const attempts = await one(
     tx
       .select({
-        perfect: sql<number>`count(*) filter (where (${attempt.result}->>'perfect')::boolean is true)::int`,
+        perfect: sql<number>`count(*) filter (where (${attempt.result}->>'perfect')::boolean is true and ${attempt.retryOf} is null)::int`,
         reviews: sql<number>`count(*) filter (where ${attempt.kind} = 'review' and ${attempt.submittedAt} is not null)::int`,
         sims: sql<number>`count(*) filter (where ${attempt.kind} in ('simulation', 'esmo-mock') and ${attempt.submittedAt} is not null)::int`,
-        olympiad: sql<number>`count(*) filter (where (${attempt.result}->>'olympiad')::boolean is true and ${attempt.submittedAt} is not null)::int`,
+        olympiad: sql<number>`count(*) filter (where (${attempt.result}->>'olympiad')::boolean is true and ${attempt.submittedAt} is not null and ${attempt.retryOf} is null)::int`,
+        papers: sql<number>`count(*) filter (where ${attempt.result}->>'session' = 'paper' and ${attempt.submittedAt} is not null and ${attempt.retryOf} is null)::int`,
+        papersPassed: sql<number>`count(*) filter (where ${attempt.result}->>'session' = 'paper' and (${attempt.result}->>'passed')::boolean is true and ${attempt.retryOf} is null)::int`,
+        testsPerfect: sql<number>`count(*) filter (where ${attempt.result}->>'session' = 'tes' and (${attempt.result}->>'perfect')::boolean is true and ${attempt.retryOf} is null)::int`,
+        testsEarly: sql<number>`count(*) filter (where ${attempt.result}->>'session' = 'tes' and (${attempt.result}->>'early')::boolean is true and ${attempt.retryOf} is null)::int`,
+        retriesImproved: sql<number>`count(*) filter (where ${attempt.retryOf} is not null and (${attempt.result}->>'improved')::boolean is true)::int`,
         esmo: sql<number>`count(*) filter (where ${attempt.kind} = 'esmo-pack' and ${attempt.submittedAt} is not null)::int`,
       })
       .from(attempt)
@@ -294,6 +304,11 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
     esmoPackagesDone: attempts?.esmo ?? 0,
     speakingDone: responses?.speak ?? 0,
     writingDone: responses?.write ?? 0,
+    papersDone: attempts?.papers ?? 0,
+    papersPassed: attempts?.papersPassed ?? 0,
+    testsPerfect: attempts?.testsPerfect ?? 0,
+    testsEarlyPerfect: attempts?.testsEarly ?? 0,
+    retriesImproved: attempts?.retriesImproved ?? 0,
   }
   const have = new Set((await tx.select({ id: badgeAward.badgeId }).from(badgeAward).where(eq(badgeAward.learnerId, lid))).map((r) => r.id))
   const fresh = earnedBadges(stats, have)

@@ -8,6 +8,7 @@ import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, promptPreview, resolveItems, skill, skillsFor, strandName, toClient } from './content'
 import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
+import { completeLinkedSession } from './learner-session'
 import { buildQuestItems, SUBJECT_ORDER } from './learner-today'
 
 const { reviewCard, attempt, skillState, quest } = tables
@@ -219,6 +220,8 @@ export async function completeLesson(tx: Tx, ctx: OrgContext, learnerId: string,
       .values({ orgId: ctx.orgId, learnerId, amount: Math.min(10, Math.min(correct, total) * 5), reason: 'lesson', ref: skillId, date: jakartaDate() })
       .onConflictDoNothing()
   }
+  // Sesi opsional "Lesson" untuk skill ini ikut selesai.
+  await completeLinkedSession(tx, learnerId, jakartaDate(), { session: 'lesson', skillId })
 }
 
 export function randomFor(key: string) {

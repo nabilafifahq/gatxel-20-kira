@@ -26,7 +26,7 @@ const STATE_WORD: Record<MapSkillDTO['state'], string> = {
 function skillLine(s: MapSkillDTO, previous: MapSkillDTO | null): string {
   const stars = `${s.stars} of 3 stars`
   if (s.state === 'locked') return previous ? `Opens after ${previous.title}.` : 'Opens later.'
-  if (s.isToday) return `In today's quest, ${stars}.`
+  if (s.isToday) return `In today's sessions, ${stars}.`
   if (s.state === 'mastered') return 'Mastered, 3 of 3 stars.'
   if (s.state === 'review') return `Time to review, ${stars}. A short review keeps the stars.`
   if (s.state === 'new') return 'New skill. Start with the lesson.'
@@ -35,7 +35,7 @@ function skillLine(s: MapSkillDTO, previous: MapSkillDTO | null): string {
 
 function skillCta(s: MapSkillDTO): { label: string; href: string | null } {
   if (s.state === 'new') return { label: 'See the lesson', href: s.lessonHref ?? s.practiseHref }
-  if (s.isToday) return { label: "Start today's quest", href: s.practiseHref }
+  if (s.isToday) return { label: "Start today's practice", href: s.practiseHref }
   if (s.state === 'mastered') return { label: 'Practise again', href: s.practiseHref }
   if (s.state === 'review') return { label: 'Review now', href: s.practiseHref }
   return { label: 'Practise', href: s.practiseHref }
@@ -48,7 +48,7 @@ function SkillCard({ s, subject, selected, onSelect }: { s: MapSkillDTO; subject
     <button
       type="button"
       aria-pressed={selected}
-      aria-label={`${s.title}, ${s.isToday ? "in today's quest" : STATE_WORD[s.state]}, ${s.stars} of 3 stars`}
+      aria-label={`${s.title}, ${s.isToday ? "in today's sessions" : STATE_WORD[s.state]}, ${s.stars} of 3 stars`}
       onClick={onSelect}
       className={cx(
         'relative flex min-h-26 w-full cursor-pointer flex-col items-stretch gap-2 rounded-control p-3 text-left',

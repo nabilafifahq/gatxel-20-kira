@@ -1,4 +1,4 @@
-import { CHALLENGE_BAND, CORE_BAND, LEARN_BAND, pickItems, type Candidate } from './picker'
+import { CHALLENGE_BAND, CORE_BAND, EASY_BAND, LEARN_BAND, TEST_BAND, pickItems, type Candidate } from './picker'
 import type { Gate } from './gates'
 import type { Rng } from './rng'
 
@@ -81,6 +81,54 @@ export function assembleQuest(input: {
       exclude: used,
     })
     if (challenge) slots.push({ ref: challenge.candidate.ref, section: 'challenge', difficulty: challenge.candidate.difficulty })
+  }
+  return slots
+}
+
+/** Banyak kartu Buku Koreksi yang boleh masuk Latihan harian sebagai pemanasan. */
+export const MAX_LATIHAN_WARMUP = 2
+
+/**
+ * Susun satu sesi harian. Latihan: soal mudah (peluang benar 85 sampai 95 persen) dengan paling banyak dua
+ * kartu Buku Koreksi di awal. Tes: soal sedang sampai sulit (55 sampai 75 persen) tanpa pemanasan.
+ * `avoid` berisi soal yang sudah dipakai sesi lain hari itu atau percobaan sebelumnya. Dengan `reuse` (bawaan)
+ * soal itu dipakai lagi bila bank soal skill habis; tanpa `reuse` hasilnya bisa kurang dari `count` supaya
+ * pemanggil bisa mengisi sisanya dari skill lain sebelum memakai soal ulang.
+ */
+export function assembleSession(input: {
+  kind: 'latihan' | 'tes'
+  theta: number
+  dueRefs?: readonly { ref: string; difficulty: number }[]
+  candidates: readonly Candidate[]
+  count: number
+  avoid?: ReadonlySet<string>
+  reuse?: boolean
+  rng: Rng
+}): QuestSlot[] {
+  const slots: QuestSlot[] = []
+  const used = new Set<string>()
+  const avoid = input.avoid ?? new Set<string>()
+  if (input.kind === 'latihan') {
+    for (const due of (input.dueRefs ?? []).slice(0, Math.min(MAX_LATIHAN_WARMUP, Math.max(0, input.count - 4)))) {
+      slots.push({ ref: due.ref, section: 'warmup', difficulty: due.difficulty })
+      used.add(due.ref)
+    }
+  }
+  const band = input.kind === 'latihan' ? EASY_BAND : TEST_BAND
+  const want = input.count - slots.length
+  const pickFrom = (exclude: ReadonlySet<string>, n: number) =>
+    pickItems({ candidates: input.candidates, theta: input.theta, count: n, band, rng: input.rng, exclude })
+  let core = pickFrom(new Set([...used, ...avoid]), want)
+  if (core.length < want && (input.reuse ?? true)) {
+    // Bank soal skill ini kurang: isi sisanya dengan soal yang sudah pernah dipakai.
+    const have = new Set([...used, ...core.map((c) => c.candidate.ref)])
+    const more = pickFrom(have, want - core.length)
+    core = [...core, ...more]
+  }
+  core.sort((a, b) => b.p - a.p)
+  for (const c of core) {
+    slots.push({ ref: c.candidate.ref, section: 'core', difficulty: c.candidate.difficulty })
+    if (!c.candidate.unlimited) used.add(c.candidate.ref)
   }
   return slots
 }

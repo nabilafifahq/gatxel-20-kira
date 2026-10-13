@@ -141,9 +141,9 @@ export async function bankStats(tx: Tx): Promise<BankStats> {
   const used = await tx
     .select({
       key: STAT_KEY,
-      attempts: sql<number>`count(*) filter (where ${response.attemptNo} = 1)::int`,
-      correct: sql<number>`count(*) filter (where ${response.attemptNo} = 1 and ${response.status} = 'correct')::int`,
-      graded: sql<number>`count(*) filter (where ${response.attemptNo} = 1 and ${response.status} in ('correct', 'wrong'))::int`,
+      attempts: sql<number>`count(*) filter (where ${response.attemptNo} = 1 and ${response.retry} = false)::int`,
+      correct: sql<number>`count(*) filter (where ${response.attemptNo} = 1 and ${response.retry} = false and ${response.status} = 'correct')::int`,
+      graded: sql<number>`count(*) filter (where ${response.attemptNo} = 1 and ${response.retry} = false and ${response.status} in ('correct', 'wrong'))::int`,
     })
     .from(response)
     .groupBy(sql`1`)
