@@ -74,6 +74,10 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--math-50` | #E7F0F9 | Latar tipis Math |
 | `--english-50` | #FAECE8 | Latar tipis English |
 | `--science-50` | #E7F3EC | Latar tipis Science |
+| `--mental` | #7A3EB0 | Aksen Quick Maths dan XP Hitung Cepat (ungu), 6,7:1 di atas putih, 5,7:1 di atas `--mental-50` |
+| `--knowledge` | #27409E | Aksen Quiz Arena dan XP Pengetahuan (biru tua), 9,1:1 di atas putih, 7,7:1 di atas `--knowledge-50`; berbeda dari `--math` (selisih warna 30 pada CIELAB) |
+| `--mental-50` | #F2EAF8 | Latar tipis Quick Maths |
+| `--knowledge-50` | #E8ECF9 | Latar tipis Quiz Arena |
 | `--accent` | var(--math) | Fokus dan tautan di konsol |
 | `--success` | #2E7D4F | Correct, selalu dengan ikon centang dan teks |
 | `--warn` | #B54708 | Not yet, selalu dengan ikon dan teks, 5,1:1 |
@@ -82,6 +86,8 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--danger` | #B42318 | Aksi hapus dan error di konsol, 6,2:1 |
 | `--danger-50` | #FCEBEA | Latar tipis error |
 | `--review` | #A3B1C2 | Skill perlu review di peta panas, selalu dengan teks |
+
+Tiga jalur XP punya warna bar sendiri: XP Belajar memakai `--star`, XP Hitung Cepat memakai `--mental`, XP Pengetahuan memakai `--knowledge`. Warna selalu ditemani label dan angka level, tidak pernah menjadi satu-satunya penanda. `--mental` dan `--knowledge` dipakai untuk teks, garis, dan isi tombol (teks putih di atasnya lolos 4,5:1); `--mental-50` dan `--knowledge-50` hanya latar. Kontras dan jarak warna dijaga oleh `packages/figures/test/arena-tokens.test.ts`.
 
 Dark mode: tidak di v1. Setiap tema tambahan menggandakan uji kontras.
 
