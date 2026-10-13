@@ -18,6 +18,7 @@ import { drawNumberline } from './numberline'
 import { drawPattern, drawSequence } from './sequence'
 import { drawCarroll, drawVenn } from './sets'
 import { drawShape, drawShapes, drawSolid } from './shapes'
+import { drawClip } from './clip'
 
 function dispatch(spec: FigureSpec, ctx: Ctx): Drawn {
   switch (spec.kind) {
@@ -50,6 +51,7 @@ function dispatch(spec: FigureSpec, ctx: Ctx): Drawn {
     case 'icons': return drawIcons(spec)
     case 'circuit': return drawCircuit(spec)
     case 'balance': return drawBalance(spec)
+    case 'clip': return drawClip(spec)
     default: return fallback(String((spec as { kind?: unknown }).kind ?? 'figure'))
   }
 }

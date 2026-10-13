@@ -148,6 +148,10 @@ const SAMPLES: Record<FigureKind, FigureSpecInput[]> = {
     { kind: 'balance', left: ['3', '4'], right: ['?'], tilt: 'level', alt: 'A balance with 3 and 4 on the left and a missing number.' },
     { kind: 'balance', left: ['5', '5', '5'], right: ['20'], tilt: 'right', alt: 'A balance tipped to the right.' },
   ],
+  clip: [
+    { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a11', width: 320, height: 200, alt: 'A picture of a row of coloured counters from the paper.' },
+    { kind: 'clip', mediaId: '3f2b8f0e-5c1a-4d7e-9b1a-0c6e2d4f8a12', width: 1200, height: 900, alt: 'A large picture of a grid with some squares shaded.' },
+  ],
 }
 
 function esc(s: string): string {
