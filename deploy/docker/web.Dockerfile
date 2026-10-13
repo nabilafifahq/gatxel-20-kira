@@ -22,7 +22,7 @@ RUN --mount=type=cache,id=kira-pnpm,target=/pnpm/store pnpm install --frozen-loc
 
 FROM deps AS build
 COPY . .
-# Alamat publik (Tailscale) masuk ke konfigurasi Server Actions saat build; lihat next.config.ts.
+# Alamat publik (Cloudflare Tunnel) masuk ke konfigurasi Server Actions saat build; lihat next.config.ts.
 ARG KIRA_ORIGIN=
 ENV KIRA_ORIGIN=${KIRA_ORIGIN}
 RUN pnpm --filter @kira/web build

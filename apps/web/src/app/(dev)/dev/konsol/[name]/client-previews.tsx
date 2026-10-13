@@ -76,6 +76,8 @@ const PREVIEWS: Record<string, Render> = {
           setRestDay: fake(undefined, fail, 'Hari istirahat belum tersimpan.'),
           applySuggestions: fake(undefined, fail, 'Usulan belum diterapkan.'),
           publishWeek: fake(undefined, fail, 'Rencana belum terbit.'),
+          setDayTemplate: fake(undefined, fail, 'Template belum tersimpan.'),
+          copyWeek: fake({ copied: 12, skipped: 2 }, fail, 'Minggu belum tersalin.'),
         }}
       />
     )
@@ -183,6 +185,9 @@ const PREVIEWS: Record<string, Render> = {
           uploadPdf: fake({ batchId: 'imp-0005' }, fail, 'PDF belum terunggah.'),
           updateImportItem: fake(undefined, fail, 'Perubahan soal belum tersimpan.'),
           approveImportItems: fake({ created: 7 }, fail, 'Soal belum masuk Bank soal.'),
+          updateImportMeta: fake(undefined, fail, 'Data paper belum tersimpan.'),
+          attachFigure: fake({ url: '/api/media/00000000-0000-4000-8000-000000000001' }, fail, 'Gambar belum terpasang.'),
+          removeFigure: fake(undefined, fail, 'Gambar belum dilepas.'),
         }}
       />
     )

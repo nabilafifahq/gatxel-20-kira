@@ -1,241 +1,68 @@
 import 'server-only'
-import { and, asc, eq, gte, inArray, isNull, lte, sql } from 'drizzle-orm'
-import {
-  addDays,
-  assembleQuest,
-  chooseSkill,
-  createRng,
-  daysBetween,
-  estimateMinutes,
-  formatDateEn,
-  jakartaDate,
-  weekdayNameEn,
-  type IsoDate,
-  type QuestSlot,
-} from '@kira/core'
+import { and, asc, eq, gte, inArray, isNull, sql } from 'drizzle-orm'
+import { addDays, bestIndex, daysBetween, formatDateEn, jakartaDate, sessionMinutes, weekday, weekdayNameEn, type IsoDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
-import { genRef, newSeed } from '@kira/content/math'
-import type { DoneTodayDTO, QuestIntroDTO, QuestStopDTO, SegmentState, Subject, TodayDTO } from '@/lib/dto'
+import type { DoneTodayDTO, QuestIntroDTO, QuestStopDTO, SegmentState, Subject, TodayDTO, TodayGroupDTO } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
-import { lesson, poolForSkill, skill, skillsFor, resolveItems } from './content'
-import { learnerShell, loadLearner, minutesOn, recentSeen, refreshDayRecord, skillStates, streakDTO, isRestDay, type LearnerRow } from './learner-core'
+import { lesson, skill } from './content'
+import { learnerShell, loadLearner, minutesOn, skillStates, streakDTO, isRestDay } from './learner-core'
+import { fixItOpenCount } from './mistake-book'
+import {
+  SUBJECT_LABEL,
+  SUBJECT_ORDER,
+  buildQuestItems,
+  createAttemptFor,
+  ensureTodayQuests,
+  isLinkQuest,
+  isTesLocked,
+  linkHref,
+  scoreOf,
+  scoreText,
+  type AttemptItem,
+  type QuestRow,
+  type ScoreText,
+} from './learner-session'
 
-const { quest, attempt, response, planSlot, planWeek, reviewCard, competitionEvent, paper, orgItem } = tables
+const { quest, attempt, response, competitionEvent, orgItem } = tables
 
-export const SUBJECT_ORDER: Subject[] = ['math', 'english', 'science']
-export const SUBJECT_LABEL: Record<Subject, string> = { math: 'Math', english: 'English', science: 'Science' }
+export { SUBJECT_LABEL, SUBJECT_ORDER, buildQuestItems, ensureTodayQuests }
 
-type QuestRow = typeof quest.$inferSelect
-type AttemptItem = { ref: string; section: QuestSlot['section']; position: number; difficulty: number }
-
-const MANUAL_STRANDS = new Set(['Wc', 'SL', 'Wp'])
-
-function questLength(learner: LearnerRow, mode: string): number {
-  if (mode === 'belajar') return 6
-  return learner.grade <= 1 ? 8 : 10
+/** Nama sesi untuk learner (en-GB). */
+export const SESSION_LABEL: Record<SessionType, string> = {
+  latihan: 'Practice',
+  tes: 'Test',
+  paper: 'Paper',
+  lesson: 'Lesson',
+  simulation: 'Competition practice',
+  esmo: 'ESMO practice',
+  review: 'Review cards',
+  'quick-maths': 'Quick Maths',
+  knowledge: 'Quiz',
+  'english-skill': 'English task',
+  reading: 'Reading',
 }
 
-/** Ubah kandidat generator tanpa seed menjadi ref lengkap dengan seed baru. */
-function materialise(ref: string, rng: ReturnType<typeof createRng>): string {
-  const m = /^gen:([mes][1-6]\.[a-z0-9-]+):([1-5])$/.exec(ref)
-  return m ? genRef(m[1]!, Number(m[2]) as 1 | 2 | 3 | 4 | 5, newSeed(rng)) : ref
-}
+const CORE_ORDER: Record<string, number> = { latihan: 0, tes: 1, paper: 2 }
 
-export async function buildQuestItems(
-  tx: Tx,
-  ctx: OrgContext,
-  learner: LearnerRow,
-  input: { skillId: string; subject: Subject; mode: 'belajar' | 'latihan'; date: IsoDate; seedKey: string; length?: number },
-): Promise<AttemptItem[]> {
-  const rng = createRng(input.seedKey)
-  const sk = skill(input.skillId)
-  const allowManual = sk ? MANUAL_STRANDS.has(sk.strand) : false
-  const pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual })
-  const seen = await recentSeen(tx, learner.userId)
-  const states = await skillStates(tx, learner.userId)
-  const theta = states.get(input.skillId)?.theta ?? 0
-  const due = learner.reviewEnabled
-    ? await tx
-        .select({ ref: reviewCard.itemRef })
-        .from(reviewCard)
-        .where(and(eq(reviewCard.learnerId, learner.userId), eq(reviewCard.subject, input.subject), eq(reviewCard.retired, false), lte(reviewCard.dueAt, new Date(Date.parse(`${input.date}T23:59:59+07:00`)))))
-        .orderBy(asc(reviewCard.dueAt))
-        .limit(3)
-    : []
-  const dueItems = await resolveItems(tx, due.map((d) => d.ref))
-  const length = input.length ?? questLength(learner, input.mode)
-  let slots: QuestSlot[]
-  const manual = pool.filter((p) => p.manual)
-  if (allowManual && manual.length > 0) {
-    // Skill menulis atau berbicara: satu tugas yang dinilai tutor ditambah soal otomatis.
-    const auto = pool.filter((p) => !p.manual)
-    const pickManual = rng.pick(manual.filter((m) => !seen.has(m.ref)).length ? manual.filter((m) => !seen.has(m.ref)) : manual)
-    const rest = assembleQuest({ mode: input.mode, theta, dueRefs: [], candidates: auto.map((c) => ({ ...c, ...(seen.has(c.ref) ? { seenDaysAgo: seen.get(c.ref)! } : {}) })), length: Math.max(0, Math.min(4, auto.length)), rng })
-    slots = [...rest, { ref: pickManual.ref, section: 'core', difficulty: pickManual.difficulty }]
-  } else {
-    slots = assembleQuest({
-      mode: input.mode,
-      theta,
-      dueRefs: [...dueItems.entries()].map(([ref, item]) => ({ ref, difficulty: item.difficulty })),
-      candidates: pool.map((c) => ({ ...c, ...(seen.has(c.ref) && !c.unlimited ? { seenDaysAgo: seen.get(c.ref)! } : {}) })),
-      length,
-      rng,
-    })
-  }
-  return slots.map((s, i) => ({ ref: materialise(s.ref, rng), section: s.section, position: i + 1, difficulty: s.difficulty }))
-}
-
-/** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */
-function autoSkill(learner: LearnerRow, subject: Subject, states: Awaited<ReturnType<typeof skillStates>>, seedKey: string) {
-  const list = skillsFor(subject, learner.grade).filter((s) => s.strand !== 'Oly')
-  const progress = list.map((s) => ({
-    id: s.id,
-    order: s.order,
-    gate: states.get(s.id)?.gate ?? ('new' as const),
-    prerequisites: s.prerequisites,
-    lastPracticed: states.get(s.id)?.lastPracticed ?? null,
-  }))
-  return chooseSkill(progress, createRng(seedKey))
-}
-
-async function createAttemptFor(
-  tx: Tx,
-  ctx: OrgContext,
-  learner: LearnerRow,
-  q: { id: string; subject: Subject; skillId: string | null; paperId: string | null; mode: string; title: string; kind: string; date: IsoDate },
-  /** Jumlah soal dari slot rencana tutor; tanpa nilai ini panjang quest mengikuti mode. */
-  plannedLength?: number,
-): Promise<string> {
-  let items: AttemptItem[] = []
-  let timeLimit: number | null = null
-  let mode = q.mode
-  if (q.paperId) {
-    const p = await tx.select().from(paper).where(eq(paper.id, q.paperId)).limit(1)
-    if (p[0]) {
-      const resolved = await resolveItems(tx, p[0].itemRefs)
-      items = p[0].itemRefs.map((ref, i) => ({ ref, section: 'core' as const, position: i + 1, difficulty: resolved.get(ref)?.difficulty ?? 3 }))
-      // Mode slot rencana dicatat saat paper dimasukkan; paper yang sama boleh diberikan lagi dengan mode
-      // lain (misalnya Tes untuk satu learner, Kertas untuk learner lain), jadi mode slot yang menentukan.
-      if (q.mode === 'tes') {
-        timeLimit = p[0].minutes * 60
-        mode = 'tes'
-      }
-    }
-  } else if (q.skillId) {
-    items = await buildQuestItems(tx, ctx, learner, {
-      skillId: q.skillId,
-      subject: q.subject,
-      mode: q.mode === 'belajar' ? 'belajar' : 'latihan',
-      date: q.date,
-      seedKey: `${learner.userId}:${q.date}:${q.subject}:${q.kind}`,
-      ...(q.kind === 'bonus' ? { length: 6 } : plannedLength ? { length: plannedLength } : {}),
-    })
-  }
-  const [row] = await tx
-    .insert(attempt)
-    .values({
-      orgId: ctx.orgId,
-      learnerId: learner.userId,
-      kind: 'quest',
-      refId: q.id,
-      mode: (mode === 'kertas' ? 'kertas' : mode) as 'belajar' | 'latihan' | 'tes' | 'kertas',
-      subject: q.subject,
-      title: q.title,
-      items,
-      timeLimitS: timeLimit,
-    })
-    .returning({ id: attempt.id })
-  await tx.update(quest).set({ attemptId: row!.id }).where(eq(quest.id, q.id))
-  return row!.id
-}
-
-/** Buat quest hari ini bila belum ada: dari rencana tutor yang sudah terbit, atau dipilih otomatis. */
-export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: LearnerRow, date: IsoDate): Promise<QuestRow[]> {
-  const existing = await tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
-  if (existing.some((q) => q.kind === 'daily')) {
-    for (const q of existing) if (!q.attemptId) await createAttemptFor(tx, ctx, learner, { ...q, date })
-    return tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
-  }
-  if (await isRestDay(tx, learner, date)) return existing
-  const slots = await tx
-    .select({ subject: planSlot.subject, kind: planSlot.kind, skillId: planSlot.skillId, paperId: planSlot.paperId, mode: planSlot.mode, questionCount: planSlot.questionCount })
-    .from(planSlot)
-    .innerJoin(planWeek, eq(planSlot.planWeekId, planWeek.id))
-    .where(and(eq(planSlot.learnerId, learner.userId), eq(planSlot.date, date), eq(planWeek.status, 'published')))
-  const states = await skillStates(tx, learner.userId)
-  const papers = new Map<string, string>()
-  const paperIds = slots.map((s) => s.paperId).filter((x): x is string => Boolean(x))
-  if (paperIds.length) for (const p of await tx.select({ id: paper.id, title: paper.title }).from(paper).where(inArray(paper.id, paperIds))) papers.set(p.id, p.title)
-
-  for (const subject of SUBJECT_ORDER) {
-    const slot = slots.find((s) => s.subject === subject && s.kind === 'quest')
-    // Paper mode Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi mapel ini tidak punya
-    // quest tablet hari ini. refreshDayRecord menghitung quest yang ada, sehingga quests_required
-    // hanya berisi quest tablet dan hari tetap bisa selesai.
-    if (slot?.mode === 'kertas') continue
-    let skillId = slot?.skillId ?? null
-    let mode: 'belajar' | 'latihan' | 'tes' | 'kertas' = slot?.mode ?? 'latihan'
-    if (!slot) {
-      const chosen = autoSkill(learner, subject, states, `${learner.userId}:${date}:${subject}`)
-      if (!chosen) continue
-      skillId = chosen.id
-      mode = chosen.gate === 'new' && lesson(chosen.id) ? 'belajar' : 'latihan'
-    }
-    const title = slot?.paperId ? (papers.get(slot.paperId) ?? 'Paper') : (skill(skillId ?? '')?.title ?? SUBJECT_LABEL[subject])
-    const [q] = await tx
-      .insert(quest)
-      .values({ orgId: ctx.orgId, learnerId: learner.userId, date, subject, kind: 'daily', skillId, paperId: slot?.paperId ?? null, mode, title })
-      .onConflictDoNothing()
-      .returning()
-    if (q) await createAttemptFor(tx, ctx, learner, { ...q, date }, slot && !slot.paperId ? slot.questionCount : undefined)
-  }
-  await refreshDayRecord(tx, ctx, learner.userId, date)
-  return tx.select().from(quest).where(and(eq(quest.learnerId, learner.userId), eq(quest.date, date)))
-}
-
-/** Quest bonus terbuka setelah tiga quest harian selesai. */
-export async function ensureBonusQuest(tx: Tx, ctx: OrgContext, learner: LearnerRow, date: IsoDate, quests: QuestRow[]): Promise<QuestRow | null> {
-  const bonus = quests.find((q) => q.kind === 'bonus')
-  if (bonus) return bonus
-  const daily = quests.filter((q) => q.kind === 'daily')
-  if (daily.length === 0 || daily.some((q) => q.status !== 'done')) return null
-  const slot = await tx
-    .select({ subject: planSlot.subject, skillId: planSlot.skillId })
-    .from(planSlot)
-    .innerJoin(planWeek, eq(planSlot.planWeekId, planWeek.id))
-    .where(and(eq(planSlot.learnerId, learner.userId), eq(planSlot.date, date), eq(planSlot.kind, 'bonus'), eq(planWeek.status, 'published')))
-    .limit(1)
-  const states = await skillStates(tx, learner.userId)
-  let subject: Subject = (slot[0]?.subject as Subject) ?? 'math'
-  let skillId = slot[0]?.skillId ?? null
-  if (!skillId) {
-    // Mapel dengan skill reteach atau review paling banyak di grade ini.
-    const scores = SUBJECT_ORDER.map((s) => ({
-      s,
-      weak: skillsFor(s, learner.grade).filter((sk) => ['reteach', 'review'].includes(states.get(sk.id)?.gate ?? 'new')).length,
-    })).sort((a, b) => b.weak - a.weak)
-    subject = scores[0]!.s
-    skillId = autoSkill(learner, subject, states, `${learner.userId}:${date}:bonus`)?.id ?? null
-  }
-  if (!skillId) return null
-  const [q] = await tx
-    .insert(quest)
-    .values({ orgId: ctx.orgId, learnerId: learner.userId, date, subject, kind: 'bonus', skillId, mode: 'latihan', title: skill(skillId)?.title ?? 'Bonus quest' })
-    .onConflictDoNothing()
-    .returning()
-  if (!q) return null
-  await createAttemptFor(tx, ctx, learner, { ...q, date })
-  const fresh = await tx.select().from(quest).where(eq(quest.id, q.id)).limit(1)
-  return fresh[0] ?? null
-}
-
-type Progress = { total: number; answered: number; segments: SegmentState[] }
+type Progress = { total: number; answered: number; segments: SegmentState[]; timeLimitS: number | null; mode: string; score: ScoreText | null }
 
 export async function attemptProgress(tx: Tx, attemptIds: string[]): Promise<Map<string, Progress>> {
   const out = new Map<string, Progress>()
   if (attemptIds.length === 0) return out
-  const atts = await tx.select({ id: attempt.id, items: attempt.items, mode: attempt.mode }).from(attempt).where(inArray(attempt.id, attemptIds))
+  const atts = await tx
+    .select({
+      id: attempt.id,
+      items: attempt.items,
+      mode: attempt.mode,
+      timeLimitS: attempt.timeLimitS,
+      status: attempt.status,
+      scoreRaw: attempt.scoreRaw,
+      scoreMax: attempt.scoreMax,
+      scoreScaled: attempt.scoreScaled,
+    })
+    .from(attempt)
+    .where(inArray(attempt.id, attemptIds))
   const resp = await tx
     .select({ attemptId: response.attemptId, position: response.position, attemptNo: response.attemptNo, status: response.status })
     .from(response)
@@ -261,35 +88,123 @@ export async function attemptProgress(tx: Tx, attemptIds: string[]): Promise<Map
       if (hide) return 'answered'
       return l.status === 'correct' ? 'correct' : l.status === 'pending' ? 'answered' : 'not-yet'
     })
-    out.set(a.id, { total: items.length, answered: latest.size, segments })
+    out.set(a.id, {
+      total: items.length,
+      answered: latest.size,
+      segments,
+      timeLimitS: a.timeLimitS,
+      mode: a.mode,
+      score: a.status === 'in_progress' ? null : scoreText(a, items.length),
+    })
   }
   return out
 }
 
-function stopFor(q: QuestRow, p: Progress | undefined, active: boolean): QuestStopDTO {
+/** Skor terbaik dari sesi yang diulang, per attempt pertama. Hanya diisi bila sebuah ulangan lebih baik dari yang resmi. */
+async function bestScores(
+  tx: Tx,
+  roots: { id: string; scoreRaw: number | null; scoreMax: number | null; scoreScaled: number | null; total: number }[],
+): Promise<Map<string, string>> {
+  const out = new Map<string, string>()
+  if (roots.length === 0) return out
+  const retries = await tx
+    .select({ retryOf: attempt.retryOf, scoreRaw: attempt.scoreRaw, scoreMax: attempt.scoreMax, scoreScaled: attempt.scoreScaled, status: attempt.status })
+    .from(attempt)
+    .where(
+      inArray(
+        attempt.retryOf,
+        roots.map((r) => r.id),
+      ),
+    )
+  for (const root of roots) {
+    const mine = retries.filter((r) => r.retryOf === root.id && r.status !== 'in_progress')
+    if (mine.length === 0) continue
+    const all = [root, ...mine]
+    const i = bestIndex(all.map(scoreOf))
+    if (i > 0) out.set(root.id, scoreText(all[i]!, root.total)?.text ?? '')
+  }
+  return out
+}
+
+type StopCtx = { progress: Progress | undefined; locked: boolean; best: string | null }
+
+function minutesLabel(n: number): string {
+  return n === 1 ? '1 minute' : `${n} minutes`
+}
+
+function stopFor(q: QuestRow, c: StopCtx): QuestStopDTO {
+  const session = q.session as SessionType
+  const link = isLinkQuest(q)
+  const p = c.progress
   const total = p?.total ?? 0
   const answered = p?.answered ?? 0
-  const label = SUBJECT_LABEL[q.subject as Subject]
-  const minutesLeft = estimateMinutes(Math.max(1, total - answered))
-  const state: QuestStopDTO['state'] = q.status === 'done' ? 'done' : answered > 0 ? 'in-progress' : 'ready'
-  const meta =
-    state === 'done'
-      ? `${label}, done`
-      : state === 'in-progress'
-        ? `${label}, ${answered} of ${total} done, about ${minutesLeft} minutes left`
-        : `${total} questions, about ${estimateMinutes(total)} minutes`
+  const timed = Boolean(p?.timeLimitS)
+  const state: QuestStopDTO['state'] = q.status === 'done' ? 'done' : c.locked ? 'locked' : answered > 0 ? 'in-progress' : 'ready'
+  const minutes = timed ? Math.max(1, Math.round((p!.timeLimitS ?? 0) / 60)) : sessionMinutes({ session, questionCount: total })
+  let meta: string
+  if (state === 'locked') meta = `Opens after your ${SUBJECT_LABEL[q.subject as Subject]} practice`
+  else if (state === 'done') meta = [p?.score?.text ?? 'Done', c.best ? `best ${c.best}` : null].filter(Boolean).join(', ')
+  else if (state === 'in-progress') meta = `${answered} of ${total} done${timed ? '' : `, about ${minutesLabel(sessionMinutes({ session, questionCount: Math.max(1, total - answered) }))} left`}`
+  else if (link) meta = `About ${minutesLabel(sessionMinutes({ session }))}`
+  else meta = `${total} questions, ${timed ? `${minutesLabel(minutes)} on the clock` : `about ${minutesLabel(minutes)}`}`
+  const href = link
+    ? state === 'done'
+      ? null
+      : linkHref(q)
+    : state === 'locked'
+      ? null
+      : state === 'done'
+        ? q.attemptId
+          ? `/results/${q.attemptId}`
+          : null
+        : state === 'in-progress' && q.attemptId
+          ? `/run/${q.attemptId}`
+          : `/quest/${q.id}`
   return {
     questId: q.id,
-    subject: q.kind === 'bonus' ? 'bonus' : (q.subject as Subject),
+    subject: q.subject as Subject,
     state,
+    session,
+    sessionLabel: SESSION_LABEL[session],
+    required: q.kind !== 'extra',
+    timed,
+    best: c.best,
     title: q.title,
     meta,
     total,
     answered,
     segments: p?.segments ?? [],
-    href: state === 'done' ? (q.attemptId ? `/results/${q.attemptId}` : null) : state === 'in-progress' && q.attemptId ? `/run/${q.attemptId}` : `/quest/${q.id}`,
-    ctaLabel: state === 'done' ? 'See answers' : state === 'in-progress' ? 'Continue' : active ? 'Start' : 'Start',
-    offlineReady: Boolean(q.attemptId),
+    href,
+    ctaLabel: state === 'done' ? 'See answers' : state === 'locked' ? 'Locked' : state === 'in-progress' ? 'Continue' : link ? 'Open' : 'Start',
+    offlineReady: Boolean(q.attemptId) && !timed && !link && state !== 'locked',
+  }
+}
+
+/**
+ * Sabtu: perhentian opsional "Fix-it Book" bila masih ada soal Tes atau Paper yang belum benar (rencana bagian 10.6,
+ * ulang soal setiap Sabtu). Tidak memengaruhi streak dan bukan sesi tutor, jadi tidak punya baris quest.
+ */
+export async function fixItExtra(tx: Tx, learnerId: string, date: IsoDate): Promise<QuestStopDTO | null> {
+  if (weekday(date) !== 6) return null
+  const open = await fixItOpenCount(tx, learnerId)
+  if (open === 0) return null
+  return {
+    questId: null,
+    subject: 'bonus',
+    state: 'ready',
+    session: 'review',
+    sessionLabel: 'Fix-it Book',
+    required: false,
+    timed: false,
+    best: null,
+    title: 'Fix-it Book',
+    meta: `${open} ${open === 1 ? 'question' : 'questions'} from tests and papers to try again`,
+    total: 0,
+    answered: 0,
+    segments: [],
+    href: '/fix-it',
+    ctaLabel: 'Open',
+    offlineReady: false,
   }
 }
 
@@ -313,6 +228,14 @@ export async function hasEsmo(tx: Tx, learnerId: string, today: IsoDate): Promis
   return (packs[0]?.n ?? 0) > 0
 }
 
+const NUMBER_WORD = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+const numberWord = (n: number) => NUMBER_WORD[n] ?? String(n)
+
+/** Urutan sesi wajib dalam satu mapel: Latihan, Tes, Paper, lalu sesi wajib tambahan. */
+function byPath(a: QuestRow, b: QuestRow): number {
+  return (CORE_ORDER[a.session] ?? 9) - (CORE_ORDER[b.session] ?? 9) || a.seq - b.seq
+}
+
 export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Promise<TodayDTO> {
   const date = jakartaDate()
   const loaded = await loadLearner(tx, learnerId)
@@ -320,25 +243,51 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
   const learner = loaded.startedOn ? loaded : { ...loaded, startedOn: date }
   const shell = await learnerShell(tx, learner, date)
   const rest = await isRestDay(tx, learner, date)
-  let quests = rest ? [] : await ensureTodayQuests(tx, ctx, learner, date)
-  const bonus = await ensureBonusQuest(tx, ctx, learner, date, quests)
-  if (bonus && !quests.some((q) => q.id === bonus.id)) quests = [...quests, bonus]
-  const daily = quests.filter((q) => q.kind === 'daily').sort((a, b) => SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject))
-  const progress = await attemptProgress(tx, quests.map((q) => q.attemptId).filter((x): x is string => Boolean(x)))
-  const activeIdx = daily.findIndex((q) => q.status !== 'done')
-  const stops = daily.map((q, i) => stopFor(q, q.attemptId ? progress.get(q.attemptId) : undefined, i === activeIdx))
-  const bonusQ = quests.find((q) => q.kind === 'bonus')
-  const allDone = daily.length > 0 && activeIdx === -1
-  // Hari dengan paper Kertas punya kurang dari tiga quest tablet; teks jumlah mengikuti.
-  const n = daily.length
-  const bonusStop: QuestStopDTO | null = bonusQ
-    ? stopFor(bonusQ, bonusQ.attemptId ? progress.get(bonusQ.attemptId) : undefined, false)
-    : daily.length > 0
-      ? { questId: null, subject: 'bonus', state: 'locked', title: 'Bonus quest', meta: n >= 3 ? 'Opens after all three' : n === 2 ? 'Opens after both quests' : 'Opens after your quest', total: 0, answered: 0, segments: [], href: null, ctaLabel: 'Locked', offlineReady: false }
-      : null
+  const quests = rest ? [] : (await ensureTodayQuests(tx, ctx, learner, date)).filter((q) => q.kind !== 'bonus')
+  const progress = await attemptProgress(
+    tx,
+    quests.map((q) => q.attemptId).filter((x): x is string => Boolean(x)),
+  )
+  const roots = quests
+    .filter((q) => q.status === 'done' && q.attemptId)
+    .map((q) => {
+      const p = progress.get(q.attemptId!)
+      return { id: q.attemptId!, scoreRaw: p?.score?.raw ?? null, scoreMax: p?.score?.max ?? null, scoreScaled: p?.score?.scaled ?? null, total: p?.total ?? 0 }
+    })
+  const best = await bestScores(tx, roots)
+
+  const latihanDone = new Map<Subject, boolean>()
+  for (const s of SUBJECT_ORDER) latihanDone.set(s, quests.filter((q) => q.subject === s && q.session === 'latihan' && q.kind === 'daily').every((q) => q.status === 'done'))
+  const stopOf = (q: QuestRow) =>
+    stopFor(q, {
+      progress: q.attemptId ? progress.get(q.attemptId) : undefined,
+      locked: q.session === 'tes' && !latihanDone.get(q.subject as Subject),
+      best: q.attemptId ? (best.get(q.attemptId) ?? null) : null,
+    })
+
+  const mandatory = quests.filter((q) => q.kind === 'daily')
+  const groups: TodayGroupDTO[] = SUBJECT_ORDER.map((subject) => {
+    const stops = mandatory.filter((q) => q.subject === subject).sort(byPath).map(stopOf)
+    return { subject, label: SUBJECT_LABEL[subject], done: stops.filter((s) => s.state === 'done').length, total: stops.length, stops }
+  }).filter((g) => g.stops.length > 0)
+  const extras = quests
+    .filter((q) => q.kind === 'extra')
+    .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime() || a.id.localeCompare(b.id))
+    .map(stopOf)
+  if (!rest) {
+    const fixIt = await fixItExtra(tx, learnerId, date)
+    if (fixIt) extras.push(fixIt)
+  }
+
+  const flat = groups.flatMap((g) => g.stops)
+  const active = flat.find((s) => s.state === 'in-progress') ?? flat.find((s) => s.state === 'ready') ?? null
+  const done = flat.filter((s) => s.state === 'done').length
+  const total = flat.length
+  const allDone = total > 0 && done === total
+  const extraDone = extras.filter((s) => s.state === 'done').length
   const minutes = await minutesOn(tx, learner.userId, date)
   const streak = await streakDTO(tx, learner, date)
-  const anyAnswers = stops.some((s) => s.answered > 0) || streak.current > 0
+  const anyAnswers = [...flat, ...extras].some((s) => s.answered > 0) || streak.current > 0
   const variant: TodayDTO['variant'] = rest
     ? 'rest-day'
     : minutes >= learner.screenLimitMin
@@ -348,37 +297,32 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
         : learner.startedOn === date && !anyAnswers
           ? 'first-day'
           : 'normal'
-  const active = activeIdx >= 0 ? stops[activeIdx] : undefined
-  const doneCount = daily.filter((q) => q.status === 'done').length
   const subline =
     variant === 'rest-day'
       ? 'Today is a rest day. Your streak is safe.'
       : variant === 'time-limit'
         ? 'That is enough screen time for today. Well done.'
         : variant === 'all-done'
-          ? bonusQ && bonusQ.status !== 'done'
-            ? `${n >= 3 ? 'All three are' : n === 2 ? 'Both quests are' : 'Your quest is'} done. A bonus quest is open.`
-            : `${n >= 3 ? 'All three quests are' : n === 2 ? 'Both quests are' : 'Your quest is'} done. See you tomorrow.`
+          ? extras.length > extraDone
+            ? `All ${total} sessions are done. Extra sessions are open if you want them.`
+            : `All ${total} sessions are done. See you tomorrow.`
           : active?.state === 'in-progress'
-            ? `${SUBJECT_LABEL[(active.subject === 'bonus' ? 'math' : active.subject) as Subject]} is ${active.answered * 2 >= active.total ? 'half done' : 'started'}.`
-            : doneCount === 0
-              ? n >= 3
-                ? 'Three quests today. Start with the big one.'
-                : n === 2
-                  ? 'Two quests today. Start with the big one.'
-                  : 'One quest today.'
-              : `${doneCount} of ${daily.length} done. Keep going.`
+            ? `${SUBJECT_LABEL[active.subject as Subject]} ${active.sessionLabel.toLowerCase()} is ${active.answered * 2 >= active.total ? 'half done' : 'started'}.`
+            : done === 0
+              ? `${numberWord(total)} ${total === 1 ? 'session' : 'sessions'} today. Start with the big one.`
+              : `${done} of ${total} done. Keep going.`
   const comp = await nextCompetition(tx, learner.userId, date)
   return {
     shell,
     dateLabel: formatDateEn(date, true),
-    headline: variant === 'first-day' ? 'Your first quests' : `${weekdayNameEn(date)}'s quests`,
+    headline: variant === 'first-day' ? 'Your first sessions' : `${weekdayNameEn(date)}'s sessions`,
     subline,
     variant,
     streak,
-    stops,
-    activeIndex: activeIdx >= 0 ? activeIdx : null,
-    bonus: bonusStop,
+    groups,
+    extras,
+    activeQuestId: active?.questId ?? null,
+    progress: { done, total, extraDone, extraTotal: extras.length },
     nextCompetition: comp ? { name: comp.name, daysToGo: comp.daysToGo } : null,
     esmo: (await hasEsmo(tx, learner.userId, date)) ? { href: '/esmo', label: 'ESMO practice packs' } : null,
     minutesToday: minutes,
@@ -386,21 +330,32 @@ export async function todayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Prom
   }
 }
 
-export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, questId: string): Promise<QuestIntroDTO> {
+export type IntroResult = QuestIntroDTO | { locked: true } | { redirect: string }
+
+export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, questId: string): Promise<IntroResult> {
   const learner = await loadLearner(tx, learnerId)
   const rows = await tx.select().from(quest).where(and(eq(quest.id, questId), eq(quest.learnerId, learnerId))).limit(1)
   const q = rows[0]
   if (!q) throw notFound()
-  if (!q.attemptId) await createAttemptFor(tx, ctx, learner, { ...q, date: q.date })
+  if (isLinkQuest(q)) return { redirect: linkHref(q) ?? '/today' }
+  if (await isTesLocked(tx, q)) return { locked: true }
+  if (!q.attemptId) await createAttemptFor(tx, ctx, learner, q)
   const fresh = (await tx.select().from(quest).where(eq(quest.id, questId)).limit(1))[0]!
-  const att = (await tx.select({ items: attempt.items, mode: attempt.mode }).from(attempt).where(eq(attempt.id, fresh.attemptId!)).limit(1))[0]
+  if (!fresh.attemptId) throw notFound('No questions are ready for this session yet.')
+  const att = (await tx.select({ items: attempt.items, mode: attempt.mode, timeLimitS: attempt.timeLimitS }).from(attempt).where(eq(attempt.id, fresh.attemptId)).limit(1))[0]
   const items = (att?.items as AttemptItem[]) ?? []
   const sk = q.skillId ? skill(q.skillId) : undefined
   const l = q.skillId ? lesson(q.skillId) : undefined
   const subject = q.subject as Subject
+  const session = q.session as SessionType
+  const states = q.skillId ? await skillStates(tx, learnerId) : null
+  const isNew = q.skillId ? (states?.get(q.skillId)?.nAnswers ?? 0) === 0 : false
   const others = await tx.select().from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, q.date), eq(quest.kind, 'daily')))
-  const alt = others.find((o) => o.id !== q.id && o.status !== 'done')
-  const modeLabel = att?.mode === 'tes' ? 'Timed test' : q.mode === 'belajar' ? 'Learn and practise' : q.kind === 'bonus' ? 'Bonus practice' : 'Practice'
+  const latihanOpen = (s: string) => others.some((x) => x.subject === s && x.session === 'latihan' && x.status !== 'done')
+  const alt = others.find((o) => o.id !== q.id && o.status !== 'done' && o.subject !== q.subject && !isLinkQuest(o) && !(o.session === 'tes' && latihanOpen(o.subject)))
+  const timeLimitMin = att?.timeLimitS ? Math.max(1, Math.round(att.timeLimitS / 60)) : null
+  const modeLabel =
+    session === 'tes' ? 'Timed test' : session === 'paper' ? (timeLimitMin ? 'Timed paper' : 'Paper') : q.mode === 'belajar' ? 'Learn and practise' : session === 'reading' ? 'Reading' : q.kind === 'extra' ? 'Extra practice' : 'Practice'
   const practise = sk ? [sk.title, sk.canDo.replace(/^I can /, '').replace(/\.$/, '')].map((s) => s.charAt(0).toUpperCase() + s.slice(1)) : [q.title]
   return {
     shell: await learnerShell(tx, learner),
@@ -408,20 +363,26 @@ export async function questIntroDTO(tx: Tx, ctx: OrgContext, learnerId: string, 
     subject,
     title: q.title,
     questionCount: items.length,
-    minutes: estimateMinutes(items.length),
+    minutes: timeLimitMin ?? sessionMinutes({ session, questionCount: items.length }),
     hintsPerQuestion: att?.mode === 'tes' ? 0 : 3,
-    youWillPractise: practise,
+    youWillPractise: session === 'paper' ? [q.title] : practise,
     modeLabel,
-    lessonHref: l && q.mode === 'belajar' ? `/lesson/${q.skillId}?then=${encodeURIComponent(`/run/${fresh.attemptId}`)}` : l ? `/lesson/${q.skillId}` : null,
+    timeLimitMin,
+    lessonHref:
+      l && session !== 'tes' && session !== 'paper'
+        ? q.mode === 'belajar' || isNew
+          ? `/lesson/${q.skillId}?then=${encodeURIComponent(`/run/${fresh.attemptId}`)}`
+          : `/lesson/${q.skillId}`
+        : null,
     startHref: `/run/${fresh.attemptId}`,
     alternative: alt ? { subject: alt.subject as Subject, href: `/quest/${alt.id}` } : null,
   }
 }
 
-export async function doneTodayDTO(tx: Tx, ctx: OrgContext, learnerId: string): Promise<DoneTodayDTO> {
+export async function doneTodayDTO(tx: Tx, learnerId: string): Promise<DoneTodayDTO> {
   const date = jakartaDate()
   const learner = await loadLearner(tx, learnerId)
-  const quests = await tx.select().from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
+  const quests = (await tx.select().from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))).filter((q) => q.kind !== 'bonus')
   const attIds = quests.map((q) => q.attemptId).filter((x): x is string => Boolean(x))
   const atts = attIds.length ? await tx.select().from(attempt).where(inArray(attempt.id, attIds)) : []
   const minutes = await minutesOn(tx, learnerId, date)
@@ -437,41 +398,44 @@ export async function doneTodayDTO(tx: Tx, ctx: OrgContext, learnerId: string): 
     shell: await learnerShell(tx, learner, date),
     variant,
     title: variant === 'time-limit' ? 'Time for a break' : 'Done for today',
-    line: variant === 'time-limit' ? `You learned for ${minutes} minutes today. Your answers are saved.` : 'You finished your quests. Your streak grows.',
+    line: variant === 'time-limit' ? `You learned for ${minutes} minutes today. Your answers are saved.` : 'You finished your sessions. Your streak grows.',
     xpToday: xp[0]?.n ?? 0,
     minutesToday: minutes,
     quests: quests
-      .sort((a, b) => SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject))
+      .sort((a, b) => SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject) || byPath(a, b))
       .map((q) => {
         const a = atts.find((x) => x.id === q.attemptId)
         const items = ((a?.items as AttemptItem[]) ?? []).length
+        const s = a && q.status === 'done' ? scoreText(a, items) : null
         return {
           subject: q.subject as Subject,
+          session: SESSION_LABEL[q.session as SessionType],
           title: q.title,
-          score: q.status === 'done' && a?.scoreRaw !== null && a?.scoreRaw !== undefined ? `${Math.round(a.scoreRaw)} of ${items}` : q.status === 'done' ? 'Done' : 'Not finished',
+          score: q.status === 'done' ? (s?.text ?? 'Done') : 'Not finished',
+          required: q.kind !== 'extra',
         }
       }),
-    tomorrow: `Tomorrow is ${weekdayNameEn(tomorrow)}. New quests will be ready.`,
+    tomorrow: `Tomorrow is ${weekdayNameEn(tomorrow)}. New sessions will be ready.`,
     answersHref: atts.find((a) => a.submittedAt)?.id ? `/results/${atts.find((a) => a.submittedAt)!.id}` : null,
     streak: await streakDTO(tx, learner, date),
   }
 }
 
 /**
- * Halaman yang disimpan service worker supaya quest hari ini tetap bisa dikerjakan saat internet
- * rumah putus: Today, pembuka dan runner setiap quest yang belum selesai, pelajarannya, peta, Review.
- * Halaman Me tidak ikut karena membukanya menandai lencana sudah dilihat.
+ * Halaman yang disimpan service worker supaya sesi hari ini tetap bisa dikerjakan saat internet
+ * rumah putus: Today, pembuka dan runner setiap sesi tanpa waktu yang belum selesai, pelajarannya, peta, Review.
+ * Halaman Me tidak ikut karena membukanya menandai lencana sudah dibaca.
  */
 export async function offlineUrlsForToday(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
   const rows = await tx
-    .select({ id: quest.id, attemptId: quest.attemptId, status: quest.status, skillId: quest.skillId, mode: quest.mode, timeLimitS: attempt.timeLimitS })
+    .select({ id: quest.id, attemptId: quest.attemptId, status: quest.status, skillId: quest.skillId, mode: quest.mode, session: quest.session, timeLimitS: attempt.timeLimitS })
     .from(quest)
     .leftJoin(attempt, eq(attempt.id, quest.attemptId))
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
   const urls = ['/today', '/map', '/review']
   for (const q of rows) {
-    // Tes berwaktu tidak disimpan offline: jam mulai saat halaman runner pertama kali dimuat.
-    if (q.status === 'done' || !q.attemptId || q.timeLimitS) continue
+    // Tes dan Paper berwaktu tidak disimpan offline: jam mulai saat halaman runner pertama kali dimuat.
+    if (q.status === 'done' || !q.attemptId || q.timeLimitS || q.session === 'tes') continue
     urls.push(`/quest/${q.id}`, `/run/${q.attemptId}`)
     if (q.skillId && q.mode === 'belajar' && lesson(q.skillId)) urls.push(`/lesson/${q.skillId}?then=${encodeURIComponent(`/run/${q.attemptId}`)}`)
   }

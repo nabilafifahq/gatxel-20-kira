@@ -14,6 +14,8 @@ import { throttleIp } from '../auth/ratelimit'
 import { learnerOrgFor, setLearnerAvatar } from '../dal/learner-entry'
 import { answerPayloadSchema, saveAnswer, submitAttempt } from '../dal/learner-runner'
 import { completeLesson } from '../dal/learner-explore'
+import { loadLearner } from '../dal/learner-core'
+import { createRetryAttempt } from '../dal/learner-session'
 import { startEsmoMock, startEsmoPack, startSimulation } from '../dal/learner-competition'
 import { audit } from '../audit'
 
@@ -123,6 +125,20 @@ export async function completeLessonAction(skillId: string, correct: number, tot
       const input = z.object({ skillId: z.string().regex(/^[mes][1-6]\.[a-z0-9-]+$/), correct: z.number().int().min(0).max(10), total: z.number().int().min(0).max(10) }).strict().parse({ skillId, correct, total })
       await inOrg(orgCtx(actor), (tx) => completeLesson(tx, orgCtx(actor), actor.userId, input.skillId, input.correct, input.total))
       return undefined
+    },
+    'en-GB',
+  )
+}
+
+/** Ulang seluruh sesi yang sudah selesai (Latihan, Tes, atau Paper). Percobaan pertama tetap resmi. */
+export async function retrySessionAction(attemptId: string): Promise<ActionResult<{ redirectTo: string }>> {
+  return runAction(
+    'retrySession',
+    async () => {
+      const actor = await requireLearner()
+      const id = z.string().uuid().parse(attemptId)
+      const newId = await inOrg(orgCtx(actor), async (tx) => createRetryAttempt(tx, orgCtx(actor), await loadLearner(tx, actor.userId), id))
+      return { redirectTo: `/run/${newId}` }
     },
     'en-GB',
   )

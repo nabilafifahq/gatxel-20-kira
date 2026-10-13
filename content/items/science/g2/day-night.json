@@ -202,6 +202,164 @@
       ] },
       "hints": ["The side of the Earth facing the Sun gets light.", "The other side is in darkness."],
       "explanation": "The half of the Earth that faces the Sun has day. The half that faces away has night. As the Earth spins, places move from day to night."
+    },
+    {
+      "id": "s2.day-night.017",
+      "skill": "s2.day-night",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The ___ gives us light and heat in the daytime.",
+      "hints": [
+        "We see it in the sky when it is day.",
+        "It is very bright and hot.",
+        "You should never look straight at it."
+      ],
+      "explanation": "The Sun gives us light and heat. At night we cannot see it because our side of the Earth faces away.",
+      "gaps": [
+        {
+          "options": [
+            "moon",
+            "sun",
+            "cloud"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s2.day-night.018",
+      "skill": "s2.day-night",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap 2 things you can see in the night sky.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "moon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "star",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rainbow",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: sun, moon, star and rainbow."
+      },
+      "hints": [
+        "Think about what you see when it is dark.",
+        "One is round and bright and one is a tiny light.",
+        "It is not the Sun or a cloud in the day."
+      ],
+      "explanation": "We see the Moon and the stars at night. The Sun is out in the day.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "sun",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "moon",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "star",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "rainbow",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "s2.day-night.019",
+      "skill": "s2.day-night",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the pictures with day or night.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "moon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "2 pictures to label."
+      },
+      "hints": [
+        "The Sun is out in the daytime.",
+        "The Moon is out at night.",
+        "Look at each picture."
+      ],
+      "explanation": "We see the Sun in the day and the Moon at night.",
+      "labels": [
+        "day",
+        "night"
+      ],
+      "spots": [
+        {
+          "x": 25,
+          "y": 50
+        },
+        {
+          "x": 75,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "rain"
+      ]
     }
   ]
 }

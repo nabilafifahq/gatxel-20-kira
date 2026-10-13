@@ -404,6 +404,46 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.word-endings.014",
+      "skill": "e1.word-endings",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "The doing word ends in -ing.",
+        "The last word tells how high she jumps."
+      ],
+      "explanation": "She is jumping high. The word jumping ends in -ing because it is happening now.",
+      "answer": "She is jumping high.",
+      "distractors": [
+        "jumps"
+      ]
+    },
+    {
+      "id": "e1.word-endings.015",
+      "skill": "e1.word-endings",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The dog is ___ in the garden.",
+      "hints": [
+        "The word is, tells you it is happening now.",
+        "After is we use a word that ends in -ing.",
+        "Which word ends in -ing?"
+      ],
+      "explanation": "Is playing shows the dog is playing right now.",
+      "gaps": [
+        {
+          "options": [
+            "play",
+            "plays",
+            "playing"
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

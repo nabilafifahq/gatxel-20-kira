@@ -17,16 +17,32 @@ export const JOB_KINDS = [
   'ai.import',
   'ai.test',
   'learner.delete',
+  'tts.batch',
+  'tts.clip',
 ] as const
 export type JobKind = (typeof JOB_KINDS)[number]
 
 export const AI_JOB_KINDS = JOB_KINDS.filter((k) => k.startsWith('ai.'))
+/** Job suara bahasa Inggris (layanan tts). Berjalan di jalur sendiri karena batch bisa berjam-jam. */
+export const TTS_JOB_KINDS = JOB_KINDS.filter((k) => k.startsWith('tts.'))
 
 export type AiJobPayload = { aiJobId: string }
 /** Dijadwalkan dengan run_after = tanggal hapus. Worker memeriksa permintaan belum dibatalkan. */
 export type LearnerDeletePayload = { learnerId: string; deletionRequestId: string }
 
-export type JobPayload<K extends JobKind> = K extends 'learner.delete' ? LearnerDeletePayload : AiJobPayload
+
+/** tts.batch: buat semua klip bahasa Inggris yang belum ada. Dijadwalkan malam hari atau dijalankan dari perintah admin. */
+export type TtsBatchPayload = { scope: 'all' }
+/** tts.clip: buat klip yang diminta layar learner. style adalah id gaya (packages/core/src/tts.ts). */
+export type TtsClipPayload = { clips: { text: string; style: string }[] }
+
+export type JobPayload<K extends JobKind> = K extends 'learner.delete'
+  ? LearnerDeletePayload
+  : K extends 'tts.batch'
+    ? TtsBatchPayload
+    : K extends 'tts.clip'
+      ? TtsClipPayload
+      : AiJobPayload
 
 /** Ringkasan skill yang dikirim ke AI (tanpa data learner). */
 export type AiSkillBrief = {
@@ -96,6 +112,16 @@ export type ImportStoredItem = {
   status: 'ok' | 'key-mismatch' | 'leftover-key-text' | 'broken-fraction' | 'needs-check'
   approved: boolean
   orgItemId: string | null
+  /** Jawaban AI (indeks opsi mulai 0) dari pemeriksaan kunci; null bila AI ragu. */
+  aiAnswer?: number | null
+  /**
+   * Hasil pemeriksaan kunci oleh AI. agree: kunci PDF sama dengan jawaban AI. disagree: berbeda.
+   * ai-only: PDF tanpa kunci, AI mengerjakan dua kali dengan hasil sama (kunci usulan di `answer`, tutor tetap mengecek).
+   * skipped: AI belum siap, gagal, atau ragu.
+   */
+  keyCheck?: 'agree' | 'disagree' | 'ai-only' | 'skipped'
+  /** Gambar soal hasil potong dari halaman PDF (media org jenis figure), dipasang ke soal saat disetujui. */
+  figure?: { mediaId: string; width: number; height: number; alt: string } | null
 }
 
 /**

@@ -1,0 +1,57 @@
+{
+  "skill": "m2.number-bonds",
+  "items": [
+    {
+      "id": "m2.number-bonds.001",
+      "skill": "m2.number-bonds",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Find the partner that makes 10. Fill in the empty boxes.",
+      "hints": [
+        "The two numbers add up to 10.",
+        "For 3, find what to add to make 10.",
+        "4 and 6 make 10."
+      ],
+      "explanation": "The pairs that make 10 are 3 and 7, 4 and 6, 8 and 2.",
+      "caption": "Number bonds to 10",
+      "head": [
+        "Number",
+        "Partner"
+      ],
+      "rows": [
+        [
+          "3",
+          "7"
+        ],
+        [
+          "4",
+          ""
+        ],
+        [
+          "8",
+          ""
+        ],
+        [
+          "1",
+          "9"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "6"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "2"
+          ]
+        }
+      ]
+    }
+  ]
+}

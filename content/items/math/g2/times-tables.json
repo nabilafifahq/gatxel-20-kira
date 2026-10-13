@@ -1,0 +1,82 @@
+{
+  "skill": "m2.times-tables",
+  "items": [
+    {
+      "id": "m2.times-tables.001",
+      "skill": "m2.times-tables",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Each bag has 5 sweets. Ben has 3 bags. He eats 4 sweets.",
+      "hints": [
+        "Count in fives for the bags.",
+        "5, 10, 15.",
+        "Take 4 away from the total."
+      ],
+      "explanation": "3 bags of 5 is 15 sweets. 15 - 4 = 11 sweets are left.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many sweets does Ben have in 3 bags?",
+          "answer": 15
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many sweets does he have left after eating 4?",
+          "answer": 11
+        }
+      ]
+    },
+    {
+      "id": "m2.times-tables.002",
+      "skill": "m2.times-tables",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Each bag has 5 sweets. Fill in the empty boxes.",
+      "hints": [
+        "Count in fives.",
+        "5, 10, 15, ...",
+        "Add 5 each time."
+      ],
+      "explanation": "Counting in 5s gives 5, 10, 15, 20.",
+      "caption": "Sweets in bags",
+      "head": [
+        "Bags",
+        "Sweets"
+      ],
+      "rows": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          ""
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "4",
+          "20"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "10"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "15"
+          ]
+        }
+      ]
+    }
+  ]
+}

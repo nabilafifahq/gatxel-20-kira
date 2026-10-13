@@ -25,10 +25,10 @@ function entity() {
 export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
-    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-12' },
+    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-13' },
     storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
     purposes: [
-      { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Wajib untuk memakai Kira.' },
+      { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare (Cloudflare Tunnel), termasuk pusat data di luar Indonesia. Wajib untuk memakai Kira.' },
       { title: 'Laporan mingguan lewat email', description: 'Mengirim ringkasan belajar seminggu sekali ke email orang tua.' },
       { title: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara supaya tutor bisa mendengar dan menilai.' },
       { title: 'Foto dan gambar jawaban', description: 'Menyimpan gambar dan foto jawaban di kertas supaya tutor bisa menilai.' },
@@ -44,7 +44,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { data: 'Cadangan database', detail: 'Salinan seluruh data di atas', purpose: 'Pemulihan bila server rusak', basis: 'Kepentingan sah', retention: '14 cadangan harian dan 8 cadangan mingguan, paling lama 8 minggu' },
     ],
     recipients: [
-      { name: 'Tailscale Inc. (jaringan pribadi untuk mengakses server)', data: 'Nama perangkat dan metadata koneksi, tanpa isi belajar', location: 'Amerika Serikat dan Kanada', abroad: true },
+      { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
       { name: 'Anthropic PBC (Claude), hanya bila Bantuan AI disetujui', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
       { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui', data: 'Email orang tua dan isi ringkasan mingguan', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
       { name: 'Have I Been Pwned (cek kebocoran password)', data: 'Lima karakter awal hash password, tanpa email atau nama', location: 'Australia', abroad: true },

@@ -11,13 +11,14 @@ import { joinAnd } from '@/components/learner/format'
 import { useMediaQuery, useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
 import { Timer } from '@/components/learner/Timer'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { WidgetDensityContext } from '@/components/widgets/density'
 import { QuestionView, TermsPanel } from '@/components/widgets/QuestionView'
-import { speakableText } from '@/components/widgets/speakable'
+import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
 import { ExitControl, ReportControl } from './parts'
 import { savedByPosition, sortedItems, testWord, type RunnerUpload } from './shared'
@@ -66,6 +67,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const cur = answers[index]
   const subject = data.subject
   const style = SUBJECT_STYLE[subject]
+  useEffect(() => primeSfx(), [])
   const locked = phase === 'timeup' || submit.state === 'busy' || submit.state === 'done'
 
   // Catat waktu per soal (dipakai sebagai timeMs).
@@ -125,6 +127,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   const toggleFlag = () => {
     if (locked || !cur) return
+    playSfx('tap')
     const a = { ...cur, flagged: !cur.flagged }
     setAnswers((list) => list.map((x, k) => (k === index ? a : x)))
     // Tanda tanpa jawaban hanya disimpan di perangkat; tanda dengan jawaban ikut tersimpan.
@@ -133,6 +136,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   const go = (i: number) => {
     if (i < 0 || i >= items.length || locked) return
+    playSfx('tap')
     setAnswers((list) => list.map((a, k) => (k === index && a.startedAt ? { ...a, spentMs: a.spentMs + (Date.now() - a.startedAt), startedAt: 0 } : a)))
     setTermsOpen(false)
     setIndex(i)
@@ -184,7 +188,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const many = items.length > 20
   const showTermsBtn = data.showTerms && !!item.terms && item.terms.length > 0
   const syncState = !online ? 'offline' : queue.stuck && queue.pending > 0 ? 'pending' : queue.justSynced ? 'synced' : null
-  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
+  const upload = onUpload ? (blob: Blob, kind: 'audio' | 'drawing' | 'image') => onUpload(blob, kind, { attemptId: data.attemptId, position: item.position }) : undefined
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg lg:h-svh lg:overflow-hidden">
@@ -222,7 +226,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             Terms
           </Button>
         ) : null}
-        {remaining !== null ? <Timer mode="countdown" seconds={remaining} compact={narrow} /> : <Timer mode="stopwatch" seconds={elapsed} compact={narrow} />}
+        {remaining !== null ? <Timer mode="countdown" seconds={remaining} total={data.timeLimitSec ?? undefined} compact={narrow} /> : <Timer mode="stopwatch" seconds={elapsed} compact={narrow} />}
       </header>
 
       <nav aria-label="Questions" className={cx('flex flex-none flex-wrap items-center gap-6 px-4 md:px-8', many ? 'pb-3' : 'pb-4')}>
@@ -321,7 +325,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           <UiIcon name={cur.flagged ? 'flag-filled' : 'flag'} size={22} className={cur.flagged ? 'text-warn' : undefined} />
           Look again
         </Button>
-        <ReadAloudButton text={speakableText(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
         <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} className="max-md:hidden" />
         <div className="ml-auto flex gap-3">
           <Button variant="secondary" icon="arrow-left" disabled={index === 0 || locked} onClick={() => go(index - 1)} className="max-sm:px-3">
@@ -396,7 +400,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         size="sm"
         title={
           <span className="flex flex-col items-center gap-3.5">
-            <span className="flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg bg-bg">
+            <span className="kira-pop flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg bg-bg">
               <UiIcon name="clock" size={60} />
             </span>
             Time&apos;s up

@@ -8,7 +8,12 @@
 import type { ClientItem } from '@kira/content/present'
 import type { SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures/spec'
+import type { AccessoryId } from '@kira/core'
+import type { AccessoryDTO, ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 
+import type { SessionType } from '@kira/core'
+
+export type { SessionType }
 export type Subject = 'math' | 'english' | 'science'
 export type QuestSubject = Subject | 'bonus'
 export type Jenjang = '1-2' | '3-4' | '5-6'
@@ -27,6 +32,8 @@ export type LearnerShell = {
   learnerId: string
   name: string
   avatar: AvatarName
+  /** Aksesori avatar yang dipakai (didapat dari level jalur XP). */
+  accessory?: AccessoryId | null
   grade: number
   jenjang: Jenjang
   /** Tampilkan tombol Review di navigasi bila Buku Koreksi aktif (Fase 2). */
@@ -66,6 +73,15 @@ export type QuestStopDTO = {
   questId: string | null
   subject: QuestSubject
   state: 'locked' | 'ready' | 'in-progress' | 'done' | 'rest'
+  /** Jenis sesi dan labelnya ("Practice", "Test", "Paper", ...). */
+  session: SessionType
+  sessionLabel: string
+  /** Sesi wajib dihitung untuk streak; sesi opsional ("Extra today") tidak. */
+  required: boolean
+  /** Ada hitung mundur (Tes dan Paper). */
+  timed: boolean
+  /** Skor terbaik bila sesi sudah diulang, misalnya "Best 9 of 10". */
+  best: string | null
   title: string
   /** Misalnya "Math, 3 of 10 done, about 10 minutes left". */
   meta: string
@@ -80,21 +96,30 @@ export type QuestStopDTO = {
 
 export type SegmentState = 'correct' | 'not-yet' | 'current' | 'todo' | 'answered'
 
+/** Sesi wajib satu mapel di jalur Today: Practice, Test, Paper. */
+export type TodayGroupDTO = { subject: Subject; label: string; done: number; total: number; stops: QuestStopDTO[] }
+
 export type TodayDTO = {
   shell: LearnerShell
   dateLabel: string
-  /** "Friday's quests" atau sapaan hari pertama. */
+  /** "Friday's sessions" atau sapaan hari pertama. */
   headline: string
   subline: string
   variant: 'first-day' | 'normal' | 'all-done' | 'rest-day' | 'time-limit'
   streak: StreakDTO
-  stops: QuestStopDTO[]
-  activeIndex: number | null
-  bonus: QuestStopDTO | null
+  /** Sesi wajib per mapel, mapel dalam urutan Math, English, Science. */
+  groups: TodayGroupDTO[]
+  /** Sesi opsional dari tutor ("Extra today"). Tidak memengaruhi streak. */
+  extras: QuestStopDTO[]
+  /** Sesi yang sebaiknya dikerjakan sekarang (tampil besar). */
+  activeQuestId: string | null
+  progress: { done: number; total: number; extraDone: number; extraTotal: number }
   nextCompetition: { name: string; daysToGo: number } | null
   esmo: { href: string; label: string } | null
   minutesToday: number
   screenLimitMin: number
+  /** Tiga bar XP (Belajar, Quick Maths, Quiz); diisi halaman Today. */
+  tracks?: XpTrackDTO[]
 }
 
 // L03 Pembuka quest
@@ -108,6 +133,8 @@ export type QuestIntroDTO = {
   hintsPerQuestion: number
   youWillPractise: string[]
   modeLabel: string
+  /** Batas waktu sesi berwaktu, dalam menit; null bila tanpa waktu. */
+  timeLimitMin: number | null
   lessonHref: string | null
   startHref: string
   /** Diisi client: apakah paket quest sudah tersimpan di perangkat. */
@@ -153,6 +180,8 @@ export type RunnerDTO = {
   showTerms: boolean
   /** Paket offline: semua yang dibutuhkan untuk menyelesaikan tanpa jaringan. */
   offline: boolean
+  /** Sesi English Skills: listening menyembunyikan teks soal, speaking membacakan soal sebagai penguji. */
+  englishArea?: 'listening' | 'speaking' | 'writing'
 }
 
 export type AnswerPayload = {
@@ -189,6 +218,12 @@ export type ResultQuestion = {
   skillTitle: string
 }
 
+/** Posisi di level untuk bar XP di akhir sesi: `into` dari `span` XP di level itu. */
+export type XpBarDTO = {
+  before: { level: number; into: number; span: number }
+  after: { level: number; into: number; span: number }
+}
+
 export type ResultsDTO = {
   shell: LearnerShell
   attemptId: string
@@ -214,6 +249,25 @@ export type ResultsDTO = {
   backHref: string
   backLabel: string
   tone: 'full' | 'normal' | 'low'
+  /** Ulang sesi: null bila sesi ini tidak bisa diulang. */
+  retry: RetryDTO | null
+  /** Bar XP di perayaan akhir sesi. Kosong: bar tidak ditampilkan. */
+  xpBar?: XpBarDTO
+}
+
+export type RetryDTO = {
+  /** Percobaan ini adalah ulangan (bukan yang resmi). */
+  isRetry: boolean
+  /** Nomor ulangan, 0 untuk percobaan pertama. */
+  retryNo: number
+  /** Skor percobaan pertama, yang dipakai untuk laporan dan streak. */
+  official: string
+  /** Skor terbaik dari semua percobaan, atau null bila baru satu percobaan. */
+  best: string | null
+  /** Ulangan memberi 25 persen XP. */
+  xpNote: string
+  /** Ada ulangan yang belum selesai; tombol melanjutkannya. */
+  continueOpen: boolean
 }
 
 export type ReviewQuestionDTO = {
@@ -248,7 +302,7 @@ export type DoneTodayDTO = {
   line: string
   xpToday: number
   minutesToday: number
-  quests: { subject: Subject; title: string; score: string }[]
+  quests: { subject: Subject; session: string; title: string; score: string; required: boolean }[]
   tomorrow: string
   answersHref: string | null
   streak: StreakDTO
@@ -280,13 +334,19 @@ export type MeDTO = {
   xpIntoLevel: number
   xpLevelSpan: number
   xpToNext: number
-  badges: { id: string; title: string; description: string; earnedAt: string | null; isNew: boolean }[]
+  badges: { id: string; title: string; description: string; earnedAt: string | null; isNew: boolean; glyph?: string }[]
+  /** Tiga bar XP dengan level per jalur. */
+  tracks?: XpTrackDTO[]
+  accessories?: AccessoryDTO[]
   monthLabel: string
   calendar: { date: string; day: number; status: DayStatus; inMonth: boolean }[]
   streakLine: string
   avatars: AvatarName[]
 }
-export type MeActions = { changeAvatar(avatar: AvatarName): Promise<ActionResult> }
+export type MeActions = {
+  changeAvatar(avatar: AvatarName): Promise<ActionResult>
+  changeAccessory?(accessory: AccessoryId | null): Promise<ActionResult>
+}
 
 // L11 Buku Koreksi
 export type CorrectionBookDTO = {
@@ -411,20 +471,48 @@ export type LearnerDetailDTO = {
   heatmap: { subject: Subject; skills: { id: string; title: string; stars: number; cells: HeatCell[] }[] }[]
   attempts: { id: string; date: string; title: string; subject: Subject; score: string; minutes: number; href: string }[]
   notes: { id: string; author: string; date: string; body: string }[]
+  /** Ringkasan arena (Quick Maths dan Quiz Arena) untuk tutor. */
+  arena?: ArenaTutorDTO
 }
 export type LearnerDetailActions = { addNote(learnerId: string, body: string): Promise<ActionResult> }
 
 // T03 Perencana mingguan
+export type DayTemplateId = 'school' | 'saturday' | 'light'
+export type PlanSlotConfig = { presetId?: string; task?: 'listening' | 'reading' | 'writing' | 'speaking'; perQuestionSec?: number }
 export type PlanSlotDTO = {
+  /** Id slot, atau auto:<tanggal>:<mapel>:<sesi>:<n> untuk sesi dari template yang belum punya slot. */
   id: string
+  /** Sesi dari template hari yang dipilih Kira saat dibuka; belum ada slot di database. */
+  auto: boolean
+  /** Slot berisi paper dari Penyusun paper (isinya diubah di sana, di rencana hanya dipindah atau dihapus). */
+  fromPaper: boolean
   date: string
   subject: Subject
   kind: 'quest' | 'bonus' | 'rest'
+  session: SessionType
+  /** Sesi wajib dihitung untuk streak; sesi opsional tidak. */
+  required: boolean
+  paperKind: 'mini' | 'full' | null
   skillId: string | null
   title: string
   mode: 'belajar' | 'latihan' | 'tes' | 'kertas'
   minutes: number
   questionCount: number
+  config: PlanSlotConfig | null
+}
+export type PlannerDay = {
+  date: string
+  label: string
+  rest: boolean
+  /** Menit semua sesi hari itu, wajib dan opsional. */
+  totalMinutes: number
+  /** Menit sesi wajib saja. */
+  requiredMinutes: number
+  overLimit: boolean
+  template: DayTemplateId
+  templateLabel: string
+  requiredCount: number
+  extraCount: number
 }
 export type PlannerDTO = {
   shell: ConsoleShell
@@ -432,21 +520,38 @@ export type PlannerDTO = {
   weekStart: string
   weekLabel: string
   status: 'draft' | 'published'
-  days: { date: string; label: string; rest: boolean; totalMinutes: number; overLimit: boolean }[]
+  days: PlannerDay[]
   slots: PlanSlotDTO[]
   suggestions: { id: string; date: string; subject: Subject; skillId: string; title: string; reason: string }[]
-  skills: { id: string; subject: Subject; grade: number; title: string; stars: number }[]
+  skills: { id: string; subject: Subject; grade: number; title: string; stars: number; hasLesson: boolean }[]
+  /** Preset lomba untuk sesi Simulasi lomba. */
+  presets: { id: string; subject: Subject; title: string; minutes: number }[]
   screenLimitMin: number
   prevWeekHref: string
   nextWeekHref: string
 }
+export type UpsertSlotInput = {
+  learnerId: string
+  slotId?: string
+  date: string
+  subject: Subject
+  session: SessionType
+  required: boolean
+  skillId: string | null
+  mode: PlanSlotDTO['mode']
+  questionCount: number
+  paperKind: 'mini' | 'full' | null
+  config: PlanSlotConfig | null
+}
 export type PlannerActions = {
-  upsertSlot(input: { learnerId: string; slotId?: string; date: string; subject: Subject; kind: 'quest' | 'bonus'; skillId: string; mode: PlanSlotDTO['mode']; questionCount: number }): Promise<ActionResult>
+  upsertSlot(input: UpsertSlotInput): Promise<ActionResult>
   moveSlot(input: { slotId: string; date: string }): Promise<ActionResult>
   deleteSlot(slotId: string): Promise<ActionResult>
   setRestDay(input: { learnerId: string; date: string; rest: boolean }): Promise<ActionResult>
   applySuggestions(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult>
   publishWeek(input: { learnerId: string; weekStart: string }): Promise<ActionResult>
+  setDayTemplate(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult>
+  copyWeek(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number }>>
 }
 
 // T04 Penyusun paper
@@ -656,17 +761,30 @@ export type ImportItemDTO = {
   pageImage: string | null
   status: 'ok' | 'key-mismatch' | 'leftover-key-text' | 'broken-fraction' | 'needs-check'
   approved: boolean
+  /** Hasil pemeriksaan kunci oleh AI (lihat ImportStoredItem.keyCheck) dan jawaban AI sebagai indeks opsi. */
+  keyCheck: 'agree' | 'disagree' | 'ai-only' | 'skipped' | null
+  aiAnswer: number | null
+  /** Gambar soal hasil potong dari halaman PDF. */
+  figure: { url: string; width: number; height: number; alt: string } | null
 }
+/** Data paper lomba pada paket impor (migrasi 0009). */
+export type ImportMetaDTO = { competition: string | null; year: number | null; section: string | null; originalMinutes: number | null; source: string | null }
 export type ImportDTO = {
   shell: ConsoleShell
   /** `error`: pesan worker (bahasa Indonesia) bila paket gagal dibaca. */
   batches: { id: string; title: string; status: 'uploaded' | 'parsing' | 'review' | 'done' | 'failed'; createdAt: string; itemCount: number; approved: number; error?: string | null }[]
-  selected: { id: string; title: string; subject: Subject; grade: number; tags: string[]; pages: string[]; items: ImportItemDTO[] } | null
+  selected: { id: string; title: string; subject: Subject; grade: number; tags: string[]; pages: string[]; items: ImportItemDTO[]; meta: ImportMetaDTO } | null
+  /** Pilihan lomba untuk isian data paper. */
+  competitions: { id: string; name: string }[]
 }
 export type ImportActions = {
   uploadPdf(form: FormData): Promise<ActionResult<{ batchId: string }>>
   updateImportItem(input: { batchId: string; index: number; prompt: string; options: string[]; answer: number | null }): Promise<ActionResult>
   approveImportItems(input: { batchId: string; indexes: number[] }): Promise<ActionResult<{ created: number }>>
+  updateImportMeta(input: { batchId: string } & ImportMetaDTO): Promise<ActionResult>
+  /** Potong gambar dari halaman PDF (kotak pecahan 0 sampai 1) dan pasang ke satu soal. */
+  attachFigure(input: { batchId: string; index: number; page: number; rect: { x: number; y: number; w: number; h: number }; alt: string }): Promise<ActionResult<{ url: string }>>
+  removeFigure(input: { batchId: string; index: number }): Promise<ActionResult>
 }
 
 // T13 Learner dan grade

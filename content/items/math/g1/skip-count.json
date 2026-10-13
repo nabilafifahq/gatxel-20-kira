@@ -1,0 +1,57 @@
+{
+  "skill": "m1.skip-count",
+  "items": [
+    {
+      "id": "m1.skip-count.001",
+      "skill": "m1.skip-count",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "Count in 2s. Fill in the empty boxes.",
+      "hints": [
+        "Each group has 2.",
+        "Add 2 each time: 2, 4, ...",
+        "Count on: 4, 6, 8."
+      ],
+      "explanation": "Counting in 2s gives 2, 4, 6, 8.",
+      "caption": "Counting in 2s",
+      "head": [
+        "Groups",
+        "Total"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "4"
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "4",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "6"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "8"
+          ]
+        }
+      ]
+    }
+  ]
+}

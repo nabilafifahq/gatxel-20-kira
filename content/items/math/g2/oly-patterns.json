@@ -1055,6 +1055,73 @@
         "seamo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.016",
+      "skill": "m2.oly-patterns",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 4. Every row, every column and every 2 by 2 box must have each number once.",
+      "hints": [
+        "Find a row, a column or a box with only one empty box.",
+        "Look at which numbers are already in that row. Which one is missing?",
+        "Check the column and the 2 by 2 box too, to be sure."
+      ],
+      "explanation": "Every row, column and box has 1, 2, 3 and 4 once. For example, the first row is 3, 4, 1, 2.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          3,
+          4,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ]
+      ]
     }
   ]
 }

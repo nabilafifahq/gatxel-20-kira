@@ -3,7 +3,7 @@ import { and, asc, desc, eq, gte, isNull, like } from 'drizzle-orm'
 import { createRng, daysBetween, formatDateEn, jakartaDate, type PresetRules } from '@kira/core'
 import { tables } from '@kira/db'
 import { GENERATORS, genRef, newSeed } from '@kira/content/math'
-import type { Item, Preset } from '@kira/content'
+import { isPaperType, type Item, type Preset } from '@kira/content'
 import type { CompetitionIntroDTO, CompetitionPickDTO, EsmoDTO, EsmoPack, Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
@@ -81,7 +81,7 @@ export async function competitionIntroDTO(tx: Tx, learnerId: string, presetId: s
 export async function pickSimulationItems(tx: Tx, learner: LearnerRow, p: Preset, seedKey: string): Promise<{ ref: string; difficulty: number }[]> {
   const rng = createRng(seedKey)
   const grades = new Set([learner.grade, ...p.grades])
-  const all = [...content().items.values()].filter((i) => i.skill[0] === p.subject[0] && grades.has(Number(i.skill[1])) && i.type !== 'write' && i.type !== 'speak' && i.type !== 'draw')
+  const all = [...content().items.values()].filter((i) => i.skill[0] === p.subject[0] && grades.has(Number(i.skill[1])) && isPaperType(i.type))
   const tagged = all.filter((i) => i.tags.some((t) => p.itemTags.includes(t)))
   const orgRows = await tx.select({ id: orgItem.id, body: orgItem.body, tags: orgItem.tags }).from(orgItem).where(isNull(orgItem.retiredAt))
   const orgTagged = orgRows.filter((r) => r.tags.some((t) => p.itemTags.includes(t))).map((r) => ({ ref: `org:${r.id}`, difficulty: (r.body as Item).difficulty ?? 3, points: (r.body as Item).points }))

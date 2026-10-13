@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, db, expectNoSeriousA11y, learnerId, loginAdult, noHorizontalScroll, seedOrgId, TUTOR, watchErrors } from './helpers'
+import { closeDb, db, expectNoSeriousA11y, jakartaToday, learnerId, loginAdult, noHorizontalScroll, seedOrgId, TUTOR, watchErrors } from './helpers'
 
 test.afterAll(closeDb)
 
@@ -15,6 +15,10 @@ const PAGES: { path: string; h1: RegExp }[] = [
   { path: '/konsol/pengaturan', h1: /Pengaturan/ },
   { path: '/konsol/studio-ai', h1: /Studio AI/ },
   { path: '/konsol/impor', h1: /Impor/ },
+  { path: '/konsol/pustaka', h1: /Pustaka paper/ },
+  { path: '/konsol/pustaka/buku-salah', h1: /Buku Salah/ },
+  { path: '/konsol/pustaka/program', h1: /Program olimpiade/ },
+  { path: '/konsol/pustaka/sumber', h1: /Sumber soal/ },
   { path: '/konsol/learner', h1: /Learner/ },
   { path: '/konsol/koneksi-claude', h1: /Claude/ },
 ]
@@ -74,4 +78,41 @@ test('rencana: terapkan usulan lalu terbitkan minggu', async ({ page }) => {
   await expect
     .poll(async () => (await db()`select count(*)::int as n from plan_week where status = 'published' and org_id = ${await seedOrgId()}`)[0]!.n, { timeout: 15_000 })
     .toBeGreaterThan(0)
+})
+
+test('rencana: Hari ringan di salah satu hari dan satu sesi opsional', async ({ page }) => {
+  const lid = await learnerId('Aisha')
+  const org = await seedOrgId()
+  const today = jakartaToday()
+  const dow = new Date(`${today}T00:00:00Z`).getUTCDay()
+  const nextMonday = new Date(Date.parse(`${today}T00:00:00Z`) + (((8 - dow) % 7) + (dow === 1 ? 7 : 0)) * 86400000).toISOString().slice(0, 10)
+  const wednesday = new Date(Date.parse(`${nextMonday}T00:00:00Z`) + 2 * 86400000).toISOString().slice(0, 10)
+  await db()`delete from plan_slot where learner_id = ${lid} and date >= ${nextMonday}`
+  await db()`update plan_week set day_templates = '{}'::jsonb where learner_id = ${lid} and week_start = ${nextMonday}`
+  await loginAdult(page, TUTOR)
+  await page.goto(`/konsol/rencana?learner=${lid}&minggu=${nextMonday}`)
+  await expect(page.getByRole('heading', { level: 1, name: 'Rencana minggu' })).toBeVisible()
+  // Hari biasa menampilkan 9 sesi wajib otomatis dan meteran waktu layar.
+  await expect(page.getByRole('button', { name: /^Template Hari sekolah, Rabu / })).toBeVisible()
+  await expect(page.getByRole('img', { name: /^Rabu .*, 9 sesi wajib/ })).toBeVisible()
+
+  await page.getByRole('button', { name: /^Template Hari sekolah, Rabu / }).click()
+  const dialog = page.getByRole('dialog', { name: 'Template hari' })
+  await dialog.getByRole('radio', { name: /Hari ringan/ }).check()
+  await dialog.getByRole('button', { name: 'Pakai template' }).click()
+  await expect(page.getByRole('button', { name: /^Template Hari ringan, Rabu / })).toBeVisible()
+  await expect
+    .poll(async () => (await db()`select day_templates from plan_week where learner_id = ${lid} and week_start = ${nextMonday}`)[0]?.day_templates, { timeout: 15_000 })
+    .toEqual({ [wednesday]: 'light' })
+
+  // Satu sesi opsional: Ulang kartu untuk Math di hari Rabu itu.
+  await page.getByRole('button', { name: /^Tambah sesi Math, Rabu / }).click()
+  const add = page.getByRole('dialog', { name: 'Tambah sesi' })
+  await add.getByLabel('Jenis sesi').selectOption('review')
+  await add.getByRole('button', { name: 'Tambah ke rencana' }).click()
+  await expect
+    .poll(async () => (await db()`select count(*)::int as n from plan_slot where learner_id = ${lid} and date = ${wednesday} and session = 'review' and required = false and org_id = ${org}`)[0]!.n, { timeout: 15_000 })
+    .toBe(1)
+  await db()`update plan_week set day_templates = '{}'::jsonb where learner_id = ${lid} and week_start = ${nextMonday}`
+  await db()`delete from plan_slot where learner_id = ${lid} and date >= ${nextMonday}`
 })

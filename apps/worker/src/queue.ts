@@ -1,6 +1,6 @@
 import { eq, sql } from 'drizzle-orm'
 import type postgres from 'postgres'
-import { AI_JOB_KINDS, JOB_KINDS, tables, withOrg, type Db } from '@kira/db'
+import { AI_JOB_KINDS, JOB_KINDS, TTS_JOB_KINDS, tables, withOrg, type Db } from '@kira/db'
 import type { AiProvider } from './ai/types'
 import { workerCtx } from './db'
 import type { Env } from './env'
@@ -83,9 +83,13 @@ export class JobQueue {
 
   constructor(private readonly deps: QueueDeps) {
     const ai = AI_JOB_KINDS as readonly string[]
+    const tts = TTS_JOB_KINDS as readonly string[]
     this.lanes = [
       { name: 'ai', kinds: [...ai], concurrency: 1, active: 0, pumping: false, again: false },
-      { name: 'umum', kinds: JOB_KINDS.filter((k) => !ai.includes(k)), concurrency: 2, active: 0, pumping: false, again: false },
+      { name: 'umum', kinds: JOB_KINDS.filter((k) => !ai.includes(k) && !tts.includes(k)), concurrency: 2, active: 0, pumping: false, again: false },
+      // Suara: klip permintaan learner tidak menunggu batch yang berjam-jam. Layanan tts memproses satu permintaan sekali.
+      { name: 'suara', kinds: ['tts.clip'], concurrency: 1, active: 0, pumping: false, again: false },
+      { name: 'suara-batch', kinds: ['tts.batch'], concurrency: 1, active: 0, pumping: false, again: false },
     ]
     this.now = deps.now ?? (() => new Date())
   }

@@ -4,6 +4,7 @@ import { inOrg } from '@/server/db'
 import { orgCtx, pageActor } from '@/server/auth/actor'
 import { ensureStarted } from '@/server/dal/learner-entry'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
+import { xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
 
 export const dynamic = 'force-dynamic'
@@ -13,7 +14,7 @@ export default async function TodayPage() {
   await ensureStarted(actor.orgId, actor.userId)
   const { data, urls } = await load(() =>
     inOrg(orgCtx(actor), async (tx) => {
-      const data = await todayDTO(tx, orgCtx(actor), actor.userId)
+      const data = { ...(await todayDTO(tx, orgCtx(actor), actor.userId)), tracks: await xpTracksDTO(tx, actor.userId) }
       return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
     }),
   )

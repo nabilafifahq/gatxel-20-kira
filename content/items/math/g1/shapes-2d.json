@@ -1,0 +1,151 @@
+{
+  "skill": "m1.shapes-2d",
+  "items": [
+    {
+      "id": "m1.shapes-2d.001",
+      "skill": "m1.shapes-2d",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the triangle.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "circle",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "square",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "triangle",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "star",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: circle, square, triangle and star."
+      },
+      "hints": [
+        "A triangle has three sides.",
+        "Count the sides of each shape.",
+        "It has three corners."
+      ],
+      "explanation": "A triangle has three straight sides and three corners.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "circle",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "square",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "triangle",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "star",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "m1.shapes-2d.002",
+      "skill": "m1.shapes-2d",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the shapes. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "circle",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "square",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "triangle",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "A circle is round.",
+        "A square has four equal sides.",
+        "A triangle has three sides."
+      ],
+      "explanation": "The shapes are a circle, a square and a triangle.",
+      "labels": [
+        "circle",
+        "square",
+        "triangle"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "star"
+      ]
+    }
+  ]
+}

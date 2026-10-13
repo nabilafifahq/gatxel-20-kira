@@ -7,6 +7,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { FigureFrame } from '@/components/learner/FigureFrame'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { SolutionPlayer } from '@/components/learner/SolutionPlayer'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
@@ -101,7 +102,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           <span className="visually-hidden">Question {q.position}. </span>
           {q.item.prompt}
         </h2>
-        <ReadAloudButton text={q.item.prompt} lang={q.item.lang} subject={data.subject} showNote={false} compact />
+        <ReadAloudButton text={speakableClipParts(q.item)} style={speakableStyle(q.item)} lang={q.item.lang} subject={data.subject} showNote={false} compact />
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col gap-6 lg:flex-row">

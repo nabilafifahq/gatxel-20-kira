@@ -27,8 +27,11 @@ import type {
   RunnerItem,
   SavedResponse,
   SegmentState,
+  SessionType,
   StreakDTO,
+  Subject,
   TodayDTO,
+  TodayGroupDTO,
 } from '@/lib/dto'
 import {
   E_PAST_TEXT,
@@ -148,9 +151,29 @@ function segs(answered: ('c' | 'n' | 'a')[], total: number): SegmentState[] {
   })
 }
 
+const SESSION_LABELS: Record<SessionType, string> = {
+  latihan: 'Practice',
+  tes: 'Test',
+  paper: 'Paper',
+  lesson: 'Lesson',
+  simulation: 'Competition practice',
+  esmo: 'ESMO practice',
+  review: 'Review cards',
+  'quick-maths': 'Quick Maths',
+  knowledge: 'Quiz',
+  'english-skill': 'English task',
+  reading: 'Reading',
+}
+
 function stop(p: Partial<QuestStopDTO> & Pick<QuestStopDTO, 'subject' | 'state' | 'title' | 'meta'>): QuestStopDTO {
+  const session = p.session ?? 'latihan'
   return {
-    questId: p.state === 'rest' ? null : `seed-quest-${p.subject}`,
+    questId: p.state === 'rest' ? null : `seed-quest-${p.subject}-${session}`,
+    session,
+    sessionLabel: SESSION_LABELS[session],
+    required: true,
+    timed: session === 'tes' || session === 'paper',
+    best: null,
     total: 10,
     answered: 0,
     segments: segs([], 10),
@@ -161,123 +184,72 @@ function stop(p: Partial<QuestStopDTO> & Pick<QuestStopDTO, 'subject' | 'state' 
   }
 }
 
-const READY_META = '10 questions, about 15 minutes'
+const READY_META = '10 questions, about 7 minutes'
+const TEST_META = '8 questions, 10 minutes on the clock'
+const PAPER_META = '8 questions, 15 minutes on the clock'
+
+type Plan = { subject: Subject; label: string; topic: string; paper: string }
+const PLANS: Plan[] = [
+  { subject: 'math', label: 'Math', topic: 'Arrays and skip counting', paper: 'IKMC Pre-Ecolier mini paper' },
+  { subject: 'english', label: 'English', topic: 'Past tense with -ed', paper: 'IKLC English mini paper' },
+  { subject: 'science', label: 'Science', topic: 'Living things and their habitats', paper: 'IKSC Level 1 mini paper' },
+]
+
+/** Tiga sesi wajib satu mapel. `states` urut Practice, Test, Paper. */
+function group(plan: Plan, states: [QuestStopDTO['state'], QuestStopDTO['state'], QuestStopDTO['state']], scores: [string, string, string] = ['9 of 10', '6 of 8', '5 of 8']): TodayGroupDTO {
+  const [a, b, c] = states
+  const stops = [
+    stop({ subject: plan.subject, session: 'latihan', state: a, title: plan.topic, meta: a === 'done' ? scores[0] : a === 'in-progress' ? '3 of 10 done, about 5 minutes left' : READY_META, answered: a === 'done' ? 10 : a === 'in-progress' ? 3 : 0, segments: a === 'in-progress' ? segs(['c', 'c', 'n'], 10) : segs([], 10), ctaLabel: a === 'done' ? 'See answers' : a === 'in-progress' ? 'Continue' : 'Start', offlineReady: a === 'ready' || a === 'in-progress' }),
+    stop({ subject: plan.subject, session: 'tes', state: b, title: plan.topic, meta: b === 'locked' ? `Opens after your ${plan.label} practice` : b === 'done' ? scores[1] : TEST_META, total: 8, answered: b === 'done' ? 8 : 0, segments: segs([], 8), ctaLabel: b === 'locked' ? 'Locked' : b === 'done' ? 'See answers' : 'Start' }),
+    stop({ subject: plan.subject, session: 'paper', state: c, title: plan.paper, meta: c === 'done' ? scores[2] : PAPER_META, total: 8, answered: c === 'done' ? 8 : 0, segments: segs([], 8), ctaLabel: c === 'done' ? 'See answers' : 'Start' }),
+  ]
+  return { subject: plan.subject, label: plan.label, done: stops.filter((s) => s.state === 'done').length, total: 3, stops }
+}
+
+const EXTRA_REVIEW = stop({ subject: 'math', session: 'review', state: 'ready', title: 'Review cards', meta: 'About 5 minutes', required: false, timed: false, total: 0, segments: [], href: '/dev/screens/review', ctaLabel: 'Open' })
+const EXTRA_SIM = stop({ subject: 'math', session: 'simulation', state: 'ready', title: 'IKMC Pre-Ecolier', meta: 'About 30 minutes', required: false, timed: false, total: 0, segments: [], href: '/dev/screens/competition-intro', ctaLabel: 'Open' })
+
+function progress(groups: TodayGroupDTO[], extras: QuestStopDTO[]): TodayDTO['progress'] {
+  return { done: groups.reduce((n, g) => n + g.done, 0), total: groups.reduce((n, g) => n + g.total, 0), extraDone: extras.filter((e) => e.state === 'done').length, extraTotal: extras.length }
+}
 
 export function todayFixture(state: string): TodayDTO {
   const base = {
     shell: SHELL,
     dateLabel: 'Friday 9 October',
-    headline: "Friday's quests",
+    headline: "Friday's sessions",
     nextCompetition: { name: 'KMNR', daysToGo: 41 },
     esmo: { href: '/dev/screens/esmo', label: 'ESMO 4 final practice' },
     minutesToday: 18,
-    screenLimitMin: 60,
+    screenLimitMin: 120,
   }
-  const bonusLocked = stop({ subject: 'bonus', state: 'locked', title: 'Mixed review', meta: 'Opens after all three', total: 5 })
+  const [math, english, science] = PLANS as [Plan, Plan, Plan]
+  const firstId = (groups: TodayGroupDTO[]) => groups.flatMap((g) => g.stops).find((s) => s.state === 'in-progress' || s.state === 'ready')?.questId ?? null
   switch (state) {
-    case 'first-day':
-      return {
-        ...base,
-        headline: 'Welcome to Kira',
-        subline: 'Monday. Your first quests are ready.',
-        variant: 'first-day',
-        streak: STREAK_FIRST,
-        stops: [
-          stop({ subject: 'math', state: 'ready', title: 'Arrays and skip counting', meta: READY_META, offlineReady: true }),
-          stop({ subject: 'english', state: 'ready', title: 'Past tense with -ed', meta: READY_META }),
-          stop({ subject: 'science', state: 'ready', title: 'Living things and their habitats', meta: READY_META }),
-        ],
-        activeIndex: 0,
-        bonus: bonusLocked,
-        nextCompetition: { name: 'KMNR', daysToGo: 45 },
-        minutesToday: 0,
-      }
-    case 'one-done':
-      return {
-        ...base,
-        subline: 'Friday. Math is done, English is next.',
-        variant: 'normal',
-        streak: STREAK,
-        stops: [
-          stop({ subject: 'math', state: 'done', title: 'Arrays and skip counting', meta: 'Done, 9 of 10 correct', answered: 10, ctaLabel: 'See answers' }),
-          stop({ subject: 'english', state: 'ready', title: 'Past tense with -ed', meta: READY_META, offlineReady: true }),
-          stop({ subject: 'science', state: 'ready', title: 'Living things and their habitats', meta: READY_META }),
-        ],
-        activeIndex: 1,
-        bonus: bonusLocked,
-      }
-    case 'all-done':
-      return {
-        ...base,
-        subline: 'Friday. All three done, 27 of 30 correct.',
-        variant: 'all-done',
-        streak: STREAK_ALL,
-        stops: [
-          stop({ subject: 'math', state: 'done', title: 'Arrays and skip counting', meta: 'Done, 9 of 10 correct', answered: 10 }),
-          stop({ subject: 'english', state: 'done', title: 'Past tense with -ed', meta: 'Done, 10 of 10 correct', answered: 10 }),
-          stop({ subject: 'science', state: 'done', title: 'Living things and their habitats', meta: 'Done, 8 of 10 correct', answered: 10 }),
-        ],
-        activeIndex: null,
-        bonus: stop({ subject: 'bonus', state: 'ready', title: 'Mixed review', meta: '5 questions, about 8 minutes. Only if you want.', total: 5, ctaLabel: 'Start bonus' }),
-        minutesToday: 47,
-      }
+    case 'first-day': {
+      const groups = [group(math, ['ready', 'locked', 'ready']), group(english, ['ready', 'locked', 'ready']), group(science, ['ready', 'locked', 'ready'])]
+      return { ...base, headline: 'Welcome to Kira', subline: 'Monday. Nine sessions today. Start with the big one.', variant: 'first-day', streak: STREAK_FIRST, groups, extras: [], activeQuestId: firstId(groups), progress: progress(groups, []), nextCompetition: { name: 'KMNR', daysToGo: 45 }, minutesToday: 0 }
+    }
+    case 'one-done': {
+      const groups = [group(math, ['done', 'ready', 'ready']), group(english, ['ready', 'locked', 'ready']), group(science, ['ready', 'locked', 'ready'])]
+      const extras = [EXTRA_REVIEW]
+      return { ...base, subline: '1 of 9 done. Keep going.', variant: 'normal', streak: STREAK, groups, extras, activeQuestId: firstId(groups), progress: progress(groups, extras) }
+    }
+    case 'all-done': {
+      const groups = [group(math, ['done', 'done', 'done']), group(english, ['done', 'done', 'done'], ['10 of 10', '8 of 8', '6 of 8']), group(science, ['done', 'done', 'done'], ['8 of 10', '5 of 8', '4 of 8'])]
+      const extras = [EXTRA_REVIEW, EXTRA_SIM]
+      return { ...base, subline: 'All 9 sessions are done. Extra sessions are open if you want them.', variant: 'all-done', streak: STREAK_ALL, groups, extras, activeQuestId: null, progress: progress(groups, extras), minutesToday: 96 }
+    }
     case 'rest-day':
-      return {
-        ...base,
-        dateLabel: 'Sunday 11 October',
-        headline: "Sunday's quests",
-        subline: 'Sunday. No quests today.',
-        variant: 'rest-day',
-        streak: STREAK_REST,
-        stops: [
-          stop({ subject: 'math', state: 'rest', title: 'Math', meta: 'Back on Monday' }),
-          stop({ subject: 'english', state: 'rest', title: 'English', meta: 'Back on Monday' }),
-          stop({ subject: 'science', state: 'rest', title: 'Science', meta: 'Back on Monday' }),
-        ],
-        activeIndex: null,
-        bonus: null,
-        nextCompetition: { name: 'KMNR', daysToGo: 39 },
-        minutesToday: 0,
-      }
-    case 'time-limit':
-      return {
-        ...base,
-        subline: 'Friday. That is 60 minutes for today.',
-        variant: 'time-limit',
-        streak: STREAK,
-        stops: [
-          stop({ subject: 'math', state: 'done', title: 'Arrays and skip counting', meta: 'Done, 9 of 10 correct', answered: 10 }),
-          stop({ subject: 'english', state: 'done', title: 'Past tense with -ed', meta: 'Done, 7 of 10 correct', answered: 10 }),
-          stop({ subject: 'science', state: 'locked', title: 'Living things and their habitats', meta: 'Moves to tomorrow', answered: 3 }),
-        ],
-        activeIndex: null,
-        bonus: bonusLocked,
-        minutesToday: 60,
-      }
-    default:
-      return {
-        ...base,
-        subline: 'Friday. You started Math.',
-        variant: 'normal',
-        streak: STREAK,
-        stops: [
-          stop({
-            subject: 'math',
-            state: 'in-progress',
-            title: 'Arrays and skip counting',
-            meta: '3 of 10 done, about 10 minutes left',
-            answered: 3,
-            segments: segs(['c', 'c', 'n'], 10),
-            ctaLabel: 'Continue',
-            href: '/dev/screens/runner',
-            offlineReady: true,
-          }),
-          stop({ subject: 'english', state: 'ready', title: 'Past tense with -ed', meta: READY_META }),
-          stop({ subject: 'science', state: 'ready', title: 'Living things and their habitats', meta: READY_META }),
-        ],
-        activeIndex: 0,
-        bonus: bonusLocked,
-      }
+      return { ...base, dateLabel: 'Sunday 11 October', headline: "Sunday's sessions", subline: 'Today is a rest day. Your streak is safe.', variant: 'rest-day', streak: STREAK_REST, groups: [], extras: [], activeQuestId: null, progress: { done: 0, total: 0, extraDone: 0, extraTotal: 0 }, nextCompetition: { name: 'KMNR', daysToGo: 39 }, minutesToday: 0 }
+    case 'time-limit': {
+      const groups = [group(math, ['done', 'done', 'done']), group(english, ['done', 'done', 'ready']), group(science, ['ready', 'locked', 'ready'])]
+      return { ...base, subline: 'That is enough screen time for today. Well done.', variant: 'time-limit', streak: STREAK, groups, extras: [], activeQuestId: null, progress: progress(groups, []), minutesToday: 120 }
+    }
+    default: {
+      const groups = [group(math, ['in-progress', 'locked', 'ready']), group(english, ['ready', 'locked', 'ready']), group(science, ['ready', 'locked', 'ready'])]
+      return { ...base, subline: 'Math practice is started.', variant: 'normal', streak: STREAK, groups, extras: [EXTRA_REVIEW], activeQuestId: firstId(groups), progress: progress(groups, [EXTRA_REVIEW]) }
+    }
   }
 }
 
@@ -295,6 +267,7 @@ export function questIntroFixture(state: string): QuestIntroDTO {
     hintsPerQuestion: 3,
     youWillPractise: ['Rows and columns', 'Counting in 2s, 5s and 10s'],
     modeLabel: 'Practice, with hints',
+    timeLimitMin: null,
     lessonHref: '/dev/screens/lesson',
     startHref: '/dev/screens/runner',
     alternative: state === 'missing' ? { subject: 'english', href: '/dev/screens/runner?state=all-widgets' } : null,
@@ -556,6 +529,7 @@ export function resultsFixture(state: string): ResultsDTO {
     backHref: '/dev/screens/today',
     backLabel: 'Back to Today',
     tone: 'normal',
+    retry: { isRetry: false, retryNo: 0, official: '7 of 10', best: null, xpNote: 'Trying again earns a quarter of the XP.', continueOpen: false },
   }
   switch (state) {
     case 'full':
@@ -705,11 +679,12 @@ export function doneTodayFixture(state: string): DoneTodayDTO {
     xpToday: limit ? 85 : 120,
     minutesToday: limit ? 60 : 47,
     quests: [
-      { subject: 'math', title: 'Arrays and skip counting', score: '9 of 10' },
-      { subject: 'english', title: 'Past tense with -ed', score: limit ? '7 of 10' : '10 of 10' },
-      { subject: 'science', title: 'Living things and their habitats', score: limit ? 'Stopped at question 4. Saved.' : '8 of 10' },
+      { subject: 'math', session: 'Practice', title: 'Arrays and skip counting', score: '9 of 10', required: true },
+      { subject: 'math', session: 'Test', title: 'Arrays and skip counting', score: '6 of 8', required: true },
+      { subject: 'english', session: 'Practice', title: 'Past tense with -ed', score: limit ? '7 of 10' : '10 of 10', required: true },
+      { subject: 'science', session: 'Practice', title: 'Living things and their habitats', score: limit ? 'Stopped at question 4. Saved.' : '8 of 10', required: true },
     ],
-    tomorrow: limit ? 'Tomorrow starts with Science, from question 5.' : 'Tomorrow is Saturday: bonus quests. Sunday is a rest day.',
+    tomorrow: limit ? 'Tomorrow starts with Science, from question 5.' : 'Tomorrow is Saturday: one full paper. Sunday is a rest day.',
     answersHref: '/dev/screens/results',
     streak: limit ? STREAK : STREAK_ALL,
   }

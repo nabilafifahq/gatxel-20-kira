@@ -123,6 +123,32 @@ Posisi jawaban benar harus bervariasi (jangan selalu A). Opsi tidak boleh kembar
 
 **draw**, menggambar dinilai tutor: `rubric`, `background` `blank|grid|lines|dots`.
 
+### Tipe soal baru (semuanya model ketuk)
+
+Jenis di bagian ini punya aturan tambahan yang diperiksa `pnpm content:check`. Id soal tidak harus urut tanpa celah, tetapi unik per skill.
+
+**story**, cerita bertahap: `prompt` adalah cerita (2 sampai 5 kalimat) dan `parts` berisi 2 sampai 4 pertanyaan berjenis `mcq` (`options`, `answer`), `numeric` (`answer`, opsional `unit`) atau `text` (`answers`). Soal benar bila semua pertanyaan benar.
+
+**listen**, dengar lalu jawab: `listenText` dibacakan suara perangkat dan TIDAK PERNAH ditampilkan. Prompt tidak boleh memuat `listenText` ("Listen. Which animal did you hear?"). Pilihan seperti mcq (`options`, `answer`), boleh gambar, kata, atau angka.
+
+**tiles**, susun kata: `"answer": "I like red apples."` dipecah per spasi menjadi kartu (3 sampai 9 kata), `"distractors"` kartu pengecoh satu kata yang tidak ada di kalimat. `"alternatives"` untuk kalimat lain yang memakai kartu yang sama persis. Tulis huruf besar dan tanda baca persis seperti kartu yang harus tampil.
+
+**spell**, eja: `"word": "said"`, `"sentence"` kalimat contoh yang dibacakan setelah kata, `"alsoAccept"` untuk ejaan lain yang sah. Prompt tidak boleh memuat kata itu.
+
+**cloze**, pilih kata di celah: prompt memuat satu `___` per celah, `"gaps": [{ "options": ["walks", "walk"], "answer": 0 }]`.
+
+**hotspot**, ketuk di gambar: `figure` wajib (biasanya `scene`), `"regions": [{ "label": "roots", "x": 50, "y": 89, "w": 25, "h": 19 }]` dengan x dan y pusat area dalam persen lebar dan tinggi gambar, `"answers": [3]` indeks area yang benar (1 sampai 3). Label area unik dan tidak ditampilkan; dipakai pembaca layar. Pusat dua area berjarak minimal 14 persen.
+
+**label**, beri label diagram: `figure` wajib, `"labels": ["flower", "leaf"]` label yang benar untuk `"spots": [{ "x": 50, "y": 25 }, ...]` (titik bernomor, jarak minimal 18 persen), `"extraLabels"` label pengecoh. Jumlah labels sama dengan jumlah spots.
+
+**table**, lengkapi tabel: `head`, `rows` (sel yang diisi anak ditulis `""`), `blanks: [{ "row": 1, "col": 1, "answers": ["2"] }]`. Angka dibandingkan sebagai angka (`8` sama dengan `8.0`).
+
+**grid**, teka-teki kotak: `"puzzle": "magic"` (3x3, angka di `filled` dipakai sekali dan semua garis berjumlah sama), `"sudoku"` (4x4, kotak 2x2) atau `"latin"` (3x3 atau 4x4). `given` memakai 0 untuk sel kosong, `filled` adalah penyelesaiannya. Teka-teki harus punya tepat satu penyelesaian (diperiksa pemecah di `packages/content/src/grid.ts`).
+
+**photo**, jawaban foto: `rubric` seperti `write`. Anak memotret jawaban di kertas dengan kamera atau galeri; tutor menilai dengan saran AI.
+
+Soal baru jenis layar saja (semua kecuali `mcq`, `multi`, `numeric`, `text`, `order`, `match`, `sort`, `numberline`, `clock`, `fraction`) tidak ikut Paper cetak dan simulasi lomba.
+
 ### Kalibrasi tingkat
 
 | Tingkat | Arti |
@@ -181,7 +207,10 @@ Figur adalah data, dirender sebagai SVG. Daftar lengkap tipe dan ikon ada di `pa
 { "kind": "icons", "items": [{ "icon": "egg", "label": "egg" }, { "icon": "tadpole", "label": "tadpole" }, { "icon": "frog", "label": "frog" }], "arrows": "cycle", "alt": "Life cycle of a frog." }
 { "kind": "circuit", "parts": ["battery", "bulb-lit", "switch-closed"], "alt": "A circuit with a battery, a lit bulb and a closed switch." }
 { "kind": "balance", "left": ["3", "4"], "right": ["?"], "tilt": "level", "alt": "A balance with 3 and 4 on the left and a missing number on the right." }
+{ "kind": "scene", "width": 320, "height": 260, "shapes": [{ "t": "rect", "x": 0, "y": 190, "w": 320, "h": 70, "tone": "warn" }, { "t": "line", "x1": 160, "y1": 190, "x2": 160, "y2": 90, "tone": "science", "width": 6 }, { "t": "icon", "icon": "sun", "x": 262, "y": 8, "size": 48 }], "alt": "A plant growing in soil with a sun in the corner." }
 ```
+
+`scene` menggambar diagram dari bentuk dasar (`rect`, `circle`, `ellipse`, `line`, `poly`, `icon`, `text`) di kotak `width` x `height` dengan koordinat piksel dan warna dari `tone`; dipakai untuk soal ketuk di gambar dan beri label, karena persen area ketuk dihitung dari kotak ini.
 
 Opsi mcq boleh berupa figur: `{ "figure": { "kind": "shape", "shape": "hexagon", "alt": "A hexagon." } }`.
 

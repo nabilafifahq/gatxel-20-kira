@@ -28,7 +28,7 @@ import { latestByPosition, type AttemptItem } from './learner-runner'
 
 const { response, attempt, learnerProfile, media, aiJob } = tables
 
-const MANUAL_TYPES = ['write', 'speak', 'draw']
+const MANUAL_TYPES = ['write', 'speak', 'draw', 'photo']
 /** Mode tanpa umpan balik: jawaban masih bisa diganti learner sampai attempt dikumpulkan. */
 const HIDDEN_MODES: ('tes' | 'simulasi' | 'kertas')[] = ['tes', 'simulasi', 'kertas']
 const isHiddenMode = (mode: string) => (HIDDEN_MODES as string[]).includes(mode)

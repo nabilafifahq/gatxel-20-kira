@@ -23,13 +23,16 @@ export function badgeGlyph(title: string): string {
 }
 
 function fillFor(id: string): string {
+  // Lencana arena memakai warna jalurnya: Quick Maths ungu, Quiz Arena biru tua.
+  if (id.startsWith('qm-')) return 'bg-mental-50'
+  if (id.startsWith('quiz-')) return 'bg-knowledge-50'
   let h = 0
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0
   return FILLS[h % FILLS.length] ?? 'bg-math-50'
 }
 
 /** Medali lencana tanpa teks (halaman hasil): lingkaran bergaris tinta dengan glyph. */
-export function BadgeMedal({ id, title, size = 'L', className }: { id: string; title: string; size?: 'M' | 'L'; className?: string }): ReactElement {
+export function BadgeMedal({ id, title, size = 'L', glyph, className }: { id: string; title: string; size?: 'M' | 'L'; glyph?: string; className?: string }): ReactElement {
   return (
     <span
       aria-hidden="true"
@@ -40,7 +43,7 @@ export function BadgeMedal({ id, title, size = 'L', className }: { id: string; t
         className,
       )}
     >
-      {badgeGlyph(title)}
+      {glyph ?? badgeGlyph(title)}
     </span>
   )
 }

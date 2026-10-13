@@ -1,0 +1,41 @@
+{
+  "skill": "m1.oclock-half-past",
+  "items": [
+    {
+      "id": "m1.oclock-half-past.001",
+      "skill": "m1.oclock-half-past",
+      "type": "clock",
+      "difficulty": 1,
+      "prompt": "Show 3 o'clock on the clock.",
+      "hints": [
+        "At o'clock the long hand points to 12.",
+        "The short hand points to the hour.",
+        "Point the short hand to 3."
+      ],
+      "explanation": "At 3 o'clock the long hand is on 12 and the short hand is on 3.",
+      "answer": {
+        "h": 3,
+        "m": 0
+      },
+      "stepMinutes": 30
+    },
+    {
+      "id": "m1.oclock-half-past.002",
+      "skill": "m1.oclock-half-past",
+      "type": "clock",
+      "difficulty": 1,
+      "prompt": "Show half past 7 on the clock.",
+      "hints": [
+        "Half past means 30 minutes after the hour.",
+        "At half past the long hand points to 6.",
+        "The short hand is halfway between 7 and 8."
+      ],
+      "explanation": "At half past 7 the long hand is on 6 and the short hand is between 7 and 8.",
+      "answer": {
+        "h": 7,
+        "m": 30
+      },
+      "stepMinutes": 30
+    }
+  ]
+}

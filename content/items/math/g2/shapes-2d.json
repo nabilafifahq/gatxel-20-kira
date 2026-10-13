@@ -1,0 +1,115 @@
+{
+  "skill": "m2.shapes-2d",
+  "items": [
+    {
+      "id": "m2.shapes-2d.001",
+      "skill": "m2.shapes-2d",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the shape that has 4 equal sides.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "circle",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "square",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "triangle",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "heart",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: circle, square, triangle and heart."
+      },
+      "hints": [
+        "Count the sides of each shape.",
+        "A circle has no straight sides.",
+        "The shape looks like a box from the front."
+      ],
+      "explanation": "A square has 4 sides that are all the same length.",
+      "regions": [
+        {
+          "x": 25,
+          "y": 25,
+          "label": "circle",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 25,
+          "label": "square",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 25,
+          "y": 75,
+          "label": "triangle",
+          "w": 47,
+          "h": 47
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "heart",
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "m2.shapes-2d.002",
+      "skill": "m2.shapes-2d",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Draw a pentagon and a hexagon on paper. Write how many sides each one has. Then take a photo.",
+      "hints": [
+        "A pentagon has 5 sides.",
+        "A hexagon has 6 sides."
+      ],
+      "explanation": "A pentagon has 5 sides and a hexagon has 6 sides.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a shape with 5 sides",
+            "points": 2
+          },
+          {
+            "label": "Draws a shape with 6 sides",
+            "points": 2
+          },
+          {
+            "label": "Writes the numbers of sides",
+            "points": 1
+          }
+        ]
+      }
+    }
+  ]
+}

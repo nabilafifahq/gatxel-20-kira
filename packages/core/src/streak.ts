@@ -2,7 +2,8 @@ import { addDays, compareDates, weekDates, weekday, weekStart, type IsoDate } fr
 
 /**
  * Streak dihitung ulang dari riwayat harian (WIB).
- * Hari lengkap: semua quest wajib hari itu selesai (default 3).
+ * Hari lengkap: semua sesi wajib hari itu selesai (9 pada hari biasa, 3 pada template Hari ringan).
+ * Sesi opsional dari tutor tidak dihitung, jadi tidak pernah menambah atau memutus streak.
  * Hari istirahat (hari istirahat mingguan atau dari rencana tutor) tidak memutus streak.
  * Hari terlewat memakai pembeku bila ada; tanpa pembeku streak kembali ke 0.
  * Pembeku: 1 setiap 7 hari lengkap berturut-turut, paling banyak 2 tersimpan.
@@ -20,6 +21,8 @@ export type StreakResult = {
   statusByDate: Map<IsoDate, DayStatus>
 }
 
+/** Jumlah sesi wajib bila hari itu belum punya catatan (3 mapel kali Latihan, Tes, dan Paper). */
+export const DEFAULT_REQUIRED_SESSIONS = 9
 export const MAX_FREEZES = 2
 export const FREEZE_EVERY = 7
 
@@ -40,7 +43,7 @@ export function computeStreak(input: {
   for (let d = input.since; compareDates(d, input.today) <= 0; d = addDays(d, 1)) {
     const rec = byDate.get(d)
     const isRest = rec?.rest === true || (rec === undefined && input.restWeekdays.includes(weekday(d)))
-    const required = rec?.questsRequired ?? 3
+    const required = rec?.questsRequired ?? DEFAULT_REQUIRED_SESSIONS
     const done = rec?.questsDone ?? 0
     const complete = required > 0 && done >= required
 

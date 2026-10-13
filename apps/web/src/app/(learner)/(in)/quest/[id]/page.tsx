@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { z } from 'zod'
 import { QuestIntroScreen } from '@/screens/learner'
 import { inOrg } from '@/server/db'
@@ -13,5 +13,7 @@ export default async function QuestIntroPage({ params }: { params: Promise<{ id:
   const { id } = await params
   if (!z.string().uuid().safeParse(id).success) notFound()
   const data = await load(() => inOrg(orgCtx(actor), (tx) => questIntroDTO(tx, orgCtx(actor), actor.userId, id)))
+  if ('redirect' in data) redirect(data.redirect)
+  if ('locked' in data) redirect('/today')
   return <QuestIntroScreen data={data} />
 }

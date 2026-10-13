@@ -396,6 +396,203 @@
         "Use the words first, then and finally."
       ],
       "explanation": "Water enters the roots from the soil. It travels up tiny tubes in the stem until it reaches the leaves."
+    },
+    {
+      "id": "s3.water-in-plants.013",
+      "skill": "s3.water-in-plants",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Water goes up the ___ to the leaves.",
+      "hints": [
+        "Water enters the plant at the roots.",
+        "It travels through the part that holds the plant up.",
+        "The part is long and thin."
+      ],
+      "explanation": "Water moves up the stem from the roots to the leaves.",
+      "gaps": [
+        {
+          "options": [
+            "flower",
+            "stem",
+            "soil"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s3.water-in-plants.014",
+      "skill": "s3.water-in-plants",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part that carries water up from the roots to the leaves.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "hints": [
+        "Water enters the plant at the roots.",
+        "It travels up through the part that holds the plant up.",
+        "This part is long like a pipe."
+      ],
+      "explanation": "Water moves up the stem. The stem works like a long pipe from the roots to the leaves.",
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 64.6,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        2
+      ]
     }
   ]
 }

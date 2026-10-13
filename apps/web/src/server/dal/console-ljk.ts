@@ -142,7 +142,11 @@ export function ljkAnswer(item: Item, shown: ClientItem, raw: string): Record<st
     case 'write':
     case 'speak':
     case 'draw':
+    case 'photo':
       return { text: v, ...ljk }
+    default:
+      // Jenis soal layar saja (tidak masuk kertas): isian disimpan apa adanya dan dinilai salah.
+      return { value: v, ...ljk }
   }
 }
 

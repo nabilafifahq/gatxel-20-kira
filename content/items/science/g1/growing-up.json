@@ -142,6 +142,67 @@
       "hints": ["A caterpillar is a young insect.", "Think about what flies near flowers in a garden.", "Remember: a caterpillar makes a chrysalis first."],
       "explanation": "A caterpillar grows, makes a chrysalis and then comes out as a butterfly.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.growing-up.013",
+      "skill": "s1.growing-up",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label how a plant grows.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "seed",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "seedling",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures to label."
+      },
+      "hints": [
+        "A plant starts as a seed.",
+        "Next, a small plant grows with a few leaves.",
+        "At the end it is a big plant."
+      ],
+      "explanation": "A seed grows into a seedling and then into a plant.",
+      "labels": [
+        "seed",
+        "seedling",
+        "plant"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ]
     }
   ]
 }

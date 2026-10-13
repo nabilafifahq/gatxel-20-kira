@@ -1,0 +1,29 @@
+{
+  "skill": "m2.arrays",
+  "items": [
+    {
+      "id": "m2.arrays.001",
+      "skill": "m2.arrays",
+      "type": "photo",
+      "difficulty": 2,
+      "prompt": "Draw an array for 3 x 4 on paper. Write the answer. Then take a photo.",
+      "hints": [
+        "An array has rows and columns.",
+        "3 rows of 4 dots."
+      ],
+      "explanation": "3 rows of 4 make 12.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws 3 rows of 4",
+            "points": 2
+          },
+          {
+            "label": "Writes the answer 12",
+            "points": 1
+          }
+        ]
+      }
+    }
+  ]
+}

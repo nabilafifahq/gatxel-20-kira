@@ -465,6 +465,153 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-number-puzzles.010",
+      "skill": "m3.oly-number-puzzles",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill in the magic square. Use the numbers 1 to 9 once each. Every row, every column and both long diagonals must add up to 15.",
+      "hints": [
+        "Find a line that has only one empty box.",
+        "Add up the two numbers you can see. Then work out what makes 15.",
+        "Start with a line that has two numbers. Then use the new number in another line."
+      ],
+      "explanation": "Every line adds up to 15. For example, the top row is 4 + 3 + 8 = 15.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          6
+        ]
+      ],
+      "filled": [
+        [
+          4,
+          3,
+          8
+        ],
+        [
+          9,
+          5,
+          1
+        ],
+        [
+          2,
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-number-puzzles.011",
+      "skill": "m3.oly-number-puzzles",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill in the magic square. Use each of the numbers 2, 3, 4, 5, 6, 7, 8, 9 and 10 once each. Every row, every column and both long diagonals must add up to 18.",
+      "hints": [
+        "Find a line that has only one empty box.",
+        "Add up the two numbers you can see. Then work out what makes 18.",
+        "Start with a line that has two numbers. Then use the new number in another line."
+      ],
+      "explanation": "Every line adds up to 18. For example, the top row is 5 + 10 + 3 = 18.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          7
+        ]
+      ],
+      "filled": [
+        [
+          5,
+          10,
+          3
+        ],
+        [
+          4,
+          6,
+          8
+        ],
+        [
+          9,
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "id": "m3.oly-number-puzzles.012",
+      "skill": "m3.oly-number-puzzles",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill in the magic square. Use each of the numbers 2, 4, 6, 8, 10, 12, 14, 16 and 18 once each. Every row, every column and both long diagonals must add up to 30.",
+      "hints": [
+        "Find a line that has only one empty box.",
+        "Add up the two numbers you can see. Then work out what makes 30.",
+        "Start with a line that has two numbers. Then use the new number in another line."
+      ],
+      "explanation": "Every line adds up to 30. For example, the top row is 16 + 2 + 12 = 30.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          12
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          0,
+          4
+        ]
+      ],
+      "filled": [
+        [
+          16,
+          2,
+          12
+        ],
+        [
+          6,
+          10,
+          14
+        ],
+        [
+          8,
+          18,
+          4
+        ]
+      ]
     }
   ]
 }

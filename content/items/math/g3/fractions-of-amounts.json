@@ -1,0 +1,46 @@
+{
+  "skill": "m3.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m3.fractions-of-amounts.001",
+      "skill": "m3.fractions-of-amounts",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A bag has 12 marbles. Half of the marbles are red. One quarter of the marbles are blue.",
+      "hints": [
+        "To find half, share into 2 equal groups.",
+        "To find a quarter, share into 4 equal groups.",
+        "12 shared into 2 is 6. 12 shared into 4 is 3."
+      ],
+      "explanation": "Half of 12 is 6, so there are 6 red marbles. A quarter of 12 is 3, so there are 3 blue marbles. 6 is more than 3.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many marbles are red?",
+          "answer": 6
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many marbles are blue?",
+          "answer": 3
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which colour has more marbles?",
+          "options": [
+            {
+              "text": "blue"
+            },
+            {
+              "text": "red"
+            },
+            {
+              "text": "the same"
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    }
+  ]
+}

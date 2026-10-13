@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { figureSpec } from '@kira/figures/spec'
 
+export { ICON_NAMES } from '@kira/figures/spec'
+export type { IconName } from '@kira/figures/spec'
+
 /**
  * Skema konten Kira. Semua JSON di content/ divalidasi dengan skema ini oleh
  * `pnpm content:check`. Teks learner memakai ejaan en-GB.
@@ -147,15 +150,82 @@ export const writeItem = z.object({ ...manualBase, type: z.literal('write'), rub
 export const speakItem = z.object({ ...manualBase, type: z.literal('speak'), rubric: rubricSchema, readText: text(600).optional(), maxSeconds: z.number().int().min(10).max(180).default(60) }).strict()
 export const drawItem = z.object({ ...manualBase, type: z.literal('draw'), rubric: rubricSchema, background: z.enum(['blank', 'grid', 'lines', 'dots']).default('blank') }).strict()
 
+/** Sudut peta untuk bagian soal ketuk di gambar dan beri label: persen dari lebar dan tinggi figur. */
+const pct = z.number().min(0).max(100)
+const regionSchema = z.object({ label: text(40), x: pct, y: pct, w: z.number().min(8).max(100), h: z.number().min(8).max(100) }).strict()
+const spotSchema = z.object({ x: pct, y: pct }).strict()
+const gridCell = z.number().int().min(0).max(99)
+
+/** Pertanyaan di dalam soal cerita bertahap: hanya jenis yang dinilai otomatis dengan satu jawaban. */
+const storyPartMcq = z.object({ type: z.literal('mcq'), prompt: text(220), options: z.array(optionSchema).min(2).max(5), answer: z.number().int().min(0).max(4) }).strict()
+const storyPartNumeric = z
+  .object({ type: z.literal('numeric'), prompt: text(220), answer: z.number(), tolerance: z.number().min(0).max(1000).default(0), unit: text(20).optional(), allowNegative: z.boolean().default(false), allowDecimal: z.boolean().default(false) })
+  .strict()
+const storyPartText = z.object({ type: z.literal('text'), prompt: text(220), answers: z.array(text(60)).min(1).max(8), caseSensitive: z.boolean().default(false) }).strict()
+export const storyPartSchema = z.discriminatedUnion('type', [storyPartMcq, storyPartNumeric, storyPartText])
+export type StoryPart = z.infer<typeof storyPartSchema>
+
+/** Cerita (di prompt) dengan 2 sampai 4 pertanyaan bertahap. */
+export const storyItem = z.object({ ...base, type: z.literal('story'), parts: z.array(storyPartSchema).min(2).max(4) }).strict()
+/** Dengar lalu jawab: listenText dibacakan lewat suara dan tidak pernah ditampilkan sebelum jawaban dikirim. */
+export const listenItem = z.object({ ...base, type: z.literal('listen'), listenText: text(300), options: z.array(optionSchema).min(2).max(5), answer: z.number().int().min(0).max(4) }).strict()
+/** Susun kata: answer dipecah per spasi menjadi kartu, distractors adalah kartu pengecoh. */
+export const tilesItem = z.object({ ...base, type: z.literal('tiles'), answer: text(120), alternatives: z.array(text(120)).max(3).default([]), distractors: z.array(text(20)).max(4).default([]) }).strict()
+/** Eja: anak mendengar word (lalu sentence) dan mengetik dengan papan huruf. */
+export const spellItem = z
+  .object({ ...base, type: z.literal('spell'), word: z.string().trim().min(2).max(16).regex(/^[A-Za-z][A-Za-z'-]*$/), sentence: text(160).optional(), alsoAccept: z.array(z.string().trim().min(2).max(16).regex(/^[A-Za-z][A-Za-z'-]*$/)).max(3).default([]) })
+  .strict()
+/** Pilih kata di celah: prompt memuat ___ untuk tiap celah, gaps[i] adalah pilihan dan indeks jawabannya. */
+export const clozeItem = z
+  .object({ ...base, type: z.literal('cloze'), gaps: z.array(z.object({ options: z.array(text(30)).min(2).max(5), answer: z.number().int().min(0).max(4) }).strict()).min(1).max(4) })
+  .strict()
+/** Ketuk di gambar: figur wajib, regions adalah area ketuk dalam persen, answers adalah indeks region yang benar. */
+export const hotspotItem = z
+  .object({ ...base, type: z.literal('hotspot'), figure: figureSpec, regions: z.array(regionSchema).min(2).max(8), answers: z.array(z.number().int().min(0).max(7)).min(1).max(3) })
+  .strict()
+/** Beri label diagram: labels[k] adalah label yang benar untuk spots[k]; extraLabels adalah label pengecoh. */
+export const labelItem = z
+  .object({ ...base, type: z.literal('label'), figure: figureSpec, labels: z.array(text(24)).min(2).max(6), spots: z.array(spotSchema).min(2).max(6), extraLabels: z.array(text(24)).max(2).default([]) })
+  .strict()
+/** Lengkapi tabel: sel di blanks dikosongkan di rows, anak mengisinya. */
+export const tableItem = z
+  .object({
+    ...base,
+    type: z.literal('table'),
+    caption: text(60).optional(),
+    head: z.array(text(24)).min(2).max(5),
+    rows: z.array(z.array(z.string().trim().max(24)).min(2).max(5)).min(2).max(6),
+    blanks: z.array(z.object({ row: z.number().int().min(0).max(5), col: z.number().int().min(0).max(4), answers: z.array(text(24)).min(1).max(4) }).strict()).min(1).max(8),
+  })
+  .strict()
+/** Teka-teki kotak. given memakai 0 untuk sel kosong; filled adalah satu-satunya penyelesaian. */
+export const GRID_PUZZLES = ['magic', 'sudoku', 'latin'] as const
+export const gridItem = z
+  .object({
+    ...base,
+    type: z.literal('grid'),
+    puzzle: z.enum(GRID_PUZZLES),
+    size: z.union([z.literal(3), z.literal(4)]),
+    given: z.array(z.array(gridCell).min(3).max(4)).min(3).max(4),
+    filled: z.array(z.array(z.number().int().min(1).max(99)).min(3).max(4)).min(3).max(4),
+  })
+  .strict()
+/** Jawaban foto: anak memotret jawaban di kertas, tutor menilai dengan rubrik dan saran AI. */
+export const photoItem = z.object({ ...manualBase, type: z.literal('photo'), rubric: rubricSchema }).strict()
+
 export const itemSchema = z.discriminatedUnion('type', [
   mcqItem, multiItem, numericItem, textItem, orderItem, matchItem, sortItem, numberlineItem, clockItem, fractionItem,
   writeItem, speakItem, drawItem,
+  storyItem, listenItem, tilesItem, spellItem, clozeItem, hotspotItem, labelItem, tableItem, gridItem, photoItem,
 ])
 export type Item = z.infer<typeof itemSchema>
 export type ItemInput = z.input<typeof itemSchema>
 export type ItemType = Item['type']
 export const ITEM_TYPES = itemSchema.options.map((o) => o.shape.type.value) as ItemType[]
-export const MANUAL_TYPES: readonly ItemType[] = ['write', 'speak', 'draw']
+export const MANUAL_TYPES: readonly ItemType[] = ['write', 'speak', 'draw', 'photo']
+/** Jenis soal yang bisa dicetak di kertas dan dijawab lewat LJK. Jenis lain hanya untuk layar. */
+export const PAPER_TYPES: readonly ItemType[] = ['mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction']
+export const isPaperType = (type: ItemType): boolean => PAPER_TYPES.includes(type)
 
 export const itemFileSchema = z.object({ skill: z.string().regex(SKILL_ID), items: z.array(itemSchema).min(1) }).strict()
 

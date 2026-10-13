@@ -4,12 +4,12 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-// Alamat server Kira yang ditanam ke APK: -PkiraUrl=https://kira-server.nama-tailnet.ts.net
+// Alamat server Kira yang ditanam ke APK: -PkiraUrl=https://kira.gatxel.com
 // Boleh kosong; aplikasi lalu meminta alamat saat pertama dibuka.
 val kiraUrl: String = providers.gradleProperty("kiraUrl").orNull.orEmpty().trim().removeSuffix("/").lowercase()
 if (kiraUrl.isNotEmpty() && !Regex("^https://[a-z0-9-]+(\\.[a-z0-9-]+)+(:[0-9]{1,5})?$").matches(kiraUrl)) {
     throw GradleException(
-        "kiraUrl harus berbentuk https://nama-host.domain tanpa path, misalnya https://kira-server.nama-tailnet.ts.net",
+        "kiraUrl harus berbentuk https://nama-host.domain tanpa path, misalnya https://kira.gatxel.com",
     )
 }
 

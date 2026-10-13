@@ -182,13 +182,19 @@ async function attentionItems(tx: Tx, learner: ShellLearner | null, learners: Sh
   return out
 }
 
+const SESSION_NAME_ID: Record<string, string> = { latihan: 'Latihan', tes: 'Tes', paper: 'Paper', lesson: 'Pelajaran', simulation: 'Simulasi', esmo: 'ESMO', review: 'Ulang kartu', 'quick-maths': 'Hitung Cepat', knowledge: 'Kuis', 'english-skill': 'Tugas English', reading: 'Membaca' }
+
+/**
+ * Status hari ini per mapel. Setiap mapel punya beberapa sesi wajib (Latihan, Tes, Paper); angka dan akurasi
+ * dijumlahkan dari sesi wajib saja, dan percobaan ulang tidak ikut karena hanya percobaan pertama yang resmi.
+ */
 async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<SubjectTodayStatus[]> {
   const learner = await loadLearner(tx, learnerId)
   if (await isRestDay(tx, learner, today)) {
     return SUBJECT_ORDER.map((subject) => ({ subject, questTitle: null, state: 'rest', answered: 0, total: 0, accuracy: null, minutes: 0, syncedAt: null }))
   }
   const quests = await tx
-    .select({ id: quest.id, subject: quest.subject, title: quest.title, status: quest.status, attemptId: quest.attemptId })
+    .select({ id: quest.id, subject: quest.subject, title: quest.title, status: quest.status, attemptId: quest.attemptId, session: quest.session, seq: quest.seq })
     .from(quest)
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, today), eq(quest.kind, 'daily')))
   const attemptIds = quests.map((q) => q.attemptId).filter((x): x is string => Boolean(x))
@@ -202,7 +208,7 @@ async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<S
           last: sql<number | null>`(extract(epoch from max(${response.answeredAt})) * 1000)::float8`,
         })
         .from(response)
-        .where(inArray(response.attemptId, attemptIds))
+        .where(and(inArray(response.attemptId, attemptIds), eq(response.retry, false)))
         .groupBy(response.attemptId)
     : []
   const elapsed = attemptIds.length
@@ -216,8 +222,8 @@ async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<S
     .where(and(eq(planSlot.learnerId, learnerId), eq(planSlot.date, today), eq(planSlot.kind, 'quest'), eq(planWeek.status, 'published')))
 
   return SUBJECT_ORDER.map((subject): SubjectTodayStatus => {
-    const q = quests.find((x) => x.subject === subject)
-    if (!q) {
+    const mine = quests.filter((x) => x.subject === subject).sort((x, y) => ['latihan', 'tes', 'paper'].indexOf(x.session) - ['latihan', 'tes', 'paper'].indexOf(y.session) || x.seq - y.seq)
+    if (mine.length === 0) {
       const slot = slots.find((s) => s.subject === subject)
       // Paper Kertas tidak punya quest tablet; nilainya masuk lewat Input LJK.
       if (slot?.mode === 'kertas') {
@@ -225,19 +231,33 @@ async function todayStatus(tx: Tx, learnerId: string, today: IsoDate): Promise<S
       }
       return { subject, questTitle: slot ? (slot.paperTitle ?? skillTitle(slot.skillId)) : null, state: 'not-started', answered: 0, total: 0, accuracy: null, minutes: 0, syncedAt: null }
     }
-    const p = q.attemptId ? progress.get(q.attemptId) : undefined
-    const st = stats.find((s) => s.attemptId === q.attemptId)
-    const secs = elapsed.find((e) => e.id === q.attemptId)?.s ?? 0
-    const answered = p?.answered ?? 0
+    let answered = 0
+    let total = 0
+    let correct = 0
+    let graded = 0
+    let secs = 0
+    let last = 0
+    for (const q of mine) {
+      const p = q.attemptId ? progress.get(q.attemptId) : undefined
+      const st = stats.find((x) => x.attemptId === q.attemptId)
+      answered += p?.answered ?? 0
+      total += p?.total ?? 0
+      correct += st?.correct ?? 0
+      graded += st?.graded ?? 0
+      secs += elapsed.find((e) => e.id === q.attemptId)?.s ?? 0
+      last = Math.max(last, Number(st?.last ?? 0))
+    }
+    const done = mine.filter((q) => q.status === 'done').length
+    const names = mine.map((q) => `${SESSION_NAME_ID[q.session] ?? q.session} ${q.status === 'done' ? 'selesai' : 'belum'}`).join(', ')
     return {
       subject,
-      questTitle: q.title,
-      state: q.status === 'done' ? 'done' : answered > 0 ? 'in-progress' : 'not-started',
+      questTitle: `${mine[0]!.title}. ${names}`,
+      state: done === mine.length ? 'done' : answered > 0 || done > 0 ? 'in-progress' : 'not-started',
       answered,
-      total: p?.total ?? 0,
-      accuracy: st ? accuracyPct(st.correct, st.graded) : null,
+      total,
+      accuracy: accuracyPct(correct, graded),
       minutes: Math.round(secs / 60),
-      syncedAt: st?.last ? new Date(Number(st.last)).toISOString() : null,
+      syncedAt: last > 0 ? new Date(last).toISOString() : null,
     }
   })
 }
@@ -254,7 +274,7 @@ async function trendFor(tx: Tx, learnerId: string, today: IsoDate): Promise<Tuto
       correct: sql<number>`count(*) filter (where ${response.status} = 'correct')::int`,
     })
     .from(response)
-    .where(and(eq(response.learnerId, learnerId), eq(response.attemptNo, 1), inArray(response.status, ['correct', 'wrong']), gte(response.answeredAt, since)))
+    .where(and(eq(response.learnerId, learnerId), eq(response.attemptNo, 1), eq(response.retry, false), inArray(response.status, ['correct', 'wrong']), gte(response.answeredAt, since)))
     .groupBy(response.subject, sql`2`)
   return SUBJECT_ORDER.map((subject) => ({
     subject,

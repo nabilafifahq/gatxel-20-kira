@@ -15,6 +15,7 @@ import { content, promptPreview, resolveItems, skillsFor } from './content'
 import { skillTitle, SUBJECT_ID_LABEL, SUBJECT_ORDER } from './console-common'
 import { shellIn } from './console-shell'
 import { answerTextId, attemptMinutes, emptyCells, heatCells, scoreText, weekColumns, type ReplayAnswer } from './console-learner-logic'
+import { arenaTutorDTO } from './arena-tutor'
 import { loadLearner, streakFor, totalXp, type LearnerRow } from './learner-core'
 import { yourAnswerText } from './learner-results'
 
@@ -54,11 +55,13 @@ function learnerSince(l: LearnerRow): IsoDate {
 }
 
 /** Judul attempt untuk konsol: jenis dalam bahasa Indonesia, lalu judul asli (en-GB untuk quest). */
-export function attemptTitle(a: { kind: string; mode: string; subject: Subject; title: string; questKind: string | null }): string {
+const QUEST_SESSION_ID: Record<string, string> = { latihan: 'Latihan', tes: 'Tes', paper: 'Paper', reading: 'Membaca', lesson: 'Pelajaran' }
+
+export function attemptTitle(a: { kind: string; mode: string; subject: Subject; title: string; questKind: string | null; questSession?: string | null }): string {
   const subject = SUBJECT_ID_LABEL[a.subject]
   switch (a.kind) {
     case 'quest':
-      return `${a.questKind === 'bonus' ? 'Quest bonus' : 'Quest'} ${subject}: ${a.title}`
+      return `${QUEST_SESSION_ID[a.questSession ?? 'latihan'] ?? 'Sesi'}${a.questKind === 'extra' || a.questKind === 'bonus' ? ' opsional' : ''} ${subject}: ${a.title}`
     case 'test':
       return `Latihan ${subject}: ${a.title}`
     case 'review':
@@ -91,7 +94,7 @@ async function heatmapFor(tx: Tx, learner: LearnerRow, weeks: IsoDate[]): Promis
     })
     .from(response)
     .innerJoin(attempt, eq(attempt.id, response.attemptId))
-    .where(and(eq(response.learnerId, learner.userId), eq(response.attemptNo, 1), inArray(response.status, ['correct', 'wrong'])))
+    .where(and(eq(response.learnerId, learner.userId), eq(response.attemptNo, 1), eq(response.retry, false), inArray(response.status, ['correct', 'wrong'])))
     .orderBy(asc(response.answeredAt), asc(response.position))
   // Jawaban tes yang belum dikumpulkan belum masuk mesin belajar dan masih bisa diganti.
   const answers: ReplayAnswer[] = rows
@@ -143,10 +146,11 @@ async function recentAttempts(tx: Tx, learnerId: string): Promise<LearnerDetailD
       scoreScaled: attempt.scoreScaled,
       itemCount: sql<number>`jsonb_array_length(${attempt.items})`,
       questKind: quest.kind,
+      questSession: quest.session,
     })
     .from(attempt)
     .leftJoin(quest, eq(quest.attemptId, attempt.id))
-    .where(and(eq(attempt.learnerId, learnerId), ne(attempt.status, 'in_progress')))
+    .where(and(eq(attempt.learnerId, learnerId), ne(attempt.status, 'in_progress'), isNull(attempt.retryOf)))
     .orderBy(desc(sql`coalesce(${attempt.submittedAt}, ${attempt.startedAt})`))
     .limit(ATTEMPT_LIMIT)
   if (rows.length === 0) return []
@@ -210,6 +214,7 @@ export async function learnerDetailDTO(actor: Actor, learnerId: string): Promise
       heatmap: await heatmapFor(tx, learner, weeks.map((w) => w.weekStart)),
       attempts: await recentAttempts(tx, learner.userId),
       notes: await notesFor(tx, learner.userId),
+      arena: await arenaTutorDTO(tx, learner.userId, learner.grade),
     }
   })
 }
@@ -259,6 +264,7 @@ export async function attemptDetailDTO(actor: Actor, learnerId: string, attemptI
         scoreMax: attempt.scoreMax,
         scoreScaled: attempt.scoreScaled,
         questKind: quest.kind,
+        questSession: quest.session,
       })
       .from(attempt)
       .leftJoin(quest, eq(quest.attemptId, attempt.id))

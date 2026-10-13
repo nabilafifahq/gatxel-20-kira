@@ -1,0 +1,31 @@
+{
+  "skill": "m2.place-value",
+  "items": [
+    {
+      "id": "m2.place-value.001",
+      "skill": "m2.place-value",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. Which number has the digits you hear?",
+      "hints": [
+        "Listen for how many tens.",
+        "Thirty means 3 tens.",
+        "Then listen for the ones."
+      ],
+      "explanation": "The speaker said \"thirty five\". That is 3 tens and 5 ones, so the number is 35.",
+      "listenText": "thirty five",
+      "options": [
+        {
+          "text": "53"
+        },
+        {
+          "text": "305"
+        },
+        {
+          "text": "35"
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

@@ -16,7 +16,7 @@
     "lint": "eslint . --max-warnings=0 && node scripts/check-copy.mjs",
     "lint:copy": "node scripts/check-copy.mjs",
     "test": "vitest run --project core --project content --project figures --project web --project worker",
-    "test:db": "vitest run --project db",
+    "test:db": "vitest run --project db --project web-db",
     "test:all": "vitest run",
     "content:check": "tsx packages/content/scripts/check.ts",
     "db:generate": "drizzle-kit generate --config packages/db/drizzle.config.ts",

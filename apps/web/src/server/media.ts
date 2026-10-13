@@ -8,9 +8,9 @@ import { env } from './env'
  * Berkas (rekaman, gambar, PDF) disimpan di KIRA_DATA_DIR/media/<org>/<yyyy-mm>/<uuid>.<ext>.
  * Jenis berkas dicek dari byte awal, bukan dari nama atau header yang dikirim browser.
  */
-export type MediaKind = 'audio' | 'image' | 'drawing' | 'pdf' | 'page'
+export type MediaKind = 'audio' | 'image' | 'drawing' | 'pdf' | 'page' | 'figure'
 
-const LIMITS: Record<MediaKind, number> = { audio: 10 * 1024 * 1024, image: 8 * 1024 * 1024, drawing: 6 * 1024 * 1024, pdf: 60 * 1024 * 1024, page: 8 * 1024 * 1024 }
+const LIMITS: Record<MediaKind, number> = { audio: 10 * 1024 * 1024, image: 8 * 1024 * 1024, drawing: 6 * 1024 * 1024, pdf: 60 * 1024 * 1024, page: 8 * 1024 * 1024, figure: 8 * 1024 * 1024 }
 
 export function sniff(buf: Buffer): { mime: string; ext: string } | null {
   const ascii = (a: number, b: number) => buf.subarray(a, b).toString('latin1')

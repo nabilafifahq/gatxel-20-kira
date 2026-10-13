@@ -8,7 +8,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 export function proxy(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const dev = process.env.NODE_ENV !== 'production'
-  // upgrade-insecure-requests hanya bila Kira memang dibuka lewat https (Tailscale). Di http://localhost
+  // upgrade-insecure-requests hanya bila Kira memang dibuka lewat https (Cloudflare Tunnel). Di http://localhost
   // (CI, uji build produksi) arahan ini membuat browser pindah ke https yang tidak ada.
   const httpsOrigin = (process.env.KIRA_ORIGIN ?? '').startsWith('https://')
   const csp = [
@@ -39,7 +39,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|icons|sw.js|manifest.webmanifest|fonts).*)',
+      source: '/((?!api|_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },

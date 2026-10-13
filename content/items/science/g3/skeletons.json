@@ -435,6 +435,29 @@
         "Draw the backbone down the middle, then the ribs around the chest."
       ],
       "explanation": "The skull sits at the top, the backbone runs down the middle of the back and the ribs curve around the chest."
+    },
+    {
+      "id": "s3.skeletons.013",
+      "skill": "s3.skeletons",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Draw your arm on paper. Label the bones you know, such as the upper arm bone and the lower arm bones. Then take a photo.",
+      "hints": [
+        "Your arm has bones inside it."
+      ],
+      "explanation": "Your tutor checks that the arm and its bones are drawn and labelled.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws an arm with bones",
+            "points": 2
+          },
+          {
+            "label": "Labels at least two bones",
+            "points": 2
+          }
+        ]
+      }
     }
   ]
 }

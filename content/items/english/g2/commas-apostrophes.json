@@ -553,6 +553,47 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e2.commas-apostrophes.019",
+      "skill": "e2.commas-apostrophes",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "One card has an apostrophe.",
+        "Don't is a short way to write do not.",
+        "The sentence tells someone not to leave something behind."
+      ],
+      "explanation": "Don't forget your bag. Don't is the short form of do not.",
+      "answer": "Don't forget your bag.",
+      "distractors": [
+        "Do",
+        "not"
+      ]
+    },
+    {
+      "id": "e2.commas-apostrophes.020",
+      "skill": "e2.commas-apostrophes",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "I ___ like spiders.",
+      "hints": [
+        "The sentence means I do not like spiders.",
+        "The short form has an apostrophe.",
+        "The apostrophe takes the place of the letter o."
+      ],
+      "explanation": "Don't is the short form of do not. The apostrophe shows the missing letter o.",
+      "gaps": [
+        {
+          "options": [
+            "dont",
+            "don't",
+            "do'nt"
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }

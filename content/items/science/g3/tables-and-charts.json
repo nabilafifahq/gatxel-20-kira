@@ -492,6 +492,51 @@
         "Choose a scale that counts up in 10s or 20s."
       ],
       "explanation": "The bar chart should have the surfaces along the bottom and distance in centimetres up the side. The tiles bar is tallest at 120 cm."
+    },
+    {
+      "id": "s3.tables-and-charts.013",
+      "skill": "s3.tables-and-charts",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Sixteen children chose a favourite fruit. Fill in the missing number.",
+      "hints": [
+        "Add up the numbers you can see.",
+        "7 plus 5 plus 4 makes 16.",
+        "Take 7 and 5 away from 16."
+      ],
+      "explanation": "7 plus 5 is 12. 16 take away 12 is 4, so 4 children chose apple.",
+      "caption": "Favourite fruit",
+      "head": [
+        "Fruit",
+        "Children"
+      ],
+      "rows": [
+        [
+          "Mango",
+          "7"
+        ],
+        [
+          "Banana",
+          "5"
+        ],
+        [
+          "Apple",
+          ""
+        ],
+        [
+          "All",
+          "16"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "4"
+          ]
+        }
+      ]
     }
   ]
 }

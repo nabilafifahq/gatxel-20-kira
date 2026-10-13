@@ -1,6 +1,7 @@
 /**
  * Lencana untuk usaha dan kebiasaan, bukan hanya nilai.
- * Aturan dievaluasi di server setiap kali quest, review, atau tes selesai.
+ * Aturan dievaluasi di server setiap kali sesi, review, atau tes selesai.
+ * Badge sesi harian (paper, tes, ulang sesi) dihitung dari percobaan pertama; hanya "never-give-up" melihat percobaan ulang.
  */
 
 export type BadgeStats = {
@@ -19,6 +20,16 @@ export type BadgeStats = {
   esmoPackagesDone: number
   speakingDone: number
   writingDone: number
+  /** Sesi Paper harian yang selesai (percobaan pertama). */
+  papersDone: number
+  /** Paper dengan skor di atas batas lulus. */
+  papersPassed: number
+  /** Sesi Tes dengan semua jawaban benar. */
+  testsPerfect: number
+  /** Sesi Tes semua benar yang selesai dengan sisa waktu. */
+  testsEarlyPerfect: number
+  /** Percobaan ulang sesi yang skornya lebih baik dari sebelumnya. */
+  retriesImproved: number
 }
 
 export type BadgeDef = {
@@ -49,6 +60,12 @@ export const BADGES: readonly BadgeDef[] = [
   { id: 'first-lesson', title: 'Watched a lesson', description: 'You finished a lesson.', rule: (s) => s.lessonsDone >= 1 },
   { id: 'first-speaking', title: 'Brave voice', description: 'You recorded a speaking answer.', rule: (s) => s.speakingDone >= 1 },
   { id: 'first-writing', title: 'Writer', description: 'You sent a piece of writing.', rule: (s) => s.writingDone >= 1 },
+  { id: 'first-paper', title: 'First paper', description: 'You finished your first daily paper.', rule: (s) => s.papersDone >= 1 },
+  { id: 'paper-pass', title: 'Above the pass mark', description: 'A paper score above the pass mark.', rule: (s) => s.papersPassed >= 1 },
+  { id: 'papers-10', title: 'Ten papers', description: 'You finished ten daily papers.', rule: (s) => s.papersDone >= 10 },
+  { id: 'perfect-test', title: 'Perfect test', description: 'A timed test with every answer right.', rule: (s) => s.testsPerfect >= 1 },
+  { id: 'early-finish', title: 'Time to spare', description: 'Every answer right and time left on the clock.', rule: (s) => s.testsEarlyPerfect >= 1 },
+  { id: 'never-give-up', title: 'Never give up', description: 'You tried a session again and did better.', rule: (s) => s.retriesImproved >= 1 },
 ] as const
 
 export function earnedBadges(stats: BadgeStats, alreadyHave: ReadonlySet<string>): BadgeDef[] {

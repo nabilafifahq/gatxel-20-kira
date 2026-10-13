@@ -9,7 +9,7 @@ const MARKDOWN = [
   '',
   '## Waktu dan quest',
   '- Belajar 245 menit dalam 6 hari, rata-rata 41 menit',
-  '- Quest selesai 17 dari 18, streak 13 hari',
+  '- Sesi wajib selesai 49 dari 54, streak 13 hari',
   '',
   '## Akurasi mingguan',
   '| Mapel | M1 | M2 | M3 | M4 |',

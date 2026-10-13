@@ -112,6 +112,16 @@ const ICONS = {
       </>
     ),
   },
+  bolt: { sw: 2, d: <path d="M13 2.5L5.5 13.5H11l-1 8L18.5 10H13l0-7.5z" /> },
+  globe: {
+    sw: 2,
+    d: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c3.2 3 3.2 15 0 18M12 3c-3.2 3-3.2 15 0 18" />
+      </>
+    ),
+  },
   flag: {
     sw: 2,
     d: (
@@ -392,6 +402,7 @@ const ICONS = {
     ),
   },
   list: { sw: 2, d: <path d="M9 6h11M9 12h11M9 18h11M4 6h.5M4 12h.5M4 18h.5" /> },
+  more: { sw: 3.5, d: <path d="M5 12h.01M12 12h.01M19 12h.01" /> },
   search: {
     sw: 2,
     d: (

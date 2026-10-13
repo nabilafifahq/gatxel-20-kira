@@ -57,6 +57,11 @@ function Row({ label, children }: { label: string; children: ReactNode }): React
 function stop(p: Partial<QuestStopDTO> & Pick<QuestStopDTO, 'subject' | 'state'>): QuestStopDTO {
   return {
     questId: `seed-${p.subject}-${p.state}`,
+    session: 'latihan',
+    sessionLabel: 'Practice',
+    required: true,
+    timed: false,
+    best: null,
     title: 'Arrays and skip counting',
     meta: '10 questions, about 15 minutes',
     total: 10,
@@ -384,7 +389,6 @@ export function Gallery({
                 <HintList hints={['Count the dots in one row.', 'Count in 2s for each row.']} opened={2} />
                 <Row label="ReadAloudButton">
                   <ReadAloudButton text="How many dots are there?" subject="math" />
-                  <ReadAloudButton text="Berapa banyak titik?" lang="id" subject="math" compact />
                 </Row>
               </div>
             </div>
@@ -392,11 +396,11 @@ export function Gallery({
 
           <Section id="timer" title="Timer">
             <Row label="countdown, 1 minute left, time up, stopwatch">
-              <Timer mode="countdown" seconds={512} />
-              <Timer mode="countdown" seconds={48} />
-              <Timer mode="countdown" seconds={0} />
+              <Timer mode="countdown" seconds={512} total={600} />
+              <Timer mode="countdown" seconds={48} total={120} />
+              <Timer mode="countdown" seconds={0} total={120} />
               <Timer mode="stopwatch" seconds={754} />
-              <Timer mode="countdown" seconds={8} warnAt={10} compact />
+              <Timer mode="countdown" seconds={8} total={60} warnAt={10} compact tick={false} />
             </Row>
           </Section>
 

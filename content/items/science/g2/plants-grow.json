@@ -200,6 +200,92 @@
       ] },
       "hints": ["Draw the Sun or a watering can to show what the plant needs.", "Use arrows to point from your labels to the right places."],
       "explanation": "A plant needs light, water, air and warmth to grow well. Its roots take in water and its leaves use light to make food."
+    },
+    {
+      "id": "s2.plants-grow.017",
+      "skill": "s2.plants-grow",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Plants need water, ___ and warmth to grow.",
+      "hints": [
+        "Plants are not alive without the things they need.",
+        "The sun gives plants this.",
+        "Plants put in a dark cupboard grow weak and pale."
+      ],
+      "explanation": "Plants need water, light and warmth to grow well.",
+      "gaps": [
+        {
+          "options": [
+            "sound",
+            "plastic",
+            "light"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s2.plants-grow.018",
+      "skill": "s2.plants-grow",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Asha planted two beans. She put one in a dark cupboard and one on a sunny window sill. She gave both the same amount of water. After a week, only the bean on the window sill had green leaves.",
+      "hints": [
+        "Read which things were the same and which were different.",
+        "Look at where each bean was kept.",
+        "What did the sunny window give that the cupboard did not?"
+      ],
+      "explanation": "Only the amount of light was different. The bean with light grew green leaves, so plants need light to grow well.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What was different for the two beans?",
+          "options": [
+            {
+              "text": "the amount of water"
+            },
+            {
+              "text": "the amount of light"
+            },
+            {
+              "text": "the kind of bean"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which bean grew green leaves?",
+          "options": [
+            {
+              "text": "the bean on the window sill"
+            },
+            {
+              "text": "the bean in the cupboard"
+            },
+            {
+              "text": "both beans"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What does this show?",
+          "options": [
+            {
+              "text": "Plants need light to grow well."
+            },
+            {
+              "text": "Plants do not need water."
+            },
+            {
+              "text": "Plants like the dark."
+            }
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

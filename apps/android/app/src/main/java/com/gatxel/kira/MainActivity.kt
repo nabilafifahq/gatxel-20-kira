@@ -322,8 +322,9 @@ class MainActivity : ComponentActivity() {
         }
 
         override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
-            // 502 sampai 504 datang dari tailscale serve saat Kira di server rumah mati.
-            if (request.isForMainFrame && errorResponse.statusCode in 502..504) {
+            // 502 sampai 504 datang dari Cloudflare saat Kira di server rumah mati. 520 sampai 530 datang
+            // saat Cloudflare Tunnel tidak tersambung ke server (misalnya 521 dan 530).
+            if (request.isForMainFrame && (errorResponse.statusCode in 502..504 || errorResponse.statusCode in 520..530)) {
                 mainFrameFailed(request.url.toString(), "HTTP ${errorResponse.statusCode}")
             }
         }

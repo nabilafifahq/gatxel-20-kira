@@ -4,8 +4,10 @@ import type { ResultQuestion, ResultsDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { TryAgainButton } from '@/components/runtime/TryAgainButton'
 import { BadgeMedal } from '@/components/learner/BadgeTile'
 import { minutesSeconds, plural } from '@/components/learner/format'
+import { SessionCelebration } from '@/components/learner/SessionCelebration'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_NAME } from '@/components/learner/subject'
 import { XpPill } from '@/components/learner/XpPill'
@@ -164,6 +166,15 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
             <p className="m-0 text-h3 font-bold">{data.headline}</p>
             {esmo ? <p className="m-0 text-body-lg">{data.detail}</p> : null}
           </div>
+          <SessionCelebration
+            attemptId={data.attemptId}
+            avatar={data.shell.avatar}
+            right={data.questions.filter((q) => q.status === 'correct').length}
+            total={data.questions.length}
+            pending={data.questions.filter((q) => q.status === 'pending').length}
+            xpBar={data.xpBar}
+            hasNewBadge={badge !== null}
+          />
           {esmo ? null : (
             <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
               <div role="img" aria-label={timeAria} className="flex items-center gap-2.5">
@@ -253,6 +264,21 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
           </div>
         </section>
       </div>
+
+      {data.retry ? (
+        <section aria-label="Try again" className="mx-4 mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-divider bg-surface p-5 md:mx-8 md:mt-6">
+          <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-1">
+            <p className="m-0 text-body-lg font-bold">
+              {data.retry.isRetry ? `Try ${data.retry.retryNo + 1}. Your first try counts for your report: ${data.retry.official}.` : data.retry.best ? `Your best so far: ${data.retry.best}.` : 'You can try this session again.'}
+            </p>
+            <p className="m-0 text-body text-fg-muted">
+              {data.retry.isRetry && data.retry.best ? `Best so far: ${data.retry.best}. ` : ''}
+              {data.retry.xpNote}
+            </p>
+          </div>
+          <TryAgainButton attemptId={data.attemptId} label={data.retry.continueOpen ? 'Continue your retry' : 'Try again'} />
+        </section>
+      ) : null}
 
       <footer className="flex flex-none flex-wrap items-center gap-3 px-4 py-5 md:h-24 md:px-8 md:py-0">
         <ButtonLink href={data.backHref} variant="secondary">

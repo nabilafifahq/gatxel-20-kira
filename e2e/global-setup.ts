@@ -9,5 +9,7 @@ export default async function globalSetup() {
     cwd: root,
     env: { ...process.env, KIRA_ALLOW_SEED: '1', NODE_ENV: 'development' },
     stdio: 'inherit',
+    // Windows menjalankan pnpm sebagai pnpm.cmd, yang tidak bisa dipanggil tanpa shell.
+    shell: process.platform === 'win32',
   })
 }

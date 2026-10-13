@@ -136,6 +136,29 @@
       "hints": ["Read each clue slowly, one at a time.", "Compare each pencil with the blue pencil.", "Draw three lines for the pencils. Start with the blue one in the middle."],
       "explanation": "Red is longer than blue, and green is shorter than blue. From longest to shortest, the order is red, blue, green.",
       "tags": ["iklc"]
+    },
+    {
+      "id": "e3.er-est.013",
+      "skill": "e3.er-est",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "A mouse is ___ than an elephant.",
+      "hints": [
+        "You are comparing two animals.",
+        "When we compare two things we add -er.",
+        "Which word ends in -er?"
+      ],
+      "explanation": "Smaller compares two animals. Use -er for two and -est for three or more.",
+      "gaps": [
+        {
+          "options": [
+            "small",
+            "smallest",
+            "smaller"
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

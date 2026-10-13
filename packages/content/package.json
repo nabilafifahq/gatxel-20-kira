@@ -9,8 +9,17 @@
     "./check": "./src/check.ts",
     "./present": "./src/present.ts",
     "./labels": "./src/labels.ts",
+    "./scenes": "./src/scenes.ts",
+    "./grid": "./src/grid.ts",
     "./math": "./src/math/index.ts",
-    "./load": "./src/load.ts"
+    "./load": "./src/load.ts",
+    "./speech": "./src/speech.ts",
+    "./spelling": "./src/spelling.ts",
+    "./knowledge": "./src/knowledge/index.ts",
+    "./sources": "./src/sources.ts",
+    "./programs": "./src/programs.ts",
+    "./medals": "./src/medals.ts",
+    "./extras": "./src/extras.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",

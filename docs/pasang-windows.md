@@ -1,6 +1,6 @@
 # Memasang Kira di server rumah (Windows 11)
 
-Panduan ini untuk PC server di rumah: Windows 11 Pro, Ryzen 5, RAM 64 GB, RTX 5070 Ti, SSD 2 TB. Kira berjalan di Docker Desktop, dan semua perangkat keluarga membukanya lewat Tailscale di alamat `https://<nama-pc>.<tailnet>.ts.net`. Tidak ada port yang dibuka ke internet.
+Panduan ini untuk PC server di rumah: Windows 11 Pro, Ryzen 5, RAM 64 GB, RTX 5070 Ti, SSD 2 TB. Kira berjalan di Docker Desktop, dan semua perangkat keluarga membukanya lewat Cloudflare Tunnel di alamat `https://kira.gatxel.com`. Tidak ada port yang dibuka di router: `cloudflared` di PC membuat sambungan keluar ke Cloudflare (ADR 0008).
 
 Yang berjalan di Docker:
 
@@ -9,7 +9,7 @@ Yang berjalan di Docker:
 | `db` | Postgres 17 dengan TLS. Hanya terhubung ke jaringan internal Docker, tanpa akses internet. |
 | `certs` | Membuat sertifikat TLS lokal untuk database sekali di awal. |
 | `migrate` | Menjalankan migrasi database setiap kali stack dinyalakan, lalu berhenti. Dipakai juga untuk perintah admin. |
-| `web` | Aplikasi Next.js di `127.0.0.1:3000`. Tailscale meneruskan alamat https ke sini. |
+| `web` | Aplikasi Next.js di `127.0.0.1:3000` (di PC server Kira dibuat 3030 lewat `docker-compose.override.yml`). Cloudflare Tunnel meneruskan alamat https ke sini. |
 | `worker` | Job AI (Claude Max lewat Claude Code, atau ai.gatxel.com), impor PDF, email, laporan mingguan, retensi data, penghapusan akun. |
 | `backup` | `pg_dump` setiap hari pukul 02.00 WIB ke folder Windows, simpan 14 harian dan 8 mingguan. |
 
@@ -21,8 +21,8 @@ Yang berjalan di Docker:
 4. Pasang [Git for Windows](https://git-scm.com/download/win) dan [GitHub CLI](https://cli.github.com/), lalu masuk: `gh auth login`.
 5. Pasang Node.js LTS, dipakai sekali untuk membuat token Claude di bagian 5: `winget install OpenJS.NodeJS.LTS`. Tutup lalu buka lagi PowerShell supaya `node` dan `npm` dikenali.
 6. Izinkan skrip lokal sekali (untuk `kira.ps1`, `npm`, dan `claude`): `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`.
-7. Pasang [Tailscale untuk Windows](https://tailscale.com/download/windows) dan masuk dengan akun tailnet keluarga.
-8. Di [konsol admin Tailscale](https://login.tailscale.com/admin/dns), aktifkan MagicDNS dan HTTPS Certificates.
+7. Siapkan domain yang DNS-nya dikelola Cloudflare (di sini `gatxel.com`) dan pasang [cloudflared untuk Windows](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/): `winget install Cloudflare.cloudflared`. Kalau PC ini sudah punya tunnel (di server Kira namanya `gatxel-PC`), pakai tunnel itu.
+8. Aktifkan autentikasi dua langkah di akun Cloudflare pemilik domain. Siapa pun yang menguasai akun itu bisa mengalihkan alamat Kira.
 9. Atur daya supaya server tidak tidur: Settings, System, Power, Screen and sleep, set When plugged in, put my device to sleep ke Never. Atur Active hours di Windows Update supaya restart otomatis terjadi di luar jam belajar.
 10. Disarankan: aktifkan BitLocker di drive data (Settings, Privacy and security, Device encryption atau BitLocker), karena folder data berisi rekaman dan foto jawaban anak.
 
@@ -47,14 +47,41 @@ cd C:\Kira\app
 
 `init` membuat `.env` dari `.env.example` dan mengisi semua rahasia bertanda `GANTI` dengan nilai acak 48 karakter. Kalau drive D tidak ada, pakai folder lain dan ubah `KIRA_HOST_DATA` dan `KIRA_HOST_BACKUPS` di `.env`.
 
-## 3. Alamat Tailscale
+## 3. Alamat lewat Cloudflare Tunnel
+
+Alamat Kira adalah `https://kira.gatxel.com`. Salin alamat itu (tanpa garis miring di akhir) ke `KIRA_ORIGIN` di `.env`. Alamat ini juga dipakai untuk passkey, tautan email, dan APK tablet, jadi jangan diganti setelah keluarga mulai memakai Kira.
+
+Hubungkan nama itu ke web di PC. Port web bawaan compose adalah 3000. Bila port itu sudah dipakai proses lain, terbitkan port lain lewat `docker-compose.override.yml` (di server Kira: `127.0.0.1:3030:3000`) dan pakai port itu di bawah.
+
+**Lewat dasbor Cloudflare** (cara paling mudah): Zero Trust, Networks, Tunnels, pilih tunnel PC ini, tab Published application routes, Add. Hostname `kira.gatxel.com`, Service type HTTP, URL `127.0.0.1:3030`. Cloudflare membuat catatan DNS-nya sendiri.
+
+**Lewat berkas konfigurasi** (tunnel baru):
 
 ```powershell
-tailscale serve --bg 3000
-tailscale serve status
+cloudflared tunnel login
+cloudflared tunnel create kira
+cloudflared tunnel route dns kira kira.gatxel.com
 ```
 
-Perintah kedua menampilkan alamat seperti `https://kira-server.tail1234.ts.net`. Salin alamat itu (tanpa garis miring di akhir) ke `KIRA_ORIGIN` di `.env`. Alamat ini juga dipakai untuk passkey, tautan email, dan APK tablet, jadi jangan diganti setelah keluarga mulai memakai Kira. Jangan pernah memakai `tailscale funnel` untuk Kira: funnel membuka server ke internet.
+Lalu isi `C:\Users\<nama>\.cloudflared\config.yml`:
+
+```yaml
+tunnel: <ID tunnel>
+credentials-file: C:\Users\<nama>\.cloudflared\<ID tunnel>.json
+ingress:
+  - hostname: kira.gatxel.com
+    service: http://127.0.0.1:3030
+  - service: http_status:404
+```
+
+Pasang sebagai layanan Windows supaya jalan sendiri setelah restart: `cloudflared service install`. Cek dengan `cloudflared tunnel info kira`, lalu buka `https://kira.gatxel.com/api/health`.
+
+Pengaturan Cloudflare untuk domain ini:
+
+- Matikan Web Analytics otomatis dan Rocket Loader. Keduanya menyisipkan skrip ke halaman, dan CSP Kira melarang skrip luar. Kira juga mengirim `Cache-Control: no-store, no-transform`, jadi Cloudflare tidak menyimpan atau mengubah halaman.
+- Jangan memasang aturan cache untuk `/api` dan halaman Kira. Hanya `/_next/static`, `/icons`, `/fonts`, dan `/sounds` yang boleh disimpan.
+- Kira terbuka untuk internet publik. Perlindungannya ada di aplikasi (password, passkey, perangkat terdaftar, PIN gambar dengan batas percobaan). Simpan `KIRA_SETUP_TOKEN` sebagai rahasia sampai akun pertama dibuat. Opsional: aturan rate limiting Cloudflare untuk halaman masuk.
+- Saat server atau tunnel mati, Cloudflare menjawab 502 sampai 504 atau 520 sampai 530 (misalnya 521 saat server mati, 530 saat tunnel putus). Tablet menampilkan halaman offline dan jawaban tersimpan di perangkat.
 
 ## 4. Isi `.env`
 
@@ -121,7 +148,7 @@ Kalau PowerShell menolak skrip, jalankan langkah 6 di bagian 1.
 
 ## 7. Setup pertama
 
-1. Dari laptop yang terhubung ke tailnet, buka `https://<alamat>/setup`.
+1. Dari laptop mana pun, buka `https://kira.gatxel.com/setup`.
 2. Isi token setup (`KIRA_SETUP_TOKEN`), nama keluarga, nama tutor, email, dan password minimal 15 karakter. Halaman ini hanya bisa dipakai saat database masih kosong.
 3. Konsol terbuka di halaman Learner. Tambahkan learner (nama panggilan, grade, avatar, PIN 4 gambar) dan isi email orang tua untuk mengirim undangan. Tanpa SMTP, tautan undangan tampil di layar dan di Laporan, kotak keluar.
 4. Learner baru aktif setelah ada persetujuan orang tua: orang tua menerima undangan lalu menyetujui di halaman Privasi, atau tutor mencatat persetujuan tertulis di halaman Learner.
@@ -129,7 +156,7 @@ Kalau PowerShell menolak skrip, jalankan langkah 6 di bagian 1.
 
 ## 8. Tablet anak
 
-1. Pasang Tailscale di tablet dan masuk ke tailnet keluarga.
+1. Pastikan tablet terhubung ke internet. Tidak perlu aplikasi tambahan.
 2. Pakai aplikasi Kira (bagian 9) atau buka alamat Kira di Chrome lalu pilih Add to Home screen.
 3. Di tablet, tutor masuk lalu buka `/perangkat` (atau Pengaturan, Daftarkan perangkat ini) dan pilih learner yang memakai tablet itu. Tutor otomatis keluar dari tablet.
 4. Anak memilih avatarnya lalu mengetuk 4 gambar PIN.
@@ -189,13 +216,13 @@ Ganti nama berkas dengan cadangan yang dipilih (`dir D:\Kira\backups\daily`). `-
 
 Perintah ini menarik kode terbaru, membangun ulang image, dan menjalankan migrasi database otomatis. Cadangan dibuat dulu kalau mau aman: `.\deploy\windows\kira.ps1 backup`.
 
-Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan jeda 3 hari setelah rilis; gabungkan PR pembaruan setelah CI hijau, lalu jalankan `update` di server. Cek juga Docker Desktop, Windows Update, dan Tailscale setiap bulan.
+Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan jeda 3 hari setelah rilis; gabungkan PR pembaruan setelah CI hijau, lalu jalankan `update` di server. Cek juga Docker Desktop, Windows Update, dan `cloudflared` (`cloudflared update`) setiap bulan.
 
 ## 13. Masalah yang sering muncul
 
 | Gejala | Penyebab dan langkah |
 |---|---|
-| Tablet menampilkan "No internet right now" | Tailscale di tablet mati atau server mati. Nyalakan Tailscale, cek `docker compose ps` di server. |
+| Tablet menampilkan "No internet right now" | Internet tablet putus, server mati, atau tunnel putus (Cloudflare menjawab 521 atau 530). Cek `docker compose ps` dan layanan `cloudflared` di server (`Get-Service cloudflared`). |
 | Passkey gagal dibuat atau dipakai | `KIRA_ORIGIN` tidak sama dengan alamat di browser. Samakan, lalu `docker compose up -d --build web` (alamat juga masuk ke build). |
 | Lupa password tutor dan email belum diatur | `.\deploy\windows\kira.ps1 admin reset-link alamat@email.com`, buka tautan yang tampil dalam 30 menit. |
 | Akun terkunci setelah banyak percobaan | `.\deploy\windows\kira.ps1 admin unlock alamat@email.com`. |
@@ -207,7 +234,7 @@ Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan 
 
 ## 14. Keamanan
 
-- Akses hanya lewat Tailscale. Port 3000 hanya terbuka di `127.0.0.1`, database tidak punya port di host, dan database tidak bisa mengakses internet.
+- Akses lewat Cloudflare Tunnel. Web hanya terbuka di `127.0.0.1` (port 3000, atau 3030 di server Kira), tidak ada port masuk di router, database tidak punya port di host, dan database tidak bisa mengakses internet. Lalu lintas lewat pusat data Cloudflare, sebagian di luar Indonesia; Kebijakan Privasi menyebut hal ini.
 - Database dipakai lewat empat role dengan RLS (lihat ADR 0002). Koneksi ke database memakai TLS dengan verifikasi sertifikat lokal.
 - Rahasia hanya ada di `.env`. Kalau `.env` pernah terkirim ke tempat lain, ganti semua nilainya. Password database hanya dipakai saat database pertama kali dibuat, jadi password role juga harus diganti di database:
 
@@ -217,3 +244,69 @@ Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan 
 
   Ulangi untuk `kira_owner`, `kira_auth`, `kira_worker`, dan `postgres`, lalu `docker compose up -d --build`. Token Claude yang bocor dicabut dengan membuat token baru (`claude setup-token`) dan mengganti password akun Claude.
 - Perangkat yang hilang: konsol, Pengaturan, Perangkat, Cabut. Tablet itu langsung keluar.
+
+## 15. Suara bahasa Inggris (TTS, opsional)
+
+Kira bisa membacakan soal, pelajaran, dan bacaan bahasa Inggris dengan suara Qwen3-TTS 1.7B (Apache-2.0) yang berjalan di PC ini. Tanpa layanan ini tombol baca suara memakai suara bawaan tablet, dan semuanya tetap jalan. Layanan `tts` tidak ikut `docker compose up` biasa: ia ada di profil `tts`, jadi PC tanpa GPU tidak membangun atau menjalankannya.
+
+| Layanan | Isi |
+|---|---|
+| `tts` | Python 3.12 dengan `qwen-tts`. Hanya di jaringan internal Docker tanpa internet, tanpa port ke host. Model dimuat saat ada permintaan pertama dan dibongkar setelah 10 menit tidak dipakai, jadi memori GPU kembali penuh. |
+| `tts-fetch` | Sekali jalan: mengunduh bobot model (sekitar 9 GB) ke volume `kira-tts-models`. Profil `tts-setup`. |
+| `worker` | Job `tts.batch` membuat semua suara English yang belum ada (sekitar 10.000 klip), job `tts.clip` membuat suara untuk konten baru. Klip disimpan di `<KIRA_HOST_DATA>\tts\<sha256>.mp3`. |
+
+Syarat: driver NVIDIA terbaru di Windows (Docker Desktop dengan WSL 2 sudah meneruskan GPU ke kontainer), ruang disk sekitar 15 GB untuk image dan bobot model. Cek GPU terlihat oleh Docker: `docker run --rm --gpus all nvidia/cuda:12.8.0-base-ubuntu22.04 nvidia-smi`.
+
+### Memasang
+
+1. Unduh bobot model sekali (butuh internet, beberapa menit):
+
+   ```powershell
+   docker compose --profile tts-setup run --rm tts-fetch
+   ```
+
+2. Aktifkan di `.env`. Dengan GPU NVIDIA:
+
+   ```ini
+   TTS_URL=http://tts:8000
+   COMPOSE_PROFILES=tts
+   COMPOSE_FILE=docker-compose.yml;docker-compose.tts-gpu.yml
+   ```
+
+   Tanpa GPU (jauh lebih lambat, sekitar 12 detik untuk satu kalimat pendek di CPU Ryzen 5) tinggalkan `COMPOSE_FILE` dan tambahkan `TTS_DEVICE=cpu`. Pemisah di `COMPOSE_FILE` pada Windows adalah titik koma. Perintah satu kali tanpa mengubah `.env`: `docker compose -f docker-compose.yml -f docker-compose.tts-gpu.yml --profile tts up -d --build`.
+
+3. Nyalakan ulang dan cek:
+
+   ```powershell
+   .\deploy\windows\kira.ps1 start
+   docker compose logs tts
+   docker compose exec tts sh -c 'python selftest.py http://127.0.0.1:8000 "$KIRA_INTERNAL_TOKEN"'
+   ```
+
+   `selftest.py` mengirim satu kalimat pendek dan mencetak waktunya (percobaan pertama termasuk waktu memuat model).
+
+4. Buat semua suara, sebaiknya malam hari saat GPU bebas:
+
+   ```powershell
+   .\deploy\windows\kira.ps1 admin tts-batch
+   docker compose logs -f worker
+   ```
+
+   Worker juga menjadwalkan batch ini sendiri setiap hari pukul 01.30 WIB selama `TTS_URL` terisi, jadi konten baru ikut dibuat tanpa langkah tambahan. Batch aman dihentikan dan dilanjutkan: klip yang sudah ada dilewati.
+
+### Bila GPU dipakai program lain
+
+Layanan memeriksa memori GPU yang kosong sebelum memuat model. Bila kurang dari `TTS_MIN_FREE_MIB` (bawaan 7000 MiB), model tidak dimuat dan tidak ada program lain yang terganggu. Batch lalu menunggu satu jam dan mencoba lagi (sampai 36 kali), klip permintaan learner dilewati, dan tablet memakai suara bawaannya. Cek pemakaian GPU dengan `nvidia-smi`. Isi `TTS_OOM_FALLBACK=cpu` bila klip permintaan boleh dibuat di CPU saat GPU penuh.
+
+### Mematikan atau mengganti suara
+
+Hapus `COMPOSE_PROFILES`, `COMPOSE_FILE`, dan `TTS_URL` dari `.env`, lalu `docker compose up -d`. Klip yang sudah ada tetap dipakai bila `TTS_URL` diisi lagi. Untuk membuat ulang semua suara (misalnya setelah mengubah `deploy/tts/styles.json`), hapus folder `tts` di folder data lalu jalankan `tts-batch` lagi. Gaya suara, pilihan 2 sampai 3 suara per gaya, dan nada pujian, pertanyaan, dan perintah ada di `deploy/tts/styles.json`.
+
+### Masalah yang sering muncul
+
+| Gejala | Penyebab dan jalan keluar |
+|---|---|
+| Job `tts.batch` selesai dengan "Layanan suara (tts) tidak terjangkau" | Profil `tts` belum aktif atau kontainer belum sehat. Cek `docker compose ps` dan `docker compose logs tts`. |
+| Log `tts` berisi "belum diunduh" | Jalankan langkah 1 (`tts-fetch`). |
+| Log `tts` berisi "GPU hanya punya ... MiB kosong" | Program lain memakai GPU. Tunggu atau hentikan program itu; batch lanjut sendiri. |
+| `selftest.py` sangat lambat | Kontainer tidak melihat GPU. Pastikan `docker-compose.tts-gpu.yml` ikut di `COMPOSE_FILE` dan `docker compose exec tts python -c "import torch; print(torch.cuda.is_available())"` mencetak True. |

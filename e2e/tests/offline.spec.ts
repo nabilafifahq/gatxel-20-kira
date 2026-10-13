@@ -15,7 +15,7 @@ test('quest yang disimpan offline bisa dijawab dan tersinkron setelah online', a
   const lid = await learnerId('Aisha')
   const today = jakartaToday()
   const items = mcqItems('e2.', 3)
-  // Tes lain mungkin sudah membuat quest hari ini; mulai dari hari yang bersih.
+  // Tes lain mungkin sudah membuat sesi hari ini; mulai dari hari yang bersih.
   await db()`delete from attempt where id in (select attempt_id from quest where learner_id = ${lid} and date = ${today})`
   await db()`delete from quest where learner_id = ${lid} and date = ${today}`
   await db()`delete from plan_slot where learner_id = ${lid} and date = ${today}`
@@ -37,7 +37,7 @@ test('quest yang disimpan offline bisa dijawab dan tersinkron setelah online', a
 
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')
-  const [q] = await db()`select attempt_id from quest where learner_id = ${lid} and date = ${today} and subject = 'english' and kind = 'daily'`
+  const [q] = await db()`select attempt_id from quest where learner_id = ${lid} and date = ${today} and subject = 'english' and kind = 'daily' and session = 'latihan'`
   const runUrl = `/run/${q!.attempt_id}`
 
   // Tunggu service worker aktif dan halaman runner tersimpan.

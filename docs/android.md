@@ -1,6 +1,6 @@
 # Aplikasi Android Kira
 
-Aplikasi tablet Kira adalah cangkang WebView Kotlin di `apps/android`. Aplikasi membuka server Kira lewat Tailscale dan menambahkan hal yang tidak bisa dilakukan halaman web di WebView: suara text-to-speech, foto kamera untuk jawaban, izin mikrofon untuk widget bicara, dan layar yang menjelaskan apa yang harus diperiksa bila server tidak terjangkau. Alasan memakai WebView Kotlin ada di ADR 0006.
+Aplikasi tablet Kira adalah cangkang WebView Kotlin di `apps/android`. Aplikasi membuka server Kira di https://kira.gatxel.com (lewat Cloudflare Tunnel, ADR 0008) dan menambahkan hal yang tidak bisa dilakukan halaman web di WebView: suara text-to-speech, foto kamera untuk jawaban, izin mikrofon untuk widget bicara, dan layar yang menjelaskan apa yang harus diperiksa bila server tidak terjangkau. Alasan memakai WebView Kotlin ada di ADR 0006.
 
 | Hal | Nilai |
 |---|---|
@@ -12,10 +12,10 @@ Aplikasi tablet Kira adalah cangkang WebView Kotlin di `apps/android`. Aplikasi 
 
 ## 1. Pasang di tablet
 
-1. Pasang Tailscale dari Play Store, masuk dengan akun tailnet keluarga, dan pastikan statusnya Connected.
+1. Pastikan tablet terhubung ke internet. Tidak ada aplikasi tambahan yang perlu dipasang.
 2. Unduh APK dari halaman Releases repo (aset `kira-1.0.N.apk`) atau dari artefak `kira-apk` di run workflow `android-apk`. Artefak GitHub berupa zip, jadi ekstrak dulu untuk mendapatkan berkas `.apk`.
 3. Buka berkas APK di tablet. Android meminta izin Instal aplikasi tidak dikenal untuk aplikasi yang membuka berkas (Files atau Chrome). Izinkan untuk aplikasi itu saja, lalu matikan lagi setelah selesai.
-4. Buka Kira. Bila APK dibangun tanpa alamat, layar Alamat server Kira muncul. Isi alamat dari `tailscale serve` di server, misalnya `https://kira-server.nama-tailnet.ts.net`, lalu ketuk Simpan dan buka.
+4. Buka Kira. Bila APK dibangun tanpa alamat, layar Alamat server Kira muncul. Isi alamat Kira, yaitu `https://kira.gatxel.com`, lalu ketuk Simpan dan buka.
 5. Daftarkan tablet seperti di browser: orang dewasa masuk, lalu learner memilih avatar dan PIN.
 
 Pembaruan dipasang di atas aplikasi lama dan hanya berhasil bila kedua APK ditandatangani kunci yang sama (bagian 3). Cookie sesi dan pendaftaran tablet tetap ada selama aplikasi tidak dicopot. Saat pindah dari APK debug ke APK rilis pertama kali, copot dulu versi debug.
@@ -25,7 +25,7 @@ Pembaruan dipasang di atas aplikasi lama dan hanya berhasil bila kedua APK ditan
 Workflow `.github/workflows/android-apk.yml`:
 
 - Jalankan manual dari tab Actions, workflow android-apk, Run workflow. Isi `kira_url` dengan alamat server. Centang `release` untuk membuat GitHub Release `apk-1.0.N` berisi APK dan SHA-256-nya; ini butuh secret kunci rilis.
-- Push ke `main` atau cabang `ci/android-*` yang mengubah `apps/android/**` atau workflow ini membangun APK debug sebagai uji. Alamatnya dari variabel repo `KIRA_URL` (Settings, Secrets and variables, Actions, Variables), atau alamat contoh `https://kira.example.ts.net` bila variabel itu kosong.
+- Push ke `main` atau cabang `ci/android-*` yang mengubah `apps/android/**` atau workflow ini membangun APK debug sebagai uji. Alamatnya dari variabel repo `KIRA_URL` (Settings, Secrets and variables, Actions, Variables), atau alamat contoh `https://kira.gatxel.com` bila variabel itu kosong.
 - Hasilnya artefak `kira-apk` berisi `kira-1.0.N.apk`, disimpan 30 hari. Ringkasan run memuat ukuran dan SHA-256 APK.
 
 Urutan langkah: Java 21 (Temurin), Android SDK platform 36 dan build-tools 36.0.0 (dipasang lewat `sdkmanager` bila belum ada di runner), Gradle 9.7.1 lewat `gradle/actions/setup-gradle` dengan penyedia cache `basic` dan pemeriksaan SHA-256 distribusi Gradle, build, lalu `apksigner verify --print-certs` dan `aapt2 dump badging`. Semua action dipatok ke commit SHA, dan job release satu-satunya yang mendapat `contents: write`.
@@ -48,7 +48,7 @@ gh secret set KIRA_KEY_ALIAS --repo nabilafifahq/gatxel-20-kira --body kira
 gh secret set KIRA_KEY_PASSWORD --repo nabilafifahq/gatxel-20-kira
 
 gh workflow run android-apk --repo nabilafifahq/gatxel-20-kira `
-  -f kira_url=https://kira-server.nama-tailnet.ts.net -f release=true
+  -f kira_url=https://kira.gatxel.com -f release=true
 ```
 
 Di Linux atau macOS:
@@ -64,7 +64,7 @@ gh secret set KIRA_KEY_ALIAS --repo nabilafifahq/gatxel-20-kira --body kira
 gh secret set KIRA_KEY_PASSWORD --repo nabilafifahq/gatxel-20-kira
 
 gh workflow run android-apk --repo nabilafifahq/gatxel-20-kira \
-  -f kira_url=https://kira-server.nama-tailnet.ts.net -f release=true
+  -f kira_url=https://kira.gatxel.com -f release=true
 rm kira-release.jks.b64
 ```
 
@@ -81,7 +81,7 @@ Butuh JDK 21, Android SDK dengan platform 36 dan build-tools 36.0.0 (`ANDROID_HO
 
 ```sh
 cd apps/android
-gradle assembleDebug -PkiraUrl=https://kira-server.nama-tailnet.ts.net
+gradle assembleDebug -PkiraUrl=https://kira.gatxel.com
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
@@ -93,7 +93,7 @@ Build debug menyalakan WebView debugging, jadi halaman bisa diperiksa dari `chro
 
 - Halaman dari origin server dimuat di aplikasi. Tautan ke origin lain, `mailto:`, dan `tel:` dibuka di aplikasi luar. Skema lain diabaikan.
 - Tombol back mundur di riwayat halaman, lalu keluar dari aplikasi.
-- Bila halaman utama gagal dimuat (Tailscale mati, DNS, TLS, server mati, atau 502 sampai 504 dari `tailscale serve`), layar Kira tidak bisa dihubungi muncul dengan alamat, kode galat, Coba lagi, dan Ubah alamat server. Service worker Kira tetap berjalan di WebView, jadi quest yang sudah diunduh bisa dikerjakan offline.
+- Bila halaman utama gagal dimuat (internet putus, DNS, TLS, server mati, atau 502 sampai 504 dan 520 sampai 530 dari Cloudflare, misalnya 521 saat server mati dan 530 saat tunnel putus), layar Kira tidak bisa dihubungi muncul dengan alamat, kode galat, Coba lagi, dan Ubah alamat server. Service worker Kira tetap berjalan di WebView, jadi quest yang sudah diunduh bisa dikerjakan offline.
 - Mikrofon dan kamera diminta saat halaman memanggil `getUserMedia` dari origin server, tidak saat aplikasi dibuka. Permintaan dari origin lain selalu ditolak.
 - Foto jawaban (`<input type="file" accept="image/*">`) menawarkan Ambil foto dengan kamera atau Pilih dari galeri atau berkas. Foto kamera disimpan sementara di cache aplikasi dan dihapus setelah 24 jam. Batal memilih selalu mengembalikan hasil kosong ke halaman.
 - Unduhan dari origin server memakai DownloadManager dengan cookie sesi dan masuk ke folder Download (Android 8 dan 9: folder unduhan milik aplikasi). Unduhan `blob:` dan dari origin lain tidak didukung; aplikasi meminta membuka Kira lewat browser.
@@ -122,7 +122,7 @@ Pesan dengan jenis lain, lebih dari 16 KB, atau JSON bersarang lebih dari dua ti
 Build CI hanya membuktikan APK terbentuk dan tertanda tangan. Sebelum dipakai harian, periksa di tablet:
 
 1. Pasang tanpa alamat bawaan: layar Alamat server Kira muncul, alamat `http://` dan host tanpa titik ditolak dengan pesan.
-2. Matikan Tailscale lalu buka Kira: layar tidak bisa dihubungi muncul. Nyalakan lagi, ketuk Coba lagi.
+2. Matikan Wi-Fi tablet lalu buka Kira: layar tidak bisa dihubungi muncul. Nyalakan lagi, ketuk Coba lagi. Bila bisa, hentikan layanan `cloudflared` di server sebentar untuk melihat kode HTTP 530 di layar yang sama.
 3. Ketuk Read aloud pada soal English dan pada teks Indonesia.
 4. Kirim foto jawaban dari kamera dan dari galeri, lalu batalkan satu kali.
 5. Buka widget bicara: izin mikrofon diminta saat itu, tidak saat aplikasi dibuka.

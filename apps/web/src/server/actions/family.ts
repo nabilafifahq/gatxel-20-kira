@@ -10,7 +10,7 @@ import { orgCtx, requireActor, requireAdult } from '../auth/actor'
 import { revokeUserSessions } from '../auth/session'
 import { CONSENT_PURPOSES, syncLearnerActive } from '../dal/consent'
 import { learnerExport } from '../dal/data-export'
-import { assertGuardianOf, cancelDeletionTx, deactivateLearner, queueDeletionConfirmation, requestDeletionTx, setConsentTx } from '../dal/privacy'
+import { assertGuardianOf, cancelDeletionTx, queueDeletionConfirmation, requestDeletionTx, setConsentTx } from '../dal/privacy'
 import { log } from '../log'
 
 /**
@@ -63,7 +63,6 @@ export async function requestDeletionAction(input: { learnerId: string; confirmN
     const data = z.object({ learnerId: uuid, confirmName: z.string().max(120) }).strict().parse(input)
     const ctx = orgCtx(actor)
     const res = await inOrg(ctx, (tx) => requestDeletionTx(tx, ctx, { guardianId: actor.userId, learnerId: data.learnerId, confirmName: data.confirmName }))
-    await deactivateLearner(actor.orgId, data.learnerId)
     await revokeUserSessions(data.learnerId)
     if (actor.email) {
       try {

@@ -1,0 +1,48 @@
+{
+  "skill": "m2.numbers-to-100",
+  "items": [
+    {
+      "id": "m2.numbers-to-100.001",
+      "skill": "m2.numbers-to-100",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. Which number did you hear?",
+      "hints": [
+        "Listen for the tens word first.",
+        "Seventy means 7 tens.",
+        "Then listen for the ones."
+      ],
+      "explanation": "The speaker said \"seventy six\". Seventy is 7 tens and six is 6 ones, so the number is 76.",
+      "listenText": "seventy six",
+      "options": [
+        {
+          "text": "67"
+        },
+        {
+          "text": "76"
+        },
+        {
+          "text": "75"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m2.numbers-to-100.002",
+      "skill": "m2.numbers-to-100",
+      "type": "numberline",
+      "difficulty": 2,
+      "prompt": "Tap 35 on the number line.",
+      "hints": [
+        "The marks are in steps of 5.",
+        "35 is halfway between 30 and 40.",
+        "Count in fives: 5, 10, 15, ..."
+      ],
+      "explanation": "Counting in fives, 35 comes after 30 and before 40.",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "answer": 35
+    }
+  ]
+}

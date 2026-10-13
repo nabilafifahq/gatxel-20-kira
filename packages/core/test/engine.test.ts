@@ -285,6 +285,7 @@ describe('lencana', () => {
     questsDone: 0, perfectQuests: 0, answersTotal: 0, currentStreak: 0, bestStreak: 0, masteredSkills: 0,
     reviewSessions: 0, simulationsDone: 0, olympiadPapersDone: 0, lessonsDone: 0, subjectsToday: 0,
     hintsUsedThenCorrect: 0, esmoPackagesDone: 0, speakingDone: 0, writingDone: 0,
+    papersDone: 0, papersPassed: 0, testsPerfect: 0, testsEarlyPerfect: 0, retriesImproved: 0,
   }
   it('lencana quest pertama dan tidak dobel', () => {
     const got = earnedBadges({ ...zero, questsDone: 1 }, new Set())

@@ -16,7 +16,7 @@ export const LEGAL_ENTITY: LegalEntity = {
   courtCity: 'Malang',
 }
 
-const META = { version: '1.0', effectiveDate: '2026-10-12' }
+const META = { version: '1.0', effectiveDate: '2026-10-13' }
 
 export const PRIVACY_NOTICE: PrivacyNoticeData = {
   entity: LEGAL_ENTITY,
@@ -96,7 +96,7 @@ export const PRIVACY_NOTICE: PrivacyNoticeData = {
       location: 'Amerika Serikat',
       abroad: true,
     },
-    { name: 'Tailscale', data: 'Nama dan alamat jaringan perangkat untuk koneksi pribadi ke server rumah, tanpa isi data belajar', location: 'Kanada dan Amerika Serikat', abroad: true },
+    { name: 'Cloudflare', data: 'Alamat IP dan metadata koneksi; isi halaman lewat saat diteruskan ke server rumah, tanpa disimpan', location: 'Pusat data di banyak negara, sebagian di luar Indonesia', abroad: true },
     { name: 'GitHub', data: 'Kode aplikasi dan konten soal, tanpa data anak', location: 'Amerika Serikat', abroad: true },
   ],
   sessionHours: 24,

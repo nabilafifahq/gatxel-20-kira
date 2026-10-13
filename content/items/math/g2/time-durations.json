@@ -1,0 +1,32 @@
+{
+  "skill": "m2.time-durations",
+  "items": [
+    {
+      "id": "m2.time-durations.001",
+      "skill": "m2.time-durations",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Rani starts reading at 4 o'clock. She reads for 2 hours. She eats dinner at 7 o'clock.",
+      "hints": [
+        "Count on 2 hours from 4 o'clock.",
+        "4 o'clock, then 5 o'clock, then 6 o'clock.",
+        "Count the hours from when she stops until 7 o'clock."
+      ],
+      "explanation": "Rani stops at 6 o'clock. From 6 o'clock to 7 o'clock is 1 hour.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What time does Rani stop reading?",
+          "answer": 6,
+          "unit": "o'clock"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many hours is it from when she stops to dinner?",
+          "answer": 1,
+          "unit": "hour"
+        }
+      ]
+    }
+  ]
+}

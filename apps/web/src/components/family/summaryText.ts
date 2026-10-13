@@ -24,8 +24,8 @@ export function studyLine(s: WeekSummaryDTO): string {
 }
 
 export function questLine(s: WeekSummaryDTO): string {
-  if (s.questsPlanned === 0) return 'Belum ada quest yang direncanakan minggu ini.'
-  return `Quest selesai ${s.questsDone} dari ${s.questsPlanned}.`
+  if (s.questsPlanned === 0) return 'Belum ada sesi yang direncanakan minggu ini.'
+  return `Sesi wajib selesai ${s.questsDone} dari ${s.questsPlanned}.`
 }
 
 export function emailSubject(s: WeekSummaryDTO): string {

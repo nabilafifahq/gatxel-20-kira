@@ -1,0 +1,41 @@
+{
+  "skill": "m2.telling-time",
+  "items": [
+    {
+      "id": "m2.telling-time.001",
+      "skill": "m2.telling-time",
+      "type": "clock",
+      "difficulty": 2,
+      "prompt": "Show quarter past 4 on the clock.",
+      "hints": [
+        "Quarter past means 15 minutes after the hour.",
+        "The long hand points to 3.",
+        "The short hand is just past 4."
+      ],
+      "explanation": "At quarter past 4 the long hand is on 3 and the short hand is just past 4.",
+      "answer": {
+        "h": 4,
+        "m": 15
+      },
+      "stepMinutes": 15
+    },
+    {
+      "id": "m2.telling-time.002",
+      "skill": "m2.telling-time",
+      "type": "clock",
+      "difficulty": 2,
+      "prompt": "Show 25 minutes past 9 on the clock.",
+      "hints": [
+        "Each number on the clock is 5 minutes.",
+        "Count in fives: 5, 10, 15, 20, 25.",
+        "The long hand points to 5."
+      ],
+      "explanation": "25 minutes past 9 means the long hand is on 5 and the short hand is just past 9.",
+      "answer": {
+        "h": 9,
+        "m": 25
+      },
+      "stepMinutes": 5
+    }
+  ]
+}

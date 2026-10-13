@@ -15,6 +15,11 @@ export const CONSOLE_ROUTES = {
   settings: '/konsol/pengaturan',
   studio: '/konsol/studio-ai',
   import: '/konsol/impor',
+  /** Pustaka paper, Buku Salah, program olimpiade, dan sumber soal. */
+  library: '/konsol/pustaka',
+  libraryMistakes: '/konsol/pustaka/buku-salah',
+  libraryProgram: '/konsol/pustaka/program',
+  librarySources: '/konsol/pustaka/sumber',
   learners: '/konsol/learner',
   claude: '/konsol/koneksi-claude',
   learnerDetail: (id: string) => `/konsol/learner/${encodeURIComponent(id)}`,

@@ -7,7 +7,7 @@ Perubahan dari 0.1: skala jenjang kelas 1 sampai 6 (bagian 3a), token `--review`
 
 ## 1. What this is
 
-**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (kurikulum Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses lewat Tailscale.
+**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (kurikulum Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses di https://kira.gatxel.com lewat Cloudflare Tunnel.
 **Who uses it:** Syakira (Grade 2) di tablet sepulang sekolah, 45 sampai 60 menit sehari. Nabila sebagai tutor di laptop dan HP. Mama di HP untuk laporan dan persetujuan. Sepupu lain bisa ditambahkan sebagai learner berikutnya.
 **The one action:** learner menyelesaikan tiga Daily Quest hari ini tanpa dibantu.
 **Language:** layar learner en-GB (`<html lang="en-GB">`). Konsol tutor, halaman orang tua, dan halaman hukum id-ID (`<html lang="id">`). Soal ESMO Math boleh berbahasa Indonesia dengan tombol Terms.
@@ -74,6 +74,10 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--math-50` | #E7F0F9 | Latar tipis Math |
 | `--english-50` | #FAECE8 | Latar tipis English |
 | `--science-50` | #E7F3EC | Latar tipis Science |
+| `--mental` | #7A3EB0 | Aksen Quick Maths dan XP Hitung Cepat (ungu), 6,7:1 di atas putih, 5,7:1 di atas `--mental-50` |
+| `--knowledge` | #27409E | Aksen Quiz Arena dan XP Pengetahuan (biru tua), 9,1:1 di atas putih, 7,7:1 di atas `--knowledge-50`; berbeda dari `--math` (selisih warna 30 pada CIELAB) |
+| `--mental-50` | #F2EAF8 | Latar tipis Quick Maths |
+| `--knowledge-50` | #E8ECF9 | Latar tipis Quiz Arena |
 | `--accent` | var(--math) | Fokus dan tautan di konsol |
 | `--success` | #2E7D4F | Correct, selalu dengan ikon centang dan teks |
 | `--warn` | #B54708 | Not yet, selalu dengan ikon dan teks, 5,1:1 |
@@ -82,6 +86,8 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--danger` | #B42318 | Aksi hapus dan error di konsol, 6,2:1 |
 | `--danger-50` | #FCEBEA | Latar tipis error |
 | `--review` | #A3B1C2 | Skill perlu review di peta panas, selalu dengan teks |
+
+Tiga jalur XP punya warna bar sendiri: XP Belajar memakai `--star`, XP Hitung Cepat memakai `--mental`, XP Pengetahuan memakai `--knowledge`. Warna selalu ditemani label dan angka level, tidak pernah menjadi satu-satunya penanda. `--mental` dan `--knowledge` dipakai untuk teks, garis, dan isi tombol (teks putih di atasnya lolos 4,5:1); `--mental-50` dan `--knowledge-50` hanya latar. Kontras dan jarak warna dijaga oleh `packages/figures/test/arena-tokens.test.ts`.
 
 Dark mode: tidak di v1. Setiap tema tambahan menggandakan uji kontras.
 
@@ -109,6 +115,25 @@ Fokus: layar learner outline 3px `--fg` jarak 2px; konsol outline 3px `--accent`
 
 Hanya `transform` dan `opacity`. Dengan `prefers-reduced-motion: reduce` semua menjadi crossfade 120ms, dan SolutionPlayer menampilkan langkah satu per satu dengan tombol Next.
 
+## 6a. Sound, celebration, and timer motion
+
+**Sound.**
+- Setiap bunyi di layar learner bisa dimatikan. Tombol Sound on dan Sound off ada di halaman Me, pilihannya disimpan per perangkat, dan semua bunyi (termasuk tik timer) lewat `playSfx` di `components/learner/sfx.ts`, yang selalu memeriksa pilihan itu. Tidak ada jalur lain untuk memutar bunyi.
+- Berkas bunyi hanya dari `public/sounds` (CC0, Kenney; lihat `LICENSE-sounds.txt`). Area learner tidak memuat aset dari luar.
+- Bunyi pendek (di bawah 1,2 detik), tanpa musik latar, dan tidak pernah menjadi satu-satunya penanda. Benar dan Not yet tetap ditandai ikon, warna, dan teks. Bunyi Not yet lembut, tidak menghukum.
+
+**Celebration.**
+- Confetti, bunyi sesi selesai, dan lompatan avatar hanya di akhir sesi (halaman hasil), sekali untuk tiap sesi, dan tidak pernah di setiap jawaban benar.
+- Bintang 1 sampai 3 dari bagian soal yang benar: 90 persen ke atas 3 bintang, 60 persen ke atas 2 bintang, selain itu 1 bintang. Confetti hanya untuk 2 bintang ke atas.
+- Confetti digambar di kanvas sendiri, sekitar 2,6 detik, tidak menangkap sentuhan, warnanya dari token. Bar XP terisi dengan `--duration-celebrate`.
+- Reduced motion: tanpa confetti dan tanpa lompatan; bintang dan bar langsung tampil penuh.
+
+**Timer motion.**
+- Cincin menyusut halus dengan `stroke-dashoffset` linear. Ini satu-satunya pengecualian aturan transform dan opacity, karena gerak itu adalah data, bukan hiasan. Warna `success` di atas 50 persen, `warn` sampai 20 persen, `danger` di bawahnya.
+- 10 detik terakhir: angka membesar 125 persen (transform), cincin menebal, dan ada tik tiap detik. Tanpa easing memantul; hanya `--ease`.
+- Waktu habis: satu gerakan `kira-pop` 300ms dan satu bunyi, lalu jawaban dikirim otomatis. Server tetap penentu batas waktu.
+- Reduced motion: hanya warna yang berubah. Cincin turun per detik tanpa transisi, angka dan cincin tidak membesar.
+
 ## 7. Voice
 
 **Tone:** hangat, singkat, spesifik. Tidak pernah menyindir atau membuat anak merasa bersalah.
@@ -125,11 +150,15 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 
 ## 9. Page structures in use
 
-- Today: header dengan avatar, sapaan, rantai bintang streak; quest aktif besar, dua quest lain kecil; quest bonus; lomba berikutnya di bawah.
+- Today: header dengan avatar, sapaan, rantai bintang streak; bar progres sesi; jalur 9 sesi wajib dikelompokkan per mapel (Practice, Test, Paper) dengan sesi aktif besar dan sesi lain kecil; bagian Extra today untuk sesi opsional; lomba berikutnya di bawah.
+- Navigasi learner: delapan tujuan (Today, Map, Review, Competitions, English Skills, Quick Maths, Quiz Arena, Me). Tablet: rel kiri memuat semuanya dan bisa digulir bila layar pendek. HP: bar bawah memuat Today, Map, Review (bila dipakai), dan Me, ditambah tombol More yang membuka lembar berisi sisanya. Lembar More memakai <dialog> asli, hanya ketuk, target minimal 56 px, dan tombolnya menyala bila layar yang terbuka ada di dalam lembar.
 - Runner: bar atas (keluar, progres bersegmen, timer bila ada), area soal, area jawaban, bar bawah (hint, baca suara, Check). Tablet landscape: figur di kiri, jawaban di kanan.
 - Hasil dan pembahasan: skor, lalu daftar soal; setiap soal membuka jawaban learner, kunci, penjelasan, dan SolutionPlayer.
 - Konsol tutor: Perlu perhatian, status hari ini per mapel, tren mingguan.
 - Halaman cetak: header paper, petunjuk, bagian soal, footer kode dan nomor halaman.
+- Quick Maths (`/quick-maths`, nada `--mental`): misi harian, pilihan permainan, pengaturan, pelajaran strategi, statistik. Ronde: angka soal Mohave besar, keypad 64px di kanan pada tablet, sempoa virtual yang hanya diketuk (tanpa seret).
+- Quiz Arena (`/quiz-arena`, nada `--knowledge`): dua belas topik dengan bar kemajuan, halaman topik dengan tiga mode (Learn, Quiz, Speed quiz), ronde dengan pilihan jawaban yang selalu diacak. Gambar hanya dari berkas sendiri (bendera `public/flags`, ikon dan planet `@kira/figures`), tanpa emoji.
+- Today dan Me menampilkan tiga bar XP (Belajar, Quick Maths, Quiz) dengan level masing-masing. Aksesori avatar didapat dari level jalur dan dipakai dari Me; teksnya selalu "Earn", bukan kata terlarang GTX.
 
 ## 10. Required states
 

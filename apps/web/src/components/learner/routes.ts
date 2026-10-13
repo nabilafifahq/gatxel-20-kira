@@ -8,8 +8,15 @@ export const LEARNER_ROUTES = {
   /** L14 Selesai hari ini: ringkasan kerja hari ini. */
   doneToday: '/today/done',
   map: '/map',
+  /** English Skills: listening, speaking, writing, dan Spelling Bee. */
+  english: '/english',
   review: '/review',
+  /** Fix-it Book (Buku Salah) dan awal sesi ulangnya. */
+  fixIt: '/fix-it',
+  fixItStart: '/fix-it/start',
   me: '/me',
+  quickMaths: '/quick-maths',
+  quizArena: '/quiz-arena',
   esmo: '/esmo',
   competitions: '/competitions',
   pick: '/',
@@ -20,4 +27,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'quick-maths' | 'quiz-arena' | 'me'

@@ -2,13 +2,16 @@ import 'server-only'
 import { eq } from 'drizzle-orm'
 import { formatDateEn, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
-import { answerText, type Item } from '@kira/content'
-import type { ResultsDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
+import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
+import { bestIndex } from '@kira/core'
+import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
 import type { Tx } from '../db'
-import { resolveItems, skill, toClient } from './content'
+import { preset, resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner } from './learner-core'
+import { xpBarFor } from './learner-xpbar'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
+import { familyOf, retryInfo, scoreOf, scoreText } from './learner-session'
 
 const { response } = tables
 
@@ -51,6 +54,42 @@ export function yourAnswerText(item: Item, answer: unknown): string {
       return 'Voice recording sent'
     case 'draw':
       return 'Drawing sent'
+    case 'photo':
+      return 'Photo sent'
+    case 'story':
+      return (
+        ((a.parts as (Record<string, unknown> | null)[]) ?? [])
+          .map((p, k) => {
+            const part = item.parts[k]
+            if (!part || !p) return `${k + 1}. No answer`
+            if (part.type === 'mcq') {
+              const o = part.options[p.choice as number]
+              return `${k + 1}. ${o?.text ?? 'No answer'}`
+            }
+            if (part.type === 'numeric') return `${k + 1}. ${String(p.value ?? '')}${part.unit ? ` ${part.unit}` : ''}`
+            return `${k + 1}. ${((p.texts as string[]) ?? [])[0] ?? ''}`
+          })
+          .join('; ') || 'No answer'
+      )
+    case 'listen': {
+      const o = item.options[a.choice as number]
+      return o ? (o.text ?? String.fromCharCode(65 + (a.choice as number))) : 'No answer'
+    }
+    case 'tiles':
+      return ((a.words as string[]) ?? []).join(' ') || 'No answer'
+    case 'spell':
+      return (a.value as string) || 'No answer'
+    case 'cloze':
+    case 'hotspot':
+    case 'table':
+      return ((a.texts as string[]) ?? []).filter(Boolean).join(', ') || 'No answer'
+    case 'label':
+      return ((a.texts as string[]) ?? []).map((t, i) => `${i + 1}. ${t || '?'}`).join('; ') || 'No answer'
+    case 'grid': {
+      const cells = (a.cells as number[]) ?? []
+      const n = item.size
+      return Array.from({ length: n }, (_, r) => cells.slice(r * n, r * n + n).map((c) => (c === 0 ? '_' : String(c))).join(' ')).join(' / ')
+    }
   }
 }
 
@@ -89,7 +128,8 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const correct = questions.filter((q) => q.status === 'correct').length
   const pending = questions.filter((q) => q.status === 'pending').length
   const total = items.length
-  const p = presetForAttempt(a)
+  // Paper harian dinilai dengan preset yang tersimpan di attempt (poin lomba), bukan hanya jumlah benar.
+  const p = presetForAttempt(a) ?? (a.presetId ? preset(a.presetId) : undefined)
   const scaledTarget = p?.rules.passMark ?? (a.kind.startsWith('esmo') ? 70 : null)
   const pct = total > 0 ? correct / Math.max(1, total - pending) : 0
   const tone = headlineFor(pct, pending)
@@ -100,6 +140,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const subject = a.subject as Subject
   const date = a.submittedAt ? formatDateEn(jakartaDate(a.submittedAt) as IsoDate, true) : ''
   const exit = exitFor(a)
+  const retry = await retryDTO(tx, a, total)
   return {
     shell: await learnerShell(tx, learner),
     attemptId: a.id,
@@ -124,6 +165,26 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     backHref: exit,
     backLabel: exit === '/esmo' ? 'Back to ESMO' : exit === '/competitions' ? 'Back to practice' : exit === '/review' ? 'Back to Review' : 'Back to Today',
     tone: tone.tone,
+    retry,
+    xpBar: await xpBarFor(tx, learnerId, a.id),
+  }
+}
+
+/** Ulang sesi: skor resmi (percobaan pertama), skor terbaik, dan apakah masih ada ulangan yang belum selesai. */
+async function retryDTO(tx: Tx, a: Awaited<ReturnType<typeof loadAttempt>>, total: number): Promise<RetryDTO | null> {
+  const info = await retryInfo(tx, a)
+  if (!info) return null
+  const family = await familyOf(tx, info.rootId)
+  const done = family.filter((f) => f.status !== 'in_progress')
+  const root = family[0]!
+  const bestAt = done.length > 1 ? bestIndex(done.map(scoreOf)) : -1
+  return {
+    isRetry: a.retryOf !== null,
+    retryNo: a.retryNo,
+    official: scoreText(root, total)?.text ?? 'Done',
+    best: bestAt > 0 ? (scoreText(done[bestAt]!, total)?.text ?? null) : null,
+    xpNote: 'Trying again earns a quarter of the XP.',
+    continueOpen: family.some((f) => f.status === 'in_progress' && f.retryNo > 0),
   }
 }
 
@@ -146,7 +207,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
       position: it.position,
       item: toClient(item, { ref: it.ref, seed: presentationSeed(a), includeKey: true, includeHints: true }),
       yourAnswerText: yourAnswerText(item, r?.answer ?? null),
-      correctAnswerText: item.type === 'write' || item.type === 'speak' || item.type === 'draw' ? 'Your tutor will mark this.' : answerText(item),
+      correctAnswerText: MANUAL_TYPES.includes(item.type) ? 'Your tutor will mark this.' : answerText(item),
       status,
       explanation: item.explanation,
       whyYourAnswer: why,

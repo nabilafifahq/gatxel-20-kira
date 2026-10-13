@@ -477,6 +477,74 @@
         "How do you feel at the end?"
       ],
       "model": "Yesterday I lost my teddy. First, I looked under my bed. Next, I looked in the garden. Then I found him in the toy box! I was so happy."
+    },
+    {
+      "id": "e1.write-sentences.015",
+      "skill": "e1.write-sentences",
+      "type": "tiles",
+      "difficulty": 1,
+      "prompt": "Make a sentence from the words.",
+      "hints": [
+        "Find the word with a capital letter first.",
+        "Read your sentence aloud. Does it make sense?",
+        "The sentence tells you about a pet."
+      ],
+      "explanation": "My cat is black. The sentence starts with a capital letter and ends with a full stop.",
+      "answer": "My cat is black.",
+      "distractors": [
+        "dog"
+      ]
+    },
+    {
+      "id": "e1.write-sentences.016",
+      "skill": "e1.write-sentences",
+      "type": "photo",
+      "difficulty": 1,
+      "prompt": "Write two sentences about your pet or a toy on paper. Then take a photo.",
+      "hints": [
+        "Start each sentence with a capital letter.",
+        "End each sentence with a full stop."
+      ],
+      "explanation": "Your tutor checks for two sentences with capital letters and full stops.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two sentences",
+            "points": 2
+          },
+          {
+            "label": "Uses capital letters and full stops",
+            "points": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1.write-sentences.017",
+      "skill": "e1.write-sentences",
+      "type": "photo",
+      "difficulty": 1,
+      "prompt": "Write the words said, was and they two times each on paper. Then take a photo.",
+      "hints": [
+        "Look at the word, cover it, write it, then check it."
+      ],
+      "explanation": "Your tutor checks that the three tricky words are spelled correctly.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Spells said correctly",
+            "points": 1
+          },
+          {
+            "label": "Spells was correctly",
+            "points": 1
+          },
+          {
+            "label": "Spells they correctly",
+            "points": 1
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,13 +1,16 @@
 import 'server-only'
 import { and, asc, eq, gte, lte, sql } from 'drizzle-orm'
-import { addDays, BADGES, createRng, formatDateEn, jakartaDate, levelProgress, weekday, type IsoDate } from '@kira/core'
+import { addDays, ARENA_BADGES, BADGES, createRng, formatDateEn, jakartaDate, levelProgress, weekday, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { AVATARS, type AvatarName } from '@kira/figures/spec'
 import type { CorrectionBookDTO, LessonDTO, MapDTO, MapSkillDTO, MeDTO, Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, promptPreview, resolveItems, skill, skillsFor, strandName, toClient } from './content'
+import { accessoryDTOs, trackDTOs } from './arena-tracks'
+import { trackTotals } from './arena-state'
 import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
+import { completeLinkedSession } from './learner-session'
 import { buildQuestItems, SUBJECT_ORDER } from './learner-today'
 
 const { reviewCard, attempt, skillState, quest } = tables
@@ -78,6 +81,7 @@ export async function meDTO(tx: Tx, learnerId: string): Promise<MeDTO> {
     if (cells.length > 42) break
   }
   const monthName = formatDateEn(first).split(' ').slice(1).join(' ')
+  const totals = await trackTotals(tx, learnerId)
   return {
     shell: await learnerShell(tx, learner, today),
     level: lp.level,
@@ -85,10 +89,12 @@ export async function meDTO(tx: Tx, learnerId: string): Promise<MeDTO> {
     xpIntoLevel: lp.into,
     xpLevelSpan: lp.span,
     xpToNext: lp.toNext,
-    badges: BADGES.map((b) => {
+    badges: [...BADGES, ...ARENA_BADGES].map((b) => {
       const got = awarded.get(b.id)
-      return { id: b.id, title: b.title, description: b.description, earnedAt: got ? got.awardedAt.toISOString() : null, isNew: Boolean(got && !got.seen) }
+      return { id: b.id, title: b.title, description: b.description, earnedAt: got ? got.awardedAt.toISOString() : null, isNew: Boolean(got && !got.seen), ...('glyph' in b ? { glyph: b.glyph } : {}) }
     }),
+    tracks: trackDTOs(totals),
+    accessories: accessoryDTOs(totals),
     monthLabel: monthName,
     calendar: cells,
     streakLine: streak.current > 0 ? `${streak.current} day streak. Best: ${streak.best}.` : 'Finish today’s quests to start a streak.',
@@ -219,6 +225,8 @@ export async function completeLesson(tx: Tx, ctx: OrgContext, learnerId: string,
       .values({ orgId: ctx.orgId, learnerId, amount: Math.min(10, Math.min(correct, total) * 5), reason: 'lesson', ref: skillId, date: jakartaDate() })
       .onConflictDoNothing()
   }
+  // Sesi opsional "Lesson" untuk skill ini ikut selesai.
+  await completeLinkedSession(tx, learnerId, jakartaDate(), { session: 'lesson', skillId })
 }
 
 export function randomFor(key: string) {
