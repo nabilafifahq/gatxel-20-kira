@@ -19,6 +19,8 @@ import {
   weekCompleteCount,
   weekdayNameEn,
   answerXp,
+  isAccessoryId,
+  type XpTrack,
   type BadgeStats,
   type CardState,
   type DayRecord,
@@ -29,6 +31,7 @@ import type { Item } from '@kira/content'
 import type { Jenjang, LearnerShell, StreakDTO, AvatarName } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
+import { awardArenaBadges } from './arena-badges'
 import { gradeOfSkill, subjectOfSkill } from './content'
 
 const { learnerProfile, skillState, reviewCard: reviewCardT, xpEvent, dayRecord, restDay, badgeAward, response, attempt, quest } = tables
@@ -45,8 +48,9 @@ export async function loadLearner(tx: Tx, learnerId: string): Promise<LearnerRow
   return rows[0]
 }
 
-export async function totalXp(tx: Tx, learnerId: string): Promise<number> {
-  const rows = await tx.select({ n: sql<number>`coalesce(sum(${xpEvent.amount}), 0)::int` }).from(xpEvent).where(eq(xpEvent.learnerId, learnerId))
+/** XP satu jalur (bawaan: Belajar). Level dan bar Belajar tidak ikut XP arena. */
+export async function totalXp(tx: Tx, learnerId: string, track: XpTrack = 'belajar'): Promise<number> {
+  const rows = await tx.select({ n: sql<number>`coalesce(sum(${xpEvent.amount}), 0)::int` }).from(xpEvent).where(and(eq(xpEvent.learnerId, learnerId), eq(xpEvent.track, track)))
   return rows[0]?.n ?? 0
 }
 
@@ -64,6 +68,7 @@ export async function learnerShell(tx: Tx, learner: LearnerRow, today: IsoDate =
     learnerId: learner.userId,
     name: learner.name,
     avatar: learner.avatar as AvatarName,
+    accessory: isAccessoryId(learner.avatarAccessory) ? learner.avatarAccessory : null,
     grade: learner.grade,
     jenjang: jenjangOf(learner.grade),
     showReview: learner.reviewEnabled,
@@ -300,7 +305,8 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   for (const b of fresh) {
     await tx.insert(badgeAward).values({ orgId: ctx.orgId, learnerId: lid, badgeId: b.id }).onConflictDoNothing()
   }
-  return fresh.map((b) => ({ id: b.id, title: b.title, description: b.description }))
+  const arena = await awardArenaBadges(tx, ctx, lid)
+  return [...fresh, ...arena].map((b) => ({ id: b.id, title: b.title, description: b.description }))
 }
 
 export async function recentSeen(tx: Tx, learnerId: string, days = 30): Promise<Map<string, number>> {
