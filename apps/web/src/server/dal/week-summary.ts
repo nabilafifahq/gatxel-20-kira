@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, asc, eq, gte, inArray, lt, lte, sql } from 'drizzle-orm'
 import {
+  DEFAULT_REQUIRED_SESSIONS,
   addDays,
   computeGate,
   difficultyToB,
@@ -51,8 +52,8 @@ export const STRONG_WEEK_ACCURACY = 0.8
 export const REPEAT_MIN_ANSWERS = 3
 export const REPEAT_ACCURACY = 0.7
 export const MAX_SKILLS_LISTED = 5
-/** Quest harian per hari belajar bila hari itu belum punya day_record. */
-export const DEFAULT_DAILY_QUESTS = 3
+/** Sesi wajib per hari belajar bila hari itu belum punya day_record (Latihan, Tes, dan Paper untuk tiga mapel). */
+export const DEFAULT_DAILY_QUESTS = DEFAULT_REQUIRED_SESSIONS
 
 const MONTHS = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 
@@ -82,9 +83,9 @@ export function minutesPerDay(monday: IsoDate, rows: Pick<DayRow, 'date' | 'minu
 }
 
 /**
- * Quest selesai dan direncanakan sampai hari ini. Hari yang dihitung: sejak learner mulai,
+ * Sesi wajib yang selesai dan direncanakan sampai hari ini. Hari yang dihitung: sejak learner mulai,
  * paling lambat hari ini, bukan hari istirahat (rest_day mengalahkan hari istirahat mingguan).
- * Hari belajar tanpa day_record dihitung 3 quest.
+ * Hari belajar tanpa day_record dihitung 9 sesi wajib.
  */
 export function questTotals(input: {
   monday: IsoDate
@@ -241,6 +242,7 @@ export async function weekSummaryData(tx: Tx, learnerId: string, weekStart: IsoD
       and(
         eq(response.learnerId, learnerId),
         eq(response.attemptNo, 1),
+        eq(response.retry, false),
         inArray(response.status, ['correct', 'wrong']),
         gte(response.answeredAt, startAt),
         lt(response.answeredAt, endAt),
@@ -254,7 +256,7 @@ export async function weekSummaryData(tx: Tx, learnerId: string, weekStart: IsoD
     const history = await tx
       .select({ skillId: response.skillId, at: response.answeredAt, status: response.status, hintsUsed: response.hintsUsed, difficulty: response.difficulty })
       .from(response)
-      .where(and(eq(response.learnerId, learnerId), eq(response.attemptNo, 1), inArray(response.status, ['correct', 'wrong']), inArray(response.skillId, ids), lt(response.answeredAt, endAt)))
+      .where(and(eq(response.learnerId, learnerId), eq(response.attemptNo, 1), eq(response.retry, false), inArray(response.status, ['correct', 'wrong']), inArray(response.skillId, ids), lt(response.answeredAt, endAt)))
       .orderBy(asc(response.answeredAt), asc(response.position))
     for (const w of weekRows) {
       const all = history.filter((h) => h.skillId === w.skillId)

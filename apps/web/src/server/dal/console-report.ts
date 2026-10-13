@@ -128,6 +128,7 @@ async function weeklyAccuracy(tx: Tx, learnerId: string, monday: IsoDate): Promi
       and(
         eq(response.learnerId, learnerId),
         eq(response.attemptNo, 1),
+        eq(response.retry, false),
         inArray(response.status, ['correct', 'wrong']),
         gte(response.answeredAt, jakartaMidnight(weeks[0]!)),
         lt(response.answeredAt, jakartaMidnight(addDays(monday, 7))),

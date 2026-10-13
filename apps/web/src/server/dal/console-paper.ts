@@ -368,11 +368,11 @@ export async function assignPaper(
   if (!week) throw notFound('Rencana minggu itu tidak bisa dibuat. Muat ulang halaman lalu coba lagi.')
 
   const resolved = await resolveItems(tx, p.itemRefs)
-  // Satu slot quest per mapel per hari: slot lama mapel ini diganti paper.
+  // Satu slot Paper wajib per mapel per hari: slot Paper lama mapel ini diganti. Latihan dan Tes hari itu tetap.
   const old = await tx
     .select({ id: planSlot.id, paperId: planSlot.paperId, mode: planSlot.mode })
     .from(planSlot)
-    .where(and(eq(planSlot.learnerId, learner.userId), eq(planSlot.date, input.date), eq(planSlot.subject, p.subject), eq(planSlot.kind, 'quest')))
+    .where(and(eq(planSlot.learnerId, learner.userId), eq(planSlot.date, input.date), eq(planSlot.subject, p.subject), eq(planSlot.session, 'paper'), eq(planSlot.required, true)))
   if (old.length) await tx.delete(planSlot).where(inArray(planSlot.id, old.map((o) => o.id)))
   for (const o of old) {
     if (o.mode === 'kertas' && o.paperId && o.paperId !== p.id) await dropEmptySheets(tx, learner.userId, o.paperId, input.date)
@@ -384,6 +384,8 @@ export async function assignPaper(
     date: input.date,
     subject: p.subject,
     kind: 'quest',
+    session: 'paper',
+    required: true,
     skillId: dominantSkill(p.itemRefs.map((r) => resolved.get(r)?.skill).filter((s): s is string => Boolean(s))),
     paperId: p.id,
     mode: p.mode,

@@ -56,13 +56,14 @@ describe('questTotals', () => {
         { date: '2026-10-13', minutes: 30, questsDone: 2, questsRequired: 3, rest: false },
       ],
     })
-    // Senin sampai Sabtu = 6 hari x 3 quest; Minggu istirahat.
-    expect(r).toEqual({ done: 5, planned: 18 })
+    // Senin 3 dan Selasa 3 dari day_record, Rabu sampai Sabtu 4 hari x 9 sesi wajib; Minggu istirahat.
+    expect(r).toEqual({ done: 5, planned: 42 })
   })
 
   it('tidak menghitung hari sesudah hari ini dan sebelum learner mulai', () => {
     const r = questTotals({ ...base, today: '2026-10-14', startedOn: '2026-10-13', rows: [] })
-    expect(r).toEqual({ done: 0, planned: 6 })
+    // Rabu dan Kamis, 2 hari x 9 sesi wajib.
+    expect(r).toEqual({ done: 0, planned: 18 })
   })
 
   it('learner yang belum pernah mulai tidak punya rencana quest', () => {
@@ -80,8 +81,8 @@ describe('questTotals', () => {
       ],
       rows: [{ date: '2026-10-12', minutes: 10, questsDone: 1, questsRequired: 2, rest: false }],
     })
-    // Sen 2 + Sel 3 + Rab 3 + Kam istirahat + Jum 3 + Sab 3 + Min 3 (bukan istirahat lagi) = 17
-    expect(r).toEqual({ done: 1, planned: 17 })
+    // Sen 2 + Sel 9 + Rab 9 + Kam istirahat + Jum 9 + Sab 9 + Min 9 (bukan istirahat lagi) = 47
+    expect(r).toEqual({ done: 1, planned: 47 })
   })
 
   it('quest selesai tidak pernah melebihi rencana', () => {

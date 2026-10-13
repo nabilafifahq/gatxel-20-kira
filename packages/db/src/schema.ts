@@ -521,7 +521,7 @@ export const dayRecord = pgTable(
     learnerId: uuid('learner_id').notNull(),
     date: date('date').notNull(),
     questsDone: integer('quests_done').notNull().default(0),
-    questsRequired: integer('quests_required').notNull().default(3),
+    questsRequired: integer('quests_required').notNull().default(9),
     minutes: integer('minutes').notNull().default(0),
     lastPingAt: ts('last_ping_at'),
     rest: boolean('rest').notNull().default(false),

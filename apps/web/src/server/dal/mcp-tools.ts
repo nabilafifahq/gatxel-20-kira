@@ -89,7 +89,7 @@ async function learnerProgress(ctx: Ctx, args: z.infer<(typeof TOOL_INPUTS)['lea
         correct: sql<number>`count(*) filter (where ${response.status} = 'correct')::int`,
       })
       .from(response)
-      .where(and(eq(response.learnerId, l.id), eq(response.attemptNo, 1), inArray(response.status, ['correct', 'wrong']), gte(response.answeredAt, new Date(`${weeks[0]}T00:00:00+07:00`))))
+      .where(and(eq(response.learnerId, l.id), eq(response.attemptNo, 1), eq(response.retry, false), inArray(response.status, ['correct', 'wrong']), gte(response.answeredAt, new Date(`${weeks[0]}T00:00:00+07:00`))))
       .groupBy(response.subject, sql`2`)
     const weeklyAccuracy = weeks.map((w) => ({
       weekStart: w,

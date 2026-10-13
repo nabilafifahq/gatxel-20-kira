@@ -34,7 +34,7 @@ describe('reportMarkdown', () => {
 
   it('memuat waktu, quest, streak, dan tabel akurasi 4 minggu', () => {
     expect(md).toContain('- Belajar 4 jam 5 menit dalam 6 hari, rata-rata 41 menit sehari.')
-    expect(md).toContain('- Quest selesai 17 dari 18.')
+    expect(md).toContain('- Sesi wajib selesai 17 dari 18.')
     expect(md).toContain('- Streak sekarang 13 hari.')
     expect(md).toContain('| Mapel | 21 Sep | 28 Sep | 5 Okt | 12 Okt |')
     expect(md).toContain('| Math | 78% | belum ada | 71% | 68% |')

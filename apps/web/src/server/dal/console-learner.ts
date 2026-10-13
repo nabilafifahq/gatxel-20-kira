@@ -91,7 +91,7 @@ async function heatmapFor(tx: Tx, learner: LearnerRow, weeks: IsoDate[]): Promis
     })
     .from(response)
     .innerJoin(attempt, eq(attempt.id, response.attemptId))
-    .where(and(eq(response.learnerId, learner.userId), eq(response.attemptNo, 1), inArray(response.status, ['correct', 'wrong'])))
+    .where(and(eq(response.learnerId, learner.userId), eq(response.attemptNo, 1), eq(response.retry, false), inArray(response.status, ['correct', 'wrong'])))
     .orderBy(asc(response.answeredAt), asc(response.position))
   // Jawaban tes yang belum dikumpulkan belum masuk mesin belajar dan masih bisa diganti.
   const answers: ReplayAnswer[] = rows
@@ -146,7 +146,7 @@ async function recentAttempts(tx: Tx, learnerId: string): Promise<LearnerDetailD
     })
     .from(attempt)
     .leftJoin(quest, eq(quest.attemptId, attempt.id))
-    .where(and(eq(attempt.learnerId, learnerId), ne(attempt.status, 'in_progress')))
+    .where(and(eq(attempt.learnerId, learnerId), ne(attempt.status, 'in_progress'), isNull(attempt.retryOf)))
     .orderBy(desc(sql`coalesce(${attempt.submittedAt}, ${attempt.startedAt})`))
     .limit(ATTEMPT_LIMIT)
   if (rows.length === 0) return []

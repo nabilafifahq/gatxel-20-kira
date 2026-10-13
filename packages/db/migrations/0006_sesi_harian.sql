@@ -83,3 +83,6 @@ ALTER TABLE attempt ADD CONSTRAINT attempt_retry_of_fk FOREIGN KEY (retry_of) RE
 CREATE INDEX IF NOT EXISTS attempt_retry_idx ON attempt (retry_of) WHERE retry_of IS NOT NULL;
 --> statement-breakpoint
 ALTER TABLE response ADD COLUMN IF NOT EXISTS retry boolean NOT NULL DEFAULT false;
+--> statement-breakpoint
+-- Hari tanpa catatan butuh 9 sesi wajib (sebelumnya 3 quest).
+ALTER TABLE day_record ALTER COLUMN quests_required SET DEFAULT 9;

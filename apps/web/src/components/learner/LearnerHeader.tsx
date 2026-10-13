@@ -12,10 +12,12 @@ import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
  * ukuran teks soal mengikuti jenjang learner.
  */
 
-const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }[] = [
+/** `short` dipakai bar bawah di HP, tempat label panjang tidak muat. */
+const NAV: { key: LearnerNavKey; label: string; short?: string; icon: UiIconName; href: string }[] = [
   { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
+  { key: 'competitions', label: 'Competitions', short: 'Contests', icon: 'trophy', href: LEARNER_ROUTES.competitions },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -54,7 +56,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
     <>
       <nav
         aria-label="Main"
-        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-3 border-r border-divider bg-surface px-3 py-7 md:flex"
+        className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-3 border-r border-divider bg-surface px-1 py-7 md:flex"
       >
         <div className="mb-5 font-display text-h1 font-bold">Kira</div>
         {items.map((n) => {
@@ -65,7 +67,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex h-19 w-20 flex-col items-center justify-center gap-1 rounded-control border-2 text-body no-underline',
+                'relative flex h-19 w-24 flex-col items-center justify-center gap-1 rounded-control border-2 text-small no-underline',
                 on ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted hover:border-divider hover:text-fg',
               )}
             >
@@ -93,7 +95,8 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               )}
             >
               <UiIcon name={n.icon} size={24} />
-              {n.label}
+              <span aria-hidden={n.short ? 'true' : undefined}>{n.short ?? n.label}</span>
+              {n.short ? <span className="visually-hidden">{n.label}</span> : null}
               {n.key === 'review' ? <ReviewCount shell={shell} /> : null}
             </Link>
           )

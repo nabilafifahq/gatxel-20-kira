@@ -8,6 +8,6 @@ export const dynamic = 'force-dynamic'
 
 export default async function DoneTodayPage() {
   const actor = await pageActor(['learner'])
-  const data = await load(() => inOrg(orgCtx(actor), (tx) => doneTodayDTO(tx, orgCtx(actor), actor.userId)))
+  const data = await load(() => inOrg(orgCtx(actor), (tx) => doneTodayDTO(tx, actor.userId)))
   return <DoneTodayScreen data={data} />
 }
