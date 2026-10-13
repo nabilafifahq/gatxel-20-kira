@@ -26,6 +26,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 
 import engine
+import gpu
 
 PORT = int(os.environ.get("TTS_PORT", "8000"))
 TOKEN = os.environ.get("KIRA_INTERNAL_TOKEN", "")
@@ -108,6 +109,17 @@ class EngineHost:
         with self.lock:
             self.requests += 1
             device = "cpu" if time.monotonic() < self.cpu_until else DEVICE
+            if device != "cpu" and not self.loaded():
+                # GPU dipakai program lain? Jangan muat model dan jangan buat konteks CUDA (lihat gpu.py).
+                free = gpu.gpu_free_mib()
+                if free is not None and free < MIN_FREE_MIB:
+                    res = {"ok": False, "error": "gpu_oom", "detail": f"GPU hanya punya {free} MiB kosong, butuh sekitar {MIN_FREE_MIB} MiB."}
+                    if OOM_FALLBACK == "cpu":
+                        log("GPU tidak cukup, memakai CPU untuk beberapa menit")
+                        self.cpu_until = time.monotonic() + 600
+                        device = "cpu"
+                    else:
+                        return res
             req = {"style": style, "segments": segments, "seed": seed, "device": device, "minFreeMiB": MIN_FREE_MIB, "cpuDtype": CPU_DTYPE}
             res = self._ask(req)
             if not res.get("ok") and res.get("error") in ("gpu_oom", "no_gpu"):

@@ -16,6 +16,19 @@ const { quest, attempt, job } = tables
 const MAX_QUEUED = 150
 const RECENT_MS = 10 * 60 * 1000
 const recent = new Map<string, number>()
+/** Paling banyak klip baru yang boleh diminta satu pengguna dalam satu jam. */
+const PER_USER_HOURLY = 60
+const byUser = new Map<string, number[]>()
+
+function withinUserLimit(userId: string, n: number, now: number): boolean {
+  const recentAsks = (byUser.get(userId) ?? []).filter((t) => now - t < 3_600_000)
+  if (recentAsks.length + n > PER_USER_HOURLY) {
+    byUser.set(userId, recentAsks)
+    return false
+  }
+  byUser.set(userId, [...recentAsks, ...Array<number>(n).fill(now)])
+  return true
+}
 
 /** Minta worker membuat klip yang belum ada. Mengembalikan jumlah klip yang benar-benar diantrekan. */
 export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipRequest[]): Promise<number> {
@@ -31,6 +44,7 @@ export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipReques
     fresh.push(c)
   }
   if (fresh.length === 0) return 0
+  if (!withinUserLimit(ctx.userId, fresh.length, now)) return 0
   const [waiting] = await tx
     .select({ n: sql<number>`count(*)::int` })
     .from(job)

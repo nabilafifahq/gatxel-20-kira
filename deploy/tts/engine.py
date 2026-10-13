@@ -109,15 +109,7 @@ def engine_main(conn: Any) -> None:
             if model is None or loaded_kind != kind or loaded_device != device:
                 unload()
                 if device != "cpu":
-                    free, total = torch.cuda.mem_get_info()
-                    need = int(req.get("minFreeMiB", 7000))
-                    if free // (1024 * 1024) < need:
-                        conn.send({
-                            "ok": False,
-                            "error": "gpu_oom",
-                            "detail": f"GPU hanya punya {free // (1024 * 1024)} MiB kosong dari {total // (1024 * 1024)} MiB, butuh sekitar {need} MiB.",
-                        })
-                        return
+                    # Pemeriksaan memori kosong dilakukan server.py lewat NVML sebelum proses ini dibuat.
                     dtype = torch.bfloat16
                 else:
                     dtype = torch.bfloat16 if req.get("cpuDtype") == "bfloat16" else torch.float32
