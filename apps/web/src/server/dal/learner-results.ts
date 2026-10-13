@@ -8,6 +8,7 @@ import type { Tx } from '../db'
 import { resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner } from './learner-core'
+import { xpBarFor } from './learner-xpbar'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 
 const { response } = tables
@@ -124,6 +125,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     backHref: exit,
     backLabel: exit === '/esmo' ? 'Back to ESMO' : exit === '/competitions' ? 'Back to practice' : exit === '/review' ? 'Back to Review' : 'Back to Today',
     tone: tone.tone,
+    xpBar: await xpBarFor(tx, learnerId, a.id),
   }
 }
 
