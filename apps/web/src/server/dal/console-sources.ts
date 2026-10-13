@@ -27,9 +27,9 @@ export function registry(): Registry | null {
 }
 
 const ACCESS_LABEL: Record<Source['access'], string> = {
-  auto: 'Diambil otomatis tiap Minggu',
-  'manual-upload': 'Unggah manual (paper dijual atau tanpa unduhan gratis)',
-  listed: 'Dicatat, belum bisa diambil',
+  auto: 'Otomatis tiap Minggu',
+  'manual-upload': 'Unggah manual',
+  listed: 'Dicatat saja',
 }
 
 const SUBJECT_ID: Record<string, string> = { math: 'Math', english: 'English', science: 'Science' }

@@ -16,7 +16,7 @@ import { cropPngFraction, PngError, type CropRect } from '../png-crop'
 import { shellIn } from './console-shell'
 import { enqueueAiJobTx, schemaIssues } from './console-studio'
 import { competitions, presets, skillsFor } from './content'
-import { syncLibraryEntryTx, type BatchMeta } from './paper-library'
+import { normalizeSection, syncLibraryEntryTx, type BatchMeta } from './paper-library'
 
 /**
  * T12 Impor paket resmi. Tutor mengunggah PDF paket milik keluarga; worker membaca soal dan tabel kunci
@@ -225,7 +225,7 @@ const storedItem = z.object({
   approved: z.boolean(),
   orgItemId: z.string().nullable().optional(),
   aiAnswer: z.number().int().nullable().optional(),
-  keyCheck: z.enum(['agree', 'disagree', 'ai-only', 'skipped']).optional(),
+  keyCheck: z.enum(['agree', 'disagree', 'ai-only', 'skipped']).nullish(),
   figure: z.object({ mediaId: z.string().uuid(), width: z.number().int(), height: z.number().int(), alt: z.string() }).nullable().optional(),
 })
 type Stored = z.infer<typeof storedItem>
@@ -339,7 +339,7 @@ export async function createImportBatch(actor: Actor, input: UploadInput): Promi
           createdBy: actor.userId,
           competition: input.meta?.competition ?? null,
           year: input.meta?.year ?? null,
-          section: input.meta?.section ?? null,
+          section: input.meta?.section?.trim() ? normalizeSection(input.meta.section) : null,
           originalMinutes: input.meta?.originalMinutes ?? null,
           source: input.meta?.source ?? null,
         })
@@ -479,7 +479,7 @@ export async function updateImportMetaTx(tx: Tx, ctx: OrgContext, input: MetaEdi
     .for('update')
   if (!b) throw notFound('Paket impor tidak ditemukan. Muat ulang halaman impor.')
   if (input.competition && !competitions().some((c) => c.id === input.competition)) throw invalid('Lomba itu tidak ada di katalog. Pilih dari daftar.', { competition: 'Pilih lomba dari daftar.' })
-  const meta: BatchMeta = { competition: input.competition, year: input.year, section: input.section, originalMinutes: input.originalMinutes, source: input.source }
+  const meta: BatchMeta = { competition: input.competition, year: input.year, section: input.section?.trim() ? normalizeSection(input.section) : null, originalMinutes: input.originalMinutes, source: input.source }
   await tx.update(importBatch).set({ ...meta, updatedAt: new Date() }).where(eq(importBatch.id, b.id))
   await syncLibraryEntryTx(tx, ctx, { id: b.id, subject: b.subject, grade: b.grade, createdBy: b.createdBy, meta, refs: libraryRefs(storedItems(b.items)), name: b.title })
   await auditTx(tx, ctx, 'import.meta.updated', b.id, { competition: meta.competition, year: meta.year, section: meta.section })

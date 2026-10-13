@@ -9,7 +9,8 @@ import { cx } from '@/components/console/cx'
 import { TextField } from '@/components/console/Field'
 import { ActionError, EmptyState, InlineAlert } from '@/components/console/Feedback'
 import { dateId } from '@/components/console/format'
-import { Card, PageHeader, Pill, SubjectChip } from '@/components/console/Layout'
+import { Card, PageHeader, SubjectChip } from '@/components/console/Layout'
+import { Tag } from '@/components/console/Tag'
 import { CONSOLE_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
@@ -111,7 +112,7 @@ export function PaperLibraryScreen({ data }: { data: PaperLibraryDTO }) {
                 <span className="min-w-0 max-w-[260px] truncate text-small text-fg-muted" title={e.source}>
                   {e.source}
                 </span>
-                {data.learner ? <Pill tone={e.picked ? 'neutral' : 'success'}>{e.picked ? 'Sudah dikerjakan' : 'Belum dikerjakan'}</Pill> : null}
+                {data.learner ? <Tag tone={e.picked ? 'neutral' : 'success'}>{e.picked ? 'Sudah dikerjakan' : 'Belum dikerjakan'}</Tag> : null}
               </li>
             ))}
           </ul>
@@ -132,7 +133,7 @@ export function PaperLibraryScreen({ data }: { data: PaperLibraryDTO }) {
                   <span className="min-w-0 flex-[1_1_220px] text-body font-semibold [overflow-wrap:anywhere]">{p.origin === 'kira-made' ? `${ORIGIN_LABEL['kira-made']}, ${p.kind === 'full' ? 'penuh' : 'mini'}` : p.title}</span>
                   <span className="text-small tabular">{p.minutes} menit</span>
                   <span className="text-small">{p.result ?? 'Belum ada hasil'}</span>
-                  {p.medal ? <Pill tone="success">{p.medal}</Pill> : null}
+                  {p.medal ? <Tag tone="success">{p.medal}</Tag> : null}
                 </li>
               ))}
             </ul>
@@ -153,7 +154,7 @@ export function PaperLibraryScreen({ data }: { data: PaperLibraryDTO }) {
                 <span className="w-32 flex-none text-body font-bold">{m.competition.toUpperCase()} {m.year}</span>
                 <span className="text-small">{m.grades}</span>
                 <span className="min-w-0 flex-[1_1_240px] text-small">{m.bands}</span>
-                <Pill tone={m.verified ? 'success' : 'warn'}>{m.verified ? 'Terverifikasi' : 'Belum diverifikasi'}</Pill>
+                <Tag tone={m.verified ? 'success' : 'warn'}>{m.verified ? 'Terverifikasi' : 'Belum diverifikasi'}</Tag>
               </li>
             ))}
           </ul>
@@ -199,7 +200,7 @@ export function MistakeReportScreen({ data }: { data: MistakeReportDTO }) {
                   <li key={t.type} className="flex flex-col gap-1 border-b border-divider pb-3 last:border-b-0 last:pb-0">
                     <div className="flex flex-wrap items-center gap-3">
                       <strong className="text-body">{t.label}</strong>
-                      <Pill>{t.count} soal</Pill>
+                      <Tag>{t.count} soal</Tag>
                       <span className="text-small tabular text-fg-muted">{t.percent} persen</span>
                     </div>
                     <p className="m-0 text-small text-fg-muted">{t.advice}</p>
@@ -233,7 +234,7 @@ export function MistakeReportScreen({ data }: { data: MistakeReportDTO }) {
                     <div className="flex flex-wrap items-center gap-2">
                       <SubjectChip subject={i.subject} size="sm" />
                       <span className="text-small font-bold">{i.skillTitle}</span>
-                      <Pill>{i.typeLabel}</Pill>
+                      <Tag>{i.typeLabel}</Tag>
                       <span className="text-small text-fg-muted">Salah {i.wrongOn}</span>
                     </div>
                     <p className="m-0 text-body [overflow-wrap:anywhere]">{i.prompt}</p>
@@ -249,7 +250,7 @@ export function MistakeReportScreen({ data }: { data: MistakeReportDTO }) {
               <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                 {data.redo.map((r) => (
                   <li key={r.date}>
-                    <Pill>{dateId(r.date)}: {r.correct} dari {r.total} benar</Pill>
+                    <Tag>{dateId(r.date)}: {r.correct} dari {r.total} benar</Tag>
                   </li>
                 ))}
               </ul>
@@ -320,7 +321,7 @@ function ProgramCard({ program: p, learner, minStart, actions, running }: { prog
         <SubjectChip subject={p.subject} size="sm" />
         <h2 className="m-0 text-h3 font-bold">{p.title}</h2>
         {p.competitions.map((c) => (
-          <Pill key={c}>{c}</Pill>
+          <Tag key={c}>{c}</Tag>
         ))}
       </div>
       <p className="m-0 text-body text-fg-muted">{p.summary}</p>
@@ -380,7 +381,7 @@ function RunList({ runs, actions }: { runs: ProgramsDTO['runs']; actions: Progra
               {dateId(r.startDate)} sampai {dateId(r.endDate)}
             </span>
             <span className="text-small tabular">{r.slots} slot</span>
-            <Pill tone={r.status === 'active' ? 'success' : 'neutral'}>{r.status === 'active' ? 'Berjalan' : 'Dibatalkan'}</Pill>
+            <Tag tone={r.status === 'active' ? 'success' : 'neutral'}>{r.status === 'active' ? 'Berjalan' : 'Dibatalkan'}</Tag>
             {r.status === 'active' ? (
               <Button
                 variant="quiet"
@@ -432,33 +433,33 @@ export function SourcesScreen({ data, actions }: { data: SourcesDTO; actions: So
             <Card as="article" aria-label={s.name} className="flex flex-col gap-2.5">
               <div className="flex flex-wrap items-center gap-2.5">
                 <h2 className="m-0 min-w-0 flex-[1_1_260px] text-h3 font-bold [overflow-wrap:anywhere]">{s.name}</h2>
-                <Pill tone={s.access === 'auto' ? 'success' : s.access === 'listed' ? 'neutral' : 'warn'}>{s.accessLabel}</Pill>
-                <Pill>{s.licenseLabel}</Pill>
+                <Tag tone={s.access === 'auto' ? 'success' : s.access === 'listed' ? 'neutral' : 'warn'}>{s.accessLabel}</Tag>
+                <Tag>{s.licenseLabel}</Tag>
                 {s.access === 'auto' ? (
                   <Button variant="quiet" size="S" loading={toggle.pending} aria-pressed={s.enabled} onClick={() => toggle.run({ sourceId: s.id, enabled: !s.enabled })}>
                     {s.enabled ? 'Matikan pengambilan' : 'Nyalakan pengambilan'}
                   </Button>
                 ) : null}
               </div>
-              <p className="m-0 text-small text-fg-muted">
+              <p className="m-0 text-small text-fg-muted [overflow-wrap:anywhere]">
                 {s.subjects}, {s.grades}, tahun {s.years}.{' '}
                 <a href={s.site} rel="noreferrer noopener" target="_blank" className="font-semibold">
                   Situs sumber
                 </a>
               </p>
-              {s.licenseNote ? <p className="m-0 text-small">{s.licenseNote}</p> : null}
-              <p className="m-0 text-small text-fg-muted">Atribusi: {s.attribution}</p>
-              {s.notes ? <p className="m-0 text-small text-fg-muted">{s.notes}</p> : null}
+              {s.licenseNote ? <p className="m-0 text-small [overflow-wrap:anywhere]">{s.licenseNote}</p> : null}
+              <p className="m-0 text-small text-fg-muted [overflow-wrap:anywhere]">Atribusi: {s.attribution}</p>
+              {s.notes ? <p className="m-0 text-small text-fg-muted [overflow-wrap:anywhere]">{s.notes}</p> : null}
               <p className="m-0 flex flex-wrap gap-2 text-small tabular">
-                {s.committable ? <Pill>Boleh jadi JSON konten di repo dengan atribusi</Pill> : <Pill>Hanya di server keluarga</Pill>}
-                {s.counts.published > 0 ? <Pill tone="success">{s.counts.published} masuk bank</Pill> : null}
-                {s.counts.queued > 0 ? <Pill tone="warn">{s.counts.queued} di antrean Studio AI</Pill> : null}
-                {s.counts.imported > 0 ? <Pill>{s.counts.imported} PDF masuk Impor</Pill> : null}
-                {s.counts.unmapped > 0 ? <Pill>{s.counts.unmapped} belum punya skill</Pill> : null}
-                {s.counts.rejected > 0 ? <Pill>{s.counts.rejected} ditolak</Pill> : null}
+                {s.committable ? <Tag>Boleh jadi JSON konten di repo dengan atribusi</Tag> : <Tag>Hanya di server keluarga</Tag>}
+                {s.counts.published > 0 ? <Tag tone="success">{s.counts.published} masuk bank</Tag> : null}
+                {s.counts.queued > 0 ? <Tag tone="warn">{s.counts.queued} di antrean Studio AI</Tag> : null}
+                {s.counts.imported > 0 ? <Tag>{s.counts.imported} PDF masuk Impor</Tag> : null}
+                {s.counts.unmapped > 0 ? <Tag>{s.counts.unmapped} belum punya skill</Tag> : null}
+                {s.counts.rejected > 0 ? <Tag>{s.counts.rejected} ditolak</Tag> : null}
               </p>
               {s.lastRun ? (
-                <p className="m-0 text-small text-fg-muted">
+                <p className="m-0 text-small text-fg-muted [overflow-wrap:anywhere]">
                   Terakhir {dateId(s.lastRun.slice(0, 10))}
                   {s.lastResult ? `: ${s.lastResult}` : ''}
                 </p>

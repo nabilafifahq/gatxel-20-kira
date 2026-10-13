@@ -7,7 +7,8 @@ import { cx } from '@/components/console/cx'
 import { Select, TextField } from '@/components/console/Field'
 import { ActionError, InlineAlert } from '@/components/console/Feedback'
 import { ConsoleIcon } from '@/components/console/icons'
-import { Card, Pill } from '@/components/console/Layout'
+import { Card } from '@/components/console/Layout'
+import { Tag } from '@/components/console/Tag'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
 
@@ -178,11 +179,11 @@ export function PaperMetaCard({ batchId, meta, competitions, actions }: { batchI
         <h2 className="m-0 text-body font-bold">Data paper</h2>
         {filled ? (
           <>
-            {meta.competition ? <Pill>{competitions.find((c) => c.id === meta.competition)?.name ?? meta.competition}</Pill> : null}
-            {meta.year ? <Pill>{meta.year}</Pill> : null}
-            {meta.section ? <Pill>Bagian {meta.section}</Pill> : null}
-            {meta.originalMinutes ? <Pill>{meta.originalMinutes} menit</Pill> : null}
-            <Pill>{meta.source ?? SOURCE_UPLOAD}</Pill>
+            {meta.competition ? <Tag>{competitions.find((c) => c.id === meta.competition)?.name ?? meta.competition}</Tag> : null}
+            {meta.year ? <Tag>{meta.year}</Tag> : null}
+            {meta.section ? <Tag>{meta.section === 'penuh' ? 'Paper penuh' : `Bagian ${meta.section}`}</Tag> : null}
+            {meta.originalMinutes ? <Tag>{meta.originalMinutes} menit</Tag> : null}
+            <Tag>{meta.source ?? SOURCE_UPLOAD}</Tag>
           </>
         ) : (
           <span className="text-small text-fg-muted">Belum diisi, jadi paket ini belum masuk pustaka paper.</span>

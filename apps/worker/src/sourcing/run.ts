@@ -56,6 +56,8 @@ export type SourcingDeps = {
   fetchImpl?: typeof fetch | undefined
   sleep?: ((ms: number, signal: AbortSignal) => Promise<void>) | undefined
   now?: (() => Date) | undefined
+  /** Untuk tes dan penjalanan manual: hanya org ini yang diproses (bawaan semua org). */
+  onlyOrgIds?: string[] | undefined
   /** Untuk tes: indeks konten dan registri yang sudah dimuat. */
   loaded?: { content: ContentIndex; registry: Registry } | undefined
 }
@@ -118,7 +120,7 @@ export async function runWeeklySourcing(deps: SourcingDeps, slotAt: Date, signal
   const budget: Budget = { left: deps.env.AI_WEEKLY_CONTENT_JOBS, used: 0 }
   const week = weekStart(jakartaDate(slotAt))
   const results: OrgResult[] = []
-  for (const orgId of await listOrgIds(deps.client)) {
+  for (const orgId of deps.onlyOrgIds ?? (await listOrgIds(deps.client))) {
     if (signal.aborted) break
     results.push(await runOrg(deps, ai, loaded, budget, week, signal, orgId))
   }

@@ -1018,7 +1018,12 @@ function PassedRow({ item: it, onEdit, onShowPage, hasPage, onRemoveFigure }: { 
       </span>
       <span className="flex-none text-small font-bold tabular">{it.answer != null ? `Kunci ${letter(it.answer)}` : 'Tanpa kunci'}</span>
       {it.keyCheck === 'agree' ? <Pill>Cocok dengan AI</Pill> : null}
-      {it.figure ? <Pill>Ada gambar</Pill> : null}
+      {it.figure ? (
+        <span className="inline-flex items-center gap-2">
+          <img src={it.figure.url} alt={it.figure.alt} className="h-10 max-w-20 rounded-sm border border-border bg-white object-contain" />
+          <Pill>Ada gambar</Pill>
+        </span>
+      ) : null}
       {it.approved ? (
         <Pill tone="success">
           <ConsoleIcon name="check" size={14} strokeWidth={3} className="text-success" />

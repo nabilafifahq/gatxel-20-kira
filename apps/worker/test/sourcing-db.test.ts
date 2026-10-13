@@ -118,14 +118,14 @@ describe.skipIf(!ready)('runWeeklySourcing di Postgres', () => {
   it('AI belum siap: dilewati tanpa mengunduh apa pun', async () => {
     fetched.length = 0
     const ai = { ...fakeAi().ai, ready: false, notReadyReason: 'Token belum diisi' } as AiProvider
-    const r = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry } }, at, signal)
+    const r = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry }, onlyOrgIds: [orgId] }, at, signal)
     expect(r).toMatch(/^dilewati: Token belum diisi/)
     expect(fetched).toEqual([])
   })
 
   it('batas AI nol: tidak ada panggilan AI dan tidak ada soal masuk', async () => {
     const { ai, calls } = fakeAi()
-    const r = await runWeeklySourcing({ ...wk, env: env(0), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry } }, at, signal)
+    const r = await runWeeklySourcing({ ...wk, env: env(0), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry }, onlyOrgIds: [orgId] }, at, signal)
     expect(r).toMatch(/AI 0 dari 0/)
     expect(calls).toHaveLength(0)
     expect((await owner`select count(*)::int as n from org_item where org_id = ${orgId}`)[0]!.n).toBe(0)
@@ -133,7 +133,7 @@ describe.skipIf(!ready)('runWeeklySourcing di Postgres', () => {
 
   it('soal bersumber kunci yang sama dengan AI masuk bank, yang beda atau ragu masuk antrean Studio, PDF masuk Impor, draf diminta', async () => {
     const { ai, calls } = fakeAi()
-    const summary = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry } }, at, signal)
+    const summary = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry }, onlyOrgIds: [orgId] }, at, signal)
     expect(summary).toMatch(/^selesai:/)
 
     // GSM8K: 2 lolos (apel dan uang), 1 beda kunci, 1 AI ragu, 1 disaring parser (bilangan besar).
@@ -205,7 +205,7 @@ describe.skipIf(!ready)('runWeeklySourcing di Postgres', () => {
     await owner`update source_state set cursor = '{"at": 0}'::jsonb where org_id = ${orgId} and source_id = 'gsm8k'`
     const before = (await owner`select count(*)::int as n from org_item where org_id = ${orgId}`)[0]!.n
     const { ai } = fakeAi()
-    const summary = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry } }, at, signal)
+    const summary = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: fakeFetch, sleep, loaded: { content, registry }, onlyOrgIds: [orgId] }, at, signal)
     expect(summary).toMatch(/4 dobel dibuang|[4-9] dobel dibuang/)
     expect((await owner`select count(*)::int as n from org_item where org_id = ${orgId}`)[0]!.n).toBe(before)
     expect((await owner`select count(*)::int as n from source_record where org_id = ${orgId} and kind = 'item' and source_id = 'arc-easy'`)[0]!.n).toBe(1)
