@@ -1,3 +1,4 @@
+import { flatten, gridRulesOk, gridValues, type GridPuzzle } from './grid'
 import type { Item } from './schema'
 
 /**
@@ -17,7 +18,19 @@ export type AnswerKey =
   | { type: 'numberline'; answer: number; tolerance: number }
   | { type: 'clock'; h: number; m: number }
   | { type: 'fraction'; num: number; den: number; parts: number }
-  | { type: 'write' | 'speak' | 'draw' }
+  | { type: 'story'; parts: StoryPartKey[] }
+  | { type: 'listen'; answer: number }
+  | { type: 'tiles'; answers: string[] }
+  | { type: 'spell'; words: string[] }
+  | { type: 'cloze'; answers: string[] }
+  | { type: 'hotspot'; answers: string[] }
+  | { type: 'label'; labels: string[] }
+  | { type: 'table'; blanks: string[][] }
+  | { type: 'grid'; puzzle: GridPuzzle; size: number; given: number[]; solution: number[]; values: number[] }
+  | { type: 'write' | 'speak' | 'draw' | 'photo' }
+
+/** Kunci satu pertanyaan di soal cerita bertahap. */
+export type StoryPartKey = Extract<AnswerKey, { type: 'mcq' | 'numeric' | 'text' }>
 
 export type Answer =
   | { choice: number }
@@ -32,6 +45,9 @@ export type Answer =
   | { shaded: number }
   | { text: string }
   | { mediaId: string; text?: string }
+  | { parts: (Answer | null)[] }
+  | { words: string[] }
+  | { cells: number[] }
 
 export type CheckStatus = 'correct' | 'wrong' | 'blank' | 'pending'
 
@@ -59,9 +75,37 @@ export function keyOf(item: Item): AnswerKey {
       return { type: 'clock', h: item.answer.h, m: item.answer.m }
     case 'fraction':
       return { type: 'fraction', num: item.answer.num, den: item.answer.den, parts: item.parts }
+    case 'story':
+      return {
+        type: 'story',
+        parts: item.parts.map((part): StoryPartKey => {
+          if (part.type === 'mcq') return { type: 'mcq', answer: part.answer }
+          if (part.type === 'numeric') return { type: 'numeric', answer: part.answer, tolerance: part.tolerance }
+          return { type: 'text', blanks: [{ answers: part.answers, caseSensitive: part.caseSensitive }] }
+        }),
+      }
+    case 'listen':
+      return { type: 'listen', answer: item.answer }
+    case 'tiles':
+      return { type: 'tiles', answers: [item.answer, ...item.alternatives] }
+    case 'spell':
+      return { type: 'spell', words: [item.word, ...item.alsoAccept] }
+    case 'cloze':
+      return { type: 'cloze', answers: item.gaps.map((g) => g.options[g.answer] ?? '') }
+    case 'hotspot':
+      return { type: 'hotspot', answers: item.answers.map((i) => item.regions[i]?.label ?? '') }
+    case 'label':
+      return { type: 'label', labels: item.labels }
+    case 'table':
+      return { type: 'table', blanks: item.blanks.map((b) => b.answers) }
+    case 'grid': {
+      const solution = flatten(item.filled)
+      return { type: 'grid', puzzle: item.puzzle, size: item.size, given: flatten(item.given), solution, values: gridValues(item.puzzle, item.size, solution) }
+    }
     case 'write':
     case 'speak':
     case 'draw':
+    case 'photo':
       return { type: item.type }
   }
 }
@@ -112,6 +156,34 @@ export function normaliseText(s: string, caseSensitive: boolean): string {
 
 const close = (a: number, b: number, tol: number) => Math.abs(a - b) <= tol + 1e-9
 
+/** Kalimat dari kartu: kata dipisah satu spasi, tanda kutip lurus. Huruf besar dan tanda baca tetap dihitung. */
+export function normaliseSentence(s: string): string {
+  return s
+    .normalize('NFKC')
+    .replace(/[‘’ʼ]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/** Ejaan: huruf besar kecil tidak dihitung, tanda kutip lurus. */
+export function normaliseWord(s: string): string {
+  return s.normalize('NFKC').replace(/[‘’ʼ]/g, "'").replace(/\s+/g, '').toLowerCase()
+}
+
+/** Isi sel tabel: sama sebagai teks, atau sama sebagai angka (8 dan 8,0). */
+export function cellMatches(given: string, accepted: string): boolean {
+  const g = normaliseText(given, false)
+  const a = normaliseText(accepted, false)
+  if (g === '') return false
+  if (g === a) return true
+  const gv = parseNumberCandidates(g)
+  const av = parseNumberCandidates(a)
+  return gv.length > 0 && av.length > 0 && gv.some((x) => av.some((y) => close(x, y, 0)))
+}
+
+const strings = (v: unknown): string[] => (Array.isArray(v) ? v.map((x) => (typeof x === 'string' ? x : '')) : [])
+
 function isBlank(answer: unknown): boolean {
   if (answer === null || answer === undefined) return true
   if (typeof answer !== 'object') return true
@@ -120,12 +192,15 @@ function isBlank(answer: unknown): boolean {
   if ('texts' in a) return !Array.isArray(a.texts) || a.texts.every((t) => typeof t !== 'string' || t.trim() === '')
   if ('choice' in a) return typeof a.choice !== 'number'
   if ('choices' in a) return !Array.isArray(a.choices) || a.choices.length === 0
+  if ('words' in a) return !Array.isArray(a.words) || a.words.length === 0
+  if ('cells' in a) return !Array.isArray(a.cells) || a.cells.every((c) => c === 0 || typeof c !== 'number')
+  if ('parts' in a) return !Array.isArray(a.parts) || a.parts.every((x) => isBlank(x))
   if ('text' in a && !('mediaId' in a)) return typeof a.text !== 'string' || a.text.trim() === ''
   return false
 }
 
 export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
-  if (key.type === 'write' || key.type === 'speak' || key.type === 'draw') {
+  if (key.type === 'write' || key.type === 'speak' || key.type === 'draw' || key.type === 'photo') {
     return isBlank(answer) ? { status: 'blank', score: 0 } : { status: 'pending', score: 0 }
   }
   if (isBlank(answer)) return { status: 'blank', score: 0 }
@@ -184,6 +259,54 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       const shaded = typeof a.shaded === 'number' ? a.shaded : -1
       return verdict(shaded >= 0 && shaded * key.den === key.num * key.parts)
     }
+    case 'story': {
+      const given = Array.isArray(a.parts) ? (a.parts as unknown[]) : []
+      const right = key.parts.filter((k, i) => checkAnswer(k, given[i] ?? null).status === 'correct').length
+      return verdict(right === key.parts.length, right / key.parts.length)
+    }
+    case 'listen':
+      return verdict(a.choice === key.answer)
+    case 'tiles': {
+      const words = strings(a.words)
+      const given = normaliseSentence(words.join(' '))
+      const ok = words.length > 0 && key.answers.some((ans) => normaliseSentence(ans) === given)
+      const target = (key.answers[0] ?? '').split(/\s+/).filter(Boolean)
+      const partial = target.length === 0 ? 0 : words.filter((w, i) => w === target[i]).length / target.length
+      return verdict(ok, partial)
+    }
+    case 'spell': {
+      const given = typeof a.value === 'string' ? normaliseWord(a.value) : ''
+      return verdict(given !== '' && key.words.some((w) => normaliseWord(w) === given))
+    }
+    case 'cloze': {
+      const texts = strings(a.texts)
+      const right = key.answers.filter((ans, i) => normaliseText(texts[i] ?? '', false) !== '' && normaliseText(texts[i] ?? '', false) === normaliseText(ans, false)).length
+      return verdict(right === key.answers.length, right / key.answers.length)
+    }
+    case 'hotspot': {
+      const chosen = [...new Set(strings(a.texts).map((t) => normaliseText(t, false)).filter(Boolean))].sort()
+      const want = [...new Set(key.answers.map((t) => normaliseText(t, false)))].sort()
+      return verdict(chosen.length === want.length && chosen.every((t, i) => t === want[i]))
+    }
+    case 'label': {
+      const texts = strings(a.texts)
+      const right = key.labels.filter((l, i) => normaliseText(texts[i] ?? '', false) !== '' && normaliseText(texts[i] ?? '', false) === normaliseText(l, false)).length
+      return verdict(right === key.labels.length, right / key.labels.length)
+    }
+    case 'table': {
+      const texts = strings(a.texts)
+      const right = key.blanks.filter((accepted, i) => accepted.some((acc) => cellMatches(texts[i] ?? '', acc))).length
+      return verdict(right === key.blanks.length, right / key.blanks.length)
+    }
+    case 'grid': {
+      const cells = Array.isArray(a.cells) ? (a.cells as unknown[]).map((c) => (typeof c === 'number' && Number.isInteger(c) ? c : 0)) : []
+      const n = key.size * key.size
+      const blanks = key.given.filter((g) => g === 0).length
+      const right = key.given.filter((g, i) => g === 0 && cells[i] === key.solution[i]).length
+      const partial = blanks === 0 ? 0 : right / blanks
+      const keepsGiven = key.given.every((g, i) => g === 0 || cells[i] === g)
+      return verdict(cells.length === n && keepsGiven && gridRulesOk(key.puzzle, key.size, cells, key.values), partial)
+    }
   }
 }
 
@@ -213,9 +336,35 @@ export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
       return `${item.answer.h}:${String(item.answer.m).padStart(2, '0')}`
     case 'fraction':
       return `${item.answer.num}/${item.answer.den}`
+    case 'story':
+      return item.parts
+        .map((part, i) => {
+          const text = part.type === 'mcq' ? (part.options[part.answer]?.text ?? letter(part.answer)) : part.type === 'numeric' ? `${formatNumber(part.answer)}${part.unit ? ` ${part.unit}` : ''}` : part.answers[0]
+          return `${i + 1}. ${text}`
+        })
+        .join('; ')
+    case 'listen': {
+      const o = item.options[item.answer]
+      return `${o?.text ? `${letter(item.answer)}. ${o.text}` : letter(item.answer)}. The audio said: "${item.listenText}"`
+    }
+    case 'tiles':
+      return item.answer
+    case 'spell':
+      return item.word
+    case 'cloze':
+      return item.gaps.map((g) => g.options[g.answer]).join(', ')
+    case 'hotspot':
+      return item.answers.map((i) => item.regions[i]?.label).join(', ')
+    case 'label':
+      return item.labels.map((l, i) => `${i + 1}. ${l}`).join('; ')
+    case 'table':
+      return item.blanks.map((b) => b.answers[0]).join(', ')
+    case 'grid':
+      return item.filled.map((r) => r.join(' ')).join(' / ')
     case 'write':
     case 'speak':
     case 'draw':
+    case 'photo':
       return lang === 'id' ? 'Dinilai tutor' : 'Marked by your tutor'
   }
 }

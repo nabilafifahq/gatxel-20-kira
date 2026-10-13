@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { validateRules } from '@kira/core/scoring'
 import { z } from 'zod'
+import { flatten, gridRulesOk, gridValues, sizeAllowed, solveGrid } from './grid'
 import { GENERATORS, generateUncached, genRef } from './math'
 import {
   catalogSchema,
@@ -98,7 +99,150 @@ function textsOf(item: Item): string[] {
   if (item.type === 'match') for (const [a, b] of item.pairs) t.push(a, b)
   if (item.type === 'sort') t.push(...item.groups, ...item.items.map((i) => i.text))
   if (item.type === 'text') for (const b of item.blanks) t.push(...b.answers)
+  if (item.type === 'story') {
+    for (const part of item.parts) {
+      t.push(part.prompt)
+      if (part.type === 'mcq') for (const o of part.options) t.push(o.text ?? '', o.why ?? '')
+      if (part.type === 'text') t.push(...part.answers)
+    }
+  }
+  if (item.type === 'listen') {
+    t.push(item.listenText)
+    for (const o of item.options) t.push(o.text ?? '', o.why ?? '')
+  }
+  if (item.type === 'tiles') t.push(item.answer, ...item.alternatives, ...item.distractors)
+  if (item.type === 'spell') t.push(item.sentence ?? '')
+  if (item.type === 'cloze') for (const g of item.gaps) t.push(...g.options)
+  if (item.type === 'hotspot') t.push(...item.regions.map((r) => r.label))
+  if (item.type === 'label') t.push(...item.labels, ...item.extraLabels)
+  if (item.type === 'table') {
+    t.push(item.caption ?? '', ...item.head, ...item.rows.flat())
+    for (const b of item.blanks) t.push(...b.answers)
+  }
   return t
+}
+
+const wordsOf = (s: string) => s.split(/\s+/).filter(Boolean)
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const apart = (a: { x: number; y: number }, b: { x: number; y: number }, gap: number) => Math.abs(a.x - b.x) >= gap || Math.abs(a.y - b.y) >= gap
+
+/** Pemeriksaan isi jenis soal baru (cerita, dengar, susun kata, eja, celah, gambar, label, tabel, kotak). */
+function newTypeProblems(item: Item): string[] {
+  const p: string[] = []
+  const dup = (list: string[]) => new Set(list.map((x) => x.trim().toLowerCase())).size !== list.length
+  switch (item.type) {
+    case 'story': {
+      if (/_{3,}/.test(item.prompt)) p.push('Cerita tidak boleh memuat ___')
+      if (dup(item.parts.map((part) => part.prompt))) p.push('Pertanyaan cerita kembar')
+      item.parts.forEach((part, k) => {
+        if (part.type !== 'mcq') return
+        if (part.answer >= part.options.length) p.push(`Pertanyaan ${k + 1}: answer di luar opsi`)
+        if (dup(part.options.map((o) => o.text ?? JSON.stringify(o.figure)))) p.push(`Pertanyaan ${k + 1}: opsi kembar`)
+      })
+      break
+    }
+    case 'listen': {
+      if (item.answer >= item.options.length) p.push('answer di luar opsi')
+      if (dup(item.options.map((o) => o.text ?? JSON.stringify(o.figure)))) p.push('Opsi kembar')
+      if (item.prompt.toLowerCase().includes(item.listenText.trim().toLowerCase())) p.push('Prompt memuat listenText, padahal teks dengar tidak boleh terlihat')
+      break
+    }
+    case 'tiles': {
+      const order = wordsOf(item.answer)
+      if (order.length < 3 || order.length > 9) p.push(`Kalimat harus 3 sampai 9 kata, sekarang ${order.length}`)
+      if (order.length + item.distractors.length > 12) p.push('Kartu lebih dari 12')
+      const key = [...order].sort().join(' ')
+      const seen = new Set([item.answer.trim()])
+      for (const alt of item.alternatives) {
+        if ([...wordsOf(alt)].sort().join(' ') !== key) p.push(`Kalimat lain memakai kata yang berbeda: "${alt.slice(0, 40)}"`)
+        if (seen.has(alt.trim())) p.push(`Kalimat lain kembar: "${alt.slice(0, 40)}"`)
+        seen.add(alt.trim())
+      }
+      const have = new Set(order.map((w) => w.toLowerCase().replace(/[.,!?]+$/, '')))
+      for (const d of item.distractors) {
+        if (d.includes(' ')) p.push(`Kartu pengecoh harus satu kata: "${d}"`)
+        if (have.has(d.toLowerCase().replace(/[.,!?]+$/, ''))) p.push(`Kartu pengecoh sama dengan kata di kalimat: "${d}"`)
+      }
+      if (dup(item.distractors)) p.push('Kartu pengecoh kembar')
+      if (item.prompt.toLowerCase().includes(item.answer.trim().toLowerCase())) p.push('Prompt memuat kalimat jawaban')
+      break
+    }
+    case 'spell': {
+      if (new RegExp(`(?<![A-Za-z])${escapeRe(item.word)}(?![A-Za-z])`, 'i').test(item.prompt)) p.push('Prompt memuat kata yang harus dieja')
+      if (item.alsoAccept.some((w) => w.toLowerCase() === item.word.toLowerCase())) p.push('alsoAccept sama dengan word')
+      break
+    }
+    case 'cloze': {
+      const blanks = (item.prompt.match(/_{3,}/g) ?? []).length
+      if (blanks !== item.gaps.length) p.push(`Prompt punya ${blanks} titik kosong, gaps ${item.gaps.length}`)
+      item.gaps.forEach((g, k) => {
+        if (g.answer >= g.options.length) p.push(`Celah ${k + 1}: answer di luar opsi`)
+        if (dup(g.options)) p.push(`Celah ${k + 1}: opsi kembar`)
+      })
+      break
+    }
+    case 'hotspot': {
+      if (item.answers.some((a) => a >= item.regions.length)) p.push('answers di luar regions')
+      if (new Set(item.answers).size !== item.answers.length) p.push('answers kembar')
+      if (item.answers.length >= item.regions.length) p.push('Semua area benar')
+      if (dup(item.regions.map((r) => r.label))) p.push('Label area kembar')
+      item.regions.forEach((r, k) => {
+        if (r.x - r.w / 2 < -0.5 || r.x + r.w / 2 > 100.5 || r.y - r.h / 2 < -0.5 || r.y + r.h / 2 > 100.5) p.push(`Area ${k} keluar dari gambar`)
+      })
+      for (let i = 0; i < item.regions.length; i++) {
+        for (let j = i + 1; j < item.regions.length; j++) if (!apart(item.regions[i]!, item.regions[j]!, 14)) p.push(`Area ${i} dan ${j} terlalu dekat untuk diketuk`)
+      }
+      break
+    }
+    case 'label': {
+      if (item.labels.length !== item.spots.length) p.push(`labels ${item.labels.length} tidak sama dengan spots ${item.spots.length}`)
+      if (dup([...item.labels, ...item.extraLabels])) p.push('Label kembar')
+      for (let i = 0; i < item.spots.length; i++) {
+        for (let j = i + 1; j < item.spots.length; j++) if (!apart(item.spots[i]!, item.spots[j]!, 14)) p.push(`Titik ${i} dan ${j} terlalu dekat untuk diketuk`)
+      }
+      break
+    }
+    case 'table': {
+      item.rows.forEach((row, r) => {
+        if (row.length !== item.head.length) p.push(`Baris ${r} punya ${row.length} sel, kepala tabel ${item.head.length}`)
+      })
+      const seen = new Set<string>()
+      for (const b of item.blanks) {
+        const cell = item.rows[b.row]?.[b.col]
+        if (cell === undefined) p.push(`Sel kosong (${b.row}, ${b.col}) di luar tabel`)
+        else if (cell !== '') p.push(`Sel (${b.row}, ${b.col}) harus dikosongkan di rows`)
+        const k = `${b.row}:${b.col}`
+        if (seen.has(k)) p.push(`Sel kosong kembar (${b.row}, ${b.col})`)
+        seen.add(k)
+      }
+      item.rows.forEach((row, r) =>
+        row.forEach((cell, c) => {
+          if (cell === '' && !seen.has(`${r}:${c}`)) p.push(`Sel (${r}, ${c}) kosong tetapi tidak ada di blanks`)
+        }),
+      )
+      break
+    }
+    case 'grid': {
+      const n = item.size
+      if (!sizeAllowed(item.puzzle, n)) p.push(`${item.puzzle} tidak bisa berukuran ${n}x${n}`)
+      if (item.given.length !== n || item.filled.length !== n || item.given.some((r) => r.length !== n) || item.filled.some((r) => r.length !== n)) {
+        p.push(`given dan filled harus ${n}x${n}`)
+        break
+      }
+      const given = flatten(item.given)
+      const solution = flatten(item.filled)
+      const values = gridValues(item.puzzle, n, solution)
+      if (!gridRulesOk(item.puzzle, n, solution, values)) p.push('filled tidak memenuhi aturan teka-teki')
+      if (given.some((g, i) => g !== 0 && g !== solution[i])) p.push('given tidak cocok dengan filled')
+      const blanks = given.filter((g) => g === 0).length
+      if (blanks < 2) p.push('Teka-teki butuh minimal 2 sel kosong')
+      else if (solveGrid(item.puzzle, n, given, values, 2).length !== 1) p.push('Teka-teki tidak punya tepat satu penyelesaian')
+      break
+    }
+    default:
+      break
+  }
+  return p
 }
 
 /** Pemeriksaan isi yang tidak bisa dinyatakan di skema Zod. */
@@ -156,6 +300,7 @@ export function semanticProblems(item: Item, ctx: { passages?: Map<string, Passa
       if (!item.allowNegative && item.answer < 0) p.push('Jawaban negatif butuh allowNegative')
       break
     default:
+      p.push(...newTypeProblems(item))
       break
   }
   if (item.passage && ctx.passages && !ctx.passages.has(item.passage)) p.push(`Bacaan ${item.passage} tidak ada`)

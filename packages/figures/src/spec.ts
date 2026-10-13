@@ -299,10 +299,33 @@ const balance = z.object({
   alt,
 }).strict()
 
+const sceneNum = z.number().min(-20).max(500)
+const sceneTone = tone.default('ink')
+const sceneFill = z.enum(['none', 'light', 'solid']).default('light')
+const sceneShape = z.discriminatedUnion('t', [
+  z.object({ t: z.literal('rect'), x: sceneNum, y: sceneNum, w: z.number().min(1).max(500), h: z.number().min(1).max(500), r: z.number().min(0).max(60).default(0), tone: sceneTone, fill: sceneFill }).strict(),
+  z.object({ t: z.literal('circle'), cx: sceneNum, cy: sceneNum, r: z.number().min(1).max(250), tone: sceneTone, fill: sceneFill }).strict(),
+  z.object({ t: z.literal('ellipse'), cx: sceneNum, cy: sceneNum, rx: z.number().min(1).max(250), ry: z.number().min(1).max(250), rot: z.number().min(-180).max(180).default(0), tone: sceneTone, fill: sceneFill }).strict(),
+  z.object({ t: z.literal('line'), x1: sceneNum, y1: sceneNum, x2: sceneNum, y2: sceneNum, width: z.number().min(1).max(12).default(2.5), tone: sceneTone }).strict(),
+  z.object({ t: z.literal('poly'), points: z.array(z.tuple([sceneNum, sceneNum])).min(2).max(24), closed: z.boolean().default(true), tone: sceneTone, fill: sceneFill }).strict(),
+  z.object({ t: z.literal('icon'), icon: iconName, x: sceneNum, y: sceneNum, size: z.number().min(16).max(200).default(56) }).strict(),
+  z.object({ t: z.literal('text'), x: sceneNum, y: sceneNum, text: z.string().min(1).max(30), size: z.number().min(10).max(40).default(16), tone: sceneTone, anchor: z.enum(['start', 'middle', 'end']).default('middle') }).strict(),
+])
+export type SceneShape = z.infer<typeof sceneShape>
+
+/** Gambar bebas dari bentuk dasar di kotak width x height, untuk diagram (tumbuhan, tubuh) dan layar ketuk di gambar. Koordinat dalam piksel kotak. */
+const scene = z.object({
+  kind: z.literal('scene'),
+  width: z.number().int().min(120).max(480),
+  height: z.number().int().min(80).max(400),
+  shapes: z.array(sceneShape).min(1).max(80),
+  alt,
+}).strict()
+
 export const figureSpec = z.discriminatedUnion('kind', [
   array, groups, objects, numberline, clock, shape, shapes, solid, grid, fraction, bars, pictogram, tally, table,
   basetens, money, ruler, thermometer, scale, jug, sequence, pattern, venn, carroll, coordinates, angle, icons,
-  circuit, balance,
+  circuit, balance, scene,
 ])
 
 export type FigureSpec = z.infer<typeof figureSpec>
