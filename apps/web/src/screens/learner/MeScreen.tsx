@@ -11,6 +11,7 @@ import { ToastProvider, useToast } from '@/components/ui/Toast'
 import { BadgeTile } from '@/components/learner/BadgeTile'
 import { avatarLabel, LearnerFrame } from '@/components/learner/LearnerHeader'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
+import { SoundToggle } from '@/components/learner/SoundToggle'
 import { DayGlyph, dayStatusWord } from '@/components/learner/StreakChain'
 import { ActionError } from './common'
 
@@ -138,6 +139,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
             <ButtonLink href={LEARNER_ROUTES.switchLearner} variant="secondary" size="M" prefetch={false}>
               Switch learner
             </ButtonLink>
+            <SoundToggle />
           </div>
         </div>
         <div className="flex w-full items-center gap-5 rounded-card border border-divider bg-surface px-6 py-3.5 lg:ml-auto lg:w-auto">

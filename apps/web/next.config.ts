@@ -63,7 +63,9 @@ const baseConfig: NextConfig = {
   async headers() {
     return [
       { source: '/(.*)', headers: securityHeaders },
-      { source: '/((?!_next/static|fonts|icons).*)', headers: [{ key: 'Cache-Control', value: 'no-store, max-age=0' }] },
+      { source: '/((?!_next/static|fonts|icons|sounds).*)', headers: [{ key: 'Cache-Control', value: 'no-store, max-age=0' }] },
+      // Efek suara CC0 (public/sounds): berkas kecil yang tidak berubah, boleh disimpan sehari.
+      { source: '/sounds/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400' }] },
     ]
   },
 }

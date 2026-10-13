@@ -12,6 +12,8 @@ const PAGE_CACHE = `${VERSION}-pages`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
+// Efek suara learner (sekitar 45 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
+const SOUNDS = ['correct', 'notyet', 'combo', 'levelup', 'badge', 'complete', 'tick', 'timeup', 'tap'].map((n) => `/sounds/${n}.mp3`)
 
 const LEARNER_PAGES = [
   /^\/today$/,
@@ -35,6 +37,7 @@ function isStatic(pathname) {
   return (
     pathname.startsWith('/_next/static/') ||
     pathname.startsWith('/icons/') ||
+    pathname.startsWith('/sounds/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest' ||
     pathname === OFFLINE_URL
@@ -45,7 +48,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(STATIC_CACHE)
-      .then((cache) => cache.addAll([OFFLINE_URL, '/icons/icon-192.png', '/manifest.webmanifest']))
+      .then((cache) => cache.addAll([OFFLINE_URL, '/icons/icon-192.png', '/manifest.webmanifest', ...SOUNDS]))
       .then(() => self.skipWaiting()),
   )
 })
