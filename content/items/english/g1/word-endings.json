@@ -444,6 +444,357 @@
           "answer": 2
         }
       ]
+    },
+    {
+      "id": "e1.word-endings.016",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Add s. One cat, two ___.",
+      "hints": [
+        "There are two of them.",
+        "Add one letter to the end.",
+        "The letter is s."
+      ],
+      "explanation": "Two cats. We add s to make more than one.",
+      "options": [
+        {
+          "text": "cats"
+        },
+        {
+          "text": "cates",
+          "why": "Cat only needs s."
+        },
+        {
+          "text": "cat",
+          "why": "The word needs s at the end."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-endings.017",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word means more than one?",
+      "hints": [
+        "More than one means two or more.",
+        "Look at the end of the word.",
+        "It ends with s."
+      ],
+      "explanation": "Dogs means more than one dog.",
+      "options": [
+        {
+          "text": "dog",
+          "why": "This is only one."
+        },
+        {
+          "text": "doggy",
+          "why": "Doggy is a different word."
+        },
+        {
+          "text": "dogs"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-endings.018",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Add es. One box, two ___.",
+      "hints": [
+        "Say the word aloud.",
+        "After x we add es.",
+        "Say the new word slowly."
+      ],
+      "explanation": "Words that end in x add es: boxes.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "boxes"
+        },
+        {
+          "text": "boxs",
+          "why": "Words that end in x need es."
+        },
+        {
+          "text": "boxies",
+          "why": "Boxies is not a word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-endings.019",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Add es. One dish, two ___.",
+      "hints": [
+        "Say the word aloud.",
+        "Words ending in sh add es.",
+        "Say the new word slowly."
+      ],
+      "explanation": "Words that end in sh add es: dishes.",
+      "options": [
+        {
+          "text": "dishs",
+          "why": "Words that end in sh need es."
+        },
+        {
+          "text": "dishes"
+        },
+        {
+          "text": "dishies",
+          "why": "Dishies is not a word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-endings.020",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Add ing. I am ___ a book.",
+      "hints": [
+        "It is happening now.",
+        "We add ing to the end.",
+        "Read plus ing."
+      ],
+      "explanation": "I am reading a book. Reading shows it is happening now.",
+      "options": [
+        {
+          "text": "reads",
+          "why": "Reads does not fit with I am."
+        },
+        {
+          "text": "read",
+          "why": "It needs ing with I am."
+        },
+        {
+          "text": "reading"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-endings.021",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add ing to jump. The frog is ___.",
+      "hints": [
+        "It is happening now.",
+        "Add the letters ing.",
+        "Jump plus ing."
+      ],
+      "explanation": "The frog is jumping.",
+      "blanks": [
+        {
+          "answers": [
+            "jumping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.word-endings.022",
+      "skill": "e1.word-endings",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add s to the word. One hat, two ___.",
+      "hints": [
+        "There are two.",
+        "Add one letter at the end.",
+        "The letter is s."
+      ],
+      "explanation": "Two hats.",
+      "blanks": [
+        {
+          "answers": [
+            "hats"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.word-endings.023",
+      "skill": "e1.word-endings",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by their ending.",
+      "hints": [
+        "Look at the end of each word.",
+        "Words that end in x, sh, ch or s add es.",
+        "Cats just has s."
+      ],
+      "explanation": "Cats, pens and bags add s. Boxes, dishes and buses add es.",
+      "groups": [
+        "Add s",
+        "Add es"
+      ],
+      "items": [
+        {
+          "text": "cats",
+          "group": 0
+        },
+        {
+          "text": "boxes",
+          "group": 1
+        },
+        {
+          "text": "pens",
+          "group": 0
+        },
+        {
+          "text": "dishes",
+          "group": 1
+        },
+        {
+          "text": "bags",
+          "group": 0
+        },
+        {
+          "text": "buses",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.word-endings.024",
+      "skill": "e1.word-endings",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each doing word to its ing word.",
+      "hints": [
+        "Add ing to each doing word.",
+        "Some words double the last letter.",
+        "Run becomes running."
+      ],
+      "explanation": "The ing words show it is happening now.",
+      "pairs": [
+        [
+          "run",
+          "running"
+        ],
+        [
+          "sit",
+          "sitting"
+        ],
+        [
+          "play",
+          "playing"
+        ],
+        [
+          "eat",
+          "eating"
+        ]
+      ]
+    },
+    {
+      "id": "e1.word-endings.025",
+      "skill": "e1.word-endings",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the capital letter.",
+        "The doing word ends in ing.",
+        "End with a full stop."
+      ],
+      "explanation": "The girl is singing a song.",
+      "answer": "The girl is singing a song.",
+      "distractors": [
+        "sings"
+      ]
+    },
+    {
+      "id": "e1.word-endings.026",
+      "skill": "e1.word-endings",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Mina ___ her cat every day.",
+      "hints": [
+        "It happens every day.",
+        "One person does it.",
+        "The word ends with s."
+      ],
+      "explanation": "Mina feeds her cat every day.",
+      "gaps": [
+        {
+          "options": [
+            "feeds",
+            "feeding",
+            "fed"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e1.word-endings.027",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is spelt right?",
+      "hints": [
+        "Short words often double the last letter.",
+        "Run has one vowel and one end letter.",
+        "Say it: run - ning."
+      ],
+      "explanation": "Running is spelt with two n letters.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "runing",
+          "why": "When a short word ends in one letter after a vowel, we double the n."
+        },
+        {
+          "text": "runneing",
+          "why": "Do not add an extra e."
+        },
+        {
+          "text": "running"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-endings.028",
+      "skill": "e1.word-endings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is spelt right?",
+      "hints": [
+        "The word ends in sh.",
+        "Say the word with two sounds at the end.",
+        "Add es."
+      ],
+      "explanation": "Wishes is spelt w - i - s - h - e - s.",
+      "options": [
+        {
+          "text": "wishes"
+        },
+        {
+          "text": "wishs",
+          "why": "Words ending in sh add es."
+        },
+        {
+          "text": "wishies",
+          "why": "Do not change the word that way."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

@@ -545,6 +545,307 @@
           }
         ]
       }
+    },
+    {
+      "id": "e1.write-sentences.018",
+      "skill": "e1.write-sentences",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence starts with a capital letter.",
+        "The last word has a full stop.",
+        "Start with I."
+      ],
+      "explanation": "I see a bird.",
+      "items": [
+        "I",
+        "see",
+        "a",
+        "bird."
+      ]
+    },
+    {
+      "id": "e1.write-sentences.019",
+      "skill": "e1.write-sentences",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Look for the capital letter.",
+        "The last word ends with a full stop.",
+        "Start with We."
+      ],
+      "explanation": "We like to play.",
+      "items": [
+        "We",
+        "like",
+        "to",
+        "play."
+      ]
+    },
+    {
+      "id": "e1.write-sentences.020",
+      "skill": "e1.write-sentences",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the capital letter.",
+        "End with a full stop.",
+        "The word tells how the cat feels."
+      ],
+      "explanation": "My cat is soft.",
+      "answer": "My cat is soft.",
+      "distractors": [
+        "hard"
+      ]
+    },
+    {
+      "id": "e1.write-sentences.021",
+      "skill": "e1.write-sentences",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Find the word with a capital.",
+        "The sentence ends with a full stop.",
+        "Blue comes before bag."
+      ],
+      "explanation": "The girl has a blue bag.",
+      "answer": "The girl has a blue bag.",
+      "distractors": [
+        "green"
+      ]
+    },
+    {
+      "id": "e1.write-sentences.022",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence makes sense?",
+      "hints": [
+        "A sentence has words in the right order.",
+        "Read it aloud to check.",
+        "It tells about the sun."
+      ],
+      "explanation": "The sun is hot is a full sentence.",
+      "options": [
+        {
+          "text": "Sun hot the is.",
+          "why": "The words are in the wrong order."
+        },
+        {
+          "text": "Hot is sun.",
+          "why": "The sentence is not complete."
+        },
+        {
+          "text": "The sun is hot."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.write-sentences.023",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word finishes the sentence? I can ___ a ball.",
+      "hints": [
+        "You need a doing word.",
+        "You can do it with your foot.",
+        "It ends with ck."
+      ],
+      "explanation": "I can kick a ball.",
+      "options": [
+        {
+          "text": "happy",
+          "why": "Happy is a describing word."
+        },
+        {
+          "text": "kick"
+        },
+        {
+          "text": "blue",
+          "why": "Blue is a colour."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.write-sentences.024",
+      "skill": "e1.write-sentences",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the doing word. A fish can ___ in water.",
+      "hints": [
+        "The sentence needs a doing word.",
+        "Think about what a fish does in water.",
+        "The word starts with sw."
+      ],
+      "explanation": "A fish can swim in water.",
+      "blanks": [
+        {
+          "answers": [
+            "swim"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.write-sentences.025",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is the best?",
+      "hints": [
+        "Check the start and the end.",
+        "A good sentence has a capital and a full stop.",
+        "Read it aloud."
+      ],
+      "explanation": "The big dog runs fast. has a capital letter and a full stop.",
+      "options": [
+        {
+          "text": "big dog runs fast",
+          "why": "It needs a capital and a full stop."
+        },
+        {
+          "text": "The big dog runs fast."
+        },
+        {
+          "text": "The big dog runs fast",
+          "why": "It needs a full stop."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.write-sentences.026",
+      "skill": "e1.write-sentences",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the full sentences.",
+      "hints": [
+        "A full sentence tells something.",
+        "It has a doing word.",
+        "Two choices are full sentences."
+      ],
+      "explanation": "The cat sleeps and I like mangoes are full sentences.",
+      "options": [
+        {
+          "text": "In the park",
+          "why": "This does not tell us a whole idea."
+        },
+        {
+          "text": "Red and blue",
+          "why": "This does not tell us a whole idea."
+        },
+        {
+          "text": "I like mangoes."
+        },
+        {
+          "text": "The cat sleeps."
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e1.write-sentences.027",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write one sentence about your favourite food.",
+      "hints": [
+        "Think of your favourite food.",
+        "Start with I like or My favourite food is.",
+        "Check your capital and full stop."
+      ],
+      "explanation": "A good sentence starts with a capital letter, tells one idea and ends with a full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes a full sentence",
+            "points": 2
+          },
+          {
+            "label": "Starts with a capital and ends with a full stop",
+            "points": 1
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 4,
+      "maxWords": 15,
+      "model": "My favourite food is fried rice."
+    },
+    {
+      "id": "e1.write-sentences.028",
+      "skill": "e1.write-sentences",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write two sentences about your family.",
+      "hints": [
+        "Think about who is in your family.",
+        "Tell one thing about each person.",
+        "Check each capital and each full stop."
+      ],
+      "explanation": "Two sentences each tell one idea about the family.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two full sentences",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 8,
+      "maxWords": 30,
+      "model": "My mum is kind. My brother likes to play football."
+    },
+    {
+      "id": "e1.write-sentences.029",
+      "skill": "e1.write-sentences",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses an order word?",
+      "hints": [
+        "Order words are first, next, then and last.",
+        "Look for a sentence that starts with one.",
+        "Look at the first word."
+      ],
+      "explanation": "First is an order word.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "I wash my hands.",
+          "why": "It has no order word."
+        },
+        {
+          "text": "My hands are clean.",
+          "why": "It has no order word."
+        },
+        {
+          "text": "First, I wash my hands."
+        }
+      ],
+      "answer": 2
     }
   ]
 }

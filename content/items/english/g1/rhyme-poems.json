@@ -567,6 +567,501 @@
       "answers": [
         0
       ]
+    },
+    {
+      "id": "e1.rhyme-poems.018",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with cat?",
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say cat, then say each choice.",
+        "You wear it on your head."
+      ],
+      "explanation": "Cat and hat rhyme.",
+      "options": [
+        {
+          "text": "hat"
+        },
+        {
+          "text": "dog",
+          "why": "Dog does not end in at."
+        },
+        {
+          "text": "sun",
+          "why": "Sun does not end in at."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.019",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with sun?",
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Say sun, then each word.",
+        "It is something you can eat."
+      ],
+      "explanation": "Sun and bun rhyme.",
+      "options": [
+        {
+          "text": "sit",
+          "why": "Sit does not rhyme with sun."
+        },
+        {
+          "text": "bun"
+        },
+        {
+          "text": "sap",
+          "why": "Sap does not rhyme with sun."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.020",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word rhymes with tree?",
+      "hints": [
+        "Say tree slowly.",
+        "Listen to the end sound.",
+        "It makes honey."
+      ],
+      "explanation": "Tree and bee rhyme.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "bed",
+          "why": "Bed does not end like tree."
+        },
+        {
+          "text": "bat",
+          "why": "Bat does not end like tree."
+        },
+        {
+          "text": "bee"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.021",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word rhymes with night?",
+      "hints": [
+        "Listen to the ending sound.",
+        "It ends in ight.",
+        "It comes from the sun or a lamp."
+      ],
+      "explanation": "Night and light rhyme.",
+      "options": [
+        {
+          "text": "light"
+        },
+        {
+          "text": "nut",
+          "why": "Nut does not rhyme."
+        },
+        {
+          "text": "name",
+          "why": "Name does not rhyme."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.022",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not rhyme with bell?",
+      "hints": [
+        "Say each word aloud.",
+        "Three of them end like bell.",
+        "One has a different vowel sound."
+      ],
+      "explanation": "Bell, shell and well rhyme. Ball has a different vowel sound.",
+      "options": [
+        {
+          "text": "shell",
+          "why": "Shell rhymes with bell."
+        },
+        {
+          "text": "well",
+          "why": "Well rhymes with bell."
+        },
+        {
+          "text": "ball"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.023",
+      "skill": "e1.rhyme-poems",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by their rhyme.",
+      "hints": [
+        "Say each word aloud.",
+        "Listen to the ending sound.",
+        "Lake ends like cake."
+      ],
+      "explanation": "Bake, lake and snake rhyme with cake. Tall, wall and fall rhyme with ball.",
+      "groups": [
+        "Rhymes with cake",
+        "Rhymes with ball"
+      ],
+      "items": [
+        {
+          "text": "bake",
+          "group": 0
+        },
+        {
+          "text": "tall",
+          "group": 1
+        },
+        {
+          "text": "lake",
+          "group": 0
+        },
+        {
+          "text": "wall",
+          "group": 1
+        },
+        {
+          "text": "snake",
+          "group": 0
+        },
+        {
+          "text": "fall",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.024",
+      "skill": "e1.rhyme-poems",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match the rhyming words.",
+      "hints": [
+        "Say each word aloud.",
+        "Rhyming words end alike.",
+        "Moon ends like spoon."
+      ],
+      "explanation": "Moon and spoon, ring and sing, rain and train, coat and goat rhyme.",
+      "pairs": [
+        [
+          "moon",
+          "spoon"
+        ],
+        [
+          "ring",
+          "sing"
+        ],
+        [
+          "rain",
+          "train"
+        ],
+        [
+          "coat",
+          "goat"
+        ]
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.025",
+      "skill": "e1.rhyme-poems",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the rhyming word. The cat sat on the ___.",
+      "hints": [
+        "Say the rhyme aloud.",
+        "The last word rhymes with cat.",
+        "It is on the floor."
+      ],
+      "explanation": "Cat and mat rhyme.",
+      "blanks": [
+        {
+          "answers": [
+            "mat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.026",
+      "skill": "e1.rhyme-poems",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "I see a bee up in the ___.",
+      "hints": [
+        "The last word rhymes with bee.",
+        "It grows in a garden.",
+        "A bird sits in it."
+      ],
+      "explanation": "Bee and tree rhyme.",
+      "gaps": [
+        {
+          "options": [
+            "tree",
+            "tray",
+            "tin"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.027",
+      "skill": "e1.rhyme-poems",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the words that rhyme with hop.",
+      "hints": [
+        "Say hop aloud.",
+        "Listen for the end.",
+        "Rhyming words have the same vowel."
+      ],
+      "explanation": "Hop, top and stop rhyme.",
+      "options": [
+        {
+          "text": "stop"
+        },
+        {
+          "text": "top"
+        },
+        {
+          "text": "hip",
+          "why": "Hip has a different vowel sound."
+        },
+        {
+          "text": "hope",
+          "why": "Hope has a long o sound."
+        },
+        {
+          "text": "hat",
+          "why": "Hat has a different vowel sound."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "e1.rhyme-poems.028",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What makes the words in a rhyme sound the same?",
+      "hints": [
+        "Rhymes are about sounds.",
+        "Think of cat and hat.",
+        "Which part is the same?"
+      ],
+      "explanation": "Rhyming words have the same ending sound.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "the ending sounds"
+        },
+        {
+          "text": "the first letters",
+          "why": "Rhymes use endings, not starts."
+        },
+        {
+          "text": "the number of words",
+          "why": "The number does not matter."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.rhyme-poems.029",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read: Twinkle, twinkle, little star. How I wonder what you are. Which two words rhyme?",
+      "hints": [
+        "Look at the end of each line.",
+        "Say the last words aloud.",
+        "The lines end with two words."
+      ],
+      "explanation": "Star and are rhyme.",
+      "options": [
+        {
+          "text": "little and star",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "wonder and you",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "star and are"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.030",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with red?",
+      "passage": "e1.p.splish-splash",
+      "hints": [
+        "Look at the third and fourth lines.",
+        "Say red aloud.",
+        "The last word of the next line rhymes."
+      ],
+      "explanation": "Red and head rhyme.",
+      "options": [
+        {
+          "text": "hat",
+          "why": "Hat does not end like red."
+        },
+        {
+          "text": "head"
+        },
+        {
+          "text": "boot",
+          "why": "Boot does not end like red."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.031",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does the child jump in?",
+      "passage": "e1.p.splish-splash",
+      "hints": [
+        "Read the second line.",
+        "Find the word jump.",
+        "It is a small pool of rain."
+      ],
+      "explanation": "The child jumps in a puddle.",
+      "options": [
+        {
+          "text": "a pond",
+          "why": "The poem says puddle."
+        },
+        {
+          "text": "the sea",
+          "why": "The poem says puddle."
+        },
+        {
+          "text": "a puddle"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.032",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What colour are the boots?",
+      "passage": "e1.p.splish-splash",
+      "hints": [
+        "Read line three.",
+        "Find the word boots.",
+        "The colour comes just before."
+      ],
+      "explanation": "The boots are red.",
+      "options": [
+        {
+          "text": "blue",
+          "why": "The poem says red."
+        },
+        {
+          "text": "red"
+        },
+        {
+          "text": "yellow",
+          "why": "The poem says red."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.rhyme-poems.033",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word rhymes with gone?",
+      "passage": "e1.p.splish-splash",
+      "hints": [
+        "Look at lines five and six.",
+        "Say gone aloud.",
+        "The next line ends with a small word."
+      ],
+      "explanation": "Gone and on rhyme.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "gosh",
+          "why": "Gosh does not end like gone."
+        },
+        {
+          "text": "head",
+          "why": "Head does not end like gone."
+        },
+        {
+          "text": "on"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.rhyme-poems.034",
+      "skill": "e1.rhyme-poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What comes out after the rain has gone?",
+      "passage": "e1.p.splish-splash",
+      "hints": [
+        "Read lines five and six.",
+        "Find the words the rain has gone.",
+        "Look at the next line."
+      ],
+      "explanation": "After the rain, the sun comes on.",
+      "options": [
+        {
+          "text": "the moon",
+          "why": "The poem says the sun."
+        },
+        {
+          "text": "the sun"
+        },
+        {
+          "text": "a bird",
+          "why": "The poem does not say that."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

@@ -401,6 +401,349 @@
       "distractors": [
         "green"
       ]
+    },
+    {
+      "id": "e1.capitals-full-stops.016",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence starts with a capital letter?",
+      "hints": [
+        "Look at the first letter.",
+        "A capital letter is big.",
+        "It is the first letter of the first word."
+      ],
+      "explanation": "The sentence The dog runs. starts with a capital T.",
+      "options": [
+        {
+          "text": "The dog runs."
+        },
+        {
+          "text": "my cat sleeps.",
+          "why": "The first word needs a capital letter."
+        },
+        {
+          "text": "we like rice.",
+          "why": "The first word needs a capital letter."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.capitals-full-stops.017",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence ends with a full stop?",
+      "hints": [
+        "Look at the end of each sentence.",
+        "A full stop is a small dot.",
+        "The sentence tells us something."
+      ],
+      "explanation": "I can swim. ends with a full stop.",
+      "options": [
+        {
+          "text": "I can swim",
+          "why": "It needs a full stop at the end."
+        },
+        {
+          "text": "I can swim?",
+          "why": "A question mark is for questions."
+        },
+        {
+          "text": "I can swim."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.capitals-full-stops.018",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Check the first word.",
+        "Check the name.",
+        "Names start with a capital letter."
+      ],
+      "explanation": "Ravi is a name, so it needs a capital R.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "My name is Ravi."
+        },
+        {
+          "text": "my name is Sara.",
+          "why": "Start with a capital M."
+        },
+        {
+          "text": "My name is tom.",
+          "why": "Names need a capital letter."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.capitals-full-stops.019",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word needs a capital letter? we play on monday.",
+      "hints": [
+        "Days of the week have capital letters.",
+        "One word is a day.",
+        "We play on this day."
+      ],
+      "explanation": "Days of the week start with a capital letter: Monday.",
+      "options": [
+        {
+          "text": "play",
+          "why": "Play is a doing word and stays small."
+        },
+        {
+          "text": "monday"
+        },
+        {
+          "text": "on",
+          "why": "On stays small."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.capitals-full-stops.020",
+      "skill": "e1.capitals-full-stops",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the first word with a capital letter. ___ cat is soft.",
+      "hints": [
+        "It is the first word in the sentence.",
+        "It starts with a capital.",
+        "The word is the."
+      ],
+      "explanation": "The sentence starts with The.",
+      "blanks": [
+        {
+          "answers": [
+            "The"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.021",
+      "skill": "e1.capitals-full-stops",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the end mark. I like rice___",
+      "hints": [
+        "The sentence tells us something.",
+        "It does not ask a question.",
+        "It is a small dot."
+      ],
+      "explanation": "The sentence ends with a full stop.",
+      "blanks": [
+        {
+          "answers": [
+            "."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.022",
+      "skill": "e1.capitals-full-stops",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "End with a full stop.",
+        "The sentence tells about Sam."
+      ],
+      "explanation": "Sam has a red kite. It starts with a capital and ends with a full stop.",
+      "answer": "Sam has a red kite.",
+      "distractors": [
+        "blue"
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.023",
+      "skill": "e1.capitals-full-stops",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with the capital letter.",
+        "The sentence ends with a full stop.",
+        "It tells where the frog sat."
+      ],
+      "explanation": "The frog sat on a log.",
+      "answer": "The frog sat on a log.",
+      "distractors": [
+        "sit"
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.024",
+      "skill": "e1.capitals-full-stops",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the sentences that are right.",
+      "hints": [
+        "Check each start and each end.",
+        "Each sentence needs both.",
+        "Two of them are right."
+      ],
+      "explanation": "I am six. and We go to school. both have a capital letter and a full stop.",
+      "options": [
+        {
+          "text": "I am six."
+        },
+        {
+          "text": "We go to school."
+        },
+        {
+          "text": "the sun is hot",
+          "why": "It needs a capital letter and a full stop."
+        },
+        {
+          "text": "i like rice.",
+          "why": "It needs a capital letter at the start."
+        },
+        {
+          "text": "Mum is here",
+          "why": "It needs a full stop."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.025",
+      "skill": "e1.capitals-full-stops",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words. Capital or small letter?",
+      "hints": [
+        "Names of people, days and places need a capital.",
+        "Everyday words stay small.",
+        "Dad is a name for a person."
+      ],
+      "explanation": "Dad, Monday and Jakarta need a capital. Book, happy and run stay small.",
+      "groups": [
+        "Needs a capital",
+        "Stays small"
+      ],
+      "items": [
+        {
+          "text": "Dad",
+          "group": 0
+        },
+        {
+          "text": "book",
+          "group": 1
+        },
+        {
+          "text": "Monday",
+          "group": 0
+        },
+        {
+          "text": "happy",
+          "group": 1
+        },
+        {
+          "text": "Jakarta",
+          "group": 0
+        },
+        {
+          "text": "run",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.026",
+      "skill": "e1.capitals-full-stops",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the sentences in order to make a story.",
+      "hints": [
+        "What do you do first in the morning?",
+        "You eat before you go.",
+        "You wake up first."
+      ],
+      "explanation": "First I woke up, then I ate my rice, then I went to school.",
+      "items": [
+        "I woke up.",
+        "I ate my rice.",
+        "I went to school."
+      ]
+    },
+    {
+      "id": "e1.capitals-full-stops.027",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Check the start, the names and the end.",
+        "Names have capital letters.",
+        "The sentence must end with a mark."
+      ],
+      "explanation": "There is a capital for the sentence, capitals for the names and a full stop.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "lia and budi play in the garden.",
+          "why": "Names need capital letters."
+        },
+        {
+          "text": "Lia and Budi play in the garden",
+          "why": "It needs a full stop at the end."
+        },
+        {
+          "text": "Lia and Budi play in the park."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.capitals-full-stops.028",
+      "skill": "e1.capitals-full-stops",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How many capital letters does this need? ravi and mina went to bali.",
+      "hints": [
+        "The sentence starts with a capital.",
+        "Names of people need capitals.",
+        "Places need a capital too."
+      ],
+      "explanation": "Ravi, Mina and Bali each need a capital letter.",
+      "options": [
+        {
+          "text": "3"
+        },
+        {
+          "text": "1",
+          "why": "The names Ravi, Mina and Bali all need capitals."
+        },
+        {
+          "text": "2",
+          "why": "There are three words that need a capital."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

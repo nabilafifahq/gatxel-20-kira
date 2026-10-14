@@ -384,6 +384,341 @@
       "distractors": [
         "small"
       ]
+    },
+    {
+      "id": "e1.question-marks.015",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is a question?",
+      "hints": [
+        "A question asks something.",
+        "It ends with a curly mark.",
+        "It starts with Where."
+      ],
+      "explanation": "Where is my hat? asks something, so it ends with a question mark.",
+      "options": [
+        {
+          "text": "I have a hat.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "What a big hat!",
+          "why": "This shows a strong feeling."
+        },
+        {
+          "text": "Where is my hat?"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.question-marks.016",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which end mark goes here? Can you hop___",
+      "hints": [
+        "The sentence asks something.",
+        "A question needs a special mark.",
+        "The mark looks like a hook with a dot."
+      ],
+      "explanation": "Can you hop? is a question, so it needs a question mark.",
+      "options": [
+        {
+          "text": "?"
+        },
+        {
+          "text": ".",
+          "why": "A full stop is for telling sentences."
+        },
+        {
+          "text": "!",
+          "why": "An exclamation mark shows a strong feeling."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.question-marks.017",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which end mark goes here? Wow, that is huge___",
+      "hints": [
+        "The sentence shows a strong feeling.",
+        "Think about how you say wow.",
+        "The mark is a line with a dot below."
+      ],
+      "explanation": "Wow, that is huge! shows a strong feeling.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "?",
+          "why": "It is not asking anything."
+        },
+        {
+          "text": ".",
+          "why": "A full stop is for plain telling."
+        },
+        {
+          "text": "!"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.question-marks.018",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which question word fits? ___ is your name?",
+      "hints": [
+        "You are asking for a name.",
+        "Read the sentence aloud.",
+        "It starts with the letters Wh."
+      ],
+      "explanation": "What is your name? asks about a thing.",
+      "options": [
+        {
+          "text": "What"
+        },
+        {
+          "text": "When",
+          "why": "When asks about time."
+        },
+        {
+          "text": "Where",
+          "why": "Where asks about a place."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.question-marks.019",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which question word fits? ___ do you live?",
+      "hints": [
+        "You want to know a place.",
+        "Think of your house.",
+        "The word starts with Wh and ends with ere."
+      ],
+      "explanation": "Where do you live? asks about a place.",
+      "options": [
+        {
+          "text": "Who",
+          "why": "Who asks about a person."
+        },
+        {
+          "text": "Where"
+        },
+        {
+          "text": "What",
+          "why": "What asks about a thing."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.question-marks.020",
+      "skill": "e1.question-marks",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences by their end mark.",
+      "hints": [
+        "Questions ask something.",
+        "Telling sentences give facts.",
+        "Is it red is asking."
+      ],
+      "explanation": "The questions need a question mark. The others tell us something.",
+      "groups": [
+        "Question mark",
+        "Full stop"
+      ],
+      "items": [
+        {
+          "text": "Is it red",
+          "group": 0
+        },
+        {
+          "text": "It is red",
+          "group": 1
+        },
+        {
+          "text": "Do you swim",
+          "group": 0
+        },
+        {
+          "text": "I swim",
+          "group": 1
+        },
+        {
+          "text": "Who is that",
+          "group": 0
+        },
+        {
+          "text": "That is Tia",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.question-marks.021",
+      "skill": "e1.question-marks",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each question to the answer.",
+      "hints": [
+        "Read each question slowly.",
+        "Think about what it asks.",
+        "How old asks about age."
+      ],
+      "explanation": "Each answer matches the question that comes before it.",
+      "pairs": [
+        [
+          "What is your name?",
+          "I am Ben."
+        ],
+        [
+          "How old are you?",
+          "I am six."
+        ],
+        [
+          "Where is the cat?",
+          "It is on the bed."
+        ],
+        [
+          "Do you like rice?",
+          "Yes, I do."
+        ]
+      ]
+    },
+    {
+      "id": "e1.question-marks.022",
+      "skill": "e1.question-marks",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Make it a question. Write the missing word. ___ you like milk?",
+      "hints": [
+        "The sentence asks something.",
+        "It is a short word.",
+        "The word starts with D."
+      ],
+      "explanation": "Do you like milk? is a question.",
+      "blanks": [
+        {
+          "answers": [
+            "Do"
+          ],
+          "caseSensitive": true
+        }
+      ]
+    },
+    {
+      "id": "e1.question-marks.023",
+      "skill": "e1.question-marks",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "Start with the word that has a capital letter.",
+        "The sentence ends with a question mark.",
+        "The question is about a place."
+      ],
+      "explanation": "Where is the dog? is a question.",
+      "answer": "Where is the dog?",
+      "distractors": [
+        "are"
+      ]
+    },
+    {
+      "id": "e1.question-marks.024",
+      "skill": "e1.question-marks",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "The first word has a capital letter.",
+        "The last word ends with a question mark.",
+        "It is a question about a number."
+      ],
+      "explanation": "How many eggs are there? asks about a number.",
+      "items": [
+        "How",
+        "many",
+        "eggs",
+        "are",
+        "there?"
+      ]
+    },
+    {
+      "id": "e1.question-marks.025",
+      "skill": "e1.question-marks",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the questions.",
+      "hints": [
+        "Questions ask something.",
+        "Two of them are questions.",
+        "Look at the first word of each."
+      ],
+      "explanation": "Is the cat sleeping? and Who made the cake? both ask something.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The cat is sleeping.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Look at that cake!",
+          "why": "This shows a strong feeling."
+        },
+        {
+          "text": "Is the cat sleeping?"
+        },
+        {
+          "text": "Who made the cake?"
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e1.question-marks.026",
+      "skill": "e1.question-marks",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence has the right end mark?",
+      "hints": [
+        "Ask yourself: is it asking?",
+        "Say it aloud with your voice going up.",
+        "A question needs a special mark."
+      ],
+      "explanation": "Can I come too? asks something, so it ends with a question mark.",
+      "options": [
+        {
+          "text": "Can I come too?"
+        },
+        {
+          "text": "Can I come too.",
+          "why": "This is a question, so it needs a question mark."
+        },
+        {
+          "text": "Can I come too!",
+          "why": "The sentence asks something, so it needs a question mark."
+        }
+      ],
+      "answer": 0
     }
   ]
 }
