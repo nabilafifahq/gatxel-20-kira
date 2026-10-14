@@ -205,6 +205,853 @@
       ] },
       "hints": ["Once alive things include wood, paper and feathers.", "Never alive things include stones, metal and glass."],
       "explanation": "A plant or a pet is alive. Wood and feathers were once alive. Stones, metal and glass were never alive."
+    },
+    {
+      "id": "s2.living-things.017",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A dry log was once part of a tree. What do we call it?",
+      "options": [
+        {
+          "text": "alive",
+          "why": "It no longer grows."
+        },
+        {
+          "text": "never alive",
+          "why": "It came from a living tree."
+        },
+        {
+          "text": "a rock",
+          "why": "It is wood, not rock."
+        },
+        {
+          "text": "once alive"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The tree grew long ago.",
+        "The log cannot grow now.",
+        "It is not a rock."
+      ],
+      "explanation": "A log came from a living tree, but it is dead now. We say it was once alive."
+    },
+    {
+      "id": "s2.living-things.018",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is made from something once alive?",
+      "options": [
+        {
+          "text": "a glass jar",
+          "why": "Glass is made from sand."
+        },
+        {
+          "text": "a metal coin",
+          "why": "Metal comes from rocks."
+        },
+        {
+          "text": "a paper book"
+        },
+        {
+          "text": "a stone",
+          "why": "A stone was never alive."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Paper comes from trees.",
+        "Glass and metal come from the ground.",
+        "Think about what paper is made from."
+      ],
+      "explanation": "Paper is made from wood, which comes from trees."
+    },
+    {
+      "id": "s2.living-things.019",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which living thing makes its own food using sunlight?",
+      "options": [
+        {
+          "text": "a dog",
+          "why": "A dog eats food."
+        },
+        {
+          "text": "a sunflower"
+        },
+        {
+          "text": "a fish",
+          "why": "A fish eats food."
+        },
+        {
+          "text": "a bird",
+          "why": "A bird eats food."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which one is a plant?",
+        "Animals have to find food.",
+        "Leaves catch sunlight."
+      ],
+      "explanation": "Plants use sunlight to make their own food. Animals must eat."
+    },
+    {
+      "id": "s2.living-things.020",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do living things do to make more of their kind?",
+      "options": [
+        {
+          "text": "sleep all day",
+          "why": "Sleeping does not make new life."
+        },
+        {
+          "text": "have babies or seeds"
+        },
+        {
+          "text": "melt",
+          "why": "Melting is a change of state."
+        },
+        {
+          "text": "float",
+          "why": "Floating does not make new life."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about a hen and her eggs.",
+        "Plants have seeds.",
+        "It makes new living things."
+      ],
+      "explanation": "Animals have babies and plants make seeds. This is how living things reproduce."
+    },
+    {
+      "id": "s2.living-things.021",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which shows that a living thing can sense its surroundings?",
+      "options": [
+        {
+          "text": "A snail pulls in its horns when touched."
+        },
+        {
+          "text": "A rock rolls downhill.",
+          "why": "A rock is not alive."
+        },
+        {
+          "text": "A candle melts.",
+          "why": "A candle is not alive."
+        },
+        {
+          "text": "A cloud moves across the sky.",
+          "why": "A cloud is not alive."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for something that reacts.",
+        "Only living things react like this.",
+        "Rocks and clouds do not feel."
+      ],
+      "explanation": "The snail feels the touch and pulls in its horns. This shows it is sensitive."
+    },
+    {
+      "id": "s2.living-things.022",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A mushroom pops up after rain and grows bigger. What is it?",
+      "options": [
+        {
+          "text": "once alive",
+          "why": "It is growing now."
+        },
+        {
+          "text": "never alive",
+          "why": "It grows, so it is alive."
+        },
+        {
+          "text": "a rock",
+          "why": "Rocks do not grow."
+        },
+        {
+          "text": "a living thing"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "It grows bigger.",
+        "Rocks do not grow.",
+        "Things that grow are alive."
+      ],
+      "explanation": "Mushrooms grow, so they are alive. They are not plants or animals but are living things called fungi."
+    },
+    {
+      "id": "s2.living-things.023",
+      "skill": "s2.living-things",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Alive, once alive or never alive? Sort the cards.",
+      "groups": [
+        "Alive",
+        "Once alive",
+        "Never alive"
+      ],
+      "items": [
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "oak tree",
+          "group": 0
+        },
+        {
+          "text": "wooden table",
+          "group": 1
+        },
+        {
+          "text": "wool jumper",
+          "group": 1
+        },
+        {
+          "text": "leather shoe",
+          "group": 1
+        },
+        {
+          "text": "stone",
+          "group": 2
+        },
+        {
+          "text": "glass",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Wood comes from trees.",
+        "Wool comes from sheep.",
+        "Stone and glass come from the ground."
+      ],
+      "explanation": "A frog and an oak tree are alive now. A table, a wool jumper and a leather shoe came from living things. Stone and glass were never alive."
+    },
+    {
+      "id": "s2.living-things.024",
+      "skill": "s2.living-things",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the living things.",
+      "options": [
+        {
+          "text": "a fern"
+        },
+        {
+          "text": "a river"
+        },
+        {
+          "text": "a cloud"
+        },
+        {
+          "text": "a wooden spoon"
+        },
+        {
+          "text": "a spider"
+        },
+        {
+          "text": "a mushroom"
+        }
+      ],
+      "answers": [
+        0,
+        4,
+        5
+      ],
+      "hints": [
+        "Ask: does it grow and need food?",
+        "A wooden spoon was part of a tree.",
+        "Rivers flow but do not grow."
+      ],
+      "explanation": "A fern, a mushroom and a spider are alive. A wooden spoon was once alive but is not alive now. Clouds and rivers were never alive."
+    },
+    {
+      "id": "s2.living-things.025",
+      "skill": "s2.living-things",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the things that were once alive.",
+      "options": [
+        {
+          "text": "a glass bottle"
+        },
+        {
+          "text": "a stone wall"
+        },
+        {
+          "text": "a metal key"
+        },
+        {
+          "text": "a leather bag"
+        },
+        {
+          "text": "a cotton shirt"
+        },
+        {
+          "text": "a wooden door"
+        }
+      ],
+      "answers": [
+        3,
+        4,
+        5
+      ],
+      "hints": [
+        "Wood comes from trees.",
+        "Leather comes from animals.",
+        "Rocks were never alive."
+      ],
+      "explanation": "Wood, cotton and leather come from plants and animals. Metal, stone and glass come from the ground."
+    },
+    {
+      "id": "s2.living-things.026",
+      "skill": "s2.living-things",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each object to where it came from.",
+      "pairs": [
+        [
+          "wooden chair",
+          "tree"
+        ],
+        [
+          "wool jumper",
+          "sheep"
+        ],
+        [
+          "cotton shirt",
+          "cotton plant"
+        ],
+        [
+          "leather shoe",
+          "cow"
+        ]
+      ],
+      "hints": [
+        "Wool is the hair of sheep.",
+        "Leather is animal skin.",
+        "Wood is from trees."
+      ],
+      "explanation": "A chair comes from a tree and a jumper comes from a sheep. A shirt comes from a cotton plant and a shoe comes from a cow."
+    },
+    {
+      "id": "s2.living-things.027",
+      "skill": "s2.living-things",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Living things need food, ___ and air. They ___ bigger as they get older.",
+      "gaps": [
+        {
+          "options": [
+            "water",
+            "sand",
+            "paper"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "grow",
+            "shrink",
+            "melt"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "What do you drink?",
+        "A puppy gets bigger.",
+        "Say the sentence out loud."
+      ],
+      "explanation": "Living things need food, water and air. They grow bigger as they get older."
+    },
+    {
+      "id": "s2.living-things.028",
+      "skill": "s2.living-things",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Alive, once alive or never alive?",
+      "head": [
+        "Thing",
+        "Type"
+      ],
+      "rows": [
+        [
+          "tiger",
+          "alive"
+        ],
+        [
+          "wooden bench",
+          ""
+        ],
+        [
+          "stone",
+          ""
+        ],
+        [
+          "mushroom",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "once alive",
+            "once-alive"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "never alive",
+            "never-alive"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "alive"
+          ]
+        }
+      ],
+      "hints": [
+        "A bench is made of wood.",
+        "A stone never grew.",
+        "A mushroom grows."
+      ],
+      "explanation": "A tiger and a mushroom are alive. A wooden bench was once alive. A stone was never alive."
+    },
+    {
+      "id": "s2.living-things.029",
+      "skill": "s2.living-things",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Tara finds a log in the woods. Mushrooms grow on the log. A beetle crawls over it. The log is dry and does not grow.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which things are alive?",
+          "options": [
+            {
+              "text": "the mushrooms and the beetle"
+            },
+            {
+              "text": "the log and the beetle"
+            },
+            {
+              "text": "the log and the mushrooms"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What was the log once?",
+          "answers": [
+            "a tree",
+            "tree",
+            "part of a tree"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Which things grow or move?",
+        "The log does not grow.",
+        "Logs come from trees."
+      ],
+      "explanation": "The mushrooms and the beetle are alive. The log came from a tree."
+    },
+    {
+      "id": "s2.living-things.030",
+      "skill": "s2.living-things",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many living things are in the picture?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "dog",
+            "label": "dog"
+          },
+          {
+            "icon": "tree",
+            "label": "tree"
+          },
+          {
+            "icon": "bee",
+            "label": "bee"
+          },
+          {
+            "icon": "rock",
+            "label": "rock"
+          },
+          {
+            "icon": "mushroom",
+            "label": "mushroom"
+          }
+        ],
+        "alt": "A dog, a tree, a bee, a rock and a mushroom."
+      },
+      "answer": 4,
+      "hints": [
+        "Count only living things.",
+        "A mushroom is alive.",
+        "A chair is not alive."
+      ],
+      "explanation": "The dog, the tree, the bee and the mushroom are alive. The chair and the rock are not."
+    },
+    {
+      "id": "s2.living-things.031",
+      "skill": "s2.living-things",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the thing that was never alive.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "rock",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bee",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: rock, tree, frog and bee."
+      },
+      "regions": [
+        {
+          "label": "rock",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "tree",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "frog",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bee",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which one has never grown?",
+        "Trees and frogs are alive.",
+        "It is hard and grey."
+      ],
+      "explanation": "A rock was never alive. A tree, a frog and a bee are alive."
+    },
+    {
+      "id": "s2.living-things.032",
+      "skill": "s2.living-things",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the two things that were once alive.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rock",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "paper",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: wooden spoon, rock, glass and paper."
+      },
+      "regions": [
+        {
+          "label": "wooden spoon",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "rock",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "glass",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "paper",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "What is wood made from?",
+        "What is paper made from?",
+        "Glass comes from sand."
+      ],
+      "explanation": "A wooden spoon and paper are made from trees, which were alive. Rock and glass were never alive."
+    },
+    {
+      "id": "s2.living-things.033",
+      "skill": "s2.living-things",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the life of a tree in order.",
+      "items": [
+        "seed",
+        "seedling",
+        "tall tree",
+        "fallen log"
+      ],
+      "hints": [
+        "A seed comes first.",
+        "The tree is tall.",
+        "A log is last."
+      ],
+      "explanation": "A tree begins as a seed. It grows into a seedling and then a tall tree. When it dies it can become a log."
+    },
+    {
+      "id": "s2.living-things.034",
+      "skill": "s2.living-things",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A rock was never ___.",
+      "blanks": [
+        {
+          "answers": [
+            "alive"
+          ]
+        }
+      ],
+      "hints": [
+        "Does a rock grow?",
+        "Rocks do not eat.",
+        "It starts with a."
+      ],
+      "explanation": "A rock is a non-living thing. It was never alive."
+    },
+    {
+      "id": "s2.living-things.035",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which group has only living things?",
+      "options": [
+        {
+          "text": "a fern, a frog, a rock",
+          "why": "A rock is not alive."
+        },
+        {
+          "text": "a fish, a car, a tree",
+          "why": "A car is not alive."
+        },
+        {
+          "text": "a frog, a spoon, a bee",
+          "why": "A spoon is not alive."
+        },
+        {
+          "text": "a fern, a frog, a fish"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check each thing in the group.",
+        "One wrong thing makes the group wrong.",
+        "Rocks and cars never grow."
+      ],
+      "explanation": "A fern, a frog and a fish are all alive.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.living-things.036",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the odd one out?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "wooden-spoon",
+            "label": "wooden spoon"
+          },
+          {
+            "icon": "paper",
+            "label": "paper"
+          },
+          {
+            "icon": "glass",
+            "label": "glass"
+          },
+          {
+            "icon": "feather",
+            "label": "feather"
+          }
+        ],
+        "alt": "A wooden spoon, paper, glass and a feather."
+      },
+      "options": [
+        {
+          "text": "a wooden spoon",
+          "why": "It was once alive."
+        },
+        {
+          "text": "paper",
+          "why": "It was once alive."
+        },
+        {
+          "text": "a feather",
+          "why": "It was once alive."
+        },
+        {
+          "text": "glass"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Which came from the ground?",
+        "Wood comes from trees.",
+        "A feather comes from a bird."
+      ],
+      "explanation": "Wood, paper and a feather all came from living things. Glass was never alive.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.living-things.037",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Raj says a flame is alive. It moves and needs air. Which shows he is wrong?",
+      "options": [
+        {
+          "text": "Flames are too hot.",
+          "why": "Being hot does not decide it."
+        },
+        {
+          "text": "Flames are too bright.",
+          "why": "Being bright does not decide it."
+        },
+        {
+          "text": "A flame does not eat or have babies."
+        },
+        {
+          "text": "Flames are too small.",
+          "why": "Size does not decide it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about all the life processes.",
+        "Hot or bright does not matter.",
+        "Living things feed and reproduce."
+      ],
+      "explanation": "A flame moves and needs air. But it does not grow, eat or have babies like a living thing.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
