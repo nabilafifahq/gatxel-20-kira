@@ -537,6 +537,914 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s3.tables-and-charts.014",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many children chose dogs?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dog",
+          "Cat",
+          "Fish",
+          "Bird"
+        ],
+        "values": [
+          8,
+          6,
+          3,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite pets: dog 8, cat 6, fish 3, bird 5."
+      },
+      "answer": 8,
+      "hints": [
+        "Find the bar for dog.",
+        "Read the number at the top of the bar.",
+        "Look at the scale."
+      ],
+      "explanation": "The dog bar reaches 8."
+    },
+    {
+      "id": "s3.tables-and-charts.015",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which pet was chosen by the fewest children?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dog",
+          "Cat",
+          "Fish",
+          "Bird"
+        ],
+        "values": [
+          8,
+          6,
+          3,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite pets: dog 8, cat 6, fish 3, bird 5."
+      },
+      "options": [
+        {
+          "text": "dog",
+          "why": "Dog has the tallest bar."
+        },
+        {
+          "text": "cat",
+          "why": "Cat has a tall bar."
+        },
+        {
+          "text": "fish"
+        },
+        {
+          "text": "bird",
+          "why": "Bird has more than fish."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for the shortest bar.",
+        "The tallest bar is the most.",
+        "The shortest bar is the fewest."
+      ],
+      "explanation": "The fish bar is the shortest, so fish was chosen by the fewest."
+    },
+    {
+      "id": "s3.tables-and-charts.016",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many more children chose dogs than cats?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dog",
+          "Cat",
+          "Fish",
+          "Bird"
+        ],
+        "values": [
+          8,
+          6,
+          3,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite pets: dog 8, cat 6, fish 3, bird 5."
+      },
+      "answer": 2,
+      "hints": [
+        "Read both bars.",
+        "Take the smaller from the bigger.",
+        "8 minus 6."
+      ],
+      "explanation": "8 - 6 = 2."
+    },
+    {
+      "id": "s3.tables-and-charts.017",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many children chose a pet altogether?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dog",
+          "Cat",
+          "Fish",
+          "Bird"
+        ],
+        "values": [
+          8,
+          6,
+          3,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite pets: dog 8, cat 6, fish 3, bird 5."
+      },
+      "answer": 22,
+      "hints": [
+        "Add all four bars.",
+        "8 + 6 first.",
+        "Then add 3 and 5."
+      ],
+      "explanation": "8 + 6 + 3 + 5 = 22 children."
+    },
+    {
+      "id": "s3.tables-and-charts.018",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which two pets were chosen by 13 children altogether?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dog",
+          "Cat",
+          "Fish",
+          "Bird"
+        ],
+        "values": [
+          8,
+          6,
+          3,
+          5
+        ],
+        "step": 1,
+        "yLabel": "Children",
+        "alt": "Bar chart of favourite pets: dog 8, cat 6, fish 3, bird 5."
+      },
+      "options": [
+        {
+          "text": "dog and cat",
+          "why": "That is 14."
+        },
+        {
+          "text": "dog and bird"
+        },
+        {
+          "text": "cat and fish",
+          "why": "That is 9."
+        },
+        {
+          "text": "cat and bird",
+          "why": "That is 11."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add pairs of bars.",
+        "8 + 5.",
+        "Check each pair."
+      ],
+      "explanation": "Dog 8 + bird 5 = 13."
+    },
+    {
+      "id": "s3.tables-and-charts.019",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many books did Bima read? Each picture is 2 books.",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Books read",
+        "rows": [
+          {
+            "label": "Ana",
+            "count": 3
+          },
+          {
+            "label": "Bima",
+            "count": 5
+          },
+          {
+            "label": "Cika",
+            "count": 2
+          }
+        ],
+        "icon": "book",
+        "key": 2,
+        "alt": "Pictogram of books read. Each book picture means 2 books. Ana has 3 pictures, Bima has 5 and Cika has 2."
+      },
+      "answer": 10,
+      "hints": [
+        "Count Bima's pictures.",
+        "Each picture is 2 books.",
+        "Count in twos."
+      ],
+      "explanation": "Bima has 5 pictures. 5 x 2 = 10 books."
+    },
+    {
+      "id": "s3.tables-and-charts.020",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many books did the three children read altogether?",
+      "figure": {
+        "kind": "pictogram",
+        "title": "Books read",
+        "rows": [
+          {
+            "label": "Ana",
+            "count": 3
+          },
+          {
+            "label": "Bima",
+            "count": 5
+          },
+          {
+            "label": "Cika",
+            "count": 2
+          }
+        ],
+        "icon": "book",
+        "key": 2,
+        "alt": "Pictogram of books read. Each book picture means 2 books. Ana has 3 pictures, Bima has 5 and Cika has 2."
+      },
+      "answer": 20,
+      "hints": [
+        "Find each child's total first.",
+        "Pictures x 2.",
+        "Add them up."
+      ],
+      "explanation": "Ana read 6, Bima read 10 and Cika read 4. 6 + 10 + 4 = 20."
+    },
+    {
+      "id": "s3.tables-and-charts.021",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many rainy days were there?",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Sunny",
+            "count": 12
+          },
+          {
+            "label": "Cloudy",
+            "count": 7
+          },
+          {
+            "label": "Rainy",
+            "count": 9
+          },
+          {
+            "label": "Windy",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart of weather in a month: sunny 12 days, cloudy 7, rainy 9 and windy 2."
+      },
+      "answer": 9,
+      "hints": [
+        "Find the rainy row.",
+        "Count the tally marks.",
+        "A group of five has a line across."
+      ],
+      "explanation": "The rainy row shows 9 days."
+    },
+    {
+      "id": "s3.tables-and-charts.022",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which kind of weather was the most common?",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Sunny",
+            "count": 12
+          },
+          {
+            "label": "Cloudy",
+            "count": 7
+          },
+          {
+            "label": "Rainy",
+            "count": 9
+          },
+          {
+            "label": "Windy",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart of weather in a month: sunny 12 days, cloudy 7, rainy 9 and windy 2."
+      },
+      "options": [
+        {
+          "text": "cloudy",
+          "why": "Sunny had more days."
+        },
+        {
+          "text": "sunny"
+        },
+        {
+          "text": "rainy",
+          "why": "Sunny had more days."
+        },
+        {
+          "text": "windy",
+          "why": "Windy had the fewest."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the longest row.",
+        "Compare the totals.",
+        "12 is the biggest."
+      ],
+      "explanation": "Sunny has the most tally marks, with 12 days."
+    },
+    {
+      "id": "s3.tables-and-charts.023",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many days were not sunny? The chart covers 30 days.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Sunny",
+            "count": 12
+          },
+          {
+            "label": "Cloudy",
+            "count": 7
+          },
+          {
+            "label": "Rainy",
+            "count": 9
+          },
+          {
+            "label": "Windy",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart of weather in a month: sunny 12 days, cloudy 7, rainy 9 and windy 2."
+      },
+      "answer": 18,
+      "hints": [
+        "Find the sunny days.",
+        "Take them from 30.",
+        "30 minus 12."
+      ],
+      "explanation": "30 - 12 = 18 days were not sunny. Also 7 + 9 + 2 = 18."
+    },
+    {
+      "id": "s3.tables-and-charts.024",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How much did plant B grow between week 1 and week 2?",
+      "figure": {
+        "kind": "table",
+        "caption": "Plant height (cm)",
+        "head": [
+          "Plant",
+          "Week 1",
+          "Week 2"
+        ],
+        "rows": [
+          [
+            "A",
+            "3",
+            "5"
+          ],
+          [
+            "B",
+            "4",
+            "8"
+          ],
+          [
+            "C",
+            "2",
+            "3"
+          ]
+        ],
+        "alt": "Table of plant heights. Plant A 3 then 5 cm, plant B 4 then 8 cm, plant C 2 then 3 cm."
+      },
+      "answer": 4,
+      "unit": "cm",
+      "hints": [
+        "Find plant B.",
+        "Subtract week 1 from week 2.",
+        "8 minus 4."
+      ],
+      "explanation": "8 - 4 = 4 cm."
+    },
+    {
+      "id": "s3.tables-and-charts.025",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which plant grew the most between the two weeks?",
+      "figure": {
+        "kind": "table",
+        "caption": "Plant height (cm)",
+        "head": [
+          "Plant",
+          "Week 1",
+          "Week 2"
+        ],
+        "rows": [
+          [
+            "A",
+            "3",
+            "5"
+          ],
+          [
+            "B",
+            "4",
+            "8"
+          ],
+          [
+            "C",
+            "2",
+            "3"
+          ]
+        ],
+        "alt": "Table of plant heights. Plant A 3 then 5 cm, plant B 4 then 8 cm, plant C 2 then 3 cm."
+      },
+      "options": [
+        {
+          "text": "plant B"
+        },
+        {
+          "text": "plant A",
+          "why": "It grew 2 cm."
+        },
+        {
+          "text": "plant C",
+          "why": "It grew 1 cm."
+        },
+        {
+          "text": "they all grew the same",
+          "why": "They grew different amounts."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out each growth.",
+        "Subtract week 1 from week 2.",
+        "B grew the most."
+      ],
+      "explanation": "A grew 2 cm, B grew 4 cm and C grew 1 cm. B grew the most."
+    },
+    {
+      "id": "s3.tables-and-charts.026",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does the tallest bar on a bar chart show?",
+      "options": [
+        {
+          "text": "the smallest amount",
+          "why": "The shortest bar shows that."
+        },
+        {
+          "text": "the average",
+          "why": "A bar shows one amount."
+        },
+        {
+          "text": "the title",
+          "why": "The title is at the top."
+        },
+        {
+          "text": "the largest amount"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Tall means more.",
+        "Short means fewer.",
+        "Compare the bars."
+      ],
+      "explanation": "The tallest bar shows the biggest number."
+    },
+    {
+      "id": "s3.tables-and-charts.027",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What should go along the bottom of a bar chart of favourite fruit?",
+      "options": [
+        {
+          "text": "the number of children",
+          "why": "Numbers go up the side."
+        },
+        {
+          "text": "the date",
+          "why": "It is not needed."
+        },
+        {
+          "text": "the names of the fruit"
+        },
+        {
+          "text": "the teacher's name",
+          "why": "It is not needed."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Bars stand on the bottom line.",
+        "Each bar has a label.",
+        "Numbers go up the side."
+      ],
+      "explanation": "The categories, the fruit, go along the bottom. The numbers go up the side."
+    },
+    {
+      "id": "s3.tables-and-charts.028",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which heading is best for the height of a plant?",
+      "options": [
+        {
+          "text": "Plant",
+          "why": "It does not say what is measured."
+        },
+        {
+          "text": "Big",
+          "why": "It is not a measure."
+        },
+        {
+          "text": "Height (cm)"
+        },
+        {
+          "text": "Numbers",
+          "why": "It is too vague."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Add the unit.",
+        "It should say what is measured.",
+        "Use brackets for the unit."
+      ],
+      "explanation": "A good heading says what is measured and gives the unit."
+    },
+    {
+      "id": "s3.tables-and-charts.029",
+      "skill": "s3.tables-and-charts",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Order the plants from the shortest to the tallest.",
+      "items": [
+        "plant A (5 cm)",
+        "plant C (8 cm)",
+        "plant B (12 cm)"
+      ],
+      "hints": [
+        "Compare the numbers.",
+        "5 is the smallest.",
+        "12 is the biggest."
+      ],
+      "explanation": "Plant A at 5 cm is the shortest. Plant B at 12 cm is the tallest."
+    },
+    {
+      "id": "s3.tables-and-charts.030",
+      "skill": "s3.tables-and-charts",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things a good bar chart needs.",
+      "options": [
+        {
+          "text": "a long story"
+        },
+        {
+          "text": "an even scale"
+        },
+        {
+          "text": "labels on both axes"
+        },
+        {
+          "text": "a title"
+        },
+        {
+          "text": "colourful stickers"
+        }
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "hints": [
+        "Anyone should understand it.",
+        "Axes need labels.",
+        "Stickers are not needed."
+      ],
+      "explanation": "A bar chart needs a title, labels and an even scale. Stories and stickers do not help."
+    },
+    {
+      "id": "s3.tables-and-charts.031",
+      "skill": "s3.tables-and-charts",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each chart to what it shows.",
+      "pairs": [
+        [
+          "bar chart",
+          "compares amounts"
+        ],
+        [
+          "tally chart",
+          "counts with marks"
+        ],
+        [
+          "pictogram",
+          "uses small pictures"
+        ],
+        [
+          "table",
+          "rows and columns of results"
+        ]
+      ],
+      "hints": [
+        "Tally marks come in fives.",
+        "A pictogram has pictures.",
+        "A table has rows."
+      ],
+      "explanation": "A bar chart compares amounts. A tally chart counts with marks. A pictogram uses small pictures and a table has rows and columns."
+    },
+    {
+      "id": "s3.tables-and-charts.032",
+      "skill": "s3.tables-and-charts",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A bar chart has a ___ at the top and labels on both ___.",
+      "gaps": [
+        {
+          "options": [
+            "title",
+            "ending",
+            "colour"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "axes",
+            "corners",
+            "covers"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The top tells what the chart is about.",
+        "The sides of the chart are called axes.",
+        "Read slowly."
+      ],
+      "explanation": "A bar chart has a title and labels on both axes."
+    },
+    {
+      "id": "s3.tables-and-charts.033",
+      "skill": "s3.tables-and-charts",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Use the tally chart to complete the table.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Sunny",
+            "count": 12
+          },
+          {
+            "label": "Cloudy",
+            "count": 7
+          },
+          {
+            "label": "Rainy",
+            "count": 9
+          },
+          {
+            "label": "Windy",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart of weather in a month: sunny 12 days, cloudy 7, rainy 9 and windy 2."
+      },
+      "head": [
+        "Weather",
+        "Days"
+      ],
+      "rows": [
+        [
+          "sunny",
+          "12"
+        ],
+        [
+          "cloudy",
+          ""
+        ],
+        [
+          "rainy",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "7"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "9"
+          ]
+        }
+      ],
+      "hints": [
+        "Read the tally rows.",
+        "Cloudy is the second row.",
+        "Count each tally."
+      ],
+      "explanation": "The tally chart shows 12 sunny days, 7 cloudy days and 9 rainy days."
+    },
+    {
+      "id": "s3.tables-and-charts.034",
+      "skill": "s3.tables-and-charts",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Class 3 records the temperature at noon for four days. Monday is 28 °C. Tuesday is 31 °C. Wednesday is 29 °C. Thursday is 33 °C.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which day was the hottest?",
+          "options": [
+            {
+              "text": "Thursday"
+            },
+            {
+              "text": "Monday"
+            },
+            {
+              "text": "Wednesday"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many degrees hotter was Thursday than Monday?",
+          "answer": 5,
+          "tolerance": 0,
+          "allowNegative": false,
+          "allowDecimal": false
+        }
+      ],
+      "hints": [
+        "Find the biggest number.",
+        "Compare Thursday and Monday.",
+        "33 minus 28."
+      ],
+      "explanation": "Thursday was the hottest at 33 °C. It was 33 - 28 = 5 degrees hotter than Monday."
+    },
+    {
+      "id": "s3.tables-and-charts.035",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bar A is 4 high and bar B is 9 high. Tom says B is twice as tall as A. Is he right?",
+      "options": [
+        {
+          "text": "Yes, because 9 is more than 4.",
+          "why": "More than is not the same as twice."
+        },
+        {
+          "text": "Yes, because the bars are different heights.",
+          "why": "Different is not the same as twice."
+        },
+        {
+          "text": "No, because A is taller.",
+          "why": "B is taller."
+        },
+        {
+          "text": "No, because twice 4 is 8, not 9."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Double means times 2.",
+        "4 x 2 = 8.",
+        "Compare 8 with 9."
+      ],
+      "explanation": "Twice 4 is 8. Bar B is 9, so it is not exactly twice as tall as bar A.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.036",
+      "skill": "s3.tables-and-charts",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Three tests give 12, 14 and 13 seconds. What is the best single number to report?",
+      "options": [
+        {
+          "text": "12 seconds, the smallest",
+          "why": "It is not typical."
+        },
+        {
+          "text": "14 seconds, the biggest",
+          "why": "It is not typical."
+        },
+        {
+          "text": "13 seconds, the average"
+        },
+        {
+          "text": "39 seconds, the total",
+          "why": "That is the sum, not a typical value."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Add and divide by 3.",
+        "The numbers are close together.",
+        "The middle is 13."
+      ],
+      "explanation": "The average of 12, 14 and 13 is 13 seconds.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s3.tables-and-charts.037",
+      "skill": "s3.tables-and-charts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Each star means 2 children. A row has 5 stars. How many children is that?",
+      "figure": {
+        "kind": "pictogram",
+        "rows": [
+          {
+            "label": "Red",
+            "count": 5
+          }
+        ],
+        "icon": "star",
+        "key": 2,
+        "alt": "Pictogram: red has 5 stars, each star means 2 children."
+      },
+      "answer": 10,
+      "hints": [
+        "Count the stars.",
+        "Each star is 2.",
+        "Count in twos."
+      ],
+      "explanation": "5 x 2 = 10 children.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
