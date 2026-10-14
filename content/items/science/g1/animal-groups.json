@@ -1259,6 +1259,1148 @@
       "extraLabels": [
         "wing"
       ]
+    },
+    {
+      "id": "s1.animal-groups.022",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal has scales?",
+      "options": [
+        {
+          "text": "a cat",
+          "why": "A cat has fur."
+        },
+        {
+          "text": "a fish"
+        },
+        {
+          "text": "a hen",
+          "why": "A hen has feathers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a fish at the market.",
+        "Cats have fur.",
+        "Hens have feathers."
+      ],
+      "explanation": "A fish has scales on its body."
+    },
+    {
+      "id": "s1.animal-groups.023",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal has fur?",
+      "options": [
+        {
+          "text": "a frog",
+          "why": "A frog has smooth, wet skin."
+        },
+        {
+          "text": "a snail",
+          "why": "A snail has a shell."
+        },
+        {
+          "text": "a rabbit"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think of a pet rabbit.",
+        "A frog feels smooth.",
+        "A snail has a shell."
+      ],
+      "explanation": "A rabbit is covered in soft fur."
+    },
+    {
+      "id": "s1.animal-groups.024",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which animal has a shell on its back?",
+      "options": [
+        {
+          "text": "a bee",
+          "why": "A bee has wings."
+        },
+        {
+          "text": "a snail"
+        },
+        {
+          "text": "a dog",
+          "why": "A dog has fur."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It moves slowly.",
+        "It hides inside.",
+        "It is not a bee."
+      ],
+      "explanation": "A snail carries a shell on its back."
+    },
+    {
+      "id": "s1.animal-groups.025",
+      "skill": "s1.animal-groups",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many legs does a butterfly have?",
+      "answer": 6,
+      "hints": [
+        "Butterflies are insects.",
+        "Insects have the same number of legs as ants.",
+        "Count in twos."
+      ],
+      "explanation": "A butterfly is an insect. All insects have six legs."
+    },
+    {
+      "id": "s1.animal-groups.026",
+      "skill": "s1.animal-groups",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "What covers the animal? Sort the cards.",
+      "groups": [
+        "Fur",
+        "Feathers"
+      ],
+      "items": [
+        {
+          "text": "cat",
+          "group": 0
+        },
+        {
+          "text": "rabbit",
+          "group": 0
+        },
+        {
+          "text": "cow",
+          "group": 0
+        },
+        {
+          "text": "hen",
+          "group": 1
+        },
+        {
+          "text": "duck",
+          "group": 1
+        },
+        {
+          "text": "owl",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Birds have feathers.",
+        "Pets with soft coats have fur.",
+        "Start with the hen."
+      ],
+      "explanation": "Cats, rabbits and cows have fur. Hens, ducks and owls have feathers."
+    },
+    {
+      "id": "s1.animal-groups.027",
+      "skill": "s1.animal-groups",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Where does the animal live? Sort the cards.",
+      "groups": [
+        "Water",
+        "Land"
+      ],
+      "items": [
+        {
+          "text": "fish",
+          "group": 0
+        },
+        {
+          "text": "shark",
+          "group": 0
+        },
+        {
+          "text": "crab",
+          "group": 0
+        },
+        {
+          "text": "lion",
+          "group": 1
+        },
+        {
+          "text": "camel",
+          "group": 1
+        },
+        {
+          "text": "monkey",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Which animals swim?",
+        "Camels walk in the desert.",
+        "Start with the fish."
+      ],
+      "explanation": "Fish, sharks and crabs live in water. Lions, camels and monkeys live on land."
+    },
+    {
+      "id": "s1.animal-groups.028",
+      "skill": "s1.animal-groups",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "How does the animal move? Sort the cards.",
+      "groups": [
+        "Fly",
+        "Swim",
+        "Walk"
+      ],
+      "items": [
+        {
+          "text": "bird",
+          "group": 0
+        },
+        {
+          "text": "bee",
+          "group": 0
+        },
+        {
+          "text": "fish",
+          "group": 1
+        },
+        {
+          "text": "whale",
+          "group": 1
+        },
+        {
+          "text": "cow",
+          "group": 2
+        },
+        {
+          "text": "lion",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Wings help animals fly.",
+        "Fins help animals swim.",
+        "Legs help animals walk."
+      ],
+      "explanation": "Birds and bees fly. Fish and whales swim. Cows and lions walk."
+    },
+    {
+      "id": "s1.animal-groups.029",
+      "skill": "s1.animal-groups",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the animals with wings.",
+      "options": [
+        {
+          "text": "a butterfly"
+        },
+        {
+          "text": "a bee"
+        },
+        {
+          "text": "a bird"
+        },
+        {
+          "text": "a fish"
+        },
+        {
+          "text": "a dog"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about what flies.",
+        "A dog walks.",
+        "A fish swims."
+      ],
+      "explanation": "Birds, bees and butterflies have wings. Dogs and fish do not."
+    },
+    {
+      "id": "s1.animal-groups.030",
+      "skill": "s1.animal-groups",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the animals that lay eggs.",
+      "options": [
+        {
+          "text": "a hen"
+        },
+        {
+          "text": "a rabbit"
+        },
+        {
+          "text": "a dog"
+        },
+        {
+          "text": "a cow"
+        },
+        {
+          "text": "a butterfly"
+        },
+        {
+          "text": "a snake"
+        }
+      ],
+      "answers": [
+        0,
+        4,
+        5
+      ],
+      "hints": [
+        "Think of a farm.",
+        "A hen lays eggs.",
+        "Babies of a cow are born alive."
+      ],
+      "explanation": "Hens, snakes and butterflies lay eggs. Cows, dogs and rabbits give birth to live babies."
+    },
+    {
+      "id": "s1.animal-groups.031",
+      "skill": "s1.animal-groups",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each animal to its covering.",
+      "pairs": [
+        [
+          "fish",
+          "scales"
+        ],
+        [
+          "hen",
+          "feathers"
+        ],
+        [
+          "cat",
+          "fur"
+        ],
+        [
+          "snail",
+          "shell"
+        ]
+      ],
+      "hints": [
+        "Birds have feathers.",
+        "Fish swim in water.",
+        "A snail carries a home."
+      ],
+      "explanation": "A fish has scales and a hen has feathers. A cat has fur and a snail has a shell."
+    },
+    {
+      "id": "s1.animal-groups.032",
+      "skill": "s1.animal-groups",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "What covers the animal?",
+      "head": [
+        "Animal",
+        "Covering"
+      ],
+      "rows": [
+        [
+          "cat",
+          "fur"
+        ],
+        [
+          "hen",
+          ""
+        ],
+        [
+          "fish",
+          ""
+        ],
+        [
+          "snail",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "feathers"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "scales"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "shell"
+          ]
+        }
+      ],
+      "hints": [
+        "A hen is a bird.",
+        "Fish have scales.",
+        "A snail has a shell."
+      ],
+      "explanation": "Cats have fur, hens have feathers, fish have scales and snails have a shell."
+    },
+    {
+      "id": "s1.animal-groups.033",
+      "skill": "s1.animal-groups",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A bird has ___ and a beak. A fish has ___ and fins.",
+      "gaps": [
+        {
+          "options": [
+            "feathers",
+            "scales",
+            "fur"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "scales",
+            "feathers",
+            "fur"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Birds have feathers.",
+        "Fish swim with fins.",
+        "Fish have scales."
+      ],
+      "explanation": "A bird has feathers and a beak. A fish has scales and fins."
+    },
+    {
+      "id": "s1.animal-groups.034",
+      "skill": "s1.animal-groups",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A duck lives on a pond. It has feathers and webbed feet. It paddles on the water. It can also fly.",
+      "parts": [
+        {
+          "type": "text",
+          "prompt": "What covers the duck?",
+          "answers": [
+            "feathers"
+          ],
+          "caseSensitive": false
+        },
+        {
+          "type": "mcq",
+          "prompt": "What does the duck use to paddle?",
+          "options": [
+            {
+              "text": "webbed feet"
+            },
+            {
+              "text": "wings"
+            },
+            {
+              "text": "a beak"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The second sentence tells you.",
+        "Which part pushes the water?",
+        "A beak is for eating."
+      ],
+      "explanation": "The duck is covered with feathers. It paddles with its webbed feet."
+    },
+    {
+      "id": "s1.animal-groups.035",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal that has wings.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "bee",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "dog",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: bee, snail, dog and frog."
+      },
+      "regions": [
+        {
+          "label": "bee",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "snail",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "dog",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "frog",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which one can fly?",
+        "Dogs walk and frogs hop.",
+        "It makes honey."
+      ],
+      "explanation": "A bee has wings. It can fly."
+    },
+    {
+      "id": "s1.animal-groups.036",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal with a shell.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rabbit",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "owl",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: snail, rabbit, cow and owl."
+      },
+      "regions": [
+        {
+          "label": "snail",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "rabbit",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cow",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "owl",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which animal carries a home?",
+        "Rabbits have fur.",
+        "Owls have feathers."
+      ],
+      "explanation": "A snail has a hard shell on its back."
+    },
+    {
+      "id": "s1.animal-groups.037",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the legs of the bird.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                96,
+                112
+              ],
+              [
+                40,
+                82
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 138,
+            "y1": 158,
+            "x2": 132,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 164,
+            "y1": 158,
+            "x2": 170,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 118,
+            "y1": 198,
+            "x2": 140,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 158,
+            "y1": 198,
+            "x2": 182,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 118,
+            "rx": 62,
+            "ry": 42,
+            "rot": 0,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 214,
+            "cy": 82,
+            "r": 27,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                238,
+                76
+              ],
+              [
+                272,
+                88
+              ],
+              [
+                238,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 222,
+            "cy": 76,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 116,
+            "rx": 38,
+            "ry": 20,
+            "rot": -18,
+            "tone": "english",
+            "fill": "light"
+          }
+        ],
+        "alt": "A yellow bird standing on two legs. It has a beak, a wing, a tail and feathers."
+      },
+      "regions": [
+        {
+          "label": "beak",
+          "x": 80.6,
+          "y": 40,
+          "w": 15.6,
+          "h": 18.2
+        },
+        {
+          "label": "wing",
+          "x": 43.8,
+          "y": 52.7,
+          "w": 28.1,
+          "h": 22.7
+        },
+        {
+          "label": "leg",
+          "x": 43.1,
+          "y": 82.7,
+          "w": 15.6,
+          "h": 22.7
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "What does it stand on?",
+        "They are thin.",
+        "They are at the bottom."
+      ],
+      "explanation": "The bird stands on its legs."
+    },
+    {
+      "id": "s1.animal-groups.038",
+      "skill": "s1.animal-groups",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the tail of the bird.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                96,
+                112
+              ],
+              [
+                40,
+                82
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 138,
+            "y1": 158,
+            "x2": 132,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 164,
+            "y1": 158,
+            "x2": 170,
+            "y2": 196,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 118,
+            "y1": 198,
+            "x2": 140,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 158,
+            "y1": 198,
+            "x2": 182,
+            "y2": 198,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 118,
+            "rx": 62,
+            "ry": 42,
+            "rot": 0,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 214,
+            "cy": 82,
+            "r": 27,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                238,
+                76
+              ],
+              [
+                272,
+                88
+              ],
+              [
+                238,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 222,
+            "cy": 76,
+            "r": 4,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 116,
+            "rx": 38,
+            "ry": 20,
+            "rot": -18,
+            "tone": "english",
+            "fill": "light"
+          }
+        ],
+        "alt": "A yellow bird standing on two legs. It has a beak, a wing, a tail and feathers."
+      },
+      "regions": [
+        {
+          "label": "beak",
+          "x": 80.6,
+          "y": 40,
+          "w": 15.6,
+          "h": 18.2
+        },
+        {
+          "label": "tail",
+          "x": 19.4,
+          "y": 48.2,
+          "w": 18.8,
+          "h": 27.3
+        },
+        {
+          "label": "wing",
+          "x": 43.8,
+          "y": 52.7,
+          "w": 28.1,
+          "h": 22.7
+        },
+        {
+          "label": "leg",
+          "x": 43.1,
+          "y": 82.7,
+          "w": 15.6,
+          "h": 22.7
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "The beak is at the front.",
+        "The tail is at the back.",
+        "It is on the left."
+      ],
+      "explanation": "The tail is at the back of the bird."
+    },
+    {
+      "id": "s1.animal-groups.039",
+      "skill": "s1.animal-groups",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw an animal with fur. Show its tail.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws an animal with fur",
+            "points": 2
+          },
+          {
+            "label": "Shows the tail",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Pick a cat, dog or rabbit.",
+        "Add short lines for fur."
+      ],
+      "explanation": "Many animals with fur have a tail, such as cats and dogs."
+    },
+    {
+      "id": "s1.animal-groups.040",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I have eight legs and I make a web. What am I?",
+      "options": [
+        {
+          "text": "a bee",
+          "why": "A bee has six legs."
+        },
+        {
+          "text": "a bird",
+          "why": "A bird has two legs."
+        },
+        {
+          "text": "a snail",
+          "why": "A snail has no legs."
+        },
+        {
+          "text": "a spider"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the legs.",
+        "It catches flies.",
+        "Think of a web."
+      ],
+      "explanation": "A spider has eight legs and spins a web.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.animal-groups.041",
+      "skill": "s1.animal-groups",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "2 birds and 3 insects sit on a branch. How many legs are there altogether?",
+      "answer": 22,
+      "hints": [
+        "A bird has 2 legs.",
+        "An insect has 6 legs.",
+        "Add the legs of the birds and the insects."
+      ],
+      "explanation": "A bird has 2 legs, so 2 birds have 4 legs. An insect has 6 legs, so 3 insects have 18 legs. 4 + 18 = 22.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.animal-groups.042",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which animal is the odd one out?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "bee",
+            "label": "bee"
+          },
+          {
+            "icon": "ant",
+            "label": "ant"
+          },
+          {
+            "icon": "spider",
+            "label": "spider"
+          },
+          {
+            "icon": "butterfly",
+            "label": "butterfly"
+          }
+        ],
+        "alt": "A bee, an ant, a spider and a butterfly."
+      },
+      "options": [
+        {
+          "text": "a bee",
+          "why": "A bee is an insect."
+        },
+        {
+          "text": "an ant",
+          "why": "An ant is an insect."
+        },
+        {
+          "text": "a spider"
+        },
+        {
+          "text": "a butterfly",
+          "why": "A butterfly is an insect."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the legs.",
+        "Insects have six legs.",
+        "One animal has eight."
+      ],
+      "explanation": "Bees, ants and butterflies are insects with six legs. A spider has eight legs.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.animal-groups.043",
+      "skill": "s1.animal-groups",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which animal does not belong with the others?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "hen",
+            "label": "hen"
+          },
+          {
+            "icon": "duck",
+            "label": "duck"
+          },
+          {
+            "icon": "bat",
+            "label": "bat"
+          },
+          {
+            "icon": "owl",
+            "label": "owl"
+          }
+        ],
+        "alt": "A hen, a duck, a bat and an owl."
+      },
+      "options": [
+        {
+          "text": "a hen",
+          "why": "A hen has feathers."
+        },
+        {
+          "text": "a bat"
+        },
+        {
+          "text": "a duck",
+          "why": "A duck has feathers."
+        },
+        {
+          "text": "an owl",
+          "why": "An owl has feathers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at what covers each animal.",
+        "Three have feathers.",
+        "One has fur."
+      ],
+      "explanation": "A hen, a duck and an owl are birds with feathers. A bat has fur.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

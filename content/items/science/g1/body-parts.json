@@ -1084,6 +1084,1106 @@
       "extraLabels": [
         "knee"
       ]
+    },
+    {
+      "id": "s1.body-parts.020",
+      "skill": "s1.body-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do we have at the end of each hand?",
+      "options": [
+        {
+          "text": "toes",
+          "why": "Toes are on our feet."
+        },
+        {
+          "text": "fingers"
+        },
+        {
+          "text": "elbows",
+          "why": "An elbow is the bend in the arm."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at your hand.",
+        "You write with them.",
+        "Toes are on feet."
+      ],
+      "explanation": "Each hand has five fingers."
+    },
+    {
+      "id": "s1.body-parts.021",
+      "skill": "s1.body-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of the body is at the top?",
+      "options": [
+        {
+          "text": "the head"
+        },
+        {
+          "text": "the knee",
+          "why": "The knee is in the leg."
+        },
+        {
+          "text": "the foot",
+          "why": "The foot is at the bottom."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about where your hat goes.",
+        "The foot is not at the top.",
+        "Look at the top of your body."
+      ],
+      "explanation": "The head is at the top of the body."
+    },
+    {
+      "id": "s1.body-parts.022",
+      "skill": "s1.body-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which part joins your hand to your arm?",
+      "options": [
+        {
+          "text": "the knee",
+          "why": "The knee is in the leg."
+        },
+        {
+          "text": "the wrist"
+        },
+        {
+          "text": "the neck",
+          "why": "The neck joins the head and the body."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where do you wear a watch?",
+        "It is a joint in your arm.",
+        "It is next to your hand."
+      ],
+      "explanation": "The wrist is the bendy part between the hand and the arm."
+    },
+    {
+      "id": "s1.body-parts.023",
+      "skill": "s1.body-parts",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many toes do you have on one foot?",
+      "answer": 5,
+      "hints": [
+        "Look at your foot.",
+        "Count each toe.",
+        "Count slowly."
+      ],
+      "explanation": "Most people have five toes on each foot."
+    },
+    {
+      "id": "s1.body-parts.024",
+      "skill": "s1.body-parts",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Top half or bottom half of the body? Sort the cards.",
+      "groups": [
+        "Top half",
+        "Bottom half"
+      ],
+      "items": [
+        {
+          "text": "head",
+          "group": 0
+        },
+        {
+          "text": "hand",
+          "group": 0
+        },
+        {
+          "text": "shoulder",
+          "group": 0
+        },
+        {
+          "text": "knee",
+          "group": 1
+        },
+        {
+          "text": "foot",
+          "group": 1
+        },
+        {
+          "text": "toe",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Your legs are in the bottom half.",
+        "Your head is at the top.",
+        "Start with the knee."
+      ],
+      "explanation": "The head, hand and shoulder are in the top half. The knee, foot and toe are in the bottom half."
+    },
+    {
+      "id": "s1.body-parts.025",
+      "skill": "s1.body-parts",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it outside or inside the body? Sort the cards.",
+      "groups": [
+        "Outside",
+        "Inside"
+      ],
+      "items": [
+        {
+          "text": "skin",
+          "group": 0
+        },
+        {
+          "text": "hair",
+          "group": 0
+        },
+        {
+          "text": "nose",
+          "group": 0
+        },
+        {
+          "text": "brain",
+          "group": 1
+        },
+        {
+          "text": "bones",
+          "group": 1
+        },
+        {
+          "text": "stomach",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Can you see it in the mirror?",
+        "Bones are under the skin.",
+        "Start with the skin."
+      ],
+      "explanation": "We can see our skin, hair and nose. The brain, bones and stomach are inside us."
+    },
+    {
+      "id": "s1.body-parts.026",
+      "skill": "s1.body-parts",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the parts of the face.",
+      "options": [
+        {
+          "text": "nose"
+        },
+        {
+          "text": "eyes"
+        },
+        {
+          "text": "toe"
+        },
+        {
+          "text": "knee"
+        },
+        {
+          "text": "elbow"
+        },
+        {
+          "text": "mouth"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        5
+      ],
+      "hints": [
+        "Look in a mirror.",
+        "Your face has the parts you see with.",
+        "An elbow is on the arm."
+      ],
+      "explanation": "Eyes, nose and mouth are on the face. The elbow, knee and toe are not."
+    },
+    {
+      "id": "s1.body-parts.027",
+      "skill": "s1.body-parts",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each body part to what you wear.",
+      "pairs": [
+        [
+          "head",
+          "hat"
+        ],
+        [
+          "foot",
+          "shoe"
+        ],
+        [
+          "hand",
+          "glove"
+        ],
+        [
+          "neck",
+          "scarf"
+        ]
+      ],
+      "hints": [
+        "Think where each one goes.",
+        "A glove has fingers.",
+        "A hat sits on the top."
+      ],
+      "explanation": "We wear a hat on the head and a shoe on the foot. A glove goes on the hand and a scarf goes on the neck."
+    },
+    {
+      "id": "s1.body-parts.028",
+      "skill": "s1.body-parts",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the parts of the arm. Start at the shoulder.",
+      "items": [
+        "shoulder",
+        "elbow",
+        "wrist",
+        "fingers"
+      ],
+      "hints": [
+        "The shoulder is near the neck.",
+        "The fingers are at the end.",
+        "The wrist is next to the hand."
+      ],
+      "explanation": "An arm starts at the shoulder. Then come the elbow, the wrist and the fingers."
+    },
+    {
+      "id": "s1.body-parts.029",
+      "skill": "s1.body-parts",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the parts of the leg. Start at the hip.",
+      "items": [
+        "hip",
+        "knee",
+        "ankle",
+        "toes"
+      ],
+      "hints": [
+        "The hip is at the top.",
+        "The toes are at the end.",
+        "The ankle is above the foot."
+      ],
+      "explanation": "A leg starts at the hip. Then come the knee, the ankle and the toes."
+    },
+    {
+      "id": "s1.body-parts.030",
+      "skill": "s1.body-parts",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "We walk with our ___. We hold a pencil with our ___.",
+      "gaps": [
+        {
+          "options": [
+            "legs",
+            "hands",
+            "ears"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "feet",
+            "hands",
+            "eyes"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "What do you use to walk?",
+        "What do you use to write?",
+        "Read each sentence."
+      ],
+      "explanation": "We walk with our legs and we hold a pencil with our hands."
+    },
+    {
+      "id": "s1.body-parts.031",
+      "skill": "s1.body-parts",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "How many do we have?",
+      "head": [
+        "Body part",
+        "How many?"
+      ],
+      "rows": [
+        [
+          "eyes",
+          "2"
+        ],
+        [
+          "nose",
+          ""
+        ],
+        [
+          "ears",
+          ""
+        ],
+        [
+          "mouth",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "1"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "2"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "1"
+          ]
+        }
+      ],
+      "hints": [
+        "Look in a mirror.",
+        "Count your ears.",
+        "You have one nose."
+      ],
+      "explanation": "We have two eyes, one nose, two ears and one mouth."
+    },
+    {
+      "id": "s1.body-parts.032",
+      "skill": "s1.body-parts",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Kim runs in the park. She kicks a ball with her foot. She waves to a friend with her hand. She smiles with her mouth.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What does Kim kick the ball with?",
+          "options": [
+            {
+              "text": "her hand"
+            },
+            {
+              "text": "her head"
+            },
+            {
+              "text": "her foot"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "text",
+          "prompt": "What does she wave with?",
+          "answers": [
+            "hand",
+            "her hand"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read the second sentence.",
+        "Which part kicks?",
+        "The third sentence tells about waving."
+      ],
+      "explanation": "Kim kicks with her foot and waves with her hand."
+    },
+    {
+      "id": "s1.body-parts.033",
+      "skill": "s1.body-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the foot.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink",
+            "fill": "light"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "regions": [
+        {
+          "label": "head",
+          "x": 50,
+          "y": 15,
+          "w": 26.7,
+          "h": 20
+        },
+        {
+          "label": "arm",
+          "x": 71.7,
+          "y": 40.6,
+          "w": 16.7,
+          "h": 21.9
+        },
+        {
+          "label": "leg",
+          "x": 58.3,
+          "y": 75,
+          "w": 16.7,
+          "h": 28.1
+        },
+        {
+          "label": "foot",
+          "x": 61.7,
+          "y": 93.1,
+          "w": 20.8,
+          "h": 9.4
+        }
+      ],
+      "answers": [
+        3
+      ],
+      "hints": [
+        "You stand on it.",
+        "It is at the bottom.",
+        "It is below the leg."
+      ],
+      "explanation": "The foot is at the bottom of the leg. We stand on our feet."
+    },
+    {
+      "id": "s1.body-parts.034",
+      "skill": "s1.body-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the tummy.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink",
+            "fill": "light"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "regions": [
+        {
+          "label": "head",
+          "x": 50,
+          "y": 15,
+          "w": 26.7,
+          "h": 20
+        },
+        {
+          "label": "arm",
+          "x": 71.7,
+          "y": 40.6,
+          "w": 16.7,
+          "h": 21.9
+        },
+        {
+          "label": "tummy",
+          "x": 50,
+          "y": 44.4,
+          "w": 29.2,
+          "h": 21.9
+        },
+        {
+          "label": "foot",
+          "x": 61.7,
+          "y": 93.1,
+          "w": 20.8,
+          "h": 9.4
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "It is in the middle.",
+        "Your food goes here.",
+        "It is below the neck."
+      ],
+      "explanation": "The tummy is the middle part of the body, between the chest and the legs."
+    },
+    {
+      "id": "s1.body-parts.035",
+      "skill": "s1.body-parts",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the child. One label does not belong.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 320,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 104,
+            "x2": 48,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "line",
+            "x1": 156,
+            "y1": 104,
+            "x2": 192,
+            "y2": 162,
+            "tone": "warn",
+            "width": 14
+          },
+          {
+            "t": "circle",
+            "cx": 46,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 194,
+            "cy": 168,
+            "r": 12,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 104,
+            "y1": 190,
+            "x2": 100,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "line",
+            "x1": 136,
+            "y1": 190,
+            "x2": 140,
+            "y2": 286,
+            "tone": "warn",
+            "width": 18
+          },
+          {
+            "t": "ellipse",
+            "cx": 92,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 148,
+            "cy": 298,
+            "rx": 22,
+            "ry": 9,
+            "rot": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 84,
+            "y": 90,
+            "w": 72,
+            "h": 104,
+            "r": 16,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 112,
+            "y": 74,
+            "w": 16,
+            "h": 18,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 48,
+            "r": 30,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 109,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 131,
+            "cy": 44,
+            "r": 3.5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                108,
+                58
+              ],
+              [
+                120,
+                65
+              ],
+              [
+                132,
+                58
+              ]
+            ],
+            "closed": false,
+            "tone": "ink",
+            "fill": "light"
+          }
+        ],
+        "alt": "A child standing with arms out to the sides. The picture shows the head, arms, hands, tummy, legs and feet."
+      },
+      "labels": [
+        "head",
+        "tummy",
+        "leg",
+        "foot"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 15
+        },
+        {
+          "x": 50,
+          "y": 44.4
+        },
+        {
+          "x": 58.3,
+          "y": 75
+        },
+        {
+          "x": 61.7,
+          "y": 93.1
+        }
+      ],
+      "extraLabels": [
+        "wing"
+      ],
+      "hints": [
+        "Start at the top.",
+        "Birds have wings.",
+        "The foot is at the bottom."
+      ],
+      "explanation": "A child has a head, a tummy, legs and feet. A child does not have a wing."
+    },
+    {
+      "id": "s1.body-parts.036",
+      "skill": "s1.body-parts",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "You have ten fingers and ten ___.",
+      "blanks": [
+        {
+          "answers": [
+            "toes"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at your feet.",
+        "Fingers are on hands.",
+        "It starts with t."
+      ],
+      "explanation": "We have ten fingers on our hands and ten toes on our feet."
+    },
+    {
+      "id": "s1.body-parts.037",
+      "skill": "s1.body-parts",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a face with eyes, a nose and a mouth. Add two ears.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws two eyes, a nose and a mouth",
+            "points": 2
+          },
+          {
+            "label": "Draws two ears",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Start with a round face.",
+        "Put the eyes above the nose."
+      ],
+      "explanation": "A face has two eyes, one nose, one mouth and two ears."
+    },
+    {
+      "id": "s1.body-parts.038",
+      "skill": "s1.body-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You run, jump and kick. Which body parts do you use for all three?",
+      "options": [
+        {
+          "text": "arms",
+          "why": "Arms do not kick."
+        },
+        {
+          "text": "ears",
+          "why": "Ears do not help us run."
+        },
+        {
+          "text": "legs"
+        },
+        {
+          "text": "eyes",
+          "why": "Eyes help us see, not kick."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which part moves when you run?",
+        "Which part kicks a ball?",
+        "It is in the bottom half."
+      ],
+      "explanation": "We use our legs to run, jump and kick.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.body-parts.039",
+      "skill": "s1.body-parts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Kai has 2 hands. Each hand has 5 fingers. How many fingers does Kai have in all?",
+      "answer": 10,
+      "hints": [
+        "Count one hand.",
+        "There are two hands.",
+        "Add 5 and 5."
+      ],
+      "explanation": "5 fingers on each hand and 2 hands make 10 fingers.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.body-parts.040",
+      "skill": "s1.body-parts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Four friends take off both shoes. Each foot has 5 toes. How many toes can you count?",
+      "answer": 40,
+      "hints": [
+        "First find the toes on one friend.",
+        "One friend has 10 toes.",
+        "Add 10 four times."
+      ],
+      "explanation": "Each friend has 2 feet with 5 toes. That is 10 toes each. 4 friends have 40 toes.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

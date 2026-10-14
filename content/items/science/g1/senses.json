@@ -380,6 +380,792 @@
           "y": 75
         }
       ]
+    },
+    {
+      "id": "s1.senses.017",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do we use our ears for?",
+      "options": [
+        {
+          "text": "seeing",
+          "why": "We see with our eyes."
+        },
+        {
+          "text": "hearing"
+        },
+        {
+          "text": "smelling",
+          "why": "We smell with our nose."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about music.",
+        "You do not see with your ears.",
+        "Ears help you hear."
+      ],
+      "explanation": "We hear sounds with our ears."
+    },
+    {
+      "id": "s1.senses.018",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sense tells you that ice is cold?",
+      "options": [
+        {
+          "text": "sight",
+          "why": "Your eyes can see ice, but they cannot feel cold."
+        },
+        {
+          "text": "hearing",
+          "why": "Ears hear sounds."
+        },
+        {
+          "text": "touch"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hold ice in your hand.",
+        "Which part feels it?",
+        "The skin feels cold."
+      ],
+      "explanation": "We feel cold with our skin. This is the sense of touch."
+    },
+    {
+      "id": "s1.senses.019",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sense do you use to tell if a lemon is sour?",
+      "options": [
+        {
+          "text": "sight",
+          "why": "Your eyes can see a lemon, but they cannot tell if it is sour."
+        },
+        {
+          "text": "taste"
+        },
+        {
+          "text": "hearing",
+          "why": "A lemon does not make a sound."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You put it in your mouth.",
+        "The tongue helps you.",
+        "Think about eating."
+      ],
+      "explanation": "We use our tongue to taste. Lemons taste sour."
+    },
+    {
+      "id": "s1.senses.020",
+      "skill": "s1.senses",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Do you use your eyes or your ears? Sort the cards.",
+      "groups": [
+        "Eyes",
+        "Ears"
+      ],
+      "items": [
+        {
+          "text": "read a book",
+          "group": 0
+        },
+        {
+          "text": "see a rainbow",
+          "group": 0
+        },
+        {
+          "text": "watch a bird",
+          "group": 0
+        },
+        {
+          "text": "hear a drum",
+          "group": 1
+        },
+        {
+          "text": "listen to a song",
+          "group": 1
+        },
+        {
+          "text": "hear rain on the roof",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Reading needs your eyes.",
+        "Listening needs your ears.",
+        "Start with the drum."
+      ],
+      "explanation": "We use our eyes to read, see and watch. We use our ears to hear and listen."
+    },
+    {
+      "id": "s1.senses.021",
+      "skill": "s1.senses",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things you can smell.",
+      "options": [
+        {
+          "text": "a whisper"
+        },
+        {
+          "text": "a rainbow"
+        },
+        {
+          "text": "soap"
+        },
+        {
+          "text": "fresh bread"
+        },
+        {
+          "text": "a flower"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "Use your nose.",
+        "Rainbows have no smell.",
+        "Think of the kitchen."
+      ],
+      "explanation": "We can smell flowers, bread and soap with our nose. A rainbow is something we see. A whisper is something we hear."
+    },
+    {
+      "id": "s1.senses.022",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dimas puts his hand in a bag. Something feels soft and round. Which sense is he using?",
+      "options": [
+        {
+          "text": "touch"
+        },
+        {
+          "text": "taste",
+          "why": "He is not eating it."
+        },
+        {
+          "text": "smell",
+          "why": "He is not using his nose."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which part of the body is in the bag?",
+        "He feels with his skin.",
+        "Hands help us touch."
+      ],
+      "explanation": "Dimas feels the object with his hand. He is using touch."
+    },
+    {
+      "id": "s1.senses.023",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dina has a blocked nose. Which sense is hard to use?",
+      "options": [
+        {
+          "text": "hearing",
+          "why": "Her ears work well."
+        },
+        {
+          "text": "smell"
+        },
+        {
+          "text": "sight",
+          "why": "Her eyes work well."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which part is blocked?",
+        "Nose and smell go together.",
+        "Eyes and ears still work."
+      ],
+      "explanation": "We smell with our nose. A blocked nose makes smelling hard."
+    },
+    {
+      "id": "s1.senses.024",
+      "skill": "s1.senses",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each food to its taste.",
+      "pairs": [
+        [
+          "lemon",
+          "sour"
+        ],
+        [
+          "sugar",
+          "sweet"
+        ],
+        [
+          "salt",
+          "salty"
+        ],
+        [
+          "bitter melon",
+          "bitter"
+        ]
+      ],
+      "hints": [
+        "Think of a sweet cake.",
+        "A lemon makes your face scrunch.",
+        "Salt is in chips."
+      ],
+      "explanation": "Lemons are sour, sugar is sweet, salt is salty and bitter melon is bitter."
+    },
+    {
+      "id": "s1.senses.025",
+      "skill": "s1.senses",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "We use our ___ to see and our ___ to hear.",
+      "gaps": [
+        {
+          "options": [
+            "eyes",
+            "ears",
+            "nose"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "ears",
+            "eyes",
+            "hands"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Which part sees?",
+        "Which part hears?",
+        "Read the sentence slowly."
+      ],
+      "explanation": "We see with our eyes. We hear with our ears."
+    },
+    {
+      "id": "s1.senses.026",
+      "skill": "s1.senses",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the sense table.",
+      "head": [
+        "Sense",
+        "Body part"
+      ],
+      "rows": [
+        [
+          "sight",
+          "eyes"
+        ],
+        [
+          "hearing",
+          ""
+        ],
+        [
+          "smell",
+          ""
+        ],
+        [
+          "taste",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "ears"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "nose"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "tongue"
+          ]
+        }
+      ],
+      "hints": [
+        "Each sense has a body part.",
+        "The nose is for smell.",
+        "The tongue is in your mouth."
+      ],
+      "explanation": "Sight uses the eyes and hearing uses the ears. Smell uses the nose and taste uses the tongue."
+    },
+    {
+      "id": "s1.senses.027",
+      "skill": "s1.senses",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Lina walks into the kitchen. She smells something sweet. She sees a cake on the table. The cake feels soft. It tastes lovely.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which sense tells Lina the cake is soft?",
+          "options": [
+            {
+              "text": "sight"
+            },
+            {
+              "text": "touch"
+            },
+            {
+              "text": "hearing"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What does Lina use to see the cake?",
+          "answers": [
+            "eyes",
+            "her eyes",
+            "eye"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Find the sentence about soft.",
+        "Which body part sees?",
+        "Skin feels soft."
+      ],
+      "explanation": "Lina feels the soft cake with touch and sees it with her eyes."
+    },
+    {
+      "id": "s1.senses.028",
+      "skill": "s1.senses",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap what you use to hear.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "ear",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "nose",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hand",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: eye, ear, nose and hand."
+      },
+      "regions": [
+        {
+          "label": "eye",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "ear",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "nose",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hand",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Which part listens to music?",
+        "It is on the side of your head.",
+        "It starts with e."
+      ],
+      "explanation": "We hear with our ears."
+    },
+    {
+      "id": "s1.senses.029",
+      "skill": "s1.senses",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part you use to taste.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "ear",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "tongue",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "nose",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: ear, tongue, eye and nose."
+      },
+      "regions": [
+        {
+          "label": "ear",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "tongue",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "eye",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "nose",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "It is inside your mouth.",
+        "You lick an ice cream with it.",
+        "It is pink."
+      ],
+      "explanation": "We taste with our tongue. It is in our mouth."
+    },
+    {
+      "id": "s1.senses.030",
+      "skill": "s1.senses",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Which sense goes with each part? Tap a label.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "eye",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "ear",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "nose",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "Pictures of an eye, an ear and a nose."
+      },
+      "labels": [
+        "sight",
+        "hearing",
+        "smell"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [],
+      "hints": [
+        "Match each part to a sense.",
+        "The ear is for sounds.",
+        "The nose is in the middle of the face."
+      ],
+      "explanation": "The eye is for sight, the ear is for hearing and the nose is for smell."
+    },
+    {
+      "id": "s1.senses.031",
+      "skill": "s1.senses",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Which sense do we use with our skin?",
+      "blanks": [
+        {
+          "answers": [
+            "touch",
+            "feel",
+            "feeling",
+            "touching"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about holding a cat.",
+        "Skin feels hot, cold and soft.",
+        "It starts with t."
+      ],
+      "explanation": "Our skin helps us feel things. This is the sense of touch."
+    },
+    {
+      "id": "s1.senses.032",
+      "skill": "s1.senses",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw something that tastes sweet and something that tastes sour.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a sweet food",
+            "points": 1
+          },
+          {
+            "label": "Draws a sour food",
+            "points": 1
+          },
+          {
+            "label": "Labels both foods",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Think of fruits.",
+        "Cake is sweet and lemon is sour."
+      ],
+      "explanation": "Cakes and honey taste sweet. Lemons and limes taste sour."
+    },
+    {
+      "id": "s1.senses.033",
+      "skill": "s1.senses",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which sense are you using?",
+      "listenText": "Can you hear the bell ring?",
+      "options": [
+        {
+          "text": "sight"
+        },
+        {
+          "text": "smell"
+        },
+        {
+          "text": "hearing"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Listen again.",
+        "You hear with your ears.",
+        "It is not smell."
+      ],
+      "explanation": "You listen with your ears, so you use hearing."
+    },
+    {
+      "id": "s1.senses.034",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Hana is blindfolded. She holds a small, hard ball that rattles. Which senses does she use?",
+      "options": [
+        {
+          "text": "sight and taste",
+          "why": "She cannot see."
+        },
+        {
+          "text": "smell and sight",
+          "why": "She cannot see."
+        },
+        {
+          "text": "touch and hearing"
+        },
+        {
+          "text": "taste and smell",
+          "why": "She is not eating it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What does a blindfold stop?",
+        "She holds the ball.",
+        "The ball rattles."
+      ],
+      "explanation": "She feels the ball with touch and she hears the rattle. The blindfold stops sight.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.senses.035",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which thing can you not find out only by looking?",
+      "options": [
+        {
+          "text": "the colour of a ball",
+          "why": "You can see colour."
+        },
+        {
+          "text": "how big a cat is",
+          "why": "You can see size."
+        },
+        {
+          "text": "how a lemon tastes"
+        },
+        {
+          "text": "the shape of a box",
+          "why": "You can see shape."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which sense do you need?",
+        "Eyes see colour and size.",
+        "Taste needs the tongue."
+      ],
+      "explanation": "We need to taste a lemon to know its taste. We can see colour, size and shape.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.senses.036",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Bayu covers his eyes and ears. Which can he still do?",
+      "options": [
+        {
+          "text": "see a bird",
+          "why": "His eyes are covered."
+        },
+        {
+          "text": "smell a flower"
+        },
+        {
+          "text": "hear a bell",
+          "why": "His ears are covered."
+        },
+        {
+          "text": "read a book",
+          "why": "He needs his eyes to read."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which parts are covered?",
+        "Which body part is free?",
+        "Smell uses the nose."
+      ],
+      "explanation": "Bayu uses his nose to smell, so he can still smell a flower.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

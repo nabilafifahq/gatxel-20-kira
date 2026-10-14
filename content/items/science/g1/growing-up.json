@@ -203,6 +203,777 @@
           "y": 50
         }
       ]
+    },
+    {
+      "id": "s1.growing-up.014",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a baby cat called?",
+      "options": [
+        {
+          "text": "a puppy",
+          "why": "A puppy is a baby dog."
+        },
+        {
+          "text": "a chick",
+          "why": "A chick is a baby hen."
+        },
+        {
+          "text": "a kitten"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Cats and kittens go together.",
+        "A puppy is a baby dog.",
+        "It sounds like cat."
+      ],
+      "explanation": "A baby cat is a kitten."
+    },
+    {
+      "id": "s1.growing-up.015",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a baby cow called?",
+      "options": [
+        {
+          "text": "a calf"
+        },
+        {
+          "text": "a lamb",
+          "why": "A lamb is a baby sheep."
+        },
+        {
+          "text": "a foal",
+          "why": "A foal is a baby horse."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Cows have calves.",
+        "A lamb is a baby sheep.",
+        "It starts with c."
+      ],
+      "explanation": "A baby cow is a calf."
+    },
+    {
+      "id": "s1.growing-up.016",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which person is the oldest?",
+      "options": [
+        {
+          "text": "the baby",
+          "why": "A baby is the youngest."
+        },
+        {
+          "text": "the grandfather"
+        },
+        {
+          "text": "the child",
+          "why": "A child is younger than a grandfather."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who has been alive longest?",
+        "A baby is very young.",
+        "Think of grey hair."
+      ],
+      "explanation": "A grandfather is the oldest of the three."
+    },
+    {
+      "id": "s1.growing-up.017",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A hen sits on her eggs. What hatches out?",
+      "options": [
+        {
+          "text": "puppies",
+          "why": "Puppies come from dogs."
+        },
+        {
+          "text": "calves",
+          "why": "Calves come from cows."
+        },
+        {
+          "text": "chicks"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A baby hen is a chick.",
+        "Puppies are dogs.",
+        "Calves are cows."
+      ],
+      "explanation": "Chicks hatch from hens' eggs."
+    },
+    {
+      "id": "s1.growing-up.018",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do many baby animals drink from their mothers?",
+      "options": [
+        {
+          "text": "juice",
+          "why": "Mothers do not make juice."
+        },
+        {
+          "text": "milk"
+        },
+        {
+          "text": "soup",
+          "why": "Mothers do not make soup."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a kitten.",
+        "It is white.",
+        "Babies need it to grow."
+      ],
+      "explanation": "Baby cats, dogs, cows and people drink milk from their mothers."
+    },
+    {
+      "id": "s1.growing-up.019",
+      "skill": "s1.growing-up",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the hen's life in order. Start with the egg.",
+      "items": [
+        "egg",
+        "chick",
+        "hen"
+      ],
+      "hints": [
+        "The egg comes first.",
+        "A chick is a baby.",
+        "The hen is last."
+      ],
+      "explanation": "A hen starts as an egg. It hatches into a chick and grows into a hen."
+    },
+    {
+      "id": "s1.growing-up.020",
+      "skill": "s1.growing-up",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the person in order. Start with the youngest.",
+      "items": [
+        "baby",
+        "child",
+        "adult",
+        "grandparent"
+      ],
+      "hints": [
+        "A baby is the youngest.",
+        "Adults are taller than children.",
+        "A grandparent is the oldest."
+      ],
+      "explanation": "A person starts as a baby, becomes a child, then an adult and later a grandparent."
+    },
+    {
+      "id": "s1.growing-up.021",
+      "skill": "s1.growing-up",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each animal to its baby.",
+      "pairs": [
+        [
+          "duck",
+          "duckling"
+        ],
+        [
+          "horse",
+          "foal"
+        ],
+        [
+          "goat",
+          "kid"
+        ],
+        [
+          "frog",
+          "tadpole"
+        ]
+      ],
+      "hints": [
+        "Duckling sounds like duck.",
+        "A tadpole lives in water.",
+        "A foal is a baby horse."
+      ],
+      "explanation": "A baby duck is a duckling and a baby horse is a foal. A baby goat is a kid and a baby frog is a tadpole."
+    },
+    {
+      "id": "s1.growing-up.022",
+      "skill": "s1.growing-up",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Does the baby hatch from an egg or is it born alive?",
+      "groups": [
+        "Hatches from an egg",
+        "Born alive"
+      ],
+      "items": [
+        {
+          "text": "hen",
+          "group": 0
+        },
+        {
+          "text": "duck",
+          "group": 0
+        },
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "cat",
+          "group": 1
+        },
+        {
+          "text": "dog",
+          "group": 1
+        },
+        {
+          "text": "cow",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Birds lay eggs.",
+        "Pets like cats have babies in a nest.",
+        "Frogs lay eggs in water."
+      ],
+      "explanation": "Hens, ducks and frogs lay eggs. Cats, dogs and cows have babies that are born alive."
+    },
+    {
+      "id": "s1.growing-up.023",
+      "skill": "s1.growing-up",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things a baby needs to grow.",
+      "options": [
+        {
+          "text": "a computer game"
+        },
+        {
+          "text": "a bicycle"
+        },
+        {
+          "text": "a warm home"
+        },
+        {
+          "text": "sleep"
+        },
+        {
+          "text": "food"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "What do you need every day?",
+        "A baby cannot ride a bicycle.",
+        "Think about food and rest."
+      ],
+      "explanation": "Babies need food, sleep and a warm home to grow."
+    },
+    {
+      "id": "s1.growing-up.024",
+      "skill": "s1.growing-up",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A tadpole grows into a ___. A caterpillar grows into a ___.",
+      "gaps": [
+        {
+          "options": [
+            "frog",
+            "fish",
+            "duck"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "butterfly",
+            "bee",
+            "spider"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "A tadpole lives in water first.",
+        "A caterpillar has many legs.",
+        "The butterfly has wings."
+      ],
+      "explanation": "A tadpole turns into a frog. A caterpillar turns into a butterfly."
+    },
+    {
+      "id": "s1.growing-up.025",
+      "skill": "s1.growing-up",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Name the baby animal.",
+      "head": [
+        "Parent",
+        "Baby"
+      ],
+      "rows": [
+        [
+          "dog",
+          "puppy"
+        ],
+        [
+          "cat",
+          ""
+        ],
+        [
+          "hen",
+          ""
+        ],
+        [
+          "cow",
+          "calf"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "kitten"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "chick"
+          ]
+        }
+      ],
+      "hints": [
+        "A baby dog is a puppy.",
+        "Cats have kittens.",
+        "A chick comes from an egg."
+      ],
+      "explanation": "A baby dog is a puppy and a baby cat is a kitten. A baby hen is a chick and a baby cow is a calf."
+    },
+    {
+      "id": "s1.growing-up.026",
+      "skill": "s1.growing-up",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Baby rabbits are tiny and have no fur. Their mother feeds them milk. After three weeks they have soft fur and hop about. Later they nibble grass.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What do the baby rabbits grow after three weeks?",
+          "options": [
+            {
+              "text": "wings"
+            },
+            {
+              "text": "soft fur"
+            },
+            {
+              "text": "a shell"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What does the mother feed the babies?",
+          "answers": [
+            "milk"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read the third sentence.",
+        "Look for the word feeds.",
+        "Milk comes from the mother."
+      ],
+      "explanation": "The baby rabbits grow soft fur after three weeks. Their mother feeds them milk."
+    },
+    {
+      "id": "s1.growing-up.027",
+      "skill": "s1.growing-up",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A hen lays 3 eggs. All 3 eggs hatch. How many chicks are there?",
+      "answer": 3,
+      "hints": [
+        "One egg makes one chick.",
+        "Count the eggs.",
+        "The numbers stay the same."
+      ],
+      "explanation": "Each egg hatches into one chick, so there are 3 chicks."
+    },
+    {
+      "id": "s1.growing-up.028",
+      "skill": "s1.growing-up",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the baby animal.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "chick",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures: chick, hen and cow."
+      },
+      "regions": [
+        {
+          "label": "chick",
+          "x": 16.7,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        },
+        {
+          "label": "hen",
+          "x": 50,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        },
+        {
+          "label": "cow",
+          "x": 83.3,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Babies are small.",
+        "A chick is yellow and fluffy.",
+        "The hen is big."
+      ],
+      "explanation": "The chick is the baby. The hen is the parent."
+    },
+    {
+      "id": "s1.growing-up.029",
+      "skill": "s1.growing-up",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the tadpole.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "tadpole",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "3 pictures: tadpole, frog and fish."
+      },
+      "regions": [
+        {
+          "label": "tadpole",
+          "x": 16.7,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        },
+        {
+          "label": "frog",
+          "x": 50,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        },
+        {
+          "label": "fish",
+          "x": 83.3,
+          "y": 50,
+          "w": 31.3,
+          "h": 94
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "It is a baby frog.",
+        "It has a long tail.",
+        "It has no legs yet."
+      ],
+      "explanation": "A tadpole is a baby frog. It has a tail and lives in water."
+    },
+    {
+      "id": "s1.growing-up.030",
+      "skill": "s1.growing-up",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the life of a hen.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "egg",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "chick",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "An egg, a chick and a hen."
+      },
+      "labels": [
+        "egg",
+        "chick",
+        "hen"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [],
+      "hints": [
+        "The egg is smooth and oval.",
+        "The chick is small.",
+        "The hen is the biggest."
+      ],
+      "explanation": "The egg is first, the chick hatches next and the hen is the adult."
+    },
+    {
+      "id": "s1.growing-up.031",
+      "skill": "s1.growing-up",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A young sheep is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "lamb"
+          ]
+        }
+      ],
+      "hints": [
+        "It sounds like a woolly animal.",
+        "It starts with l.",
+        "Mary had a little ___."
+      ],
+      "explanation": "A baby sheep is a lamb."
+    },
+    {
+      "id": "s1.growing-up.032",
+      "skill": "s1.growing-up",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw yourself as a baby and as a child.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a baby",
+            "points": 1
+          },
+          {
+            "label": "Draws a child that is bigger",
+            "points": 1
+          },
+          {
+            "label": "Labels baby and child",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "The baby is smaller.",
+        "Add a label to each picture."
+      ],
+      "explanation": "A baby grows into a child. A child is taller than a baby."
+    },
+    {
+      "id": "s1.growing-up.033",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A small animal with a long tail swims in a pond. It has no legs. Later it has four legs and no tail. What is it?",
+      "options": [
+        {
+          "text": "a fish",
+          "why": "A fish does not grow legs."
+        },
+        {
+          "text": "a snake",
+          "why": "A snake lives on land."
+        },
+        {
+          "text": "a duckling",
+          "why": "A duckling has feathers."
+        },
+        {
+          "text": "a tadpole"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "It lives in water.",
+        "It grows legs later.",
+        "It becomes a frog."
+      ],
+      "explanation": "A tadpole grows legs and loses its tail when it turns into a frog.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.growing-up.034",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one cannot grow up?",
+      "options": [
+        {
+          "text": "a seed",
+          "why": "A seed grows into a plant."
+        },
+        {
+          "text": "a baby",
+          "why": "A baby grows into a child."
+        },
+        {
+          "text": "a stone"
+        },
+        {
+          "text": "a chick",
+          "why": "A chick grows into a hen."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Only living things grow up.",
+        "Which one is not alive?",
+        "A seed is alive inside."
+      ],
+      "explanation": "A stone is not alive, so it cannot grow up.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.growing-up.035",
+      "skill": "s1.growing-up",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Putu is older than Dewi. Dewi is older than baby Eko. Who is the youngest?",
+      "options": [
+        {
+          "text": "Putu",
+          "why": "Putu is the oldest."
+        },
+        {
+          "text": "Eko"
+        },
+        {
+          "text": "Dewi",
+          "why": "Eko is younger than Dewi."
+        },
+        {
+          "text": "They are all the same age",
+          "why": "They are different ages."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Put them in a line.",
+        "Who is older than Dewi?",
+        "Eko is a baby."
+      ],
+      "explanation": "Putu is oldest, Dewi is in the middle and baby Eko is the youngest.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
