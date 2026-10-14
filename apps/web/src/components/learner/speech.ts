@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { hasNativeBridge, nativeReady, nativeSpeak, nativeStop, nativeTtsReady } from '@/lib/native'
+import { duckMusic } from './music'
 import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus } from './tts-client'
 
 /**
@@ -99,6 +100,11 @@ export function useSpeech(lang: SpeechLang): {
   const [available, setAvailable] = useState<boolean | null>(null)
   const [clipsReady, setClipsReady] = useState(false)
   const [reading, setReading] = useState(false)
+  // Musik latar turun selama bacaan berjalan (ducking).
+  useEffect(() => {
+    duckMusic(id, reading)
+    return () => duckMusic(id, false)
+  }, [id, reading])
   const token = useRef(0)
 
   useEffect(() => {
