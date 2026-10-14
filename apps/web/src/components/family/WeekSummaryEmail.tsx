@@ -3,7 +3,7 @@ import { BG, DIVIDER, INK, MATH, MATH_50, MUTED, WHITE } from '@kira/figures/pal
 import type { WeekSummaryDTO } from '@/lib/dto'
 import { dateId } from '@/components/console/format'
 import { renderStaticMarkup } from './staticMarkup'
-import { emailSubject, questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
+import { arenaParagraph, emailSubject, questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
 
 /**
  * Email laporan mingguan untuk orang tua (papan EmailLaporan). HTML berbasis tabel dengan
@@ -122,6 +122,12 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
                             <p style={p({ color: MUTED })}>Tidak ada skill yang perlu diulang minggu ini.</p>
                           )}
                         </Row>
+                        {arenaParagraph(s.arena) ? (
+                          <Row>
+                            <H2>Arena</H2>
+                            <p style={p()}>{arenaParagraph(s.arena)}</p>
+                          </Row>
+                        ) : null}
                         {s.tutorNote ? (
                           <Row>
                             <H2>Catatan tutor</H2>
@@ -195,6 +201,8 @@ function textVersion(s: WeekSummaryDTO, opts: WeekSummaryEmailOptions): string {
   lines.push('', 'PERLU DIULANG')
   if (s.skillsToRepeat.length) s.skillsToRepeat.forEach((d) => lines.push(`- ${d.title}, ${SUBJECT_NAME[d.subject]}, ${d.note}`))
   else lines.push('Tidak ada skill yang perlu diulang minggu ini.')
+  const arena = arenaParagraph(s.arena)
+  if (arena) lines.push('', 'ARENA', arena)
   if (s.tutorNote) lines.push('', 'CATATAN TUTOR', s.tutorNote)
   if (s.nextCompetition) lines.push('', 'LOMBA BERIKUTNYA', `${s.nextCompetition.name}: ${dateId(s.nextCompetition.date, true)}.`)
   if (opts.reportUrl) lines.push('', `Buka laporan lengkap: ${opts.reportUrl}`)

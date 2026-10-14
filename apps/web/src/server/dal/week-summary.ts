@@ -22,6 +22,7 @@ import type { Subject, WeekSummaryDTO } from '@/lib/dto'
 import type { Tx } from '../db'
 import { SUBJECT_ORDER } from './console-common'
 import { gradeOfSkill, skill, subjectOfSkill } from './content'
+import { arenaWeekDTO } from './arena-week'
 import { loadLearner, type LearnerRow } from './learner-core'
 
 /**
@@ -303,6 +304,7 @@ export async function weekSummaryData(tx: Tx, learnerId: string, weekStart: IsoD
     skillsToRepeat: repeat.map((s) => ({ subject: s.subject, title: s.title, note: s.note })),
     tutorNote,
     nextCompetition: pickNextCompetition(events, learnerId, today),
+    arena: await arenaWeekDTO(tx, learnerId, monday, sunday),
   }
   return { dto, monday, learner, skills, up, repeat }
 }

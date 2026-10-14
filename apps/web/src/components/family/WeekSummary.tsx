@@ -2,7 +2,7 @@ import type { WeekSummaryDTO } from '@/lib/dto'
 import { dateId } from '@/components/console/format'
 import { ConsoleIcon, StarGlyph } from '@/components/console/icons'
 import { cx } from '@/components/console/cx'
-import { questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
+import { arenaParagraph, questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
 
 /**
  * Ringkasan minggu untuk orang tua (papan RingkasanMinggu, RingkasanMingguPertama).
@@ -99,6 +99,15 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
           )}
         </ul>
       </section>
+
+      {arenaParagraph(s.arena) ? (
+        <section aria-labelledby="ws-arena" className="flex flex-col gap-2.5">
+          <H id="ws-arena" className={hcls}>
+            Arena
+          </H>
+          <p className="m-0 text-body">{arenaParagraph(s.arena)}</p>
+        </section>
+      ) : null}
 
       {s.tutorNote ? (
         <section aria-labelledby="ws-catatan" className="flex flex-col gap-2.5">
