@@ -65,6 +65,20 @@ export async function simulationWindow(tx: Tx, learnerId: string, subject: Subje
   return null
 }
 
+/** Mapel dengan program olimpiade aktif yang tanggal ini jatuh di hari ringan (taper) sebelum lomba. */
+export async function taperSubjects(tx: Tx, learnerId: string, date: IsoDate): Promise<Set<Subject>> {
+  const runs = await tx
+    .select({ programId: programRun.programId, startDate: programRun.startDate })
+    .from(programRun)
+    .where(and(eq(programRun.learnerId, learnerId), eq(programRun.status, 'active')))
+  const out = new Set<Subject>()
+  for (const r of runs) {
+    const prog = programs().find((p) => p.id === r.programId)
+    if (prog && programPosition(prog, r.startDate, date)?.taper) out.add(prog.subject as Subject)
+  }
+  return out
+}
+
 /** Skill yang dipakai paper buatan Kira: strand olimpiade untuk Math, skill yang ditandai lomba untuk English dan Science. */
 function contestSkillIds(subject: Subject, grade: number): Set<string> {
   const skills = skillsFor(subject, grade)

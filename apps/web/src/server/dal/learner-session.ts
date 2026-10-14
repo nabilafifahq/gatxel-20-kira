@@ -2,6 +2,7 @@ import 'server-only'
 import { and, asc, eq, inArray, lte, sql } from 'drizzle-orm'
 import {
   DAY_TEMPLATES,
+  dropTaperEntries,
   LATIHAN_COUNT,
   TES_COUNT,
   TES_SECONDS_PER_QUESTION,
@@ -27,7 +28,7 @@ import type { Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
 import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
-import { pickDailyPaper } from './daily-paper'
+import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
 import { isRestDay, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 
@@ -414,7 +415,7 @@ export async function ensureTodayQuests(tx: Tx, ctx: OrgContext, learner: Learne
 
   const day = await publishedDay(tx, learner.userId, date)
   const rowById = new Map(day.rows.map((r) => [r.id, r]))
-  const entries = composeDay({ template: day.template, date, slots: plannedSlots(day.rows) })
+  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows) }), await taperSubjects(tx, learner.userId, date))
   const haveKey = new Set(existing.filter((q) => q.kind !== 'bonus').map((q) => `${q.kind}:${q.subject}:${q.session}:${q.seq}`))
   const haveSlot = new Set(existing.map((q) => q.planSlotId).filter((x): x is string => Boolean(x)))
 
