@@ -23,7 +23,7 @@ export default async function TodayPage() {
   )
   return (
     <>
-      <TodayScreen data={data} chestActions={{ open: () => openChestAction(), equip: equipChestRewardAction }} />
+      <TodayScreen data={data} chestActions={{ open: openChestAction, equip: equipChestRewardAction }} />
       <OfflinePrecache urls={urls} />
     </>
   )
