@@ -9,7 +9,11 @@ describe('peti hadiah harian', () => {
   })
 
   it('mendahulukan hadiah yang belum dimiliki', () => {
-    const owned = new Set(chestTable().filter((r) => r.kind === 'sticker').map((r) => rewardKey(r.kind, r.id)))
+    const owned = new Set(
+      chestTable()
+        .filter((r) => r.kind === 'sticker')
+        .map((r) => rewardKey(r.kind, r.id)),
+    )
     for (let d = 0; d < 40; d++) {
       const { reward, isNew } = pickChestReward(`x:${d}`, owned)
       expect(isNew).toBe(true)

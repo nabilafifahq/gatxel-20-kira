@@ -89,7 +89,10 @@ export function chestRewardByKey(kind: string, id: string): ChestReward | undefi
  * Pilih hadiah. `owned` berisi rewardKey yang sudah dimiliki. Jenis dipilih menurut bobot di antara jenis yang
  * masih punya hadiah baru; kalau semua sudah dimiliki, hadiah berulang tetap diberikan (isNew false).
  */
-export function pickChestReward(seed: string, owned: ReadonlySet<string>): { reward: ChestReward; isNew: boolean } {
+export function pickChestReward(
+  seed: string,
+  owned: ReadonlySet<string>,
+): { reward: ChestReward; isNew: boolean } {
   const rng = createRng(`chest:${seed}`)
   const table = chestTable()
   const fresh = table.filter((r) => !owned.has(rewardKey(r.kind, r.id)))
@@ -111,7 +114,12 @@ export function pickChestReward(seed: string, owned: ReadonlySet<string>): { rew
 export type ChestState = 'none' | 'locked' | 'ready' | 'opened'
 
 /** Keadaan peti di Today. Hari istirahat tidak punya peti. */
-export function chestStateOf(input: { rest: boolean; doneCount: number; totalCount: number; openedToday: boolean }): ChestState {
+export function chestStateOf(input: {
+  rest: boolean
+  doneCount: number
+  totalCount: number
+  openedToday: boolean
+}): ChestState {
   if (input.rest || input.totalCount <= 0) return 'none'
   if (input.openedToday) return 'opened'
   return input.doneCount >= input.totalCount ? 'ready' : 'locked'

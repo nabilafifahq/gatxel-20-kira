@@ -20,7 +20,9 @@ import { applyBackground, assertChestOwned, openChestTx } from '../dal/learner-m
 
 const noInput = z.object({}).strict()
 
-export async function openChestAction(input: Record<string, never> = {}): Promise<ActionResult<ChestRewardDTO>> {
+export async function openChestAction(
+  input: Record<string, never> = {},
+): Promise<ActionResult<ChestRewardDTO>> {
   return runAction(
     'openChest',
     async () => {
@@ -42,17 +44,32 @@ const equip = z
     id: z.string().min(1).max(40).nullable(),
   })
   .strict()
-  .refine((v) => v.id === null || (v.kind === 'accessory' ? CHEST_ACCESSORY_IDS.includes(v.id) : CHEST_BACKGROUNDS.some((b) => b.id === v.id)), { message: 'Unknown reward.' })
+  .refine(
+    (v) =>
+      v.id === null ||
+      (v.kind === 'accessory'
+        ? CHEST_ACCESSORY_IDS.includes(v.id)
+        : CHEST_BACKGROUNDS.some((b) => b.id === v.id)),
+    { message: 'Unknown reward.' },
+  )
 
 /** Pakai (atau lepas, id null) aksesori atau latar yang sudah didapat dari peti. */
-export async function equipChestRewardAction(input: { kind: 'accessory' | 'background'; id: string | null }): Promise<ActionResult> {
+export async function equipChestRewardAction(input: {
+  kind: 'accessory' | 'background'
+  id: string | null
+}): Promise<ActionResult> {
   return runAction(
     'equipChestReward',
     async () => {
       const actor = await requireLearner()
       const data = equip.parse(input)
-      if (data.id !== null) await inOrg(orgCtx(actor), (tx) => assertChestOwned(tx, actor.userId, data.kind, data.id as string))
-      await inOrg(systemCtx(actor.orgId), (tx) => (data.kind === 'accessory' ? applyAccessory(tx, actor.userId, data.id as AccessoryId | null) : applyBackground(tx, actor.userId, data.id)))
+      if (data.id !== null)
+        await inOrg(orgCtx(actor), (tx) => assertChestOwned(tx, actor.userId, data.kind, data.id as string))
+      await inOrg(systemCtx(actor.orgId), (tx) =>
+        data.kind === 'accessory'
+          ? applyAccessory(tx, actor.userId, data.id as AccessoryId | null)
+          : applyBackground(tx, actor.userId, data.id),
+      )
       return undefined
     },
     'en-GB',

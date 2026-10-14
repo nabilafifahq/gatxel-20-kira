@@ -3,7 +3,8 @@
 import type { PointerEvent, ReactElement, ReactNode } from 'react'
 import { playSfx } from './sfx'
 
-const TARGET = 'button, [role="button"], [role="radio"], [role="checkbox"], [role="option"], [role="gridcell"], [role="switch"]'
+const TARGET =
+  'button, [role="button"], [role="radio"], [role="checkbox"], [role="option"], [role="gridcell"], [role="switch"]'
 
 /** Apakah sentuhan ini mengenai kontrol jawaban yang aktif? Ditulis terpisah supaya bisa dites. */
 export function isTapTarget(el: Element | null): boolean {
@@ -22,7 +23,12 @@ export function isTapTarget(el: Element | null): boolean {
  */
 export function TapSound({ children }: { children: ReactNode }): ReactElement {
   return (
-    <div className="contents" onPointerDownCapture={(e: PointerEvent<HTMLDivElement>) => (isTapTarget(e.target as Element | null) ? playSfx('tap') : undefined)}>
+    <div
+      className="contents"
+      onPointerDownCapture={(e: PointerEvent<HTMLDivElement>) =>
+        isTapTarget(e.target as Element | null) ? playSfx('tap') : undefined
+      }
+    >
       {children}
     </div>
   )

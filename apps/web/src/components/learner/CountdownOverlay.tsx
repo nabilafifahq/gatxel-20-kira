@@ -12,7 +12,15 @@ import { playSfx, primeSfx } from './sfx'
  */
 export const COUNTDOWN_STEP_MS = 800
 
-export function CountdownOverlay({ from = 3, onGo, onDone }: { from?: number; onGo?: () => void; onDone?: () => void }): ReactElement | null {
+export function CountdownOverlay({
+  from = 3,
+  onGo,
+  onDone,
+}: {
+  from?: number
+  onGo?: () => void
+  onDone?: () => void
+}): ReactElement | null {
   const [n, setN] = useState(from)
   const [open, setOpen] = useState(true)
   const go = useRef(onGo)
@@ -41,8 +49,20 @@ export function CountdownOverlay({ from = 3, onGo, onDone }: { from?: number; on
   if (!open) return null
   const label = n > 0 ? String(n) : 'Go!'
   return (
-    <div role="status" aria-live="assertive" aria-label={label} className="kira-fade-in fixed inset-0 z-50 flex items-center justify-center bg-bg/95">
-      <span key={n} aria-hidden="true" className={cx('kira-count font-display text-[160px] leading-none font-semibold tabular-nums', n > 0 ? 'text-fg' : 'text-success')}>
+    <div
+      role="status"
+      aria-live="assertive"
+      aria-label={label}
+      className="kira-fade-in fixed inset-0 z-50 flex items-center justify-center bg-bg/95"
+    >
+      <span
+        key={n}
+        aria-hidden="true"
+        className={cx(
+          'kira-count font-display text-[160px] leading-none font-semibold tabular-nums',
+          n > 0 ? 'text-fg' : 'text-success',
+        )}
+      >
         {label}
       </span>
     </div>

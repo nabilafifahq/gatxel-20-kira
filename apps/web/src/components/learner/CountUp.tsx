@@ -15,7 +15,17 @@ export function countUpValue(target: number, elapsedMs: number, durationMs: numb
  * Angka yang menghitung naik saat muncul (hasil sesi), sekitar satu detik. Satu elemen saja, jadi teks akhirnya
  * sama dengan tanpa animasi. Reduced motion dan `animate={false}` langsung ke nilai akhir.
  */
-export function CountUp({ value, durationMs = 900, delayMs = 250, animate = true }: { value: number; durationMs?: number; delayMs?: number; animate?: boolean }): ReactElement {
+export function CountUp({
+  value,
+  durationMs = 900,
+  delayMs = 250,
+  animate = true,
+}: {
+  value: number
+  durationMs?: number
+  delayMs?: number
+  animate?: boolean
+}): ReactElement {
   const reduce = useReducedMotion()
   const [shown, setShown] = useState(animate ? 0 : value)
   useEffect(() => {

@@ -35,8 +35,17 @@ export function RunnerCorner({
     <div className={cx('pointer-events-none absolute top-0 right-0 z-10 flex items-center gap-2', className)}>
       <ComboStars streak={streak} className="max-sm:hidden" />
       <div className="relative">
-        <Mascot name={shell.avatar as AvatarName} mood={mood} size={44} accessory={shell.accessory ?? null} background={shell.background ?? null} replayKey={nonce} />
-        {phase === 'correct' ? <XpFly xp={xp} nonce={nonce} className="top-0 right-1" toward={{ x: -24, y: -72 }} /> : null}
+        <Mascot
+          name={shell.avatar as AvatarName}
+          mood={mood}
+          size={44}
+          accessory={shell.accessory ?? null}
+          background={shell.background ?? null}
+          replayKey={nonce}
+        />
+        {phase === 'correct' ? (
+          <XpFly xp={xp} nonce={nonce} className="top-0 right-1" toward={{ x: -24, y: -72 }} />
+        ) : null}
       </div>
     </div>
   )

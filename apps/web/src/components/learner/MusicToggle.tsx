@@ -21,7 +21,13 @@ export function MusicToggle({ className }: { className?: string }): ReactElement
       icon="music"
       aria-pressed={active}
       disabled={blocked}
-      aria-label={blocked ? 'Music is turned off by your tutor.' : on ? 'Music is on. Turn it off.' : 'Music is off. Turn it on.'}
+      aria-label={
+        blocked
+          ? 'Music is turned off by your tutor.'
+          : on
+            ? 'Music is on. Turn it off.'
+            : 'Music is off. Turn it on.'
+      }
       className={className}
       onClick={() => {
         setOn(!on)

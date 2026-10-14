@@ -17,8 +17,13 @@ const AUDIO_CACHE = `${VERSION}-audio`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
-// Efek suara learner (sekitar 45 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
-const SOUNDS = ['correct', 'notyet', 'combo', 'levelup', 'badge', 'complete', 'tick', 'timeup', 'tap'].map((n) => `/sounds/${n}.mp3`)
+// Efek suara learner (varian per kejadian, sekitar 200 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
+// Musik latar (music-1 sampai 3) tidak dipasang di muka; disimpan saat pertama kali diputar.
+const SOUND_VARIANTS = {
+  correct: 3, notyet: 3, tap: 4, combo1: 2, combo2: 2, combo3: 2, levelup: 3, badge: 3, chest: 3, complete: 3, big: 3,
+  tick: 2, timeup: 3, count: 2, go: 2, whoosh: 3, flag: 2, quiz: 2,
+}
+const SOUNDS = Object.entries(SOUND_VARIANTS).flatMap(([n, k]) => Array.from({ length: k }, (_, i) => `/sounds/${n}-${i + 1}.mp3`))
 const MAX_AUDIO = 900
 const CLIP = /^\/tts\/[0-9a-f]{64}\.mp3$/
 

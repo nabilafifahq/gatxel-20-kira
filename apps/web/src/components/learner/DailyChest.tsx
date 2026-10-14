@@ -21,16 +21,39 @@ export type ChestActions = {
   equip(input: { kind: 'accessory' | 'background'; id: string | null }): Promise<ActionResult>
 }
 
-const KIND_WORD: Record<ChestRewardDTO['kind'], string> = { sticker: 'sticker', background: 'avatar background', accessory: 'accessory' }
+const KIND_WORD: Record<ChestRewardDTO['kind'], string> = {
+  sticker: 'sticker',
+  background: 'avatar background',
+  accessory: 'accessory',
+}
 
-export function ChestArt({ open, locked, className }: { open: boolean; locked?: boolean; className?: string }): ReactElement {
+export function ChestArt({
+  open,
+  locked,
+  className,
+}: {
+  open: boolean
+  locked?: boolean
+  className?: string
+}): ReactElement {
   return (
-    <svg viewBox="0 0 96 80" width="144" height="120" aria-hidden="true" className={cx(className, locked && 'opacity-60')}>
+    <svg
+      viewBox="0 0 96 80"
+      width="144"
+      height="120"
+      aria-hidden="true"
+      className={cx(className, locked && 'opacity-60')}
+    >
       {open ? <circle cx="48" cy="30" r="26" className="kira-fade-in fill-star" fillOpacity="0.45" /> : null}
       <rect x="14" y="38" width="68" height="34" rx="5" className="fill-warn stroke-fg" strokeWidth="3" />
       <path d="M14 50h68" className="stroke-fg" strokeWidth="3" />
       <g className={open ? 'kira-chest-lid' : undefined}>
-        <path d="M14 38c0-14 10-22 34-22s34 8 34 22z" className="fill-warn-50 stroke-fg" strokeWidth="3" strokeLinejoin="round" />
+        <path
+          d="M14 38c0-14 10-22 34-22s34 8 34 22z"
+          className="fill-warn-50 stroke-fg"
+          strokeWidth="3"
+          strokeLinejoin="round"
+        />
         <path d="M14 38h68" className="stroke-fg" strokeWidth="3" />
       </g>
       <rect x="40" y="44" width="16" height="14" rx="3" className="fill-star stroke-fg" strokeWidth="3" />
@@ -39,10 +62,37 @@ export function ChestArt({ open, locked, className }: { open: boolean; locked?: 
   )
 }
 
-function RewardArt({ reward, avatar, accessory, background }: { reward: ChestRewardDTO; avatar: AvatarName; accessory?: string | null; background?: string | null }): ReactElement {
+function RewardArt({
+  reward,
+  avatar,
+  accessory,
+  background,
+}: {
+  reward: ChestRewardDTO
+  avatar: AvatarName
+  accessory?: string | null
+  background?: string | null
+}): ReactElement {
   if (reward.kind === 'sticker') return <Icon name={reward.id as IconName} size={96} title={reward.label} />
-  if (reward.kind === 'accessory') return <Avatar name={avatar} accessory={reward.id} background={background ?? null} size={96} title={reward.label} />
-  return <Avatar name={avatar} accessory={accessory ?? null} background={reward.id} size={96} title={reward.label} />
+  if (reward.kind === 'accessory')
+    return (
+      <Avatar
+        name={avatar}
+        accessory={reward.id}
+        background={background ?? null}
+        size={96}
+        title={reward.label}
+      />
+    )
+  return (
+    <Avatar
+      name={avatar}
+      accessory={accessory ?? null}
+      background={reward.id}
+      size={96}
+      title={reward.label}
+    />
+  )
 }
 
 export function DailyChest({
@@ -109,7 +159,13 @@ export function DailyChest({
   const opening = stage === 'busy' && reward !== null
 
   return (
-    <section aria-labelledby="chest-title" className={cx('flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-divider bg-surface px-4 py-4 md:px-6', className)}>
+    <section
+      aria-labelledby="chest-title"
+      className={cx(
+        'flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-divider bg-surface px-4 py-4 md:px-6',
+        className,
+      )}
+    >
       <div className={cx('flex-none', state === 'ready' && stage === 'idle' && 'kira-chest-wiggle')}>
         <ChestArt open={opening || state === 'opened'} locked={state === 'locked'} />
       </div>
@@ -128,7 +184,14 @@ export function DailyChest({
               </span>
               <span className="text-body text-fg-muted">{shown.label}</span>
               {shown.kind !== 'sticker' && actions ? (
-                <Button variant="secondary" size="M" loading={wearBusy} onClick={wear} aria-pressed={worn} className="self-start">
+                <Button
+                  variant="secondary"
+                  size="M"
+                  loading={wearBusy}
+                  onClick={wear}
+                  aria-pressed={worn}
+                  className="self-start"
+                >
                   {worn ? 'Take it off' : 'Wear it'}
                 </Button>
               ) : null}

@@ -16,14 +16,30 @@ export function comboLevel(streak: number): 0 | 1 | 2 | 3 {
 }
 
 /** Bintang kombo: 1 sampai 3 bintang yang membesar mengikuti beruntun. Teks selalu menyertai (bukan hanya gambar). */
-export function ComboStars({ streak, className }: { streak: number; className?: string }): ReactElement | null {
+export function ComboStars({
+  streak,
+  className,
+}: {
+  streak: number
+  className?: string
+}): ReactElement | null {
   const level = comboLevel(streak)
   if (level === 0) return null
   const sizes = [20, 26, 32]
   return (
-    <span key={level} role="status" aria-label={`${streak} in a row`} className={cx('inline-flex items-end gap-0.5', className)}>
+    <span
+      key={level}
+      role="status"
+      aria-label={`${streak} in a row`}
+      className={cx('inline-flex items-end gap-0.5', className)}
+    >
       {Array.from({ length: level }, (_, i) => (
-        <span key={i} aria-hidden="true" className="kira-scale-in inline-flex" style={{ '--kira-delay': `${i * 90}ms` } as CSSProperties}>
+        <span
+          key={i}
+          aria-hidden="true"
+          className="kira-scale-in inline-flex"
+          style={{ '--kira-delay': `${i * 90}ms` } as CSSProperties}
+        >
           <StarGlyph filled size={sizes[Math.min(i + (level - 1), 2)]!} />
         </span>
       ))}
