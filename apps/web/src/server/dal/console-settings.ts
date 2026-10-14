@@ -91,7 +91,7 @@ export async function settingsDTO(actor: Actor, learnerParam: string | null): Pr
   const base = await inOrg(ctx, async (tx) => {
     const { shell } = await shellIn(tx, actor, learnerParam)
     const learners = await tx
-      .select({ id: learnerProfile.userId, name: learnerProfile.name, screenLimitMin: learnerProfile.screenLimitMin, restWeekdays: learnerProfile.restWeekdays, reviewEnabled: learnerProfile.reviewEnabled })
+      .select({ id: learnerProfile.userId, name: learnerProfile.name, screenLimitMin: learnerProfile.screenLimitMin, restWeekdays: learnerProfile.restWeekdays, reviewEnabled: learnerProfile.reviewEnabled, soundEnabled: learnerProfile.soundEnabled, musicEnabled: learnerProfile.musicEnabled })
       .from(learnerProfile)
       .where(isNull(learnerProfile.deletedAt))
       .orderBy(asc(learnerProfile.name))
@@ -123,7 +123,7 @@ export async function settingsDTO(actor: Actor, learnerParam: string | null): Pr
       lastSeenAt: d.lastSeenAt ? d.lastSeenAt.toISOString() : null,
       expiresAt: d.expiresAt.toISOString(),
     })),
-    learners: base.learners.map((l) => ({ id: l.id, name: l.name, screenLimitMin: l.screenLimitMin, restWeekdays: [...l.restWeekdays].sort((a, b) => a - b), reviewEnabled: l.reviewEnabled })),
+    learners: base.learners.map((l) => ({ id: l.id, name: l.name, screenLimitMin: l.screenLimitMin, restWeekdays: [...l.restWeekdays].sort((a, b) => a - b), reviewEnabled: l.reviewEnabled, soundEnabled: l.soundEnabled, musicEnabled: l.musicEnabled })),
     // Tutor dulu, lalu orang tua; masing-masing urut nama.
     members: [...base.members.filter((m) => m.role === 'tutor'), ...base.members.filter((m) => m.role !== 'tutor')].map((m) => ({
       id: m.id,

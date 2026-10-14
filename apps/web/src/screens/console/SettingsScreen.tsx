@@ -66,10 +66,11 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
   const [learnerId, setLearnerId] = useState(data.shell.currentLearnerId ?? data.learners[0]?.id ?? '')
   const learner = data.learners.find((l) => l.id === learnerId)
   const [limits, setLimits] = useState(() =>
-    Object.fromEntries(data.learners.map((l) => [l.id, { minutes: String(l.screenLimitMin), rest: l.restWeekdays, review: l.reviewEnabled }])),
+    Object.fromEntries(data.learners.map((l) => [l.id, { minutes: String(l.screenLimitMin), rest: l.restWeekdays, review: l.reviewEnabled, sound: l.soundEnabled ?? true, music: l.musicEnabled ?? true }])),
   )
   const [limitError, setLimitError] = useState<string | null>(null)
   const saveLimits = useAction(actions.updateLearnerLimits)
+  const saveSound = actions.updateLearnerSound
   const cur = limits[learnerId]
 
   // Akun
@@ -156,6 +157,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
     }
     setLimitError(null)
     const r = await saveLimits.run({ learnerId: learner.id, screenLimitMin: m, restWeekdays: cur.rest, reviewEnabled: cur.review })
+    if (r.ok && saveSound) await saveSound({ learnerId: learner.id, soundEnabled: cur.sound, musicEnabled: cur.music })
     if (r.ok) toast({ tone: 'success', title: `Batas ${learner.name} tersimpan.`, body: 'Berlaku mulai besok.' })
   }
 
@@ -504,6 +506,32 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
                   </span>
                 </span>
               </div>
+              {saveSound ? (
+                <>
+                  <div className="flex items-start gap-3">
+                    <Switch checked={cur.sound} onChange={(v) => setLimits((x) => ({ ...x, [learnerId]: { ...cur, sound: v } }))} labelledBy="sound-label" describedBy="sound-desc" />
+                    <span className="flex flex-col">
+                      <span id="sound-label" className="text-body font-bold">
+                        Efek suara
+                      </span>
+                      <span id="sound-desc" className="text-small text-fg-muted">
+                        Bila dimatikan, tidak ada bunyi di perangkat {learner.name}, apa pun pilihan di perangkat itu.
+                      </span>
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Switch checked={cur.music} onChange={(v) => setLimits((x) => ({ ...x, [learnerId]: { ...cur, music: v } }))} labelledBy="music-label" describedBy="music-desc" />
+                    <span className="flex flex-col">
+                      <span id="music-label" className="text-body font-bold">
+                        Musik latar
+                      </span>
+                      <span id="music-desc" className="text-small text-fg-muted">
+                        Musik tetap mati sampai {learner.name} menyalakannya di halaman Me. Bila dimatikan di sini, tombolnya tidak berlaku.
+                      </span>
+                    </span>
+                  </div>
+                </>
+              ) : null}
               <p className="m-0 text-small text-fg-muted">
                 Saat batas tercapai, {learner.name} melihat layar Selesai untuk hari ini dan quest yang belum selesai tersimpan. Perubahan berlaku mulai besok.
               </p>

@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { ENGLISH, INK, KNOWLEDGE, MENTAL, SCIENCE, STAR, WARN, WARN_50, WHITE } from '../palette'
+import { ENGLISH, ENGLISH_50, INK, KNOWLEDGE, MATH, MATH_50, MENTAL, MENTAL_50, SCIENCE, SCIENCE_50, STAR, WARN, WARN_50, WHITE } from '../palette'
 
 /**
  * Aksesori avatar 64 x 64, digambar di atas avatar hewan (lingkaran putih bergaris tinta). Posisi mengikuti
@@ -92,4 +92,70 @@ export const ACCESSORY_ART: Record<AccessoryArtId, ReactElement> = {
 
 export function isAccessoryArtId(value: unknown): value is AccessoryArtId {
   return typeof value === 'string' && (ACCESSORY_ART_IDS as readonly string[]).includes(value)
+}
+
+/** Aksesori yang didapat dari peti hadiah harian (daftar id sama dengan CHEST_ACCESSORIES di @kira/core). */
+export const CHEST_ART_IDS = ['party-hat', 'bandana', 'flower-crown'] as const
+export type ChestArtId = (typeof CHEST_ART_IDS)[number]
+
+export const CHEST_ACCESSORY_ART: Record<ChestArtId, ReactElement> = {
+  'party-hat': (
+    <g {...line}>
+      <path d="M32 3.5l11.5 17.5h-23z" fill={MENTAL} />
+      <path d="M26 12.5l12 0M23.4 17h17.2" stroke={STAR} strokeWidth={2.2} />
+      <circle cx="32" cy="3.6" r="2.4" fill={STAR} />
+    </g>
+  ),
+  bandana: (
+    <g {...line}>
+      <path d="M12.5 21c6-5 33-5 39 0l-1.8 6.5c-6.5-3.6-29.7-3.6-35.4 0z" fill={ENGLISH} />
+      <circle cx="24" cy="21.8" r="1.2" fill={WHITE} stroke="none" />
+      <circle cx="32" cy="20.8" r="1.2" fill={WHITE} stroke="none" />
+      <circle cx="40" cy="21.8" r="1.2" fill={WHITE} stroke="none" />
+      <path d="M51 22l5.5-3.5-1 7.5z" fill={ENGLISH} />
+    </g>
+  ),
+  'flower-crown': (
+    <g {...line}>
+      <path d="M13 22c9-6 29-6 38 0" strokeWidth={2.2} stroke={SCIENCE} />
+      <circle cx="20" cy="17.8" r="3.4" fill={STAR} />
+      <circle cx="32" cy="14.6" r="3.8" fill={ENGLISH_50} />
+      <circle cx="32" cy="14.6" r="1.4" fill={STAR} stroke="none" />
+      <circle cx="44" cy="17.8" r="3.4" fill={MENTAL_50} />
+      <circle cx="44" cy="17.8" r="1.2" fill={STAR} stroke="none" />
+      {leaf(26, 20, -20)}
+      {leaf(38, 20, 20)}
+    </g>
+  ),
+}
+
+export function isChestArtId(value: unknown): value is ChestArtId {
+  return typeof value === 'string' && (CHEST_ART_IDS as readonly string[]).includes(value)
+}
+
+/** Latar avatar dari peti: cincin berwarna dengan beberapa titik kecil di dalam tepi. */
+export const AVATAR_BACKGROUND_IDS = ['sky', 'meadow', 'sunset', 'night', 'candy', 'ocean'] as const
+export type AvatarBackgroundId = (typeof AVATAR_BACKGROUND_IDS)[number]
+
+const BG_TONE: Record<AvatarBackgroundId, { ring: string; dot: string }> = {
+  sky: { ring: MATH, dot: MATH_50 },
+  meadow: { ring: SCIENCE, dot: SCIENCE_50 },
+  sunset: { ring: WARN, dot: STAR },
+  night: { ring: KNOWLEDGE, dot: STAR },
+  candy: { ring: MENTAL, dot: ENGLISH_50 },
+  ocean: { ring: MATH, dot: SCIENCE_50 },
+}
+
+export function isAvatarBackgroundId(value: unknown): value is AvatarBackgroundId {
+  return typeof value === 'string' && (AVATAR_BACKGROUND_IDS as readonly string[]).includes(value)
+}
+
+export function avatarBackgroundArt(id: AvatarBackgroundId): ReactElement {
+  const t = BG_TONE[id]
+  return (
+    <g>
+      <circle cx="32" cy="32" r="29.2" fill="none" stroke={t.ring} strokeWidth={3.4} />
+      <circle cx="32" cy="32" r="27.2" fill="none" stroke={t.dot} strokeWidth={1.6} strokeDasharray="1 7" strokeLinecap="round" />
+    </g>
+  )
 }

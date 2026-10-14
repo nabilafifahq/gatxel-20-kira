@@ -14,8 +14,8 @@ export const settings: SettingsDTO = {
     { id: 'dev-tab-b', name: 'Tablet Bima', learners: ['Bima'], createdAt: wib('2026-07-24', '10:00'), lastSeenAt: wib('2026-10-14', '17:05'), expiresAt: '2026-10-22' },
   ],
   learners: [
-    { id: LEARNER_A.id, name: 'Alya', screenLimitMin: 60, restWeekdays: [0], reviewEnabled: true },
-    { id: LEARNER_B.id, name: 'Bima', screenLimitMin: 75, restWeekdays: [0, 6], reviewEnabled: false },
+    { id: LEARNER_A.id, name: 'Alya', screenLimitMin: 60, restWeekdays: [0], reviewEnabled: true, soundEnabled: true, musicEnabled: true },
+    { id: LEARNER_B.id, name: 'Bima', screenLimitMin: 75, restWeekdays: [0, 6], reviewEnabled: false, soundEnabled: true, musicEnabled: false },
   ],
   members: [
     { id: 'm-1', name: 'Dina Pratiwi', email: 'dina@keluarga-wiratama.test', role: 'tutor', learners: ['Alya', 'Bima'] },
