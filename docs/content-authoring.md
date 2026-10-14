@@ -72,7 +72,7 @@ Field umum setiap soal:
 | `passage` | tidak | id bacaan untuk soal pemahaman |
 | `tip` | tidak | satu kalimat kebiasaan baik |
 | `solution` | tidak | 2 sampai 8 langkah `{ "say", "show"?, "figure"? }` untuk SolutionPlayer |
-| `tags` | tidak | huruf kecil bertanda hubung: `word-problem`, `olympiad`, `ikmc`, `esmo`, `sasmo`, `kmnr`, `reading`, `checkpoint`, `keep-order` |
+| `tags` | tidak | huruf kecil bertanda hubung: `word-problem`, `olympiad`, `ikmc`, `esmo`, `sasmo`, `kmnr`, `iksc`, `ksnr`, `reasoning` (soal nalar Science bergaya IKSC dan KSNR; `iksc` dan `ksnr` dipakai simulasi lomba dan Paper cadangan), `reading`, `checkpoint`, `keep-order` |
 | `expectedSeconds` | tidak | perkiraan waktu wajar |
 | `lang` | tidak | default `en-GB`. `id` hanya untuk soal bergaya ESMO dan wajib bertag `esmo` atau `id` |
 | `terms` | tidak | untuk soal berbahasa Indonesia: `[{ "term": "lompatan", "en": "jump" }]` |
