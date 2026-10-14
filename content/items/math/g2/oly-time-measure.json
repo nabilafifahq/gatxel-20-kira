@@ -82,11 +82,11 @@
           "why": "You may have mixed up the short hand and the long hand."
         },
         {
-          "text": "6:15"
-        },
-        {
           "text": "3:06",
           "why": "The short hand is near the 6."
+        },
+        {
+          "text": "6:15"
         },
         {
           "text": "6:03",
@@ -97,7 +97,7 @@
           "why": "The long hand points to 3, not 6."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "The short hand shows the hours.",
         "The short hand is just past the 6.",
@@ -140,18 +140,18 @@
           "why": "Count on 3 hours from 8:00."
         },
         {
-          "text": "11:00"
-        },
-        {
           "text": "8:03",
           "why": "3 hours is not 3 minutes."
         },
         {
           "text": "5:00",
           "why": "Count forwards, not backwards."
+        },
+        {
+          "text": "11:00"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "Count on one hour at a time.",
         "8:00, 9:00 ...",
@@ -241,18 +241,18 @@
           "why": "This is 60 minutes after the start."
         },
         {
+          "text": "3:00"
+        },
+        {
           "text": "3:30",
           "why": "This is 75 minutes after the start."
         },
         {
           "text": "2:30",
           "why": "This is 15 minutes after the start."
-        },
-        {
-          "text": "3:00"
         }
       ],
-      "answer": 4,
+      "answer": 2,
       "hints": [
         "First read the time on the clock.",
         "The clock shows a quarter past 2.",
@@ -327,18 +327,18 @@
           "why": "The short hand shows the hour."
         },
         {
-          "text": "4:30"
-        },
-        {
           "text": "6:20",
           "why": "The long hand shows the minutes."
         },
         {
           "text": "4:06",
           "why": "The long hand on 6 means 30 minutes."
+        },
+        {
+          "text": "4:30"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "The short hand shows the hour. It is between 4 and 5.",
         "The long hand shows the minutes.",
@@ -411,18 +411,18 @@
           "why": "This is only 15 minutes later."
         },
         {
-          "text": "4:10"
-        },
-        {
           "text": "4:20",
           "why": "This is 35 minutes later."
+        },
+        {
+          "text": "4:10"
         },
         {
           "text": "3:70",
           "why": "Minutes go up to 59 only."
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "First count on to the next whole hour.",
         "From 3:45 to 4:00 is 15 minutes.",
@@ -457,6 +457,9 @@
       "prompt": "A bus comes every 20 minutes. The first bus is at 8:00. When does the 4th bus come?",
       "options": [
         {
+          "text": "9:00"
+        },
+        {
           "text": "8:40",
           "why": "This is the 3rd bus."
         },
@@ -471,12 +474,9 @@
         {
           "text": "8:80",
           "why": "Minutes go up to 59 only."
-        },
-        {
-          "text": "9:00"
         }
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "List the times of the buses.",
         "8:00, 8:20 ...",
@@ -678,11 +678,11 @@
       "prompt": "Which day comes two days before Sunday?",
       "options": [
         {
-          "text": "Friday"
-        },
-        {
           "text": "Saturday",
           "why": "This is only 1 day before Sunday."
+        },
+        {
+          "text": "Friday"
         },
         {
           "text": "Monday",
@@ -697,7 +697,7 @@
           "why": "This is 4 days before Sunday."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Count backwards one day at a time.",
         "One day before Sunday is Saturday.",
@@ -758,18 +758,18 @@
           "why": "Check the 8th first. It is a Wednesday again."
         },
         {
-          "text": "Friday"
-        },
-        {
           "text": "Wednesday",
           "why": "The 8th is a Wednesday, not the 10th."
         },
         {
           "text": "Sunday",
           "why": "Count only 9 days from the 1st."
+        },
+        {
+          "text": "Friday"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "The same day comes round every 7 days.",
         "The 1st and the 8th are both Wednesdays.",
@@ -845,18 +845,18 @@
           "why": "The 30th is a Saturday."
         },
         {
-          "text": "Sunday"
-        },
-        {
           "text": "Monday",
           "why": "Count on from the 29th."
+        },
+        {
+          "text": "Sunday"
         },
         {
           "text": "Thursday",
           "why": "Check the days again from the 1st."
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "The 1st, 8th, 15th, 22nd are all Fridays.",
         "The 29th is also a Friday.",
@@ -952,11 +952,11 @@
           "why": "Check the heading above the column of the 18th."
         },
         {
-          "text": "Sunday",
-          "why": "The 19th is a Sunday."
+          "text": "Saturday"
         },
         {
-          "text": "Saturday"
+          "text": "Sunday",
+          "why": "The 19th is a Sunday."
         },
         {
           "text": "Thursday",
@@ -967,7 +967,7 @@
           "why": "The 13th is a Monday."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Find the number 18 in the calendar.",
         "Look at the top of its column.",
@@ -1375,9 +1375,6 @@
           "why": "You read the end of the pencil. The pencil does not start at 0."
         },
         {
-          "text": "6 cm"
-        },
-        {
           "text": "2 cm",
           "why": "This is where the pencil starts."
         },
@@ -1388,9 +1385,12 @@
         {
           "text": "10 cm",
           "why": "This is the whole length of the ruler."
+        },
+        {
+          "text": "6 cm"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "Look at where the pencil starts on the ruler.",
         "It does not start at 0.",

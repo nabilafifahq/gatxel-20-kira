@@ -863,6 +863,1033 @@
         "seamo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.016",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Four friends meet. Each friend shakes hands once with each of the others. How many handshakes are there?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Call the friends A, B, C and D.",
+        "A shakes hands with 3 friends.",
+        "B has already shaken hands with A. Count B's new handshakes."
+      ],
+      "explanation": "A shakes hands with 3 friends. B shakes with 2 new friends. C shakes with 1 new friend. That makes 3 + 2 + 1 = 6 handshakes.",
+      "solution": [
+        {
+          "say": "A shakes hands with 3 friends."
+        },
+        {
+          "say": "B shakes with 2 new friends."
+        },
+        {
+          "say": "C shakes with 1 new friend."
+        },
+        {
+          "say": "That makes 3 + 2 + 1 = 6 handshakes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.017",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Five children meet. Each child shakes hands once with each of the others. How many handshakes are there?",
+      "options": [
+        {
+          "text": "5"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "20"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the handshakes one child at a time.",
+        "The first child shakes 4 hands.",
+        "The next child has only 3 new handshakes."
+      ],
+      "explanation": "The handshakes are 4 + 3 + 2 + 1 = 10. Each pair of children shakes hands only once.",
+      "solution": [
+        {
+          "say": "The handshakes are 4 + 3 + 2 + 1 = 10."
+        },
+        {
+          "say": "Each pair of children shakes hands only once."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.018",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Six children meet. Every pair of children plays one game of noughts and crosses. How many games are played?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "Think about pairs of children.",
+        "The first child is in 5 pairs.",
+        "The next child has 4 new pairs."
+      ],
+      "explanation": "The pairs are 5 + 4 + 3 + 2 + 1 = 15. Each pair plays one game, so there are 15 games.",
+      "solution": [
+        {
+          "say": "The pairs are 5 + 4 + 3 + 2 + 1 = 15."
+        },
+        {
+          "say": "Each pair plays one game, so there are 15 games."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.019",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "5 teams play a league. Each team plays every other team twice, at home and away. How many games are played?",
+      "answer": 20,
+      "tolerance": 0,
+      "hints": [
+        "First count the games when each pair of teams plays only once.",
+        "5 teams make 4 + 3 + 2 + 1 games.",
+        "Every game is played twice."
+      ],
+      "explanation": "When each pair plays once, there are 4 + 3 + 2 + 1 = 10 games. Each pair plays twice, so 10 x 2 = 20 games.",
+      "solution": [
+        {
+          "say": "When each pair plays once, there are 4 + 3 + 2 + 1 = 10 games."
+        },
+        {
+          "say": "Each pair plays twice, so 10 x 2 = 20 games."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.020",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A domino set uses the numbers 0, 1, 2 and 3. Each pair of numbers appears once. Each number also pairs with itself. How many dominoes are there?",
+      "answer": 10,
+      "tolerance": 0,
+      "hints": [
+        "List the dominoes that start with 0: 0-0, 0-1 ...",
+        "There are 4 of those. Then list the ones that start with 1, but not 1-0.",
+        "3 start with 1, 2 start with 2, 1 starts with 3."
+      ],
+      "explanation": "The dominoes that start with 0 are 4. Those that start with 1 and are new are 3. Then 2, then 1. In all, 4 + 3 + 2 + 1 = 10 dominoes.",
+      "solution": [
+        {
+          "say": "The dominoes that start with 0 are 4."
+        },
+        {
+          "say": "Those that start with 1 and are new are 3."
+        },
+        {
+          "say": "Then 2, then 1."
+        },
+        {
+          "say": "In all, 4 + 3 + 2 + 1 = 10 dominoes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.021",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Mia has 3 shirts and 2 pairs of shorts. How many different outfits can she make?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Pick one shirt. How many pairs of shorts can go with it?",
+        "Each shirt can go with 2 pairs of shorts.",
+        "There are 3 shirts."
+      ],
+      "explanation": "Each of the 3 shirts goes with 2 pairs of shorts. That makes 3 x 2 = 6 outfits.",
+      "solution": [
+        {
+          "say": "Each of the 3 shirts goes with 2 pairs of shorts."
+        },
+        {
+          "say": "That makes 3 x 2 = 6 outfits."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.022",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "There are 3 flavours of ice cream and 2 kinds of cone. A cone holds 1 scoop. How many different ice creams can you make?",
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "9"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Choose the kind of cone first.",
+        "With one kind of cone, there are 3 flavours to choose.",
+        "There are 2 kinds of cone."
+      ],
+      "explanation": "For each of the 2 cones there are 3 flavours. So 2 x 3 = 6 different cones.",
+      "solution": [
+        {
+          "say": "For each of the 2 cones there are 3 flavours."
+        },
+        {
+          "say": "So 2 x 3 = 6 different cones."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.023",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ravi has 3 shirts, 2 pairs of shorts and 2 hats. How many different outfits can he make?",
+      "options": [
+        {
+          "text": "6"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "14"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "First count the shirt and shorts together.",
+        "3 shirts and 2 pairs of shorts make 6 outfits.",
+        "Each of those can have either of the 2 hats."
+      ],
+      "explanation": "Shirt and shorts make 3 x 2 = 6 outfits. Each can have 2 hats. So 6 x 2 = 12 outfits.",
+      "solution": [
+        {
+          "say": "Shirt and shorts make 3 x 2 = 6 outfits."
+        },
+        {
+          "say": "Each can have 2 hats."
+        },
+        {
+          "say": "So 6 x 2 = 12 outfits."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.024",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "An ice cream has 2 different scoops. There are 4 flavours: vanilla, mango, coconut and chocolate. The order of the scoops does not matter. How many different ice creams are there?",
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "16"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the pairs that include vanilla.",
+        "Vanilla with mango, with coconut and with chocolate.",
+        "Then list the new pairs that include mango, but not vanilla."
+      ],
+      "explanation": "The pairs are vanilla with 3 others, then mango with 2 new others, then coconut and chocolate. That is 3 + 2 + 1 = 6 ice creams.",
+      "solution": [
+        {
+          "say": "The pairs are vanilla with 3 others, then mango with 2 new others, then coconut and chocolate."
+        },
+        {
+          "say": "That is 3 + 2 + 1 = 6 ice creams."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.025",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Use the digits 1, 2 and 3 to make 2-digit numbers. The two digits must be different. How many numbers can you make?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "List the numbers that start with 1.",
+        "They are 12 and 13.",
+        "Then list the ones that start with 2 and 3."
+      ],
+      "explanation": "Starting with 1: 12, 13. Starting with 2: 21, 23. Starting with 3: 31, 32. That makes 6 numbers.",
+      "solution": [
+        {
+          "say": "Starting with 1: 12, 13."
+        },
+        {
+          "say": "Starting with 2: 21, 23."
+        },
+        {
+          "say": "Starting with 3: 31, 32."
+        },
+        {
+          "say": "That makes 6 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.026",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Make 3-digit numbers with the digits 0, 1 and 2 once each. A number cannot start with 0. How many can you make?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "The first digit can only be 1 or 2.",
+        "If the first digit is 1, the other two digits are 0 and 2.",
+        "List the numbers for each first digit."
+      ],
+      "explanation": "Starting with 1: 102, 120. Starting with 2: 201, 210. A number cannot start with 0. That makes 4 numbers.",
+      "solution": [
+        {
+          "say": "Starting with 1: 102, 120."
+        },
+        {
+          "say": "Starting with 2: 201, 210."
+        },
+        {
+          "say": "A number cannot start with 0."
+        },
+        {
+          "say": "That makes 4 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.027",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "In how many different ways can 3 children stand in a line?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Pick who stands first. There are 3 choices.",
+        "Then there are 2 children left for the second place.",
+        "The last child has only one place left."
+      ],
+      "explanation": "There are 3 choices for first place, 2 for second place and 1 for last. So 3 x 2 x 1 = 6 ways.",
+      "solution": [
+        {
+          "say": "There are 3 choices for first place, 2 for second place and 1 for last."
+        },
+        {
+          "say": "So 3 x 2 x 1 = 6 ways."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.028",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "In how many different ways can 4 children stand in a line?",
+      "answer": 24,
+      "tolerance": 0,
+      "hints": [
+        "There are 4 choices for the first place.",
+        "Then there are 3 children left for the second place.",
+        "Multiply the choices: 4 x 3 ..."
+      ],
+      "explanation": "There are 4 choices for the first place, then 3, then 2, then 1. So 4 x 3 x 2 x 1 = 24 ways.",
+      "solution": [
+        {
+          "say": "There are 4 choices for the first place, then 3, then 2, then 1."
+        },
+        {
+          "say": "So 4 x 3 x 2 x 1 = 24 ways."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.029",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many 2-digit numbers have two digits that are the same?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "The numbers start with 11.",
+        "11, 22 ...",
+        "Which is the last number?"
+      ],
+      "explanation": "The numbers are 11, 22, 33, 44, 55, 66, 77, 88 and 99. That makes 9 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 11, 22, 33, 44, 55, 66, 77, 88 and 99."
+        },
+        {
+          "say": "That makes 9 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.030",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Write the numbers from 1 to 50. How many times do you write the digit 9?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Look at the ones place and the tens place.",
+        "Which numbers up to 50 have 9 in the ones place?",
+        "There is no number with 9 in the tens place before 50."
+      ],
+      "explanation": "The digit 9 is in 9, 19, 29, 39 and 49. That is 5 times.",
+      "solution": [
+        {
+          "say": "The digit 9 is in 9, 19, 29, 39 and 49."
+        },
+        {
+          "say": "That is 5 times."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.031",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Which numbers from 1 to 40 are in the 5 times table? How many are there?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Count in 5s: 5, 10, 15 ...",
+        "What is the last number up to 40?",
+        "Count how many numbers you said."
+      ],
+      "explanation": "The numbers are 5, 10, 15, 20, 25, 30, 35 and 40. That is 8 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 5, 10, 15, 20, 25, 30, 35 and 40."
+        },
+        {
+          "say": "That is 8 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.032",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dina walks from home to school. She can only go right (R) or up (U). She must go 1 step right and 3 steps up. How many different routes can she take?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "The route is a list of steps, such as U U U R.",
+        "There is only one R. Where can the R go in the list?",
+        "The R can be 1st, 2nd, 3rd or 4th."
+      ],
+      "explanation": "The one R can be in any of the 4 places in the list, and the other steps are U. So there are 4 routes.",
+      "solution": [
+        {
+          "say": "The one R can be in any of the 4 places in the list, and the other steps are U."
+        },
+        {
+          "say": "So there are 4 routes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.033",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Dina walks from home to school. She can only go right (R) or up (U). She must go 2 steps right and 2 steps up. How many different routes can she take?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Write each route as a list, such as R R U U.",
+        "Put the two R steps in different places in the list of 4.",
+        "List them in order: R R U U, R U R U ..."
+      ],
+      "explanation": "The routes are RRUU, RURU, RUUR, URRU, URUR and UURR. That is 6 routes.",
+      "solution": [
+        {
+          "say": "The routes are RRUU, RURU, RUUR, URRU, URUR and UURR."
+        },
+        {
+          "say": "That is 6 routes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.034",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A child climbs 4 steps. She goes up 1 step or 2 steps at a time. How many different ways can she climb the 4 steps?",
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the ways for 1 step, 2 steps and 3 steps first.",
+        "1 step: 1 way. 2 steps: 2 ways. 3 steps: 3 ways.",
+        "The ways for 4 steps come from the ways for 3 steps and 2 steps."
+      ],
+      "explanation": "For 1 step there is 1 way. For 2 steps there are 2 ways. For 3 steps there are 3 ways. For 4 steps the ways are 2 + 3 = 5. They are 1+1+1+1, 1+1+2, 1+2+1, 2+1+1 and 2+2.",
+      "solution": [
+        {
+          "say": "For 1 step there is 1 way."
+        },
+        {
+          "say": "For 2 steps there are 2 ways."
+        },
+        {
+          "say": "For 3 steps there are 3 ways."
+        },
+        {
+          "say": "For 4 steps the ways are 2 + 3 = 5."
+        },
+        {
+          "say": "They are 1+1+1+1, 1+1+2, 1+2+1, 2+1+1 and 2+2."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.035",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A fence is 10 m long. A post stands every 2 m, including both ends. How many posts are there?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Find how many gaps of 2 m there are.",
+        "10 / 2 = 5 gaps.",
+        "Think about how many posts are needed for 5 gaps."
+      ],
+      "explanation": "There are 10 / 2 = 5 gaps. A post is needed at both ends of each gap. So there are 5 + 1 = 6 posts.",
+      "solution": [
+        {
+          "say": "There are 10 / 2 = 5 gaps."
+        },
+        {
+          "say": "A post is needed at both ends of each gap."
+        },
+        {
+          "say": "So there are 5 + 1 = 6 posts."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.036",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A path is 20 m long. A tree is planted every 5 m, at both ends too. How many trees are there?",
+      "options": [
+        {
+          "text": "3"
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find how many gaps of 5 m there are.",
+        "20 / 5 = 4 gaps.",
+        "One more tree than gaps, when you plant at both ends."
+      ],
+      "explanation": "There are 20 / 5 = 4 gaps. With a tree at both ends, there is 1 more tree than gaps. So there are 5 trees.",
+      "solution": [
+        {
+          "say": "There are 20 / 5 = 4 gaps."
+        },
+        {
+          "say": "With a tree at both ends, there is 1 more tree than gaps."
+        },
+        {
+          "say": "So there are 5 trees."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.037",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A log is cut into 4 pieces. The cuts take 9 minutes. Each cut takes the same time. How many minutes does it take to make 5 pieces?",
+      "answer": 12,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "How many cuts make 4 pieces?",
+        "3 cuts make 4 pieces, and they take 9 minutes.",
+        "How long is one cut? How many cuts make 5 pieces?"
+      ],
+      "explanation": "4 pieces need 3 cuts. 9 / 3 = 3 minutes for each cut. 5 pieces need 4 cuts, so 4 x 3 = 12 minutes.",
+      "solution": [
+        {
+          "say": "4 pieces need 3 cuts."
+        },
+        {
+          "say": "9 / 3 = 3 minutes for each cut."
+        },
+        {
+          "say": "5 pieces need 4 cuts, so 4 x 3 = 12 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.038",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A building has stairs between each floor. How many flights do you climb from floor 1 to floor 4?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Count the gaps between floors, not the floors.",
+        "From floor 1 to floor 2 is one flight.",
+        "Floor 2 to floor 3 is the next."
+      ],
+      "explanation": "The flights go 1 to 2, 2 to 3 and 3 to 4. So you climb 3 flights.",
+      "solution": [
+        {
+          "say": "The flights go 1 to 2, 2 to 3 and 3 to 4."
+        },
+        {
+          "say": "So you climb 3 flights."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-counting.039",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ana is 4th from the front of a queue. She is also 5th from the back. How many children are in the queue?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Ana is counted from the front and from the back.",
+        "The children in front of Ana are 3.",
+        "The children behind Ana are 4."
+      ],
+      "explanation": "There are 3 children in front of Ana and 4 children behind her. With Ana, that is 3 + 1 + 4 = 8 children.",
+      "solution": [
+        {
+          "say": "There are 3 children in front of Ana and 4 children behind her."
+        },
+        {
+          "say": "With Ana, that is 3 + 1 + 4 = 8 children."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.040",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Tom is 7th from the front of a queue. He is also 3rd from the back. How many children are in the queue?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Find how many children are in front of Tom.",
+        "6 children are in front of Tom. How many are behind him?",
+        "Count Tom too."
+      ],
+      "explanation": "There are 6 children in front of Tom and 2 behind him. With Tom, that is 6 + 1 + 2 = 9 children.",
+      "solution": [
+        {
+          "say": "There are 6 children in front of Tom and 2 behind him."
+        },
+        {
+          "say": "With Tom, that is 6 + 1 + 2 = 9 children."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.041",
+      "skill": "m2.oly-counting",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a line, Ana is 5th and Ben is 12th. How many children stand between Ana and Ben?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Do not count Ana or Ben.",
+        "The children between them are 6th, 7th ...",
+        "Which is the last place before Ben?"
+      ],
+      "explanation": "The children are in places 6, 7, 8, 9, 10 and 11. That is 6 children.",
+      "solution": [
+        {
+          "say": "The children are in places 6, 7, 8, 9, 10 and 11."
+        },
+        {
+          "say": "That is 6 children."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-counting.042",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A drawer has 4 red socks and 4 blue socks. It is dark. You want 2 socks of the same colour. How many must you take to be sure?",
+      "options": [
+        {
+          "text": "2"
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the worst luck you could have.",
+        "Your first 2 socks could be different colours.",
+        "What colour must the third sock be?"
+      ],
+      "explanation": "With 2 socks you might have one red and one blue. The third sock must match one of them. So you must take 3 socks.",
+      "solution": [
+        {
+          "say": "With 2 socks you might have one red and one blue."
+        },
+        {
+          "say": "The third sock must match one of them."
+        },
+        {
+          "say": "So you must take 3 socks."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-counting.043",
+      "skill": "m2.oly-counting",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Count squares of any size on the 4 by 4 board. How many are there?",
+      "figure": {
+        "kind": "grid",
+        "rows": 4,
+        "cols": 4,
+        "shaded": [],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A square board with 4 rows and 4 columns of small squares."
+      },
+      "options": [
+        {
+          "text": "16"
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "24"
+        },
+        {
+          "text": "30"
+        },
+        {
+          "text": "36"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the small squares first. There are 16.",
+        "Next count the squares made of 2 by 2 small squares.",
+        "There are 9 of those. Then 3 by 3 and 4 by 4."
+      ],
+      "explanation": "There are 16 small squares, 9 squares of 2 by 2, 4 squares of 3 by 3 and 1 big square. In all, 16 + 9 + 4 + 1 = 30 squares.",
+      "solution": [
+        {
+          "say": "There are 16 small squares, 9 squares of 2 by 2, 4 squares of 3 by 3 and 1 big square."
+        },
+        {
+          "say": "In all, 16 + 9 + 4 + 1 = 30 squares."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

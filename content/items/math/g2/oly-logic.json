@@ -1184,6 +1184,2386 @@
           2
         ]
       ]
+    },
+    {
+      "id": "m2.oly-logic.019",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ana is taller than Bo. Bo is taller than Cil. Dan is shorter than Cil. Who is the second tallest?",
+      "options": [
+        {
+          "text": "Ana",
+          "why": "Ana is taller than everyone, so she is the tallest."
+        },
+        {
+          "text": "Cil",
+          "why": "Bo is taller than Cil."
+        },
+        {
+          "text": "Dan",
+          "why": "Dan is the shortest of all."
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The clues put all four children in order."
+        },
+        {
+          "text": "Bo"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Draw the children from tallest to shortest.",
+        "Ana is taller than Bo, and Bo is taller than Cil.",
+        "Where does Dan go? He is shorter than Cil."
+      ],
+      "explanation": "The order from tallest to shortest is Ana, Bo, Cil, Dan. The second tallest is Bo.",
+      "solution": [
+        {
+          "say": "The order from tallest to shortest is Ana, Bo, Cil, Dan."
+        },
+        {
+          "say": "The second tallest is Bo."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.020",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Five runners race. Eli finishes before Cat. Cat finishes before Ana. Ben finishes after Ana. Dan finishes before Eli. Who finishes third?",
+      "options": [
+        {
+          "text": "Cat"
+        },
+        {
+          "text": "Eli",
+          "why": "Dan finishes before Eli, so Eli is second."
+        },
+        {
+          "text": "Ana",
+          "why": "Cat finishes before Ana."
+        },
+        {
+          "text": "Dan",
+          "why": "Dan is the winner."
+        },
+        {
+          "text": "Ben",
+          "why": "Ben finishes last."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Write the runners in a line from first to last.",
+        "Dan is before Eli. Eli is before Cat.",
+        "Put Ana and Ben after Cat."
+      ],
+      "explanation": "The order is Dan, Eli, Cat, Ana, Ben. The runner in third place is Cat.",
+      "solution": [
+        {
+          "say": "The order is Dan, Eli, Cat, Ana, Ben."
+        },
+        {
+          "say": "The runner in third place is Cat."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.021",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Five children stand in a line. Ben is first. Eli is right behind Ben. Cat is last. Dan is not next to Cat. Who is fourth?",
+      "options": [
+        {
+          "text": "Ana"
+        },
+        {
+          "text": "Dan",
+          "why": "If Dan is fourth he would be next to Cat, who is last."
+        },
+        {
+          "text": "Eli",
+          "why": "Eli is second, right behind Ben."
+        },
+        {
+          "text": "Cat",
+          "why": "Cat is fifth, at the back."
+        },
+        {
+          "text": "Ben",
+          "why": "Ben is first."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Put Ben, Eli and Cat in their places first.",
+        "Ben is 1st, Eli is 2nd and Cat is 5th.",
+        "Ana and Dan fill the 3rd and 4th places. Which place is next to Cat?"
+      ],
+      "explanation": "Ben is 1st, Eli is 2nd and Cat is 5th. Ana and Dan are 3rd and 4th. Dan cannot be next to Cat, so Dan is 3rd and Ana is 4th.",
+      "solution": [
+        {
+          "say": "Ben is 1st, Eli is 2nd and Cat is 5th."
+        },
+        {
+          "say": "Ana and Dan are 3rd and 4th."
+        },
+        {
+          "say": "Dan cannot be next to Cat, so Dan is 3rd and Ana is 4th."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.022",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Four friends sit in a row, from left to right. Ana is not at an end. Ben sits right next to Ana, on her right. Cat sits to the left of Dan. Dan sits next to Ben. Who sits at the left end?",
+      "options": [
+        {
+          "text": "Ana",
+          "why": "Ana is not at an end."
+        },
+        {
+          "text": "Cat"
+        },
+        {
+          "text": "Ben",
+          "why": "Ben sits on the right of Ana."
+        },
+        {
+          "text": "Dan",
+          "why": "Cat sits to the left of Dan."
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The clues give only one way to sit."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try Ana in each of the two places that are not an end.",
+        "If Ana is 2nd then Ben is 3rd. If Ana is 3rd then Ben is 4th.",
+        "Check the clue that Dan sits next to Ben."
+      ],
+      "explanation": "If Ana is 3rd, Ben is 4th and Dan would be 2nd, which is not next to Ben. So Ana is 2nd and Ben is 3rd. Dan is 4th, next to Ben, and Cat is 1st. Cat sits at the left end.",
+      "solution": [
+        {
+          "say": "If Ana is 3rd, Ben is 4th and Dan would be 2nd, which is not next to Ben."
+        },
+        {
+          "say": "So Ana is 2nd and Ben is 3rd."
+        },
+        {
+          "say": "Dan is 4th, next to Ben, and Cat is 1st."
+        },
+        {
+          "say": "Cat sits at the left end."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.023",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ali is older than Bima. Bima is older than Cici. Dodi is older than Ali. Who is the second oldest?",
+      "options": [
+        {
+          "text": "Dodi",
+          "why": "Dodi is older than Ali, so Dodi is the oldest."
+        },
+        {
+          "text": "Ali"
+        },
+        {
+          "text": "Bima",
+          "why": "Ali is older than Bima."
+        },
+        {
+          "text": "Cici",
+          "why": "Cici is the youngest."
+        },
+        {
+          "text": "Nobody",
+          "why": "There is a second oldest child."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Put the children in order from the oldest.",
+        "Dodi is older than Ali.",
+        "Ali is older than Bima, and Bima is older than Cici."
+      ],
+      "explanation": "The order from the oldest is Dodi, Ali, Bima, Cici. The second oldest is Ali.",
+      "solution": [
+        {
+          "say": "The order from the oldest is Dodi, Ali, Bima, Cici."
+        },
+        {
+          "say": "The second oldest is Ali."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.024",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A hen is heavier than a cat. A cat is heavier than a dog. A rabbit is lighter than the dog. Which animal is the lightest?",
+      "options": [
+        {
+          "text": "Dog",
+          "why": "The rabbit is lighter than the dog."
+        },
+        {
+          "text": "Cat",
+          "why": "The cat is heavier than the dog."
+        },
+        {
+          "text": "Rabbit"
+        },
+        {
+          "text": "Hen",
+          "why": "The cat is lighter than the hen."
+        },
+        {
+          "text": "Cat and dog",
+          "why": "The dog is heavier than the rabbit."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Draw the animals from the heaviest to the lightest.",
+        "The hen is heavier than the cat. The cat is heavier than the dog.",
+        "Where does the rabbit go?"
+      ],
+      "explanation": "From the heaviest: hen, cat, dog, rabbit. The lightest is the rabbit.",
+      "solution": [
+        {
+          "say": "From the heaviest: hen, cat, dog, rabbit."
+        },
+        {
+          "say": "The lightest is the rabbit."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.025",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A truth teller always tells the truth. A liar always lies. Ana says: \"Ben is a liar.\" Ben says: \"Ana and I are both truth tellers.\" Who is the truth teller?",
+      "options": [
+        {
+          "text": "Ben",
+          "why": "If Ben told the truth, Ana would be a truth teller, but then Ana's words would be false."
+        },
+        {
+          "text": "Both of them",
+          "why": "Ana says that Ben is a liar."
+        },
+        {
+          "text": "Neither of them",
+          "why": "If Ben is a liar, then Ana's words are true."
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The clues give only one answer."
+        },
+        {
+          "text": "Ana"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Try: what if Ben tells the truth?",
+        "Then Ana is a truth teller too. Does Ana's sentence fit?",
+        "Ben must be a liar. What does that say about Ana's sentence?"
+      ],
+      "explanation": "If Ben told the truth, Ana would be a truth teller, but Ana says that Ben is a liar. That cannot be. So Ben is a liar, and Ana is telling the truth.",
+      "solution": [
+        {
+          "say": "If Ben told the truth, Ana would be a truth teller, but Ana says that Ben is a liar."
+        },
+        {
+          "say": "That cannot be."
+        },
+        {
+          "say": "So Ben is a liar, and Ana is telling the truth."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.026",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A truth teller always tells the truth. A liar always lies. Ann says: \"Bo lies.\" Bo says: \"Cy lies.\" Cy says: \"Ann and Bo both lie.\" Who is the truth teller?",
+      "options": [
+        {
+          "text": "Ann",
+          "why": "If Ann told the truth, Bo would lie, and then Cy would tell the truth, which is impossible."
+        },
+        {
+          "text": "Cy",
+          "why": "If Cy told the truth, Ann and Bo would both lie, but then Bo's words would be true."
+        },
+        {
+          "text": "Bo"
+        },
+        {
+          "text": "Nobody",
+          "why": "If everyone lied, Cy's sentence would be true."
+        },
+        {
+          "text": "Everybody",
+          "why": "Ann says that Bo lies."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try what happens if Ann tells the truth.",
+        "If Ann is truthful, Bo lies. Then Bo's words are false, so Cy is truthful.",
+        "That makes Cy's words true, but Ann is truthful. Is that possible?"
+      ],
+      "explanation": "If Ann told the truth, Bo would lie, so Cy would tell the truth. But Cy says that Ann lies. That is a problem. So Ann lies, which means Bo tells the truth. Then Cy lies. Only Bo tells the truth.",
+      "solution": [
+        {
+          "say": "If Ann told the truth, Bo would lie, so Cy would tell the truth."
+        },
+        {
+          "say": "But Cy says that Ann lies."
+        },
+        {
+          "say": "That is a problem."
+        },
+        {
+          "say": "So Ann lies, which means Bo tells the truth."
+        },
+        {
+          "say": "Then Cy lies."
+        },
+        {
+          "say": "Only Bo tells the truth."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.027",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Someone ate the cake. Only one child tells the truth. Dewi says: \"Rani ate it.\" Rani says: \"Dewi is lying.\" Sari says: \"I did not eat it.\" Who ate the cake?",
+      "options": [
+        {
+          "text": "Dewi",
+          "why": "Then Rani and Sari would both tell the truth."
+        },
+        {
+          "text": "Rani",
+          "why": "Then Dewi and Sari would both tell the truth."
+        },
+        {
+          "text": "Nobody",
+          "why": "Someone ate the cake."
+        },
+        {
+          "text": "Sari"
+        },
+        {
+          "text": "It cannot be found",
+          "why": "Try each child in turn. Only one fits."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Try each child as the cake eater, one at a time.",
+        "Count how many children tell the truth each time.",
+        "You need exactly one true statement."
+      ],
+      "explanation": "If Dewi ate it, Rani and Sari both tell the truth. If Rani ate it, Dewi and Sari both tell the truth. If Sari ate it, only Rani tells the truth. So Sari ate the cake.",
+      "solution": [
+        {
+          "say": "If Dewi ate it, Rani and Sari both tell the truth."
+        },
+        {
+          "say": "If Rani ate it, Dewi and Sari both tell the truth."
+        },
+        {
+          "say": "If Sari ate it, only Rani tells the truth."
+        },
+        {
+          "say": "So Sari ate the cake."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.028",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Kim always tells the truth. Lee always lies. Lee says: \"Kim's pet is a cat.\" What do you know about Kim's pet?",
+      "options": [
+        {
+          "text": "It is a cat",
+          "why": "Lee always lies, so what he says is not true."
+        },
+        {
+          "text": "It is not a cat"
+        },
+        {
+          "text": "It is a dog",
+          "why": "We only know it is not a cat."
+        },
+        {
+          "text": "It is a bird",
+          "why": "We only know it is not a cat."
+        },
+        {
+          "text": "We know nothing",
+          "why": "Lee always lies, so his words tell us something."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Lee always lies.",
+        "What Lee says must be false.",
+        "Lee says it is a cat. What is true instead?"
+      ],
+      "explanation": "Lee always lies. So it is false that Kim's pet is a cat. We only know the pet is not a cat.",
+      "solution": [
+        {
+          "say": "Lee always lies."
+        },
+        {
+          "say": "So it is false that Kim's pet is a cat."
+        },
+        {
+          "say": "We only know the pet is not a cat."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.029",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Each child is a truth teller or a liar. Raya says: \"Exactly 1 of us lies.\" Sam says: \"Exactly 2 of us lie.\" Tia says: \"All 3 of us lie.\" Who is the truth teller?",
+      "options": [
+        {
+          "text": "Raya",
+          "why": "If Raya told the truth, exactly 1 would lie, but then Sam and Tia both lie."
+        },
+        {
+          "text": "Tia",
+          "why": "If all 3 lied, Tia would be telling the truth."
+        },
+        {
+          "text": "Sam"
+        },
+        {
+          "text": "Nobody",
+          "why": "If nobody told the truth, Tia would be right."
+        },
+        {
+          "text": "Raya and Sam",
+          "why": "They say different things, so they cannot both be right."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The three children say different numbers of liars.",
+        "At most one of them can be right.",
+        "Count the liars if only Sam tells the truth."
+      ],
+      "explanation": "The three statements disagree, so at most one child is truthful. If Sam is truthful, then Raya and Tia lie. That is exactly 2 liars, so Sam is right. Only Sam tells the truth.",
+      "solution": [
+        {
+          "say": "The three statements disagree, so at most one child is truthful."
+        },
+        {
+          "say": "If Sam is truthful, then Raya and Tia lie."
+        },
+        {
+          "say": "That is exactly 2 liars, so Sam is right."
+        },
+        {
+          "say": "Only Sam tells the truth."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.030",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Three boxes have wrong labels: Apples, Oranges and Both. Mia takes one fruit from the box labelled Both. It is an apple. What is really in the box labelled Oranges?",
+      "options": [
+        {
+          "text": "Only apples",
+          "why": "The box labelled Both holds only apples."
+        },
+        {
+          "text": "Only oranges",
+          "why": "The label Oranges is wrong."
+        },
+        {
+          "text": "Nothing",
+          "why": "All three boxes have fruit."
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The wrong labels give only one answer."
+        },
+        {
+          "text": "Both apples and oranges"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Every label is wrong.",
+        "The box labelled Both has only one kind of fruit. Which?",
+        "Then think about the other two boxes. What can the box labelled Oranges not hold?"
+      ],
+      "explanation": "The label Both is wrong, so that box holds only apples. The box labelled Oranges cannot hold oranges, and the apples are taken, so it holds both. The box labelled Apples holds only oranges.",
+      "solution": [
+        {
+          "say": "The label Both is wrong, so that box holds only apples."
+        },
+        {
+          "say": "The box labelled Oranges cannot hold oranges, and the apples are taken, so it holds both."
+        },
+        {
+          "say": "The box labelled Apples holds only oranges."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.031",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Yesterday was Wednesday. What day will it be tomorrow?",
+      "options": [
+        {
+          "text": "Thursday",
+          "why": "Thursday is today."
+        },
+        {
+          "text": "Saturday",
+          "why": "Count again from Wednesday."
+        },
+        {
+          "text": "Wednesday",
+          "why": "Wednesday was yesterday."
+        },
+        {
+          "text": "Sunday",
+          "why": "Count again from Wednesday."
+        },
+        {
+          "text": "Friday"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find out what day it is today.",
+        "Yesterday was Wednesday, so today is the day after.",
+        "Tomorrow is the day after today."
+      ],
+      "explanation": "Today is Thursday. Tomorrow will be Friday.",
+      "solution": [
+        {
+          "say": "Today is Thursday."
+        },
+        {
+          "say": "Tomorrow will be Friday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.032",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The day after tomorrow is Monday. What day was yesterday?",
+      "options": [
+        {
+          "text": "Saturday",
+          "why": "Saturday is today."
+        },
+        {
+          "text": "Friday"
+        },
+        {
+          "text": "Sunday",
+          "why": "Sunday is tomorrow."
+        },
+        {
+          "text": "Thursday",
+          "why": "This is two days before today."
+        },
+        {
+          "text": "Monday",
+          "why": "Monday is the day after tomorrow."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Go back from Monday to find today.",
+        "The day before Monday is Sunday. That is tomorrow.",
+        "Now go back two more days to find yesterday."
+      ],
+      "explanation": "The day after tomorrow is Monday, so tomorrow is Sunday and today is Saturday. Yesterday was Friday.",
+      "solution": [
+        {
+          "say": "The day after tomorrow is Monday, so tomorrow is Sunday and today is Saturday."
+        },
+        {
+          "say": "Yesterday was Friday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.033",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Today is Monday. What day of the week will it be in 10 days?",
+      "options": [
+        {
+          "text": "Wednesday",
+          "why": "Count 3 days after Monday."
+        },
+        {
+          "text": "Friday",
+          "why": "Count 3 days after Monday."
+        },
+        {
+          "text": "Thursday"
+        },
+        {
+          "text": "Monday",
+          "why": "7 days later is Monday. Count 3 more days."
+        },
+        {
+          "text": "Tuesday",
+          "why": "7 days later is Monday. Count 3 more days."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The same day comes back after 7 days.",
+        "In 7 days it will be Monday again.",
+        "Count on 3 more days from that Monday."
+      ],
+      "explanation": "In 7 days it is Monday again. Ten days is 3 days more: Tuesday, Wednesday, Thursday. So it will be Thursday.",
+      "solution": [
+        {
+          "say": "In 7 days it is Monday again."
+        },
+        {
+          "say": "Ten days is 3 days more: Tuesday, Wednesday, Thursday."
+        },
+        {
+          "say": "So it will be Thursday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.034",
+      "skill": "m2.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A circle, a circle and a circle make 15. A circle and a square make 9. A square and a triangle make 7. What number is the triangle?",
+      "options": [
+        {
+          "text": "2",
+          "why": "Check the square and triangle together make 7."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "The square is 4."
+        },
+        {
+          "text": "5",
+          "why": "The circle is 5."
+        },
+        {
+          "text": "7",
+          "why": "7 is the square and triangle together."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the circle first.",
+        "3 circles make 15.",
+        "Then use the circle and the square."
+      ],
+      "explanation": "Three circles make 15, so a circle is 5. A circle and a square make 9, so the square is 4. A square and a triangle make 7, so the triangle is 3.",
+      "solution": [
+        {
+          "say": "Three circles make 15.",
+          "show": "15 / 3 = 5"
+        },
+        {
+          "say": "The circle and the square make 9.",
+          "show": "9 - 5 = 4"
+        },
+        {
+          "say": "The square and the triangle make 7.",
+          "show": "7 - 4 = 3"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.035",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "One melon weighs the same as 2 apples. One apple weighs the same as 3 plums. How many plums weigh the same as 1 melon?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Start with the melon and change it into apples.",
+        "1 melon is 2 apples.",
+        "Now change each apple into plums."
+      ],
+      "explanation": "One melon is 2 apples. Each apple is 3 plums. So 1 melon is 2 x 3 = 6 plums.",
+      "solution": [
+        {
+          "say": "One melon is 2 apples."
+        },
+        {
+          "say": "Each apple is 3 plums."
+        },
+        {
+          "say": "So 1 melon is 2 x 3 = 6 plums."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.036",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A star and a star and a square make 14. A star and a square and a square make 13. What is a star and a square together?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Put the two sentences together.",
+        "Altogether there are 3 stars and 3 squares.",
+        "3 stars and 3 squares make 14 + 13."
+      ],
+      "explanation": "Add the two sentences: 3 stars and 3 squares make 14 + 13 = 27. One star and one square make 27 / 3 = 9.",
+      "solution": [
+        {
+          "say": "Add the two sentences: 3 stars and 3 squares make 14 + 13 = 27."
+        },
+        {
+          "say": "One star and one square make 27 / 3 = 9."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.037",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A class has 20 children. 12 have a cat and 9 have a dog. 3 children have both. How many have neither?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "Children with both pets are in the 12 and in the 9.",
+        "Do not count them twice. 12 + 9 - 3.",
+        "Take the children with a pet away from 20."
+      ],
+      "explanation": "12 + 9 counts the 3 children with both pets twice. So 12 + 9 - 3 = 18 children have a pet. 20 - 18 = 2 children have neither.",
+      "solution": [
+        {
+          "say": "12 + 9 counts the 3 children with both pets twice."
+        },
+        {
+          "say": "So 12 + 9 - 3 = 18 children have a pet."
+        },
+        {
+          "say": "20 - 18 = 2 children have neither."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.038",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "There are 15 children. 9 like tea and 8 like milk. Everyone likes at least one drink. How many like both?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "9 + 8 counts some children twice.",
+        "Compare 9 + 8 with 15.",
+        "The extra tells you how many were counted twice."
+      ],
+      "explanation": "9 + 8 = 17, but there are only 15 children. The 2 extra are the children counted twice, so 2 like both.",
+      "solution": [
+        {
+          "say": "9 + 8 = 17, but there are only 15 children."
+        },
+        {
+          "say": "The 2 extra are the children counted twice, so 2 like both."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.039",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "This is a magic square. Every row, column and diagonal adds to 15. What number goes in the place of the question mark?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Col 1",
+          "Col 2",
+          "Col 3"
+        ],
+        "rows": [
+          [
+            "?",
+            "7",
+            "6"
+          ],
+          [
+            "9",
+            "5",
+            "1"
+          ],
+          [
+            "4",
+            "3",
+            "8"
+          ]
+        ],
+        "alt": "A 3 by 3 grid. Row 1: question mark, 7, 6. Row 2: 9, 5, 1. Row 3: 4, 3, 8."
+      },
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "Look at the row with the question mark.",
+        "The row adds up to 15.",
+        "Add the two numbers you can see, then take them away from 15."
+      ],
+      "explanation": "7 + 6 = 13, and the row adds up to 15. So the question mark is 15 - 13 = 2.",
+      "solution": [
+        {
+          "say": "7 + 6 = 13, and the row adds up to 15."
+        },
+        {
+          "say": "So the question mark is 15 - 13 = 2."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-logic.040",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "This is a magic square. Every row, column and diagonal adds to the same total. What number goes in the place of the question mark?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Col 1",
+          "Col 2",
+          "Col 3"
+        ],
+        "rows": [
+          [
+            "6",
+            "11",
+            "?"
+          ],
+          [
+            "13",
+            "9",
+            "5"
+          ],
+          [
+            "8",
+            "7",
+            "12"
+          ]
+        ],
+        "alt": "A 3 by 3 grid. Row 1: 6, 11, question mark. Row 2: 13, 9, 5. Row 3: 8, 7, 12."
+      },
+      "answer": 10,
+      "tolerance": 0,
+      "hints": [
+        "Find the total from a full row.",
+        "The row 13, 9, 5 adds up to 27.",
+        "Use the top row. It must also add up to 27."
+      ],
+      "explanation": "The full row 13 + 9 + 5 = 27, so every line adds to 27. The top row has 6 + 11 = 17, so the question mark is 27 - 17 = 10.",
+      "solution": [
+        {
+          "say": "The full row 13 + 9 + 5 = 27, so every line adds to 27."
+        },
+        {
+          "say": "The top row has 6 + 11 = 17, so the question mark is 27 - 17 = 10."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.041",
+      "skill": "m2.oly-logic",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "This is a magic square. Every row, column and diagonal adds to the same total. What number goes in the middle?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Col 1",
+          "Col 2",
+          "Col 3"
+        ],
+        "rows": [
+          [
+            "4",
+            "9",
+            "8"
+          ],
+          [
+            "11",
+            "?",
+            "3"
+          ],
+          [
+            "6",
+            "5",
+            "10"
+          ]
+        ],
+        "alt": "A 3 by 3 grid. Row 1: 4, 9, 8. Row 2: 11, question mark, 3. Row 3: 6, 5, 10."
+      },
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "The first row is full. Find its total.",
+        "The top row 4 + 9 + 8 = 21.",
+        "The middle row must also add up to 21."
+      ],
+      "explanation": "The top row adds up to 4 + 9 + 8 = 21. The middle row is 11 + ? + 3 = 21, so the middle is 21 - 14 = 7.",
+      "solution": [
+        {
+          "say": "The top row adds up to 4 + 9 + 8 = 21."
+        },
+        {
+          "say": "The middle row is 11 + ?"
+        },
+        {
+          "say": "+ 3 = 21, so the middle is 21 - 14 = 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-logic.042",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          4,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          4,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          2,
+          0,
+          4
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          4,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          4
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.043",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          0,
+          0,
+          4,
+          2
+        ],
+        [
+          4,
+          2,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          4,
+          2
+        ],
+        [
+          4,
+          2,
+          3,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.044",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          2,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ],
+        [
+          4,
+          0,
+          2,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.045",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          4,
+          1,
+          0,
+          3
+        ],
+        [
+          3,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          3,
+          4,
+          1
+        ],
+        [
+          4,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          4
+        ],
+        [
+          1,
+          4,
+          3,
+          2
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.046",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          1,
+          0,
+          0,
+          3
+        ],
+        [
+          4,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          2,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          2,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.047",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column and each 2 by 2 box does too.",
+      "puzzle": "sudoku",
+      "size": 4,
+      "given": [
+        [
+          1,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row, column or box with only one empty box.",
+        "Look at which numbers are already there. Which is missing?",
+        "Check the column and the 2 by 2 box as well."
+      ],
+      "explanation": "Every row, column and 2 by 2 box has 1, 2, 3 and 4 once. Fill the boxes one at a time, starting where only one number fits.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.048",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 3. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2 and 3 once. Start with a line that has only one empty box.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.049",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 3. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2 and 3 once. Start with a line that has only one empty box.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.050",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 3. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2 and 3 once. Start with a line that has only one empty box.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.051",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          4
+        ],
+        [
+          4,
+          3,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          4,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          4
+        ],
+        [
+          4,
+          3,
+          2,
+          1
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2, 3 and 4 once. Fill the lines where only one number fits, then go on.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.052",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          3
+        ],
+        [
+          1,
+          4,
+          3,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          4
+        ],
+        [
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          4,
+          3,
+          2
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2, 3 and 4 once. Fill the lines where only one number fits, then go on.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.053",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 4. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 4,
+      "given": [
+        [
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          3,
+          4,
+          2
+        ],
+        [
+          3,
+          4,
+          2,
+          1
+        ],
+        [
+          4,
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          1,
+          3,
+          4
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and each column has 1, 2, 3 and 4 once. Fill the lines where only one number fits, then go on.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.054",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Use the numbers 1 to 9 once each. Each row, column and diagonal adds to 15.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0
+        ],
+        [
+          6,
+          1,
+          8
+        ]
+      ],
+      "filled": [
+        [
+          2,
+          9,
+          4
+        ],
+        [
+          7,
+          5,
+          3
+        ],
+        [
+          6,
+          1,
+          8
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 15. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.055",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Use the numbers 1 to 9 once each. Each row, column and diagonal adds to 15.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          6,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          9,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          6,
+          1,
+          8
+        ],
+        [
+          7,
+          5,
+          3
+        ],
+        [
+          2,
+          9,
+          4
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 15. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.056",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Use the numbers 2 to 10 once each. Each row, column and diagonal adds to 18.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          8,
+          0
+        ],
+        [
+          2,
+          6,
+          10
+        ],
+        [
+          9,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          7,
+          8,
+          3
+        ],
+        [
+          2,
+          6,
+          10
+        ],
+        [
+          9,
+          4,
+          5
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 18. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.057",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Use the numbers 2 to 10 once each. Each row, column and diagonal adds to 18.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          8
+        ],
+        [
+          9,
+          0,
+          7
+        ]
+      ],
+      "filled": [
+        [
+          5,
+          10,
+          3
+        ],
+        [
+          4,
+          6,
+          8
+        ],
+        [
+          9,
+          2,
+          7
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 18. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.058",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Use the numbers 3 to 11 once each. Each row, column and diagonal adds to 21.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          10,
+          5,
+          0
+        ],
+        [
+          0,
+          7,
+          0
+        ],
+        [
+          0,
+          9,
+          4
+        ]
+      ],
+      "filled": [
+        [
+          10,
+          5,
+          6
+        ],
+        [
+          3,
+          7,
+          11
+        ],
+        [
+          8,
+          9,
+          4
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 21. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.059",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Use the numbers 3 to 11 once each. Each row, column and diagonal adds to 21.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          5,
+          0
+        ],
+        [
+          3,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          10,
+          5,
+          6
+        ],
+        [
+          3,
+          7,
+          11
+        ],
+        [
+          8,
+          9,
+          4
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 21. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.060",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Use the numbers 4 to 12 once each. Each row, column and diagonal adds to 24.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          0,
+          6,
+          11
+        ],
+        [
+          12,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          9
+        ]
+      ],
+      "filled": [
+        [
+          7,
+          6,
+          11
+        ],
+        [
+          12,
+          8,
+          4
+        ],
+        [
+          5,
+          10,
+          9
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 24. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-logic.061",
+      "skill": "m2.oly-logic",
+      "type": "grid",
+      "difficulty": 4,
+      "prompt": "Use the numbers 4 to 12 once each. Each row, column and diagonal adds to 24.",
+      "puzzle": "magic",
+      "size": 3,
+      "given": [
+        [
+          11,
+          0,
+          9
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          11,
+          4,
+          9
+        ],
+        [
+          6,
+          8,
+          10
+        ],
+        [
+          7,
+          12,
+          5
+        ]
+      ],
+      "hints": [
+        "Find a line with only one empty box.",
+        "The line adds up to the total. Take away the numbers you can see.",
+        "Cross off the numbers you have used."
+      ],
+      "explanation": "Each line adds to 24. Find a line with only one empty box and work out the missing number. Then go on to the next line.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
     }
   ]
 }

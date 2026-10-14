@@ -949,11 +949,11 @@
           "why": "A rectangle is the shadow when light shines from the side."
         },
         {
-          "text": "Circle"
-        },
-        {
           "text": "Triangle",
           "why": "A cylinder has no pointed top."
+        },
+        {
+          "text": "Circle"
         },
         {
           "text": "Square",
@@ -964,7 +964,7 @@
           "why": "A cylinder has no straight edges on its top."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Imagine looking down at the cylinder from the lamp.",
         "You see the top of the cylinder.",
@@ -999,6 +999,9 @@
           "why": "A circle is the shadow when the cylinder stands up."
         },
         {
+          "text": "Rectangle"
+        },
+        {
           "text": "Triangle",
           "why": "A cylinder has no pointed end."
         },
@@ -1007,14 +1010,11 @@
           "why": "The cylinder is longer than it is wide."
         },
         {
-          "text": "Rectangle"
-        },
-        {
           "text": "Oval",
           "why": "The sides of the shadow are straight."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "Picture the cylinder lying down and look at it from above.",
         "You see its long curved side.",
@@ -1055,9 +1055,6 @@
           "why": "A circle is the shadow when the lamp is above the cone."
         },
         {
-          "text": "Triangle"
-        },
-        {
           "text": "Square",
           "why": "A cone has no square part."
         },
@@ -1068,9 +1065,12 @@
         {
           "text": "Oval",
           "why": "The shadow has straight edges and a point."
+        },
+        {
+          "text": "Triangle"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "Look at the cone from the side.",
         "The cone gets narrower towards the top.",
@@ -1126,11 +1126,11 @@
           "why": "A cube makes a square shadow."
         },
         {
-          "text": "Sphere"
-        },
-        {
           "text": "Cylinder",
           "why": "A cylinder lying down makes a rectangle shadow."
+        },
+        {
+          "text": "Sphere"
         },
         {
           "text": "Cone",
@@ -1141,7 +1141,7 @@
           "why": "A pyramid makes a square or a triangle shadow."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "The shadow must be a circle from every side.",
         "Try turning each solid in your mind.",
@@ -1234,18 +1234,18 @@
           "why": "A cylinder does not make a square."
         },
         {
-          "text": "Cuboid"
-        },
-        {
           "text": "Cone",
           "why": "A cone makes a circle and a triangle."
         },
         {
           "text": "Sphere",
           "why": "A sphere makes only circles."
+        },
+        {
+          "text": "Cuboid"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "The side and top shadows are different shapes.",
         "A cube looks the same from every side.",
@@ -1300,14 +1300,14 @@
           "why": "A pyramid has no round part."
         },
         {
-          "text": "Only a triangle",
-          "why": "Seen from above it looks like a square."
+          "text": "A square and a triangle"
         },
         {
-          "text": "A square and a triangle"
+          "text": "Only a triangle",
+          "why": "Seen from above it looks like a square."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Look at the pyramid from above and then from the side.",
         "From above you see the square base.",
@@ -1350,18 +1350,18 @@
           "why": "A rhombus has no square corners."
         },
         {
-          "text": "Rectangle"
-        },
-        {
           "text": "Trapezium",
           "why": "A trapezium does not have 4 square corners."
+        },
+        {
+          "text": "Rectangle"
         },
         {
           "text": "Kite",
           "why": "A kite does not have 4 square corners."
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Think about shapes with 4 sides.",
         "Square corners are right angles.",
@@ -2296,11 +2296,11 @@
           "why": "All 6 faces of a cube are squares."
         },
         {
-          "text": "Cuboid"
-        },
-        {
           "text": "Cylinder",
           "why": "A cylinder has round faces."
+        },
+        {
+          "text": "Cuboid"
         },
         {
           "text": "Triangular prism",
@@ -2311,7 +2311,7 @@
           "why": "A pyramid has triangle faces."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Think about which solids have 6 faces.",
         "A cube has 6 faces, but they are all squares.",
@@ -2345,15 +2345,15 @@
       "prompt": "I have 1 flat face, 1 curved face and 1 corner. What am I?",
       "options": [
         {
-          "text": "Cone"
-        },
-        {
           "text": "Cylinder",
           "why": "A cylinder has 2 flat faces and no corners."
         },
         {
           "text": "Sphere",
           "why": "A sphere has no flat face."
+        },
+        {
+          "text": "Cone"
         },
         {
           "text": "Square pyramid",
@@ -2364,7 +2364,7 @@
           "why": "A cube has 6 flat faces."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "Think about which solid has a pointed corner.",
         "A cylinder and a sphere have no corners.",
@@ -2882,6 +2882,76 @@
             "shapes": [
               {
                 "t": "rect",
+                "x": 59,
+                "y": 11,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 77,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 37,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 81,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares. A column of 4 squares has one square stuck out on each side of the second square."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
                 "x": 48,
                 "y": 11,
                 "w": 22,
@@ -2944,76 +3014,6 @@
             "alt": "A flat shape of 6 squares: a block of 2 by 2 squares with two more squares below the left one."
           },
           "why": "A block of 4 squares cannot fold round a corner of a cube."
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 140,
-            "height": 110,
-            "shapes": [
-              {
-                "t": "rect",
-                "x": 59,
-                "y": 11,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 59,
-                "y": 33,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 59,
-                "y": 55,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 59,
-                "y": 77,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 37,
-                "y": 33,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 81,
-                "y": 33,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              }
-            ],
-            "alt": "A net of 6 squares. A column of 4 squares has one square stuck out on each side of the second square."
-          }
         },
         {
           "figure": {
@@ -3087,7 +3087,7 @@
           "why": "A block of 4 squares cannot fold round a corner of a cube."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Imagine folding the squares up to make the sides of a box.",
         "A cube has only 3 squares meeting at each corner.",
@@ -3118,76 +3118,6 @@
       "difficulty": 5,
       "prompt": "Four of these flat shapes can be folded to make a cube. Which one cannot?",
       "options": [
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 140,
-            "height": 110,
-            "shapes": [
-              {
-                "t": "rect",
-                "x": 26,
-                "y": 55,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 48,
-                "y": 55,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 70,
-                "y": 55,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 92,
-                "y": 55,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 26,
-                "y": 33,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              },
-              {
-                "t": "rect",
-                "x": 48,
-                "y": 33,
-                "w": 22,
-                "h": 22,
-                "r": 0,
-                "tone": "math",
-                "fill": "light"
-              }
-            ],
-            "alt": "A flat shape of 6 squares: a row of 4 squares with 2 squares above the first two."
-          }
-        },
         {
           "figure": {
             "kind": "scene",
@@ -3410,6 +3340,76 @@
               {
                 "t": "rect",
                 "x": 26,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares: a row of 4 squares with 2 squares above the first two."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
                 "y": 44,
                 "w": 22,
                 "h": 22,
@@ -3473,7 +3473,7 @@
           "why": "This can be folded to make a cube."
         }
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "In a cube net, a row of 4 squares folds round to make 4 sides.",
         "The 2 other squares fold to make the top and the bottom.",

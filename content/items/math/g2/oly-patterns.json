@@ -2042,18 +2042,18 @@
           "why": "There is no triangle in this pattern."
         },
         {
+          "text": "Square"
+        },
+        {
           "text": "Star",
           "why": "There is no star in this pattern."
         },
         {
           "text": "Heart",
           "why": "There is no heart in this pattern."
-        },
-        {
-          "text": "Square"
         }
       ],
-      "answer": 4,
+      "answer": 2,
       "hints": [
         "Find the group that repeats.",
         "The group is circle, square, square.",
@@ -2247,11 +2247,11 @@
           "why": "A square has 4 sides. The next shape needs 6."
         },
         {
-          "text": "Hexagon"
-        },
-        {
           "text": "Pentagon",
           "why": "The pentagon is already in the row."
+        },
+        {
+          "text": "Hexagon"
         },
         {
           "text": "Octagon",
@@ -2262,7 +2262,7 @@
           "why": "A circle has no straight sides."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Count the sides of each shape.",
         "3 sides, 4 sides, 5 sides ...",
@@ -2309,15 +2309,15 @@
       },
       "options": [
         {
+          "text": "I"
+        },
+        {
           "text": "H",
           "why": "H comes right after G. The pattern skips a letter."
         },
         {
           "text": "J",
           "why": "The pattern skips only one letter at a time."
-        },
-        {
-          "text": "I"
         },
         {
           "text": "K",
@@ -2328,7 +2328,7 @@
           "why": "F is before G."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Say the alphabet and find the jumps.",
         "A, C, E, G: one letter is skipped each time.",
@@ -2439,6 +2439,9 @@
           "why": "Red flags are in places 1, 4, 7 and so on."
         },
         {
+          "text": "Blue"
+        },
+        {
           "text": "Green",
           "why": "Green flags are in places 3, 6, 9 and so on."
         },
@@ -2449,12 +2452,9 @@
         {
           "text": "It cannot be known",
           "why": "The pattern is clear enough to find it."
-        },
-        {
-          "text": "Blue"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "How many flags are in one group?",
         "3 flags in a group. Count in 3s: 3, 6, 9 ...",
@@ -2694,6 +2694,52 @@
                 "t": "poly",
                 "points": [
                   [
+                    34,
+                    50
+                  ],
+                  [
+                    52,
+                    36
+                  ],
+                  [
+                    52,
+                    44
+                  ],
+                  [
+                    84,
+                    44
+                  ],
+                  [
+                    84,
+                    56
+                  ],
+                  [
+                    52,
+                    56
+                  ],
+                  [
+                    52,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing left."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
                     60,
                     24
                   ],
@@ -2788,52 +2834,6 @@
                 "t": "poly",
                 "points": [
                   [
-                    34,
-                    50
-                  ],
-                  [
-                    52,
-                    36
-                  ],
-                  [
-                    52,
-                    44
-                  ],
-                  [
-                    84,
-                    44
-                  ],
-                  [
-                    84,
-                    56
-                  ],
-                  [
-                    52,
-                    56
-                  ],
-                  [
-                    52,
-                    64
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "An arrow pointing left."
-          }
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
                     60,
                     76
                   ],
@@ -2872,7 +2872,7 @@
           "why": "This arrow points down, like the 3rd arrow."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "A quarter turn clockwise moves up to right.",
         "Up, right, down. Keep turning the same way.",
@@ -3066,48 +3066,6 @@
                 "t": "poly",
                 "points": [
                   [
-                    82,
-                    36
-                  ],
-                  [
-                    82,
-                    64
-                  ],
-                  [
-                    70,
-                    64
-                  ],
-                  [
-                    70,
-                    50
-                  ],
-                  [
-                    38,
-                    50
-                  ],
-                  [
-                    38,
-                    36
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "A hook with its bar on the right."
-          }
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
                     46,
                     28
                   ],
@@ -3194,6 +3152,48 @@
                 "t": "poly",
                 "points": [
                   [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
                     38,
                     64
                   ],
@@ -3228,7 +3228,7 @@
           "why": "This is the same as the 2nd hook."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "Anticlockwise is the opposite way to a clock hand.",
         "Look at how the top bar of the hook moves each time.",
@@ -3445,6 +3445,48 @@
                 "t": "poly",
                 "points": [
                   [
+                    74,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    46,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the bottom."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
                     46,
                     28
                   ],
@@ -3531,48 +3573,6 @@
                 "t": "poly",
                 "points": [
                   [
-                    74,
-                    72
-                  ],
-                  [
-                    46,
-                    72
-                  ],
-                  [
-                    46,
-                    60
-                  ],
-                  [
-                    60,
-                    60
-                  ],
-                  [
-                    60,
-                    28
-                  ],
-                  [
-                    74,
-                    28
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "A hook with its bar on the bottom."
-          }
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
                     38,
                     64
                   ],
@@ -3607,7 +3607,7 @@
           "why": "This is the 8th hook."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "The hooks repeat after a few turns.",
         "After 4 quarter turns the hook looks like the first one again.",
@@ -3804,48 +3804,6 @@
                 "t": "poly",
                 "points": [
                   [
-                    74,
-                    28
-                  ],
-                  [
-                    46,
-                    28
-                  ],
-                  [
-                    46,
-                    40
-                  ],
-                  [
-                    60,
-                    40
-                  ],
-                  [
-                    60,
-                    72
-                  ],
-                  [
-                    74,
-                    72
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "A hook with its bar on the top and flipped over like in a mirror."
-          }
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
                     46,
                     28
                   ],
@@ -3878,6 +3836,48 @@
             "alt": "A hook with its bar on the top."
           },
           "why": "This is the hook that has not been flipped."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    46,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    74,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top and flipped over like in a mirror."
+          }
         },
         {
           "figure": {
@@ -3966,7 +3966,7 @@
           "why": "This hook is turned upside down, not flipped."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Look at which side the stem hangs on in each box.",
         "The stem hangs on the left, then right, then left.",
@@ -4237,6 +4237,48 @@
                 "t": "poly",
                 "points": [
                   [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
                     46,
                     72
                   ],
@@ -4269,48 +4311,6 @@
             "alt": "A hook with its bar on the bottom and flipped over like in a mirror."
           },
           "why": "This hook is flipped over, not turned."
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
-                    82,
-                    36
-                  ],
-                  [
-                    82,
-                    64
-                  ],
-                  [
-                    70,
-                    64
-                  ],
-                  [
-                    70,
-                    50
-                  ],
-                  [
-                    38,
-                    50
-                  ],
-                  [
-                    38,
-                    36
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "A hook with its bar on the right."
-          }
         },
         {
           "figure": {
@@ -4356,7 +4356,7 @@
           "why": "This hook is flipped over, not turned."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "A hook that is turned round can still be put exactly on the first hook.",
         "The top bar and the stem must meet at the same corner.",
