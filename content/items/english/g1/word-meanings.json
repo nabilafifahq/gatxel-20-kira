@@ -1491,6 +1491,346 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.034",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? cat, dog, hen, cup",
+      "hints": [
+        "Three words are animals.",
+        "One word is a thing you drink from.",
+        "Find the odd one out."
+      ],
+      "explanation": "Cat, dog and hen are animals. A cup is not.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat is an animal, like dog and hen."
+        },
+        {
+          "text": "cup"
+        },
+        {
+          "text": "dog",
+          "why": "Dog is an animal, like cat and hen."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.035",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? red, blue, pig, green",
+      "hints": [
+        "Three words are colours.",
+        "One word is an animal.",
+        "Find the odd one out."
+      ],
+      "explanation": "Red, blue and green are colours. A pig is an animal.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "red",
+          "why": "Red is a colour, like blue and green."
+        },
+        {
+          "text": "blue",
+          "why": "Blue is a colour, like red and green."
+        },
+        {
+          "text": "pig"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.036",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? sun, moon, star, bed",
+      "hints": [
+        "Three words are in the sky.",
+        "One word is in a bedroom.",
+        "Find the odd one out."
+      ],
+      "explanation": "Sun, moon and star are in the sky. A bed is not.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "sun",
+          "why": "Sun is in the sky, like moon and star."
+        },
+        {
+          "text": "bed"
+        },
+        {
+          "text": "moon",
+          "why": "Moon is in the sky, like sun and star."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.037",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is the opposite of day?",
+      "hints": [
+        "Think about when you sleep.",
+        "It is dark and the moon is out.",
+        "It is not day."
+      ],
+      "explanation": "Night is the opposite of day.",
+      "options": [
+        {
+          "text": "dark",
+          "why": "Dark is not the opposite of day."
+        },
+        {
+          "text": "night"
+        },
+        {
+          "text": "sun",
+          "why": "The sun is in the day."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.038",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I am an animal. I say moo. What am I?",
+      "hints": [
+        "Think about the sound moo.",
+        "A farm animal makes it.",
+        "It gives milk."
+      ],
+      "explanation": "A cow says moo.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "a cow"
+        },
+        {
+          "text": "a cat",
+          "why": "A cat says meow."
+        },
+        {
+          "text": "a hen",
+          "why": "A hen says cluck."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.039",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I have four legs and a tail. I say woof. What am I?",
+      "hints": [
+        "Think about the sound woof.",
+        "It is a pet.",
+        "It wags its tail."
+      ],
+      "explanation": "A dog says woof.",
+      "options": [
+        {
+          "text": "a duck",
+          "why": "A duck says quack."
+        },
+        {
+          "text": "a fish",
+          "why": "A fish does not have legs."
+        },
+        {
+          "text": "a dog"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.040",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A fish lives in the ___.",
+      "hints": [
+        "Think about where a fish swims.",
+        "It needs this to live.",
+        "It is wet."
+      ],
+      "explanation": "A fish lives in the water.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "tree",
+          "why": "A bird lives in a tree."
+        },
+        {
+          "text": "sky",
+          "why": "A bird flies in the sky."
+        },
+        {
+          "text": "water"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.041",
+      "skill": "e1.word-meanings",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the animal that lives in water.",
+      "hints": [
+        "Think about where each animal lives.",
+        "One animal swims.",
+        "It has fins."
+      ],
+      "explanation": "A fish lives in water.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a fish, a cat, a hen and a cow."
+      },
+      "regions": [
+        {
+          "label": "fish",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cow",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "e1.word-meanings.042",
+      "skill": "e1.word-meanings",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the first row for a clue.",
+        "Opposites are very different.",
+        "Up goes with a word for the other way."
+      ],
+      "explanation": "Down is the opposite of up and small is the opposite of big.",
+      "head": [
+        "Word",
+        "Opposite"
+      ],
+      "rows": [
+        [
+          "hot",
+          "cold"
+        ],
+        [
+          "up",
+          ""
+        ],
+        [
+          "big",
+          ""
+        ]
+      ],
+      "caption": "Opposites",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "down"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "small",
+            "little"
+          ]
+        }
+      ]
     }
   ]
 }

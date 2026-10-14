@@ -792,6 +792,61 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e3.er-est.027",
+      "skill": "e3.er-est",
+      "type": "table",
+      "difficulty": 4,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the first row for a clue.",
+        "Big doubles the last letter.",
+        "Happy changes y to i."
+      ],
+      "explanation": "Big becomes bigger and happy becomes happiest.",
+      "tags": [
+        "iklc"
+      ],
+      "head": [
+        "Word",
+        "-er",
+        "-est"
+      ],
+      "rows": [
+        [
+          "tall",
+          "taller",
+          "tallest"
+        ],
+        [
+          "big",
+          "",
+          "biggest"
+        ],
+        [
+          "happy",
+          "happier",
+          ""
+        ]
+      ],
+      "caption": "Comparing",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "bigger"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "happiest"
+          ]
+        }
+      ]
     }
   ]
 }

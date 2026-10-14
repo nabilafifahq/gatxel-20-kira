@@ -849,6 +849,70 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e3.plurals.029",
+      "skill": "e3.plurals",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the pictures. Choose the right spelling.",
+      "hints": [
+        "Say the name of each picture.",
+        "Check the spelling of each word.",
+        "Strawberry has two r letters."
+      ],
+      "explanation": "The pictures show a butterfly, a strawberry and a watermelon.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "butterfly",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "strawberry",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "watermelon",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A butterfly, a strawberry and a watermelon."
+      },
+      "labels": [
+        "butterfly",
+        "strawberry",
+        "watermelon"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "strawbery"
+      ]
     }
   ]
 }

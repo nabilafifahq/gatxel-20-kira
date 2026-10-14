@@ -1294,6 +1294,48 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e3.main-idea.039",
+      "skill": "e3.main-idea",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Mina has a garden. She grows beans, corn and spinach. Every morning she waters the plants. In two months, she picks the first beans.",
+      "hints": [
+        "Count the plants in the second sentence.",
+        "Look at what all the sentences share.",
+        "They are about caring for a garden."
+      ],
+      "explanation": "Mina grows three plants and looks after her garden.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many kinds of plant does Mina grow?",
+          "answer": 3
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the main idea?",
+          "options": [
+            {
+              "text": "Mina eats beans.",
+              "why": "This is only one detail."
+            },
+            {
+              "text": "Mina likes mornings.",
+              "why": "This is only one detail."
+            },
+            {
+              "text": "Mina buys corn.",
+              "why": "The text says she grows it."
+            },
+            {
+              "text": "Mina looks after a garden."
+            }
+          ],
+          "answer": 3
+        }
+      ]
     }
   ]
 }

@@ -1534,6 +1534,76 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e3.inference.046",
+      "skill": "e3.inference",
+      "type": "story",
+      "difficulty": 4,
+      "prompt": "Pak Hadi has 24 mangoes. He puts them in bags of 6. He sells each bag for 12 thousand rupiah.",
+      "hints": [
+        "Divide the mangoes by the bag size.",
+        "Then multiply by the price.",
+        "Four bags at twelve each."
+      ],
+      "explanation": "24 divided by 6 makes 4 bags. 4 times 12 makes 48 thousand rupiah.",
+      "tags": [
+        "iklc"
+      ],
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many bags does he fill?",
+          "answer": 4
+        },
+        {
+          "type": "numeric",
+          "prompt": "How much money does he get if he sells all the bags, in thousands of rupiah?",
+          "answer": 48
+        }
+      ]
+    },
+    {
+      "id": "e3.inference.047",
+      "skill": "e3.inference",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "The class has 18 children. Eight of them are boys. The class made 3 teams for a game.",
+      "hints": [
+        "Take the boys away from all the children.",
+        "Read the last sentence.",
+        "Find the word for the groups."
+      ],
+      "explanation": "18 minus 8 makes 10 girls. The children formed teams.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many girls are in the class?",
+          "answer": 10
+        },
+        {
+          "type": "mcq",
+          "prompt": "What word tells us how the children were put into groups?",
+          "options": [
+            {
+              "text": "teams"
+            },
+            {
+              "text": "class",
+              "why": "Class is the whole group."
+            },
+            {
+              "text": "game",
+              "why": "Game is what they played."
+            },
+            {
+              "text": "boys",
+              "why": "Boys are some of the children."
+            }
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

@@ -1029,6 +1029,89 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e2.vowel-spellings.034",
+      "skill": "e2.vowel-spellings",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the two pictures with the letters ai.",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen for the long a sound.",
+        "Two names have ai."
+      ],
+      "explanation": "Snail and rain both have ai.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rain",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a snail, rain, a sun and a cat."
+      },
+      "regions": [
+        {
+          "label": "snail",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "rain",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "sun",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ]
     }
   ]
 }

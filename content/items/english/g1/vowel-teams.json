@@ -847,6 +847,88 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e1.vowel-teams.031",
+      "skill": "e1.vowel-teams",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the picture with the sound ee.",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen for a long e sound.",
+        "It grows in a park."
+      ],
+      "explanation": "Tree has the vowel team ee.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a tree, a sun, a cat and a hen."
+      },
+      "regions": [
+        {
+          "label": "tree",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "sun",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

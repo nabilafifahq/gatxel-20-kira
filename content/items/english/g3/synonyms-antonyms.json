@@ -805,6 +805,264 @@
         2,
         3
       ]
+    },
+    {
+      "id": "e3.synonyms-antonyms.026",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is not a synonym? big, huge, giant, tiny",
+      "hints": [
+        "Three words mean large.",
+        "One word means the opposite.",
+        "Find the odd one out."
+      ],
+      "explanation": "Big, huge and giant mean large. Tiny means very small.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "tiny"
+        },
+        {
+          "text": "big",
+          "why": "Big means large."
+        },
+        {
+          "text": "huge",
+          "why": "Huge means very large."
+        },
+        {
+          "text": "giant",
+          "why": "Giant means very large."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.synonyms-antonyms.027",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is not about movement? swim, run, sleep, kitchen",
+      "hints": [
+        "Think about doing words.",
+        "Three words tell what someone does.",
+        "One word is a place."
+      ],
+      "explanation": "Swim, run and sleep are verbs. Kitchen is a noun.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "swim",
+          "why": "Swim is a movement."
+        },
+        {
+          "text": "run",
+          "why": "Run is a movement."
+        },
+        {
+          "text": "sleep",
+          "why": "Sleep is something we do."
+        },
+        {
+          "text": "kitchen"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.synonyms-antonyms.028",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The sky was so ___ that we could see every star.",
+      "hints": [
+        "Think about a night with no clouds.",
+        "You can see through it.",
+        "It is the opposite of cloudy."
+      ],
+      "explanation": "Clear fits the sentence.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "clear"
+        },
+        {
+          "text": "loud",
+          "why": "Loud is about sound."
+        },
+        {
+          "text": "heavy",
+          "why": "Heavy is about weight."
+        },
+        {
+          "text": "sharp",
+          "why": "Sharp is about an edge."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.synonyms-antonyms.029",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The detective looked ___ at the footprints.",
+      "hints": [
+        "The word tells how he looked.",
+        "It ends with ly.",
+        "It is a how word."
+      ],
+      "explanation": "Carefully tells how the detective looked.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "careful",
+          "why": "Careful is a describing word, not how it was done."
+        },
+        {
+          "text": "care",
+          "why": "Care is a noun."
+        },
+        {
+          "text": "careless",
+          "why": "Careless would mean he was not careful."
+        },
+        {
+          "text": "carefully"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.synonyms-antonyms.030",
+      "skill": "e3.synonyms-antonyms",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the filled rows.",
+        "Opposites are very different.",
+        "Wide is about width."
+      ],
+      "explanation": "Dark is the opposite of light and wide is the opposite of narrow.",
+      "head": [
+        "Word",
+        "Opposite"
+      ],
+      "rows": [
+        [
+          "hard",
+          "soft"
+        ],
+        [
+          "dark",
+          ""
+        ],
+        [
+          "wide",
+          ""
+        ],
+        [
+          "full",
+          "empty"
+        ]
+      ],
+      "caption": "Opposites",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "light",
+            "bright"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "narrow",
+            "thin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3.synonyms-antonyms.031",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Puppy is to dog as kitten is to ___.",
+      "hints": [
+        "A puppy is a young dog.",
+        "A kitten is a young one too.",
+        "Which animal?"
+      ],
+      "explanation": "A kitten is a young cat.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "mouse",
+          "why": "A mouse is a different animal."
+        },
+        {
+          "text": "bird",
+          "why": "A bird is a different animal."
+        },
+        {
+          "text": "cat"
+        },
+        {
+          "text": "kitchen",
+          "why": "A kitchen is a room."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.synonyms-antonyms.032",
+      "skill": "e3.synonyms-antonyms",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Teacher is to school as doctor is to ___.",
+      "hints": [
+        "A teacher works at school.",
+        "Think where a doctor works.",
+        "It has beds for people who are ill."
+      ],
+      "explanation": "A doctor works at a hospital.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "library",
+          "why": "A library is for books."
+        },
+        {
+          "text": "hospital"
+        },
+        {
+          "text": "garden",
+          "why": "A garden is for plants."
+        },
+        {
+          "text": "market",
+          "why": "A market is for buying things."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

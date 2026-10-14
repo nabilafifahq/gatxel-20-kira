@@ -826,6 +826,101 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.029",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? run, jump, tree, hop",
+      "hints": [
+        "Three words are doing words.",
+        "One word is a thing.",
+        "Find the odd one out."
+      ],
+      "explanation": "Run, jump and hop are doing words. A tree is a thing.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word, like jump and hop."
+        },
+        {
+          "text": "jump",
+          "why": "Jump is a doing word, like run and hop."
+        },
+        {
+          "text": "tree"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.030",
+      "skill": "e1.naming-doing-words",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the animals.",
+      "hints": [
+        "Say the name of each animal.",
+        "The frog is in the first box.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a frog, a duck and a cow.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A frog, a duck and a cow."
+      },
+      "labels": [
+        "frog",
+        "duck",
+        "cow"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "pig"
+      ]
     }
   ]
 }

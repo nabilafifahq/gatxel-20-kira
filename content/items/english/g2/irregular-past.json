@@ -1005,6 +1005,76 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e2.irregular-past.034",
+      "skill": "e2.irregular-past",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word does not belong? ran, jumped, walked, table",
+      "hints": [
+        "Three words tell what someone did.",
+        "One word is a thing.",
+        "Find the odd one out."
+      ],
+      "explanation": "Ran, jumped and walked are past tense verbs. Table is a noun.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "ran",
+          "why": "Ran is a past tense verb."
+        },
+        {
+          "text": "jumped",
+          "why": "Jumped is a past tense verb."
+        },
+        {
+          "text": "table"
+        },
+        {
+          "text": "walked",
+          "why": "Walked is a past tense verb."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.irregular-past.035",
+      "skill": "e2.irregular-past",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Yesterday, Dewi ___ her aunt and ___ some cake.",
+      "hints": [
+        "Yesterday tells us the time.",
+        "Both words are in the past.",
+        "Eat does not take ed."
+      ],
+      "explanation": "Visited and ate are in the past.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "gaps": [
+        {
+          "options": [
+            "visited",
+            "visit",
+            "visits"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "ate",
+            "eat",
+            "eaten"
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

@@ -667,6 +667,111 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e3.dictionary-order.025",
+      "skill": "e3.dictionary-order",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the animal that comes first in the dictionary.",
+      "hints": [
+        "Look at the first letter of each name.",
+        "The alphabet starts with a.",
+        "Find the name that starts with a."
+      ],
+      "explanation": "Ant comes first because a is first in the alphabet.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "ant",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bee",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "dog",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: an ant, a bee, a cat and a dog."
+      },
+      "regions": [
+        {
+          "label": "ant",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bee",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "dog",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.026",
+      "skill": "e3.dictionary-order",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Rearrange the letters to make a fruit. n - a - a - n - b - a",
+      "hints": [
+        "Try different orders.",
+        "It is yellow.",
+        "It starts with b and has six letters."
+      ],
+      "explanation": "The letters make banana.",
+      "tags": [
+        "iklc"
+      ],
+      "blanks": [
+        {
+          "answers": [
+            "banana"
+          ]
+        }
+      ]
     }
   ]
 }

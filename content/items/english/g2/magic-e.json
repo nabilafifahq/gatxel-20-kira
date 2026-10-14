@@ -943,6 +943,124 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "e2.magic-e.034",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Change one letter in hat to make a flying animal.",
+      "hints": [
+        "Change only the first letter.",
+        "The animal flies at night.",
+        "It hangs upside down."
+      ],
+      "explanation": "Changing h to b makes bat.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "rat",
+          "why": "A rat cannot fly."
+        },
+        {
+          "text": "mat",
+          "why": "A mat is not an animal."
+        },
+        {
+          "text": "bat"
+        },
+        {
+          "text": "sat",
+          "why": "Sat is a doing word."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.magic-e.035",
+      "skill": "e2.magic-e",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the two pictures with a magic e word.",
+      "hints": [
+        "Say the name of each picture.",
+        "A magic e word ends with e.",
+        "Two names have a long vowel."
+      ],
+      "explanation": "Kite and cake both end with a magic e.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "kite",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cake",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bag",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a kite, a cake, a hat and a bag."
+      },
+      "regions": [
+        {
+          "label": "kite",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cake",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bag",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ]
     }
   ]
 }

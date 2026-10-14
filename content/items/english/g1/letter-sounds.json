@@ -1100,6 +1100,245 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.034",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is made from the letters p - i - g?",
+      "hints": [
+        "Say each letter sound.",
+        "Put the sounds together.",
+        "The word is a farm animal."
+      ],
+      "explanation": "The letters p - i - g make pig.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "peg",
+          "why": "Peg has the letter e."
+        },
+        {
+          "text": "pig"
+        },
+        {
+          "text": "pug",
+          "why": "Pug has the letter u."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.035",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word starts with a different sound? ball, bat, bus, cat",
+      "hints": [
+        "Say each word.",
+        "Listen to the first sound.",
+        "Three words start with b."
+      ],
+      "explanation": "Ball, bat and bus start with b. Cat starts with c.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "ball",
+          "why": "Ball starts with b."
+        },
+        {
+          "text": "bus",
+          "why": "Bus starts with b."
+        },
+        {
+          "text": "cat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.036",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Complete the pattern: cat, bat, hat, ___",
+      "hints": [
+        "The words all rhyme.",
+        "They end with at.",
+        "Find the word that ends with at."
+      ],
+      "explanation": "Cat, bat, hat and mat all end with at.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "mug",
+          "why": "Mug does not rhyme with cat."
+        },
+        {
+          "text": "mat"
+        },
+        {
+          "text": "map",
+          "why": "Map does not rhyme with cat."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.037",
+      "skill": "e1.letter-sounds",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the pictures.",
+      "hints": [
+        "Look at the first picture.",
+        "Say the name of each picture.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a sun, a hen and a bus.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "bus",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A sun, a hen and a bus."
+      },
+      "labels": [
+        "sun",
+        "hen",
+        "bus"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "pig"
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.038",
+      "skill": "e1.letter-sounds",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the picture with the sound sh at the start.",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen to the first two letters.",
+        "It is found on the beach."
+      ],
+      "explanation": "Shell starts with the sound sh.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "shell",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a shell, a sun, a cat and a hen."
+      },
+      "regions": [
+        {
+          "label": "shell",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "sun",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

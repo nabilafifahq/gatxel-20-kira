@@ -795,6 +795,54 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e1.word-endings.029",
+      "skill": "e1.word-endings",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the filled row.",
+        "Add one letter to make many.",
+        "The letter is s."
+      ],
+      "explanation": "Dog becomes dogs and hen becomes hens.",
+      "head": [
+        "One",
+        "Many"
+      ],
+      "rows": [
+        [
+          "cat",
+          "cats"
+        ],
+        [
+          "dog",
+          ""
+        ],
+        [
+          "hen",
+          ""
+        ]
+      ],
+      "caption": "One and many",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "dogs"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "hens"
+          ]
+        }
+      ]
     }
   ]
 }

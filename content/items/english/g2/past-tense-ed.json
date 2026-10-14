@@ -942,6 +942,54 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.past-tense-ed.033",
+      "skill": "e2.past-tense-ed",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the filled row.",
+        "Add ed to the end.",
+        "The first part stays the same."
+      ],
+      "explanation": "Walk becomes walked and help becomes helped.",
+      "head": [
+        "Now",
+        "Past"
+      ],
+      "rows": [
+        [
+          "jump",
+          "jumped"
+        ],
+        [
+          "walk",
+          ""
+        ],
+        [
+          "help",
+          ""
+        ]
+      ],
+      "caption": "Now and past",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "walked"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "helped"
+          ]
+        }
+      ]
     }
   ]
 }

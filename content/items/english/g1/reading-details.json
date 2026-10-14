@@ -1853,6 +1853,95 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e1.reading-details.060",
+      "skill": "e1.reading-details",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Dewi has a cat. The cat is grey. It sits on a mat.",
+      "hints": [
+        "Read the story one more time.",
+        "Find the colour first.",
+        "Then find the place."
+      ],
+      "explanation": "The cat is grey and sits on a mat.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What colour is the cat?",
+          "options": [
+            {
+              "text": "grey"
+            },
+            {
+              "text": "white",
+              "why": "The story says grey."
+            },
+            {
+              "text": "black",
+              "why": "The story says grey."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Where does the cat sit?",
+          "options": [
+            {
+              "text": "on a bed",
+              "why": "The story says mat."
+            },
+            {
+              "text": "on a mat"
+            },
+            {
+              "text": "in a box",
+              "why": "The story says mat."
+            }
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.reading-details.061",
+      "skill": "e1.reading-details",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Pak Eko has 3 hens. He gets 2 eggs from each hen. The eggs are brown.",
+      "hints": [
+        "Read the story slowly.",
+        "Look for the number of hens.",
+        "Look for the colour of the eggs."
+      ],
+      "explanation": "He has 3 hens and the eggs are brown.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many hens does Pak Eko have?",
+          "answer": 3
+        },
+        {
+          "type": "mcq",
+          "prompt": "What colour are the eggs?",
+          "options": [
+            {
+              "text": "brown"
+            },
+            {
+              "text": "white",
+              "why": "The story says brown."
+            },
+            {
+              "text": "blue",
+              "why": "The story says brown."
+            }
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

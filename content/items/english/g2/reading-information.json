@@ -1782,6 +1782,73 @@
         1,
         2
       ]
+    },
+    {
+      "id": "e2.reading-information.056",
+      "skill": "e2.reading-information",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Lina has 12 stickers. She gives 4 stickers to her friend. Then her mum gives her 3 more stickers.",
+      "hints": [
+        "Do the story one step at a time.",
+        "Take away first.",
+        "Then add."
+      ],
+      "explanation": "After giving 4 away, Lina has 8. After getting 3 more, she has 11.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many stickers does Lina have after she gives 4 away?",
+          "answer": 8
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many stickers does Lina have at the end?",
+          "answer": 11
+        }
+      ]
+    },
+    {
+      "id": "e2.reading-information.057",
+      "skill": "e2.reading-information",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "The zoo has four lions and two zebras. The lions are brown. The zebras are black and white.",
+      "hints": [
+        "Add the lions and the zebras.",
+        "Look for the colour of the lions.",
+        "Read each sentence again."
+      ],
+      "explanation": "Four lions and two zebras make 6 animals. The lions are brown.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many animals are in the zoo?",
+          "answer": 6
+        },
+        {
+          "type": "mcq",
+          "prompt": "What colour are the lions?",
+          "options": [
+            {
+              "text": "black",
+              "why": "The zebras are black and white."
+            },
+            {
+              "text": "green",
+              "why": "The text does not say green."
+            },
+            {
+              "text": "brown"
+            },
+            {
+              "text": "grey",
+              "why": "The text does not say grey."
+            }
+          ],
+          "answer": 2
+        }
+      ]
     }
   ]
 }

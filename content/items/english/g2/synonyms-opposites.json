@@ -1041,6 +1041,224 @@
         2,
         3
       ]
+    },
+    {
+      "id": "e2.synonyms-opposites.033",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? Monday, Friday, April, Sunday",
+      "hints": [
+        "Three words are days.",
+        "One word is a month.",
+        "Find the odd one out."
+      ],
+      "explanation": "Monday, Friday and Sunday are days. April is a month.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Monday",
+          "why": "Monday is a day of the week."
+        },
+        {
+          "text": "Friday",
+          "why": "Friday is a day of the week."
+        },
+        {
+          "text": "Sunday",
+          "why": "Sunday is a day of the week."
+        },
+        {
+          "text": "April"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.synonyms-opposites.034",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? happy, glad, joyful, angry",
+      "hints": [
+        "Three words mean about the same.",
+        "One word is a different feeling.",
+        "Find the odd one out."
+      ],
+      "explanation": "Happy, glad and joyful are pleased feelings. Angry is not.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "happy",
+          "why": "Happy means pleased, like glad and joyful."
+        },
+        {
+          "text": "glad",
+          "why": "Glad means pleased, like happy and joyful."
+        },
+        {
+          "text": "angry"
+        },
+        {
+          "text": "joyful",
+          "why": "Joyful means pleased, like happy and glad."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.synonyms-opposites.035",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Hot is to cold as up is to ___.",
+      "hints": [
+        "Hot and cold are opposites.",
+        "Up needs its opposite too.",
+        "Think of a lift."
+      ],
+      "explanation": "Down is the opposite of up.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "high",
+          "why": "High is not the opposite of up."
+        },
+        {
+          "text": "over",
+          "why": "Over is not the opposite of up."
+        },
+        {
+          "text": "top",
+          "why": "Top is not the opposite of up."
+        },
+        {
+          "text": "down"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.synonyms-opposites.036",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Day is to night as summer is to ___.",
+      "hints": [
+        "Day and night are opposites.",
+        "Summer is a season.",
+        "Find the opposite season."
+      ],
+      "explanation": "Winter is the opposite of summer.",
+      "options": [
+        {
+          "text": "spring",
+          "why": "Spring comes between winter and summer."
+        },
+        {
+          "text": "winter"
+        },
+        {
+          "text": "sunny",
+          "why": "Sunny describes the weather, not a season."
+        },
+        {
+          "text": "holiday",
+          "why": "Holiday is not a season."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.synonyms-opposites.037",
+      "skill": "e2.synonyms-opposites",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word means the same as small and starts with t?",
+      "hints": [
+        "Small things are not big.",
+        "It starts with t.",
+        "An ant is this."
+      ],
+      "explanation": "Tiny means very small.",
+      "options": [
+        {
+          "text": "tall",
+          "why": "Tall is about height."
+        },
+        {
+          "text": "tiny"
+        },
+        {
+          "text": "thin",
+          "why": "Thin is about width."
+        },
+        {
+          "text": "thick",
+          "why": "Thick is the opposite of thin."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.synonyms-opposites.038",
+      "skill": "e2.synonyms-opposites",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the first row for a clue.",
+        "Find a word with the same meaning.",
+        "A quick runner is also fast."
+      ],
+      "explanation": "Small means tiny and quick means fast.",
+      "head": [
+        "Word",
+        "Same meaning"
+      ],
+      "rows": [
+        [
+          "big",
+          "large"
+        ],
+        [
+          "small",
+          ""
+        ],
+        [
+          "quick",
+          ""
+        ]
+      ],
+      "caption": "Same meaning",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "tiny",
+            "little"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "fast",
+            "rapid",
+            "speedy"
+          ]
+        }
+      ]
     }
   ]
 }

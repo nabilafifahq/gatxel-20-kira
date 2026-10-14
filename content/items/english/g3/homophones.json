@@ -725,6 +725,122 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e3.homophones.026",
+      "skill": "e3.homophones",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is spelt wrongly?",
+      "hints": [
+        "Look at ie and ei in each word.",
+        "Believe has ie.",
+        "One word has the letters the wrong way."
+      ],
+      "explanation": "Believe is spelt b - e - l - i - e - v - e.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "beleive"
+        },
+        {
+          "text": "receive",
+          "why": "Receive is spelt right."
+        },
+        {
+          "text": "achieve",
+          "why": "Achieve is spelt right."
+        },
+        {
+          "text": "believe",
+          "why": "Believe is spelt right."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.homophones.027",
+      "skill": "e3.homophones",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the fruit that sounds like pair.",
+      "hints": [
+        "Say pair aloud.",
+        "Think of a fruit with the same sound.",
+        "It is green or yellow."
+      ],
+      "explanation": "Pear and pair sound the same.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "pear",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "apple",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "banana",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "orange",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a pear, an apple, a banana and an orange."
+      },
+      "regions": [
+        {
+          "label": "pear",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "apple",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "banana",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "orange",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

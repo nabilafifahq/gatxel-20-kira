@@ -903,6 +903,105 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "e2.tricky-words.032",
+      "skill": "e2.tricky-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? mango, banana, carrot, apple",
+      "hints": [
+        "Three words are fruit.",
+        "One word is a vegetable.",
+        "Find the odd one out."
+      ],
+      "explanation": "Mango, banana and apple are fruit. A carrot is a vegetable.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "mango",
+          "why": "Mango is a fruit."
+        },
+        {
+          "text": "carrot"
+        },
+        {
+          "text": "banana",
+          "why": "Banana is a fruit."
+        },
+        {
+          "text": "apple",
+          "why": "Apple is a fruit."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.tricky-words.033",
+      "skill": "e2.tricky-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Rearrange the letters to make an animal. o - g - d",
+      "hints": [
+        "Try different orders.",
+        "The animal barks.",
+        "It starts with d."
+      ],
+      "explanation": "The letters make dog.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "blanks": [
+        {
+          "answers": [
+            "dog"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.tricky-words.034",
+      "skill": "e2.tricky-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Rearrange the letters to make a toy. l - l - a - b",
+      "hints": [
+        "Try different orders.",
+        "You can kick or throw it.",
+        "It starts with b."
+      ],
+      "explanation": "The letters make ball.",
+      "blanks": [
+        {
+          "answers": [
+            "ball"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.tricky-words.035",
+      "skill": "e2.tricky-words",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Which letter is missing? b_ll (you can kick it)",
+      "hints": [
+        "Think about the word.",
+        "You kick it on the field.",
+        "The word is ball."
+      ],
+      "explanation": "The word is ball, so the missing letter is a.",
+      "blanks": [
+        {
+          "answers": [
+            "a"
+          ]
+        }
+      ]
     }
   ]
 }

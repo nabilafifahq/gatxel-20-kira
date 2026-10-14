@@ -757,6 +757,122 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e3.suffixes.026",
+      "skill": "e3.suffixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sun + flower = ___",
+      "hints": [
+        "Join the two words.",
+        "Keep the order.",
+        "The new word is one flower."
+      ],
+      "explanation": "Sun and flower join to make sunflower.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "sunflower"
+        },
+        {
+          "text": "flowersun",
+          "why": "The words are in the wrong order."
+        },
+        {
+          "text": "sunflour",
+          "why": "Flour is a different word."
+        },
+        {
+          "text": "sunflowr",
+          "why": "The letter e is missing."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.suffixes.027",
+      "skill": "e3.suffixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a compound word?",
+      "hints": [
+        "A compound word has two words inside.",
+        "Look for two small words.",
+        "One part is foot."
+      ],
+      "explanation": "Football is foot + ball.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "happy",
+          "why": "Happy is one word."
+        },
+        {
+          "text": "garden",
+          "why": "Garden is one word."
+        },
+        {
+          "text": "table",
+          "why": "Table is one word."
+        },
+        {
+          "text": "football"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.suffixes.028",
+      "skill": "e3.suffixes",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the first row for a clue.",
+        "Add ful to the end.",
+        "Only one l."
+      ],
+      "explanation": "Help plus ful is helpful and thank plus ful is thankful.",
+      "head": [
+        "Word",
+        "Add -ful"
+      ],
+      "rows": [
+        [
+          "care",
+          "careful"
+        ],
+        [
+          "help",
+          ""
+        ],
+        [
+          "thank",
+          ""
+        ]
+      ],
+      "caption": "Adding -ful",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "helpful"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "thankful"
+          ]
+        }
+      ]
     }
   ]
 }

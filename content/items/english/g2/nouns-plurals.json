@@ -1031,6 +1031,118 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.033",
+      "skill": "e2.nouns-plurals",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the places.",
+      "hints": [
+        "Say the name of each place.",
+        "School is where you learn.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a school, a park and a shop.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "school",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "park",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "shop",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A school, a park and a shop."
+      },
+      "labels": [
+        "school",
+        "park",
+        "shop"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "farm"
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.034",
+      "skill": "e2.nouns-plurals",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the filled row.",
+        "Fox ends in x.",
+        "Mouse changes inside."
+      ],
+      "explanation": "Fox becomes foxes and mouse becomes mice.",
+      "head": [
+        "One",
+        "Many"
+      ],
+      "rows": [
+        [
+          "fox",
+          ""
+        ],
+        [
+          "child",
+          "children"
+        ],
+        [
+          "mouse",
+          ""
+        ]
+      ],
+      "caption": "One and many",
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "foxes"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "mice"
+          ]
+        }
+      ]
     }
   ]
 }
