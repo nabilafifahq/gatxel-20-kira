@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, type ReactElement, type ReactNode } from 'react'
-import type { QmMode } from '@kira/core'
+import { isTimedMode, type QmMode } from '@kira/core'
 import type { QmActions, QmHubDTO, QmStartInput, QmStatsDTO } from '@/lib/dto-arena'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { CountdownOverlay } from '@/components/learner/CountdownOverlay'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 import { ActionError } from '@/screens/learner/common'
@@ -159,7 +160,18 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
     }
   }
 
-  const start = async (key: string, input: Partial<QmStartInput> & { mode: QmMode }) => {
+  // Ronde berwaktu: hitung mundur 3, 2, 1, Go dulu. Ronde baru dibuat (jam server mulai) saat Go muncul.
+  const [counting, setCounting] = useState<{ key: string; input: Partial<QmStartInput> & { mode: QmMode } } | null>(null)
+  const start = (key: string, input: Partial<QmStartInput> & { mode: QmMode }) => {
+    if (isTimedMode(input.mode)) {
+      setBusy(key)
+      setCounting({ key, input })
+      return Promise.resolve()
+    }
+    return launch(key, input)
+  }
+
+  const launch = async (key: string, input: Partial<QmStartInput> & { mode: QmMode }) => {
     setBusy(key)
     setError(null)
     const full: QmStartInput = {
@@ -193,6 +205,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
 
   return (
     <LearnerFrame shell={data.shell} current="quick-maths" className="flex flex-col gap-5">
+      {counting ? <CountdownOverlay onGo={() => void launch(counting.key, counting.input)} onDone={() => setCounting(null)} /> : null}
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <UiIcon name="bolt" size={36} className="text-mental" />

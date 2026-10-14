@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type ReactElement } from 'react'
+import { useState, type CSSProperties, type ReactElement } from 'react'
 import { Avatar } from '@kira/figures'
 import { jakartaDate } from '@kira/core/time'
 import type { AccessoryId } from '@kira/core'
@@ -13,6 +13,8 @@ import { BadgeTile } from '@/components/learner/BadgeTile'
 import { avatarLabel, LearnerFrame } from '@/components/learner/LearnerHeader'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { SoundToggle } from '@/components/learner/SoundToggle'
+import { MusicToggle } from '@/components/learner/MusicToggle'
+import { ChestCollection } from '@/components/learner/ChestCollection'
 import { DayGlyph, dayStatusWord } from '@/components/learner/StreakChain'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
 import { ActionError } from './common'
@@ -110,7 +112,7 @@ function AvatarDialog({
 function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
   const toast = useToast()
   const [avatar, setAvatar] = useState<AvatarName>(data.shell.avatar)
-  const [accessory, setAccessory] = useState<AccessoryId | null>(data.shell.accessory ?? null)
+  const [accessory, setAccessory] = useState<string | null>(data.shell.accessory ?? null)
   const [accessoryBusy, setAccessoryBusy] = useState(false)
   const [picking, setPicking] = useState(false)
   // Kunci baru setiap kali dialog dibuka supaya pilihan mulai dari avatar yang sedang dipakai.
@@ -140,7 +142,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
   return (
     <LearnerFrame shell={shell} current="me" className="flex flex-col gap-6">
       <header className="flex flex-wrap items-center gap-5">
-        <Avatar name={avatar} accessory={accessory} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
+        <Avatar name={avatar} accessory={accessory} background={data.shell.background ?? null} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
         <div className="flex min-w-0 flex-col items-start gap-1.5">
           <h1 className="m-0 text-h1 font-bold break-words">{data.shell.name}</h1>
           <div className="flex flex-wrap gap-2">
@@ -159,6 +161,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
               Switch learner
             </ButtonLink>
             <SoundToggle />
+            <MusicToggle />
           </div>
         </div>
         <div className="flex w-full items-center gap-5 rounded-card border border-divider bg-surface px-6 py-3.5 lg:ml-auto lg:w-auto">
@@ -168,7 +171,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 lg:w-65 lg:flex-none">
             <span role="img" aria-label={xpLine} className="flex h-3 overflow-hidden rounded-control bg-divider">
-              <span className="bg-star" style={{ width: `${pct}%` }} />
+              <span className="kira-bar-fill bg-star" style={{ '--p': pct / 100 } as CSSProperties} />
             </span>
             <span className="text-body font-semibold tabular-nums">{xpLine}</span>
           </div>
@@ -235,6 +238,8 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
           </div>
         </section>
       ) : null}
+
+      {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
 
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">
         <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-[1.15]">

@@ -12,6 +12,7 @@ import { FreezePill, StreakChain, StreakCount } from '@/components/learner/Strea
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_NAME } from '@/components/learner/subject'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
+import { DailyChest, type ChestActions } from '@/components/learner/DailyChest'
 
 /**
  * L02 Today (papan TodayA dan variannya, TodayAHP untuk HP). Jalur sesi wajib dikelompokkan per mapel
@@ -96,7 +97,7 @@ function GroupHeading({ group }: { group: TodayGroupDTO }): ReactElement {
   )
 }
 
-export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { data: TodayDTO; doneHref?: string }): ReactElement {
+export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestActions }: { data: TodayDTO; doneHref?: string; chestActions?: ChestActions }): ReactElement {
   const note = noteFor(data, doneHref)
   const streak = data.streak
   // Batas waktu: hanya sesi yang sudah selesai tetap tampil di jalur.
@@ -115,7 +116,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
           right={
             <div className="hidden flex-wrap items-center gap-5 md:flex">
               <StreakCount current={streak.current} />
-              <StreakChain streak={streak} size="M" />
+              <StreakChain streak={streak} size="M" animate={data.variant === 'all-done'} />
               <FreezePill count={streak.freezes} />
             </div>
           }
@@ -126,7 +127,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
             <StreakCount current={streak.current} layout="inline" />
             <FreezePill count={streak.freezes} className="h-8" />
           </div>
-          <StreakChain streak={streak} size="S" />
+          <StreakChain streak={streak} size="S" animate={data.variant === 'all-done'} />
         </section>
 
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
@@ -143,12 +144,21 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
           </h2>
           {note ? <NoteStop row={note} /> : null}
           {shown.length > 0 ? <div aria-hidden="true" className="absolute top-8 bottom-10 left-[54px] w-0 border-l-3 border-dashed border-fg md:left-[70px]" /> : null}
+          {shown.length > 0 && data.progress.total > 0 ? (
+            <div
+              aria-hidden="true"
+              className="kira-path-fill absolute top-8 bottom-10 left-[52.5px] w-[6px] rounded-pill bg-success md:left-[68.5px]"
+              style={{ transform: `scaleY(${Math.min(1, data.progress.done / data.progress.total)})` }}
+            />
+          ) : null}
           {shown.map((group) => (
             <div key={group.subject} role="group" aria-label={`${group.label} sessions`} className="relative flex flex-col gap-4 md:gap-5">
               <GroupHeading group={group} />
               {group.stops.map((stop) =>
                 stop.questId !== null && stop.questId === data.activeQuestId && data.variant !== 'time-limit' ? (
-                  <QuestStopBig key={stop.questId} stop={stop} headingLevel={4} />
+                  <div key={stop.questId} className="kira-active-glow rounded-card">
+                    <QuestStopBig stop={stop} headingLevel={4} />
+                  </div>
                 ) : (
                   <QuestStopRow key={stop.questId ?? `${group.subject}-${stop.session}`} stop={stop} size="auto" />
                 ),
@@ -156,6 +166,8 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday }: { dat
             </div>
           ))}
         </section>
+
+        {data.chest ? <DailyChest chest={data.chest} avatar={data.shell.avatar} accessory={data.shell.accessory ?? null} background={data.shell.background ?? null} actions={chestActions} /> : null}
 
         {extras.length > 0 ? (
           <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card border border-divider bg-surface px-4 py-5 md:px-6">

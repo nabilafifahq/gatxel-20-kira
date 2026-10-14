@@ -14,6 +14,7 @@ import { ArenaPic } from '@/components/learner/arena/ArenaPic'
 import { RewardPanel } from '@/components/learner/arena/RewardPanel'
 import { playRoundEndSfx } from '@/components/learner/arena/reward-sfx'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
+import { TapSound } from '@/components/learner/TapSound'
 import { ExitControl } from '@/screens/learner/runner/parts'
 import { ActionError } from '@/screens/learner/common'
 
@@ -40,8 +41,8 @@ function Choice({ option, pics, state, onClick, disabled }: { option: KOption; p
       className={cx(
         'relative flex min-h-18 w-full items-center justify-center rounded-control border-2 px-4 py-3 text-center font-reading text-h3 transition-transform duration-150 ease-kira enabled:cursor-pointer enabled:active:scale-97',
         state === 'idle' && 'border-border bg-surface text-fg hover:border-fg',
-        state === 'right' && 'border-3 border-success bg-success-50 font-bold',
-        state === 'wrong' && 'border-3 border-warn bg-surface font-bold',
+        state === 'right' && 'kira-correct border-3 border-success bg-success-50 font-bold',
+        state === 'wrong' && 'kira-nudge border-3 border-warn bg-surface font-bold',
         state === 'dim' && 'border-divider bg-bg text-fg-muted',
       )}
     >
@@ -189,7 +190,7 @@ function Cards({ data, actions, onDone }: { data: QuizRoundDTO; actions: QuizAct
     setI(i + 1)
   }
   return (
-    <section aria-label={`Card ${i + 1} of ${data.cards.length}`} className="flex w-full max-w-[640px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+    <section key={i} aria-label={`Card ${i + 1} of ${data.cards.length}`} className="kira-flip-in flex w-full max-w-[640px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
       <p className="m-0 text-body font-bold text-knowledge">
         Card {i + 1} of {data.cards.length}
       </p>
@@ -242,8 +243,19 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
   const questionStart = useRef(Date.now())
   const chain = useRef<Promise<unknown>>(Promise.resolve())
   const finishCalled = useRef(false)
+  // Kemenangan beruntun: tiga benar berturut-turut memutar bunyi quiz streak.
+  const streak = useRef(0)
+  const bump = useCallback((ok: boolean) => {
+    streak.current = ok ? streak.current + 1 : 0
+    playSfx(!ok ? 'notyet' : streak.current >= 3 ? 'quiz' : 'correct')
+  }, [])
 
   const question = learn ? undefined : data.questions[index]
+  // Soal bergambar bendera: kartu terbuka dengan bunyi flag.
+  const showsFlag = question !== undefined && question.kind !== 'order' && question.pic?.t === 'flag'
+  useEffect(() => {
+    if (showsFlag) playSfx('flag')
+  }, [index, showsFlag])
   const timed = data.timed
   const limit = data.limitSec
   const now = useTicker(!result && !finishing && timed, 250)
@@ -312,7 +324,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         const call = chain.current.then(() => send(answer, ms))
         chain.current = call
         void call.then((res) => {
-          if (res) playSfx(res.correct ? 'correct' : 'notyet')
+          if (res) bump(res.correct)
           if (res?.correct) setRight((n) => n + 1)
         })
         setIndex((i) => i + 1)
@@ -323,14 +335,14 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
       setBusy(false)
       if (!res) return
       if (res.correct) setRight((n) => n + 1)
-      playSfx(res.correct ? 'correct' : 'notyet')
+      bump(res.correct)
       setFeedback({ ok: res.correct, chosen: answer, ...(res.explain ? { explain: res.explain } : {}), ...(res.answerLabel ? { answerLabel: res.answerLabel } : {}) })
       if (res.correct) {
         await sleep(reduced ? 900 : AUTO_NEXT_MS)
         setIndex((i) => i + 1)
       }
     },
-    [busy, feedback, over, question, reduced, send, timeUp, timed],
+    [bump, busy, feedback, over, question, reduced, send, timeUp, timed],
   )
 
   const syncState = !online ? 'offline' : syncFailed ? 'pending' : null
@@ -368,6 +380,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         </span>
         {timed && remaining !== null ? <Timer mode="countdown" seconds={remaining} compact warnAt={10} /> : null}
       </header>
+      <TapSound>
       <main className="flex flex-1 items-start justify-center px-4 pb-10 md:items-center md:px-8">
         {result ? (
           <ResultView data={data} result={result} actions={actions} />
@@ -391,7 +404,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         ) : learn ? (
           <Cards data={data} actions={actions} onDone={() => void finish()} />
         ) : question ? (
-          <section aria-label="Question" className="flex w-full max-w-[860px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+          <section key={index} aria-label="Question" className="kira-flip-in flex w-full max-w-[860px] flex-col items-center gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
             {!online ? (
               <p role="alert" className="m-0 flex items-center gap-2 rounded-control border-2 border-warn px-3 py-2 text-body font-bold">
                 <UiIcon name="offline" size={20} />
@@ -444,6 +457,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
           </section>
         ) : null}
       </main>
+      </TapSound>
     </div>
   )
 }

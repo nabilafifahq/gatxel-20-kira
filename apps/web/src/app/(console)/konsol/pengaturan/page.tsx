@@ -8,6 +8,7 @@ import {
   revokeDeviceAction,
   revokeInviteAction,
   updateLearnerLimitsAction,
+  updateLearnerSoundAction,
 } from '@/server/actions/console-settings'
 import { getActor, pageActor } from '@/server/auth/actor'
 import { getDevice } from '@/server/auth/device'
@@ -31,6 +32,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
       data={data}
       actions={{
         updateLearnerLimits: updateLearnerLimitsAction,
+        updateLearnerSound: updateLearnerSoundAction,
         revokeDevice: revokeDeviceAction,
         renameDevice: renameDeviceAction,
         removePasskey: removePasskeyAction,

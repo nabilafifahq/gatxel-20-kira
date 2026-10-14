@@ -1,9 +1,10 @@
 import type { ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
+import { CountUp } from './CountUp'
 import { StarGlyph } from './StreakChain'
 
 /** Pill XP: bintang dan angka Mohave tabular (papan FeedbackSheet dan Hasil). */
-export function XpPill({ xp, size = 'M', className }: { xp: number; size?: 'M' | 'L'; className?: string }): ReactElement {
+export function XpPill({ xp, size = 'M', className, countUp = false }: { xp: number; size?: 'M' | 'L'; className?: string; countUp?: boolean }): ReactElement {
   return (
     <span
       className={cx(
@@ -13,7 +14,15 @@ export function XpPill({ xp, size = 'M', className }: { xp: number; size?: 'M' |
       )}
     >
       <StarGlyph filled size={size === 'L' ? 24 : 22} />
-      {xp >= 0 ? `+${xp} XP` : `${xp} XP`}
+      {countUp && xp > 0 ? (
+        <span>
+          +<CountUp value={xp} /> XP
+        </span>
+      ) : xp >= 0 ? (
+        `+${xp} XP`
+      ) : (
+        `${xp} XP`
+      )}
     </span>
   )
 }

@@ -119,8 +119,29 @@ Hanya `transform` dan `opacity`. Dengan `prefers-reduced-motion: reduce` semua m
 
 **Sound.**
 - Setiap bunyi di layar learner bisa dimatikan. Tombol Sound on dan Sound off ada di halaman Me, pilihannya disimpan per perangkat, dan semua bunyi (termasuk tik timer) lewat `playSfx` di `components/learner/sfx.ts`, yang selalu memeriksa pilihan itu. Tidak ada jalur lain untuk memutar bunyi.
-- Berkas bunyi hanya dari `public/sounds` (CC0, Kenney; lihat `LICENSE-sounds.txt`). Area learner tidak memuat aset dari luar.
-- Bunyi pendek (di bawah 1,2 detik), tanpa musik latar, dan tidak pernah menjadi satu-satunya penanda. Benar dan Not yet tetap ditandai ikon, warna, dan teks. Bunyi Not yet lembut, tidak menghukum.
+- Berkas bunyi hanya dari `public/sounds` (semua CC0: Kenney dan OpenGameArt; lisensi tiap berkas dicatat di `LICENSE-sounds.txt`, tiap berkas di bawah 61 KB). Area learner tidak memuat aset dari luar.
+- Efek pendek (di bawah 2,6 detik) dan tidak pernah menjadi satu-satunya penanda. Benar dan Not yet tetap ditandai ikon, warna, dan teks. Bunyi Not yet lembut, tidak menghukum.
+- Setiap kejadian punya 2 sampai 4 varian yang dipilih acak, tidak pernah sama dua kali berturut-turut (`pickVariant`).
+- Musik latar (opsional): tiga lagu tenang berulang, tombol Music di Me, bawaan MATI, volume rendah, dan turun otomatis (ducking) selama bacaan TTS. Musik berhenti saat tab tersembunyi.
+- Pilihan tutor (`learner_profile.sound_enabled`, `music_enabled`, diatur di konsol Pengaturan) mengalahkan pilihan perangkat: bila mati, tombol di Me tidak berlaku dan tidak ada bunyi.
+
+**Katalog bunyi** (nama untuk `playSfx(name, { level, stars })`):
+
+| Nama | Varian | Kapan |
+|---|---|---|
+| `tap` | 4 | Ubin jawaban dan keypad semua widget (satu pembungkus `TapSound` di `Widget`), tombol lain di runner |
+| `correct` | 3 | Jawaban benar |
+| `notyet` | 3 | Jawaban Not yet |
+| `combo` | 2 per tingkat | Benar beruntun: tingkat 1 (3 beruntun), 2 (5), 3 (7), nada naik tiap tingkat |
+| `tick`, `timeup` | 2, 3 | Timer 10 detik terakhir, waktu habis |
+| `count`, `go` | 2, 2 | Hitung mundur 3, 2, 1, Go sebelum sesi atau ronde berwaktu |
+| `complete` | 3 pendek, 3 besar | Akhir sesi: jingle pendek untuk 1 sampai 2 bintang, jingle besar (`big`) untuk 3 bintang |
+| `levelup` | 3 | Naik level |
+| `badge` | 3 | Lencana baru |
+| `chest` | 3 | Peti hadiah harian dibuka |
+| `whoosh` | 3 | Pindah layar, sangat pelan (gain 0,22) |
+| `flag` | 2 | Kartu bendera di Quiz Arena |
+| `quiz` | 2 | Tiga benar beruntun di Quiz Arena |
 
 **Celebration.**
 - Confetti, bunyi sesi selesai, dan lompatan avatar hanya di akhir sesi (halaman hasil), sekali untuk tiap sesi, dan tidak pernah di setiap jawaban benar.
@@ -133,6 +154,33 @@ Hanya `transform` dan `opacity`. Dengan `prefers-reduced-motion: reduce` semua m
 - 10 detik terakhir: angka membesar 125 persen (transform), cincin menebal, dan ada tik tiap detik. Tanpa easing memantul; hanya `--ease`.
 - Waktu habis: satu gerakan `kira-pop` 300ms dan satu bunyi, lalu jawaban dikirim otomatis. Server tetap penentu batas waktu.
 - Reduced motion: hanya warna yang berubah. Cincin turun per detik tanpa transisi, angka dan cincin tidak membesar.
+
+## 6b. Motion catalogue
+
+Semua gerak hanya `transform` dan `opacity` (kecuali cincin timer di 6a), memakai `--ease-kira` tanpa pantulan, tidak menangkap fokus, dan tidak menjebak fokus (overlay bukan dialog modal, tombolnya bisa dijangkau Tab). Dengan `prefers-reduced-motion: reduce`: gerak berulang mati (maskot diam), sisanya langsung ke keadaan akhir atau hanya memudar. Definisi keyframe ada di `globals.css`.
+
+| Gerak | Kelas atau komponen | Kapan |
+|---|---|---|
+| Benar: cahaya hijau (opacity) dan denyut kecil | `kira-correct`, `kira-pulse` | Ubin atau area jawaban setelah benar |
+| Not yet: geseran mendatar lembut, tanpa memantul | `kira-nudge` | Setelah Not yet |
+| Bintang kombo yang tumbuh | `ComboStars` | Benar beruntun, tingkat 1 sampai 3 |
+| "+XP" naik ke arah bar | `XpFly` | Jawaban benar di runner |
+| Bar XP terisi mulus | `kira-bar-fill` (skala X) | Today, Me, hasil |
+| Momen naik level layar penuh, warna jalur | `LevelUpOverlay` | Naik level (belajar kuning, Quick Maths ungu, Quiz biru tua), hilang sendiri |
+| Lencana: kartu berputar masuk dan kilau | `BadgeReveal` | Lencana baru di hasil |
+| Angka hitung naik | `CountUp` | Skor dan XP di hasil |
+| Garis jalur Today terisi, sesi aktif bercahaya | `kira-path-fill`, `kira-active-glow` | Today (cahaya muncul sekali, tidak berdenyut) |
+| Rantai streak terbentuk berurutan | `StreakChain animate` | Hari ini selesai |
+| Peralihan layar: memudar dan naik 8 px, 200 ms | `PageTransition` | Antar layar learner |
+| Hitung mundur 3, 2, 1, Go | `CountdownOverlay` | Sprint, speed quiz, dan sesi berwaktu |
+| Angka Flash Anzan masuk 140 ms | `kira-flash` | Flash Anzan |
+| Kartu kuis berputar masuk | `kira-flip-in` | Soal dan kartu Quiz Arena |
+| Peti hadiah: bergoyang, tutup terangkat, cahaya, kartu hadiah berputar | `DailyChest` | Today setelah semua sesi wajib selesai |
+| Maskot hewan | `Mascot` | Idle (bernapas, berkedip) di header, cheer saat benar, think di soal berwaktu, encourage setelah Not yet, celebrate di hasil |
+
+Confetti tetap hanya di akhir sesi (6a). Tidak ada titik berdenyut, ikon api, atau emoji.
+
+**Peti hadiah harian.** Satu per learner per hari, hanya setelah semua sesi wajib hari itu selesai; dicek di server (`openChestTx`, UNIQUE learner + tanggal). Hadiah: stiker, latar avatar, atau aksesori dari tabel `@kira/core` `chest.ts`, hadiah baru didahulukan. Teks learner memakai "earned", tidak pernah "unlock".
 
 ## 7. Voice
 

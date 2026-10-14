@@ -148,6 +148,7 @@ const PREVIEWS: Record<string, Render> = {
           data={state === 'error' ? settingsNoEmail : settings}
           actions={{
             updateLearnerLimits: fake(undefined, fail, 'Batas belum tersimpan.'),
+            updateLearnerSound: fake(undefined, fail, 'Suara belum tersimpan.'),
             revokeDevice: fake(undefined, fail, 'Perangkat belum dicabut.'),
             renameDevice: fake(undefined, fail, 'Nama perangkat belum berubah.'),
             registerThisDevice: fake(undefined, fail, 'Perangkat belum terdaftar.'),

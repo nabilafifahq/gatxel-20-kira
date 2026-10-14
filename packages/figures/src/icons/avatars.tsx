@@ -21,12 +21,12 @@ function badge(children: ReactNode): ReactElement {
 
 function eyes(y: number, left = 24, right = 40, r = 2.5): ReactElement {
   return (
-    <>
+    <g className="kira-eyes">
       <circle cx={left} cy={y} r={r} fill={INK} stroke="none" />
       <circle cx={right} cy={y} r={r} fill={INK} stroke="none" />
       <circle cx={left + r * 0.35} cy={y - r * 0.35} r={r * 0.35} fill={WHITE} stroke="none" />
       <circle cx={right + r * 0.35} cy={y - r * 0.35} r={r * 0.35} fill={WHITE} stroke="none" />
-    </>
+    </g>
   )
 }
 
