@@ -260,6 +260,157 @@
       "tags": [
         "examiner"
       ]
+    },
+    {
+      "id": "e1.starters-speaking.007",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "What is your favourite animal? Why do you like it?",
+      "hints": [
+        "Say the animal first.",
+        "Then say why you like it.",
+        "Start with: I like."
+      ],
+      "explanation": "Answer in full sentences, for example: My favourite animal is a cat. It is soft.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers both questions",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 25
+    },
+    {
+      "id": "e1.starters-speaking.008",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Look at the picture. What can you see?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "ball"
+          },
+          {
+            "icon": "cat"
+          },
+          {
+            "icon": "tree"
+          },
+          {
+            "icon": "house"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A picture with a ball, a cat, a tree and a house."
+      },
+      "hints": [
+        "Start with: I can see.",
+        "Point to each thing.",
+        "Say the colour if you can."
+      ],
+      "explanation": "Name the things in full sentences, for example: I can see a red ball.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names at least three things",
+            "points": 2
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
+    },
+    {
+      "id": "e1.starters-speaking.009",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Tell me about your family. Who is in your family?",
+      "hints": [
+        "Start with: In my family there are.",
+        "Say one thing about each person.",
+        "Take your time."
+      ],
+      "explanation": "Name the people, for example: I have a mum, a dad and a sister.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Names the people in the family",
+            "points": 2
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
+    },
+    {
+      "id": "e1.starters-speaking.010",
+      "skill": "e1.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "What do you do after school? Tell me two things.",
+      "hints": [
+        "Think of your afternoon.",
+        "Use the words I and then.",
+        "Say one thing, then another."
+      ],
+      "explanation": "Say two things you do, for example: I do my homework. Then I play with my cat.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says two things",
+            "points": 2
+          },
+          {
+            "label": "Uses a doing word each time",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
     }
   ]
 }

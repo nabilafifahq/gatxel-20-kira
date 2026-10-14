@@ -690,6 +690,179 @@
       "answers": [
         3
       ]
+    },
+    {
+      "id": "e1.speaking.018",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 1,
+      "prompt": "Say your name and how old you are.",
+      "hints": [
+        "Start with: My name is.",
+        "Then say: I am.",
+        "Say your age as a number."
+      ],
+      "explanation": "For example: My name is Dina. I am seven.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says name and age",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 2
+          },
+          {
+            "label": "Speaks in a full sentence",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 20
+    },
+    {
+      "id": "e1.speaking.019",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Tell me about your best friend.",
+      "hints": [
+        "Say the name first.",
+        "Say what you like to do together.",
+        "Use full sentences."
+      ],
+      "explanation": "For example: My best friend is Kai. We play football.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says who the friend is",
+            "points": 2
+          },
+          {
+            "label": "Says two things about the friend",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
+    },
+    {
+      "id": "e1.speaking.020",
+      "skill": "e1.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Read this aloud. The sun is up. We run to the park.",
+      "hints": [
+        "Read it slowly first.",
+        "Look for the full stops.",
+        "Pause a little at each one."
+      ],
+      "explanation": "Read each word, and take a short pause at the full stops.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads all the words",
+            "points": 2
+          },
+          {
+            "label": "Stops at full stops",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "The sun is up. We run to the park.",
+      "maxSeconds": 20
+    },
+    {
+      "id": "e1.speaking.021",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You want to ask for water. What do you say?",
+      "hints": [
+        "Polite words are please and thank you.",
+        "Start with Can I.",
+        "End with please."
+      ],
+      "explanation": "Can I have some water, please? is polite and clear.",
+      "options": [
+        {
+          "text": "Can I have some water, please?"
+        },
+        {
+          "text": "Give me water.",
+          "why": "This is not polite."
+        },
+        {
+          "text": "Water now.",
+          "why": "This is not polite."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.speaking.022",
+      "skill": "e1.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A friend gives you a pencil. What do you say?",
+      "hints": [
+        "Think about what is kind.",
+        "Your friend did something nice.",
+        "Say two words."
+      ],
+      "explanation": "Thank you shows you are grateful.",
+      "options": [
+        {
+          "text": "Sorry.",
+          "why": "You say sorry when you make a mistake."
+        },
+        {
+          "text": "Goodbye.",
+          "why": "You say goodbye when you leave."
+        },
+        {
+          "text": "Thank you."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.speaking.023",
+      "skill": "e1.speaking",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. How does the speaker feel?",
+      "hints": [
+        "Listen for a feeling word.",
+        "It comes at the end.",
+        "The ice cream fell on the floor."
+      ],
+      "explanation": "The speaker is sad because the ice cream fell.",
+      "options": [
+        {
+          "text": "happy",
+          "why": "The speaker is not happy."
+        },
+        {
+          "text": "sad"
+        },
+        {
+          "text": "sleepy",
+          "why": "The speaker did not say sleepy."
+        }
+      ],
+      "answer": 1,
+      "listenText": "Oh no! I dropped my ice cream. I am sad."
     }
   ]
 }

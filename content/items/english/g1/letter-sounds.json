@@ -640,6 +640,705 @@
       "answers": [
         0
       ]
+    },
+    {
+      "id": "e1.letter-sounds.019",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word starts with the sound m?",
+      "hints": [
+        "Say each word slowly.",
+        "Listen to the first sound only.",
+        "Moon starts with your lips together."
+      ],
+      "explanation": "Moon starts with the sound m.",
+      "options": [
+        {
+          "text": "sun",
+          "why": "Sun starts with the sound s."
+        },
+        {
+          "text": "moon"
+        },
+        {
+          "text": "bed",
+          "why": "Bed starts with the sound b."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.020",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word ends with the sound t?",
+      "hints": [
+        "Say each word and stretch the last sound.",
+        "Listen to the sound at the very end.",
+        "Your tongue taps behind your teeth for this sound."
+      ],
+      "explanation": "Cat ends with the sound t.",
+      "options": [
+        {
+          "text": "cap",
+          "why": "Cap ends with the sound p."
+        },
+        {
+          "text": "can",
+          "why": "Can ends with the sound n."
+        },
+        {
+          "text": "cat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.021",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word has the middle sound i?",
+      "hints": [
+        "Say each word in three sounds.",
+        "The middle sound is between the first and last.",
+        "Pin sounds like p - i - n."
+      ],
+      "explanation": "Pin has the middle sound i.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "pin"
+        },
+        {
+          "text": "pan",
+          "why": "The middle sound in pan is a."
+        },
+        {
+          "text": "pot",
+          "why": "The middle sound in pot is o."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.letter-sounds.022",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The sounds are d - o - g. What is the word?",
+      "hints": [
+        "Push the three sounds together.",
+        "Say d, then o, then g, faster each time.",
+        "It is a pet that barks."
+      ],
+      "explanation": "The sounds d - o - g blend to make dog.",
+      "options": [
+        {
+          "text": "dig",
+          "why": "The middle sound is o, not i."
+        },
+        {
+          "text": "dot",
+          "why": "Dot ends with t, not g."
+        },
+        {
+          "text": "dog"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.023",
+      "skill": "e1.letter-sounds",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the missing letter. The cat sat on the m_t.",
+      "hints": [
+        "Say the word mat slowly.",
+        "Listen for the middle sound.",
+        "It is the first letter of the alphabet."
+      ],
+      "explanation": "The word is mat. The middle sound is a.",
+      "blanks": [
+        {
+          "answers": [
+            "a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.024",
+      "skill": "e1.letter-sounds",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Look at the picture. Put the letters in order.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A picture of the sun."
+      },
+      "hints": [
+        "Say the name of the picture.",
+        "What sound do you hear first?",
+        "Start with the letter s."
+      ],
+      "explanation": "The picture shows the sun, so the letters go s, u, n.",
+      "items": [
+        "s",
+        "u",
+        "n"
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.025",
+      "skill": "e1.letter-sounds",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words by the first sound.",
+      "hints": [
+        "Say each word aloud.",
+        "Listen to the first sound.",
+        "Sun starts with s."
+      ],
+      "explanation": "Sun, sit and sock start with s. Tin, top and tap start with t.",
+      "groups": [
+        "Starts with s",
+        "Starts with t"
+      ],
+      "items": [
+        {
+          "text": "sun",
+          "group": 0
+        },
+        {
+          "text": "tin",
+          "group": 1
+        },
+        {
+          "text": "sit",
+          "group": 0
+        },
+        {
+          "text": "top",
+          "group": 1
+        },
+        {
+          "text": "sock",
+          "group": 0
+        },
+        {
+          "text": "tap",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.026",
+      "skill": "e1.letter-sounds",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each letter to a word that starts with it.",
+      "hints": [
+        "Say each word and listen to the start.",
+        "Pick the easiest word first.",
+        "Dog starts with d."
+      ],
+      "explanation": "Bat starts with b, dog with d, pig with p and hen with h.",
+      "pairs": [
+        [
+          "b",
+          "bat"
+        ],
+        [
+          "d",
+          "dog"
+        ],
+        [
+          "p",
+          "pig"
+        ],
+        [
+          "h",
+          "hen"
+        ]
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.027",
+      "skill": "e1.letter-sounds",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. Which word did you hear?",
+      "hints": [
+        "Listen again and focus on the middle.",
+        "All three words start with p and end with g.",
+        "The middle sound is i."
+      ],
+      "explanation": "The speaker said pig.",
+      "options": [
+        {
+          "text": "peg",
+          "why": "Peg has the middle sound e."
+        },
+        {
+          "text": "pug",
+          "why": "Pug has the middle sound u."
+        },
+        {
+          "text": "pig"
+        }
+      ],
+      "answer": 2,
+      "listenText": "pig"
+    },
+    {
+      "id": "e1.letter-sounds.028",
+      "skill": "e1.letter-sounds",
+      "type": "listen",
+      "difficulty": 1,
+      "prompt": "Listen. Which letter does the word start with?",
+      "hints": [
+        "Listen for the very first sound.",
+        "Put your top teeth on your lip.",
+        "It sounds like the start of fan."
+      ],
+      "explanation": "The speaker said fish. Fish starts with f.",
+      "options": [
+        {
+          "text": "f"
+        },
+        {
+          "text": "h",
+          "why": "This is not the first sound of the word."
+        },
+        {
+          "text": "p",
+          "why": "This is not the first sound of the word."
+        }
+      ],
+      "answer": 0,
+      "listenText": "fish"
+    },
+    {
+      "id": "e1.letter-sounds.029",
+      "skill": "e1.letter-sounds",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has three letters.",
+        "It starts with the sound j.",
+        "The word ends with the letter m."
+      ],
+      "explanation": "The word is jam. It has three sounds: j, a, m.",
+      "word": "jam",
+      "sentence": "I like jam on my bread."
+    },
+    {
+      "id": "e1.letter-sounds.030",
+      "skill": "e1.letter-sounds",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has three letters.",
+        "The middle sound is o.",
+        "It starts with the letter h."
+      ],
+      "explanation": "The word is hop. It has three sounds: h, o, p.",
+      "word": "hop",
+      "sentence": "The rabbit can hop."
+    },
+    {
+      "id": "e1.letter-sounds.031",
+      "skill": "e1.letter-sounds",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the picture that ends with the sound g.",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen to the last sound.",
+        "It jumps and lives near water."
+      ],
+      "explanation": "Frog ends with the sound g.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: frog, sun, cat and hen."
+      },
+      "regions": [
+        {
+          "label": "frog",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "sun",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.032",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word has four sounds?",
+      "hints": [
+        "Say each word one sound at a time.",
+        "Count the sounds on your fingers.",
+        "Look for a word that starts with two sounds together."
+      ],
+      "explanation": "Frog has four sounds: f, r, o, g.",
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat has three sounds: c, a, t."
+        },
+        {
+          "text": "frog"
+        },
+        {
+          "text": "sun",
+          "why": "Sun has three sounds: s, u, n."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.033",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which pair of words has the same middle sound?",
+      "hints": [
+        "Find the middle sound of each word.",
+        "Say both words in each pair.",
+        "Cat and bag both have a in the middle."
+      ],
+      "explanation": "Cat and bag both have the middle sound a.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "pen and pin",
+          "why": "Pen has e and pin has i."
+        },
+        {
+          "text": "sun and sit",
+          "why": "Sun has u and sit has i."
+        },
+        {
+          "text": "cat and bag"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.034",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is made from the letters p - i - g?",
+      "hints": [
+        "Say each letter sound.",
+        "Put the sounds together.",
+        "The word is a farm animal."
+      ],
+      "explanation": "The letters p - i - g make pig.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "peg",
+          "why": "Peg has the letter e."
+        },
+        {
+          "text": "pig"
+        },
+        {
+          "text": "pug",
+          "why": "Pug has the letter u."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.035",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word starts with a different sound? ball, bat, bus, cat",
+      "hints": [
+        "Say each word.",
+        "Listen to the first sound.",
+        "Three words start with b."
+      ],
+      "explanation": "Ball, bat and bus start with b. Cat starts with c.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "ball",
+          "why": "Ball starts with b."
+        },
+        {
+          "text": "bus",
+          "why": "Bus starts with b."
+        },
+        {
+          "text": "cat"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.letter-sounds.036",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Complete the pattern: cat, bat, hat, ___",
+      "hints": [
+        "The words all rhyme.",
+        "They end with at.",
+        "Find the word that ends with at."
+      ],
+      "explanation": "Cat, bat, hat and mat all end with at.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "mug",
+          "why": "Mug does not rhyme with cat."
+        },
+        {
+          "text": "mat"
+        },
+        {
+          "text": "map",
+          "why": "Map does not rhyme with cat."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.letter-sounds.037",
+      "skill": "e1.letter-sounds",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the pictures.",
+      "hints": [
+        "Look at the first picture.",
+        "Say the name of each picture.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a sun, a hen and a bus.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "bus",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A sun, a hen and a bus."
+      },
+      "labels": [
+        "sun",
+        "hen",
+        "bus"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "pig"
+      ]
+    },
+    {
+      "id": "e1.letter-sounds.038",
+      "skill": "e1.letter-sounds",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the picture with the sound sh at the start.",
+      "hints": [
+        "Say the name of each picture.",
+        "Listen to the first two letters.",
+        "It is found on the beach."
+      ],
+      "explanation": "Shell starts with the sound sh.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "shell",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a shell, a sun, a cat and a hen."
+      },
+      "regions": [
+        {
+          "label": "shell",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "sun",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
     }
   ]
 }

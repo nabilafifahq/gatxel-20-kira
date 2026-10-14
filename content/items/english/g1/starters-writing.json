@@ -225,6 +225,129 @@
         "Who was with you?"
       ],
       "model": "Today I went to school. I played with my friend."
+    },
+    {
+      "id": "e1.starters-writing.006",
+      "skill": "e1.starters-writing",
+      "type": "write",
+      "difficulty": 1,
+      "prompt": "Look at the picture. Write one sentence about it.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "dog"
+          }
+        ],
+        "arrows": "none",
+        "alt": "Picture of a dog."
+      },
+      "hints": [
+        "What is it?",
+        "Start with a capital letter.",
+        "End with a full stop."
+      ],
+      "explanation": "Each sentence starts with a capital letter, ends with a full stop and makes sense.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes about the picture",
+            "points": 2
+          },
+          {
+            "label": "Capital letter and full stop",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 3,
+      "maxWords": 12,
+      "planning": [
+        "What is it?",
+        "What colour is it?"
+      ],
+      "model": "I can see a dog."
+    },
+    {
+      "id": "e1.starters-writing.007",
+      "skill": "e1.starters-writing",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Look at the pictures. Write two sentences about them.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "kite"
+          },
+          {
+            "icon": "ball"
+          }
+        ],
+        "arrows": "none",
+        "alt": "Pictures of a kite and a ball."
+      },
+      "hints": [
+        "Name each picture.",
+        "Say what you can do with it.",
+        "Check the capital and the full stop."
+      ],
+      "explanation": "Write one sentence for each picture.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two sentences about the pictures",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 6,
+      "maxWords": 20,
+      "model": "I fly my kite. I kick the ball."
+    },
+    {
+      "id": "e1.starters-writing.008",
+      "skill": "e1.starters-writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write three sentences about what you did today.",
+      "hints": [
+        "Think of morning, afternoon and night.",
+        "Use I and a doing word.",
+        "Check each full stop."
+      ],
+      "explanation": "A short journal tells what you did in order.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes three sentences about today",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Uses a doing word in each sentence",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 9,
+      "maxWords": 35,
+      "model": "I went to school. I played with my friend. I ate rice for dinner."
     }
   ]
 }

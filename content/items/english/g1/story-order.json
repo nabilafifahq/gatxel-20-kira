@@ -504,6 +504,474 @@
           "y": 50
         }
       ]
+    },
+    {
+      "id": "e1.story-order.016",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the story in order.",
+      "hints": [
+        "What do you do first?",
+        "You eat before school.",
+        "Waking up comes first."
+      ],
+      "explanation": "First I get up, then I eat breakfast, then I go to school.",
+      "items": [
+        "I get up.",
+        "I eat breakfast.",
+        "I go to school."
+      ]
+    },
+    {
+      "id": "e1.story-order.017",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the story in order.",
+      "hints": [
+        "What happens first?",
+        "A chick comes out last.",
+        "The egg cracks before the chick comes out."
+      ],
+      "explanation": "The hen lays an egg, the egg cracks and a chick comes out.",
+      "items": [
+        "The hen lays an egg.",
+        "The egg cracks.",
+        "A chick comes out."
+      ]
+    },
+    {
+      "id": "e1.story-order.018",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the story in order.",
+      "hints": [
+        "What happens first?",
+        "Clouds come before rain.",
+        "It rains last."
+      ],
+      "explanation": "The sun is hot, then dark clouds come, then it rains.",
+      "items": [
+        "The sun is hot.",
+        "Dark clouds come.",
+        "It rains."
+      ]
+    },
+    {
+      "id": "e1.story-order.019",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the story in order.",
+      "hints": [
+        "Think of a football game.",
+        "She kicks before it goes in.",
+        "The shout comes last."
+      ],
+      "explanation": "She gets the ball, kicks it, it goes in and she shouts.",
+      "items": [
+        "Ani gets a ball.",
+        "Ani kicks the ball.",
+        "The ball goes into the net.",
+        "Ani shouts, Goal!"
+      ]
+    },
+    {
+      "id": "e1.story-order.020",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order to make toast.",
+      "hints": [
+        "You need bread first.",
+        "The toast must pop up before you add butter.",
+        "Butter comes last."
+      ],
+      "explanation": "Get the bread, toast it, wait and then add butter.",
+      "items": [
+        "Get the bread.",
+        "Put it in the toaster.",
+        "Wait for it to pop up.",
+        "Spread on butter."
+      ]
+    },
+    {
+      "id": "e1.story-order.021",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is a story?",
+      "hints": [
+        "A story has a character and things that happen.",
+        "It tells about a boy or a girl.",
+        "Look for the one with something happening."
+      ],
+      "explanation": "A story tells about people and what happens to them.",
+      "options": [
+        {
+          "text": "A boy finds a lost kitten."
+        },
+        {
+          "text": "Cats have four legs.",
+          "why": "This gives a fact."
+        },
+        {
+          "text": "Add water and stir.",
+          "why": "This tells you what to do."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.story-order.022",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is a fact text?",
+      "hints": [
+        "A fact text tells us true things.",
+        "Look for a sentence about all bees.",
+        "It does not have a character."
+      ],
+      "explanation": "Bees make honey is a fact.",
+      "options": [
+        {
+          "text": "Mia found a bee.",
+          "why": "This tells what happened to Mia."
+        },
+        {
+          "text": "Please buy honey.",
+          "why": "This asks someone to do something."
+        },
+        {
+          "text": "Bees make honey."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.023",
+      "skill": "e1.story-order",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences. Story or fact?",
+      "hints": [
+        "A story is about someone.",
+        "A fact is true about many things.",
+        "Bo is a person."
+      ],
+      "explanation": "Sentences about named people are stories. Sentences about animals or the sun are facts.",
+      "groups": [
+        "Story",
+        "Fact"
+      ],
+      "items": [
+        {
+          "text": "Bo lost his hat.",
+          "group": 0
+        },
+        {
+          "text": "Frogs live near water.",
+          "group": 1
+        },
+        {
+          "text": "Zia ran home fast.",
+          "group": 0
+        },
+        {
+          "text": "The sun is a star.",
+          "group": 1
+        },
+        {
+          "text": "Pak Ali opened the door.",
+          "group": 0
+        },
+        {
+          "text": "Fish have gills.",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.story-order.024",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What comes first in a story?",
+      "hints": [
+        "A story has three parts.",
+        "The first part tells who and where.",
+        "It is where the story starts."
+      ],
+      "explanation": "The beginning comes first.",
+      "options": [
+        {
+          "text": "The end",
+          "why": "This comes last."
+        },
+        {
+          "text": "The middle",
+          "why": "This comes after the beginning."
+        },
+        {
+          "text": "The beginning"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.025",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The end of a story tells what?",
+      "hints": [
+        "Think about the last page of a story.",
+        "It tells what happens in the end.",
+        "The problem gets solved."
+      ],
+      "explanation": "The end tells how the story finishes.",
+      "options": [
+        {
+          "text": "who the people are",
+          "why": "This is at the start."
+        },
+        {
+          "text": "how it finishes"
+        },
+        {
+          "text": "what the title is",
+          "why": "The title is at the top."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.026",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word helps us put things in order?",
+      "hints": [
+        "Order words tell us what comes before and after.",
+        "Think of words like next, then and last.",
+        "One of the choices is one of them."
+      ],
+      "explanation": "First is an order word.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "first"
+        },
+        {
+          "text": "red",
+          "why": "Red is a colour."
+        },
+        {
+          "text": "under",
+          "why": "Under tells us where something is."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.story-order.027",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence comes last? First, Raj got a seed. Then he planted it. Next he gave it water.",
+      "hints": [
+        "Find the order words.",
+        "First, then, next, and one more.",
+        "The plant needs time to grow."
+      ],
+      "explanation": "A plant grew is the last thing that happened.",
+      "options": [
+        {
+          "text": "Raj got a seed.",
+          "why": "This comes first."
+        },
+        {
+          "text": "Raj planted it.",
+          "why": "This comes second."
+        },
+        {
+          "text": "A plant grew."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.028",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does Farmer Jo do first?",
+      "passage": "e1.p.a-day-at-the-farm",
+      "hints": [
+        "Find the word first.",
+        "Read what comes after it.",
+        "It is about the hens."
+      ],
+      "explanation": "First, Farmer Jo feeds the hens.",
+      "options": [
+        {
+          "text": "He feeds the hens."
+        },
+        {
+          "text": "He eats breakfast.",
+          "why": "Farmer Jo does this last."
+        },
+        {
+          "text": "He milks the cow.",
+          "why": "Farmer Jo does this next."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.story-order.029",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does Farmer Jo do after he milks the cow?",
+      "passage": "e1.p.a-day-at-the-farm",
+      "hints": [
+        "Find the word then.",
+        "Look at the part after milking.",
+        "It is about eggs."
+      ],
+      "explanation": "Then he picks up the eggs.",
+      "options": [
+        {
+          "text": "He feeds the hens.",
+          "why": "He did this before."
+        },
+        {
+          "text": "He goes to sleep.",
+          "why": "The story does not say that."
+        },
+        {
+          "text": "He picks up the eggs."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.story-order.030",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does Farmer Jo do last?",
+      "passage": "e1.p.a-day-at-the-farm",
+      "hints": [
+        "Find the word last.",
+        "It is the final thing.",
+        "It is a meal."
+      ],
+      "explanation": "Last, Farmer Jo eats his breakfast.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "He feeds the hens.",
+          "why": "He did this first."
+        },
+        {
+          "text": "He eats his breakfast."
+        },
+        {
+          "text": "He picks up the eggs.",
+          "why": "He did this before breakfast."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.031",
+      "skill": "e1.story-order",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the farm jobs in order.",
+      "passage": "e1.p.a-day-at-the-farm",
+      "hints": [
+        "Look for order words in the story.",
+        "First, next, then and last.",
+        "Start with feeding."
+      ],
+      "explanation": "The order is hens, cow, eggs, breakfast.",
+      "items": [
+        "He feeds the hens.",
+        "He milks the cow.",
+        "He picks up the eggs.",
+        "He eats his breakfast."
+      ]
+    },
+    {
+      "id": "e1.story-order.032",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word tells us the second job?",
+      "passage": "e1.p.a-day-at-the-farm",
+      "hints": [
+        "The first job uses the word First.",
+        "The last job uses the word Last.",
+        "Look for the word in between."
+      ],
+      "explanation": "Next tells us the second thing that happens.",
+      "options": [
+        {
+          "text": "First",
+          "why": "First is for the first job."
+        },
+        {
+          "text": "Next"
+        },
+        {
+          "text": "Last",
+          "why": "Last is for the final job."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.story-order.033",
+      "skill": "e1.story-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What comes next? Monday, Tuesday, ___",
+      "hints": [
+        "Say the days of the week.",
+        "Monday comes first and Tuesday second.",
+        "What is the third day?"
+      ],
+      "explanation": "Wednesday comes after Tuesday.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Friday",
+          "why": "Friday is later in the week."
+        },
+        {
+          "text": "Sunday",
+          "why": "Sunday is the day before Monday."
+        },
+        {
+          "text": "Wednesday"
+        }
+      ],
+      "answer": 2
     }
   ]
 }

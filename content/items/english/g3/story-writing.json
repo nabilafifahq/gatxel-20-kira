@@ -2,175 +2,482 @@
   "skill": "e3.story-writing",
   "items": [
     {
-      "id": "e3.story-writing.001", "skill": "e3.story-writing", "type": "mcq", "difficulty": 1,
+      "id": "e3.story-writing.001",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Which part of a story usually has the problem?",
       "options": [
-        { "text": "the beginning", "why": "The beginning usually introduces the characters and the place." },
-        { "text": "the middle" },
-        { "text": "the end", "why": "The end is where the problem is usually solved." },
-        { "text": "the title", "why": "The title is the name of the story." }
+        {
+          "text": "the beginning",
+          "why": "The beginning usually introduces the characters and the place."
+        },
+        {
+          "text": "the middle"
+        },
+        {
+          "text": "the end",
+          "why": "The end is where the problem is usually solved."
+        },
+        {
+          "text": "the title",
+          "why": "The title is the name of the story."
+        }
       ],
       "answer": 1,
-      "hints": ["Think of a story you know well.", "Stories introduce the characters first, and something goes wrong later.", "Where does the problem usually get solved? The problem comes just before that."],
+      "hints": [
+        "Think of a story you know well.",
+        "Stories introduce the characters first, and something goes wrong later.",
+        "Where does the problem usually get solved? The problem comes just before that."
+      ],
       "explanation": "The beginning introduces the characters and the setting. The middle has the problem, and the end solves it."
     },
     {
-      "id": "e3.story-writing.002", "skill": "e3.story-writing", "type": "order", "difficulty": 2,
+      "id": "e3.story-writing.002",
+      "skill": "e3.story-writing",
+      "type": "order",
+      "difficulty": 2,
       "prompt": "Put the story in order.",
-      "items": ["Lina got a new puppy called Biscuit.", "One day at the park, Biscuit ran off after a ball.", "Lina searched everywhere and called his name.", "At last she found him asleep under a bench.", "From then on, Lina kept Biscuit on his lead."],
-      "hints": ["Find the sentence that introduces the characters.", "Then find the problem, and how Lina tried to fix it.", "Which sentence sounds like an ending?"],
+      "items": [
+        "Lina got a new puppy called Biscuit.",
+        "One day at the park, Biscuit ran off after a ball.",
+        "Lina searched everywhere and called his name.",
+        "At last she found him asleep under a bench.",
+        "From then on, Lina kept Biscuit on his lead."
+      ],
+      "hints": [
+        "Find the sentence that introduces the characters.",
+        "Then find the problem, and how Lina tried to fix it.",
+        "Which sentence sounds like an ending?"
+      ],
       "explanation": "The beginning introduces Lina and Biscuit. The middle is the problem and the search, and the end shows the problem solved."
     },
     {
-      "id": "e3.story-writing.003", "skill": "e3.story-writing", "type": "mcq", "difficulty": 2,
+      "id": "e3.story-writing.003",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Which is the best opening sentence for a story?",
       "options": [
-        { "text": "This story is about a roof.", "why": "This tells the reader the topic instead of pulling them in." },
-        { "text": "The end.", "why": "This is how a story finishes." },
-        { "text": "Crash! Something fell off the roof of Kemal's house." },
-        { "text": "A roof is the top part of a house.", "why": "This is a fact, not a story opening." }
+        {
+          "text": "This story is about a roof.",
+          "why": "This tells the reader the topic instead of pulling them in."
+        },
+        {
+          "text": "The end.",
+          "why": "This is how a story finishes."
+        },
+        {
+          "text": "Crash! Something fell off the roof of Kemal's house."
+        },
+        {
+          "text": "A roof is the top part of a house.",
+          "why": "This is a fact, not a story opening."
+        }
       ],
       "answer": 2,
-      "hints": ["A good opening makes the reader want to keep reading.", "Which sentence makes you ask what happened?", "Read each one aloud. Which one would you want to hear more of?"],
+      "hints": [
+        "A good opening makes the reader want to keep reading.",
+        "Which sentence makes you ask what happened?",
+        "Read each one aloud. Which one would you want to hear more of?"
+      ],
       "explanation": "Crash! makes a sound and a mystery at once, so the reader wants to find out what fell."
     },
     {
-      "id": "e3.story-writing.004", "skill": "e3.story-writing", "type": "sort", "difficulty": 3,
+      "id": "e3.story-writing.004",
+      "skill": "e3.story-writing",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Sort the sentences into the beginning, middle and end of a story.",
-      "groups": ["Beginning", "Middle", "End"],
-      "items": [
-        { "text": "Jaya lived by a wide river.", "group": 0 }, { "text": "He crossed a bridge every day.", "group": 0 },
-        { "text": "One night, a storm broke the bridge.", "group": 1 }, { "text": "Jaya could not get to school.", "group": 1 },
-        { "text": "The villagers built a new bridge.", "group": 2 }, { "text": "Jaya was happy to cross again.", "group": 2 }
+      "groups": [
+        "Beginning",
+        "Middle",
+        "End"
       ],
-      "hints": ["The beginning tells you who and where.", "The middle has the problem.", "Find the sentence where something goes wrong."],
+      "items": [
+        {
+          "text": "Jaya lived by a wide river.",
+          "group": 0
+        },
+        {
+          "text": "He crossed a bridge every day.",
+          "group": 0
+        },
+        {
+          "text": "One night, a storm broke the bridge.",
+          "group": 1
+        },
+        {
+          "text": "Jaya could not get to school.",
+          "group": 1
+        },
+        {
+          "text": "The villagers built a new bridge.",
+          "group": 2
+        },
+        {
+          "text": "Jaya was happy to cross again.",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "The beginning tells you who and where.",
+        "The middle has the problem.",
+        "Find the sentence where something goes wrong."
+      ],
       "explanation": "The beginning introduces Jaya and the river. The middle is the broken bridge, and the end is the new bridge."
     },
     {
-      "id": "e3.story-writing.005", "skill": "e3.story-writing", "type": "mcq", "difficulty": 3,
+      "id": "e3.story-writing.005",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which word is a good way to start the last part of a story?",
       "options": [
-        { "text": "First", "why": "First is for the beginning." },
-        { "text": "Once upon a time", "why": "This starts a story. It does not end one." },
-        { "text": "Suddenly", "why": "Suddenly often starts a problem in the middle." },
-        { "text": "Finally" }
+        {
+          "text": "First",
+          "why": "First is for the beginning."
+        },
+        {
+          "text": "Once upon a time",
+          "why": "This starts a story. It does not end one."
+        },
+        {
+          "text": "Suddenly",
+          "why": "Suddenly often starts a problem in the middle."
+        },
+        {
+          "text": "Finally"
+        }
       ],
       "answer": 3,
-      "hints": ["Time words help the reader follow a story.", "Which word means at the end?", "Say each word aloud and imagine what might come after it."],
+      "hints": [
+        "Time words help the reader follow a story.",
+        "Which word means at the end?",
+        "Say each word aloud and imagine what might come after it."
+      ],
       "explanation": "Finally tells the reader that the story is reaching its end."
     },
     {
-      "id": "e3.story-writing.006", "skill": "e3.story-writing", "type": "mcq", "difficulty": 4,
+      "id": "e3.story-writing.006",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which sentence shows how Tom feels without using a feeling word?",
       "options": [
-        { "text": "Tom's hands shook as he opened the door." },
-        { "text": "Tom was scared.", "why": "Scared is a feeling word. The question asks you to show the feeling instead." },
-        { "text": "Tom opened the door.", "why": "This does not show any feeling." },
-        { "text": "Tom felt very, very scared.", "why": "This still names the feeling with a feeling word." }
+        {
+          "text": "Tom's hands shook as he opened the door."
+        },
+        {
+          "text": "Tom was scared.",
+          "why": "Scared is a feeling word. The question asks you to show the feeling instead."
+        },
+        {
+          "text": "Tom opened the door.",
+          "why": "This does not show any feeling."
+        },
+        {
+          "text": "Tom felt very, very scared.",
+          "why": "This still names the feeling with a feeling word."
+        }
       ],
       "answer": 0,
-      "hints": ["A feeling word is a word like happy, sad or scared.", "Look for a sentence that describes what Tom's body does.", "How might your hands move if you were scared?"],
+      "hints": [
+        "A feeling word is a word like happy, sad or scared.",
+        "Look for a sentence that describes what Tom's body does.",
+        "How might your hands move if you were scared?"
+      ],
       "explanation": "Shaking hands show that Tom is scared without saying so. Showing feelings like this makes a story more interesting."
     },
     {
-      "id": "e3.story-writing.007", "skill": "e3.story-writing", "type": "write", "difficulty": 2,
+      "id": "e3.story-writing.007",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 2,
       "prompt": "Write a story called The lost kite. A child loses a kite and has to get it back.",
-      "planning": ["Who is in your story, and where are they?", "How does the kite get lost?", "How do they get it back?", "How do they feel at the end?"],
-      "minWords": 60, "maxWords": 250,
-      "rubric": { "criteria": [
-        { "label": "My story has a beginning, a middle and an end", "points": 2 },
-        { "label": "There is a problem, and it gets solved", "points": 2 },
-        { "label": "I used capital letters and full stops", "points": 2 },
-        { "label": "I used joining words like when, but and because", "points": 1 },
-        { "label": "I chose interesting words to describe things", "points": 2 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Start by saying who and where.", "Use a time word like Suddenly when the problem starts.", "Use Finally or At last for your ending."],
+      "planning": [
+        "Who is in your story, and where are they?",
+        "How does the kite get lost?",
+        "How do they get it back?",
+        "How do they feel at the end?"
+      ],
+      "minWords": 60,
+      "maxWords": 250,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "There is a problem, and it gets solved",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "I used joining words like when, but and because",
+            "points": 1
+          },
+          {
+            "label": "I chose interesting words to describe things",
+            "points": 2
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Start by saying who and where.",
+        "Use a time word like Suddenly when the problem starts.",
+        "Use Finally or At last for your ending."
+      ],
       "explanation": "A good story has a clear beginning, a problem in the middle and an ending where the problem is solved.",
       "model": "Every afternoon, Arif flew his blue kite in the field behind his house. One windy day, the string slipped through his fingers. The kite sailed over the fence and got stuck high in a mango tree. Arif jumped and jumped, but it was too high. Then he had an idea. He ran home and fetched Grandpa's long bamboo pole. Very carefully, he pushed the kite off the branch. It floated down and landed at his feet. The kite had a small hole, but Grandpa helped him fix it with tape. Finally, Arif flew his kite again, and this time he tied the string around his wrist."
     },
     {
-      "id": "e3.story-writing.008", "skill": "e3.story-writing", "type": "write", "difficulty": 3,
+      "id": "e3.story-writing.008",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 3,
       "prompt": "Write a story that begins with this sentence.\nWhen Rani opened the box, she could not believe her eyes.",
-      "planning": ["What is in the box?", "What problem or adventure does it start?", "How does the story end?"],
-      "minWords": 60, "maxWords": 250,
-      "rubric": { "criteria": [
-        { "label": "My story carries on from the first sentence", "points": 2 },
-        { "label": "There is a problem, and it gets solved", "points": 2 },
-        { "label": "I used capital letters and full stops", "points": 2 },
-        { "label": "I used speech marks if a character talks", "points": 1 },
-        { "label": "I chose interesting words to describe things", "points": 2 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Decide what is in the box before you start.", "Describe how Rani feels when she sees it."],
+      "planning": [
+        "What is in the box?",
+        "What problem or adventure does it start?",
+        "How does the story end?"
+      ],
+      "minWords": 60,
+      "maxWords": 250,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story carries on from the first sentence",
+            "points": 2
+          },
+          {
+            "label": "There is a problem, and it gets solved",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "I used speech marks if a character talks",
+            "points": 1
+          },
+          {
+            "label": "I chose interesting words to describe things",
+            "points": 2
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Decide what is in the box before you start.",
+        "Describe how Rani feels when she sees it."
+      ],
       "explanation": "A strong story keeps going from the first sentence and gives the reader a surprise, a problem and an ending.",
       "model": "When Rani opened the box, she could not believe her eyes. Inside sat a tiny green frog wearing a paper crown. “Please help me,” croaked the frog. “I have lost my way home to the pond.” Rani carried the frog carefully through the village. They passed the market and the school, but there was no pond anywhere. Rani began to worry. Then she heard loud croaking behind the rice fields. She ran towards the sound and found a shining pond full of frogs. The little frog jumped into the water and waved his crown. That night, Rani heard a happy croak outside her window."
     },
     {
-      "id": "e3.story-writing.009", "skill": "e3.story-writing", "type": "write", "difficulty": 3,
+      "id": "e3.story-writing.009",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 3,
       "prompt": "Write a story about a rainy day when something surprising happens.",
-      "planning": ["Where are your characters when the rain starts?", "What surprising thing happens?", "How does the story end?"],
-      "minWords": 60, "maxWords": 250,
-      "rubric": { "criteria": [
-        { "label": "My story has a beginning, a middle and an end", "points": 2 },
-        { "label": "Something surprising happens in the middle", "points": 2 },
-        { "label": "I used capital letters and full stops", "points": 2 },
-        { "label": "I used time words like then, suddenly and at last", "points": 1 },
-        { "label": "I described the rain so the reader can picture it", "points": 2 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Think about what the rain looks, sounds and feels like.", "Use Suddenly for the surprise."],
+      "planning": [
+        "Where are your characters when the rain starts?",
+        "What surprising thing happens?",
+        "How does the story end?"
+      ],
+      "minWords": 60,
+      "maxWords": 250,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "Something surprising happens in the middle",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "I used time words like then, suddenly and at last",
+            "points": 1
+          },
+          {
+            "label": "I described the rain so the reader can picture it",
+            "points": 2
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Think about what the rain looks, sounds and feels like.",
+        "Use Suddenly for the surprise."
+      ],
       "explanation": "Describing the setting helps the reader picture the story, and a surprise in the middle keeps them reading.",
       "model": "The rain started just as the bell rang for home time. Maya and Leo waited under the school roof, watching the playground turn into a lake. Suddenly, Leo pointed. A tiny duckling was paddling in the biggest puddle, all alone. “Where is its mum?” asked Maya. They looked around and saw a mother duck by the gate, quacking loudly. The puddle was between them. Maya opened her umbrella upside down and gently scooped up the duckling. She carried it across to its mother. The mother duck nudged her baby, and the two ducks waddled away. Maya and Leo got very wet, but they smiled all the way home."
     },
     {
-      "id": "e3.story-writing.010", "skill": "e3.story-writing", "type": "write", "difficulty": 3,
+      "id": "e3.story-writing.010",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 3,
       "prompt": "Write a story about two friends who find an old map.",
-      "planning": ["Who are the two friends?", "Where do they find the map, and where does it lead?", "What goes wrong on the way?", "What do they find at the end?"],
-      "minWords": 70, "maxWords": 250,
-      "rubric": { "criteria": [
-        { "label": "My story has a beginning, a middle and an end", "points": 2 },
-        { "label": "There is a problem, and the friends solve it", "points": 2 },
-        { "label": "I used capital letters and full stops", "points": 2 },
-        { "label": "I used joining words like when, but and because", "points": 1 },
-        { "label": "I described the places on the map", "points": 2 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Decide where the map leads before you begin.", "Give the friends a problem to solve on the way."],
+      "planning": [
+        "Who are the two friends?",
+        "Where do they find the map, and where does it lead?",
+        "What goes wrong on the way?",
+        "What do they find at the end?"
+      ],
+      "minWords": 70,
+      "maxWords": 250,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "There is a problem, and the friends solve it",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "I used joining words like when, but and because",
+            "points": 1
+          },
+          {
+            "label": "I described the places on the map",
+            "points": 2
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Decide where the map leads before you begin.",
+        "Give the friends a problem to solve on the way."
+      ],
       "explanation": "An adventure story works well when the characters have a goal, meet a problem and find something at the end.",
       "model": "Dina and Sam were tidying the classroom cupboard when they found a folded yellow map. It showed the school garden, with a red X under the big tamarind tree. After school, they followed the map past the vegetable beds. When they reached the tree, the X was under a pile of heavy rocks. They pushed and pushed, but the rocks would not move. So they asked Pak Udin, the gardener, to help. Together they lifted the rocks and dug a small hole. Inside was a tin box with a note: Class 3 planted this tree. Please look after it! Dina and Sam smiled and added a note of their own."
     },
     {
-      "id": "e3.story-writing.011", "skill": "e3.story-writing", "type": "write", "difficulty": 4,
+      "id": "e3.story-writing.011",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 4,
       "prompt": "Write a story where an animal helps a person.",
-      "planning": ["Which animal is in your story, and who does it help?", "What is the person's problem?", "How does the animal help?", "How does the story end?"],
-      "minWords": 80, "maxWords": 300,
-      "rubric": { "criteria": [
-        { "label": "My story has a beginning, a middle and an end", "points": 2 },
-        { "label": "The animal helps to solve the problem", "points": 2 },
-        { "label": "I used capital letters, full stops and speech marks", "points": 2 },
-        { "label": "I showed feelings through what characters do", "points": 2 },
-        { "label": "I used paragraphs for the different parts", "points": 1 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Think of a real problem, like getting lost or being stuck.", "Show how the person feels through what they do."],
+      "planning": [
+        "Which animal is in your story, and who does it help?",
+        "What is the person's problem?",
+        "How does the animal help?",
+        "How does the story end?"
+      ],
+      "minWords": 80,
+      "maxWords": 300,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "The animal helps to solve the problem",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters, full stops and speech marks",
+            "points": 2
+          },
+          {
+            "label": "I showed feelings through what characters do",
+            "points": 2
+          },
+          {
+            "label": "I used paragraphs for the different parts",
+            "points": 1
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Think of a real problem, like getting lost or being stuck.",
+        "Show how the person feels through what they do."
+      ],
       "explanation": "In a strong story, the problem matters to the character and the ending shows how things have changed.",
       "model": "Kadek was looking after her grandfather's goats on the hill when the fog rolled in. Soon she could not see the path at all. She called for help, but nobody answered. Then Bella, the oldest goat, trotted up and nudged her hand. Bella's bell clinked softly. Kadek held on to Bella's collar, and the goat began to walk slowly down the hill. Step by step, they went past rocks and bushes that Kadek could hardly see. At last, a yellow light shone through the fog. It was Grandpa's house! Grandpa hugged Kadek and gave Bella an extra handful of grass. From that day on, Kadek always listened for Bella's bell."
     },
     {
-      "id": "e3.story-writing.012", "skill": "e3.story-writing", "type": "write", "difficulty": 4,
+      "id": "e3.story-writing.012",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 4,
       "prompt": "Write a story set at a market. A character has a problem and solves it in a clever way.",
-      "planning": ["Who is your character, and what are they doing at the market?", "What goes wrong?", "What clever idea solves the problem?"],
-      "minWords": 80, "maxWords": 300,
-      "rubric": { "criteria": [
-        { "label": "My story has a beginning, a middle and an end", "points": 2 },
-        { "label": "The problem is solved by a clever idea", "points": 2 },
-        { "label": "I used capital letters, full stops and speech marks", "points": 2 },
-        { "label": "I described the market with interesting words", "points": 2 },
-        { "label": "I used paragraphs for the different parts", "points": 1 },
-        { "label": "I wrote in the past tense", "points": 1 }
-      ] },
-      "hints": ["Think about the sounds and smells of a busy market.", "Let your character notice something that gives them the idea."],
+      "planning": [
+        "Who is your character, and what are they doing at the market?",
+        "What goes wrong?",
+        "What clever idea solves the problem?"
+      ],
+      "minWords": 80,
+      "maxWords": 300,
+      "rubric": {
+        "criteria": [
+          {
+            "label": "My story has a beginning, a middle and an end",
+            "points": 2
+          },
+          {
+            "label": "The problem is solved by a clever idea",
+            "points": 2
+          },
+          {
+            "label": "I used capital letters, full stops and speech marks",
+            "points": 2
+          },
+          {
+            "label": "I described the market with interesting words",
+            "points": 2
+          },
+          {
+            "label": "I used paragraphs for the different parts",
+            "points": 1
+          },
+          {
+            "label": "I wrote in the past tense",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Think about the sounds and smells of a busy market.",
+        "Let your character notice something that gives them the idea."
+      ],
       "explanation": "A clever solution is more satisfying when the character notices a clue earlier in the story.",
       "model": "Omar's job was to sell his mother's spicy peanuts at the Sunday market. But this Sunday, the wind was so strong that it kept blowing his paper bags away. Peanuts rolled everywhere, and Omar chased them between the stalls. Then he noticed the banana seller tying bunches together with string. Omar had an idea. He asked for some spare string and tied each bag closed with a neat bow. He put a smooth stone on top of the pile. The bags stayed still, and they looked so smart that more people stopped to buy them. By lunchtime, Omar had sold every bag, and he gave the banana seller one for free."
     },
@@ -201,6 +508,324 @@
           }
         ]
       }
+    },
+    {
+      "id": "e3.story-writing.014",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What goes in the beginning of a story?",
+      "hints": [
+        "The beginning sets the scene.",
+        "It tells us about the people.",
+        "It tells us the place."
+      ],
+      "explanation": "The beginning tells who is in the story and where it happens.",
+      "options": [
+        {
+          "text": "the problem is solved",
+          "why": "This is the end."
+        },
+        {
+          "text": "who and where"
+        },
+        {
+          "text": "the biggest surprise",
+          "why": "This comes in the middle."
+        },
+        {
+          "text": "the thank you",
+          "why": "A story does not need this."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.story-writing.015",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is a good story opening?",
+      "hints": [
+        "A story opening makes us curious.",
+        "It tells when and who.",
+        "It is a full sentence."
+      ],
+      "explanation": "The opening tells when, who and where.",
+      "options": [
+        {
+          "text": "The cat.",
+          "why": "This is not a full sentence."
+        },
+        {
+          "text": "Cats are animals.",
+          "why": "This is a fact, not a story."
+        },
+        {
+          "text": "My cat has fur.",
+          "why": "This does not start a story."
+        },
+        {
+          "text": "One rainy morning, a small cat sat outside my door."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.story-writing.016",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word could replace said to show a loud voice?",
+      "hints": [
+        "Think about how a voice can sound.",
+        "Loud is the opposite of soft.",
+        "It starts with sh."
+      ],
+      "explanation": "Shouted shows a loud voice.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "shouted"
+        },
+        {
+          "text": "whispered",
+          "why": "Whispered shows a soft voice."
+        },
+        {
+          "text": "asked",
+          "why": "Asked shows a question."
+        },
+        {
+          "text": "sighed",
+          "why": "Sighed shows a breath of tiredness."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.story-writing.017",
+      "skill": "e3.story-writing",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the story in order.",
+      "hints": [
+        "The problem comes first.",
+        "Then she looks for it.",
+        "The last event solves the problem."
+      ],
+      "explanation": "The order is lost, looked, found, helped.",
+      "items": [
+        "Mia lost her kite.",
+        "She looked in the garden.",
+        "She found it in a tree.",
+        "Her dad helped her get it down."
+      ]
+    },
+    {
+      "id": "e3.story-writing.018",
+      "skill": "e3.story-writing",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences.",
+      "hints": [
+        "The beginning tells who and where.",
+        "The middle has the problem.",
+        "The end solves it."
+      ],
+      "explanation": "Each sentence belongs to one part of a story.",
+      "groups": [
+        "Beginning",
+        "Middle",
+        "End"
+      ],
+      "items": [
+        {
+          "text": "It was a hot Sunday in Bali.",
+          "group": 0
+        },
+        {
+          "text": "A loud noise came from the shed.",
+          "group": 1
+        },
+        {
+          "text": "In the end, everyone laughed.",
+          "group": 2
+        },
+        {
+          "text": "Kai lived near the sea.",
+          "group": 0
+        },
+        {
+          "text": "Then the rope began to slip.",
+          "group": 1
+        },
+        {
+          "text": "At last, the boat was safe.",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e3.story-writing.019",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write the beginning of a story about a lost kitten. Write three sentences.",
+      "hints": [
+        "Name the main character.",
+        "Say where the kitten is.",
+        "Say what happens first."
+      ],
+      "explanation": "The beginning sets the scene.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells who, where and when",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 70,
+      "model": "One windy morning, Sari heard a tiny cry outside. A small grey kitten was shivering under the bench. Sari picked it up gently."
+    },
+    {
+      "id": "e3.story-writing.020",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a story about a magic pencil. Write a beginning, a middle and an end.",
+      "hints": [
+        "Plan the three parts first.",
+        "Add describing words.",
+        "Use the past tense."
+      ],
+      "explanation": "A story has a beginning, a middle and an end.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Has a beginning, a middle and an end",
+            "points": 3
+          },
+          {
+            "label": "Uses describing words and past tense",
+            "points": 2
+          },
+          {
+            "label": "Capital letters, full stops and spelling",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 60,
+      "maxWords": 180,
+      "planning": [
+        "Who finds the pencil?",
+        "What problem happens?",
+        "How does it end?"
+      ]
+    },
+    {
+      "id": "e3.story-writing.021",
+      "skill": "e3.story-writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a short story about a day at the market. Use at least two speech marks.",
+      "hints": [
+        "Think about who is at the market.",
+        "Add what people say.",
+        "Use speech marks around the spoken words."
+      ],
+      "explanation": "A story can use speech to show what people say.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells what happens in order",
+            "points": 2
+          },
+          {
+            "label": "Uses speech marks correctly",
+            "points": 2
+          },
+          {
+            "label": "Capital letters, full stops and spelling",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 50,
+      "maxWords": 150
+    },
+    {
+      "id": "e3.story-writing.022",
+      "skill": "e3.story-writing",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Draw and label a character for your story. Write two sentences about them on paper. Then take a photo.",
+      "hints": [
+        "Name your character.",
+        "Add describing words.",
+        "Check your capital letters."
+      ],
+      "explanation": "A character needs a name and describing words.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a character with labels",
+            "points": 2
+          },
+          {
+            "label": "Writes two full sentences",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "e3.story-writing.023",
+      "skill": "e3.story-writing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence has the best describing words?",
+      "hints": [
+        "Look for words that add colour and detail.",
+        "Find the one with the most.",
+        "Scared and huge are strong words."
+      ],
+      "explanation": "Scared, little and huge add detail.",
+      "options": [
+        {
+          "text": "The rabbit hid.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "The scared little rabbit hid behind a huge rock."
+        },
+        {
+          "text": "The rabbit hid behind a rock.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "A rabbit did a thing.",
+          "why": "This tells us very little."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

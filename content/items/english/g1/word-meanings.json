@@ -1020,6 +1020,817 @@
           "y": 77.5
         }
       ]
+    },
+    {
+      "id": "e1.word-meanings.019",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is the opposite of hot?",
+      "hints": [
+        "Opposites mean very different things.",
+        "Think of ice.",
+        "It is how ice feels."
+      ],
+      "explanation": "Cold is the opposite of hot.",
+      "options": [
+        {
+          "text": "warm",
+          "why": "Warm is nearly the same as hot."
+        },
+        {
+          "text": "cold"
+        },
+        {
+          "text": "sun",
+          "why": "The sun is a thing, not an opposite."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.020",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is the opposite of big?",
+      "hints": [
+        "Opposites are very different.",
+        "Think of an ant next to an elephant.",
+        "The ant is this."
+      ],
+      "explanation": "Small is the opposite of big.",
+      "options": [
+        {
+          "text": "tall",
+          "why": "Tall is not the opposite of big."
+        },
+        {
+          "text": "huge",
+          "why": "Huge means very big."
+        },
+        {
+          "text": "small"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.021",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is the opposite of wet?",
+      "hints": [
+        "Think about a towel after a swim.",
+        "Then think about a towel in the sun.",
+        "The towel is not wet, it is this."
+      ],
+      "explanation": "Dry is the opposite of wet.",
+      "options": [
+        {
+          "text": "dry"
+        },
+        {
+          "text": "rain",
+          "why": "Rain makes things wet."
+        },
+        {
+          "text": "damp",
+          "why": "Damp means a little wet."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.022",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is a fruit?",
+      "hints": [
+        "Fruits grow on trees or plants.",
+        "They are often sweet.",
+        "It is orange or yellow inside."
+      ],
+      "explanation": "A mango is a fruit.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "carrot",
+          "why": "A carrot is a vegetable."
+        },
+        {
+          "text": "bread",
+          "why": "Bread is made from flour."
+        },
+        {
+          "text": "mango"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.023",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong?",
+      "hints": [
+        "Three words go together.",
+        "Think about colours.",
+        "Which word is not a colour?"
+      ],
+      "explanation": "Red, blue and green are colours. A chair is furniture.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "red",
+          "why": "Red is a colour, like blue and green."
+        },
+        {
+          "text": "chair"
+        },
+        {
+          "text": "blue",
+          "why": "Blue is a colour, like red and green."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.024",
+      "skill": "e1.word-meanings",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Fruit or animal?",
+      "hints": [
+        "Animals are alive and can move.",
+        "Fruit grows on a tree or plant.",
+        "Apple is a fruit."
+      ],
+      "explanation": "Apple, banana and mango are fruit. Cow, duck and frog are animals.",
+      "groups": [
+        "Fruit",
+        "Animal"
+      ],
+      "items": [
+        {
+          "text": "apple",
+          "group": 0
+        },
+        {
+          "text": "cow",
+          "group": 1
+        },
+        {
+          "text": "banana",
+          "group": 0
+        },
+        {
+          "text": "duck",
+          "group": 1
+        },
+        {
+          "text": "mango",
+          "group": 0
+        },
+        {
+          "text": "frog",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.025",
+      "skill": "e1.word-meanings",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words. Big or small?",
+      "hints": [
+        "Think of each thing in your mind.",
+        "Which can you hold in your hand?",
+        "An ant is tiny."
+      ],
+      "explanation": "Elephant, whale and bus are big. Ant, bee and seed are small.",
+      "groups": [
+        "Big",
+        "Small"
+      ],
+      "items": [
+        {
+          "text": "elephant",
+          "group": 0
+        },
+        {
+          "text": "ant",
+          "group": 1
+        },
+        {
+          "text": "whale",
+          "group": 0
+        },
+        {
+          "text": "bee",
+          "group": 1
+        },
+        {
+          "text": "bus",
+          "group": 0
+        },
+        {
+          "text": "seed",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.026",
+      "skill": "e1.word-meanings",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match the opposites.",
+      "hints": [
+        "Opposites mean very different things.",
+        "Do the easy ones first.",
+        "When the sun is out it is day."
+      ],
+      "explanation": "Fast and slow, full and empty, day and night, old and new are opposites.",
+      "pairs": [
+        [
+          "fast",
+          "slow"
+        ],
+        [
+          "full",
+          "empty"
+        ],
+        [
+          "day",
+          "night"
+        ],
+        [
+          "old",
+          "new"
+        ]
+      ]
+    },
+    {
+      "id": "e1.word-meanings.027",
+      "skill": "e1.word-meanings",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to where we find it.",
+      "hints": [
+        "Think about where each thing goes.",
+        "A fish needs water.",
+        "Start with the bus."
+      ],
+      "explanation": "A fish lives in a pond, a book goes in a bag, a bed is in a room and a bus goes on a road.",
+      "pairs": [
+        [
+          "fish",
+          "pond"
+        ],
+        [
+          "book",
+          "bag"
+        ],
+        [
+          "bed",
+          "room"
+        ],
+        [
+          "bus",
+          "road"
+        ]
+      ]
+    },
+    {
+      "id": "e1.word-meanings.028",
+      "skill": "e1.word-meanings",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the animals.",
+      "hints": [
+        "Animals are alive.",
+        "Three words are animals.",
+        "Look for words that have legs or wings."
+      ],
+      "explanation": "A hen, a goat and a frog are animals.",
+      "options": [
+        {
+          "text": "frog"
+        },
+        {
+          "text": "goat"
+        },
+        {
+          "text": "spoon",
+          "why": "A spoon is not alive."
+        },
+        {
+          "text": "chair",
+          "why": "A chair is not alive."
+        },
+        {
+          "text": "hen"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "e1.word-meanings.029",
+      "skill": "e1.word-meanings",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the things you can eat.",
+      "hints": [
+        "Think about lunch.",
+        "Three words are food.",
+        "You do not eat things you wear."
+      ],
+      "explanation": "Rice, an egg and bread are food.",
+      "options": [
+        {
+          "text": "bread"
+        },
+        {
+          "text": "sock",
+          "why": "You wear a sock."
+        },
+        {
+          "text": "egg"
+        },
+        {
+          "text": "rice"
+        },
+        {
+          "text": "pen",
+          "why": "You write with a pen."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e1.word-meanings.030",
+      "skill": "e1.word-meanings",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. What is the opposite of what you heard?",
+      "hints": [
+        "Listen for the word.",
+        "Think of going to the other way.",
+        "A lift can go up or this way."
+      ],
+      "explanation": "The speaker said up. The opposite of up is down.",
+      "options": [
+        {
+          "text": "over",
+          "why": "Over is not the opposite of up."
+        },
+        {
+          "text": "down"
+        },
+        {
+          "text": "on",
+          "why": "On is not the opposite of up."
+        }
+      ],
+      "answer": 1,
+      "listenText": "up"
+    },
+    {
+      "id": "e1.word-meanings.031",
+      "skill": "e1.word-meanings",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the opposite of happy.",
+      "hints": [
+        "Think of a face with a tear.",
+        "It is a short word.",
+        "The word starts with s."
+      ],
+      "explanation": "The opposite of happy is sad.",
+      "blanks": [
+        {
+          "answers": [
+            "sad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.word-meanings.032",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word means the same as big?",
+      "hints": [
+        "Same-meaning words are like twins.",
+        "It is a word for something very big.",
+        "It starts with the letter l and has five letters."
+      ],
+      "explanation": "Large means the same as big.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "little",
+          "why": "Little is the opposite of big."
+        },
+        {
+          "text": "large"
+        },
+        {
+          "text": "long",
+          "why": "Long is about length, not size."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.033",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A snail is slow. Which animal is fast?",
+      "hints": [
+        "Fast is the opposite of slow.",
+        "Think of an animal that runs very quickly.",
+        "It is a big cat with spots."
+      ],
+      "explanation": "A cheetah runs very fast.",
+      "options": [
+        {
+          "text": "turtle",
+          "why": "A turtle is slow too."
+        },
+        {
+          "text": "worm",
+          "why": "A worm is slow too."
+        },
+        {
+          "text": "cheetah"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.034",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? cat, dog, hen, cup",
+      "hints": [
+        "Three words are animals.",
+        "One word is a thing you drink from.",
+        "Find the odd one out."
+      ],
+      "explanation": "Cat, dog and hen are animals. A cup is not.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat is an animal, like dog and hen."
+        },
+        {
+          "text": "cup"
+        },
+        {
+          "text": "dog",
+          "why": "Dog is an animal, like cat and hen."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.035",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? red, blue, pig, green",
+      "hints": [
+        "Three words are colours.",
+        "One word is an animal.",
+        "Find the odd one out."
+      ],
+      "explanation": "Red, blue and green are colours. A pig is an animal.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "red",
+          "why": "Red is a colour, like blue and green."
+        },
+        {
+          "text": "blue",
+          "why": "Blue is a colour, like red and green."
+        },
+        {
+          "text": "pig"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.036",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? sun, moon, star, bed",
+      "hints": [
+        "Three words are in the sky.",
+        "One word is in a bedroom.",
+        "Find the odd one out."
+      ],
+      "explanation": "Sun, moon and star are in the sky. A bed is not.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "sun",
+          "why": "Sun is in the sky, like moon and star."
+        },
+        {
+          "text": "bed"
+        },
+        {
+          "text": "moon",
+          "why": "Moon is in the sky, like sun and star."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.037",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is the opposite of day?",
+      "hints": [
+        "Think about when you sleep.",
+        "It is dark and the moon is out.",
+        "It is not day."
+      ],
+      "explanation": "Night is the opposite of day.",
+      "options": [
+        {
+          "text": "dark",
+          "why": "Dark is not the opposite of day."
+        },
+        {
+          "text": "night"
+        },
+        {
+          "text": "sun",
+          "why": "The sun is in the day."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.word-meanings.038",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I am an animal. I say moo. What am I?",
+      "hints": [
+        "Think about the sound moo.",
+        "A farm animal makes it.",
+        "It gives milk."
+      ],
+      "explanation": "A cow says moo.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "a cow"
+        },
+        {
+          "text": "a cat",
+          "why": "A cat says meow."
+        },
+        {
+          "text": "a hen",
+          "why": "A hen says cluck."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.word-meanings.039",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I have four legs and a tail. I say woof. What am I?",
+      "hints": [
+        "Think about the sound woof.",
+        "It is a pet.",
+        "It wags its tail."
+      ],
+      "explanation": "A dog says woof.",
+      "options": [
+        {
+          "text": "a duck",
+          "why": "A duck says quack."
+        },
+        {
+          "text": "a fish",
+          "why": "A fish does not have legs."
+        },
+        {
+          "text": "a dog"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.040",
+      "skill": "e1.word-meanings",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A fish lives in the ___.",
+      "hints": [
+        "Think about where a fish swims.",
+        "It needs this to live.",
+        "It is wet."
+      ],
+      "explanation": "A fish lives in the water.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "tree",
+          "why": "A bird lives in a tree."
+        },
+        {
+          "text": "sky",
+          "why": "A bird flies in the sky."
+        },
+        {
+          "text": "water"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.word-meanings.041",
+      "skill": "e1.word-meanings",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the animal that lives in water.",
+      "hints": [
+        "Think about where each animal lives.",
+        "One animal swims.",
+        "It has fins."
+      ],
+      "explanation": "A fish lives in water.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cat",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hen",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: a fish, a cat, a hen and a cow."
+      },
+      "regions": [
+        {
+          "label": "fish",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cat",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hen",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cow",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ]
+    },
+    {
+      "id": "e1.word-meanings.042",
+      "skill": "e1.word-meanings",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the first row for a clue.",
+        "Opposites are very different.",
+        "Up goes with a word for the other way."
+      ],
+      "explanation": "Down is the opposite of up and small is the opposite of big.",
+      "head": [
+        "Word",
+        "Opposite"
+      ],
+      "rows": [
+        [
+          "hot",
+          "cold"
+        ],
+        [
+          "up",
+          ""
+        ],
+        [
+          "big",
+          ""
+        ]
+      ],
+      "caption": "Opposites",
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "down"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "small",
+            "little"
+          ]
+        }
+      ]
     }
   ]
 }

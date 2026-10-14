@@ -237,6 +237,118 @@
         "What can it do?"
       ],
       "model": "My favourite animal is a rabbit. It has long ears. It can jump very high."
+    },
+    {
+      "id": "e2.starters-writing.006",
+      "skill": "e2.starters-writing",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Look at the picture. Write two sentences about it.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          },
+          {
+            "icon": "fish"
+          },
+          {
+            "icon": "bird"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A cat, a fish and a bird."
+      },
+      "hints": [
+        "Name what you see.",
+        "Say the colour or what it does.",
+        "Check each capital and full stop."
+      ],
+      "explanation": "Each sentence starts with a capital letter and ends with a full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two sentences about the picture",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 6,
+      "maxWords": 25,
+      "model": "I can see a cat. The fish is in the water."
+    },
+    {
+      "id": "e2.starters-writing.007",
+      "skill": "e2.starters-writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write about your best friend. Write three sentences.",
+      "hints": [
+        "Say the name of your friend.",
+        "Say what you like to do together.",
+        "Check each full stop."
+      ],
+      "explanation": "A short text about a friend has full sentences.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes three sentences about a friend",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 9,
+      "maxWords": 35,
+      "model": "My best friend is Dika. We play football. He is kind."
+    },
+    {
+      "id": "e2.starters-writing.008",
+      "skill": "e2.starters-writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write a short journal for today. Say what you did and how you felt.",
+      "hints": [
+        "Think of one thing you did.",
+        "Say how you felt.",
+        "Write in the past tense."
+      ],
+      "explanation": "A journal tells what you did and how you felt.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says what happened",
+            "points": 2
+          },
+          {
+            "label": "Says how you felt",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 15,
+      "maxWords": 50,
+      "model": "Today I went to the park. I played on the swing. I felt happy."
     }
   ]
 }

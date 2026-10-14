@@ -225,6 +225,117 @@
         "How does the story end?"
       ],
       "model": "Rafi found a small key under a tree. He ran inside to look for a lock. The key opened an old box. Inside the box there was a map. Rafi smiled and went to find the treasure."
+    },
+    {
+      "id": "e3.movers-writing.006",
+      "skill": "e3.movers-writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Look at the pictures. Write three sentences about them.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "dog"
+          },
+          {
+            "icon": "ball"
+          },
+          {
+            "icon": "park"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A dog, a ball and a park."
+      },
+      "hints": [
+        "Name what you see.",
+        "Say what each one is doing.",
+        "Check each full stop."
+      ],
+      "explanation": "Each sentence tells one idea.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes three sentences about the pictures",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 12,
+      "maxWords": 40,
+      "model": "A dog is in the park. It is playing with a ball. The dog looks happy."
+    },
+    {
+      "id": "e3.movers-writing.007",
+      "skill": "e3.movers-writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a letter to a friend. Invite them to your house for lunch.",
+      "hints": [
+        "Start with Dear.",
+        "Say the day and the time.",
+        "End with Best wishes and your name."
+      ],
+      "explanation": "A letter has a start and an end.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with Dear and ends with a goodbye",
+            "points": 1
+          },
+          {
+            "label": "Says when and what",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 30,
+      "maxWords": 80,
+      "model": "Dear Ayu, Would you like to come to my house for lunch on Sunday? We will eat noodles and fruit. Please come at twelve. Best wishes, Lina"
+    },
+    {
+      "id": "e3.movers-writing.008",
+      "skill": "e3.movers-writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a diary entry about a day when something surprising happened.",
+      "hints": [
+        "Start with the day and the date.",
+        "Say what happened first, next and last.",
+        "Say how you felt."
+      ],
+      "explanation": "A diary tells what happened and how you felt.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells what happened in order",
+            "points": 2
+          },
+          {
+            "label": "Says how you felt",
+            "points": 1
+          },
+          {
+            "label": "Uses past tense and correct punctuation",
+            "points": 2
+          }
+        ]
+      },
+      "minWords": 40,
+      "maxWords": 120
     }
   ]
 }

@@ -266,6 +266,118 @@
       "tags": [
         "examiner"
       ]
+    },
+    {
+      "id": "e2.starters-speaking.007",
+      "skill": "e2.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "What colour is your bag? What is in it?",
+      "hints": [
+        "Say the colour first.",
+        "Then say two things in it.",
+        "Use I have."
+      ],
+      "explanation": "For example: My bag is blue. I have a book and a pencil.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Answers both questions",
+            "points": 2
+          },
+          {
+            "label": "Uses clear words",
+            "points": 2
+          },
+          {
+            "label": "Keeps talking without long stops",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 25
+    },
+    {
+      "id": "e2.starters-speaking.008",
+      "skill": "e2.starters-speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Look at the picture. Where is the cat?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          },
+          {
+            "icon": "bed"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A picture of a cat and a bed."
+      },
+      "hints": [
+        "Look at the cat and the chair.",
+        "Say a place word such as on or under.",
+        "Start with The cat is."
+      ],
+      "explanation": "For example: The cat is on the chair.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says where the cat is",
+            "points": 2
+          },
+          {
+            "label": "Speaks in a full sentence",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 25
+    },
+    {
+      "id": "e2.starters-speaking.009",
+      "skill": "e2.starters-speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "What do you do at the weekend? Tell me two things.",
+      "hints": [
+        "Think about Saturday.",
+        "Say one thing, then another.",
+        "Use I and then."
+      ],
+      "explanation": "For example: I play football. Then I watch a film.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says two things",
+            "points": 2
+          },
+          {
+            "label": "Uses a doing word each time",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
     }
   ]
 }

@@ -267,3 +267,11 @@ Generator ditulis di `packages/content/src/math/g<grade>.ts` dan mengembalikan i
 - Pilihan ganda gaya Kangaroo memakai 5 opsi dan `keep-order`. Opsi angka diurutkan naik. Jawaban benar tidak selalu di tempat yang sama.
 - Satu kalimat di prompt kelas 1 sampai 2 paling banyak 12 kata, kelas 3 paling banyak 16 kata.
 - Teka-teki kotak (`grid`) tidak ikut simulasi karena bukan jenis soal kertas. Pastikan hanya punya satu penyelesaian, `pnpm content:check` memeriksanya.
+
+## 9. Jebakan yang sering membuat content:check atau uji gagal
+
+- Opsi mcq dan multi dibandingkan tanpa membedakan huruf besar kecil. Dua opsi yang hanya beda huruf besar ("my cat" dan "My cat") dianggap kembar. Ubah kata atau tanda bacanya.
+- Jawaban `text`, `cloze`, `hotspot`, dan `label` dinormalkan: tanda `.`, `!`, `?` di ujung dibuang. Jawaban yang hanya berupa tanda baca tidak akan pernah diterima. Untuk soal "tanda apa di akhir kalimat" pakai mcq.
+- Skill sesi English Skills (`<grade>.starters-listening`, `movers-listening`, `starters-speaking`, `movers-speaking`, `starters-writing`, `movers-writing`) dijaga oleh uji: listening hanya mcq (naskah ada di prompt), speaking hanya `speak` dengan rubrik berjumlah 5 poin, writing hanya `write`. Soal `listen` dengan `listenText` tersembunyi ditaruh di skill `speaking` atau skill baca yang sesuai.
+- Tag lomba untuk simulasi: `esmo` (Grade 1-2, hanya mcq yang dipilih pembuat paket ESMO) dan `iklc`. Soal gaya lomba bergenre odd-one-out, analogi, anagram, dan tata bahasa dalam konteks memakai tag itu.
+- Daftar kata Spelling Bee: tiap kata unik dalam satu berkas dan kalimat contoh harus memuat kata itu sebagai kata utuh.
