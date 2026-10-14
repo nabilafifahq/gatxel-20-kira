@@ -272,7 +272,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
   }
   if (session === 'paper') {
     const kind: PaperKind = spec.paper ?? 'mini'
-    const picked = await pickDailyPaper({ orgId: ctx.orgId, learnerId: learner.userId, grade: learner.grade }, subject, spec.date, kind)
+    const picked = await pickDailyPaper(tx, { orgId: ctx.orgId, learnerId: learner.userId, grade: learner.grade }, subject, spec.date, kind)
     if (picked && picked.itemRefs.length > 0) {
       const resolved = await resolveItems(tx, picked.itemRefs)
       return {

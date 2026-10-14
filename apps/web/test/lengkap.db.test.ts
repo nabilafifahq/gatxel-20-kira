@@ -77,4 +77,23 @@ describe.skipIf(!ready)('celah gelombang 2 di Postgres', () => {
     const rolled = await dal.inOrg(asLearner, (tx) => dal.state.loadRolled(tx, learnerId, 'hitung'))
     expect(rolled).toMatchObject({ rounds: 7, bestSprintPpm: 22, perfectSprint: false })
   })
+
+  it('pickDailyPaper berjalan di transaksi pemanggil: dibatalkan bersama transaksinya, dan berhasil bila dikomit', async () => {
+    const c = { orgId, learnerId, grade: 2 }
+    const day = '2027-06-02'
+    const count = async () => (await owner`select count(*)::int as n from paper_pick where learner_id = ${learnerId} and date = ${day}`)[0]!.n
+    await expect(
+      dal.inOrg(asLearner, async (tx) => {
+        const p = await dal.daily.pickDailyPaper(tx, c, 'math', day, 'mini')
+        expect(p).not.toBeNull()
+        // Di dalam transaksi pilihan sudah terbaca, tetapi belum terlihat dari luar.
+        expect(await count()).toBe(0)
+        throw new Error('batalkan')
+      }),
+    ).rejects.toThrow('batalkan')
+    expect(await count()).toBe(0)
+    const kept = await dal.inOrg(asLearner, (tx) => dal.daily.pickDailyPaper(tx, c, 'math', day, 'mini'))
+    expect(await count()).toBe(1)
+    expect(await dal.inOrg(asLearner, (tx) => dal.daily.pickDailyPaper(tx, c, 'math', day, 'mini'))).toEqual(kept)
+  })
 })
