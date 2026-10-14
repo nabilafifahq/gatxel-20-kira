@@ -11,7 +11,8 @@ import { ICON_NAMES, type IconName } from '@kira/content/schema'
 
 /**
  * Jenis soal yang bisa dibuat AI. hotspot dan label dibuat dari gambar ikon yang dipilih model, jadi bukan dari
- * diagram buatan tangan; draf varian dan terjemahan untuk keduanya tidak didukung (lihat console-studio.ts).
+ * diagram buatan tangan. Varian keduanya adalah soal baru dengan deretan ikon baru; terjemahan keduanya memakai
+ * ulang gambar dan letak area soal asal dan hanya mengganti tulisan (lihat translateGeometry di handlers/drafts.ts).
  */
 export const AI_ITEM_TYPES = [
   'mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction',
@@ -20,8 +21,8 @@ export const AI_ITEM_TYPES = [
 ] as const
 export type AiItemType = (typeof AI_ITEM_TYPES)[number]
 export const MANUAL_ITEM_TYPES: readonly string[] = ['write', 'speak', 'draw', 'photo']
-/** Jenis yang tidak bisa dijadikan varian atau terjemahan karena bentuknya bergantung pada gambar buatan. */
-export const NO_VARIANT_TYPES: readonly string[] = ['hotspot', 'label']
+/** Jenis yang tidak bisa dijadikan varian atau terjemahan AI. Kosong sejak hotspot dan label didukung. */
+export const NO_VARIANT_TYPES: readonly string[] = []
 
 export function isAiItemType(t: unknown): t is AiItemType {
   return typeof t === 'string' && (AI_ITEM_TYPES as readonly string[]).includes(t)
@@ -394,5 +395,22 @@ function storyPart(p: unknown): unknown {
 export function itemForPrompt(item: unknown): unknown {
   if (!isObj(item)) return item
   const { id: _id, figure: _f, passage: _p, solution: _s, source: _src, modes: _m, expectedSeconds: _e, ...rest } = item
-  return rest
+  return pictureShape(rest)
+}
+
+/**
+ * hotspot dan label disimpan sebagai area dan titik di atas figur, tetapi model menulisnya sebagai daftar gambar
+ * (lihat TYPE_FIELDS). Untuk prompt, bentuk simpanan diubah ke bentuk model: daftar label tanpa ikon.
+ */
+function pictureShape(item: Json): Json {
+  if (item.type === 'hotspot' && Array.isArray(item.regions)) {
+    const { regions, answers, ...rest } = item
+    const labels = (regions as unknown[]).map((r) => (isObj(r) ? (str(r.label) ?? '') : ''))
+    return { ...rest, pictures: labels.map((label) => ({ label })), answers: arr(answers).flatMap((i) => (typeof i === 'number' && labels[i] ? [labels[i]] : [])) }
+  }
+  if (item.type === 'label' && Array.isArray(item.labels)) {
+    const { labels, spots: _spots, ...rest } = item
+    return { ...rest, pictures: (labels as unknown[]).map((label) => ({ label })) }
+  }
+  return item
 }
