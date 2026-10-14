@@ -1,0 +1,2875 @@
+{
+  "skill": "m2.oly-coding",
+  "items": [
+    {
+      "id": "m2.oly-coding.001",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use the code table. What is the code for the word FACE?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Letter",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "rows": [
+          [
+            "Code",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        ],
+        "alt": "A code table. A is 1, B is 2, C is 3, D is 4, E is 5, F is 6."
+      },
+      "options": [
+        {
+          "text": "6-3-1-5",
+          "why": "A is 1 and C is 3. Check the middle two."
+        },
+        {
+          "text": "5-3-1-6",
+          "why": "This is the code for ECAF, FACE backwards."
+        },
+        {
+          "text": "6-1-5-3",
+          "why": "Check the last two letters, C and E."
+        },
+        {
+          "text": "6-1-3-5"
+        },
+        {
+          "text": "1-6-3-5",
+          "why": "The first letter is F, not A."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find each letter in the table.",
+        "F is 6. What is A?",
+        "Write the codes in the same order as the letters."
+      ],
+      "explanation": "F is 6, A is 1, C is 3 and E is 5. So FACE is 6-1-3-5.",
+      "solution": [
+        {
+          "say": "F is 6, A is 1, C is 3 and E is 5."
+        },
+        {
+          "say": "So FACE is 6-1-3-5."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.002",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Use the code table. Which word has the code 3-1-6-5?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Letter",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "rows": [
+          [
+            "Code",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        ],
+        "alt": "A code table. A is 1, B is 2, C is 3, D is 4, E is 5, F is 6."
+      },
+      "options": [
+        {
+          "text": "FACE",
+          "why": "F is 6, but the code starts with 3."
+        },
+        {
+          "text": "CAFE"
+        },
+        {
+          "text": "ACED",
+          "why": "The code starts with 3, which is C."
+        },
+        {
+          "text": "BEAD",
+          "why": "The code starts with 3, which is C."
+        },
+        {
+          "text": "DEAF",
+          "why": "The code starts with 3, which is C."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the letter for each number.",
+        "3 is C and 1 is A.",
+        "6 is F and 5 is E."
+      ],
+      "explanation": "3 is C, 1 is A, 6 is F and 5 is E. The word is CAFE.",
+      "solution": [
+        {
+          "say": "3 is C, 1 is A, 6 is F and 5 is E."
+        },
+        {
+          "say": "The word is CAFE."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.003",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Use the code table. Add the codes of the letters in BEAD. What is the total?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Letter",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "rows": [
+          [
+            "Code",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        ],
+        "alt": "A code table. A is 1, B is 2, C is 3, D is 4, E is 5, F is 6."
+      },
+      "answer": 12,
+      "tolerance": 0,
+      "hints": [
+        "Find the code for each letter: B, E, A, D.",
+        "B is 2 and E is 5.",
+        "Add 2 + 5 + 1 + 4."
+      ],
+      "explanation": "B is 2, E is 5, A is 1 and D is 4. The total is 2 + 5 + 1 + 4 = 12.",
+      "solution": [
+        {
+          "say": "B is 2, E is 5, A is 1 and D is 4."
+        },
+        {
+          "say": "The total is 2 + 5 + 1 + 4 = 12."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.004",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Use the code table. Add the codes of the letters in each word. Which word makes 15?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Letter",
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "rows": [
+          [
+            "Code",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        ],
+        "alt": "A code table. A is 1, B is 2, C is 3, D is 4, E is 5, F is 6."
+      },
+      "options": [
+        {
+          "text": "BEAD",
+          "why": "2 + 5 + 1 + 4 = 12, which is not 15."
+        },
+        {
+          "text": "DEAD",
+          "why": "4 + 5 + 1 + 4 = 14, which is not 15."
+        },
+        {
+          "text": "BABE",
+          "why": "2 + 1 + 2 + 5 = 10, which is not 15."
+        },
+        {
+          "text": "FACE"
+        },
+        {
+          "text": "DEAF",
+          "why": "4 + 5 + 1 + 6 = 16, which is not 15."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Work out the total for one word at a time.",
+        "BEAD is 2 + 5 + 1 + 4.",
+        "Keep going until you find a total of 15."
+      ],
+      "explanation": "BEAD makes 12, DEAD makes 14, BABE makes 10, DEAF makes 16. FACE is 6 + 1 + 3 + 5 = 15.",
+      "solution": [
+        {
+          "say": "BEAD makes 12, DEAD makes 14, BABE makes 10, DEAF makes 16."
+        },
+        {
+          "say": "FACE is 6 + 1 + 3 + 5 = 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.005",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Each letter moves on to the next letter. DOG is written EPH. How is CAT written?",
+      "options": [
+        {
+          "text": "DBS",
+          "why": "T becomes U, not S."
+        },
+        {
+          "text": "BZS",
+          "why": "This moves each letter back by one, not forward."
+        },
+        {
+          "text": "EBU",
+          "why": "C becomes D, not E."
+        },
+        {
+          "text": "CBU",
+          "why": "Every letter changes, even the first one."
+        },
+        {
+          "text": "DBU"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "D became E, O became P and G became H.",
+        "Each letter moves one step forward in the alphabet.",
+        "C moves to D. What do A and T move to?"
+      ],
+      "explanation": "Each letter moves one step on: C to D, A to B and T to U. So CAT is written DBU.",
+      "solution": [
+        {
+          "say": "Each letter moves one step on: C to D, A to B and T to U."
+        },
+        {
+          "say": "So CAT is written DBU."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.006",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Each letter moves on to the next letter. Which word is written as XJO?",
+      "options": [
+        {
+          "text": "YOP",
+          "why": "This moves the letters forward, but we need to go back."
+        },
+        {
+          "text": "WON",
+          "why": "O comes from N, not from O."
+        },
+        {
+          "text": "WAN",
+          "why": "J comes from I."
+        },
+        {
+          "text": "WIN"
+        },
+        {
+          "text": "XIN",
+          "why": "The first letter also changes."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Go backwards in the alphabet to decode.",
+        "The letter before X is W.",
+        "The letter before J is I."
+      ],
+      "explanation": "To decode, go back one letter each time: X to W, J to I and O to N. The word is WIN.",
+      "solution": [
+        {
+          "say": "To decode, go back one letter each time: X to W, J to I and O to N."
+        },
+        {
+          "say": "The word is WIN."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.007",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a secret code each letter becomes the next letter. Which word is written as CBH?",
+      "options": [
+        {
+          "text": "DCI",
+          "why": "This moves forward. To decode we go back."
+        },
+        {
+          "text": "BAD",
+          "why": "H comes from G."
+        },
+        {
+          "text": "CAG",
+          "why": "The first letter also changes."
+        },
+        {
+          "text": "BAG"
+        },
+        {
+          "text": "BEG",
+          "why": "B comes from A."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "To decode, go back one letter at a time.",
+        "The letter before C is B.",
+        "The letter before H is G."
+      ],
+      "explanation": "Go back one letter each time: C to B, B to A and H to G. The word is BAG.",
+      "solution": [
+        {
+          "say": "Go back one letter each time: C to B, B to A and H to G."
+        },
+        {
+          "say": "The word is BAG."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.008",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a code, a circle is 1. A triangle is 3 and a square is 4. What is the total of the shapes below?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "square"
+          }
+        ],
+        "alt": "Five shapes in a row: two circles, a triangle and two squares."
+      },
+      "options": [
+        {
+          "text": "8",
+          "why": "Check how many squares there are."
+        },
+        {
+          "text": "10",
+          "why": "Count each shape. There are 5 shapes."
+        },
+        {
+          "text": "11",
+          "why": "Check how many circles there are."
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "15",
+          "why": "Check the value of each shape."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count how many of each shape there are.",
+        "2 circles, 1 triangle and 2 squares.",
+        "2 x 1, then 3, then 2 x 4."
+      ],
+      "explanation": "The shapes are worth 1 + 1 + 3 + 4 + 4. The total is 13.",
+      "solution": [
+        {
+          "say": "The shapes are worth 1 + 1 + 3 + 4 + 4."
+        },
+        {
+          "say": "The total is 13."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.009",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a code, A = 2, B = 4, C = 6 and D = 8. The codes go up by 2. What is the total code of the word BAD?",
+      "answer": 14,
+      "tolerance": 0,
+      "hints": [
+        "Find the code for B, A and D.",
+        "B is 4, A is 2 and D is 8.",
+        "Add 4 + 2 + 8."
+      ],
+      "explanation": "B is 4, A is 2 and D is 8. The total is 4 + 2 + 8 = 14.",
+      "solution": [
+        {
+          "say": "B is 4, A is 2 and D is 8."
+        },
+        {
+          "say": "The total is 4 + 2 + 8 = 14."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.010",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a code, A = 2, B = 4 and C = 6. The codes go up by 2. Which letter has the code 14?",
+      "options": [
+        {
+          "text": "G"
+        },
+        {
+          "text": "F",
+          "why": "F is 12. We need 2 more."
+        },
+        {
+          "text": "H",
+          "why": "H is 16. We need 2 less."
+        },
+        {
+          "text": "N",
+          "why": "Count on in 2s from C. N is too far."
+        },
+        {
+          "text": "E",
+          "why": "E is 10, so it is too small."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the letters and the codes together: A is 2, B is 4 ...",
+        "C is 6, D is 8.",
+        "E is 10, F is 12. What comes next?"
+      ],
+      "explanation": "The codes are A 2, B 4, C 6, D 8, E 10, F 12 and G 14. So 14 is the code for G.",
+      "solution": [
+        {
+          "say": "The codes are A 2, B 4, C 6, D 8, E 10, F 12 and G 14."
+        },
+        {
+          "say": "So 14 is the code for G."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.011",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A cell has a column letter and a row number. Read the cells A1, B2 and C3 in order. Which word do they spell?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cell",
+          "A",
+          "B",
+          "C"
+        ],
+        "rows": [
+          [
+            "1",
+            "S",
+            "U",
+            "N"
+          ],
+          [
+            "2",
+            "M",
+            "A",
+            "P"
+          ],
+          [
+            "3",
+            "B",
+            "E",
+            "D"
+          ]
+        ],
+        "alt": "A grid of letters. Row 1: S, U, N in columns A, B, C. Row 2: M, A, P. Row 3: B, E, D."
+      },
+      "options": [
+        {
+          "text": "SUN",
+          "why": "Row 1 spells SUN, but the cells go down the diagonal."
+        },
+        {
+          "text": "MAD",
+          "why": "The first cell is A1, not A2."
+        },
+        {
+          "text": "BED",
+          "why": "The cells A1, B2 and C3 are not in row 3."
+        },
+        {
+          "text": "SAP",
+          "why": "The last cell is C3, which is D."
+        },
+        {
+          "text": "SAD"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find A1 first. Go to column A, then row 1.",
+        "A1 is S. Next find B2.",
+        "B2 is in column B, row 2. Then C3."
+      ],
+      "explanation": "A1 is S, B2 is A and C3 is D. The word is SAD.",
+      "solution": [
+        {
+          "say": "A1 is S, B2 is A and C3 is D."
+        },
+        {
+          "say": "The word is SAD."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.012",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A cell has a column letter and a row number. Read the cells A3, B1 and A1 in order. Which word do they spell?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cell",
+          "A",
+          "B",
+          "C"
+        ],
+        "rows": [
+          [
+            "1",
+            "S",
+            "U",
+            "N"
+          ],
+          [
+            "2",
+            "M",
+            "A",
+            "P"
+          ],
+          [
+            "3",
+            "B",
+            "E",
+            "D"
+          ]
+        ],
+        "alt": "A grid of letters. Row 1: S, U, N in columns A, B, C. Row 2: M, A, P. Row 3: B, E, D."
+      },
+      "options": [
+        {
+          "text": "SUB",
+          "why": "These are the same letters in the wrong order."
+        },
+        {
+          "text": "SUN",
+          "why": "The last cell is A1, which is S."
+        },
+        {
+          "text": "BED",
+          "why": "The cells are not all in row 3."
+        },
+        {
+          "text": "BUS"
+        },
+        {
+          "text": "MAP",
+          "why": "The first cell is A3, which is B."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find each cell by its column letter and then its row number.",
+        "A3 is the first cell. It is in column A, row 3.",
+        "A3 is B and B1 is U."
+      ],
+      "explanation": "A3 is B, B1 is U and A1 is S. The word is BUS.",
+      "solution": [
+        {
+          "say": "A3 is B, B1 is U and A1 is S."
+        },
+        {
+          "say": "The word is BUS."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.013",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A cell has a column letter and a row number. Which cells spell MAP in order?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cell",
+          "A",
+          "B",
+          "C"
+        ],
+        "rows": [
+          [
+            "1",
+            "S",
+            "U",
+            "N"
+          ],
+          [
+            "2",
+            "M",
+            "A",
+            "P"
+          ],
+          [
+            "3",
+            "B",
+            "E",
+            "D"
+          ]
+        ],
+        "alt": "A grid of letters. Row 1: S, U, N in columns A, B, C. Row 2: M, A, P. Row 3: B, E, D."
+      },
+      "options": [
+        {
+          "text": "A2, B2, C1",
+          "why": "These cells spell MAN."
+        },
+        {
+          "text": "A2, B1, C2",
+          "why": "The middle cell is U, not A."
+        },
+        {
+          "text": "A3, B2, C2",
+          "why": "The first cell is B, not M."
+        },
+        {
+          "text": "A2, B3, C2",
+          "why": "The middle cell is E, not A."
+        },
+        {
+          "text": "A2, B2, C2"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find M in the grid first.",
+        "M is in row 2, column A. Now find A.",
+        "A is in the middle of row 2."
+      ],
+      "explanation": "M is in A2, A is in B2 and P is in C2. So the cells are A2, B2, C2.",
+      "solution": [
+        {
+          "say": "M is in A2, A is in B2 and P is in C2."
+        },
+        {
+          "say": "So the cells are A2, B2, C2."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.014",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A robot starts at S. R means right, L left, U up and D down. Each letter is one step. It follows the program R R U U U L. Where does it stop?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "label": "A"
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "label": "B"
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "label": "C"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "label": "D"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the points A at (2, 4), B at (4, 4), C at (3, 5) and D at (2, 3)."
+      },
+      "options": [
+        {
+          "text": "B",
+          "why": "Check the last step. L means left, not right."
+        },
+        {
+          "text": "C",
+          "why": "Count the U steps again. There are 3."
+        },
+        {
+          "text": "A"
+        },
+        {
+          "text": "D",
+          "why": "There are 3 U steps, not 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the program one letter at a time.",
+        "R R takes the robot from x = 1 to x = 3.",
+        "Then U U U goes up 3. Then L goes left 1."
+      ],
+      "explanation": "From S the robot goes right 2 to x = 3. Then up 3 to y = 4. Then left 1 to x = 2. It stops at A, which is at (2, 4).",
+      "solution": [
+        {
+          "say": "From S the robot goes right 2 to x = 3."
+        },
+        {
+          "say": "Then up 3 to y = 4."
+        },
+        {
+          "say": "Then left 1 to x = 2."
+        },
+        {
+          "say": "It stops at A, which is at (2, 4)."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.015",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A robot starts at S. R means right, U up and D down. Each letter is one step. It follows the program U U R R R D. Where does it stop?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "label": "B"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "label": "C"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "label": "D"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the points A at (4, 2), B at (4, 3), C at (3, 2) and D at (2, 2)."
+      },
+      "options": [
+        {
+          "text": "B",
+          "why": "Check the last step. D means down."
+        },
+        {
+          "text": "A"
+        },
+        {
+          "text": "C",
+          "why": "Count the R steps again. There are 3."
+        },
+        {
+          "text": "D",
+          "why": "Count the U steps again. There are 2."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Follow the program one letter at a time.",
+        "U U takes the robot from y = 1 to y = 3.",
+        "R R R moves right 3. Then D moves down 1."
+      ],
+      "explanation": "From S the robot goes up 2 to y = 3. Then right 3 to x = 4. Then down 1 to y = 2. It stops at A at (4, 2).",
+      "solution": [
+        {
+          "say": "From S the robot goes up 2 to y = 3."
+        },
+        {
+          "say": "Then right 3 to x = 4."
+        },
+        {
+          "say": "Then down 1 to y = 2."
+        },
+        {
+          "say": "It stops at A at (4, 2)."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.016",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The robot starts at S and must reach F. Which program takes it there?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 2,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 5,
+            "y": 3,
+            "label": "F"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (2, 1) and the finish F at (5, 3)."
+      },
+      "options": [
+        {
+          "text": "R R U U U",
+          "why": "This ends one step too far left and one too high."
+        },
+        {
+          "text": "R R R R U U",
+          "why": "This goes one step too far right."
+        },
+        {
+          "text": "U U U R R R",
+          "why": "This ends too high."
+        },
+        {
+          "text": "R R R U U"
+        },
+        {
+          "text": "R R R U",
+          "why": "This ends one step too low."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count how many steps right and how many up from S to F.",
+        "From x = 2 to x = 5 is how many steps?",
+        "From y = 1 to y = 3 is how many steps?"
+      ],
+      "explanation": "S is at (2, 1) and F is at (5, 3). The robot goes right 3 and up 2. That is R R R U U.",
+      "solution": [
+        {
+          "say": "S is at (2, 1) and F is at (5, 3)."
+        },
+        {
+          "say": "The robot goes right 3 and up 2."
+        },
+        {
+          "say": "That is R R R U U."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.017",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A robot moves one step with each command. It goes from S to F by the shortest way. How many commands does it need?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 4,
+            "y": 5,
+            "label": "F"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the finish F at (4, 5)."
+      },
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "It can only move right or up.",
+        "Count the steps right from x = 1 to x = 4.",
+        "Count the steps up from y = 1 to y = 5."
+      ],
+      "explanation": "The robot goes right 3 steps (from 1 to 4) and up 4 steps (from 1 to 5). That is 3 + 4 = 7 commands.",
+      "solution": [
+        {
+          "say": "The robot goes right 3 steps (from 1 to 4) and up 4 steps (from 1 to 5)."
+        },
+        {
+          "say": "That is 3 + 4 = 7 commands."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.018",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A robot starts at S. It repeats the pair R U three times. Where does it stop?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "label": "A"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "label": "B"
+          },
+          {
+            "x": 5,
+            "y": 3,
+            "label": "C"
+          },
+          {
+            "x": 3,
+            "y": 5,
+            "label": "D"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the points A at (4, 4), B at (3, 3), C at (5, 3) and D at (3, 5)."
+      },
+      "options": [
+        {
+          "text": "A"
+        },
+        {
+          "text": "B",
+          "why": "Check how many times the pair is repeated."
+        },
+        {
+          "text": "C",
+          "why": "Each pair moves the robot right 1 and up 1."
+        },
+        {
+          "text": "D",
+          "why": "The robot ends up as far right as it is up."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "One pair R U moves the robot right 1 and up 1.",
+        "Three pairs move it right 3 and up 3.",
+        "Add 3 to both numbers of S."
+      ],
+      "explanation": "Each pair R U moves the robot right 1 and up 1. After 3 pairs it has moved right 3 and up 3. From S at (1, 1) it stops at (4, 4), which is A.",
+      "solution": [
+        {
+          "say": "Each pair R U moves the robot right 1 and up 1."
+        },
+        {
+          "say": "After 3 pairs it has moved right 3 and up 3."
+        },
+        {
+          "say": "From S at (1, 1) it stops at (4, 4), which is A."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-coding.019",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "P means add 2. Q means take away 1. Start with 5. Follow P P Q P Q. What number do you reach?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Do one letter at a time.",
+        "5, then P adds 2. Then P again.",
+        "Write the number after each letter."
+      ],
+      "explanation": "5, then P: 7. P: 9. Q: 8. P: 10. Q: 9. You reach 9.",
+      "solution": [
+        {
+          "say": "5, then P: 7."
+        },
+        {
+          "say": "P: 9."
+        },
+        {
+          "say": "Q: 8."
+        },
+        {
+          "say": "P: 10."
+        },
+        {
+          "say": "Q: 9."
+        },
+        {
+          "say": "You reach 9."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.020",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "P means add 2. Q means take away 1. Start with 10. Follow Q Q Q P P P P. What number do you reach?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "Do the Q steps first. Then the P steps.",
+        "Three Q steps take away 3 in all.",
+        "Four P steps add 8 in all."
+      ],
+      "explanation": "Three Q steps take away 3, so 10 - 3 = 7. Four P steps add 4 x 2 = 8, so 7 + 8 = 15.",
+      "solution": [
+        {
+          "say": "Three Q steps take away 3, so 10 - 3 = 7."
+        },
+        {
+          "say": "Four P steps add 4 x 2 = 8, so 7 + 8 = 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.021",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "In a code, red is 5. Blue is 3 and green is 2. A necklace has red, blue, green, blue, red beads. What is the total?",
+      "answer": 18,
+      "tolerance": 0,
+      "hints": [
+        "Write the number for each bead.",
+        "5, 3, 2, 3, 5.",
+        "Add the numbers up."
+      ],
+      "explanation": "The beads are worth 5 + 3 + 2 + 3 + 5. The total is 18.",
+      "solution": [
+        {
+          "say": "The beads are worth 5 + 3 + 2 + 3 + 5."
+        },
+        {
+          "say": "The total is 18."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.022",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A word becomes the number of its letters. Add the codes of KITE, FLY and HIGH. What is the total?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Count the letters of each word.",
+        "KITE has 4 letters and FLY has 3.",
+        "HIGH has 4 letters. Add them all."
+      ],
+      "explanation": "KITE is 4, FLY is 3 and HIGH is 4. The total is 4 + 3 + 4 = 11.",
+      "solution": [
+        {
+          "say": "KITE is 4, FLY is 3 and HIGH is 4."
+        },
+        {
+          "say": "The total is 4 + 3 + 4 = 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.023",
+      "skill": "m2.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a code a dot is 1 and a dash is 3. The code is dot, dash, dot, dot, dash. What is the total?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Write 1 for each dot and 3 for each dash.",
+        "The numbers are 1, 3, 1, 1, 3.",
+        "Add them up."
+      ],
+      "explanation": "There are 3 dots, worth 3 in all, and 2 dashes, worth 6 in all. The total is 3 + 6 = 9.",
+      "solution": [
+        {
+          "say": "There are 3 dots, worth 3 in all, and 2 dashes, worth 6 in all."
+        },
+        {
+          "say": "The total is 3 + 6 = 9."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.024",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In a code, every word is written backwards. How is STOP written in this code?",
+      "options": [
+        {
+          "text": "SPOT",
+          "why": "These are the same letters in a different order, but not backwards."
+        },
+        {
+          "text": "TOPS",
+          "why": "These are the same letters in a different order, but not backwards."
+        },
+        {
+          "text": "POTS"
+        },
+        {
+          "text": "OPTS",
+          "why": "The last two letters should be S and T."
+        },
+        {
+          "text": "STOP",
+          "why": "Backwards means the last letter comes first."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Start from the last letter of STOP.",
+        "The last letter is P.",
+        "Write P, then the letter before it."
+      ],
+      "explanation": "Read STOP from the end: P, O, T, S. The code is POTS.",
+      "solution": [
+        {
+          "say": "Read STOP from the end: P, O, T, S."
+        },
+        {
+          "say": "The code is POTS."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.025",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a code, each vowel changes. A becomes E and E becomes I. I becomes O and O becomes U. U becomes A. Other letters stay the same. How is BIG written?",
+      "options": [
+        {
+          "text": "BEG",
+          "why": "I becomes O, not E."
+        },
+        {
+          "text": "BOG"
+        },
+        {
+          "text": "BIG",
+          "why": "The vowel I changes."
+        },
+        {
+          "text": "BAG",
+          "why": "I becomes O, not A."
+        },
+        {
+          "text": "BUG",
+          "why": "I becomes O, not U."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the vowel in BIG.",
+        "The vowel is I. What does I become?",
+        "Only the vowel changes."
+      ],
+      "explanation": "B and G stay the same. The vowel I becomes O. So BIG is written BOG.",
+      "solution": [
+        {
+          "say": "B and G stay the same."
+        },
+        {
+          "say": "The vowel I becomes O."
+        },
+        {
+          "say": "So BIG is written BOG."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.026",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In a code, each vowel changes. A becomes E and E becomes I. I becomes O and O becomes U. U becomes A. Other letters stay the same. PIN is the code for which word?",
+      "options": [
+        {
+          "text": "PAN",
+          "why": "A becomes E in the code, so PAN would be written PEN."
+        },
+        {
+          "text": "PEN"
+        },
+        {
+          "text": "PUN",
+          "why": "U becomes A in the code, so PUN would be written PAN."
+        },
+        {
+          "text": "PIN",
+          "why": "I becomes O in the code, so PIN would be written PON."
+        },
+        {
+          "text": "PON",
+          "why": "O becomes U in the code, so PON would be written PUN."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work backwards. Which vowel turns into I?",
+        "The rule says E becomes I.",
+        "So the original vowel was E."
+      ],
+      "explanation": "In the code, E turns into I. So the vowel I in the code comes from E. The word PIN comes from PEN.",
+      "solution": [
+        {
+          "say": "In the code, E turns into I."
+        },
+        {
+          "say": "So the vowel I in the code comes from E."
+        },
+        {
+          "say": "The word PIN comes from PEN."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-coding.027",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "4",
+          "6",
+          "9",
+          "10"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 2, 4, 6, 9 and 10."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "2 is even, like most of the others."
+        },
+        {
+          "text": "4",
+          "why": "4 is even, like most of the others."
+        },
+        {
+          "text": "6",
+          "why": "6 is even, like most of the others."
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "10",
+          "why": "10 is even, like most of the others."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the ones digit of each number.",
+        "Are the numbers odd or even?",
+        "Four of them are even."
+      ],
+      "explanation": "2, 4, 6 and 10 are even numbers. 9 is odd, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "2, 4, 6 and 10 are even numbers."
+        },
+        {
+          "say": "9 is odd, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.028",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is the odd one out?",
+      "options": [
+        {
+          "text": "Apple",
+          "why": "An apple is a fruit."
+        },
+        {
+          "text": "Banana",
+          "why": "A banana is a fruit."
+        },
+        {
+          "text": "Mango",
+          "why": "A mango is a fruit."
+        },
+        {
+          "text": "Carrot"
+        },
+        {
+          "text": "Pear",
+          "why": "A pear is a fruit."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what each thing is.",
+        "Four of them grow on trees as fruits.",
+        "Which one is a vegetable?"
+      ],
+      "explanation": "Apple, banana, mango and pear are fruits. A carrot is a vegetable, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "Apple, banana, mango and pear are fruits."
+        },
+        {
+          "say": "A carrot is a vegetable, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.029",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "15",
+          "25",
+          "35",
+          "45",
+          "48"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 15, 25, 35, 45 and 48."
+      },
+      "options": [
+        {
+          "text": "15",
+          "why": "15 ends in 5."
+        },
+        {
+          "text": "25",
+          "why": "25 ends in 5."
+        },
+        {
+          "text": "35",
+          "why": "35 ends in 5."
+        },
+        {
+          "text": "45",
+          "why": "45 ends in 5."
+        },
+        {
+          "text": "48"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Look at the ones digit of each number.",
+        "Four of the numbers end in the same digit.",
+        "Which number does not end in 5?"
+      ],
+      "explanation": "15, 25, 35 and 45 all end in 5. 48 ends in 8, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "15, 25, 35 and 45 all end in 5."
+        },
+        {
+          "say": "48 ends in 8, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.030",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "12",
+          "18",
+          "24",
+          "30",
+          "35"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 12, 18, 24, 30 and 35."
+      },
+      "options": [
+        {
+          "text": "12",
+          "why": "12 is in the 6 times table."
+        },
+        {
+          "text": "18",
+          "why": "18 is in the 6 times table."
+        },
+        {
+          "text": "24",
+          "why": "24 is in the 6 times table."
+        },
+        {
+          "text": "30",
+          "why": "30 is in the 6 times table."
+        },
+        {
+          "text": "35"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Count in 6s: 6, 12, 18 ...",
+        "Which of the numbers are in the 6 times table?",
+        "Check 30, then check 35."
+      ],
+      "explanation": "12, 18, 24 and 30 are in the 6 times table. 35 is not, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "12, 18, 24 and 30 are in the 6 times table."
+        },
+        {
+          "say": "35 is not, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "kmnr",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.031",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Add the two digits of each number. Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "16",
+          "25",
+          "34",
+          "43",
+          "55"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 16, 25, 34, 43 and 55."
+      },
+      "options": [
+        {
+          "text": "16",
+          "why": "1 + 6 = 7, like most of the others."
+        },
+        {
+          "text": "25",
+          "why": "2 + 5 = 7, like most of the others."
+        },
+        {
+          "text": "34",
+          "why": "3 + 4 = 7, like most of the others."
+        },
+        {
+          "text": "43",
+          "why": "4 + 3 = 7, like most of the others."
+        },
+        {
+          "text": "55"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Add the digits of 16: 1 + 6.",
+        "Do the same for the other numbers.",
+        "Four of the digit totals are the same."
+      ],
+      "explanation": "The digit totals are 7 for 16, 25, 34 and 43. For 55 the total is 10, so 55 is the odd one out.",
+      "solution": [
+        {
+          "say": "The digit totals are 7 for 16, 25, 34 and 43."
+        },
+        {
+          "say": "For 55 the total is 10, so 55 is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.032",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sum has a different answer from the others?",
+      "options": [
+        {
+          "text": "9 + 9",
+          "why": "This makes 18, like most of the others."
+        },
+        {
+          "text": "10 + 8",
+          "why": "This makes 18, like most of the others."
+        },
+        {
+          "text": "12 + 6",
+          "why": "This makes 18, like most of the others."
+        },
+        {
+          "text": "7 + 11",
+          "why": "This makes 18, like most of the others."
+        },
+        {
+          "text": "8 + 9"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Work out each sum.",
+        "Most of the sums make the same number.",
+        "Check which sum is one less than 18."
+      ],
+      "explanation": "9 + 9, 10 + 8, 12 + 6 and 7 + 11 all make 18. 8 + 9 makes 17, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "9 + 9, 10 + 8, 12 + 6 and 7 + 11 all make 18."
+        },
+        {
+          "say": "8 + 9 makes 17, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.033",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which one has a different value from the others?",
+      "options": [
+        {
+          "text": "5 tens",
+          "why": "5 tens is 50, like most of the others."
+        },
+        {
+          "text": "25 + 25",
+          "why": "25 + 25 is 50, like most of the others."
+        },
+        {
+          "text": "100 - 50",
+          "why": "100 - 50 is 50, like most of the others."
+        },
+        {
+          "text": "Fifty",
+          "why": "Fifty is 50, like most of the others."
+        },
+        {
+          "text": "40 + 5"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Work out the value of each one.",
+        "Four of them are worth the same number.",
+        "5 tens is 50. Check 40 + 5."
+      ],
+      "explanation": "5 tens, 25 + 25, 100 - 50 and fifty are all 50. 40 + 5 is 45, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "5 tens, 25 + 25, 100 - 50 and fifty are all 50."
+        },
+        {
+          "say": "40 + 5 is 45, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "seamo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.034",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which month is the odd one out?",
+      "options": [
+        {
+          "text": "April"
+        },
+        {
+          "text": "January",
+          "why": "January has 31 days, like most of the others."
+        },
+        {
+          "text": "March",
+          "why": "March has 31 days, like most of the others."
+        },
+        {
+          "text": "May",
+          "why": "May has 31 days, like most of the others."
+        },
+        {
+          "text": "July",
+          "why": "July has 31 days, like most of the others."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how many days each month has.",
+        "Four of the months have the same number of days.",
+        "Which month has 30 days?"
+      ],
+      "explanation": "January, March, May and July have 31 days. April has 30 days, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "January, March, May and July have 31 days."
+        },
+        {
+          "say": "April has 30 days, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.035",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which animal is the odd one out?",
+      "options": [
+        {
+          "text": "Ant",
+          "why": "An ant is an insect with 6 legs."
+        },
+        {
+          "text": "Bee",
+          "why": "A bee is an insect with 6 legs."
+        },
+        {
+          "text": "Spider"
+        },
+        {
+          "text": "Ladybird",
+          "why": "A ladybird is an insect with 6 legs."
+        },
+        {
+          "text": "Butterfly",
+          "why": "A butterfly is an insect with 6 legs."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the legs of each animal.",
+        "Insects have 6 legs.",
+        "Which animal has 8 legs?"
+      ],
+      "explanation": "An ant, a bee, a ladybird and a butterfly are insects with 6 legs. A spider has 8 legs, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "An ant, a bee, a ladybird and a butterfly are insects with 6 legs."
+        },
+        {
+          "say": "A spider has 8 legs, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.036",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which shape is the odd one out?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "pentagon"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "hexagon"
+          }
+        ],
+        "alt": "Five shapes: a triangle, a square, a pentagon, a circle and a hexagon."
+      },
+      "options": [
+        {
+          "text": "Triangle",
+          "why": "A triangle has straight sides and corners."
+        },
+        {
+          "text": "Square",
+          "why": "A square has straight sides and corners."
+        },
+        {
+          "text": "Pentagon",
+          "why": "A pentagon has straight sides and corners."
+        },
+        {
+          "text": "Circle"
+        },
+        {
+          "text": "Hexagon",
+          "why": "A hexagon has straight sides and corners."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the edges of each shape.",
+        "Are the edges straight or curved?",
+        "Four shapes have straight sides and corners."
+      ],
+      "explanation": "The triangle, square, pentagon and hexagon have straight sides and corners. The circle has one curved edge, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "The triangle, square, pentagon and hexagon have straight sides and corners."
+        },
+        {
+          "say": "The circle has one curved edge, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.037",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Four of these solids have only flat faces. Which one does not?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "cube"
+          },
+          {
+            "shape": "cuboid"
+          },
+          {
+            "shape": "cylinder"
+          },
+          {
+            "shape": "square-pyramid"
+          },
+          {
+            "shape": "triangular-prism"
+          }
+        ],
+        "alt": "Five solids: a cube, a cuboid, a cylinder, a square pyramid and a triangular prism."
+      },
+      "options": [
+        {
+          "text": "Cube",
+          "why": "A cube has only flat faces."
+        },
+        {
+          "text": "Cylinder"
+        },
+        {
+          "text": "Cuboid",
+          "why": "A cuboid has only flat faces."
+        },
+        {
+          "text": "Square pyramid",
+          "why": "A pyramid has only flat faces."
+        },
+        {
+          "text": "Triangular prism",
+          "why": "A prism has only flat faces."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about how you could hold each solid.",
+        "Which solid has a curved surface you can roll?",
+        "Look at the shapes of the faces."
+      ],
+      "explanation": "The cube, cuboid, square pyramid and triangular prism have only flat faces. The cylinder has a curved surface, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "The cube, cuboid, square pyramid and triangular prism have only flat faces."
+        },
+        {
+          "say": "The cylinder has a curved surface, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.038",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Four of these hooks are the same shape, only turned round. One is flipped over. Which one is it?",
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    74,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the top."
+          },
+          "why": "This hook can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    70,
+                    36
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the right, flipped over like in a mirror."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the right."
+          },
+          "why": "This hook can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    46,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the bottom."
+          },
+          "why": "This hook can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    38,
+                    64
+                  ],
+                  [
+                    38,
+                    36
+                  ],
+                  [
+                    50,
+                    36
+                  ],
+                  [
+                    50,
+                    50
+                  ],
+                  [
+                    82,
+                    50
+                  ],
+                  [
+                    82,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the left."
+          },
+          "why": "This hook can be turned to match the others."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Imagine turning each hook. Can it fit onto another hook?",
+        "Look at which side the stem hangs on, when the bar is on top.",
+        "Turn each hook until the bar is on top."
+      ],
+      "explanation": "Turn each hook until its bar is on top. Four hooks have the stem on the left. One has the stem on the right, so it was flipped over.",
+      "solution": [
+        {
+          "say": "Turn each hook until its bar is on top."
+        },
+        {
+          "say": "Four hooks have the stem on the left."
+        },
+        {
+          "say": "One has the stem on the right, so it was flipped over."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.039",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is the odd one out?",
+      "options": [
+        {
+          "text": "1 hour",
+          "why": "An hour is 60 minutes, like most of the others."
+        },
+        {
+          "text": "Half an hour"
+        },
+        {
+          "text": "60 minutes",
+          "why": "60 minutes is an hour, like most of the others."
+        },
+        {
+          "text": "30 + 30 minutes",
+          "why": "This is 60 minutes, like most of the others."
+        },
+        {
+          "text": "6 x 10 minutes",
+          "why": "This is 60 minutes, like most of the others."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change each one into minutes.",
+        "1 hour is 60 minutes.",
+        "Four of them are 60 minutes. Which is not?"
+      ],
+      "explanation": "1 hour, 60 minutes, 30 + 30 minutes and 6 x 10 minutes are all 60 minutes. Half an hour is 30 minutes, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "1 hour, 60 minutes, 30 + 30 minutes and 6 x 10 minutes are all 60 minutes."
+        },
+        {
+          "say": "Half an hour is 30 minutes, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "kmnr",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.040",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which animal is the odd one out?",
+      "options": [
+        {
+          "text": "Hen",
+          "why": "A hen is a bird."
+        },
+        {
+          "text": "Duck",
+          "why": "A duck is a bird."
+        },
+        {
+          "text": "Owl",
+          "why": "An owl is a bird."
+        },
+        {
+          "text": "Penguin",
+          "why": "A penguin is a bird."
+        },
+        {
+          "text": "Bat"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Think about what kind of animal each one is.",
+        "Birds have feathers.",
+        "Which animal has fur and gives milk to its babies?"
+      ],
+      "explanation": "A hen, a duck, an owl and a penguin are birds with feathers. A bat is a mammal, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "A hen, a duck, an owl and a penguin are birds with feathers."
+        },
+        {
+          "say": "A bat is a mammal, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-coding.041",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number word has a different number of letters from the others?",
+      "options": [
+        {
+          "text": "One",
+          "why": "One has 3 letters, like most of the others."
+        },
+        {
+          "text": "Two",
+          "why": "Two has 3 letters, like most of the others."
+        },
+        {
+          "text": "Six",
+          "why": "Six has 3 letters, like most of the others."
+        },
+        {
+          "text": "Ten",
+          "why": "Ten has 3 letters, like most of the others."
+        },
+        {
+          "text": "Four"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Count the letters in each word.",
+        "One has 3 letters.",
+        "Four of the words have the same number of letters."
+      ],
+      "explanation": "One, two, six and ten each have 3 letters. Four has 4 letters, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "One, two, six and ten each have 3 letters."
+        },
+        {
+          "say": "Four has 4 letters, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.042",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which shape has a different number of corners from the others?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "rectangle"
+          },
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "rhombus"
+          },
+          {
+            "shape": "kite"
+          }
+        ],
+        "alt": "Five shapes: a square, a rectangle, a triangle, a rhombus and a kite."
+      },
+      "options": [
+        {
+          "text": "Square",
+          "why": "A square has 4 corners."
+        },
+        {
+          "text": "Rectangle",
+          "why": "A rectangle has 4 corners."
+        },
+        {
+          "text": "Triangle"
+        },
+        {
+          "text": "Rhombus",
+          "why": "A rhombus has 4 corners."
+        },
+        {
+          "text": "Kite",
+          "why": "A kite has 4 corners."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the corners of each shape.",
+        "Four of the shapes have the same number of corners.",
+        "Which shape has only 3?"
+      ],
+      "explanation": "The square, rectangle, rhombus and kite have 4 corners. The triangle has 3 corners, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "The square, rectangle, rhombus and kite have 4 corners."
+        },
+        {
+          "say": "The triangle has 3 corners, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.043",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "121",
+          "232",
+          "343",
+          "454",
+          "465"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 121, 232, 343, 454 and 465."
+      },
+      "options": [
+        {
+          "text": "121",
+          "why": "121 reads the same backwards."
+        },
+        {
+          "text": "232",
+          "why": "232 reads the same backwards."
+        },
+        {
+          "text": "343",
+          "why": "343 reads the same backwards."
+        },
+        {
+          "text": "454",
+          "why": "454 reads the same backwards."
+        },
+        {
+          "text": "465"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Read each number from the right.",
+        "121 backwards is 121.",
+        "Check which number changes when you read it backwards."
+      ],
+      "explanation": "121, 232, 343 and 454 read the same forwards and backwards. 465 backwards is 564, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "121, 232, 343 and 454 read the same forwards and backwards."
+        },
+        {
+          "say": "465 backwards is 564, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.044",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "18",
+          "27",
+          "36",
+          "45",
+          "56"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 18, 27, 36, 45 and 56."
+      },
+      "options": [
+        {
+          "text": "18",
+          "why": "1 + 8 = 9, like most of the others."
+        },
+        {
+          "text": "27",
+          "why": "2 + 7 = 9, like most of the others."
+        },
+        {
+          "text": "36",
+          "why": "3 + 6 = 9, like most of the others."
+        },
+        {
+          "text": "45",
+          "why": "4 + 5 = 9, like most of the others."
+        },
+        {
+          "text": "56"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Add the digits of each number.",
+        "1 + 8 = 9 and 2 + 7 = 9.",
+        "Four numbers have the same digit total. Which does not?"
+      ],
+      "explanation": "The digits of 18, 27, 36 and 45 all add up to 9. The digits of 56 add up to 11, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "The digits of 18, 27, 36 and 45 all add up to 9."
+        },
+        {
+          "say": "The digits of 56 add up to 11, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-coding.045",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sum has a different answer from the others?",
+      "options": [
+        {
+          "text": "3 + 4",
+          "why": "This makes 7, like most of the others."
+        },
+        {
+          "text": "2 + 5",
+          "why": "This makes 7, like most of the others."
+        },
+        {
+          "text": "4 + 4"
+        },
+        {
+          "text": "6 + 1",
+          "why": "This makes 7, like most of the others."
+        },
+        {
+          "text": "8 - 1",
+          "why": "This makes 7, like most of the others."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out each one.",
+        "Most of the answers are 7.",
+        "Check 4 + 4."
+      ],
+      "explanation": "3 + 4, 2 + 5, 6 + 1 and 8 - 1 all make 7. 4 + 4 makes 8, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "3 + 4, 2 + 5, 6 + 1 and 8 - 1 all make 7."
+        },
+        {
+          "say": "4 + 4 makes 8, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-coding.046",
+      "skill": "m2.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "8",
+          "12",
+          "18",
+          "20",
+          "24"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 8, 12, 18, 20 and 24."
+      },
+      "options": [
+        {
+          "text": "8",
+          "why": "8 is in the 4 times table."
+        },
+        {
+          "text": "12",
+          "why": "12 is in the 4 times table."
+        },
+        {
+          "text": "18"
+        },
+        {
+          "text": "20",
+          "why": "20 is in the 4 times table."
+        },
+        {
+          "text": "24",
+          "why": "24 is in the 4 times table."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count in 4s: 4, 8, 12 ...",
+        "Which of the numbers are in the 4 times table?",
+        "Check 20 and 24, then 18."
+      ],
+      "explanation": "8, 12, 20 and 24 are in the 4 times table. 18 is not, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "8, 12, 20 and 24 are in the 4 times table."
+        },
+        {
+          "say": "18 is not, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "kmnr",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    }
+  ]
+}

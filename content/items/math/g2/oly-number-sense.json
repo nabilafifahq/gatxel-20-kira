@@ -1,0 +1,1927 @@
+{
+  "skill": "m2.oly-number-sense",
+  "items": [
+    {
+      "id": "m2.oly-number-sense.001",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "I am a 2-digit number. My tens digit is 3 more than my ones digit. My digits add up to 9. Who am I?",
+      "options": [
+        {
+          "text": "36",
+          "why": "The tens digit of 36 is smaller than its ones digit."
+        },
+        {
+          "text": "54",
+          "why": "The digits of 54 add up to 9, but 5 is only 1 more than 4."
+        },
+        {
+          "text": "63"
+        },
+        {
+          "text": "72",
+          "why": "The digits of 72 add up to 9, but 7 is 5 more than 2."
+        },
+        {
+          "text": "81",
+          "why": "The digits of 81 add up to 9, but 8 is 7 more than 1."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try the pairs of digits that add up to 9.",
+        "Check which pair has a tens digit 3 bigger than the ones digit.",
+        "6 + 3 = 9. Which digit goes in the tens place?"
+      ],
+      "explanation": "The digits 6 and 3 add up to 9, and 6 is 3 more than 3. The tens digit is 6, so the number is 63.",
+      "solution": [
+        {
+          "say": "The digits 6 and 3 add up to 9, and 6 is 3 more than 3."
+        },
+        {
+          "say": "The tens digit is 6, so the number is 63."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.002",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A number has 4 tens and 13 ones. What is the number?",
+      "answer": 53,
+      "tolerance": 0,
+      "hints": [
+        "13 ones is more than 9 ones. Can you swap 10 ones for a ten?",
+        "Change 13 ones into 1 ten and some ones.",
+        "4 tens and 1 more ten make how many tens?"
+      ],
+      "explanation": "13 ones is 1 ten and 3 ones. So we have 4 + 1 = 5 tens and 3 ones. The number is 53.",
+      "solution": [
+        {
+          "say": "13 ones is 1 ten and 3 ones."
+        },
+        {
+          "say": "So we have 4 + 1 = 5 tens and 3 ones."
+        },
+        {
+          "say": "The number is 53."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.003",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the digits 4, 0 and 7 once each. What is the biggest 3-digit number you can make?",
+      "options": [
+        {
+          "text": "074",
+          "why": "A 3-digit number cannot start with 0."
+        },
+        {
+          "text": "407",
+          "why": "This is the smallest 3-digit number you can make."
+        },
+        {
+          "text": "470",
+          "why": "7 is bigger than 4, so 7 should go first."
+        },
+        {
+          "text": "704",
+          "why": "Put the next biggest digit in the tens place."
+        },
+        {
+          "text": "740"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "The biggest digit goes in the hundreds place.",
+        "Then put the next biggest digit in the tens place.",
+        "Hundreds 7, tens 4. What is left for the ones?"
+      ],
+      "explanation": "Put the biggest digit first: 7 in the hundreds place. Next comes 4, then 0. The biggest number is 740.",
+      "solution": [
+        {
+          "say": "Put the biggest digit first: 7 in the hundreds place."
+        },
+        {
+          "say": "Next comes 4, then 0."
+        },
+        {
+          "say": "The biggest number is 740."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.004",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the digits 5, 0 and 8 once each. What is the smallest 3-digit number you can make?",
+      "answer": 508,
+      "tolerance": 0,
+      "hints": [
+        "A 3-digit number cannot start with 0.",
+        "Pick the smallest digit that is not 0 for the hundreds place.",
+        "Hundreds 5. Put the smaller of 0 and 8 in the tens place."
+      ],
+      "explanation": "The hundreds digit cannot be 0, so use 5. Then the smallest digit left is 0, then 8. The number is 508.",
+      "solution": [
+        {
+          "say": "The hundreds digit cannot be 0, so use 5."
+        },
+        {
+          "say": "Then the smallest digit left is 0, then 8."
+        },
+        {
+          "say": "The number is 508."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.005",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Use the digits 2, 5 and 8 once each. How much bigger is the biggest 3-digit number than the smallest?",
+      "answer": 594,
+      "tolerance": 0,
+      "hints": [
+        "Make the biggest number and the smallest number first.",
+        "The biggest is 852. Now make the smallest.",
+        "The smallest is 258. Take it away from 852."
+      ],
+      "explanation": "The biggest number is 852 and the smallest is 258. The difference is 852 - 258 = 594.",
+      "solution": [
+        {
+          "say": "Biggest number.",
+          "show": "852"
+        },
+        {
+          "say": "Smallest number.",
+          "show": "258"
+        },
+        {
+          "say": "Find the difference.",
+          "show": "852 - 258 = 594"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.006",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Swap the digits of 83 to make a new number. How much smaller is the new number?",
+      "answer": 45,
+      "tolerance": 0,
+      "hints": [
+        "Write the new number first.",
+        "Swapping the digits of 83 gives 38.",
+        "Take 38 away from 83."
+      ],
+      "explanation": "Swapping 83 gives 38. The new number is 83 - 38 = 45 smaller.",
+      "solution": [
+        {
+          "say": "Swapping 83 gives 38."
+        },
+        {
+          "say": "The new number is 83 - 38 = 45 smaller."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.007",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at 2-digit numbers whose digits add up to 8. The tens digit is bigger than the ones digit. How many numbers are there?",
+      "options": [
+        {
+          "text": "3",
+          "why": "You may have missed 80. Its digits are 8 and 0."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "44 has equal digits, so it does not count."
+        },
+        {
+          "text": "6",
+          "why": "Count only the numbers where the tens digit is bigger."
+        },
+        {
+          "text": "8",
+          "why": "Only some pairs of digits that add up to 8 have the tens digit bigger."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the pairs of digits that add up to 8.",
+        "Start with tens digit 8 and go down.",
+        "80, 71, 62 ... Keep going while tens is bigger than ones."
+      ],
+      "explanation": "The numbers are 80, 71, 62 and 53. In 44 the digits are equal, so it does not count. That makes 4 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 80, 71, 62 and 53."
+        },
+        {
+          "say": "In 44 the digits are equal, so it does not count."
+        },
+        {
+          "say": "That makes 4 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.008",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Think of the numbers from 1 to 50. How many have the digit 5 in them?",
+      "options": [
+        {
+          "text": "4",
+          "why": "More than 4 numbers have a 5."
+        },
+        {
+          "text": "5",
+          "why": "You may have missed 50, which has a 5 in the tens place."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "9",
+          "why": "Count each number once, even when it has the digit 5."
+        },
+        {
+          "text": "10",
+          "why": "10 numbers from 50 to 59 have a 5, but only 50 is in the list."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think of the ones place first: 5, 15 ...",
+        "The ones digit is 5 in 5 numbers. Then look at the tens place.",
+        "The tens digit is 5 only for one number up to 50."
+      ],
+      "explanation": "The ones digit is 5 in 5, 15, 25, 35 and 45. The tens digit is 5 in 50. That makes 6 numbers.",
+      "solution": [
+        {
+          "say": "The ones digit is 5 in 5, 15, 25, 35 and 45."
+        },
+        {
+          "say": "The tens digit is 5 in 50."
+        },
+        {
+          "say": "That makes 6 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "seamo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.009",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Tom writes the numbers from 1 to 30. How many times does he write the digit 1?",
+      "options": [
+        {
+          "text": "3",
+          "why": "Count the digit 1 in the tens place too."
+        },
+        {
+          "text": "10",
+          "why": "The numbers 10 to 19 give 10 tens digits, and there are also ones digits."
+        },
+        {
+          "text": "11",
+          "why": "Look at the ones place and the tens place."
+        },
+        {
+          "text": "12",
+          "why": "11 has two digits 1, so count it twice."
+        },
+        {
+          "text": "13"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Count the digit 1 in the ones place and in the tens place.",
+        "Ones place: 1, 11 and 21 have a 1. Tens place: 10 to 19.",
+        "The tens place has ten 1s. The ones place has three."
+      ],
+      "explanation": "The ones place has a 1 in 1, 11 and 21, so that is 3. The tens place has a 1 in 10 to 19, so that is 10. In all, 3 + 10 = 13.",
+      "solution": [
+        {
+          "say": "The ones place has a 1 in 1, 11 and 21, so that is 3."
+        },
+        {
+          "say": "The tens place has a 1 in 10 to 19, so that is 10."
+        },
+        {
+          "say": "In all, 3 + 10 = 13."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-sense.010",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "In the number 586, what is the value of the digit 8?",
+      "answer": 80,
+      "tolerance": 0,
+      "hints": [
+        "Look at which place the 8 is in.",
+        "The 8 is in the tens place.",
+        "8 tens is how many?"
+      ],
+      "explanation": "The 8 is in the tens place. 8 tens is 80.",
+      "solution": [
+        {
+          "say": "The 8 is in the tens place."
+        },
+        {
+          "say": "8 tens is 80."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.011",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is made of 7 hundreds, 12 tens and 3 ones?",
+      "options": [
+        {
+          "text": "733",
+          "why": "Check how many tens 12 tens makes."
+        },
+        {
+          "text": "793",
+          "why": "12 tens is 120, not 90."
+        },
+        {
+          "text": "823"
+        },
+        {
+          "text": "1023",
+          "why": "There are only 7 hundreds."
+        },
+        {
+          "text": "7123",
+          "why": "Do not write the digits side by side. 12 tens is 120."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "12 tens is more than 9 tens.",
+        "12 tens is the same as 1 hundred and 2 tens.",
+        "7 hundreds and 1 more hundred is 8 hundreds. Then count the tens."
+      ],
+      "explanation": "12 tens is 120. So the number is 700 + 120 + 3 = 823.",
+      "solution": [
+        {
+          "say": "12 tens is 120."
+        },
+        {
+          "say": "So the number is 700 + 120 + 3 = 823."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.012",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A 3-digit number has hundreds digit 2. Its ones digit is 1 more than its tens digit. The digits add up to 15. What is the number?",
+      "options": [
+        {
+          "text": "249",
+          "why": "The digits of 249 add up to 15, but 9 is 5 more than 4."
+        },
+        {
+          "text": "258",
+          "why": "The digits of 258 add up to 15, but 8 is 3 more than 5."
+        },
+        {
+          "text": "267"
+        },
+        {
+          "text": "276",
+          "why": "The ones digit must be bigger than the tens digit."
+        },
+        {
+          "text": "285",
+          "why": "The digits of 285 add up to 15, but the ones digit is smaller."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The tens and ones digits must add up to 15 - 2.",
+        "They add up to 13, and the ones digit is 1 more.",
+        "Look for two numbers next to each other that add up to 13."
+      ],
+      "explanation": "The tens and ones digits add up to 15 - 2 = 13. Two numbers that are 1 apart and add up to 13 are 6 and 7. The ones digit is the bigger one, so the number is 267.",
+      "solution": [
+        {
+          "say": "The tens and ones digits add up to 15 - 2 = 13."
+        },
+        {
+          "say": "Two numbers that are 1 apart and add up to 13 are 6 and 7."
+        },
+        {
+          "say": "The ones digit is the bigger one, so the number is 267."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-sense.013",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ani has 3 bags of 10 beads and 2 more beads. Ben has 2 bags of 10 beads and 15 more beads. How many more beads does Ben have?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Find how many beads each child has.",
+        "Ani has 30 + 2. Ben has 20 + 15.",
+        "Ani has 32 and Ben has 35. Find the difference."
+      ],
+      "explanation": "Ani has 30 + 2 = 32 beads. Ben has 20 + 15 = 35 beads. Ben has 35 - 32 = 3 more.",
+      "solution": [
+        {
+          "say": "Ani has 30 + 2 = 32 beads."
+        },
+        {
+          "say": "Ben has 20 + 15 = 35 beads."
+        },
+        {
+          "say": "Ben has 35 - 32 = 3 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.014",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "These blocks show a number. What is the number?",
+      "figure": {
+        "kind": "basetens",
+        "hundreds": 2,
+        "tens": 13,
+        "ones": 4,
+        "alt": "Base ten blocks: 2 flats of 100, 13 rods of 10 and 4 small cubes of 1."
+      },
+      "options": [
+        {
+          "text": "234",
+          "why": "There are 13 tens, not 3 tens."
+        },
+        {
+          "text": "334"
+        },
+        {
+          "text": "424",
+          "why": "Count the tens rods again."
+        },
+        {
+          "text": "2134",
+          "why": "Do not put the digits side by side. 13 tens is 130."
+        },
+        {
+          "text": "3004",
+          "why": "Check the value of the rods."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A flat is 100, a rod is 10 and a cube is 1.",
+        "Count how many rods there are. Is it more than 10?",
+        "13 rods is 130."
+      ],
+      "explanation": "The blocks show 2 hundreds, 13 tens and 4 ones. That is 200 + 130 + 4 = 334.",
+      "solution": [
+        {
+          "say": "The blocks show 2 hundreds, 13 tens and 4 ones."
+        },
+        {
+          "say": "That is 200 + 130 + 4 = 334."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.015",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is eight hundred and five?",
+      "options": [
+        {
+          "text": "85",
+          "why": "This is eighty-five."
+        },
+        {
+          "text": "580",
+          "why": "This is five hundred and eighty."
+        },
+        {
+          "text": "805"
+        },
+        {
+          "text": "850",
+          "why": "This is eight hundred and fifty."
+        },
+        {
+          "text": "8005",
+          "why": "This is eight thousand and five."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Say it out loud: how many hundreds are there?",
+        "There is no tens word in \"eight hundred and five\".",
+        "There are 8 hundreds, 0 tens and 5 ones."
+      ],
+      "explanation": "Eight hundred means 8 hundreds. There are no tens, and 5 ones. So the number is 805.",
+      "solution": [
+        {
+          "say": "Eight hundred means 8 hundreds."
+        },
+        {
+          "say": "There are no tens, and 5 ones."
+        },
+        {
+          "say": "So the number is 805."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.016",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I am between 40 and 50. My ones digit is double my tens digit. Who am I?",
+      "options": [
+        {
+          "text": "42",
+          "why": "The ones digit of 42 is half the tens digit."
+        },
+        {
+          "text": "44",
+          "why": "The ones digit of 44 is the same as its tens digit."
+        },
+        {
+          "text": "45",
+          "why": "Double 4 is not 5."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "49",
+          "why": "Double 4 is not 9."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "My tens digit is 4 because I am between 40 and 50.",
+        "Double the tens digit 4.",
+        "The ones digit is 4 + 4."
+      ],
+      "explanation": "The tens digit is 4. Double 4 is 8, so the ones digit is 8. The number is 48.",
+      "solution": [
+        {
+          "say": "The tens digit is 4."
+        },
+        {
+          "say": "Double 4 is 8, so the ones digit is 8."
+        },
+        {
+          "say": "The number is 48."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.017",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the digits 1, 2 and 3 once each. How many different 3-digit numbers can you make?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "List them in order. Start with the hundreds digit 1.",
+        "With 1 in the hundreds place there are 123 and 132.",
+        "Each of the 3 digits can go first, and each time there are 2 numbers."
+      ],
+      "explanation": "With 1 first there are 123 and 132. With 2 first there are 213 and 231. With 3 first there are 312 and 321. That makes 6 numbers.",
+      "solution": [
+        {
+          "say": "With 1 first there are 123 and 132."
+        },
+        {
+          "say": "With 2 first there are 213 and 231."
+        },
+        {
+          "say": "With 3 first there are 312 and 321."
+        },
+        {
+          "say": "That makes 6 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.018",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Numbers like 222 have 3 equal digits. Add the smallest number to 297 to reach one. What is it?",
+      "answer": 36,
+      "tolerance": 0,
+      "hints": [
+        "The numbers with 3 equal digits are 111, 222, 333 and so on.",
+        "Find the first one that is bigger than 297.",
+        "The next one is 333."
+      ],
+      "explanation": "The next number with 3 equal digits after 297 is 333. So we add 333 - 297 = 36.",
+      "solution": [
+        {
+          "say": "The next number with 3 equal digits after 297 is 333."
+        },
+        {
+          "say": "So we add 333 - 297 = 36."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.019",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The digits of a 2-digit number add up to 11. When the digits swap places, the number gets 27 bigger. What is the number?",
+      "options": [
+        {
+          "text": "29",
+          "why": "Swapping 29 gives 92, which is 63 bigger."
+        },
+        {
+          "text": "38",
+          "why": "Swapping 38 gives 83, which is 45 bigger."
+        },
+        {
+          "text": "47"
+        },
+        {
+          "text": "56",
+          "why": "Swapping 56 gives 65, only 9 bigger."
+        },
+        {
+          "text": "74",
+          "why": "Swapping 74 gives 47, which is smaller."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try the numbers whose digits add up to 11.",
+        "Swap the digits of each and see how much bigger the new number is.",
+        "Look for the pair where the swapped number is exactly 27 more."
+      ],
+      "explanation": "Numbers with digit sum 11 are 29, 38, 47, 56 and so on. Swapping 47 gives 74, and 74 - 47 = 27. So the number is 47.",
+      "solution": [
+        {
+          "say": "Numbers with digit sum 11 are 29, 38, 47, 56 and so on."
+        },
+        {
+          "say": "Swapping 47 gives 74, and 74 - 47 = 27."
+        },
+        {
+          "say": "So the number is 47."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-sense.020",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many tens are there in 230?",
+      "answer": 23,
+      "tolerance": 0,
+      "hints": [
+        "Think of 230 as groups of 10.",
+        "10 tens make 100.",
+        "230 is 200 and 30."
+      ],
+      "explanation": "200 is 20 tens and 30 is 3 tens. So there are 23 tens in 230.",
+      "solution": [
+        {
+          "say": "200 is 20 tens and 30 is 3 tens."
+        },
+        {
+          "say": "So there are 23 tens in 230."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.021",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Look at the numbers 679, 697, 769, 796 and 967. Which is the third biggest?",
+      "options": [
+        {
+          "text": "679",
+          "why": "679 is the smallest."
+        },
+        {
+          "text": "697",
+          "why": "697 is the fourth biggest."
+        },
+        {
+          "text": "769"
+        },
+        {
+          "text": "796",
+          "why": "796 is the second biggest."
+        },
+        {
+          "text": "967",
+          "why": "967 is the biggest."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Put the numbers in order from the biggest.",
+        "Compare the hundreds digits first.",
+        "The order starts 967, 796 ..."
+      ],
+      "explanation": "From biggest to smallest: 967, 796, 769, 697, 679. The third biggest is 769.",
+      "solution": [
+        {
+          "say": "From biggest to smallest: 967, 796, 769, 697, 679."
+        },
+        {
+          "say": "The third biggest is 769."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.022",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many whole numbers are there between 47 and 53?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Do not count 47 or 53.",
+        "Start at 48.",
+        "The numbers are 48, 49, 50 and so on up to 52."
+      ],
+      "explanation": "The numbers between 47 and 53 are 48, 49, 50, 51 and 52. That is 5 numbers.",
+      "solution": [
+        {
+          "say": "The numbers between 47 and 53 are 48, 49, 50, 51 and 52."
+        },
+        {
+          "say": "That is 5 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.023",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A digit goes in the box: 4_7. The number is bigger than 457 and smaller than 477. Which digit is it?",
+      "options": [
+        {
+          "text": "4",
+          "why": "447 is smaller than 457."
+        },
+        {
+          "text": "5",
+          "why": "457 is not bigger than 457."
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "7",
+          "why": "477 is not smaller than 477."
+        },
+        {
+          "text": "8",
+          "why": "487 is bigger than 477."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The hundreds digit and the ones digit stay the same. Only the tens digit changes.",
+        "The tens digit must be bigger than 5 and smaller than 7.",
+        "Which digit is between 5 and 7?"
+      ],
+      "explanation": "The numbers 4_7 only differ in the tens digit. It must be bigger than 5 and smaller than 7. That digit is 6, so 467 fits.",
+      "solution": [
+        {
+          "say": "The numbers 4_7 only differ in the tens digit."
+        },
+        {
+          "say": "It must be bigger than 5 and smaller than 7."
+        },
+        {
+          "say": "That digit is 6, so 467 fits."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.024",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A digit from 0 to 9 goes in 3_2. The number must be smaller than 352. How many digits work?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Try the digits one by one.",
+        "When the tens digit is 5, we get 352 and it is not smaller.",
+        "Only the digits smaller than 5 work."
+      ],
+      "explanation": "The tens digit must be smaller than 5. The digits are 0, 1, 2, 3 and 4. That makes 5 digits.",
+      "solution": [
+        {
+          "say": "The tens digit must be smaller than 5."
+        },
+        {
+          "say": "The digits are 0, 1, 2, 3 and 4."
+        },
+        {
+          "say": "That makes 5 digits."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.025",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "I am more than 76 and less than 83. I am even. My ones digit is less than 2. What am I?",
+      "options": [
+        {
+          "text": "77",
+          "why": "77 is odd."
+        },
+        {
+          "text": "78",
+          "why": "The ones digit of 78 is 8, which is not less than 2."
+        },
+        {
+          "text": "80"
+        },
+        {
+          "text": "81",
+          "why": "81 is odd."
+        },
+        {
+          "text": "82",
+          "why": "The ones digit of 82 is 2, which is not less than 2."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "List the numbers between 76 and 83.",
+        "Cross out the odd ones.",
+        "Which of the even numbers has a ones digit of 0 or 1?"
+      ],
+      "explanation": "The even numbers between 76 and 83 are 78, 80 and 82. Only 80 has a ones digit less than 2. So I am 80.",
+      "solution": [
+        {
+          "say": "The even numbers between 76 and 83 are 78, 80 and 82."
+        },
+        {
+          "say": "Only 80 has a ones digit less than 2."
+        },
+        {
+          "say": "So I am 80."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.026",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sum is the biggest?",
+      "options": [
+        {
+          "text": "25 + 36",
+          "why": "This sum is 61. Another sum is bigger."
+        },
+        {
+          "text": "40 + 19",
+          "why": "This sum is 59. Another sum is bigger."
+        },
+        {
+          "text": "28 + 34",
+          "why": "This sum is 62. Another sum is bigger."
+        },
+        {
+          "text": "31 + 29",
+          "why": "This sum is 60. Another sum is bigger."
+        },
+        {
+          "text": "33 + 30"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Work out each sum.",
+        "Compare the answers, not the numbers in the sums.",
+        "One sum is 63."
+      ],
+      "explanation": "25 + 36 = 61, 40 + 19 = 59, 33 + 30 = 63, 28 + 34 = 62 and 31 + 29 = 60. The biggest is 33 + 30.",
+      "solution": [
+        {
+          "say": "25 + 36 = 61, 40 + 19 = 59, 33 + 30 = 63, 28 + 34 = 62 and 31 + 29 = 60."
+        },
+        {
+          "say": "The biggest is 33 + 30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.027",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What number does the mark on the number line show?",
+      "figure": {
+        "kind": "numberline",
+        "min": 40,
+        "max": 50,
+        "step": 1,
+        "labels": [
+          40,
+          50
+        ],
+        "marks": [
+          {
+            "at": 45,
+            "label": "?"
+          }
+        ],
+        "alt": "A number line from 40 to 50 with small steps of 1. A mark with a question mark sits at the middle."
+      },
+      "options": [
+        {
+          "text": "44",
+          "why": "44 is one step before the mark."
+        },
+        {
+          "text": "45"
+        },
+        {
+          "text": "46",
+          "why": "46 is one step after the mark."
+        },
+        {
+          "text": "50",
+          "why": "50 is at the end of the line."
+        },
+        {
+          "text": "55",
+          "why": "55 is not on the line."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count how many steps there are between 40 and 50.",
+        "Each small step is 1. Count from 40.",
+        "The mark is 5 steps from 40."
+      ],
+      "explanation": "The small steps are 1 each. The mark is 5 steps after 40. It shows 45.",
+      "solution": [
+        {
+          "say": "The small steps are 1 each."
+        },
+        {
+          "say": "The mark is 5 steps after 40."
+        },
+        {
+          "say": "It shows 45."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.028",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many of these are true? 56 < 65, 90 > 89, 101 < 110, 345 > 354",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Check each one on its own.",
+        "Compare the hundreds digits, then the tens, then the ones.",
+        "Only one of the four is false."
+      ],
+      "explanation": "56 < 65 is true. 90 > 89 is true. 101 < 110 is true. 345 > 354 is false because 345 is smaller. So 3 are true.",
+      "solution": [
+        {
+          "say": "56 < 65 is true."
+        },
+        {
+          "say": "90 > 89 is true."
+        },
+        {
+          "say": "101 < 110 is true."
+        },
+        {
+          "say": "345 > 354 is false because 345 is smaller."
+        },
+        {
+          "say": "So 3 are true."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.029",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is the closest to 100?",
+      "options": [
+        {
+          "text": "87",
+          "why": "100 - 87 = 13, which is far."
+        },
+        {
+          "text": "92",
+          "why": "100 - 92 = 8, which is not the closest."
+        },
+        {
+          "text": "94"
+        },
+        {
+          "text": "109",
+          "why": "109 - 100 = 9, which is a little far."
+        },
+        {
+          "text": "111",
+          "why": "111 - 100 = 11, which is far."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find how far each number is from 100.",
+        "Some numbers are bigger than 100 and some are smaller.",
+        "Take the smaller number away from the bigger one each time."
+      ],
+      "explanation": "The distances to 100 are 13, 9, 6, 11 and 8. The smallest distance is 6, so 94 is the closest.",
+      "solution": [
+        {
+          "say": "The distances to 100 are 13, 9, 6, 11 and 8."
+        },
+        {
+          "say": "The smallest distance is 6, so 94 is the closest."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.030",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the biggest 2-digit number whose digits multiply to 12?",
+      "options": [
+        {
+          "text": "12",
+          "why": "The digits of 12 multiply to 2."
+        },
+        {
+          "text": "26",
+          "why": "26 has digit product 12, but it is not the biggest."
+        },
+        {
+          "text": "34",
+          "why": "34 has digit product 12, but it is not the biggest."
+        },
+        {
+          "text": "43",
+          "why": "43 has digit product 12, but it is not the biggest."
+        },
+        {
+          "text": "62"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find pairs of digits that multiply to 12.",
+        "2 x 6 and 3 x 4 work. Each pair makes two numbers.",
+        "List all the numbers and pick the biggest."
+      ],
+      "explanation": "The pairs are 2 and 6, and 3 and 4. They make 26, 62, 34 and 43. The biggest is 62.",
+      "solution": [
+        {
+          "say": "The pairs are 2 and 6, and 3 and 4."
+        },
+        {
+          "say": "They make 26, 62, 34 and 43."
+        },
+        {
+          "say": "The biggest is 62."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-sense.031",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many whole numbers are there between 189 and 193?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Do not count 189 or 193.",
+        "Start at 190.",
+        "190, 191, 192 ... is there another one?"
+      ],
+      "explanation": "The numbers between 189 and 193 are 190, 191 and 192. That is 3 numbers.",
+      "solution": [
+        {
+          "say": "The numbers between 189 and 193 are 190, 191 and 192."
+        },
+        {
+          "say": "That is 3 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.032",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When you add three odd numbers, is the answer odd or even?",
+      "options": [
+        {
+          "text": "Always odd"
+        },
+        {
+          "text": "Always even",
+          "why": "Try 1 + 1 + 1 = 3."
+        },
+        {
+          "text": "Odd or even, it depends",
+          "why": "Try some more. Is it the same every time?"
+        },
+        {
+          "text": "Always a multiple of 3",
+          "why": "Try 1 + 1 + 3 = 5."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try 1 + 1 + 1 and 3 + 3 + 5.",
+        "Two odd numbers add up to an even number.",
+        "Even + odd is odd."
+      ],
+      "explanation": "Two odd numbers make an even number. Adding a third odd number gives even + odd, which is odd. So the answer is always odd.",
+      "solution": [
+        {
+          "say": "Two odd numbers make an even number."
+        },
+        {
+          "say": "Adding a third odd number gives even + odd, which is odd."
+        },
+        {
+          "say": "So the answer is always odd."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.033",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which of these sums is an even number?",
+      "options": [
+        {
+          "text": "29 + 31"
+        },
+        {
+          "text": "25 + 38",
+          "why": "An odd and an even number make an odd number."
+        },
+        {
+          "text": "17 + 44",
+          "why": "An odd and an even number make an odd number."
+        },
+        {
+          "text": "56 + 37",
+          "why": "An even and an odd number make an odd number."
+        },
+        {
+          "text": "12 + 19",
+          "why": "An even and an odd number make an odd number."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at only the ones digits.",
+        "Odd + even = odd. What do odd + odd and even + even make?",
+        "Which sum has two numbers of the same kind?"
+      ],
+      "explanation": "An even sum needs two odd numbers or two even numbers. Only 29 + 31 has two odd numbers. 29 + 31 = 60, which is even.",
+      "solution": [
+        {
+          "say": "An even sum needs two odd numbers or two even numbers."
+        },
+        {
+          "say": "Only 29 + 31 has two odd numbers."
+        },
+        {
+          "say": "29 + 31 = 60, which is even."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.034",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many even numbers are there between 31 and 47?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "The first even number after 31 is 32.",
+        "The last even number before 47 is 46.",
+        "List them: 32, 34, 36 ..."
+      ],
+      "explanation": "The even numbers are 32, 34, 36, 38, 40, 42, 44 and 46. That makes 8 numbers.",
+      "solution": [
+        {
+          "say": "The even numbers are 32, 34, 36, 38, 40, 42, 44 and 46."
+        },
+        {
+          "say": "That makes 8 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.035",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many odd numbers are there from 1 to 25?",
+      "answer": 13,
+      "tolerance": 0,
+      "hints": [
+        "List them: 1, 3, 5 ...",
+        "Every second number is odd.",
+        "The last odd number is 25."
+      ],
+      "explanation": "The odd numbers are 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23 and 25. That is 13 numbers.",
+      "solution": [
+        {
+          "say": "The odd numbers are 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23 and 25."
+        },
+        {
+          "say": "That is 13 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.036",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Mia thinks of an odd number. She adds an odd number, then an even number. Is her answer odd or even?",
+      "options": [
+        {
+          "text": "Odd",
+          "why": "Odd + odd is even. What happens when you add an even number?"
+        },
+        {
+          "text": "Even"
+        },
+        {
+          "text": "It could be either",
+          "why": "Think about the rules for odd and even. They always work."
+        },
+        {
+          "text": "Neither",
+          "why": "Every whole number is odd or even."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do it in two steps.",
+        "Odd + odd = ?",
+        "Then add an even number."
+      ],
+      "explanation": "Odd + odd makes an even number. Then even + even is even. So her answer is even.",
+      "solution": [
+        {
+          "say": "Odd + odd makes an even number."
+        },
+        {
+          "say": "Then even + even is even."
+        },
+        {
+          "say": "So her answer is even."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.037",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two whole numbers add up to 15. One of them is even. What must be true?",
+      "options": [
+        {
+          "text": "The other number is even",
+          "why": "Even + even is always even, not 15."
+        },
+        {
+          "text": "The other number is odd"
+        },
+        {
+          "text": "Both numbers are odd",
+          "why": "One of them is even."
+        },
+        {
+          "text": "Both numbers are even",
+          "why": "15 is odd."
+        },
+        {
+          "text": "Both numbers are bigger than 10",
+          "why": "Try 4 + 11 and 7 + 8."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is 15 odd or even?",
+        "Even + even makes even. Which kinds of numbers make 15?",
+        "Odd + even is the only way to get an odd sum."
+      ],
+      "explanation": "15 is odd. Only odd + even gives an odd number. So when one number is even, the other must be odd.",
+      "solution": [
+        {
+          "say": "15 is odd."
+        },
+        {
+          "say": "Only odd + even gives an odd number."
+        },
+        {
+          "say": "So when one number is even, the other must be odd."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.038",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Both digits of a 2-digit number are odd. The digits add up to 10. How many such numbers are there?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "The odd digits are 1, 3, 5, 7 and 9.",
+        "Find pairs of odd digits that add up to 10.",
+        "1 and 9 work, and so do 9 and 1."
+      ],
+      "explanation": "The numbers are 19, 37, 55, 73 and 91. That makes 5 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 19, 37, 55, 73 and 91."
+        },
+        {
+          "say": "That makes 5 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.039",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Can you add six odd numbers to make 21?",
+      "options": [
+        {
+          "text": "Yes, 3 + 3 + 3 + 3 + 3 + 6 = 21",
+          "why": "6 is not an odd number."
+        },
+        {
+          "text": "Yes, because 21 is odd",
+          "why": "An odd sum needs an odd number of odd numbers."
+        },
+        {
+          "text": "No, six odd numbers always make an even sum"
+        },
+        {
+          "text": "No, because 21 is too small",
+          "why": "Six odd numbers can have a small sum, for example 1 + 1 + 1 + 1 + 1 + 1."
+        },
+        {
+          "text": "Only if one number is 1",
+          "why": "The answer does not depend on 1."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Add the odd numbers in pairs.",
+        "Odd + odd = even.",
+        "Three pairs of odd numbers make three even numbers."
+      ],
+      "explanation": "Six odd numbers make three pairs. Each pair adds up to an even number. Even + even + even is even, and 21 is odd. So it cannot be done.",
+      "solution": [
+        {
+          "say": "Six odd numbers make three pairs."
+        },
+        {
+          "say": "Each pair adds up to an even number."
+        },
+        {
+          "say": "Even + even + even is even, and 21 is odd."
+        },
+        {
+          "say": "So it cannot be done."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-number-sense.040",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which total is odd?",
+      "options": [
+        {
+          "text": "2 + 4 + 6 + 8",
+          "why": "All of the numbers are even, so the total is even."
+        },
+        {
+          "text": "1 + 3",
+          "why": "Two odd numbers add up to an even number."
+        },
+        {
+          "text": "3 + 3 + 3 + 3",
+          "why": "Four odd numbers make an even number."
+        },
+        {
+          "text": "7 + 9",
+          "why": "Two odd numbers add up to an even number."
+        },
+        {
+          "text": "5 + 5 + 5"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Work out each total.",
+        "Check the ones digit of each total.",
+        "Look for a total ending in 1, 3, 5, 7 or 9."
+      ],
+      "explanation": "2 + 4 + 6 + 8 = 20, 1 + 3 = 4, 5 + 5 + 5 = 15, 3 + 3 + 3 + 3 = 12 and 7 + 9 = 16. Only 15 is odd.",
+      "solution": [
+        {
+          "say": "2 + 4 + 6 + 8 = 20, 1 + 3 = 4, 5 + 5 + 5 = 15, 3 + 3 + 3 + 3 = 12 and 7 + 9 = 16."
+        },
+        {
+          "say": "Only 15 is odd."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.041",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Twenty-three children stand in a line. Only the children at the even positions wear hats. How many hats are there?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "The positions are 1 to 23.",
+        "The even positions are 2, 4, 6 ...",
+        "The last even position is 22."
+      ],
+      "explanation": "The even positions are 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 and 22. That is 11 hats.",
+      "solution": [
+        {
+          "say": "The even positions are 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 and 22."
+        },
+        {
+          "say": "That is 11 hats."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.042",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many odd numbers are there from 1 to 99?",
+      "answer": 50,
+      "tolerance": 0,
+      "hints": [
+        "Make pairs of numbers: 1 and 2, 3 and 4, 5 and 6 ...",
+        "Each pair has one odd number and one even number.",
+        "99 is odd, so 99 and 100 make the last pair."
+      ],
+      "explanation": "Group the numbers 1 to 100 into pairs (1, 2), (3, 4), up to (99, 100). That is 50 pairs, each with one odd number. So there are 50 odd numbers up to 99.",
+      "solution": [
+        {
+          "say": "Group the numbers 1 to 100 into pairs (1, 2), (3, 4), up to (99, 100)."
+        },
+        {
+          "say": "That is 50 pairs, each with one odd number."
+        },
+        {
+          "say": "So there are 50 odd numbers up to 99."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-number-sense.043",
+      "skill": "m2.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What is the first even number after the biggest odd 2-digit number?",
+      "answer": 100,
+      "tolerance": 0,
+      "hints": [
+        "The biggest 2-digit number is 99.",
+        "Is 99 odd or even?",
+        "Count on from 99."
+      ],
+      "explanation": "99 is the biggest 2-digit number and it is odd. The next even number after 99 is 100.",
+      "solution": [
+        {
+          "say": "99 is the biggest 2-digit number and it is odd."
+        },
+        {
+          "say": "The next even number after 99 is 100."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-number-sense.044",
+      "skill": "m2.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which of these products is an odd number?",
+      "options": [
+        {
+          "text": "4 x 7",
+          "why": "An even number times any number is even."
+        },
+        {
+          "text": "6 x 9",
+          "why": "An even number times any number is even."
+        },
+        {
+          "text": "3 x 7"
+        },
+        {
+          "text": "8 x 5",
+          "why": "An even number times any number is even."
+        },
+        {
+          "text": "2 x 9",
+          "why": "An even number times any number is even."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which numbers in the products are even?",
+        "If one number is even, the product is even.",
+        "Look for a product with two odd numbers."
+      ],
+      "explanation": "If one of the numbers is even, the product is even. Only 3 x 7 has two odd numbers. 3 x 7 = 21, which is odd.",
+      "solution": [
+        {
+          "say": "If one of the numbers is even, the product is even."
+        },
+        {
+          "say": "Only 3 x 7 has two odd numbers."
+        },
+        {
+          "say": "3 x 7 = 21, which is odd."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}
