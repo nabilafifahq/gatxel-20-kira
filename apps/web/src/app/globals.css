@@ -244,7 +244,7 @@
     opacity: 0;
   }
   35% {
-    opacity: 0.28;
+    opacity: 0.16;
   }
   100% {
     opacity: 0;
@@ -333,6 +333,21 @@
   to {
     opacity: 0;
     transform: translateX(130%) skewX(-18deg);
+  }
+}
+@keyframes kira-flash {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kira-bar-in {
+  from {
+    transform: scaleX(0);
   }
 }
 @keyframes kira-ring {
@@ -464,6 +479,9 @@
     pointer-events: none;
     animation: kira-glow 900ms var(--ease-kira) both;
   }
+  .kira-pulse {
+    animation: kira-pulse 420ms var(--ease-kira) both;
+  }
   /* Not yet: geseran mendatar yang lembut, tanpa memantul. */
   .kira-nudge {
     animation: kira-nudge 420ms var(--ease-kira) both;
@@ -491,6 +509,19 @@
     pointer-events: none;
     opacity: 0;
     animation: kira-shine 1200ms var(--ease-kira) var(--kira-delay, 500ms) both;
+  }
+  .kira-flash {
+    animation: kira-flash 140ms var(--ease-kira) both;
+  }
+  /* Bar XP terisi mulus dari kiri: lebar penuh, skala mengikuti persentase. */
+  .kira-bar-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transform: scaleX(var(--p, 0));
+    transition: transform var(--duration-celebrate) var(--ease-kira);
+    animation: kira-bar-in var(--duration-celebrate) var(--ease-kira) 200ms backwards;
   }
   .kira-ring {
     animation: kira-ring 1100ms var(--ease-kira) var(--kira-delay, 0ms) both;
@@ -558,6 +589,7 @@
     transition: none;
   }
   .kira-correct,
+  .kira-pulse,
   .kira-nudge {
     animation: none !important;
   }

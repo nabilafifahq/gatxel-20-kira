@@ -1,10 +1,12 @@
 'use client'
 
-import type { ReactElement } from 'react'
+import { useRouter } from 'next/navigation'
+import { useState, type ReactElement } from 'react'
 import type { QuestIntroDTO } from '@/lib/dto'
 import { Button, ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { CountdownOverlay } from '@/components/learner/CountdownOverlay'
 import { plural } from '@/components/learner/format'
 import { useDeviceWord, useOnline } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
@@ -34,6 +36,9 @@ export function QuestIntroScreen({
   online?: boolean
   backHref?: string
 }): ReactElement {
+  const router = useRouter()
+  // Sesi berwaktu: hitung mundur 3, 2, 1, Go sebelum soal pertama; jam baru berjalan setelah Go.
+  const [counting, setCounting] = useState(false)
   const deviceOnline = useOnline()
   const device = useDeviceWord()
   const isOnline = online ?? deviceOnline
@@ -46,6 +51,7 @@ export function QuestIntroScreen({
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
+      {counting ? <CountdownOverlay onGo={() => router.push(data.startHref)} /> : null}
       <header className="flex h-18 flex-none items-center gap-3 px-4 md:h-22 md:gap-4 md:px-8">
         <IconLink href={backHref} icon="arrow-left" label="Back to Today" />
         <span className="min-w-0 text-body-lg font-bold">Today&apos;s {name} session</span>
@@ -125,9 +131,15 @@ export function QuestIntroScreen({
                   ) : null}
                 </>
               ) : (
-                <ButtonLink href={data.startHref} prefetch={false} iconAfter="arrow-right" className="px-7">
-                  Start
-                </ButtonLink>
+                data.timeLimitMin ? (
+                  <Button iconAfter="arrow-right" className="px-7" onClick={() => setCounting(true)}>
+                    Start
+                  </Button>
+                ) : (
+                  <ButtonLink href={data.startHref} prefetch={false} iconAfter="arrow-right" className="px-7">
+                    Start
+                  </ButtonLink>
+                )
               )}
               {data.lessonHref ? (
                 <ButtonLink href={data.lessonHref} variant="quiet" icon="book">

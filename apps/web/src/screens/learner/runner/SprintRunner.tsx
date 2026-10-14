@@ -10,6 +10,8 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
+import { comboLevel } from '@/components/learner/ComboStars'
+import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { Timer } from '@/components/learner/Timer'
@@ -47,6 +49,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
   const startedAt = useRef(Date.now())
   const submitClientId = useRef(newClientId())
   const combo = useRef(0)
+  const [streak, setStreak] = useState(0)
   useEffect(() => primeSfx(), [])
   const limit = data.timeLimitSec ?? 60
   const over = index >= items.length
@@ -96,7 +99,11 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
     }
     if (ok !== null) {
       combo.current = ok ? combo.current + 1 : 0
-      playSfx(!ok ? 'notyet' : combo.current >= 3 ? 'combo' : 'correct')
+      setStreak(combo.current)
+      const level = comboLevel(combo.current)
+      if (!ok) playSfx('notyet')
+      else if (level === 0) playSfx('correct')
+      else playSfx('combo', { level })
     }
     setFlash(ok === null ? null : ok ? 'correct' : 'not-yet')
     window.setTimeout(
@@ -178,6 +185,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
               )}
             </div>
             <div className="relative flex flex-1 flex-col items-center gap-4">
+              <RunnerCorner shell={data.shell} phase={flash ?? 'answer'} timed streak={streak} xp={0} nonce={index} className="-top-2" />
               <Widget item={item} value={value} onChange={(v) => !flash && setValue(v)} disabled={!!flash} feedback={flash} subject={data.subject} />
               <Button onClick={check} disabled={!isAnswerComplete(item, value) || !!flash} className="w-full max-w-[360px]">
                 Check

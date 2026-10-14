@@ -116,7 +116,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           right={
             <div className="hidden flex-wrap items-center gap-5 md:flex">
               <StreakCount current={streak.current} />
-              <StreakChain streak={streak} size="M" />
+              <StreakChain streak={streak} size="M" animate={data.variant === 'all-done'} />
               <FreezePill count={streak.freezes} />
             </div>
           }
@@ -127,7 +127,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             <StreakCount current={streak.current} layout="inline" />
             <FreezePill count={streak.freezes} className="h-8" />
           </div>
-          <StreakChain streak={streak} size="S" />
+          <StreakChain streak={streak} size="S" animate={data.variant === 'all-done'} />
         </section>
 
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}

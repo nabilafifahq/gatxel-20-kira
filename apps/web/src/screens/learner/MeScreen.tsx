@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type ReactElement } from 'react'
+import { useState, type CSSProperties, type ReactElement } from 'react'
 import { Avatar } from '@kira/figures'
 import { jakartaDate } from '@kira/core/time'
 import type { AccessoryId } from '@kira/core'
@@ -171,7 +171,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 lg:w-65 lg:flex-none">
             <span role="img" aria-label={xpLine} className="flex h-3 overflow-hidden rounded-control bg-divider">
-              <span className="bg-star" style={{ width: `${pct}%` }} />
+              <span className="kira-bar-fill bg-star" style={{ '--p': pct / 100 } as CSSProperties} />
             </span>
             <span className="text-body font-semibold tabular-nums">{xpLine}</span>
           </div>

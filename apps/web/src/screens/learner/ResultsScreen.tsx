@@ -8,6 +8,8 @@ import { TryAgainButton } from '@/components/runtime/TryAgainButton'
 import { BadgeMedal } from '@/components/learner/BadgeTile'
 import { minutesSeconds, plural } from '@/components/learner/format'
 import { SessionCelebration } from '@/components/learner/SessionCelebration'
+import { BadgeReveal } from '@/components/learner/BadgeReveal'
+import { CountUp } from '@/components/learner/CountUp'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_NAME } from '@/components/learner/subject'
 import { XpPill } from '@/components/learner/XpPill'
@@ -158,7 +160,9 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
             {data.scoreLabel}
           </span>
           <div className="flex items-baseline gap-3">
-            <span className="font-display text-display font-semibold tabular-nums">{esmo && data.scaled ? data.scaled.value : data.scoreValue}</span>
+            <span className="font-display text-display font-semibold tabular-nums">
+              <CountUp value={esmo && data.scaled ? data.scaled.value : data.scoreValue} />
+            </span>
             <span className="text-body-lg text-fg-muted">out of {esmo ? 100 : data.scoreMax}</span>
           </div>
           {esmo && data.scaled ? <ScaledBar value={data.scaled.value} target={data.scaled.target} /> : null}
@@ -169,6 +173,8 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
           <SessionCelebration
             attemptId={data.attemptId}
             avatar={data.shell.avatar}
+            accessory={data.shell.accessory ?? null}
+            background={data.shell.background ?? null}
             right={data.questions.filter((q) => q.status === 'correct').length}
             total={data.questions.length}
             pending={data.questions.filter((q) => q.status === 'pending').length}
@@ -181,7 +187,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                 <UiIcon name="stopwatch" size={24} />
                 {timeLine}
               </div>
-              <XpPill xp={data.xp} size="L" />
+              <XpPill xp={data.xp} size="L" countUp />
             </div>
           )}
           <div className={cx('mt-auto flex border-t border-divider pt-5', esmo ? 'flex-wrap items-center gap-6' : 'flex-col gap-4')}>
@@ -194,14 +200,14 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                 <XpPill xp={data.xp} size="L" className="ml-auto" />
               </>
             ) : badge ? (
-              <div className="flex items-center gap-4">
+              <BadgeReveal className="flex items-center gap-4">
                 <BadgeMedal id={badge.id} title={badge.title} />
                 <div className="flex min-w-0 flex-col">
                   <span className="text-body font-semibold text-fg-muted">New badge</span>
                   <span className="text-h3 font-bold">{badge.title}</span>
                   <span className="text-body">{badge.description}</span>
                 </div>
-              </div>
+              </BadgeReveal>
             ) : (
               <div className="flex items-start gap-3">
                 <UiIcon name="book" size={24} className="mt-0.5 flex-none" />

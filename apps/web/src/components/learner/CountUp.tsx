@@ -12,8 +12,8 @@ export function countUpValue(target: number, elapsedMs: number, durationMs: numb
 }
 
 /**
- * Angka yang menghitung naik saat muncul (hasil sesi). Pembaca layar langsung mendapat nilai akhir lewat
- * teks tersembunyi; angka yang bergerak aria-hidden. Reduced motion dan `animate={false}` langsung ke nilai akhir.
+ * Angka yang menghitung naik saat muncul (hasil sesi), sekitar satu detik. Satu elemen saja, jadi teks akhirnya
+ * sama dengan tanpa animasi. Reduced motion dan `animate={false}` langsung ke nilai akhir.
  */
 export function CountUp({ value, durationMs = 900, delayMs = 250, animate = true }: { value: number; durationMs?: number; delayMs?: number; animate?: boolean }): ReactElement {
   const reduce = useReducedMotion()
@@ -39,10 +39,5 @@ export function CountUp({ value, durationMs = 900, delayMs = 250, animate = true
       cancelAnimationFrame(raf)
     }
   }, [value, durationMs, delayMs, animate, reduce])
-  return (
-    <>
-      <span aria-hidden="true">{shown}</span>
-      <span className="visually-hidden">{value}</span>
-    </>
-  )
+  return <span data-value={value}>{shown}</span>
 }

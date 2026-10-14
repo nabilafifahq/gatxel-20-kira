@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactElement } from 'react'
-import { Avatar } from '@kira/figures'
 import type { AvatarName, XpBarDTO } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { confettiFor, starsFor, xpBarView } from './celebration-logic'
 import { Confetti } from './Confetti'
+import { LevelUpOverlay } from './LevelUpOverlay'
+import { Mascot } from './Mascot'
 import { useReducedMotion } from './hooks'
 import { playSfx, primeSfx } from './sfx'
 import { StarGlyph } from './StreakChain'
@@ -38,10 +39,14 @@ export function SessionCelebration({
   pending,
   xpBar,
   hasNewBadge = false,
+  accessory,
+  background,
   className,
 }: {
   attemptId: string
   avatar: AvatarName
+  accessory?: string | null
+  background?: string | null
   right: number
   total: number
   pending: number
@@ -54,6 +59,7 @@ export function SessionCelebration({
   const reduce = useReducedMotion()
   const [play, setPlay] = useState(false)
   const [confetti, setConfetti] = useState(false)
+  const [levelUp, setLevelUp] = useState(false)
   const [shown, setShown] = useState(bar?.from ?? 0)
   const decided = useRef(false)
 
@@ -64,13 +70,16 @@ export function SessionCelebration({
     if (!firstView(attemptId)) return
     setPlay(true)
     if (confettiFor(stars)) setConfetti(true)
-    playSfx('complete')
+    playSfx('complete', { stars: stars ?? 0 })
     let at = 700
     if (bar?.leveledUp) {
-      window.setTimeout(() => playSfx('levelup'), at)
+      window.setTimeout(() => {
+        playSfx('levelup')
+        setLevelUp(true)
+      }, at)
       at += 1100
     }
-    if (hasNewBadge) window.setTimeout(() => playSfx('badge'), at)
+    if (hasNewBadge) window.setTimeout(() => playSfx('badge'), at + (bar?.leveledUp ? 2200 : 0))
     // Satu kali per sesi: efek ini sengaja tidak dibersihkan atau dijalankan ulang.
   }, [])
 
@@ -87,12 +96,9 @@ export function SessionCelebration({
   return (
     <div className={cx('flex flex-wrap items-center gap-x-5 gap-y-3 rounded-control border border-divider bg-bg p-4', className)}>
       {confetti ? <Confetti onDone={() => setConfetti(false)} /> : null}
-      <div
-        aria-hidden="true"
-        className={cx('flex-none', play && !reduce && 'kira-hop')}
-        style={{ '--kira-count': stars === 3 ? 2 : 1, '--kira-delay': '400ms' } as CSSProperties}
-      >
-        <Avatar name={avatar} size={72} className="h-16 w-16 md:h-18 md:w-18" />
+      {levelUp && bar ? <LevelUpOverlay track="belajar" level={bar.level} avatar={avatar} onDone={() => setLevelUp(false)} /> : null}
+      <div className="flex-none">
+        <Mascot name={avatar} mood={play && !reduce ? 'celebrate' : 'idle'} size={72} accessory={accessory ?? null} background={background ?? null} className="h-16 w-16 md:h-18 md:w-18" />
       </div>
       <div className="flex min-w-0 flex-1 basis-56 flex-col gap-3">
         <div role="img" aria-label={label} className="flex gap-1.5">

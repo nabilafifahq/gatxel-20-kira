@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import type { DayStatus, StreakDTO } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -77,7 +77,11 @@ export function streakChainLabel(streak: StreakDTO): string {
   return `This week: ${streak.weekDone} of ${streak.week.length} days done`
 }
 
-export function StreakChain({ streak, size = 'M', className }: { streak: StreakDTO; size?: keyof typeof SIZES; className?: string }): ReactElement {
+/**
+ * `animate`: rantai terbentuk bintang demi bintang (naik dan memudar masuk, berurutan) saat hari ini selesai.
+ * Hanya transform dan opacity; reduced motion langsung menampilkan semuanya.
+ */
+export function StreakChain({ streak, size = 'M', className, animate = false }: { streak: StreakDTO; size?: keyof typeof SIZES; className?: string; animate?: boolean }): ReactElement {
   const s = SIZES[size]
   return (
     <ol aria-label={streakChainLabel(streak)} className={cx('m-0 flex list-none p-0', s.gap, className)}>
@@ -90,7 +94,8 @@ export function StreakChain({ streak, size = 'M', className }: { streak: StreakD
             key={d.date}
             aria-label={`${d.longLabel}${d.isToday ? ', today' : ''}, ${WORD[d.status]}`}
             aria-current={d.isToday ? 'date' : undefined}
-            className={cx('relative flex flex-col items-center', s.li)}
+            className={cx('relative flex flex-col items-center', s.li, animate && (d.status === 'complete' || d.status === 'freeze') && 'kira-rise')}
+            style={animate ? ({ '--kira-delay': `${i * 110}ms` } as CSSProperties) : undefined}
           >
             {s.connector && i > 0 ? (
               <span

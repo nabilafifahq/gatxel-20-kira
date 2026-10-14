@@ -7,6 +7,7 @@ import type { QuizActions, QuizHubDTO, QuizTopicCard, QuizTopicDTO } from '@/lib
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { CountdownOverlay } from '@/components/learner/CountdownOverlay'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { ArenaPic } from '@/components/learner/arena/ArenaPic'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
@@ -32,7 +33,20 @@ function useStart(actions: Pick<QuizActions, 'start'>) {
   const router = useRouter()
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
-  const start = async (key: string, topic: Parameters<QuizActions['start']>[0]['topic'], mode: Parameters<QuizActions['start']>[0]['mode']) => {
+  type Topic = Parameters<QuizActions['start']>[0]['topic']
+  type Mode = Parameters<QuizActions['start']>[0]['mode']
+  // Speed quiz berwaktu: hitung mundur 3, 2, 1, Go dulu; ronde dibuat saat Go muncul.
+  const [counting, setCounting] = useState<{ key: string; topic: Topic; mode: Mode } | null>(null)
+  const start = (key: string, topic: Topic, mode: Mode) => {
+    if (mode === 'speed') {
+      setBusy(key)
+      setCounting({ key, topic, mode })
+      return Promise.resolve()
+    }
+    return launch(key, topic, mode)
+  }
+  const overlay = counting ? <CountdownOverlay onGo={() => void launch(counting.key, counting.topic, counting.mode)} onDone={() => setCounting(null)} /> : null
+  const launch = async (key: string, topic: Topic, mode: Mode) => {
     setBusy(key)
     setError(null)
     try {
@@ -45,7 +59,7 @@ function useStart(actions: Pick<QuizActions, 'start'>) {
       setBusy(null)
     }
   }
-  return { busy, error, start }
+  return { busy, error, start, overlay }
 }
 
 function TopicTile({ t }: { t: QuizTopicCard }): ReactElement {
@@ -71,9 +85,10 @@ function TopicTile({ t }: { t: QuizTopicCard }): ReactElement {
 }
 
 export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pick<QuizActions, 'start'> }): ReactElement {
-  const { busy, error, start } = useStart(actions)
+  const { busy, error, start, overlay } = useStart(actions)
   return (
     <LearnerFrame shell={data.shell} current="quiz-arena" className="flex flex-col gap-5">
+      {overlay}
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <UiIcon name="globe" size={36} className="text-knowledge" />
@@ -122,7 +137,7 @@ export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pi
 }
 
 export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions: Pick<QuizActions, 'start'> }): ReactElement {
-  const { busy, error, start } = useStart(actions)
+  const { busy, error, start, overlay } = useStart(actions)
   const t = data.topic
   const off = data.limitReached
   const modes = [
@@ -132,6 +147,7 @@ export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions
   ]
   return (
     <LearnerFrame shell={data.shell} current="quiz-arena" className="flex flex-col gap-5">
+      {overlay}
       <nav aria-label="Breadcrumb">
         <Link href="/quiz-arena" className="inline-flex min-h-11 items-center gap-1 text-body-lg font-bold text-fg">
           <UiIcon name="arrow-left" size={20} /> Quiz Arena

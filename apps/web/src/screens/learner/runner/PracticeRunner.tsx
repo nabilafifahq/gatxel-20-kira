@@ -15,6 +15,8 @@ import { useDeviceWord, useMediaQuery, useOnline } from '@/components/learner/ho
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ProgressSegments } from '@/components/learner/ProgressSegments'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { comboLevel } from '@/components/learner/ComboStars'
+import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
@@ -87,6 +89,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const narrow = useMediaQuery('(max-width: 639px)')
   const submitClientId = useRef(newClientId())
   const combo = useRef(0)
+  const [streak, setStreak] = useState(0)
   useEffect(() => primeSfx(), [])
 
   const item = items[index]
@@ -161,10 +164,14 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
       const xp = answerXp({ difficulty: item.difficulty, correct: true, hintsUsed: st.hintsUsed, attemptNo: st.attemptNo })
       // Kombo: tiga benar beruntun di percobaan pertama.
       combo.current = st.attemptNo === 1 ? combo.current + 1 : 0
-      playSfx(combo.current >= 3 ? 'combo' : 'correct')
+      setStreak(combo.current)
+      const level = comboLevel(combo.current)
+      if (level === 0) playSfx('correct')
+      else playSfx('combo', { level })
       patch(index, { phase: 'correct', xp, first: st.first ?? 'correct' })
     } else {
       combo.current = 0
+      setStreak(0)
       playSfx('notyet')
       const retry = data.allowRetry && st.attemptNo === 1
       patch(index, { phase: retry ? 'not-yet' : 'revealed', first: st.first ?? 'not-yet' })
@@ -330,8 +337,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             {answering && st.hintsUsed > 0 ? <HintList hints={hints} opened={st.hintsUsed} /> : null}
           </QuestionView>
         </section>
-        <section aria-label="Your answer" className="flex min-h-0 flex-col overflow-y-auto py-1 lg:col-start-2 lg:row-start-1">
-          <div className="m-auto flex w-full flex-col items-center gap-3.5">
+        <section aria-label="Your answer" className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:col-start-2 lg:row-start-1">
+          <RunnerCorner shell={data.shell} phase={st.phase} streak={streak} xp={st.xp} nonce={`${item.ref}-${st.attemptNo}`} />
+          <div className={cx('m-auto flex w-full flex-col items-center gap-3.5', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
             <Widget
               item={item}
               value={st.value}
