@@ -173,6 +173,8 @@ test('Hari ringan: tiga Practice saja yang wajib', async ({ page }) => {
 
 test('Peti hadiah harian: terkunci, terbuka sekali setelah semua sesi wajib selesai, dan tidak ada tombol kedua', async ({ page }) => {
   const errors = watchErrors(page)
+  // Animasi naik (kira-rise) membuat axe menghitung kontras di tengah fade; gerak dikurangi supaya hasilnya stabil.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   const { lid, today } = await resetToday()
   await db()`delete from daily_chest where learner_id = ${lid}`
   await registerTablet(page, ['Aisha'])
@@ -199,4 +201,7 @@ test('Peti hadiah harian: terkunci, terbuka sekali setelah semua sesi wajib sele
   await expectNoSeriousA11y(page, 'Today peti terbuka')
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([])
   await db()`delete from daily_chest where learner_id = ${lid}`
+  // Kembalikan Today: sesi wajib yang selesai dan catatan harinya membuat pemilih learner berubah untuk tes berikutnya.
+  await db()`delete from day_record where learner_id = ${lid} and date = ${today}`
+  await resetToday()
 })
