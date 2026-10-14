@@ -1,0 +1,1843 @@
+{
+  "skill": "m2.oly-time-measure",
+  "items": [
+    {
+      "id": "m2.oly-time-measure.001",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What time does the clock show?",
+      "figure": {
+        "kind": "clock",
+        "h": 3,
+        "m": 30,
+        "showNumbers": true,
+        "digital": false,
+        "alt": "A clock. The short hand is between 3 and 4. The long hand points to 6."
+      },
+      "options": [
+        {
+          "text": "6:15",
+          "why": "You may have mixed up the short hand and the long hand."
+        },
+        {
+          "text": "3:30"
+        },
+        {
+          "text": "3:06",
+          "why": "The long hand shows minutes. It points to 6, which is 30 minutes."
+        },
+        {
+          "text": "6:03",
+          "why": "The short hand shows the hour. It is between 3 and 4."
+        },
+        {
+          "text": "4:30",
+          "why": "The short hand has not reached 4 yet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The short hand shows the hours.",
+        "The short hand is just past the 3.",
+        "The long hand points to 6. How many minutes is that?"
+      ],
+      "explanation": "The short hand is between 3 and 4, so the hour is 3. The long hand points to 6, which is 30 minutes. The time is 3:30.",
+      "solution": [
+        {
+          "say": "The short hand is between 3 and 4, so the hour is 3."
+        },
+        {
+          "say": "The long hand points to 6, which is 30 minutes."
+        },
+        {
+          "say": "The time is 3:30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.002",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What time does the clock show?",
+      "figure": {
+        "kind": "clock",
+        "h": 6,
+        "m": 15,
+        "showNumbers": true,
+        "digital": false,
+        "alt": "A clock. The short hand is just past 6. The long hand points to 3."
+      },
+      "options": [
+        {
+          "text": "3:30",
+          "why": "You may have mixed up the short hand and the long hand."
+        },
+        {
+          "text": "6:15"
+        },
+        {
+          "text": "3:06",
+          "why": "The short hand is near the 6."
+        },
+        {
+          "text": "6:03",
+          "why": "The long hand shows minutes. It points to 3, which is 15 minutes."
+        },
+        {
+          "text": "6:30",
+          "why": "The long hand points to 3, not 6."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The short hand shows the hours.",
+        "The short hand is just past the 6.",
+        "The long hand points to 3. How many minutes is that?"
+      ],
+      "explanation": "The short hand is just past 6, so the hour is 6. The long hand points to 3, which is 15 minutes. The time is 6:15.",
+      "solution": [
+        {
+          "say": "The short hand is just past 6, so the hour is 6."
+        },
+        {
+          "say": "The long hand points to 3, which is 15 minutes."
+        },
+        {
+          "say": "The time is 6:15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.003",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "It is 8:00. What time will it be in 3 hours?",
+      "options": [
+        {
+          "text": "10:00",
+          "why": "Count on 3 hours from 8:00."
+        },
+        {
+          "text": "12:00",
+          "why": "Count on 3 hours from 8:00."
+        },
+        {
+          "text": "11:00"
+        },
+        {
+          "text": "8:03",
+          "why": "3 hours is not 3 minutes."
+        },
+        {
+          "text": "5:00",
+          "why": "Count forwards, not backwards."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count on one hour at a time.",
+        "8:00, 9:00 ...",
+        "Count 3 hours."
+      ],
+      "explanation": "Three hours after 8:00 is 9:00, then 10:00, then 11:00.",
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.004",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "School starts at 7:30 and lasts 4 hours. When does school end?",
+      "options": [
+        {
+          "text": "11:00",
+          "why": "School lasts 4 hours, not 3 hours and 30 minutes."
+        },
+        {
+          "text": "11:30"
+        },
+        {
+          "text": "12:00",
+          "why": "Add exactly 4 hours."
+        },
+        {
+          "text": "3:30",
+          "why": "Add 4 hours, not subtract."
+        },
+        {
+          "text": "12:30",
+          "why": "This is 5 hours after 7:30."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the hours and keep the minutes.",
+        "7:30 plus 1 hour is 8:30.",
+        "Count on 4 hours."
+      ],
+      "explanation": "Add 4 hours to 7:30: 8:30, 9:30, 10:30, 11:30. School ends at 11:30.",
+      "solution": [
+        {
+          "say": "Add 4 hours to 7:30: 8:30, 9:30, 10:30, 11:30."
+        },
+        {
+          "say": "School ends at 11:30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.005",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A film starts at the time shown. It lasts 45 minutes. When does the film end?",
+      "figure": {
+        "kind": "clock",
+        "h": 2,
+        "m": 15,
+        "showNumbers": true,
+        "digital": false,
+        "alt": "A clock. The short hand is just past 2. The long hand points to 3."
+      },
+      "options": [
+        {
+          "text": "2:45",
+          "why": "This is 30 minutes after the start."
+        },
+        {
+          "text": "3:15",
+          "why": "This is 60 minutes after the start."
+        },
+        {
+          "text": "3:30",
+          "why": "This is 75 minutes after the start."
+        },
+        {
+          "text": "2:30",
+          "why": "This is 15 minutes after the start."
+        },
+        {
+          "text": "3:00"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "First read the time on the clock.",
+        "The clock shows a quarter past 2.",
+        "From 2:15 count on to 3:00, then see what is left."
+      ],
+      "explanation": "The clock shows 2:15. From 2:15 to 3:00 is 45 minutes. So the film ends at 3:00.",
+      "solution": [
+        {
+          "say": "The clock shows 2:15."
+        },
+        {
+          "say": "From 2:15 to 3:00 is 45 minutes."
+        },
+        {
+          "say": "So the film ends at 3:00."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.006",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many minutes are there from 4:10 to 5:00?",
+      "answer": 50,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Count on to the next whole hour first.",
+        "From 4:10 to 5:00 is almost one hour.",
+        "One hour is 60 minutes. Take away the first 10."
+      ],
+      "explanation": "From 4:10 to 5:10 is 60 minutes. But we stop at 5:00, which is 10 minutes earlier. So it is 60 - 10 = 50 minutes.",
+      "solution": [
+        {
+          "say": "From 4:10 to 5:10 is 60 minutes."
+        },
+        {
+          "say": "But we stop at 5:00, which is 10 minutes earlier."
+        },
+        {
+          "say": "So it is 60 - 10 = 50 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.007",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The long hand points to 6. The short hand is between 4 and 5. What time is it?",
+      "options": [
+        {
+          "text": "5:30",
+          "why": "The short hand has not reached 5 yet."
+        },
+        {
+          "text": "6:04",
+          "why": "The short hand shows the hour."
+        },
+        {
+          "text": "4:30"
+        },
+        {
+          "text": "6:20",
+          "why": "The long hand shows the minutes."
+        },
+        {
+          "text": "4:06",
+          "why": "The long hand on 6 means 30 minutes."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The short hand shows the hour. It is between 4 and 5.",
+        "The long hand shows the minutes.",
+        "The long hand on 6 means half past."
+      ],
+      "explanation": "The short hand is between 4 and 5, so the hour is 4. The long hand points to 6, which is 30 minutes. The time is 4:30.",
+      "solution": [
+        {
+          "say": "The short hand is between 4 and 5, so the hour is 4."
+        },
+        {
+          "say": "The long hand points to 6, which is 30 minutes."
+        },
+        {
+          "say": "The time is 4:30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.008",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A clock chimes the number of the hour. At 1:00 it chimes 1 time. At 2:00 it chimes 2 times. How many chimes are there from 1:00 to 4:00, counting both?",
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "chimes",
+      "hints": [
+        "Write the chimes at each hour.",
+        "1:00 chimes 1 time and 2:00 chimes 2 times.",
+        "Do not forget 3:00 and 4:00."
+      ],
+      "explanation": "The chimes are 1, 2, 3 and 4. In all, 1 + 2 + 3 + 4 = 10 chimes.",
+      "solution": [
+        {
+          "say": "The chimes are 1, 2, 3 and 4."
+        },
+        {
+          "say": "In all, 1 + 2 + 3 + 4 = 10 chimes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.009",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "It is 3:45. What time will it be in 25 minutes?",
+      "options": [
+        {
+          "text": "4:25",
+          "why": "You may have added 25 to the minutes of the next hour."
+        },
+        {
+          "text": "4:00",
+          "why": "This is only 15 minutes later."
+        },
+        {
+          "text": "4:10"
+        },
+        {
+          "text": "4:20",
+          "why": "This is 35 minutes later."
+        },
+        {
+          "text": "3:70",
+          "why": "Minutes go up to 59 only."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "First count on to the next whole hour.",
+        "From 3:45 to 4:00 is 15 minutes.",
+        "You have 25 - 15 minutes left."
+      ],
+      "explanation": "From 3:45 to 4:00 is 15 minutes. There are 25 - 15 = 10 minutes left to add. The time is 4:10.",
+      "solution": [
+        {
+          "say": "From 3:45 to 4:00 is 15 minutes."
+        },
+        {
+          "say": "There are 25 - 15 = 10 minutes left to add."
+        },
+        {
+          "say": "The time is 4:10."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.010",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A bus comes every 20 minutes. The first bus is at 8:00. When does the 4th bus come?",
+      "options": [
+        {
+          "text": "8:40",
+          "why": "This is the 3rd bus."
+        },
+        {
+          "text": "8:20",
+          "why": "This is the 2nd bus."
+        },
+        {
+          "text": "9:20",
+          "why": "This is the 5th bus."
+        },
+        {
+          "text": "8:80",
+          "why": "Minutes go up to 59 only."
+        },
+        {
+          "text": "9:00"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "List the times of the buses.",
+        "8:00, 8:20 ...",
+        "After 8:40 comes the next whole hour."
+      ],
+      "explanation": "The buses come at 8:00, 8:20, 8:40 and 9:00. The 4th bus comes at 9:00.",
+      "solution": [
+        {
+          "say": "The buses come at 8:00, 8:20, 8:40 and 9:00."
+        },
+        {
+          "say": "The 4th bus comes at 9:00."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.011",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mia goes to bed at 8:30 in the evening. She wakes up at 6:30 in the morning. How many hours does she sleep?",
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "hours",
+      "hints": [
+        "Count the hours to midnight first.",
+        "From 8:30 in the evening to 12:00 at night is 3 and a half hours.",
+        "Then count from midnight to 6:30."
+      ],
+      "explanation": "From 8:30 to 12:30 is 4 hours. From 12:30 to 6:30 is 6 hours. In all, Mia sleeps 4 + 6 = 10 hours.",
+      "solution": [
+        {
+          "say": "From 8:30 to 12:30 is 4 hours."
+        },
+        {
+          "say": "From 12:30 to 6:30 is 6 hours."
+        },
+        {
+          "say": "In all, Mia sleeps 4 + 6 = 10 hours."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.012",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "It is 2:50. How many minutes is it until 3:15?",
+      "answer": 25,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Count on to 3:00 first.",
+        "From 2:50 to 3:00 is 10 minutes.",
+        "Then count on from 3:00 to 3:15."
+      ],
+      "explanation": "From 2:50 to 3:00 is 10 minutes. From 3:00 to 3:15 is 15 minutes more. In all, 10 + 15 = 25 minutes.",
+      "solution": [
+        {
+          "say": "From 2:50 to 3:00 is 10 minutes."
+        },
+        {
+          "say": "From 3:00 to 3:15 is 15 minutes more."
+        },
+        {
+          "say": "In all, 10 + 15 = 25 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.013",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "On the hour, which time has the hands in a straight line?",
+      "options": [
+        {
+          "text": "3:00",
+          "why": "At 3:00 the hands make a square corner."
+        },
+        {
+          "text": "12:00",
+          "why": "At 12:00 both hands point up."
+        },
+        {
+          "text": "9:00",
+          "why": "At 9:00 the hands make a square corner."
+        },
+        {
+          "text": "6:00"
+        },
+        {
+          "text": "1:00",
+          "why": "At 1:00 the hands are close together."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The hands must point in opposite directions.",
+        "The long hand points to 12 on the hour.",
+        "The short hand must point to the opposite side of the clock."
+      ],
+      "explanation": "On the hour the long hand points to 12. For a straight line the short hand must point to the opposite number, which is 6. So the time is 6:00.",
+      "solution": [
+        {
+          "say": "On the hour the long hand points to 12."
+        },
+        {
+          "say": "For a straight line the short hand must point to the opposite number, which is 6."
+        },
+        {
+          "say": "So the time is 6:00."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.014",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Today is Tuesday. What day will it be in 3 days?",
+      "options": [
+        {
+          "text": "Thursday",
+          "why": "Count on 3 days from Tuesday."
+        },
+        {
+          "text": "Saturday",
+          "why": "Count on 3 days from Tuesday."
+        },
+        {
+          "text": "Wednesday",
+          "why": "This is only 1 day later."
+        },
+        {
+          "text": "Friday"
+        },
+        {
+          "text": "Monday",
+          "why": "This is the day before Tuesday."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count on one day at a time.",
+        "Wednesday is 1 day later.",
+        "Wednesday, Thursday ..."
+      ],
+      "explanation": "Count on from Tuesday: Wednesday, Thursday, Friday. In 3 days it will be Friday.",
+      "solution": [
+        {
+          "say": "Count on from Tuesday: Wednesday, Thursday, Friday."
+        },
+        {
+          "say": "In 3 days it will be Friday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.015",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which day comes two days before Sunday?",
+      "options": [
+        {
+          "text": "Friday"
+        },
+        {
+          "text": "Saturday",
+          "why": "This is only 1 day before Sunday."
+        },
+        {
+          "text": "Monday",
+          "why": "This is the day after Sunday."
+        },
+        {
+          "text": "Thursday",
+          "why": "This is 3 days before Sunday."
+        },
+        {
+          "text": "Wednesday",
+          "why": "This is 4 days before Sunday."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count backwards one day at a time.",
+        "One day before Sunday is Saturday.",
+        "Now go back one more day."
+      ],
+      "explanation": "One day before Sunday is Saturday. Two days before is Friday.",
+      "solution": [
+        {
+          "say": "One day before Sunday is Saturday."
+        },
+        {
+          "say": "Two days before is Friday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.016",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A week has 7 days. How many days are there in 4 weeks?",
+      "answer": 28,
+      "tolerance": 0,
+      "unit": "days",
+      "hints": [
+        "Add 7 four times.",
+        "7 + 7 + 7 + 7.",
+        "Or use the 7 times table."
+      ],
+      "explanation": "Four weeks have 4 x 7 = 28 days.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.017",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The 1st of a month is a Wednesday. What day of the week is the 10th?",
+      "options": [
+        {
+          "text": "Thursday",
+          "why": "The 9th is a Thursday."
+        },
+        {
+          "text": "Saturday",
+          "why": "Check the 8th first. It is a Wednesday again."
+        },
+        {
+          "text": "Friday"
+        },
+        {
+          "text": "Wednesday",
+          "why": "The 8th is a Wednesday, not the 10th."
+        },
+        {
+          "text": "Sunday",
+          "why": "Count only 9 days from the 1st."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The same day comes round every 7 days.",
+        "The 1st and the 8th are both Wednesdays.",
+        "Count on 2 days after the 8th."
+      ],
+      "explanation": "The 1st and the 8th are Wednesdays. The 9th is a Thursday. So the 10th is a Friday.",
+      "solution": [
+        {
+          "say": "The 1st and the 8th are Wednesdays."
+        },
+        {
+          "say": "The 9th is a Thursday."
+        },
+        {
+          "say": "So the 10th is a Friday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.018",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The 3rd of a month is a Monday. The month has 30 days. How many Mondays does the month have?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "The next Monday is 7 days after the 3rd.",
+        "The Mondays are the 3rd, the 10th ...",
+        "List them until you pass the 30th."
+      ],
+      "explanation": "The Mondays are the 3rd, 10th, 17th and 24th. The next one would be the 31st, but the month has only 30 days. So there are 4 Mondays.",
+      "solution": [
+        {
+          "say": "The Mondays are the 3rd, 10th, 17th and 24th."
+        },
+        {
+          "say": "The next one would be the 31st, but the month has only 30 days."
+        },
+        {
+          "say": "So there are 4 Mondays."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.019",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A month has 31 days. The 1st is a Friday. What day of the week is the 31st?",
+      "options": [
+        {
+          "text": "Friday",
+          "why": "The 29th is a Friday, but the month goes on."
+        },
+        {
+          "text": "Saturday",
+          "why": "The 30th is a Saturday."
+        },
+        {
+          "text": "Sunday"
+        },
+        {
+          "text": "Monday",
+          "why": "Count on from the 29th."
+        },
+        {
+          "text": "Thursday",
+          "why": "Check the days again from the 1st."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The 1st, 8th, 15th, 22nd are all Fridays.",
+        "The 29th is also a Friday.",
+        "Count on from the 29th to the 31st."
+      ],
+      "explanation": "Fridays fall on the 1st, 8th, 15th, 22nd and 29th. The 30th is a Saturday and the 31st is a Sunday.",
+      "solution": [
+        {
+          "say": "Fridays fall on the 1st, 8th, 15th, 22nd and 29th."
+        },
+        {
+          "say": "The 30th is a Saturday and the 31st is a Sunday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.020",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Pam has a birthday on the 18th. What day of the week is that?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          [
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26"
+          ],
+          [
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "",
+            ""
+          ]
+        ],
+        "alt": "A calendar of a month with 31 days. The 1st is a Wednesday and the 31st is a Friday. The weeks go from Monday to Sunday."
+      },
+      "options": [
+        {
+          "text": "Friday",
+          "why": "Check the heading above the column of the 18th."
+        },
+        {
+          "text": "Sunday",
+          "why": "The 19th is a Sunday."
+        },
+        {
+          "text": "Saturday"
+        },
+        {
+          "text": "Thursday",
+          "why": "The 16th is a Thursday."
+        },
+        {
+          "text": "Monday",
+          "why": "The 13th is a Monday."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the number 18 in the calendar.",
+        "Look at the top of its column.",
+        "The 18th is in the third week."
+      ],
+      "explanation": "The 18th is in the third row. The column is headed Sat. So the 18th is a Saturday.",
+      "solution": [
+        {
+          "say": "The 18th is in the third row."
+        },
+        {
+          "say": "The column is headed Sat."
+        },
+        {
+          "say": "So the 18th is a Saturday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.021",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Look at the calendar. What is the date of the third Friday?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          [
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26"
+          ],
+          [
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "",
+            ""
+          ]
+        ],
+        "alt": "A calendar of a month with 31 days. The 1st is a Wednesday and the 31st is a Friday. The weeks go from Monday to Sunday."
+      },
+      "answer": 17,
+      "tolerance": 0,
+      "hints": [
+        "Find the Friday column.",
+        "The Fridays are the 3rd, the 10th ...",
+        "Count three Fridays."
+      ],
+      "explanation": "The Fridays are the 3rd, 10th and 17th. The third Friday is the 17th.",
+      "solution": [
+        {
+          "say": "The Fridays are the 3rd, 10th and 17th."
+        },
+        {
+          "say": "The third Friday is the 17th."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.022",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Look at the calendar. How many Sundays does this month have?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          [
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26"
+          ],
+          [
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "",
+            ""
+          ]
+        ],
+        "alt": "A calendar of a month with 31 days. The 1st is a Wednesday and the 31st is a Friday. The weeks go from Monday to Sunday."
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Find the Sunday column.",
+        "The first Sunday is the 5th.",
+        "List them: 5th, 12th ..."
+      ],
+      "explanation": "The Sundays are the 5th, 12th, 19th and 26th. The next would be the 33rd, which is not in this month. So there are 4 Sundays.",
+      "solution": [
+        {
+          "say": "The Sundays are the 5th, 12th, 19th and 26th."
+        },
+        {
+          "say": "The next would be the 33rd, which is not in this month."
+        },
+        {
+          "say": "So there are 4 Sundays."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.023",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Look at the calendar. Count from the first Monday to the third Tuesday. How many days is that?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          [
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          [
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26"
+          ],
+          [
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "",
+            ""
+          ]
+        ],
+        "alt": "A calendar of a month with 31 days. The 1st is a Wednesday and the 31st is a Friday. The weeks go from Monday to Sunday."
+      },
+      "answer": 15,
+      "tolerance": 0,
+      "unit": "days",
+      "hints": [
+        "Find the first Monday. Then find the third Tuesday.",
+        "The first Monday is the 6th.",
+        "The Tuesdays are the 7th, 14th ..."
+      ],
+      "explanation": "The first Monday is the 6th. The Tuesdays are the 7th, 14th and 21st, so the third Tuesday is the 21st. From the 6th to the 21st is 21 - 6 = 15 days.",
+      "solution": [
+        {
+          "say": "The first Monday is the 6th."
+        },
+        {
+          "say": "The Tuesdays are the 7th, 14th and 21st, so the third Tuesday is the 21st."
+        },
+        {
+          "say": "From the 6th to the 21st is 21 - 6 = 15 days."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.024",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "January has 31 days. How many days is it from 25 January to 3 February?",
+      "answer": 9,
+      "tolerance": 0,
+      "unit": "days",
+      "hints": [
+        "Count the days left in January after the 25th.",
+        "From the 25th to the 31st is 6 days.",
+        "Then add the days in February."
+      ],
+      "explanation": "From 25 January to 31 January is 6 days. From 31 January to 3 February is 3 more days. In all, 6 + 3 = 9 days.",
+      "solution": [
+        {
+          "say": "From 25 January to 31 January is 6 days."
+        },
+        {
+          "say": "From 31 January to 3 February is 3 more days."
+        },
+        {
+          "say": "In all, 6 + 3 = 9 days."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.025",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "June has 30 days. Raka's birthday party is 12 days after 20 June. What is the date?",
+      "options": [
+        {
+          "text": "1 July",
+          "why": "Count carefully. 20 June plus 10 days is 30 June."
+        },
+        {
+          "text": "3 July",
+          "why": "Count carefully. 20 June plus 10 days is 30 June."
+        },
+        {
+          "text": "32 June",
+          "why": "June has only 30 days."
+        },
+        {
+          "text": "2 July"
+        },
+        {
+          "text": "2 June",
+          "why": "The party is after 20 June."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count on to the end of June first.",
+        "From 20 June to 30 June is 10 days.",
+        "Count the days left over in July."
+      ],
+      "explanation": "From 20 June to 30 June is 10 days. There are 12 - 10 = 2 days left. They are in July, so the date is 2 July.",
+      "solution": [
+        {
+          "say": "From 20 June to 30 June is 10 days."
+        },
+        {
+          "say": "There are 12 - 10 = 2 days left."
+        },
+        {
+          "say": "They are in July, so the date is 2 July."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.026",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How long is the pencil?",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 10,
+        "objectCm": 6,
+        "objectStartCm": 2,
+        "object": "pencil",
+        "alt": "A ruler from 0 to 10 cm. A pencil starts at the 2 cm mark and ends at the 8 cm mark."
+      },
+      "options": [
+        {
+          "text": "8 cm",
+          "why": "You read the end of the pencil. The pencil does not start at 0."
+        },
+        {
+          "text": "6 cm"
+        },
+        {
+          "text": "2 cm",
+          "why": "This is where the pencil starts."
+        },
+        {
+          "text": "7 cm",
+          "why": "Count the centimetres from the start of the pencil."
+        },
+        {
+          "text": "10 cm",
+          "why": "This is the whole length of the ruler."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at where the pencil starts on the ruler.",
+        "It does not start at 0.",
+        "Take the start number away from the end number."
+      ],
+      "explanation": "The pencil starts at 2 cm and ends at 8 cm. Its length is 8 - 2 = 6 cm.",
+      "solution": [
+        {
+          "say": "The pencil starts at 2 cm and ends at 8 cm."
+        },
+        {
+          "say": "Its length is 8 - 2 = 6 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.027",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many millilitres of water are in the jug?",
+      "figure": {
+        "kind": "jug",
+        "capacity": 500,
+        "value": 350,
+        "step": 50,
+        "unit": "ml",
+        "alt": "A jug with a scale up to 500 ml. The water level is at 350 ml."
+      },
+      "answer": 350,
+      "tolerance": 0,
+      "unit": "ml",
+      "hints": [
+        "Look at the scale on the side of the jug.",
+        "Each small line is 50 ml.",
+        "The water is between 300 and 400."
+      ],
+      "explanation": "The lines go up in steps of 50 ml. The water is at the line after 300 ml, which is 350 ml.",
+      "solution": [
+        {
+          "say": "The lines go up in steps of 50 ml."
+        },
+        {
+          "say": "The water is at the line after 300 ml, which is 350 ml."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.028",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A bag must weigh 1 kg. The scale shows the bag now. How many grams must be added?",
+      "figure": {
+        "kind": "scale",
+        "max": 1000,
+        "value": 650,
+        "step": 50,
+        "unit": "g",
+        "alt": "A scale that shows a weight of 650 grams out of 1000 grams."
+      },
+      "answer": 350,
+      "tolerance": 0,
+      "unit": "g",
+      "hints": [
+        "Read the scale carefully.",
+        "The scale shows 650 g.",
+        "1 kg is 1000 g."
+      ],
+      "explanation": "The scale shows 650 g. 1 kg is 1000 g. So 1000 - 650 = 350 g must be added.",
+      "solution": [
+        {
+          "say": "The scale shows 650 g."
+        },
+        {
+          "say": "1 kg is 1000 g."
+        },
+        {
+          "say": "So 1000 - 650 = 350 g must be added."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.029",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rope is 1 metre long. It is cut into pieces of 25 cm each. How many pieces are there?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "1 metre is 100 centimetres.",
+        "How many groups of 25 are there in 100?",
+        "25 + 25 + 25 + 25."
+      ],
+      "explanation": "1 metre is 100 cm. 100 / 25 = 4, so there are 4 pieces.",
+      "solution": [
+        {
+          "say": "1 metre is 100 cm."
+        },
+        {
+          "say": "100 / 25 = 4, so there are 4 pieces."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.030",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ben is 120 cm tall. Ana is 15 cm shorter than Ben. Cil is 5 cm taller than Ana. How tall is Cil, in cm?",
+      "answer": 110,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Find how tall Ana is first.",
+        "Ana is 120 - 15.",
+        "Then add 5 to Ana's height."
+      ],
+      "explanation": "Ana is 120 - 15 = 105 cm tall. Cil is 5 cm taller, so Cil is 105 + 5 = 110 cm tall.",
+      "solution": [
+        {
+          "say": "Ana is 120 - 15 = 105 cm tall."
+        },
+        {
+          "say": "Cil is 5 cm taller, so Cil is 105 + 5 = 110 cm tall."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.031",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A pear weighs 150 g. An orange weighs 100 g. How many grams do 2 pears and 3 oranges weigh in all?",
+      "answer": 600,
+      "tolerance": 0,
+      "unit": "g",
+      "hints": [
+        "Find the weight of 2 pears. Then find the weight of 3 oranges.",
+        "2 pears are 300 g.",
+        "3 oranges are 300 g."
+      ],
+      "explanation": "2 pears weigh 300 g and 3 oranges weigh 300 g. In all, 300 + 300 = 600 g.",
+      "solution": [
+        {
+          "say": "2 pears weigh 300 g and 3 oranges weigh 300 g."
+        },
+        {
+          "say": "In all, 300 + 300 = 600 g."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.032",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "In the picture, 2 balls balance 4 cubes. How many cubes balance 3 balls?",
+      "figure": {
+        "kind": "balance",
+        "left": [
+          "Ball",
+          "Ball"
+        ],
+        "right": [
+          "Cube",
+          "Cube",
+          "Cube",
+          "Cube"
+        ],
+        "tilt": "level",
+        "alt": "A level balance. Two balls are on the left side and four cubes are on the right side."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Find how many cubes balance one ball.",
+        "2 balls are the same as 4 cubes.",
+        "Share 4 cubes between 2 balls."
+      ],
+      "explanation": "Two balls balance 4 cubes, so one ball balances 2 cubes. Three balls balance 3 x 2 = 6 cubes.",
+      "solution": [
+        {
+          "say": "Two balls balance 4 cubes, so one ball balances 2 cubes."
+        },
+        {
+          "say": "Three balls balance 3 x 2 = 6 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.033",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A bottle holds 1 litre. A glass holds 250 ml. How many glasses can be filled from one full bottle?",
+      "answer": 4,
+      "tolerance": 0,
+      "unit": "glasses",
+      "hints": [
+        "1 litre is 1000 ml.",
+        "How many 250s are there in 1000?",
+        "250 + 250 = 500."
+      ],
+      "explanation": "1 litre is 1000 ml. 1000 / 250 = 4, so 4 glasses can be filled.",
+      "solution": [
+        {
+          "say": "1 litre is 1000 ml."
+        },
+        {
+          "say": "1000 / 250 = 4, so 4 glasses can be filled."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.034",
+      "skill": "m2.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which length is the longest?",
+      "options": [
+        {
+          "text": "105 cm",
+          "why": "This is 5 cm more than 1 m. Another length is bigger."
+        },
+        {
+          "text": "1 m",
+          "why": "1 m is 100 cm."
+        },
+        {
+          "text": "1 m 10 cm"
+        },
+        {
+          "text": "99 cm",
+          "why": "This is less than 1 m."
+        },
+        {
+          "text": "1 m 9 cm",
+          "why": "This is 109 cm. Another length is bigger."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Change each length into centimetres.",
+        "1 m is 100 cm.",
+        "1 m 10 cm is 100 + 10."
+      ],
+      "explanation": "In centimetres the lengths are 110, 105, 100, 99 and 109. The longest is 1 m 10 cm.",
+      "solution": [
+        {
+          "say": "In centimetres the lengths are 110, 105, 100, 99 and 109."
+        },
+        {
+          "say": "The longest is 1 m 10 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.035",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A snail climbs 3 cm up a wall in the day. At night it slips back 1 cm. The wall is 7 cm high. On which day does the snail reach the top?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Work out the height after each day and each night.",
+        "After day 1 it is at 3 cm. After night 1 it is at 2 cm.",
+        "On day 2 it climbs from 2 cm. Keep going."
+      ],
+      "explanation": "Day 1: 3 cm, then slips to 2 cm. Day 2: 5 cm, then slips to 4 cm. Day 3: it climbs to 7 cm and reaches the top. So it is on day 3.",
+      "solution": [
+        {
+          "say": "Day 1: 3 cm, then slips to 2 cm."
+        },
+        {
+          "say": "Day 2: 5 cm, then slips to 4 cm."
+        },
+        {
+          "say": "Day 3: it climbs to 7 cm and reaches the top."
+        },
+        {
+          "say": "So it is on day 3."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-time-measure.036",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many centimetres are there in 2 m 30 cm?",
+      "answer": 230,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "1 m is 100 cm.",
+        "2 m is 200 cm.",
+        "Add the 30 cm."
+      ],
+      "explanation": "2 m is 200 cm. With 30 cm more, it is 230 cm.",
+      "solution": [
+        {
+          "say": "2 m is 200 cm."
+        },
+        {
+          "say": "With 30 cm more, it is 230 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-time-measure.037",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A ribbon is 60 cm long. Mia cuts it into pieces that are each 15 cm long. How many cuts does she make?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Find how many pieces there are.",
+        "60 / 15 = 4 pieces.",
+        "Draw the ribbon and mark the cuts."
+      ],
+      "explanation": "There are 60 / 15 = 4 pieces. The last piece needs no cut, because the ribbon ends there. So Mia makes 3 cuts.",
+      "solution": [
+        {
+          "say": "There are 60 / 15 = 4 pieces."
+        },
+        {
+          "say": "The last piece needs no cut, because the ribbon ends there."
+        },
+        {
+          "say": "So Mia makes 3 cuts."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-time-measure.038",
+      "skill": "m2.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A box balances 2 pears and a 100 g weight. One pear weighs 150 g. How many grams does the box weigh?",
+      "answer": 400,
+      "tolerance": 0,
+      "unit": "g",
+      "hints": [
+        "Find the weight of the 2 pears.",
+        "2 pears are 2 x 150 g.",
+        "Add the 100 g weight."
+      ],
+      "explanation": "2 pears weigh 300 g. With the 100 g weight, the box weighs 300 + 100 = 400 g.",
+      "solution": [
+        {
+          "say": "2 pears weigh 300 g."
+        },
+        {
+          "say": "With the 100 g weight, the box weighs 300 + 100 = 400 g."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    }
+  ]
+}

@@ -1101,6 +1101,9 @@
           "why": "This sum is 61. Another sum is bigger."
         },
         {
+          "text": "33 + 30"
+        },
+        {
           "text": "40 + 19",
           "why": "This sum is 59. Another sum is bigger."
         },
@@ -1111,12 +1114,9 @@
         {
           "text": "31 + 29",
           "why": "This sum is 60. Another sum is bigger."
-        },
-        {
-          "text": "33 + 30"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Work out each sum.",
         "Compare the answers, not the numbers in the sums.",
@@ -1388,11 +1388,11 @@
       "prompt": "When you add three odd numbers, is the answer odd or even?",
       "options": [
         {
-          "text": "Always odd"
-        },
-        {
           "text": "Always even",
           "why": "Try 1 + 1 + 1 = 3."
+        },
+        {
+          "text": "Always odd"
         },
         {
           "text": "Odd or even, it depends",
@@ -1403,7 +1403,7 @@
           "why": "Try 1 + 1 + 3 = 5."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Try 1 + 1 + 1 and 3 + 3 + 5.",
         "Two odd numbers add up to an even number.",
@@ -1437,15 +1437,15 @@
       "prompt": "Which of these sums is an even number?",
       "options": [
         {
-          "text": "29 + 31"
-        },
-        {
           "text": "25 + 38",
           "why": "An odd and an even number make an odd number."
         },
         {
           "text": "17 + 44",
           "why": "An odd and an even number make an odd number."
+        },
+        {
+          "text": "29 + 31"
         },
         {
           "text": "56 + 37",
@@ -1456,7 +1456,7 @@
           "why": "An even and an odd number make an odd number."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "Look at only the ones digits.",
         "Odd + even = odd. What do odd + odd and even + even make?",
@@ -1552,18 +1552,18 @@
           "why": "Odd + odd is even. What happens when you add an even number?"
         },
         {
-          "text": "Even"
-        },
-        {
           "text": "It could be either",
           "why": "Think about the rules for odd and even. They always work."
         },
         {
           "text": "Neither",
           "why": "Every whole number is odd or even."
+        },
+        {
+          "text": "Even"
         }
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "Do it in two steps.",
         "Odd + odd = ?",
@@ -1601,11 +1601,11 @@
           "why": "Even + even is always even, not 15."
         },
         {
-          "text": "The other number is odd"
-        },
-        {
           "text": "Both numbers are odd",
           "why": "One of them is even."
+        },
+        {
+          "text": "The other number is odd"
         },
         {
           "text": "Both numbers are even",
@@ -1616,7 +1616,7 @@
           "why": "Try 4 + 11 and 7 + 8."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Is 15 odd or even?",
         "Even + even makes even. Which kinds of numbers make 15?",
@@ -1688,18 +1688,18 @@
           "why": "An odd sum needs an odd number of odd numbers."
         },
         {
-          "text": "No, six odd numbers always make an even sum"
-        },
-        {
           "text": "No, because 21 is too small",
           "why": "Six odd numbers can have a small sum, for example 1 + 1 + 1 + 1 + 1 + 1."
+        },
+        {
+          "text": "No, six odd numbers always make an even sum"
         },
         {
           "text": "Only if one number is 1",
           "why": "The answer does not depend on 1."
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Add the odd numbers in pairs.",
         "Odd + odd = even.",
@@ -1741,6 +1741,9 @@
           "why": "All of the numbers are even, so the total is even."
         },
         {
+          "text": "5 + 5 + 5"
+        },
+        {
           "text": "1 + 3",
           "why": "Two odd numbers add up to an even number."
         },
@@ -1751,12 +1754,9 @@
         {
           "text": "7 + 9",
           "why": "Two odd numbers add up to an even number."
-        },
-        {
-          "text": "5 + 5 + 5"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Work out each total.",
         "Check the ones digit of each total.",
