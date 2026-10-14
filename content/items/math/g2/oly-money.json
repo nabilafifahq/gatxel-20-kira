@@ -199,6 +199,9 @@
           "why": "These make Rp600."
         },
         {
+          "text": "Rp500, Rp100, Rp100"
+        },
+        {
           "text": "Rp500, Rp200, Rp200",
           "why": "These make Rp900."
         },
@@ -209,12 +212,9 @@
         {
           "text": "Rp500, Rp500, Rp100",
           "why": "These make Rp1.100."
-        },
-        {
-          "text": "Rp500, Rp100, Rp100"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Add up the coins in each choice.",
         "Rp700 is Rp500 and Rp200.",
@@ -410,19 +410,6 @@
             "kind": "money",
             "items": [
               {
-                "value": 1000,
-                "count": 1
-              }
-            ],
-            "alt": "Coins: one Rp1.000 coin."
-          },
-          "why": "This coin is worth Rp1.000."
-        },
-        {
-          "figure": {
-            "kind": "money",
-            "items": [
-              {
                 "value": 500,
                 "count": 1
               },
@@ -437,6 +424,19 @@
             ],
             "alt": "Coins: one Rp500 coin, one Rp200 coin and two Rp100 coins."
           }
+        },
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 1000,
+                "count": 1
+              }
+            ],
+            "alt": "Coins: one Rp1.000 coin."
+          },
+          "why": "This coin is worth Rp1.000."
         },
         {
           "figure": {
@@ -460,7 +460,7 @@
           "why": "These coins are worth Rp1.000."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Work out how much each set is worth.",
         "Four sets are worth Rp1.000.",
@@ -524,11 +524,11 @@
       "prompt": "Ben has Rp5.000. He buys a juice for Rp2.500 and a bun for Rp1.500. Can he also buy a sweet for Rp1.000?",
       "options": [
         {
-          "text": "Yes, he has exactly Rp1.000 left"
-        },
-        {
           "text": "No, he has only Rp500 left",
           "why": "Work out Rp5.000 take away Rp4.000."
+        },
+        {
+          "text": "Yes, he has exactly Rp1.000 left"
         },
         {
           "text": "No, he has Rp2.000 left but the sweet is Rp3.000",
@@ -543,7 +543,7 @@
           "why": "Ben can pay for the juice."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Add the price of the juice and the bun.",
         "Rp2.500 + Rp1.500 = Rp4.000.",

@@ -1205,14 +1205,14 @@
           "why": "Dan is the shortest of all."
         },
         {
-          "text": "It cannot be found",
-          "why": "The clues put all four children in order."
+          "text": "Bo"
         },
         {
-          "text": "Bo"
+          "text": "It cannot be found",
+          "why": "The clues put all four children in order."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Draw the children from tallest to shortest.",
         "Ana is taller than Bo, and Bo is taller than Cil.",
@@ -1244,11 +1244,11 @@
       "prompt": "Five runners race. Eli finishes before Cat. Cat finishes before Ana. Ben finishes after Ana. Dan finishes before Eli. Who finishes third?",
       "options": [
         {
-          "text": "Cat"
-        },
-        {
           "text": "Eli",
           "why": "Dan finishes before Eli, so Eli is second."
+        },
+        {
+          "text": "Cat"
         },
         {
           "text": "Ana",
@@ -1263,7 +1263,7 @@
           "why": "Ben finishes last."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Write the runners in a line from first to last.",
         "Dan is before Eli. Eli is before Cat.",
@@ -1294,9 +1294,6 @@
       "prompt": "Five children stand in a line. Ben is first. Eli is right behind Ben. Cat is last. Dan is not next to Cat. Who is fourth?",
       "options": [
         {
-          "text": "Ana"
-        },
-        {
           "text": "Dan",
           "why": "If Dan is fourth he would be next to Cat, who is last."
         },
@@ -1309,11 +1306,14 @@
           "why": "Cat is fifth, at the back."
         },
         {
+          "text": "Ana"
+        },
+        {
           "text": "Ben",
           "why": "Ben is first."
         }
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Put Ben, Eli and Cat in their places first.",
         "Ben is 1st, Eli is 2nd and Cat is 5th.",
@@ -1513,18 +1513,18 @@
           "why": "Ana says that Ben is a liar."
         },
         {
+          "text": "Ana"
+        },
+        {
           "text": "Neither of them",
           "why": "If Ben is a liar, then Ana's words are true."
         },
         {
           "text": "It cannot be found",
           "why": "The clues give only one answer."
-        },
-        {
-          "text": "Ana"
         }
       ],
-      "answer": 4,
+      "answer": 2,
       "hints": [
         "Try: what if Ben tells the truth?",
         "Then Ana is a truth teller too. Does Ana's sentence fit?",
@@ -1567,18 +1567,18 @@
           "why": "If Cy told the truth, Ann and Bo would both lie, but then Bo's words would be true."
         },
         {
-          "text": "Bo"
-        },
-        {
           "text": "Nobody",
           "why": "If everyone lied, Cy's sentence would be true."
         },
         {
           "text": "Everybody",
           "why": "Ann says that Bo lies."
+        },
+        {
+          "text": "Bo"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "Try what happens if Ann tells the truth.",
         "If Ann is truthful, Bo lies. Then Bo's words are false, so Cy is truthful.",
@@ -1630,18 +1630,18 @@
           "why": "Then Dewi and Sari would both tell the truth."
         },
         {
-          "text": "Nobody",
-          "why": "Someone ate the cake."
+          "text": "Sari"
         },
         {
-          "text": "Sari"
+          "text": "Nobody",
+          "why": "Someone ate the cake."
         },
         {
           "text": "It cannot be found",
           "why": "Try each child in turn. Only one fits."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Try each child as the cake eater, one at a time.",
         "Count how many children tell the truth each time.",
@@ -1679,11 +1679,11 @@
       "prompt": "Kim always tells the truth. Lee always lies. Lee says: \"Kim's pet is a cat.\" What do you know about Kim's pet?",
       "options": [
         {
-          "text": "It is a cat",
-          "why": "Lee always lies, so what he says is not true."
+          "text": "It is not a cat"
         },
         {
-          "text": "It is not a cat"
+          "text": "It is a cat",
+          "why": "Lee always lies, so what he says is not true."
         },
         {
           "text": "It is a dog",
@@ -1698,7 +1698,7 @@
           "why": "Lee always lies, so his words tell us something."
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Lee always lies.",
         "What Lee says must be false.",
@@ -1736,11 +1736,11 @@
           "why": "If Raya told the truth, exactly 1 would lie, but then Sam and Tia both lie."
         },
         {
-          "text": "Tia",
-          "why": "If all 3 lied, Tia would be telling the truth."
+          "text": "Sam"
         },
         {
-          "text": "Sam"
+          "text": "Tia",
+          "why": "If all 3 lied, Tia would be telling the truth."
         },
         {
           "text": "Nobody",
@@ -1751,7 +1751,7 @@
           "why": "They say different things, so they cannot both be right."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "The three children say different numbers of liars.",
         "At most one of them can be right.",
@@ -1789,6 +1789,9 @@
       "prompt": "Three boxes have wrong labels: Apples, Oranges and Both. Mia takes one fruit from the box labelled Both. It is an apple. What is really in the box labelled Oranges?",
       "options": [
         {
+          "text": "Both apples and oranges"
+        },
+        {
           "text": "Only apples",
           "why": "The box labelled Both holds only apples."
         },
@@ -1803,12 +1806,9 @@
         {
           "text": "It cannot be found",
           "why": "The wrong labels give only one answer."
-        },
-        {
-          "text": "Both apples and oranges"
         }
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "Every label is wrong.",
         "The box labelled Both has only one kind of fruit. Which?",
@@ -1855,14 +1855,14 @@
           "why": "Wednesday was yesterday."
         },
         {
-          "text": "Sunday",
-          "why": "Count again from Wednesday."
+          "text": "Friday"
         },
         {
-          "text": "Friday"
+          "text": "Sunday",
+          "why": "Count again from Wednesday."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Find out what day it is today.",
         "Yesterday was Wednesday, so today is the day after.",
@@ -1893,11 +1893,11 @@
       "prompt": "The day after tomorrow is Monday. What day was yesterday?",
       "options": [
         {
-          "text": "Saturday",
-          "why": "Saturday is today."
+          "text": "Friday"
         },
         {
-          "text": "Friday"
+          "text": "Saturday",
+          "why": "Saturday is today."
         },
         {
           "text": "Sunday",
@@ -1912,7 +1912,7 @@
           "why": "Monday is the day after tomorrow."
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Go back from Monday to find today.",
         "The day before Monday is Sunday. That is tomorrow.",
@@ -1948,11 +1948,11 @@
           "why": "Count 3 days after Monday."
         },
         {
-          "text": "Friday",
-          "why": "Count 3 days after Monday."
+          "text": "Thursday"
         },
         {
-          "text": "Thursday"
+          "text": "Friday",
+          "why": "Count 3 days after Monday."
         },
         {
           "text": "Monday",
@@ -1963,7 +1963,7 @@
           "why": "7 days later is Monday. Count 3 more days."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "The same day comes back after 7 days.",
         "In 7 days it will be Monday again.",

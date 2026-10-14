@@ -33,6 +33,9 @@
       },
       "options": [
         {
+          "text": "6-1-3-5"
+        },
+        {
           "text": "6-3-1-5",
           "why": "A is 1 and C is 3. Check the middle two."
         },
@@ -45,14 +48,11 @@
           "why": "Check the last two letters, C and E."
         },
         {
-          "text": "6-1-3-5"
-        },
-        {
           "text": "1-6-3-5",
           "why": "The first letter is F, not A."
         }
       ],
-      "answer": 3,
+      "answer": 0,
       "hints": [
         "Find each letter in the table.",
         "F is 6. What is A?",
@@ -112,11 +112,11 @@
           "why": "F is 6, but the code starts with 3."
         },
         {
-          "text": "CAFE"
-        },
-        {
           "text": "ACED",
           "why": "The code starts with 3, which is C."
+        },
+        {
+          "text": "CAFE"
         },
         {
           "text": "BEAD",
@@ -127,7 +127,7 @@
           "why": "The code starts with 3, which is C."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Find the letter for each number.",
         "3 is C and 1 is A.",
@@ -289,6 +289,9 @@
           "why": "T becomes U, not S."
         },
         {
+          "text": "DBU"
+        },
+        {
           "text": "BZS",
           "why": "This moves each letter back by one, not forward."
         },
@@ -299,12 +302,9 @@
         {
           "text": "CBU",
           "why": "Every letter changes, even the first one."
-        },
-        {
-          "text": "DBU"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "D became E, O became P and G became H.",
         "Each letter moves one step forward in the alphabet.",
@@ -340,6 +340,9 @@
           "why": "This moves the letters forward, but we need to go back."
         },
         {
+          "text": "WIN"
+        },
+        {
           "text": "WON",
           "why": "O comes from N, not from O."
         },
@@ -348,14 +351,11 @@
           "why": "J comes from I."
         },
         {
-          "text": "WIN"
-        },
-        {
           "text": "XIN",
           "why": "The first letter also changes."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "Go backwards in the alphabet to decode.",
         "The letter before X is W.",
@@ -391,6 +391,9 @@
           "why": "This moves forward. To decode we go back."
         },
         {
+          "text": "BAG"
+        },
+        {
           "text": "BAD",
           "why": "H comes from G."
         },
@@ -399,14 +402,11 @@
           "why": "The first letter also changes."
         },
         {
-          "text": "BAG"
-        },
-        {
           "text": "BEG",
           "why": "B comes from A."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "To decode, go back one letter at a time.",
         "The letter before C is B.",
@@ -537,9 +537,6 @@
       "prompt": "In a code, A = 2, B = 4 and C = 6. The codes go up by 2. Which letter has the code 14?",
       "options": [
         {
-          "text": "G"
-        },
-        {
           "text": "F",
           "why": "F is 12. We need 2 more."
         },
@@ -554,9 +551,12 @@
         {
           "text": "E",
           "why": "E is 10, so it is too small."
+        },
+        {
+          "text": "G"
         }
       ],
-      "answer": 0,
+      "answer": 4,
       "hints": [
         "Count the letters and the codes together: A is 2, B is 4 ...",
         "C is 6, D is 8.",
@@ -706,18 +706,18 @@
           "why": "The last cell is A1, which is S."
         },
         {
-          "text": "BED",
-          "why": "The cells are not all in row 3."
+          "text": "BUS"
         },
         {
-          "text": "BUS"
+          "text": "BED",
+          "why": "The cells are not all in row 3."
         },
         {
           "text": "MAP",
           "why": "The first cell is A3, which is B."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Find each cell by its column letter and then its row number.",
         "A3 is the first cell. It is in column A, row 3.",
@@ -786,18 +786,18 @@
           "why": "The middle cell is U, not A."
         },
         {
+          "text": "A2, B2, C2"
+        },
+        {
           "text": "A3, B2, C2",
           "why": "The first cell is B, not M."
         },
         {
           "text": "A2, B3, C2",
           "why": "The middle cell is E, not A."
-        },
-        {
-          "text": "A2, B2, C2"
         }
       ],
-      "answer": 4,
+      "answer": 2,
       "hints": [
         "Find M in the grid first.",
         "M is in row 2, column A. Now find A.",
@@ -870,14 +870,14 @@
           "why": "Count the U steps again. There are 3."
         },
         {
-          "text": "A"
-        },
-        {
           "text": "D",
           "why": "There are 3 U steps, not 2."
+        },
+        {
+          "text": "A"
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Follow the program one letter at a time.",
         "R R takes the robot from x = 1 to x = 3.",
@@ -949,11 +949,11 @@
       },
       "options": [
         {
-          "text": "B",
-          "why": "Check the last step. D means down."
+          "text": "A"
         },
         {
-          "text": "A"
+          "text": "B",
+          "why": "Check the last step. D means down."
         },
         {
           "text": "C",
@@ -964,7 +964,7 @@
           "why": "Count the U steps again. There are 2."
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Follow the program one letter at a time.",
         "U U takes the robot from y = 1 to y = 3.",
@@ -1020,6 +1020,9 @@
       },
       "options": [
         {
+          "text": "R R R U U"
+        },
+        {
           "text": "R R U U U",
           "why": "This ends one step too far left and one too high."
         },
@@ -1032,14 +1035,11 @@
           "why": "This ends too high."
         },
         {
-          "text": "R R R U U"
-        },
-        {
           "text": "R R R U",
           "why": "This ends one step too low."
         }
       ],
-      "answer": 3,
+      "answer": 0,
       "hints": [
         "Count how many steps right and how many up from S to F.",
         "From x = 2 to x = 5 is how many steps?",
@@ -1156,11 +1156,11 @@
       },
       "options": [
         {
-          "text": "A"
-        },
-        {
           "text": "B",
           "why": "Check how many times the pair is repeated."
+        },
+        {
+          "text": "A"
         },
         {
           "text": "C",
@@ -1171,7 +1171,7 @@
           "why": "The robot ends up as far right as it is up."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "One pair R U moves the robot right 1 and up 1.",
         "Three pairs move it right 3 and up 3.",
@@ -1369,11 +1369,11 @@
           "why": "These are the same letters in a different order, but not backwards."
         },
         {
-          "text": "TOPS",
-          "why": "These are the same letters in a different order, but not backwards."
+          "text": "POTS"
         },
         {
-          "text": "POTS"
+          "text": "TOPS",
+          "why": "These are the same letters in a different order, but not backwards."
         },
         {
           "text": "OPTS",
@@ -1384,7 +1384,7 @@
           "why": "Backwards means the last letter comes first."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Start from the last letter of STOP.",
         "The last letter is P.",
@@ -1419,11 +1419,11 @@
           "why": "I becomes O, not E."
         },
         {
-          "text": "BOG"
-        },
-        {
           "text": "BIG",
           "why": "The vowel I changes."
+        },
+        {
+          "text": "BOG"
         },
         {
           "text": "BAG",
@@ -1434,7 +1434,7 @@
           "why": "I becomes O, not U."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Find the vowel in BIG.",
         "The vowel is I. What does I become?",
@@ -1473,9 +1473,6 @@
           "why": "A becomes E in the code, so PAN would be written PEN."
         },
         {
-          "text": "PEN"
-        },
-        {
           "text": "PUN",
           "why": "U becomes A in the code, so PUN would be written PAN."
         },
@@ -1486,9 +1483,12 @@
         {
           "text": "PON",
           "why": "O becomes U in the code, so PON would be written PUN."
+        },
+        {
+          "text": "PEN"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "Work backwards. Which vowel turns into I?",
         "The rule says E becomes I.",
@@ -1593,18 +1593,18 @@
           "why": "A banana is a fruit."
         },
         {
-          "text": "Mango",
-          "why": "A mango is a fruit."
+          "text": "Carrot"
         },
         {
-          "text": "Carrot"
+          "text": "Mango",
+          "why": "A mango is a fruit."
         },
         {
           "text": "Pear",
           "why": "A pear is a fruit."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Think about what each thing is.",
         "Four of them grow on trees as fruits.",
@@ -1835,14 +1835,14 @@
           "why": "This makes 18, like most of the others."
         },
         {
-          "text": "7 + 11",
-          "why": "This makes 18, like most of the others."
+          "text": "8 + 9"
         },
         {
-          "text": "8 + 9"
+          "text": "7 + 11",
+          "why": "This makes 18, like most of the others."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Work out each sum.",
         "Most of the sums make the same number.",
@@ -1878,6 +1878,9 @@
           "why": "5 tens is 50, like most of the others."
         },
         {
+          "text": "40 + 5"
+        },
+        {
           "text": "25 + 25",
           "why": "25 + 25 is 50, like most of the others."
         },
@@ -1888,12 +1891,9 @@
         {
           "text": "Fifty",
           "why": "Fifty is 50, like most of the others."
-        },
-        {
-          "text": "40 + 5"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "Work out the value of each one.",
         "Four of them are worth the same number.",
@@ -1925,15 +1925,15 @@
       "prompt": "Which month is the odd one out?",
       "options": [
         {
-          "text": "April"
-        },
-        {
           "text": "January",
           "why": "January has 31 days, like most of the others."
         },
         {
           "text": "March",
           "why": "March has 31 days, like most of the others."
+        },
+        {
+          "text": "April"
         },
         {
           "text": "May",
@@ -1944,7 +1944,7 @@
           "why": "July has 31 days, like most of the others."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "Think about how many days each month has.",
         "Four of the months have the same number of days.",
@@ -1983,18 +1983,18 @@
           "why": "A bee is an insect with 6 legs."
         },
         {
-          "text": "Spider"
-        },
-        {
           "text": "Ladybird",
           "why": "A ladybird is an insect with 6 legs."
         },
         {
           "text": "Butterfly",
           "why": "A butterfly is an insect with 6 legs."
+        },
+        {
+          "text": "Spider"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "Count the legs of each animal.",
         "Insects have 6 legs.",
@@ -2058,14 +2058,14 @@
           "why": "A pentagon has straight sides and corners."
         },
         {
-          "text": "Circle"
-        },
-        {
           "text": "Hexagon",
           "why": "A hexagon has straight sides and corners."
+        },
+        {
+          "text": "Circle"
         }
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
         "Think about the edges of each shape.",
         "Are the edges straight or curved?",
@@ -2221,48 +2221,6 @@
                 "points": [
                   [
                     82,
-                    64
-                  ],
-                  [
-                    82,
-                    36
-                  ],
-                  [
-                    70,
-                    36
-                  ],
-                  [
-                    70,
-                    50
-                  ],
-                  [
-                    38,
-                    50
-                  ],
-                  [
-                    38,
-                    64
-                  ]
-                ],
-                "closed": true,
-                "tone": "math",
-                "fill": "solid"
-              }
-            ],
-            "alt": "A hook shape with its bar on the right, flipped over like in a mirror."
-          }
-        },
-        {
-          "figure": {
-            "kind": "scene",
-            "width": 120,
-            "height": 100,
-            "shapes": [
-              {
-                "t": "poly",
-                "points": [
-                  [
-                    82,
                     36
                   ],
                   [
@@ -2294,6 +2252,48 @@
             "alt": "A hook shape with its bar on the right."
           },
           "why": "This hook can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    70,
+                    36
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook shape with its bar on the right, flipped over like in a mirror."
+          }
         },
         {
           "figure": {
@@ -2382,7 +2382,7 @@
           "why": "This hook can be turned to match the others."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Imagine turning each hook. Can it fit onto another hook?",
         "Look at which side the stem hangs on, when the bar is on top.",
@@ -2421,9 +2421,6 @@
           "why": "An hour is 60 minutes, like most of the others."
         },
         {
-          "text": "Half an hour"
-        },
-        {
           "text": "60 minutes",
           "why": "60 minutes is an hour, like most of the others."
         },
@@ -2434,9 +2431,12 @@
         {
           "text": "6 x 10 minutes",
           "why": "This is 60 minutes, like most of the others."
+        },
+        {
+          "text": "Half an hour"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "Change each one into minutes.",
         "1 hour is 60 minutes.",
@@ -2480,14 +2480,14 @@
           "why": "An owl is a bird."
         },
         {
-          "text": "Penguin",
-          "why": "A penguin is a bird."
+          "text": "Bat"
         },
         {
-          "text": "Bat"
+          "text": "Penguin",
+          "why": "A penguin is a bird."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Think about what kind of animal each one is.",
         "Birds have feathers.",
@@ -2518,6 +2518,9 @@
       "prompt": "Which number word has a different number of letters from the others?",
       "options": [
         {
+          "text": "Four"
+        },
+        {
           "text": "One",
           "why": "One has 3 letters, like most of the others."
         },
@@ -2532,12 +2535,9 @@
         {
           "text": "Ten",
           "why": "Ten has 3 letters, like most of the others."
-        },
-        {
-          "text": "Four"
         }
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "Count the letters in each word.",
         "One has 3 letters.",
@@ -2766,15 +2766,15 @@
       "prompt": "Which sum has a different answer from the others?",
       "options": [
         {
+          "text": "4 + 4"
+        },
+        {
           "text": "3 + 4",
           "why": "This makes 7, like most of the others."
         },
         {
           "text": "2 + 5",
           "why": "This makes 7, like most of the others."
-        },
-        {
-          "text": "4 + 4"
         },
         {
           "text": "6 + 1",
@@ -2785,7 +2785,7 @@
           "why": "This makes 7, like most of the others."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Work out each one.",
         "Most of the answers are 7.",

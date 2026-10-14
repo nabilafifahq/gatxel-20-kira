@@ -1373,9 +1373,6 @@
       "prompt": "School ends at 12:15. There were two 45 minute lessons and a 30 minute break. School began at the start of the first lesson. When did school begin?",
       "options": [
         {
-          "text": "10:15"
-        },
-        {
           "text": "10:45",
           "why": "The lessons and the break take 2 hours in all."
         },
@@ -1388,11 +1385,14 @@
           "why": "Count only the 2 lessons and the break."
         },
         {
+          "text": "10:15"
+        },
+        {
           "text": "10:00",
           "why": "Count the 45 minute lessons carefully."
         }
       ],
-      "answer": 0,
+      "answer": 3,
       "hints": [
         "Find the time school took in all.",
         "45 + 45 + 30 minutes.",
@@ -1789,7 +1789,7 @@
       "skill": "m2.oly-word-problems",
       "type": "numeric",
       "difficulty": 4,
-      "prompt": "Take two neighbours in the list 1, 3, 5, 7 and so on. They add up to 24. What is the bigger number?",
+      "prompt": "Take two neighbours from 1, 3, 5, 7 and so on. They add up to 24. What is the bigger number?",
       "answer": 13,
       "tolerance": 0,
       "hints": [

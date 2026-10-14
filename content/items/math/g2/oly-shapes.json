@@ -945,15 +945,15 @@
       },
       "options": [
         {
+          "text": "Circle"
+        },
+        {
           "text": "Rectangle",
           "why": "A rectangle is the shadow when light shines from the side."
         },
         {
           "text": "Triangle",
           "why": "A cylinder has no pointed top."
-        },
-        {
-          "text": "Circle"
         },
         {
           "text": "Square",
@@ -964,7 +964,7 @@
           "why": "A cylinder has no straight edges on its top."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Imagine looking down at the cylinder from the lamp.",
         "You see the top of the cylinder.",
@@ -999,9 +999,6 @@
           "why": "A circle is the shadow when the cylinder stands up."
         },
         {
-          "text": "Rectangle"
-        },
-        {
           "text": "Triangle",
           "why": "A cylinder has no pointed end."
         },
@@ -1010,11 +1007,14 @@
           "why": "The cylinder is longer than it is wide."
         },
         {
+          "text": "Rectangle"
+        },
+        {
           "text": "Oval",
           "why": "The sides of the shadow are straight."
         }
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "Picture the cylinder lying down and look at it from above.",
         "You see its long curved side.",
@@ -1063,14 +1063,14 @@
           "why": "The cone gets narrower to the top."
         },
         {
-          "text": "Oval",
-          "why": "The shadow has straight edges and a point."
+          "text": "Triangle"
         },
         {
-          "text": "Triangle"
+          "text": "Oval",
+          "why": "The shadow has straight edges and a point."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Look at the cone from the side.",
         "The cone gets narrower towards the top.",
@@ -1126,11 +1126,11 @@
           "why": "A cube makes a square shadow."
         },
         {
-          "text": "Cylinder",
-          "why": "A cylinder lying down makes a rectangle shadow."
+          "text": "Sphere"
         },
         {
-          "text": "Sphere"
+          "text": "Cylinder",
+          "why": "A cylinder lying down makes a rectangle shadow."
         },
         {
           "text": "Cone",
@@ -1141,7 +1141,7 @@
           "why": "A pyramid makes a square or a triangle shadow."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "The shadow must be a circle from every side.",
         "Try turning each solid in your mind.",
@@ -1180,18 +1180,18 @@
           "why": "A cube makes squares."
         },
         {
-          "text": "Cone"
-        },
-        {
           "text": "Sphere",
           "why": "A sphere makes only circles."
         },
         {
           "text": "Square pyramid",
           "why": "A pyramid makes a square and a triangle."
+        },
+        {
+          "text": "Cone"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "Think about each solid from above and from the side.",
         "A cylinder is a circle and a rectangle.",
@@ -1238,14 +1238,14 @@
           "why": "A cone makes a circle and a triangle."
         },
         {
-          "text": "Sphere",
-          "why": "A sphere makes only circles."
+          "text": "Cuboid"
         },
         {
-          "text": "Cuboid"
+          "text": "Sphere",
+          "why": "A sphere makes only circles."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "The side and top shadows are different shapes.",
         "A cube looks the same from every side.",
@@ -1292,6 +1292,9 @@
           "why": "A pyramid has no round part."
         },
         {
+          "text": "A square and a triangle"
+        },
+        {
           "text": "Only a square",
           "why": "Seen from the side it has a pointed top."
         },
@@ -1300,14 +1303,11 @@
           "why": "A pyramid has no round part."
         },
         {
-          "text": "A square and a triangle"
-        },
-        {
           "text": "Only a triangle",
           "why": "Seen from above it looks like a square."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "Look at the pyramid from above and then from the side.",
         "From above you see the square base.",
@@ -1917,9 +1917,6 @@
       },
       "options": [
         {
-          "text": "H"
-        },
-        {
           "text": "A",
           "why": "A has 1 line of symmetry, straight down the middle."
         },
@@ -1934,9 +1931,12 @@
         {
           "text": "Y",
           "why": "Y has 1 line of symmetry, straight down the middle."
+        },
+        {
+          "text": "H"
         }
       ],
-      "answer": 0,
+      "answer": 4,
       "hints": [
         "A line of symmetry is where you can fold the letter so both halves match.",
         "Try folding each letter up and down, and left and right.",
@@ -2345,15 +2345,15 @@
       "prompt": "I have 1 flat face, 1 curved face and 1 corner. What am I?",
       "options": [
         {
+          "text": "Cone"
+        },
+        {
           "text": "Cylinder",
           "why": "A cylinder has 2 flat faces and no corners."
         },
         {
           "text": "Sphere",
           "why": "A sphere has no flat face."
-        },
-        {
-          "text": "Cone"
         },
         {
           "text": "Square pyramid",
@@ -2364,7 +2364,7 @@
           "why": "A cube has 6 flat faces."
         }
       ],
-      "answer": 2,
+      "answer": 0,
       "hints": [
         "Think about which solid has a pointed corner.",
         "A cylinder and a sphere have no corners.",

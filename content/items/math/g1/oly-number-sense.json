@@ -1,0 +1,439 @@
+{
+  "skill": "m1.oly-number-sense",
+  "items": [
+    {
+      "id": "m1.oly-number-sense.001",
+      "skill": "m1.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I am a number between 10 and 20. I have 5 ones. Who am I?",
+      "options": [
+        {
+          "text": "5"
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "20"
+        },
+        {
+          "text": "25"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "My tens digit is 1 because I am between 10 and 20.",
+        "My ones digit is 5.",
+        "Put the tens and ones together."
+      ],
+      "explanation": "The number has 1 ten and 5 ones. That is 15.",
+      "solution": [
+        {
+          "say": "The number has 1 ten and 5 ones."
+        },
+        {
+          "say": "That is 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.002",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A number has 1 ten and 6 ones. What is the number?",
+      "answer": 16,
+      "tolerance": 0,
+      "hints": [
+        "A ten is 10.",
+        "10 and 6 more.",
+        "Count on from 10."
+      ],
+      "explanation": "1 ten is 10. With 6 ones, the number is 16.",
+      "solution": [
+        {
+          "say": "1 ten is 10."
+        },
+        {
+          "say": "With 6 ones, the number is 16."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.003",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many numbers are between 12 and 17?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Do not count 12 or 17.",
+        "Start at 13.",
+        "13, 14, 15 ..."
+      ],
+      "explanation": "The numbers between 12 and 17 are 13, 14, 15 and 16. That is 4 numbers.",
+      "solution": [
+        {
+          "say": "The numbers between 12 and 17 are 13, 14, 15 and 16."
+        },
+        {
+          "say": "That is 4 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.004",
+      "skill": "m1.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Order 8, 15, 3, 11 and 19 from the smallest. Which is third?",
+      "options": [
+        {
+          "text": "3"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "11"
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "19"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Write them from smallest to biggest.",
+        "3, 8 ...",
+        "The third number in the list is the answer."
+      ],
+      "explanation": "From smallest to biggest: 3, 8, 11, 15, 19. The third number is 11.",
+      "solution": [
+        {
+          "say": "From smallest to biggest: 3, 8, 11, 15, 19."
+        },
+        {
+          "say": "The third number is 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-number-sense.005",
+      "skill": "m1.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is odd?",
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "20"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Odd numbers end in 1, 3, 5, 7 or 9.",
+        "Look at the last digit of each number.",
+        "Four numbers end in an even digit."
+      ],
+      "explanation": "4, 8, 12 and 20 are even. 15 ends in 5, so it is odd.",
+      "solution": [
+        {
+          "say": "4, 8, 12 and 20 are even."
+        },
+        {
+          "say": "15 ends in 5, so it is odd."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.006",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Fill the gap: 10 + ___ = 17.",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "What do you add to 10 to get 17?",
+        "Count on from 10 to 17.",
+        "17 - 10."
+      ],
+      "explanation": "To get from 10 to 17 we add 7. So 10 + 7 = 17.",
+      "solution": [
+        {
+          "say": "To get from 10 to 17 we add 7."
+        },
+        {
+          "say": "So 10 + 7 = 17."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.007",
+      "skill": "m1.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sum does not make 10?",
+      "options": [
+        {
+          "text": "3 + 7",
+          "why": "3 + 7 is 10."
+        },
+        {
+          "text": "4 + 6",
+          "why": "4 + 6 is 10."
+        },
+        {
+          "text": "2 + 7"
+        },
+        {
+          "text": "5 + 5",
+          "why": "5 + 5 is 10."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out each sum.",
+        "Three of the sums make 10.",
+        "Check 2 + 7."
+      ],
+      "explanation": "3 + 7, 4 + 6 and 5 + 5 all make 10. 2 + 7 makes 9, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "3 + 7, 4 + 6 and 5 + 5 all make 10."
+        },
+        {
+          "say": "2 + 7 makes 9, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-number-sense.008",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "I think of a number. I add 3 and get 10. What is my number?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Undo the adding.",
+        "Take 3 away from 10.",
+        "10 - 3."
+      ],
+      "explanation": "The opposite of adding 3 is taking away 3. 10 - 3 = 7. Check: 7 + 3 = 10.",
+      "solution": [
+        {
+          "say": "The opposite of adding 3 is taking away 3."
+        },
+        {
+          "say": "10 - 3 = 7."
+        },
+        {
+          "say": "Check: 7 + 3 = 10."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-number-sense.009",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many tens are there in 30?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Count in 10s: 10, 20 ...",
+        "How many tens do you say to get to 30?",
+        "10 + 10 + 10."
+      ],
+      "explanation": "10, 20, 30. That is 3 tens.",
+      "solution": [
+        {
+          "say": "10, 20, 30."
+        },
+        {
+          "say": "That is 3 tens."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-number-sense.010",
+      "skill": "m1.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number has the digit 3 in the tens place?",
+      "options": [
+        {
+          "text": "13"
+        },
+        {
+          "text": "23"
+        },
+        {
+          "text": "31"
+        },
+        {
+          "text": "43"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The tens place is the first digit of a 2-digit number.",
+        "Look at the first digit of each number.",
+        "Which number starts with 3?"
+      ],
+      "explanation": "31 has 3 tens and 1 one. The other numbers have 3 in the ones place.",
+      "solution": [
+        {
+          "say": "31 has 3 tens and 1 one."
+        },
+        {
+          "say": "The other numbers have 3 in the ones place."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-number-sense.011",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Use the digits 1 and 2 once each. How many 2-digit numbers can you make?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "Put 1 in the tens place first.",
+        "Then put 2 in the tens place.",
+        "Count the numbers."
+      ],
+      "explanation": "The numbers are 12 and 21. That is 2 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 12 and 21."
+        },
+        {
+          "say": "That is 2 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-number-sense.012",
+      "skill": "m1.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the smallest 2-digit number with equal digits?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "A 2-digit number cannot start with 0.",
+        "The smallest tens digit is 1.",
+        "Use the same digit for the ones."
+      ],
+      "explanation": "The smallest tens digit is 1. Both digits are the same, so the number is 11.",
+      "solution": [
+        {
+          "say": "The smallest tens digit is 1."
+        },
+        {
+          "say": "Both digits are the same, so the number is 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}

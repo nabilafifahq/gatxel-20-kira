@@ -1,0 +1,347 @@
+{
+  "skill": "m1.oly-money",
+  "items": [
+    {
+      "id": "m1.oly-money.001",
+      "skill": "m1.oly-money",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How much money is shown?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 200,
+            "count": 2
+          },
+          {
+            "value": 100,
+            "count": 1
+          }
+        ],
+        "alt": "Coins: two Rp200 coins and one Rp100 coin."
+      },
+      "options": [
+        {
+          "text": "Rp300",
+          "why": "Count all the coins."
+        },
+        {
+          "text": "Rp400",
+          "why": "Count all the coins."
+        },
+        {
+          "text": "Rp500"
+        },
+        {
+          "text": "Rp600",
+          "why": "One coin is worth Rp100."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Add the coins one at a time.",
+        "Rp200 and Rp200 make Rp400.",
+        "Then add the Rp100 coin."
+      ],
+      "explanation": "Two Rp200 coins make Rp400. With the Rp100 coin, the total is Rp500.",
+      "solution": [
+        {
+          "say": "Two Rp200 coins make Rp400."
+        },
+        {
+          "say": "With the Rp100 coin, the total is Rp500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-money.002",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A sweet costs Rp100. How many rupiah do 4 sweets cost?",
+      "answer": 400,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add Rp100 four times.",
+        "100 + 100 + 100 + 100.",
+        "Count in hundreds."
+      ],
+      "explanation": "4 sweets cost Rp100 + Rp100 + Rp100 + Rp100 = Rp400.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-money.003",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Two coins of Rp500 make how many rupiah?",
+      "answer": 1000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add Rp500 and Rp500.",
+        "500 + 500.",
+        "Five hundreds and five hundreds."
+      ],
+      "explanation": "Rp500 + Rp500 = Rp1.000.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-money.004",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Tia has Rp1.000. She buys a biscuit for Rp600. How many rupiah does she have left?",
+      "answer": 400,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take the price away from Rp1.000.",
+        "1.000 - 600.",
+        "Count up from 600 to 1.000."
+      ],
+      "explanation": "Tia has Rp1.000 - Rp600 = Rp400 left.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-money.005",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many Rp100 coins make Rp500?",
+      "answer": 5,
+      "tolerance": 0,
+      "unit": "coins",
+      "hints": [
+        "Count in hundreds: 100, 200 ...",
+        "How many hundreds do you say to reach 500?",
+        "Count them."
+      ],
+      "explanation": "100, 200, 300, 400, 500. That is 5 coins.",
+      "solution": [
+        {
+          "say": "100, 200, 300, 400, 500."
+        },
+        {
+          "say": "That is 5 coins."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-money.006",
+      "skill": "m1.oly-money",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which two coins make Rp700?",
+      "options": [
+        {
+          "text": "Rp500 and Rp100",
+          "why": "This makes Rp600."
+        },
+        {
+          "text": "Rp200 and Rp200",
+          "why": "This makes Rp400."
+        },
+        {
+          "text": "Rp500 and Rp500",
+          "why": "This makes Rp1.000."
+        },
+        {
+          "text": "Rp500 and Rp200"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Add the two coins in each choice.",
+        "Rp500 is the biggest coin.",
+        "You need Rp200 more after Rp500."
+      ],
+      "explanation": "Rp500 + Rp200 = Rp700. The other choices make Rp600, Rp400 and Rp1.000.",
+      "solution": [
+        {
+          "say": "Rp500 + Rp200 = Rp700."
+        },
+        {
+          "say": "The other choices make Rp600, Rp400 and Rp1.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-money.007",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ben has 3 coins of Rp200. Ali has 1 coin of Rp500. How many more rupiah does Ben have?",
+      "answer": 100,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find how much money each child has.",
+        "Ben has 3 x Rp200 = Rp600.",
+        "Ali has Rp500."
+      ],
+      "explanation": "Ben has Rp200 + Rp200 + Rp200 = Rp600. Ali has Rp500. Ben has Rp100 more.",
+      "solution": [
+        {
+          "say": "Ben has Rp200 + Rp200 + Rp200 = Rp600."
+        },
+        {
+          "say": "Ali has Rp500."
+        },
+        {
+          "say": "Ben has Rp100 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-money.008",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A pen costs Rp500. A rubber costs Rp200. How many rupiah do they cost together?",
+      "answer": 700,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add the two prices.",
+        "500 + 200.",
+        "Five hundred and two hundred."
+      ],
+      "explanation": "Together they cost Rp500 + Rp200 = Rp700.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-money.009",
+      "skill": "m1.oly-money",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Rani pays Rp500 using only Rp100 and Rp200 coins. Which payment is not possible?",
+      "options": [
+        {
+          "text": "5 coins of Rp100",
+          "why": "5 coins of Rp100 make Rp500."
+        },
+        {
+          "text": "2 coins of Rp200 and 1 coin of Rp100",
+          "why": "This makes Rp500."
+        },
+        {
+          "text": "3 coins of Rp200"
+        },
+        {
+          "text": "1 coin of Rp200 and 3 coins of Rp100",
+          "why": "This makes Rp500."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Add up each payment.",
+        "Three Rp200 coins are worth Rp600.",
+        "Check the other payments too."
+      ],
+      "explanation": "3 coins of Rp200 make Rp600, not Rp500. The other payments all make Rp500.",
+      "solution": [
+        {
+          "say": "3 coins of Rp200 make Rp600, not Rp500."
+        },
+        {
+          "say": "The other payments all make Rp500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-money.010",
+      "skill": "m1.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mia has 5 coins. Each coin is Rp100 or Rp200. Together they are worth Rp700. How many Rp200 coins does she have?",
+      "answer": 2,
+      "tolerance": 0,
+      "unit": "coins",
+      "hints": [
+        "If all 5 coins were Rp100, she would have Rp500.",
+        "She has Rp200 more than that.",
+        "Each Rp200 coin instead of a Rp100 coin adds Rp100."
+      ],
+      "explanation": "5 coins of Rp100 make Rp500. Rp700 is Rp200 more. Each swap adds Rp100, so there are 2 swaps. She has 2 coins of Rp200.",
+      "solution": [
+        {
+          "say": "5 coins of Rp100 make Rp500."
+        },
+        {
+          "say": "Rp700 is Rp200 more."
+        },
+        {
+          "say": "Each swap adds Rp100, so there are 2 swaps."
+        },
+        {
+          "say": "She has 2 coins of Rp200."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    }
+  ]
+}

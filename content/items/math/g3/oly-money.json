@@ -1,0 +1,357 @@
+{
+  "skill": "m3.oly-money",
+  "items": [
+    {
+      "id": "m3.oly-money.001",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A book costs Rp12.500. Rina pays with a Rp20.000 note. How many rupiah is her change?",
+      "answer": 7500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take the price away from Rp20.000.",
+        "20.000 - 12.500.",
+        "Count up from 12.500 to 20.000."
+      ],
+      "explanation": "Her change is 20.000 - 12.500 = Rp7.500.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-money.002",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dino pays exactly Rp10.000 using only Rp5.000 notes and Rp2.000 notes. How many different ways can he do this?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "Try 0 notes of Rp5.000 first. Then 1 note, then 2 notes.",
+        "With 1 note of Rp5.000, Rp5.000 is left. Can Rp2.000 notes make Rp5.000?",
+        "With 2 notes of Rp5.000, nothing is left."
+      ],
+      "explanation": "With no Rp5.000 note, 5 notes of Rp2.000 make Rp10.000. With one Rp5.000 note, Rp5.000 is left, which two-thousand notes cannot make. With two Rp5.000 notes, it is exact. So there are 2 ways.",
+      "solution": [
+        {
+          "say": "With no Rp5.000 note, 5 notes of Rp2.000 make Rp10.000."
+        },
+        {
+          "say": "With one Rp5.000 note, Rp5.000 is left, which two-thousand notes cannot make."
+        },
+        {
+          "say": "With two Rp5.000 notes, it is exact."
+        },
+        {
+          "say": "So there are 2 ways."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-money.003",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A book costs Rp7.500. Mum buys 3 books and pays with a Rp50.000 note. How many rupiah is her change?",
+      "answer": 27500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find the cost of 3 books first.",
+        "3 x 7.500 = 22.500.",
+        "Take that away from Rp50.000."
+      ],
+      "explanation": "3 books cost 3 x 7.500 = Rp22.500. The change is 50.000 - 22.500 = Rp27.500.",
+      "solution": [
+        {
+          "say": "3 books cost 3 x 7.500 = Rp22.500."
+        },
+        {
+          "say": "The change is 50.000 - 22.500 = Rp27.500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-money.004",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A notebook costs Rp3.500 and a pen costs Rp2.000. Mia buys 4 notebooks and 3 pens. How many rupiah does she pay?",
+      "answer": 20000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find the cost of the notebooks and the cost of the pens.",
+        "4 notebooks cost Rp14.000.",
+        "3 pens cost Rp6.000."
+      ],
+      "explanation": "4 notebooks cost 4 x 3.500 = Rp14.000. 3 pens cost 3 x 2.000 = Rp6.000. In all, she pays 14.000 + 6.000 = Rp20.000.",
+      "solution": [
+        {
+          "say": "4 notebooks cost 4 x 3.500 = Rp14.000."
+        },
+        {
+          "say": "3 pens cost 3 x 2.000 = Rp6.000."
+        },
+        {
+          "say": "In all, she pays 14.000 + 6.000 = Rp20.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-money.005",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three friends share the cost of a gift for Rp18.000 equally. Ana has already paid Rp5.000. How many more rupiah must Ana pay?",
+      "answer": 1000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find how much each friend pays.",
+        "18.000 / 3 = 6.000.",
+        "Take away what Ana has already paid."
+      ],
+      "explanation": "Each friend pays 18.000 / 3 = Rp6.000. Ana has paid Rp5.000, so she must pay Rp1.000 more.",
+      "solution": [
+        {
+          "say": "Each friend pays 18.000 / 3 = Rp6.000."
+        },
+        {
+          "say": "Ana has paid Rp5.000, so she must pay Rp1.000 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-money.006",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Tono saves Rp2.500 each week. In how many weeks will he have Rp15.000?",
+      "answer": 6,
+      "tolerance": 0,
+      "unit": "weeks",
+      "hints": [
+        "Count how many Rp2.500 make Rp15.000.",
+        "Two weeks make Rp5.000.",
+        "Rp15.000 is 3 times Rp5.000."
+      ],
+      "explanation": "Two weeks make Rp5.000. Rp15.000 is 3 times Rp5.000, so it takes 3 x 2 = 6 weeks.",
+      "solution": [
+        {
+          "say": "Two weeks make Rp5.000."
+        },
+        {
+          "say": "Rp15.000 is 3 times Rp5.000, so it takes 3 x 2 = 6 weeks."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-money.007",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A shop says: buy 2 pens and get the 3rd pen free. Each pen costs Rp4.000. How many rupiah do 6 pens cost?",
+      "answer": 16000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Every 3 pens, one is free.",
+        "6 pens make 2 groups of 3.",
+        "How many pens do you pay for in each group?"
+      ],
+      "explanation": "In each group of 3 pens you pay for 2. There are 2 groups, so you pay for 4 pens. 4 x 4.000 = Rp16.000.",
+      "solution": [
+        {
+          "say": "In each group of 3 pens you pay for 2."
+        },
+        {
+          "say": "There are 2 groups, so you pay for 4 pens."
+        },
+        {
+          "say": "4 x 4.000 = Rp16.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-money.008",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The notes and coins are Rp10.000, Rp5.000, Rp2.000, Rp1.000 and Rp500. What is the smallest number of notes and coins that make Rp18.500?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Use the biggest note that fits first.",
+        "Rp10.000 first. Then Rp8.500 is left.",
+        "Keep using the biggest one that fits."
+      ],
+      "explanation": "Take Rp10.000. Rp8.500 is left. Take Rp5.000. Rp3.500 is left. Take Rp2.000. Rp1.500 is left. Take Rp1.000. Rp500 is left. Take Rp500. That is 5 pieces.",
+      "solution": [
+        {
+          "say": "Take Rp10.000."
+        },
+        {
+          "say": "Rp8.500 is left."
+        },
+        {
+          "say": "Take Rp5.000."
+        },
+        {
+          "say": "Rp3.500 is left."
+        },
+        {
+          "say": "Take Rp2.000."
+        },
+        {
+          "say": "Rp1.500 is left."
+        },
+        {
+          "say": "Take Rp1.000."
+        },
+        {
+          "say": "Rp500 is left."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-money.009",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A shirt costs Rp15.000 more than trousers. Together they cost Rp75.000. How many rupiah does the shirt cost?",
+      "answer": 45000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take away the extra Rp15.000.",
+        "75.000 - 15.000 = 60.000.",
+        "Share 60.000 equally to find the trousers."
+      ],
+      "explanation": "Take away the extra: 75.000 - 15.000 = 60.000. The trousers cost 60.000 / 2 = Rp30.000. The shirt costs 30.000 + 15.000 = Rp45.000.",
+      "solution": [
+        {
+          "say": "Take away the extra: 75.000 - 15.000 = 60.000."
+        },
+        {
+          "say": "The trousers cost 60.000 / 2 = Rp30.000."
+        },
+        {
+          "say": "The shirt costs 30.000 + 15.000 = Rp45.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-money.010",
+      "skill": "m3.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many rupiah are shown?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 5000,
+            "count": 1
+          },
+          {
+            "value": 2000,
+            "count": 3
+          },
+          {
+            "value": 500,
+            "count": 4
+          }
+        ],
+        "alt": "One Rp5.000 note, three Rp2.000 notes and four Rp500 coins."
+      },
+      "answer": 13000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add the notes first.",
+        "Three Rp2.000 notes make Rp6.000.",
+        "Add the Rp5.000 note and the four Rp500 coins."
+      ],
+      "explanation": "The Rp5.000 note is Rp5.000. Three Rp2.000 notes are Rp6.000. Four Rp500 coins are Rp2.000. In all, 5.000 + 6.000 + 2.000 = Rp13.000.",
+      "solution": [
+        {
+          "say": "The Rp5.000 note is Rp5.000."
+        },
+        {
+          "say": "Three Rp2.000 notes are Rp6.000."
+        },
+        {
+          "say": "Four Rp500 coins are Rp2.000."
+        },
+        {
+          "say": "In all, 5.000 + 6.000 + 2.000 = Rp13.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    }
+  ]
+}

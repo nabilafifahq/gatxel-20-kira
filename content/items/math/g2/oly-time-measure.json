@@ -21,9 +21,6 @@
           "why": "You may have mixed up the short hand and the long hand."
         },
         {
-          "text": "3:30"
-        },
-        {
           "text": "3:06",
           "why": "The long hand shows minutes. It points to 6, which is 30 minutes."
         },
@@ -34,9 +31,12 @@
         {
           "text": "4:30",
           "why": "The short hand has not reached 4 yet."
+        },
+        {
+          "text": "3:30"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "The short hand shows the hours.",
         "The short hand is just past the 3.",
@@ -144,14 +144,14 @@
           "why": "3 hours is not 3 minutes."
         },
         {
-          "text": "5:00",
-          "why": "Count forwards, not backwards."
+          "text": "11:00"
         },
         {
-          "text": "11:00"
+          "text": "5:00",
+          "why": "Count forwards, not backwards."
         }
       ],
-      "answer": 4,
+      "answer": 3,
       "hints": [
         "Count on one hour at a time.",
         "8:00, 9:00 ...",
@@ -174,11 +174,11 @@
       "prompt": "School starts at 7:30 and lasts 4 hours. When does school end?",
       "options": [
         {
-          "text": "11:00",
-          "why": "School lasts 4 hours, not 3 hours and 30 minutes."
+          "text": "11:30"
         },
         {
-          "text": "11:30"
+          "text": "11:00",
+          "why": "School lasts 4 hours, not 3 hours and 30 minutes."
         },
         {
           "text": "12:00",
@@ -193,7 +193,7 @@
           "why": "This is 5 hours after 7:30."
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Add the hours and keep the minutes.",
         "7:30 plus 1 hour is 8:30.",
@@ -241,18 +241,18 @@
           "why": "This is 60 minutes after the start."
         },
         {
-          "text": "3:00"
-        },
-        {
           "text": "3:30",
           "why": "This is 75 minutes after the start."
         },
         {
           "text": "2:30",
           "why": "This is 15 minutes after the start."
+        },
+        {
+          "text": "3:00"
         }
       ],
-      "answer": 2,
+      "answer": 4,
       "hints": [
         "First read the time on the clock.",
         "The clock shows a quarter past 2.",
@@ -319,6 +319,9 @@
       "prompt": "The long hand points to 6. The short hand is between 4 and 5. What time is it?",
       "options": [
         {
+          "text": "4:30"
+        },
+        {
           "text": "5:30",
           "why": "The short hand has not reached 5 yet."
         },
@@ -333,12 +336,9 @@
         {
           "text": "4:06",
           "why": "The long hand on 6 means 30 minutes."
-        },
-        {
-          "text": "4:30"
         }
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "The short hand shows the hour. It is between 4 and 5.",
         "The long hand shows the minutes.",
@@ -407,6 +407,9 @@
           "why": "You may have added 25 to the minutes of the next hour."
         },
         {
+          "text": "4:10"
+        },
+        {
           "text": "4:00",
           "why": "This is only 15 minutes later."
         },
@@ -415,14 +418,11 @@
           "why": "This is 35 minutes later."
         },
         {
-          "text": "4:10"
-        },
-        {
           "text": "3:70",
           "why": "Minutes go up to 59 only."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "First count on to the next whole hour.",
         "From 3:45 to 4:00 is 15 minutes.",
@@ -457,15 +457,15 @@
       "prompt": "A bus comes every 20 minutes. The first bus is at 8:00. When does the 4th bus come?",
       "options": [
         {
-          "text": "9:00"
-        },
-        {
           "text": "8:40",
           "why": "This is the 3rd bus."
         },
         {
           "text": "8:20",
           "why": "This is the 2nd bus."
+        },
+        {
+          "text": "9:00"
         },
         {
           "text": "9:20",
@@ -476,7 +476,7 @@
           "why": "Minutes go up to 59 only."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "List the times of the buses.",
         "8:00, 8:20 ...",
@@ -586,14 +586,14 @@
           "why": "At 9:00 the hands make a square corner."
         },
         {
-          "text": "6:00"
-        },
-        {
           "text": "1:00",
           "why": "At 1:00 the hands are close together."
+        },
+        {
+          "text": "6:00"
         }
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
         "The hands must point in opposite directions.",
         "The long hand points to 12 on the hour.",
@@ -632,6 +632,9 @@
           "why": "Count on 3 days from Tuesday."
         },
         {
+          "text": "Friday"
+        },
+        {
           "text": "Saturday",
           "why": "Count on 3 days from Tuesday."
         },
@@ -640,14 +643,11 @@
           "why": "This is only 1 day later."
         },
         {
-          "text": "Friday"
-        },
-        {
           "text": "Monday",
           "why": "This is the day before Tuesday."
         }
       ],
-      "answer": 3,
+      "answer": 1,
       "hints": [
         "Count on one day at a time.",
         "Wednesday is 1 day later.",
@@ -682,9 +682,6 @@
           "why": "This is only 1 day before Sunday."
         },
         {
-          "text": "Friday"
-        },
-        {
           "text": "Monday",
           "why": "This is the day after Sunday."
         },
@@ -695,9 +692,12 @@
         {
           "text": "Wednesday",
           "why": "This is 4 days before Sunday."
+        },
+        {
+          "text": "Friday"
         }
       ],
-      "answer": 1,
+      "answer": 4,
       "hints": [
         "Count backwards one day at a time.",
         "One day before Sunday is Saturday.",
@@ -754,6 +754,9 @@
           "why": "The 9th is a Thursday."
         },
         {
+          "text": "Friday"
+        },
+        {
           "text": "Saturday",
           "why": "Check the 8th first. It is a Wednesday again."
         },
@@ -764,12 +767,9 @@
         {
           "text": "Sunday",
           "why": "Count only 9 days from the 1st."
-        },
-        {
-          "text": "Friday"
         }
       ],
-      "answer": 4,
+      "answer": 1,
       "hints": [
         "The same day comes round every 7 days.",
         "The 1st and the 8th are both Wednesdays.",
@@ -849,14 +849,14 @@
           "why": "Count on from the 29th."
         },
         {
-          "text": "Sunday"
-        },
-        {
           "text": "Thursday",
           "why": "Check the days again from the 1st."
+        },
+        {
+          "text": "Sunday"
         }
       ],
-      "answer": 3,
+      "answer": 4,
       "hints": [
         "The 1st, 8th, 15th, 22nd are all Fridays.",
         "The 29th is also a Friday.",
@@ -952,11 +952,11 @@
           "why": "Check the heading above the column of the 18th."
         },
         {
-          "text": "Saturday"
-        },
-        {
           "text": "Sunday",
           "why": "The 19th is a Sunday."
+        },
+        {
+          "text": "Saturday"
         },
         {
           "text": "Thursday",
@@ -967,7 +967,7 @@
           "why": "The 13th is a Monday."
         }
       ],
-      "answer": 1,
+      "answer": 2,
       "hints": [
         "Find the number 18 in the calendar.",
         "Look at the top of its column.",
@@ -1317,18 +1317,18 @@
           "why": "Count carefully. 20 June plus 10 days is 30 June."
         },
         {
-          "text": "32 June",
-          "why": "June has only 30 days."
+          "text": "2 July"
         },
         {
-          "text": "2 July"
+          "text": "32 June",
+          "why": "June has only 30 days."
         },
         {
           "text": "2 June",
           "why": "The party is after 20 June."
         }
       ],
-      "answer": 3,
+      "answer": 2,
       "hints": [
         "Count on to the end of June first.",
         "From 20 June to 30 June is 10 days.",
@@ -1371,6 +1371,9 @@
       },
       "options": [
         {
+          "text": "6 cm"
+        },
+        {
           "text": "8 cm",
           "why": "You read the end of the pencil. The pencil does not start at 0."
         },
@@ -1385,12 +1388,9 @@
         {
           "text": "10 cm",
           "why": "This is the whole length of the ruler."
-        },
-        {
-          "text": "6 cm"
         }
       ],
-      "answer": 4,
+      "answer": 0,
       "hints": [
         "Look at where the pencil starts on the ruler.",
         "It does not start at 0.",
@@ -1670,11 +1670,11 @@
           "why": "This is 5 cm more than 1 m. Another length is bigger."
         },
         {
-          "text": "1 m",
-          "why": "1 m is 100 cm."
+          "text": "1 m 10 cm"
         },
         {
-          "text": "1 m 10 cm"
+          "text": "1 m",
+          "why": "1 m is 100 cm."
         },
         {
           "text": "99 cm",
@@ -1685,7 +1685,7 @@
           "why": "This is 109 cm. Another length is bigger."
         }
       ],
-      "answer": 2,
+      "answer": 1,
       "hints": [
         "Change each length into centimetres.",
         "1 m is 100 cm.",

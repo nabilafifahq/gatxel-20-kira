@@ -1,0 +1,456 @@
+{
+  "skill": "m3.oly-number-sense",
+  "items": [
+    {
+      "id": "m3.oly-number-sense.001",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A 3-digit number has tens digit 0. Its hundreds digit is 3 times its ones digit. Its digits add up to 8. What is the number?",
+      "options": [
+        {
+          "text": "206"
+        },
+        {
+          "text": "503"
+        },
+        {
+          "text": "602"
+        },
+        {
+          "text": "620"
+        },
+        {
+          "text": "701"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The ones digit is 1 block. The hundreds digit is 3 blocks.",
+        "The digits add up to 4 blocks, because the tens digit is 0.",
+        "4 blocks make 8."
+      ],
+      "explanation": "The hundreds digit is 3 blocks, the ones digit is 1 block and the tens digit is 0. 4 blocks make 8, so 1 block is 2. The number is 602.",
+      "solution": [
+        {
+          "say": "The hundreds digit is 3 blocks, the ones digit is 1 block and the tens digit is 0."
+        },
+        {
+          "say": "4 blocks make 8, so 1 block is 2."
+        },
+        {
+          "say": "The number is 602."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.002",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The digits of a 3-digit number are all different and add up to 10. What is the biggest such number?",
+      "options": [
+        {
+          "text": "703"
+        },
+        {
+          "text": "811"
+        },
+        {
+          "text": "820"
+        },
+        {
+          "text": "901"
+        },
+        {
+          "text": "910"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Put the biggest possible digit in the hundreds place.",
+        "With 9 in the hundreds place, the other two digits add up to 1.",
+        "Use the bigger of those digits in the tens place."
+      ],
+      "explanation": "The hundreds digit is at most 9. The other two digits then add up to 1, so they are 1 and 0. The biggest number puts 1 before 0: 910.",
+      "solution": [
+        {
+          "say": "The hundreds digit is at most 9."
+        },
+        {
+          "say": "The other two digits then add up to 1, so they are 1 and 0."
+        },
+        {
+          "say": "The biggest number puts 1 before 0: 910."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.003",
+      "skill": "m3.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Use the digits 0, 5 and 7 once each. How many different 3-digit numbers can you make?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "A 3-digit number cannot start with 0.",
+        "List the numbers that start with 5.",
+        "Then list the numbers that start with 7."
+      ],
+      "explanation": "Starting with 5: 507 and 570. Starting with 7: 705 and 750. That makes 4 numbers.",
+      "solution": [
+        {
+          "say": "Starting with 5: 507 and 570."
+        },
+        {
+          "say": "Starting with 7: 705 and 750."
+        },
+        {
+          "say": "That makes 4 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.004",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which of these numbers is 400 when rounded to the nearest hundred?",
+      "options": [
+        {
+          "text": "289",
+          "why": "289 rounds to 300."
+        },
+        {
+          "text": "341",
+          "why": "341 rounds to 300."
+        },
+        {
+          "text": "351"
+        },
+        {
+          "text": "461",
+          "why": "461 rounds to 500."
+        },
+        {
+          "text": "549",
+          "why": "549 rounds to 500."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Numbers from 350 to 449 round to 400.",
+        "Check each number against 350 and 449.",
+        "Which number is in that range?"
+      ],
+      "explanation": "351 is between 350 and 449, so it rounds to 400. The others round to 300 or 500.",
+      "solution": [
+        {
+          "say": "351 is between 350 and 449, so it rounds to 400."
+        },
+        {
+          "say": "The others round to 300 or 500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.005",
+      "skill": "m3.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many whole numbers are there between 398 and 405?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Do not count 398 or 405.",
+        "The first number is 399.",
+        "List them up to 404."
+      ],
+      "explanation": "The numbers are 399, 400, 401, 402, 403 and 404. That is 6 numbers.",
+      "solution": [
+        {
+          "say": "The numbers are 399, 400, 401, 402, 403 and 404."
+        },
+        {
+          "say": "That is 6 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-number-sense.006",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is the closest to 500?",
+      "options": [
+        {
+          "text": "478"
+        },
+        {
+          "text": "523"
+        },
+        {
+          "text": "489"
+        },
+        {
+          "text": "512"
+        },
+        {
+          "text": "495"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find how far each number is from 500.",
+        "Some numbers are bigger and some are smaller.",
+        "Take the smaller number from the bigger number each time."
+      ],
+      "explanation": "The distances from 500 are 22, 23, 11, 12 and 5. The smallest distance is 5, so 495 is the closest.",
+      "solution": [
+        {
+          "say": "The distances from 500 are 22, 23, 11, 12 and 5."
+        },
+        {
+          "say": "The smallest distance is 5, so 495 is the closest."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.007",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Is the product 17 x 24 x 31 odd or even?",
+      "options": [
+        {
+          "text": "Odd",
+          "why": "An even number times any number is even."
+        },
+        {
+          "text": "It depends on the order",
+          "why": "The order of multiplying does not change the answer."
+        },
+        {
+          "text": "Neither",
+          "why": "Every whole number is odd or even."
+        },
+        {
+          "text": "Even"
+        },
+        {
+          "text": "It is 0",
+          "why": "None of the numbers is 0."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at each number in the product.",
+        "Is any of the numbers even?",
+        "An even number multiplied by anything is even."
+      ],
+      "explanation": "The number 24 is even. A product with an even number in it is always even.",
+      "solution": [
+        {
+          "say": "The number 24 is even."
+        },
+        {
+          "say": "A product with an even number in it is always even."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.008",
+      "skill": "m3.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Write the numbers from 1 to 100. How many times do you write the digit 7?",
+      "answer": 20,
+      "tolerance": 0,
+      "hints": [
+        "Count the digit 7 in the ones place and in the tens place.",
+        "Ones place: 7, 17, 27 ...",
+        "Tens place: 70, 71 ..."
+      ],
+      "explanation": "The ones place has a 7 in 7, 17, 27, 37, 47, 57, 67, 77, 87 and 97, which is 10. The tens place has a 7 in 70 to 79, which is 10. In all, 10 + 10 = 20.",
+      "solution": [
+        {
+          "say": "The ones place has a 7 in 7, 17, 27, 37, 47, 57, 67, 77, 87 and 97, which is 10."
+        },
+        {
+          "say": "The tens place has a 7 in 70 to 79, which is 10."
+        },
+        {
+          "say": "In all, 10 + 10 = 20."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-number-sense.009",
+      "skill": "m3.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many numbers from 100 to 199 have digits that add up to 5?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "The hundreds digit is 1.",
+        "The tens and ones digits must add up to 4.",
+        "List: 04, 13, 22 ..."
+      ],
+      "explanation": "The tens and ones digits add up to 4. The numbers are 104, 113, 122, 131 and 140. That is 5 numbers.",
+      "solution": [
+        {
+          "say": "The tens and ones digits add up to 4."
+        },
+        {
+          "say": "The numbers are 104, 113, 122, 131 and 140."
+        },
+        {
+          "say": "That is 5 numbers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-number-sense.010",
+      "skill": "m3.oly-number-sense",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Swap the hundreds digit and the ones digit of 742. How much smaller is the new number?",
+      "answer": 495,
+      "tolerance": 0,
+      "hints": [
+        "Swap the first and last digits.",
+        "The new number is 247.",
+        "Take 247 away from 742."
+      ],
+      "explanation": "Swapping the first and last digits of 742 gives 247. The new number is 742 - 247 = 495 smaller.",
+      "solution": [
+        {
+          "say": "Swapping the first and last digits of 742 gives 247."
+        },
+        {
+          "say": "The new number is 742 - 247 = 495 smaller."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-number-sense.011",
+      "skill": "m3.oly-number-sense",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The digits of a 2-digit number add up to 12. The tens digit is 2 more than the ones digit. What is the number?",
+      "options": [
+        {
+          "text": "57"
+        },
+        {
+          "text": "66"
+        },
+        {
+          "text": "75"
+        },
+        {
+          "text": "84"
+        },
+        {
+          "text": "93"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The tens and ones digits are 2 apart.",
+        "Their total is 12.",
+        "Find two numbers that are 2 apart and add up to 12."
+      ],
+      "explanation": "Two numbers that are 2 apart and add up to 12 are 7 and 5. The tens digit is the bigger one, so the number is 75.",
+      "solution": [
+        {
+          "say": "Two numbers that are 2 apart and add up to 12 are 7 and 5."
+        },
+        {
+          "say": "The tens digit is the bigger one, so the number is 75."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}

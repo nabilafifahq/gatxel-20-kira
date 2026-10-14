@@ -1,0 +1,674 @@
+{
+  "skill": "m1.oly-coding",
+  "items": [
+    {
+      "id": "m1.oly-coding.001",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In a code, A = 1, B = 2, C = 3 and D = 4. What is the code for BAD?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Letter",
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rows": [
+          [
+            "Code",
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        ],
+        "alt": "A code table. A is 1, B is 2, C is 3, D is 4."
+      },
+      "options": [
+        {
+          "text": "1-2-4",
+          "why": "B is 2 and A is 1. Check the order."
+        },
+        {
+          "text": "2-1-4"
+        },
+        {
+          "text": "2-1-3",
+          "why": "D is 4, not 3."
+        },
+        {
+          "text": "4-1-2",
+          "why": "This is the code for DAB."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find each letter in the code.",
+        "B is 2 and A is 1.",
+        "What is D?"
+      ],
+      "explanation": "B is 2, A is 1 and D is 4. So BAD is 2-1-4.",
+      "solution": [
+        {
+          "say": "B is 2, A is 1 and D is 4."
+        },
+        {
+          "say": "So BAD is 2-1-4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.002",
+      "skill": "m1.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A star is 2 and a heart is 3. What is the total of star, heart, star?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Write the number for each picture.",
+        "2, 3, 2.",
+        "Add them up."
+      ],
+      "explanation": "The total is 2 + 3 + 2 = 7.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.003",
+      "skill": "m1.oly-coding",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Red is 1 and blue is 2. What is the total of red, red, blue?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Write the number for each colour.",
+        "1, 1, 2.",
+        "Add them up."
+      ],
+      "explanation": "The total is 1 + 1 + 2 = 4.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.004",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "3",
+          "5",
+          "7",
+          "8"
+        ],
+        "style": "boxes",
+        "alt": "Four numbers: 3, 5, 7 and 8."
+      },
+      "options": [
+        {
+          "text": "3",
+          "why": "3 is odd."
+        },
+        {
+          "text": "5",
+          "why": "5 is odd."
+        },
+        {
+          "text": "7",
+          "why": "7 is odd."
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at each number.",
+        "Which are odd and which is even?",
+        "Three numbers are odd."
+      ],
+      "explanation": "3, 5 and 7 are odd. 8 is even, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "3, 5 and 7 are odd."
+        },
+        {
+          "say": "8 is even, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.005",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one is the odd one out?",
+      "options": [
+        {
+          "text": "Apple",
+          "why": "An apple is a fruit."
+        },
+        {
+          "text": "Banana",
+          "why": "A banana is a fruit."
+        },
+        {
+          "text": "Car"
+        },
+        {
+          "text": "Orange",
+          "why": "An orange is a fruit."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what each one is.",
+        "Three of them are fruits.",
+        "Which one is not a fruit?"
+      ],
+      "explanation": "An apple, a banana and an orange are fruits. A car is not a fruit.",
+      "solution": [
+        {
+          "say": "An apple, a banana and an orange are fruits."
+        },
+        {
+          "say": "A car is not a fruit."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.006",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape is the odd one out?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          }
+        ],
+        "alt": "A row of 4 shapes: circle, circle, square, circle."
+      },
+      "options": [
+        {
+          "text": "Circle",
+          "why": "Three shapes in the row are circles."
+        },
+        {
+          "text": "Triangle",
+          "why": "There is no triangle in the row."
+        },
+        {
+          "text": "Star",
+          "why": "There is no star in the row."
+        },
+        {
+          "text": "Square"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at all the shapes in the row.",
+        "Three shapes are the same kind.",
+        "Which shape has corners?"
+      ],
+      "explanation": "Three shapes are circles. The square has corners, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "Three shapes are circles."
+        },
+        {
+          "say": "The square has corners, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-coding.007",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "4",
+          "7",
+          "8"
+        ],
+        "style": "boxes",
+        "alt": "Four numbers: 2, 4, 7 and 8."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "2 is even."
+        },
+        {
+          "text": "4",
+          "why": "4 is even."
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8",
+          "why": "8 is even."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at each number.",
+        "Which are even?",
+        "Three numbers are even."
+      ],
+      "explanation": "2, 4 and 8 are even. 7 is odd, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "2, 4 and 8 are even."
+        },
+        {
+          "say": "7 is odd, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.008",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A robot starts at S. R is one step right. U is one step up. It follows R R U. Where does it stop?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "label": "A"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "label": "B"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "label": "C"
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "label": "D"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the points A at (3, 2), B at (2, 2), C at (3, 3) and D at (1, 2)."
+      },
+      "options": [
+        {
+          "text": "B",
+          "why": "Count the R steps. There are 2."
+        },
+        {
+          "text": "C",
+          "why": "There is only 1 U step."
+        },
+        {
+          "text": "A"
+        },
+        {
+          "text": "D",
+          "why": "The robot goes right, not left."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the steps one at a time.",
+        "R R moves 2 steps right.",
+        "Then U moves 1 step up."
+      ],
+      "explanation": "The robot goes right 2 and up 1. It stops at A.",
+      "solution": [
+        {
+          "say": "The robot goes right 2 and up 1."
+        },
+        {
+          "say": "It stops at A."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-coding.009",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A robot starts at S. R is one step right. U is one step up. It follows U U R. Where does it stop?",
+      "figure": {
+        "kind": "coordinates",
+        "size": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "S"
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "label": "A"
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "label": "B"
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "label": "C"
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "label": "D"
+          }
+        ],
+        "polygon": false,
+        "quadrants": 1,
+        "alt": "A grid with the start S at (1, 1) and the points A at (2, 3), B at (3, 3), C at (2, 2) and D at (1, 3)."
+      },
+      "options": [
+        {
+          "text": "B",
+          "why": "Count the U steps. There are 2."
+        },
+        {
+          "text": "C",
+          "why": "There is only 1 R step."
+        },
+        {
+          "text": "A"
+        },
+        {
+          "text": "D",
+          "why": "The robot goes up and then right."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Follow the steps one at a time.",
+        "U U moves 2 steps up.",
+        "Then R moves 1 step right."
+      ],
+      "explanation": "The robot goes up 2 and right 1. It stops at A.",
+      "solution": [
+        {
+          "say": "The robot goes up 2 and right 1."
+        },
+        {
+          "say": "It stops at A."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-coding.010",
+      "skill": "m1.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "P means add 1. Q means take away 1. Start at 5. Follow P P Q P. What number do you reach?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Do one letter at a time.",
+        "5, then P adds 1.",
+        "Write the number after each letter."
+      ],
+      "explanation": "5, then P: 6. P: 7. Q: 6. P: 7. You reach 7.",
+      "solution": [
+        {
+          "say": "5, then P: 6."
+        },
+        {
+          "say": "P: 7."
+        },
+        {
+          "say": "Q: 6."
+        },
+        {
+          "say": "P: 7."
+        },
+        {
+          "say": "You reach 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-coding.011",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In a code, each word is written backwards. How is CAT written?",
+      "options": [
+        {
+          "text": "TAC"
+        },
+        {
+          "text": "ACT",
+          "why": "These are the right letters, but not backwards."
+        },
+        {
+          "text": "CTA",
+          "why": "Write the last letter first."
+        },
+        {
+          "text": "CAT",
+          "why": "This is the same word."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Start from the last letter.",
+        "The last letter of CAT is T.",
+        "Then write A, then C."
+      ],
+      "explanation": "Backwards, CAT is T, A, C. The code is TAC.",
+      "solution": [
+        {
+          "say": "Backwards, CAT is T, A, C."
+        },
+        {
+          "say": "The code is TAC."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-coding.012",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which one is the odd one out?",
+      "options": [
+        {
+          "text": "Hen",
+          "why": "A hen is a bird."
+        },
+        {
+          "text": "Duck",
+          "why": "A duck is a bird."
+        },
+        {
+          "text": "Owl",
+          "why": "An owl is a bird."
+        },
+        {
+          "text": "Bat"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what each animal is.",
+        "Birds have feathers.",
+        "Which animal has fur?"
+      ],
+      "explanation": "A hen, a duck and an owl are birds. A bat has fur and is not a bird.",
+      "solution": [
+        {
+          "say": "A hen, a duck and an owl are birds."
+        },
+        {
+          "say": "A bat has fur and is not a bird."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-coding.013",
+      "skill": "m1.oly-coding",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sum has a different answer?",
+      "options": [
+        {
+          "text": "3 + 4",
+          "why": "This makes 7, like the others."
+        },
+        {
+          "text": "2 + 5",
+          "why": "This makes 7, like the others."
+        },
+        {
+          "text": "4 + 4"
+        },
+        {
+          "text": "6 + 1",
+          "why": "This makes 7, like the others."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out each sum.",
+        "Most of the sums have the same answer.",
+        "One sum is not 7."
+      ],
+      "explanation": "3 + 4, 2 + 5 and 6 + 1 make 7. 4 + 4 makes 8, so it is different.",
+      "solution": [
+        {
+          "say": "3 + 4, 2 + 5 and 6 + 1 make 7."
+        },
+        {
+          "say": "4 + 4 makes 8, so it is different."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}
