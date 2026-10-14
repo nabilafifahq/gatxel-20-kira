@@ -11,7 +11,7 @@ import { labelPerm, runnerSeed } from '../labels'
 import { resolveItems, skill, toClient } from './content'
 import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
-import { areaOfSessionRef } from '@kira/core/english-skills'
+import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
 import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
 import { completeLinkedSession, isTesLocked, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
 
@@ -443,6 +443,11 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       const area = areaOfSessionRef(a.refId)
       if (area) await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: area })
     }
+  }
+  // Reading dikerjakan sebagai sesi reading; tugas Reading dari tutor ikut selesai.
+  if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf) {
+    const sks = [...new Set(items.map((it) => resolved.get(it.ref)?.skill).filter((x): x is string => !!x))].map((id) => ({ id, strand: skill(id)?.strand ?? '' }))
+    if (isReadingAttempt({ questSession: session, skills: sks })) await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: 'reading' })
   }
   if (a.kind === 'lesson' && items[0]) {
     const skillId = resolved.get(items[0].ref)?.skill

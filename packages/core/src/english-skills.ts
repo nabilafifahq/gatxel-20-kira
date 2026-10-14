@@ -64,3 +64,13 @@ export function groupByArea<T extends { id: string; strand: string }>(skills: re
   for (const s of skills) out[yleAreaOfSkill(s.id, s.strand)].push(s)
   return out
 }
+
+/**
+ * Apakah attempt ini latihan Reading? Sesi quest bertipe reading, atau latihan dari peta yang semua
+ * skill-nya bagian reading. Latihan, Tes, dan Paper harian tidak dihitung kecuali sesinya reading.
+ */
+export function isReadingAttempt(input: { questSession: string | null; skills: readonly { id: string; strand: string }[] }): boolean {
+  if (input.questSession === 'reading') return true
+  if (input.questSession !== null) return false
+  return input.skills.length > 0 && input.skills.every((s) => yleAreaOfSkill(s.id, s.strand) === 'reading')
+}

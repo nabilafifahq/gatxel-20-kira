@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { areaOfSessionRef, groupByArea, sessionRef, sessionSkillId, yleAreaOfSkill, yleLevelOfGrade } from '../src/english-skills'
+import { areaOfSessionRef, groupByArea, sessionRef, sessionSkillId, isReadingAttempt, yleAreaOfSkill, yleLevelOfGrade } from '../src/english-skills'
 
 describe('Keterampilan English dan Cambridge Young Learners', () => {
   it('kelas dipetakan ke Starters, Movers, dan Flyers', () => {
@@ -42,5 +42,13 @@ describe('Keterampilan English dan Cambridge Young Learners', () => {
     expect(g.writing).toHaveLength(1)
     expect(g.speaking).toHaveLength(1)
     expect(g.listening).toHaveLength(1)
+  })
+  it('mengenali attempt reading', () => {
+    const rd = [{ id: 'e2.magic-e', strand: 'Rw' }]
+    expect(isReadingAttempt({ questSession: 'reading', skills: [{ id: 'e2.x', strand: 'SL' }] })).toBe(true)
+    expect(isReadingAttempt({ questSession: null, skills: rd })).toBe(true)
+    expect(isReadingAttempt({ questSession: 'latihan', skills: rd })).toBe(false)
+    expect(isReadingAttempt({ questSession: null, skills: [...rd, { id: 'e2.writing', strand: 'Wc' }] })).toBe(false)
+    expect(isReadingAttempt({ questSession: null, skills: [] })).toBe(false)
   })
 })
