@@ -1,26 +1,43 @@
-Kira sound effects
-==================
+Kira sounds and music
+=====================
 
-Source: Kenney (https://www.kenney.nl), audio packs "Interface Sounds", "Digital Audio"
-and "Music Jingles". License: Creative Commons Zero (CC0 1.0),
-http://creativecommons.org/publicdomain/zero/1.0/
-Free for personal, educational and commercial use. Credit is not required.
+All files here are CC0 1.0 (public domain dedication,
+http://creativecommons.org/publicdomain/zero/1.0/). Credit is not required; it is given anyway.
+Every clip was trimmed, loudness-normalised and re-encoded as mono MP3 (56 kbps for effects,
+24 kbps for music) so it is small and plays on every browser and in the Android WebView.
+Each file is under 61 KB; the whole folder is about 0.4 MB.
 
-Each file below is a short clip taken from a Kenney pack. The clips were trimmed at the
-start, peak-normalised to about -3 dB, and re-encoded as mono 64 kbps MP3 so they are small
-and play on every browser and on the Android WebView.
+SOURCES AND LICENCES (checked on the pack pages, 2026-10-14)
+- Kenney "Interface Sounds"  https://kenney.nl/assets/interface-sounds   CC0
+- Kenney "Digital Audio"     https://kenney.nl/assets/digital-audio      CC0
+- Kenney "UI Audio"          https://kenney.nl/assets/ui-audio           CC0
+- Kenney "Music Jingles"     https://kenney.nl/assets/music-jingles      CC0
+- Kenney "RPG Audio"         https://kenney.nl/assets/rpg-audio          CC0
+- Kenney "Casino Audio"      https://kenney.nl/assets/casino-audio       CC0
+- OpenGameArt "Calm Loop"            https://opengameart.org/content/calm-loop               CC0
+- OpenGameArt "Contemplation"        https://opengameart.org/content/contemplation-0         CC0
+- OpenGameArt "Happy Lullaby (song17)" https://opengameart.org/content/happy-lullaby-song17  CC0
 
-correct.mp3   Interface Sounds / confirmation_001.ogg
-notyet.mp3    Interface Sounds / question_002.ogg
-combo.mp3     Digital Audio / powerUp5.ogg
-levelup.mp3   Digital Audio / powerUp3.ogg
-badge.mp3     Music Jingles / Hit jingles / jingles_HIT10.ogg
-complete.mp3  Music Jingles / Hit jingles / jingles_HIT15.ogg
-tick.mp3      Interface Sounds / tick_004.ogg
-timeup.mp3    Digital Audio / lowDown.ogg
-tap.mp3       Interface Sounds / click_001.ogg
-
-Pack pages:
-https://kenney.nl/assets/interface-sounds
-https://kenney.nl/assets/digital-audio
-https://kenney.nl/assets/music-jingles
+FILES (variants are picked at random by sfx.ts)
+correct-1..3   Interface Sounds confirmation_001..003
+notyet-1..3    Interface Sounds question_002, question_001, question_003
+tap-1..4       Interface Sounds click_001..003; UI Audio click3
+combo1-1..2    Digital Audio powerUp5, pepSound3
+combo2-1..2    same sources, pitched up 1.26x (rising pitch for combo level 2)
+combo3-1..2    same sources, pitched up 1.5x (combo level 3)
+levelup-1..3   Digital Audio powerUp3, powerUp7; Music Jingles STEEL14
+badge-1..3     Music Jingles HIT10, HIT05, PIZZI05
+complete-1..3  Music Jingles HIT15, HIT02, STEEL09 (short, 1 star)
+big-1..3       Music Jingles STEEL07, STEEL02, SAX07 (big jingle, 3 stars)
+timeup-1..3    Digital Audio lowDown, lowThreeTone, zapThreeToneDown
+tick-1..2      Interface Sounds tick_004, tick_002
+count-1..2     Digital Audio tone1 (second one pitched 1.12x): countdown 3, 2, 1
+go-1..2        Digital Audio phaserUp3, powerUp1: countdown go and sprint go
+whoosh-1..3    Interface Sounds minimize_002, maximize_002, scroll_003 (very quiet)
+flag-1..2      Casino Audio card-slide-2, card-slide-5 (flag reveal)
+quiz-1..2      Digital Audio threeTone1, threeTone2 (quiz streak)
+chest-1..3     RPG Audio metalLatch + Digital Audio powerUp10; RPG creak2 + Music Jingles STEEL10;
+               RPG doorOpen_1
+music-1        OpenGameArt "Calm Loop" (first 19 s)
+music-2        OpenGameArt "Contemplation" (20 s excerpt from 0:08)
+music-3        OpenGameArt "Happy Lullaby (song17)" (first 20 s)
