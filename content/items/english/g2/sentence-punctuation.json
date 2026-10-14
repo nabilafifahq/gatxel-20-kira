@@ -568,6 +568,354 @@
       "distractors": [
         "swims"
       ]
+    },
+    {
+      "id": "e2.sentence-punctuation.020",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence ends with a question mark?",
+      "hints": [
+        "A question asks something.",
+        "Look at the first word of each sentence.",
+        "Where is a question word."
+      ],
+      "explanation": "Where is my hat? asks something.",
+      "options": [
+        {
+          "text": "I lost my hat.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Wow, what a big hat!",
+          "why": "This shows a strong feeling."
+        },
+        {
+          "text": "Where is my hat?"
+        },
+        {
+          "text": "Put on your hat.",
+          "why": "This tells someone to do something."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.sentence-punctuation.021",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which mark goes at the end? What a lovely day___",
+      "hints": [
+        "The sentence shows a strong feeling.",
+        "Think of how you say it.",
+        "The mark is a line with a dot."
+      ],
+      "explanation": "What a lovely day! shows excitement.",
+      "options": [
+        {
+          "text": "?",
+          "why": "The sentence does not ask anything."
+        },
+        {
+          "text": "!"
+        },
+        {
+          "text": ".",
+          "why": "A full stop is for plain telling."
+        },
+        {
+          "text": ",",
+          "why": "A comma does not end a sentence."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.sentence-punctuation.022",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Check the start of the sentence.",
+        "Check the end of the sentence.",
+        "It needs a capital letter and a full stop."
+      ],
+      "explanation": "We went to the zoo. has a capital letter and a full stop.",
+      "options": [
+        {
+          "text": "we saw a lion",
+          "why": "It needs a capital letter and a full stop."
+        },
+        {
+          "text": "Did we go to the zoo.",
+          "why": "A question needs a question mark."
+        },
+        {
+          "text": "We went to the zoo,",
+          "why": "A comma does not end a sentence."
+        },
+        {
+          "text": "We went to the zoo."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.sentence-punctuation.023",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence needs a question mark?",
+      "hints": [
+        "Read each sentence in your head.",
+        "Which one asks something?",
+        "What starts a question."
+      ],
+      "explanation": "What time is it needs a question mark.",
+      "options": [
+        {
+          "text": "It is nine o'clock",
+          "why": "This tells us something."
+        },
+        {
+          "text": "What time is it"
+        },
+        {
+          "text": "Look at the clock",
+          "why": "This tells someone to do something."
+        },
+        {
+          "text": "The clock is big",
+          "why": "This tells us something."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.sentence-punctuation.024",
+      "skill": "e2.sentence-punctuation",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the end mark. Do you like mangoes___",
+      "hints": [
+        "The sentence asks something.",
+        "It does not tell.",
+        "The mark looks like a hook."
+      ],
+      "explanation": "Do you like mangoes? is a question.",
+      "blanks": [
+        {
+          "answers": [
+            "?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.025",
+      "skill": "e2.sentence-punctuation",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences by the end mark they need.",
+      "hints": [
+        "Telling sentences need a full stop.",
+        "Questions ask something.",
+        "Wow and hooray show strong feelings."
+      ],
+      "explanation": "Telling sentences take a full stop, questions take a question mark and big feelings take an exclamation mark.",
+      "groups": [
+        "Full stop",
+        "Question mark",
+        "Exclamation mark"
+      ],
+      "items": [
+        {
+          "text": "I am eight",
+          "group": 0
+        },
+        {
+          "text": "Are you eight",
+          "group": 1
+        },
+        {
+          "text": "Wow, I won",
+          "group": 2
+        },
+        {
+          "text": "We like rice",
+          "group": 0
+        },
+        {
+          "text": "Who is there",
+          "group": 1
+        },
+        {
+          "text": "Hooray, we did it",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.026",
+      "skill": "e2.sentence-punctuation",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a question.",
+      "hints": [
+        "The sentence starts with a capital.",
+        "It ends with a question mark.",
+        "The first word is Can."
+      ],
+      "explanation": "Can you see the moon? is a question.",
+      "answer": "Can you see the moon?",
+      "distractors": [
+        "sees"
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.027",
+      "skill": "e2.sentence-punctuation",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The first word has a capital letter.",
+        "The last word ends with a full stop.",
+        "Start with My."
+      ],
+      "explanation": "My mum works here.",
+      "items": [
+        "My",
+        "mum",
+        "works",
+        "here."
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.028",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence has the right end mark?",
+      "hints": [
+        "The sentence shows surprise.",
+        "Surprise needs a special mark.",
+        "Look at the end of each choice."
+      ],
+      "explanation": "What a big fish! shows surprise.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "What a big fish!"
+        },
+        {
+          "text": "What a big fish?",
+          "why": "It is not asking anything."
+        },
+        {
+          "text": "What a big fish.",
+          "why": "It shows a strong feeling."
+        },
+        {
+          "text": "What a big fish",
+          "why": "It needs an end mark."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.sentence-punctuation.029",
+      "skill": "e2.sentence-punctuation",
+      "type": "match",
+      "difficulty": 4,
+      "prompt": "Match each sentence to what it does.",
+      "hints": [
+        "Read each sentence aloud.",
+        "Think about what it does.",
+        "A question asks."
+      ],
+      "explanation": "Each sentence has a job.",
+      "pairs": [
+        [
+          "Close the door.",
+          "gives a command"
+        ],
+        [
+          "Is it hot?",
+          "asks a question"
+        ],
+        [
+          "It is hot.",
+          "tells a fact"
+        ],
+        [
+          "How hot it is!",
+          "shows a strong feeling"
+        ]
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.030",
+      "skill": "e2.sentence-punctuation",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Look out ___",
+      "hints": [
+        "Someone is in danger.",
+        "The sentence shows a strong feeling.",
+        "Choose the loud mark."
+      ],
+      "explanation": "Look out! needs an exclamation mark.",
+      "gaps": [
+        {
+          "options": [
+            "!",
+            "?",
+            "."
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.sentence-punctuation.031",
+      "skill": "e2.sentence-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is a command?",
+      "hints": [
+        "A command tells someone to do something.",
+        "It often starts with a doing word or please.",
+        "It is not about I or he."
+      ],
+      "explanation": "Please sit down. tells someone what to do.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "I sit down.",
+          "why": "This tells us something."
+        },
+        {
+          "text": "Do you sit down?",
+          "why": "This asks a question."
+        },
+        {
+          "text": "Please sit down."
+        },
+        {
+          "text": "He sits down.",
+          "why": "This tells us something."
+        }
+      ],
+      "answer": 2
     }
   ]
 }

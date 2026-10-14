@@ -677,6 +677,269 @@
           }
         ]
       }
+    },
+    {
+      "id": "e2.writing.021",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 2,
+      "prompt": "Write two sentences about a pet or an animal you like.",
+      "hints": [
+        "Say the animal first.",
+        "Say one thing about it.",
+        "Check each capital letter and full stop."
+      ],
+      "explanation": "Each sentence has a capital letter and a full stop.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes two sentences about an animal",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 8,
+      "maxWords": 30,
+      "model": "My cat is white and soft. She likes to sleep on my bed."
+    },
+    {
+      "id": "e2.writing.022",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write what you did at the weekend. Use first, then and last.",
+      "hints": [
+        "Think about two or three things you did.",
+        "Use order words.",
+        "Use past tense verbs, like played or went."
+      ],
+      "explanation": "A recount tells what happened in order.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells what happened in order",
+            "points": 2
+          },
+          {
+            "label": "Uses first, then and last",
+            "points": 1
+          },
+          {
+            "label": "Uses past tense verbs",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 15,
+      "maxWords": 50,
+      "model": "First, I played football. Then I ate lunch with my family. Last, I watched a film."
+    },
+    {
+      "id": "e2.writing.023",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 3,
+      "prompt": "Write instructions for making a sandwich. Write three steps.",
+      "hints": [
+        "Think about what you do first.",
+        "Start each step with a doing word.",
+        "Use first, next and last."
+      ],
+      "explanation": "Instructions tell what to do, step by step.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes three steps in order",
+            "points": 2
+          },
+          {
+            "label": "Uses order words",
+            "points": 1
+          },
+          {
+            "label": "Uses doing words at the start",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 12,
+      "maxWords": 40,
+      "model": "First, put butter on the bread. Next, add cheese. Last, put the second slice on top."
+    },
+    {
+      "id": "e2.writing.024",
+      "skill": "e2.writing",
+      "type": "write",
+      "difficulty": 4,
+      "prompt": "Write a short letter to a friend. Tell them about your day.",
+      "hints": [
+        "Start with Dear and the name.",
+        "Write about your day.",
+        "End with a goodbye and your name."
+      ],
+      "explanation": "A letter has a start, a middle and an end.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Starts with Dear and ends with a goodbye",
+            "points": 1
+          },
+          {
+            "label": "Tells about the day in two or three sentences",
+            "points": 2
+          },
+          {
+            "label": "Capital letters and full stops",
+            "points": 1
+          }
+        ]
+      },
+      "minWords": 20,
+      "maxWords": 60,
+      "model": "Dear Kai, Today I went to the market with Dad. We bought mangoes. They were sweet. Best wishes, Mia"
+    },
+    {
+      "id": "e2.writing.025",
+      "skill": "e2.writing",
+      "type": "photo",
+      "difficulty": 3,
+      "prompt": "Write the names of five things in your classroom on paper. Then take a photo.",
+      "hints": [
+        "Look around your room.",
+        "Write one thing on each line.",
+        "Check your spelling."
+      ],
+      "explanation": "A list names things clearly, one at a time.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Writes five different things",
+            "points": 2
+          },
+          {
+            "label": "Spells the words well",
+            "points": 1
+          },
+          {
+            "label": "Uses capital letters and neat letters",
+            "points": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "e2.writing.026",
+      "skill": "e2.writing",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with We.",
+        "The place comes at the end.",
+        "The sentence ends with a full stop."
+      ],
+      "explanation": "We saw a big lion at the zoo.",
+      "items": [
+        "We",
+        "saw",
+        "a",
+        "big",
+        "lion",
+        "at",
+        "the",
+        "zoo."
+      ]
+    },
+    {
+      "id": "e2.writing.027",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the best start for a recount?",
+      "hints": [
+        "A recount says what happened.",
+        "It says when it happened.",
+        "It uses the past tense."
+      ],
+      "explanation": "On Saturday, I went to the beach. tells when and what.",
+      "options": [
+        {
+          "text": "Beach.",
+          "why": "This is not a full sentence."
+        },
+        {
+          "text": "Beach I go.",
+          "why": "The words are in the wrong order."
+        },
+        {
+          "text": "The beach is sandy.",
+          "why": "This is a fact, not a recount."
+        },
+        {
+          "text": "On Saturday, I went to the beach."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.writing.028",
+      "skill": "e2.writing",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with First.",
+        "The sentence uses the past tense.",
+        "It ends with a full stop."
+      ],
+      "explanation": "First, we mixed the flour.",
+      "answer": "First, we mixed the flour.",
+      "distractors": [
+        "mix"
+      ]
+    },
+    {
+      "id": "e2.writing.029",
+      "skill": "e2.writing",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses a good describing word?",
+      "hints": [
+        "Describing words add detail.",
+        "Look for words about size.",
+        "Tiny and huge are strong words."
+      ],
+      "explanation": "Tiny and huge make the sentence more interesting.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The ant carried a seed.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "The ant carried it.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "An ant is an ant.",
+          "why": "This says nothing new."
+        },
+        {
+          "text": "The tiny ant carried a huge seed."
+        }
+      ],
+      "answer": 3
     }
   ]
 }

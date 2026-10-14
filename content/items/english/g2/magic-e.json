@@ -596,6 +596,353 @@
       "explanation": "The word is bike. The magic e at the end makes the i long.",
       "word": "bike",
       "sentence": "I ride my bike to school."
+    },
+    {
+      "id": "e2.magic-e.021",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word has a magic e?",
+      "hints": [
+        "Look at the end of each word.",
+        "The magic e is at the end.",
+        "You can eat it at a party."
+      ],
+      "explanation": "Cake ends with a magic e.",
+      "options": [
+        {
+          "text": "cat",
+          "why": "Cat has no e."
+        },
+        {
+          "text": "cake"
+        },
+        {
+          "text": "cap",
+          "why": "Cap has no e."
+        },
+        {
+          "text": "can",
+          "why": "Can has no e."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.022",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Add magic e to hop. What is the new word?",
+      "hints": [
+        "The e goes at the end.",
+        "The o now says its own name.",
+        "Hop plus e."
+      ],
+      "explanation": "Hop plus magic e makes hope.",
+      "options": [
+        {
+          "text": "hops",
+          "why": "Hops adds s, not a magic e."
+        },
+        {
+          "text": "hopp",
+          "why": "There is no magic e here."
+        },
+        {
+          "text": "hoap",
+          "why": "This is not how the magic e works."
+        },
+        {
+          "text": "hope"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.magic-e.023",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does the magic e do?",
+      "hints": [
+        "Think about cap and cape.",
+        "Listen to the vowel in each.",
+        "The vowel changes."
+      ],
+      "explanation": "The magic e makes the vowel say its own name.",
+      "options": [
+        {
+          "text": "It makes the word shorter.",
+          "why": "It adds a letter, so the word is longer."
+        },
+        {
+          "text": "It makes the vowel say its name."
+        },
+        {
+          "text": "It changes the first letter.",
+          "why": "It only changes the vowel sound."
+        },
+        {
+          "text": "It makes the word plural.",
+          "why": "It does not change how many."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.magic-e.024",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add magic e. kit becomes ___",
+      "hints": [
+        "Add one letter at the end.",
+        "The i now says its name.",
+        "Kit plus e."
+      ],
+      "explanation": "Kit plus magic e makes kite.",
+      "blanks": [
+        {
+          "answers": [
+            "kite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.025",
+      "skill": "e2.magic-e",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Add magic e. cub becomes ___",
+      "hints": [
+        "Add one letter at the end.",
+        "The u says its name.",
+        "It is a shape like a box."
+      ],
+      "explanation": "Cub plus magic e makes cube.",
+      "blanks": [
+        {
+          "answers": [
+            "cube"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.026",
+      "skill": "e2.magic-e",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each short word to its magic e word.",
+      "hints": [
+        "Add an e to each word.",
+        "Listen to the new sound.",
+        "Tap plus e is tape."
+      ],
+      "explanation": "Each word gets a magic e at the end.",
+      "pairs": [
+        [
+          "tap",
+          "tape"
+        ],
+        [
+          "pin",
+          "pine"
+        ],
+        [
+          "not",
+          "note"
+        ],
+        [
+          "cut",
+          "cute"
+        ]
+      ]
+    },
+    {
+      "id": "e2.magic-e.027",
+      "skill": "e2.magic-e",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words.",
+      "hints": [
+        "Look for an e at the end.",
+        "Say the vowel sound.",
+        "Cake has a long a."
+      ],
+      "explanation": "Cake, bike and rope have a magic e. Cap, bin and hop do not.",
+      "groups": [
+        "Magic e words",
+        "Short vowel words"
+      ],
+      "items": [
+        {
+          "text": "cake",
+          "group": 0
+        },
+        {
+          "text": "cap",
+          "group": 1
+        },
+        {
+          "text": "bike",
+          "group": 0
+        },
+        {
+          "text": "bin",
+          "group": 1
+        },
+        {
+          "text": "rope",
+          "group": 0
+        },
+        {
+          "text": "hop",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.028",
+      "skill": "e2.magic-e",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has four letters.",
+        "It starts with g.",
+        "It ends with a magic e."
+      ],
+      "explanation": "The word is game, spelt with a magic e.",
+      "word": "game",
+      "sentence": "We play a game after lunch."
+    },
+    {
+      "id": "e2.magic-e.029",
+      "skill": "e2.magic-e",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Listen, then spell the word.",
+      "hints": [
+        "The word has four letters.",
+        "It starts with h.",
+        "It ends with a magic e."
+      ],
+      "explanation": "The word is home, spelt with a magic e.",
+      "word": "home",
+      "sentence": "I go home after school."
+    },
+    {
+      "id": "e2.magic-e.030",
+      "skill": "e2.magic-e",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "I can ___ my bike very fast.",
+      "hints": [
+        "Think about a bike.",
+        "You sit on it and go.",
+        "One word has a magic e."
+      ],
+      "explanation": "Ride is the word that fits.",
+      "gaps": [
+        {
+          "options": [
+            "ride",
+            "rid",
+            "rod"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.magic-e.031",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word does not have a magic e?",
+      "hints": [
+        "Look at the end of each word.",
+        "Three words end with e.",
+        "One word has a p at the end."
+      ],
+      "explanation": "Lamp has no magic e.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "name",
+          "why": "Name ends with a magic e."
+        },
+        {
+          "text": "hide",
+          "why": "Hide ends with a magic e."
+        },
+        {
+          "text": "lamp"
+        },
+        {
+          "text": "smoke",
+          "why": "Smoke ends with a magic e."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.magic-e.032",
+      "skill": "e2.magic-e",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence starts with a capital.",
+        "It is about the past.",
+        "Home comes just before the full stop."
+      ],
+      "explanation": "He rode his bike home.",
+      "answer": "He rode his bike home.",
+      "distractors": [
+        "ride"
+      ]
+    },
+    {
+      "id": "e2.magic-e.033",
+      "skill": "e2.magic-e",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is spelt right?",
+      "hints": [
+        "Say the word slowly.",
+        "It ends with a magic e.",
+        "It starts with br."
+      ],
+      "explanation": "Brave is spelt b - r - a - v - e.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "brav",
+          "why": "The magic e is missing."
+        },
+        {
+          "text": "braev",
+          "why": "The letters are in the wrong order."
+        },
+        {
+          "text": "brayve",
+          "why": "This is not the right spelling."
+        },
+        {
+          "text": "brave"
+        }
+      ],
+      "answer": 3
     }
   ]
 }

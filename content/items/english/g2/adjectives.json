@@ -604,6 +604,422 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "e2.adjectives.020",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a describing word?",
+      "hints": [
+        "A describing word tells what something is like.",
+        "Think of a pillow.",
+        "It is how a pillow feels."
+      ],
+      "explanation": "Soft describes how something feels.",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "girl",
+          "why": "Girl is a naming word."
+        },
+        {
+          "text": "soft"
+        },
+        {
+          "text": "and",
+          "why": "And is a joining word."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.adjectives.021",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Choose the best word. The ice cream is very ___.",
+      "hints": [
+        "The word describes the ice cream.",
+        "Think of a hot day.",
+        "It is a feeling you get from ice."
+      ],
+      "explanation": "Cold describes the ice cream.",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "cold"
+        },
+        {
+          "text": "quickly",
+          "why": "Quickly tells how something is done."
+        },
+        {
+          "text": "under",
+          "why": "Under tells where something is."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.adjectives.022",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which describing word tells how many? ___ birds sat on the wall.",
+      "hints": [
+        "The word must tell a number.",
+        "Count the birds in your head.",
+        "It is a number word."
+      ],
+      "explanation": "Three tells how many birds there were.",
+      "options": [
+        {
+          "text": "Red",
+          "why": "Red is a colour."
+        },
+        {
+          "text": "Happy",
+          "why": "Happy is a feeling."
+        },
+        {
+          "text": "Tall",
+          "why": "Tall is about height."
+        },
+        {
+          "text": "Three"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.adjectives.023",
+      "skill": "e2.adjectives",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "The ___ elephant walked slowly.",
+      "hints": [
+        "The word describes the elephant.",
+        "It tells the size.",
+        "It comes before the naming word."
+      ],
+      "explanation": "Huge describes the elephant.",
+      "gaps": [
+        {
+          "options": [
+            "huge",
+            "hugely",
+            "hug"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.024",
+      "skill": "e2.adjectives",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the describing words.",
+      "hints": [
+        "Think about what each word tells.",
+        "Is it about how big, what colour or how someone feels?",
+        "Red is a colour."
+      ],
+      "explanation": "Red and green are colours, tiny and huge are sizes, happy and sad are feelings.",
+      "groups": [
+        "Colour",
+        "Size",
+        "Feeling"
+      ],
+      "items": [
+        {
+          "text": "red",
+          "group": 0
+        },
+        {
+          "text": "tiny",
+          "group": 1
+        },
+        {
+          "text": "happy",
+          "group": 2
+        },
+        {
+          "text": "green",
+          "group": 0
+        },
+        {
+          "text": "huge",
+          "group": 1
+        },
+        {
+          "text": "sad",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.025",
+      "skill": "e2.adjectives",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each thing to a describing word.",
+      "hints": [
+        "Think about how each thing feels or tastes.",
+        "Do the tastes first.",
+        "A lemon is not sweet."
+      ],
+      "explanation": "Sugar is sweet, ice is cold, a lemon is sour and a feather is light.",
+      "pairs": [
+        [
+          "sugar",
+          "sweet"
+        ],
+        [
+          "ice",
+          "cold"
+        ],
+        [
+          "lemon",
+          "sour"
+        ],
+        [
+          "feather",
+          "light"
+        ]
+      ]
+    },
+    {
+      "id": "e2.adjectives.026",
+      "skill": "e2.adjectives",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write a describing word for sugar. It starts with s.",
+      "hints": [
+        "Think about how sugar tastes.",
+        "It is the opposite of sour.",
+        "It has five letters."
+      ],
+      "explanation": "Sugar tastes sweet.",
+      "blanks": [
+        {
+          "answers": [
+            "sweet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.adjectives.027",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence has two describing words?",
+      "hints": [
+        "Look for words about size or colour.",
+        "Find a sentence with two of them.",
+        "One word is about height and one is about colour."
+      ],
+      "explanation": "Tall and red are describing words.",
+      "options": [
+        {
+          "text": "The girl wore a coat.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "The girl ran quickly.",
+          "why": "Quickly describes how she ran, not the girl."
+        },
+        {
+          "text": "Girls wear coats.",
+          "why": "There are no describing words."
+        },
+        {
+          "text": "The tall girl wore a red coat."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.adjectives.028",
+      "skill": "e2.adjectives",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Size usually comes before colour.",
+        "Start with The.",
+        "The naming word comes last before the doing word."
+      ],
+      "explanation": "The small black cat sleeps. Size comes before colour.",
+      "items": [
+        "The",
+        "small",
+        "black",
+        "cat",
+        "sleeps."
+      ]
+    },
+    {
+      "id": "e2.adjectives.029",
+      "skill": "e2.adjectives",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the describing words. The sharp, shiny knife cut the bread.",
+      "hints": [
+        "Describing words tell what a thing is like.",
+        "Look at the words before knife.",
+        "There are two."
+      ],
+      "explanation": "Sharp and shiny describe the knife.",
+      "options": [
+        {
+          "text": "knife",
+          "why": "Knife is a naming word."
+        },
+        {
+          "text": "cut",
+          "why": "Cut is a doing word."
+        },
+        {
+          "text": "shiny"
+        },
+        {
+          "text": "sharp"
+        },
+        {
+          "text": "bread",
+          "why": "Bread is a naming word."
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e2.adjectives.030",
+      "skill": "e2.adjectives",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal that is huge.",
+      "hints": [
+        "Think about size.",
+        "Huge means very big.",
+        "One animal is much bigger than the others."
+      ],
+      "explanation": "An elephant is huge.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "ant",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "elephant",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bee",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "mouse",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: an ant, an elephant, a bee and a mouse."
+      },
+      "regions": [
+        {
+          "label": "ant",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "elephant",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bee",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "mouse",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "e2.adjectives.031",
+      "skill": "e2.adjectives",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word is stronger than cold?",
+      "hints": [
+        "Stronger means more than cold.",
+        "Think of ice and snow.",
+        "Water at 0 degrees is this."
+      ],
+      "explanation": "Freezing is much colder than cold.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "cool",
+          "why": "Cool is milder than cold."
+        },
+        {
+          "text": "chilly",
+          "why": "Chilly is milder than cold."
+        },
+        {
+          "text": "freezing"
+        },
+        {
+          "text": "wet",
+          "why": "Wet is not about heat or cold."
+        }
+      ],
+      "answer": 2
     }
   ]
 }
