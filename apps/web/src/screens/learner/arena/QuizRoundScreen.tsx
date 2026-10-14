@@ -251,6 +251,11 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
   }, [])
 
   const question = learn ? undefined : data.questions[index]
+  // Soal bergambar bendera: kartu terbuka dengan bunyi flag.
+  const showsFlag = question !== undefined && question.kind !== 'order' && question.pic?.t === 'flag'
+  useEffect(() => {
+    if (showsFlag) playSfx('flag')
+  }, [index, showsFlag])
   const timed = data.timed
   const limit = data.limitSec
   const now = useTicker(!result && !finishing && timed, 250)
