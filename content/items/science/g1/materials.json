@@ -343,6 +343,968 @@
       "extraLabels": [
         "metal"
       ]
+    },
+    {
+      "id": "s1.materials.016",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a window made of?",
+      "options": [
+        {
+          "text": "paper",
+          "why": "Paper is too weak for a window."
+        },
+        {
+          "text": "glass"
+        },
+        {
+          "text": "wood",
+          "why": "We cannot see through wood."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about looking outside.",
+        "You can see through it.",
+        "It is hard and clear."
+      ],
+      "explanation": "Windows are made of glass because we can see through it."
+    },
+    {
+      "id": "s1.materials.017",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What is a pencil mostly made of?",
+      "options": [
+        {
+          "text": "glass",
+          "why": "Glass would break."
+        },
+        {
+          "text": "metal",
+          "why": "Metal is too heavy for a pencil."
+        },
+        {
+          "text": "wood"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what you hold.",
+        "It comes from trees.",
+        "It is not see-through."
+      ],
+      "explanation": "The outside of a pencil is made of wood. The middle is a thin stick of graphite."
+    },
+    {
+      "id": "s1.materials.018",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which object is made of metal?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "key",
+            "label": "key"
+          },
+          {
+            "icon": "rubber-band",
+            "label": "rubber band"
+          },
+          {
+            "icon": "paper",
+            "label": "paper"
+          }
+        ],
+        "alt": "A key, a rubber band and a sheet of paper."
+      },
+      "options": [
+        {
+          "text": "a key"
+        },
+        {
+          "text": "a rubber band",
+          "why": "A rubber band is made of rubber."
+        },
+        {
+          "text": "a sheet of paper",
+          "why": "Paper is made from wood."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a hard, shiny thing.",
+        "Which one is strong?",
+        "Keys open doors."
+      ],
+      "explanation": "Keys are made of metal. Metal is hard and strong."
+    },
+    {
+      "id": "s1.materials.019",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material is best for a raincoat?",
+      "options": [
+        {
+          "text": "paper",
+          "why": "Paper gets soggy in the rain."
+        },
+        {
+          "text": "a sponge",
+          "why": "A sponge soaks up water."
+        },
+        {
+          "text": "plastic"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Rain makes things wet.",
+        "We need a material that keeps water out.",
+        "Paper goes soft in rain."
+      ],
+      "explanation": "Plastic does not let water through. It keeps you dry."
+    },
+    {
+      "id": "s1.materials.020",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material comes from trees?",
+      "options": [
+        {
+          "text": "wood"
+        },
+        {
+          "text": "plastic",
+          "why": "Plastic is made in factories."
+        },
+        {
+          "text": "metal",
+          "why": "Metal comes from rocks."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a log.",
+        "Which material is brown?",
+        "It is used for tables."
+      ],
+      "explanation": "Wood comes from the trunks and branches of trees."
+    },
+    {
+      "id": "s1.materials.021",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Glass is made from which natural material?",
+      "options": [
+        {
+          "text": "wood",
+          "why": "Wood comes from trees."
+        },
+        {
+          "text": "sand"
+        },
+        {
+          "text": "wool",
+          "why": "Wool comes from sheep."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about the beach.",
+        "It is made from something in the ground.",
+        "Hot sand turns into glass."
+      ],
+      "explanation": "Glass is made when sand is heated until it melts."
+    },
+    {
+      "id": "s1.materials.022",
+      "skill": "s1.materials",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Natural or made by people? Sort the materials.",
+      "groups": [
+        "Natural",
+        "Made by people"
+      ],
+      "items": [
+        {
+          "text": "wood",
+          "group": 0
+        },
+        {
+          "text": "wool",
+          "group": 0
+        },
+        {
+          "text": "stone",
+          "group": 0
+        },
+        {
+          "text": "plastic",
+          "group": 1
+        },
+        {
+          "text": "glass",
+          "group": 1
+        },
+        {
+          "text": "brick",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Natural things come from plants, animals or the ground.",
+        "Factories make plastic.",
+        "Bricks are baked in a kiln."
+      ],
+      "explanation": "Wood, wool and stone are natural. People make plastic, glass and brick."
+    },
+    {
+      "id": "s1.materials.023",
+      "skill": "s1.materials",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Wood or metal? Sort the objects.",
+      "groups": [
+        "Wood",
+        "Metal"
+      ],
+      "items": [
+        {
+          "text": "wooden spoon",
+          "group": 0
+        },
+        {
+          "text": "pencil",
+          "group": 0
+        },
+        {
+          "text": "wooden chair",
+          "group": 0
+        },
+        {
+          "text": "key",
+          "group": 1
+        },
+        {
+          "text": "nail",
+          "group": 1
+        },
+        {
+          "text": "coin",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Wooden things come from trees.",
+        "Metal things are hard and cold.",
+        "Start with the key."
+      ],
+      "explanation": "The wooden spoon, pencil and chair are wood. The key, nail and coin are metal."
+    },
+    {
+      "id": "s1.materials.024",
+      "skill": "s1.materials",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things made of glass.",
+      "options": [
+        {
+          "text": "a drinking glass"
+        },
+        {
+          "text": "a rubber band"
+        },
+        {
+          "text": "a wooden spoon"
+        },
+        {
+          "text": "a window"
+        },
+        {
+          "text": "a mirror"
+        }
+      ],
+      "answers": [
+        0,
+        3,
+        4
+      ],
+      "hints": [
+        "Glass breaks if you drop it.",
+        "You can see through most glass.",
+        "A spoon is not glass."
+      ],
+      "explanation": "Drinking glasses, mirrors and windows are made of glass."
+    },
+    {
+      "id": "s1.materials.025",
+      "skill": "s1.materials",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each material to something made from it.",
+      "pairs": [
+        [
+          "wood",
+          "table"
+        ],
+        [
+          "metal",
+          "pan"
+        ],
+        [
+          "rubber",
+          "boots"
+        ],
+        [
+          "paper",
+          "book"
+        ]
+      ],
+      "hints": [
+        "Think about what each thing feels like.",
+        "A pan is hard.",
+        "Boots keep your feet dry."
+      ],
+      "explanation": "Tables are made of wood and pans are made of metal. Boots are made of rubber and books are made of paper."
+    },
+    {
+      "id": "s1.materials.026",
+      "skill": "s1.materials",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A window is made of ___. A bicycle tyre is made of ___.",
+      "gaps": [
+        {
+          "options": [
+            "glass",
+            "wood",
+            "paper"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "rubber",
+            "glass",
+            "paper"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Which material is see-through?",
+        "Which material is bouncy?",
+        "Tyres go on bicycles."
+      ],
+      "explanation": "Windows are made of glass. Tyres are made of rubber."
+    },
+    {
+      "id": "s1.materials.027",
+      "skill": "s1.materials",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "What is each object made of?",
+      "head": [
+        "Object",
+        "Material"
+      ],
+      "rows": [
+        [
+          "window",
+          "glass"
+        ],
+        [
+          "pencil",
+          ""
+        ],
+        [
+          "coin",
+          ""
+        ],
+        [
+          "sock",
+          "fabric"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "wood"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "metal"
+          ]
+        }
+      ],
+      "hints": [
+        "A coin is hard and shiny.",
+        "A pencil comes from trees.",
+        "Socks are soft."
+      ],
+      "explanation": "A window is glass and a pencil is wood. A coin is metal and a sock is fabric."
+    },
+    {
+      "id": "s1.materials.028",
+      "skill": "s1.materials",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Nia builds a toy house. She makes the walls from cardboard. The window is clear plastic. The door is a wooden stick.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What are the walls made of?",
+          "options": [
+            {
+              "text": "glass"
+            },
+            {
+              "text": "metal"
+            },
+            {
+              "text": "cardboard"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the window made of?",
+          "options": [
+            {
+              "text": "wood"
+            },
+            {
+              "text": "clear plastic"
+            },
+            {
+              "text": "paper"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Read the second sentence.",
+        "Read the third sentence.",
+        "The window is clear."
+      ],
+      "explanation": "The walls are cardboard and the window is clear plastic."
+    },
+    {
+      "id": "s1.materials.029",
+      "skill": "s1.materials",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part of the house made of glass.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 110,
+            "w": 200,
+            "h": 110,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                40,
+                110
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                280,
+                110
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 212,
+            "y": 50,
+            "w": 24,
+            "h": 44,
+            "r": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 158,
+            "w": 36,
+            "h": 62,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 132,
+            "w": 44,
+            "h": 40,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 0,
+            "y1": 220,
+            "x2": 320,
+            "y2": 220,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A house with brick walls, a red roof, a chimney, a glass window on the left and a wooden door on the right."
+      },
+      "regions": [
+        {
+          "label": "roof",
+          "x": 40.6,
+          "y": 29.2,
+          "w": 37.5,
+          "h": 23.3
+        },
+        {
+          "label": "window",
+          "x": 35,
+          "y": 63.3,
+          "w": 16.3,
+          "h": 21.7
+        },
+        {
+          "label": "door",
+          "x": 65,
+          "y": 79.2,
+          "w": 13.8,
+          "h": 28.3
+        },
+        {
+          "label": "wall",
+          "x": 43.8,
+          "y": 85,
+          "w": 15.6,
+          "h": 15
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Which part is see-through?",
+        "It lets in light.",
+        "It is on the wall."
+      ],
+      "explanation": "The window is made of glass. We can see through it."
+    },
+    {
+      "id": "s1.materials.030",
+      "skill": "s1.materials",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part of the house made of wood.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 110,
+            "w": 200,
+            "h": 110,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                40,
+                110
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                280,
+                110
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 212,
+            "y": 50,
+            "w": 24,
+            "h": 44,
+            "r": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 158,
+            "w": 36,
+            "h": 62,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 132,
+            "w": 44,
+            "h": 40,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 0,
+            "y1": 220,
+            "x2": 320,
+            "y2": 220,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A house with brick walls, a red roof, a chimney, a glass window on the left and a wooden door on the right."
+      },
+      "regions": [
+        {
+          "label": "roof",
+          "x": 40.6,
+          "y": 29.2,
+          "w": 37.5,
+          "h": 23.3
+        },
+        {
+          "label": "window",
+          "x": 35,
+          "y": 63.3,
+          "w": 16.3,
+          "h": 21.7
+        },
+        {
+          "label": "door",
+          "x": 65,
+          "y": 79.2,
+          "w": 13.8,
+          "h": 28.3
+        },
+        {
+          "label": "wall",
+          "x": 43.8,
+          "y": 85,
+          "w": 15.6,
+          "h": 15
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Which part opens and closes?",
+        "It is brown.",
+        "It is on the right."
+      ],
+      "explanation": "The door is made of wood."
+    },
+    {
+      "id": "s1.materials.031",
+      "skill": "s1.materials",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parts of the house.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 110,
+            "w": 200,
+            "h": 110,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                40,
+                110
+              ],
+              [
+                160,
+                36
+              ],
+              [
+                280,
+                110
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 212,
+            "y": 50,
+            "w": 24,
+            "h": 44,
+            "r": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 190,
+            "y": 158,
+            "w": 36,
+            "h": 62,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 90,
+            "y": 132,
+            "w": 44,
+            "h": 40,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 0,
+            "y1": 220,
+            "x2": 320,
+            "y2": 220,
+            "tone": "science",
+            "width": 4
+          }
+        ],
+        "alt": "A house with brick walls, a red roof, a chimney, a glass window on the left and a wooden door on the right."
+      },
+      "labels": [
+        "roof",
+        "chimney",
+        "window",
+        "door"
+      ],
+      "spots": [
+        {
+          "x": 40.6,
+          "y": 29.2
+        },
+        {
+          "x": 70,
+          "y": 16.7
+        },
+        {
+          "x": 35,
+          "y": 63.3
+        },
+        {
+          "x": 65,
+          "y": 79.2
+        }
+      ],
+      "extraLabels": [],
+      "hints": [
+        "Start at the top.",
+        "The door is low down.",
+        "The chimney sticks up from the roof."
+      ],
+      "explanation": "The roof is on top and the chimney is on the roof. The window is on the left and the door is on the right."
+    },
+    {
+      "id": "s1.materials.032",
+      "skill": "s1.materials",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Bicycle tyres are made of ___.",
+      "blanks": [
+        {
+          "answers": [
+            "rubber"
+          ]
+        }
+      ],
+      "hints": [
+        "It is black and bouncy.",
+        "A rubber band is made of it.",
+        "It starts with r."
+      ],
+      "explanation": "Tyres are made of rubber. Rubber is bendy and bouncy."
+    },
+    {
+      "id": "s1.materials.033",
+      "skill": "s1.materials",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw one object made of wood and one made of metal. Label them.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws an object made of wood",
+            "points": 1
+          },
+          {
+            "label": "Draws an object made of metal",
+            "points": 1
+          },
+          {
+            "label": "Labels the materials",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "A chair can be wood.",
+        "A spoon can be metal."
+      ],
+      "explanation": "Tables and chairs can be wood. Spoons and keys are metal."
+    },
+    {
+      "id": "s1.materials.034",
+      "skill": "s1.materials",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A kite is made of paper, wooden sticks and plastic ribbons. How many different materials?",
+      "answer": 3,
+      "hints": [
+        "Name each material.",
+        "Do not count the same one twice.",
+        "Paper, wood and plastic."
+      ],
+      "explanation": "The kite is made of paper, wood and plastic. That is 3 different materials.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.materials.035",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I am made from sand. I am see-through. I break if you drop me. What am I?",
+      "options": [
+        {
+          "text": "plastic",
+          "why": "Plastic does not usually break."
+        },
+        {
+          "text": "paper",
+          "why": "Paper is not made from sand."
+        },
+        {
+          "text": "wood",
+          "why": "Wood is not see-through."
+        },
+        {
+          "text": "glass"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about the beach.",
+        "You can see through it.",
+        "It breaks."
+      ],
+      "explanation": "Glass is made from sand, we can see through it and it breaks if dropped.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.materials.036",
+      "skill": "s1.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is best for stirring hot soup so your hand stays cool?",
+      "options": [
+        {
+          "text": "a metal spoon",
+          "why": "Metal gets hot quickly."
+        },
+        {
+          "text": "a metal fork",
+          "why": "Metal gets hot quickly."
+        },
+        {
+          "text": "a wooden spoon"
+        },
+        {
+          "text": "a metal ladle",
+          "why": "Metal gets hot quickly."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which material gets hot fast?",
+        "Wood stays cooler.",
+        "Three of them are metal."
+      ],
+      "explanation": "Wood does not get hot quickly. Metal carries the heat to your hand.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
