@@ -528,6 +528,457 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m3.oly-geometry.010",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A rectangle is 8 cm long and 5 cm wide. What is the distance around it, in cm?",
+      "answer": 26,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "The distance around is the perimeter.",
+        "A rectangle has 2 long sides and 2 short sides.",
+        "Add 8 + 5 + 8 + 5."
+      ],
+      "explanation": "The sides are 8, 5, 8 and 5 cm. The perimeter is 8 + 5 + 8 + 5 = 26 cm.",
+      "solution": [
+        {
+          "say": "The sides are 8, 5, 8 and 5 cm."
+        },
+        {
+          "say": "The perimeter is 8 + 5 + 8 + 5 = 26 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-geometry.011",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A square has a perimeter of 36 cm. How long is one side, in cm?",
+      "answer": 9,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "A square has 4 equal sides.",
+        "Share the perimeter between the 4 sides.",
+        "36 / 4."
+      ],
+      "explanation": "The 4 sides are equal and they add up to 36 cm. One side is 36 / 4 = 9 cm.",
+      "solution": [
+        {
+          "say": "The 4 sides are equal and they add up to 36 cm."
+        },
+        {
+          "say": "One side is 36 / 4 = 9 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.012",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rectangle has a perimeter of 24 cm. Its length is 8 cm. What is its width, in cm?",
+      "answer": 4,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "The two lengths use some of the perimeter.",
+        "2 x 8 = 16 cm.",
+        "Share what is left between the two widths."
+      ],
+      "explanation": "The two lengths are 8 + 8 = 16 cm. That leaves 24 - 16 = 8 cm for the two widths. One width is 8 / 2 = 4 cm.",
+      "solution": [
+        {
+          "say": "The two lengths are 8 + 8 = 16 cm."
+        },
+        {
+          "say": "That leaves 24 - 16 = 8 cm for the two widths."
+        },
+        {
+          "say": "One width is 8 / 2 = 4 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.013",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each small square has sides of 1 cm. What is the distance around the shaded L shape, in cm?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "An L shape of 5 shaded small squares: a column of 3 and a row of 3 sharing the bottom left square."
+      },
+      "answer": 12,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Count the edges around the outside.",
+        "Go all the way round, starting at the top left.",
+        "Count each edge of 1 cm."
+      ],
+      "explanation": "Going round the shape: down the left 3, along the bottom 3, up 1, along 2 to the left, up 2 and along 1 to the left. That is 3 + 3 + 1 + 2 + 2 + 1 = 12 cm.",
+      "solution": [
+        {
+          "say": "Going round the shape: down the left 3, along the bottom 3, up 1, along 2 to the left, up 2 and along 1 to the left."
+        },
+        {
+          "say": "That is 3 + 3 + 1 + 2 + 2 + 1 = 12 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.014",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Two squares with sides of 3 cm are joined side to side to make a rectangle. What is the distance around the rectangle, in cm?",
+      "answer": 18,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Draw the rectangle. How long and how wide is it?",
+        "It is 6 cm long and 3 cm wide.",
+        "Add all four sides."
+      ],
+      "explanation": "The rectangle is 3 + 3 = 6 cm long and 3 cm wide. The distance around is 6 + 3 + 6 + 3 = 18 cm.",
+      "solution": [
+        {
+          "say": "The rectangle is 3 + 3 = 6 cm long and 3 cm wide."
+        },
+        {
+          "say": "The distance around is 6 + 3 + 6 + 3 = 18 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.015",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many lines of symmetry does an equilateral triangle have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "triangle",
+        "tone": "math",
+        "alt": "An equilateral triangle."
+      },
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "A line of symmetry splits a shape into two matching halves.",
+        "Each corner has one line going to the middle of the opposite side.",
+        "Count the corners."
+      ],
+      "explanation": "An equilateral triangle has 3 corners. There is a line of symmetry from each corner to the middle of the opposite side. So there are 3 lines.",
+      "solution": [
+        {
+          "say": "An equilateral triangle has 3 corners."
+        },
+        {
+          "say": "There is a line of symmetry from each corner to the middle of the opposite side."
+        },
+        {
+          "say": "So there are 3 lines."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-geometry.016",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A cube has edges of 3 cm. What is the total length of all its edges, in cm?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A cube, a solid with 6 square faces."
+      },
+      "answer": 36,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "A cube has 12 edges.",
+        "All the edges are 3 cm long.",
+        "12 x 3."
+      ],
+      "explanation": "A cube has 12 edges and each is 3 cm long. The total is 12 x 3 = 36 cm.",
+      "solution": [
+        {
+          "say": "A cube has 12 edges and each is 3 cm long."
+        },
+        {
+          "say": "The total is 12 x 3 = 36 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.017",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big cube is made of 4 by 4 by 4 small cubes. It is painted red all over and then taken apart. How many small cubes have red paint on exactly 2 faces?",
+      "answer": 24,
+      "tolerance": 0,
+      "hints": [
+        "A cube with exactly 2 painted faces sits on an edge, but not at a corner.",
+        "The big cube has 12 edges.",
+        "Each edge has 4 cubes. 2 of them are corners."
+      ],
+      "explanation": "On each of the 12 edges, 4 small cubes are in a row. The 2 at the ends are corners. The 2 in the middle have exactly 2 painted faces. So there are 12 x 2 = 24 cubes.",
+      "solution": [
+        {
+          "say": "On each of the 12 edges, 4 small cubes are in a row."
+        },
+        {
+          "say": "The 2 at the ends are corners."
+        },
+        {
+          "say": "The 2 in the middle have exactly 2 painted faces."
+        },
+        {
+          "say": "So there are 12 x 2 = 24 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-geometry.018",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big cube is made of 4 by 4 by 4 small cubes. It is painted red all over and then taken apart. How many small cubes have no red paint?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Cubes with no paint are inside the big cube.",
+        "Take away the outside layer on every side.",
+        "What size cube is left in the middle?"
+      ],
+      "explanation": "Take away the outside layer on every side. A cube of 2 by 2 by 2 is left inside. That is 2 x 2 x 2 = 8 cubes with no paint.",
+      "solution": [
+        {
+          "say": "Take away the outside layer on every side."
+        },
+        {
+          "say": "A cube of 2 by 2 by 2 is left inside."
+        },
+        {
+          "say": "That is 2 x 2 x 2 = 8 cubes with no paint."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-geometry.019",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A square with sides of 4 cm is cut into 4 equal small squares. What is the distance around one small square, in cm?",
+      "answer": 8,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Find the side of a small square.",
+        "The big square is 4 cm wide and is cut into 2 small squares across.",
+        "Each small square has sides of 2 cm."
+      ],
+      "explanation": "The big square is cut into 2 by 2 small squares. Each small square has sides of 4 / 2 = 2 cm. The distance around is 4 x 2 = 8 cm.",
+      "solution": [
+        {
+          "say": "The big square is cut into 2 by 2 small squares."
+        },
+        {
+          "say": "Each small square has sides of 4 / 2 = 2 cm."
+        },
+        {
+          "say": "The distance around is 4 x 2 = 8 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-geometry.020",
+      "skill": "m3.oly-geometry",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big triangle has 3 lines drawn from its top corner to the bottom side. They split the bottom into 4 parts. How many triangles of any size are there?",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                18
+              ],
+              [
+                30,
+                118
+              ],
+              [
+                210,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 75,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 120,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 165,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          }
+        ],
+        "alt": "A big triangle with 3 lines from the top corner to the bottom side. They split the bottom into 4 equal parts."
+      },
+      "answer": 10,
+      "tolerance": 0,
+      "hints": [
+        "Count the triangles by their bottom parts.",
+        "There are 4 small triangles. Count those made of 2 small ones.",
+        "There are 3 of those. Then count 3 together and 4 together."
+      ],
+      "explanation": "The bottom has 4 parts. A triangle takes 1, 2, 3 or 4 parts side by side. That is 4 + 3 + 2 + 1 = 10 triangles.",
+      "solution": [
+        {
+          "say": "The bottom has 4 parts."
+        },
+        {
+          "say": "A triangle takes 1, 2, 3 or 4 parts side by side."
+        },
+        {
+          "say": "That is 4 + 3 + 2 + 1 = 10 triangles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

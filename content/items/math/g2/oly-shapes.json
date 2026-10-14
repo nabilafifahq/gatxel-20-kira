@@ -931,6 +931,2574 @@
         "seamo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.016",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A cylinder stands on the floor. A lamp shines straight down from above. What shape is the shadow on the floor?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cylinder",
+        "alt": "A cylinder standing upright."
+      },
+      "options": [
+        {
+          "text": "Circle"
+        },
+        {
+          "text": "Rectangle",
+          "why": "A rectangle is the shadow when light shines from the side."
+        },
+        {
+          "text": "Triangle",
+          "why": "A cylinder has no pointed top."
+        },
+        {
+          "text": "Square",
+          "why": "The top of a cylinder is round, not square."
+        },
+        {
+          "text": "Hexagon",
+          "why": "A cylinder has no straight edges on its top."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Imagine looking down at the cylinder from the lamp.",
+        "You see the top of the cylinder.",
+        "What shape is the top face of a cylinder?"
+      ],
+      "explanation": "From above you see the top of the cylinder. The top is a circle, so the shadow is a circle.",
+      "solution": [
+        {
+          "say": "From above you see the top of the cylinder."
+        },
+        {
+          "say": "The top is a circle, so the shadow is a circle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.017",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A cylinder lies on its side on the floor. A lamp shines straight down from above. What shape is the shadow?",
+      "options": [
+        {
+          "text": "Circle",
+          "why": "A circle is the shadow when the cylinder stands up."
+        },
+        {
+          "text": "Triangle",
+          "why": "A cylinder has no pointed end."
+        },
+        {
+          "text": "Square",
+          "why": "The cylinder is longer than it is wide."
+        },
+        {
+          "text": "Rectangle"
+        },
+        {
+          "text": "Oval",
+          "why": "The sides of the shadow are straight."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Picture the cylinder lying down and look at it from above.",
+        "You see its long curved side.",
+        "The long curved side looks flat from above, with two short ends."
+      ],
+      "explanation": "Seen from above, a cylinder on its side looks like a long box with straight sides. The shadow is a rectangle.",
+      "solution": [
+        {
+          "say": "Seen from above, a cylinder on its side looks like a long box with straight sides."
+        },
+        {
+          "say": "The shadow is a rectangle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.018",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A cone stands on its flat face. A lamp shines from the side. What shape is the shadow on the wall?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cone",
+        "alt": "A cone standing on its flat face."
+      },
+      "options": [
+        {
+          "text": "Circle",
+          "why": "A circle is the shadow when the lamp is above the cone."
+        },
+        {
+          "text": "Square",
+          "why": "A cone has no square part."
+        },
+        {
+          "text": "Rectangle",
+          "why": "The cone gets narrower to the top."
+        },
+        {
+          "text": "Triangle"
+        },
+        {
+          "text": "Oval",
+          "why": "The shadow has straight edges and a point."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the cone from the side.",
+        "The cone gets narrower towards the top.",
+        "What shape has a wide bottom and a pointed top?"
+      ],
+      "explanation": "From the side, a cone has a wide base and a pointed top. That makes a triangle.",
+      "solution": [
+        {
+          "say": "From the side, a cone has a wide base and a pointed top."
+        },
+        {
+          "say": "That makes a triangle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.019",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which solid makes a circle shadow, however you turn it?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "sphere"
+          },
+          {
+            "shape": "cube"
+          },
+          {
+            "shape": "cylinder"
+          },
+          {
+            "shape": "cone"
+          },
+          {
+            "shape": "square-pyramid"
+          }
+        ],
+        "alt": "Five solids: a sphere, a cube, a cylinder, a cone and a square pyramid."
+      },
+      "options": [
+        {
+          "text": "Cube",
+          "why": "A cube makes a square shadow."
+        },
+        {
+          "text": "Sphere"
+        },
+        {
+          "text": "Cylinder",
+          "why": "A cylinder lying down makes a rectangle shadow."
+        },
+        {
+          "text": "Cone",
+          "why": "A cone seen from the side makes a triangle shadow."
+        },
+        {
+          "text": "Square pyramid",
+          "why": "A pyramid makes a square or a triangle shadow."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The shadow must be a circle from every side.",
+        "Try turning each solid in your mind.",
+        "Which solid looks the same from every side?"
+      ],
+      "explanation": "A sphere looks round from every side. The other solids make a different shadow when turned.",
+      "solution": [
+        {
+          "say": "A sphere looks round from every side."
+        },
+        {
+          "say": "The other solids make a different shadow when turned."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.020",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Seen from above, its shadow is a circle. Seen from the side, its shadow is a triangle. Which solid is it?",
+      "options": [
+        {
+          "text": "Cylinder",
+          "why": "A cylinder makes a circle and a rectangle."
+        },
+        {
+          "text": "Cube",
+          "why": "A cube makes squares."
+        },
+        {
+          "text": "Sphere",
+          "why": "A sphere makes only circles."
+        },
+        {
+          "text": "Square pyramid",
+          "why": "A pyramid makes a square and a triangle."
+        },
+        {
+          "text": "Cone"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Think about each solid from above and from the side.",
+        "A cylinder is a circle and a rectangle.",
+        "Which solid has a round bottom and a pointed top?"
+      ],
+      "explanation": "A cone seen from above is a circle. From the side it is a triangle. The cylinder, cube, sphere and pyramid cannot make both.",
+      "solution": [
+        {
+          "say": "A cone seen from above is a circle."
+        },
+        {
+          "say": "From the side it is a triangle."
+        },
+        {
+          "say": "The cylinder, cube, sphere and pyramid cannot make both."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.021",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Seen from above, its shadow is a square. Seen from the side, its shadow is a rectangle. Which solid is it?",
+      "options": [
+        {
+          "text": "Cube",
+          "why": "A cube makes only squares."
+        },
+        {
+          "text": "Cylinder",
+          "why": "A cylinder does not make a square."
+        },
+        {
+          "text": "Cone",
+          "why": "A cone makes a circle and a triangle."
+        },
+        {
+          "text": "Cuboid"
+        },
+        {
+          "text": "Sphere",
+          "why": "A sphere makes only circles."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The side and top shadows are different shapes.",
+        "A cube looks the same from every side.",
+        "Which solid has square ends and long sides?"
+      ],
+      "explanation": "A cuboid can have square ends and long sides. From above it makes a square. From the side it makes a rectangle. A cube makes only squares.",
+      "solution": [
+        {
+          "say": "A cuboid can have square ends and long sides."
+        },
+        {
+          "say": "From above it makes a square."
+        },
+        {
+          "say": "From the side it makes a rectangle."
+        },
+        {
+          "say": "A cube makes only squares."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.022",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A square pyramid stands on its square face. Which shadows can it make?",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A square pyramid standing on its square base."
+      },
+      "options": [
+        {
+          "text": "A circle and a triangle",
+          "why": "A pyramid has no round part."
+        },
+        {
+          "text": "A square and a triangle"
+        },
+        {
+          "text": "Only a square",
+          "why": "Seen from the side it has a pointed top."
+        },
+        {
+          "text": "A rectangle and a circle",
+          "why": "A pyramid has no round part."
+        },
+        {
+          "text": "Only a triangle",
+          "why": "Seen from above it looks like a square."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the pyramid from above and then from the side.",
+        "From above you see the square base.",
+        "From the side you see the sloping faces meeting at a point."
+      ],
+      "explanation": "From above the pyramid looks like a square. From the side it looks like a triangle. So it can make a square and a triangle.",
+      "solution": [
+        {
+          "say": "From above the pyramid looks like a square."
+        },
+        {
+          "say": "From the side it looks like a triangle."
+        },
+        {
+          "say": "So it can make a square and a triangle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.023",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I have 4 sides and 4 square corners. My sides are not all the same length. What shape am I?",
+      "options": [
+        {
+          "text": "Square",
+          "why": "All 4 sides of a square are equal."
+        },
+        {
+          "text": "Rhombus",
+          "why": "A rhombus has no square corners."
+        },
+        {
+          "text": "Trapezium",
+          "why": "A trapezium does not have 4 square corners."
+        },
+        {
+          "text": "Rectangle"
+        },
+        {
+          "text": "Kite",
+          "why": "A kite does not have 4 square corners."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about shapes with 4 sides.",
+        "Square corners are right angles.",
+        "Which shape has square corners, but sides of two different lengths?"
+      ],
+      "explanation": "A square and a rectangle both have 4 square corners. In a rectangle the sides are not all equal. So I am a rectangle.",
+      "solution": [
+        {
+          "say": "A square and a rectangle both have 4 square corners."
+        },
+        {
+          "say": "In a rectangle the sides are not all equal."
+        },
+        {
+          "say": "So I am a rectangle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.024",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How many triangles of any size can you see in this picture?",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                18
+              ],
+              [
+                30,
+                118
+              ],
+              [
+                210,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 120,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          }
+        ],
+        "alt": "A big triangle with one line drawn from the top corner to the middle of the bottom side."
+      },
+      "options": [
+        {
+          "text": "1",
+          "why": "There is more than one triangle."
+        },
+        {
+          "text": "2",
+          "why": "Count the big triangle as well."
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4",
+          "why": "Count only triangles. The line makes 2 small triangles and the big one."
+        },
+        {
+          "text": "5",
+          "why": "Count each triangle once."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count the small triangles first.",
+        "The line splits the big triangle into 2 small triangles.",
+        "Do not forget the big triangle."
+      ],
+      "explanation": "The line makes 2 small triangles. The whole shape is also a triangle. So there are 2 + 1 = 3 triangles.",
+      "solution": [
+        {
+          "say": "The line makes 2 small triangles."
+        },
+        {
+          "say": "The whole shape is also a triangle."
+        },
+        {
+          "say": "So there are 2 + 1 = 3 triangles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.025",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many triangles of any size can you see in this picture?",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                18
+              ],
+              [
+                30,
+                118
+              ],
+              [
+                210,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 90,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 150,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          }
+        ],
+        "alt": "A big triangle with two lines drawn from the top corner to the bottom side. They split the bottom side into 3 equal parts."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Count the smallest triangles first. There are 3 of them.",
+        "Next count triangles made of 2 small ones joined.",
+        "There are 2 of those. Do not forget the big triangle."
+      ],
+      "explanation": "There are 3 small triangles. Two small ones joined make a bigger triangle in 2 ways. The whole shape is 1 more. So 3 + 2 + 1 = 6 triangles.",
+      "solution": [
+        {
+          "say": "There are 3 small triangles."
+        },
+        {
+          "say": "Two small ones joined make a bigger triangle in 2 ways."
+        },
+        {
+          "say": "The whole shape is 1 more."
+        },
+        {
+          "say": "So 3 + 2 + 1 = 6 triangles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.026",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A row of 4 small squares makes a long rectangle. How many rectangles of any size can you find? A square also counts as a rectangle.",
+      "figure": {
+        "kind": "grid",
+        "rows": 1,
+        "cols": 4,
+        "shaded": [],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A row of 4 small squares joined together."
+      },
+      "options": [
+        {
+          "text": "4",
+          "why": "This only counts the small squares."
+        },
+        {
+          "text": "6",
+          "why": "You also need the rectangles made of 2, 3 and 4 squares."
+        },
+        {
+          "text": "8",
+          "why": "Count the rectangles of each length."
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "15",
+          "why": "There are fewer rectangles than this."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the rectangles made of 1 square.",
+        "Then count those made of 2 squares in a row.",
+        "1 square: 4. 2 squares: 3. Keep going."
+      ],
+      "explanation": "Rectangles of 1 square: 4. Of 2 squares: 3. Of 3 squares: 2. Of 4 squares: 1. In all, 4 + 3 + 2 + 1 = 10.",
+      "solution": [
+        {
+          "say": "Rectangles of 1 square: 4."
+        },
+        {
+          "say": "Of 2 squares: 3."
+        },
+        {
+          "say": "Of 3 squares: 2."
+        },
+        {
+          "say": "Of 4 squares: 1."
+        },
+        {
+          "say": "In all, 4 + 3 + 2 + 1 = 10."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.027",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A big square is made of 2 rows of 2 small squares. How many squares of any size can you see?",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "shaded": [],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A square made of 2 rows and 2 columns of small squares."
+      },
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Count the small squares first.",
+        "There are 4 small squares.",
+        "The whole shape is also a square."
+      ],
+      "explanation": "There are 4 small squares and the big square makes 1 more. In all, there are 5 squares.",
+      "solution": [
+        {
+          "say": "There are 4 small squares and the big square makes 1 more."
+        },
+        {
+          "say": "In all, there are 5 squares."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.028",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big square is made of 2 rows of 2 small squares. How many rectangles of any size can you see? A square also counts as a rectangle.",
+      "figure": {
+        "kind": "grid",
+        "rows": 2,
+        "cols": 2,
+        "shaded": [],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A square made of 2 rows and 2 columns of small squares."
+      },
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Count by size. Start with the small squares.",
+        "Next count the long rectangles that have 2 squares.",
+        "There are 2 going across, 2 going down. Do not forget the whole shape."
+      ],
+      "explanation": "There are 4 small squares. There are 2 across and 2 down made of 2 squares, which is 4 more. The whole shape is 1 more. In all, 4 + 4 + 1 = 9.",
+      "solution": [
+        {
+          "say": "There are 4 small squares."
+        },
+        {
+          "say": "There are 2 across and 2 down made of 2 squares, which is 4 more."
+        },
+        {
+          "say": "The whole shape is 1 more."
+        },
+        {
+          "say": "In all, 4 + 4 + 1 = 9."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.029",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big square is made of 3 rows of 3 small squares. How many squares of any size can you see?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 3,
+        "shaded": [],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A square made of 3 rows and 3 columns of small squares."
+      },
+      "answer": 14,
+      "tolerance": 0,
+      "hints": [
+        "Count the small squares first. There are 9 of them.",
+        "Next count squares made of 2 by 2 small squares.",
+        "There are 4 of those. Then the big one."
+      ],
+      "explanation": "There are 9 small squares. There are 4 squares made of 2 by 2 small squares. The whole shape is 1 more. In all, 9 + 4 + 1 = 14.",
+      "solution": [
+        {
+          "say": "There are 9 small squares."
+        },
+        {
+          "say": "There are 4 squares made of 2 by 2 small squares."
+        },
+        {
+          "say": "The whole shape is 1 more."
+        },
+        {
+          "say": "In all, 9 + 4 + 1 = 14."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.030",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A square is cut along both of its diagonals. How many triangles does it make?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "A diagonal goes from one corner to the opposite corner.",
+        "There are two diagonals and they cross in the middle.",
+        "Picture the square cut into pieces."
+      ],
+      "explanation": "The two diagonals cross in the middle and cut the square into 4 triangles of the same size.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.031",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each small square has sides of 1 cm. The shaded shape is made of 5 small squares. What is the distance around the shaded shape, in cm?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 3,
+        "shaded": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "A plus sign made of 5 shaded small squares on a 3 by 3 grid."
+      },
+      "answer": 12,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "The distance around is the perimeter. Count the edges on the outside.",
+        "Count the edges on each of the 4 arms of the cross.",
+        "Each arm has 3 edges on the outside."
+      ],
+      "explanation": "Each of the 4 arms of the plus has 3 outer edges, each 1 cm. The distance around is 4 x 3 = 12 cm.",
+      "solution": [
+        {
+          "say": "Each of the 4 arms of the plus has 3 outer edges, each 1 cm."
+        },
+        {
+          "say": "The distance around is 4 x 3 = 12 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.032",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Each small square has sides of 1 cm. The shaded shape is made of 4 small squares. What is the distance around it, in cm?",
+      "figure": {
+        "kind": "grid",
+        "rows": 3,
+        "cols": 2,
+        "shaded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "tone": "math",
+        "showUnits": false,
+        "alt": "An L shape made of 4 shaded small squares: 3 in a column and 1 to the right of the bottom one."
+      },
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Count the edges on the outside of the shape.",
+        "Go all the way round, starting at the top.",
+        "Count each edge of 1 cm."
+      ],
+      "explanation": "Go round the shape: top 1, down the right 2, along the foot 1, down 1, along the bottom 2, up the left 3. In all, 1 + 2 + 1 + 1 + 2 + 3 = 10 cm.",
+      "solution": [
+        {
+          "say": "Go round the shape: top 1, down the right 2, along the foot 1, down 1, along the bottom 2, up the left 3."
+        },
+        {
+          "say": "In all, 1 + 2 + 1 + 1 + 2 + 3 = 10 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.033",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which letter has 2 lines of symmetry?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "A",
+          "H",
+          "M",
+          "T",
+          "Y"
+        ],
+        "style": "boxes",
+        "alt": "Five capital letters: A, H, M, T and Y."
+      },
+      "options": [
+        {
+          "text": "A",
+          "why": "A has 1 line of symmetry, straight down the middle."
+        },
+        {
+          "text": "M",
+          "why": "M has 1 line of symmetry, straight down the middle."
+        },
+        {
+          "text": "T",
+          "why": "T has 1 line of symmetry, straight down the middle."
+        },
+        {
+          "text": "Y",
+          "why": "Y has 1 line of symmetry, straight down the middle."
+        },
+        {
+          "text": "H"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "A line of symmetry is where you can fold the letter so both halves match.",
+        "Try folding each letter up and down, and left and right.",
+        "Which letter folds both ways?"
+      ],
+      "explanation": "H folds up and down, and also left and right. A, M, T and Y fold only one way. So H has 2 lines of symmetry.",
+      "solution": [
+        {
+          "say": "H folds up and down, and also left and right."
+        },
+        {
+          "say": "A, M, T and Y fold only one way."
+        },
+        {
+          "say": "So H has 2 lines of symmetry."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.034",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many lines of symmetry does a square have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "tone": "math",
+        "lineOfSymmetry": "vertical",
+        "alt": "A square with a vertical line of symmetry drawn down the middle."
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Fold a square in half in different ways.",
+        "You can fold it across the middle two ways.",
+        "You can also fold it from corner to corner."
+      ],
+      "explanation": "A square folds into matching halves across the middle in 2 ways (up and down, and left and right). It also folds along each diagonal in 2 ways. In all, there are 4 lines.",
+      "solution": [
+        {
+          "say": "A square folds into matching halves across the middle in 2 ways (up and down, and left and right)."
+        },
+        {
+          "say": "It also folds along each diagonal in 2 ways."
+        },
+        {
+          "say": "In all, there are 4 lines."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.035",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A paper is folded in half. A hole is punched through both layers, away from the fold. How many holes are there when the paper is opened?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "Think about the two layers of paper.",
+        "The punch goes through both layers.",
+        "How many layers are there?"
+      ],
+      "explanation": "The paper has 2 layers when it is folded. The punch makes a hole in each layer. So there are 2 holes.",
+      "solution": [
+        {
+          "say": "The paper has 2 layers when it is folded."
+        },
+        {
+          "say": "The punch makes a hole in each layer."
+        },
+        {
+          "say": "So there are 2 holes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.036",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A paper is folded in half, and then in half again. A hole is punched through all the layers. How many holes are there when the paper is opened?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Each fold doubles the number of layers.",
+        "After one fold there are 2 layers.",
+        "After two folds there are twice as many."
+      ],
+      "explanation": "After one fold there are 2 layers. After two folds there are 4 layers. The punch goes through all 4, so there are 4 holes.",
+      "solution": [
+        {
+          "say": "After one fold there are 2 layers."
+        },
+        {
+          "say": "After two folds there are 4 layers."
+        },
+        {
+          "say": "The punch goes through all 4, so there are 4 holes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.037",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A paper is folded in half 3 times. A hole is punched through all the layers. How many holes are there when the paper is opened?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Each fold doubles the number of layers.",
+        "1 fold gives 2 layers and 2 folds give 4.",
+        "Double again for the third fold."
+      ],
+      "explanation": "The layers go 2, 4, 8 after each fold. A hole goes through all 8 layers, so there are 8 holes.",
+      "solution": [
+        {
+          "say": "The layers go 2, 4, 8 after each fold."
+        },
+        {
+          "say": "A hole goes through all 8 layers, so there are 8 holes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.038",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How many flat faces does a triangular prism have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A triangular prism."
+      },
+      "options": [
+        {
+          "text": "2",
+          "why": "Count the rectangles too."
+        },
+        {
+          "text": "3",
+          "why": "Count the 2 triangles on the ends and the rectangles."
+        },
+        {
+          "text": "4",
+          "why": "Count the 2 triangles on the ends too."
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6",
+          "why": "A cube has 6, but a prism has fewer."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the ends first. What shape are they?",
+        "There are 2 triangles at the ends.",
+        "Now count the rectangles along the sides."
+      ],
+      "explanation": "The prism has 2 triangle faces at the ends and 3 rectangle faces along the sides. That makes 2 + 3 = 5 faces.",
+      "solution": [
+        {
+          "say": "The prism has 2 triangle faces at the ends and 3 rectangle faces along the sides."
+        },
+        {
+          "say": "That makes 2 + 3 = 5 faces."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.039",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How many edges does a square pyramid have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "square-pyramid",
+        "alt": "A square pyramid."
+      },
+      "options": [
+        {
+          "text": "4",
+          "why": "The base alone has 4 edges."
+        },
+        {
+          "text": "5",
+          "why": "Count the edges that go up to the point too."
+        },
+        {
+          "text": "6",
+          "why": "Count the edges around the base and the edges up to the point."
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "12",
+          "why": "A cube has 12 edges. A pyramid has fewer."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An edge is where two faces meet.",
+        "Count the edges around the square base.",
+        "Then count the edges that go from the base up to the point."
+      ],
+      "explanation": "The square base has 4 edges. There are 4 more edges going up to the point. So 4 + 4 = 8 edges.",
+      "solution": [
+        {
+          "say": "The square base has 4 edges."
+        },
+        {
+          "say": "There are 4 more edges going up to the point."
+        },
+        {
+          "say": "So 4 + 4 = 8 edges."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.040",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A cube has 12 edges and 8 corners. How many more edges than corners does it have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A cube, a solid with 6 square faces."
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Take the number of corners away from the number of edges.",
+        "12 edges and 8 corners.",
+        "Work out 12 - 8."
+      ],
+      "explanation": "The cube has 12 edges and 8 corners. 12 - 8 = 4, so there are 4 more edges.",
+      "solution": [
+        {
+          "say": "The cube has 12 edges and 8 corners."
+        },
+        {
+          "say": "12 - 8 = 4, so there are 4 more edges."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.041",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many corners does a triangular prism have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "triangular-prism",
+        "alt": "A triangular prism."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "A corner is where edges meet in a point.",
+        "Count the corners of one triangle end.",
+        "The other end has the same number."
+      ],
+      "explanation": "Each triangle end has 3 corners. There are 2 ends. So there are 3 + 3 = 6 corners.",
+      "solution": [
+        {
+          "say": "Each triangle end has 3 corners."
+        },
+        {
+          "say": "There are 2 ends."
+        },
+        {
+          "say": "So there are 3 + 3 = 6 corners."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.042",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "I have 6 faces. All my faces are rectangles, but they are not all squares. What am I?",
+      "options": [
+        {
+          "text": "Cube",
+          "why": "All 6 faces of a cube are squares."
+        },
+        {
+          "text": "Cylinder",
+          "why": "A cylinder has round faces."
+        },
+        {
+          "text": "Cuboid"
+        },
+        {
+          "text": "Triangular prism",
+          "why": "A prism has triangle faces."
+        },
+        {
+          "text": "Square pyramid",
+          "why": "A pyramid has triangle faces."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about which solids have 6 faces.",
+        "A cube has 6 faces, but they are all squares.",
+        "Which solid has 6 rectangle faces, like a box?"
+      ],
+      "explanation": "A cuboid is like a box. It has 6 faces that are rectangles. Not all of them are squares, so I am a cuboid.",
+      "solution": [
+        {
+          "say": "A cuboid is like a box."
+        },
+        {
+          "say": "It has 6 faces that are rectangles."
+        },
+        {
+          "say": "Not all of them are squares, so I am a cuboid."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.043",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "I have 1 flat face, 1 curved face and 1 corner. What am I?",
+      "options": [
+        {
+          "text": "Cone"
+        },
+        {
+          "text": "Cylinder",
+          "why": "A cylinder has 2 flat faces and no corners."
+        },
+        {
+          "text": "Sphere",
+          "why": "A sphere has no flat face."
+        },
+        {
+          "text": "Square pyramid",
+          "why": "A pyramid has 5 flat faces."
+        },
+        {
+          "text": "Cube",
+          "why": "A cube has 6 flat faces."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about which solid has a pointed corner.",
+        "A cylinder and a sphere have no corners.",
+        "Which solid has a round bottom and a pointed top?"
+      ],
+      "explanation": "A cone has 1 flat face (the base), 1 curved face and 1 pointed corner at the top. So I am a cone.",
+      "solution": [
+        {
+          "say": "A cone has 1 flat face (the base), 1 curved face and 1 pointed corner at the top."
+        },
+        {
+          "say": "So I am a cone."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.044",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A box is built from cubes. It is 2 cubes long, 2 cubes wide and 3 cubes high. How many cubes are there?",
+      "answer": 12,
+      "tolerance": 0,
+      "hints": [
+        "Find how many cubes are in one layer.",
+        "Each layer is 2 by 2.",
+        "Then count the layers."
+      ],
+      "explanation": "One layer has 2 x 2 = 4 cubes. There are 3 layers, so there are 4 x 3 = 12 cubes.",
+      "solution": [
+        {
+          "say": "One layer has 2 x 2 = 4 cubes."
+        },
+        {
+          "say": "There are 3 layers, so there are 4 x 3 = 12 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.045",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A big cube is built from small cubes. It has 3 layers. Each layer has 3 rows of 3 cubes. How many small cubes are there?",
+      "answer": 27,
+      "tolerance": 0,
+      "hints": [
+        "Find how many cubes are in one layer.",
+        "A layer has 3 rows of 3 cubes.",
+        "Then count the layers."
+      ],
+      "explanation": "One layer has 3 x 3 = 9 cubes. There are 3 layers, so there are 9 x 3 = 27 cubes.",
+      "solution": [
+        {
+          "say": "One layer has 3 x 3 = 9 cubes."
+        },
+        {
+          "say": "There are 3 layers, so there are 9 x 3 = 27 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.046",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A big cube is made of 27 small cubes. It is painted red all over, then taken apart. How many small cubes have no red paint?",
+      "answer": 1,
+      "tolerance": 0,
+      "hints": [
+        "Cubes on the outside get painted.",
+        "Think about the cube that is inside, in the very middle.",
+        "Every other cube touches the outside."
+      ],
+      "explanation": "Every small cube on the outside has some red paint. Only the cube in the very middle touches nothing outside. So 1 cube has no red paint.",
+      "solution": [
+        {
+          "say": "Every small cube on the outside has some red paint."
+        },
+        {
+          "say": "Only the cube in the very middle touches nothing outside."
+        },
+        {
+          "say": "So 1 cube has no red paint."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.047",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big cube is made of 27 small cubes. It is painted red all over, then taken apart. How many small cubes have red paint on exactly 3 faces?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "A cube with 3 painted faces is at a corner.",
+        "How many corners does the big cube have?",
+        "Each corner has one small cube."
+      ],
+      "explanation": "A small cube has 3 painted faces only when it sits at a corner of the big cube. A cube has 8 corners, so there are 8 such cubes.",
+      "solution": [
+        {
+          "say": "A small cube has 3 painted faces only when it sits at a corner of the big cube."
+        },
+        {
+          "say": "A cube has 8 corners, so there are 8 such cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.048",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A big cube is made of 27 small cubes. It is painted red all over, then taken apart. How many small cubes have red paint on exactly 2 faces?",
+      "answer": 12,
+      "tolerance": 0,
+      "hints": [
+        "A cube with 2 painted faces sits on an edge, between two corners.",
+        "The big cube has 12 edges.",
+        "Each edge has 3 cubes. Two of them are corners."
+      ],
+      "explanation": "A cube with exactly 2 painted faces sits in the middle of an edge. The big cube has 12 edges, and each edge has 1 middle cube. So there are 12 such cubes.",
+      "solution": [
+        {
+          "say": "A cube with exactly 2 painted faces sits in the middle of an edge."
+        },
+        {
+          "say": "The big cube has 12 edges, and each edge has 1 middle cube."
+        },
+        {
+          "say": "So there are 12 such cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.049",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Anna builds stairs from blocks. Step 1 has 1 block and step 2 has 2 blocks. The pattern goes up to step 5. How many blocks does she use?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "Write the number of blocks in each step.",
+        "The steps have 1, 2, 3, 4 and 5 blocks.",
+        "Add them all up."
+      ],
+      "explanation": "The steps have 1, 2, 3, 4 and 5 blocks. In all, 1 + 2 + 3 + 4 + 5 = 15 blocks.",
+      "solution": [
+        {
+          "say": "The steps have 1, 2, 3, 4 and 5 blocks."
+        },
+        {
+          "say": "In all, 1 + 2 + 3 + 4 + 5 = 15 blocks."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.050",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A tower of cubes has 3 layers. The bottom layer has 3 rows of 3 cubes. The next layer has 2 rows of 2 cubes. The top has 1 cube. How many cubes are there?",
+      "answer": 14,
+      "tolerance": 0,
+      "hints": [
+        "Find the number of cubes in each layer.",
+        "The layers have 3 x 3, 2 x 2 and 1 x 1 cubes.",
+        "9, 4 and 1."
+      ],
+      "explanation": "The bottom layer has 3 x 3 = 9 cubes. The middle layer has 2 x 2 = 4 cubes. The top has 1 cube. In all, 9 + 4 + 1 = 14 cubes.",
+      "solution": [
+        {
+          "say": "The bottom layer has 3 x 3 = 9 cubes."
+        },
+        {
+          "say": "The middle layer has 2 x 2 = 4 cubes."
+        },
+        {
+          "say": "The top has 1 cube."
+        },
+        {
+          "say": "In all, 9 + 4 + 1 = 14 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.051",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The opposite faces of a dice add up to 7. The top face shows 2. What number is on the bottom face?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Opposite faces are on opposite sides of the dice.",
+        "The top and bottom faces are opposite.",
+        "What number added to 2 makes 7?"
+      ],
+      "explanation": "The top and bottom faces are opposite, so they add up to 7. The bottom face is 7 - 2 = 5.",
+      "solution": [
+        {
+          "say": "The top and bottom faces are opposite, so they add up to 7."
+        },
+        {
+          "say": "The bottom face is 7 - 2 = 5."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-shapes.052",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A dice has opposite faces that add up to 7. You can see the faces 1, 2 and 3. What is the total of the 3 faces you cannot see?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "The hidden faces are opposite to the faces you can see.",
+        "Opposite faces add up to 7.",
+        "Find the hidden number behind each visible face."
+      ],
+      "explanation": "The hidden faces are 6, 5 and 4, because each adds up to 7 with 1, 2 and 3. The total is 6 + 5 + 4 = 15.",
+      "solution": [
+        {
+          "say": "The hidden faces are 6, 5 and 4, because each adds up to 7 with 1, 2 and 3."
+        },
+        {
+          "say": "The total is 6 + 5 + 4 = 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.053",
+      "skill": "m2.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The numbers show how many cubes are stacked on each square. How many cubes are there in all?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Col 1",
+          "Col 2",
+          "Col 3"
+        ],
+        "rows": [
+          [
+            "2",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "3",
+            "1"
+          ],
+          [
+            "0",
+            "1",
+            "2"
+          ]
+        ],
+        "alt": "A table seen from above. Each square shows the number of cubes in its stack. Row 1: 2, 1, 0. Row 2: 1, 3, 1. Row 3: 0, 1, 2."
+      },
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Add the numbers in each row.",
+        "Row 1: 2 + 1 + 0. Row 2: 1 + 3 + 1.",
+        "Then add the totals of the 3 rows."
+      ],
+      "explanation": "The rows add up to 3, 5 and 3. In all, 3 + 5 + 3 = 11 cubes.",
+      "solution": [
+        {
+          "say": "The rows add up to 3, 5 and 3."
+        },
+        {
+          "say": "In all, 3 + 5 + 3 = 11 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-shapes.054",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which of these flat shapes can be folded to make a cube?",
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares in 3 rows of 2 squares."
+          },
+          "why": "Two squares would land on the same face of the cube."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 15,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 37,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 81,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 103,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 15,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares: a row of 5 squares with one square below the first."
+          },
+          "why": "A row of 5 squares would wrap round and overlap."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 11,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 59,
+                "y": 77,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 37,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 81,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares. A column of 4 squares has one square stuck out on each side of the second square."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 11,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 11,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 77,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares: a block of 2 by 2 squares with two more squares below the left one."
+          },
+          "why": "A block of 4 squares cannot fold round a corner of a cube."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares: a row of 4 squares with 2 squares below the first two."
+          },
+          "why": "A block of 4 squares cannot fold round a corner of a cube."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Imagine folding the squares up to make the sides of a box.",
+        "A cube has only 3 squares meeting at each corner.",
+        "Look for blocks of 4 squares or rows of 5. They do not fold into a cube."
+      ],
+      "explanation": "A row of 4 squares folds into the four sides, and the other 2 squares fold to be the top and the bottom. The other shapes would have two squares landing on the same face.",
+      "solution": [
+        {
+          "say": "A row of 4 squares folds into the four sides, and the other 2 squares fold to be the top and the bottom."
+        },
+        {
+          "say": "The other shapes would have two squares landing on the same face."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-shapes.055",
+      "skill": "m2.oly-shapes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Four of these flat shapes can be folded to make a cube. Which one cannot?",
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares: a row of 4, with one square above the first and one below the third."
+          },
+          "why": "This can be folded to make a cube."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares: a row of 4, with one square above the second and one below the fourth."
+          },
+          "why": "This can be folded to make a cube."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares: a row of 4, with one square above the first and one below the first."
+          },
+          "why": "This can be folded to make a cube."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 55,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 33,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A flat shape of 6 squares: a row of 4 squares with 2 squares above the first two."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 140,
+            "height": 110,
+            "shapes": [
+              {
+                "t": "rect",
+                "x": 26,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 70,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 44,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 92,
+                "y": 22,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              },
+              {
+                "t": "rect",
+                "x": 48,
+                "y": 66,
+                "w": 22,
+                "h": 22,
+                "r": 0,
+                "tone": "math",
+                "fill": "light"
+              }
+            ],
+            "alt": "A net of 6 squares: a row of 4, with one square above the fourth and one below the second."
+          },
+          "why": "This can be folded to make a cube."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "In a cube net, a row of 4 squares folds round to make 4 sides.",
+        "The 2 other squares fold to make the top and the bottom.",
+        "Look for a shape where the 2 other squares are on the same side of the row."
+      ],
+      "explanation": "In the others, one square is above the row and one is below it. They fold into the top and the bottom. In the odd shape both extra squares are above the row, so they land on the same face.",
+      "solution": [
+        {
+          "say": "In the others, one square is above the row and one is below it."
+        },
+        {
+          "say": "They fold into the top and the bottom."
+        },
+        {
+          "say": "In the odd shape both extra squares are above the row, so they land on the same face."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

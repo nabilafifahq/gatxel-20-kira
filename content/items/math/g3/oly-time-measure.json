@@ -1,0 +1,441 @@
+{
+  "skill": "m3.oly-time-measure",
+  "items": [
+    {
+      "id": "m3.oly-time-measure.001",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The clock shows the time now. How many minutes is it until 6:15?",
+      "figure": {
+        "kind": "clock",
+        "h": 5,
+        "m": 40,
+        "showNumbers": true,
+        "digital": false,
+        "alt": "A clock. The short hand is near 6. The long hand points to 8."
+      },
+      "answer": 35,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Read the clock first.",
+        "The clock shows 5:40.",
+        "Count on to 6:00 and then to 6:15."
+      ],
+      "explanation": "The clock shows 5:40. From 5:40 to 6:00 is 20 minutes. From 6:00 to 6:15 is 15 minutes. In all, 35 minutes.",
+      "solution": [
+        {
+          "say": "The clock shows 5:40."
+        },
+        {
+          "say": "From 5:40 to 6:00 is 20 minutes."
+        },
+        {
+          "say": "From 6:00 to 6:15 is 15 minutes."
+        },
+        {
+          "say": "In all, 35 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-time-measure.002",
+      "skill": "m3.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A film lasts 1 hour 50 minutes. It starts at 2:25. When does it end?",
+      "options": [
+        {
+          "text": "4:05",
+          "why": "Add the minutes carefully. 2:25 plus 1 hour is 3:25."
+        },
+        {
+          "text": "4:25",
+          "why": "This is 2 hours after the start."
+        },
+        {
+          "text": "3:15",
+          "why": "This is only 50 minutes after the start."
+        },
+        {
+          "text": "4:15"
+        },
+        {
+          "text": "4:35",
+          "why": "This is more than 1 hour 50 minutes."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Add the hour first.",
+        "2:25 plus 1 hour is 3:25.",
+        "Then add 50 minutes."
+      ],
+      "explanation": "2:25 plus 1 hour is 3:25. Plus 50 minutes: 3:25 to 4:00 is 35 minutes, and 15 minutes more is 4:15.",
+      "solution": [
+        {
+          "say": "2:25 plus 1 hour is 3:25."
+        },
+        {
+          "say": "Plus 50 minutes: 3:25 to 4:00 is 35 minutes, and 15 minutes more is 4:15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-time-measure.003",
+      "skill": "m3.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "January has 31 days. 1 January is a Monday. What day of the week is 1 February?",
+      "options": [
+        {
+          "text": "Wednesday",
+          "why": "Count 31 days. 28 days is exactly 4 weeks."
+        },
+        {
+          "text": "Tuesday",
+          "why": "Count 31 days. 28 days is exactly 4 weeks."
+        },
+        {
+          "text": "Friday",
+          "why": "Count 31 days. 28 days is exactly 4 weeks."
+        },
+        {
+          "text": "Thursday"
+        },
+        {
+          "text": "Monday",
+          "why": "31 days is not a whole number of weeks."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find how many whole weeks there are in 31 days.",
+        "4 weeks is 28 days.",
+        "Count on 3 more days from Monday."
+      ],
+      "explanation": "31 days is 4 weeks and 3 days. Three days after Monday is Thursday. So 1 February is a Thursday.",
+      "solution": [
+        {
+          "say": "31 days is 4 weeks and 3 days."
+        },
+        {
+          "say": "Three days after Monday is Thursday."
+        },
+        {
+          "say": "So 1 February is a Thursday."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-time-measure.004",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many days are there in 3 weeks and 4 days?",
+      "answer": 25,
+      "tolerance": 0,
+      "unit": "days",
+      "hints": [
+        "A week has 7 days.",
+        "3 weeks are 21 days.",
+        "Add the 4 days."
+      ],
+      "explanation": "3 weeks are 3 x 7 = 21 days. With 4 more days, it is 25 days.",
+      "solution": [
+        {
+          "say": "3 weeks are 3 x 7 = 21 days."
+        },
+        {
+          "say": "With 4 more days, it is 25 days."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-time-measure.005",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A train leaves at 9:48 and arrives at 11:05. How many minutes does the journey take?",
+      "answer": 77,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Count on to the next whole hour first.",
+        "9:48 to 10:48 is 60 minutes.",
+        "Then count from 10:48 to 11:05."
+      ],
+      "explanation": "From 9:48 to 10:48 is 60 minutes. From 10:48 to 11:05 is 17 minutes. In all, 60 + 17 = 77 minutes.",
+      "solution": [
+        {
+          "say": "From 9:48 to 10:48 is 60 minutes."
+        },
+        {
+          "say": "From 10:48 to 11:05 is 17 minutes."
+        },
+        {
+          "say": "In all, 60 + 17 = 77 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-time-measure.006",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many minutes are there in 2 and a half hours?",
+      "answer": 150,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "1 hour is 60 minutes.",
+        "2 hours are 120 minutes.",
+        "Half an hour is 30 minutes."
+      ],
+      "explanation": "2 hours are 120 minutes. Half an hour is 30 minutes. In all, 120 + 30 = 150 minutes.",
+      "solution": [
+        {
+          "say": "2 hours are 120 minutes."
+        },
+        {
+          "say": "Half an hour is 30 minutes."
+        },
+        {
+          "say": "In all, 120 + 30 = 150 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-time-measure.007",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rope is 2 m 35 cm long. Another rope is 1 m 80 cm long. How many centimetres are they in all?",
+      "answer": 415,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Change the metres into centimetres.",
+        "2 m 35 cm is 235 cm.",
+        "1 m 80 cm is 180 cm."
+      ],
+      "explanation": "2 m 35 cm is 235 cm. 1 m 80 cm is 180 cm. In all, 235 + 180 = 415 cm.",
+      "solution": [
+        {
+          "say": "2 m 35 cm is 235 cm."
+        },
+        {
+          "say": "1 m 80 cm is 180 cm."
+        },
+        {
+          "say": "In all, 235 + 180 = 415 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-time-measure.008",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A jug holds 2 litres. How many glasses of 250 ml can be filled from a full jug?",
+      "answer": 8,
+      "tolerance": 0,
+      "unit": "glasses",
+      "hints": [
+        "1 litre is 1000 ml.",
+        "The jug holds 2000 ml.",
+        "How many 250s are there in 2000?"
+      ],
+      "explanation": "The jug holds 2 x 1000 = 2000 ml. 2000 / 250 = 8, so 8 glasses can be filled.",
+      "solution": [
+        {
+          "say": "The jug holds 2 x 1000 = 2000 ml."
+        },
+        {
+          "say": "2000 / 250 = 8, so 8 glasses can be filled."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-time-measure.009",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Three bags weigh 2 kg each. Five packs weigh 500 g each. How many grams do they weigh in all?",
+      "answer": 8500,
+      "tolerance": 0,
+      "unit": "g",
+      "hints": [
+        "Change the kilograms into grams.",
+        "3 bags of 2 kg is 6 kg, which is 6000 g.",
+        "5 packs of 500 g."
+      ],
+      "explanation": "3 bags weigh 3 x 2 = 6 kg, which is 6000 g. 5 packs weigh 5 x 500 = 2500 g. In all, 6000 + 2500 = 8500 g.",
+      "solution": [
+        {
+          "say": "3 bags weigh 3 x 2 = 6 kg, which is 6000 g."
+        },
+        {
+          "say": "5 packs weigh 5 x 500 = 2500 g."
+        },
+        {
+          "say": "In all, 6000 + 2500 = 8500 g."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-time-measure.010",
+      "skill": "m3.oly-time-measure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How long is the pencil?",
+      "figure": {
+        "kind": "ruler",
+        "lengthCm": 15,
+        "objectCm": 7,
+        "objectStartCm": 4,
+        "object": "pencil",
+        "alt": "A ruler from 0 to 15 cm. A pencil starts at the 4 cm mark and ends at the 11 cm mark."
+      },
+      "options": [
+        {
+          "text": "11 cm",
+          "why": "You read the end of the pencil. It does not start at 0."
+        },
+        {
+          "text": "4 cm",
+          "why": "This is where the pencil starts."
+        },
+        {
+          "text": "7 cm"
+        },
+        {
+          "text": "8 cm",
+          "why": "Count the centimetres from the start."
+        },
+        {
+          "text": "15 cm",
+          "why": "This is the whole length of the ruler."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at where the pencil starts on the ruler.",
+        "It starts at 4 cm and ends at 11 cm.",
+        "Take the start number away from the end number."
+      ],
+      "explanation": "The pencil starts at 4 cm and ends at 11 cm. Its length is 11 - 4 = 7 cm.",
+      "solution": [
+        {
+          "say": "The pencil starts at 4 cm and ends at 11 cm."
+        },
+        {
+          "say": "Its length is 11 - 4 = 7 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-time-measure.011",
+      "skill": "m3.oly-time-measure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "School starts at 7:45 and ends at 1:15 in the afternoon. How many minutes is the school day?",
+      "answer": 330,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Count the time to 12:00 first.",
+        "7:45 to 12:45 is 5 hours.",
+        "Then add the time to 1:15."
+      ],
+      "explanation": "From 7:45 to 12:45 is 5 hours. From 12:45 to 1:15 is 30 minutes. In all, 5 hours 30 minutes, which is 5 x 60 + 30 = 330 minutes.",
+      "solution": [
+        {
+          "say": "From 7:45 to 12:45 is 5 hours."
+        },
+        {
+          "say": "From 12:45 to 1:15 is 30 minutes."
+        },
+        {
+          "say": "In all, 5 hours 30 minutes, which is 5 x 60 + 30 = 330 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}

@@ -3,18 +3,39 @@
   "title": "Persiapan Olimpiade Math Kelas 2 (8 minggu)",
   "subject": "math",
   "grade": 2,
-  "competitions": ["ikmc", "sasmo", "kmnr", "esmo"],
+  "competitions": [
+    "ikmc",
+    "sasmo",
+    "kmnr",
+    "esmo"
+  ],
   "summary": "Delapan minggu persiapan untuk lomba seperti IKMC, SASMO, KMNR, dan ESMO. Minggu 1 dan 2 fondasi, minggu 3 dan 4 jenis soal dan logika, minggu 5 dan 6 campuran dan kecepatan, minggu 7 dan 8 simulasi bertimer.",
   "weeks": 8,
   "phases": [
     {
       "id": "fondasi",
       "name": "Fondasi",
-      "weeks": [1, 2],
+      "weeks": [
+        1,
+        2
+      ],
       "focus": "Nilai tempat, urutan bilangan, ganjil genap, hitung cepat",
       "summary": "Nilai tempat, membandingkan dan mengurutkan bilangan, ganjil genap, hitung cepat 1 dan 2 digit, dan 3 sampai 4 soal teka-teki mudah per sesi.",
-      "latihan": ["m2.place-value", "m2.compare-order", "m2.odd-even", "m2.addition", "m2.subtraction", "m2.number-bonds"],
-      "tes": ["m2.oly-number-puzzles", "m2.oly-patterns", "m2.oly-logic"],
+      "latihan": [
+        "m2.place-value",
+        "m2.compare-order",
+        "m2.odd-even",
+        "m2.oly-number-sense",
+        "m2.addition",
+        "m2.subtraction",
+        "m2.number-bonds"
+      ],
+      "tes": [
+        "m2.oly-number-puzzles",
+        "m2.oly-number-sense",
+        "m2.oly-patterns",
+        "m2.oly-logic"
+      ],
       "latihanQuestions": 10,
       "tesQuestions": 4,
       "note": "Latihan fondasi dulu, lalu 4 teka-teki mudah di sesi Tes. Hitung cepat 1 dan 2 digit juga dilatih setiap hari di Hitung Cepat."
@@ -22,10 +43,28 @@
     {
       "id": "jenis-soal",
       "name": "Jenis soal dan logika",
-      "weeks": [3, 4],
+      "weeks": [
+        3,
+        4
+      ],
       "focus": "Pola, ganjil sendiri, sandi, bayangan dan bentuk, uang, bangun datar dan ruang",
       "summary": "Pola bilangan dan gambar, ganjil sendiri, sandi sederhana, bayangan dan bentuk, uang, bangun datar dan ruang. Satu jenis soal per hari, ditambah rekaman penjelasan.",
-      "latihan": ["m2.oly-patterns", "m2.oly-logic", "m2.oly-number-puzzles", "m2.symmetry", "m2.money", "m2.shapes-2d", "m2.sequences", "m2.oly-logic", "m2.oly-counting", "m2.oly-shapes", "m2.money", "m2.shapes-3d"],
+      "latihan": [
+        "m2.oly-patterns",
+        "m2.oly-logic",
+        "m2.oly-coding",
+        "m2.oly-number-sense",
+        "m2.symmetry",
+        "m2.oly-money",
+        "m2.shapes-2d",
+        "m2.sequences",
+        "m2.oly-counting",
+        "m2.oly-shapes",
+        "m2.oly-time-measure",
+        "m2.shapes-3d",
+        "m2.oly-word-problems",
+        "m2.oly-coding"
+      ],
       "tes": "previous",
       "latihanQuestions": 10,
       "tesQuestions": 10,
@@ -34,11 +73,31 @@
     {
       "id": "campuran",
       "name": "Campuran dan kecepatan",
-      "weeks": [5, 6],
+      "weeks": [
+        5,
+        6
+      ],
       "focus": "Set campuran soal cerita, logika, dan pola",
       "summary": "Set campuran soal cerita, logika, dan pola. Buku Salah dipakai untuk mengulang yang lemah.",
-      "latihan": ["m2.oly-number-puzzles", "m2.oly-logic", "m2.oly-patterns", "m2.oly-counting", "m2.oly-shapes", "m2.times-tables"],
-      "tes": ["m2.oly-logic", "m2.oly-patterns", "m2.oly-number-puzzles", "m2.oly-counting"],
+      "latihan": [
+        "m2.oly-number-puzzles",
+        "m2.oly-logic",
+        "m2.oly-patterns",
+        "m2.oly-counting",
+        "m2.oly-shapes",
+        "m2.oly-word-problems",
+        "m2.oly-money",
+        "m2.oly-time-measure",
+        "m2.times-tables"
+      ],
+      "tes": [
+        "m2.oly-logic",
+        "m2.oly-patterns",
+        "m2.oly-number-puzzles",
+        "m2.oly-counting",
+        "m2.oly-word-problems",
+        "m2.oly-coding"
+      ],
       "latihanQuestions": 12,
       "tesQuestions": 10,
       "note": "Hari Sabtu Syakira mengulang Buku Salah, jadi soal yang masih lemah muncul lagi."
@@ -46,16 +105,42 @@
     {
       "id": "simulasi",
       "name": "Simulasi",
-      "weeks": [7, 8],
+      "weeks": [
+        7,
+        8
+      ],
       "focus": "Simulasi bertimer dari paper asli",
       "summary": "Satu simulasi bertimer 30 sampai 40 menit setiap minggu dari paper asli. Dua sampai tiga hari terakhir hanya teka-teki ringan atau istirahat.",
-      "latihan": ["m2.oly-patterns", "m2.oly-logic", "m2.oly-number-puzzles", "m2.oly-shapes", "m2.oly-counting"],
+      "latihan": [
+        "m2.oly-patterns",
+        "m2.oly-logic",
+        "m2.oly-number-puzzles",
+        "m2.oly-shapes",
+        "m2.oly-counting",
+        "m2.oly-word-problems",
+        "m2.oly-coding"
+      ],
       "tes": "previous",
       "latihanQuestions": 10,
       "tesQuestions": 10,
       "note": "Hari Sabtu memakai satu paper penuh bertimer. Bahas hasilnya bersama setelah selesai."
     }
   ],
-  "taper": { "days": 3, "skills": ["m2.oly-patterns", "m2.oly-logic", "m2.oly-shapes"], "questions": 4 },
-  "simulation": { "weeks": [7, 8], "minMinutes": 30, "maxMinutes": 40 }
+  "taper": {
+    "days": 3,
+    "skills": [
+      "m2.oly-patterns",
+      "m2.oly-logic",
+      "m2.oly-shapes"
+    ],
+    "questions": 4
+  },
+  "simulation": {
+    "weeks": [
+      7,
+      8
+    ],
+    "minMinutes": 30,
+    "maxMinutes": 40
+  }
 }

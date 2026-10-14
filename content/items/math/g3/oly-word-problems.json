@@ -1,0 +1,496 @@
+{
+  "skill": "m3.oly-word-problems",
+  "items": [
+    {
+      "id": "m3.oly-word-problems.001",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ann and Ben have 72 stickers together. Ben has twice as many as Ann. How many stickers does Ann have?",
+      "answer": 24,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for Ann.",
+        "Ben has 2 blocks. How many blocks in all?",
+        "Share 72 between the blocks."
+      ],
+      "explanation": "Ann has 1 block and Ben has 2 blocks. That is 3 blocks in all. 72 / 3 = 24, so Ann has 24 stickers.",
+      "solution": [
+        {
+          "say": "Ann has 1 block and Ben has 2 blocks."
+        },
+        {
+          "say": "That is 3 blocks in all."
+        },
+        {
+          "say": "72 / 3 = 24, so Ann has 24 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.002",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Tom has 3 times as many marbles as Jo. Together they have 64 marbles. How many marbles does Jo have?",
+      "answer": 16,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for Jo.",
+        "Tom has 3 blocks. Together there are 4 blocks.",
+        "Share 64 between the 4 blocks."
+      ],
+      "explanation": "Jo has 1 block and Tom has 3 blocks. That is 4 blocks in all. 64 / 4 = 16, so Jo has 16 marbles.",
+      "solution": [
+        {
+          "say": "Jo has 1 block and Tom has 3 blocks."
+        },
+        {
+          "say": "That is 4 blocks in all."
+        },
+        {
+          "say": "64 / 4 = 16, so Jo has 16 marbles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.003",
+      "skill": "m3.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ali and Budi have 100 stickers together. Ali has 30 more than Budi. How many stickers does Budi have?",
+      "options": [
+        {
+          "text": "30"
+        },
+        {
+          "text": "35"
+        },
+        {
+          "text": "40"
+        },
+        {
+          "text": "65"
+        },
+        {
+          "text": "70"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take away the extra 30 stickers.",
+        "Then they have the same number.",
+        "Share what is left equally."
+      ],
+      "explanation": "Take away Ali's extra 30: 100 - 30 = 70. Share equally: 70 / 2 = 35. Budi has 35 stickers and Ali has 65.",
+      "solution": [
+        {
+          "say": "Take away Ali's extra 30: 100 - 30 = 70."
+        },
+        {
+          "say": "Share equally: 70 / 2 = 35."
+        },
+        {
+          "say": "Budi has 35 stickers and Ali has 65."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.004",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Three children have 90 cards in all. Ana has twice as many as Ben. Cat has as many as Ana and Ben together. How many cards does Cat have?",
+      "answer": 45,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for Ben.",
+        "Ana has 2 blocks. Cat has 2 + 1 = 3 blocks.",
+        "Count the blocks in all: 1 + 2 + 3."
+      ],
+      "explanation": "Ben has 1 block, Ana has 2 blocks and Cat has 3 blocks. That is 6 blocks in all. 90 / 6 = 15 for one block. Cat has 3 x 15 = 45 cards.",
+      "solution": [
+        {
+          "say": "Ben has 1 block, Ana has 2 blocks and Cat has 3 blocks."
+        },
+        {
+          "say": "That is 6 blocks in all."
+        },
+        {
+          "say": "90 / 6 = 15 for one block."
+        },
+        {
+          "say": "Cat has 3 x 15 = 45 cards."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.005",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "I think of a number. I multiply it by 4 and take away 6. The answer is 30. What is my number?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 30.",
+        "Undo take away 6 by adding 6.",
+        "Then undo the times 4."
+      ],
+      "explanation": "Undo take away 6: 30 + 6 = 36. Undo times 4: 36 / 4 = 9. Check: 9 x 4 = 36 and 36 - 6 = 30.",
+      "solution": [
+        {
+          "say": "Undo take away 6: 30 + 6 = 36."
+        },
+        {
+          "say": "Undo times 4: 36 / 4 = 9."
+        },
+        {
+          "say": "Check: 9 x 4 = 36 and 36 - 6 = 30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.006",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Dina spent half of her money on lunch. Then she spent half of what was left on a book. She has Rp5.000 left. How many rupiah did she have at the start?",
+      "answer": 20000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Work backwards from Rp5.000.",
+        "Before the book she had twice Rp5.000.",
+        "Before lunch she had twice that."
+      ],
+      "explanation": "After lunch she spent half of the rest, so the Rp5.000 left is half of Rp10.000. Rp10.000 is half of her money. So she started with Rp20.000.",
+      "solution": [
+        {
+          "say": "After lunch she spent half of the rest, so the Rp5.000 left is half of Rp10.000."
+        },
+        {
+          "say": "Rp10.000 is half of her money."
+        },
+        {
+          "say": "So she started with Rp20.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.007",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "I think of a number. I triple it, add 7, and then halve the answer. I get 11. What is my number?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 11.",
+        "Undo halving by doubling.",
+        "Then undo add 7. Then undo tripling."
+      ],
+      "explanation": "Undo halving: 11 x 2 = 22. Undo add 7: 22 - 7 = 15. Undo tripling: 15 / 3 = 5. Check: 5 x 3 = 15, 15 + 7 = 22 and 22 / 2 = 11.",
+      "solution": [
+        {
+          "say": "Undo halving: 11 x 2 = 22."
+        },
+        {
+          "say": "Undo add 7: 22 - 7 = 15."
+        },
+        {
+          "say": "Undo tripling: 15 / 3 = 5."
+        },
+        {
+          "say": "Check: 5 x 3 = 15, 15 + 7 = 22 and 22 / 2 = 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.008",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Rani is 6 years old. In 4 years Mum will be 3 times as old as Rani will be then. How old is Mum now?",
+      "answer": 26,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Find how old Rani will be in 4 years.",
+        "Rani will be 10. Mum will be 3 times that.",
+        "Mum will be 30 in 4 years. Go back 4 years."
+      ],
+      "explanation": "In 4 years Rani will be 10. Mum will be 3 x 10 = 30 then. Mum is 30 - 4 = 26 now.",
+      "solution": [
+        {
+          "say": "In 4 years Rani will be 10."
+        },
+        {
+          "say": "Mum will be 3 x 10 = 30 then."
+        },
+        {
+          "say": "Mum is 30 - 4 = 26 now."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.009",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A father and his son are 50 years old together. In 5 years the father will be 3 times as old as his son. How old is the son now?",
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Together they will be 10 years older in 5 years.",
+        "In 5 years their ages add up to 60.",
+        "The father is 3 times the son: that is 4 blocks."
+      ],
+      "explanation": "In 5 years their ages add up to 50 + 10 = 60. Then the father is 3 blocks and the son is 1 block, so 4 blocks make 60 and 1 block is 15. The son will be 15, so he is 15 - 5 = 10 now.",
+      "solution": [
+        {
+          "say": "In 5 years their ages add up to 50 + 10 = 60."
+        },
+        {
+          "say": "Then the father is 3 blocks and the son is 1 block, so 4 blocks make 60 and 1 block is 15."
+        },
+        {
+          "say": "The son will be 15, so he is 15 - 5 = 10 now."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.010",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ana has 20 sweets. She eats 3. Ben eats twice as many as Ana ate. How many sweets are left?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Find how many sweets Ben eats.",
+        "Ben eats 2 x 3.",
+        "Take both amounts away from 20."
+      ],
+      "explanation": "Ben eats 2 x 3 = 6 sweets. Together they ate 3 + 6 = 9. So 20 - 9 = 11 sweets are left.",
+      "solution": [
+        {
+          "say": "Ben eats 2 x 3 = 6 sweets."
+        },
+        {
+          "say": "Together they ate 3 + 6 = 9."
+        },
+        {
+          "say": "So 20 - 9 = 11 sweets are left."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.011",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A tank holds 50 litres. Tap A fills 4 litres every minute. Tap B fills 6 litres every minute. How many minutes do both taps need to fill the tank?",
+      "answer": 5,
+      "tolerance": 0,
+      "unit": "minutes",
+      "hints": [
+        "Find how much the two taps fill in 1 minute.",
+        "4 + 6 = 10 litres.",
+        "How many 10s are there in 50?"
+      ],
+      "explanation": "The two taps fill 4 + 6 = 10 litres each minute. 50 / 10 = 5, so it takes 5 minutes.",
+      "solution": [
+        {
+          "say": "The two taps fill 4 + 6 = 10 litres each minute."
+        },
+        {
+          "say": "50 / 10 = 5, so it takes 5 minutes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-word-problems.012",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A snail climbs 5 m up a well in the day. At night it slips back 2 m. The well is 12 m deep. On which day does the snail get out?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Find the height after each day and each night.",
+        "Day 1: 5 m, then slips to 3 m.",
+        "On day 3 it climbs from 6 m. Does it reach 12 m?"
+      ],
+      "explanation": "Day 1: climbs to 5 m, slips to 3 m. Day 2: 8 m, slips to 6 m. Day 3: 11 m, slips to 9 m. Day 4: climbs to 14 m and gets out. So it is on day 4.",
+      "solution": [
+        {
+          "say": "Day 1: climbs to 5 m, slips to 3 m."
+        },
+        {
+          "say": "Day 2: 8 m, slips to 6 m."
+        },
+        {
+          "say": "Day 3: 11 m, slips to 9 m."
+        },
+        {
+          "say": "Day 4: climbs to 14 m and gets out."
+        },
+        {
+          "say": "So it is on day 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.013",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Ravi has 12 coins. Each coin is Rp500 or Rp200. Together they are worth Rp3.600. How many Rp500 coins does he have?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "If all 12 coins were Rp200, how much would he have?",
+        "That is Rp2.400. He has Rp1.200 more.",
+        "Each Rp500 coin instead of a Rp200 coin adds Rp300."
+      ],
+      "explanation": "12 coins of Rp200 make Rp2.400. Rp3.600 is Rp1.200 more. Each swap adds Rp300, so 1.200 / 300 = 4 swaps. He has 4 coins of Rp500.",
+      "solution": [
+        {
+          "say": "12 coins of Rp200 make Rp2.400."
+        },
+        {
+          "say": "Rp3.600 is Rp1.200 more."
+        },
+        {
+          "say": "Each swap adds Rp300, so 1.200 / 300 = 4 swaps."
+        },
+        {
+          "say": "He has 4 coins of Rp500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-word-problems.014",
+      "skill": "m3.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A farm has 10 animals. Some are rabbits and some are hens. Together they have 28 legs. How many rabbits are there?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "If all 10 animals were hens, how many legs would there be?",
+        "That is 20 legs. There are 8 more.",
+        "Each rabbit instead of a hen adds 2 legs."
+      ],
+      "explanation": "10 hens would have 20 legs. There are 28 - 20 = 8 more legs. Each rabbit has 2 more legs than a hen, so there are 8 / 2 = 4 rabbits.",
+      "solution": [
+        {
+          "say": "10 hens would have 20 legs."
+        },
+        {
+          "say": "There are 28 - 20 = 8 more legs."
+        },
+        {
+          "say": "Each rabbit has 2 more legs than a hen, so there are 8 / 2 = 4 rabbits."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    }
+  ]
+}

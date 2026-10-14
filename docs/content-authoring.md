@@ -259,3 +259,11 @@ Generator ditulis di `packages/content/src/math/g<grade>.ts` dan mengembalikan i
 - Jawaban dihitung dari angka yang dibangkitkan, tidak diketik.
 - Semua hint dan penjelasan memakai angka soal itu.
 - `pnpm content:check` menjalankan 25 seed per tingkat dan menolak hasil yang tidak valid atau tidak deterministik.
+
+## Soal olimpiade (skill `oly-*`)
+
+- Setiap soal olimpiade bertag `olympiad` ditambah tag lomba yang gayanya mirip (`ikmc`, `sasmo`, `kmnr`, `seamo`, `hkimo`). Pemilih simulasi dan paper memilih soal lewat tag itu.
+- `points` 3, 4, atau 5 dipetakan ke `difficulty` 3, 4, atau 5. Soal pemanasan boleh `points: 3` dengan `difficulty: 2`, supaya terpakai di bagian soal mudah SASMO dan KMNR.
+- Pilihan ganda gaya Kangaroo memakai 5 opsi dan `keep-order`. Opsi angka diurutkan naik. Jawaban benar tidak selalu di tempat yang sama.
+- Satu kalimat di prompt kelas 1 sampai 2 paling banyak 12 kata, kelas 3 paling banyak 16 kata.
+- Teka-teki kotak (`grid`) tidak ikut simulasi karena bukan jenis soal kertas. Pastikan hanya punya satu penyelesaian, `pnpm content:check` memeriksanya.

@@ -490,6 +490,256 @@
         "timo"
       ],
       "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-word-puzzles.009",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Mia has 8 stickers. She gives 3 away. Then she gets 2 more. How many stickers does she have?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Do it in the order of the story.",
+        "8 take away 3.",
+        "Then add 2."
+      ],
+      "explanation": "8 - 3 = 5. Then 5 + 2 = 7 stickers.",
+      "solution": [
+        {
+          "say": "8 - 3 = 5."
+        },
+        {
+          "say": "Then 5 + 2 = 7 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-word-puzzles.010",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "5 birds sit on a tree. 2 fly away. 3 more come. How many birds are on the tree?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Do it in the order of the story.",
+        "5 take away 2.",
+        "Then add 3."
+      ],
+      "explanation": "5 - 2 = 3 birds. Then 3 + 3 = 6 birds.",
+      "solution": [
+        {
+          "say": "5 - 2 = 3 birds."
+        },
+        {
+          "say": "Then 3 + 3 = 6 birds."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-word-puzzles.011",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A frog jumps 2 steps each time. How many jumps does it need to reach 10?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Count in 2s: 2, 4 ...",
+        "Stop when you reach 10.",
+        "Count how many numbers you said."
+      ],
+      "explanation": "The frog lands on 2, 4, 6, 8 and 10. That is 5 jumps.",
+      "solution": [
+        {
+          "say": "The frog lands on 2, 4, 6, 8 and 10."
+        },
+        {
+          "say": "That is 5 jumps."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-word-puzzles.012",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "I add 4 to a number and get 9. What is the number?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Undo the adding.",
+        "Take 4 away from 9.",
+        "9 - 4."
+      ],
+      "explanation": "The opposite of adding 4 is taking away 4. 9 - 4 = 5. Check: 5 + 4 = 9.",
+      "solution": [
+        {
+          "say": "The opposite of adding 4 is taking away 4."
+        },
+        {
+          "say": "9 - 4 = 5."
+        },
+        {
+          "say": "Check: 5 + 4 = 9."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-word-puzzles.013",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ben has 5 marbles. Mia has 3 more than Ben. How many marbles does Mia have?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Mia has the same as Ben, and some more.",
+        "She has 5 and 3 more.",
+        "5 + 3."
+      ],
+      "explanation": "Mia has 5 + 3 = 8 marbles.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-word-puzzles.014",
+      "skill": "m1.oly-word-puzzles",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "There are 10 apples in a bag. Dina takes out 4 apples. Then she puts back 1. How many apples are in the bag?",
+      "options": [
+        {
+          "text": "5"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8"
+        },
+        {
+          "text": "9"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Do it in the order of the story.",
+        "10 take away 4.",
+        "Then add the 1 she puts back."
+      ],
+      "explanation": "10 - 4 = 6. Then 6 + 1 = 7 apples.",
+      "solution": [
+        {
+          "say": "10 - 4 = 6."
+        },
+        {
+          "say": "Then 6 + 1 = 7 apples."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-word-puzzles.015",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Ali and Budi have 12 pencils in all. Ali has 2 more pencils than Budi. How many pencils does Ali have?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Take away the 2 extra pencils first.",
+        "12 - 2 = 10.",
+        "Share 10 between the two boys."
+      ],
+      "explanation": "Take away Ali's extra 2: 12 - 2 = 10. Share equally: 5 each. Ali has 5 + 2 = 7 pencils.",
+      "solution": [
+        {
+          "say": "Take away Ali's extra 2: 12 - 2 = 10."
+        },
+        {
+          "say": "Share equally: 5 each."
+        },
+        {
+          "say": "Ali has 5 + 2 = 7 pencils."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-word-puzzles.016",
+      "skill": "m1.oly-word-puzzles",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Rani had some sweets. She ate 3 and then got 5 more. Now she has 9 sweets. How many sweets did she have at first?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 9.",
+        "Undo getting 5 more. Take 5 away.",
+        "Then undo eating 3. Add 3."
+      ],
+      "explanation": "Before she got 5 more she had 9 - 5 = 4. Before she ate 3 she had 4 + 3 = 7 sweets.",
+      "solution": [
+        {
+          "say": "Before she got 5 more she had 9 - 5 = 4."
+        },
+        {
+          "say": "Before she ate 3 she had 4 + 3 = 7 sweets."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

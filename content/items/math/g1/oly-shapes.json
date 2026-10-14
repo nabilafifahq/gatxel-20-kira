@@ -549,6 +549,343 @@
         "seamo"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "m1.oly-shapes.009",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How many corners does a square have?",
+      "figure": {
+        "kind": "shape",
+        "shape": "square",
+        "tone": "math",
+        "alt": "A square."
+      },
+      "options": [
+        {
+          "text": "0",
+          "why": "A circle has no corners."
+        },
+        {
+          "text": "3",
+          "why": "A triangle has 3 corners."
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "A pentagon has 5 corners."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the shape.",
+        "Count the corners one by one.",
+        "A corner is where two sides meet."
+      ],
+      "explanation": "A square has 4 sides and 4 corners.",
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-shapes.010",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which shape can roll?",
+      "figure": {
+        "kind": "shapes",
+        "items": [
+          {
+            "shape": "sphere"
+          },
+          {
+            "shape": "cube"
+          },
+          {
+            "shape": "cuboid"
+          },
+          {
+            "shape": "square-pyramid"
+          }
+        ],
+        "alt": "Four solids: a ball, a cube, a box and a pyramid."
+      },
+      "options": [
+        {
+          "text": "Cube",
+          "why": "A cube has flat faces and cannot roll."
+        },
+        {
+          "text": "Box",
+          "why": "A box has flat faces and cannot roll."
+        },
+        {
+          "text": "Pyramid",
+          "why": "A pyramid has flat faces and cannot roll."
+        },
+        {
+          "text": "Ball"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A shape that rolls has a round part.",
+        "Which solid is round all over?",
+        "Think about a ball."
+      ],
+      "explanation": "A ball is round all over, so it rolls. The cube, box and pyramid have flat faces.",
+      "solution": [
+        {
+          "say": "A ball is round all over, so it rolls."
+        },
+        {
+          "say": "The cube, box and pyramid have flat faces."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-shapes.011",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many faces does a cube have?",
+      "figure": {
+        "kind": "solid",
+        "solid": "cube",
+        "alt": "A cube, a solid with 6 square faces."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "A face is a flat side.",
+        "Think about a dice.",
+        "Count the top, the bottom and the 4 sides."
+      ],
+      "explanation": "A cube has 1 top, 1 bottom and 4 sides. That is 6 faces.",
+      "solution": [
+        {
+          "say": "A cube has 1 top, 1 bottom and 4 sides."
+        },
+        {
+          "say": "That is 6 faces."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-shapes.012",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Two triangles are next to each other. How many sides do they have in all?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "A triangle has 3 sides.",
+        "Two triangles.",
+        "3 + 3."
+      ],
+      "explanation": "Each triangle has 3 sides. Two triangles have 3 + 3 = 6 sides.",
+      "solution": [
+        {
+          "say": "Each triangle has 3 sides."
+        },
+        {
+          "say": "Two triangles have 3 + 3 = 6 sides."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-shapes.013",
+      "skill": "m1.oly-shapes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A ball is in the sun. What shape is its shadow on the ground?",
+      "options": [
+        {
+          "text": "Square",
+          "why": "A ball has no square part."
+        },
+        {
+          "text": "Triangle",
+          "why": "A ball has no pointed part."
+        },
+        {
+          "text": "Rectangle",
+          "why": "A ball is round from every side."
+        },
+        {
+          "text": "Circle"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about how a ball looks from above.",
+        "A ball is round all over.",
+        "A round shape has no corners."
+      ],
+      "explanation": "A ball looks round from every side, so its shadow is a circle.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-shapes.014",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A tower has 2 layers. Each layer has 3 cubes. How many cubes are there?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Find the cubes in one layer.",
+        "There are 3.",
+        "There are 2 layers."
+      ],
+      "explanation": "Each layer has 3 cubes and there are 2 layers. That makes 3 + 3 = 6 cubes.",
+      "solution": [
+        {
+          "say": "Each layer has 3 cubes and there are 2 layers."
+        },
+        {
+          "say": "That makes 3 + 3 = 6 cubes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-shapes.015",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A paper is folded in half. A hole is punched through it. How many holes are there when it is opened?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "A folded paper has 2 layers.",
+        "The punch goes through both.",
+        "How many layers get a hole?"
+      ],
+      "explanation": "The folded paper has 2 layers, and both get a hole. So there are 2 holes.",
+      "solution": [
+        {
+          "say": "The folded paper has 2 layers, and both get a hole."
+        },
+        {
+          "say": "So there are 2 holes."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-shapes.016",
+      "skill": "m1.oly-shapes",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Count the triangles in the picture. A line goes from the top corner to the bottom middle.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                18
+              ],
+              [
+                30,
+                118
+              ],
+              [
+                210,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 18,
+            "x2": 120,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          }
+        ],
+        "alt": "A big triangle with a line drawn from the top corner to the middle of the bottom side."
+      },
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Count the small triangles first.",
+        "There are 2 small triangles.",
+        "The whole shape is also a triangle."
+      ],
+      "explanation": "There are 2 small triangles. The whole shape is 1 more triangle. So there are 3 triangles.",
+      "solution": [
+        {
+          "say": "There are 2 small triangles."
+        },
+        {
+          "say": "The whole shape is 1 more triangle."
+        },
+        {
+          "say": "So there are 3 triangles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }
