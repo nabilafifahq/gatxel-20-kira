@@ -282,4 +282,31 @@ export const TTS_EXAMINER_INTRO = 'Hello! I am your English examiner today.'
 export const TTS_BEE_PRAISE = 'Well done!'
 export const TTS_BEE_RETRY = 'Not quite. Listen again.'
 
-export const TTS_FIXED_LINES: TtsClipRequest[] = [TTS_EXAMINER_INTRO, TTS_BEE_PRAISE, TTS_BEE_RETRY].map((text) => ({ text, style: 'teacher' as const }))
+/**
+ * Suara pembawa acara Quiz Arena (gaya quizhost): kalimat pendek yang tetap, jadi bisa dibuat lebih dulu oleh batch
+ * dan diputar tanpa menunggu. Bila klipnya belum ada, layar diam saja (bukan suara perangkat).
+ */
+export const QUIZ_HOST_INTROS = ['Here we go!', 'Next question.', 'Ready? Listen up.', 'Here is your question.'] as const
+export const QUIZ_HOST_STREAKS: Readonly<Record<number, string>> = {
+  3: 'Three in a row!',
+  5: 'Five in a row! Wow!',
+  8: 'Eight in a row! You are on fire!',
+  10: 'Ten in a row! Amazing!',
+}
+export const QUIZ_HOST_LINES: readonly string[] = [...QUIZ_HOST_INTROS, ...Object.values(QUIZ_HOST_STREAKS)]
+
+/** Kalimat pembuka pertanyaan: sekali di pertanyaan pertama, lalu tiap empat pertanyaan berikutnya. Selain itu null. */
+export function hostIntroLine(index: number): string | null {
+  if (index < 0 || index % 4 !== 0) return null
+  return index === 0 ? QUIZ_HOST_INTROS[0] : QUIZ_HOST_INTROS[1 + ((index / 4 - 1) % (QUIZ_HOST_INTROS.length - 1))]!
+}
+
+/** Pujian saat deretan jawaban benar mencapai 3, 5, 8, dan 10. Selain itu null. */
+export function hostStreakLine(streak: number): string | null {
+  return QUIZ_HOST_STREAKS[streak] ?? null
+}
+
+export const TTS_FIXED_LINES: TtsClipRequest[] = [
+  ...[TTS_EXAMINER_INTRO, TTS_BEE_PRAISE, TTS_BEE_RETRY].map((text) => ({ text, style: 'teacher' as const })),
+  ...QUIZ_HOST_LINES.map((text) => ({ text, style: 'quizhost' as const })),
+]

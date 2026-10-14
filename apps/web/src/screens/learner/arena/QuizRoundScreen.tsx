@@ -13,6 +13,8 @@ import { Timer } from '@/components/learner/Timer'
 import { ArenaPic } from '@/components/learner/arena/ArenaPic'
 import { RewardPanel } from '@/components/learner/arena/RewardPanel'
 import { playRoundEndSfx } from '@/components/learner/arena/reward-sfx'
+import { hostIntroLine, hostStreakLine } from '@kira/core/tts'
+import { hostSay, stopHostVoice } from '@/components/learner/host-voice'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { ExitControl } from '@/screens/learner/runner/parts'
 import { ActionError } from '@/screens/learner/common'
@@ -242,6 +244,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
   const questionStart = useRef(Date.now())
   const chain = useRef<Promise<unknown>>(Promise.resolve())
   const finishCalled = useRef(false)
+  const streak = useRef(0)
 
   const question = learn ? undefined : data.questions[index]
   const timed = data.timed
@@ -258,6 +261,14 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
     questionStart.current = Date.now()
     setFeedback(null)
   }, [index])
+
+  // Suara pembawa acara: hanya klip yang sudah ada, diam bila tidak ada. Tidak dipakai di mode cepat.
+  useEffect(() => {
+    if (learn || data.timed || result || index >= total) return
+    const line = hostIntroLine(index)
+    if (line) hostSay(line)
+  }, [data.timed, index, learn, result, total])
+  useEffect(() => () => stopHostVoice(), [])
 
   const finish = useCallback(async () => {
     if (finishCalled.current) return
@@ -324,6 +335,9 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
       if (!res) return
       if (res.correct) setRight((n) => n + 1)
       playSfx(res.correct ? 'correct' : 'notyet')
+      streak.current = res.correct ? streak.current + 1 : 0
+      const praise = res.correct ? hostStreakLine(streak.current) : null
+      if (praise) hostSay(praise, 600)
       setFeedback({ ok: res.correct, chosen: answer, ...(res.explain ? { explain: res.explain } : {}), ...(res.answerLabel ? { answerLabel: res.answerLabel } : {}) })
       if (res.correct) {
         await sleep(reduced ? 900 : AUTO_NEXT_MS)
