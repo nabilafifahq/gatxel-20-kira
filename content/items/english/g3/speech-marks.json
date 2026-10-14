@@ -498,22 +498,33 @@
     {
       "id": "e3.speech-marks.017",
       "skill": "e3.speech-marks",
-      "type": "text",
+      "type": "mcq",
       "difficulty": 3,
-      "prompt": "Write the missing mark. \"Where are you___\" asked Dad.",
+      "prompt": "Which mark goes here? \"Where are you___\" asked Dad.",
       "hints": [
         "Dad is asking something.",
         "The mark goes inside the speech marks.",
         "It is a question."
       ],
       "explanation": "A question needs a question mark inside the speech marks.",
-      "blanks": [
+      "options": [
         {
-          "answers": [
-            "?"
-          ]
+          "text": ".",
+          "why": "A full stop is for telling, but Dad is asking."
+        },
+        {
+          "text": "!",
+          "why": "Dad is not shouting with a strong feeling."
+        },
+        {
+          "text": "?"
+        },
+        {
+          "text": ",",
+          "why": "A comma goes before the closing speech mark only when a sentence is not a question."
         }
-      ]
+      ],
+      "answer": 2
     },
     {
       "id": "e3.speech-marks.018",

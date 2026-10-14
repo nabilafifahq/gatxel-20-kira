@@ -786,17 +786,20 @@
       "skill": "e1.rhyme-poems",
       "type": "text",
       "difficulty": 3,
-      "prompt": "Write the rhyming word. The cat sat on the ___.",
+      "prompt": "Write a word that rhymes with cat. The cat sat on the ___.",
       "hints": [
         "Say the rhyme aloud.",
         "The last word rhymes with cat.",
         "It is on the floor."
       ],
-      "explanation": "Cat and mat rhyme.",
+      "explanation": "Mat, hat, bat and rat all rhyme with cat.",
       "blanks": [
         {
           "answers": [
-            "mat"
+            "mat",
+            "hat",
+            "bat",
+            "rat"
           ]
         }
       ]

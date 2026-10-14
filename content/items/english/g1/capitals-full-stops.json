@@ -538,22 +538,29 @@
     {
       "id": "e1.capitals-full-stops.021",
       "skill": "e1.capitals-full-stops",
-      "type": "text",
+      "type": "mcq",
       "difficulty": 2,
-      "prompt": "Write the end mark. I like rice___",
+      "prompt": "Which end mark goes here? I like rice___",
       "hints": [
         "The sentence tells us something.",
         "It does not ask a question.",
         "It is a small dot."
       ],
       "explanation": "The sentence ends with a full stop.",
-      "blanks": [
+      "options": [
         {
-          "answers": [
-            "."
-          ]
+          "text": "."
+        },
+        {
+          "text": "?",
+          "why": "A question mark is for questions."
+        },
+        {
+          "text": "!",
+          "why": "An exclamation mark shows a strong feeling."
         }
-      ]
+      ],
+      "answer": 0
     },
     {
       "id": "e1.capitals-full-stops.022",

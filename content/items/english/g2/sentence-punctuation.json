@@ -696,22 +696,33 @@
     {
       "id": "e2.sentence-punctuation.024",
       "skill": "e2.sentence-punctuation",
-      "type": "text",
+      "type": "mcq",
       "difficulty": 2,
-      "prompt": "Write the end mark. Do you like mangoes___",
+      "prompt": "Which end mark goes here? Do you like mangoes___",
       "hints": [
         "The sentence asks something.",
         "It does not tell.",
         "The mark looks like a hook."
       ],
       "explanation": "Do you like mangoes? is a question.",
-      "blanks": [
+      "options": [
         {
-          "answers": [
-            "?"
-          ]
+          "text": ".",
+          "why": "A full stop is for plain telling."
+        },
+        {
+          "text": "!",
+          "why": "An exclamation mark shows a strong feeling."
+        },
+        {
+          "text": ",",
+          "why": "A comma does not end a sentence."
+        },
+        {
+          "text": "?"
         }
-      ]
+      ],
+      "answer": 3
     },
     {
       "id": "e2.sentence-punctuation.025",
@@ -864,19 +875,19 @@
       "skill": "e2.sentence-punctuation",
       "type": "cloze",
       "difficulty": 2,
-      "prompt": "Look out ___",
+      "prompt": "___ old are you?",
       "hints": [
-        "Someone is in danger.",
-        "The sentence shows a strong feeling.",
-        "Choose the loud mark."
+        "You want to know a number.",
+        "The question is about age.",
+        "The word starts with H."
       ],
-      "explanation": "Look out! needs an exclamation mark.",
+      "explanation": "How old are you? asks about age.",
       "gaps": [
         {
           "options": [
-            "!",
-            "?",
-            "."
+            "How",
+            "Who",
+            "Where"
           ],
           "answer": 0
         }
