@@ -2,7 +2,7 @@
 
 import { z } from 'zod'
 import { ACCESSORY_IDS, QM_MODES, SOROBAN_STAGES, STRATEGY_IDS, MISSION_STEP_IDS } from '@kira/core'
-import { TOPIC_IDS } from '@kira/content/knowledge'
+import { TOPIC_IDS, type KAnswer } from '@kira/content/knowledge'
 import type { AccessoryId } from '@kira/core'
 import type { ActionResult } from '@/lib/dto'
 import type { QmAnswerResult, QmResultDTO, QmStartInput, QuizAnswerResult, QuizResultDTO, QuizStartInput } from '@/lib/dto-arena'
@@ -91,7 +91,7 @@ export async function finishQmAction(id: string): Promise<ActionResult<QmResultD
   )
 }
 
-const startQuiz = z.object({ topic: z.union([z.enum(TOPIC_IDS), z.literal('mix')]), mode: z.enum(['learn', 'quiz', 'speed']) }).strict()
+const startQuiz = z.object({ topic: z.union([z.enum(TOPIC_IDS), z.literal('mix')]), mode: z.enum(['learn', 'quiz', 'speed']), variant: z.literal('map').optional() }).strict()
 
 export async function startQuizAction(input: QuizStartInput): Promise<ActionResult<{ redirectTo: string }>> {
   return runAction(
@@ -110,12 +110,12 @@ const answerQuiz = z
   .object({
     roundId,
     index: z.number().int().min(0).max(999),
-    answer: z.union([z.number().int().min(0).max(9), z.boolean(), z.array(z.string().min(1).max(40)).min(1).max(10), z.null()]),
+    answer: z.union([z.number().int().min(0).max(9), z.boolean(), z.array(z.string().min(1).max(40)).min(1).max(10), z.string().regex(/^[a-z]{3,16}$/), z.null()]),
     ms: z.number().min(0).max(3_600_000),
   })
   .strict()
 
-export async function answerQuizAction(input: { roundId: string; index: number; answer: number | boolean | string[] | null; ms: number }): Promise<ActionResult<QuizAnswerResult>> {
+export async function answerQuizAction(input: { roundId: string; index: number; answer: KAnswer | null; ms: number }): Promise<ActionResult<QuizAnswerResult>> {
   return runAction(
     'answerQuiz',
     async () => {

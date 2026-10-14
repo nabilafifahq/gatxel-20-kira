@@ -4,6 +4,7 @@
  * Pilihan jawaban selalu diacak dan pengecoh diambil dari kolam jawaban topik yang sama.
  */
 import { createRng, type Rng } from '@kira/core/rng'
+import { buildMapQuestion, isMapFactId } from './map'
 import type { KAnswer, KAsk, KFact, KOption, KOrderSet, KQuestion, KTopic } from './types'
 
 type PoolEntry = KOption & { group?: string }
@@ -129,6 +130,7 @@ export function isOrderId(factId: string): boolean {
 
 /** Soal ke-`index` dari ronde; `factId` berasal dari rencana ronde yang disimpan di config. */
 export function questionFor(topic: KTopic, factId: string, seed: string, index: number): KQuestion {
+  if (isMapFactId(factId)) return buildMapQuestion(factId)
   const rng = createRng(`${seed}#k${index}:${factId}`)
   if (isOrderId(factId)) {
     const set = topic.orders.find((o) => `order:${o.id}` === factId)
@@ -148,6 +150,8 @@ export function isCorrectAnswer(key: KQuestion['key'], answer: KAnswer | null): 
       return typeof answer === 'number' && answer === key.correct
     case 'tf':
       return typeof answer === 'boolean' && answer === key.correct
+    case 'map':
+      return typeof answer === 'string' && answer === key.correct
     case 'order':
       return Array.isArray(answer) && answer.length === key.correct.length && answer.every((id, i) => id === key.correct[i])
   }

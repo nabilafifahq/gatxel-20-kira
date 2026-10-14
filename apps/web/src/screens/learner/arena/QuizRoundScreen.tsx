@@ -13,6 +13,7 @@ import { Timer } from '@/components/learner/Timer'
 import { ArenaPic } from '@/components/learner/arena/ArenaPic'
 import { RewardPanel } from '@/components/learner/arena/RewardPanel'
 import { playRoundEndSfx } from '@/components/learner/arena/reward-sfx'
+import { WorldMap, regionIdByLabel } from '@/components/learner/arena/WorldMap'
 import { hostIntroLine, hostStreakLine } from '@kira/core/tts'
 import { hostSay, stopHostVoice } from '@/components/learner/host-voice'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
@@ -369,7 +370,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
         />
         <div className="flex min-w-0 flex-1 flex-col">
           <span className="truncate text-body-lg font-bold">{data.topicTitle}</span>
-          <span className="truncate text-body text-fg-muted">{learn ? 'Flashcards' : data.mode === 'speed' ? 'Speed quiz' : 'Quiz'}</span>
+          <span className="truncate text-body text-fg-muted">{learn ? 'Flashcards' : data.mode === 'speed' ? 'Speed quiz' : data.variant === 'map' ? 'Point on the map' : 'Quiz'}</span>
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -412,7 +413,7 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
                 You are offline. Quiz Arena needs the internet.
               </p>
             ) : null}
-            {question.kind !== 'order' && question.pic ? <ArenaPic pic={question.pic} size={question.pic.t === 'flag' ? 140 : 112} label={undefined} /> : null}
+            {(question.kind === 'mc' || question.kind === 'tf') && question.pic ? <ArenaPic pic={question.pic} size={question.pic.t === 'flag' ? 140 : 112} label={undefined} /> : null}
             <h1 lang="en-GB" className="text-question m-0 text-center font-bold">
               {question.prompt}
             </h1>
@@ -436,6 +437,14 @@ export function QuizRoundScreen({ data, actions }: { data: QuizRoundDTO; actions
                   />
                 ))}
               </div>
+            ) : null}
+            {question.kind === 'map' ? (
+              <WorldMap
+                key={index}
+                disabled={Boolean(feedback) || busy || !online}
+                feedback={feedback ? { chosen: typeof feedback.chosen === 'string' ? feedback.chosen : null, correct: regionIdByLabel(feedback.answerLabel) ?? '' } : null}
+                onPick={(id) => void submit(id)}
+              />
             ) : null}
             {question.kind === 'order' ? <OrderQuestion key={index} q={question} disabled={Boolean(feedback) || busy || !online} onSubmit={(ids) => void submit(ids)} /> : null}
 

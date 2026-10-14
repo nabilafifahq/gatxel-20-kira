@@ -126,7 +126,7 @@ export function planLearn(input: { topic: TopicId; seed: string; know: KnowMap }
 
 /** Catat satu jawaban pada peta kemajuan. Hanya pilihan ganda yang menaikkan hitungan benar. */
 export function recordKnow(know: KnowMap, factId: string, correct: boolean, countsAsKnown: boolean): KnowMap {
-  if (factId.startsWith('order:')) return know
+  if (factId.startsWith('order:') || factId.startsWith('map:')) return know
   const prev = know[factId] ?? { n: 0, r: 0, last: 0 as 0 | 1 }
   return { ...know, [factId]: { n: prev.n + 1, r: prev.r + (correct && countsAsKnown ? 1 : 0), last: correct ? 1 : 0 } }
 }

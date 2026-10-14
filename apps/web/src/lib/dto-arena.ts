@@ -199,7 +199,8 @@ export type QuizTopicDTO = {
   xpNote: string | null
 }
 
-export type QuizStartInput = { topic: RoundTopic; mode: 'learn' | 'quiz' | 'speed' }
+/** variant 'map': kuis ketuk peta (hanya topik continents, mode quiz). */
+export type QuizStartInput = { topic: RoundTopic; mode: 'learn' | 'quiz' | 'speed'; variant?: 'map' }
 
 export type QuizResultDTO = {
   mode: 'learn' | 'quiz' | 'speed'
@@ -224,6 +225,8 @@ export type QuizRoundDTO = {
   timed: boolean
   limitSec: number | null
   elapsedSec: number
+  /** Ronde ketuk peta (soal bertipe map). */
+  variant?: 'map'
   /** Kuis dan speed quiz: soal tanpa kunci. Learn: kartu. */
   questions: KClientQuestion[]
   cards: LearnCard[]

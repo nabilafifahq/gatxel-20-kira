@@ -290,6 +290,41 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
     expect(hub.topics.find((t) => t.id === 'flags')?.seen).toBeGreaterThanOrEqual(5)
   })
 
+  it('Quiz Arena: ronde Point on the map, kunci tetap di server dan hanya untuk topik benua', async () => {
+    const l = await newLearner()
+    await expect(l.run((tx) => startQuizRound(tx, l.ctx, l.id, { topic: 'flags', mode: 'quiz', variant: 'map' }))).rejects.toThrow(/only for Continents/)
+    await expect(l.run((tx) => startQuizRound(tx, l.ctx, l.id, { topic: 'continents', mode: 'speed', variant: 'map' }))).rejects.toThrow(/only for Continents/)
+    const { roundId } = await l.run((tx) => startQuizRound(tx, l.ctx, l.id, { topic: 'continents', mode: 'quiz', variant: 'map' }))
+    const dto = await l.run((tx) => quizRoundDTO(tx, l.id, roundId))
+    expect(dto.variant).toBe('map')
+    expect(dto.questions).toHaveLength(10)
+    expect(dto.questions.every((q) => q.kind === 'map')).toBe(true)
+    expect(JSON.stringify(dto)).not.toContain('"correct"')
+    const rows = await owner`select seed, config from arena_session where id = ${roundId}`
+    const seed = rows[0]!.seed as string
+    const plan = (rows[0]!.config as { plan: string[] }).plan
+    expect(new Set(plan).size).toBe(10)
+    let right = 0
+    for (let i = 0; i < plan.length; i++) {
+      const key = roundQuestion(plan, seed, i).key
+      expect(key.kind).toBe('map')
+      // Soal ke-3 sengaja salah (ketuk wilayah lain), soal ke-5 salah jenis jawaban.
+      const answer = i === 2 ? (key.correct === 'asia' ? 'africa' : 'asia') : i === 4 ? 3 : key.correct
+      const res = await l.run((tx) => answerQuizRound(tx, l.id, { roundId, index: i, answer: answer as never, ms: 2500 }))
+      expect(res.explain).toBeTruthy()
+      if (res.correct) right++
+    }
+    expect(right).toBe(8)
+    const result = await l.run((tx) => finishQuizRound(tx, l.ctx, l.id, roundId))
+    expect(result.correct).toBe(8)
+    expect(result.review).toHaveLength(10)
+    expect(result.review.find((r) => !r.ok)!.yours).not.toBe('')
+    const totals = await l.run((tx) => trackTotals(tx, l.id))
+    expect(totals.pengetahuan).toBe(result.reward.xp)
+    const state = await owner`select data from arena_state where learner_id = ${l.id} and arena = 'pengetahuan'`
+    expect(JSON.stringify(state[0]?.data ?? {})).not.toContain('map:')
+  })
+
   it('Quiz Arena: speed quiz tidak membuka kunci, kartu belajar memberi XP kecil', async () => {
     const l = await newLearner()
     const { roundId } = await l.run((tx) => startQuizRound(tx, l.ctx, l.id, { topic: 'capitals', mode: 'speed' }))
