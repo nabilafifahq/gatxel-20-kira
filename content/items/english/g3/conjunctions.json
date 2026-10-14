@@ -2,153 +2,377 @@
   "skill": "e3.conjunctions",
   "items": [
     {
-      "id": "e3.conjunctions.001", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 1,
+      "id": "e3.conjunctions.001",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "I like mangoes ___ I like bananas.",
       "options": [
-        { "text": "because", "why": "Because gives a reason. Liking bananas is not a reason for liking mangoes." },
-        { "text": "if", "why": "If means only when something happens." },
-        { "text": "but", "why": "But shows a difference. Here both ideas are the same kind." },
-        { "text": "and" }
+        {
+          "text": "because",
+          "why": "Because gives a reason. Liking bananas is not a reason for liking mangoes."
+        },
+        {
+          "text": "if",
+          "why": "If means only when something happens."
+        },
+        {
+          "text": "but",
+          "why": "But shows a difference. Here both ideas are the same kind."
+        },
+        {
+          "text": "and"
+        }
       ],
       "answer": 3,
-      "hints": ["Both ideas are about fruit you like.", "Which word adds one idea to another?", "Read the sentence with each word. Which one sounds natural?"],
+      "hints": [
+        "Both ideas are about fruit you like.",
+        "Which word adds one idea to another?",
+        "Read the sentence with each word. Which one sounds natural?"
+      ],
       "explanation": "And joins two ideas that go together: I like mangoes and I like bananas.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.conjunctions.002", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 1,
+      "id": "e3.conjunctions.002",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "It was raining, ___ we took an umbrella.",
       "options": [
-        { "text": "so" },
-        { "text": "but", "why": "But shows a surprise. Taking an umbrella in the rain is not a surprise." },
-        { "text": "or", "why": "Or gives a choice." },
-        { "text": "if", "why": "If means only when something happens. It really was raining." }
+        {
+          "text": "so"
+        },
+        {
+          "text": "but",
+          "why": "But shows a surprise. Taking an umbrella in the rain is not a surprise."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "if",
+          "why": "If means only when something happens. It really was raining."
+        }
       ],
       "answer": 0,
-      "hints": ["What happened because it was raining?", "Look for a word that shows a result.", "Read it aloud with each word in the gap."],
+      "hints": [
+        "What happened because it was raining?",
+        "Look for a word that shows a result.",
+        "Read it aloud with each word in the gap."
+      ],
       "explanation": "So shows what happened as a result. It was raining, so we took an umbrella.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.conjunctions.003", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 2,
+      "id": "e3.conjunctions.003",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "I wanted to play outside, ___ it was too hot.",
       "options": [
-        { "text": "because", "why": "Because gives a reason. Wanting to play is not caused by the heat." },
-        { "text": "so", "why": "So shows a result. Wanting to play did not make it hot." },
-        { "text": "but" },
-        { "text": "or", "why": "Or gives a choice." }
+        {
+          "text": "because",
+          "why": "Because gives a reason. Wanting to play is not caused by the heat."
+        },
+        {
+          "text": "so",
+          "why": "So shows a result. Wanting to play did not make it hot."
+        },
+        {
+          "text": "but"
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        }
       ],
       "answer": 2,
-      "hints": ["Did the child get to play outside?", "Look for a word that shows a problem or a difference.", "Try each word and read the whole sentence aloud."],
+      "hints": [
+        "Did the child get to play outside?",
+        "Look for a word that shows a problem or a difference.",
+        "Try each word and read the whole sentence aloud."
+      ],
       "explanation": "But shows a difference between two ideas. I wanted to play, but the heat stopped me."
     },
     {
-      "id": "e3.conjunctions.004", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 2,
+      "id": "e3.conjunctions.004",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Would you like rice ___ noodles?",
       "options": [
-        { "text": "so", "why": "So shows a result." },
-        { "text": "or" },
-        { "text": "because", "why": "Because gives a reason." },
-        { "text": "but", "why": "But shows a difference." }
+        {
+          "text": "so",
+          "why": "So shows a result."
+        },
+        {
+          "text": "or"
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "but",
+          "why": "But shows a difference."
+        }
       ],
       "answer": 1,
-      "hints": ["This is a question about choosing.", "Which word gives a choice between two things?", "Imagine someone at a food stall asking you. What would they say?"],
+      "hints": [
+        "This is a question about choosing.",
+        "Which word gives a choice between two things?",
+        "Imagine someone at a food stall asking you. What would they say?"
+      ],
       "explanation": "Or gives a choice. You can have rice or noodles."
     },
     {
-      "id": "e3.conjunctions.005", "skill": "e3.conjunctions", "type": "text", "difficulty": 2,
+      "id": "e3.conjunctions.005",
+      "skill": "e3.conjunctions",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Write so or because in the gap.\nJoko wore his coat ___ it was cold.",
-      "blanks": [{ "answers": ["because"] }],
-      "hints": ["Why did Joko wear his coat?", "One word gives a reason. The other gives a result.", "Read the sentence with so. Does it make sense?"],
+      "blanks": [
+        {
+          "answers": [
+            "because"
+          ]
+        }
+      ],
+      "hints": [
+        "Why did Joko wear his coat?",
+        "One word gives a reason. The other gives a result.",
+        "Read the sentence with so. Does it make sense?"
+      ],
       "explanation": "Because gives the reason. Joko wore his coat because it was cold."
     },
     {
-      "id": "e3.conjunctions.006", "skill": "e3.conjunctions", "type": "match", "difficulty": 3,
+      "id": "e3.conjunctions.006",
+      "skill": "e3.conjunctions",
+      "type": "match",
+      "difficulty": 3,
       "prompt": "Match the beginnings to the best endings.",
       "pairs": [
-        ["We can go to the park if", "it stops raining."],
-        ["Ana was tired because", "she ran all day."],
-        ["The sun was hot, so", "the ice cream melted."],
-        ["I like swimming but", "I do not like diving."],
-        ["Wash your hands when", "you come inside."]
+        [
+          "We can go to the park if",
+          "it stops raining."
+        ],
+        [
+          "Ana was tired because",
+          "she ran all day."
+        ],
+        [
+          "The sun was hot, so",
+          "the ice cream melted."
+        ],
+        [
+          "I like swimming but",
+          "I do not like diving."
+        ],
+        [
+          "Wash your hands when",
+          "you come inside."
+        ]
       ],
-      "hints": ["Read the joining word at the end of each beginning.", "If shows what must happen first. Because gives a reason. So gives a result.", "Start with Ana was tired because. Which ending is a reason for being tired?"],
+      "hints": [
+        "Read the joining word at the end of each beginning.",
+        "If shows what must happen first. Because gives a reason. So gives a result.",
+        "Start with Ana was tired because. Which ending is a reason for being tired?"
+      ],
       "explanation": "Each joining word needs the right kind of ending. Because needs a reason, so needs a result, and if needs something that must happen first."
     },
     {
-      "id": "e3.conjunctions.007", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 3,
+      "id": "e3.conjunctions.007",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Bima practised every day ___ he wanted to win the race.",
       "options": [
-        { "text": "because" },
-        { "text": "so", "why": "So shows a result. Wanting to win is the reason, not the result." },
-        { "text": "or", "why": "Or gives a choice." },
-        { "text": "if", "why": "If means only when something happens." }
+        {
+          "text": "because"
+        },
+        {
+          "text": "so",
+          "why": "So shows a result. Wanting to win is the reason, not the result."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "if",
+          "why": "If means only when something happens."
+        }
       ],
       "answer": 0,
-      "hints": ["Why did Bima practise every day?", "You need a word that gives a reason.", "Read the sentence with each word and listen to the meaning."],
+      "hints": [
+        "Why did Bima practise every day?",
+        "You need a word that gives a reason.",
+        "Read the sentence with each word and listen to the meaning."
+      ],
       "explanation": "Because gives the reason. Bima practised because he wanted to win.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.conjunctions.008", "skill": "e3.conjunctions", "type": "text", "difficulty": 3,
+      "id": "e3.conjunctions.008",
+      "skill": "e3.conjunctions",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "Join the two sentences with when.\nI get home. I feed my cat.",
-      "blanks": [{ "answers": ["When I get home, I feed my cat", "When I get home I feed my cat", "I feed my cat when I get home"] }],
-      "hints": ["When can go at the start or in the middle.", "Put when in front of I get home.", "If you start with When, put a comma before the second part."],
+      "blanks": [
+        {
+          "answers": [
+            "When I get home, I feed my cat",
+            "When I get home I feed my cat",
+            "I feed my cat when I get home"
+          ]
+        }
+      ],
+      "hints": [
+        "When can go at the start or in the middle.",
+        "Put when in front of I get home.",
+        "If you start with When, put a comma before the second part."
+      ],
       "explanation": "You can write When I get home, I feed my cat. You can also write I feed my cat when I get home."
     },
     {
-      "id": "e3.conjunctions.009", "skill": "e3.conjunctions", "type": "multi", "difficulty": 4,
+      "id": "e3.conjunctions.009",
+      "skill": "e3.conjunctions",
+      "type": "multi",
+      "difficulty": 4,
       "prompt": "Choose 2 sentences that use so correctly.",
       "options": [
-        { "text": "I was hungry, so I ate a banana." },
-        { "text": "I ate a banana, so I was hungry.", "why": "Eating a banana does not make you hungry." },
-        { "text": "It was dark, so we turned on the light." },
-        { "text": "We turned on the light, so it was dark.", "why": "Turning on a light does not make a room dark." }
+        {
+          "text": "I was hungry, so I ate a banana."
+        },
+        {
+          "text": "I ate a banana, so I was hungry.",
+          "why": "Eating a banana does not make you hungry."
+        },
+        {
+          "text": "It was dark, so we turned on the light."
+        },
+        {
+          "text": "We turned on the light, so it was dark.",
+          "why": "Turning on a light does not make a room dark."
+        }
       ],
-      "answers": [0, 2],
-      "hints": ["So shows a result: what happens next because of the first part.", "Check that the first part could really cause the second part.", "Take the first sentence. Does being hungry make you eat?"],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "So shows a result: what happens next because of the first part.",
+        "Check that the first part could really cause the second part.",
+        "Take the first sentence. Does being hungry make you eat?"
+      ],
       "explanation": "So shows a result. Being hungry makes you eat, and a dark room makes you turn on the light."
     },
     {
-      "id": "e3.conjunctions.010", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 4,
+      "id": "e3.conjunctions.010",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which sentence uses if correctly?",
       "options": [
-        { "text": "If the seeds grew, because you water them.", "why": "This mixes if and because, and it does not make sense." },
-        { "text": "You water the seeds if, they will grow.", "why": "The comma is in the wrong place, and the order is muddled." },
-        { "text": "If you water the seeds, they will grow." },
-        { "text": "If you water the seeds but they will grow.", "why": "But does not fit after an if part." }
+        {
+          "text": "If the seeds grew, because you water them.",
+          "why": "This mixes if and because, and it does not make sense."
+        },
+        {
+          "text": "You water the seeds if, they will grow.",
+          "why": "The comma is in the wrong place, and the order is muddled."
+        },
+        {
+          "text": "If you water the seeds, they will grow."
+        },
+        {
+          "text": "If you water the seeds but they will grow.",
+          "why": "But does not fit after an if part."
+        }
       ],
       "answer": 2,
-      "hints": ["If tells us what must happen first.", "An if sentence has two parts: the if part and what will happen.", "Find the sentence with an if part, then a comma, then what will happen."],
+      "hints": [
+        "If tells us what must happen first.",
+        "An if sentence has two parts: the if part and what will happen.",
+        "Find the sentence with an if part, then a comma, then what will happen."
+      ],
       "explanation": "If you water the seeds tells us what must happen first. They will grow tells us the result."
     },
     {
-      "id": "e3.conjunctions.011", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 4,
+      "id": "e3.conjunctions.011",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Lena felt nervous ___ she sang well in the show.",
       "options": [
-        { "text": "because", "why": "Singing well is not a reason to feel nervous." },
-        { "text": "so", "why": "Feeling nervous did not make her sing well." },
-        { "text": "or", "why": "Or gives a choice." },
-        { "text": "but" }
+        {
+          "text": "because",
+          "why": "Singing well is not a reason to feel nervous."
+        },
+        {
+          "text": "so",
+          "why": "Feeling nervous did not make her sing well."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "but"
+        }
       ],
       "answer": 3,
-      "hints": ["Is there something surprising in this sentence?", "Feeling nervous and singing well do not usually go together.", "Which word shows a difference or a surprise?"],
+      "hints": [
+        "Is there something surprising in this sentence?",
+        "Feeling nervous and singing well do not usually go together.",
+        "Which word shows a difference or a surprise?"
+      ],
       "explanation": "But shows a surprise. Lena was nervous, but she still sang well.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.conjunctions.012", "skill": "e3.conjunctions", "type": "mcq", "difficulty": 5,
+      "id": "e3.conjunctions.012",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Which word shows that the rain stopped first?\nWe played outside ___ the rain stopped.",
       "options": [
-        { "text": "before", "why": "Before means we played first, and then the rain stopped." },
-        { "text": "after" },
-        { "text": "until", "why": "Until means we played up to the time the rain stopped." },
-        { "text": "or", "why": "Or gives a choice. It does not tell us when." }
+        {
+          "text": "before",
+          "why": "Before means we played first, and then the rain stopped."
+        },
+        {
+          "text": "after"
+        },
+        {
+          "text": "until",
+          "why": "Until means we played up to the time the rain stopped."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice. It does not tell us when."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about which thing happened first.", "Three of these words are about time.", "Try each word. Picture what happens first in each sentence."],
+      "hints": [
+        "Think about which thing happened first.",
+        "Three of these words are about time.",
+        "Try each word. Picture what happens first in each sentence."
+      ],
       "explanation": "After means the rain stopped first, and then we played outside.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
       "id": "e3.conjunctions.013",
@@ -189,6 +413,350 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "e3.conjunctions.015",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I took an umbrella ___ it was raining.",
+      "hints": [
+        "Why did you take it?",
+        "Use the word for a reason.",
+        "The word has seven letters."
+      ],
+      "explanation": "Because gives the reason for taking the umbrella.",
+      "options": [
+        {
+          "text": "but",
+          "why": "But shows a difference."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "although",
+          "why": "Although does not fit here."
+        },
+        {
+          "text": "because"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.conjunctions.016",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "She wanted to swim, ___ the water was too cold.",
+      "hints": [
+        "The wish and the problem do not match.",
+        "Use the word that shows a difference.",
+        "It has three letters."
+      ],
+      "explanation": "But shows the problem that stopped her.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "but"
+        },
+        {
+          "text": "so",
+          "why": "So shows a result."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "while",
+          "why": "While shows two things at once."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.conjunctions.017",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "We will stay inside ___ it stops raining.",
+      "hints": [
+        "The staying will end at some time.",
+        "Use the word for waiting.",
+        "It starts with u."
+      ],
+      "explanation": "Until shows we wait for the rain to stop.",
+      "options": [
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "but",
+          "why": "But shows a difference."
+        },
+        {
+          "text": "until"
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.conjunctions.018",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "I brush my teeth ___ I go to bed.",
+      "hints": [
+        "Think about the order of the two things.",
+        "Teeth come first and bed second.",
+        "Use a time word."
+      ],
+      "explanation": "Before shows the order.",
+      "options": [
+        {
+          "text": "before"
+        },
+        {
+          "text": "but",
+          "why": "But shows a difference."
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason."
+        },
+        {
+          "text": "or",
+          "why": "Or gives a choice."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.conjunctions.019",
+      "skill": "e3.conjunctions",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "I like tea, ___ my sister likes juice.",
+      "hints": [
+        "The two people like different things.",
+        "Use a word for a difference.",
+        "It has three letters."
+      ],
+      "explanation": "But shows the difference.",
+      "gaps": [
+        {
+          "options": [
+            "but",
+            "because",
+            "until"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e3.conjunctions.020",
+      "skill": "e3.conjunctions",
+      "type": "cloze",
+      "difficulty": 4,
+      "prompt": "___ it was cold, we went swimming.",
+      "hints": [
+        "Cold and swimming do not usually go together.",
+        "The sentence shows a surprise.",
+        "Use the word for that."
+      ],
+      "explanation": "Although shows a surprise.",
+      "tags": [
+        "iklc"
+      ],
+      "gaps": [
+        {
+          "options": [
+            "Although",
+            "Because",
+            "Until"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e3.conjunctions.021",
+      "skill": "e3.conjunctions",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the conjunction. We can play inside ___ outside.",
+      "hints": [
+        "There are two choices.",
+        "You can pick one.",
+        "It has two letters."
+      ],
+      "explanation": "Or gives a choice.",
+      "blanks": [
+        {
+          "answers": [
+            "or"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3.conjunctions.022",
+      "skill": "e3.conjunctions",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each conjunction to its job.",
+      "hints": [
+        "Think about what each word does.",
+        "Or is for choices.",
+        "Because is for why."
+      ],
+      "explanation": "Each conjunction has a job.",
+      "pairs": [
+        [
+          "because",
+          "gives a reason"
+        ],
+        [
+          "but",
+          "shows a contrast"
+        ],
+        [
+          "or",
+          "gives a choice"
+        ],
+        [
+          "when",
+          "shows time"
+        ]
+      ]
+    },
+    {
+      "id": "e3.conjunctions.023",
+      "skill": "e3.conjunctions",
+      "type": "tiles",
+      "difficulty": 4,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Start with She.",
+        "Because comes in the middle.",
+        "End with a full stop."
+      ],
+      "explanation": "She smiled because she won.",
+      "answer": "She smiled because she won.",
+      "distractors": [
+        "but"
+      ]
+    },
+    {
+      "id": "e3.conjunctions.024",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses although correctly?",
+      "hints": [
+        "Although shows a surprise.",
+        "Do not use it with so.",
+        "Put the comma after the first part."
+      ],
+      "explanation": "Although it was late, we kept playing.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Although it was late, so we kept playing.",
+          "why": "Although and so do not go together."
+        },
+        {
+          "text": "Because it was late, we kept playing.",
+          "why": "Because gives a reason that does not fit."
+        },
+        {
+          "text": "Or it was late, we kept playing.",
+          "why": "Or gives a choice."
+        },
+        {
+          "text": "Although it was late, we kept playing."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.conjunctions.025",
+      "skill": "e3.conjunctions",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the conjunctions.",
+      "hints": [
+        "Think about what each word does.",
+        "Because answers why.",
+        "The other words show a contrast."
+      ],
+      "explanation": "Because gives a reason. But, although and yet show a difference.",
+      "groups": [
+        "Gives a reason",
+        "Shows a difference"
+      ],
+      "items": [
+        {
+          "text": "because",
+          "group": 0
+        },
+        {
+          "text": "but",
+          "group": 1
+        },
+        {
+          "text": "although",
+          "group": 1
+        },
+        {
+          "text": "yet",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e3.conjunctions.026",
+      "skill": "e3.conjunctions",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "I was tired, ___ I finished my homework.",
+      "hints": [
+        "Being tired would stop most people.",
+        "But the person still did it.",
+        "Use a word of contrast."
+      ],
+      "explanation": "But shows that tired did not stop the homework.",
+      "options": [
+        {
+          "text": "but"
+        },
+        {
+          "text": "so",
+          "why": "So would mean being tired caused it."
+        },
+        {
+          "text": "because",
+          "why": "Because would give the wrong reason."
+        },
+        {
+          "text": "until",
+          "why": "Until does not fit here."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

@@ -2,154 +2,741 @@
   "skill": "e3.speech-marks",
   "items": [
     {
-      "id": "e3.speech-marks.001", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 1,
+      "id": "e3.speech-marks.001",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "What do speech marks show?",
       "options": [
-        { "text": "the end of a sentence", "why": "A full stop shows the end of a sentence." },
-        { "text": "the words someone says" },
-        { "text": "a question", "why": "A question mark shows a question." },
-        { "text": "a list of things", "why": "Commas separate the things in a list." }
+        {
+          "text": "the end of a sentence",
+          "why": "A full stop shows the end of a sentence."
+        },
+        {
+          "text": "the words someone says"
+        },
+        {
+          "text": "a question",
+          "why": "A question mark shows a question."
+        },
+        {
+          "text": "a list of things",
+          "why": "Commas separate the things in a list."
+        }
       ],
       "answer": 1,
-      "hints": ["Speech marks are also called inverted commas.", "Look at a story where the characters talk.", "What goes inside the speech marks in a story?"],
+      "hints": [
+        "Speech marks are also called inverted commas.",
+        "Look at a story where the characters talk.",
+        "What goes inside the speech marks in a story?"
+      ],
       "explanation": "Speech marks go around the exact words that someone says.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.speech-marks.002", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 1,
+      "id": "e3.speech-marks.002",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Sam said, “I love kites.”\nWhich words did Sam say?",
       "options": [
-        { "text": "Sam said", "why": "These words tell us who spoke. Sam did not say them." },
-        { "text": "said I love", "why": "This is only part of the sentence." },
-        { "text": "Sam said I love kites.", "why": "Sam did not say his own name." },
-        { "text": "I love kites." }
+        {
+          "text": "Sam said",
+          "why": "These words tell us who spoke. Sam did not say them."
+        },
+        {
+          "text": "said I love",
+          "why": "This is only part of the sentence."
+        },
+        {
+          "text": "Sam said I love kites.",
+          "why": "Sam did not say his own name."
+        },
+        {
+          "text": "I love kites."
+        }
       ],
       "answer": 3,
-      "hints": ["Find the speech marks.", "The spoken words are inside the speech marks.", "Look between the opening “ and the closing ”."],
+      "hints": [
+        "Find the speech marks.",
+        "The spoken words are inside the speech marks.",
+        "Look between the opening “ and the closing ”."
+      ],
       "explanation": "The words inside the speech marks are the words Sam said: I love kites."
     },
     {
-      "id": "e3.speech-marks.003", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 2,
+      "id": "e3.speech-marks.003",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Which sentence has the speech marks in the right place?",
       "options": [
-        { "text": "“Come and play,” called Joko." },
-        { "text": "“Come and play, called Joko.”", "why": "Called Joko is not part of what Joko said." },
-        { "text": "Come and “play,” called Joko.", "why": "All the spoken words go inside the speech marks." },
-        { "text": "“Come” and play, called Joko.", "why": "And play is spoken too, so it belongs inside." }
+        {
+          "text": "“Come and play,” called Joko."
+        },
+        {
+          "text": "“Come and play, called Joko.”",
+          "why": "Called Joko is not part of what Joko said."
+        },
+        {
+          "text": "Come and “play,” called Joko.",
+          "why": "All the spoken words go inside the speech marks."
+        },
+        {
+          "text": "“Come” and play, called Joko.",
+          "why": "And play is spoken too, so it belongs inside."
+        }
       ],
       "answer": 0,
-      "hints": ["What exact words did Joko say?", "Speech marks go around all the spoken words, and only those words.", "Check each sentence: are all of Joko's words inside, and nothing else?"],
+      "hints": [
+        "What exact words did Joko say?",
+        "Speech marks go around all the spoken words, and only those words.",
+        "Check each sentence: are all of Joko's words inside, and nothing else?"
+      ],
       "explanation": "Joko said Come and play, so those words go inside the speech marks. Called Joko stays outside.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.speech-marks.004", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 3,
+      "id": "e3.speech-marks.004",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which sentence is punctuated correctly?",
       "options": [
-        { "text": "“Can I have a drink”? asked Mei.", "why": "The question mark belongs inside the speech marks." },
-        { "text": "“Can I have a drink” asked Mei?", "why": "Asked Mei is not a question. The question mark goes after drink." },
-        { "text": "“Can I have a drink?” asked Mei." },
-        { "text": "Can I have a drink? “asked Mei.”", "why": "The speech marks should go around Mei's words." }
+        {
+          "text": "“Can I have a drink”? asked Mei.",
+          "why": "The question mark belongs inside the speech marks."
+        },
+        {
+          "text": "“Can I have a drink” asked Mei?",
+          "why": "Asked Mei is not a question. The question mark goes after drink."
+        },
+        {
+          "text": "“Can I have a drink?” asked Mei."
+        },
+        {
+          "text": "Can I have a drink? “asked Mei.”",
+          "why": "The speech marks should go around Mei's words."
+        }
       ],
       "answer": 2,
-      "hints": ["Mei is asking a question.", "The question mark is part of what Mei says.", "Look at where each question mark is. Is it inside or outside the speech marks?"],
+      "hints": [
+        "Mei is asking a question.",
+        "The question mark is part of what Mei says.",
+        "Look at where each question mark is. Is it inside or outside the speech marks?"
+      ],
       "explanation": "The question mark is part of Mei's words, so it goes inside the closing speech mark."
     },
     {
-      "id": "e3.speech-marks.005", "skill": "e3.speech-marks", "type": "text", "difficulty": 2,
+      "id": "e3.speech-marks.005",
+      "skill": "e3.speech-marks",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Write the words that Dewi says, without the speech marks.\n“The bus is late,” said Dewi.",
-      "blanks": [{ "answers": ["The bus is late", "The bus is late,"] }],
-      "hints": ["Find the speech marks.", "Copy only the words inside them.", "Stop when you reach the closing speech mark."],
+      "blanks": [
+        {
+          "answers": [
+            "The bus is late",
+            "The bus is late,"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the speech marks.",
+        "Copy only the words inside them.",
+        "Stop when you reach the closing speech mark."
+      ],
       "explanation": "Dewi's words are inside the speech marks: The bus is late. The words said Dewi tell us who spoke."
     },
     {
-      "id": "e3.speech-marks.006", "skill": "e3.speech-marks", "type": "multi", "difficulty": 3,
+      "id": "e3.speech-marks.006",
+      "skill": "e3.speech-marks",
+      "type": "multi",
+      "difficulty": 3,
       "prompt": "Choose all the sentences that are punctuated correctly.",
       "options": [
-        { "text": "“I am hungry,” said Wayan." },
-        { "text": "“Look out! shouted Ana.”", "why": "Shouted Ana should be outside the speech marks." },
-        { "text": "“Where is my hat?” asked Leo." },
-        { "text": "Mum said, “Time for bed.”" },
-        { "text": "“Hello, said Tom”.", "why": "Said Tom is not spoken, and the full stop is outside." }
+        {
+          "text": "“I am hungry,” said Wayan."
+        },
+        {
+          "text": "“Look out! shouted Ana.”",
+          "why": "Shouted Ana should be outside the speech marks."
+        },
+        {
+          "text": "“Where is my hat?” asked Leo."
+        },
+        {
+          "text": "Mum said, “Time for bed.”"
+        },
+        {
+          "text": "“Hello, said Tom”.",
+          "why": "Said Tom is not spoken, and the full stop is outside."
+        }
       ],
-      "answers": [0, 2, 3],
-      "hints": ["Check where the speech marks open and close.", "Only the spoken words go inside, with their punctuation.", "Start with the first sentence. Are only Wayan's words inside?"],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "hints": [
+        "Check where the speech marks open and close.",
+        "Only the spoken words go inside, with their punctuation.",
+        "Start with the first sentence. Are only Wayan's words inside?"
+      ],
       "explanation": "In the correct sentences, only the spoken words and their punctuation are inside the speech marks."
     },
     {
-      "id": "e3.speech-marks.007", "skill": "e3.speech-marks", "type": "order", "difficulty": 2,
+      "id": "e3.speech-marks.007",
+      "skill": "e3.speech-marks",
+      "type": "order",
+      "difficulty": 2,
       "prompt": "Put the parts in order to make a sentence with speech.",
-      "items": ["“Let's go to the beach,”", "said", "Dad."],
-      "hints": ["Find the spoken words first.", "The spoken words end with a comma inside the speech marks.", "After the spoken words, say who spoke."],
+      "items": [
+        "“Let's go to the beach,”",
+        "said",
+        "Dad."
+      ],
+      "hints": [
+        "Find the spoken words first.",
+        "The spoken words end with a comma inside the speech marks.",
+        "After the spoken words, say who spoke."
+      ],
       "explanation": "The spoken words come first, then said Dad. The comma inside the speech marks shows the sentence carries on."
     },
     {
-      "id": "e3.speech-marks.008", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 3,
+      "id": "e3.speech-marks.008",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which sentence shows the exact words Rina said?",
       "options": [
-        { "text": "Rina said that her shoes were wet.", "why": "This tells us what Rina said, but not in her exact words." },
-        { "text": "“My shoes are wet,” said Rina." },
-        { "text": "Rina told us about her shoes.", "why": "This does not show her words at all." },
-        { "text": "Rina's shoes were wet.", "why": "This tells us about the shoes, not what Rina said." }
+        {
+          "text": "Rina said that her shoes were wet.",
+          "why": "This tells us what Rina said, but not in her exact words."
+        },
+        {
+          "text": "“My shoes are wet,” said Rina."
+        },
+        {
+          "text": "Rina told us about her shoes.",
+          "why": "This does not show her words at all."
+        },
+        {
+          "text": "Rina's shoes were wet.",
+          "why": "This tells us about the shoes, not what Rina said."
+        }
       ],
       "answer": 1,
-      "hints": ["Exact words means the words Rina really said.", "Exact words go inside speech marks.", "Imagine Rina talking. Which sentence sounds like her own voice?"],
+      "hints": [
+        "Exact words means the words Rina really said.",
+        "Exact words go inside speech marks.",
+        "Imagine Rina talking. Which sentence sounds like her own voice?"
+      ],
       "explanation": "“My shoes are wet,” said Rina shows Rina's exact words in speech marks. Rina said that her shoes were wet tells us about it in other words."
     },
     {
-      "id": "e3.speech-marks.009", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 4,
+      "id": "e3.speech-marks.009",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which sentence is correct?",
       "options": [
-        { "text": "“We won the match”! shouted the team.", "why": "The exclamation mark is part of what the team said, so it goes inside." },
-        { "text": "“We won the match!”, shouted the team.", "why": "The exclamation mark already ends the speech. Do not add a comma after it." },
-        { "text": "We won the match! “shouted the team.”", "why": "The speech marks should go around the team's words." },
-        { "text": "“We won the match!” shouted the team." }
+        {
+          "text": "“We won the match”! shouted the team.",
+          "why": "The exclamation mark is part of what the team said, so it goes inside."
+        },
+        {
+          "text": "“We won the match!”, shouted the team.",
+          "why": "The exclamation mark already ends the speech. Do not add a comma after it."
+        },
+        {
+          "text": "We won the match! “shouted the team.”",
+          "why": "The speech marks should go around the team's words."
+        },
+        {
+          "text": "“We won the match!” shouted the team."
+        }
       ],
       "answer": 3,
-      "hints": ["Find the words the team shouted.", "The exclamation mark is part of the spoken words.", "An exclamation mark already ends the speech. Does it need a comma as well?"],
+      "hints": [
+        "Find the words the team shouted.",
+        "The exclamation mark is part of the spoken words.",
+        "An exclamation mark already ends the speech. Does it need a comma as well?"
+      ],
       "explanation": "The exclamation mark is part of the team's words, so it goes inside the speech marks. No extra comma is needed after it.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.speech-marks.010", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 3,
+      "id": "e3.speech-marks.010",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which word needs a capital letter?\nBen said, “my dog can swim.”",
       "options": [
-        { "text": "my" },
-        { "text": "said", "why": "Said is in the middle of the sentence." },
-        { "text": "dog", "why": "Dog is not a name, and it is not the first spoken word." },
-        { "text": "swim", "why": "Swim is in the middle of what Ben says." }
+        {
+          "text": "my"
+        },
+        {
+          "text": "said",
+          "why": "Said is in the middle of the sentence."
+        },
+        {
+          "text": "dog",
+          "why": "Dog is not a name, and it is not the first spoken word."
+        },
+        {
+          "text": "swim",
+          "why": "Swim is in the middle of what Ben says."
+        }
       ],
       "answer": 0,
-      "hints": ["Spoken words start like a new sentence.", "Find the first word inside the speech marks.", "What does the first word of a sentence always need?"],
+      "hints": [
+        "Spoken words start like a new sentence.",
+        "Find the first word inside the speech marks.",
+        "What does the first word of a sentence always need?"
+      ],
       "explanation": "The first spoken word always starts with a capital letter, so my should be My.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.speech-marks.011", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 4,
+      "id": "e3.speech-marks.011",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Where should the speech marks go?\nMum asked, Have you fed the fish?",
       "options": [
-        { "text": "“Mum asked, Have you fed the fish?”", "why": "Mum asked is not part of what Mum said." },
-        { "text": "Mum “asked, Have you fed the fish?”", "why": "Asked is not one of Mum's spoken words." },
-        { "text": "Mum asked, “Have you fed the fish?”" },
-        { "text": "Mum asked, “Have you fed” the fish?", "why": "The fish is spoken too, so it belongs inside." }
+        {
+          "text": "“Mum asked, Have you fed the fish?”",
+          "why": "Mum asked is not part of what Mum said."
+        },
+        {
+          "text": "Mum “asked, Have you fed the fish?”",
+          "why": "Asked is not one of Mum's spoken words."
+        },
+        {
+          "text": "Mum asked, “Have you fed the fish?”"
+        },
+        {
+          "text": "Mum asked, “Have you fed” the fish?",
+          "why": "The fish is spoken too, so it belongs inside."
+        }
       ],
       "answer": 2,
-      "hints": ["Which words did Mum actually say?", "Speech marks open just before the first spoken word.", "They close just after the last spoken word and its punctuation."],
+      "hints": [
+        "Which words did Mum actually say?",
+        "Speech marks open just before the first spoken word.",
+        "They close just after the last spoken word and its punctuation."
+      ],
       "explanation": "Mum's words are Have you fed the fish? Those words and the question mark go inside the speech marks."
     },
     {
-      "id": "e3.speech-marks.012", "skill": "e3.speech-marks", "type": "mcq", "difficulty": 5,
+      "id": "e3.speech-marks.012",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Which sentence is punctuated correctly?",
       "options": [
-        { "text": "“If it rains,” said Kofi, “we can play inside.”" },
-        { "text": "“If it rains,” said Kofi. “we can play inside.”", "why": "The speech carries on, so use a comma after Kofi, not a full stop." },
-        { "text": "“If it rains” said Kofi “we can play inside.”", "why": "Commas are needed after rains and after Kofi." },
-        { "text": "“If it rains, said Kofi, we can play inside.”", "why": "Said Kofi is not spoken, so it goes outside the speech marks." }
+        {
+          "text": "“If it rains,” said Kofi, “we can play inside.”"
+        },
+        {
+          "text": "“If it rains,” said Kofi. “we can play inside.”",
+          "why": "The speech carries on, so use a comma after Kofi, not a full stop."
+        },
+        {
+          "text": "“If it rains” said Kofi “we can play inside.”",
+          "why": "Commas are needed after rains and after Kofi."
+        },
+        {
+          "text": "“If it rains, said Kofi, we can play inside.”",
+          "why": "Said Kofi is not spoken, so it goes outside the speech marks."
+        }
       ],
       "answer": 0,
-      "hints": ["Kofi's sentence is split into two parts.", "Each part of the speech needs its own speech marks.", "Is we can play inside a new sentence, or the rest of the same one?"],
+      "hints": [
+        "Kofi's sentence is split into two parts.",
+        "Each part of the speech needs its own speech marks.",
+        "Is we can play inside a new sentence, or the rest of the same one?"
+      ],
       "explanation": "Kofi's words are split by said Kofi. Each part has speech marks, and we has a small w because the sentence carries on.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e3.speech-marks.013",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence uses speech marks correctly?",
+      "hints": [
+        "Speech marks go around spoken words.",
+        "They come in pairs.",
+        "The comma goes inside."
+      ],
+      "explanation": "Speech marks go around the words Tom said.",
+      "options": [
+        {
+          "text": "\"I am hungry,\" said Tom."
+        },
+        {
+          "text": "I am hungry, said Tom.",
+          "why": "The spoken words need speech marks."
+        },
+        {
+          "text": "\"I am hungry, said Tom.",
+          "why": "The closing marks are missing."
+        },
+        {
+          "text": "I am \"hungry,\" said Tom.",
+          "why": "The marks go round all the spoken words."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.speech-marks.014",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do speech marks show?",
+      "hints": [
+        "Think about a story with people talking.",
+        "Speech marks are like a frame.",
+        "They show the talking."
+      ],
+      "explanation": "Speech marks show the exact words someone says.",
+      "options": [
+        {
+          "text": "the title of a book",
+          "why": "Titles are written in other ways."
+        },
+        {
+          "text": "the exact words someone says"
+        },
+        {
+          "text": "the end of a sentence",
+          "why": "A full stop shows that."
+        },
+        {
+          "text": "a list of things",
+          "why": "Commas show lists."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.speech-marks.015",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What are the spoken words? \"Come here,\" said Mum.",
+      "hints": [
+        "Look for the speech marks.",
+        "The spoken words are inside them.",
+        "Read between the marks."
+      ],
+      "explanation": "Come here is inside the speech marks.",
+      "options": [
+        {
+          "text": "said Mum",
+          "why": "These words are not spoken."
+        },
+        {
+          "text": "Mum",
+          "why": "This is the speaker."
+        },
+        {
+          "text": "Come",
+          "why": "These are only the first word."
+        },
+        {
+          "text": "Come here"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.speech-marks.016",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Who is speaking? \"Let us go!\" shouted Ria.",
+      "hints": [
+        "Look at the words outside the marks.",
+        "They tell us who spoke.",
+        "It is a name."
+      ],
+      "explanation": "Ria is the speaker.",
+      "options": [
+        {
+          "text": "Ria"
+        },
+        {
+          "text": "Let",
+          "why": "This is the first word spoken."
+        },
+        {
+          "text": "go",
+          "why": "This is a spoken word."
+        },
+        {
+          "text": "shouted",
+          "why": "This is a verb."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.speech-marks.017",
+      "skill": "e3.speech-marks",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the missing mark. \"Where are you___\" asked Dad.",
+      "hints": [
+        "Dad is asking something.",
+        "The mark goes inside the speech marks.",
+        "It is a question."
+      ],
+      "explanation": "A question needs a question mark inside the speech marks.",
+      "blanks": [
+        {
+          "answers": [
+            "?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3.speech-marks.018",
+      "skill": "e3.speech-marks",
+      "type": "tiles",
+      "difficulty": 4,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "Speech marks are at the start.",
+        "The spoken part comes first.",
+        "Ali is the speaker."
+      ],
+      "explanation": "\"I like cats,\" said Ali.",
+      "answer": "\"I like cats,\" said Ali.",
+      "distractors": [
+        "asked"
+      ]
+    },
+    {
+      "id": "e3.speech-marks.019",
+      "skill": "e3.speech-marks",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences.",
+      "hints": [
+        "Look for speech marks.",
+        "Speech has exact words.",
+        "Other sentences just tell what happened."
+      ],
+      "explanation": "Sentences with speech marks show spoken words.",
+      "groups": [
+        "Has speech",
+        "Has no speech"
+      ],
+      "items": [
+        {
+          "text": "\"Stop!\" said Raj.",
+          "group": 0
+        },
+        {
+          "text": "Raj stopped.",
+          "group": 1
+        },
+        {
+          "text": "\"Hello,\" said Dina.",
+          "group": 0
+        },
+        {
+          "text": "Dina said hello.",
+          "group": 1
+        },
+        {
+          "text": "\"I won!\" cried Mei.",
+          "group": 0
+        },
+        {
+          "text": "Mei cried with joy.",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e3.speech-marks.020",
+      "skill": "e3.speech-marks",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each speech verb to its meaning.",
+      "hints": [
+        "Say each word aloud.",
+        "Think about the voice.",
+        "Asked has a question."
+      ],
+      "explanation": "Each word tells how someone spoke.",
+      "pairs": [
+        [
+          "whispered",
+          "said very softly"
+        ],
+        [
+          "shouted",
+          "said very loudly"
+        ],
+        [
+          "asked",
+          "said a question"
+        ],
+        [
+          "replied",
+          "gave an answer"
+        ]
+      ]
+    },
+    {
+      "id": "e3.speech-marks.021",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Check the marks.",
+        "Check the comma.",
+        "Check the end of the sentence."
+      ],
+      "explanation": "The comma goes inside the speech marks.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "let us go, said Raj.",
+          "why": "Speech needs speech marks."
+        },
+        {
+          "text": "\"Let us go,\" said Raj."
+        },
+        {
+          "text": "\"Let us go\", said Raj.",
+          "why": "The comma goes inside the speech marks."
+        },
+        {
+          "text": "\"Let us go,\" said Raj",
+          "why": "It needs a full stop."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.speech-marks.022",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence needs speech marks?",
+      "hints": [
+        "Speech marks go round exact words.",
+        "Look for the sentence with a person speaking.",
+        "It has the word said."
+      ],
+      "explanation": "Dad said, \"Come and eat.\" gives exact words.",
+      "options": [
+        {
+          "text": "Dad said that dinner was ready.",
+          "why": "It does not give his exact words."
+        },
+        {
+          "text": "Dad called us for dinner.",
+          "why": "It does not give his exact words."
+        },
+        {
+          "text": "Dad cooked rice.",
+          "why": "Nobody is speaking."
+        },
+        {
+          "text": "Dad said, Come and eat."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.speech-marks.023",
+      "skill": "e3.speech-marks",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the sentences with speech marks in the right places.",
+      "hints": [
+        "Speech marks come in pairs.",
+        "Check the start and the end.",
+        "Two sentences have both."
+      ],
+      "explanation": "Speech marks must come in pairs.",
+      "options": [
+        {
+          "text": "Where is it?\" asked Mei.",
+          "why": "The opening marks are missing."
+        },
+        {
+          "text": "\"Run!\" shouted Ali."
+        },
+        {
+          "text": "\"Run! shouted Ali.",
+          "why": "The closing marks are missing."
+        },
+        {
+          "text": "\"Where is it?\" asked Mei."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e3.speech-marks.024",
+      "skill": "e3.speech-marks",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Tia asked where the cat was. Which is the same in direct speech?",
+      "hints": [
+        "Direct speech uses speech marks.",
+        "Only the spoken words go inside.",
+        "A question ends with a question mark."
+      ],
+      "explanation": "Tia asked, \"Where is the cat?\" uses direct speech.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Tia asked, Where is the cat?",
+          "why": "The spoken words need speech marks."
+        },
+        {
+          "text": "Tia asked, \"Where is the cat.\"",
+          "why": "A question needs a question mark."
+        },
+        {
+          "text": "\"Tia asked, Where is the cat?\"",
+          "why": "Only the spoken words go inside the marks."
+        },
+        {
+          "text": "Tia asked, \"Where is the cat?\""
+        }
+      ],
+      "answer": 3
     }
   ]
 }

@@ -2,136 +2,671 @@
   "skill": "e3.dictionary-order",
   "items": [
     {
-      "id": "e3.dictionary-order.001", "skill": "e3.dictionary-order", "type": "order", "difficulty": 1,
+      "id": "e3.dictionary-order.001",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 1,
       "prompt": "Put the fruits in alphabetical order.",
-      "items": ["apple", "banana", "mango", "papaya"],
-      "hints": ["Look at the first letter of each word.", "Think of the alphabet: a, b, c, d and so on.", "Find the word that starts with the letter nearest to a."],
+      "items": [
+        "apple",
+        "banana",
+        "mango",
+        "papaya"
+      ],
+      "hints": [
+        "Look at the first letter of each word.",
+        "Think of the alphabet: a, b, c, d and so on.",
+        "Find the word that starts with the letter nearest to a."
+      ],
       "explanation": "The first letters are a, b, m and p. In the alphabet, a comes first, then b, then m, then p."
     },
     {
-      "id": "e3.dictionary-order.002", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 1,
+      "id": "e3.dictionary-order.002",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Which word comes first in alphabetical order?",
       "options": [
-        { "text": "river", "why": "R comes later in the alphabet than c." },
-        { "text": "sun", "why": "S comes near the end of the alphabet." },
-        { "text": "tree", "why": "T comes after c, r and s." },
-        { "text": "cloud" }
+        {
+          "text": "river",
+          "why": "R comes later in the alphabet than c."
+        },
+        {
+          "text": "sun",
+          "why": "S comes near the end of the alphabet."
+        },
+        {
+          "text": "tree",
+          "why": "T comes after c, r and s."
+        },
+        {
+          "text": "cloud"
+        }
       ],
       "answer": 3,
-      "hints": ["Look only at the first letter of each word.", "Say the alphabet slowly from a.", "Stop at the first of these letters that you reach: r, s, t or c."],
+      "hints": [
+        "Look only at the first letter of each word.",
+        "Say the alphabet slowly from a.",
+        "Stop at the first of these letters that you reach: r, s, t or c."
+      ],
       "explanation": "The first letters are r, s, t and c. C comes first in the alphabet, so cloud comes first.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.dictionary-order.003", "skill": "e3.dictionary-order", "type": "order", "difficulty": 2,
+      "id": "e3.dictionary-order.003",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 2,
       "prompt": "Put the words in alphabetical order. They all start with b, so look at the second letter.",
-      "items": ["bag", "bed", "bird", "box", "bus"],
-      "hints": ["All the words start with b.", "Look at the second letter of each word.", "Write the second letters in a list, then put them in alphabet order."],
+      "items": [
+        "bag",
+        "bed",
+        "bird",
+        "box",
+        "bus"
+      ],
+      "hints": [
+        "All the words start with b.",
+        "Look at the second letter of each word.",
+        "Write the second letters in a list, then put them in alphabet order."
+      ],
       "explanation": "When the first letters are the same, look at the second letter. A, e, i, o, u gives bag, bed, bird, box, bus."
     },
     {
-      "id": "e3.dictionary-order.004", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 2,
+      "id": "e3.dictionary-order.004",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Which word comes after goat in alphabetical order?",
       "options": [
-        { "text": "gate", "why": "Ga comes before go, so gate comes before goat." },
-        { "text": "grape" },
-        { "text": "gift", "why": "Gi comes before go, so gift comes before goat." },
-        { "text": "garden", "why": "Ga comes before go, so garden comes before goat." }
+        {
+          "text": "gate",
+          "why": "Ga comes before go, so gate comes before goat."
+        },
+        {
+          "text": "grape"
+        },
+        {
+          "text": "gift",
+          "why": "Gi comes before go, so gift comes before goat."
+        },
+        {
+          "text": "garden",
+          "why": "Ga comes before go, so garden comes before goat."
+        }
       ],
       "answer": 1,
-      "hints": ["All the words start with g.", "Look at the second letter of each word.", "Goat has o as its second letter. Which word has a second letter that comes after o?"],
+      "hints": [
+        "All the words start with g.",
+        "Look at the second letter of each word.",
+        "Goat has o as its second letter. Which word has a second letter that comes after o?"
+      ],
       "explanation": "Goat starts with go. Grape starts with gr, and r comes after o, so grape comes after goat."
     },
     {
-      "id": "e3.dictionary-order.005", "skill": "e3.dictionary-order", "type": "order", "difficulty": 3,
+      "id": "e3.dictionary-order.005",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 3,
       "prompt": "Put the words in alphabetical order. Look at the third letter.",
-      "items": ["stamp", "step", "stick", "stone", "study"],
-      "hints": ["The first two letters are the same in every word.", "Move along to the third letter of each word.", "Write the third letter of each word in a list. Then order the letters."],
+      "items": [
+        "stamp",
+        "step",
+        "stick",
+        "stone",
+        "study"
+      ],
+      "hints": [
+        "The first two letters are the same in every word.",
+        "Move along to the third letter of each word.",
+        "Write the third letter of each word in a list. Then order the letters."
+      ],
       "explanation": "All the words start with st, so we look at the third letter. A, e, i, o, u gives stamp, step, stick, stone, study."
     },
     {
-      "id": "e3.dictionary-order.006", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 3,
+      "id": "e3.dictionary-order.006",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "The guide words on a dictionary page are lamp and lemon. Which word is on this page?",
-      "figure": { "kind": "table", "head": ["First word on the page", "Last word on the page"], "rows": [["lamp", "lemon"]], "alt": "A dictionary page with the guide words lamp and lemon." },
+      "figure": {
+        "kind": "table",
+        "head": [
+          "First word on the page",
+          "Last word on the page"
+        ],
+        "rows": [
+          [
+            "lamp",
+            "lemon"
+          ]
+        ],
+        "alt": "A dictionary page with the guide words lamp and lemon."
+      },
       "options": [
-        { "text": "lake", "why": "Lak comes before lam, so lake is on an earlier page." },
-        { "text": "lion", "why": "Li comes after le, so lion is on a later page." },
-        { "text": "leaf" },
-        { "text": "log", "why": "Lo comes after le, so log is on a later page." }
+        {
+          "text": "lake",
+          "why": "Lak comes before lam, so lake is on an earlier page."
+        },
+        {
+          "text": "lion",
+          "why": "Li comes after le, so lion is on a later page."
+        },
+        {
+          "text": "leaf"
+        },
+        {
+          "text": "log",
+          "why": "Lo comes after le, so log is on a later page."
+        }
       ],
       "answer": 2,
-      "hints": ["Guide words show the first and last word on a page.", "A word on this page must come after lamp and before lemon.", "Compare the second letters first: a, e, i or o."],
+      "hints": [
+        "Guide words show the first and last word on a page.",
+        "A word on this page must come after lamp and before lemon.",
+        "Compare the second letters first: a, e, i or o."
+      ],
       "explanation": "Leaf comes after lamp, because e comes after a. It comes before lemon, because a comes before m. So leaf is on this page.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.dictionary-order.007", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 3,
+      "id": "e3.dictionary-order.007",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which list is in alphabetical order?",
       "options": [
-        { "text": "cat, cow, crab, cup" },
-        { "text": "cat, cow, cup, crab", "why": "Crab should come before cup, because r comes before u." },
-        { "text": "cow, cat, crab, cup", "why": "Cat should come before cow, because a comes before o." },
-        { "text": "cup, crab, cow, cat", "why": "This list is backwards." }
+        {
+          "text": "cat, cow, crab, cup"
+        },
+        {
+          "text": "cat, cow, cup, crab",
+          "why": "Crab should come before cup, because r comes before u."
+        },
+        {
+          "text": "cow, cat, crab, cup",
+          "why": "Cat should come before cow, because a comes before o."
+        },
+        {
+          "text": "cup, crab, cow, cat",
+          "why": "This list is backwards."
+        }
       ],
       "answer": 0,
-      "hints": ["All the words start with c.", "Look at the second letter of each word.", "Find the second letter in each word, then put those letters in alphabet order."],
+      "hints": [
+        "All the words start with c.",
+        "Look at the second letter of each word.",
+        "Find the second letter in each word, then put those letters in alphabet order."
+      ],
       "explanation": "The second letters are a, o, r and u. In the alphabet they go a, o, r, u, so the order is cat, cow, crab, cup.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.dictionary-order.008", "skill": "e3.dictionary-order", "type": "order", "difficulty": 3,
+      "id": "e3.dictionary-order.008",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 3,
       "prompt": "Put the words in alphabetical order.",
-      "items": ["ant", "apple", "bat", "bee", "boat", "butter"],
-      "hints": ["First sort the words by their first letter.", "Then look at the second letter of words that start the same.", "Begin with the a words. Which comes first, ant or apple?"],
+      "items": [
+        "ant",
+        "apple",
+        "bat",
+        "bee",
+        "boat",
+        "butter"
+      ],
+      "hints": [
+        "First sort the words by their first letter.",
+        "Then look at the second letter of words that start the same.",
+        "Begin with the a words. Which comes first, ant or apple?"
+      ],
       "explanation": "The a words come first: ant before apple, because n comes before p. Then come the b words: bat, bee, boat, butter."
     },
     {
-      "id": "e3.dictionary-order.009", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 4,
+      "id": "e3.dictionary-order.009",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which word would come between paint and park in a dictionary?",
       "options": [
-        { "text": "pail", "why": "Pail comes before paint, because l comes before n." },
-        { "text": "paper" },
-        { "text": "past", "why": "Pas comes after par, so past comes after park." },
-        { "text": "pack", "why": "Pac comes before pai, so pack comes before paint." }
+        {
+          "text": "pail",
+          "why": "Pail comes before paint, because l comes before n."
+        },
+        {
+          "text": "paper"
+        },
+        {
+          "text": "past",
+          "why": "Pas comes after par, so past comes after park."
+        },
+        {
+          "text": "pack",
+          "why": "Pac comes before pai, so pack comes before paint."
+        }
       ],
       "answer": 1,
-      "hints": ["All the words start with pa.", "Look at the third letter of each word.", "Paint has i as its third letter and park has r. Which word has a third letter between i and r?"],
+      "hints": [
+        "All the words start with pa.",
+        "Look at the third letter of each word.",
+        "Paint has i as its third letter and park has r. Which word has a third letter between i and r?"
+      ],
       "explanation": "The third letter of paper is p. P comes after i and before r, so paper goes between paint and park.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e3.dictionary-order.010", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 2,
+      "id": "e3.dictionary-order.010",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "What can a dictionary tell you about a word?",
       "options": [
-        { "text": "who said it first", "why": "A dictionary does not tell us who first said a word." },
-        { "text": "what the weather will be", "why": "That is a weather forecast." },
-        { "text": "how to spell it and what it means" },
-        { "text": "how many pages a book has", "why": "You find that in the book itself." }
+        {
+          "text": "who said it first",
+          "why": "A dictionary does not tell us who first said a word."
+        },
+        {
+          "text": "what the weather will be",
+          "why": "That is a weather forecast."
+        },
+        {
+          "text": "how to spell it and what it means"
+        },
+        {
+          "text": "how many pages a book has",
+          "why": "You find that in the book itself."
+        }
       ],
       "answer": 2,
-      "hints": ["Think about why you open a dictionary.", "A dictionary is a list of words in alphabetical order.", "What do you find next to each word in the list?"],
+      "hints": [
+        "Think about why you open a dictionary.",
+        "A dictionary is a list of words in alphabetical order.",
+        "What do you find next to each word in the list?"
+      ],
       "explanation": "A dictionary shows how to spell a word and what it means. Many dictionaries also show how to say it."
     },
     {
-      "id": "e3.dictionary-order.011", "skill": "e3.dictionary-order", "type": "order", "difficulty": 4,
+      "id": "e3.dictionary-order.011",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 4,
       "prompt": "Put the names in alphabetical order.",
-      "items": ["Wahyu", "Wayan", "Wendy", "Will", "Winda"],
-      "hints": ["All the names start with W.", "Some names have the same first two letters. Then look at the third letter.", "Start with the names that begin Wa. Compare their third letters."],
+      "items": [
+        "Wahyu",
+        "Wayan",
+        "Wendy",
+        "Will",
+        "Winda"
+      ],
+      "hints": [
+        "All the names start with W.",
+        "Some names have the same first two letters. Then look at the third letter.",
+        "Start with the names that begin Wa. Compare their third letters."
+      ],
       "explanation": "Wahyu and Wayan both start Wa, and h comes before y. Then comes Wendy, then Will and Winda, because l comes before n."
     },
     {
-      "id": "e3.dictionary-order.012", "skill": "e3.dictionary-order", "type": "mcq", "difficulty": 5,
+      "id": "e3.dictionary-order.012",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "You are looking for octopus. The guide words on the page are ocean and often. What should you do?",
       "options": [
-        { "text": "Look on this page." },
-        { "text": "Turn back to earlier pages.", "why": "Octopus comes after ocean, so it is not on an earlier page." },
-        { "text": "Turn forward to later pages.", "why": "Octopus comes before often, so it is not on a later page." },
-        { "text": "Look under the letter c.", "why": "Words are listed by their first letter, and octopus starts with o." }
+        {
+          "text": "Look on this page."
+        },
+        {
+          "text": "Turn back to earlier pages.",
+          "why": "Octopus comes after ocean, so it is not on an earlier page."
+        },
+        {
+          "text": "Turn forward to later pages.",
+          "why": "Octopus comes before often, so it is not on a later page."
+        },
+        {
+          "text": "Look under the letter c.",
+          "why": "Words are listed by their first letter, and octopus starts with o."
+        }
       ],
       "answer": 0,
-      "hints": ["Is octopus after ocean? Is it before often?", "Compare the letters one at a time until they are different.", "Ocean and octopus both start oc. Look at the third letter of each."],
+      "hints": [
+        "Is octopus after ocean? Is it before often?",
+        "Compare the letters one at a time until they are different.",
+        "Ocean and octopus both start oc. Look at the third letter of each."
+      ],
       "explanation": "Octopus comes after ocean, because t comes after e. It comes before often, because c comes before f. So it is on this page.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.013",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the words in alphabetical order.",
+      "hints": [
+        "Look at the first letter.",
+        "Think of the alphabet song.",
+        "The ant comes first."
+      ],
+      "explanation": "The order is ant, bee, cat, dog.",
+      "items": [
+        "ant",
+        "bee",
+        "cat",
+        "dog"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.014",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in alphabetical order.",
+      "hints": [
+        "All the words start with c.",
+        "Look at the second letter.",
+        "Then look at the third letter."
+      ],
+      "explanation": "Car, cat, cup, cut.",
+      "items": [
+        "car",
+        "cat",
+        "cup",
+        "cut"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.015",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in alphabetical order.",
+      "hints": [
+        "All the words start with b.",
+        "Look at the second letter.",
+        "Compare a, e and u."
+      ],
+      "explanation": "Bag, bat, bed, bus.",
+      "items": [
+        "bag",
+        "bat",
+        "bed",
+        "bus"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.016",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the words in alphabetical order.",
+      "hints": [
+        "All the words start with s.",
+        "Look at the second letter.",
+        "a comes before o."
+      ],
+      "explanation": "Sand, sock, star, sun.",
+      "items": [
+        "sand",
+        "sock",
+        "star",
+        "sun"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.017",
+      "skill": "e3.dictionary-order",
+      "type": "order",
+      "difficulty": 5,
+      "prompt": "Put the words in alphabetical order.",
+      "hints": [
+        "All the words start with pla.",
+        "Look at the fourth letter.",
+        "Plan is the shortest."
+      ],
+      "explanation": "Plan, plant, plate, play.",
+      "tags": [
+        "iklc"
+      ],
+      "items": [
+        "plan",
+        "plant",
+        "plate",
+        "play"
+      ]
+    },
+    {
+      "id": "e3.dictionary-order.018",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word comes first in the dictionary?",
+      "hints": [
+        "Look at the first letter of each word.",
+        "a is the first letter of the alphabet.",
+        "Find the word that starts with a."
+      ],
+      "explanation": "Ant comes first because a is first in the alphabet.",
+      "options": [
+        {
+          "text": "ant"
+        },
+        {
+          "text": "bee",
+          "why": "Bee starts with b."
+        },
+        {
+          "text": "cow",
+          "why": "Cow starts with c."
+        },
+        {
+          "text": "dog",
+          "why": "Dog starts with d."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.dictionary-order.019",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which letter comes after m in the alphabet?",
+      "hints": [
+        "Say the alphabet: k, l, m.",
+        "What comes next?",
+        "The letter looks like a bridge."
+      ],
+      "explanation": "N comes right after m.",
+      "options": [
+        {
+          "text": "l",
+          "why": "L comes before m."
+        },
+        {
+          "text": "n"
+        },
+        {
+          "text": "o",
+          "why": "O comes after n."
+        },
+        {
+          "text": "p",
+          "why": "P comes later."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.dictionary-order.020",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word comes last in the dictionary?",
+      "hints": [
+        "Look at the first letters.",
+        "z is the last letter.",
+        "One word starts with z."
+      ],
+      "explanation": "Zebra comes last because z is last.",
+      "options": [
+        {
+          "text": "yak",
+          "why": "Yak starts with y."
+        },
+        {
+          "text": "wolf",
+          "why": "Wolf starts with w."
+        },
+        {
+          "text": "zebra"
+        },
+        {
+          "text": "tiger",
+          "why": "Tiger starts with t."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.dictionary-order.021",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word comes between cat and cow?",
+      "hints": [
+        "All words start with c.",
+        "Look at the second letter.",
+        "Between a and o."
+      ],
+      "explanation": "Cave comes after cat and before cow.",
+      "options": [
+        {
+          "text": "car",
+          "why": "Car comes before cat."
+        },
+        {
+          "text": "cave"
+        },
+        {
+          "text": "cup",
+          "why": "Cup comes after cow."
+        },
+        {
+          "text": "cut",
+          "why": "Cut comes after cow."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.dictionary-order.022",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word comes first? brown, blue, black, bright",
+      "hints": [
+        "All words start with b.",
+        "Look at the second letter.",
+        "l comes before r."
+      ],
+      "explanation": "Black comes first because bla comes before ble.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "blue",
+          "why": "Blue comes after black."
+        },
+        {
+          "text": "bright",
+          "why": "Bright starts with br."
+        },
+        {
+          "text": "brown",
+          "why": "Brown starts with br."
+        },
+        {
+          "text": "black"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.dictionary-order.023",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which list is in alphabetical order?",
+      "hints": [
+        "Look at the second letter of each word.",
+        "a comes first, then i, then o, then u.",
+        "Check the order one pair at a time."
+      ],
+      "explanation": "Fan, fig, fox, fur is in order.",
+      "options": [
+        {
+          "text": "fig, fan, fox, fur",
+          "why": "Fan should come before fig."
+        },
+        {
+          "text": "fan, fig, fox, fur"
+        },
+        {
+          "text": "fan, fox, fig, fur",
+          "why": "Fig should come before fox."
+        },
+        {
+          "text": "fur, fox, fig, fan",
+          "why": "This list is backwards."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.dictionary-order.024",
+      "skill": "e3.dictionary-order",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word comes first? than, that, the, then",
+      "hints": [
+        "All words start with th.",
+        "Look at the third letter.",
+        "a comes before e."
+      ],
+      "explanation": "Than comes first because n comes before t in than and that.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "that",
+          "why": "Than comes first because n comes before t."
+        },
+        {
+          "text": "the",
+          "why": "The comes after than and that."
+        },
+        {
+          "text": "then",
+          "why": "Then comes after the."
+        },
+        {
+          "text": "than"
+        }
+      ],
+      "answer": 3
     }
   ]
 }

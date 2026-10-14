@@ -2,184 +2,438 @@
   "skill": "e3.inference",
   "items": [
     {
-      "id": "e3.inference.001", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "id": "e3.inference.001",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.rain-at-the-market",
       "prompt": "How did Grandma feel about Dewi's idea?",
       "options": [
-        { "text": "proud" },
-        { "text": "cross", "why": "Grandma hugs Dewi, so she is not cross." },
-        { "text": "bored", "why": "Nothing in the story shows that Grandma is bored." },
-        { "text": "scared", "why": "Grandma is worried about the rain at first, but not about the idea." }
+        {
+          "text": "proud"
+        },
+        {
+          "text": "cross",
+          "why": "Grandma hugs Dewi, so she is not cross."
+        },
+        {
+          "text": "bored",
+          "why": "Nothing in the story shows that Grandma is bored."
+        },
+        {
+          "text": "scared",
+          "why": "Grandma is worried about the rain at first, but not about the idea."
+        }
       ],
       "answer": 0,
-      "hints": ["Look at the end of the story.", "What does Grandma do and say to Dewi?", "Think about how you feel when you hug someone and call their idea clever."],
+      "hints": [
+        "Look at the end of the story.",
+        "What does Grandma do and say to Dewi?",
+        "Think about how you feel when you hug someone and call their idea clever."
+      ],
       "explanation": "Grandma gives Dewi a big hug, calls it a clever idea and says Dewi can be the boss. These clues show she is proud.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.002", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "id": "e3.inference.002",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.rain-at-the-market",
       "prompt": "The rain drummed on the leaves. What does drummed mean here?",
       "options": [
-        { "text": "played music on a drum", "why": "There is no real drum. The rain only sounded like one." },
-        { "text": "fell very softly", "why": "Pouring rain is heavy, not soft." },
-        { "text": "made a loud tapping sound" },
-        { "text": "stopped suddenly", "why": "The rain kept falling while it drummed." }
+        {
+          "text": "played music on a drum",
+          "why": "There is no real drum. The rain only sounded like one."
+        },
+        {
+          "text": "fell very softly",
+          "why": "Pouring rain is heavy, not soft."
+        },
+        {
+          "text": "made a loud tapping sound"
+        },
+        {
+          "text": "stopped suddenly",
+          "why": "The rain kept falling while it drummed."
+        }
       ],
       "answer": 2,
-      "hints": ["Think about the sound a drum makes.", "The rain was pouring down on the wide leaves.", "Imagine heavy raindrops hitting a big leaf. What would you hear?"],
+      "hints": [
+        "Think about the sound a drum makes.",
+        "The rain was pouring down on the wide leaves.",
+        "Imagine heavy raindrops hitting a big leaf. What would you hear?"
+      ],
       "explanation": "Drummed means the rain made a loud tapping sound on the leaves, like someone playing a drum.",
-      "tags": ["reading", "iklc"], "expectedSeconds": 90
+      "tags": [
+        "reading",
+        "iklc"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.inference.003", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "id": "e3.inference.003",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.green-sea-turtles",
       "prompt": "Why can bright lights near a beach be a problem for baby turtles?",
       "options": [
-        { "text": "The lights make the sand too hot.", "why": "The text does not say lights heat the sand." },
-        { "text": "The babies might head towards the lights instead of the sea." },
-        { "text": "The lights wake up the mother turtle.", "why": "The text is about the babies, not the mother." },
-        { "text": "The babies are scared of the dark.", "why": "The text does not say this." }
+        {
+          "text": "The lights make the sand too hot.",
+          "why": "The text does not say lights heat the sand."
+        },
+        {
+          "text": "The babies might head towards the lights instead of the sea."
+        },
+        {
+          "text": "The lights wake up the mother turtle.",
+          "why": "The text is about the babies, not the mother."
+        },
+        {
+          "text": "The babies are scared of the dark.",
+          "why": "The text does not say this."
+        }
       ],
       "answer": 1,
-      "hints": ["Find the section called Helping turtles.", "How do baby turtles find their way to the sea?", "What would happen if a building was brighter than the sky over the water?"],
+      "hints": [
+        "Find the section called Helping turtles.",
+        "How do baby turtles find their way to the sea?",
+        "What would happen if a building was brighter than the sky over the water?"
+      ],
       "explanation": "Baby turtles head for the brightest part of the sky. If a building is brighter, they might walk towards it and away from the sea.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.004", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "id": "e3.inference.004",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.green-sea-turtles",
       "prompt": "The baby turtles scurry down to the water. What does scurry mean?",
       "options": [
-        { "text": "swim slowly", "why": "They are on the sand, not in the water yet." },
-        { "text": "fall asleep", "why": "Falling asleep would not get them to the water." },
-        { "text": "dig a hole", "why": "The mother digs. The babies are going to the sea." },
-        { "text": "move quickly with small steps" }
+        {
+          "text": "swim slowly",
+          "why": "They are on the sand, not in the water yet."
+        },
+        {
+          "text": "fall asleep",
+          "why": "Falling asleep would not get them to the water."
+        },
+        {
+          "text": "dig a hole",
+          "why": "The mother digs. The babies are going to the sea."
+        },
+        {
+          "text": "move quickly with small steps"
+        }
       ],
       "answer": 3,
-      "hints": ["Think about what tiny new turtles do when they hatch.", "They are going from the nest to the sea.", "Try each answer in the sentence instead of scurry."],
+      "hints": [
+        "Think about what tiny new turtles do when they hatch.",
+        "They are going from the nest to the sea.",
+        "Try each answer in the sentence instead of scurry."
+      ],
       "explanation": "Scurry means to move quickly with short, small steps, like the baby turtles hurrying to the sea.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.inference.005", "skill": "e3.inference", "type": "mcq", "difficulty": 2,
+      "id": "e3.inference.005",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.kite-day",
       "prompt": "Why would the kite not fly at first?",
       "options": [
-        { "text": "The string was broken.", "why": "The poet could tug the string, so it was not broken." },
-        { "text": "It was raining.", "why": "The poem says the air was hot, not rainy." },
-        { "text": "There was no wind." },
-        { "text": "The kite was too heavy.", "why": "The poem does not say the kite was heavy." }
+        {
+          "text": "The string was broken.",
+          "why": "The poet could tug the string, so it was not broken."
+        },
+        {
+          "text": "It was raining.",
+          "why": "The poem says the air was hot, not rainy."
+        },
+        {
+          "text": "There was no wind."
+        },
+        {
+          "text": "The kite was too heavy.",
+          "why": "The poem does not say the kite was heavy."
+        }
       ],
       "answer": 2,
-      "hints": ["Read the second verse.", "The poem says the air was hot and still.", "What does a kite need to lift it into the sky?"],
+      "hints": [
+        "Read the second verse.",
+        "The poem says the air was hot and still.",
+        "What does a kite need to lift it into the sky?"
+      ],
       "explanation": "The air was still, which means there was no wind. A kite needs wind to fly.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.006", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "id": "e3.inference.006",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
       "passage": "e3.p.kite-day",
       "prompt": "Why does the poet say thank you to the wind?",
       "options": [
-        { "text": "The wind helped the kite fly high." },
-        { "text": "The wind blew the kite away.", "why": "The poet winds the kite in safely at the end." },
-        { "text": "The wind cooled the poet down.", "why": "The poem does not say this." },
-        { "text": "The wind stopped the rain.", "why": "There is no rain in the poem." }
+        {
+          "text": "The wind helped the kite fly high."
+        },
+        {
+          "text": "The wind blew the kite away.",
+          "why": "The poet winds the kite in safely at the end."
+        },
+        {
+          "text": "The wind cooled the poet down.",
+          "why": "The poem does not say this."
+        },
+        {
+          "text": "The wind stopped the rain.",
+          "why": "There is no rain in the poem."
+        }
       ],
       "answer": 0,
-      "hints": ["Think about what the breeze did in the middle of the poem.", "Why was the poet happy by the end?", "Find the lines about the breeze lifting the kite."],
+      "hints": [
+        "Think about what the breeze did in the middle of the poem.",
+        "Why was the poet happy by the end?",
+        "Find the lines about the breeze lifting the kite."
+      ],
       "explanation": "The breeze lifted the kite high above the town. The poet is thankful and wants the wind to come back tomorrow.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.inference.007", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "id": "e3.inference.007",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.missing-library-book",
       "prompt": "Why did Lucy think of the table by the window?",
       "options": [
-        { "text": "Mrs Lim told her to look there.", "why": "Mrs Lim comes in after the book is found." },
-        { "text": "Amir said they had art after reading, and they painted at that table." },
-        { "text": "She saw the yellow book from the door.", "why": "She only finds it when she lifts the paper." },
-        { "text": "She always sits at that table.", "why": "The play does not say this." }
+        {
+          "text": "Mrs Lim told her to look there.",
+          "why": "Mrs Lim comes in after the book is found."
+        },
+        {
+          "text": "Amir said they had art after reading, and they painted at that table."
+        },
+        {
+          "text": "She saw the yellow book from the door.",
+          "why": "She only finds it when she lifts the paper."
+        },
+        {
+          "text": "She always sits at that table.",
+          "why": "The play does not say this."
+        }
       ],
       "answer": 1,
-      "hints": ["Read what Amir says when Lucy asks about the morning.", "What did the class do after quiet reading time?", "Where did the class do that?"],
+      "hints": [
+        "Read what Amir says when Lucy asks about the morning.",
+        "What did the class do after quiet reading time?",
+        "Where did the class do that?"
+      ],
       "explanation": "Amir remembered they had art after reading. Lucy knew they painted at the big table, so the book could be under the painting paper.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.008", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "id": "e3.inference.008",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
       "passage": "e3.p.letter-to-grandad",
       "prompt": "Bima writes: I picked a whole basket! Well, half a basket. What does this show?",
       "options": [
-        { "text": "Bima lost half of his tea.", "why": "Nothing in the letter says he lost any tea." },
-        { "text": "Bima did not like picking tea.", "why": "He sounds excited, not unhappy." },
-        { "text": "Bima's basket was broken.", "why": "The letter does not say this." },
-        { "text": "Bima is being honest, and it is a little joke." }
+        {
+          "text": "Bima lost half of his tea.",
+          "why": "Nothing in the letter says he lost any tea."
+        },
+        {
+          "text": "Bima did not like picking tea.",
+          "why": "He sounds excited, not unhappy."
+        },
+        {
+          "text": "Bima's basket was broken.",
+          "why": "The letter does not say this."
+        },
+        {
+          "text": "Bima is being honest, and it is a little joke."
+        }
       ],
       "answer": 3,
-      "hints": ["Read the two sentences together.", "Did Bima really pick a whole basket?", "Why would someone change what they have just said?"],
+      "hints": [
+        "Read the two sentences together.",
+        "Did Bima really pick a whole basket?",
+        "Why would someone change what they have just said?"
+      ],
       "explanation": "Bima first says a whole basket, then tells the truth: only half. He is being honest in a funny way, and the next sentence says it was harder than it looked.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.009", "skill": "e3.inference", "type": "mcq", "difficulty": 3,
+      "id": "e3.inference.009",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.letter-to-grandad",
       "prompt": "Bima says the tea was mild. What does mild mean here?",
       "options": [
-        { "text": "very strong and bitter", "why": "Bima expected bitter, but it was mild instead." },
-        { "text": "not strong" },
-        { "text": "very cold", "why": "Mild here describes the taste, not the temperature." },
-        { "text": "very sweet", "why": "The letter does not say the tea was sweet." }
+        {
+          "text": "very strong and bitter",
+          "why": "Bima expected bitter, but it was mild instead."
+        },
+        {
+          "text": "not strong"
+        },
+        {
+          "text": "very cold",
+          "why": "Mild here describes the taste, not the temperature."
+        },
+        {
+          "text": "very sweet",
+          "why": "The letter does not say the tea was sweet."
+        }
       ],
       "answer": 1,
-      "hints": ["Read the whole sentence about the tea.", "The word but shows a difference from what Bima expected.", "If it was not bitter, what was it like?"],
+      "hints": [
+        "Read the whole sentence about the tea.",
+        "The word but shows a difference from what Bima expected.",
+        "If it was not bitter, what was it like?"
+      ],
       "explanation": "Bima thought the tea would be bitter, but it was mild. Mild means gentle and not strong.",
-      "tags": ["reading", "iklc"], "expectedSeconds": 90
+      "tags": [
+        "reading",
+        "iklc"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.inference.010", "skill": "e3.inference", "type": "mcq", "difficulty": 4,
+      "id": "e3.inference.010",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
       "passage": "e3.p.paper-boat",
       "prompt": "What could go wrong if you skipped step 2?",
       "options": [
-        { "text": "The paper would get soggy.", "why": "Soggy paper comes from water, not from folding." },
-        { "text": "You would not need the crayon.", "why": "The crayon is for the outside, not for step 2." },
-        { "text": "You would have no crease to show the middle for step 3." },
-        { "text": "The boat would be too big.", "why": "Step 2 does not change the size of the paper." }
+        {
+          "text": "The paper would get soggy.",
+          "why": "Soggy paper comes from water, not from folding."
+        },
+        {
+          "text": "You would not need the crayon.",
+          "why": "The crayon is for the outside, not for step 2."
+        },
+        {
+          "text": "You would have no crease to show the middle for step 3."
+        },
+        {
+          "text": "The boat would be too big.",
+          "why": "Step 2 does not change the size of the paper."
+        }
       ],
       "answer": 2,
-      "hints": ["Read step 2 and then step 3.", "What does step 2 make?", "What does step 3 need you to find?"],
+      "hints": [
+        "Read step 2 and then step 3.",
+        "What does step 2 make?",
+        "What does step 3 need you to find?"
+      ],
       "explanation": "Step 2 makes the middle crease. Step 3 says to fold the corners to meet at that crease. Without it, the corners might not meet in the right place.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.011", "skill": "e3.inference", "type": "mcq", "difficulty": 5,
+      "id": "e3.inference.011",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 5,
       "passage": "e3.p.bamboo",
       "prompt": "Why is bamboo good for the planet? Choose the answer the report supports best.",
       "options": [
-        { "text": "Pandas eat it, so it is never cut down.", "why": "Pandas are a fun fact. The report does not say this." },
-        { "text": "It grows back after it is cut, and its roots hold the soil." },
-        { "text": "It is a kind of tree that lives for hundreds of years.", "why": "Bamboo is a grass, not a tree." },
-        { "text": "It can be made into bicycles that never break.", "why": "The report does not say the bicycles never break." }
+        {
+          "text": "Pandas eat it, so it is never cut down.",
+          "why": "Pandas are a fun fact. The report does not say this."
+        },
+        {
+          "text": "It grows back after it is cut, and its roots hold the soil."
+        },
+        {
+          "text": "It is a kind of tree that lives for hundreds of years.",
+          "why": "Bamboo is a grass, not a tree."
+        },
+        {
+          "text": "It can be made into bicycles that never break.",
+          "why": "The report does not say the bicycles never break."
+        }
       ],
       "answer": 1,
-      "hints": ["Find the section called Good for the planet.", "That section gives two reasons.", "Check that every part of your answer is in the report."],
+      "hints": [
+        "Find the section called Good for the planet.",
+        "That section gives two reasons.",
+        "Check that every part of your answer is in the report."
+      ],
       "explanation": "The report says new stems grow back after bamboo is cut, and the roots hold the soil together. The right answer has both reasons.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.inference.012", "skill": "e3.inference", "type": "mcq", "difficulty": 1,
+      "id": "e3.inference.012",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 1,
       "passage": "e3.p.bamboo",
       "prompt": "A bamboo stem is hollow inside. What does hollow mean?",
       "options": [
-        { "text": "very heavy", "why": "Hollow is about the inside, not the weight." },
-        { "text": "full of water", "why": "Hollow means there is nothing inside." },
-        { "text": "bright green", "why": "Hollow is not a colour." },
-        { "text": "empty inside" }
+        {
+          "text": "very heavy",
+          "why": "Hollow is about the inside, not the weight."
+        },
+        {
+          "text": "full of water",
+          "why": "Hollow means there is nothing inside."
+        },
+        {
+          "text": "bright green",
+          "why": "Hollow is not a colour."
+        },
+        {
+          "text": "empty inside"
+        }
       ],
       "answer": 3,
-      "hints": ["Think of a drinking straw.", "What is in the middle of a straw?", "Picture a bamboo tube used to make an angklung."],
+      "hints": [
+        "Think of a drinking straw.",
+        "What is in the middle of a straw?",
+        "Picture a bamboo tube used to make an angklung."
+      ],
       "explanation": "Hollow means empty inside, like a straw. That is why bamboo tubes can be used to make musical notes.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
       "id": "e3.inference.013",
@@ -227,6 +481,1059 @@
           "answer": 0
         }
       ]
+    },
+    {
+      "id": "e3.inference.014",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ben put on his coat and gloves. He blew into his hands. What is the weather like?",
+      "hints": [
+        "Think about why you wear gloves.",
+        "Blowing warms hands.",
+        "The air is not warm."
+      ],
+      "explanation": "Ben is trying to stay warm, so it is cold.",
+      "options": [
+        {
+          "text": "hot",
+          "why": "He would not wear gloves."
+        },
+        {
+          "text": "cold"
+        },
+        {
+          "text": "sunny",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "dry",
+          "why": "The text does not tell about dry air."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.015",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sita's eyes were red and she held a tissue. What is Sita probably doing?",
+      "hints": [
+        "Red eyes and a tissue are clues.",
+        "Think about what makes eyes red.",
+        "It happens when you are sad."
+      ],
+      "explanation": "Red eyes and a tissue are clues that Sita is crying.",
+      "options": [
+        {
+          "text": "laughing",
+          "why": "People do not hold tissues for laughing in this way."
+        },
+        {
+          "text": "sleeping",
+          "why": "She is holding a tissue."
+        },
+        {
+          "text": "singing",
+          "why": "The clue does not fit singing."
+        },
+        {
+          "text": "crying"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.016",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Anna looked at the clock again and again. She tapped her foot. How does she feel?",
+      "hints": [
+        "She keeps looking at the time.",
+        "Tapping a foot shows she wants something to hurry.",
+        "The word starts with im."
+      ],
+      "explanation": "She cannot wait, so she feels impatient.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "impatient"
+        },
+        {
+          "text": "sleepy",
+          "why": "Sleepy people do not tap their feet."
+        },
+        {
+          "text": "proud",
+          "why": "The text does not show pride."
+        },
+        {
+          "text": "afraid",
+          "why": "The text does not show fear."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.inference.017",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Dad opened the oven. The smell of warm bread filled the kitchen. What was Dad doing?",
+      "hints": [
+        "Think about where bread is made.",
+        "An oven is hot.",
+        "The smell is the clue."
+      ],
+      "explanation": "The oven and the bread smell tell us he was baking.",
+      "options": [
+        {
+          "text": "painting",
+          "why": "There is no paint in the clue."
+        },
+        {
+          "text": "cleaning",
+          "why": "The smell is about bread."
+        },
+        {
+          "text": "baking"
+        },
+        {
+          "text": "sleeping",
+          "why": "He opened the oven."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.018",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hari dropped his bag, ran to the door and hugged his grandmother. How did he feel?",
+      "hints": [
+        "He dropped his bag and ran.",
+        "People hug when they love someone.",
+        "It is a big happy feeling."
+      ],
+      "explanation": "Running and hugging show he was delighted.",
+      "options": [
+        {
+          "text": "delighted"
+        },
+        {
+          "text": "angry",
+          "why": "Hugging shows love, not anger."
+        },
+        {
+          "text": "bored",
+          "why": "He ran, so he is not bored."
+        },
+        {
+          "text": "scared",
+          "why": "He ran towards her."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.inference.019",
+      "skill": "e3.inference",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "The puddles were everywhere. Kai took his umbrella and wore his boots. He walked slowly to school.",
+      "hints": [
+        "Look at the clues in each sentence.",
+        "Puddles are made by rain.",
+        "Boots protect your feet."
+      ],
+      "explanation": "The clues puddles, umbrella and boots tell us it was rainy.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What was the weather?",
+          "options": [
+            {
+              "text": "sunny",
+              "why": "Kai would not need an umbrella."
+            },
+            {
+              "text": "rainy"
+            },
+            {
+              "text": "snowy",
+              "why": "There are puddles, not snow."
+            },
+            {
+              "text": "dry",
+              "why": "There are puddles everywhere."
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "Why did Kai wear boots?",
+          "options": [
+            {
+              "text": "to play football",
+              "why": "The text does not say that."
+            },
+            {
+              "text": "to look tall",
+              "why": "The text does not say that."
+            },
+            {
+              "text": "because they were new",
+              "why": "The text does not say that."
+            },
+            {
+              "text": "to keep his feet dry"
+            }
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "id": "e3.inference.020",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The old man smiled and said, \"Welcome back, my friend!\" Who did he greet?",
+      "hints": [
+        "Welcome back means the person came before.",
+        "He calls him a friend.",
+        "He is happy to see him."
+      ],
+      "explanation": "Welcome back and my friend show he knew the person.",
+      "options": [
+        {
+          "text": "a stranger",
+          "why": "He called him my friend."
+        },
+        {
+          "text": "a dog only",
+          "why": "The text says friend."
+        },
+        {
+          "text": "someone he knew"
+        },
+        {
+          "text": "nobody",
+          "why": "He is speaking to someone."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.021",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The lights were off and every chair was empty. The door was locked. What can we guess about the shop?",
+      "hints": [
+        "Put the clues together.",
+        "The door is locked.",
+        "No lights and no people."
+      ],
+      "explanation": "Locked doors and no lights mean the shop was closed.",
+      "options": [
+        {
+          "text": "It was very busy.",
+          "why": "Empty chairs show no one is there."
+        },
+        {
+          "text": "It was closed."
+        },
+        {
+          "text": "It was having a party.",
+          "why": "The lights are off."
+        },
+        {
+          "text": "It was opening soon.",
+          "why": "The text does not say when."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.022",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "\"I did it!\" shouted Lin. She crossed the finish line with her arms in the air. What did Lin do?",
+      "hints": [
+        "Look at the place she crossed.",
+        "A finish line is at the end of a race.",
+        "Her arms are up because she is happy."
+      ],
+      "explanation": "Crossing the finish line means she finished a race.",
+      "options": [
+        {
+          "text": "lost her shoe",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "started a race",
+          "why": "She crossed the finish line."
+        },
+        {
+          "text": "cooked a meal",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "finished a race"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.023",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Nia whispered the answer to her friend while the teacher was not looking. What was wrong with what Nia did?",
+      "hints": [
+        "Why would you whisper when the teacher is not looking?",
+        "You do not want to be seen.",
+        "It is not fair in a test."
+      ],
+      "explanation": "Whispering answers in secret is cheating.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "She spoke too loudly.",
+          "why": "She whispered."
+        },
+        {
+          "text": "She helped a friend cheat."
+        },
+        {
+          "text": "She arrived late.",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "She forgot her book.",
+          "why": "The text does not say that."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.024",
+      "skill": "e3.inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The sun was setting and the birds flew home. What time of day is it? Write one word.",
+      "hints": [
+        "Think about when the sun goes down.",
+        "Birds fly home at the end of the day.",
+        "It is not morning."
+      ],
+      "explanation": "It is evening, when the sun sets.",
+      "blanks": [
+        {
+          "answers": [
+            "evening",
+            "dusk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3.inference.025",
+      "skill": "e3.inference",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Pak Dani put on his helmet, started his motorbike and rode away. Choose all the things we can tell.",
+      "hints": [
+        "Use only what the text shows.",
+        "A helmet is for safety.",
+        "He rode away."
+      ],
+      "explanation": "The text shows he is wearing a helmet and leaving.",
+      "options": [
+        {
+          "text": "He is riding a bicycle.",
+          "why": "The text says motorbike."
+        },
+        {
+          "text": "He is afraid of the road.",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "He is going somewhere."
+        },
+        {
+          "text": "He is wearing safety gear."
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "e3.inference.026",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Who does Aisyah go to the night market with?",
+      "passage": "e3.p.the-night-market",
+      "hints": [
+        "Read the first sentence.",
+        "Find the word with.",
+        "It is a family member."
+      ],
+      "explanation": "Aisyah goes with her father.",
+      "options": [
+        {
+          "text": "her father"
+        },
+        {
+          "text": "her mother",
+          "why": "The story says father."
+        },
+        {
+          "text": "her friend",
+          "why": "The story says father."
+        },
+        {
+          "text": "her teacher",
+          "why": "The story says father."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.inference.027",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How much money does Aisyah have?",
+      "passage": "e3.p.the-night-market",
+      "hints": [
+        "Read the first part.",
+        "Find the word pocket.",
+        "The amount is written in words."
+      ],
+      "explanation": "Aisyah has ten thousand rupiah.",
+      "options": [
+        {
+          "text": "15,000 rupiah",
+          "why": "This is the price of the bird."
+        },
+        {
+          "text": "8,000 rupiah",
+          "why": "This is the price of the corn."
+        },
+        {
+          "text": "5,000 rupiah",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "10,000 rupiah"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.028",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why can Aisyah not buy the wooden bird?",
+      "passage": "e3.p.the-night-market",
+      "hints": [
+        "Compare the two numbers.",
+        "The bird costs 15,000 rupiah.",
+        "She has 10,000 rupiah."
+      ],
+      "explanation": "The bird costs fifteen thousand, and she has only ten thousand.",
+      "options": [
+        {
+          "text": "It costs more than she has."
+        },
+        {
+          "text": "It is sold out.",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "She does not like it.",
+          "why": "She wants one at once."
+        },
+        {
+          "text": "Her father said no.",
+          "why": "The text does not say that."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.inference.029",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What does Aisyah plan to do next Saturday?",
+      "passage": "e3.p.the-night-market",
+      "hints": [
+        "Read the end of the story.",
+        "Find the word Next Saturday.",
+        "She says what she will buy."
+      ],
+      "explanation": "She will save her money and buy the bird.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "buy more corn",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "stay at home",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "ask her father for money",
+          "why": "She plans to save her own money."
+        },
+        {
+          "text": "buy the wooden bird"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.030",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How does Aisyah's father feel at the end?",
+      "passage": "e3.p.the-night-market",
+      "hints": [
+        "Look at the last sentence.",
+        "It tells how he nods.",
+        "He likes her plan."
+      ],
+      "explanation": "Her father nods proudly because she plans to save.",
+      "options": [
+        {
+          "text": "angry",
+          "why": "He nods proudly."
+        },
+        {
+          "text": "bored",
+          "why": "He nods proudly."
+        },
+        {
+          "text": "proud"
+        },
+        {
+          "text": "worried",
+          "why": "He nods proudly."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.031",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Where did the family camp?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Read the first entry.",
+        "Find the word campsite.",
+        "There was water nearby."
+      ],
+      "explanation": "The family camped by a lake.",
+      "options": [
+        {
+          "text": "on a beach",
+          "why": "The diary says lake."
+        },
+        {
+          "text": "in a city",
+          "why": "The diary says lake."
+        },
+        {
+          "text": "by a lake"
+        },
+        {
+          "text": "on a mountain",
+          "why": "The diary says lake."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.032",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Who blew up the air beds?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Read the first entry.",
+        "Find the words air beds.",
+        "The name is the writer's brother."
+      ],
+      "explanation": "Eko blew up the air beds.",
+      "options": [
+        {
+          "text": "Dad",
+          "why": "Dad put up the tent."
+        },
+        {
+          "text": "Eko"
+        },
+        {
+          "text": "Mum",
+          "why": "Mum made hot chocolate."
+        },
+        {
+          "text": "the writer",
+          "why": "The writer hammered in the pegs."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.033",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What woke the writer on Saturday morning?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Read the Saturday 7 am entry.",
+        "Find the word woke.",
+        "It says because."
+      ],
+      "explanation": "A bird was singing right above the tent.",
+      "options": [
+        {
+          "text": "the frogs",
+          "why": "The frogs were at night."
+        },
+        {
+          "text": "the rain",
+          "why": "The text does not mention rain."
+        },
+        {
+          "text": "Dad's snoring",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "a bird singing"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.034",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What happened to Eko in the boat?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Read the Saturday morning entry.",
+        "Find the word Eko.",
+        "Everyone laughed afterwards."
+      ],
+      "explanation": "Eko fell in the water when he tried to catch a fish.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "He caught a big fish.",
+          "why": "He tried, but he fell in."
+        },
+        {
+          "text": "He lost his hat.",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "He fell into the water."
+        },
+        {
+          "text": "He went to sleep.",
+          "why": "The text does not say that."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.035",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How does the writer feel at the end?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Read the last entry.",
+        "There are two feelings joined by but.",
+        "The writer wants to return."
+      ],
+      "explanation": "The writer is tired but never so happy.",
+      "options": [
+        {
+          "text": "sad and angry",
+          "why": "The writer is happy."
+        },
+        {
+          "text": "bored and cold",
+          "why": "The writer wants to come back."
+        },
+        {
+          "text": "afraid of the dark",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "tired but very happy"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.036",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the moon compared to?",
+      "passage": "e3.p.moon-boat",
+      "hints": [
+        "Read the first line.",
+        "Find the word is.",
+        "It sails on a sea."
+      ],
+      "explanation": "The moon is compared to a boat.",
+      "options": [
+        {
+          "text": "a fish",
+          "why": "The stars are compared to fish."
+        },
+        {
+          "text": "a boat"
+        },
+        {
+          "text": "a cloud",
+          "why": "The clouds are compared to waves."
+        },
+        {
+          "text": "an owl",
+          "why": "The owls are the sailors."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.037",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Who steers the boat?",
+      "passage": "e3.p.moon-boat",
+      "hints": [
+        "Read the second verse.",
+        "Find the word captain.",
+        "It hums a song."
+      ],
+      "explanation": "The wind is the captain.",
+      "options": [
+        {
+          "text": "the owls",
+          "why": "The owls watch and keep."
+        },
+        {
+          "text": "the wind"
+        },
+        {
+          "text": "the stars",
+          "why": "The stars are the fish."
+        },
+        {
+          "text": "the clouds",
+          "why": "The clouds are the waves."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.038",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which two words rhyme in the first two lines?",
+      "passage": "e3.p.moon-boat",
+      "hints": [
+        "Look at the end of each line.",
+        "Say the last words aloud.",
+        "They end with the same sound."
+      ],
+      "explanation": "Sea and be rhyme.",
+      "options": [
+        {
+          "text": "boat and moon",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "sea and be"
+        },
+        {
+          "text": "blue and slowly",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "dark and quiet",
+          "why": "These do not rhyme."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.039",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The clouds are the waves that rock it to sleep. What does this mean?",
+      "passage": "e3.p.moon-boat",
+      "hints": [
+        "The poet uses a comparison.",
+        "Clouds move slowly like waves.",
+        "The moon floats in them."
+      ],
+      "explanation": "The poet compares clouds to waves that move the moon boat gently.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The clouds are really in the sea.",
+          "why": "They are in the sky."
+        },
+        {
+          "text": "The moon falls asleep.",
+          "why": "The line compares clouds to waves."
+        },
+        {
+          "text": "It is raining.",
+          "why": "The line does not say that."
+        },
+        {
+          "text": "The clouds look like waves around the moon."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.040",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What does the last verse tell us about the moon?",
+      "passage": "e3.p.moon-boat",
+      "hints": [
+        "Read the last two lines.",
+        "Find the word tonight.",
+        "The poet looks up high."
+      ],
+      "explanation": "The poem says the moon will sail through the sky again tonight.",
+      "options": [
+        {
+          "text": "It will not come back.",
+          "why": "The poem says it will sail again."
+        },
+        {
+          "text": "It breaks in the morning.",
+          "why": "The poem says it sails away."
+        },
+        {
+          "text": "It will return to the sky tonight."
+        },
+        {
+          "text": "It turns into a boat.",
+          "why": "The boat is only a comparison."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.041",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How long had Rina practised?",
+      "passage": "e3.p.the-spelling-contest",
+      "hints": [
+        "Read the first sentence.",
+        "Find the word practised.",
+        "It is a number of weeks."
+      ],
+      "explanation": "Rina practised for two weeks.",
+      "options": [
+        {
+          "text": "two days",
+          "why": "The story says weeks."
+        },
+        {
+          "text": "one month",
+          "why": "The story says two weeks."
+        },
+        {
+          "text": "one year",
+          "why": "The story says two weeks."
+        },
+        {
+          "text": "two weeks"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.inference.042",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Who called out words at home?",
+      "passage": "e3.p.the-spelling-contest",
+      "hints": [
+        "Read the first part.",
+        "Find the word evening.",
+        "It is a family member."
+      ],
+      "explanation": "Her grandmother called out the words.",
+      "options": [
+        {
+          "text": "her teacher",
+          "why": "The teacher called words at the contest."
+        },
+        {
+          "text": "her grandmother"
+        },
+        {
+          "text": "Dimas",
+          "why": "Dimas was in the contest."
+        },
+        {
+          "text": "her mother",
+          "why": "The story says grandmother."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.inference.043",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "How did Rina remember how to spell necessary?",
+      "passage": "e3.p.the-spelling-contest",
+      "hints": [
+        "Read the part about her mind going blank.",
+        "Find the word trick.",
+        "It was her grandmother's."
+      ],
+      "explanation": "One collar and two sleeves reminds her of one c and two s.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "She wrote it down.",
+          "why": "The story does not say that."
+        },
+        {
+          "text": "She asked the teacher.",
+          "why": "The story does not say that."
+        },
+        {
+          "text": "She used a trick about a collar and sleeves."
+        },
+        {
+          "text": "She copied Dimas.",
+          "why": "The story does not say that."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e3.inference.044",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How did Rina feel before her first word?",
+      "passage": "e3.p.the-spelling-contest",
+      "hints": [
+        "Read the first part.",
+        "Cold hands are a clue.",
+        "She is on a stage."
+      ],
+      "explanation": "Cold hands and a deep breath show she was nervous.",
+      "options": [
+        {
+          "text": "nervous"
+        },
+        {
+          "text": "bored",
+          "why": "Her hands felt cold."
+        },
+        {
+          "text": "sleepy",
+          "why": "Her hands felt cold."
+        },
+        {
+          "text": "angry",
+          "why": "The story does not say that."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.inference.045",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What does the end of the story show about Rina?",
+      "passage": "e3.p.the-spelling-contest",
+      "hints": [
+        "Read the last part.",
+        "Think about what she says to Dimas.",
+        "She shares the prize."
+      ],
+      "explanation": "She praised Dimas and shared the prize, so she is kind.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "She is lazy.",
+          "why": "She practised for two weeks."
+        },
+        {
+          "text": "She is kind and does not boast."
+        },
+        {
+          "text": "She is rude to Dimas.",
+          "why": "She told him he spelt well."
+        },
+        {
+          "text": "She wants all the prizes.",
+          "why": "She shared the prize."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

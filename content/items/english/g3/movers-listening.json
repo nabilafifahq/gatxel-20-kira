@@ -206,6 +206,204 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "e3.movers-listening.009",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 2,
+      "prompt": "Listen. What is Jo going to do on Saturday?",
+      "hints": [
+        "Listen for the day.",
+        "Jo says where.",
+        "It is a place with sand."
+      ],
+      "explanation": "Jo is going to the beach on Saturday.",
+      "options": [
+        {
+          "text": "go to the park",
+          "why": "Jo said beach."
+        },
+        {
+          "text": "visit a museum",
+          "why": "Jo did not say museum."
+        },
+        {
+          "text": "stay at home",
+          "why": "Jo will go out."
+        },
+        {
+          "text": "go to the beach"
+        }
+      ],
+      "answer": 3,
+      "listenText": "Hi Mia, it is Jo. On Saturday I am going to the beach with my cousins. We are taking a picnic."
+    },
+    {
+      "id": "e3.movers-listening.010",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. How many people are in the group?",
+      "hints": [
+        "Listen for two numbers.",
+        "One is the group.",
+        "Then two more people join."
+      ],
+      "explanation": "Six plus two makes eight.",
+      "options": [
+        {
+          "text": "8"
+        },
+        {
+          "text": "6",
+          "why": "Six does not include Mum and Dad."
+        },
+        {
+          "text": "2",
+          "why": "Two is only Mum and Dad."
+        },
+        {
+          "text": "4",
+          "why": "Four is not said."
+        }
+      ],
+      "answer": 0,
+      "listenText": "We are a group of six. Mum and Dad will come too, so we need a table for eight."
+    },
+    {
+      "id": "e3.movers-listening.011",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. What time does the train leave?",
+      "hints": [
+        "A quarter is 15 minutes.",
+        "Past means after.",
+        "Nine o'clock plus 15 minutes."
+      ],
+      "explanation": "A quarter past nine is 9:15.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "9:45",
+          "why": "A quarter past is not 45."
+        },
+        {
+          "text": "9:00",
+          "why": "The train leaves at 15 minutes past."
+        },
+        {
+          "text": "9:05",
+          "why": "Ten minutes early is when you should arrive."
+        },
+        {
+          "text": "9:15"
+        }
+      ],
+      "answer": 3,
+      "listenText": "The train to Bandung leaves at a quarter past nine. Please be at the station ten minutes early."
+    },
+    {
+      "id": "e3.movers-listening.012",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. Which food does Raka not like?",
+      "hints": [
+        "Listen for the word not.",
+        "It comes before a food.",
+        "It is a green vegetable."
+      ],
+      "explanation": "Raka does not like spinach.",
+      "options": [
+        {
+          "text": "rice",
+          "why": "Raka likes rice."
+        },
+        {
+          "text": "fish",
+          "why": "Raka loves fish."
+        },
+        {
+          "text": "bread",
+          "why": "Raka did not mention bread."
+        },
+        {
+          "text": "spinach"
+        }
+      ],
+      "answer": 3,
+      "listenText": "I like rice and I love fish. But I do not like spinach. It tastes too strong for me."
+    },
+    {
+      "id": "e3.movers-listening.013",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 4,
+      "prompt": "Listen. Why is Tina sad?",
+      "hints": [
+        "Listen for the word because.",
+        "It is followed by the reason.",
+        "It is about something she made."
+      ],
+      "explanation": "Tina is sad because her kite broke.",
+      "options": [
+        {
+          "text": "Her kite broke."
+        },
+        {
+          "text": "She lost a game.",
+          "why": "The talk did not say that."
+        },
+        {
+          "text": "She is ill.",
+          "why": "The talk did not say that."
+        },
+        {
+          "text": "It rained.",
+          "why": "The talk did not say that."
+        }
+      ],
+      "answer": 0,
+      "listenText": "I am sad because my kite broke. The wind was so strong that it hit a tree. I worked on that kite for a week."
+    },
+    {
+      "id": "e3.movers-listening.014",
+      "skill": "e3.movers-listening",
+      "type": "listen",
+      "difficulty": 4,
+      "prompt": "Listen. Where will they meet?",
+      "hints": [
+        "Listen for two places.",
+        "One is the first plan.",
+        "The other is for rain."
+      ],
+      "explanation": "They will meet outside the library, unless it rains.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "inside the cafe",
+          "why": "Only if it rains."
+        },
+        {
+          "text": "outside the library"
+        },
+        {
+          "text": "at the station",
+          "why": "The talk did not say station."
+        },
+        {
+          "text": "in the park",
+          "why": "The talk did not say park."
+        }
+      ],
+      "answer": 1,
+      "listenText": "Let us meet outside the library at four. If it rains, we will wait inside the cafe next to it."
     }
   ]
 }
