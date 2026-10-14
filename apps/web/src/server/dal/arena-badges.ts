@@ -4,7 +4,7 @@ import { earnedArenaBadges, emptyArenaBadgeStats, jakartaDate, missionStreak, tr
 import { knowledgeCounts, topicsTried } from '@kira/content/knowledge'
 import { tables } from '@kira/db'
 import type { OrgContext, Tx } from '../db'
-import { loadQmState, loadQuizState, trackTotals } from './arena-state'
+import { loadQmState, loadQuizState, loadRolled, trackTotals } from './arena-state'
 
 const { arenaSession, badgeAward } = tables
 
@@ -34,28 +34,33 @@ export async function arenaBadgeStats(tx: Tx, learnerId: string): Promise<ArenaB
       .from(s)
       .where(and(eq(s.learnerId, learnerId), eq(s.arena, 'pengetahuan'), isNotNull(s.finishedAt), sql`${s.mode} in ('quiz', 'speed')`))
   )[0]
+  const qmRolled = await loadRolled(tx, learnerId, 'hitung')
+  const quizRolled = await loadRolled(tx, learnerId, 'pengetahuan')
   const qmState = await loadQmState(tx, learnerId, 2)
   const quizState = await loadQuizState(tx, learnerId)
   const levels = trackLevels(await trackTotals(tx, learnerId))
   const base = emptyArenaBadgeStats()
   return {
     ...base,
-    qmRounds: qm?.rounds ?? 0,
-    qmBestSprintPpm: qm?.bestPpm ?? 0,
-    qmPerfectSprint: qm?.perfect ?? false,
+    qmRounds: (qm?.rounds ?? 0) + qmRolled.rounds,
+    qmBestSprintPpm: Math.max(qm?.bestPpm ?? 0, qmRolled.bestSprintPpm ?? 0),
+    qmPerfectSprint: (qm?.perfect ?? false) || qmRolled.perfectSprint,
     qmOpsPlayed: qmState.opsPlayed.length,
     qmFlashCleared: qmState.flashCleared,
     qmSorobanRounds: qmState.sorobanRounds,
     qmAnzanPassed: qmState.anzanPassed,
     qmTablesMastered: qmState.tablesMastered.length,
-    qmTarget20Sec: qm?.target != null ? Math.round(qm.target / 100) / 10 : null,
+    qmTarget20Sec: (() => {
+      const ms = [qm?.target, qmRolled.bestTargetMs].filter((x): x is number => x != null)
+      return ms.length ? Math.round(Math.min(...ms) / 100) / 10 : null
+    })(),
     qmMissionsDone: qmState.missionDates.length,
     qmMissionStreak: missionStreak(qmState.missionDates, jakartaDate()),
     qmStrategies: qmState.strategies.length,
-    quizRounds: quiz?.rounds ?? 0,
+    quizRounds: (quiz?.rounds ?? 0) + quizRolled.rounds,
     quizTopicsTried: topicsTried(quizState.know),
-    quizSpeedBest: quiz?.speedBest ?? 0,
-    quizPerfectRound: quiz?.perfect ?? false,
+    quizSpeedBest: Math.max(quiz?.speedBest ?? 0, quizRolled.speedBest),
+    quizPerfectRound: (quiz?.perfect ?? false) || quizRolled.perfectQuiz,
     ...knowledgeCounts(quizState.know),
     levels,
   }
