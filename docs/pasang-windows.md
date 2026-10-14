@@ -292,7 +292,17 @@ Syarat: driver NVIDIA terbaru di Windows (Docker Desktop dengan WSL 2 sudah mene
    docker compose logs -f worker
    ```
 
-   Worker juga menjadwalkan batch ini sendiri setiap hari pukul 01.30 WIB selama `TTS_URL` terisi, jadi konten baru ikut dibuat tanpa langkah tambahan. Batch aman dihentikan dan dilanjutkan: klip yang sudah ada dilewati.
+   Worker juga menjadwalkan batch ini sendiri setiap hari pukul 01.30 WIB selama `TTS_URL` terisi, jadi konten baru ikut dibuat tanpa langkah tambahan. Batch aman dihentikan dan dilanjutkan: klip yang sudah ada dilewati. Untuk melihat berapa klip yang sudah jadi dan yang masih menunggu:
+
+   ```powershell
+   .deploywindowskira.ps1 admin tts-status
+   ```
+
+   Untuk mengambil soal baru dari sumber terbuka sekarang juga, tanpa menunggu Minggu dini hari (jatah AI mingguan `AI_WEEKLY_CONTENT_JOBS` tetap berlaku):
+
+   ```powershell
+   .deploywindowskira.ps1 admin sourcing-now
+   ```
 
 ### Bila GPU dipakai program lain
 

@@ -19,6 +19,7 @@ export const JOB_KINDS = [
   'learner.delete',
   'tts.batch',
   'tts.clip',
+  'sourcing.run',
 ] as const
 export type JobKind = (typeof JOB_KINDS)[number]
 
@@ -36,10 +37,15 @@ export type TtsBatchPayload = { scope: 'all' }
 /** tts.clip: buat klip yang diminta layar learner. style adalah id gaya (packages/core/src/tts.ts). */
 export type TtsClipPayload = { clips: { text: string; style: string }[] }
 
+/** sourcing.run: pembaruan sumber soal untuk org job ini sekarang juga (perintah admin sourcing-now). */
+export type SourcingRunPayload = { scope: 'org' }
+
 export type JobPayload<K extends JobKind> = K extends 'learner.delete'
   ? LearnerDeletePayload
   : K extends 'tts.batch'
     ? TtsBatchPayload
+    : K extends 'sourcing.run'
+      ? SourcingRunPayload
     : K extends 'tts.clip'
       ? TtsClipPayload
       : AiJobPayload
