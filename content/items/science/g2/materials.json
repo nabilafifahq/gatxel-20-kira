@@ -262,6 +262,816 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s2.materials.019",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material is bendy and stretchy?",
+      "options": [
+        {
+          "text": "glass",
+          "why": "Glass is hard."
+        },
+        {
+          "text": "stone",
+          "why": "Stone is hard."
+        },
+        {
+          "text": "metal",
+          "why": "Metal is hard to bend."
+        },
+        {
+          "text": "rubber"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think of a rubber band.",
+        "Glass would break.",
+        "It springs back."
+      ],
+      "explanation": "Rubber can stretch and bend and then spring back."
+    },
+    {
+      "id": "s2.materials.020",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which material is best for a window?",
+      "options": [
+        {
+          "text": "wood",
+          "why": "You cannot see through wood."
+        },
+        {
+          "text": "metal",
+          "why": "You cannot see through metal."
+        },
+        {
+          "text": "glass"
+        },
+        {
+          "text": "rubber",
+          "why": "You cannot see through rubber."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "We look through windows.",
+        "Which material is clear?",
+        "It is hard and clear."
+      ],
+      "explanation": "Glass is clear and see-through, so it is good for windows."
+    },
+    {
+      "id": "s2.materials.021",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why do saucepan handles often have wood or plastic on them?",
+      "options": [
+        {
+          "text": "They are shiny.",
+          "why": "Shiny is not the reason."
+        },
+        {
+          "text": "They do not get hot quickly."
+        },
+        {
+          "text": "They are heavy.",
+          "why": "Weight is not the reason."
+        },
+        {
+          "text": "They make the food taste better.",
+          "why": "They do not touch the food."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The pan gets hot.",
+        "You hold the handle.",
+        "Which material stays cool?"
+      ],
+      "explanation": "Wood and plastic do not carry heat well, so we can hold the handle safely."
+    },
+    {
+      "id": "s2.materials.022",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why is a pillow filled with something soft?",
+      "options": [
+        {
+          "text": "It is shiny.",
+          "why": "Softness is not shiny."
+        },
+        {
+          "text": "It is comfortable."
+        },
+        {
+          "text": "It is waterproof.",
+          "why": "Soft does not mean waterproof."
+        },
+        {
+          "text": "It is magnetic.",
+          "why": "Magnets do not matter."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You rest your head on it.",
+        "Hard is not comfy.",
+        "Think about how it feels."
+      ],
+      "explanation": "A soft filling makes the pillow comfortable for your head."
+    },
+    {
+      "id": "s2.materials.023",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which material is best for a long-lasting boat?",
+      "options": [
+        {
+          "text": "plastic"
+        },
+        {
+          "text": "paper",
+          "why": "Paper goes soggy."
+        },
+        {
+          "text": "a sponge",
+          "why": "A sponge soaks up water."
+        },
+        {
+          "text": "a cotton sheet",
+          "why": "Cotton soaks up water."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The boat must stay dry.",
+        "Waterproof is the key word.",
+        "Paper gets soggy."
+      ],
+      "explanation": "Plastic is waterproof, so it keeps the water out and the boat floats."
+    },
+    {
+      "id": "s2.materials.024",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A bicycle frame is made of metal. Why is this a good choice?",
+      "options": [
+        {
+          "text": "Metal is soft.",
+          "why": "Metal is hard."
+        },
+        {
+          "text": "Metal is see-through.",
+          "why": "You cannot see through metal."
+        },
+        {
+          "text": "Metal is very light and bendy.",
+          "why": "A frame must not bend."
+        },
+        {
+          "text": "Metal is strong and stiff."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A frame carries your weight.",
+        "It must not bend.",
+        "Which is strong?"
+      ],
+      "explanation": "A bicycle frame carries the rider. Metal is strong and stiff."
+    },
+    {
+      "id": "s2.materials.025",
+      "skill": "s2.materials",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "What is it made of? Sort the objects.",
+      "groups": [
+        "Metal",
+        "Plastic",
+        "Wood",
+        "Glass"
+      ],
+      "items": [
+        {
+          "text": "key",
+          "group": 0
+        },
+        {
+          "text": "coin",
+          "group": 0
+        },
+        {
+          "text": "plastic bucket",
+          "group": 1
+        },
+        {
+          "text": "plastic toy brick",
+          "group": 1
+        },
+        {
+          "text": "pencil",
+          "group": 2
+        },
+        {
+          "text": "wooden chair",
+          "group": 2
+        },
+        {
+          "text": "glass jar",
+          "group": 3
+        },
+        {
+          "text": "mirror",
+          "group": 3
+        }
+      ],
+      "hints": [
+        "The names tell you some answers.",
+        "A mirror has glass.",
+        "A coin is shiny and hard."
+      ],
+      "explanation": "Keys and coins are metal. A plastic bucket and toy brick are plastic. A pencil and wooden chair are wood. A glass jar and a mirror are glass."
+    },
+    {
+      "id": "s2.materials.026",
+      "skill": "s2.materials",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the stretchy things.",
+      "options": [
+        {
+          "text": "a pencil"
+        },
+        {
+          "text": "a brick"
+        },
+        {
+          "text": "a balloon"
+        },
+        {
+          "text": "a hair bobble"
+        },
+        {
+          "text": "a rubber band"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "Can you pull it longer?",
+        "A brick is hard.",
+        "It goes back after."
+      ],
+      "explanation": "Rubber bands, hair bobbles and balloons stretch. A brick and a pencil do not."
+    },
+    {
+      "id": "s2.materials.027",
+      "skill": "s2.materials",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the waterproof things.",
+      "options": [
+        {
+          "text": "a cotton scarf"
+        },
+        {
+          "text": "a paper hat"
+        },
+        {
+          "text": "a nylon umbrella"
+        },
+        {
+          "text": "a plastic poncho"
+        },
+        {
+          "text": "rubber boots"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "Which ones keep you dry?",
+        "Paper gets soggy.",
+        "Cotton soaks up water."
+      ],
+      "explanation": "Rubber, plastic and nylon keep water out. Paper and cotton soak it up."
+    },
+    {
+      "id": "s2.materials.028",
+      "skill": "s2.materials",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to what it means.",
+      "pairs": [
+        [
+          "transparent",
+          "see-through"
+        ],
+        [
+          "flexible",
+          "bends easily"
+        ],
+        [
+          "rigid",
+          "does not bend"
+        ],
+        [
+          "waterproof",
+          "keeps water out"
+        ]
+      ],
+      "hints": [
+        "Water + proof.",
+        "Rigid is stiff.",
+        "Transparent means you can see through."
+      ],
+      "explanation": "Transparent means see-through. Flexible means bends easily, rigid means does not bend, and waterproof means keeps water out."
+    },
+    {
+      "id": "s2.materials.029",
+      "skill": "s2.materials",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A ___ material lets light through. A ___ material keeps water out.",
+      "gaps": [
+        {
+          "options": [
+            "see-through",
+            "rough",
+            "soft"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "waterproof",
+            "soft",
+            "rough"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Windows let light in.",
+        "Raincoats keep you dry.",
+        "Read slowly."
+      ],
+      "explanation": "See-through materials let light through. Waterproof materials keep water out."
+    },
+    {
+      "id": "s2.materials.030",
+      "skill": "s2.materials",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Which materials soak up water?",
+      "head": [
+        "Material",
+        "Soaks up water?"
+      ],
+      "rows": [
+        [
+          "paper",
+          "yes"
+        ],
+        [
+          "plastic",
+          ""
+        ],
+        [
+          "cloth",
+          ""
+        ],
+        [
+          "foil",
+          "no"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "yes"
+          ]
+        }
+      ],
+      "hints": [
+        "Plastic is waterproof.",
+        "Cloth gets wet.",
+        "Foil is metal."
+      ],
+      "explanation": "Paper and cloth soak up water. Plastic and foil do not."
+    },
+    {
+      "id": "s2.materials.031",
+      "skill": "s2.materials",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Mei wants to make a lunch box. She tests metal, wood and paper. The metal is strong and waterproof. The wood is strong but heavy. The paper is light but tears easily.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which material is light but not strong?",
+          "options": [
+            {
+              "text": "metal"
+            },
+            {
+              "text": "wood"
+            },
+            {
+              "text": "paper"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which material is both strong and waterproof?",
+          "options": [
+            {
+              "text": "paper"
+            },
+            {
+              "text": "wood"
+            },
+            {
+              "text": "metal"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Read the last sentence for paper.",
+        "Read the sentence about metal.",
+        "Strong and waterproof."
+      ],
+      "explanation": "Paper is light but it tears. Metal is strong and keeps water out."
+    },
+    {
+      "id": "s2.materials.032",
+      "skill": "s2.materials",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Hiro tests 5 fabrics. 3 soak up water. How many do not?",
+      "answer": 2,
+      "hints": [
+        "Take away the fabrics that soak up water.",
+        "Count back 3 from 5.",
+        "5 - 3."
+      ],
+      "explanation": "5 - 3 = 2 fabrics do not soak up water."
+    },
+    {
+      "id": "s2.materials.033",
+      "skill": "s2.materials",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the object made of rubber.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "rubber-band",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "spoon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "paper",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: rubber band, spoon, wooden spoon and paper."
+      },
+      "regions": [
+        {
+          "label": "rubber band",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "spoon",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "wooden spoon",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "paper",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which one stretches?",
+        "Spoons are hard.",
+        "Paper tears."
+      ],
+      "explanation": "A rubber band is made of rubber, which is stretchy."
+    },
+    {
+      "id": "s2.materials.034",
+      "skill": "s2.materials",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the object a magnet can pick up.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "nail",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fabric",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: nail, wooden spoon, glass and fabric."
+      },
+      "regions": [
+        {
+          "label": "nail",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "wooden spoon",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "glass",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "fabric",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Magnets pick up some metals.",
+        "Wood is not magnetic.",
+        "A nail is strong and metal."
+      ],
+      "explanation": "A nail is made of iron, so a magnet picks it up."
+    },
+    {
+      "id": "s2.materials.035",
+      "skill": "s2.materials",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A material that bends easily is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "flexible",
+            "bendy"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a rubber band.",
+        "It is the opposite of rigid.",
+        "It starts with f."
+      ],
+      "explanation": "A flexible material bends easily without breaking."
+    },
+    {
+      "id": "s2.materials.036",
+      "skill": "s2.materials",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Design a lunch box lid. Draw it and label the material you choose.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a lunch box lid",
+            "points": 1
+          },
+          {
+            "label": "Labels a suitable material",
+            "points": 1
+          },
+          {
+            "label": "Gives a reason for the choice",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Think about strong and waterproof.",
+        "Say why you chose it."
+      ],
+      "explanation": "A lid should be strong and waterproof. Plastic or metal are good choices."
+    },
+    {
+      "id": "s2.materials.037",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "I keep rain off, I bend and you can see through me. What am I made of?",
+      "options": [
+        {
+          "text": "glass",
+          "why": "Glass does not bend."
+        },
+        {
+          "text": "paper",
+          "why": "Paper is not see-through."
+        },
+        {
+          "text": "clear plastic"
+        },
+        {
+          "text": "wood",
+          "why": "Wood is not see-through."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "It must let light through.",
+        "It keeps rain out.",
+        "It also bends."
+      ],
+      "explanation": "Clear plastic is waterproof, bendy and see-through.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.materials.038",
+      "skill": "s2.materials",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the odd one out?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "coin",
+            "label": "coin"
+          },
+          {
+            "icon": "key",
+            "label": "key"
+          },
+          {
+            "icon": "rubber-band",
+            "label": "rubber band"
+          },
+          {
+            "icon": "spoon",
+            "label": "spoon"
+          }
+        ],
+        "alt": "A coin, a key, a rubber band and a spoon."
+      },
+      "options": [
+        {
+          "text": "a coin",
+          "why": "A coin is metal."
+        },
+        {
+          "text": "rubber"
+        },
+        {
+          "text": "a key",
+          "why": "A key is metal."
+        },
+        {
+          "text": "a spoon",
+          "why": "This spoon is metal."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Three are hard and shiny.",
+        "Which one stretches?",
+        "Metal is hard."
+      ],
+      "explanation": "A coin, a key and a spoon are metal. Rubber is not a metal.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.materials.039",
+      "skill": "s2.materials",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Five things: nail, plastic pen, steel paperclip, wooden ruler, iron key. How many does a magnet pick up?",
+      "answer": 3,
+      "hints": [
+        "Magnets pick up iron and steel.",
+        "Plastic and wood are not magnetic.",
+        "Count the magnetic ones."
+      ],
+      "explanation": "The nail, the steel paperclip and the iron key are magnetic. The pen and ruler are not.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
