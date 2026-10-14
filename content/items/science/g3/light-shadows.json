@@ -970,7 +970,7 @@
       "skill": "s3.light-shadows",
       "type": "story",
       "difficulty": 3,
-      "prompt": "Eko holds a toy at different distances from a torch. At 20 cm the shadow on the wall is 16 cm tall. At 40 cm it is 10 cm tall. At 60 cm it is 7 cm tall.",
+      "prompt": "Eko holds a toy at different distances from a torch. At 20 cm the shadow on the wall is 16 cm tall. At 40 cm it is 8 cm tall. At 80 cm it is 4 cm tall.",
       "parts": [
         {
           "type": "mcq",
@@ -991,18 +991,18 @@
         {
           "type": "numeric",
           "prompt": "How tall is the shadow at 40 cm?",
-          "answer": 10,
+          "answer": 8,
           "tolerance": 0,
           "allowNegative": false,
           "allowDecimal": false
         }
       ],
       "hints": [
-        "Compare 16, 10 and 7.",
+        "Compare 16, 8 and 4.",
         "Find the 40 cm number.",
         "The numbers go down."
       ],
-      "explanation": "The shadow shrinks as the toy moves away from the torch. At 40 cm it is 10 cm tall."
+      "explanation": "The shadow shrinks as the toy moves away from the torch. At 40 cm it is 8 cm tall."
     },
     {
       "id": "s3.light-shadows.030",

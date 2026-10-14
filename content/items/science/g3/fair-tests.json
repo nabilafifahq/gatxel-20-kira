@@ -627,18 +627,18 @@
       "prompt": "Aji measures a plant three times: 10 cm, 10 cm, 14 cm. What should he do?",
       "options": [
         {
-          "text": "Write down only 14 cm.",
+          "text": "Write down only 14 cm, because it is the biggest.",
           "why": "It is the odd one."
         },
         {
-          "text": "Ignore all the readings.",
-          "why": "Two are the same."
+          "text": "Ignore all the readings and start a new test.",
+          "why": "Two readings are the same."
         },
         {
           "text": "Measure again, because 14 cm is probably a mistake."
         },
         {
-          "text": "Add them all together and stop.",
+          "text": "Add them together and report the total.",
           "why": "He should check first."
         }
       ],
@@ -1196,16 +1196,16 @@
           "text": "Fertiliser seemed to help in this test, so I will repeat it."
         },
         {
-          "text": "Fertiliser always makes plants grow.",
+          "text": "Fertiliser always makes every plant grow taller.",
           "why": "One test cannot prove always."
         },
         {
-          "text": "Fertiliser does nothing.",
-          "why": "A did grow more."
+          "text": "Fertiliser does nothing for plants.",
+          "why": "Plant A did grow more."
         },
         {
-          "text": "Plant B did not need water.",
-          "why": "Both needed water."
+          "text": "Plant B did not need any water.",
+          "why": "Both plants needed water."
         }
       ],
       "answer": 0,
@@ -1265,15 +1265,15 @@
       "prompt": "Wulan tests how salt affects how fast ice melts. She uses a big ice cube with salt and a small ice cube without. What is wrong?",
       "options": [
         {
-          "text": "She used salt.",
-          "why": "That is what she tests."
+          "text": "She did not use enough salt.",
+          "why": "The amount of salt is not the problem."
         },
         {
-          "text": "She used two bowls.",
+          "text": "She used two separate bowls.",
           "why": "That is fine."
         },
         {
-          "text": "She used ice.",
+          "text": "She used ice cubes in the test.",
           "why": "That is fine."
         },
         {

@@ -1694,15 +1694,15 @@
       "prompt": "Tom uses a plastic spoon to fill a gap in a circuit. The bulb does not light. Why?",
       "options": [
         {
-          "text": "The spoon is too big.",
+          "text": "The spoon is too big for the gap.",
           "why": "Size is not the problem."
         },
         {
-          "text": "The bulb is broken.",
+          "text": "The bulb is broken or too old.",
           "why": "The bulb is fine."
         },
         {
-          "text": "The wire is too short.",
+          "text": "The wire is too short to reach.",
           "why": "The wire is fine."
         },
         {
@@ -1730,18 +1730,18 @@
       "prompt": "A bulb, a battery and wires form a loop. Where does the electricity flow?",
       "options": [
         {
-          "text": "out of the bulb into the air",
+          "text": "out of the bulb and into the air around it",
           "why": "It stays in the circuit."
         },
         {
-          "text": "only to the bulb and stops",
+          "text": "from the battery to the bulb, where it stops",
           "why": "It goes all the way round."
         },
         {
           "text": "round the loop from the battery, through the bulb and back"
         },
         {
-          "text": "from the bulb to the battery only",
+          "text": "from the bulb to the battery and nowhere else",
           "why": "It flows around the whole loop."
         }
       ],
