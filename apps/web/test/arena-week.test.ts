@@ -12,7 +12,7 @@ describe('arenaParagraph', () => {
     const t = arenaParagraph({ ...base, qmRounds: 5, qmBestPpm: 14.4, quizRounds: 3, topicsTried: 4, factsKnown: 40, factsTotal: 600 })!
     expect(t).toContain('kecepatan terbaik minggu ini 14 soal per menit dalam 5 ronde')
     expect(t).toContain('3 ronde minggu ini. 4 dari 12 topik sudah dicoba dan 40 dari 600 fakta sudah dikenal')
-    expect(t).not.toMatch(/[–—;]/)
+    expect(t).not.toMatch(new RegExp(`[${String.fromCharCode(0x2013, 0x2014)};]`))
   })
   it('Quick Maths tanpa sprint akurat tidak menyebut kecepatan', () => {
     expect(arenaParagraph({ ...base, qmRounds: 2 })).toBe('Quick Maths dimainkan 2 ronde minggu ini.')
