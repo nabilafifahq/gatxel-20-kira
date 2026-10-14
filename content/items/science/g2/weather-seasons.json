@@ -279,6 +279,975 @@
           ]
         }
       ]
+    },
+    {
+      "id": "s2.weather-seasons.020",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What should we wear on a hot, sunny day?",
+      "options": [
+        {
+          "text": "a thick coat",
+          "why": "It would be too hot."
+        },
+        {
+          "text": "a hat and light clothes"
+        },
+        {
+          "text": "rubber boots",
+          "why": "They are for rain."
+        },
+        {
+          "text": "a scarf and gloves",
+          "why": "They are for cold weather."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is hot.",
+        "Protect your head.",
+        "Not winter clothes."
+      ],
+      "explanation": "A hat protects us from the Sun and light clothes keep us cool."
+    },
+    {
+      "id": "s2.weather-seasons.021",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What falls from the clouds in very cold places and is white?",
+      "options": [
+        {
+          "text": "rain",
+          "why": "Rain is not white."
+        },
+        {
+          "text": "snow"
+        },
+        {
+          "text": "sand",
+          "why": "Sand does not fall from the sky."
+        },
+        {
+          "text": "leaves",
+          "why": "Leaves fall from trees."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It is cold and white.",
+        "You can make a snowman.",
+        "It is frozen."
+      ],
+      "explanation": "In very cold weather the water in the clouds freezes and falls as snow."
+    },
+    {
+      "id": "s2.weather-seasons.022",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which tool shows which way the wind is blowing?",
+      "options": [
+        {
+          "text": "a windsock"
+        },
+        {
+          "text": "a rain gauge",
+          "why": "It measures rain."
+        },
+        {
+          "text": "a thermometer",
+          "why": "It measures temperature."
+        },
+        {
+          "text": "a ruler",
+          "why": "It measures length."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "It looks like a sleeve.",
+        "It is at an airport.",
+        "The wind fills it."
+      ],
+      "explanation": "A windsock points the way the wind is blowing."
+    },
+    {
+      "id": "s2.weather-seasons.023",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do we call a bright flash in a storm?",
+      "options": [
+        {
+          "text": "a rainbow",
+          "why": "A rainbow is not a flash."
+        },
+        {
+          "text": "frost",
+          "why": "Frost is ice."
+        },
+        {
+          "text": "a breeze",
+          "why": "A breeze is wind."
+        },
+        {
+          "text": "lightning"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "It comes before thunder.",
+        "It is very bright.",
+        "It flashes."
+      ],
+      "explanation": "Lightning is a bright flash of light in a storm."
+    },
+    {
+      "id": "s2.weather-seasons.024",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which season is the hottest in countries with four seasons?",
+      "options": [
+        {
+          "text": "winter",
+          "why": "Winter is the coldest."
+        },
+        {
+          "text": "spring",
+          "why": "Spring is mild."
+        },
+        {
+          "text": "summer"
+        },
+        {
+          "text": "autumn",
+          "why": "Autumn is cooler."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The Sun is high.",
+        "People go to the beach.",
+        "Winter is cold."
+      ],
+      "explanation": "Summer is the hottest season."
+    },
+    {
+      "id": "s2.weather-seasons.025",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which temperature is a hot day in Indonesia?",
+      "options": [
+        {
+          "text": "5 °C",
+          "why": "This is very cold."
+        },
+        {
+          "text": "15 °C",
+          "why": "This is cool."
+        },
+        {
+          "text": "35 °C"
+        },
+        {
+          "text": "0 °C",
+          "why": "This is freezing."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Hot means a big number.",
+        "Zero is ice.",
+        "The biggest number is hottest."
+      ],
+      "explanation": "Thirty-five degrees is very warm. Zero is freezing."
+    },
+    {
+      "id": "s2.weather-seasons.026",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why do leaves fall from some trees in autumn?",
+      "options": [
+        {
+          "text": "Because it is raining too much.",
+          "why": "Rain is not the reason."
+        },
+        {
+          "text": "The trees get ready for the colder months."
+        },
+        {
+          "text": "Because the leaves are hungry.",
+          "why": "Leaves do not get hungry."
+        },
+        {
+          "text": "Because the wind blows all the time.",
+          "why": "Wind helps but is not the reason."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It happens before winter.",
+        "Trees do not need many leaves in winter.",
+        "The cold is coming."
+      ],
+      "explanation": "In autumn some trees drop their leaves. They rest through the cold winter."
+    },
+    {
+      "id": "s2.weather-seasons.027",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Clouds are made of tiny drops of water. How do they form?",
+      "options": [
+        {
+          "text": "Water in the air cools and makes tiny drops."
+        },
+        {
+          "text": "Smoke from fires makes tiny drops.",
+          "why": "Smoke is not water."
+        },
+        {
+          "text": "The Moon pulls water up into the sky.",
+          "why": "The Moon does not do that."
+        },
+        {
+          "text": "Rocks give out water into the air.",
+          "why": "Rocks do not do that."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Water is in the air.",
+        "Cold air turns vapour into drops.",
+        "It is condensation."
+      ],
+      "explanation": "Warm air carries water vapour up. When it cools, the vapour turns into tiny drops that make clouds."
+    },
+    {
+      "id": "s2.weather-seasons.028",
+      "skill": "s2.weather-seasons",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Is the weather hot or cold? Sort the cards.",
+      "groups": [
+        "Hot weather",
+        "Cold weather"
+      ],
+      "items": [
+        {
+          "text": "a sunny day",
+          "group": 0
+        },
+        {
+          "text": "35 °C",
+          "group": 0
+        },
+        {
+          "text": "a heatwave",
+          "group": 0
+        },
+        {
+          "text": "snow",
+          "group": 1
+        },
+        {
+          "text": "frost",
+          "group": 1
+        },
+        {
+          "text": "an icy wind",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Snow is cold.",
+        "The Sun is hot.",
+        "A heatwave is very hot."
+      ],
+      "explanation": "A sunny day, 35 °C and a heatwave are hot. Snow, frost and an icy wind are cold."
+    },
+    {
+      "id": "s2.weather-seasons.029",
+      "skill": "s2.weather-seasons",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "What should we use? Sort the things.",
+      "groups": [
+        "Rainy day",
+        "Sunny day"
+      ],
+      "items": [
+        {
+          "text": "umbrella",
+          "group": 0
+        },
+        {
+          "text": "raincoat",
+          "group": 0
+        },
+        {
+          "text": "rubber boots",
+          "group": 0
+        },
+        {
+          "text": "sun hat",
+          "group": 1
+        },
+        {
+          "text": "sunglasses",
+          "group": 1
+        },
+        {
+          "text": "sun cream",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Rain makes things wet.",
+        "The Sun is bright and hot.",
+        "Start with the umbrella."
+      ],
+      "explanation": "An umbrella, a raincoat and boots keep us dry. A sun hat, sunglasses and sun cream protect us from the Sun."
+    },
+    {
+      "id": "s2.weather-seasons.030",
+      "skill": "s2.weather-seasons",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Choose all the kinds of weather.",
+      "options": [
+        {
+          "text": "snow"
+        },
+        {
+          "text": "wind"
+        },
+        {
+          "text": "rain"
+        },
+        {
+          "text": "a chair"
+        },
+        {
+          "text": "a hat"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Weather happens outside.",
+        "You can feel it.",
+        "A chair is not weather."
+      ],
+      "explanation": "Rain, wind and snow are kinds of weather. A hat and a chair are objects."
+    },
+    {
+      "id": "s2.weather-seasons.031",
+      "skill": "s2.weather-seasons",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things that happen in a storm.",
+      "options": [
+        {
+          "text": "lightning"
+        },
+        {
+          "text": "thunder"
+        },
+        {
+          "text": "a gentle breeze"
+        },
+        {
+          "text": "a clear blue sky"
+        },
+        {
+          "text": "heavy rain"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Storms are loud.",
+        "The sky is dark.",
+        "There is lots of rain."
+      ],
+      "explanation": "A storm has thunder, lightning and heavy rain. The sky is dark and not clear."
+    },
+    {
+      "id": "s2.weather-seasons.032",
+      "skill": "s2.weather-seasons",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the seasons in order, starting with autumn.",
+      "items": [
+        "autumn",
+        "winter",
+        "spring",
+        "summer"
+      ],
+      "hints": [
+        "Autumn is first.",
+        "Winter is cold.",
+        "Summer is hot."
+      ],
+      "explanation": "The seasons go round in a cycle: autumn, winter, spring and summer."
+    },
+    {
+      "id": "s2.weather-seasons.033",
+      "skill": "s2.weather-seasons",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Order the temperatures from coldest to hottest.",
+      "items": [
+        "-5 °C",
+        "10 °C",
+        "25 °C",
+        "40 °C"
+      ],
+      "hints": [
+        "Below zero is coldest.",
+        "40 is a big number.",
+        "Put them on a number line."
+      ],
+      "explanation": "Minus 5 is the coldest. Then 10, 25 and 40 degrees, which is the hottest."
+    },
+    {
+      "id": "s2.weather-seasons.034",
+      "skill": "s2.weather-seasons",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each weather tool to what it measures.",
+      "pairs": [
+        [
+          "rain gauge",
+          "rain"
+        ],
+        [
+          "thermometer",
+          "temperature"
+        ],
+        [
+          "windsock",
+          "wind direction"
+        ]
+      ],
+      "hints": [
+        "Gauge goes with rain.",
+        "Therm- means heat.",
+        "A windsock catches the wind."
+      ],
+      "explanation": "A rain gauge measures rain. A thermometer measures temperature and a windsock shows wind direction."
+    },
+    {
+      "id": "s2.weather-seasons.035",
+      "skill": "s2.weather-seasons",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "In countries with four seasons, summer is ___ and winter is ___.",
+      "gaps": [
+        {
+          "options": [
+            "hot",
+            "cold"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "cold",
+            "hot"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The Sun is high in summer.",
+        "Winter has snow.",
+        "The two blanks are opposite."
+      ],
+      "explanation": "Summer is hot and winter is cold."
+    },
+    {
+      "id": "s2.weather-seasons.036",
+      "skill": "s2.weather-seasons",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "Copy the weather. Monday sunny, Tuesday rainy, Wednesday cloudy.",
+      "head": [
+        "Day",
+        "Weather"
+      ],
+      "rows": [
+        [
+          "Monday",
+          "sunny"
+        ],
+        [
+          "Tuesday",
+          ""
+        ],
+        [
+          "Wednesday",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "rainy",
+            "rain"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "cloudy"
+          ]
+        }
+      ],
+      "hints": [
+        "Read the days in order.",
+        "Rainy is for Tuesday.",
+        "Copy the words."
+      ],
+      "explanation": "Monday was sunny, Tuesday was rainy and Wednesday was cloudy."
+    },
+    {
+      "id": "s2.weather-seasons.037",
+      "skill": "s2.weather-seasons",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "It is Monday in Jakarta. The morning is sunny and hot. In the afternoon dark clouds fill the sky. Thunder rumbles and heavy rain falls. Later the rain stops and a rainbow appears.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What falls after the dark clouds?",
+          "options": [
+            {
+              "text": "snow"
+            },
+            {
+              "text": "sand"
+            },
+            {
+              "text": "heavy rain"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "text",
+          "prompt": "What appears after the rain stops?",
+          "answers": [
+            "a rainbow",
+            "rainbow"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read the fourth sentence.",
+        "Read the last sentence.",
+        "Rainbows come after rain."
+      ],
+      "explanation": "Heavy rain falls after the dark clouds. A rainbow appears when the rain stops and the Sun comes out."
+    },
+    {
+      "id": "s2.weather-seasons.038",
+      "skill": "s2.weather-seasons",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Monday was 28 °C. Tuesday was 31 °C. How much hotter was Tuesday?",
+      "answer": 3,
+      "unit": "°C",
+      "hints": [
+        "Subtract 28 from 31.",
+        "Count on from 28.",
+        "28, 29, 30, 31."
+      ],
+      "explanation": "31 - 28 = 3. Tuesday was 3 degrees hotter."
+    },
+    {
+      "id": "s2.weather-seasons.039",
+      "skill": "s2.weather-seasons",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the picture of rain.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "rain",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "snowflake",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wind",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: rain, Sun, snowflake and wind."
+      },
+      "regions": [
+        {
+          "label": "rain",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "Sun",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "snowflake",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "wind",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Water falls from the sky.",
+        "It makes puddles.",
+        "You need an umbrella."
+      ],
+      "explanation": "The picture of drops falling from a cloud shows rain."
+    },
+    {
+      "id": "s2.weather-seasons.040",
+      "skill": "s2.weather-seasons",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the tool that measures temperature.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "thermometer",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "umbrella",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "key",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "hat",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: thermometer, umbrella, key and hat."
+      },
+      "regions": [
+        {
+          "label": "thermometer",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "umbrella",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "key",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "hat",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "It has a long tube.",
+        "It shows a number.",
+        "It starts with t."
+      ],
+      "explanation": "A thermometer measures how hot or cold it is."
+    },
+    {
+      "id": "s2.weather-seasons.041",
+      "skill": "s2.weather-seasons",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the weather. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rain",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "snowflake",
+            "x": 214,
+            "y": 14,
+            "size": 72
+          }
+        ],
+        "alt": "A Sun, rain and a snowflake."
+      },
+      "labels": [
+        "sunny",
+        "rainy",
+        "snowy"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 50
+        },
+        {
+          "x": 83.3,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "foggy"
+      ],
+      "hints": [
+        "The Sun means sunny.",
+        "Rain means rainy.",
+        "A snowflake means snowy."
+      ],
+      "explanation": "The pictures show a sunny day, a rainy day and a snowy day."
+    },
+    {
+      "id": "s2.weather-seasons.042",
+      "skill": "s2.weather-seasons",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Water falling from clouds is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "rain"
+          ]
+        }
+      ],
+      "hints": [
+        "You need an umbrella.",
+        "It makes puddles.",
+        "It starts with r."
+      ],
+      "explanation": "Rain is water falling from clouds."
+    },
+    {
+      "id": "s2.weather-seasons.043",
+      "skill": "s2.weather-seasons",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a rainy day. Show a cloud, rain and something you wear.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a cloud with rain",
+            "points": 1
+          },
+          {
+            "label": "Shows a person or something worn for rain",
+            "points": 1
+          },
+          {
+            "label": "Uses colour or labels",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Put drops under the cloud.",
+        "An umbrella is a good idea."
+      ],
+      "explanation": "On a rainy day we wear raincoats and use umbrellas."
+    },
+    {
+      "id": "s2.weather-seasons.044",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ana feels hot. The sky has dark clouds and she hears thunder. What is coming?",
+      "options": [
+        {
+          "text": "a storm"
+        },
+        {
+          "text": "snow",
+          "why": "It is too hot for snow."
+        },
+        {
+          "text": "a frost",
+          "why": "It is too hot for frost."
+        },
+        {
+          "text": "a calm sunny day",
+          "why": "The sky is dark."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Thunder is loud.",
+        "Dark clouds bring rain.",
+        "Not a calm day."
+      ],
+      "explanation": "Dark clouds and thunder mean a storm is coming.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.weather-seasons.045",
+      "skill": "s2.weather-seasons",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Tara records: Mon sunny, Tue rainy, Wed rainy, Thu sunny, Fri rainy. On how many days did it rain?",
+      "answer": 3,
+      "hints": [
+        "Look for the word rainy.",
+        "Count each one.",
+        "Tuesday is one."
+      ],
+      "explanation": "It rained on Tuesday, Wednesday and Friday. That is 3 days.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.weather-seasons.046",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A thermometer reads 38 °C in the Sun. It reads 33 °C in the shade. Which is cooler?",
+      "options": [
+        {
+          "text": "the shade"
+        },
+        {
+          "text": "the Sun",
+          "why": "The Sun is hotter."
+        },
+        {
+          "text": "they are the same",
+          "why": "The numbers are different."
+        },
+        {
+          "text": "the thermometer is broken",
+          "why": "The readings are normal."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the numbers.",
+        "A smaller number is cooler.",
+        "The Sun heats the air."
+      ],
+      "explanation": "The shade is 5 degrees cooler than the Sun.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

@@ -883,6 +883,1398 @@
       "extraLabels": [
         "flower"
       ]
+    },
+    {
+      "id": "s1.plant-parts.020",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do roots do?",
+      "options": [
+        {
+          "text": "They make seeds and fruit.",
+          "why": "Flowers make seeds, not roots."
+        },
+        {
+          "text": "They hold the plant and take in water."
+        },
+        {
+          "text": "They catch sunlight for food.",
+          "why": "Leaves catch sunlight."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Roots are under the soil.",
+        "Think about what the plant drinks.",
+        "Roots hold the plant tight."
+      ],
+      "explanation": "Roots grow in the soil. They hold the plant in place and take in water."
+    },
+    {
+      "id": "s1.plant-parts.021",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part helps the plant stand up?",
+      "options": [
+        {
+          "text": "the leaf",
+          "why": "A leaf is soft and flat."
+        },
+        {
+          "text": "the flower",
+          "why": "A flower is at the top."
+        },
+        {
+          "text": "the stem"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "It is tall and thin.",
+        "It holds the leaves up high.",
+        "Look at the middle of the plant."
+      ],
+      "explanation": "The stem holds the leaves and flowers up. It carries water too."
+    },
+    {
+      "id": "s1.plant-parts.022",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which part of a plant makes seeds?",
+      "options": [
+        {
+          "text": "the flower"
+        },
+        {
+          "text": "the root",
+          "why": "Roots grow under the soil."
+        },
+        {
+          "text": "the stem",
+          "why": "The stem holds the plant up."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Seeds come from the colourful part.",
+        "Think of a sunflower.",
+        "It is at the top."
+      ],
+      "explanation": "Seeds form inside the flower. Some flowers turn into fruits."
+    },
+    {
+      "id": "s1.plant-parts.023",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "We eat a carrot. Which plant part is a carrot?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "carrot",
+            "label": "carrot"
+          },
+          {
+            "icon": "soil",
+            "label": "soil"
+          }
+        ],
+        "alt": "A carrot and soil."
+      },
+      "options": [
+        {
+          "text": "a flower",
+          "why": "A carrot grows under the soil."
+        },
+        {
+          "text": "a seed",
+          "why": "A carrot is not a seed."
+        },
+        {
+          "text": "a root"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Where does a carrot grow?",
+        "It grows under the ground.",
+        "Roots grow under the ground."
+      ],
+      "explanation": "A carrot grows under the soil. It is the root of the carrot plant."
+    },
+    {
+      "id": "s1.plant-parts.024",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sunflower seeds come from which part?",
+      "options": [
+        {
+          "text": "the flower"
+        },
+        {
+          "text": "the root",
+          "why": "Roots do not make seeds."
+        },
+        {
+          "text": "the stem",
+          "why": "The stem holds up the flower."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Seeds form inside flowers.",
+        "Think of the big yellow head.",
+        "It is at the top of the plant."
+      ],
+      "explanation": "The big sunflower head is a flower. It makes many seeds."
+    },
+    {
+      "id": "s1.plant-parts.025",
+      "skill": "s1.plant-parts",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Which plant part do we eat? Sort the foods.",
+      "groups": [
+        "Root",
+        "Leaf"
+      ],
+      "items": [
+        {
+          "text": "carrot",
+          "group": 0
+        },
+        {
+          "text": "radish",
+          "group": 0
+        },
+        {
+          "text": "cassava",
+          "group": 0
+        },
+        {
+          "text": "spinach",
+          "group": 1
+        },
+        {
+          "text": "cabbage",
+          "group": 1
+        },
+        {
+          "text": "lettuce",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Roots grow under the ground.",
+        "Leaves are green and flat.",
+        "Spinach is a leaf."
+      ],
+      "explanation": "Carrots, radishes and cassava are roots. Spinach, cabbage and lettuce are leaves."
+    },
+    {
+      "id": "s1.plant-parts.026",
+      "skill": "s1.plant-parts",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 things that a plant needs to grow.",
+      "options": [
+        {
+          "text": "a blanket"
+        },
+        {
+          "text": "loud music"
+        },
+        {
+          "text": "sweets"
+        },
+        {
+          "text": "air"
+        },
+        {
+          "text": "sunlight"
+        },
+        {
+          "text": "water"
+        }
+      ],
+      "answers": [
+        3,
+        4,
+        5
+      ],
+      "hints": [
+        "Think about a plant by a window.",
+        "You water a plant.",
+        "Sweets and music do not help plants."
+      ],
+      "explanation": "Plants need water, light and air to grow well."
+    },
+    {
+      "id": "s1.plant-parts.027",
+      "skill": "s1.plant-parts",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the bean plant in order. Start with the seed.",
+      "items": [
+        "seed",
+        "root grows down",
+        "shoot grows up",
+        "leaves open"
+      ],
+      "hints": [
+        "The seed comes first.",
+        "The root comes before the leaves.",
+        "Leaves open last."
+      ],
+      "explanation": "The root grows down first. Then the shoot grows up and the leaves open."
+    },
+    {
+      "id": "s1.plant-parts.028",
+      "skill": "s1.plant-parts",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The ___ take in water. The ___ holds up the plant.",
+      "gaps": [
+        {
+          "options": [
+            "roots",
+            "flowers",
+            "seeds"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "stem",
+            "root",
+            "seed"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Which part is under the soil?",
+        "Which part is tall?",
+        "Fill the first blank first."
+      ],
+      "explanation": "Roots take in water from the soil. The stem holds up the plant."
+    },
+    {
+      "id": "s1.plant-parts.029",
+      "skill": "s1.plant-parts",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each food to the plant part.",
+      "pairs": [
+        [
+          "carrot",
+          "root"
+        ],
+        [
+          "spinach",
+          "leaf"
+        ],
+        [
+          "apple",
+          "fruit"
+        ],
+        [
+          "sunflower seed",
+          "seed"
+        ]
+      ],
+      "hints": [
+        "Think where each plant part grows.",
+        "Spinach is green and flat.",
+        "An apple has seeds inside."
+      ],
+      "explanation": "A carrot is a root and spinach is a leaf. An apple is a fruit and a sunflower seed is a seed."
+    },
+    {
+      "id": "s1.plant-parts.030",
+      "skill": "s1.plant-parts",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Is the part above or below the soil?",
+      "head": [
+        "Part",
+        "Where?"
+      ],
+      "rows": [
+        [
+          "roots",
+          "below"
+        ],
+        [
+          "stem",
+          ""
+        ],
+        [
+          "leaf",
+          ""
+        ],
+        [
+          "flower",
+          "above"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "above"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "above"
+          ]
+        }
+      ],
+      "hints": [
+        "Roots are under the ground.",
+        "Leaves are in the air.",
+        "The stem is above the soil."
+      ],
+      "explanation": "Roots grow below the soil. The stem, leaf and flower grow above the soil."
+    },
+    {
+      "id": "s1.plant-parts.031",
+      "skill": "s1.plant-parts",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Omar plants a bean in a pot. He waters it and puts it on a sunny window. After a week a small shoot comes up. Later, green leaves open.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What does Omar give the bean?",
+          "options": [
+            {
+              "text": "only toys"
+            },
+            {
+              "text": "water and light"
+            },
+            {
+              "text": "nothing"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What grows after the shoot comes up?",
+          "answers": [
+            "leaves",
+            "leaf"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read about water and the window.",
+        "What does the plant get from the window?",
+        "The story ends with the leaves."
+      ],
+      "explanation": "Omar gives the bean water and light. Green leaves open after the shoot grows."
+    },
+    {
+      "id": "s1.plant-parts.032",
+      "skill": "s1.plant-parts",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part that holds up the leaves and flower.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 57.7,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "It is tall and thin.",
+        "It grows between the soil and the flower.",
+        "It is the middle part."
+      ],
+      "explanation": "The stem holds up the leaves and flower. It is the long part in the middle."
+    },
+    {
+      "id": "s1.plant-parts.033",
+      "skill": "s1.plant-parts",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the part that catches sunlight to make food.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 57.7,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "It is flat and green.",
+        "The plant has one big one.",
+        "It is not the flower."
+      ],
+      "explanation": "Leaves are flat and green. They catch sunlight to help the plant make food."
+    },
+    {
+      "id": "s1.plant-parts.034",
+      "skill": "s1.plant-parts",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part that has colourful petals.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25.4,
+          "w": 18.8,
+          "h": 21.5
+        },
+        {
+          "label": "leaf",
+          "x": 71.3,
+          "y": 43.8,
+          "w": 23.8,
+          "h": 21.5
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 57.7,
+          "w": 12.5,
+          "h": 28.5
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.2,
+          "w": 25,
+          "h": 19.2
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Look at the top.",
+        "Petals are around the middle.",
+        "It is round and bright."
+      ],
+      "explanation": "The flower has colourful petals. It is at the top of the plant."
+    },
+    {
+      "id": "s1.plant-parts.035",
+      "skill": "s1.plant-parts",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the leaf and the roots. Two labels are not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "labels": [
+        "leaf",
+        "roots"
+      ],
+      "spots": [
+        {
+          "x": 71.3,
+          "y": 43.8
+        },
+        {
+          "x": 50,
+          "y": 89.2
+        }
+      ],
+      "extraLabels": [
+        "flower",
+        "stem"
+      ],
+      "hints": [
+        "Roots are under the ground.",
+        "The leaf is green and flat.",
+        "Tap a label first."
+      ],
+      "explanation": "The leaf is the big flat part on the side. The roots grow under the soil."
+    },
+    {
+      "id": "s1.plant-parts.036",
+      "skill": "s1.plant-parts",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the plant. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 190,
+            "w": 320,
+            "h": 70,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 90,
+            "tone": "science",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 206,
+            "cy": 126,
+            "rx": 50.1,
+            "ry": 18,
+            "rot": -28.6,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 182,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 85.1,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 138,
+            "cy": 66,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 149,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 171,
+            "cy": 46.9,
+            "r": 13,
+            "tone": "english",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 66,
+            "r": 11,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 190,
+            "x2": 160,
+            "y2": 248,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 120,
+            "y2": 238,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 202,
+            "x2": 200,
+            "y2": 240,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 222,
+            "x2": 136,
+            "y2": 252,
+            "tone": "warn",
+            "width": 3
+          }
+        ],
+        "alt": "A plant growing in soil. It has a flower at the top, a long stem, one big leaf and roots under the ground."
+      },
+      "labels": [
+        "flower",
+        "stem",
+        "roots"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 25.4
+        },
+        {
+          "x": 50,
+          "y": 57.7
+        },
+        {
+          "x": 50,
+          "y": 89.2
+        }
+      ],
+      "extraLabels": [
+        "fruit"
+      ],
+      "hints": [
+        "Start at the top.",
+        "Roots are in the soil.",
+        "This plant has no fruit."
+      ],
+      "explanation": "The flower is at the top. The stem is in the middle and the roots are in the soil. This plant has no fruit."
+    },
+    {
+      "id": "s1.plant-parts.037",
+      "skill": "s1.plant-parts",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Name the plant part that grows under the soil and drinks water.",
+      "blanks": [
+        {
+          "answers": [
+            "roots",
+            "root"
+          ]
+        }
+      ],
+      "hints": [
+        "It is under the ground.",
+        "It starts with r.",
+        "It holds the plant tight."
+      ],
+      "explanation": "Roots grow under the soil. They take in water for the plant."
+    },
+    {
+      "id": "s1.plant-parts.038",
+      "skill": "s1.plant-parts",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a plant with roots, a stem and two leaves. Label each part.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws roots under the soil",
+            "points": 1
+          },
+          {
+            "label": "Draws a stem and two leaves",
+            "points": 2
+          },
+          {
+            "label": "Labels the parts",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Start with the soil line.",
+        "Draw roots below it and a stem above it."
+      ],
+      "explanation": "A plant has roots under the soil. It has a stem and leaves above the soil."
+    },
+    {
+      "id": "s1.plant-parts.039",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two bean plants get the same water. Plant A is in a dark cupboard. Plant B is on a sunny window. Which looks healthier after two weeks?",
+      "options": [
+        {
+          "text": "Plant B"
+        },
+        {
+          "text": "Plant A",
+          "why": "Plant A had no light."
+        },
+        {
+          "text": "Both look the same",
+          "why": "One had light and one did not."
+        },
+        {
+          "text": "Neither plant",
+          "why": "Both were watered, so they can grow."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is different about the two plants?",
+        "Plants need light.",
+        "Look for the plant with sunlight."
+      ],
+      "explanation": "Plants need light to grow well. Plant B has light, so it is healthier.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.plant-parts.040",
+      "skill": "s1.plant-parts",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Count the parts above the soil: 3 leaves, 2 flowers, 1 stem.",
+      "answer": 6,
+      "hints": [
+        "Count the leaves first.",
+        "Add the flowers.",
+        "Add the stem last."
+      ],
+      "explanation": "3 + 2 + 1 = 6 parts above the soil.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.plant-parts.041",
+      "skill": "s1.plant-parts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Sam sees his sunflower bending towards the window. Why?",
+      "options": [
+        {
+          "text": "It is tired.",
+          "why": "Plants do not get tired."
+        },
+        {
+          "text": "It wants to hear music.",
+          "why": "Plants do not hear music."
+        },
+        {
+          "text": "It is looking for water.",
+          "why": "Water comes from the soil."
+        },
+        {
+          "text": "It needs light."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Where does the light come from?",
+        "Plants need light.",
+        "Think about a window."
+      ],
+      "explanation": "Plants grow towards the light because they need light to make food.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

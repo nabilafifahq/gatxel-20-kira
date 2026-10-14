@@ -155,6 +155,761 @@
       "hints": ["Remember what happens to things that are far away.", "Other stars are suns too, but where are they?", "Compare how far away the Sun is with the night stars."],
       "explanation": "The Sun is the closest star to Earth. Other stars are so far away that they look like tiny dots of light.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.earth-and-sun.013",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "When can we see the Sun in the sky?",
+      "options": [
+        {
+          "text": "at night",
+          "why": "At night it is dark."
+        },
+        {
+          "text": "in the day"
+        },
+        {
+          "text": "only when it rains",
+          "why": "We see the Sun on dry days too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about when it is light.",
+        "It is dark at night.",
+        "Rain is not needed."
+      ],
+      "explanation": "We see the Sun in the daytime."
+    },
+    {
+      "id": "s1.earth-and-sun.014",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What can we see in the sky at night?",
+      "options": [
+        {
+          "text": "the Sun",
+          "why": "The Sun is shining on the other side of the Earth."
+        },
+        {
+          "text": "a rainbow",
+          "why": "A rainbow needs sunlight."
+        },
+        {
+          "text": "the Moon and stars"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "It is dark.",
+        "Stars twinkle.",
+        "The Sun is not up."
+      ],
+      "explanation": "At night we can see the Moon and the stars if the sky is clear."
+    },
+    {
+      "id": "s1.earth-and-sun.015",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why is it warm on a sunny day?",
+      "options": [
+        {
+          "text": "The Sun gives heat."
+        },
+        {
+          "text": "The Moon gives heat.",
+          "why": "The Moon does not make heat."
+        },
+        {
+          "text": "The clouds make heat.",
+          "why": "Clouds do not make heat."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one is very hot?",
+        "It is in the sky in the day.",
+        "Moon is for the night."
+      ],
+      "explanation": "The Sun gives us light and heat."
+    },
+    {
+      "id": "s1.earth-and-sun.016",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do plants need from the Sun?",
+      "options": [
+        {
+          "text": "sound",
+          "why": "Plants do not need sound."
+        },
+        {
+          "text": "light"
+        },
+        {
+          "text": "toys",
+          "why": "Plants do not need toys."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does the Sun give?",
+        "Plants grow on a bright window.",
+        "It is not a sound."
+      ],
+      "explanation": "Plants need sunlight to grow well."
+    },
+    {
+      "id": "s1.earth-and-sun.017",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How can you stay safe on a very sunny day?",
+      "options": [
+        {
+          "text": "wear a hat and sit in the shade"
+        },
+        {
+          "text": "look straight at the Sun",
+          "why": "This hurts your eyes."
+        },
+        {
+          "text": "stay in the Sun all day",
+          "why": "You can get burned."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The Sun can hurt your eyes.",
+        "Find a cool place.",
+        "Wear a hat."
+      ],
+      "explanation": "A hat and some shade keep us safe from the strong Sun."
+    },
+    {
+      "id": "s1.earth-and-sun.018",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the biggest?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "earth",
+            "label": "Earth"
+          },
+          {
+            "icon": "moon",
+            "label": "Moon"
+          }
+        ],
+        "alt": "The Sun, the Earth and the Moon."
+      },
+      "options": [
+        {
+          "text": "the Earth",
+          "why": "The Sun is much bigger."
+        },
+        {
+          "text": "the Sun"
+        },
+        {
+          "text": "the Moon",
+          "why": "The Moon is smallest."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Sun is huge.",
+        "The Moon is small.",
+        "Earth is in between."
+      ],
+      "explanation": "The Sun is much bigger than the Earth and the Moon."
+    },
+    {
+      "id": "s1.earth-and-sun.019",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is the Moon?",
+      "options": [
+        {
+          "text": "a star",
+          "why": "The Moon is not a star."
+        },
+        {
+          "text": "a planet",
+          "why": "The Moon goes around the Earth, so it is not a planet."
+        },
+        {
+          "text": "a ball of rock"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "It is not a star.",
+        "It is made of rock.",
+        "It goes around us."
+      ],
+      "explanation": "The Moon is a big ball of rock. It goes around the Earth."
+    },
+    {
+      "id": "s1.earth-and-sun.020",
+      "skill": "s1.earth-and-sun",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Day or night? Sort the cards.",
+      "groups": [
+        "Day",
+        "Night"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "a blue sky",
+          "group": 0
+        },
+        {
+          "text": "a rainbow",
+          "group": 0
+        },
+        {
+          "text": "the Moon",
+          "group": 1
+        },
+        {
+          "text": "stars",
+          "group": 1
+        },
+        {
+          "text": "lights on in houses",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "The Sun shines in the day.",
+        "Stars are seen in the dark.",
+        "A rainbow needs sunlight."
+      ],
+      "explanation": "The Sun, a blue sky and a rainbow are seen in the day. The Moon and stars are seen at night."
+    },
+    {
+      "id": "s1.earth-and-sun.021",
+      "skill": "s1.earth-and-sun",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Does it make its own light? Sort the cards.",
+      "groups": [
+        "Makes light",
+        "Does not make light"
+      ],
+      "items": [
+        {
+          "text": "the Sun",
+          "group": 0
+        },
+        {
+          "text": "a torch",
+          "group": 0
+        },
+        {
+          "text": "a candle",
+          "group": 0
+        },
+        {
+          "text": "the Moon",
+          "group": 1
+        },
+        {
+          "text": "a mirror",
+          "group": 1
+        },
+        {
+          "text": "a book",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A torch makes its own light.",
+        "A mirror needs light to shine.",
+        "The Moon only looks bright."
+      ],
+      "explanation": "The Sun, a torch and a candle make light. The Moon, a mirror and a book only reflect light."
+    },
+    {
+      "id": "s1.earth-and-sun.022",
+      "skill": "s1.earth-and-sun",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the plants that need sunlight.",
+      "options": [
+        {
+          "text": "a toy car"
+        },
+        {
+          "text": "a stone"
+        },
+        {
+          "text": "grass"
+        },
+        {
+          "text": "a tree"
+        },
+        {
+          "text": "a sunflower"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "Which ones are alive?",
+        "Stones do not grow.",
+        "Choose three plants."
+      ],
+      "explanation": "A sunflower, a tree and grass are plants. Plants need sunlight to grow."
+    },
+    {
+      "id": "s1.earth-and-sun.023",
+      "skill": "s1.earth-and-sun",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the parts of a day in order. Start with the morning.",
+      "items": [
+        "morning",
+        "afternoon",
+        "evening",
+        "night"
+      ],
+      "hints": [
+        "Morning comes first.",
+        "It is dark at night.",
+        "Evening is before night."
+      ],
+      "explanation": "A day starts in the morning. Then comes the afternoon, the evening and the night."
+    },
+    {
+      "id": "s1.earth-and-sun.024",
+      "skill": "s1.earth-and-sun",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "The ___ is in the sky in the day. The ___ and stars are in the sky at night.",
+      "gaps": [
+        {
+          "options": [
+            "Sun",
+            "Moon"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "Moon",
+            "Sun"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "When is it light?",
+        "When is it dark?",
+        "The two blanks are different."
+      ],
+      "explanation": "The Sun is in the sky in the day. The Moon and stars are in the sky at night."
+    },
+    {
+      "id": "s1.earth-and-sun.025",
+      "skill": "s1.earth-and-sun",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "What do we see in the sky?",
+      "head": [
+        "Time",
+        "We see"
+      ],
+      "rows": [
+        [
+          "day",
+          "the Sun"
+        ],
+        [
+          "night",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "the Moon",
+            "Moon",
+            "moon",
+            "the moon"
+          ]
+        }
+      ],
+      "hints": [
+        "Day is bright.",
+        "Night is dark.",
+        "The Moon comes out at night."
+      ],
+      "explanation": "We see the Sun in the day and the Moon at night."
+    },
+    {
+      "id": "s1.earth-and-sun.026",
+      "skill": "s1.earth-and-sun",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Putri plays outside in the morning. The Sun is bright and warm. In the evening the Sun goes down. Now the sky is dark and she sees the Moon and stars.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "When is the sky dark?",
+          "options": [
+            {
+              "text": "at night"
+            },
+            {
+              "text": "in the morning"
+            },
+            {
+              "text": "at noon"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What does Putri see at night?",
+          "answers": [
+            "the Moon and stars",
+            "moon and stars",
+            "the moon and stars",
+            "moon",
+            "stars"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read the last sentence.",
+        "The Sun has gone down.",
+        "She looks up."
+      ],
+      "explanation": "The sky is dark at night. Putri sees the Moon and stars."
+    },
+    {
+      "id": "s1.earth-and-sun.027",
+      "skill": "s1.earth-and-sun",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the Sun.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "moon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cloud",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rainbow",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: Sun, Moon, cloud and rainbow."
+      },
+      "regions": [
+        {
+          "label": "Sun",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "Moon",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cloud",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "rainbow",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "It is yellow.",
+        "It shines in the day.",
+        "It is hot."
+      ],
+      "explanation": "The Sun is the bright star that gives us light and heat."
+    },
+    {
+      "id": "s1.earth-and-sun.028",
+      "skill": "s1.earth-and-sun",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap what we see in the sky at night.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "moon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "rainbow",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "umbrella",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: Sun, Moon, rainbow and umbrella."
+      },
+      "regions": [
+        {
+          "label": "Sun",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "Moon",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "rainbow",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "umbrella",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "It is dark at night.",
+        "The Sun is not out.",
+        "It is round and pale."
+      ],
+      "explanation": "We can see the Moon in the night sky."
+    },
+    {
+      "id": "s1.earth-and-sun.029",
+      "skill": "s1.earth-and-sun",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw the sky in the day and the sky at night.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws the Sun in the day sky",
+            "points": 1
+          },
+          {
+            "label": "Draws the Moon or stars in the night sky",
+            "points": 1
+          },
+          {
+            "label": "Shows a difference in colour",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "The night sky is dark.",
+        "Add the Sun to the day sky."
+      ],
+      "explanation": "The day sky is light with the Sun. The night sky is dark with the Moon and stars."
+    },
+    {
+      "id": "s1.earth-and-sun.030",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which cannot happen at night?",
+      "options": [
+        {
+          "text": "you see the Moon",
+          "why": "This can happen at night."
+        },
+        {
+          "text": "you see the stars",
+          "why": "This can happen at night."
+        },
+        {
+          "text": "the Sun makes a shadow"
+        },
+        {
+          "text": "you hear an owl",
+          "why": "This can happen at night."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which one needs the Sun?",
+        "The Sun has gone.",
+        "Moon and stars are for the night."
+      ],
+      "explanation": "The Sun is not in our sky at night, so it cannot make shadows. We can see the Moon and stars and hear owls.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.earth-and-sun.031",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "One ice cube is in the shade. One is in the Sun. Which melts first?",
+      "options": [
+        {
+          "text": "the one in the shade",
+          "why": "The shade is cooler."
+        },
+        {
+          "text": "they melt at the same time",
+          "why": "The Sun is hotter."
+        },
+        {
+          "text": "the one in the Sun"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Heat melts ice.",
+        "Which place is hotter?",
+        "The Sun is hot."
+      ],
+      "explanation": "The Sun gives heat, so the ice cube in the Sun melts first.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.earth-and-sun.032",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "At noon, which is the hottest to touch?",
+      "options": [
+        {
+          "text": "a metal slide in the shade",
+          "why": "It is cooler out of the Sun."
+        },
+        {
+          "text": "a metal slide in the Sun"
+        },
+        {
+          "text": "a wooden bench in the shade",
+          "why": "It is cooler out of the Sun."
+        },
+        {
+          "text": "an ice cube",
+          "why": "Ice is cold."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The Sun gives heat.",
+        "Shade is cooler.",
+        "Metal gets hot quickly."
+      ],
+      "explanation": "The Sun heats the metal slide a lot. Shade and ice stay cooler.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

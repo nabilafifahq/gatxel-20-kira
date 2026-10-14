@@ -272,6 +272,805 @@
       "answers": [
         3
       ]
+    },
+    {
+      "id": "s1.living-things.016",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one needs water to live?",
+      "options": [
+        {
+          "text": "a stone",
+          "why": "A stone is not alive. It does not drink."
+        },
+        {
+          "text": "a plant"
+        },
+        {
+          "text": "a toy",
+          "why": "A toy is not alive. It does not need water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Living things need water.",
+        "Think about which one is alive.",
+        "A stone and a toy are not alive."
+      ],
+      "explanation": "Plants are living things. They need water to stay alive."
+    },
+    {
+      "id": "s1.living-things.017",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one can grow bigger?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "dog",
+            "label": "puppy"
+          },
+          {
+            "icon": "stone",
+            "label": "pebble"
+          },
+          {
+            "icon": "cup",
+            "label": "cup"
+          }
+        ],
+        "alt": "A puppy, a pebble and a plastic cup."
+      },
+      "options": [
+        {
+          "text": "a pebble",
+          "why": "A pebble stays the same size."
+        },
+        {
+          "text": "a plastic cup",
+          "why": "A cup does not grow."
+        },
+        {
+          "text": "a puppy"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Living things grow.",
+        "Which one is alive?",
+        "Think about a baby dog."
+      ],
+      "explanation": "A puppy is a living thing, so it grows bigger. A pebble and a cup do not grow."
+    },
+    {
+      "id": "s1.living-things.018",
+      "skill": "s1.living-things",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Living or non-living? Sort the pictures.",
+      "groups": [
+        "Living",
+        "Non-living"
+      ],
+      "items": [
+        {
+          "text": "dog",
+          "group": 0
+        },
+        {
+          "text": "flower",
+          "group": 0
+        },
+        {
+          "text": "fish",
+          "group": 0
+        },
+        {
+          "text": "chair",
+          "group": 1
+        },
+        {
+          "text": "cup",
+          "group": 1
+        },
+        {
+          "text": "ball",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Living things grow and need food.",
+        "A toy ball does not eat.",
+        "Start with the dog."
+      ],
+      "explanation": "Dogs, flowers and fish are alive. A chair, a cup and a ball are not alive."
+    },
+    {
+      "id": "s1.living-things.019",
+      "skill": "s1.living-things",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "What do you find in a garden? Sort the cards.",
+      "groups": [
+        "Living",
+        "Non-living"
+      ],
+      "items": [
+        {
+          "text": "worm",
+          "group": 0
+        },
+        {
+          "text": "grass",
+          "group": 0
+        },
+        {
+          "text": "ant",
+          "group": 0
+        },
+        {
+          "text": "stone",
+          "group": 1
+        },
+        {
+          "text": "spade",
+          "group": 1
+        },
+        {
+          "text": "bench",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Ask: does it grow and need food?",
+        "Tools and seats are made by people.",
+        "Start with the worm."
+      ],
+      "explanation": "Worms, grass and ants are living things. Stones, a spade and a bench are not alive."
+    },
+    {
+      "id": "s1.living-things.020",
+      "skill": "s1.living-things",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 things that animals need to live.",
+      "options": [
+        {
+          "text": "shoes"
+        },
+        {
+          "text": "toys"
+        },
+        {
+          "text": "water"
+        },
+        {
+          "text": "food"
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ],
+      "hints": [
+        "Think about what you need every day.",
+        "You eat and drink.",
+        "Toys and shoes are not needed to stay alive."
+      ],
+      "explanation": "All animals need food and water to stay alive. They do not need toys or shoes."
+    },
+    {
+      "id": "s1.living-things.021",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one shows that a seed is alive?",
+      "options": [
+        {
+          "text": "It is small and round.",
+          "why": "Small things are not always alive."
+        },
+        {
+          "text": "It is brown and hard.",
+          "why": "A rock can be brown and hard too."
+        },
+        {
+          "text": "It can grow into a plant."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Living things grow.",
+        "Size and colour do not tell us.",
+        "Look for the answer about growing."
+      ],
+      "explanation": "A seed can grow into a new plant, so it is alive."
+    },
+    {
+      "id": "s1.living-things.022",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which of these is not alive?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cloud",
+            "label": "cloud"
+          },
+          {
+            "icon": "tree",
+            "label": "tree"
+          },
+          {
+            "icon": "bird",
+            "label": "bird"
+          }
+        ],
+        "alt": "A cloud, a tree and a bird."
+      },
+      "options": [
+        {
+          "text": "a cloud"
+        },
+        {
+          "text": "a tree",
+          "why": "A tree is alive."
+        },
+        {
+          "text": "a bird",
+          "why": "A bird is alive."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Living things eat or drink and grow.",
+        "Look up at the sky.",
+        "Trees and birds grow."
+      ],
+      "explanation": "A cloud does not grow, eat or have babies. It is not alive."
+    },
+    {
+      "id": "s1.living-things.023",
+      "skill": "s1.living-things",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A dog is a ___ thing. A chair is a ___ thing.",
+      "gaps": [
+        {
+          "options": [
+            "living",
+            "non-living"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "living",
+            "non-living"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Does a dog eat?",
+        "Does a chair grow?",
+        "The two blanks have different answers."
+      ],
+      "explanation": "A dog is alive, so it is a living thing. A chair is not alive."
+    },
+    {
+      "id": "s1.living-things.024",
+      "skill": "s1.living-things",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Sita has a pet rabbit and a toy rabbit. The pet rabbit eats carrots and hops. The toy rabbit sits on her bed.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which rabbit is alive?",
+          "options": [
+            {
+              "text": "the toy rabbit"
+            },
+            {
+              "text": "both rabbits"
+            },
+            {
+              "text": "the pet rabbit"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "text",
+          "prompt": "What does the pet rabbit eat?",
+          "answers": [
+            "carrots",
+            "carrot"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read about who eats.",
+        "Look for the animal that hops.",
+        "Carrots are what it eats."
+      ],
+      "explanation": "The pet rabbit eats and moves, so it is alive. The toy rabbit does not."
+    },
+    {
+      "id": "s1.living-things.025",
+      "skill": "s1.living-things",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "Count the living things.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat",
+            "label": "cat"
+          },
+          {
+            "icon": "rock",
+            "label": "rock"
+          },
+          {
+            "icon": "tree",
+            "label": "tree"
+          },
+          {
+            "icon": "cup",
+            "label": "cup"
+          }
+        ],
+        "alt": "A cat, a rock, a tree and a cup."
+      },
+      "answer": 2,
+      "hints": [
+        "Look at each picture.",
+        "Ask: does it grow?",
+        "Count only the living ones."
+      ],
+      "explanation": "The cat and the tree are alive. The rock and the cup are not alive."
+    },
+    {
+      "id": "s1.living-things.026",
+      "skill": "s1.living-things",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the living thing.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "rock",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bird",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "key",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "bell",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: rock, bird, key and bell."
+      },
+      "regions": [
+        {
+          "label": "rock",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bird",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "key",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "bell",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Which one eats?",
+        "Which one grows?",
+        "It has feathers."
+      ],
+      "explanation": "A bird is alive. It eats, grows and moves. The others are not alive."
+    },
+    {
+      "id": "s1.living-things.027",
+      "skill": "s1.living-things",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the two living things.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "tree",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "car",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "book",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: tree, car, frog and book."
+      },
+      "regions": [
+        {
+          "label": "tree",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "car",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "frog",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "book",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Look for things that grow.",
+        "A car cannot grow.",
+        "One is a plant and one is an animal."
+      ],
+      "explanation": "A tree and a frog are living things. A car and a book are made by people and are not alive."
+    },
+    {
+      "id": "s1.living-things.028",
+      "skill": "s1.living-things",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the plant in order. Start with the smallest.",
+      "items": [
+        "seed",
+        "seedling",
+        "small plant",
+        "big plant"
+      ],
+      "hints": [
+        "Living things grow bigger.",
+        "A seed is tiny.",
+        "The big plant is last."
+      ],
+      "explanation": "A plant starts as a seed. It grows into a seedling, then a small plant, then a big plant."
+    },
+    {
+      "id": "s1.living-things.029",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is true?",
+      "options": [
+        {
+          "text": "Only animals need water.",
+          "why": "Plants need water too."
+        },
+        {
+          "text": "All living things need water."
+        },
+        {
+          "text": "Only plants need water.",
+          "why": "Animals need water too."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about plants and animals.",
+        "Do you drink water? Does a plant?",
+        "Both need it."
+      ],
+      "explanation": "Plants and animals are both living things. All living things need water."
+    },
+    {
+      "id": "s1.living-things.030",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Mia puts a stone and a bean seed in wet soil. Which one changes?",
+      "options": [
+        {
+          "text": "the stone",
+          "why": "A stone does not grow."
+        },
+        {
+          "text": "both of them",
+          "why": "Only living things grow."
+        },
+        {
+          "text": "the bean seed"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which one is alive?",
+        "Living things grow.",
+        "A stone is not alive."
+      ],
+      "explanation": "The bean seed is alive, so it can grow. The stone stays the same."
+    },
+    {
+      "id": "s1.living-things.031",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which living thing stays in one place all its life?",
+      "options": [
+        {
+          "text": "a tree"
+        },
+        {
+          "text": "a dog",
+          "why": "A dog walks about."
+        },
+        {
+          "text": "a bird",
+          "why": "A bird flies about."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about roots.",
+        "Animals can walk or fly.",
+        "Which one has roots?"
+      ],
+      "explanation": "A tree grows roots in the soil, so it stays in one place. Animals can move about."
+    },
+    {
+      "id": "s1.living-things.032",
+      "skill": "s1.living-things",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a living thing that lives in water.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a living thing that lives in water",
+            "points": 2
+          },
+          {
+            "label": "Shows the water",
+            "points": 1
+          },
+          {
+            "label": "Names the living thing",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Draw a fish, a frog or a water plant.",
+        "Add some water around it."
+      ],
+      "explanation": "Fish, frogs and water plants are living things that live in water."
+    },
+    {
+      "id": "s1.living-things.033",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one can grow into a new plant?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "leaf",
+            "label": "leaf"
+          },
+          {
+            "icon": "stone",
+            "label": "pebble"
+          },
+          {
+            "icon": "seed",
+            "label": "seed"
+          },
+          {
+            "icon": "shell",
+            "label": "shell"
+          }
+        ],
+        "alt": "A leaf, a pebble, a seed and a shell."
+      },
+      "options": [
+        {
+          "text": "the leaf",
+          "why": "A leaf that has fallen cannot grow into a plant."
+        },
+        {
+          "text": "the pebble",
+          "why": "A pebble is not alive."
+        },
+        {
+          "text": "the shell",
+          "why": "A shell is not alive."
+        },
+        {
+          "text": "the seed"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look for the thing that is alive inside.",
+        "A pebble and a shell are not alive.",
+        "Think of a bean."
+      ],
+      "explanation": "A seed has a tiny plant inside. With water and soil it can grow.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.living-things.034",
+      "skill": "s1.living-things",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many living things are in the picture?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat",
+            "label": "cat"
+          },
+          {
+            "icon": "mushroom",
+            "label": "mushroom"
+          },
+          {
+            "icon": "rock",
+            "label": "rock"
+          },
+          {
+            "icon": "bee",
+            "label": "bee"
+          },
+          {
+            "icon": "spoon",
+            "label": "spoon"
+          }
+        ],
+        "alt": "A cat, a mushroom, a rock, a bee and a spoon."
+      },
+      "answer": 3,
+      "hints": [
+        "Check each one: does it grow?",
+        "A mushroom grows from the ground.",
+        "Do not count the rock or the spoon."
+      ],
+      "explanation": "The mushroom, the bee and the cat are living. The rock and the spoon are not.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.living-things.035",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence about living things is not true?",
+      "options": [
+        {
+          "text": "Living things need water.",
+          "why": "This is true."
+        },
+        {
+          "text": "Living things can have babies or seeds.",
+          "why": "This is true."
+        },
+        {
+          "text": "Living things get bigger.",
+          "why": "This is true."
+        },
+        {
+          "text": "Living things never grow."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the sentence that is wrong.",
+        "Think of a puppy getting older.",
+        "Growing is a sign of life."
+      ],
+      "explanation": "Living things grow. They also need water and can make new living things.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

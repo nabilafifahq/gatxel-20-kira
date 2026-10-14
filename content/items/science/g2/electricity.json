@@ -719,6 +719,1044 @@
           "y": 50
         }
       ]
+    },
+    {
+      "id": "s2.electricity.021",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one is run by a battery?",
+      "options": [
+        {
+          "text": "a candle",
+          "why": "A candle burns wax."
+        },
+        {
+          "text": "a toy robot"
+        },
+        {
+          "text": "a kite",
+          "why": "A kite uses wind."
+        },
+        {
+          "text": "a bicycle",
+          "why": "A bicycle uses your legs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which one has parts that move by themselves?",
+        "A candle uses wax.",
+        "Toys need batteries."
+      ],
+      "explanation": "Many toys have batteries inside them to make them work."
+    },
+    {
+      "id": "s2.electricity.022",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A bulb in a circuit is not lit. Which part might be missing?",
+      "options": [
+        {
+          "text": "a spoon",
+          "why": "A circuit does not need a spoon."
+        },
+        {
+          "text": "a battery"
+        },
+        {
+          "text": "a pencil",
+          "why": "A circuit does not need a pencil."
+        },
+        {
+          "text": "a book",
+          "why": "A circuit does not need a book."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What gives energy to the circuit?",
+        "It is at the start.",
+        "It is a cell."
+      ],
+      "explanation": "A circuit needs a battery to push the electricity round."
+    },
+    {
+      "id": "s2.electricity.023",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material lets electricity pass through easily?",
+      "options": [
+        {
+          "text": "metal"
+        },
+        {
+          "text": "plastic",
+          "why": "Plastic stops electricity."
+        },
+        {
+          "text": "wood",
+          "why": "Wood stops electricity."
+        },
+        {
+          "text": "rubber",
+          "why": "Rubber stops electricity."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Wires are made of it.",
+        "It is shiny.",
+        "Plastic is used to cover wires."
+      ],
+      "explanation": "Metals such as copper let electricity pass through. This is why wires are metal."
+    },
+    {
+      "id": "s2.electricity.024",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why is a cable covered with plastic?",
+      "options": [
+        {
+          "text": "to make it shiny",
+          "why": "Safety is the reason."
+        },
+        {
+          "text": "to make it heavy",
+          "why": "It is not for weight."
+        },
+        {
+          "text": "to make it taste nice",
+          "why": "Cables are not eaten."
+        },
+        {
+          "text": "to keep us safe"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What does plastic stop?",
+        "Touching a bare wire is dangerous.",
+        "Safety first."
+      ],
+      "explanation": "Plastic does not let electricity pass through. It keeps us safe when we touch the cable."
+    },
+    {
+      "id": "s2.electricity.025",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which child is being safe with a plug?",
+      "options": [
+        {
+          "text": "Cara pulls the plug out by the wire.",
+          "why": "This can damage the wire."
+        },
+        {
+          "text": "Dev touches a plug with wet hands.",
+          "why": "Water is dangerous with electricity."
+        },
+        {
+          "text": "Ben holds the plug to pull it out."
+        },
+        {
+          "text": "Eli pokes a fork into a socket.",
+          "why": "This is very dangerous."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Pull the plug itself.",
+        "Never use wet hands.",
+        "Never poke a socket."
+      ],
+      "explanation": "Pull a plug out by holding the plug, not the wire. Keep water away from electricity."
+    },
+    {
+      "id": "s2.electricity.026",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A circuit has a battery, a bulb and an open switch. Is the bulb lit?",
+      "options": [
+        {
+          "text": "Yes, because it has a battery.",
+          "why": "The switch is open."
+        },
+        {
+          "text": "Yes, because it has a bulb.",
+          "why": "The loop is broken."
+        },
+        {
+          "text": "No, the circuit is not complete."
+        },
+        {
+          "text": "Yes, but it is dim.",
+          "why": "There is no electricity."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Open means a gap.",
+        "Electricity needs a loop.",
+        "The loop is broken."
+      ],
+      "explanation": "An open switch makes a gap. Electricity cannot flow, so the bulb does not light."
+    },
+    {
+      "id": "s2.electricity.027",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The bulb in a circuit is dim. What could make it brighter?",
+      "options": [
+        {
+          "text": "take out the bulb",
+          "why": "There would be no light."
+        },
+        {
+          "text": "add another battery"
+        },
+        {
+          "text": "cut the wire",
+          "why": "There would be no loop."
+        },
+        {
+          "text": "add a rubber band",
+          "why": "Rubber stops electricity."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Brighter needs more energy.",
+        "Where does the energy come from?",
+        "Batteries give energy."
+      ],
+      "explanation": "A second battery gives more energy, so the bulb shines brighter."
+    },
+    {
+      "id": "s2.electricity.028",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A bulb lights only when the circuit is...",
+      "options": [
+        {
+          "text": "a complete loop"
+        },
+        {
+          "text": "a straight line",
+          "why": "Electricity needs a loop."
+        },
+        {
+          "text": "under water",
+          "why": "Never put electricity near water."
+        },
+        {
+          "text": "very long",
+          "why": "Length is not the rule."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a circle.",
+        "There must be no gaps.",
+        "It goes round and round."
+      ],
+      "explanation": "Electricity flows round a complete loop. A gap stops the bulb from lighting."
+    },
+    {
+      "id": "s2.electricity.029",
+      "skill": "s2.electricity",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Does electricity pass through? Sort the objects.",
+      "groups": [
+        "Electricity goes through",
+        "Electricity is stopped"
+      ],
+      "items": [
+        {
+          "text": "copper wire",
+          "group": 0
+        },
+        {
+          "text": "iron nail",
+          "group": 0
+        },
+        {
+          "text": "steel spoon",
+          "group": 0
+        },
+        {
+          "text": "plastic spoon",
+          "group": 1
+        },
+        {
+          "text": "wooden stick",
+          "group": 1
+        },
+        {
+          "text": "rubber band",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Metals are shiny.",
+        "Rubber stops electricity.",
+        "Test with a circuit."
+      ],
+      "explanation": "Metals let electricity through. Plastic, wood and rubber stop electricity."
+    },
+    {
+      "id": "s2.electricity.030",
+      "skill": "s2.electricity",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it safe or not safe? Sort the actions.",
+      "groups": [
+        "Safe",
+        "Not safe"
+      ],
+      "items": [
+        {
+          "text": "switch off at the wall",
+          "group": 0
+        },
+        {
+          "text": "ask an adult to fix wires",
+          "group": 0
+        },
+        {
+          "text": "hold the plug to pull it out",
+          "group": 0
+        },
+        {
+          "text": "touch a fallen power line",
+          "group": 1
+        },
+        {
+          "text": "poke a socket",
+          "group": 1
+        },
+        {
+          "text": "use a plug near water",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Water and electricity are a bad mix.",
+        "Never poke a socket.",
+        "Always ask an adult."
+      ],
+      "explanation": "Switching off, asking an adult and holding the plug are safe. Touching a power line, poking a socket and using a plug near water are not."
+    },
+    {
+      "id": "s2.electricity.031",
+      "skill": "s2.electricity",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Choose all the parts of a simple circuit.",
+      "options": [
+        {
+          "text": "a spoon"
+        },
+        {
+          "text": "a magnet"
+        },
+        {
+          "text": "wires"
+        },
+        {
+          "text": "a bulb"
+        },
+        {
+          "text": "a battery"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "It needs energy.",
+        "It needs a light.",
+        "It needs a path."
+      ],
+      "explanation": "A simple circuit has a battery, a bulb and wires. A magnet and a spoon are not needed."
+    },
+    {
+      "id": "s2.electricity.032",
+      "skill": "s2.electricity",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the steps to build a circuit.",
+      "items": [
+        "join a wire to the battery",
+        "join the wire to the bulb",
+        "join another wire from the bulb back to the battery",
+        "close the switch"
+      ],
+      "hints": [
+        "A circuit is a loop.",
+        "The switch is last.",
+        "Start with the battery."
+      ],
+      "explanation": "Join the wires to make a complete loop from the battery to the bulb and back. Then close the switch."
+    },
+    {
+      "id": "s2.electricity.033",
+      "skill": "s2.electricity",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part to its job.",
+      "pairs": [
+        [
+          "battery",
+          "gives energy"
+        ],
+        [
+          "bulb",
+          "gives light"
+        ],
+        [
+          "wire",
+          "carries electricity"
+        ],
+        [
+          "switch",
+          "turns the circuit on or off"
+        ]
+      ],
+      "hints": [
+        "A bulb shines.",
+        "Wires are paths.",
+        "A switch can open a gap."
+      ],
+      "explanation": "A battery gives energy and a bulb gives light. A wire carries electricity and a switch turns the circuit on or off."
+    },
+    {
+      "id": "s2.electricity.034",
+      "skill": "s2.electricity",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A battery gives ___ to the bulb. A ___ turns the bulb on and off.",
+      "gaps": [
+        {
+          "options": [
+            "energy",
+            "water",
+            "paint"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "switch",
+            "wire",
+            "spoon"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "What does a bulb need to shine?",
+        "It has two positions.",
+        "Read slowly."
+      ],
+      "explanation": "The battery gives energy to the bulb. A switch turns the bulb on and off."
+    },
+    {
+      "id": "s2.electricity.035",
+      "skill": "s2.electricity",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Battery, bulb and wires are joined. Does the bulb light?",
+      "head": [
+        "Circuit has",
+        "Bulb lit?"
+      ],
+      "rows": [
+        [
+          "closed switch",
+          "yes"
+        ],
+        [
+          "open switch",
+          ""
+        ],
+        [
+          "no battery",
+          ""
+        ],
+        [
+          "gap in the wire",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        }
+      ],
+      "hints": [
+        "Closed means complete.",
+        "No battery means no energy.",
+        "A gap breaks the loop."
+      ],
+      "explanation": "The bulb lights only when the circuit is a complete loop with a battery. An open switch, no battery or a gap stops it."
+    },
+    {
+      "id": "s2.electricity.036",
+      "skill": "s2.electricity",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Hana joins a battery, a bulb and two wires in a loop. The bulb does not light. She sees a gap between one wire and the bulb. She closes the gap and the bulb lights.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Why did the bulb not light at first?",
+          "options": [
+            {
+              "text": "The battery was too big."
+            },
+            {
+              "text": "The wire was too short."
+            },
+            {
+              "text": "The circuit had a gap."
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "What did Hana do to fix it?",
+          "options": [
+            {
+              "text": "She took out the bulb."
+            },
+            {
+              "text": "She closed the gap."
+            },
+            {
+              "text": "She cut the wire."
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Read the third sentence.",
+        "Read the last sentence.",
+        "A gap breaks the circuit."
+      ],
+      "explanation": "A gap broke the loop. Hana closed the gap, so the circuit was complete."
+    },
+    {
+      "id": "s2.electricity.037",
+      "skill": "s2.electricity",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A circuit has 1 battery, 1 bulb, 1 switch and 3 wires. How many parts are there?",
+      "answer": 6,
+      "hints": [
+        "Add all the parts.",
+        "1 + 1 + 1 is 3.",
+        "Then add 3 wires."
+      ],
+      "explanation": "1 + 1 + 1 + 3 = 6 parts."
+    },
+    {
+      "id": "s2.electricity.038",
+      "skill": "s2.electricity",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the part that is shining.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 6,
+            "x2": 160,
+            "y2": 14,
+            "tone": "star",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 122,
+            "y1": 18,
+            "x2": 128,
+            "y2": 24,
+            "tone": "star",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 198,
+            "y1": 18,
+            "x2": 192,
+            "y2": 24,
+            "tone": "star",
+            "width": 4
+          }
+        ],
+        "alt": "A circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom. The bulb is shining."
+      },
+      "regions": [
+        {
+          "label": "battery",
+          "x": 18.8,
+          "y": 50,
+          "w": 20,
+          "h": 44.4
+        },
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 27.8,
+          "w": 21.9,
+          "h": 38.9
+        },
+        {
+          "label": "switch",
+          "x": 50,
+          "y": 72.2,
+          "w": 21.9,
+          "h": 38.9
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Which part gives light?",
+        "It is at the top.",
+        "Rays show it is lit."
+      ],
+      "explanation": "The bulb is shining. It changes electrical energy into light."
+    },
+    {
+      "id": "s2.electricity.039",
+      "skill": "s2.electricity",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the circuit. One label is not needed.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 50,
+            "x2": 128,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 192,
+            "y1": 50,
+            "x2": 260,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 50,
+            "x2": 260,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 192,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 128,
+            "y1": 130,
+            "x2": 60,
+            "y2": 130,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 130,
+            "x2": 60,
+            "y2": 122,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 58,
+            "x2": 60,
+            "y2": 50,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "icon",
+            "icon": "battery",
+            "x": 28,
+            "y": 58,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "bulb",
+            "x": 128,
+            "y": 18,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "switch",
+            "x": 128,
+            "y": 98,
+            "size": 64
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 6,
+            "x2": 160,
+            "y2": 14,
+            "tone": "star",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 122,
+            "y1": 18,
+            "x2": 128,
+            "y2": 24,
+            "tone": "star",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 198,
+            "y1": 18,
+            "x2": 192,
+            "y2": 24,
+            "tone": "star",
+            "width": 4
+          }
+        ],
+        "alt": "A circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom. The bulb is shining."
+      },
+      "labels": [
+        "battery",
+        "bulb",
+        "switch"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 50
+        },
+        {
+          "x": 50,
+          "y": 27.8
+        },
+        {
+          "x": 50,
+          "y": 72.2
+        }
+      ],
+      "extraLabels": [
+        "motor"
+      ],
+      "hints": [
+        "Start with the battery.",
+        "The bulb shines.",
+        "Motors turn."
+      ],
+      "explanation": "The battery is on the left and the bulb is at the top. The switch is at the bottom. There is no motor."
+    },
+    {
+      "id": "s2.electricity.040",
+      "skill": "s2.electricity",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A complete path for electricity is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "circuit"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a loop.",
+        "It starts with c.",
+        "Battery, bulb and wires make one."
+      ],
+      "explanation": "A circuit is a complete loop that electricity can flow around."
+    },
+    {
+      "id": "s2.electricity.041",
+      "skill": "s2.electricity",
+      "type": "draw",
+      "difficulty": 3,
+      "prompt": "Draw a circuit with a battery, a bulb and a switch.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a battery, a bulb and a switch",
+            "points": 2
+          },
+          {
+            "label": "Joins them with wires in a loop",
+            "points": 1
+          },
+          {
+            "label": "Labels the parts",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "The wires join the parts in a loop.",
+        "Label each part."
+      ],
+      "explanation": "A simple circuit is a loop. It has a battery, a bulb and a switch joined by wires."
+    },
+    {
+      "id": "s2.electricity.042",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which circuit lights the bulb?",
+      "options": [
+        {
+          "text": "battery, bulb, wires and a closed switch"
+        },
+        {
+          "text": "battery, bulb, wires and an open switch",
+          "why": "The open switch makes a gap."
+        },
+        {
+          "text": "bulb, wires and a closed switch, no battery",
+          "why": "There is no energy."
+        },
+        {
+          "text": "battery, wires and a closed switch, no bulb",
+          "why": "There is no bulb to light."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "It needs a battery.",
+        "The switch must be closed.",
+        "The loop must be complete."
+      ],
+      "explanation": "The bulb lights when the circuit has a battery, a bulb and a complete loop.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.electricity.043",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tom uses a plastic spoon to fill a gap in a circuit. The bulb does not light. Why?",
+      "options": [
+        {
+          "text": "The spoon is too big for the gap.",
+          "why": "Size is not the problem."
+        },
+        {
+          "text": "The bulb is broken or too old.",
+          "why": "The bulb is fine."
+        },
+        {
+          "text": "The wire is too short to reach.",
+          "why": "The wire is fine."
+        },
+        {
+          "text": "Plastic does not let electricity through."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What is the spoon made of?",
+        "Metals let electricity through.",
+        "Plastic stops electricity."
+      ],
+      "explanation": "Plastic is an insulator, so electricity cannot go through it.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.electricity.044",
+      "skill": "s2.electricity",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A bulb, a battery and wires form a loop. Where does the electricity flow?",
+      "options": [
+        {
+          "text": "out of the bulb and into the air around it",
+          "why": "It stays in the circuit."
+        },
+        {
+          "text": "from the battery to the bulb, where it stops",
+          "why": "It goes all the way round."
+        },
+        {
+          "text": "round the loop from the battery, through the bulb and back"
+        },
+        {
+          "text": "from the bulb to the battery and nowhere else",
+          "why": "It flows around the whole loop."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A circuit is a loop.",
+        "It does not stop.",
+        "It comes back to the battery."
+      ],
+      "explanation": "Electricity flows all the way round the loop.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }
