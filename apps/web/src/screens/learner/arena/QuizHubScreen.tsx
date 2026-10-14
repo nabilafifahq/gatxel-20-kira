@@ -7,6 +7,7 @@ import type { QuizActions, QuizHubDTO, QuizTopicCard, QuizTopicDTO } from '@/lib
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { CountdownOverlay } from '@/components/learner/CountdownOverlay'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { ArenaPic } from '@/components/learner/arena/ArenaPic'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
@@ -32,11 +33,24 @@ function useStart(actions: Pick<QuizActions, 'start'>) {
   const router = useRouter()
   const [busy, setBusy] = useState<string | null>(null)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
-  const start = async (key: string, topic: Parameters<QuizActions['start']>[0]['topic'], mode: Parameters<QuizActions['start']>[0]['mode']) => {
+  type Topic = Parameters<QuizActions['start']>[0]['topic']
+  type Mode = Parameters<QuizActions['start']>[0]['mode']
+  // Speed quiz berwaktu: hitung mundur 3, 2, 1, Go dulu; ronde dibuat saat Go muncul.
+  const [counting, setCounting] = useState<{ key: string; topic: Topic; mode: Mode } | null>(null)
+  const start = (key: string, topic: Topic, mode: Mode, variant?: 'map') => {
+    if (mode === 'speed') {
+      setBusy(key)
+      setCounting({ key, topic, mode })
+      return Promise.resolve()
+    }
+    return launch(key, topic, mode, variant)
+  }
+  const overlay = counting ? <CountdownOverlay onGo={() => void launch(counting.key, counting.topic, counting.mode)} onDone={() => setCounting(null)} /> : null
+  const launch = async (key: string, topic: Topic, mode: Mode, variant?: 'map') => {
     setBusy(key)
     setError(null)
     try {
-      const res = await actions.start({ topic, mode })
+      const res = await actions.start({ topic, mode, ...(variant ? { variant } : {}) })
       if (res.ok) router.push(res.data.redirectTo)
       else setError({ message: res.message, reference: res.reference })
     } catch {
@@ -45,7 +59,7 @@ function useStart(actions: Pick<QuizActions, 'start'>) {
       setBusy(null)
     }
   }
-  return { busy, error, start }
+  return { busy, error, start, overlay }
 }
 
 function TopicTile({ t }: { t: QuizTopicCard }): ReactElement {
@@ -71,9 +85,10 @@ function TopicTile({ t }: { t: QuizTopicCard }): ReactElement {
 }
 
 export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pick<QuizActions, 'start'> }): ReactElement {
-  const { busy, error, start } = useStart(actions)
+  const { busy, error, start, overlay } = useStart(actions)
   return (
     <LearnerFrame shell={data.shell} current="quiz-arena" className="flex flex-col gap-5">
+      {overlay}
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
           <UiIcon name="globe" size={36} className="text-knowledge" />
@@ -122,16 +137,18 @@ export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pi
 }
 
 export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions: Pick<QuizActions, 'start'> }): ReactElement {
-  const { busy, error, start } = useStart(actions)
+  const { busy, error, start, overlay } = useStart(actions)
   const t = data.topic
   const off = data.limitReached
   const modes = [
     { mode: 'learn' as const, title: 'Learn', blurb: 'Flip through flashcards and see the answers. Earn a little XP.', cta: 'Start flashcards' },
     { mode: 'quiz' as const, title: 'Quiz', blurb: '10 questions with no timer. You see why after each one.', cta: 'Start quiz' },
     { mode: 'speed' as const, title: 'Speed quiz', blurb: 'As many right as you can in 60 seconds.', cta: 'Start speed quiz' },
+    ...(t.id === 'continents' ? [{ mode: 'quiz' as const, variant: 'map' as const, title: 'Point on the map', blurb: 'Tap the right continent or ocean on a world map. 10 questions, no timer.', cta: 'Start map quiz' }] : []),
   ]
   return (
     <LearnerFrame shell={data.shell} current="quiz-arena" className="flex flex-col gap-5">
+      {overlay}
       <nav aria-label="Breadcrumb">
         <Link href="/quiz-arena" className="inline-flex min-h-11 items-center gap-1 text-body-lg font-bold text-fg">
           <UiIcon name="arrow-left" size={20} /> Quiz Arena
@@ -161,12 +178,12 @@ export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions
         </p>
       ) : null}
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
-      <ul className="m-0 grid list-none gap-3 p-0 md:grid-cols-3">
+      <ul className={cx('m-0 grid list-none gap-3 p-0', modes.length > 3 ? 'md:grid-cols-2' : 'md:grid-cols-3')}>
         {modes.map((m) => (
-          <li key={m.mode} className={cx('flex flex-col gap-3 rounded-card border-2 border-border bg-surface p-5')}>
+          <li key={'variant' in m ? 'map' : m.mode} className={cx('flex flex-col gap-3 rounded-card border-2 border-border bg-surface p-5')}>
             <h2 className="m-0 text-h2 font-bold">{m.title}</h2>
             <p className="m-0 flex-1 text-body-lg text-fg-muted">{m.blurb}</p>
-            <Button loading={busy === m.mode} disabled={off} onClick={() => void start(m.mode, t.id, m.mode)}>
+            <Button loading={busy === ('variant' in m ? 'map' : m.mode)} disabled={off} onClick={() => void start('variant' in m ? 'map' : m.mode, t.id, m.mode, 'variant' in m ? m.variant : undefined)}>
               {m.cta}
             </Button>
           </li>

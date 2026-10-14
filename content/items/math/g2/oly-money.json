@@ -1,0 +1,888 @@
+{
+  "skill": "m2.oly-money",
+  "items": [
+    {
+      "id": "m2.oly-money.001",
+      "skill": "m2.oly-money",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How much money is shown?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 500,
+            "count": 2
+          },
+          {
+            "value": 200,
+            "count": 1
+          },
+          {
+            "value": 100,
+            "count": 3
+          }
+        ],
+        "alt": "Coins: two Rp500 coins, one Rp200 coin and three Rp100 coins."
+      },
+      "options": [
+        {
+          "text": "Rp900",
+          "why": "You may have missed a coin."
+        },
+        {
+          "text": "Rp1.100",
+          "why": "You may have counted only some of the coins."
+        },
+        {
+          "text": "Rp1.300",
+          "why": "Count the Rp100 coins again. There are 3."
+        },
+        {
+          "text": "Rp1.500"
+        },
+        {
+          "text": "Rp2.000",
+          "why": "Check the value of each coin."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Add the Rp500 coins first.",
+        "Two Rp500 coins make Rp1.000.",
+        "Then add the Rp200 coin and the three Rp100 coins."
+      ],
+      "explanation": "Two Rp500 coins make Rp1.000. One Rp200 coin makes Rp1.200. Three Rp100 coins make Rp300 more. In all, there is Rp1.500.",
+      "solution": [
+        {
+          "say": "Two Rp500 coins make Rp1.000."
+        },
+        {
+          "say": "One Rp200 coin makes Rp1.200."
+        },
+        {
+          "say": "Three Rp100 coins make Rp300 more."
+        },
+        {
+          "say": "In all, there is Rp1.500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.002",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Dewi has one Rp5.000 note. She buys a book for Rp3.500. How many rupiah does she get back?",
+      "answer": 1500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take the price away from the money she pays.",
+        "Work out Rp5.000 take away Rp3.500.",
+        "Count up from Rp3.500 to Rp5.000."
+      ],
+      "explanation": "Dewi pays Rp5.000 and the book costs Rp3.500. Her change is 5.000 - 3.500 = Rp1.500.",
+      "solution": [
+        {
+          "say": "Dewi pays Rp5.000 and the book costs Rp3.500."
+        },
+        {
+          "say": "Her change is 5.000 - 3.500 = Rp1.500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.003",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Use coins of Rp100, Rp200, Rp500 and Rp1.000. What is the smallest number of coins that make Rp1.700?",
+      "answer": 3,
+      "tolerance": 0,
+      "unit": "coins",
+      "hints": [
+        "Use the biggest coin that fits first.",
+        "Rp1.000, then what is left?",
+        "Rp700 is left. Use the biggest coin that fits."
+      ],
+      "explanation": "Take a Rp1.000 coin. Rp700 is left. Take a Rp500 coin. Rp200 is left. Take a Rp200 coin. That is 3 coins.",
+      "solution": [
+        {
+          "say": "Take a Rp1.000 coin."
+        },
+        {
+          "say": "Rp700 is left."
+        },
+        {
+          "say": "Take a Rp500 coin."
+        },
+        {
+          "say": "Rp200 is left."
+        },
+        {
+          "say": "Take a Rp200 coin."
+        },
+        {
+          "say": "That is 3 coins."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.004",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Rani pays exactly Rp500 using only Rp100 coins and Rp200 coins. How many different ways can she do this?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Start with no Rp200 coins. Then use 1, then 2.",
+        "With no Rp200 coin she needs 5 Rp100 coins.",
+        "With one Rp200 coin she needs Rp300 more."
+      ],
+      "explanation": "With no Rp200 coin: 5 coins of Rp100. With one Rp200 coin: 3 coins of Rp100. With two Rp200 coins: 1 coin of Rp100. Three Rp200 coins are too much. So there are 3 ways.",
+      "solution": [
+        {
+          "say": "With no Rp200 coin: 5 coins of Rp100."
+        },
+        {
+          "say": "With one Rp200 coin: 3 coins of Rp100."
+        },
+        {
+          "say": "With two Rp200 coins: 1 coin of Rp100."
+        },
+        {
+          "say": "Three Rp200 coins are too much."
+        },
+        {
+          "say": "So there are 3 ways."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.005",
+      "skill": "m2.oly-money",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Budi pays Rp700 with exactly 3 coins. Which coins does he use?",
+      "options": [
+        {
+          "text": "Rp200, Rp200, Rp200",
+          "why": "These make Rp600."
+        },
+        {
+          "text": "Rp500, Rp100, Rp100"
+        },
+        {
+          "text": "Rp500, Rp200, Rp200",
+          "why": "These make Rp900."
+        },
+        {
+          "text": "Rp200, Rp200, Rp100",
+          "why": "These make Rp500."
+        },
+        {
+          "text": "Rp500, Rp500, Rp100",
+          "why": "These make Rp1.100."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add up the coins in each choice.",
+        "Rp700 is Rp500 and Rp200.",
+        "Check the choices that have exactly 3 coins."
+      ],
+      "explanation": "Rp500 + Rp100 + Rp100 = Rp700. The other choices make Rp600, Rp900, Rp500 and Rp1.100.",
+      "solution": [
+        {
+          "say": "Rp500 + Rp100 + Rp100 = Rp700."
+        },
+        {
+          "say": "The other choices make Rp600, Rp900, Rp500 and Rp1.100."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.006",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A pencil costs Rp1.500. Sari buys 3 pencils. How many rupiah does she pay?",
+      "answer": 4500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add Rp1.500 three times.",
+        "Rp1.500 + Rp1.500 = Rp3.000.",
+        "Add one more Rp1.500."
+      ],
+      "explanation": "Three pencils cost Rp1.500 + Rp1.500 + Rp1.500 = Rp4.500.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.007",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Rani has Rp10.000. She buys two toys at Rp3.000 each and a ball at Rp2.500. How many rupiah are left?",
+      "answer": 1500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find the cost of the two toys first.",
+        "2 toys cost Rp6.000. Add the ball.",
+        "Take the total cost away from Rp10.000."
+      ],
+      "explanation": "Two toys cost Rp6.000. With the ball she spends Rp8.500. She has Rp10.000 - Rp8.500 = Rp1.500 left.",
+      "solution": [
+        {
+          "say": "Two toys cost Rp6.000."
+        },
+        {
+          "say": "With the ball she spends Rp8.500."
+        },
+        {
+          "say": "She has Rp10.000 - Rp8.500 = Rp1.500 left."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.008",
+      "skill": "m2.oly-money",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Tono has Rp2.000 more than Adi. Together they have Rp8.000. How much money does Adi have?",
+      "options": [
+        {
+          "text": "Rp2.000",
+          "why": "This is how much more Tono has."
+        },
+        {
+          "text": "Rp3.000"
+        },
+        {
+          "text": "Rp4.000",
+          "why": "Then Tono would have Rp4.000 too, but he has Rp2.000 more."
+        },
+        {
+          "text": "Rp5.000",
+          "why": "This is how much Tono has."
+        },
+        {
+          "text": "Rp6.000",
+          "why": "This is more than half of the total."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take away the extra Rp2.000 from the total.",
+        "Without the extra, they would have the same amount.",
+        "Share what is left equally between the two boys."
+      ],
+      "explanation": "Take away Tono's extra Rp2.000. Rp6.000 is left. Share it equally: each boy has Rp3.000. So Adi has Rp3.000 and Tono has Rp5.000.",
+      "solution": [
+        {
+          "say": "Take away the extra Rp2.000.",
+          "show": "8.000 - 2.000 = 6.000"
+        },
+        {
+          "say": "Share the rest equally.",
+          "show": "6.000 / 2 = 3.000"
+        },
+        {
+          "say": "Adi has Rp3.000 and Tono has Rp5.000.",
+          "show": "3.000 + 5.000 = 8.000"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.009",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Mia has Rp4.500. She wants a toy that costs Rp7.000. How many more rupiah does she need?",
+      "answer": 2500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find the difference between the price and her money.",
+        "Count up from Rp4.500 to Rp7.000.",
+        "Rp4.500 to Rp5.000 is Rp500."
+      ],
+      "explanation": "Mia needs Rp7.000 - Rp4.500 = Rp2.500 more.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.010",
+      "skill": "m2.oly-money",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Four of these sets of coins are worth the same. Which set is worth a different amount?",
+      "options": [
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 500,
+                "count": 2
+              }
+            ],
+            "alt": "Coins: two Rp500 coins."
+          },
+          "why": "These coins are worth Rp1.000."
+        },
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 200,
+                "count": 5
+              }
+            ],
+            "alt": "Coins: five Rp200 coins."
+          },
+          "why": "These coins are worth Rp1.000."
+        },
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 500,
+                "count": 1
+              },
+              {
+                "value": 200,
+                "count": 1
+              },
+              {
+                "value": 100,
+                "count": 2
+              }
+            ],
+            "alt": "Coins: one Rp500 coin, one Rp200 coin and two Rp100 coins."
+          }
+        },
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 1000,
+                "count": 1
+              }
+            ],
+            "alt": "Coins: one Rp1.000 coin."
+          },
+          "why": "This coin is worth Rp1.000."
+        },
+        {
+          "figure": {
+            "kind": "money",
+            "items": [
+              {
+                "value": 500,
+                "count": 1
+              },
+              {
+                "value": 200,
+                "count": 2
+              },
+              {
+                "value": 100,
+                "count": 1
+              }
+            ],
+            "alt": "Coins: one Rp500 coin, two Rp200 coins and one Rp100 coin."
+          },
+          "why": "These coins are worth Rp1.000."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work out how much each set is worth.",
+        "Four sets are worth Rp1.000.",
+        "Add up the first set carefully."
+      ],
+      "explanation": "Two Rp500 coins, five Rp200 coins, one Rp1.000 coin and Rp500 + Rp200 + Rp200 + Rp100 are all Rp1.000. Rp500 + Rp200 + Rp100 + Rp100 is only Rp900.",
+      "solution": [
+        {
+          "say": "Two Rp500 coins, five Rp200 coins, one Rp1.000 coin and Rp500 + Rp200 + Rp200 + Rp100 are all Rp1.000."
+        },
+        {
+          "say": "Rp500 + Rp200 + Rp100 + Rp100 is only Rp900."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.011",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "An apple costs Rp1.000. Mia has Rp4.500. How many apples can she buy?",
+      "answer": 4,
+      "tolerance": 0,
+      "unit": "apples",
+      "hints": [
+        "Count how many Rp1.000 are in Rp4.500.",
+        "4 apples cost Rp4.000.",
+        "Check if she can pay for 5 apples."
+      ],
+      "explanation": "Four apples cost Rp4.000. Five apples cost Rp5.000, which is more than Rp4.500. So Mia can buy 4 apples.",
+      "solution": [
+        {
+          "say": "Four apples cost Rp4.000."
+        },
+        {
+          "say": "Five apples cost Rp5.000, which is more than Rp4.500."
+        },
+        {
+          "say": "So Mia can buy 4 apples."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.012",
+      "skill": "m2.oly-money",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ben has Rp5.000. He buys a juice for Rp2.500 and a bun for Rp1.500. Can he also buy a sweet for Rp1.000?",
+      "options": [
+        {
+          "text": "No, he has only Rp500 left",
+          "why": "Work out Rp5.000 take away Rp4.000."
+        },
+        {
+          "text": "Yes, he has exactly Rp1.000 left"
+        },
+        {
+          "text": "No, he has Rp2.000 left but the sweet is Rp3.000",
+          "why": "The sweet costs Rp1.000."
+        },
+        {
+          "text": "Yes, and he gets Rp500 change",
+          "why": "Work out how much he has left."
+        },
+        {
+          "text": "No, the juice costs too much",
+          "why": "Ben can pay for the juice."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the price of the juice and the bun.",
+        "Rp2.500 + Rp1.500 = Rp4.000.",
+        "How much of Rp5.000 is left?"
+      ],
+      "explanation": "The juice and the bun cost Rp2.500 + Rp1.500 = Rp4.000. Ben has Rp5.000 - Rp4.000 = Rp1.000 left. That is exactly the price of the sweet, so he can buy it.",
+      "solution": [
+        {
+          "say": "The juice and the bun cost Rp2.500 + Rp1.500 = Rp4.000."
+        },
+        {
+          "say": "Ben has Rp5.000 - Rp4.000 = Rp1.000 left."
+        },
+        {
+          "say": "That is exactly the price of the sweet, so he can buy it."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.013",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A toy car costs Rp8.000. Kira has three Rp500 coins and two Rp2.000 notes. How many more rupiah does she need?",
+      "answer": 2500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find how much money Kira has.",
+        "Three Rp500 coins make Rp1.500. Two Rp2.000 notes make Rp4.000.",
+        "Take what she has away from the price."
+      ],
+      "explanation": "Three Rp500 coins are Rp1.500. Two Rp2.000 notes are Rp4.000. She has Rp5.500. She needs Rp8.000 - Rp5.500 = Rp2.500 more.",
+      "solution": [
+        {
+          "say": "Three Rp500 coins are Rp1.500."
+        },
+        {
+          "say": "Two Rp2.000 notes are Rp4.000."
+        },
+        {
+          "say": "She has Rp5.500."
+        },
+        {
+          "say": "She needs Rp8.000 - Rp5.500 = Rp2.500 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.014",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Dina pays for 2 books with a Rp10.000 note. Both books cost the same. She gets Rp2.000 change. How many rupiah does one book cost?",
+      "answer": 4000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find how much she spent on the 2 books.",
+        "She paid Rp10.000 and got Rp2.000 back.",
+        "Share what she spent between the two books."
+      ],
+      "explanation": "Dina spent Rp10.000 - Rp2.000 = Rp8.000 on 2 books. One book costs Rp8.000 / 2 = Rp4.000.",
+      "solution": [
+        {
+          "say": "Dina spent Rp10.000 - Rp2.000 = Rp8.000 on 2 books."
+        },
+        {
+          "say": "One book costs Rp8.000 / 2 = Rp4.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.015",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many Rp500 coins make Rp5.000?",
+      "answer": 10,
+      "tolerance": 0,
+      "unit": "coins",
+      "hints": [
+        "Two Rp500 coins make Rp1.000.",
+        "Rp5.000 is 5 groups of Rp1.000.",
+        "Each group of Rp1.000 has 2 coins."
+      ],
+      "explanation": "Two Rp500 coins make Rp1.000. Rp5.000 has 5 groups of Rp1.000. So 5 x 2 = 10 coins.",
+      "solution": [
+        {
+          "say": "Two Rp500 coins make Rp1.000."
+        },
+        {
+          "say": "Rp5.000 has 5 groups of Rp1.000."
+        },
+        {
+          "say": "So 5 x 2 = 10 coins."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.016",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Mia has 4 coins of Rp500. Sam has 5 coins of Rp200. How many more rupiah does Mia have than Sam?",
+      "answer": 1000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Find how much money each child has.",
+        "Mia has 4 x Rp500. Sam has 5 x Rp200.",
+        "Mia has Rp2.000 and Sam has Rp1.000."
+      ],
+      "explanation": "Mia has 4 x Rp500 = Rp2.000. Sam has 5 x Rp200 = Rp1.000. Mia has Rp1.000 more.",
+      "solution": [
+        {
+          "say": "Mia has 4 x Rp500 = Rp2.000."
+        },
+        {
+          "say": "Sam has 5 x Rp200 = Rp1.000."
+        },
+        {
+          "say": "Mia has Rp1.000 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-money.017",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mia has 5 coins. Each coin is Rp200 or Rp500. Together the coins are worth Rp1.600. How many Rp500 coins does she have?",
+      "answer": 2,
+      "tolerance": 0,
+      "unit": "coins",
+      "hints": [
+        "If all 5 coins were Rp200, how much would she have?",
+        "That is Rp1.000. She has Rp600 more.",
+        "Swapping a Rp200 coin for a Rp500 coin adds Rp300."
+      ],
+      "explanation": "Five coins of Rp200 are worth Rp1.000. Rp1.600 is Rp600 more. Each swap of a Rp200 coin for a Rp500 coin adds Rp300. So Mia swapped 600 / 300 = 2 coins. She has 2 coins of Rp500.",
+      "solution": [
+        {
+          "say": "Five coins of Rp200 are worth Rp1.000."
+        },
+        {
+          "say": "Rp1.600 is Rp600 more."
+        },
+        {
+          "say": "Each swap of a Rp200 coin for a Rp500 coin adds Rp300."
+        },
+        {
+          "say": "So Mia swapped 600 / 300 = 2 coins."
+        },
+        {
+          "say": "She has 2 coins of Rp500."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.018",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Sam has three coins: Rp100, Rp200 and Rp500. He picks some of the coins, or all of them. How many different amounts can he make?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "List the amounts made with 1 coin first.",
+        "With 2 coins: 100 + 200, 100 + 500 and 200 + 500.",
+        "Then use all 3 coins."
+      ],
+      "explanation": "One coin makes 100, 200 or 500. Two coins make 300, 600 or 700. All 3 coins make 800. All 7 amounts are different, so there are 7.",
+      "solution": [
+        {
+          "say": "One coin makes 100, 200 or 500."
+        },
+        {
+          "say": "Two coins make 300, 600 or 700."
+        },
+        {
+          "say": "All 3 coins make 800."
+        },
+        {
+          "say": "All 7 amounts are different, so there are 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.019",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Two notes make Rp7.000. One note is Rp2.000. How many rupiah is the other note?",
+      "answer": 5000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take Rp2.000 away from the total.",
+        "7.000 - 2.000.",
+        "Is there a Rp5.000 note?"
+      ],
+      "explanation": "The other note is Rp7.000 - Rp2.000 = Rp5.000.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-money.020",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A pen and a ruler cost Rp3.000 together. The pen costs Rp1.000 more than the ruler. How many rupiah does the pen cost?",
+      "answer": 2000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Take away the extra Rp1.000.",
+        "Rp2.000 is left. Without the extra, the two things cost the same.",
+        "Share Rp2.000 equally to find the price of the ruler."
+      ],
+      "explanation": "Take away the extra Rp1.000 and Rp2.000 is left. Share it between the two things: the ruler costs Rp1.000. The pen costs Rp1.000 more, so it costs Rp2.000.",
+      "solution": [
+        {
+          "say": "Take away the extra Rp1.000 and Rp2.000 is left."
+        },
+        {
+          "say": "Share it between the two things: the ruler costs Rp1.000."
+        },
+        {
+          "say": "The pen costs Rp1.000 more, so it costs Rp2.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-money.021",
+      "skill": "m2.oly-money",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Rani has the money shown. She wants a toy that costs Rp9.500. How many more rupiah does she need?",
+      "figure": {
+        "kind": "money",
+        "items": [
+          {
+            "value": 2000,
+            "count": 2
+          },
+          {
+            "value": 5000,
+            "count": 1
+          }
+        ],
+        "alt": "Notes: two Rp2.000 notes and one Rp5.000 note."
+      },
+      "answer": 500,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Add up the notes first.",
+        "Two Rp2.000 notes make Rp4.000. Add the Rp5.000 note.",
+        "Take her total away from Rp9.500."
+      ],
+      "explanation": "Two Rp2.000 notes make Rp4.000. With the Rp5.000 note she has Rp9.000. She needs Rp9.500 - Rp9.000 = Rp500 more.",
+      "solution": [
+        {
+          "say": "Two Rp2.000 notes make Rp4.000."
+        },
+        {
+          "say": "With the Rp5.000 note she has Rp9.000."
+        },
+        {
+          "say": "She needs Rp9.500 - Rp9.000 = Rp500 more."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}

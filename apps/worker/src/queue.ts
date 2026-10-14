@@ -86,10 +86,12 @@ export class JobQueue {
     const tts = TTS_JOB_KINDS as readonly string[]
     this.lanes = [
       { name: 'ai', kinds: [...ai], concurrency: 1, active: 0, pumping: false, again: false },
-      { name: 'umum', kinds: JOB_KINDS.filter((k) => !ai.includes(k) && !tts.includes(k)), concurrency: 2, active: 0, pumping: false, again: false },
+      { name: 'umum', kinds: JOB_KINDS.filter((k) => !ai.includes(k) && !tts.includes(k) && k !== 'sourcing.run'), concurrency: 2, active: 0, pumping: false, again: false },
       // Suara: klip permintaan learner tidak menunggu batch yang berjam-jam. Layanan tts memproses satu permintaan sekali.
       { name: 'suara', kinds: ['tts.clip'], concurrency: 1, active: 0, pumping: false, again: false },
       { name: 'suara-batch', kinds: ['tts.batch'], concurrency: 1, active: 0, pumping: false, again: false },
+      // Pembaruan sumber soal manual: panjang dan memakai AI, jadi satu per satu di jalur sendiri.
+      { name: 'sumber', kinds: ['sourcing.run'], concurrency: 1, active: 0, pumping: false, again: false },
     ]
     this.now = deps.now ?? (() => new Date())
   }

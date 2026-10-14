@@ -2,178 +2,929 @@
   "skill": "e3.text-features",
   "items": [
     {
-      "id": "e3.text-features.001", "skill": "e3.text-features", "type": "mcq", "difficulty": 3,
+      "id": "e3.text-features.001",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.rain-at-the-market",
       "prompt": "The writer says the leaves were laid like the tiles on a roof. Why?",
       "options": [
-        { "text": "to show that the stall had a real roof", "why": "The stall had nothing to cover the fruit." },
-        { "text": "to show that the leaves overlapped to keep the rain out" },
-        { "text": "to show that the leaves were red", "why": "Banana leaves are green, and the colour is not the point." },
-        { "text": "to show that the leaves were heavy", "why": "Tiles on a roof are about covering, not weight." }
+        {
+          "text": "to show that the stall had a real roof",
+          "why": "The stall had nothing to cover the fruit."
+        },
+        {
+          "text": "to show that the leaves overlapped to keep the rain out"
+        },
+        {
+          "text": "to show that the leaves were red",
+          "why": "Banana leaves are green, and the colour is not the point."
+        },
+        {
+          "text": "to show that the leaves were heavy",
+          "why": "Tiles on a roof are about covering, not weight."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about how tiles sit on a roof.", "Each tile sits a little over the next one.", "What do the tiles on a roof stop from getting in?"],
+      "hints": [
+        "Think about how tiles sit on a roof.",
+        "Each tile sits a little over the next one.",
+        "What do the tiles on a roof stop from getting in?"
+      ],
       "explanation": "Roof tiles overlap so that rain runs off. The writer uses this comparison to show the leaves covered the fruit in the same way.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.002", "skill": "e3.text-features", "type": "order", "difficulty": 3,
+      "id": "e3.text-features.002",
+      "skill": "e3.text-features",
+      "type": "order",
+      "difficulty": 3,
       "passage": "e3.p.rain-at-the-market",
       "prompt": "Put the events of the story in order.",
-      "items": ["Dark clouds rolled over the hills.", "Dewi spotted the pile of banana leaves.", "They covered the fruit with the leaves.", "The rain came pouring down.", "A lady bought six mangoes."],
-      "hints": ["Find each event in the story.", "Stories are told in the order that things happen.", "Start with the first thing that went wrong on that Saturday."],
+      "items": [
+        "Dark clouds rolled over the hills.",
+        "Dewi spotted the pile of banana leaves.",
+        "They covered the fruit with the leaves.",
+        "The rain came pouring down.",
+        "A lady bought six mangoes."
+      ],
+      "hints": [
+        "Find each event in the story.",
+        "Stories are told in the order that things happen.",
+        "Start with the first thing that went wrong on that Saturday."
+      ],
       "explanation": "The clouds came first. Then Dewi saw the leaves and they covered the fruit. The rain fell, and afterwards a lady bought mangoes.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.text-features.003", "skill": "e3.text-features", "type": "mcq", "difficulty": 2,
+      "id": "e3.text-features.003",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.green-sea-turtles",
       "prompt": "In this text, what are What do they eat? and Laying eggs?",
       "options": [
-        { "text": "subheadings that show what each part is about" },
-        { "text": "questions for you to answer", "why": "What do they eat? is a question, but here it is a heading for the part below it." },
-        { "text": "the names of turtles", "why": "They are not names." },
-        { "text": "captions under pictures", "why": "There are no pictures in this text." }
+        {
+          "text": "subheadings that show what each part is about"
+        },
+        {
+          "text": "questions for you to answer",
+          "why": "What do they eat? is a question, but here it is a heading for the part below it."
+        },
+        {
+          "text": "the names of turtles",
+          "why": "They are not names."
+        },
+        {
+          "text": "captions under pictures",
+          "why": "There are no pictures in this text."
+        }
       ],
       "answer": 0,
-      "hints": ["Look at where these words are in the text.", "Each one sits above a short part of the text.", "What do the words tell you about the part below them?"],
+      "hints": [
+        "Look at where these words are in the text.",
+        "Each one sits above a short part of the text.",
+        "What do the words tell you about the part below them?"
+      ],
       "explanation": "They are subheadings. Each one tells you what the next part of the text is about, so you can find information quickly.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.004", "skill": "e3.text-features", "type": "mcq", "difficulty": 2,
+      "id": "e3.text-features.004",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.kite-day",
       "prompt": "Which pair of words rhyme in the poem?",
       "options": [
-        { "text": "kite and string", "why": "Kite and string end with different sounds." },
-        { "text": "sky and hill", "why": "Sky and hill end with different sounds." },
-        { "text": "breeze and trees" },
-        { "text": "town and sun", "why": "Town rhymes with brown, not with sun." }
+        {
+          "text": "kite and string",
+          "why": "Kite and string end with different sounds."
+        },
+        {
+          "text": "sky and hill",
+          "why": "Sky and hill end with different sounds."
+        },
+        {
+          "text": "breeze and trees"
+        },
+        {
+          "text": "town and sun",
+          "why": "Town rhymes with brown, not with sun."
+        }
       ],
       "answer": 2,
-      "hints": ["Rhyming words end with the same sound.", "Look at the last word of each line.", "Say each pair aloud. Which pair sounds the same at the end?"],
+      "hints": [
+        "Rhyming words end with the same sound.",
+        "Look at the last word of each line.",
+        "Say each pair aloud. Which pair sounds the same at the end?"
+      ],
       "explanation": "Breeze and trees both end with the same sound, so they rhyme. In this poem, each pair of lines ends with rhyming words.",
-      "tags": ["reading", "iklc"], "expectedSeconds": 90
+      "tags": [
+        "reading",
+        "iklc"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.005", "skill": "e3.text-features", "type": "mcq", "difficulty": 3,
+      "id": "e3.text-features.005",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.kite-day",
       "prompt": "A small red bird against the sun. What is the poet describing in this line?",
       "options": [
-        { "text": "a real bird", "why": "A real mynah bird comes later. This line is about something red." },
-        { "text": "the sun going down", "why": "The sun is behind the thing being described." },
-        { "text": "a red roof", "why": "The roofs are far below." },
-        { "text": "the kite flying high" }
+        {
+          "text": "a real bird",
+          "why": "A real mynah bird comes later. This line is about something red."
+        },
+        {
+          "text": "the sun going down",
+          "why": "The sun is behind the thing being described."
+        },
+        {
+          "text": "a red roof",
+          "why": "The roofs are far below."
+        },
+        {
+          "text": "the kite flying high"
+        }
       ],
       "answer": 3,
-      "hints": ["What in the poem is red?", "Read the lines just before this one.", "What danced, dipped and swooped above the town?"],
+      "hints": [
+        "What in the poem is red?",
+        "Read the lines just before this one.",
+        "What danced, dipped and swooped above the town?"
+      ],
       "explanation": "The red kite is flying so high that it looks like a small red bird in the sky.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.006", "skill": "e3.text-features", "type": "mcq", "difficulty": 1,
+      "id": "e3.text-features.006",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 1,
       "passage": "e3.p.missing-library-book",
       "prompt": "In a playscript, what are the words in brackets for?",
       "options": [
-        { "text": "They are words the characters say quietly.", "why": "The characters do not say the words in brackets." },
-        { "text": "They are the title of the play.", "why": "The title is at the top." },
-        { "text": "They tell the actors what to do or how to speak." },
-        { "text": "They are questions for the reader.", "why": "They are not questions." }
+        {
+          "text": "They are words the characters say quietly.",
+          "why": "The characters do not say the words in brackets."
+        },
+        {
+          "text": "They are the title of the play.",
+          "why": "The title is at the top."
+        },
+        {
+          "text": "They tell the actors what to do or how to speak."
+        },
+        {
+          "text": "They are questions for the reader.",
+          "why": "They are not questions."
+        }
       ],
       "answer": 2,
-      "hints": ["Look at (worried) and (jumping up).", "Do the characters say these words out loud?", "Think about what an actor needs to know to play the part."],
+      "hints": [
+        "Look at (worried) and (jumping up).",
+        "Do the characters say these words out loud?",
+        "Think about what an actor needs to know to play the part."
+      ],
       "explanation": "Words in brackets are stage directions. They tell the actors what to do, or how to say their lines.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.text-features.007", "skill": "e3.text-features", "type": "mcq", "difficulty": 5,
+      "id": "e3.text-features.007",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 5,
       "passage": "e3.p.missing-library-book",
       "prompt": "The writer wants Mrs Lim to say It's all right, Amir in a soft voice. How should it be written in the playscript?",
       "options": [
-        { "text": "MRS LIM: (softly) It's all right, Amir." },
-        { "text": "“It's all right, Amir,” said Mrs Lim softly.", "why": "That is how a story shows speech. Playscripts do not use speech marks." },
-        { "text": "MRS LIM: It's all right, Amir, she said softly.", "why": "Playscripts do not use said. How to speak goes in brackets." },
-        { "text": "(MRS LIM) softly: It's all right, Amir.", "why": "The name goes first with a colon, then the stage direction in brackets." }
+        {
+          "text": "MRS LIM: (softly) It's all right, Amir."
+        },
+        {
+          "text": "“It's all right, Amir,” said Mrs Lim softly.",
+          "why": "That is how a story shows speech. Playscripts do not use speech marks."
+        },
+        {
+          "text": "MRS LIM: It's all right, Amir, she said softly.",
+          "why": "Playscripts do not use said. How to speak goes in brackets."
+        },
+        {
+          "text": "(MRS LIM) softly: It's all right, Amir.",
+          "why": "The name goes first with a colon, then the stage direction in brackets."
+        }
       ],
       "answer": 0,
-      "hints": ["Look at how the other lines in the play are written.", "Where does the speaker's name go? Where does the way of speaking go?", "Compare each answer with Amir's line that begins with (worried)."],
+      "hints": [
+        "Look at how the other lines in the play are written.",
+        "Where does the speaker's name go? Where does the way of speaking go?",
+        "Compare each answer with Amir's line that begins with (worried)."
+      ],
       "explanation": "In a playscript, the name comes first, then a colon. How to speak goes in brackets before the words, and there are no speech marks.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.008", "skill": "e3.text-features", "type": "mcq", "difficulty": 4,
+      "id": "e3.text-features.008",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
       "passage": "e3.p.letter-to-grandad",
       "prompt": "Which of these would NOT belong in Bima's letter?",
       "options": [
-        { "text": "a greeting, like Dear Grandad", "why": "Letters start with a greeting." },
-        { "text": "a subheading called Tea facts" },
-        { "text": "paragraphs about the trip", "why": "Bima uses paragraphs to organise his news." },
-        { "text": "a sign-off, like With lots of love", "why": "Letters end with a sign-off and a name." }
+        {
+          "text": "a greeting, like Dear Grandad",
+          "why": "Letters start with a greeting."
+        },
+        {
+          "text": "a subheading called Tea facts"
+        },
+        {
+          "text": "paragraphs about the trip",
+          "why": "Bima uses paragraphs to organise his news."
+        },
+        {
+          "text": "a sign-off, like With lots of love",
+          "why": "Letters end with a sign-off and a name."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about the features of a friendly letter.", "Which of these would you usually see in an information text?", "Look at Bima's letter. Which feature is not there?"],
+      "hints": [
+        "Think about the features of a friendly letter.",
+        "Which of these would you usually see in an information text?",
+        "Look at Bima's letter. Which feature is not there?"
+      ],
       "explanation": "A letter has an address, a date, a greeting, paragraphs and a sign-off. Subheadings belong in information texts.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.text-features.009", "skill": "e3.text-features", "type": "mcq", "difficulty": 3,
+      "id": "e3.text-features.009",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
       "passage": "e3.p.letter-to-grandad",
       "prompt": "Bima writes that the road twisted round and round like a snake. What does this tell you?",
       "options": [
-        { "text": "The road had lots of bends." },
-        { "text": "There were snakes on the road.", "why": "Bima is comparing the road to the shape of a snake." },
-        { "text": "The road was very short.", "why": "The bus ride took an hour." },
-        { "text": "The road was straight and flat.", "why": "Twisted round and round means it was not straight." }
+        {
+          "text": "The road had lots of bends."
+        },
+        {
+          "text": "There were snakes on the road.",
+          "why": "Bima is comparing the road to the shape of a snake."
+        },
+        {
+          "text": "The road was very short.",
+          "why": "The bus ride took an hour."
+        },
+        {
+          "text": "The road was straight and flat.",
+          "why": "Twisted round and round means it was not straight."
+        }
       ],
       "answer": 0,
-      "hints": ["Picture a snake moving on the ground.", "Is a snake's body straight or curvy?", "The word like shows that Bima is comparing two things."],
+      "hints": [
+        "Picture a snake moving on the ground.",
+        "Is a snake's body straight or curvy?",
+        "The word like shows that Bima is comparing two things."
+      ],
       "explanation": "A snake moves in curves, so the comparison shows that the road had lots of bends.",
-      "tags": ["reading", "iklc"], "expectedSeconds": 90
+      "tags": [
+        "reading",
+        "iklc"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.010", "skill": "e3.text-features", "type": "mcq", "difficulty": 1,
+      "id": "e3.text-features.010",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 1,
       "passage": "e3.p.paper-boat",
       "prompt": "Why are the steps in the instructions numbered?",
       "options": [
-        { "text": "to show how many pages there are", "why": "The numbers are next to the steps, not pages." },
-        { "text": "to show the order to do them in" },
-        { "text": "to make the text look longer", "why": "The numbers are there to help the reader." },
-        { "text": "to count the boats you will make", "why": "You make one boat." }
+        {
+          "text": "to show how many pages there are",
+          "why": "The numbers are next to the steps, not pages."
+        },
+        {
+          "text": "to show the order to do them in"
+        },
+        {
+          "text": "to make the text look longer",
+          "why": "The numbers are there to help the reader."
+        },
+        {
+          "text": "to count the boats you will make",
+          "why": "You make one boat."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about what happens if you do the steps in the wrong order.", "Number 1 comes first. What comes next?", "Why do recipes and instructions use numbers?"],
+      "hints": [
+        "Think about what happens if you do the steps in the wrong order.",
+        "Number 1 comes first. What comes next?",
+        "Why do recipes and instructions use numbers?"
+      ],
       "explanation": "The numbers show the order of the steps. You must fold in the right order, or the boat will not work.",
-      "tags": ["reading"], "expectedSeconds": 120
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 120
     },
     {
-      "id": "e3.text-features.011", "skill": "e3.text-features", "type": "mcq", "difficulty": 4,
+      "id": "e3.text-features.011",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
       "passage": "e3.p.paper-boat",
       "prompt": "Why does the writer put the Top tip after the steps?",
       "options": [
-        { "text": "It is the most important step.", "why": "The steps make the boat. The tip helps it last longer." },
-        { "text": "The writer forgot to put it first.", "why": "It is placed at the end on purpose." },
-        { "text": "It tells you what you need.", "why": "That is the You will need list at the top." },
-        { "text": "It is extra advice, and it is not one of the folding steps." }
+        {
+          "text": "It is the most important step.",
+          "why": "The steps make the boat. The tip helps it last longer."
+        },
+        {
+          "text": "The writer forgot to put it first.",
+          "why": "It is placed at the end on purpose."
+        },
+        {
+          "text": "It tells you what you need.",
+          "why": "That is the You will need list at the top."
+        },
+        {
+          "text": "It is extra advice, and it is not one of the folding steps."
+        }
       ],
       "answer": 3,
-      "hints": ["Read the Top tip again.", "Do you need it to fold the boat?", "When will you use the wax crayon?"],
+      "hints": [
+        "Read the Top tip again.",
+        "Do you need it to fold the boat?",
+        "When will you use the wax crayon?"
+      ],
       "explanation": "The tip is extra advice for after the boat is folded. It is not one of the folding steps, so it goes at the end.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
     },
     {
-      "id": "e3.text-features.012", "skill": "e3.text-features", "type": "mcq", "difficulty": 2,
+      "id": "e3.text-features.012",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
       "passage": "e3.p.bamboo",
       "prompt": "Why does the report end with Did you know?",
       "options": [
-        { "text": "to ask you to write an answer", "why": "It is a heading, and the answer is given below it." },
-        { "text": "to tell a story about pandas", "why": "It is one fact, not a story." },
-        { "text": "to give an extra fun fact" },
-        { "text": "to list what you need", "why": "That is how instructions start." }
+        {
+          "text": "to ask you to write an answer",
+          "why": "It is a heading, and the answer is given below it."
+        },
+        {
+          "text": "to tell a story about pandas",
+          "why": "It is one fact, not a story."
+        },
+        {
+          "text": "to give an extra fun fact"
+        },
+        {
+          "text": "to list what you need",
+          "why": "That is how instructions start."
+        }
       ],
       "answer": 2,
-      "hints": ["Read the last part of the report.", "Is the panda fact about bamboo in Indonesia?", "Why might a writer add something surprising at the end?"],
+      "hints": [
+        "Read the last part of the report.",
+        "Is the panda fact about bamboo in Indonesia?",
+        "Why might a writer add something surprising at the end?"
+      ],
       "explanation": "Did you know? introduces an extra fun fact. Reports often use a box like this to add something interesting.",
-      "tags": ["reading"], "expectedSeconds": 90
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e3.text-features.013",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where do you look to find the meaning of a hard word in a book?",
+      "hints": [
+        "A glossary is like a mini dictionary.",
+        "It is usually at the back.",
+        "It explains words from the book."
+      ],
+      "explanation": "The glossary explains hard words.",
+      "options": [
+        {
+          "text": "the glossary"
+        },
+        {
+          "text": "the index",
+          "why": "The index lists topics and pages."
+        },
+        {
+          "text": "the contents page",
+          "why": "The contents page lists chapters."
+        },
+        {
+          "text": "the title page",
+          "why": "The title page shows the title."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.text-features.014",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What does a contents page show?",
+      "hints": [
+        "It is near the front of a book.",
+        "It lists parts in order.",
+        "The numbers are page numbers."
+      ],
+      "explanation": "A contents page lists chapters and page numbers.",
+      "options": [
+        {
+          "text": "the meanings of words",
+          "why": "That is the glossary."
+        },
+        {
+          "text": "the chapters and where they start"
+        },
+        {
+          "text": "the writer's family",
+          "why": "It is not about the writer."
+        },
+        {
+          "text": "only pictures",
+          "why": "It lists chapters."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.text-features.015",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which feature helps you find a topic at the back of a book?",
+      "hints": [
+        "It is in alphabetical order.",
+        "It lists topics and page numbers.",
+        "It is at the back."
+      ],
+      "explanation": "The index lists topics and pages.",
+      "options": [
+        {
+          "text": "the title",
+          "why": "The title is on the cover."
+        },
+        {
+          "text": "a heading",
+          "why": "A heading is in the text."
+        },
+        {
+          "text": "a caption",
+          "why": "A caption is by a picture."
+        },
+        {
+          "text": "the index"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.text-features.016",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What does a caption do?",
+      "hints": [
+        "A caption is next to a photo or drawing.",
+        "It is short.",
+        "It tells you what you are looking at."
+      ],
+      "explanation": "A caption explains a picture.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "It explains a picture."
+        },
+        {
+          "text": "It lists the chapters.",
+          "why": "That is the contents page."
+        },
+        {
+          "text": "It gives the meaning of a word.",
+          "why": "That is the glossary."
+        },
+        {
+          "text": "It shows the writer's name.",
+          "why": "That is the title page."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.text-features.017",
+      "skill": "e3.text-features",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each feature to its job.",
+      "hints": [
+        "Think about where you see each one.",
+        "A caption goes with a picture.",
+        "An index helps you find pages."
+      ],
+      "explanation": "Each feature helps the reader.",
+      "pairs": [
+        [
+          "heading",
+          "tells the topic of a part"
+        ],
+        [
+          "caption",
+          "explains a picture"
+        ],
+        [
+          "glossary",
+          "explains hard words"
+        ],
+        [
+          "index",
+          "lists topics by page"
+        ]
+      ]
+    },
+    {
+      "id": "e3.text-features.018",
+      "skill": "e3.text-features",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the parts of a book.",
+      "hints": [
+        "Think about where each part is.",
+        "You see the title first.",
+        "Lists of words come at the end."
+      ],
+      "explanation": "Cover, title page and contents are at the front. Index and glossary are at the back.",
+      "groups": [
+        "Front of a book",
+        "Back of a book"
+      ],
+      "items": [
+        {
+          "text": "title page",
+          "group": 0
+        },
+        {
+          "text": "contents",
+          "group": 0
+        },
+        {
+          "text": "index",
+          "group": 1
+        },
+        {
+          "text": "glossary",
+          "group": 1
+        },
+        {
+          "text": "cover",
+          "group": 0
+        }
+      ]
+    },
+    {
+      "id": "e3.text-features.019",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Some words in a text are in bold print. Why?",
+      "hints": [
+        "Bold words are thicker.",
+        "The writer wants you to notice them.",
+        "They are often in the glossary."
+      ],
+      "explanation": "Bold words are important or new words.",
+      "options": [
+        {
+          "text": "They are spelt wrong.",
+          "why": "Bold does not show a spelling mistake."
+        },
+        {
+          "text": "They are important words."
+        },
+        {
+          "text": "They are at the end.",
+          "why": "Bold is about the look of the word."
+        },
+        {
+          "text": "They are names.",
+          "why": "Bold is not only for names."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.text-features.020",
+      "skill": "e3.text-features",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put the parts of an information book in order from the front.",
+      "hints": [
+        "Start with the title.",
+        "The contents tell you what is inside.",
+        "The index is at the back."
+      ],
+      "explanation": "Title page, contents, chapters, index.",
+      "tags": [
+        "iklc"
+      ],
+      "items": [
+        "Title page",
+        "Contents",
+        "Chapters",
+        "Index"
+      ]
+    },
+    {
+      "id": "e3.text-features.021",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A diagram has labels. What do the labels do?",
+      "hints": [
+        "Labels are short words with lines.",
+        "They point to parts of a picture.",
+        "They tell you what each part is."
+      ],
+      "explanation": "Labels name the parts of a diagram.",
+      "options": [
+        {
+          "text": "tell a story",
+          "why": "Labels do not tell a story."
+        },
+        {
+          "text": "name the parts of the picture"
+        },
+        {
+          "text": "list the chapters",
+          "why": "That is the contents page."
+        },
+        {
+          "text": "show the writer",
+          "why": "Labels do not show the writer."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.text-features.022",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which feature would help you find volcano fastest in a long book?",
+      "hints": [
+        "You need the page number.",
+        "The list is in alphabetical order.",
+        "It is at the back."
+      ],
+      "explanation": "The index lists topics in alphabetical order with page numbers.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "the cover",
+          "why": "The cover only shows the title."
+        },
+        {
+          "text": "a caption",
+          "why": "A caption explains one picture."
+        },
+        {
+          "text": "a title page",
+          "why": "The title page is only one page."
+        },
+        {
+          "text": "the index"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.text-features.023",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What kind of text is this?",
+      "passage": "e3.p.camping-diary",
+      "hints": [
+        "Look at the days and times.",
+        "The writer says I.",
+        "It tells what happened each day."
+      ],
+      "explanation": "It is a diary because it has dates and personal feelings.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "a recipe",
+          "why": "It does not list steps for food."
+        },
+        {
+          "text": "a diary"
+        },
+        {
+          "text": "a poem",
+          "why": "It does not rhyme."
+        },
+        {
+          "text": "a news report",
+          "why": "It is not about news."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e3.text-features.024",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which box was the heaviest?",
+      "passage": "e3.p.recycling-week",
+      "hints": [
+        "Read the part called What we found.",
+        "Compare the weights.",
+        "Six is the biggest number."
+      ],
+      "explanation": "Paper weighed 6 kilograms, which is the most.",
+      "options": [
+        {
+          "text": "the plastic box",
+          "why": "Plastic was 2 kilograms."
+        },
+        {
+          "text": "the food box",
+          "why": "Food waste was 4 kilograms."
+        },
+        {
+          "text": "They were all the same.",
+          "why": "The weights were different."
+        },
+        {
+          "text": "the paper box"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.text-features.025",
+      "skill": "e3.text-features",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "What was the total weight of all three boxes? Write the number of kilograms.",
+      "passage": "e3.p.recycling-week",
+      "hints": [
+        "Find the three weights.",
+        "Add them together.",
+        "Six plus two plus four."
+      ],
+      "explanation": "6 + 2 + 4 = 12 kilograms.",
+      "blanks": [
+        {
+          "answers": [
+            "12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3.text-features.026",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What will the class do with the food waste?",
+      "passage": "e3.p.recycling-week",
+      "hints": [
+        "Read the part called What we will do next.",
+        "Find the words food waste.",
+        "It goes in the school garden."
+      ],
+      "explanation": "The food waste will go in a compost bin in the school garden.",
+      "options": [
+        {
+          "text": "put it in a compost bin"
+        },
+        {
+          "text": "throw it away",
+          "why": "They plan to recycle it."
+        },
+        {
+          "text": "take it to the market",
+          "why": "The plastic goes to the recycling bank."
+        },
+        {
+          "text": "feed it to the fish",
+          "why": "The text does not say that."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.text-features.027",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which heading tells what the class will do in the future?",
+      "passage": "e3.p.recycling-week",
+      "hints": [
+        "The future uses the word will.",
+        "Look at the headings.",
+        "One heading has will."
+      ],
+      "explanation": "What we will do next tells future plans.",
+      "options": [
+        {
+          "text": "What we did",
+          "why": "This tells what they did before."
+        },
+        {
+          "text": "What we found",
+          "why": "This tells the results."
+        },
+        {
+          "text": "Conclusion",
+          "why": "This sums up the report."
+        },
+        {
+          "text": "What we will do next"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e3.text-features.028",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "What is the main idea of the report?",
+      "passage": "e3.p.recycling-week",
+      "hints": [
+        "Think about the conclusion.",
+        "It says small changes make a big difference.",
+        "The class wants less rubbish."
+      ],
+      "explanation": "The report shows how recycling can reduce rubbish.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Recycling at school can reduce rubbish."
+        },
+        {
+          "text": "Paper is the heaviest rubbish.",
+          "why": "This is only one result."
+        },
+        {
+          "text": "Class 3B likes the market.",
+          "why": "The text does not say that."
+        },
+        {
+          "text": "Plastic is bad.",
+          "why": "The text does not say that."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

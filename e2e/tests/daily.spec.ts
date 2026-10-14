@@ -91,7 +91,9 @@ test('Test terbuka setelah Practice mapel itu selesai dan berhitung mundur dari 
   await waitForPath(page, (p) => p.startsWith('/quest/'))
   await expect(page.getByText('Timed test')).toBeVisible()
   await expect(page.getByText('10 minutes on the clock')).toBeVisible()
-  await page.getByRole('link', { name: 'Start' }).click()
+  // Sesi berwaktu: tombol Start memulai hitung mundur 3, 2, 1, Go dulu; jam sesi baru berjalan setelah Go.
+  await page.getByRole('button', { name: 'Start' }).click()
+  await expect(page.getByRole('status', { name: '3' })).toBeVisible()
   await waitForPath(page, (p) => p === `/run/${q('math', 'tes').attempt_id}`)
   const timer = page.getByRole('timer')
   await expect(timer).toContainText(/10:00|9:5\d/)
@@ -167,4 +169,39 @@ test('Hari ringan: tiga Practice saja yang wajib', async ({ page }) => {
   const [dr] = await db()`select quests_required from day_record where learner_id = ${lid} and date = ${today}`
   expect(dr!.quests_required).toBe(3)
   await db()`update plan_week set day_templates = '{}'::jsonb where id = ${week}`
+})
+
+test('Peti hadiah harian: terkunci, terbuka sekali setelah semua sesi wajib selesai, dan tidak ada tombol kedua', async ({ page }) => {
+  const errors = watchErrors(page)
+  // Animasi naik (kira-rise) membuat axe menghitung kontras di tengah fade; gerak dikurangi supaya hasilnya stabil.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  const { lid, today } = await resetToday()
+  await db()`delete from daily_chest where learner_id = ${lid}`
+  await registerTablet(page, ['Aisha'])
+  await pinLogin(page, 'Aisha')
+
+  // Terkunci: tidak ada tombol, hanya keterangan sisa sesi.
+  await expect(page.getByRole('heading', { name: 'Daily chest' })).toBeVisible()
+  await expect(page.getByText(/more sessions? to open your chest/)).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Open your chest' })).toHaveCount(0)
+
+  // Semua sesi wajib selesai: peti siap.
+  await db()`update quest set status = 'done', completed_at = now() where learner_id = ${lid} and date = ${today} and kind = 'daily'`
+  await page.goto('/today')
+  await expectNoSeriousA11y(page, 'Today peti siap')
+  await page.getByRole('button', { name: 'Open your chest' }).click()
+  await expect(page.getByText(/You earned a new/)).toBeVisible()
+  const rows = await db()`select reward_kind, reward_id from daily_chest where learner_id = ${lid} and date = ${today}`
+  expect(rows).toHaveLength(1)
+
+  // Muat ulang: peti tetap terbuka dan tidak bisa dibuka lagi.
+  await page.reload()
+  await expect(page.getByText(/You earned a new/)).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Open your chest' })).toHaveCount(0)
+  await expectNoSeriousA11y(page, 'Today peti terbuka')
+  expect(errors.filter((e) => !e.includes('favicon'))).toEqual([])
+  await db()`delete from daily_chest where learner_id = ${lid}`
+  // Kembalikan Today: sesi wajib yang selesai dan catatan harinya membuat pemilih learner berubah untuk tes berikutnya.
+  await db()`delete from day_record where learner_id = ${lid} and date = ${today}`
+  await resetToday()
 })

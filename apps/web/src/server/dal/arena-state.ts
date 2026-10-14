@@ -7,8 +7,10 @@ import {
   SOROBAN_MAX_LEVEL,
   STRATEGY_IDS,
   initialQmLevels,
+  normaliseRolled,
   isIsoDate,
   trackXpFromRows,
+  type ArenaRolled,
   type IsoDate,
   type QmLevels,
   type QmOp,
@@ -96,6 +98,12 @@ async function readState(tx: Tx, learnerId: string, arena: ArenaKind, lock: bool
   const q = tx.select({ data: arenaState.data }).from(arenaState).where(and(eq(arenaState.learnerId, learnerId), eq(arenaState.arena, arena))).limit(1)
   const rows = lock ? await q.for('update') : await q
   return rows[0]?.data ?? {}
+}
+
+/** Ringkasan ronde lama (di luar retensi 90 hari) untuk rekor dan lencana. */
+export async function loadRolled(tx: Tx, learnerId: string, arena: ArenaKind): Promise<ArenaRolled> {
+  const rows = await tx.select({ rolled: arenaState.rolled }).from(arenaState).where(and(eq(arenaState.learnerId, learnerId), eq(arenaState.arena, arena))).limit(1)
+  return normaliseRolled(rows[0]?.rolled)
 }
 
 export async function loadQmState(tx: Tx, learnerId: string, grade: number, lock = false): Promise<QmState> {

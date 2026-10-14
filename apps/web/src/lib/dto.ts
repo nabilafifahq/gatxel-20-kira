@@ -33,7 +33,9 @@ export type LearnerShell = {
   name: string
   avatar: AvatarName
   /** Aksesori avatar yang dipakai (didapat dari level jalur XP). */
-  accessory?: AccessoryId | null
+  accessory?: string | null
+  /** Latar avatar dari peti hadiah harian. */
+  background?: string | null
   grade: number
   jenjang: Jenjang
   /** Tampilkan tombol Review di navigasi bila Buku Koreksi aktif (Fase 2). */
@@ -120,6 +122,8 @@ export type TodayDTO = {
   screenLimitMin: number
   /** Tiga bar XP (Belajar, Quick Maths, Quiz); diisi halaman Today. */
   tracks?: XpTrackDTO[]
+  /** Peti hadiah harian (gerak). Kosong pada hari istirahat. */
+  chest?: import('./dto-motion').ChestDTO | null
 }
 
 // L03 Pembuka quest
@@ -338,6 +342,8 @@ export type MeDTO = {
   /** Tiga bar XP dengan level per jalur. */
   tracks?: XpTrackDTO[]
   accessories?: AccessoryDTO[]
+  /** Koleksi dari peti hadiah harian. */
+  collection?: import('./dto-motion').CollectionDTO
   monthLabel: string
   calendar: { date: string; day: number; status: DayStatus; inMonth: boolean }[]
   streakLine: string
@@ -346,6 +352,7 @@ export type MeDTO = {
 export type MeActions = {
   changeAvatar(avatar: AvatarName): Promise<ActionResult>
   changeAccessory?(accessory: AccessoryId | null): Promise<ActionResult>
+  equipChest?(input: { kind: 'accessory' | 'background'; id: string | null }): Promise<ActionResult>
 }
 
 // L11 Buku Koreksi
@@ -704,7 +711,7 @@ export type SettingsDTO = {
   shell: ConsoleShell
   account: { name: string; email: string; passkeys: { id: string; name: string; createdAt: string; lastUsedAt: string | null }[] }
   devices: { id: string; name: string; learners: string[]; createdAt: string; lastSeenAt: string | null; expiresAt: string }[]
-  learners: { id: string; name: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean }[]
+  learners: { id: string; name: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean; soundEnabled?: boolean; musicEnabled?: boolean }[]
   members: { id: string; name: string; email: string; role: 'tutor' | 'guardian'; learners: string[] }[]
   invites: { id: string; email: string; role: 'tutor' | 'guardian'; expiresAt: string }[]
   email: { configured: boolean; from: string | null }
@@ -714,6 +721,8 @@ export type SettingsDTO = {
 }
 export type SettingsActions = {
   updateLearnerLimits(input: { learnerId: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean }): Promise<ActionResult>
+  /** Suara dan musik di perangkat anak; bila mati, pilihan perangkat tidak berlaku. */
+  updateLearnerSound?(input: { learnerId: string; soundEnabled: boolean; musicEnabled: boolean }): Promise<ActionResult>
   revokeDevice(deviceId: string): Promise<ActionResult>
   renameDevice(input: { deviceId: string; name: string }): Promise<ActionResult>
   registerThisDevice(input: { name: string; learnerIds: string[] }): Promise<ActionResult>
@@ -831,6 +840,18 @@ export type WeekSummaryDTO = {
   skillsToRepeat: { subject: Subject; title: string; note: string }[]
   tutorNote: string | null
   nextCompetition: { name: string; date: string } | null
+  /** Ringkasan arena minggu ini; kosong bila belum ada ronde dan belum ada topik dicoba. */
+  arena?: ArenaWeekDTO | null
+}
+export type ArenaWeekDTO = {
+  qmRounds: number
+  /** Soal per menit terbaik minggu ini dari sprint yang akurat, atau null. */
+  qmBestPpm: number | null
+  quizRounds: number
+  topicsTried: number
+  topicsTotal: number
+  factsKnown: number
+  factsTotal: number
 }
 export type FamilyHomeDTO = {
   shell: ConsoleShell

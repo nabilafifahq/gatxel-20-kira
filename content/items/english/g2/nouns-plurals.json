@@ -618,6 +618,531 @@
           "answer": 2
         }
       ]
+    },
+    {
+      "id": "e2.nouns-plurals.020",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a naming word?",
+      "hints": [
+        "A noun is a person, animal, place or thing.",
+        "You can see it.",
+        "You eat at it."
+      ],
+      "explanation": "Table is a noun.",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "soft",
+          "why": "Soft is a describing word."
+        },
+        {
+          "text": "table"
+        },
+        {
+          "text": "quickly",
+          "why": "Quickly tells how."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.nouns-plurals.021",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the plural of box?",
+      "hints": [
+        "More than one box.",
+        "After x we add es.",
+        "Say the word slowly."
+      ],
+      "explanation": "Words that end in x add es, so box becomes boxes.",
+      "options": [
+        {
+          "text": "boxs",
+          "why": "Words ending in x add es."
+        },
+        {
+          "text": "boxes"
+        },
+        {
+          "text": "boxies",
+          "why": "Boxies is not a word."
+        },
+        {
+          "text": "boxen",
+          "why": "Boxen is not a word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.022",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the plural of baby?",
+      "hints": [
+        "The word ends in a consonant and y.",
+        "Change the y to i.",
+        "Then add es."
+      ],
+      "explanation": "Baby becomes babies. We change y to ies.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "babys",
+          "why": "Change the y to i first."
+        },
+        {
+          "text": "babyes",
+          "why": "Change the y before adding es."
+        },
+        {
+          "text": "babyies",
+          "why": "Do not keep the y."
+        },
+        {
+          "text": "babies"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.nouns-plurals.023",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the plural of child?",
+      "hints": [
+        "This word does not just add s.",
+        "It changes inside.",
+        "Think of a class full of them."
+      ],
+      "explanation": "Child becomes children.",
+      "options": [
+        {
+          "text": "childs",
+          "why": "Child is an irregular word."
+        },
+        {
+          "text": "children"
+        },
+        {
+          "text": "childes",
+          "why": "Child does not add es."
+        },
+        {
+          "text": "childen",
+          "why": "The letter r is missing."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.024",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is the name of a place?",
+      "hints": [
+        "A place is where you can go.",
+        "Think of an island.",
+        "It starts with a capital letter."
+      ],
+      "explanation": "Bali is the name of a place.",
+      "options": [
+        {
+          "text": "Rina",
+          "why": "Rina is the name of a person."
+        },
+        {
+          "text": "dog",
+          "why": "A dog is an animal."
+        },
+        {
+          "text": "blue",
+          "why": "Blue is a colour."
+        },
+        {
+          "text": "Bali"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.nouns-plurals.025",
+      "skill": "e2.nouns-plurals",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the nouns.",
+      "hints": [
+        "Think about what each noun is.",
+        "A person can talk to you.",
+        "A place is where you go."
+      ],
+      "explanation": "Teacher and farmer are people, goat and rabbit are animals, market and school are places.",
+      "groups": [
+        "Person",
+        "Animal",
+        "Place"
+      ],
+      "items": [
+        {
+          "text": "teacher",
+          "group": 0
+        },
+        {
+          "text": "goat",
+          "group": 1
+        },
+        {
+          "text": "market",
+          "group": 2
+        },
+        {
+          "text": "farmer",
+          "group": 0
+        },
+        {
+          "text": "rabbit",
+          "group": 1
+        },
+        {
+          "text": "school",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.026",
+      "skill": "e2.nouns-plurals",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort the plurals by how they are made.",
+      "hints": [
+        "Look at the ending of each plural.",
+        "Think of the word it came from.",
+        "Puppies came from puppy."
+      ],
+      "explanation": "Cars and bags add s, dishes and buses add es, cities and puppies change y to ies.",
+      "groups": [
+        "Add s",
+        "Add es",
+        "Change y to ies"
+      ],
+      "items": [
+        {
+          "text": "cars",
+          "group": 0
+        },
+        {
+          "text": "dishes",
+          "group": 1
+        },
+        {
+          "text": "cities",
+          "group": 2
+        },
+        {
+          "text": "bags",
+          "group": 0
+        },
+        {
+          "text": "buses",
+          "group": 1
+        },
+        {
+          "text": "puppies",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.027",
+      "skill": "e2.nouns-plurals",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to its plural.",
+      "hints": [
+        "These plurals change inside.",
+        "Say each word aloud.",
+        "Foot becomes feet."
+      ],
+      "explanation": "Each plural is a special one.",
+      "pairs": [
+        [
+          "mouse",
+          "mice"
+        ],
+        [
+          "foot",
+          "feet"
+        ],
+        [
+          "man",
+          "men"
+        ],
+        [
+          "goose",
+          "geese"
+        ]
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.028",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the plural. One leaf, two ___.",
+      "hints": [
+        "Change the f to v.",
+        "Then add es.",
+        "Say the word slowly."
+      ],
+      "explanation": "Leaf becomes leaves.",
+      "blanks": [
+        {
+          "answers": [
+            "leaves"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.029",
+      "skill": "e2.nouns-plurals",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write the plural. One sheep, two ___.",
+      "hints": [
+        "Say it aloud.",
+        "This word does not change.",
+        "It looks the same."
+      ],
+      "explanation": "Sheep stays the same in the plural.",
+      "blanks": [
+        {
+          "answers": [
+            "sheep"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.030",
+      "skill": "e2.nouns-plurals",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "There are three ___ in the garden.",
+      "hints": [
+        "There is more than one.",
+        "The word butterfly ends in y.",
+        "Change y to ies."
+      ],
+      "explanation": "Butterflies is the plural of butterfly.",
+      "gaps": [
+        {
+          "options": [
+            "butterflies",
+            "butterflys",
+            "butterfly"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.031",
+      "skill": "e2.nouns-plurals",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words that stay the same in the plural.",
+      "hints": [
+        "Say the plural of each word.",
+        "Two words do not change.",
+        "Think of animals."
+      ],
+      "explanation": "Sheep and deer stay the same.",
+      "options": [
+        {
+          "text": "deer"
+        },
+        {
+          "text": "box",
+          "why": "Boxes add es."
+        },
+        {
+          "text": "dog",
+          "why": "Dogs add s."
+        },
+        {
+          "text": "sheep"
+        },
+        {
+          "text": "man",
+          "why": "Man changes to men."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.032",
+      "skill": "e2.nouns-plurals",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Think about the plural of woman.",
+        "There is no extra s.",
+        "Look at the vowel in the middle of woman."
+      ],
+      "explanation": "Women is the plural of woman.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The two womans went to market.",
+          "why": "Woman changes to women."
+        },
+        {
+          "text": "The two women went to market."
+        },
+        {
+          "text": "The two womens went to market.",
+          "why": "Women is already plural."
+        },
+        {
+          "text": "The two woman went to market.",
+          "why": "There are two, so we need the plural."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.nouns-plurals.033",
+      "skill": "e2.nouns-plurals",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the places.",
+      "hints": [
+        "Say the name of each place.",
+        "School is where you learn.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a school, a park and a shop.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "school",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "park",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "shop",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A school, a park and a shop."
+      },
+      "labels": [
+        "school",
+        "park",
+        "shop"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "farm"
+      ]
+    },
+    {
+      "id": "e2.nouns-plurals.034",
+      "skill": "e2.nouns-plurals",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "hints": [
+        "Look at the filled row.",
+        "Fox ends in x.",
+        "Mouse changes inside."
+      ],
+      "explanation": "Fox becomes foxes and mouse becomes mice.",
+      "head": [
+        "One",
+        "Many"
+      ],
+      "rows": [
+        [
+          "fox",
+          ""
+        ],
+        [
+          "child",
+          "children"
+        ],
+        [
+          "mouse",
+          ""
+        ]
+      ],
+      "caption": "One and many",
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "foxes"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "mice"
+          ]
+        }
+      ]
     }
   ]
 }

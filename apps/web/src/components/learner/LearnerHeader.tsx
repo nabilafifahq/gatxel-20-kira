@@ -158,7 +158,9 @@ export function LearnerHeader({
   return (
     <header className={cx('flex flex-wrap items-center justify-between gap-x-6 gap-y-4', className)}>
       <div className="flex min-w-0 items-center gap-3 md:gap-4">
-        <Avatar name={shell.avatar} accessory={shell.accessory ?? null} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
+        <span className="kira-mascot flex-none">
+          <Avatar name={shell.avatar} accessory={shell.accessory ?? null} background={shell.background ?? null} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
+        </span>
         <div className="flex min-w-0 flex-col">
           <h1 className="m-0 text-h1 font-bold break-words">{title ?? `Hi, ${shell.name}`}</h1>
           {subline ? <p className="m-0 text-body-lg text-fg-muted">{subline}</p> : null}

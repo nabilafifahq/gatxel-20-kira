@@ -29,6 +29,8 @@ export type Candidate = {
   difficulty: number
   /** Skill sudah pasti (misalnya Bebras ke skill olimpiade), melewati pemetaan kata kunci. */
   skillHint?: string
+  /** Tambahan untuk kunci dedupe bila teks soal saja tidak membedakan (misalnya soal dengan prompt sama dan opsi berbeda). */
+  dedupeKey?: string
 }
 
 /** Hasil satu pembacaan sumber: baris mentah sejajar urutan sumber (null = disaring), dan jumlah baris mentah. */

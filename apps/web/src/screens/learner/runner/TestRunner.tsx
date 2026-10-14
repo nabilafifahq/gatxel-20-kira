@@ -11,6 +11,7 @@ import { joinAnd } from '@/components/learner/format'
 import { useMediaQuery, useOnline, useTicker } from '@/components/learner/hooks'
 import { OfflineBanner } from '@/components/learner/OfflineBanner'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
+import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
@@ -298,7 +299,8 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             answer={{ value: cur.value, onChange: setValue, disabled: locked }}
           />
         </section>
-        <section aria-label="Answers" className="flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
+        <section aria-label="Answers" className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
+          <RunnerCorner shell={data.shell} phase="answer" timed streak={0} xp={0} nonce={item.ref} />
           <div className="m-auto flex w-full flex-col gap-3.5">
             <WidgetDensityContext.Provider value="exam">
               <Widget item={item} value={cur.value} onChange={setValue} disabled={locked} feedback={null} subject={subject} onUpload={upload} />

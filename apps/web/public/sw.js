@@ -9,17 +9,29 @@
  * - Ganti learner (/bye) atau kembali ke pilihan learner menghapus simpanan halaman.
  * - Klip suara bahasa Inggris (/tts/<sha256>.mp3): cache dulu. Klip untuk sesi hari ini disimpan di muka
  *   (pesan precache-audio dari TtsRuntime) supaya suara tetap ada saat internet rumah putus.
+ * - Gambar media organisasi (/api/media/<id>, misalnya gambar soal paper): server melarang disimpan (no-store), jadi
+ *   hanya yang dirujuk halaman learner yang di-precache yang disimpan, di simpanan pribadi sendiri. Jaringan tetap
+ *   dipakai lebih dulu (akses yang dicabut tidak bertahan); simpanan hanya dipakai saat internet putus. Simpanan
+ *   ini dihapus bersama simpanan halaman saat learner berganti.
  */
 const VERSION = 'kira-v1'
 const STATIC_CACHE = `${VERSION}-static`
 const PAGE_CACHE = `${VERSION}-pages`
 const AUDIO_CACHE = `${VERSION}-audio`
+const MEDIA_CACHE = `${VERSION}-media`
 const OFFLINE_URL = '/offline.html'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
-// Efek suara learner (sekitar 45 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
-const SOUNDS = ['correct', 'notyet', 'combo', 'levelup', 'badge', 'complete', 'tick', 'timeup', 'tap'].map((n) => `/sounds/${n}.mp3`)
+// Efek suara learner (varian per kejadian, sekitar 200 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
+// Musik latar (music-1 sampai 3) tidak dipasang di muka; disimpan saat pertama kali diputar.
+const SOUND_VARIANTS = {
+  correct: 3, notyet: 3, tap: 4, combo1: 2, combo2: 2, combo3: 2, levelup: 3, badge: 3, chest: 3, complete: 3, big: 3,
+  tick: 2, timeup: 3, count: 2, go: 2, whoosh: 3, flag: 2, quiz: 2,
+}
+const SOUNDS = Object.entries(SOUND_VARIANTS).flatMap(([n, k]) => Array.from({ length: k }, (_, i) => `/sounds/${n}-${i + 1}.mp3`))
 const MAX_AUDIO = 900
+const MAX_MEDIA = 120
+const MEDIA = /^\/api\/media\/[0-9a-f-]{36}$/
 const CLIP = /^\/tts\/[0-9a-f]{64}\.mp3$/
 
 const LEARNER_PAGES = [
@@ -130,6 +142,47 @@ async function precacheAudio(urls) {
   await trim(AUDIO_CACHE, MAX_AUDIO)
 }
 
+/** Gambar media: jaringan lebih dulu; simpanan (bila ada) dipakai hanya saat jaringan putus atau server tidak terjangkau. */
+async function mediaNetworkFirst(request) {
+  const cache = await caches.open(MEDIA_CACHE)
+  const key = request.url
+  try {
+    const res = await fetch(request)
+    if (isUnreachable(res.status)) return (await cache.match(key)) || res
+    if (res.ok && res.type === 'basic') {
+      // Hanya perbarui yang memang sudah disimpan oleh precache halaman.
+      if (await cache.match(key)) await cache.put(key, res.clone())
+    } else if (res.status === 401 || res.status === 403 || res.status === 404) {
+      await cache.delete(key)
+    }
+    return res
+  } catch {
+    return (await cache.match(key)) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
+  }
+}
+
+/** Simpan gambar media yang dirujuk halaman learner yang di-precache, supaya gambar soal paper tampil saat offline. */
+async function cacheMediaOf(html) {
+  const cache = await caches.open(MEDIA_CACHE)
+  const found = new Set(html.match(/\/api\/media\/[0-9a-f-]{36}/g) || [])
+  for (const path of [...found].slice(0, 40)) {
+    const href = new URL(path, self.location.origin).href
+    if (await cache.match(href)) continue
+    try {
+      const res = await fetch(href, { credentials: 'same-origin' })
+      if (res.ok && res.type === 'basic') await cache.put(href, res)
+    } catch {
+      // gambar berikutnya
+    }
+  }
+  await trim(MEDIA_CACHE, MAX_MEDIA)
+}
+
+async function clearLearnerCaches() {
+  await caches.delete(PAGE_CACHE)
+  await caches.delete(MEDIA_CACHE)
+}
+
 async function offlineFallback() {
   return (await caches.match(OFFLINE_URL)) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
 }
@@ -192,6 +245,7 @@ async function precache(urls) {
       const html = await res.clone().text()
       await cache.put(url.href, res)
       await cacheAssetsOf(html)
+      await cacheMediaOf(html)
     } catch {
       // offline atau server sibuk: coba lagi saat Today dibuka berikutnya
     }
@@ -208,7 +262,7 @@ self.addEventListener('message', (event) => {
   if (data.type === 'precache-audio' && Array.isArray(data.urls)) {
     event.waitUntil(precacheAudio(data.urls.filter((u) => typeof u === 'string')))
   }
-  if (data.type === 'clear-pages') event.waitUntil(caches.delete(PAGE_CACHE))
+  if (data.type === 'clear-pages') event.waitUntil(clearLearnerCaches())
 })
 
 self.addEventListener('fetch', (event) => {
@@ -216,6 +270,10 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
   const url = new URL(request.url)
   if (url.origin !== self.location.origin) return
+  if (MEDIA.test(url.pathname)) {
+    event.respondWith(mediaNetworkFirst(request))
+    return
+  }
   if (url.pathname.startsWith('/api/')) return
   if (CLIP.test(url.pathname)) {
     event.respondWith(audioCacheFirst(request))
@@ -230,7 +288,7 @@ self.addEventListener('fetch', (event) => {
 
   // Pergantian learner: halaman anak sebelumnya tidak boleh tersisa di tablet.
   if (url.pathname === '/bye' || url.pathname === '/' || url.pathname.startsWith('/pin/')) {
-    event.waitUntil(caches.delete(PAGE_CACHE))
+    event.waitUntil(clearLearnerCaches())
     event.respondWith(fetchOrOffline(request))
     return
   }

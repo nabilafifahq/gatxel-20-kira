@@ -30,6 +30,9 @@ import {
   scoreQmRound,
   strategyById,
   summariseQm,
+  mergeQmRecords,
+  EMPTY_ROLLED,
+  type ArenaRolled,
   trackLevels,
   updateLevelsAccumulated,
   type IsoDate,
@@ -52,7 +55,7 @@ import type {
 import type { OrgContext, Tx } from '../db'
 import { AppError, conflict, invalid } from '../errors'
 import { trackDTOs } from './arena-tracks'
-import { finishedRoundsOn, loadQmState, saveArenaState, trackTotals, type QmState } from './arena-state'
+import { finishedRoundsOn, loadQmState, loadRolled, saveArenaState, trackTotals, type QmState } from './arena-state'
 import { assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, xpNote, type SessionRow } from './arena-session'
 import { awardBadges, learnerShell, loadLearner } from './learner-core'
 import { completeLinkedSession } from './learner-session'
@@ -417,8 +420,8 @@ export async function qmStatRows(tx: Tx, learnerId: string, limit = 300): Promis
   }))
 }
 
-export function qmStatsDTO(rows: QmStatRow[], today: IsoDate): QmStatsDTO {
-  const s = summariseQm(rows, today)
+export function qmStatsDTO(rows: QmStatRow[], today: IsoDate, rolled: ArenaRolled = EMPTY_ROLLED): QmStatsDTO {
+  const s = mergeQmRecords(summariseQm(rows, today), rolled)
   return {
     rounds: s.rounds,
     accuracy: s.accuracy,
@@ -459,7 +462,7 @@ export async function qmHubDTO(tx: Tx, learnerId: string): Promise<QmHubDTO> {
       streak: missionStreak(state.missionDates, today),
       bonusXp: MISSION_BONUS_XP,
     },
-    stats: qmStatsDTO(rows, today),
+    stats: qmStatsDTO(rows, today, await loadRolled(tx, learnerId, 'hitung')),
     roundsToday,
     xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday) : null,
     limitReached,

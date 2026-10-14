@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import type { XpTrackDTO } from '@/lib/dto-arena'
 import { cx } from '@/components/ui/cx'
 import { TRACK_TONE } from './tone'
@@ -20,7 +20,7 @@ export function XpTrackBars({ tracks, variant = 'full', only, className }: { tra
               <span className="font-display text-h2 leading-none font-semibold tabular-nums">Level {t.level}</span>
             </div>
             <span role="img" aria-label={`${t.name}, level ${t.level}. ${t.line}`} className="flex h-3 overflow-hidden rounded-control bg-divider">
-              <span className={tone.bar} style={{ width: `${t.percent}%` }} />
+              <span className={cx('kira-bar-fill', tone.bar)} style={{ '--p': Math.min(1, Math.max(0, t.percent / 100)) } as CSSProperties} />
             </span>
             <span className="text-body text-fg-muted tabular-nums">{t.line}</span>
           </li>

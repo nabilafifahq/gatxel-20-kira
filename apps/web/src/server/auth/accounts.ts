@@ -16,7 +16,7 @@ import { setPin } from './pin'
 const { userAccount, invite, resetToken } = tables
 
 export const TERMS_VERSION = '2026-10-12'
-export const NOTICE_VERSION = '2026-10-13'
+export const NOTICE_VERSION = '2026-10-14'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 

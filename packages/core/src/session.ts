@@ -279,3 +279,12 @@ export function retryImproved(previous: readonly ScoreLike[], next: ScoreLike): 
   const prevBest = Math.max(...previous.map(scoreFraction))
   return scoreFraction(next) > prevBest + 1e-9
 }
+
+/**
+ * Hari ringan sebelum lomba (taper) di program olimpiade: sesi dasar otomatis Tes dan Paper untuk mapel itu
+ * dibuang. Sesi yang tutor tambahkan sendiri (punya slotId) tetap ada.
+ */
+export function dropTaperEntries(entries: readonly DayEntry[], taperSubjects: ReadonlySet<Subject>): DayEntry[] {
+  if (taperSubjects.size === 0) return [...entries]
+  return entries.filter((e) => !(e.slotId === null && taperSubjects.has(e.subject) && (e.session === 'tes' || e.session === 'paper')))
+}

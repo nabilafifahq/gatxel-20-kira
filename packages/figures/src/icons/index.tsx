@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import type { AvatarName, IconName } from '../spec'
 import { ICON_GLYPHS } from './glyphs'
 import { AVATAR_GLYPHS } from './avatars'
-import { ACCESSORY_ART, isAccessoryArtId } from './accessories'
+import { ACCESSORY_ART, CHEST_ACCESSORY_ART, avatarBackgroundArt, isAccessoryArtId, isAvatarBackgroundId, isChestArtId } from './accessories'
 import { PLANET_GLYPHS, type PlanetArtName } from './planets'
 
 /**
@@ -29,7 +29,7 @@ export function Icon({ name, size = 48, title, className }: { name: IconName; si
   )
 }
 
-export function Avatar({ name, size = 64, title, className, accessory }: { name: AvatarName; size?: number; title?: string; className?: string; accessory?: string | null }): ReactElement {
+export function Avatar({ name, size = 64, title, className, accessory, background }: { name: AvatarName; size?: number; title?: string; className?: string; accessory?: string | null; background?: string | null }): ReactElement {
   return (
     <svg
       width={size}
@@ -39,7 +39,8 @@ export function Avatar({ name, size = 64, title, className, accessory }: { name:
       {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}
     >
       {AVATAR_GLYPHS[name]}
-      {accessory && isAccessoryArtId(accessory) ? ACCESSORY_ART[accessory] : null}
+      {background && isAvatarBackgroundId(background) ? avatarBackgroundArt(background) : null}
+      {accessory && isAccessoryArtId(accessory) ? ACCESSORY_ART[accessory] : accessory && isChestArtId(accessory) ? CHEST_ACCESSORY_ART[accessory] : null}
     </svg>
   )
 }

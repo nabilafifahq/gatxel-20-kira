@@ -148,6 +148,894 @@
       "hints": ["Find the row and the column for the question mark.", "The object must be not shiny and not bendy.", "Test each object: is it shiny? Can it bend?"],
       "explanation": "The question mark box is for things that are not shiny and not bendy. A brick is dull and stiff, so it goes there.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.material-properties.013",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one feels smooth?",
+      "options": [
+        {
+          "text": "a brick",
+          "why": "A brick feels rough."
+        },
+        {
+          "text": "tree bark",
+          "why": "Bark feels rough."
+        },
+        {
+          "text": "a glass"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Smooth is the opposite of rough.",
+        "Think of a window.",
+        "Bricks are rough."
+      ],
+      "explanation": "Glass feels smooth. Bricks and bark feel rough."
+    },
+    {
+      "id": "s1.material-properties.014",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which one is hard?",
+      "options": [
+        {
+          "text": "a stone"
+        },
+        {
+          "text": "a sponge",
+          "why": "A sponge is soft."
+        },
+        {
+          "text": "a cotton ball",
+          "why": "A cotton ball is soft."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Hard things do not squash.",
+        "Soft things squash.",
+        "Think of something you find outside."
+      ],
+      "explanation": "A stone is hard. You cannot squash it."
+    },
+    {
+      "id": "s1.material-properties.015",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word describes a mirror?",
+      "options": [
+        {
+          "text": "soft",
+          "why": "A mirror is hard."
+        },
+        {
+          "text": "rough",
+          "why": "A mirror is smooth."
+        },
+        {
+          "text": "shiny"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "You look at yourself in it.",
+        "It does not feel rough.",
+        "It shines."
+      ],
+      "explanation": "A mirror is shiny. We can see ourselves in it."
+    },
+    {
+      "id": "s1.material-properties.016",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one soaks up water?",
+      "options": [
+        {
+          "text": "a sponge"
+        },
+        {
+          "text": "a plastic bag",
+          "why": "Water stays on plastic."
+        },
+        {
+          "text": "a glass",
+          "why": "Water does not go into glass."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which one do you use to clean a table?",
+        "Water goes into it.",
+        "Plastic does not take in water."
+      ],
+      "explanation": "A sponge soaks up water. It has many tiny holes."
+    },
+    {
+      "id": "s1.material-properties.017",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material keeps rain off best?",
+      "options": [
+        {
+          "text": "a paper towel",
+          "why": "It soaks up water."
+        },
+        {
+          "text": "a plastic sheet"
+        },
+        {
+          "text": "a sponge",
+          "why": "It soaks up water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "We want water to stay out.",
+        "Which one is not soggy?",
+        "Plastic is waterproof."
+      ],
+      "explanation": "A plastic sheet is waterproof. Water does not go through it."
+    },
+    {
+      "id": "s1.material-properties.018",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one floats on water?",
+      "options": [
+        {
+          "text": "a coin",
+          "why": "A coin sinks."
+        },
+        {
+          "text": "a metal spoon",
+          "why": "A metal spoon sinks."
+        },
+        {
+          "text": "a plastic duck"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think of a bath toy.",
+        "Metal things sink.",
+        "Which one stays on top?"
+      ],
+      "explanation": "A plastic duck floats on water. A coin and a spoon sink."
+    },
+    {
+      "id": "s1.material-properties.019",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one sinks in water?",
+      "options": [
+        {
+          "text": "a feather",
+          "why": "A feather floats."
+        },
+        {
+          "text": "a stone"
+        },
+        {
+          "text": "a leaf",
+          "why": "A leaf floats."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Throw it in a pond.",
+        "Light things float.",
+        "A stone is heavy."
+      ],
+      "explanation": "A stone is heavy for its size, so it sinks. A feather and a leaf float."
+    },
+    {
+      "id": "s1.material-properties.020",
+      "skill": "s1.material-properties",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Does it float or sink? Sort the objects.",
+      "groups": [
+        "Float",
+        "Sink"
+      ],
+      "items": [
+        {
+          "text": "cork",
+          "group": 0
+        },
+        {
+          "text": "wooden block",
+          "group": 0
+        },
+        {
+          "text": "plastic duck",
+          "group": 0
+        },
+        {
+          "text": "stone",
+          "group": 1
+        },
+        {
+          "text": "coin",
+          "group": 1
+        },
+        {
+          "text": "metal key",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Metal things sink.",
+        "Toys for the bath float.",
+        "Start with the stone."
+      ],
+      "explanation": "A cork, a wooden block and a plastic duck float. A stone, a coin and a key sink."
+    },
+    {
+      "id": "s1.material-properties.021",
+      "skill": "s1.material-properties",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it smooth or rough? Sort the cards.",
+      "groups": [
+        "Smooth",
+        "Rough"
+      ],
+      "items": [
+        {
+          "text": "glass",
+          "group": 0
+        },
+        {
+          "text": "egg",
+          "group": 0
+        },
+        {
+          "text": "ice",
+          "group": 0
+        },
+        {
+          "text": "sandpaper",
+          "group": 1
+        },
+        {
+          "text": "tree bark",
+          "group": 1
+        },
+        {
+          "text": "brick",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Smooth things slide under your hand.",
+        "Sandpaper is rough.",
+        "Start with the glass."
+      ],
+      "explanation": "Glass, an egg and ice feel smooth. Sandpaper, bark and brick feel rough."
+    },
+    {
+      "id": "s1.material-properties.022",
+      "skill": "s1.material-properties",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Waterproof or soaks up water? Sort the cards.",
+      "groups": [
+        "Waterproof",
+        "Soaks up water"
+      ],
+      "items": [
+        {
+          "text": "rubber boot",
+          "group": 0
+        },
+        {
+          "text": "plastic bag",
+          "group": 0
+        },
+        {
+          "text": "raincoat",
+          "group": 0
+        },
+        {
+          "text": "sponge",
+          "group": 1
+        },
+        {
+          "text": "towel",
+          "group": 1
+        },
+        {
+          "text": "tissue",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Which things keep you dry?",
+        "You dry yourself with a towel.",
+        "Start with the sponge."
+      ],
+      "explanation": "Boots, bags and raincoats keep water out. Sponges, towels and tissues soak water up."
+    },
+    {
+      "id": "s1.material-properties.023",
+      "skill": "s1.material-properties",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Choose all the bendy things.",
+      "options": [
+        {
+          "text": "a plastic straw"
+        },
+        {
+          "text": "a rubber band"
+        },
+        {
+          "text": "a stone"
+        },
+        {
+          "text": "a brick"
+        },
+        {
+          "text": "a piece of wool"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Bendy things can change shape.",
+        "Stones do not bend.",
+        "A straw bends."
+      ],
+      "explanation": "A rubber band, a plastic straw and wool can bend. A brick and a stone are hard."
+    },
+    {
+      "id": "s1.material-properties.024",
+      "skill": "s1.material-properties",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the things you can see through.",
+      "options": [
+        {
+          "text": "a window"
+        },
+        {
+          "text": "a brick"
+        },
+        {
+          "text": "a wooden door"
+        },
+        {
+          "text": "a glass of water"
+        },
+        {
+          "text": "clear plastic wrap"
+        }
+      ],
+      "answers": [
+        0,
+        3,
+        4
+      ],
+      "hints": [
+        "Can you see the other side?",
+        "Doors are not see-through.",
+        "Glass is clear."
+      ],
+      "explanation": "We can see through glass, clear plastic and water. We cannot see through wood or brick."
+    },
+    {
+      "id": "s1.material-properties.025",
+      "skill": "s1.material-properties",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each object to its property.",
+      "pairs": [
+        [
+          "sponge",
+          "soaks up water"
+        ],
+        [
+          "raincoat",
+          "keeps you dry"
+        ],
+        [
+          "mirror",
+          "shiny"
+        ],
+        [
+          "pillow",
+          "soft"
+        ]
+      ],
+      "hints": [
+        "Think about what each one does.",
+        "You sleep on a pillow.",
+        "A raincoat is for rain."
+      ],
+      "explanation": "A sponge soaks up water and a raincoat keeps you dry. A mirror is shiny and a pillow is soft."
+    },
+    {
+      "id": "s1.material-properties.026",
+      "skill": "s1.material-properties",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "A rock is ___. A pillow is ___.",
+      "gaps": [
+        {
+          "options": [
+            "hard",
+            "soft",
+            "bendy"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "soft",
+            "hard",
+            "rough"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Can you squash a rock?",
+        "You rest your head on a pillow.",
+        "Hard is not soft."
+      ],
+      "explanation": "A rock is hard and a pillow is soft."
+    },
+    {
+      "id": "s1.material-properties.027",
+      "skill": "s1.material-properties",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "What is the property?",
+      "head": [
+        "Object",
+        "Property"
+      ],
+      "rows": [
+        [
+          "sponge",
+          "soft"
+        ],
+        [
+          "stone",
+          ""
+        ],
+        [
+          "glass",
+          ""
+        ],
+        [
+          "mirror",
+          "shiny"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "hard"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "see-through"
+          ]
+        }
+      ],
+      "hints": [
+        "A stone is not soft.",
+        "You can see through glass.",
+        "The word has a hyphen."
+      ],
+      "explanation": "A sponge is soft and a stone is hard. Glass is see-through and a mirror is shiny."
+    },
+    {
+      "id": "s1.material-properties.028",
+      "skill": "s1.material-properties",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Zara tests three materials for an umbrella: paper, plastic and cloth. She pours water on each one. The paper gets wet and soft. The cloth soaks up the water. The plastic stays dry.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which material is best for an umbrella?",
+          "options": [
+            {
+              "text": "plastic"
+            },
+            {
+              "text": "paper"
+            },
+            {
+              "text": "cloth"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "What happens to the paper?",
+          "options": [
+            {
+              "text": "It stays dry."
+            },
+            {
+              "text": "It turns shiny."
+            },
+            {
+              "text": "It gets wet and soft."
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Which material stays dry?",
+        "Read about the paper.",
+        "Water goes into cloth."
+      ],
+      "explanation": "Plastic stays dry, so it is best for an umbrella. The paper gets wet and soft."
+    },
+    {
+      "id": "s1.material-properties.029",
+      "skill": "s1.material-properties",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the thing that is shiny.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "mirror",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "brick",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "fabric",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: mirror, wooden spoon, brick and fabric."
+      },
+      "regions": [
+        {
+          "label": "mirror",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "wooden spoon",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "brick",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "fabric",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which one shines like glass?",
+        "Wood and brick do not shine.",
+        "You can see yourself in it."
+      ],
+      "explanation": "A mirror is shiny. A wooden spoon, a brick and fabric are dull."
+    },
+    {
+      "id": "s1.material-properties.030",
+      "skill": "s1.material-properties",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the thing you can see through.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "glass",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "brick",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "paper",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "wooden-spoon",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: glass, brick, paper and wooden spoon."
+      },
+      "regions": [
+        {
+          "label": "glass",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "brick",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "paper",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "wooden spoon",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Can you see through a brick?",
+        "Look for the clear one.",
+        "A window uses it."
+      ],
+      "explanation": "Glass is clear, so we can see through it."
+    },
+    {
+      "id": "s1.material-properties.031",
+      "skill": "s1.material-properties",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Order from the softest to the hardest.",
+      "items": [
+        "cotton wool",
+        "sponge",
+        "wooden block",
+        "stone"
+      ],
+      "hints": [
+        "Which one squashes the most?",
+        "You can squash a sponge.",
+        "A stone does not squash."
+      ],
+      "explanation": "Cotton wool is the softest. A sponge is soft, a wooden block is hard and a stone is the hardest."
+    },
+    {
+      "id": "s1.material-properties.032",
+      "skill": "s1.material-properties",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A mirror is smooth and ___.",
+      "blanks": [
+        {
+          "answers": [
+            "shiny"
+          ]
+        }
+      ],
+      "hints": [
+        "It shines.",
+        "You can see yourself in it.",
+        "It starts with s."
+      ],
+      "explanation": "A mirror is smooth and shiny."
+    },
+    {
+      "id": "s1.material-properties.033",
+      "skill": "s1.material-properties",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw something soft and something hard. Label them.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a soft thing",
+            "points": 1
+          },
+          {
+            "label": "Draws a hard thing",
+            "points": 1
+          },
+          {
+            "label": "Labels both",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "A pillow is soft.",
+        "A stone is hard."
+      ],
+      "explanation": "A pillow or a teddy is soft. A stone or a brick is hard."
+    },
+    {
+      "id": "s1.material-properties.034",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A sponge, a towel and a tissue all soak up water. Which also soaks up water?",
+      "options": [
+        {
+          "text": "a plastic bag",
+          "why": "It keeps water out."
+        },
+        {
+          "text": "a rubber boot",
+          "why": "It keeps water out."
+        },
+        {
+          "text": "a glass",
+          "why": "It does not soak up water."
+        },
+        {
+          "text": "a paper towel"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look for the same property.",
+        "Three things soak water up.",
+        "Paper towels clean spills."
+      ],
+      "explanation": "A paper towel soaks up water like a sponge, a towel and a tissue.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.material-properties.035",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which material makes the best bouncy ball?",
+      "options": [
+        {
+          "text": "glass",
+          "why": "Glass would break."
+        },
+        {
+          "text": "paper",
+          "why": "Paper would squash."
+        },
+        {
+          "text": "wood",
+          "why": "Wood does not bounce well."
+        },
+        {
+          "text": "rubber"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Which material is bendy?",
+        "A bouncy ball springs back.",
+        "Glass breaks."
+      ],
+      "explanation": "Rubber is bendy and springs back, so it bounces well.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.material-properties.036",
+      "skill": "s1.material-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A paper boat and a plastic boat float for an hour. Which one is still dry inside?",
+      "options": [
+        {
+          "text": "the paper boat",
+          "why": "Paper soaks up water."
+        },
+        {
+          "text": "both boats",
+          "why": "Paper soaks up water."
+        },
+        {
+          "text": "the plastic boat"
+        },
+        {
+          "text": "neither boat",
+          "why": "Plastic keeps water out."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which material is waterproof?",
+        "Paper gets soggy.",
+        "Water cannot go through plastic."
+      ],
+      "explanation": "Plastic is waterproof. Paper soaks up water and goes soggy.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

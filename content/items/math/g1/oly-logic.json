@@ -529,6 +529,340 @@
           3
         ]
       ]
+    },
+    {
+      "id": "m1.oly-logic.011",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Tom is taller than Sam. Sam is taller than Ali. Who is the tallest?",
+      "options": [
+        {
+          "text": "Sam",
+          "why": "Tom is taller than Sam."
+        },
+        {
+          "text": "Ali",
+          "why": "Ali is the shortest."
+        },
+        {
+          "text": "Tom"
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The clues put the children in order."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Put the children in order.",
+        "Tom is taller than Sam.",
+        "Sam is taller than Ali."
+      ],
+      "explanation": "The order from tallest is Tom, Sam, Ali. The tallest is Tom.",
+      "solution": [
+        {
+          "say": "The order from tallest is Tom, Sam, Ali."
+        },
+        {
+          "say": "The tallest is Tom."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-logic.012",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mia is first in the line. Ben is behind Mia. Cat is behind Ben. Who is last?",
+      "options": [
+        {
+          "text": "Cat"
+        },
+        {
+          "text": "Mia",
+          "why": "Mia is first."
+        },
+        {
+          "text": "Ben",
+          "why": "Cat is behind Ben."
+        },
+        {
+          "text": "It cannot be found",
+          "why": "The clues show the order."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Draw the line.",
+        "Mia is at the front.",
+        "Who stands behind Ben?"
+      ],
+      "explanation": "The line is Mia, Ben, Cat. The last child is Cat.",
+      "solution": [
+        {
+          "say": "The line is Mia, Ben, Cat."
+        },
+        {
+          "say": "The last child is Cat."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-logic.013",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kim always tells the truth. Lee always lies. Lee says: \"I have a red ball.\" What do you know?",
+      "options": [
+        {
+          "text": "Lee does not have a red ball"
+        },
+        {
+          "text": "Lee has a red ball",
+          "why": "Lee always lies."
+        },
+        {
+          "text": "Kim has a red ball",
+          "why": "Lee does not talk about Kim."
+        },
+        {
+          "text": "We know nothing",
+          "why": "Lee always lies, so his words are not true."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Lee always lies.",
+        "What Lee says is not true.",
+        "Lee says he has a red ball."
+      ],
+      "explanation": "Lee always lies, so it is not true that he has a red ball.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-logic.014",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Ali is 4th in a line. How many children are in front of Ali?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Do not count Ali.",
+        "The children in 1st, 2nd and ... places.",
+        "4th place means some children are before him."
+      ],
+      "explanation": "Ali is 4th, so the children in places 1, 2 and 3 are in front of him. That is 3 children.",
+      "solution": [
+        {
+          "say": "Ali is 4th, so the children in places 1, 2 and 3 are in front of him."
+        },
+        {
+          "say": "That is 3 children."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-logic.015",
+      "skill": "m1.oly-logic",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Today is Monday. What day is it tomorrow?",
+      "options": [
+        {
+          "text": "Sunday",
+          "why": "Sunday is the day before Monday."
+        },
+        {
+          "text": "Wednesday",
+          "why": "That is 2 days after Monday."
+        },
+        {
+          "text": "Friday",
+          "why": "That is 4 days after Monday."
+        },
+        {
+          "text": "Tuesday"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Tomorrow is the next day.",
+        "The days go Monday, Tuesday ...",
+        "Which day comes after Monday?"
+      ],
+      "explanation": "The day after Monday is Tuesday.",
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-logic.016",
+      "skill": "m1.oly-logic",
+      "type": "grid",
+      "difficulty": 2,
+      "prompt": "Fill the grid with the numbers 1 to 3. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          3
+        ]
+      ],
+      "filled": [
+        [
+          3,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and column has 1, 2 and 3 once. Start with a line that has one empty box.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.017",
+      "skill": "m1.oly-logic",
+      "type": "grid",
+      "difficulty": 3,
+      "prompt": "Fill the grid with the numbers 1 to 3. Each row has every number once. Each column does too.",
+      "puzzle": "latin",
+      "size": 3,
+      "given": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          0,
+          0
+        ]
+      ],
+      "filled": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "hints": [
+        "Find a row or column with only one empty box.",
+        "Which number is missing from that row?",
+        "Check the column too."
+      ],
+      "explanation": "Each row and column has 1, 2 and 3 once. Start with a line that has one empty box.",
+      "tags": [
+        "olympiad"
+      ],
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m1.oly-logic.018",
+      "skill": "m1.oly-logic",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A square, a square and a square make 12. A square and a circle make 7. What number is the circle?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Find the square first.",
+        "3 squares make 12.",
+        "Then use the square and the circle."
+      ],
+      "explanation": "3 squares make 12, so a square is 4. A square and a circle make 7, so the circle is 7 - 4 = 3.",
+      "solution": [
+        {
+          "say": "3 squares make 12, so a square is 4."
+        },
+        {
+          "say": "A square and a circle make 7, so the circle is 7 - 4 = 3."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

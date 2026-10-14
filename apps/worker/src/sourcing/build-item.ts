@@ -9,7 +9,8 @@ import type { Candidate, Mapping } from './types'
  * pemeriksaan isi yang sama dengan content:check; yang gagal tidak dipublikasikan.
  */
 
-const HINTS: Record<'math' | 'science', [string, string, string]> = {
+const HINTS: Record<'math' | 'science' | 'english', [string, string, string]> = {
+  english: ['Read both sentences slowly.', 'Say each sentence quietly in your head.', 'Pick the one that sounds right and follows the grammar rule.'],
   math: ['Read the question again slowly.', 'Write down the numbers you need.', 'Check your answer by working it out another way.'],
   science: ['Read the question and every option.', 'Cross out the options that cannot be right.', 'Think about what you have seen or learnt in class.'],
 }
@@ -31,7 +32,7 @@ function trimTo(s: string, max: number): string {
 export type Built = { ok: true; item: Item } | { ok: false; reason: string }
 
 export function buildItem(c: Candidate, map: Mapping, sourceId: string): Built {
-  const subject = c.subject === 'english' ? 'science' : c.subject
+  const subject = c.subject
   const solution = (c.steps ?? []).slice(0, 8).map((s) => ({ say: trimTo(s, 220) }))
   const common = {
     id: 'draft',

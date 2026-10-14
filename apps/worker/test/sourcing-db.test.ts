@@ -225,4 +225,45 @@ describe.skipIf(!ready)('runWeeklySourcing di Postgres', () => {
     const { workerCtx } = await import('../src/db')
     expect(await withOrg(wk.db, workerCtx(orgId, null), (tx) => enqueueTts(tx, orgId, []))).toBeNull()
   })
+  it('sumber English (BLiMP) masuk bank dan suaranya diantrekan sebagai tts.batch dengan muatan { refs }', async () => {
+    const good = ['The boys have eaten all the apples.', 'Many girls have written their long letters.', 'Some children have broken those red toys.']
+    const bad = ['The boys have ate all the apples.', 'Many girls have wrote their long letters.', 'Some children have broke those red toys.']
+    const rows = good.map((g, i) => ({ row_idx: i, row: { sentence_good: g, sentence_bad: bad[i], pair_id: 100 + i } }))
+    const blimpFetch = (async (input: string | URL | Request) => {
+      const url = String(input instanceof Request ? input.url : input)
+      if (url.includes('datasets-server.huggingface.co') && url.includes('irregular_past_participle_verbs')) return new Response(JSON.stringify({ rows, num_rows_total: 1000 }))
+      if (url.includes('datasets-server.huggingface.co')) return new Response(JSON.stringify({ rows: [], num_rows_total: 1000 }))
+      return new Response('tidak ada', { status: 404 })
+    }) as typeof fetch
+    const ai = {
+      name: 'claude-code', label: 'Claude', model: 'm', ready: true, notReadyReason: null, modelFor: () => 'm', describe: async () => null,
+      run: async (input: AiRunInput) => {
+        const payload = JSON.parse(input.prompt.slice(input.prompt.indexOf('['))) as { number: number; options?: string[] }[]
+        return { json: { answers: payload.map((q) => ({ number: q.number, answer: Math.max(0, q.options?.findIndex((o) => good.includes(o.slice(3))) ?? 0) })) }, model: 'm', durationMs: 1 }
+      },
+    } as unknown as AiProvider
+    const english = registrySchema.parse({
+      version: 1,
+      updated: '2026-10-14',
+      sources: [
+        {
+          id: 'blimp', name: 'BLiMP', site: 'https://huggingface.co/datasets/nyu-mll/blimp', subjects: ['english'], grades: [2, 3, 4], license: 'cc-by', attribution: 'Warstadt dkk. (2020), BLiMP.',
+          format: 'json', access: 'auto', importer: 'blimp', fetch: { kind: 'hf-rows', dataset: 'nyu-mll/blimp', config: 'determiner_noun_agreement_1', split: 'train', configs: ['irregular_past_participle_verbs', 'anaphor_gender_agreement'] }, maxPerRun: 10,
+        },
+      ],
+    })
+    const r = await runWeeklySourcing({ ...wk, env: env(60), log, ai, fetchImpl: blimpFetch, sleep, loaded: { content, registry: english }, onlyOrgIds: [orgId] }, at, signal)
+    expect(r).toMatch(/3 soal masuk bank/)
+    const items = await owner`select id, skill_id, body from org_item where org_id = ${orgId} and body->>'prompt' = 'Which sentence is correct?'`
+    expect(items).toHaveLength(3)
+    expect(items.every((i) => i.skill_id === 'e2.irregular-past')).toBe(true)
+    const { ttsAvailable } = await import('../src/sourcing/store')
+    const jobs = await owner`select payload from job where org_id = ${orgId} and kind = 'tts.batch'`
+    if (ttsAvailable()) {
+      expect(jobs).toHaveLength(1)
+      const p = jobs[0]!.payload as { source: string; refs: string[] }
+      expect(p.source).toBe('weekly-sourcing')
+      expect([...p.refs].sort()).toEqual(items.map((i) => `org:${i.id}`).sort())
+    } else expect(jobs).toHaveLength(0)
+  })
 })

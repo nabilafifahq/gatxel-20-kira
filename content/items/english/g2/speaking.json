@@ -671,6 +671,195 @@
       "answers": [
         0
       ]
+    },
+    {
+      "id": "e2.speaking.020",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 2,
+      "prompt": "Tell me about your favourite food. Why do you like it?",
+      "hints": [
+        "Say the food first.",
+        "Say why you like it.",
+        "Use the word because."
+      ],
+      "explanation": "For example: I like fried rice because it is tasty.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says the food and why",
+            "points": 2
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 30
+    },
+    {
+      "id": "e2.speaking.021",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Describe your classroom. Say three things you can see.",
+      "hints": [
+        "Look around in your mind.",
+        "Say the colour or size.",
+        "Use I can see."
+      ],
+      "explanation": "For example: I can see a big green board and a tall shelf.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says at least three things",
+            "points": 2
+          },
+          {
+            "label": "Uses describing words",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 40
+    },
+    {
+      "id": "e2.speaking.022",
+      "skill": "e2.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Read this aloud. Mia has a red kite. It flies high in the sky.",
+      "hints": [
+        "Read it slowly first.",
+        "Look for the full stops.",
+        "Pause a little at each one."
+      ],
+      "explanation": "Read each word and pause at the full stops.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads all the words",
+            "points": 2
+          },
+          {
+            "label": "Stops at full stops",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "Mia has a red kite. It flies high in the sky.",
+      "maxSeconds": 25
+    },
+    {
+      "id": "e2.speaking.023",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You did not hear the teacher. What can you say?",
+      "hints": [
+        "Be polite when you ask.",
+        "Start with sorry.",
+        "Ask for the words again."
+      ],
+      "explanation": "Sorry, can you say that again? is polite and clear.",
+      "options": [
+        {
+          "text": "What?",
+          "why": "This is not polite."
+        },
+        {
+          "text": "Sorry, can you say that again?"
+        },
+        {
+          "text": "I do not care.",
+          "why": "This is not kind."
+        },
+        {
+          "text": "Be quiet.",
+          "why": "This is not polite."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.speaking.024",
+      "skill": "e2.speaking",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. How does the girl feel?",
+      "hints": [
+        "Listen for the feeling words.",
+        "She wants to jump up and down.",
+        "She won something."
+      ],
+      "explanation": "The girl is happy and excited because she won.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "sad",
+          "why": "She said she is happy."
+        },
+        {
+          "text": "bored",
+          "why": "She is not bored."
+        },
+        {
+          "text": "tired",
+          "why": "She wants to jump, so she is not tired."
+        },
+        {
+          "text": "excited"
+        }
+      ],
+      "answer": 3,
+      "listenText": "I won first prize! I am so happy that I want to jump up and down."
+    },
+    {
+      "id": "e2.speaking.025",
+      "skill": "e2.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When you give a talk, what should you do?",
+      "hints": [
+        "Think about how a good talker acts.",
+        "The voice should be clear.",
+        "Your eyes should be up."
+      ],
+      "explanation": "Speak clearly and look at your listeners.",
+      "options": [
+        {
+          "text": "Speak very fast.",
+          "why": "People cannot follow fast talk."
+        },
+        {
+          "text": "Speak clearly and look at your listeners."
+        },
+        {
+          "text": "Look at the floor.",
+          "why": "Look at the people listening."
+        },
+        {
+          "text": "Whisper.",
+          "why": "People must hear you."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

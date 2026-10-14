@@ -20,6 +20,8 @@ async function solve(page: Page): Promise<number> {
 }
 
 test('Quick Maths: latihan dari menu sampai hasil, XP ungu masuk, Today dan Me menampilkan tiga bar', async ({ page }) => {
+  // Animasi masuk membuat axe menghitung kontras di tengah fade; gerak dikurangi supaya hasilnya stabil.
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   const errors = watchErrors(page)
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')
@@ -61,12 +63,13 @@ test('Quick Maths: latihan dari menu sampai hasil, XP ungu masuk, Today dan Me m
 
   await page.goto('/me')
   await expect(page.getByRole('heading', { name: 'XP and levels' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Accessories' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Accessories', exact: true })).toBeVisible()
   await expectNoSeriousA11y(page, 'Me')
   expect(errors.filter((e) => !e.includes('favicon'))).toEqual([])
 })
 
 test('Quiz Arena: kuis provinsi tanpa timer, soal diacak, hasil dan kemajuan topik', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
   const errors = watchErrors(page)
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')

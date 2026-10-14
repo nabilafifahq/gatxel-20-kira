@@ -1,0 +1,844 @@
+{
+  "skill": "m3.oly-coding",
+  "items": [
+    {
+      "id": "m3.oly-coding.001",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In a secret code each letter moves 2 steps on in the alphabet. CAT is written ECV. How is DOG written?",
+      "options": [
+        {
+          "text": "EPH",
+          "why": "This moves each letter only 1 step."
+        },
+        {
+          "text": "BMF",
+          "why": "This moves each letter back by 2."
+        },
+        {
+          "text": "FQH",
+          "why": "The G moves to I."
+        },
+        {
+          "text": "DQI",
+          "why": "The first letter changes too."
+        },
+        {
+          "text": "FQI"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "C became E. How many steps is that?",
+        "Each letter moves 2 steps on.",
+        "D moves to F. Now do O and G."
+      ],
+      "explanation": "D moves 2 steps to F, O moves 2 steps to Q, and G moves 2 steps to I. DOG is written FQI.",
+      "solution": [
+        {
+          "say": "D moves 2 steps to F, O moves 2 steps to Q, and G moves 2 steps to I."
+        },
+        {
+          "say": "DOG is written FQI."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m3.oly-coding.002",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In a secret code each letter moves 2 steps on in the alphabet. Which word is written UQP?",
+      "options": [
+        {
+          "text": "WSR",
+          "why": "This moves forward again. To decode, go back."
+        },
+        {
+          "text": "SOM",
+          "why": "The last letter P comes from N."
+        },
+        {
+          "text": "SON"
+        },
+        {
+          "text": "TOP",
+          "why": "The first letter comes from S, not T."
+        },
+        {
+          "text": "SUN",
+          "why": "The middle letter Q comes from O."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "To decode, go back 2 steps in the alphabet.",
+        "U goes back to S.",
+        "Q goes back to O. What does P go back to?"
+      ],
+      "explanation": "Go back 2 steps: U to S, Q to O and P to N. The word is SON.",
+      "solution": [
+        {
+          "say": "Go back 2 steps: U to S, Q to O and P to N."
+        },
+        {
+          "say": "The word is SON."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.003",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Each letter has a value: A = 1, B = 2, C = 3 and so on. Which word has the value 26?",
+      "options": [
+        {
+          "text": "CAT",
+          "why": "C + A + T = 3 + 1 + 20 = 24."
+        },
+        {
+          "text": "BAT",
+          "why": "B + A + T = 2 + 1 + 20 = 23."
+        },
+        {
+          "text": "HAT",
+          "why": "H + A + T = 8 + 1 + 20 = 29."
+        },
+        {
+          "text": "TOP",
+          "why": "T + O + P = 20 + 15 + 16 = 51."
+        },
+        {
+          "text": "DOG"
+        }
+      ],
+      "answer": 4,
+      "hints": [
+        "Find the value of each letter by counting in the alphabet.",
+        "D is 4 and O is 15.",
+        "Add the values of D, O and G."
+      ],
+      "explanation": "D is 4, O is 15 and G is 7. The total is 4 + 15 + 7 = 26. The other words have different totals.",
+      "solution": [
+        {
+          "say": "D is 4, O is 15 and G is 7."
+        },
+        {
+          "say": "The total is 4 + 15 + 7 = 26."
+        },
+        {
+          "say": "The other words have different totals."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.004",
+      "skill": "m3.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "D means double. A means add 3. Start with 4 and follow D, A, D. What number do you reach?",
+      "answer": 22,
+      "tolerance": 0,
+      "hints": [
+        "Do one letter at a time.",
+        "D doubles 4. A adds 3.",
+        "The last D doubles again."
+      ],
+      "explanation": "Start with 4. D: 8. A: 11. D: 22. You reach 22.",
+      "solution": [
+        {
+          "say": "Start with 4."
+        },
+        {
+          "say": "D: 8."
+        },
+        {
+          "say": "A: 11."
+        },
+        {
+          "say": "D: 22."
+        },
+        {
+          "say": "You reach 22."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.005",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A cell has a column letter and a row number. Which cells spell TAB, in order?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cell",
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rows": [
+          [
+            "1",
+            "B",
+            "O",
+            "A",
+            "T"
+          ],
+          [
+            "2",
+            "M",
+            "I",
+            "L",
+            "K"
+          ],
+          [
+            "3",
+            "S",
+            "U",
+            "N",
+            "G"
+          ]
+        ],
+        "alt": "A grid of letters. Row 1: B, O, A, T in columns A to D. Row 2: M, I, L, K. Row 3: S, U, N, G."
+      },
+      "options": [
+        {
+          "text": "A1, C1, D1",
+          "why": "These cells spell BAT."
+        },
+        {
+          "text": "D1, C1, A1"
+        },
+        {
+          "text": "D1, B1, A1",
+          "why": "The middle cell B1 is the letter O."
+        },
+        {
+          "text": "D1, C1, B1",
+          "why": "The last cell B1 is the letter O."
+        },
+        {
+          "text": "C1, D1, A1",
+          "why": "The first cell C1 is the letter A."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the letter T in the grid.",
+        "T is in the first row, in column D.",
+        "Then find A, then B."
+      ],
+      "explanation": "T is in D1, A is in C1 and B is in A1. So the cells are D1, C1, A1.",
+      "solution": [
+        {
+          "say": "T is in D1, A is in C1 and B is in A1."
+        },
+        {
+          "say": "So the cells are D1, C1, A1."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.006",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A cell has a column letter and a row number. Read A3, B2, C3 and D3 in order. Which word do they spell?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Cell",
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rows": [
+          [
+            "1",
+            "B",
+            "O",
+            "A",
+            "T"
+          ],
+          [
+            "2",
+            "M",
+            "I",
+            "L",
+            "K"
+          ],
+          [
+            "3",
+            "S",
+            "U",
+            "N",
+            "G"
+          ]
+        ],
+        "alt": "A grid of letters. Row 1: B, O, A, T in columns A to D. Row 2: M, I, L, K. Row 3: S, U, N, G."
+      },
+      "options": [
+        {
+          "text": "SING"
+        },
+        {
+          "text": "SIGN",
+          "why": "These are the same letters in a different order."
+        },
+        {
+          "text": "SUNG",
+          "why": "The second cell is B2, not B3."
+        },
+        {
+          "text": "KING",
+          "why": "The first cell is A3, which is S."
+        },
+        {
+          "text": "SANG",
+          "why": "The second cell is B2, which is I."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read each cell one at a time.",
+        "A3 is the letter S.",
+        "B2 is I. Now look at C3 and D3."
+      ],
+      "explanation": "A3 is S, B2 is I, C3 is N and D3 is G. The word is SING.",
+      "solution": [
+        {
+          "say": "A3 is S, B2 is I, C3 is N and D3 is G."
+        },
+        {
+          "say": "The word is SING."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.007",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In a code, each letter is replaced by the letter before it in the alphabet. Which word is written MBNQ?",
+      "options": [
+        {
+          "text": "NCOR",
+          "why": "This moves forward, but we need to go back."
+        },
+        {
+          "text": "LAMP"
+        },
+        {
+          "text": "LAMB",
+          "why": "The last letter Q comes from P."
+        },
+        {
+          "text": "LAMS",
+          "why": "The last letter Q comes from P."
+        },
+        {
+          "text": "LEMP",
+          "why": "The second letter B comes from A."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Each code letter is one step later than the real letter.",
+        "To decode, go back one step in the alphabet.",
+        "M goes back to L."
+      ],
+      "explanation": "The code letters are one step later than the real letters, so go back one step: M to L, B to A, N to M and Q to P. The word is LAMP.",
+      "solution": [
+        {
+          "say": "The code letters are one step later than the real letters, so go back one step: M to L, B to A, N to M and Q to P."
+        },
+        {
+          "say": "The word is LAMP."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-coding.008",
+      "skill": "m3.oly-coding",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Three lights show a number. The lights stand for 4, 2 and 1, from left to right. A light that is on counts, and a light that is off does not. What number do lights ON, ON, OFF show?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Match each light with its number.",
+        "The left light is worth 4, the middle 2 and the right 1.",
+        "Add only the lights that are on."
+      ],
+      "explanation": "The left light is on: 4. The middle light is on: 2. The right light is off: 0. The number is 4 + 2 = 6.",
+      "solution": [
+        {
+          "say": "The left light is on: 4."
+        },
+        {
+          "say": "The middle light is on: 2."
+        },
+        {
+          "say": "The right light is off: 0."
+        },
+        {
+          "say": "The number is 4 + 2 = 6."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-coding.009",
+      "skill": "m3.oly-coding",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In a code, 2 becomes 5, 3 becomes 7 and 4 becomes 9. What does 10 become?",
+      "answer": 21,
+      "tolerance": 0,
+      "hints": [
+        "Look at how the results change when the numbers go up by 1.",
+        "They go up by 2 each time.",
+        "Find the rule: double the number and add something."
+      ],
+      "explanation": "Each number is doubled and then 1 is added: 2 gives 5, 3 gives 7 and 4 gives 9. So 10 gives 10 x 2 + 1 = 21.",
+      "solution": [
+        {
+          "say": "Each number is doubled and then 1 is added: 2 gives 5, 3 gives 7 and 4 gives 9."
+        },
+        {
+          "say": "So 10 gives 10 x 2 + 1 = 21."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.010",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which number is the odd one out?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "18",
+          "30",
+          "42",
+          "56",
+          "66"
+        ],
+        "style": "boxes",
+        "alt": "Five numbers: 18, 30, 42, 56 and 66."
+      },
+      "options": [
+        {
+          "text": "18",
+          "why": "18 is in the 6 times table."
+        },
+        {
+          "text": "30",
+          "why": "30 is in the 6 times table."
+        },
+        {
+          "text": "42",
+          "why": "42 is in the 6 times table."
+        },
+        {
+          "text": "56"
+        },
+        {
+          "text": "66",
+          "why": "66 is in the 6 times table."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count in 6s or try dividing each number by 6.",
+        "Four of the numbers are in the 6 times table.",
+        "Check 56 by dividing it by 6."
+      ],
+      "explanation": "18, 30, 42 and 66 are all in the 6 times table. 56 is not, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "18, 30, 42 and 66 are all in the 6 times table."
+        },
+        {
+          "say": "56 is not, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m3.oly-coding.011",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which fraction is the odd one out?",
+      "options": [
+        {
+          "text": "1/2",
+          "why": "1/2 is a half."
+        },
+        {
+          "text": "2/4",
+          "why": "2/4 is a half."
+        },
+        {
+          "text": "4/10"
+        },
+        {
+          "text": "3/6",
+          "why": "3/6 is a half."
+        },
+        {
+          "text": "5/10",
+          "why": "5/10 is a half."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about how much of a whole each fraction is.",
+        "Four of the fractions are equal to a half.",
+        "Check 4/10 against a half."
+      ],
+      "explanation": "1/2, 2/4, 3/6 and 5/10 are all equal to one half. 4/10 is less than a half, so it is the odd one out.",
+      "solution": [
+        {
+          "say": "1/2, 2/4, 3/6 and 5/10 are all equal to one half."
+        },
+        {
+          "say": "4/10 is less than a half, so it is the odd one out."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m3.oly-coding.012",
+      "skill": "m3.oly-coding",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Four of these staircase shapes are the same shape, only turned. One has been flipped over. Which one is it?",
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    42,
+                    72
+                  ],
+                  [
+                    42,
+                    52
+                  ],
+                  [
+                    58,
+                    52
+                  ],
+                  [
+                    58,
+                    36
+                  ],
+                  [
+                    74,
+                    36
+                  ],
+                  [
+                    74,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A staircase shape with two steps, turned 0 degrees."
+          },
+          "why": "This staircase can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    38,
+                    32
+                  ],
+                  [
+                    58,
+                    32
+                  ],
+                  [
+                    58,
+                    48
+                  ],
+                  [
+                    74,
+                    48
+                  ],
+                  [
+                    74,
+                    64
+                  ],
+                  [
+                    38,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A staircase shape with two steps, turned 90 degrees."
+          },
+          "why": "This staircase can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    78,
+                    28
+                  ],
+                  [
+                    78,
+                    48
+                  ],
+                  [
+                    62,
+                    48
+                  ],
+                  [
+                    62,
+                    64
+                  ],
+                  [
+                    46,
+                    64
+                  ],
+                  [
+                    46,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A staircase shape with two steps, turned 180 degrees."
+          },
+          "why": "This staircase can be turned to match the others."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    78,
+                    72
+                  ],
+                  [
+                    78,
+                    52
+                  ],
+                  [
+                    62,
+                    52
+                  ],
+                  [
+                    62,
+                    36
+                  ],
+                  [
+                    46,
+                    36
+                  ],
+                  [
+                    46,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A staircase shape with two steps, flipped over like in a mirror, turned 0 degrees."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    68
+                  ],
+                  [
+                    62,
+                    68
+                  ],
+                  [
+                    62,
+                    52
+                  ],
+                  [
+                    46,
+                    52
+                  ],
+                  [
+                    46,
+                    36
+                  ],
+                  [
+                    82,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A staircase shape with two steps, turned 270 degrees."
+          },
+          "why": "This staircase can be turned to match the others."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Turn each staircase in your mind until its steps go up to the right.",
+        "Four of them can be turned to match each other.",
+        "Look for the staircase that goes up to the left when its flat side is at the bottom."
+      ],
+      "explanation": "When the flat side is at the bottom, four of the staircases go up to the right. One goes up to the left, so it is flipped over.",
+      "solution": [
+        {
+          "say": "When the flat side is at the bottom, four of the staircases go up to the right."
+        },
+        {
+          "say": "One goes up to the left, so it is flipped over."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    }
+  ]
+}

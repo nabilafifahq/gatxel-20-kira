@@ -151,6 +151,652 @@
       "hints": ["Think about how the two surfaces feel.", "Rough surfaces slow moving things down more than smooth ones.", "Picture rolling a ball on a rug and on tiles."],
       "explanation": "The car rolls further on the smooth floor. The rough carpet rubs against the wheels and slows the car down more.",
       "tags": ["iksc", "ksnr"]
+    },
+    {
+      "id": "s1.push-pull.013",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Is closing a drawer a push or a pull?",
+      "options": [
+        {
+          "text": "a pull",
+          "why": "You pull to open a drawer, not to close it."
+        },
+        {
+          "text": "a push"
+        },
+        {
+          "text": "neither",
+          "why": "It is one of the two."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which way does the drawer move?",
+        "It goes away from you.",
+        "Moving away is a push."
+      ],
+      "explanation": "To close a drawer we push it in."
+    },
+    {
+      "id": "s1.push-pull.014",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Is throwing a ball a push or a pull?",
+      "options": [
+        {
+          "text": "a pull",
+          "why": "The ball goes away from you."
+        },
+        {
+          "text": "neither",
+          "why": "It is a force."
+        },
+        {
+          "text": "a push"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Does the ball come to you?",
+        "It moves away.",
+        "Moving away is a push."
+      ],
+      "explanation": "You push the ball away from your hand."
+    },
+    {
+      "id": "s1.push-pull.015",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Is dragging a wagon behind you a push or a pull?",
+      "options": [
+        {
+          "text": "a push",
+          "why": "You do not move it away."
+        },
+        {
+          "text": "a pull"
+        },
+        {
+          "text": "neither",
+          "why": "It is a force."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The wagon follows you.",
+        "It moves towards you.",
+        "Moving towards is a pull."
+      ],
+      "explanation": "The wagon comes towards you, so you pull it."
+    },
+    {
+      "id": "s1.push-pull.016",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What can a push or a pull do?",
+      "options": [
+        {
+          "text": "make something alive",
+          "why": "Forces cannot make things alive."
+        },
+        {
+          "text": "make something disappear",
+          "why": "Forces cannot do that."
+        },
+        {
+          "text": "make something start to move"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about a ball.",
+        "A push makes a ball roll.",
+        "It is about moving."
+      ],
+      "explanation": "A push or a pull can start something moving. It can also stop it or change its shape."
+    },
+    {
+      "id": "s1.push-pull.017",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What happens when you push a toy car harder?",
+      "options": [
+        {
+          "text": "It goes faster."
+        },
+        {
+          "text": "It stops.",
+          "why": "A bigger push makes it go."
+        },
+        {
+          "text": "It turns into a pull.",
+          "why": "A push stays a push."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A big push is strong.",
+        "Try it with a small push first.",
+        "It moves more."
+      ],
+      "explanation": "A bigger push makes the car go faster and further."
+    },
+    {
+      "id": "s1.push-pull.018",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one needs the biggest push?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "box",
+            "label": "heavy box"
+          },
+          {
+            "icon": "pencil",
+            "label": "pencil"
+          },
+          {
+            "icon": "feather",
+            "label": "feather"
+          }
+        ],
+        "alt": "A heavy box, a pencil and a feather."
+      },
+      "options": [
+        {
+          "text": "a pencil",
+          "why": "A pencil is light."
+        },
+        {
+          "text": "a heavy box"
+        },
+        {
+          "text": "a feather",
+          "why": "A feather is very light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Heavy things need more force.",
+        "A feather is light.",
+        "Think of moving furniture."
+      ],
+      "explanation": "A heavy box needs a big push because it is heavy."
+    },
+    {
+      "id": "s1.push-pull.019",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A ball rolls down a slope without a push. What pulls it down?",
+      "options": [
+        {
+          "text": "the Earth"
+        },
+        {
+          "text": "the wind",
+          "why": "The wind did not move it."
+        },
+        {
+          "text": "a magnet",
+          "why": "There is no magnet."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Things fall down, not up.",
+        "Think about dropping a ball.",
+        "The Earth pulls things."
+      ],
+      "explanation": "The Earth pulls everything down. We call this force gravity."
+    },
+    {
+      "id": "s1.push-pull.020",
+      "skill": "s1.push-pull",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it a push or a pull? Sort the actions.",
+      "groups": [
+        "Push",
+        "Pull"
+      ],
+      "items": [
+        {
+          "text": "kick a ball",
+          "group": 0
+        },
+        {
+          "text": "close a door",
+          "group": 0
+        },
+        {
+          "text": "press a button",
+          "group": 0
+        },
+        {
+          "text": "open a zip",
+          "group": 1
+        },
+        {
+          "text": "pull a wagon",
+          "group": 1
+        },
+        {
+          "text": "pull a rope",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A push moves things away.",
+        "A pull moves things closer.",
+        "Start with the rope."
+      ],
+      "explanation": "Kicking, closing and pressing are pushes. Zipping open and pulling are pulls."
+    },
+    {
+      "id": "s1.push-pull.021",
+      "skill": "s1.push-pull",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose all the pushes.",
+      "options": [
+        {
+          "text": "opening a drawer"
+        },
+        {
+          "text": "pulling a rope"
+        },
+        {
+          "text": "pressing a doorbell"
+        },
+        {
+          "text": "pushing a swing"
+        },
+        {
+          "text": "kicking a ball"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4
+      ],
+      "hints": [
+        "A push goes away from you.",
+        "You pull a rope towards you.",
+        "A drawer comes towards you when you open it."
+      ],
+      "explanation": "Kicking, pushing a swing and pressing a bell are pushes. Pulling a rope and opening a drawer are pulls."
+    },
+    {
+      "id": "s1.push-pull.022",
+      "skill": "s1.push-pull",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Order the pushes from the smallest to the biggest.",
+      "items": [
+        "tapping a key",
+        "pushing a swing",
+        "pushing a shopping trolley",
+        "pushing a stuck car"
+      ],
+      "hints": [
+        "A key is very light.",
+        "A car is heavy.",
+        "The swing is in the middle."
+      ],
+      "explanation": "Tapping a key needs a tiny push. A stuck car needs the biggest push."
+    },
+    {
+      "id": "s1.push-pull.023",
+      "skill": "s1.push-pull",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "A push moves things ___ you. A pull moves things ___ you.",
+      "gaps": [
+        {
+          "options": [
+            "away from",
+            "towards"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "away from",
+            "towards"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Think about pushing a door.",
+        "Think about pulling a rope.",
+        "The two blanks have different answers."
+      ],
+      "explanation": "A push moves things away from you. A pull moves things towards you."
+    },
+    {
+      "id": "s1.push-pull.024",
+      "skill": "s1.push-pull",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Is it a push or a pull?",
+      "head": [
+        "Action",
+        "Push or pull?"
+      ],
+      "rows": [
+        [
+          "kick",
+          "push"
+        ],
+        [
+          "open a drawer",
+          ""
+        ],
+        [
+          "close a door",
+          ""
+        ],
+        [
+          "pull a rope",
+          "pull"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "pull"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "push"
+          ]
+        }
+      ],
+      "hints": [
+        "Does it come towards you?",
+        "Closing sends the door away.",
+        "Kick is a push."
+      ],
+      "explanation": "Kicking and closing are pushes. Opening a drawer and pulling a rope are pulls."
+    },
+    {
+      "id": "s1.push-pull.025",
+      "skill": "s1.push-pull",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Ravi plays in the park. He pushes his friend on a swing. Then he pulls a toy cart. At the end he pushes the cart down a slope.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What does Ravi do to the swing?",
+          "options": [
+            {
+              "text": "push it"
+            },
+            {
+              "text": "pull it"
+            },
+            {
+              "text": "squash it"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What does Ravi pull?",
+          "answers": [
+            "a cart",
+            "the cart",
+            "cart",
+            "a toy cart",
+            "toy cart"
+          ],
+          "caseSensitive": false
+        }
+      ],
+      "hints": [
+        "Read the second sentence.",
+        "Read the third sentence.",
+        "The cart is a toy."
+      ],
+      "explanation": "Ravi pushes the swing and pulls the toy cart."
+    },
+    {
+      "id": "s1.push-pull.026",
+      "skill": "s1.push-pull",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the toy you can push so it rolls.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "toy-car",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "book",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "shoe",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "cup",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: toy car, book, shoe and cup."
+      },
+      "regions": [
+        {
+          "label": "toy car",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "book",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "shoe",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "cup",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Which one has wheels?",
+        "A book does not roll.",
+        "It starts with t."
+      ],
+      "explanation": "A toy car has wheels. A push makes it roll."
+    },
+    {
+      "id": "s1.push-pull.027",
+      "skill": "s1.push-pull",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a child pushing a swing. Add an arrow to show the push.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws a child and a swing",
+            "points": 1
+          },
+          {
+            "label": "Draws an arrow in the right direction",
+            "points": 1
+          },
+          {
+            "label": "Labels it push",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "The arrow shows which way the swing moves.",
+        "Label your arrow."
+      ],
+      "explanation": "A push moves the swing away. The arrow points away from the child."
+    },
+    {
+      "id": "s1.push-pull.028",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Each child pushes the same box on the same floor. Ana's box moves 5 steps, Ben's 2 steps and Cara's 4 steps. Who pushed hardest?",
+      "options": [
+        {
+          "text": "Ben",
+          "why": "His box moved the least."
+        },
+        {
+          "text": "Cara",
+          "why": "Ana's box moved further."
+        },
+        {
+          "text": "Ana"
+        },
+        {
+          "text": "They pushed the same",
+          "why": "The boxes moved different distances."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The box is the same.",
+        "A harder push goes further.",
+        "Who moved it furthest?"
+      ],
+      "explanation": "A bigger push makes the box go further. Ana's box went furthest.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.push-pull.029",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A toy car rolls fast on a smooth floor. It slows down on a carpet. What does the carpet do?",
+      "options": [
+        {
+          "text": "It pushes the car harder.",
+          "why": "The car gets slower."
+        },
+        {
+          "text": "It slows the car down."
+        },
+        {
+          "text": "It pulls the car faster.",
+          "why": "The car gets slower."
+        },
+        {
+          "text": "It does nothing.",
+          "why": "The car changes speed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which gets slower?",
+        "A carpet is rough.",
+        "Rough things slow other things."
+      ],
+      "explanation": "The rough carpet slows the car down. It rubs against the wheels.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.push-pull.030",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You want to move a big heavy box. What is best?",
+      "options": [
+        {
+          "text": "ask two friends to push too"
+        },
+        {
+          "text": "push it with one finger",
+          "why": "One finger is too small."
+        },
+        {
+          "text": "wait for it to move",
+          "why": "It will not move by itself."
+        },
+        {
+          "text": "blow on it",
+          "why": "Blowing is too weak."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Heavy boxes need big forces.",
+        "Many people make a bigger push.",
+        "Waiting does not work."
+      ],
+      "explanation": "More friends push together to give a bigger push.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

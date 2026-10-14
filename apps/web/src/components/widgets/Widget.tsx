@@ -1,6 +1,7 @@
 'use client'
 
 import type { ReactElement } from 'react'
+import { TapSound } from '@/components/learner/TapSound'
 import { ClockWidget } from './ClockWidget'
 import { ClozeWidget } from './ClozeWidget'
 import { DrawWidget } from './DrawWidget'
@@ -27,6 +28,14 @@ import { WriteWidget } from './WriteWidget'
 
 /** Pilih widget sesuai ClientItem.type. Key berdasarkan ref supaya state widget tidak bocor antarsoal. */
 export function Widget(props: WidgetProps): ReactElement {
+  return (
+    <TapSound>
+      <WidgetByType {...props} />
+    </TapSound>
+  )
+}
+
+function WidgetByType(props: WidgetProps): ReactElement {
   const k = props.item.ref
   switch (props.item.type) {
     case 'mcq':

@@ -7,7 +7,7 @@ import { loadPrograms } from '@kira/content/extras'
 import { programPosition, type Program } from '@kira/content/programs'
 import { tables } from '@kira/db'
 import type { Subject } from '@/lib/dto'
-import { inOrg, type Tx } from '../db'
+import type { Tx } from '../db'
 import { content, skillsFor } from './content'
 import { paperPresetFor } from './daily-paper-scoring'
 import {
@@ -65,6 +65,20 @@ export async function simulationWindow(tx: Tx, learnerId: string, subject: Subje
   return null
 }
 
+/** Mapel dengan program olimpiade aktif yang tanggal ini jatuh di hari ringan (taper) sebelum lomba. */
+export async function taperSubjects(tx: Tx, learnerId: string, date: IsoDate): Promise<Set<Subject>> {
+  const runs = await tx
+    .select({ programId: programRun.programId, startDate: programRun.startDate })
+    .from(programRun)
+    .where(and(eq(programRun.learnerId, learnerId), eq(programRun.status, 'active')))
+  const out = new Set<Subject>()
+  for (const r of runs) {
+    const prog = programs().find((p) => p.id === r.programId)
+    if (prog && programPosition(prog, r.startDate, date)?.taper) out.add(prog.subject as Subject)
+  }
+  return out
+}
+
 /** Skill yang dipakai paper buatan Kira: strand olimpiade untuk Math, skill yang ditandai lomba untuk English dan Science. */
 function contestSkillIds(subject: Subject, grade: number): Set<string> {
   const skills = skillsFor(subject, grade)
@@ -98,53 +112,55 @@ export async function kiraPool(tx: Tx, orgId: string, subject: Subject, grade: n
   return pool
 }
 
-export async function pickDailyPaper(ctx: DailyPaperCtx, subject: Subject, date: string, kind: 'mini' | 'full'): Promise<DailyPaper | null> {
+/**
+ * Berjalan di dalam transaksi pemanggil (`tx` sudah withOrg untuk org dan learner ini), jadi tidak membuka koneksi
+ * kedua dan pilihan ikut batal bersama transaksi sesi harian bila ada yang gagal.
+ */
+export async function pickDailyPaper(tx: Tx, ctx: DailyPaperCtx, subject: Subject, date: string, kind: 'mini' | 'full'): Promise<DailyPaper | null> {
   // Jenis ditentukan pemanggil (sesi harian): Sabtu satu mapel bergiliran meminta paper penuh, dua lainnya tetap mini.
   const effective: 'mini' | 'full' = kind
-  return inOrg({ orgId: ctx.orgId, userId: ctx.learnerId, role: 'learner' }, async (tx) => {
-    const same = and(eq(paperPick.learnerId, ctx.learnerId), eq(paperPick.date, date), eq(paperPick.subject, subject), eq(paperPick.kind, effective))
-    const [existing] = await tx.select().from(paperPick).where(same).limit(1)
-    if (existing) return toResult(existing)
+  const same = and(eq(paperPick.learnerId, ctx.learnerId), eq(paperPick.date, date), eq(paperPick.subject, subject), eq(paperPick.kind, effective))
+  const [existing] = await tx.select().from(paperPick).where(same).limit(1)
+  if (existing) return toResult(existing)
 
-    const rows = await tx
-      .select()
-      .from(paperLibrary)
-      .where(and(eq(paperLibrary.orgId, ctx.orgId), eq(paperLibrary.subject, subject), eq(paperLibrary.grade, ctx.grade), isNull(paperLibrary.retiredAt)))
-    const entries: LibraryEntry[] = rows.map((r) => ({
-      id: r.id, competition: r.competition, year: r.year, subject: r.subject, grade: r.grade, section: r.section, title: r.title, minutes: r.minutes, source: r.source, itemRefs: r.itemRefs,
-    }))
-    const history = await tx
-      .select({ competition: paperPick.competition, year: paperPick.year, date: paperPick.date, itemRefs: paperPick.itemRefs })
-      .from(paperPick)
-      .where(and(eq(paperPick.learnerId, ctx.learnerId), eq(paperPick.subject, subject)))
-      .orderBy(desc(paperPick.date))
-      .limit(300)
-    const picks: PickRecord[] = history
+  const rows = await tx
+    .select()
+    .from(paperLibrary)
+    .where(and(eq(paperLibrary.orgId, ctx.orgId), eq(paperLibrary.subject, subject), eq(paperLibrary.grade, ctx.grade), isNull(paperLibrary.retiredAt)))
+  const entries: LibraryEntry[] = rows.map((r) => ({
+    id: r.id, competition: r.competition, year: r.year, subject: r.subject, grade: r.grade, section: r.section, title: r.title, minutes: r.minutes, source: r.source, itemRefs: r.itemRefs,
+  }))
+  const history = await tx
+    .select({ competition: paperPick.competition, year: paperPick.year, date: paperPick.date, itemRefs: paperPick.itemRefs })
+    .from(paperPick)
+    .where(and(eq(paperPick.learnerId, ctx.learnerId), eq(paperPick.subject, subject)))
+    .orderBy(desc(paperPick.date))
+    .limit(300)
+  const picks: PickRecord[] = history
 
-    const window = effective === 'full' ? await simulationWindow(tx, ctx.learnerId, subject, date) : null
-    const official = choosePaper(effective === 'full' ? fullCandidates(entries) : miniCandidates(entries), picks, { window })
+  const window = effective === 'full' ? await simulationWindow(tx, ctx.learnerId, subject, date) : null
+  const official = choosePaper(effective === 'full' ? fullCandidates(entries) : miniCandidates(entries), picks, { window })
 
-    let chosen: Omit<typeof paperPick.$inferInsert, 'orgId' | 'learnerId' | 'date' | 'subject' | 'kind'> | null = null
-    if (official) {
-      chosen = { libraryId: official.libraryId, origin: 'official', competition: official.competition, year: official.year, title: official.title, minutes: official.minutes, source: REAL_PAPER_LABEL_EN, itemRefs: official.itemRefs }
-    } else {
-      const rng = createRng(`${ctx.learnerId}:${date}:${subject}:${effective}`)
-      // Paper penuh buatan Kira meniru lomba yang bergiliran hari itu: jumlah soal dan waktunya mengikuti preset, supaya
-      // penilaian preset (daily-paper-scoring) pas. Tanpa preset: FULL_COUNT soal dengan 1,5 menit per soal.
-      const contest = effective === 'full' ? paperPresetFor(subject, ctx.grade, date) : undefined
-      const fullCount = contest?.rules.questionCount ?? FULL_COUNT
-      const made = assembleKiraPaper(await kiraPool(tx, ctx.orgId, subject, ctx.grade), effective === 'full' ? fullCount : MINI_COUNT, picks, rng)
-      if (made) {
-        const title = effective === 'full' ? 'Kira contest-style full paper' : 'Kira contest-style mini paper'
-        const minutes = effective === 'mini' ? MINI_PAPER_MINUTES : contest && made.refs.length >= fullCount ? contest.rules.timeLimitMin : made.minutes
-        chosen = { libraryId: null, origin: 'kira-made', competition: null, year: null, title, minutes, source: KIRA_MADE_LABEL_EN, itemRefs: made.refs }
-      }
+  let chosen: Omit<typeof paperPick.$inferInsert, 'orgId' | 'learnerId' | 'date' | 'subject' | 'kind'> | null = null
+  if (official) {
+    chosen = { libraryId: official.libraryId, origin: 'official', competition: official.competition, year: official.year, title: official.title, minutes: official.minutes, source: REAL_PAPER_LABEL_EN, itemRefs: official.itemRefs }
+  } else {
+    const rng = createRng(`${ctx.learnerId}:${date}:${subject}:${effective}`)
+    // Paper penuh buatan Kira meniru lomba yang bergiliran hari itu: jumlah soal dan waktunya mengikuti preset, supaya
+    // penilaian preset (daily-paper-scoring) pas. Tanpa preset: FULL_COUNT soal dengan 1,5 menit per soal.
+    const contest = effective === 'full' ? paperPresetFor(subject, ctx.grade, date) : undefined
+    const fullCount = contest?.rules.questionCount ?? FULL_COUNT
+    const made = assembleKiraPaper(await kiraPool(tx, ctx.orgId, subject, ctx.grade), effective === 'full' ? fullCount : MINI_COUNT, picks, rng)
+    if (made) {
+      const title = effective === 'full' ? 'Kira contest-style full paper' : 'Kira contest-style mini paper'
+      const minutes = effective === 'mini' ? MINI_PAPER_MINUTES : contest && made.refs.length >= fullCount ? contest.rules.timeLimitMin : made.minutes
+      chosen = { libraryId: null, origin: 'kira-made', competition: null, year: null, title, minutes, source: KIRA_MADE_LABEL_EN, itemRefs: made.refs }
     }
-    if (!chosen) return null
+  }
+  if (!chosen) return null
 
-    await tx.insert(paperPick).values({ orgId: ctx.orgId, learnerId: ctx.learnerId, date, subject, kind: effective, ...chosen }).onConflictDoNothing()
-    // Dua permintaan serentak: yang kalah membaca pilihan pemenang supaya hasilnya sama.
-    const [row] = await tx.select().from(paperPick).where(same).limit(1)
-    return row ? toResult(row) : null
-  })
+  await tx.insert(paperPick).values({ orgId: ctx.orgId, learnerId: ctx.learnerId, date, subject, kind: effective, ...chosen }).onConflictDoNothing()
+  // Dua permintaan serentak: yang kalah membaca pilihan pemenang supaya hasilnya sama.
+  const [row] = await tx.select().from(paperPick).where(same).limit(1)
+  return row ? toResult(row) : null
 }

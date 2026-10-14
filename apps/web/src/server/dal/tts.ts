@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, inArray, sql } from 'drizzle-orm'
 import { jakartaDate, type IsoDate } from '@kira/core'
-import { isClipText, type TtsClipRequest } from '@kira/core/tts'
+import { isClipText, QUIZ_HOST_LINES, type TtsClipRequest } from '@kira/core/tts'
 import { tables } from '@kira/db'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
 import type { OrgContext, Tx } from '../db'
@@ -58,13 +58,24 @@ export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipReques
  * Alamat klip yang sudah ada untuk sesi hari ini (soal, pembahasan, bacaan, dan pelajarannya), supaya
  * service worker menyimpannya untuk dipakai offline. Klip yang belum dibuat tidak disertakan.
  */
+/** Alamat klip kalimat pembawa acara Quiz Arena yang sudah ada (selalu ikut disimpan untuk offline). */
+async function hostClipUrls(): Promise<string[]> {
+  const urls: string[] = []
+  for (const text of QUIZ_HOST_LINES) {
+    const key = clipKeyOf(text, 'quizhost')
+    if (await clipExists(key)) urls.push(`/tts/${key}.mp3`)
+  }
+  return urls
+}
+
 export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
+  const host = await hostClipUrls()
   const quests = await tx
     .select({ attemptId: quest.attemptId, skillId: quest.skillId, mode: quest.mode, status: quest.status })
     .from(quest)
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
   const open = quests.filter((q) => q.status !== 'done' && q.attemptId)
-  if (open.length === 0) return []
+  if (open.length === 0) return host
   const attempts = await tx
     .select({ items: attempt.items })
     .from(attempt)
@@ -85,7 +96,7 @@ export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = j
     const l = q.skillId && q.mode === 'belajar' ? lesson(q.skillId) : undefined
     if (l) clips.push(...lessonSpeechClips(l))
   }
-  const urls = new Set<string>()
+  const urls = new Set<string>(host)
   for (const c of clips) {
     const key = clipKeyOf(c.text, c.style)
     if (await clipExists(key)) urls.add(`/tts/${key}.mp3`)

@@ -13,6 +13,7 @@ import { changePassword, createInvite } from '../auth/accounts'
 import { renameDevice, revokeDevice, revokeInvite } from '../auth/admin'
 import { listPasskeys, removePasskey } from '../auth/passkey'
 import { throttleIp } from '../auth/ratelimit'
+import { updateLearnerSoundTx } from '../dal/learner-motion'
 import { assertLearnersInOrg, LIMIT_MAX, LIMIT_MIN, updateLearnerLimitsTx } from '../dal/console-settings'
 
 /**
@@ -35,6 +36,26 @@ export async function updateLearnerLimitsAction(input: { learnerId: string; scre
     const data = limitsSchema.parse(input)
     const ctx = orgCtx(actor)
     await inOrg(ctx, (tx) => updateLearnerLimitsTx(tx, ctx, data))
+    refresh()
+    return undefined
+  })
+}
+
+const soundSchema = z
+  .object({ learnerId: z.string().uuid(), soundEnabled: z.boolean(), musicEnabled: z.boolean() })
+  .strict()
+
+/** Suara dan musik di perangkat anak. Pilihan tutor mengalahkan pilihan perangkat. */
+export async function updateLearnerSoundAction(input: { learnerId: string; soundEnabled: boolean; musicEnabled: boolean }): Promise<ActionResult> {
+  return runAction('updateLearnerSound', async () => {
+    const actor = await requireTutor()
+    const data = soundSchema.parse(input)
+    const ctx = orgCtx(actor)
+    await inOrg(ctx, async (tx) => {
+      await assertLearnersInOrg(tx, [data.learnerId])
+      await updateLearnerSoundTx(tx, data.learnerId, data)
+      await auditTx(tx, ctx, 'learner.sound', data.learnerId, { soundEnabled: data.soundEnabled, musicEnabled: data.musicEnabled })
+    })
     refresh()
     return undefined
   })

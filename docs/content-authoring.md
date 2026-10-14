@@ -72,7 +72,7 @@ Field umum setiap soal:
 | `passage` | tidak | id bacaan untuk soal pemahaman |
 | `tip` | tidak | satu kalimat kebiasaan baik |
 | `solution` | tidak | 2 sampai 8 langkah `{ "say", "show"?, "figure"? }` untuk SolutionPlayer |
-| `tags` | tidak | huruf kecil bertanda hubung: `word-problem`, `olympiad`, `ikmc`, `esmo`, `sasmo`, `kmnr`, `reading`, `checkpoint`, `keep-order` |
+| `tags` | tidak | huruf kecil bertanda hubung: `word-problem`, `olympiad`, `ikmc`, `esmo`, `sasmo`, `kmnr`, `iksc`, `ksnr`, `reasoning` (soal nalar Science bergaya IKSC dan KSNR; `iksc` dan `ksnr` dipakai simulasi lomba dan Paper cadangan), `reading`, `checkpoint`, `keep-order` |
 | `expectedSeconds` | tidak | perkiraan waktu wajar |
 | `lang` | tidak | default `en-GB`. `id` hanya untuk soal bergaya ESMO dan wajib bertag `esmo` atau `id` |
 | `terms` | tidak | untuk soal berbahasa Indonesia: `[{ "term": "lompatan", "en": "jump" }]` |
@@ -259,3 +259,19 @@ Generator ditulis di `packages/content/src/math/g<grade>.ts` dan mengembalikan i
 - Jawaban dihitung dari angka yang dibangkitkan, tidak diketik.
 - Semua hint dan penjelasan memakai angka soal itu.
 - `pnpm content:check` menjalankan 25 seed per tingkat dan menolak hasil yang tidak valid atau tidak deterministik.
+
+## Soal olimpiade (skill `oly-*`)
+
+- Setiap soal olimpiade bertag `olympiad` ditambah tag lomba yang gayanya mirip (`ikmc`, `sasmo`, `kmnr`, `seamo`, `hkimo`). Pemilih simulasi dan paper memilih soal lewat tag itu.
+- `points` 3, 4, atau 5 dipetakan ke `difficulty` 3, 4, atau 5. Soal pemanasan boleh `points: 3` dengan `difficulty: 2`, supaya terpakai di bagian soal mudah SASMO dan KMNR.
+- Pilihan ganda gaya Kangaroo memakai 5 opsi dan `keep-order`. Opsi angka diurutkan naik. Jawaban benar tidak selalu di tempat yang sama.
+- Satu kalimat di prompt kelas 1 sampai 2 paling banyak 12 kata, kelas 3 paling banyak 16 kata.
+- Teka-teki kotak (`grid`) tidak ikut simulasi karena bukan jenis soal kertas. Pastikan hanya punya satu penyelesaian, `pnpm content:check` memeriksanya.
+
+## 9. Jebakan yang sering membuat content:check atau uji gagal
+
+- Opsi mcq dan multi dibandingkan tanpa membedakan huruf besar kecil. Dua opsi yang hanya beda huruf besar ("my cat" dan "My cat") dianggap kembar. Ubah kata atau tanda bacanya.
+- Jawaban `text`, `cloze`, `hotspot`, dan `label` dinormalkan: tanda `.`, `!`, `?` di ujung dibuang. Jawaban yang hanya berupa tanda baca tidak akan pernah diterima. Untuk soal "tanda apa di akhir kalimat" pakai mcq.
+- Skill sesi English Skills (`<grade>.starters-listening`, `movers-listening`, `starters-speaking`, `movers-speaking`, `starters-writing`, `movers-writing`) dijaga oleh uji: listening hanya mcq (naskah ada di prompt), speaking hanya `speak` dengan rubrik berjumlah 5 poin, writing hanya `write`. Soal `listen` dengan `listenText` tersembunyi ditaruh di skill `speaking` atau skill baca yang sesuai.
+- Tag lomba untuk simulasi: `esmo` (Grade 1-2, hanya mcq yang dipilih pembuat paket ESMO) dan `iklc`. Soal gaya lomba bergenre odd-one-out, analogi, anagram, dan tata bahasa dalam konteks memakai tag itu.
+- Daftar kata Spelling Bee: tiap kata unik dalam satu berkas dan kalimat contoh harus memuat kata itu sebagai kata utuh.

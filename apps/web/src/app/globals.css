@@ -234,6 +234,370 @@
   }
 }
 
+/*
+ * Katalog gerak learner (DESIGN.md bagian 6b). Semua keyframe hanya memakai transform dan opacity,
+ * kurva --ease-kira (tanpa pantulan), dan tidak menangkap fokus atau sentuhan. Dengan reduced motion
+ * gerak ulang dimatikan dan sisanya langsung ke keadaan akhir.
+ */
+@keyframes kira-glow {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.16;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes kira-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.035);
+  }
+}
+@keyframes kira-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(4px);
+  }
+  85% {
+    transform: translateX(-1px);
+  }
+}
+@keyframes kira-fly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 8px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--fly-x, 0px), var(--fly-y, -96px)) scale(0.8);
+  }
+}
+@keyframes kira-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes kira-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes kira-flip-in {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateY(-80deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateY(0deg);
+  }
+}
+@keyframes kira-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kira-shine {
+  from {
+    opacity: 0;
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  30% {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+@keyframes kira-flash {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kira-bar-in {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes kira-ring {
+  from {
+    opacity: 0.7;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+@keyframes kira-count {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes kira-lid {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-38deg);
+  }
+}
+@keyframes kira-chest-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2.5deg);
+  }
+  75% {
+    transform: rotate(2.5deg);
+  }
+}
+@keyframes kira-breathe {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(1.025) scaleX(0.99);
+  }
+}
+@keyframes kira-blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes kira-cheer {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-12px) rotate(-5deg);
+  }
+  60% {
+    transform: translateY(-6px) rotate(5deg);
+  }
+}
+@keyframes kira-think {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-1px);
+  }
+}
+@keyframes kira-encourage {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35% {
+    transform: translateY(3px) rotate(-4deg);
+  }
+  70% {
+    transform: translateY(0) rotate(3deg);
+  }
+}
+@keyframes kira-celebrate {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-16px) rotate(-7deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(-10px) rotate(7deg) scale(1.03);
+  }
+}
+@layer components {
+  /* Jawaban benar: cahaya hijau (opacity) dan denyut kecil. Wadahnya relative. */
+  .kira-correct {
+    animation: kira-pulse 420ms var(--ease-kira) both;
+  }
+  .kira-correct::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-success);
+    pointer-events: none;
+    animation: kira-glow 900ms var(--ease-kira) both;
+  }
+  .kira-pulse {
+    animation: kira-pulse 420ms var(--ease-kira) both;
+  }
+  /* Not yet: geseran mendatar yang lembut, tanpa memantul. */
+  .kira-nudge {
+    animation: kira-nudge 420ms var(--ease-kira) both;
+  }
+  .kira-fly {
+    animation: kira-fly 1100ms var(--ease-kira) both;
+  }
+  .kira-page {
+    animation: kira-page-in 200ms var(--ease-kira) backwards;
+  }
+  .kira-fade-in {
+    animation: kira-fade-in var(--duration-base) var(--ease-kira) both;
+  }
+  .kira-flip-in {
+    animation: kira-flip-in 520ms var(--ease-kira) var(--kira-delay, 0ms) both;
+  }
+  .kira-scale-in {
+    animation: kira-scale-in 420ms var(--ease-kira) var(--kira-delay, 0ms) both;
+  }
+  .kira-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 35%, var(--color-white) 50%, transparent 65%);
+    pointer-events: none;
+    opacity: 0;
+    animation: kira-shine 1200ms var(--ease-kira) var(--kira-delay, 500ms) both;
+  }
+  .kira-flash {
+    animation: kira-flash 140ms var(--ease-kira) both;
+  }
+  /* Bar XP terisi mulus dari kiri: lebar penuh, skala mengikuti persentase. */
+  .kira-bar-fill {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transform: scaleX(var(--p, 0));
+    transition: transform var(--duration-celebrate) var(--ease-kira);
+    animation: kira-bar-in var(--duration-celebrate) var(--ease-kira) 200ms backwards;
+  }
+  .kira-ring {
+    animation: kira-ring 1100ms var(--ease-kira) var(--kira-delay, 0ms) both;
+  }
+  .kira-count {
+    animation: kira-count 900ms var(--ease-kira) both;
+  }
+  .kira-chest-lid {
+    transform-box: view-box;
+    transform-origin: 14px 40px;
+    animation: kira-lid 520ms var(--ease-kira) both;
+  }
+  .kira-chest-wiggle {
+    animation: kira-chest-wiggle 900ms var(--ease-kira) 2;
+    transform-origin: 50% 90%;
+  }
+  /* Jalur Today: garis terisi menurut sesi yang selesai, dan sesi aktif bersinar. */
+  .kira-path-fill {
+    transform-origin: top;
+    transition: transform var(--duration-celebrate) var(--ease-kira);
+  }
+  .kira-active-glow {
+    position: relative;
+  }
+  .kira-active-glow::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    border: 3px solid var(--color-star);
+    pointer-events: none;
+    animation: kira-fade-in 700ms var(--ease-kira) 200ms both;
+  }
+  /* Maskot: hewan avatar bernapas dan berkedip; suasana lain dipicu lewat data-mood. */
+  .kira-mascot {
+    display: inline-flex;
+    transform-origin: 50% 100%;
+    animation: kira-breathe 4.2s ease-in-out infinite;
+  }
+  .kira-mascot .kira-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: kira-blink 5.2s ease-in-out infinite;
+  }
+  .kira-mascot[data-mood='cheer'] {
+    animation: kira-cheer 800ms var(--ease-kira) 1;
+  }
+  .kira-mascot[data-mood='think'] {
+    animation: kira-think 2.8s ease-in-out infinite;
+  }
+  .kira-mascot[data-mood='encourage'] {
+    animation: kira-encourage 900ms var(--ease-kira) 1;
+  }
+  .kira-mascot[data-mood='celebrate'] {
+    animation: kira-celebrate 1100ms var(--ease-kira) 2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kira-mascot,
+  .kira-mascot .kira-eyes,
+  .kira-mascot[data-mood] {
+    animation: none !important;
+  }
+  .kira-path-fill {
+    transition: none;
+  }
+  .kira-correct,
+  .kira-pulse,
+  .kira-nudge {
+    animation: none !important;
+  }
+  .kira-correct::after {
+    animation: kira-glow 600ms linear both !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

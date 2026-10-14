@@ -557,6 +557,556 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e2.poems.018",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with moon?",
+      "hints": [
+        "Say moon aloud.",
+        "Rhyming words end with the same sound.",
+        "You eat with it."
+      ],
+      "explanation": "Moon and spoon rhyme.",
+      "options": [
+        {
+          "text": "spoon"
+        },
+        {
+          "text": "mat",
+          "why": "Mat does not end like moon."
+        },
+        {
+          "text": "dog",
+          "why": "Dog does not end like moon."
+        },
+        {
+          "text": "sun",
+          "why": "Sun does not end like moon."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.poems.019",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a sound word?",
+      "hints": [
+        "A sound word sounds like the noise.",
+        "Say each word aloud.",
+        "A bee makes this noise."
+      ],
+      "explanation": "Buzz sounds like the noise a bee makes.",
+      "options": [
+        {
+          "text": "bee",
+          "why": "Bee is a naming word."
+        },
+        {
+          "text": "buzz"
+        },
+        {
+          "text": "honey",
+          "why": "Honey is a naming word."
+        },
+        {
+          "text": "garden",
+          "why": "Garden is a naming word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.020",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "I looked up at the sky. A bird was flying by. Which words rhyme?",
+      "hints": [
+        "Look at the end of each line.",
+        "Say the last words aloud.",
+        "They end with the same sound."
+      ],
+      "explanation": "Sky and by rhyme.",
+      "options": [
+        {
+          "text": "looked and flying",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "up and bird",
+          "why": "These do not rhyme."
+        },
+        {
+          "text": "sky and by"
+        },
+        {
+          "text": "I and was",
+          "why": "These do not rhyme."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.021",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "What is a verse in a poem?",
+      "hints": [
+        "Poems are split into parts.",
+        "Each part has a few lines.",
+        "There is a gap between verses."
+      ],
+      "explanation": "A verse is a group of lines in a poem.",
+      "options": [
+        {
+          "text": "a rhyming word",
+          "why": "A verse is not one word."
+        },
+        {
+          "text": "a group of lines"
+        },
+        {
+          "text": "the title",
+          "why": "The title is the name."
+        },
+        {
+          "text": "one word",
+          "why": "A verse is more than one word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.022",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word sounds like the noise it makes?",
+      "hints": [
+        "Say each word aloud.",
+        "Think of jumping in water.",
+        "It starts with spl."
+      ],
+      "explanation": "Splash sounds like water.",
+      "options": [
+        {
+          "text": "puddle",
+          "why": "Puddle is a naming word."
+        },
+        {
+          "text": "rain",
+          "why": "Rain is a naming word."
+        },
+        {
+          "text": "boots",
+          "why": "Boots is a naming word."
+        },
+        {
+          "text": "splash"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.023",
+      "skill": "e2.poems",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by their rhyme.",
+      "hints": [
+        "Say each word aloud.",
+        "Listen to the ending.",
+        "Hat ends like cat."
+      ],
+      "explanation": "Hat, mat and bat rhyme with cat. Run, fun and bun rhyme with sun.",
+      "groups": [
+        "Rhymes with cat",
+        "Rhymes with sun"
+      ],
+      "items": [
+        {
+          "text": "hat",
+          "group": 0
+        },
+        {
+          "text": "run",
+          "group": 1
+        },
+        {
+          "text": "mat",
+          "group": 0
+        },
+        {
+          "text": "fun",
+          "group": 1
+        },
+        {
+          "text": "bat",
+          "group": 0
+        },
+        {
+          "text": "bun",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.poems.024",
+      "skill": "e2.poems",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each sound word to what makes it.",
+      "hints": [
+        "Say each sound word aloud.",
+        "Think about what makes the noise.",
+        "A cow says moo."
+      ],
+      "explanation": "Each sound word fits what makes it.",
+      "pairs": [
+        [
+          "buzz",
+          "bee"
+        ],
+        [
+          "moo",
+          "cow"
+        ],
+        [
+          "splash",
+          "water"
+        ],
+        [
+          "tick",
+          "clock"
+        ]
+      ]
+    },
+    {
+      "id": "e2.poems.025",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which line has words that start with the same sound?",
+      "hints": [
+        "Look at the first letter of each word.",
+        "Say the line aloud.",
+        "Many words start with p."
+      ],
+      "explanation": "Peter picks purple plums repeats the sound p.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The cat sat on the mat.",
+          "why": "The words rhyme, but the starts are different."
+        },
+        {
+          "text": "Peter picks purple plums."
+        },
+        {
+          "text": "The sun is bright.",
+          "why": "The words start with different sounds."
+        },
+        {
+          "text": "Big dogs run fast.",
+          "why": "The words start with different sounds."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.026",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The moon is a silver coin in the dark blue sky. What is the moon compared to?",
+      "hints": [
+        "Look for the word is.",
+        "It joins the moon to another thing.",
+        "It is shiny and round."
+      ],
+      "explanation": "The poem says the moon is a silver coin.",
+      "options": [
+        {
+          "text": "a coin"
+        },
+        {
+          "text": "a star",
+          "why": "The poem says a coin."
+        },
+        {
+          "text": "a boat",
+          "why": "The poem says a coin."
+        },
+        {
+          "text": "a ball",
+          "why": "The poem says a coin."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e2.poems.027",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The wind whispered through the trees. What does whispered tell us?",
+      "hints": [
+        "A whisper is a quiet voice.",
+        "The wind is not a person.",
+        "The poem uses the word for the sound."
+      ],
+      "explanation": "Whispered tells us the wind made a soft, quiet sound.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The wind was loud.",
+          "why": "Whispering is quiet, not loud."
+        },
+        {
+          "text": "The wind was cold.",
+          "why": "Whispering does not tell about cold."
+        },
+        {
+          "text": "The wind stopped.",
+          "why": "A whisper is still a sound."
+        },
+        {
+          "text": "The wind was soft and quiet."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.028",
+      "skill": "e2.poems",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Twinkle, twinkle, little star, how I wonder what you ___.",
+      "hints": [
+        "Read the line aloud.",
+        "The last word rhymes with star.",
+        "It goes with you."
+      ],
+      "explanation": "You are fits and rhymes with star.",
+      "gaps": [
+        {
+          "options": [
+            "are",
+            "is",
+            "am"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.poems.029",
+      "skill": "e2.poems",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the pairs that rhyme.",
+      "hints": [
+        "Say each pair aloud.",
+        "Listen to the endings.",
+        "Two pairs end the same."
+      ],
+      "explanation": "Light and night rhyme. Boat and goat rhyme.",
+      "options": [
+        {
+          "text": "cat and dog",
+          "why": "They do not rhyme."
+        },
+        {
+          "text": "boat and goat"
+        },
+        {
+          "text": "light and night"
+        },
+        {
+          "text": "sun and moon",
+          "why": "They do not rhyme."
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e2.poems.030",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word rhymes with high?",
+      "passage": "e2.p.market-morning",
+      "hints": [
+        "Look at the first verse.",
+        "Say high aloud.",
+        "The fourth line ends with a rhyme."
+      ],
+      "explanation": "High and buy rhyme.",
+      "options": [
+        {
+          "text": "sun",
+          "why": "Sun does not rhyme with high."
+        },
+        {
+          "text": "rice",
+          "why": "Rice does not rhyme with high."
+        },
+        {
+          "text": "buy"
+        },
+        {
+          "text": "bag",
+          "why": "Bag does not rhyme with high."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.031",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What do the sellers do?",
+      "passage": "e2.p.market-morning",
+      "hints": [
+        "Read the first verse.",
+        "Find the word sellers.",
+        "They want people to buy."
+      ],
+      "explanation": "The sellers shout and call out loud.",
+      "options": [
+        {
+          "text": "sleep",
+          "why": "The poem says they shout."
+        },
+        {
+          "text": "sing songs",
+          "why": "The poem says they shout."
+        },
+        {
+          "text": "shout and call out"
+        },
+        {
+          "text": "read books",
+          "why": "The poem says they shout."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.poems.032",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What colour are the chillies?",
+      "passage": "e2.p.market-morning",
+      "hints": [
+        "Read the second verse.",
+        "Find the word chillies.",
+        "The colour is in the same line."
+      ],
+      "explanation": "The chillies are bright red.",
+      "options": [
+        {
+          "text": "green",
+          "why": "The poem says red."
+        },
+        {
+          "text": "bright red"
+        },
+        {
+          "text": "silver",
+          "why": "The fish are silver."
+        },
+        {
+          "text": "yellow",
+          "why": "The mangoes glow like sunshine."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.poems.033",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The mangoes glow like sunshine. What does this tell us?",
+      "passage": "e2.p.market-morning",
+      "hints": [
+        "Sunshine is bright and yellow.",
+        "The poem compares the mangoes to it.",
+        "Think about colour."
+      ],
+      "explanation": "The poem compares the mangoes to sunshine, so they look bright and yellow.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The mangoes are hot.",
+          "why": "Glowing is about colour here."
+        },
+        {
+          "text": "The mangoes are sour.",
+          "why": "The poem does not say that."
+        },
+        {
+          "text": "The mangoes are very small.",
+          "why": "The poem does not say that."
+        },
+        {
+          "text": "The mangoes are bright yellow."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.poems.034",
+      "skill": "e2.poems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "How does the child feel at the end?",
+      "passage": "e2.p.market-morning",
+      "hints": [
+        "Read the last verse.",
+        "Find the word share.",
+        "They walk home together."
+      ],
+      "explanation": "The last verse shows the child happy to be with Mum.",
+      "options": [
+        {
+          "text": "upset about the bag",
+          "why": "The poem says the child carries it with care."
+        },
+        {
+          "text": "tired of the market",
+          "why": "The poem does not say that."
+        },
+        {
+          "text": "happy to share with Mum"
+        },
+        {
+          "text": "afraid of the sellers",
+          "why": "The poem does not say that."
+        }
+      ],
+      "answer": 2
     }
   ]
 }

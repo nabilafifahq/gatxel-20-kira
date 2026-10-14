@@ -35,6 +35,8 @@ import {
   type LearnCard,
   type RoundTopic,
   type TopicId,
+  MAP_REGIONS,
+  planMapRound,
 } from '@kira/content/knowledge'
 import { tables } from '@kira/db'
 import type { ArenaRewardDTO, QuizAnswerResult, QuizHubDTO, QuizResultDTO, QuizRoundDTO, QuizStartInput, QuizTopicCard, QuizTopicDTO } from '@/lib/dto-arena'
@@ -48,7 +50,7 @@ import { completeLinkedSession } from './learner-session'
 
 const { arenaSession, xpEvent } = tables
 
-type QuizConfig = { topic: RoundTopic; mode: 'learn' | 'quiz' | 'speed'; plan: string[] }
+type QuizConfig = { topic: RoundTopic; mode: 'learn' | 'quiz' | 'speed'; plan: string[]; variant?: 'map' }
 type StoredQuizAnswer = { i: number; a: KAnswer | null; ms: number; t: number }
 
 function parseConfig(raw: unknown): QuizConfig {
@@ -70,14 +72,15 @@ function topicTitle(topic: RoundTopic): string {
 export async function startQuizRound(tx: Tx, ctx: OrgContext, learnerId: string, input: QuizStartInput): Promise<{ roundId: string }> {
   if (!isRoundTopic(input.topic)) throw invalid('That topic does not exist.')
   if (input.topic === 'mix' && input.mode === 'learn') throw invalid('Flashcards need one topic.')
+  if (input.variant === 'map' && (input.topic !== 'continents' || input.mode !== 'quiz')) throw invalid('The map round is only for Continents and oceans.')
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
   await assertCanPlay(tx, learner, today)
   await dropStaleRounds(tx, learnerId)
   const state = await loadQuizState(tx, learnerId)
   const seed = randomUUID()
-  const plan = planRound({ topic: input.topic, mode: input.mode, seed, know: state.know })
-  const config: QuizConfig = { topic: input.topic, mode: input.mode, plan }
+  const plan = input.variant === 'map' ? planMapRound(seed) : planRound({ topic: input.topic, mode: input.mode, seed, know: state.know })
+  const config: QuizConfig = { topic: input.topic, mode: input.mode, plan, ...(input.variant ? { variant: input.variant } : {}) }
   const [row] = await tx
     .insert(arenaSession)
     .values({ orgId: ctx.orgId, learnerId, arena: 'pengetahuan', mode: input.mode, topic: input.topic, seed, config, date: today, total: plan.length })
@@ -117,6 +120,7 @@ function yoursLabel(q: KQuestion, a: KAnswer | null): string {
   const c = q.client
   if (c.kind === 'mc') return typeof a === 'number' ? (c.options[a]?.label ?? '') : ''
   if (c.kind === 'tf') return a === true ? 'True' : a === false ? 'False' : ''
+  if (c.kind === 'map') return typeof a === 'string' ? (MAP_REGIONS.find((r) => r.id === a)?.label ?? '') : ''
   return Array.isArray(a) ? a.map((id) => c.items.find((i) => i.id === id)?.label ?? '').join(', ') : ''
 }
 
@@ -259,6 +263,7 @@ export async function quizRoundDTO(tx: Tx, learnerId: string, roundId: string): 
     done,
     right,
     finished,
+    ...(cfg.variant ? { variant: cfg.variant } : {}),
     exitHref: cfg.topic === 'mix' ? '/quiz-arena' : `/quiz-arena/${cfg.topic}`,
     restartHref: cfg.topic === 'mix' ? '/quiz-arena' : `/quiz-arena/${cfg.topic}`,
   }

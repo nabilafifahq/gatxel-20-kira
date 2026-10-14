@@ -11,6 +11,8 @@ import postgres from 'postgres'
  *   unlock <email>         hapus kunci masuk setelah terlalu banyak percobaan salah
  *   pin-unlock <nama>      buka kunci PIN learner (nama persis seperti di konsol)
  *   tts-batch              jadwalkan job tts.batch (membuat suara bahasa Inggris yang belum ada) untuk setiap org
+ *   tts-status             jumlah klip suara yang sudah jadi dan yang masih menunggu, dari job tts.batch terakhir tiap org
+ *   sourcing-now           jadwalkan pembaruan sumber soal (seperti jadwal Minggu dini hari) sekarang juga untuk setiap org
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
  */
@@ -100,6 +102,49 @@ async function ttsBatch(): Promise<void> {
   }
 }
 
+/**
+ * Antrekan job sourcing.run per org bila belum ada yang menunggu atau berjalan. Batas AI_WEEKLY_CONTENT_JOBS di worker
+ * tetap berlaku (0 berarti tidak ada soal yang diambil), dan AI harus siap. Hasilnya muncul di log worker dan di tabel job.
+ */
+async function sourcingNow(db: postgres.Sql = sql, log: (s: string) => void = console.log): Promise<number> {
+  const orgs = await db<{ id: string }[]>`select id from org order by created_at`
+  let queued = 0
+  for (const o of orgs) {
+    const open = await db`select id from job where org_id = ${o.id} and kind = 'sourcing.run' and status in ('queued', 'running') limit 1`
+    if (open[0]) {
+      log(`Org ${o.id}: sudah ada job sourcing.run yang menunggu atau berjalan.`)
+      continue
+    }
+    const [row] = await db<{ id: string }[]>`insert into job (org_id, kind, payload) values (${o.id}, 'sourcing.run', '{"scope":"org"}'::jsonb) returning id`
+    await db`select pg_notify('kira_job', ${row!.id})`
+    log(`Org ${o.id}: job sourcing.run ${row!.id} dijadwalkan. Batas AI per minggu mengikuti AI_WEEKLY_CONTENT_JOBS di .env. Lihat: docker compose logs -f worker`)
+    queued++
+  }
+  return queued
+}
+
+/** Ringkasan suara per org dari job tts.batch terakhir: job.result memuat total, existing, generated, failed, remaining. */
+async function ttsStatus(db: postgres.Sql = sql, log: (s: string) => void = console.log): Promise<void> {
+  const orgs = await db<{ id: string }[]>`select id from org order by created_at`
+  for (const o of orgs) {
+    const waiting = await db<{ n: number }[]>`select count(*)::int as n from job where org_id = ${o.id} and kind in ('tts.batch', 'tts.clip') and status = 'queued'`
+    const running = await db<{ n: number }[]>`select count(*)::int as n from job where org_id = ${o.id} and kind in ('tts.batch', 'tts.clip') and status = 'running'`
+    const [last] = await db<{ status: string; result: Record<string, unknown> | null; finished_at: Date | null; payload: { refs?: unknown[] } | null }[]>`
+      select status, result, finished_at, payload from job
+      where org_id = ${o.id} and kind = 'tts.batch' and status in ('done', 'failed') and result is not null and (payload->'refs') is null
+      order by coalesce(finished_at, created_at) desc limit 1`
+    const num = (k: string): number => (typeof last?.result?.[k] === 'number' ? (last.result[k] as number) : 0)
+    if (!last) {
+      log(`Org ${o.id}: belum ada batch suara yang selesai. Job menunggu ${waiting[0]!.n}, berjalan ${running[0]!.n}.`)
+      continue
+    }
+    const done = num('existing') + num('generated')
+    const pending = num('remaining')
+    const total = num('total')
+    log(`Org ${o.id}: klip jadi ${done} dari ${total}, menunggu ${pending}, gagal ${num('failed')}. Job menunggu ${waiting[0]!.n}, berjalan ${running[0]!.n}. Batch terakhir ${last.status}${last.finished_at ? ` pada ${last.finished_at.toISOString()}` : ''}.`)
+  }
+}
+
 const [cmd, arg] = process.argv.slice(2)
 try {
   if (cmd === 'status') await status()
@@ -107,8 +152,10 @@ try {
   else if (cmd === 'unlock') await unlock(arg)
   else if (cmd === 'pin-unlock') await pinUnlock(arg)
   else if (cmd === 'tts-batch') await ttsBatch()
+  else if (cmd === 'tts-status') await ttsStatus()
+  else if (cmd === 'sourcing-now') await sourcingNow()
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch | tts-status | sourcing-now')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

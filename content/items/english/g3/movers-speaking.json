@@ -259,6 +259,124 @@
       "tags": [
         "examiner"
       ]
+    },
+    {
+      "id": "e3.movers-speaking.007",
+      "skill": "e3.movers-speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Look at the picture. Describe what the animals are doing.",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "cat"
+          },
+          {
+            "icon": "bird"
+          },
+          {
+            "icon": "fish"
+          },
+          {
+            "icon": "tree"
+          }
+        ],
+        "arrows": "none",
+        "alt": "A cat, a bird, a fish and a tree."
+      },
+      "hints": [
+        "Look at each animal.",
+        "Say what it is doing.",
+        "Use is and the ing word."
+      ],
+      "explanation": "For example: The bird is flying. The cat is sleeping.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Describes at least three things",
+            "points": 2
+          },
+          {
+            "label": "Uses doing words in full sentences",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 40
+    },
+    {
+      "id": "e3.movers-speaking.008",
+      "skill": "e3.movers-speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Tell me about your best friend. What do you do together?",
+      "hints": [
+        "Say the name.",
+        "Say what you play or make.",
+        "Say why you like them."
+      ],
+      "explanation": "For example: My best friend is Sari. We ride bikes after school.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says who the friend is",
+            "points": 2
+          },
+          {
+            "label": "Says two things they do together",
+            "points": 2
+          },
+          {
+            "label": "Uses full sentences",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 40
+    },
+    {
+      "id": "e3.movers-speaking.009",
+      "skill": "e3.movers-speaking",
+      "type": "speak",
+      "difficulty": 4,
+      "prompt": "What would you like to be when you grow up? Say why.",
+      "hints": [
+        "Say the job first.",
+        "Say why in one or two sentences.",
+        "Use because."
+      ],
+      "explanation": "For example: I would like to be a doctor because I want to help people.",
+      "tags": [
+        "examiner"
+      ],
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says the job",
+            "points": 2
+          },
+          {
+            "label": "Gives a reason",
+            "points": 2
+          },
+          {
+            "label": "Uses full sentences and speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 40
     }
   ]
 }

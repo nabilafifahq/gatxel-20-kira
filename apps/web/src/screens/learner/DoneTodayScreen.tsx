@@ -44,10 +44,10 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
           </h1>
           <p className="m-0 max-w-[460px] text-h3 font-normal">{data.line}</p>
           <div className="mt-1 hidden sm:block">
-            <StreakChain streak={data.streak} size="M" />
+            <StreakChain streak={data.streak} size="M" animate={data.variant === 'all-done'} />
           </div>
           <div className="mt-1 w-full sm:hidden">
-            <StreakChain streak={data.streak} size="S" />
+            <StreakChain streak={data.streak} size="S" animate={data.variant === 'all-done'} />
           </div>
           <div className="flex flex-wrap gap-3">
             <XpPill xp={data.xpToday} size="L" />

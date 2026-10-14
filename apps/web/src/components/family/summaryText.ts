@@ -1,4 +1,4 @@
-import type { Subject, WeekSummaryDTO } from '@/lib/dto'
+import type { ArenaWeekDTO, Subject, WeekSummaryDTO } from '@/lib/dto'
 
 /** Kalimat ringkasan minggu yang sama untuk halaman orang tua, laporan konsol, dan email. */
 
@@ -35,4 +35,22 @@ export function emailSubject(s: WeekSummaryDTO): string {
 
 export function starsLine(stars: number): string {
   return stars >= 3 ? 'sekarang dikuasai, 3 bintang' : `sekarang ${stars} bintang`
+}
+
+/** Paragraf pendek tentang arena untuk orang tua; null bila minggu ini tidak ada kegiatan arena dan belum ada topik dicoba. */
+export function arenaParagraph(a: ArenaWeekDTO | null | undefined): string | null {
+  if (!a) return null
+  const parts: string[] = []
+  if (a.qmRounds > 0) {
+    parts.push(
+      a.qmBestPpm !== null
+        ? `Di Quick Maths, kecepatan terbaik minggu ini ${Math.round(a.qmBestPpm)} soal per menit dalam ${a.qmRounds} ronde.`
+        : `Quick Maths dimainkan ${a.qmRounds} ronde minggu ini.`,
+    )
+  }
+  if (a.topicsTried > 0) {
+    const weekly = a.quizRounds > 0 ? `${a.quizRounds} ronde minggu ini. ` : ''
+    parts.push(`Di Quiz Arena, ${weekly}${a.topicsTried} dari ${a.topicsTotal} topik sudah dicoba dan ${a.factsKnown} dari ${a.factsTotal} fakta sudah dikenal.`)
+  }
+  return parts.length ? parts.join(' ') : null
 }

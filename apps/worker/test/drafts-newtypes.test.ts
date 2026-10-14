@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { itemSchema, type Item } from '@kira/content/schema'
-import { AI_ITEM_TYPES, NO_VARIANT_TYPES, itemsEnvelopeSchema, normaliseAiItem } from '../src/ai/item-schema'
+import { AI_ITEM_TYPES, NO_VARIANT_TYPES, itemForPrompt, itemsEnvelopeSchema, normaliseAiItem } from '../src/ai/item-schema'
 import { checkDraft } from '../src/handlers/draft-checks'
-import { structureProblems } from '../src/handlers/drafts'
+import { structureProblems, translateGeometry } from '../src/handlers/drafts'
 
 type Json = Record<string, unknown>
 
@@ -55,7 +55,7 @@ describe('jenis soal baru dari model', () => {
   it('semua jenis ada di AI_ITEM_TYPES dan skema modelnya bisa dibuat', () => {
     for (const t of Object.keys(NEW_RAW)) expect(AI_ITEM_TYPES).toContain(t)
     expect(JSON.stringify(itemsEnvelopeSchema(AI_ITEM_TYPES))).toContain('"listenText"')
-    expect(NO_VARIANT_TYPES).toEqual(['hotspot', 'label'])
+    expect(NO_VARIANT_TYPES).toEqual([])
   })
 
   for (const [type, raw] of Object.entries(NEW_RAW)) {
@@ -132,5 +132,58 @@ describe('structureProblems untuk jenis baru', () => {
   it('jumlah celah berubah', () => {
     expect(structureProblems(source, { type: 'cloze', gaps: [{}, {}] })).toEqual([])
     expect(structureProblems(source, { type: 'cloze', gaps: [{}] })).toContain('Jumlah celah berubah dari soal asal.')
+  })
+})
+
+describe('hotspot dan label untuk varian dan terjemahan AI', () => {
+  const asItem = (type: 'hotspot' | 'label'): Item => {
+    const n = normaliseAiItem(NEW_RAW[type]!, { skill: 'e1.test' }).candidate!
+    return itemSchema.parse({ ...n, id: 'e1.test.001' })
+  }
+
+  it('bahan prompt memakai bentuk model (daftar gambar), bukan area dan titik', () => {
+    const h = itemForPrompt(asItem('hotspot')) as Record<string, unknown>
+    expect(h.regions).toBeUndefined()
+    expect(h.figure).toBeUndefined()
+    expect(h.pictures).toEqual([{ label: 'cat' }, { label: 'fish' }, { label: 'hen' }])
+    expect(h.answers).toEqual(['fish'])
+    const l = itemForPrompt(asItem('label')) as Record<string, unknown>
+    expect(l.spots).toBeUndefined()
+    expect(l.pictures).toEqual([{ label: 'sun' }, { label: 'moon' }])
+    expect(l.extraLabels).toEqual(['star'])
+  })
+
+  it('varian: jawaban model dengan ikon baru lolos pemeriksaan draf sebagai soal baru', () => {
+    const raw = { ...NEW_RAW.hotspot, prompt: 'Tap the animal that can fly.', pictures: [{ icon: 'hen', label: 'hen' }, { icon: 'fish', label: 'fish' }, { icon: 'cat', label: 'cat' }], answers: ['hen'] }
+    const n = normaliseAiItem(raw, { skill: 'e1.test' })
+    expect(n.reason).toBeNull()
+    const c = checkDraft(n.candidate!, { source: asItem('hotspot') as unknown as Record<string, unknown>, siblings: [] })
+    expect(c.body.answers).toEqual([0])
+    expect(c.problems.filter((p) => /tidak diminta|skema/i.test(p))).toEqual([])
+  })
+
+  it('terjemahan hotspot: gambar dan area tetap, hanya label dan teks berganti', () => {
+    const source = asItem('hotspot')
+    const t = normaliseAiItem({ ...NEW_RAW.hotspot, prompt: 'Ketuk hewan yang hidup di air.', pictures: [{ icon: 'cat', label: 'kucing' }, { icon: 'fish', label: 'ikan' }, { icon: 'hen', label: 'ayam' }], answers: ['ikan'] }, { skill: 'e1.test', lang: 'id' }).candidate!
+    const out = translateGeometry(source, { ...t, lang: 'id' })
+    if (!('body' in out)) throw new Error(out.reason)
+    const s = source as Extract<Item, { type: 'hotspot' }>
+    expect(out.body.figure).toEqual(source.figure)
+    expect((out.body.regions as { label: string; x: number }[]).map((r) => r.label)).toEqual(['kucing', 'ikan', 'ayam'])
+    expect((out.body.regions as { x: number }[]).map((r) => r.x)).toEqual(s.regions.map((r) => r.x))
+    expect(out.body.answers).toEqual(s.answers)
+    expect(structureProblems(source, out.body)).toEqual([])
+  })
+
+  it('terjemahan label: titik tetap, jumlah label berbeda ditolak', () => {
+    const source = asItem('label') as Extract<Item, { type: 'label' }>
+    const ok = normaliseAiItem({ ...NEW_RAW.label, prompt: 'Taruh setiap label pada gambarnya.', pictures: [{ icon: 'sun', label: 'matahari' }, { icon: 'moon', label: 'bulan' }], extraLabels: ['bintang'] }, { skill: 'e1.test', lang: 'id' }).candidate!
+    const out = translateGeometry(source, { ...ok, lang: 'id' })
+    if (!('body' in out)) throw new Error(out.reason)
+    expect(out.body.labels).toEqual(['matahari', 'bulan'])
+    expect(out.body.spots).toEqual(source.spots)
+    expect(out.body.extraLabels).toEqual(['bintang'])
+    const more = normaliseAiItem({ ...NEW_RAW.label, pictures: [{ icon: 'sun', label: 'a' }, { icon: 'moon', label: 'b' }, { icon: 'star', label: 'c' }], extraLabels: [] }, { skill: 'e1.test', lang: 'id' }).candidate!
+    expect(translateGeometry(source, { ...more, lang: 'id' })).toEqual({ reason: 'Jumlah label di terjemahan tidak sama dengan soal asal.' })
   })
 })

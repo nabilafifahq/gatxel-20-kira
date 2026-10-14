@@ -14,6 +14,8 @@ import { ArenaKeypad } from '@/components/learner/arena/ArenaKeypad'
 import { RewardPanel } from '@/components/learner/arena/RewardPanel'
 import { playRoundEndSfx } from '@/components/learner/arena/reward-sfx'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
+import { comboLevel } from '@/components/learner/ComboStars'
+import { TapSound } from '@/components/learner/TapSound'
 import { Soroban } from '@/components/learner/arena/Soroban'
 import { ExitControl } from '@/screens/learner/runner/parts'
 import { ActionError } from '@/screens/learner/common'
@@ -45,7 +47,7 @@ function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; sho
     return (
       <div className="flex min-h-40 flex-col items-center justify-center gap-2 text-center">
         {flashing ? (
-          <p aria-hidden="true" className="m-0 font-display text-[120px] leading-none font-semibold tabular-nums">
+          <p key={flashIndex} aria-hidden="true" className="kira-flash m-0 font-display text-[120px] leading-none font-semibold tabular-nums">
             {text}
           </p>
         ) : shown ? (
@@ -165,6 +167,15 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
   const questionStart = useRef(Date.now())
   const chain = useRef<Promise<unknown>>(Promise.resolve())
   const finishCalled = useRef(false)
+  // Beruntun benar menaikkan nada kombo (tingkat 1 sampai 3).
+  const streak = useRef(0)
+  const bump = useCallback((ok: boolean) => {
+    streak.current = ok ? streak.current + 1 : 0
+    const level = comboLevel(streak.current)
+    if (!ok) playSfx('notyet')
+    else if (level === 0) playSfx('correct')
+    else playSfx('combo', { level })
+  }, [])
 
   const prompt = data.prompts[index]
   const timed = data.timed
@@ -279,7 +290,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         const call = chain.current.then(() => sendAnswer(answer, ms))
         chain.current = call
         void call.then((res) => {
-          if (res) playSfx(res.correct ? 'correct' : 'notyet')
+          if (res) bump(res.correct)
           if (res?.correct) setRight((n) => n + 1)
         })
         advance()
@@ -290,14 +301,14 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
       setBusy(false)
       if (!res) return
       if (res.correct) setRight((n) => n + 1)
-      playSfx(res.correct ? 'correct' : 'notyet')
+      bump(res.correct)
       setFeedback({ ok: res.correct, ...(res.answer !== undefined ? { answer: res.answer } : {}), ...(res.hint ? { hint: res.hint } : {}) })
       if (res.correct) {
         await sleep(reduced ? 500 : NEXT_DELAY_MS)
         advance()
       }
     },
-    [advance, busy, feedback, index, over, prompt, reduced, sendAnswer, timeUp, timed],
+    [advance, bump, busy, feedback, index, over, prompt, reduced, sendAnswer, timeUp, timed],
   )
 
   const check = () => {
@@ -350,6 +361,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         ) : null}
         {!result && timed && remaining !== null ? <Timer mode="countdown" seconds={remaining} compact warnAt={10} /> : !result && stopwatch ? <Timer mode="stopwatch" seconds={elapsed} compact /> : null}
       </header>
+      <TapSound>
       <main className="flex flex-1 items-start justify-center px-4 pb-10 md:items-center md:px-8">
         {result ? (
           <ResultView data={data} result={result} actions={actions} />
@@ -477,6 +489,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
           </section>
         ) : null}
       </main>
+      </TapSound>
     </div>
   )
 }

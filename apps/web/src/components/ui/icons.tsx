@@ -81,6 +81,16 @@ const ICONS = {
       </>
     ),
   },
+  music: {
+    sw: 2,
+    d: (
+      <>
+        <path d="M9 18V6l10-2v12" />
+        <circle cx="6.5" cy="18" r="2.5" />
+        <circle cx="16.5" cy="16" r="2.5" />
+      </>
+    ),
+  },
   waveform: { sw: 2.5, d: <path d="M5 10v4M9.5 6v12M14 8.5v7M18.5 10.5v3" /> },
   close: { sw: 2.5, d: <path d="M6 6l12 12M18 6L6 18" /> },
   lock: {

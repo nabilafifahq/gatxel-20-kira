@@ -56,6 +56,25 @@ function itemsFrom(json: unknown): unknown[] {
 }
 
 /** Bandingkan struktur jawaban terjemahan dengan soal asal. */
+/**
+ * Terjemahan hotspot atau label: gambar, letak area, dan kunci jawaban tetap dari soal asal; hanya tulisan yang diganti.
+ * Model menulis ulang daftar gambar dengan urutan yang sama, jadi label baru dipasang per urutan. Bila jumlahnya
+ * berbeda, null dan terjemahan ditolak dengan alasan.
+ */
+export function translateGeometry(source: Item, t: Obj): { body: Obj } | { reason: string } {
+  if (source.type === 'hotspot' && t.type === 'hotspot') {
+    const regions = Array.isArray(t.regions) ? (t.regions as Obj[]) : []
+    if (regions.length !== source.regions.length) return { reason: 'Jumlah gambar di terjemahan tidak sama dengan soal asal.' }
+    return { body: { ...t, figure: source.figure, regions: source.regions.map((r, i) => ({ ...r, label: regions[i]!.label })), answers: [...source.answers] } }
+  }
+  if (source.type === 'label' && t.type === 'label') {
+    const labels = Array.isArray(t.labels) ? (t.labels as string[]) : []
+    if (labels.length !== source.labels.length) return { reason: 'Jumlah label di terjemahan tidak sama dengan soal asal.' }
+    return { body: { ...t, figure: source.figure, labels, spots: source.spots.map((s) => ({ ...s })), extraLabels: Array.isArray(t.extraLabels) ? t.extraLabels : [] } }
+  }
+  return { body: t }
+}
+
 export function structureProblems(source: Item, t: Obj): string[] {
   if (t.type !== source.type) return ['Jenis soal berubah dari soal asal.']
   const p: string[] = []
@@ -165,7 +184,10 @@ function plan(input: AiInputOf<'items' | 'variants' | 'hints' | 'translate' | 'r
         build: (json) => {
           const n = normaliseAiItem(json, { skill, lang: input.to })
           if (!n.candidate) return { drafts: [], invalid: [n.reason] }
-          const t: Obj = { ...n.candidate, lang: input.to }
+          let t: Obj = { ...n.candidate, lang: input.to }
+          const geo = translateGeometry(source, t)
+          if ('reason' in geo) return { drafts: [], invalid: [geo.reason] }
+          t = geo.body
           if (source.figure) t.figure = source.figure
           if (input.to === 'id') {
             const tags = Array.isArray(t.tags) ? (t.tags as string[]) : []

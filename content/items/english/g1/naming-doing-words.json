@@ -434,6 +434,493 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "e1.naming-doing-words.016",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a naming word?",
+      "hints": [
+        "A naming word is a person, animal or thing.",
+        "You can see it.",
+        "It has wings."
+      ],
+      "explanation": "Bird is a naming word.",
+      "options": [
+        {
+          "text": "bird"
+        },
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "red",
+          "why": "Red tells us what it looks like."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.017",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is a doing word?",
+      "hints": [
+        "A doing word is something you do.",
+        "You can do it with your legs.",
+        "It starts with j."
+      ],
+      "explanation": "Jump is a doing word.",
+      "options": [
+        {
+          "text": "hat",
+          "why": "A hat is a thing."
+        },
+        {
+          "text": "cat",
+          "why": "A cat is an animal."
+        },
+        {
+          "text": "jump"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.018",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a describing word? The big dog barks.",
+      "hints": [
+        "A describing word tells how something looks.",
+        "Look for size.",
+        "It comes before dog."
+      ],
+      "explanation": "Big tells us what the dog is like.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "big"
+        },
+        {
+          "text": "dog",
+          "why": "Dog is a naming word."
+        },
+        {
+          "text": "barks",
+          "why": "Barks is a doing word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.019",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is a doing word? The girl reads a book.",
+      "hints": [
+        "Find what the girl does.",
+        "It is an action.",
+        "It ends with s."
+      ],
+      "explanation": "Reads is the doing word.",
+      "options": [
+        {
+          "text": "girl",
+          "why": "Girl is a naming word."
+        },
+        {
+          "text": "reads"
+        },
+        {
+          "text": "book",
+          "why": "Book is a naming word."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e1.naming-doing-words.020",
+      "skill": "e1.naming-doing-words",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Naming or doing?",
+      "hints": [
+        "A naming word is a thing, a person or an animal.",
+        "A doing word is an action.",
+        "Cat is an animal."
+      ],
+      "explanation": "Cat, table and egg are naming words. Run, sit and jump are doing words.",
+      "groups": [
+        "Naming words",
+        "Doing words"
+      ],
+      "items": [
+        {
+          "text": "cat",
+          "group": 0
+        },
+        {
+          "text": "run",
+          "group": 1
+        },
+        {
+          "text": "table",
+          "group": 0
+        },
+        {
+          "text": "sit",
+          "group": 1
+        },
+        {
+          "text": "egg",
+          "group": 0
+        },
+        {
+          "text": "jump",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.021",
+      "skill": "e1.naming-doing-words",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words. Naming, doing or describing?",
+      "hints": [
+        "Name it, do it or say what it is like.",
+        "Tall tells about size.",
+        "Frog is an animal."
+      ],
+      "explanation": "Frog and sun name things. Hop and swim are actions. Green and tall describe.",
+      "groups": [
+        "Naming",
+        "Doing",
+        "Describing"
+      ],
+      "items": [
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "hop",
+          "group": 1
+        },
+        {
+          "text": "green",
+          "group": 2
+        },
+        {
+          "text": "sun",
+          "group": 0
+        },
+        {
+          "text": "swim",
+          "group": 1
+        },
+        {
+          "text": "tall",
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.022",
+      "skill": "e1.naming-doing-words",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The cat ___ on the mat.",
+      "hints": [
+        "The word tells what the cat does.",
+        "It is a doing word.",
+        "It ends with s."
+      ],
+      "explanation": "The cat sits on the mat.",
+      "gaps": [
+        {
+          "options": [
+            "sits",
+            "sit",
+            "seat"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.023",
+      "skill": "e1.naming-doing-words",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "A ___ bird sings in the tree.",
+      "hints": [
+        "The word describes the bird.",
+        "It tells us about size.",
+        "It comes before bird."
+      ],
+      "explanation": "Small describes the bird.",
+      "gaps": [
+        {
+          "options": [
+            "small",
+            "sing",
+            "wing"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.024",
+      "skill": "e1.naming-doing-words",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each describing word to a thing.",
+      "hints": [
+        "Think about each thing.",
+        "Which word fits best?",
+        "A pillow feels this way."
+      ],
+      "explanation": "Hot tea, a soft pillow, a sweet cake and a tall tree.",
+      "pairs": [
+        [
+          "hot",
+          "tea"
+        ],
+        [
+          "soft",
+          "pillow"
+        ],
+        [
+          "sweet",
+          "cake"
+        ],
+        [
+          "tall",
+          "tree"
+        ]
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.025",
+      "skill": "e1.naming-doing-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the doing word. The fish ___ in the pond. (swim)",
+      "hints": [
+        "Think about what fish do.",
+        "It is an action.",
+        "The word starts with sw."
+      ],
+      "explanation": "The fish swims in the pond.",
+      "blanks": [
+        {
+          "answers": [
+            "swims",
+            "swim"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.026",
+      "skill": "e1.naming-doing-words",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the doing words.",
+      "hints": [
+        "A doing word is an action.",
+        "You can do two of these.",
+        "Use your hands or your legs."
+      ],
+      "explanation": "Clap and jump are things you can do.",
+      "options": [
+        {
+          "text": "red",
+          "why": "Red is a colour."
+        },
+        {
+          "text": "apple",
+          "why": "An apple is a thing."
+        },
+        {
+          "text": "jump"
+        },
+        {
+          "text": "happy",
+          "why": "Happy tells us how someone feels."
+        },
+        {
+          "text": "clap"
+        }
+      ],
+      "answers": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": "e1.naming-doing-words.027",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence has a describing word?",
+      "hints": [
+        "Look for a word about colour, size or feel.",
+        "Find the sentence with an extra word.",
+        "Yellow is a colour."
+      ],
+      "explanation": "Yellow is the describing word.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "The duck swims.",
+          "why": "There is no word that tells what the duck looks like."
+        },
+        {
+          "text": "Ducks swim.",
+          "why": "There is no describing word here."
+        },
+        {
+          "text": "The yellow duck swims."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.028",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is both a naming word and a doing word?",
+      "hints": [
+        "Some words can be used in two ways.",
+        "Think of a thing and an action.",
+        "Which choice can be both?"
+      ],
+      "explanation": "A dance is a thing and to dance is a doing word.",
+      "options": [
+        {
+          "text": "dance"
+        },
+        {
+          "text": "happy",
+          "why": "Happy is only a describing word."
+        },
+        {
+          "text": "quick",
+          "why": "Quick is only a describing word."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e1.naming-doing-words.029",
+      "skill": "e1.naming-doing-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word does not belong? run, jump, tree, hop",
+      "hints": [
+        "Three words are doing words.",
+        "One word is a thing.",
+        "Find the odd one out."
+      ],
+      "explanation": "Run, jump and hop are doing words. A tree is a thing.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word, like jump and hop."
+        },
+        {
+          "text": "jump",
+          "why": "Jump is a doing word, like run and hop."
+        },
+        {
+          "text": "tree"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e1.naming-doing-words.030",
+      "skill": "e1.naming-doing-words",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the animals.",
+      "hints": [
+        "Say the name of each animal.",
+        "The frog is in the first box.",
+        "Tap a word, then tap its number."
+      ],
+      "explanation": "The pictures show a frog, a duck and a cow.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 8,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 108,
+            "y": 12,
+            "size": 76
+          },
+          {
+            "t": "icon",
+            "icon": "cow",
+            "x": 208,
+            "y": 12,
+            "size": 76
+          }
+        ],
+        "alt": "A frog, a duck and a cow."
+      },
+      "labels": [
+        "frog",
+        "duck",
+        "cow"
+      ],
+      "spots": [
+        {
+          "x": 16.7,
+          "y": 78
+        },
+        {
+          "x": 50,
+          "y": 78
+        },
+        {
+          "x": 83.3,
+          "y": 78
+        }
+      ],
+      "extraLabels": [
+        "pig"
+      ]
     }
   ]
 }

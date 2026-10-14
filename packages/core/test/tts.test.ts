@@ -118,3 +118,28 @@ describe('bagian soal yang dibacakan', () => {
     expect(styleForPassageKind('information')).toBe('teacher')
   })
 })
+
+describe('suara pembawa acara Quiz Arena', () => {
+  it('kalimat pembuka muncul di pertanyaan pertama lalu tiap empat pertanyaan', async () => {
+    const { hostIntroLine, QUIZ_HOST_INTROS } = await import('../src/tts')
+    expect(hostIntroLine(0)).toBe(QUIZ_HOST_INTROS[0])
+    expect([1, 2, 3, 5, 6, 7].map(hostIntroLine)).toEqual([null, null, null, null, null, null])
+    const later = [4, 8, 12, 16].map(hostIntroLine)
+    expect(later.every((l) => l !== null && (QUIZ_HOST_INTROS as readonly string[]).includes(l))).toBe(true)
+    expect(hostIntroLine(-4)).toBeNull()
+  })
+  it('pujian deretan hanya pada 3, 5, 8, dan 10', async () => {
+    const { hostStreakLine } = await import('../src/tts')
+    expect([1, 2, 4, 6, 7, 9, 11].map(hostStreakLine)).toEqual([null, null, null, null, null, null, null])
+    expect(hostStreakLine(3)).toBe('Three in a row!')
+    expect(hostStreakLine(10)).toBe('Ten in a row! Amazing!')
+  })
+  it('semua kalimat pembawa acara layak jadi klip bergaya quizhost dan ikut batch', async () => {
+    const { QUIZ_HOST_LINES, TTS_FIXED_LINES, isClipText } = await import('../src/tts')
+    expect(QUIZ_HOST_LINES.length).toBe(8)
+    for (const t of QUIZ_HOST_LINES) {
+      expect(isClipText(t)).toBe(true)
+      expect(TTS_FIXED_LINES).toContainEqual({ text: t, style: 'quizhost' })
+    }
+  })
+})

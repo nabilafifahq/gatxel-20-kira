@@ -613,6 +613,638 @@
           1
         ]
       ]
+    },
+    {
+      "id": "m1.oly-patterns.010",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "4",
+          "6",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 2, 4, 6, then an empty box."
+      },
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Look at how much the numbers go up.",
+        "They go up by 2.",
+        "6 + 2."
+      ],
+      "explanation": "The numbers go up by 2 each time. After 6 comes 6 + 2 = 8.",
+      "solution": [
+        {
+          "say": "The numbers go up by 2 each time."
+        },
+        {
+          "say": "After 6 comes 6 + 2 = 8."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-patterns.011",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "10",
+          "8",
+          "6",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 10, 8, 6, then an empty box."
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "Are the numbers going up or down?",
+        "They go down by 2.",
+        "6 - 2."
+      ],
+      "explanation": "The numbers go down by 2 each time. After 6 comes 6 - 2 = 4.",
+      "solution": [
+        {
+          "say": "The numbers go down by 2 each time."
+        },
+        {
+          "say": "After 6 comes 6 - 2 = 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-patterns.012",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What shape comes next?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          null
+        ],
+        "alt": "A row of shapes: circle, square, circle, square, then an empty box."
+      },
+      "options": [
+        {
+          "text": "Square",
+          "why": "The pattern goes circle, square, circle, square."
+        },
+        {
+          "text": "Circle"
+        },
+        {
+          "text": "Triangle",
+          "why": "There is no triangle in this pattern."
+        },
+        {
+          "text": "Star",
+          "why": "There is no star in this pattern."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The same two shapes take turns.",
+        "The last shape was a square.",
+        "Which shape comes after a square?"
+      ],
+      "explanation": "The shapes take turns: circle, square, circle, square. After a square comes a circle.",
+      "solution": [
+        {
+          "say": "The shapes take turns: circle, square, circle, square."
+        },
+        {
+          "say": "After a square comes a circle."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m1.oly-patterns.013",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Stars and circles take turns, starting with a star. What is the 9th shape?",
+      "options": [
+        {
+          "text": "Circle",
+          "why": "The circles are the 2nd, 4th, 6th and 8th shapes."
+        },
+        {
+          "text": "Square",
+          "why": "There is no square in the pattern."
+        },
+        {
+          "text": "Triangle",
+          "why": "There is no triangle in the pattern."
+        },
+        {
+          "text": "Star"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Write the first few shapes: star, circle, star ...",
+        "Stars are in the odd places.",
+        "Is 9 odd or even?"
+      ],
+      "explanation": "The stars are in the 1st, 3rd, 5th, 7th and 9th places. So the 9th shape is a star.",
+      "solution": [
+        {
+          "say": "The stars are in the 1st, 3rd, 5th, 7th and 9th places."
+        },
+        {
+          "say": "So the 9th shape is a star."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-patterns.014",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "2",
+          "4",
+          "7",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 1, 2, 4, 7, then an empty box."
+      },
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Look at the jumps between the numbers.",
+        "The jumps are 1, 2 and 3.",
+        "What is the next jump after 3?"
+      ],
+      "explanation": "The jumps are +1, +2 and +3, so the next jump is +4. 7 + 4 = 11.",
+      "solution": [
+        {
+          "say": "The jumps are +1, +2 and +3, so the next jump is +4."
+        },
+        {
+          "say": "7 + 4 = 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-patterns.015",
+      "skill": "m1.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The arrow turns a quarter turn clockwise each time. Where does the 3rd arrow point?",
+      "figure": {
+        "kind": "scene",
+        "width": 280,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                45,
+                24
+              ],
+              [
+                59,
+                42
+              ],
+              [
+                51,
+                42
+              ],
+              [
+                51,
+                74
+              ],
+              [
+                39,
+                74
+              ],
+              [
+                39,
+                42
+              ],
+              [
+                31,
+                42
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                161,
+                50
+              ],
+              [
+                143,
+                64
+              ],
+              [
+                143,
+                56
+              ],
+              [
+                111,
+                56
+              ],
+              [
+                111,
+                44
+              ],
+              [
+                143,
+                44
+              ],
+              [
+                143,
+                36
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 185,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 225,
+            "y": 58,
+            "text": "?",
+            "size": 28,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "Three boxes. The first arrow points up. The second arrow points right. The third box has a question mark."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    60,
+                    76
+                  ],
+                  [
+                    46,
+                    58
+                  ],
+                  [
+                    54,
+                    58
+                  ],
+                  [
+                    54,
+                    26
+                  ],
+                  [
+                    66,
+                    26
+                  ],
+                  [
+                    66,
+                    58
+                  ],
+                  [
+                    74,
+                    58
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing down."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    60,
+                    24
+                  ],
+                  [
+                    74,
+                    42
+                  ],
+                  [
+                    66,
+                    42
+                  ],
+                  [
+                    66,
+                    74
+                  ],
+                  [
+                    54,
+                    74
+                  ],
+                  [
+                    54,
+                    42
+                  ],
+                  [
+                    46,
+                    42
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing up."
+          },
+          "why": "This arrow has not turned."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    86,
+                    50
+                  ],
+                  [
+                    68,
+                    64
+                  ],
+                  [
+                    68,
+                    56
+                  ],
+                  [
+                    36,
+                    56
+                  ],
+                  [
+                    36,
+                    44
+                  ],
+                  [
+                    68,
+                    44
+                  ],
+                  [
+                    68,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing right."
+          },
+          "why": "This is the same as the 2nd arrow."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    34,
+                    50
+                  ],
+                  [
+                    52,
+                    36
+                  ],
+                  [
+                    52,
+                    44
+                  ],
+                  [
+                    84,
+                    44
+                  ],
+                  [
+                    84,
+                    56
+                  ],
+                  [
+                    52,
+                    56
+                  ],
+                  [
+                    52,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing left."
+          },
+          "why": "This arrow turns the wrong way."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Up turns to right with a quarter turn clockwise.",
+        "Keep turning the same way.",
+        "After right comes down."
+      ],
+      "explanation": "Up turns to right. Right turns to down. So the 3rd arrow points down.",
+      "solution": [
+        {
+          "say": "Up turns to right."
+        },
+        {
+          "say": "Right turns to down."
+        },
+        {
+          "say": "So the 3rd arrow points down."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-patterns.016",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dots in rows: 1 dot, 2 dots, 3 dots, 4 dots. How many dots are in the 7th row?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "How many dots does each row have more than the last?",
+        "Row 1 has 1, row 2 has 2.",
+        "Row 7 has the same number of dots as its row number."
+      ],
+      "explanation": "Each row has 1 more dot. Row 1 has 1 dot, row 2 has 2 dots, so row 7 has 7 dots.",
+      "solution": [
+        {
+          "say": "Each row has 1 more dot."
+        },
+        {
+          "say": "Row 1 has 1 dot, row 2 has 2 dots, so row 7 has 7 dots."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m1.oly-patterns.017",
+      "skill": "m1.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A frog jumps 3 steps each time. It starts at 0. On which number does it land after 5 jumps?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "List the landing numbers: 3, 6 ...",
+        "Count the jumps.",
+        "After 5 jumps, you have said 5 numbers."
+      ],
+      "explanation": "The frog lands on 3, 6, 9, 12 and 15. After 5 jumps it is on 15.",
+      "solution": [
+        {
+          "say": "The frog lands on 3, 6, 9, 12 and 15."
+        },
+        {
+          "say": "After 5 jumps it is on 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

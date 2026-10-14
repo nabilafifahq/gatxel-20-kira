@@ -214,6 +214,11 @@ export const learnerProfile = pgTable(
     avatar: text('avatar').notNull().default('fox'),
     /** Aksesori avatar yang dipakai; hanya yang sudah didapat dari level jalur XP (migrasi 0007). */
     avatarAccessory: text('avatar_accessory'),
+    /** Latar avatar dari peti hadiah harian (migrasi 0010). */
+    avatarBackground: text('avatar_background'),
+    /** Pilihan tutor: bunyi dan musik di perangkat anak. Bila mati, pilihan perangkat tidak berlaku (migrasi 0010). */
+    soundEnabled: boolean('sound_enabled').notNull().default(true),
+    musicEnabled: boolean('music_enabled').notNull().default(true),
     grade: smallint('grade').notNull(),
     screenLimitMin: integer('screen_limit_min').notNull().default(60),
     restWeekdays: integer('rest_weekdays').array().notNull().default(sql`'{0}'::int[]`),
@@ -561,9 +566,27 @@ export const arenaState = pgTable(
     learnerId: uuid('learner_id').notNull(),
     arena: text('arena', { enum: ['hitung', 'pengetahuan'] }).notNull(),
     data: jsonb('data').notNull().default(sql`'{}'::jsonb`),
+    /** Ringkasan ronde yang sudah dihapus retensi 90 hari (jumlah ronde, rekor, ronde sempurna). */
+    rolled: jsonb('rolled').notNull().default(sql`'{}'::jsonb`),
     updatedAt: ts('updated_at').notNull().defaultNow(),
   },
   (t) => [primaryKey({ columns: [t.learnerId, t.arena] })],
+)
+
+/** Peti hadiah harian: satu baris per learner per hari, hadiah dipilih di server (migrasi 0010). */
+export const dailyChest = pgTable(
+  'daily_chest',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    date: date('date').notNull(),
+    rewardKind: text('reward_kind', { enum: ['sticker', 'background', 'accessory'] }).notNull(),
+    rewardId: text('reward_id').notNull(),
+    isNew: boolean('is_new').notNull().default(true),
+    openedAt: ts('opened_at').notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex('daily_chest_day_uq').on(t.learnerId, t.date)],
 )
 
 export const dayRecord = pgTable(
@@ -925,7 +948,7 @@ export const TENANT_TABLES = [
   'plan_week', 'plan_slot', 'rest_day', 'paper', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
-  'arena_session', 'arena_state',
+  'arena_session', 'arena_state', 'daily_chest',
   'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
 ] as const
 
@@ -933,6 +956,6 @@ export const TENANT_TABLES = [
 export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'note', 'week_report',
-  'arena_session', 'arena_state',
+  'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
 ] as const

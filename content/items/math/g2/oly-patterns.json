@@ -1122,6 +1122,3266 @@
           3
         ]
       ]
+    },
+    {
+      "id": "m2.oly-patterns.017",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at the pattern. Each number is double the one before. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "3",
+          "6",
+          "12",
+          "24",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 3, 6, 12, 24, then an empty box."
+      },
+      "options": [
+        {
+          "text": "30",
+          "why": "The pattern doubles. It does not add 6."
+        },
+        {
+          "text": "36",
+          "why": "You added 12, but the pattern doubles."
+        },
+        {
+          "text": "44",
+          "why": "Double 24, not add 20."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "96",
+          "why": "Double 24 once, not twice."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check what happens from 3 to 6, and from 6 to 12.",
+        "Each number is multiplied by 2.",
+        "Double 24."
+      ],
+      "explanation": "The numbers double each time: 3, 6, 12, 24. Double 24 is 48.",
+      "solution": [
+        {
+          "say": "The numbers double each time: 3, 6, 12, 24."
+        },
+        {
+          "say": "Double 24 is 48."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.018",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The jumps in this pattern grow by 1 each time. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "3",
+          "5",
+          "8",
+          "12",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 2, 3, 5, 8, 12, then an empty box."
+      },
+      "options": [
+        {
+          "text": "14",
+          "why": "The jumps are getting bigger, not staying at 2."
+        },
+        {
+          "text": "15",
+          "why": "The jumps are getting bigger."
+        },
+        {
+          "text": "16",
+          "why": "The next jump is 5, not 4."
+        },
+        {
+          "text": "17"
+        },
+        {
+          "text": "18",
+          "why": "The next jump is 5, not 6."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the jumps between neighbours: 2 to 3, 3 to 5 ...",
+        "The jumps are 1, 2, 3, 4.",
+        "The next jump is one more than 4."
+      ],
+      "explanation": "The jumps are +1, +2, +3, +4. The next jump is +5. So 12 + 5 = 17.",
+      "solution": [
+        {
+          "say": "The jumps are +1, +2, +3, +4."
+        },
+        {
+          "say": "The next jump is +5."
+        },
+        {
+          "say": "So 12 + 5 = 17."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.019",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The jumps in this pattern shrink by 1 each time. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "100",
+          "90",
+          "81",
+          "73",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 100, 90, 81, 73, then an empty box."
+      },
+      "answer": 66,
+      "tolerance": 0,
+      "hints": [
+        "Find the first jump: 100 to 90.",
+        "The jumps are 10, then 9, then 8.",
+        "The next jump is 7. Is it going up or down?"
+      ],
+      "explanation": "The jumps down are 10, 9 and 8. The next jump down is 7. So 73 - 7 = 66.",
+      "solution": [
+        {
+          "say": "The jumps down are 10, 9 and 8."
+        },
+        {
+          "say": "The next jump down is 7."
+        },
+        {
+          "say": "So 73 - 7 = 66."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.020",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The pattern goes up 2, then down 1, again and again. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "4",
+          "3",
+          "5",
+          "4",
+          "6",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 2, 4, 3, 5, 4, 6, then an empty box."
+      },
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Follow the jumps from the start.",
+        "2 to 4 is up 2. 4 to 3 is down 1.",
+        "The last number shown is 6. Which jump comes next?"
+      ],
+      "explanation": "The pattern is +2, -1, +2, -1, +2 and then -1. So 6 - 1 = 5.",
+      "solution": [
+        {
+          "say": "The pattern is +2, -1, +2, -1, +2 and then -1."
+        },
+        {
+          "say": "So 6 - 1 = 5."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.021",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Each number is the sum of the two before it. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "1",
+          "2",
+          "3",
+          "5",
+          "8",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 1, 1, 2, 3, 5, 8, then an empty box."
+      },
+      "options": [
+        {
+          "text": "11",
+          "why": "Add the last two numbers, 5 and 8."
+        },
+        {
+          "text": "12",
+          "why": "Add the last two numbers, 5 and 8."
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "14",
+          "why": "Add the last two numbers, 5 and 8."
+        },
+        {
+          "text": "16",
+          "why": "Add only the last two numbers."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check: 1 + 1 = 2, then 1 + 2 = 3.",
+        "Add the last two numbers shown.",
+        "5 + 8 = ?"
+      ],
+      "explanation": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5 and 3 + 5 = 8. The next number is 5 + 8 = 13.",
+      "solution": [
+        {
+          "say": "1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5 and 3 + 5 = 8."
+        },
+        {
+          "say": "The next number is 5 + 8 = 13."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.022",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Find the missing number in the pattern.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "7",
+          "14",
+          null,
+          "28",
+          "35"
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 7, 14, an empty box, 28, 35."
+      },
+      "answer": 21,
+      "tolerance": 0,
+      "hints": [
+        "These are the 7 times table.",
+        "7, 14 ... count on by the same jump.",
+        "14 + 7 = ?"
+      ],
+      "explanation": "The numbers go up by 7 each time. After 14 comes 14 + 7 = 21. Check: 21 + 7 = 28.",
+      "solution": [
+        {
+          "say": "The numbers go up by 7 each time."
+        },
+        {
+          "say": "After 14 comes 14 + 7 = 21."
+        },
+        {
+          "say": "Check: 21 + 7 = 28."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.023",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Two patterns are mixed together. What number comes next?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "10",
+          "2",
+          "20",
+          "3",
+          "30",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 1, 10, 2, 20, 3, 30, then an empty box."
+      },
+      "options": [
+        {
+          "text": "4"
+        },
+        {
+          "text": "5",
+          "why": "The first pattern goes up by 1."
+        },
+        {
+          "text": "7",
+          "why": "The first pattern goes up by 1."
+        },
+        {
+          "text": "31",
+          "why": "Look at which place comes next."
+        },
+        {
+          "text": "40",
+          "why": "The odd places (1, 2, 3 ...) are counting up by 1. The next odd place needs 4."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at every second number.",
+        "The numbers in the 1st, 3rd and 5th places go 1, 2, 3.",
+        "The next number is in the 7th place."
+      ],
+      "explanation": "The 1st, 3rd, 5th places hold 1, 2, 3. The other places hold 10, 20, 30. The 7th place is next in the first pattern, so it is 4.",
+      "solution": [
+        {
+          "say": "The 1st, 3rd, 5th places hold 1, 2, 3."
+        },
+        {
+          "say": "The other places hold 10, 20, 30."
+        },
+        {
+          "say": "The 7th place is next in the first pattern, so it is 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.024",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A pattern starts 4, 7, 10, 13. It goes up by 3 each time. Which number is in the pattern?",
+      "options": [
+        {
+          "text": "38",
+          "why": "38 is 34 more than 4. 34 is not in the 3 times table."
+        },
+        {
+          "text": "39",
+          "why": "39 is 35 more than 4. 35 is not in the 3 times table."
+        },
+        {
+          "text": "40"
+        },
+        {
+          "text": "41",
+          "why": "41 is 37 more than 4. 37 is not in the 3 times table."
+        },
+        {
+          "text": "42",
+          "why": "42 is 38 more than 4. 38 is not in the 3 times table."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Every number is 4 plus a number in the 3 times table.",
+        "Take 4 away from each choice.",
+        "Does the result belong to the 3 times table?"
+      ],
+      "explanation": "Every number in the pattern is 4 plus a multiple of 3. 40 - 4 = 36, and 36 is a multiple of 3. The others do not work.",
+      "solution": [
+        {
+          "say": "Every number in the pattern is 4 plus a multiple of 3."
+        },
+        {
+          "say": "40 - 4 = 36, and 36 is a multiple of 3."
+        },
+        {
+          "say": "The others do not work."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.025",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Amy makes rows of squares. The rows have 1, 3, 5 and 7 squares. How many squares are in the 10th row?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "3",
+          "5",
+          "7"
+        ],
+        "style": "circles",
+        "alt": "The number of squares in the first four rows: 1, 3, 5 and 7."
+      },
+      "answer": 19,
+      "tolerance": 0,
+      "hints": [
+        "How many more squares does each row have than the one before?",
+        "Each row has 2 more squares.",
+        "The 10th row has 9 steps of 2 more than the 1st row."
+      ],
+      "explanation": "Each row has 2 more squares than the one before. The 10th row has 1 + 9 x 2 = 19 squares.",
+      "solution": [
+        {
+          "say": "Each row has 2 more squares.",
+          "show": "+2"
+        },
+        {
+          "say": "The 10th row is 9 rows after the 1st.",
+          "show": "9 x 2 = 18"
+        },
+        {
+          "say": "Add to the first row.",
+          "show": "1 + 18 = 19"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.026",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dots make triangles: 1 dot, 3 dots, 6 dots, 10 dots. How many dots make the 6th triangle?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "1",
+          "3",
+          "6",
+          "10"
+        ],
+        "style": "circles",
+        "alt": "The dots in the first four triangles: 1, 3, 6 and 10."
+      },
+      "answer": 21,
+      "tolerance": 0,
+      "hints": [
+        "Find how many dots are added each time.",
+        "The jumps are 2, 3, 4.",
+        "Keep adding: 10, then +5, then +6."
+      ],
+      "explanation": "The jumps are +2, +3, +4, +5 and +6. The numbers are 1, 3, 6, 10, 15, 21. The 6th triangle has 21 dots.",
+      "solution": [
+        {
+          "say": "The jumps are +2, +3, +4, +5 and +6."
+        },
+        {
+          "say": "The numbers are 1, 3, 6, 10, 15, 21."
+        },
+        {
+          "say": "The 6th triangle has 21 dots."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.027",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The rule of a machine stays the same. What number comes out when 10 goes in?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "In",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "rows": [
+          [
+            "Out",
+            "3",
+            "5",
+            "7",
+            "9"
+          ]
+        ],
+        "alt": "A table. In: 1, 2, 3, 4. Out: 3, 5, 7, 9."
+      },
+      "answer": 21,
+      "tolerance": 0,
+      "hints": [
+        "Look at how the Out numbers change.",
+        "Out goes up by 2 each time In goes up by 1.",
+        "The Out number for In 4 is 9. Count on to In 10."
+      ],
+      "explanation": "Out goes up by 2 each time In goes up by 1. From In 4 to In 10 is 6 steps, so Out goes up by 6 x 2 = 12. That gives 9 + 12 = 21.",
+      "solution": [
+        {
+          "say": "Out goes up by 2 each time In goes up by 1."
+        },
+        {
+          "say": "From In 4 to In 10 is 6 steps, so Out goes up by 6 x 2 = 12."
+        },
+        {
+          "say": "That gives 9 + 12 = 21."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.028",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Numbers are written in rows of 5. Which number is just below 18?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "rows": [
+          [
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          [
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ]
+        ],
+        "alt": "Numbers in rows of five. Row 1: 1 to 5. Row 2: 6 to 10. Row 3: 11 to 15. The rows keep going in the same way."
+      },
+      "options": [
+        {
+          "text": "13",
+          "why": "13 is above 18, not below it."
+        },
+        {
+          "text": "19",
+          "why": "19 is next to 18 in the same row."
+        },
+        {
+          "text": "22",
+          "why": "22 is below 17."
+        },
+        {
+          "text": "23"
+        },
+        {
+          "text": "28",
+          "why": "Go down one row only."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Write out the next rows.",
+        "The rows are 1 to 5, 6 to 10, 11 to 15 and so on.",
+        "18 is in the row 16 to 20."
+      ],
+      "explanation": "The rows are 1 to 5, 6 to 10, 11 to 15, 16 to 20 and 21 to 25. 18 is the 3rd number of its row, so the number below is the 3rd of the next row: 23.",
+      "solution": [
+        {
+          "say": "The rows are 1 to 5, 6 to 10, 11 to 15, 16 to 20 and 21 to 25."
+        },
+        {
+          "say": "18 is the 3rd number of its row, so the number below is the 3rd of the next row: 23."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.029",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The numbers go +3, +1, +3, +1 and so on. What number goes in the box?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "2",
+          "5",
+          "6",
+          "9",
+          "10",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 2, 5, 6, 9, 10, then an empty box."
+      },
+      "answer": 13,
+      "tolerance": 0,
+      "hints": [
+        "Check the jumps: 2 to 5, then 5 to 6.",
+        "The jumps are +3, +1, +3, +1 ...",
+        "After 10 comes a +3 jump."
+      ],
+      "explanation": "The jumps are +3, +1, +3, +1 and then +3. So 10 + 3 = 13.",
+      "solution": [
+        {
+          "say": "The jumps are +3, +1, +3, +1 and then +3."
+        },
+        {
+          "say": "So 10 + 3 = 13."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.030",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Find the missing number in the pattern.",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "50",
+          "45",
+          null,
+          "35",
+          "30"
+        ],
+        "style": "boxes",
+        "alt": "Number pattern: 50, 45, an empty box, 35, 30."
+      },
+      "answer": 40,
+      "tolerance": 0,
+      "hints": [
+        "Is the pattern going up or down?",
+        "Each number is 5 less than the one before.",
+        "45 - 5 = ?"
+      ],
+      "explanation": "The numbers go down by 5 each time. 45 - 5 = 40, and 40 - 5 = 35.",
+      "solution": [
+        {
+          "say": "The numbers go down by 5 each time."
+        },
+        {
+          "say": "45 - 5 = 40, and 40 - 5 = 35."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.031",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Look at the sums. What is 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Sum",
+          "Total"
+        ],
+        "rows": [
+          [
+            "1 + 2",
+            "3"
+          ],
+          [
+            "1 + 2 + 3",
+            "6"
+          ],
+          [
+            "1 + 2 + 3 + 4",
+            "10"
+          ]
+        ],
+        "alt": "A table of sums and totals. 1 + 2 is 3, 1 + 2 + 3 is 6, 1 + 2 + 3 + 4 is 10."
+      },
+      "answer": 36,
+      "tolerance": 0,
+      "hints": [
+        "Find the sums one by one.",
+        "The sums are 3, 6, 10 ... They grow by 3, 4, 5 ...",
+        "Keep going to the 8th sum."
+      ],
+      "explanation": "The sums are 3, 6, 10, 15, 21, 28 and 36. The jumps are +3, +4, +5, +6, +7 and +8. The last one is 36.",
+      "solution": [
+        {
+          "say": "The sums are 3, 6, 10, 15, 21, 28 and 36."
+        },
+        {
+          "say": "The jumps are +3, +4, +5, +6, +7 and +8."
+        },
+        {
+          "say": "The last one is 36."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.032",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The pattern 11, 22, 33 goes on and on. What is the 9th number?",
+      "answer": 99,
+      "tolerance": 0,
+      "hints": [
+        "What do you notice about 11, 22 and 33?",
+        "The numbers are the 11 times table.",
+        "The 9th number is 9 x 11."
+      ],
+      "explanation": "The numbers go up by 11. They are 1 x 11, 2 x 11, 3 x 11 and so on. The 9th number is 9 x 11 = 99.",
+      "solution": [
+        {
+          "say": "The numbers go up by 11."
+        },
+        {
+          "say": "They are 1 x 11, 2 x 11, 3 x 11 and so on."
+        },
+        {
+          "say": "The 9th number is 9 x 11 = 99."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.033",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "The pattern goes 1, 2, 3, 4, 3, 2, then starts again. What is the 14th number?",
+      "answer": 2,
+      "tolerance": 0,
+      "hints": [
+        "The pattern repeats after a few numbers.",
+        "Find the 6 numbers that repeat: 1, 2, 3, 4, 3, 2.",
+        "14 = 6 + 6 + 2."
+      ],
+      "explanation": "The group 1, 2, 3, 4, 3, 2 repeats every 6 numbers. 14 = 6 + 6 + 2, so the 14th number is the 2nd number of the group. That is 2.",
+      "solution": [
+        {
+          "say": "The group that repeats has 6 numbers.",
+          "show": "1, 2, 3, 4, 3, 2"
+        },
+        {
+          "say": "Two groups use 12 numbers.",
+          "show": "6 + 6 = 12"
+        },
+        {
+          "say": "The 13th is 1 and the 14th is 2.",
+          "show": "2"
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.034",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What shape comes next in the pattern?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "circle"
+          },
+          null
+        ],
+        "alt": "A row of shapes: circle, square, square, circle, square, square, circle, then an empty box."
+      },
+      "options": [
+        {
+          "text": "Circle",
+          "why": "The two squares come after the circle."
+        },
+        {
+          "text": "Triangle",
+          "why": "There is no triangle in this pattern."
+        },
+        {
+          "text": "Square"
+        },
+        {
+          "text": "Star",
+          "why": "There is no star in this pattern."
+        },
+        {
+          "text": "Heart",
+          "why": "There is no heart in this pattern."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the group that repeats.",
+        "The group is circle, square, square.",
+        "The last shapes are circle, square, square, circle ..."
+      ],
+      "explanation": "The group circle, square, square repeats. The pattern ends with a circle, so a square comes next.",
+      "solution": [
+        {
+          "say": "The group circle, square, square repeats."
+        },
+        {
+          "say": "The pattern ends with a circle, so a square comes next."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.035",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The pattern of four shapes repeats. What is the 14th shape?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "star"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "icon": "heart"
+          },
+          {
+            "shape": "circle"
+          }
+        ],
+        "alt": "A row of shapes: star, heart, heart, circle, star, heart, heart, circle. The same 4 shapes repeat."
+      },
+      "options": [
+        {
+          "text": "Star",
+          "why": "The star is the 1st, 5th, 9th and 13th shape."
+        },
+        {
+          "text": "Circle",
+          "why": "The circle is the 4th, 8th and 12th shape."
+        },
+        {
+          "text": "Heart"
+        },
+        {
+          "text": "Triangle",
+          "why": "There is no triangle in this pattern."
+        },
+        {
+          "text": "Square",
+          "why": "There is no square in this pattern."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "How many shapes are in one group?",
+        "Count in groups of 4: 4, 8, 12 ...",
+        "The 12th shape ends a group. Count 2 more."
+      ],
+      "explanation": "The group has 4 shapes. 12 shapes make 3 groups, so the 13th is a star and the 14th is a heart.",
+      "solution": [
+        {
+          "say": "The group has 4 shapes."
+        },
+        {
+          "say": "12 shapes make 3 groups, so the 13th is a star and the 14th is a heart."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "seamo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.036",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "One shape is wrong in the pattern. Which place is it in, counting from the left?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "circle"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "star"
+          },
+          {
+            "shape": "circle"
+          }
+        ],
+        "alt": "A row of shapes: star, circle, star, circle, star, star, star, circle."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Say the pattern out loud: star, circle, star, circle ...",
+        "The stars and circles take turns.",
+        "Which place has the same shape as the place before it?"
+      ],
+      "explanation": "The stars and circles should take turns. The 5th shape is a star, so the 6th should be a circle. But the 6th is a star, so it is wrong.",
+      "solution": [
+        {
+          "say": "The stars and circles should take turns."
+        },
+        {
+          "say": "The 5th shape is a star, so the 6th should be a circle."
+        },
+        {
+          "say": "But the 6th is a star, so it is wrong."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.037",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Each shape has one more side than the one before. What shape comes next?",
+      "figure": {
+        "kind": "pattern",
+        "items": [
+          {
+            "shape": "triangle"
+          },
+          {
+            "shape": "square"
+          },
+          {
+            "shape": "pentagon"
+          },
+          null
+        ],
+        "alt": "A row of shapes: triangle, square, pentagon, then an empty box."
+      },
+      "options": [
+        {
+          "text": "Square",
+          "why": "A square has 4 sides. The next shape needs 6."
+        },
+        {
+          "text": "Pentagon",
+          "why": "The pentagon is already in the row."
+        },
+        {
+          "text": "Octagon",
+          "why": "An octagon has 8 sides, which is 2 more."
+        },
+        {
+          "text": "Hexagon"
+        },
+        {
+          "text": "Circle",
+          "why": "A circle has no straight sides."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Count the sides of each shape.",
+        "3 sides, 4 sides, 5 sides ...",
+        "How many sides come next?"
+      ],
+      "explanation": "The shapes have 3, 4 and 5 sides. The next shape has 6 sides. That is a hexagon.",
+      "solution": [
+        {
+          "say": "The shapes have 3, 4 and 5 sides."
+        },
+        {
+          "say": "The next shape has 6 sides."
+        },
+        {
+          "say": "That is a hexagon."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.038",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What letter comes next in the pattern?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "A",
+          "C",
+          "E",
+          "G",
+          null
+        ],
+        "style": "boxes",
+        "alt": "Letter pattern: A, C, E, G, then an empty box."
+      },
+      "options": [
+        {
+          "text": "H",
+          "why": "H comes right after G. The pattern skips a letter."
+        },
+        {
+          "text": "I"
+        },
+        {
+          "text": "J",
+          "why": "The pattern skips only one letter at a time."
+        },
+        {
+          "text": "K",
+          "why": "This skips too many letters."
+        },
+        {
+          "text": "F",
+          "why": "F is before G."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say the alphabet and find the jumps.",
+        "A, C, E, G: one letter is skipped each time.",
+        "Skip the letter after G."
+      ],
+      "explanation": "The pattern skips one letter each time: A, C, E, G. After G we skip H, so the next letter is I.",
+      "solution": [
+        {
+          "say": "The pattern skips one letter each time: A, C, E, G."
+        },
+        {
+          "say": "After G we skip H, so the next letter is I."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.039",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Matches make houses in a row. One house needs 5 matches. Two houses joined need 9 matches. Three need 13. How many matches do 6 houses need?",
+      "figure": {
+        "kind": "sequence",
+        "items": [
+          "5",
+          "9",
+          "13"
+        ],
+        "style": "circles",
+        "alt": "Matches needed for one, two and three houses: 5, 9 and 13."
+      },
+      "answer": 25,
+      "tolerance": 0,
+      "hints": [
+        "How many more matches does each new house add?",
+        "The matches go 5, 9, 13. Each house adds 4.",
+        "6 houses is 5 houses after the first."
+      ],
+      "explanation": "Each new house adds 4 matches. The first house has 5. For 6 houses we add 5 more houses: 5 + 5 x 4 = 25 matches.",
+      "solution": [
+        {
+          "say": "Each new house adds 4 matches."
+        },
+        {
+          "say": "The first house has 5."
+        },
+        {
+          "say": "For 6 houses we add 5 more houses: 5 + 5 x 4 = 25 matches."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.040",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A bell rings every 3 minutes. A drum sounds every 5 minutes. They both sound at minute 0. At which minute do they next sound together?",
+      "answer": 15,
+      "tolerance": 0,
+      "hints": [
+        "List when the bell rings: 3, 6, 9 ...",
+        "List when the drum sounds: 5, 10, 15 ...",
+        "Find the first number in both lists."
+      ],
+      "explanation": "The bell rings at 3, 6, 9, 12 and 15. The drum sounds at 5, 10 and 15. The first time in both lists is minute 15.",
+      "solution": [
+        {
+          "say": "The bell rings at 3, 6, 9, 12 and 15."
+        },
+        {
+          "say": "The drum sounds at 5, 10 and 15."
+        },
+        {
+          "say": "The first time in both lists is minute 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.041",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Flags repeat in the order red, blue, green. What colour is the 20th flag?",
+      "options": [
+        {
+          "text": "Red",
+          "why": "Red flags are in places 1, 4, 7 and so on."
+        },
+        {
+          "text": "Green",
+          "why": "Green flags are in places 3, 6, 9 and so on."
+        },
+        {
+          "text": "Blue"
+        },
+        {
+          "text": "Yellow",
+          "why": "There is no yellow flag."
+        },
+        {
+          "text": "It cannot be known",
+          "why": "The pattern is clear enough to find it."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "How many flags are in one group?",
+        "3 flags in a group. Count in 3s: 3, 6, 9 ...",
+        "18 flags end a group. Count 2 more."
+      ],
+      "explanation": "The group has 3 flags. 18 flags make 6 groups. The 19th is red and the 20th is blue.",
+      "solution": [
+        {
+          "say": "The group has 3 flags."
+        },
+        {
+          "say": "18 flags make 6 groups."
+        },
+        {
+          "say": "The 19th is red and the 20th is blue."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.042",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The letters A, B, C repeat: ABCABCABC and so on. Sam writes 20 letters. How many times does he write the letter B?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Find how many full groups ABC fit in 20 letters.",
+        "6 groups use 18 letters.",
+        "Which letters are 19 and 20?"
+      ],
+      "explanation": "6 full groups use 18 letters, and each group has one B. Letters 19 and 20 are A and B. So there are 6 + 1 = 7 letters B.",
+      "solution": [
+        {
+          "say": "6 full groups use 18 letters, and each group has one B."
+        },
+        {
+          "say": "Letters 19 and 20 are A and B."
+        },
+        {
+          "say": "So there are 6 + 1 = 7 letters B."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.043",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The arrow turns a quarter turn clockwise each time. How does the 4th arrow point?",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                45,
+                24
+              ],
+              [
+                59,
+                42
+              ],
+              [
+                51,
+                42
+              ],
+              [
+                51,
+                74
+              ],
+              [
+                39,
+                74
+              ],
+              [
+                39,
+                42
+              ],
+              [
+                31,
+                42
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                161,
+                50
+              ],
+              [
+                143,
+                64
+              ],
+              [
+                143,
+                56
+              ],
+              [
+                111,
+                56
+              ],
+              [
+                111,
+                44
+              ],
+              [
+                143,
+                44
+              ],
+              [
+                143,
+                36
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 185,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                225,
+                76
+              ],
+              [
+                211,
+                58
+              ],
+              [
+                219,
+                58
+              ],
+              [
+                219,
+                26
+              ],
+              [
+                231,
+                26
+              ],
+              [
+                231,
+                58
+              ],
+              [
+                239,
+                58
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 275,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 315,
+            "y": 58,
+            "text": "?",
+            "size": 28,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A row of 4 boxes. Three arrows point up, right and down. The 4th box has a question mark."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    60,
+                    24
+                  ],
+                  [
+                    74,
+                    42
+                  ],
+                  [
+                    66,
+                    42
+                  ],
+                  [
+                    66,
+                    74
+                  ],
+                  [
+                    54,
+                    74
+                  ],
+                  [
+                    54,
+                    42
+                  ],
+                  [
+                    46,
+                    42
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing up."
+          },
+          "why": "This arrow has not turned. It points up."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    86,
+                    50
+                  ],
+                  [
+                    68,
+                    64
+                  ],
+                  [
+                    68,
+                    56
+                  ],
+                  [
+                    36,
+                    56
+                  ],
+                  [
+                    36,
+                    44
+                  ],
+                  [
+                    68,
+                    44
+                  ],
+                  [
+                    68,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing right."
+          },
+          "why": "This arrow points right, like the 2nd arrow."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    60,
+                    76
+                  ],
+                  [
+                    46,
+                    58
+                  ],
+                  [
+                    54,
+                    58
+                  ],
+                  [
+                    54,
+                    26
+                  ],
+                  [
+                    66,
+                    26
+                  ],
+                  [
+                    66,
+                    58
+                  ],
+                  [
+                    74,
+                    58
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing down."
+          },
+          "why": "This arrow points down, like the 3rd arrow."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    34,
+                    50
+                  ],
+                  [
+                    52,
+                    36
+                  ],
+                  [
+                    52,
+                    44
+                  ],
+                  [
+                    84,
+                    44
+                  ],
+                  [
+                    84,
+                    56
+                  ],
+                  [
+                    52,
+                    56
+                  ],
+                  [
+                    52,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "An arrow pointing left."
+          }
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A quarter turn clockwise moves up to right.",
+        "Up, right, down. Keep turning the same way.",
+        "Keep turning the same way after down."
+      ],
+      "explanation": "Up turns to right, right turns to down, and down turns to left. So the 4th arrow points left.",
+      "solution": [
+        {
+          "say": "Up turns to right, right turns to down, and down turns to left."
+        },
+        {
+          "say": "So the 4th arrow points left."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.044",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The hook turns a quarter turn anticlockwise each time. Which hook comes next?",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                31,
+                28
+              ],
+              [
+                59,
+                28
+              ],
+              [
+                59,
+                40
+              ],
+              [
+                45,
+                40
+              ],
+              [
+                45,
+                72
+              ],
+              [
+                31,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                113,
+                64
+              ],
+              [
+                113,
+                36
+              ],
+              [
+                125,
+                36
+              ],
+              [
+                125,
+                50
+              ],
+              [
+                157,
+                50
+              ],
+              [
+                157,
+                64
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 185,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                239,
+                72
+              ],
+              [
+                211,
+                72
+              ],
+              [
+                211,
+                60
+              ],
+              [
+                225,
+                60
+              ],
+              [
+                225,
+                28
+              ],
+              [
+                239,
+                28
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 275,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 315,
+            "y": 58,
+            "text": "?",
+            "size": 28,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A row of 4 boxes with a bent shape that looks like a hook. It is turned a different way in each box. The 4th box has a question mark."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    74,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top."
+          },
+          "why": "This is the first hook. It has turned all the way round."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    46,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the bottom."
+          },
+          "why": "This is the same as the 3rd hook."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    38,
+                    64
+                  ],
+                  [
+                    38,
+                    36
+                  ],
+                  [
+                    50,
+                    36
+                  ],
+                  [
+                    50,
+                    50
+                  ],
+                  [
+                    82,
+                    50
+                  ],
+                  [
+                    82,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the left."
+          },
+          "why": "This is the same as the 2nd hook."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Anticlockwise is the opposite way to a clock hand.",
+        "Look at how the top bar of the hook moves each time.",
+        "The bar goes top, left, bottom. Where does it go next?"
+      ],
+      "explanation": "Each turn moves the top bar anticlockwise: top, left, bottom, then right. So the next hook has its bar on the right.",
+      "solution": [
+        {
+          "say": "Each turn moves the top bar anticlockwise: top, left, bottom, then right."
+        },
+        {
+          "say": "So the next hook has its bar on the right."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.045",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "The hook keeps turning a quarter turn clockwise. Which hook is the 7th in the row?",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                31,
+                28
+              ],
+              [
+                59,
+                28
+              ],
+              [
+                59,
+                40
+              ],
+              [
+                45,
+                40
+              ],
+              [
+                45,
+                72
+              ],
+              [
+                31,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                157,
+                36
+              ],
+              [
+                157,
+                64
+              ],
+              [
+                145,
+                64
+              ],
+              [
+                145,
+                50
+              ],
+              [
+                113,
+                50
+              ],
+              [
+                113,
+                36
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 185,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                239,
+                72
+              ],
+              [
+                211,
+                72
+              ],
+              [
+                211,
+                60
+              ],
+              [
+                225,
+                60
+              ],
+              [
+                225,
+                28
+              ],
+              [
+                239,
+                28
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 275,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                293,
+                64
+              ],
+              [
+                293,
+                36
+              ],
+              [
+                305,
+                36
+              ],
+              [
+                305,
+                50
+              ],
+              [
+                337,
+                50
+              ],
+              [
+                337,
+                64
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A row of 4 boxes with a hook shape. It turns a quarter turn clockwise in each box, so the bar is at the top, right, bottom and left."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    74,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top."
+          },
+          "why": "This is the 5th hook."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          },
+          "why": "This is the 6th hook."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    46,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the bottom."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    38,
+                    64
+                  ],
+                  [
+                    38,
+                    36
+                  ],
+                  [
+                    50,
+                    36
+                  ],
+                  [
+                    50,
+                    50
+                  ],
+                  [
+                    82,
+                    50
+                  ],
+                  [
+                    82,
+                    64
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the left."
+          },
+          "why": "This is the 8th hook."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The hooks repeat after a few turns.",
+        "After 4 quarter turns the hook looks like the first one again.",
+        "The 5th hook is like the 1st. Count on to the 7th."
+      ],
+      "explanation": "The hooks repeat every 4. The 5th is like the 1st, the 6th is like the 2nd, and the 7th is like the 3rd. The 3rd hook has its bar at the bottom.",
+      "solution": [
+        {
+          "say": "The hooks repeat every 4."
+        },
+        {
+          "say": "The 5th is like the 1st, the 6th is like the 2nd, and the 7th is like the 3rd."
+        },
+        {
+          "say": "The 3rd hook has its bar at the bottom."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-patterns.046",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The hook is flipped over, like in a mirror, each time. Which hook comes next?",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                31,
+                28
+              ],
+              [
+                59,
+                28
+              ],
+              [
+                59,
+                40
+              ],
+              [
+                45,
+                40
+              ],
+              [
+                45,
+                72
+              ],
+              [
+                31,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                149,
+                28
+              ],
+              [
+                121,
+                28
+              ],
+              [
+                121,
+                40
+              ],
+              [
+                135,
+                40
+              ],
+              [
+                135,
+                72
+              ],
+              [
+                149,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 185,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                211,
+                28
+              ],
+              [
+                239,
+                28
+              ],
+              [
+                239,
+                40
+              ],
+              [
+                225,
+                40
+              ],
+              [
+                225,
+                72
+              ],
+              [
+                211,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 275,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 315,
+            "y": 58,
+            "text": "?",
+            "size": 28,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A row of 4 boxes with a hook shape. The hook is flipped over from left to right in each box. The 4th box has a question mark."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    74,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top."
+          },
+          "why": "This is the hook that has not been flipped."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          },
+          "why": "This hook is turned, not flipped."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    72
+                  ],
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    46,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    74,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the bottom."
+          },
+          "why": "This hook is turned upside down, not flipped."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    46,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    74,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top and flipped over like in a mirror."
+          }
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at which side the stem hangs on in each box.",
+        "The stem hangs on the left, then right, then left.",
+        "A flip changes the side again."
+      ],
+      "explanation": "The stem hangs on the left, then right, then left. A flip changes the side each time. So next the stem hangs on the right.",
+      "solution": [
+        {
+          "say": "The stem hangs on the left, then right, then left."
+        },
+        {
+          "say": "A flip changes the side each time."
+        },
+        {
+          "say": "So next the stem hangs on the right."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-patterns.047",
+      "skill": "m2.oly-patterns",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "The arrow turns clockwise. How many quarter turns take it from up to left?",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                45,
+                24
+              ],
+              [
+                59,
+                42
+              ],
+              [
+                51,
+                42
+              ],
+              [
+                51,
+                74
+              ],
+              [
+                39,
+                74
+              ],
+              [
+                39,
+                42
+              ],
+              [
+                31,
+                42
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 120,
+            "y": 56,
+            "text": "to",
+            "size": 20,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 155,
+            "y": 10,
+            "w": 80,
+            "h": 80,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                169,
+                50
+              ],
+              [
+                187,
+                36
+              ],
+              [
+                187,
+                44
+              ],
+              [
+                219,
+                44
+              ],
+              [
+                219,
+                56
+              ],
+              [
+                187,
+                56
+              ],
+              [
+                187,
+                64
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          }
+        ],
+        "alt": "Two boxes. In the first box an arrow points up. In the second box an arrow points left."
+      },
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "A quarter turn clockwise takes up to right.",
+        "Right, then down, then ...",
+        "Count each quarter turn."
+      ],
+      "explanation": "One quarter turn clockwise: up to right. Two: down. Three: left. So it takes 3 quarter turns.",
+      "solution": [
+        {
+          "say": "One quarter turn clockwise: up to right."
+        },
+        {
+          "say": "Two: down."
+        },
+        {
+          "say": "Three: left."
+        },
+        {
+          "say": "So it takes 3 quarter turns."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-patterns.048",
+      "skill": "m2.oly-patterns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which shape is the hook turned round (not flipped over)?",
+      "figure": {
+        "kind": "scene",
+        "width": 120,
+        "height": 100,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                46,
+                28
+              ],
+              [
+                74,
+                28
+              ],
+              [
+                74,
+                40
+              ],
+              [
+                60,
+                40
+              ],
+              [
+                60,
+                72
+              ],
+              [
+                46,
+                72
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A hook shape with a bar across the top and a stem going down on the left side."
+      },
+      "options": [
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    74,
+                    28
+                  ],
+                  [
+                    46,
+                    28
+                  ],
+                  [
+                    46,
+                    40
+                  ],
+                  [
+                    60,
+                    40
+                  ],
+                  [
+                    60,
+                    72
+                  ],
+                  [
+                    74,
+                    72
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the top and flipped over like in a mirror."
+          },
+          "why": "This hook is flipped over, not turned."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    46,
+                    72
+                  ],
+                  [
+                    74,
+                    72
+                  ],
+                  [
+                    74,
+                    60
+                  ],
+                  [
+                    60,
+                    60
+                  ],
+                  [
+                    60,
+                    28
+                  ],
+                  [
+                    46,
+                    28
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the bottom and flipped over like in a mirror."
+          },
+          "why": "This hook is flipped over, not turned."
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    82,
+                    36
+                  ],
+                  [
+                    82,
+                    64
+                  ],
+                  [
+                    70,
+                    64
+                  ],
+                  [
+                    70,
+                    50
+                  ],
+                  [
+                    38,
+                    50
+                  ],
+                  [
+                    38,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the right."
+          }
+        },
+        {
+          "figure": {
+            "kind": "scene",
+            "width": 120,
+            "height": 100,
+            "shapes": [
+              {
+                "t": "poly",
+                "points": [
+                  [
+                    38,
+                    36
+                  ],
+                  [
+                    38,
+                    64
+                  ],
+                  [
+                    50,
+                    64
+                  ],
+                  [
+                    50,
+                    50
+                  ],
+                  [
+                    82,
+                    50
+                  ],
+                  [
+                    82,
+                    36
+                  ]
+                ],
+                "closed": true,
+                "tone": "math",
+                "fill": "solid"
+              }
+            ],
+            "alt": "A hook with its bar on the left and flipped over like in a mirror."
+          },
+          "why": "This hook is flipped over, not turned."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A hook that is turned round can still be put exactly on the first hook.",
+        "The top bar and the stem must meet at the same corner.",
+        "In the first hook the stem is on the left and the bar is on the top."
+      ],
+      "explanation": "When a shape is turned, it stays the same way round. The stem still hangs on the left of the bar when you turn it. Only one of the hooks can be turned back onto the first one.",
+      "solution": [
+        {
+          "say": "When a shape is turned, it stays the same way round."
+        },
+        {
+          "say": "The stem still hangs on the left of the bar when you turn it."
+        },
+        {
+          "say": "Only one of the hooks can be turned back onto the first one."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo",
+        "keep-order"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
     }
   ]
 }

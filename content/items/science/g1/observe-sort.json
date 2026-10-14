@@ -133,6 +133,805 @@
       "hints": ["Look for something every Group A thing shares.", "Ask: would you find each one in a freezer or near heat?", "Start with the ice cube and the snowflake. What are they like?"],
       "explanation": "Everything in Group A is cold and everything in Group B is hot. Her rule was cold or hot.",
       "tags": ["iksc"]
+    },
+    {
+      "id": "s1.observe-sort.013",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What do we do when we observe?",
+      "options": [
+        {
+          "text": "run fast",
+          "why": "Running is not observing."
+        },
+        {
+          "text": "fall asleep",
+          "why": "Sleeping is not observing."
+        },
+        {
+          "text": "look carefully"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Use your eyes.",
+        "It means watch closely.",
+        "Notice small things."
+      ],
+      "explanation": "To observe is to look carefully and notice things."
+    },
+    {
+      "id": "s1.observe-sort.014",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool tells us how long a pencil is?",
+      "options": [
+        {
+          "text": "a ruler"
+        },
+        {
+          "text": "a clock",
+          "why": "A clock tells the time."
+        },
+        {
+          "text": "a thermometer",
+          "why": "A thermometer tells how hot it is."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "We measure how long it is.",
+        "A clock is for time.",
+        "It has numbers in cm."
+      ],
+      "explanation": "We use a ruler to measure length."
+    },
+    {
+      "id": "s1.observe-sort.015",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which tool tells us how hot the weather is?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "thermometer",
+            "label": "thermometer"
+          }
+        ],
+        "alt": "A thermometer."
+      },
+      "options": [
+        {
+          "text": "a ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "a thermometer"
+        },
+        {
+          "text": "a clock",
+          "why": "A clock tells the time."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "It shows a number for heat.",
+        "A ruler is for length.",
+        "It has a tube with a red line."
+      ],
+      "explanation": "A thermometer measures how hot or cold something is."
+    },
+    {
+      "id": "s1.observe-sort.016",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Mei says the big ball will bounce higher. What is she doing?",
+      "options": [
+        {
+          "text": "making a prediction"
+        },
+        {
+          "text": "measuring",
+          "why": "She has not measured anything."
+        },
+        {
+          "text": "counting",
+          "why": "She is not counting."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "She says what she thinks will happen.",
+        "She has not tested yet.",
+        "It is a guess."
+      ],
+      "explanation": "A prediction is a guess about what will happen before we test it."
+    },
+    {
+      "id": "s1.observe-sort.017",
+      "skill": "s1.observe-sort",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Is it round or not round? Sort the objects.",
+      "groups": [
+        "Round",
+        "Not round"
+      ],
+      "items": [
+        {
+          "text": "ball",
+          "group": 0
+        },
+        {
+          "text": "coin",
+          "group": 0
+        },
+        {
+          "text": "plate",
+          "group": 0
+        },
+        {
+          "text": "book",
+          "group": 1
+        },
+        {
+          "text": "box",
+          "group": 1
+        },
+        {
+          "text": "brick",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Round things roll.",
+        "A box has corners.",
+        "Start with the coin."
+      ],
+      "explanation": "A ball, a coin and a plate are round. A book, a box and a brick are not round."
+    },
+    {
+      "id": "s1.observe-sort.018",
+      "skill": "s1.observe-sort",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Which colour is the fruit? Sort the cards.",
+      "groups": [
+        "Red",
+        "Yellow"
+      ],
+      "items": [
+        {
+          "text": "apple",
+          "group": 0
+        },
+        {
+          "text": "strawberry",
+          "group": 0
+        },
+        {
+          "text": "cherry",
+          "group": 0
+        },
+        {
+          "text": "banana",
+          "group": 1
+        },
+        {
+          "text": "lemon",
+          "group": 1
+        },
+        {
+          "text": "sweetcorn",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think of a banana.",
+        "Strawberries are red.",
+        "Look for the colour."
+      ],
+      "explanation": "Apples, strawberries and cherries are red. Bananas, lemons and sweetcorn are yellow."
+    },
+    {
+      "id": "s1.observe-sort.019",
+      "skill": "s1.observe-sort",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Is it bigger or smaller than a cat? Sort the animals.",
+      "groups": [
+        "Bigger",
+        "Smaller"
+      ],
+      "items": [
+        {
+          "text": "cow",
+          "group": 0
+        },
+        {
+          "text": "elephant",
+          "group": 0
+        },
+        {
+          "text": "horse",
+          "group": 0
+        },
+        {
+          "text": "ant",
+          "group": 1
+        },
+        {
+          "text": "bee",
+          "group": 1
+        },
+        {
+          "text": "mouse",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think how big a cat is.",
+        "An ant is tiny.",
+        "An elephant is huge."
+      ],
+      "explanation": "A cow, an elephant and a horse are bigger than a cat. An ant, a bee and a mouse are smaller."
+    },
+    {
+      "id": "s1.observe-sort.020",
+      "skill": "s1.observe-sort",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How many apples are there?",
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "apple",
+            "count": 7
+          },
+          {
+            "icon": "pear",
+            "count": 3
+          }
+        ],
+        "alt": "7 apples and 3 pears."
+      },
+      "answer": 7,
+      "hints": [
+        "Count the apples only.",
+        "Do not count the pears.",
+        "Point to each apple."
+      ],
+      "explanation": "There are 7 apples. We count only the apples, not the pears."
+    },
+    {
+      "id": "s1.observe-sort.021",
+      "skill": "s1.observe-sort",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "How many children chose cats? Read the tally chart.",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 7
+          },
+          {
+            "label": "Dogs",
+            "count": 4
+          },
+          {
+            "label": "Fish",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart: cats 7, dogs 4, fish 2."
+      },
+      "answer": 7,
+      "hints": [
+        "Find the cats row.",
+        "Each mark is one child.",
+        "A tally of five has a line across."
+      ],
+      "explanation": "The tally chart shows 7 for cats."
+    },
+    {
+      "id": "s1.observe-sort.022",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which pet did the fewest children choose?",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 7
+          },
+          {
+            "label": "Dogs",
+            "count": 4
+          },
+          {
+            "label": "Fish",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart: cats 7, dogs 4, fish 2."
+      },
+      "options": [
+        {
+          "text": "cats",
+          "why": "Cats had the most."
+        },
+        {
+          "text": "fish"
+        },
+        {
+          "text": "dogs",
+          "why": "Fish had fewer."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the smallest number.",
+        "Look at the shortest row.",
+        "It lives in water."
+      ],
+      "explanation": "Fish has the smallest tally, so the fewest children chose fish."
+    },
+    {
+      "id": "s1.observe-sort.023",
+      "skill": "s1.observe-sort",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How many more children chose cats than fish?",
+      "figure": {
+        "kind": "tally",
+        "rows": [
+          {
+            "label": "Cats",
+            "count": 7
+          },
+          {
+            "label": "Dogs",
+            "count": 4
+          },
+          {
+            "label": "Fish",
+            "count": 2
+          }
+        ],
+        "alt": "Tally chart: cats 7, dogs 4, fish 2."
+      },
+      "answer": 5,
+      "hints": [
+        "Find the cats number.",
+        "Find the fish number.",
+        "Take the smaller from the bigger."
+      ],
+      "explanation": "7 children chose cats and 2 chose fish. 7 - 2 = 5."
+    },
+    {
+      "id": "s1.observe-sort.024",
+      "skill": "s1.observe-sort",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Order the animals from the shortest to the longest.",
+      "items": [
+        "mouse",
+        "cat",
+        "dog",
+        "horse"
+      ],
+      "hints": [
+        "A mouse is tiny.",
+        "A horse is big.",
+        "A cat is smaller than a dog."
+      ],
+      "explanation": "A mouse is the shortest. A cat is longer, a dog is longer still and a horse is the longest."
+    },
+    {
+      "id": "s1.observe-sort.025",
+      "skill": "s1.observe-sort",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps in order to test which object floats.",
+      "items": [
+        "Make a guess",
+        "Put the object in water",
+        "Watch what happens",
+        "Say what you found"
+      ],
+      "hints": [
+        "We guess first.",
+        "We test before we say the answer.",
+        "The last step is to share."
+      ],
+      "explanation": "First we guess. Then we test, watch and say what we found."
+    },
+    {
+      "id": "s1.observe-sort.026",
+      "skill": "s1.observe-sort",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each question to a tool.",
+      "pairs": [
+        [
+          "How long is it?",
+          "ruler"
+        ],
+        [
+          "How heavy is it?",
+          "scales"
+        ],
+        [
+          "How hot is it?",
+          "thermometer"
+        ],
+        [
+          "What is tiny on the leaf?",
+          "magnifying glass"
+        ]
+      ],
+      "hints": [
+        "Scales weigh things.",
+        "A magnifying glass makes things big.",
+        "A thermometer shows heat."
+      ],
+      "explanation": "A ruler measures length and scales measure how heavy. A thermometer shows heat and a magnifying glass shows tiny things."
+    },
+    {
+      "id": "s1.observe-sort.027",
+      "skill": "s1.observe-sort",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "We use our ___ to look closely. A ___ makes tiny things look big.",
+      "gaps": [
+        {
+          "options": [
+            "eyes",
+            "ears",
+            "nose"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "magnifying glass",
+            "ruler",
+            "clock"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "What do you see with?",
+        "Which tool makes things look bigger?",
+        "It has a handle and a round glass."
+      ],
+      "explanation": "We look with our eyes. A magnifying glass makes tiny things look big."
+    },
+    {
+      "id": "s1.observe-sort.028",
+      "skill": "s1.observe-sort",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "Copy the numbers into the table. Book 3, pencil 2, desk 10.",
+      "head": [
+        "Object",
+        "Hand spans"
+      ],
+      "rows": [
+        [
+          "book",
+          ""
+        ],
+        [
+          "pencil",
+          ""
+        ],
+        [
+          "desk",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "3"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "2"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "10"
+          ]
+        }
+      ],
+      "hints": [
+        "Read the numbers in the question.",
+        "Book is first.",
+        "Write each number in its row."
+      ],
+      "explanation": "The book is 3 hand spans, the pencil is 2 and the desk is 10."
+    },
+    {
+      "id": "s1.observe-sort.029",
+      "skill": "s1.observe-sort",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Lina rolls three toy cars down a ramp. The red car goes 5 steps. The blue car goes 8 steps. The green car goes 3 steps.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which car goes the furthest?",
+          "options": [
+            {
+              "text": "the blue car"
+            },
+            {
+              "text": "the red car"
+            },
+            {
+              "text": "the green car"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many steps does the red car go?",
+          "answer": 5,
+          "tolerance": 0,
+          "allowNegative": false,
+          "allowDecimal": false
+        }
+      ],
+      "hints": [
+        "Find the biggest number.",
+        "Read about the red car.",
+        "The blue car has 8."
+      ],
+      "explanation": "The blue car went 8 steps, which is the furthest. The red car went 5 steps."
+    },
+    {
+      "id": "s1.observe-sort.030",
+      "skill": "s1.observe-sort",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the tool that shows how hot it is.",
+      "figure": {
+        "kind": "scene",
+        "width": 200,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "thermometer",
+            "x": 14,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "clock",
+            "x": 114,
+            "y": 14,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "spoon",
+            "x": 14,
+            "y": 114,
+            "size": 72
+          },
+          {
+            "t": "icon",
+            "icon": "key",
+            "x": 114,
+            "y": 114,
+            "size": 72
+          }
+        ],
+        "alt": "4 pictures: thermometer, clock, spoon and key."
+      },
+      "regions": [
+        {
+          "label": "thermometer",
+          "x": 25,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "clock",
+          "x": 75,
+          "y": 25,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "spoon",
+          "x": 25,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        },
+        {
+          "label": "key",
+          "x": 75,
+          "y": 75,
+          "w": 47,
+          "h": 47
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "It measures heat.",
+        "A clock tells the time.",
+        "It has a long tube."
+      ],
+      "explanation": "A thermometer shows how hot or cold something is."
+    },
+    {
+      "id": "s1.observe-sort.031",
+      "skill": "s1.observe-sort",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "We can use a ___ to measure how long something is.",
+      "blanks": [
+        {
+          "answers": [
+            "ruler"
+          ]
+        }
+      ],
+      "hints": [
+        "It is flat and has numbers.",
+        "You put it next to a pencil.",
+        "It starts with r."
+      ],
+      "explanation": "We use a ruler to measure length."
+    },
+    {
+      "id": "s1.observe-sort.032",
+      "skill": "s1.observe-sort",
+      "type": "draw",
+      "difficulty": 2,
+      "prompt": "Draw a leaf. Show its shape and colour.",
+      "background": "blank",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Draws the shape of a leaf",
+            "points": 1
+          },
+          {
+            "label": "Shows the colour",
+            "points": 1
+          },
+          {
+            "label": "Adds veins or details",
+            "points": 1
+          }
+        ]
+      },
+      "hints": [
+        "Look carefully at a real leaf.",
+        "Draw lines for the veins."
+      ],
+      "explanation": "A careful drawing shows the shape, colour and details of a leaf."
+    },
+    {
+      "id": "s1.observe-sort.033",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A cat, a dog and a rabbit are in one group. Which animal also belongs?",
+      "options": [
+        {
+          "text": "a snake",
+          "why": "A snake has no fur."
+        },
+        {
+          "text": "a hen",
+          "why": "A hen has feathers."
+        },
+        {
+          "text": "a fish",
+          "why": "A fish has scales."
+        },
+        {
+          "text": "a cow"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at what covers them.",
+        "They have fur.",
+        "Count the legs."
+      ],
+      "explanation": "Cats, dogs, rabbits and cows have fur and four legs.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.observe-sort.034",
+      "skill": "s1.observe-sort",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which one does not belong: apple, mango, banana, carrot?",
+      "options": [
+        {
+          "text": "apple",
+          "why": "An apple is a fruit."
+        },
+        {
+          "text": "mango",
+          "why": "A mango is a fruit."
+        },
+        {
+          "text": "carrot"
+        },
+        {
+          "text": "banana",
+          "why": "A banana is a fruit."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Three are sweet fruits.",
+        "One grows under the ground.",
+        "A carrot is orange."
+      ],
+      "explanation": "Apples, mangoes and bananas are fruits. A carrot is a root vegetable.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s1.observe-sort.035",
+      "skill": "s1.observe-sort",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "3 dogs and 2 birds stand in a garden. How many legs are there?",
+      "answer": 16,
+      "hints": [
+        "A dog has 4 legs.",
+        "A bird has 2 legs.",
+        "Add the dogs' legs and the birds' legs."
+      ],
+      "explanation": "A dog has 4 legs, so 3 dogs have 12 legs. A bird has 2 legs, so 2 birds have 4 legs. 12 + 4 = 16.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

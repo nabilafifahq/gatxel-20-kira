@@ -1,0 +1,1958 @@
+{
+  "skill": "m2.oly-word-problems",
+  "items": [
+    {
+      "id": "m2.oly-word-problems.001",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Mia has 12 stickers. Ben has 7 more than Mia. How many stickers do they have together?",
+      "figure": {
+        "kind": "scene",
+        "width": 314,
+        "height": 96,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 34,
+            "y": 32,
+            "text": "Mia",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 12,
+            "w": 144,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 142,
+            "y": 32,
+            "text": "12",
+            "size": 13,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 34,
+            "y": 72,
+            "text": "Ben",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 52,
+            "w": 144,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 142,
+            "y": 72,
+            "text": "12",
+            "size": 13,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 214,
+            "y": 52,
+            "w": 84,
+            "h": 28,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 256,
+            "y": 72,
+            "text": "7",
+            "size": 13,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A bar model. Mia has a bar of 12. Ben has a bar of 12 and a short extra part of 7."
+      },
+      "answer": 31,
+      "tolerance": 0,
+      "hints": [
+        "Find how many stickers Ben has.",
+        "Ben has 12 and 7 more.",
+        "Add Mia's stickers and Ben's stickers."
+      ],
+      "explanation": "Ben has 12 + 7 = 19 stickers. Together they have 12 + 19 = 31 stickers.",
+      "solution": [
+        {
+          "say": "Ben has 12 + 7 = 19 stickers."
+        },
+        {
+          "say": "Together they have 12 + 19 = 31 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.002",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Red marbles are 3 times as many as blue marbles. There are 24 marbles in all. How many blue marbles are there?",
+      "figure": {
+        "kind": "scene",
+        "width": 158,
+        "height": 96,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 34,
+            "y": 32,
+            "text": "Blue",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 12,
+            "w": 24,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 34,
+            "y": 72,
+            "text": "Red",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 52,
+            "w": 24,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 94,
+            "y": 52,
+            "w": 24,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 118,
+            "y": 52,
+            "w": 24,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          }
+        ],
+        "alt": "A bar model. Blue is one block. Red is three blocks of the same size."
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for the blue marbles.",
+        "The red marbles are 3 blocks. How many blocks in all?",
+        "Share 24 between all the blocks."
+      ],
+      "explanation": "Blue is 1 block and red is 3 blocks. That makes 4 blocks in all. 24 / 4 = 6, so there are 6 blue marbles.",
+      "solution": [
+        {
+          "say": "Blue is 1 block and red is 3 blocks."
+        },
+        {
+          "say": "That makes 4 blocks in all."
+        },
+        {
+          "say": "24 / 4 = 6, so there are 6 blue marbles."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.003",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ani and Bela have 30 stickers together. Ani has 6 more stickers than Bela. How many stickers does Ani have?",
+      "figure": {
+        "kind": "scene",
+        "width": 182,
+        "height": 96,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 34,
+            "y": 32,
+            "text": "Ani",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 12,
+            "w": 72,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 142,
+            "y": 12,
+            "w": 24,
+            "h": 28,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 154,
+            "y": 32,
+            "text": "6",
+            "size": 13,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 34,
+            "y": 72,
+            "text": "Bela",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 52,
+            "w": 72,
+            "h": 28,
+            "r": 0,
+            "tone": "math",
+            "fill": "light"
+          }
+        ],
+        "alt": "A bar model. Ani has a bar the same as Bela, plus an extra part of 6. Together they have 30."
+      },
+      "options": [
+        {
+          "text": "12"
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "18"
+        },
+        {
+          "text": "24"
+        },
+        {
+          "text": "36"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Take away the extra 6 stickers first.",
+        "Then Ani and Bela would have the same.",
+        "Share what is left equally."
+      ],
+      "explanation": "Take away the extra 6: 30 - 6 = 24. Share equally: 24 / 2 = 12 for Bela. Ani has 12 + 6 = 18 stickers.",
+      "solution": [
+        {
+          "say": "Take away the extra 6: 30 - 6 = 24."
+        },
+        {
+          "say": "Share equally: 24 / 2 = 12 for Bela."
+        },
+        {
+          "say": "Ani has 12 + 6 = 18 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.004",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rope is 20 m long. It is cut into 2 pieces. One piece is 4 m longer than the other. How long is the longer piece, in metres?",
+      "answer": 12,
+      "tolerance": 0,
+      "unit": "m",
+      "hints": [
+        "Take away the extra 4 m.",
+        "16 m is left. Share it between the two pieces.",
+        "The shorter piece is 8 m. How long is the longer one?"
+      ],
+      "explanation": "Take away the extra 4 m: 20 - 4 = 16. Each piece would be 8 m. The longer piece is 8 + 4 = 12 m.",
+      "solution": [
+        {
+          "say": "Take away the extra 4 m: 20 - 4 = 16."
+        },
+        {
+          "say": "Each piece would be 8 m."
+        },
+        {
+          "say": "The longer piece is 8 + 4 = 12 m."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.005",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Sam has 5 times as many cards as Tia. Together they have 18 cards. How many cards does Tia have?",
+      "answer": 3,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for Tia.",
+        "Sam has 5 blocks. How many blocks together?",
+        "Share 18 between the blocks."
+      ],
+      "explanation": "Tia has 1 block and Sam has 5 blocks. That is 6 blocks in all. 18 / 6 = 3, so Tia has 3 cards.",
+      "solution": [
+        {
+          "say": "Tia has 1 block and Sam has 5 blocks."
+        },
+        {
+          "say": "That is 6 blocks in all."
+        },
+        {
+          "say": "18 / 6 = 3, so Tia has 3 cards."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.006",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Three boxes hold 37 balls in all. Box B has 4 more balls than box A. Box C has 2 more balls than box B. How many balls are in box A?",
+      "answer": 9,
+      "tolerance": 0,
+      "hints": [
+        "Take away the extras to make the boxes equal.",
+        "Box B has 4 extra. Box C has 4 + 2 = 6 extra.",
+        "Take away 4 and 6 from 37, then share between 3 boxes."
+      ],
+      "explanation": "Box B has 4 extra and box C has 6 extra, so 10 extra in all. 37 - 10 = 27. Share between 3 boxes: 27 / 3 = 9. Box A has 9 balls.",
+      "solution": [
+        {
+          "say": "Box B has 4 extra and box C has 6 extra, so 10 extra in all."
+        },
+        {
+          "say": "37 - 10 = 27."
+        },
+        {
+          "say": "Share between 3 boxes: 27 / 3 = 9."
+        },
+        {
+          "say": "Box A has 9 balls."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.007",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Dina read half of her book. She has 15 pages left to read. How many pages does the book have?",
+      "answer": 30,
+      "tolerance": 0,
+      "unit": "pages",
+      "hints": [
+        "Half of the book is already read.",
+        "The other half is 15 pages.",
+        "Double 15."
+      ],
+      "explanation": "The 15 pages left are the other half of the book. The whole book is 15 + 15 = 30 pages.",
+      "solution": [
+        {
+          "say": "The 15 pages left are the other half of the book."
+        },
+        {
+          "say": "The whole book is 15 + 15 = 30 pages."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.008",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A class has 28 children. There are 4 more girls than boys. How many boys are there?",
+      "options": [
+        {
+          "text": "10"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "14"
+        },
+        {
+          "text": "16"
+        },
+        {
+          "text": "24"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Take away the 4 extra girls.",
+        "Then there are the same number of boys and girls.",
+        "Share the rest equally."
+      ],
+      "explanation": "Take away the 4 extra girls: 28 - 4 = 24. Share equally: 24 / 2 = 12 boys. There are 16 girls.",
+      "solution": [
+        {
+          "say": "Take away the 4 extra girls: 28 - 4 = 24."
+        },
+        {
+          "say": "Share equally: 24 / 2 = 12 boys."
+        },
+        {
+          "say": "There are 16 girls."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.009",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Tom has 3 times as many cards as Jo. Tom gives 8 cards to Jo. Now they have the same number of cards. How many cards did Tom have at the start?",
+      "answer": 24,
+      "tolerance": 0,
+      "hints": [
+        "After the gift, they have the same number.",
+        "Tom had 3 blocks. After he gives 8, he has 3 blocks - 8.",
+        "Jo had 1 block. After the gift, Jo has 1 block + 8."
+      ],
+      "explanation": "Tom had 3 blocks and Jo had 1 block. After the gift, 3 blocks - 8 = 1 block + 8. So 2 blocks = 16, which means 1 block = 8. Tom started with 3 x 8 = 24 cards.",
+      "solution": [
+        {
+          "say": "Tom had 3 blocks and Jo had 1 block."
+        },
+        {
+          "say": "After the gift, 3 blocks - 8 = 1 block + 8."
+        },
+        {
+          "say": "So 2 blocks = 16, which means 1 block = 8."
+        },
+        {
+          "say": "Tom started with 3 x 8 = 24 cards."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.010",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Two numbers add up to 30. One number is 6 more than the other. What is the smaller number?",
+      "answer": 12,
+      "tolerance": 0,
+      "hints": [
+        "Take away the extra 6.",
+        "Share the rest equally.",
+        "30 - 6 = 24."
+      ],
+      "explanation": "Take away the 6: 30 - 6 = 24. Share equally: 24 / 2 = 12. The smaller number is 12 and the bigger is 18.",
+      "solution": [
+        {
+          "say": "Take away the 6: 30 - 6 = 24."
+        },
+        {
+          "say": "Share equally: 24 / 2 = 12."
+        },
+        {
+          "say": "The smaller number is 12 and the bigger is 18."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.011",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "3 bags each hold the same number of oranges. There are also 5 loose oranges. In all there are 29 oranges. How many oranges are in each bag?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Take away the loose oranges first.",
+        "29 - 5 = 24.",
+        "Share 24 between the 3 bags."
+      ],
+      "explanation": "Take away the 5 loose oranges: 29 - 5 = 24. Share between 3 bags: 24 / 3 = 8. Each bag holds 8 oranges.",
+      "solution": [
+        {
+          "say": "Take away the 5 loose oranges: 29 - 5 = 24."
+        },
+        {
+          "say": "Share between 3 bags: 24 / 3 = 8."
+        },
+        {
+          "say": "Each bag holds 8 oranges."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.012",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Amy has twice as many stickers as Bo. Cy has 5 fewer stickers than Amy. Together they have 25 stickers. How many stickers does Bo have?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Draw one block for Bo.",
+        "Amy has 2 blocks. Cy has 2 blocks and then 5 less.",
+        "Add the blocks and the missing 5."
+      ],
+      "explanation": "Bo has 1 block, Amy 2 blocks and Cy 2 blocks - 5. In all there are 5 blocks - 5 = 25. So 5 blocks = 30 and 1 block = 6. Bo has 6 stickers.",
+      "solution": [
+        {
+          "say": "Bo has 1 block, Amy 2 blocks and Cy 2 blocks - 5."
+        },
+        {
+          "say": "In all there are 5 blocks - 5 = 25."
+        },
+        {
+          "say": "So 5 blocks = 30 and 1 block = 6."
+        },
+        {
+          "say": "Bo has 6 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.013",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A rod is 36 cm long. The red part is 2 times as long as the blue part. How long is the red part, in cm?",
+      "answer": 24,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "The blue part is 1 block.",
+        "The red part is 2 blocks. How many blocks in all?",
+        "Share 36 between 3 blocks."
+      ],
+      "explanation": "The blue part is 1 block and the red part is 2 blocks. That is 3 blocks in all. 36 / 3 = 12 cm for the blue part. The red part is 2 x 12 = 24 cm.",
+      "solution": [
+        {
+          "say": "The blue part is 1 block and the red part is 2 blocks."
+        },
+        {
+          "say": "That is 3 blocks in all."
+        },
+        {
+          "say": "36 / 3 = 12 cm for the blue part."
+        },
+        {
+          "say": "The red part is 2 x 12 = 24 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.014",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A farm has 29 cows and hens. There are 5 more cows than hens. How many cows are there?",
+      "answer": 17,
+      "tolerance": 0,
+      "hints": [
+        "Take away the 5 extra cows.",
+        "Then there are the same number of cows and hens.",
+        "Share the rest equally to find the hens."
+      ],
+      "explanation": "Take away the 5 extra cows: 29 - 5 = 24. Share equally: 24 / 2 = 12 hens. There are 12 + 5 = 17 cows.",
+      "solution": [
+        {
+          "say": "Take away the 5 extra cows: 29 - 5 = 24."
+        },
+        {
+          "say": "Share equally: 24 / 2 = 12 hens."
+        },
+        {
+          "say": "There are 12 + 5 = 17 cows."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.015",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "The top shelf has 28 books. The bottom shelf has 18 books. How many books must move down to make the shelves equal?",
+      "answer": 5,
+      "tolerance": 0,
+      "hints": [
+        "Find how many more books the top shelf has.",
+        "The top shelf has 10 more.",
+        "Moving a book changes the difference by 2."
+      ],
+      "explanation": "The top shelf has 28 - 18 = 10 more books. Each book that moves makes the gap 2 smaller. So 10 / 2 = 5 books must move.",
+      "solution": [
+        {
+          "say": "The top shelf has 28 - 18 = 10 more books."
+        },
+        {
+          "say": "Each book that moves makes the gap 2 smaller."
+        },
+        {
+          "say": "So 10 / 2 = 5 books must move."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.016",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Rod A is 7 cm longer than rod B. Rod B is 4 cm longer than rod C. Rods A and C together are 25 cm long. How long is rod B, in cm?",
+      "answer": 11,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Compare A and C. How much longer is A than C?",
+        "A is 7 + 4 = 11 cm longer than C.",
+        "Take away the extra 11 cm from 25 cm."
+      ],
+      "explanation": "A is 11 cm longer than C. Take away the extra: 25 - 11 = 14. Share equally: C is 7 cm. Then B is 7 + 4 = 11 cm, and A is 18 cm.",
+      "solution": [
+        {
+          "say": "A is 11 cm longer than C."
+        },
+        {
+          "say": "Take away the extra: 25 - 11 = 14."
+        },
+        {
+          "say": "Share equally: C is 7 cm."
+        },
+        {
+          "say": "Then B is 7 + 4 = 11 cm, and A is 18 cm."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.017",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A tank is half full. It has 18 litres of water in it. How many more litres fill the tank?",
+      "answer": 18,
+      "tolerance": 0,
+      "unit": "litres",
+      "hints": [
+        "Half of the tank is full.",
+        "The other half is empty.",
+        "How much water is in the full half?"
+      ],
+      "explanation": "The tank is half full with 18 litres. The empty half also holds 18 litres. So 18 more litres fill the tank.",
+      "solution": [
+        {
+          "say": "The tank is half full with 18 litres."
+        },
+        {
+          "say": "The empty half also holds 18 litres."
+        },
+        {
+          "say": "So 18 more litres fill the tank."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.018",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "There are 14 children in the park. 5 more children come. Then 8 go home. How many children are in the park now?",
+      "options": [
+        {
+          "text": "9"
+        },
+        {
+          "text": "11"
+        },
+        {
+          "text": "13"
+        },
+        {
+          "text": "15"
+        },
+        {
+          "text": "27"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do it in the order of the story.",
+        "14 and 5 more.",
+        "Then take away the 8 who go home."
+      ],
+      "explanation": "14 + 5 = 19 children. Then 19 - 8 = 11 children are in the park.",
+      "solution": [
+        {
+          "say": "14 + 5 = 19 children."
+        },
+        {
+          "say": "Then 19 - 8 = 11 children are in the park."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.019",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A box holds 6 eggs. Mum buys 5 boxes and uses 13 eggs. How many eggs are left?",
+      "options": [
+        {
+          "text": "11"
+        },
+        {
+          "text": "17"
+        },
+        {
+          "text": "19"
+        },
+        {
+          "text": "23"
+        },
+        {
+          "text": "30"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find how many eggs there are in 5 boxes.",
+        "5 boxes of 6 eggs.",
+        "Take away the eggs she uses."
+      ],
+      "explanation": "5 boxes hold 5 x 6 = 30 eggs. Mum uses 13, so 30 - 13 = 17 eggs are left.",
+      "solution": [
+        {
+          "say": "5 boxes hold 5 x 6 = 30 eggs."
+        },
+        {
+          "say": "Mum uses 13, so 30 - 13 = 17 eggs are left."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.020",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Ben has 36 sweets. He keeps 8. He gives the same number to each of 4 friends. How many sweets does each friend get?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Find how many sweets Ben gives away.",
+        "36 - 8 = 28.",
+        "Share the 28 between the 4 friends."
+      ],
+      "explanation": "Ben gives away 36 - 8 = 28 sweets. Each friend gets 28 / 4 = 7 sweets.",
+      "solution": [
+        {
+          "say": "Ben gives away 36 - 8 = 28 sweets."
+        },
+        {
+          "say": "Each friend gets 28 / 4 = 7 sweets."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.021",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "I think of a number. I add 7 and get 15. What is my number?",
+      "answer": 8,
+      "tolerance": 0,
+      "hints": [
+        "Undo the adding.",
+        "The opposite of adding 7 is taking away 7.",
+        "Take 7 away from 15."
+      ],
+      "explanation": "The opposite of adding 7 is taking away 7. 15 - 7 = 8. Check: 8 + 7 = 15.",
+      "solution": [
+        {
+          "say": "The opposite of adding 7 is taking away 7."
+        },
+        {
+          "say": "15 - 7 = 8."
+        },
+        {
+          "say": "Check: 8 + 7 = 15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.022",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "I think of a number. I double it and take away 3. The answer is 11. What is my number?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards. Undo the last step first.",
+        "The last step was take away 3. Undo it: add 3.",
+        "Then undo the doubling."
+      ],
+      "explanation": "Undo take away 3 by adding 3: 11 + 3 = 14. Undo doubling by halving: 14 / 2 = 7. Check: 7 x 2 = 14 and 14 - 3 = 11.",
+      "solution": [
+        {
+          "say": "Undo take away 3 by adding 3: 11 + 3 = 14."
+        },
+        {
+          "say": "Undo doubling by halving: 14 / 2 = 7."
+        },
+        {
+          "say": "Check: 7 x 2 = 14 and 14 - 3 = 11."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.023",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "I think of a number. I take away 6 and then double the answer. I get 20. What is my number?",
+      "answer": 16,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards. Undo the last step first.",
+        "The last step was doubling. Undo it by halving.",
+        "Then undo the take away 6."
+      ],
+      "explanation": "Undo doubling by halving: 20 / 2 = 10. Undo take away 6 by adding 6: 10 + 6 = 16. Check: 16 - 6 = 10 and 10 x 2 = 20.",
+      "solution": [
+        {
+          "say": "Undo doubling by halving: 20 / 2 = 10."
+        },
+        {
+          "say": "Undo take away 6 by adding 6: 10 + 6 = 16."
+        },
+        {
+          "say": "Check: 16 - 6 = 10 and 10 x 2 = 20."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.024",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Dewi had some stickers. She gave 5 to Ana. Bo gave her 3 more. Now she has 12 stickers. How many stickers did she have at the start?",
+      "options": [
+        {
+          "text": "10"
+        },
+        {
+          "text": "12"
+        },
+        {
+          "text": "14"
+        },
+        {
+          "text": "16"
+        },
+        {
+          "text": "20"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Work backwards from 12.",
+        "The last thing that happened was Bo gave her 3. Undo it.",
+        "Then undo the 5 she gave to Ana."
+      ],
+      "explanation": "Before Bo gave her 3 she had 12 - 3 = 9. Before she gave 5 to Ana she had 9 + 5 = 14 stickers.",
+      "solution": [
+        {
+          "say": "Before Bo gave her 3 she had 12 - 3 = 9."
+        },
+        {
+          "say": "Before she gave 5 to Ana she had 9 + 5 = 14 stickers."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.025",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mia spent half of her money on a book. Then she spent Rp1.000 on a pen. She has Rp2.000 left. How many rupiah did Mia have at the start?",
+      "answer": 6000,
+      "tolerance": 0,
+      "unit": "rupiah",
+      "hints": [
+        "Work backwards from what is left.",
+        "Before the pen she had Rp2.000 + Rp1.000.",
+        "That was what was left after the book. Undo the half."
+      ],
+      "explanation": "Before buying the pen she had Rp2.000 + Rp1.000 = Rp3.000. That was half of her money. So she started with Rp3.000 x 2 = Rp6.000.",
+      "solution": [
+        {
+          "say": "Before buying the pen she had Rp2.000 + Rp1.000 = Rp3.000."
+        },
+        {
+          "say": "That was half of her money."
+        },
+        {
+          "say": "So she started with Rp3.000 x 2 = Rp6.000."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.026",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Sam ate half of the cookies. Then he ate 2 more. Now 3 cookies are left. How many cookies were there at the start?",
+      "answer": 10,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 3.",
+        "Before he ate 2 more there were 3 + 2.",
+        "That was half of the cookies."
+      ],
+      "explanation": "Before he ate 2 more there were 3 + 2 = 5 cookies. That was half of the cookies, so there were 5 x 2 = 10 at the start.",
+      "solution": [
+        {
+          "say": "Before he ate 2 more there were 3 + 2 = 5 cookies."
+        },
+        {
+          "say": "That was half of the cookies, so there were 5 x 2 = 10 at the start."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.027",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "At a bus stop, 5 people get off. Then 8 people get on. Now there are 20 people on the bus. How many people were on the bus before the stop?",
+      "answer": 17,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 20.",
+        "Undo the 8 who got on. Then undo the 5 who got off.",
+        "20 - 8 = 12. Then add the 5 back."
+      ],
+      "explanation": "Before the 8 got on, there were 20 - 8 = 12. Before the 5 got off, there were 12 + 5 = 17 people.",
+      "solution": [
+        {
+          "say": "Before the 8 got on, there were 20 - 8 = 12."
+        },
+        {
+          "say": "Before the 5 got off, there were 12 + 5 = 17 people."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.028",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A machine multiplies a number by 3 and then takes away 4. The answer is 17. What number went in?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 17.",
+        "Undo the take away 4 by adding 4.",
+        "Then undo the times 3."
+      ],
+      "explanation": "Undo take away 4: 17 + 4 = 21. Undo times 3: 21 / 3 = 7. Check: 7 x 3 = 21 and 21 - 4 = 17.",
+      "solution": [
+        {
+          "say": "Undo take away 4: 17 + 4 = 21."
+        },
+        {
+          "say": "Undo times 3: 21 / 3 = 7."
+        },
+        {
+          "say": "Check: 7 x 3 = 21 and 21 - 4 = 17."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.029",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A pond loses half of its water every day. After 3 days it has 5 litres. How many litres did it have at the start?",
+      "answer": 40,
+      "tolerance": 0,
+      "unit": "litres",
+      "hints": [
+        "Work backwards from 5.",
+        "Each day the water is halved. Undo it by doubling.",
+        "Double three times."
+      ],
+      "explanation": "Doubling back for each of the 3 days: 5 x 2 = 10, then 20, then 40. The pond started with 40 litres.",
+      "solution": [
+        {
+          "say": "Doubling back for each of the 3 days: 5 x 2 = 10, then 20, then 40."
+        },
+        {
+          "say": "The pond started with 40 litres."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.030",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In 5 years Raka will be 12. How old is Raka now?",
+      "answer": 7,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Work backwards. Go back 5 years.",
+        "Take 5 away from 12.",
+        "12 - 5."
+      ],
+      "explanation": "In 5 years he will be 12, so now he is 12 - 5 = 7 years old.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.031",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "I think of a number. I add 3, double it, then take away 4. The answer is 14. What is my number?",
+      "answer": 6,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 14.",
+        "Undo take away 4. Then undo the doubling.",
+        "Last, undo the add 3."
+      ],
+      "explanation": "Undo take away 4: 14 + 4 = 18. Undo doubling: 18 / 2 = 9. Undo add 3: 9 - 3 = 6. Check: 6 + 3 = 9, 9 x 2 = 18 and 18 - 4 = 14.",
+      "solution": [
+        {
+          "say": "Undo take away 4: 14 + 4 = 18."
+        },
+        {
+          "say": "Undo doubling: 18 / 2 = 9."
+        },
+        {
+          "say": "Undo add 3: 9 - 3 = 6."
+        },
+        {
+          "say": "Check: 6 + 3 = 9, 9 x 2 = 18 and 18 - 4 = 14."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.032",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A shop had 50 apples. It sold some in the morning and 12 in the afternoon. 9 apples are left. How many apples did it sell in the morning?",
+      "answer": 29,
+      "tolerance": 0,
+      "hints": [
+        "Find how many apples were sold in all.",
+        "50 - 9 = 41 apples were sold in all.",
+        "Take away the 12 sold in the afternoon."
+      ],
+      "explanation": "The shop sold 50 - 9 = 41 apples in all. It sold 12 in the afternoon, so 41 - 12 = 29 in the morning.",
+      "solution": [
+        {
+          "say": "The shop sold 50 - 9 = 41 apples in all."
+        },
+        {
+          "say": "It sold 12 in the afternoon, so 41 - 12 = 29 in the morning."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.033",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Each time Ana gives away half of her sweets and 1 more. She does this twice. Then she has 2 sweets left. How many sweets did she have at the start?",
+      "answer": 14,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 2.",
+        "Before the last gift she gave 1 more and half. Undo: 2 + 1, then double.",
+        "Do this once more for the first gift."
+      ],
+      "explanation": "Before the second gift she had (2 + 1) x 2 = 6. Before the first gift she had (6 + 1) x 2 = 14. Check: 14 gives 7 + 1 = 8 and keeps 6. Then 6 gives 3 + 1 = 4 and keeps 2.",
+      "solution": [
+        {
+          "say": "Before the second gift she had (2 + 1) x 2 = 6."
+        },
+        {
+          "say": "Before the first gift she had (6 + 1) x 2 = 14."
+        },
+        {
+          "say": "Check: 14 gives 7 + 1 = 8 and keeps 6."
+        },
+        {
+          "say": "Then 6 gives 3 + 1 = 4 and keeps 2."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.034",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "School ends at 12:15. There were two 45 minute lessons and a 30 minute break. School began at the start of the first lesson. When did school begin?",
+      "options": [
+        {
+          "text": "10:45",
+          "why": "The lessons and the break take 2 hours in all."
+        },
+        {
+          "text": "11:00",
+          "why": "School began earlier than this."
+        },
+        {
+          "text": "9:45",
+          "why": "Count only the 2 lessons and the break."
+        },
+        {
+          "text": "10:15"
+        },
+        {
+          "text": "10:00",
+          "why": "Count the 45 minute lessons carefully."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the time school took in all.",
+        "45 + 45 + 30 minutes.",
+        "Count back from 12:15."
+      ],
+      "explanation": "The lessons and the break take 45 + 45 + 30 = 120 minutes, which is 2 hours. 2 hours before 12:15 is 10:15.",
+      "solution": [
+        {
+          "say": "The lessons and the break take 45 + 45 + 30 = 120 minutes, which is 2 hours."
+        },
+        {
+          "say": "2 hours before 12:15 is 10:15."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.035",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "I think of a number. I add 9 and then take away 4. The answer is 30. What is my number?",
+      "answer": 25,
+      "tolerance": 0,
+      "hints": [
+        "Work backwards from 30.",
+        "Undo take away 4. Then undo add 9.",
+        "30 + 4, then take away 9."
+      ],
+      "explanation": "Undo take away 4: 30 + 4 = 34. Undo add 9: 34 - 9 = 25. Check: 25 + 9 = 34 and 34 - 4 = 30.",
+      "solution": [
+        {
+          "say": "Undo take away 4: 30 + 4 = 34."
+        },
+        {
+          "say": "Undo add 9: 34 - 9 = 25."
+        },
+        {
+          "say": "Check: 25 + 9 = 34 and 34 - 4 = 30."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.036",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Ali is 7 years old. His sister is 3 years older. How old will his sister be in 4 years?",
+      "answer": 14,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Find how old his sister is now.",
+        "She is 7 + 3 now.",
+        "Then add the 4 years."
+      ],
+      "explanation": "His sister is 7 + 3 = 10 years old now. In 4 years she will be 10 + 4 = 14.",
+      "solution": [
+        {
+          "say": "His sister is 7 + 3 = 10 years old now."
+        },
+        {
+          "say": "In 4 years she will be 10 + 4 = 14."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.037",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Mum is 4 times as old as Dina. Dina is 8 years old. How old will Mum be when Dina is 12?",
+      "answer": 36,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Find how old Mum is now.",
+        "Mum is 4 x 8.",
+        "Dina needs 4 more years to be 12."
+      ],
+      "explanation": "Mum is 4 x 8 = 32 now. Dina will be 12 in 4 years, so Mum will be 32 + 4 = 36.",
+      "solution": [
+        {
+          "say": "Mum is 4 x 8 = 32 now."
+        },
+        {
+          "say": "Dina will be 12 in 4 years, so Mum will be 32 + 4 = 36."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.038",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "In 6 years Rani will be 10. How old was Rani 3 years ago?",
+      "answer": 1,
+      "tolerance": 0,
+      "unit": "year",
+      "hints": [
+        "Find how old Rani is now.",
+        "In 6 years she will be 10, so now she is 10 - 6.",
+        "Then go back 3 years."
+      ],
+      "explanation": "Rani is 10 - 6 = 4 now. Three years ago she was 4 - 3 = 1 year old.",
+      "solution": [
+        {
+          "say": "Rani is 10 - 6 = 4 now."
+        },
+        {
+          "say": "Three years ago she was 4 - 3 = 1 year old."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.039",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A father is 30 years older than his son. Together they are 38 years old. How old is the father?",
+      "answer": 34,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Take away the 30 extra years.",
+        "38 - 30 = 8.",
+        "Share 8 equally to find the son's age."
+      ],
+      "explanation": "Take away the extra 30: 38 - 30 = 8. The son is 8 / 2 = 4. The father is 4 + 30 = 34.",
+      "solution": [
+        {
+          "say": "Take away the extra 30: 38 - 30 = 8."
+        },
+        {
+          "say": "The son is 8 / 2 = 4."
+        },
+        {
+          "say": "The father is 4 + 30 = 34."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.040",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Two sisters are 5 and 9 years old. In how many years will their ages add up to 24?",
+      "answer": 5,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "Add their ages now.",
+        "They add up to 14 now.",
+        "Each year both sisters get 1 year older. How much does the total go up?"
+      ],
+      "explanation": "Their ages add up to 14 now. Each year the total goes up by 2. They need 24 - 14 = 10 more, so it takes 10 / 2 = 5 years.",
+      "solution": [
+        {
+          "say": "Their ages add up to 14 now."
+        },
+        {
+          "say": "Each year the total goes up by 2."
+        },
+        {
+          "say": "They need 24 - 14 = 10 more, so it takes 10 / 2 = 5 years."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.041",
+      "skill": "m2.oly-word-problems",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Ben is 3 years older than Ani. Ani is 2 years older than Cat. Cat is 6. How old is Ben?",
+      "options": [
+        {
+          "text": "8"
+        },
+        {
+          "text": "9"
+        },
+        {
+          "text": "10"
+        },
+        {
+          "text": "11"
+        },
+        {
+          "text": "12"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find Ani's age first.",
+        "Ani is 2 years older than Cat.",
+        "Then add 3 for Ben."
+      ],
+      "explanation": "Ani is 6 + 2 = 8. Ben is 8 + 3 = 11 years old.",
+      "solution": [
+        {
+          "say": "Ani is 6 + 2 = 8."
+        },
+        {
+          "say": "Ben is 8 + 3 = 11 years old."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "sasmo",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.042",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Mia is 6 and her brother is 10. How old will her brother be when Mia is 10?",
+      "answer": 14,
+      "tolerance": 0,
+      "unit": "years",
+      "hints": [
+        "The age gap between them stays the same.",
+        "The gap is 10 - 6 = 4 years.",
+        "Add the gap to Mia's age."
+      ],
+      "explanation": "The gap between their ages is always 4 years. When Mia is 10, her brother is 10 + 4 = 14.",
+      "solution": [
+        {
+          "say": "The gap between their ages is always 4 years."
+        },
+        {
+          "say": "When Mia is 10, her brother is 10 + 4 = 14."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.043",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A 2-digit number has a tens digit twice its ones digit. The digits add up to 9. What is the number?",
+      "answer": 63,
+      "tolerance": 0,
+      "hints": [
+        "The ones digit is 1 block. The tens digit is 2 blocks.",
+        "The digits add up to 3 blocks.",
+        "3 blocks make 9."
+      ],
+      "explanation": "The tens digit is 2 blocks and the ones digit is 1 block. 3 blocks make 9, so 1 block is 3. The tens digit is 6, and the number is 63.",
+      "solution": [
+        {
+          "say": "The tens digit is 2 blocks and the ones digit is 1 block."
+        },
+        {
+          "say": "3 blocks make 9, so 1 block is 3."
+        },
+        {
+          "say": "The tens digit is 6, and the number is 63."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.044",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Three numbers in a row add up to 24. What is the smallest of the three numbers?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "The middle number is the average of the three.",
+        "24 / 3 = 8.",
+        "The smallest is 1 less than the middle number."
+      ],
+      "explanation": "The middle number is 24 / 3 = 8. The numbers are 7, 8 and 9. The smallest number is 7.",
+      "solution": [
+        {
+          "say": "The middle number is 24 / 3 = 8."
+        },
+        {
+          "say": "The numbers are 7, 8 and 9."
+        },
+        {
+          "say": "The smallest number is 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.045",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Four numbers in a row add up to 34. What is the smallest of the four numbers?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "The numbers go up by 1 each time.",
+        "Guess a starting number and add the four numbers.",
+        "If the total is too low, start with a bigger number."
+      ],
+      "explanation": "Try 7, 8, 9, 10. They add up to 7 + 8 + 9 + 10 = 34. So the smallest number is 7.",
+      "solution": [
+        {
+          "say": "Try 7, 8, 9, 10."
+        },
+        {
+          "say": "They add up to 7 + 8 + 9 + 10 = 34."
+        },
+        {
+          "say": "So the smallest number is 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.046",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Take two neighbours from 1, 3, 5, 7 and so on. They add up to 24. What is the bigger number?",
+      "answer": 13,
+      "tolerance": 0,
+      "hints": [
+        "Odd numbers go up by 2 each time.",
+        "Half of 24 is 12.",
+        "One number is just below 12 and one is just above."
+      ],
+      "explanation": "The numbers are on each side of 12 and differ by 2, so they are 11 and 13. 11 + 13 = 24. The bigger number is 13.",
+      "solution": [
+        {
+          "say": "The numbers are on each side of 12 and differ by 2, so they are 11 and 13."
+        },
+        {
+          "say": "11 + 13 = 24."
+        },
+        {
+          "say": "The bigger number is 13."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.047",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "I double a number and add 5. This gives the same answer as adding 12 to the number. What is my number?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Try a number and see which side is bigger.",
+        "Doubling and adding 5 is 5 more than the number, plus the number again.",
+        "The number itself must make up the gap of 7."
+      ],
+      "explanation": "Doubling and adding 5 means number + number + 5. Adding 12 means number + 12. Take away the number from both: number + 5 = 12. So the number is 7. Check: 7 x 2 + 5 = 19 and 7 + 12 = 19.",
+      "solution": [
+        {
+          "say": "Doubling and adding 5 means number + number + 5."
+        },
+        {
+          "say": "Adding 12 means number + 12."
+        },
+        {
+          "say": "Take away the number from both: number + 5 = 12."
+        },
+        {
+          "say": "So the number is 7."
+        },
+        {
+          "say": "Check: 7 x 2 + 5 = 19 and 7 + 12 = 19."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "hkimo"
+      ],
+      "points": 5,
+      "expectedSeconds": 150
+    },
+    {
+      "id": "m2.oly-word-problems.048",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "How many more than 17 is double 12?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Find double 12 first.",
+        "Double 12 is 24.",
+        "Take 17 away from it."
+      ],
+      "explanation": "Double 12 is 24. 24 - 17 = 7. So double 12 is 7 more than 17.",
+      "solution": [
+        {
+          "say": "Double 12 is 24."
+        },
+        {
+          "say": "24 - 17 = 7."
+        },
+        {
+          "say": "So double 12 is 7 more than 17."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    },
+    {
+      "id": "m2.oly-word-problems.049",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Half of a number is 14. What is a quarter of the number?",
+      "answer": 7,
+      "tolerance": 0,
+      "hints": [
+        "Find the number first.",
+        "Half of the number is 14, so the number is 28.",
+        "A quarter is half of a half."
+      ],
+      "explanation": "The number is 14 x 2 = 28. A quarter of 28 is 7. Also, a quarter is half of 14, which is 7.",
+      "solution": [
+        {
+          "say": "The number is 14 x 2 = 28."
+        },
+        {
+          "say": "A quarter of 28 is 7."
+        },
+        {
+          "say": "Also, a quarter is half of 14, which is 7."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "sasmo"
+      ],
+      "points": 3,
+      "expectedSeconds": 75
+    },
+    {
+      "id": "m2.oly-word-problems.050",
+      "skill": "m2.oly-word-problems",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Two numbers multiply to 12 and add up to 7. What is the bigger number?",
+      "answer": 4,
+      "tolerance": 0,
+      "hints": [
+        "List pairs of numbers that multiply to 12.",
+        "They are 1 and 12, 2 and 6, and 3 and 4.",
+        "Which pair adds up to 7?"
+      ],
+      "explanation": "The pairs that multiply to 12 are 1 and 12, 2 and 6, and 3 and 4. Only 3 + 4 = 7. The bigger number is 4.",
+      "solution": [
+        {
+          "say": "The pairs that multiply to 12 are 1 and 12, 2 and 6, and 3 and 4."
+        },
+        {
+          "say": "Only 3 + 4 = 7."
+        },
+        {
+          "say": "The bigger number is 4."
+        }
+      ],
+      "tags": [
+        "olympiad",
+        "kmnr",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 120
+    }
+  ]
+}

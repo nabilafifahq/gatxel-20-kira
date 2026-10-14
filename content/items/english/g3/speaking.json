@@ -2,142 +2,337 @@
   "skill": "e3.speaking",
   "items": [
     {
-      "id": "e3.speaking.001", "skill": "e3.speaking", "type": "mcq", "difficulty": 1,
+      "id": "e3.speaking.001",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "What should you do when you speak to a group?",
       "options": [
-        { "text": "Look at the floor the whole time.", "why": "Your listeners like to see your face." },
-        { "text": "Look at your listeners and speak clearly." },
-        { "text": "Speak as fast as you can.", "why": "Very fast talking is hard to follow." },
-        { "text": "Cover your mouth with your hand.", "why": "This makes your voice hard to hear." }
+        {
+          "text": "Look at the floor the whole time.",
+          "why": "Your listeners like to see your face."
+        },
+        {
+          "text": "Look at your listeners and speak clearly."
+        },
+        {
+          "text": "Speak as fast as you can.",
+          "why": "Very fast talking is hard to follow."
+        },
+        {
+          "text": "Cover your mouth with your hand.",
+          "why": "This makes your voice hard to hear."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about a good speaker you have watched.", "How can you help people hear and follow you?", "Imagine you are in the audience. What would help you?"],
+      "hints": [
+        "Think about a good speaker you have watched.",
+        "How can you help people hear and follow you?",
+        "Imagine you are in the audience. What would help you?"
+      ],
       "explanation": "Looking at your listeners and speaking clearly helps them hear you and feel that you are talking to them."
     },
     {
-      "id": "e3.speaking.002", "skill": "e3.speaking", "type": "mcq", "difficulty": 1,
+      "id": "e3.speaking.002",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "Your friend is giving a talk. What does a good listener do?",
       "options": [
-        { "text": "talks to the person next to them", "why": "This makes it hard for others to hear." },
-        { "text": "looks out of the window", "why": "You might miss what your friend says." },
-        { "text": "watches the speaker and stays quiet" },
-        { "text": "plays with a pencil", "why": "Fiddling shows you are not listening." }
+        {
+          "text": "talks to the person next to them",
+          "why": "This makes it hard for others to hear."
+        },
+        {
+          "text": "looks out of the window",
+          "why": "You might miss what your friend says."
+        },
+        {
+          "text": "watches the speaker and stays quiet"
+        },
+        {
+          "text": "plays with a pencil",
+          "why": "Fiddling shows you are not listening."
+        }
       ],
       "answer": 2,
-      "hints": ["Think about how you want people to act when you speak.", "Good listening uses your eyes and your ears.", "Which answer shows the speaker you care about their talk?"],
+      "hints": [
+        "Think about how you want people to act when you speak.",
+        "Good listening uses your eyes and your ears.",
+        "Which answer shows the speaker you care about their talk?"
+      ],
       "explanation": "Good listeners look at the speaker and stay quiet, so they can hear and think of questions."
     },
     {
-      "id": "e3.speaking.003", "skill": "e3.speaking", "type": "mcq", "difficulty": 2,
+      "id": "e3.speaking.003",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Which is a good question to ask after a talk about turtles?",
       "options": [
-        { "text": "How many eggs does a turtle lay?" },
-        { "text": "What did you have for breakfast?", "why": "This question is not about the talk." },
-        { "text": "Can I go now?", "why": "This does not show interest in the talk." },
-        { "text": "Why is your bag blue?", "why": "This question is not about turtles." }
+        {
+          "text": "How many eggs does a turtle lay?"
+        },
+        {
+          "text": "What did you have for breakfast?",
+          "why": "This question is not about the talk."
+        },
+        {
+          "text": "Can I go now?",
+          "why": "This does not show interest in the talk."
+        },
+        {
+          "text": "Why is your bag blue?",
+          "why": "This question is not about turtles."
+        }
       ],
       "answer": 0,
-      "hints": ["A good question is about the topic of the talk.", "Which question would help you learn more about turtles?", "Cross out the questions that are not about turtles."],
+      "hints": [
+        "A good question is about the topic of the talk.",
+        "Which question would help you learn more about turtles?",
+        "Cross out the questions that are not about turtles."
+      ],
       "explanation": "A good question is about the talk and helps you learn more, like asking how many eggs a turtle lays."
     },
     {
-      "id": "e3.speaking.004", "skill": "e3.speaking", "type": "mcq", "difficulty": 2,
+      "id": "e3.speaking.004",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "You are telling the class how to make a paper boat. Which words help your listeners follow the steps?",
       "options": [
-        { "text": "big, small, red, blue", "why": "These describe things. They do not show the order." },
-        { "text": "happy, sad, cross, tired", "why": "These are feelings, not order words." },
-        { "text": "and, and, and, and", "why": "Saying and again and again is hard to follow." },
-        { "text": "first, next, then, finally" }
+        {
+          "text": "big, small, red, blue",
+          "why": "These describe things. They do not show the order."
+        },
+        {
+          "text": "happy, sad, cross, tired",
+          "why": "These are feelings, not order words."
+        },
+        {
+          "text": "and, and, and, and",
+          "why": "Saying and again and again is hard to follow."
+        },
+        {
+          "text": "first, next, then, finally"
+        }
       ],
       "answer": 3,
-      "hints": ["Instructions must be done in order.", "Which words show what comes first and what comes after?", "Think of the words a recipe uses."],
+      "hints": [
+        "Instructions must be done in order.",
+        "Which words show what comes first and what comes after?",
+        "Think of the words a recipe uses."
+      ],
       "explanation": "First, next, then and finally are order words. They help listeners follow each step."
     },
     {
-      "id": "e3.speaking.005", "skill": "e3.speaking", "type": "mcq", "difficulty": 3,
+      "id": "e3.speaking.005",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "When you read a poem aloud, how can you make it more interesting to listen to?",
       "options": [
-        { "text": "Read every word in the same flat voice.", "why": "A flat voice can make a poem sound dull." },
-        { "text": "Change your voice to match the feelings in the poem." },
-        { "text": "Read as fast as you can.", "why": "Listeners need time to enjoy the words." },
-        { "text": "Whisper so that nobody can hear.", "why": "Your listeners need to hear the poem." }
+        {
+          "text": "Read every word in the same flat voice.",
+          "why": "A flat voice can make a poem sound dull."
+        },
+        {
+          "text": "Change your voice to match the feelings in the poem."
+        },
+        {
+          "text": "Read as fast as you can.",
+          "why": "Listeners need time to enjoy the words."
+        },
+        {
+          "text": "Whisper so that nobody can hear.",
+          "why": "Your listeners need to hear the poem."
+        }
       ],
       "answer": 1,
-      "hints": ["Think about how a storyteller makes a story exciting.", "Can your voice be loud, soft, fast or slow?", "How would you read a happy line? How would you read a sad one?"],
+      "hints": [
+        "Think about how a storyteller makes a story exciting.",
+        "Can your voice be loud, soft, fast or slow?",
+        "How would you read a happy line? How would you read a sad one?"
+      ],
       "explanation": "Changing your voice to match the feelings, and pausing at the right moments, makes a poem come alive for listeners."
     },
     {
-      "id": "e3.speaking.006", "skill": "e3.speaking", "type": "speak", "difficulty": 1,
+      "id": "e3.speaking.006",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 1,
       "prompt": "Tell us about your favourite food. Say what it is, what it tastes like and when you eat it.",
-      "rubric": { "criteria": [
-        { "label": "I spoke clearly and loudly enough", "points": 2 },
-        { "label": "I said what the food is, how it tastes and when I eat it", "points": 2 },
-        { "label": "I used describing words, like crunchy or sweet", "points": 2 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I spoke clearly and loudly enough",
+            "points": 2
+          },
+          {
+            "label": "I said what the food is, how it tastes and when I eat it",
+            "points": 2
+          },
+          {
+            "label": "I used describing words, like crunchy or sweet",
+            "points": 2
+          }
+        ]
+      },
       "maxSeconds": 60,
-      "hints": ["Think of your food before you start.", "Use describing words like crunchy, juicy or spicy."],
+      "hints": [
+        "Think of your food before you start.",
+        "Use describing words like crunchy, juicy or spicy."
+      ],
       "explanation": "A good short talk answers every part of the question and uses describing words so listeners can imagine the food."
     },
     {
-      "id": "e3.speaking.007", "skill": "e3.speaking", "type": "speak", "difficulty": 2,
+      "id": "e3.speaking.007",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 2,
       "prompt": "Read this verse aloud. Use your voice to show how the kite moves.",
       "readText": "Up, up it went above the town,\nAbove the roofs of red and brown.\nIt danced and dipped, it swooped and spun,\nA small red bird against the sun.",
-      "rubric": { "criteria": [
-        { "label": "I read every word correctly", "points": 2 },
-        { "label": "I read at a good speed, not too fast", "points": 1 },
-        { "label": "I used my voice to show the kite moving", "points": 2 },
-        { "label": "I paused at the end of each line", "points": 1 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I read every word correctly",
+            "points": 2
+          },
+          {
+            "label": "I read at a good speed, not too fast",
+            "points": 1
+          },
+          {
+            "label": "I used my voice to show the kite moving",
+            "points": 2
+          },
+          {
+            "label": "I paused at the end of each line",
+            "points": 1
+          }
+        ]
+      },
       "maxSeconds": 45,
-      "hints": ["Read it quietly to yourself first.", "Let your voice rise on up, up and dance on the action words."],
+      "hints": [
+        "Read it quietly to yourself first.",
+        "Let your voice rise on up, up and dance on the action words."
+      ],
       "explanation": "Reading with expression means changing your voice to match the words, like going higher for up, up."
     },
     {
-      "id": "e3.speaking.008", "skill": "e3.speaking", "type": "speak", "difficulty": 2,
+      "id": "e3.speaking.008",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 2,
       "prompt": "Explain how to do something you are good at, like tying your shoelaces. Use first, next, then and finally.",
-      "rubric": { "criteria": [
-        { "label": "I explained the steps in the right order", "points": 2 },
-        { "label": "I used order words like first, next and finally", "points": 2 },
-        { "label": "I spoke clearly so a listener could follow", "points": 2 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I explained the steps in the right order",
+            "points": 2
+          },
+          {
+            "label": "I used order words like first, next and finally",
+            "points": 2
+          },
+          {
+            "label": "I spoke clearly so a listener could follow",
+            "points": 2
+          }
+        ]
+      },
       "maxSeconds": 90,
-      "hints": ["Think through the steps before you start.", "Say one step at a time."],
+      "hints": [
+        "Think through the steps before you start.",
+        "Say one step at a time."
+      ],
       "explanation": "Good spoken instructions give one step at a time, in order, with order words to help the listener."
     },
     {
-      "id": "e3.speaking.009", "skill": "e3.speaking", "type": "speak", "difficulty": 3,
+      "id": "e3.speaking.009",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 3,
       "prompt": "Retell a story you know well in about one minute. Tell the beginning, the middle and the end.",
-      "rubric": { "criteria": [
-        { "label": "I told the beginning, the middle and the end", "points": 3 },
-        { "label": "I said who was in the story and what the problem was", "points": 2 },
-        { "label": "I used my voice to make it interesting", "points": 1 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I told the beginning, the middle and the end",
+            "points": 3
+          },
+          {
+            "label": "I said who was in the story and what the problem was",
+            "points": 2
+          },
+          {
+            "label": "I used my voice to make it interesting",
+            "points": 1
+          }
+        ]
+      },
       "maxSeconds": 75,
-      "hints": ["Choose a story you know really well.", "Say who is in it, what goes wrong and how it ends."],
+      "hints": [
+        "Choose a story you know really well.",
+        "Say who is in it, what goes wrong and how it ends."
+      ],
       "explanation": "A good retelling keeps the main events in order and leaves out small details."
     },
     {
-      "id": "e3.speaking.010", "skill": "e3.speaking", "type": "speak", "difficulty": 3,
+      "id": "e3.speaking.010",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 3,
       "prompt": "Give a short talk about an animal you like. Share some facts about it, then say why you like it.",
-      "rubric": { "criteria": [
-        { "label": "I gave some true facts about the animal", "points": 2 },
-        { "label": "I said why I like it, with a reason", "points": 2 },
-        { "label": "I spoke clearly and looked up from any notes", "points": 2 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I gave some true facts about the animal",
+            "points": 2
+          },
+          {
+            "label": "I said why I like it, with a reason",
+            "points": 2
+          },
+          {
+            "label": "I spoke clearly and looked up from any notes",
+            "points": 2
+          }
+        ]
+      },
       "maxSeconds": 90,
-      "hints": ["Plan your facts first, such as where it lives and what it eats.", "End with: I like this animal because..."],
+      "hints": [
+        "Plan your facts first, such as where it lives and what it eats.",
+        "End with: I like this animal because..."
+      ],
       "explanation": "A short talk is clear when it gives facts first and ends with your own opinion and a reason."
     },
     {
-      "id": "e3.speaking.011", "skill": "e3.speaking", "type": "speak", "difficulty": 4,
+      "id": "e3.speaking.011",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 4,
       "prompt": "A new pupil is joining your class. Describe your school and explain how to get from the gate to the library.",
-      "rubric": { "criteria": [
-        { "label": "I described the school clearly", "points": 2 },
-        { "label": "I gave the directions in order", "points": 2 },
-        { "label": "I used position words like next to, past and opposite", "points": 2 }
-      ] },
+      "rubric": {
+        "criteria": [
+          {
+            "label": "I described the school clearly",
+            "points": 2
+          },
+          {
+            "label": "I gave the directions in order",
+            "points": 2
+          },
+          {
+            "label": "I used position words like next to, past and opposite",
+            "points": 2
+          }
+        ]
+      },
       "maxSeconds": 90,
-      "hints": ["Picture yourself walking in through the gate.", "Use words like turn left, go past and next to."],
+      "hints": [
+        "Picture yourself walking in through the gate.",
+        "Use words like turn left, go past and next to."
+      ],
       "explanation": "Clear directions describe each part of the route in order, with position words that a new pupil can follow."
     },
     {
@@ -162,6 +357,194 @@
         },
         {
           "text": "A hat and a bag"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.speaking.013",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Talk for one minute about your favourite hobby. Say why you enjoy it.",
+      "hints": [
+        "Start with: My favourite hobby is.",
+        "Give two reasons.",
+        "End with a short thank you."
+      ],
+      "explanation": "Say the hobby, give reasons and speak clearly.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Says what the hobby is and why",
+            "points": 2
+          },
+          {
+            "label": "Speaks in full sentences",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly and at a good speed",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 60
+    },
+    {
+      "id": "e3.speaking.014",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 3,
+      "prompt": "Describe what happened in your last holiday or last weekend.",
+      "hints": [
+        "Think of three things you did.",
+        "Use first, then and after that.",
+        "Use words like went and played."
+      ],
+      "explanation": "A recount uses past tense and order words.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Tells what happened in order",
+            "points": 2
+          },
+          {
+            "label": "Uses past tense verbs",
+            "points": 2
+          },
+          {
+            "label": "Speaks clearly",
+            "points": 1
+          }
+        ]
+      },
+      "maxSeconds": 60
+    },
+    {
+      "id": "e3.speaking.015",
+      "skill": "e3.speaking",
+      "type": "speak",
+      "difficulty": 4,
+      "prompt": "Read this aloud. The moon rose slowly over the hill, and the owls began to call.",
+      "hints": [
+        "Read it silently first.",
+        "Pause at the comma.",
+        "Stop at the full stop."
+      ],
+      "explanation": "Read each word and pause at the punctuation.",
+      "rubric": {
+        "criteria": [
+          {
+            "label": "Reads all the words",
+            "points": 2
+          },
+          {
+            "label": "Pauses at the comma and the full stop",
+            "points": 2
+          },
+          {
+            "label": "Reads with a clear voice",
+            "points": 1
+          }
+        ]
+      },
+      "readText": "The moon rose slowly over the hill, and the owls began to call.",
+      "maxSeconds": 25
+    },
+    {
+      "id": "e3.speaking.016",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why do we look at the listeners when we talk?",
+      "hints": [
+        "Think about how it feels when someone looks at you.",
+        "It shows you are speaking to them.",
+        "It helps them listen."
+      ],
+      "explanation": "Looking at listeners helps them follow the talk.",
+      "options": [
+        {
+          "text": "It shows we care that they understand."
+        },
+        {
+          "text": "It makes us talk faster.",
+          "why": "Eye contact does not change speed."
+        },
+        {
+          "text": "It means we can stop reading.",
+          "why": "It does not mean that."
+        },
+        {
+          "text": "It makes the talk longer.",
+          "why": "It does not do that."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "e3.speaking.017",
+      "skill": "e3.speaking",
+      "type": "listen",
+      "difficulty": 3,
+      "prompt": "Listen. What is the speaker's hobby?",
+      "hints": [
+        "Listen for where the speaker goes.",
+        "It is a pool.",
+        "The hobby is about water."
+      ],
+      "explanation": "The speaker loves swimming.",
+      "tags": [
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "reading",
+          "why": "The speaker did not say reading."
+        },
+        {
+          "text": "cooking",
+          "why": "The speaker did not say cooking."
+        },
+        {
+          "text": "swimming"
+        },
+        {
+          "text": "drawing",
+          "why": "The speaker did not say drawing."
+        }
+      ],
+      "answer": 2,
+      "listenText": "On Saturdays, I go to the pool. I have been swimming since I was five. I love the feeling of the cool water."
+    },
+    {
+      "id": "e3.speaking.018",
+      "skill": "e3.speaking",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "You are giving a talk. Which opening is best?",
+      "hints": [
+        "A good opening says what the talk is about.",
+        "It uses a full sentence.",
+        "It speaks to the listeners."
+      ],
+      "explanation": "A good opening tells the listeners the topic.",
+      "options": [
+        {
+          "text": "Today I will tell you about my pet turtle."
+        },
+        {
+          "text": "Um, so, I do not know.",
+          "why": "This does not sound ready."
+        },
+        {
+          "text": "Turtle.",
+          "why": "This is only one word."
+        },
+        {
+          "text": "Okay, I am done.",
+          "why": "This is the end of a talk."
         }
       ],
       "answer": 0

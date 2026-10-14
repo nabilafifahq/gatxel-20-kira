@@ -576,6 +576,398 @@
           "answer": 2
         }
       ]
+    },
+    {
+      "id": "e2.pronouns.020",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word can take the place of Sam? ___ is six.",
+      "hints": [
+        "Sam is a boy.",
+        "We use a short word instead of the name.",
+        "It starts with H."
+      ],
+      "explanation": "He takes the place of Sam.",
+      "options": [
+        {
+          "text": "She",
+          "why": "Sam is a boy, so we use he."
+        },
+        {
+          "text": "It",
+          "why": "It is for things and animals."
+        },
+        {
+          "text": "He"
+        },
+        {
+          "text": "They",
+          "why": "They is for more than one."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.pronouns.021",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word can take the place of the girls?",
+      "hints": [
+        "There is more than one girl.",
+        "We need a word for many.",
+        "It starts with Th."
+      ],
+      "explanation": "They takes the place of the girls.",
+      "options": [
+        {
+          "text": "He",
+          "why": "He is for one boy."
+        },
+        {
+          "text": "They"
+        },
+        {
+          "text": "She",
+          "why": "She is for one girl."
+        },
+        {
+          "text": "It",
+          "why": "It is for one thing."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.022",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mum has a bag. ___ is red.",
+      "hints": [
+        "A bag is a thing.",
+        "There is one bag.",
+        "Use the short word for one thing."
+      ],
+      "explanation": "It takes the place of the bag.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "He",
+          "why": "A bag is not a person."
+        },
+        {
+          "text": "She",
+          "why": "A bag is not a person."
+        },
+        {
+          "text": "They",
+          "why": "There is only one bag."
+        },
+        {
+          "text": "It"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.pronouns.023",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Tom and I are friends. ___ play together.",
+      "hints": [
+        "Tom and I means the speaker is included.",
+        "There are two people.",
+        "The word starts with W."
+      ],
+      "explanation": "We means Tom and I.",
+      "options": [
+        {
+          "text": "They",
+          "why": "They does not include the speaker."
+        },
+        {
+          "text": "We"
+        },
+        {
+          "text": "You",
+          "why": "You is for the person you talk to."
+        },
+        {
+          "text": "He",
+          "why": "He is for one boy."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e2.pronouns.024",
+      "skill": "e2.pronouns",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Dina lost ___ book.",
+      "hints": [
+        "Dina is a girl.",
+        "The book belongs to her.",
+        "Choose the word for a girl."
+      ],
+      "explanation": "Her shows the book belongs to Dina.",
+      "gaps": [
+        {
+          "options": [
+            "her",
+            "his",
+            "its"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.025",
+      "skill": "e2.pronouns",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the pronoun. The dogs run. ___ are fast.",
+      "hints": [
+        "There is more than one dog.",
+        "Use a short word for many.",
+        "It starts with Th."
+      ],
+      "explanation": "They takes the place of the dogs.",
+      "blanks": [
+        {
+          "answers": [
+            "They"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.026",
+      "skill": "e2.pronouns",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the pronouns.",
+      "hints": [
+        "Think about how many each word means.",
+        "He is one boy.",
+        "They is many."
+      ],
+      "explanation": "He, she and it are one. They, we and them are more than one.",
+      "groups": [
+        "One person or thing",
+        "More than one"
+      ],
+      "items": [
+        {
+          "text": "he",
+          "group": 0
+        },
+        {
+          "text": "they",
+          "group": 1
+        },
+        {
+          "text": "she",
+          "group": 0
+        },
+        {
+          "text": "we",
+          "group": 1
+        },
+        {
+          "text": "it",
+          "group": 0
+        },
+        {
+          "text": "them",
+          "group": 1
+        }
+      ]
+    },
+    {
+      "id": "e2.pronouns.027",
+      "skill": "e2.pronouns",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each name to its pronoun.",
+      "hints": [
+        "Think about who or what.",
+        "A boy is he.",
+        "Two people are they."
+      ],
+      "explanation": "Each pronoun takes the place of the noun.",
+      "pairs": [
+        [
+          "Ravi",
+          "he"
+        ],
+        [
+          "Mina",
+          "she"
+        ],
+        [
+          "the cat",
+          "it"
+        ],
+        [
+          "Ravi and Mina",
+          "they"
+        ]
+      ]
+    },
+    {
+      "id": "e2.pronouns.028",
+      "skill": "e2.pronouns",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a sentence.",
+      "hints": [
+        "The sentence starts with a capital.",
+        "It ends with a full stop.",
+        "Me is near the end."
+      ],
+      "explanation": "She gave it to me.",
+      "answer": "She gave it to me.",
+      "distractors": [
+        "him"
+      ]
+    },
+    {
+      "id": "e2.pronouns.029",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is right?",
+      "hints": [
+        "Try the sentence with I alone.",
+        "I went to the shop is right.",
+        "Put Sita next to I."
+      ],
+      "explanation": "Sita and I went to the shop.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "options": [
+        {
+          "text": "Me and Sita went to the shop.",
+          "why": "Use I when you do the action."
+        },
+        {
+          "text": "Sita and me went to the shop.",
+          "why": "Use I when you do the action."
+        },
+        {
+          "text": "Us went to the shop.",
+          "why": "Us cannot start the sentence."
+        },
+        {
+          "text": "Sita and I went to the shop."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e2.pronouns.030",
+      "skill": "e2.pronouns",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the pronouns.",
+      "hints": [
+        "Pronouns take the place of names.",
+        "Two choices are pronouns.",
+        "They are short words."
+      ],
+      "explanation": "She and they are pronouns.",
+      "options": [
+        {
+          "text": "run",
+          "why": "Run is a doing word."
+        },
+        {
+          "text": "they"
+        },
+        {
+          "text": "Sita",
+          "why": "Sita is a name."
+        },
+        {
+          "text": "she"
+        },
+        {
+          "text": "happy",
+          "why": "Happy is a describing word."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "e2.pronouns.031",
+      "skill": "e2.pronouns",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which word fits? The cat licked ___ paws.",
+      "hints": [
+        "The paws belong to the cat.",
+        "It is one animal.",
+        "It has no apostrophe."
+      ],
+      "explanation": "Its shows the paws belong to the cat.",
+      "options": [
+        {
+          "text": "it's",
+          "why": "It's means it is."
+        },
+        {
+          "text": "their",
+          "why": "Their is for more than one."
+        },
+        {
+          "text": "its"
+        },
+        {
+          "text": "her",
+          "why": "Her is for a girl."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e2.pronouns.032",
+      "skill": "e2.pronouns",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Mum is in the kitchen. She ___ cooking rice.",
+      "hints": [
+        "She is one person.",
+        "Use the word that goes with she.",
+        "It has two letters."
+      ],
+      "explanation": "She is cooking rice.",
+      "tags": [
+        "esmo",
+        "iklc"
+      ],
+      "gaps": [
+        {
+          "options": [
+            "is",
+            "are",
+            "am"
+          ],
+          "answer": 0
+        }
+      ]
     }
   ]
 }

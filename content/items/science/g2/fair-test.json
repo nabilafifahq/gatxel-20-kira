@@ -329,6 +329,652 @@
           }
         ]
       }
+    },
+    {
+      "id": "s2.fair-test.021",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is a fair test?",
+      "options": [
+        {
+          "text": "A test where only one thing is changed."
+        },
+        {
+          "text": "A test where everything is changed.",
+          "why": "Then we cannot tell what made the difference."
+        },
+        {
+          "text": "A test with no measuring.",
+          "why": "We should measure."
+        },
+        {
+          "text": "A test that everyone wins.",
+          "why": "A fair test is about keeping things the same."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about changing one thing.",
+        "Everything else must stay the same.",
+        "It is fair to all."
+      ],
+      "explanation": "In a fair test we change one thing and keep everything else the same."
+    },
+    {
+      "id": "s2.fair-test.022",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool measures how heavy something is?",
+      "options": [
+        {
+          "text": "scales"
+        },
+        {
+          "text": "a ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "a clock",
+          "why": "A clock tells the time."
+        },
+        {
+          "text": "a thermometer",
+          "why": "A thermometer measures heat."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "It is not for length.",
+        "You put things on it.",
+        "It tells you grams or kilograms."
+      ],
+      "explanation": "We use scales to measure how heavy something is."
+    },
+    {
+      "id": "s2.fair-test.023",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tool measures how much water is in a jug?",
+      "options": [
+        {
+          "text": "a ruler",
+          "why": "A ruler measures length."
+        },
+        {
+          "text": "a clock",
+          "why": "A clock tells the time."
+        },
+        {
+          "text": "scales",
+          "why": "Scales measure weight."
+        },
+        {
+          "text": "a measuring jug"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "It has lines on the side.",
+        "It holds liquid.",
+        "It is for water."
+      ],
+      "explanation": "A measuring jug has lines that show how many millilitres of liquid it holds."
+    },
+    {
+      "id": "s2.fair-test.024",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dewi tests which paper holds the most coins. What should she change?",
+      "options": [
+        {
+          "text": "the size of the coins",
+          "why": "The coins must be the same."
+        },
+        {
+          "text": "the size of the paper",
+          "why": "The paper size must be the same."
+        },
+        {
+          "text": "the type of paper"
+        },
+        {
+          "text": "the table she uses",
+          "why": "The table must be the same."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What is she testing?",
+        "Change only that.",
+        "Keep the coins the same."
+      ],
+      "explanation": "She is testing paper, so she changes the type of paper. Everything else stays the same."
+    },
+    {
+      "id": "s2.fair-test.025",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Raj tests which ball bounces highest. What must stay the same?",
+      "options": [
+        {
+          "text": "the type of ball",
+          "why": "This is what he changes."
+        },
+        {
+          "text": "the height he drops the balls from"
+        },
+        {
+          "text": "which ball he uses",
+          "why": "This is what he changes."
+        },
+        {
+          "text": "the colour of his shirt",
+          "why": "This does not matter."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What does Raj change?",
+        "Keep everything else the same.",
+        "The height matters."
+      ],
+      "explanation": "The drop height must stay the same for a fair test. He only changes the ball."
+    },
+    {
+      "id": "s2.fair-test.026",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What is the best way to record results?",
+      "options": [
+        {
+          "text": "in your head",
+          "why": "You may forget."
+        },
+        {
+          "text": "in a table"
+        },
+        {
+          "text": "by shouting them",
+          "why": "A table is easier to read."
+        },
+        {
+          "text": "by drawing a picture only",
+          "why": "A table shows numbers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You need to look back later.",
+        "Rows and columns help.",
+        "Write it down."
+      ],
+      "explanation": "A table keeps the numbers neat, so we can compare them easily."
+    },
+    {
+      "id": "s2.fair-test.027",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Kai gives plant food to plant A but not to plant B. Plant A grows taller. What can Kai say?",
+      "options": [
+        {
+          "text": "Plant A grew taller with plant food."
+        },
+        {
+          "text": "Plant food always makes plants taller.",
+          "why": "One test cannot prove always."
+        },
+        {
+          "text": "Plant B did not need water.",
+          "why": "Both plants needed water."
+        },
+        {
+          "text": "Plants grow better in the dark.",
+          "why": "The test was not about light."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say only what you saw.",
+        "Do not say always.",
+        "Compare A and B."
+      ],
+      "explanation": "Kai can only say what he found: plant A grew taller with plant food."
+    },
+    {
+      "id": "s2.fair-test.028",
+      "skill": "s2.fair-test",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Paper towel test: what changes and what stays the same?",
+      "groups": [
+        "Change",
+        "Keep the same"
+      ],
+      "items": [
+        {
+          "text": "type of towel",
+          "group": 0
+        },
+        {
+          "text": "amount of water",
+          "group": 1
+        },
+        {
+          "text": "size of towel",
+          "group": 1
+        },
+        {
+          "text": "time we wait",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "What are we testing?",
+        "Only one thing changes.",
+        "The rest must be fair."
+      ],
+      "explanation": "We change only the type of towel. The amount of water, the size and the waiting time stay the same."
+    },
+    {
+      "id": "s2.fair-test.029",
+      "skill": "s2.fair-test",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Which stay the same when we test surfaces for a rolling car?",
+      "options": [
+        {
+          "text": "the same car"
+        },
+        {
+          "text": "a different ramp each time"
+        },
+        {
+          "text": "a different car each time"
+        },
+        {
+          "text": "the same starting point"
+        },
+        {
+          "text": "the same ramp height"
+        }
+      ],
+      "answers": [
+        0,
+        3,
+        4
+      ],
+      "hints": [
+        "Only the surface changes.",
+        "Use the same car.",
+        "The ramp is the same."
+      ],
+      "explanation": "To test the surface fairly, keep the car, ramp height and starting point the same."
+    },
+    {
+      "id": "s2.fair-test.030",
+      "skill": "s2.fair-test",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps of a fair test in order.",
+      "items": [
+        "choose what to change",
+        "keep other things the same",
+        "carry out the test",
+        "measure and record",
+        "look at the results"
+      ],
+      "hints": [
+        "Plan before you test.",
+        "Record while you test.",
+        "Look at the results last."
+      ],
+      "explanation": "Choose what to change and keep other things the same. Then do the test, measure and record, and look at the results."
+    },
+    {
+      "id": "s2.fair-test.031",
+      "skill": "s2.fair-test",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to what it means.",
+      "pairs": [
+        [
+          "predict",
+          "say what you think will happen"
+        ],
+        [
+          "measure",
+          "find how much or how long"
+        ],
+        [
+          "record",
+          "write down what you found"
+        ],
+        [
+          "compare",
+          "say how things are the same or different"
+        ]
+      ],
+      "hints": [
+        "Predict comes before the test.",
+        "Record is to write.",
+        "Compare looks at two things."
+      ],
+      "explanation": "To predict is to say what will happen. To measure is to find how much. To record is to write down. To compare is to see what is the same or different."
+    },
+    {
+      "id": "s2.fair-test.032",
+      "skill": "s2.fair-test",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "In a fair test we change ___ thing. We keep the other things the ___.",
+      "gaps": [
+        {
+          "options": [
+            "one",
+            "three",
+            "every"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "same",
+            "different",
+            "biggest"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "How many things do we change?",
+        "The rest should not change.",
+        "Read slowly."
+      ],
+      "explanation": "In a fair test we change one thing and keep the other things the same."
+    },
+    {
+      "id": "s2.fair-test.033",
+      "skill": "s2.fair-test",
+      "type": "table",
+      "difficulty": 1,
+      "prompt": "Copy the results. Rubber 40 cm, tennis 35 cm, wooden 10 cm.",
+      "head": [
+        "Ball",
+        "Bounce (cm)"
+      ],
+      "rows": [
+        [
+          "rubber",
+          "40"
+        ],
+        [
+          "tennis",
+          ""
+        ],
+        [
+          "wooden",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "35"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "10"
+          ]
+        }
+      ],
+      "hints": [
+        "Read the numbers in the question.",
+        "Rubber is first.",
+        "Copy each number."
+      ],
+      "explanation": "The rubber ball bounced 40 cm and the tennis ball 35 cm. The wooden ball bounced 10 cm."
+    },
+    {
+      "id": "s2.fair-test.034",
+      "skill": "s2.fair-test",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Sam tests three paper towels. He pours 50 ml of water on each one. Towel A soaks up 40 ml. Towel B soaks up 25 ml. Towel C soaks up 45 ml.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which towel soaks up the most?",
+          "options": [
+            {
+              "text": "Towel C"
+            },
+            {
+              "text": "Towel A"
+            },
+            {
+              "text": "Towel B"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many ml does towel B leave on the table?",
+          "answer": 25,
+          "tolerance": 0,
+          "allowNegative": false,
+          "allowDecimal": false
+        }
+      ],
+      "hints": [
+        "Find the biggest number.",
+        "Take 25 from 50.",
+        "Towel B soaked up 25."
+      ],
+      "explanation": "Towel C soaks up the most. Towel B soaks up 25 ml, so 50 - 25 = 25 ml is left."
+    },
+    {
+      "id": "s2.fair-test.035",
+      "skill": "s2.fair-test",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "How far did marble B roll?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "A",
+          "B",
+          "C"
+        ],
+        "values": [
+          20,
+          35,
+          28
+        ],
+        "step": 5,
+        "yLabel": "cm",
+        "alt": "Bar chart of marbles rolling: A 20 cm, B 35 cm, C 28 cm."
+      },
+      "answer": 35,
+      "unit": "cm",
+      "hints": [
+        "Find the bar for B.",
+        "Read the number on the side.",
+        "Check the label."
+      ],
+      "explanation": "The bar for marble B reaches 35 cm."
+    },
+    {
+      "id": "s2.fair-test.036",
+      "skill": "s2.fair-test",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "How much further did marble B roll than marble A?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "A",
+          "B",
+          "C"
+        ],
+        "values": [
+          20,
+          35,
+          28
+        ],
+        "step": 5,
+        "yLabel": "cm",
+        "alt": "Bar chart of marbles rolling: A 20 cm, B 35 cm, C 28 cm."
+      },
+      "answer": 15,
+      "unit": "cm",
+      "hints": [
+        "Find A and B on the chart.",
+        "Take the smaller from the bigger.",
+        "35 minus 20."
+      ],
+      "explanation": "B rolled 35 cm and A rolled 20 cm. 35 - 20 = 15 cm."
+    },
+    {
+      "id": "s2.fair-test.037",
+      "skill": "s2.fair-test",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Before a test we make a ___ about what will happen.",
+      "blanks": [
+        {
+          "answers": [
+            "prediction",
+            "guess"
+          ]
+        }
+      ],
+      "hints": [
+        "We say it before testing.",
+        "It is a guess.",
+        "It starts with p."
+      ],
+      "explanation": "A prediction is what we think will happen."
+    },
+    {
+      "id": "s2.fair-test.038",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mia counts paperclips lifted by 3 magnets. A lifts 6. B lifts 9. C lifts 4. Which is strongest?",
+      "options": [
+        {
+          "text": "magnet A",
+          "why": "Magnet B picked up more."
+        },
+        {
+          "text": "magnet B"
+        },
+        {
+          "text": "magnet C",
+          "why": "Magnet C picked up fewest."
+        },
+        {
+          "text": "they are the same",
+          "why": "They picked up different numbers."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A stronger magnet picks up more.",
+        "Find the biggest number.",
+        "B picked up 9."
+      ],
+      "explanation": "Magnet B picked up the most paperclips, so it is the strongest.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.fair-test.039",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "One ice cube sits in the Sun and one in the shade. What must be the same?",
+      "options": [
+        {
+          "text": "the size of the ice cubes"
+        },
+        {
+          "text": "where they are put",
+          "why": "This is what he changes."
+        },
+        {
+          "text": "the Sun and the shade",
+          "why": "This is what he changes."
+        },
+        {
+          "text": "how many people watch",
+          "why": "This does not matter."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is Ali changing?",
+        "Everything else stays the same.",
+        "The cubes should be equal."
+      ],
+      "explanation": "Ali is testing the place, so the ice cubes must be the same size.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
+    },
+    {
+      "id": "s2.fair-test.040",
+      "skill": "s2.fair-test",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan uses a big rubber ball and a small tennis ball. She wants to know if bigger balls bounce higher. Why is this not fair?",
+      "options": [
+        {
+          "text": "She used two balls.",
+          "why": "Two balls are fine."
+        },
+        {
+          "text": "She dropped them on the floor.",
+          "why": "That is fine."
+        },
+        {
+          "text": "She measured the heights.",
+          "why": "Measuring is fine."
+        },
+        {
+          "text": "She changed the size and the material."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "How many things are different?",
+        "Size and what else?",
+        "Only one thing should change."
+      ],
+      "explanation": "She changed two things at once, so she cannot tell which one made the difference.",
+      "tags": [
+        "iksc",
+        "ksnr",
+        "reasoning"
+      ]
     }
   ]
 }

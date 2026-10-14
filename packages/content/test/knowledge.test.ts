@@ -439,3 +439,53 @@ describe('Quiz Arena: rencana ronde', () => {
     expect(readFileSync(`${FLAGS_DIR}id.svg`, 'utf8').startsWith('<svg')).toBe(true)
   })
 })
+
+describe('peta dunia untuk soal Point on the map', () => {
+  it('tujuh benua dan lima samudra dengan path SVG yang wajar', async () => {
+    const { WORLD_MAP } = await import('../src/knowledge/data/worldmap')
+    expect(WORLD_MAP.land.map((r) => r.id)).toEqual(['asia', 'europe', 'africa', 'namerica', 'samerica', 'oceania', 'antarctica'])
+    expect(WORLD_MAP.water.map((r) => r.id)).toEqual(['pacific', 'atlantic', 'indian', 'southern', 'arctic'])
+    expect(WORLD_MAP.viewBox).toBe('0 0 360 180')
+    for (const r of [...WORLD_MAP.land, ...WORLD_MAP.water]) {
+      expect(r.d, r.id).toMatch(/^M[-\d. LMZ]+Z$/)
+      expect(r.d.length, r.id).toBeGreaterThan(15)
+      for (const n of r.d.match(/-?\d+(\.\d+)?/g)!) expect(Math.abs(Number(n)) <= 540, `${r.id} ${n}`).toBe(true)
+    }
+    const total = [...WORLD_MAP.land, ...WORLD_MAP.water].reduce((a, r) => a + r.d.length, 0)
+    expect(total).toBeLessThan(80_000)
+  })
+
+  it('soal peta: id wilayah ada di kunci saja, jawaban string dinilai, jenis lain salah', async () => {
+    const { buildMapQuestion, MAP_REGIONS, isMapFactId } = await import('../src/knowledge/map')
+    const { isCorrectAnswer, questionFor } = await import('../src/knowledge/generate')
+    const { topicById, topicOfFact } = await import('../src/knowledge/topics')
+    expect(MAP_REGIONS).toHaveLength(12)
+    const q = buildMapQuestion('map:pacific')
+    expect(q.client).toEqual({ kind: 'map', factId: 'map:pacific', prompt: 'Tap the Pacific Ocean on the map.' })
+    expect(JSON.stringify(q.client)).not.toContain('correct')
+    expect(q.key).toMatchObject({ kind: 'map', correct: 'pacific', answerLabel: 'Pacific Ocean' })
+    expect(buildMapQuestion('map:asia').client.prompt).toBe('Tap Asia on the map.')
+    expect(isCorrectAnswer(q.key, 'pacific')).toBe(true)
+    for (const wrong of ['atlantic', 0, true, ['pacific'], null]) expect(isCorrectAnswer(q.key, wrong as never)).toBe(false)
+    expect(topicOfFact('map:asia')).toBe('continents')
+    expect(isMapFactId('map:nope')).toBe(false)
+    expect(questionFor(topicById('continents'), 'map:africa', 'seed', 3).key).toMatchObject({ correct: 'africa' })
+    expect(() => buildMapQuestion('map:nope')).toThrow()
+  })
+
+  it('rencana ronde peta: sepuluh wilayah berbeda, tetap untuk seed yang sama', async () => {
+    const { planMapRound, MAP_REGIONS } = await import('../src/knowledge/map')
+    const a = planMapRound('s1')
+    expect(a).toHaveLength(10)
+    expect(new Set(a).size).toBe(10)
+    expect(a).toEqual(planMapRound('s1'))
+    expect(planMapRound('s2')).not.toEqual(a)
+    const ids = new Set(MAP_REGIONS.map((r) => `map:${r.id}`))
+    expect(a.every((f) => ids.has(f))).toBe(true)
+  })
+
+  it('soal peta tidak masuk catatan kemajuan fakta', async () => {
+    const { recordKnow } = await import('../src/knowledge/session')
+    expect(recordKnow({}, 'map:asia', true, true)).toEqual({})
+  })
+})

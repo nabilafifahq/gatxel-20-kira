@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  dropTaperEntries,
   CORE_SESSIONS,
   EASY_BAND,
   MAX_EXTRA_PER_DAY,
@@ -307,5 +308,16 @@ describe('lencana sesi', () => {
     expect(ids({ testsPerfect: 1 })).toEqual(['perfect-test'])
     expect(ids({ testsPerfect: 1, testsEarlyPerfect: 1 })).toEqual(['perfect-test', 'early-finish'])
     expect(ids({ retriesImproved: 1 })).toEqual(['never-give-up'])
+  })
+})
+
+describe('dropTaperEntries', () => {
+  const mk = (subject: 'math' | 'english', session: 'latihan' | 'tes' | 'paper', slotId: string | null) =>
+    ({ key: `${subject}${session}${slotId}`, slotId, subject, session, required: true, paper: null, seq: 0 }) as const
+  it('membuang Tes dan Paper otomatis mapel taper, Latihan dan sesi tutor tetap', () => {
+    const entries = [mk('math', 'latihan', null), mk('math', 'tes', null), mk('math', 'paper', null), mk('math', 'tes', 's1'), mk('english', 'tes', null)]
+    const out = dropTaperEntries(entries, new Set(['math'] as const))
+    expect(out.map((e) => e.key)).toEqual([entries[0]!.key, entries[3]!.key, entries[4]!.key])
+    expect(dropTaperEntries(entries, new Set())).toHaveLength(5)
   })
 })
