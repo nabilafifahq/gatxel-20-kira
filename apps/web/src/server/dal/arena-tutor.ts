@@ -1,11 +1,11 @@
 import 'server-only'
 import { and, eq, isNotNull, sql } from 'drizzle-orm'
-import { QM_OPS, factLabelId, jakartaDate, summariseQm, trackLevels, type QmOp } from '@kira/core'
+import { QM_OPS, factLabelId, jakartaDate, mergeQmRecords, summariseQm, trackLevels, type QmOp } from '@kira/core'
 import { TOPICS, topicProgress } from '@kira/content/knowledge'
 import { tables } from '@kira/db'
 import type { ArenaTutorDTO } from '@/lib/dto-arena'
 import type { Tx } from '../db'
-import { loadQmState, loadQuizState, trackTotals } from './arena-state'
+import { loadQmState, loadQuizState, loadRolled, trackTotals } from './arena-state'
 import { qmStatRows } from './arena-hitung'
 
 const { arenaSession } = tables
@@ -36,7 +36,9 @@ export async function arenaTutorDTO(tx: Tx, learnerId: string, grade: number): P
   const levels = trackLevels(totals)
   const qmState = await loadQmState(tx, learnerId, grade)
   const quizState = await loadQuizState(tx, learnerId)
-  const stats = summariseQm(await qmStatRows(tx, learnerId), today)
+  const qmRolled = await loadRolled(tx, learnerId, 'hitung')
+  const quizRolled = await loadRolled(tx, learnerId, 'pengetahuan')
+  const stats = mergeQmRecords(summariseQm(await qmStatRows(tx, learnerId), today), qmRolled)
   const quizRounds = (
     await tx
       .select({ n: sql<number>`count(*)::int` })
@@ -63,7 +65,7 @@ export async function arenaTutorDTO(tx: Tx, learnerId: string, grade: number): P
       misiHari: qmState.missionDates.length,
     },
     pengetahuan: {
-      ronde: quizRounds ?? 0,
+      ronde: (quizRounds ?? 0) + quizRolled.rounds,
       topik: TOPICS.map((t) => {
         const p = topicProgress(t.id, quizState.know)
         return { judul: TOPIK_ID[t.id] ?? t.title, dikenal: p.known, total: p.total }

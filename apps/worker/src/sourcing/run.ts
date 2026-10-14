@@ -169,7 +169,7 @@ async function runOrg(deps: SourcingDeps, ai: AiProvider, loaded: NonNullable<So
         const prepared: Prepared[] = []
         const unmapped: RecordInput[] = []
         for (const cand of collected.candidates) {
-          const hash = promptHash(cand.prompt)
+          const hash = promptHash(cand.dedupeKey ? `${cand.prompt} ${cand.dedupeKey}` : cand.prompt)
           if (seen.has(hash)) {
             res.duplicates++
             continue

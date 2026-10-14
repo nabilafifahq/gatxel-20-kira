@@ -2,6 +2,7 @@ import { CAPITALS_TOPIC, CONTINENTS_TOPIC, FLAGS_TOPIC, PROVINCES_TOPIC } from '
 import { INSTRUMENTS_TOPIC, INVENTORS_TOPIC, LANDMARKS_TOPIC } from './data/culture'
 import { ANIMALS_TOPIC, BODY_TOPIC, DINOSAURS_TOPIC, SPACE_TOPIC } from './data/nature'
 import { WORDS_TOPIC } from './data/words'
+import { MAP_FACT_PREFIX, MAP_REGIONS } from './map'
 import { TOPIC_IDS, type KFact, type KTopic, type TopicId } from './types'
 
 /** Urutan tampil di layar. */
@@ -33,6 +34,7 @@ export function topicById(id: TopicId): KTopic {
 }
 
 const FACT_TOPIC = new Map<string, TopicId>()
+for (const r of MAP_REGIONS) FACT_TOPIC.set(`${MAP_FACT_PREFIX}${r.id}`, 'continents')
 for (const t of TOPICS) {
   for (const f of t.facts) FACT_TOPIC.set(f.id, t.id)
   for (const o of t.orders) FACT_TOPIC.set(`order:${o.id}`, t.id)

@@ -81,6 +81,12 @@ describe.skipIf(!ready)('kira_retention', () => {
       (${id.oldPage}, ${org}, null, 'page', ${path('halaman.png')}, 'image/png', 10, 'x', ${tutor}, now() - interval '100 days', null),
       (${id.expiredPdf}, ${org}, null, 'pdf', ${path('paket.pdf')}, 'application/pdf', 10, 'x', ${tutor}, now() - interval '1 day', now() - interval '1 minute'),
       (${id.oldTutorImage}, ${org}, null, 'image', ${path('tutor.png')}, 'image/png', 10, 'x', ${tutor}, now() - interval '100 days', null)`
+    // Ronde arena: yang lebih tua dari 90 hari diringkas ke arena_state.rolled lalu dihapus, yang baru tetap.
+    await owner`insert into arena_session (org_id, learner_id, arena, mode, seed, config, date, started_at, finished_at, total, answered, correct, duration_ms, ppm) values
+      (${org}, ${learner}, 'hitung', 'sprint60', 's1', '{}', current_date - 100, now() - interval '100 days', now() - interval '100 days', 20, 20, 20, 60000, 20),
+      (${org}, ${learner}, 'hitung', 'sprint60', 's2', '{}', current_date - 95, now() - interval '95 days', now() - interval '95 days', 20, 12, 10, 60000, 10),
+      (${org}, ${learner}, 'hitung', 'sprint60', 's3', '{}', current_date - 5, now() - interval '5 days', now() - interval '5 days', 20, 12, 12, 60000, 12)`
+    await owner`insert into arena_state (org_id, learner_id, arena, data) values (${org}, ${learner}, 'hitung', '{"x":1}')`
   })
 
   afterAll(async () => {
@@ -116,6 +122,14 @@ describe.skipIf(!ready)('kira_retention', () => {
     expect((await owner`select kind from job where org_id = ${org} order by kind`).map((r) => r.kind)).toEqual(['tes.done-baru', 'tes.queued-lama'])
     expect((await owner`select user_id from member_profile where org_id = ${org} order by name`).map((r) => r.user_id).sort()).toEqual([tutor, recentlyRemoved].sort())
     expect((await owner`select id from auth.user_account where org_id = ${org}`).map((r) => r.id).sort()).toEqual([tutor, recentlyRemoved, learner].sort())
+  })
+
+  it('ronde arena lebih dari 90 hari diringkas ke arena_state.rolled lalu dihapus', async () => {
+    const left = await owner`select seed from arena_session where learner_id = ${learner} order by seed`
+    expect(left.map((r) => r.seed)).toEqual(['s3'])
+    const [st] = await owner`select data, rolled from arena_state where learner_id = ${learner} and arena = 'hitung'`
+    expect(st!.data).toEqual({ x: 1 })
+    expect(st!.rolled).toEqual({ rounds: 2, bestSprintPpm: 20, perfectSprint: true, speedBest: 0, perfectQuiz: false })
   })
 
   it('panggilan kedua tidak menghapus apa pun lagi', async () => {

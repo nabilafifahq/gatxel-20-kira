@@ -12,7 +12,7 @@ const ORIGIN = 'https://kira.test'
 
 type Handler = (event: unknown) => void
 
-function boot(fetchImpl: (req: { url: string }) => Promise<Response>, cachedPages: Record<string, string> = {}) {
+function boot(fetchImpl: (req: string | { url: string }) => Promise<Response>, cachedPages: Record<string, string> = {}) {
   const handlers: Record<string, Handler> = {}
   const stores = new Map<string, Map<string, Response>>()
   const store = (name: string) => {
@@ -55,15 +55,21 @@ function boot(fetchImpl: (req: { url: string }) => Promise<Response>, cachedPage
     clients: { claim: () => Promise.resolve() },
   }
   vm.runInNewContext(SW, { self, caches, fetch: fetchImpl, URL, Response, Promise, console, setTimeout })
-  return async (path: string): Promise<Response | null> => {
+  const go = async (path: string, mode = 'navigate'): Promise<Response | null> => {
     let result: Promise<Response> | null = null
     handlers.fetch?.({
-      request: { method: 'GET', url: `${ORIGIN}${path}`, mode: 'navigate' },
+      request: { method: 'GET', url: `${ORIGIN}${path}`, mode },
       respondWith: (p: Promise<Response>) => void (result = p),
       waitUntil: () => undefined,
     })
     return result ? await result : null
   }
+  const message = async (data: unknown) => {
+    const pending: Promise<unknown>[] = []
+    handlers.message?.({ data, waitUntil: (p: Promise<unknown>) => void pending.push(p) })
+    await Promise.all(pending)
+  }
+  return Object.assign(go, { message, stores })
 }
 
 const reply = (status: number, body = 'SERVER') => () => Promise.resolve(new Response(body, { status }))
@@ -99,5 +105,80 @@ describe('server tidak terjangkau', () => {
       expect(res.status).toBe(status)
       expect(await res.text()).toBe('SERVER')
     }
+  })
+})
+
+/** Response bertipe basic seperti jawaban fetch same-origin sungguhan (new Response() bertipe default). */
+const basic = (body: string, status = 200) => {
+  const r = new Response(body, { status })
+  Object.defineProperty(r, 'type', { value: 'basic' })
+  return r
+}
+
+describe('gambar media organisasi (no-store di server)', () => {
+  const ID = '0a1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4d'
+  const PAGE = `<html><img src="/api/media/${ID}"><img src="/api/media/${ID}"></html>`
+  const onlineThenOffline = () => {
+    let online = true
+    const go = boot((req) => {
+      const path = new URL(typeof req === 'string' ? req : req.url).pathname
+      if (!online) return Promise.reject(new TypeError('Failed to fetch'))
+      if (path === `/api/media/${ID}`) return Promise.resolve(basic('PNG-BYTES'))
+      if (path === '/run/11111111-1111-4111-8111-111111111111') return Promise.resolve(basic(PAGE))
+      return Promise.resolve(basic('x'))
+    })
+    return { go, goOffline: () => void (online = false) }
+  }
+  const RUN = '/run/11111111-1111-4111-8111-111111111111'
+
+  it('gambar yang dirujuk halaman yang di-precache disimpan di simpanan media dan dipakai saat offline', async () => {
+    const { go, goOffline } = onlineThenOffline()
+    await go.message({ type: 'precache', urls: [RUN] })
+    expect([...go.stores.get('kira-v1-media')!.keys()]).toEqual([`${ORIGIN}/api/media/${ID}`])
+    goOffline()
+    const res = await go(`/api/media/${ID}`, 'no-cors')
+    expect(await res!.text()).toBe('PNG-BYTES')
+  })
+
+  it('jaringan dipakai lebih dulu dan gambar yang belum di-precache tidak disimpan', async () => {
+    const { go, goOffline } = onlineThenOffline()
+    const live = await go(`/api/media/${ID}`, 'no-cors')
+    expect(await live!.text()).toBe('PNG-BYTES')
+    expect(go.stores.get('kira-v1-media')?.size ?? 0).toBe(0)
+    goOffline()
+    expect((await go(`/api/media/${ID}`, 'no-cors'))!.status).toBe(503)
+  })
+
+  it('akses yang dicabut (404) menghapus simpanan, dan berganti learner menghapus semuanya', async () => {
+    let status = 200
+    const go = boot((req) => {
+      const path = new URL(typeof req === 'string' ? req : req.url).pathname
+      if (path.startsWith('/api/media/')) return Promise.resolve(basic('IMG', status))
+      return Promise.resolve(basic(PAGE))
+    })
+    await go.message({ type: 'precache', urls: [RUN] })
+    expect(go.stores.get('kira-v1-media')!.size).toBe(1)
+    status = 404
+    await go(`/api/media/${ID}`, 'no-cors')
+    expect(go.stores.get('kira-v1-media')!.size).toBe(0)
+
+    status = 200
+    await go.message({ type: 'precache', urls: [RUN] })
+    expect(go.stores.get('kira-v1-media')!.size).toBe(1)
+    await go.message({ type: 'clear-pages' })
+    expect(go.stores.has('kira-v1-media')).toBe(false)
+    expect(go.stores.has('kira-v1-pages')).toBe(false)
+
+    await go.message({ type: 'precache', urls: [RUN] })
+    await go('/bye')
+    expect(go.stores.has('kira-v1-media')).toBe(false)
+  })
+
+  it('Cloudflare 52x memakai simpanan media', async () => {
+    let status = 200
+    const go = boot((req) => (new URL(typeof req === 'string' ? req : req.url).pathname.startsWith('/api/media/') ? Promise.resolve(basic('IMG', status)) : Promise.resolve(basic(PAGE))))
+    await go.message({ type: 'precache', urls: [RUN] })
+    status = 523
+    expect(await (await go(`/api/media/${ID}`, 'no-cors'))!.text()).toBe('IMG')
   })
 })

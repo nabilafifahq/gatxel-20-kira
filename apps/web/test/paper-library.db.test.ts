@@ -94,36 +94,37 @@ describe.skipIf(!ready)('DAL pustaka paper di Postgres', () => {
     await mk('ikmc', 2023, 'A', 20)
     await mk('sasmo', 2022, 'A', 25)
     const ctx = { orgId, learnerId, grade: 2 }
+    const pick = (...a: [typeof ctx, 'math' | 'english' | 'science', string, 'mini' | 'full']) => dal.inOrg({ orgId, userId: learnerId, role: 'learner' }, (tx) => dal.daily.pickDailyPaper(tx, ...a))
     // 2026-10-13 hari Selasa.
-    const first = await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-13', 'mini')
+    const first = await pick(ctx, 'math', '2026-10-13', 'mini')
     expect(first).toMatchObject({ source: 'Real contest paper', minutes: 20 })
     expect(first!.title).toBe('IKMC 2023, Grade 2, part A')
     expect(first!.itemRefs).toHaveLength(4)
     // Memanggil lagi di hari yang sama memberi paper yang sama.
-    expect(await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-13', 'mini')).toEqual(first)
+    expect(await pick(ctx, 'math', '2026-10-13', 'mini')).toEqual(first)
     // Besok: lomba lain (bergiliran).
-    const second = await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-14', 'mini')
+    const second = await pick(ctx, 'math', '2026-10-14', 'mini')
     expect(second!.title).toBe('SASMO 2022, Grade 2, part A')
     // Lusa: pustaka habis, jatuh ke Paper gaya lomba buatan Kira dengan soal olimpiade repo.
-    const third = await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-15', 'mini')
+    const third = await pick(ctx, 'math', '2026-10-15', 'mini')
     expect(third).toMatchObject({ source: 'Kira-made contest-style paper', title: 'Kira contest-style mini paper' })
     expect(third!.itemRefs.length).toBe(8)
     expect(third!.itemRefs.every((r) => /^m2\.oly-/.test(r) || r.startsWith('org:'))).toBe(true)
     expect(third!.minutes).toBe(15)
     // Sabtu 2026-10-17: jenis mengikuti permintaan sesi harian. Satu mapel bergiliran meminta paper penuh, mapel lain mini.
-    const satMini = await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-17', 'mini')
+    const satMini = await pick(ctx, 'math', '2026-10-17', 'mini')
     expect(satMini).toMatchObject({ title: 'Kira contest-style mini paper', minutes: 15 })
-    const sat = await dal.daily.pickDailyPaper(ctx, 'math', '2026-10-17', 'full')
+    const sat = await pick(ctx, 'math', '2026-10-17', 'full')
     // Paper penuh buatan Kira meniru lomba hari itu: jumlah soal dan waktu mengikuti preset.
     const contest = (await import('@/server/dal/daily-paper-scoring')).paperPresetFor('math', 2, '2026-10-17')!
     expect(sat).toMatchObject({ source: 'Kira-made contest-style paper', title: 'Kira contest-style full paper', minutes: contest.rules.timeLimitMin })
     expect(sat!.itemRefs.length).toBe(contest.rules.questionCount)
     // English tanpa pustaka: skill English yang ditandai lomba cukup untuk paper buatan Kira.
-    expect(await dal.daily.pickDailyPaper(ctx, 'english', '2026-10-13', 'mini')).toMatchObject({ source: 'Kira-made contest-style paper' })
+    expect(await pick(ctx, 'english', '2026-10-13', 'mini')).toMatchObject({ source: 'Kira-made contest-style paper' })
     // Grade tanpa soal sama sekali (tidak ada skill lomba di Grade 1 English pada tes ini) tidak melempar galat.
-    await expect(dal.daily.pickDailyPaper({ orgId, learnerId, grade: 6 }, 'math', '2026-10-13', 'full')).resolves.toBeDefined()
+    await expect(pick({ orgId, learnerId, grade: 6 }, 'math', '2026-10-13', 'full')).resolves.toBeDefined()
     // Dua permintaan serentak memilih paper yang sama.
-    const [x, y] = await Promise.all([dal.daily.pickDailyPaper(ctx, 'math', '2026-10-20', 'mini'), dal.daily.pickDailyPaper(ctx, 'math', '2026-10-20', 'mini')])
+    const [x, y] = await Promise.all([pick(ctx, 'math', '2026-10-20', 'mini'), pick(ctx, 'math', '2026-10-20', 'mini')])
     expect(x).toEqual(y)
   })
 

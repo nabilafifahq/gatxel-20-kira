@@ -106,6 +106,11 @@ export function mapCandidate(c: Candidate, skillsOf: (subject: Candidate['subjec
       const oly = bySlug(skills, /oly-logic/) ?? skills.find((s) => s.strand === 'Oly')
       return oly ? { skillId: oly.id, grade: c.grade } : null
     }
+    if (c.topicHint === 'table-data') {
+      // Soal berbentuk tabel: skill data, grafik, atau tabel di kelas itu bila ada; kalau tidak, jatuh ke topik biasa.
+      const data = firstSlug(skills, [/charts?$|graphs?|-charts/, /pictogram/, /tally/, /data/])
+      if (data) return { skillId: data.id, grade: c.grade }
+    }
     const topic = MATH_TOPICS.find((t) => t.name === mathTopic(c))
     const pick = (topic ? firstSlug(skills, topic.skillSlugs) : undefined) ?? addSubSkill(skills, c)
     // Soal cerita yang tidak punya skill topik di kelasnya jatuh ke teka-teki angka olimpiade bila ada.

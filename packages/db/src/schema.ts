@@ -566,6 +566,8 @@ export const arenaState = pgTable(
     learnerId: uuid('learner_id').notNull(),
     arena: text('arena', { enum: ['hitung', 'pengetahuan'] }).notNull(),
     data: jsonb('data').notNull().default(sql`'{}'::jsonb`),
+    /** Ringkasan ronde yang sudah dihapus retensi 90 hari (jumlah ronde, rekor, ronde sempurna). */
+    rolled: jsonb('rolled').notNull().default(sql`'{}'::jsonb`),
     updatedAt: ts('updated_at').notNull().defaultNow(),
   },
   (t) => [primaryKey({ columns: [t.learnerId, t.arena] })],

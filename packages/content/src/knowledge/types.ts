@@ -87,13 +87,17 @@ export type KClientQuestion =
   | { kind: 'mc'; factId: string; prompt: string; pic?: Pic; style: 'text' | 'pics'; options: KOption[] }
   | { kind: 'tf'; factId: string; prompt: string; pic?: Pic }
   | { kind: 'order'; factId: string; prompt: string; items: { id: string; label: string; pic?: Pic }[] }
+  /** Ketuk wilayah di peta dunia (data/worldmap.ts). Id wilayah yang benar hanya ada di kunci server. */
+  | { kind: 'map'; factId: string; prompt: string }
 
 export type KKey =
   | { kind: 'mc'; correct: number; explain: string; factId: string; answerLabel: string }
   | { kind: 'tf'; correct: boolean; explain: string; factId: string; answerLabel: string }
   | { kind: 'order'; correct: string[]; explain: string; factId: string; answerLabel: string }
+  | { kind: 'map'; correct: string; explain: string; factId: string; answerLabel: string }
 
-export type KAnswer = number | boolean | string[]
+/** string = id wilayah peta yang diketuk. */
+export type KAnswer = number | boolean | string[] | string
 
 export type KQuestion = { client: KClientQuestion; key: KKey }
 

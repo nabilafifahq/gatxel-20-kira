@@ -108,7 +108,7 @@ switch ($Command) {
     Write-Host '  status              status layanan dan isi database'
     Write-Host '  logs [layanan]      log berjalan (web, worker, db, backup, migrate)'
     Write-Host '  backup              cadangan database sekarang'
-    Write-Host '  admin <argumen>     status, reset-link <email>, unlock <email>, pin-unlock <nama>'
+    Write-Host '  admin <argumen>     status, reset-link <email>, unlock <email>, pin-unlock <nama>, tts-batch, tts-status, sourcing-now'
     Write-Host '  apk                 ambil APK terbaru dari GitHub ke folder data'
   }
 }

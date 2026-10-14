@@ -25,7 +25,7 @@ function entity() {
 export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
-    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-13' },
+    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-10-14' },
     storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
     purposes: [
       { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare (Cloudflare Tunnel), termasuk pusat data di luar Indonesia. Wajib untuk memakai Kira.' },
@@ -38,6 +38,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { data: 'Akun orang dewasa', detail: 'Nama, email, hash password, passkey', purpose: 'Masuk dan keamanan akun', basis: 'Persetujuan dan pelaksanaan layanan', retention: 'Selama akun aktif, dihapus paling lambat 30 hari setelah akun dihapus' },
       { data: 'Profil anak', detail: 'Nama panggilan, kelas, avatar, hash PIN gambar', purpose: 'Masuk di tablet dan menyesuaikan soal', basis: 'Persetujuan orang tua', retention: 'Selama akun aktif, dihapus 7 hari setelah permintaan hapus' },
       { data: 'Data belajar', detail: 'Jawaban, skor, waktu, XP, streak, catatan tutor', purpose: 'Belajar, laporan, rencana mingguan', basis: 'Persetujuan orang tua', retention: 'Selama akun aktif, dihapus 7 hari setelah permintaan hapus' },
+      { data: 'Rincian ronde arena', detail: 'Soal, jawaban, dan waktu tiap ronde Quick Maths dan Quiz Arena', purpose: 'Rekor, statistik, dan laporan', basis: 'Persetujuan orang tua', retention: '90 hari; setelah itu hanya ringkasan rekor dan jumlah ronde yang disimpan, selama akun aktif' },
       { data: 'Rekaman suara dan gambar jawaban', detail: 'Berkas audio dan gambar', purpose: 'Penilaian oleh tutor', basis: 'Persetujuan khusus orang tua', retention: '90 hari setelah diunggah' },
       { data: 'Log keamanan', detail: 'Waktu masuk, percobaan gagal, hash alamat IP, catatan audit', purpose: 'Mencegah dan menyelidiki penyalahgunaan', basis: 'Kepentingan sah dan kewajiban hukum', retention: 'Percobaan masuk 30 hari, catatan audit 12 bulan' },
       { data: 'Email keluar', detail: 'Alamat tujuan dan isi laporan', purpose: 'Pengiriman laporan dan undangan', basis: 'Persetujuan', retention: '90 hari' },

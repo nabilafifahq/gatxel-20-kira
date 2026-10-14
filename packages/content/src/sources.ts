@@ -59,7 +59,7 @@ export const LICENSE_POLICY: Record<LicenseId, LicensePolicy> = {
   unknown: { label: 'Lisensi belum dicek', autoFetch: false, commit: false, attribution: false, nonCommercial: true },
 }
 
-export const IMPORTERS = ['asdiv', 'gsm8k', 'svamp', 'arc-easy', 'openbookqa', 'scienceqa', 'opentdb', 'bebras'] as const
+export const IMPORTERS = ['asdiv', 'gsm8k', 'svamp', 'arc-easy', 'openbookqa', 'scienceqa', 'opentdb', 'bebras', 'tabmwp', 'sciq', 'qasc', 'blimp'] as const
 export type ImporterId = (typeof IMPORTERS)[number]
 
 export const SOURCE_FORMATS = ['pdf', 'xml', 'jsonl', 'json', 'html', 'zip', 'other'] as const
@@ -86,7 +86,16 @@ export const fetchSchema = z.discriminatedUnion('kind', [
   /** Satu atau beberapa berkas teks (XML, JSONL) lewat HTTPS. */
   z.object({ kind: z.literal('http-text'), urls: z.array(httpsUrl).min(1).max(6) }).strict(),
   /** Baris dataset Hugging Face lewat datasets-server (JSON, tanpa akun). */
-  z.object({ kind: z.literal('hf-rows'), dataset: z.string().regex(/^[\w.-]+\/[\w.-]+$/), config: z.string().max(40), split: z.string().max(20) }).strict(),
+  z
+    .object({
+      kind: z.literal('hf-rows'),
+      dataset: z.string().regex(/^[\w.-]+\/[\w.-]+$/),
+      config: z.string().max(60),
+      split: z.string().max(20),
+      /** Beberapa konfigurasi yang dibaca bergiliran (misalnya satu per fenomena BLiMP); `config` tetap diisi sebagai bawaan. */
+      configs: z.array(z.string().max(60)).min(1).max(20).optional(),
+    })
+    .strict(),
   /** Open Trivia DB: kategori yang aman untuk anak dan hanya tingkat mudah. */
   z.object({ kind: z.literal('opentdb-api'), categories: z.array(z.number().int().min(9).max(32)).min(1).max(8) }).strict(),
   /** Folder di <KIRA_DATA_DIR>/sources yang diisi admin (misalnya tugas Bebras yang berlisensi). */

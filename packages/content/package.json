@@ -19,11 +19,13 @@
     "./sources": "./src/sources.ts",
     "./programs": "./src/programs.ts",
     "./medals": "./src/medals.ts",
-    "./extras": "./src/extras.ts"
+    "./extras": "./src/extras.ts",
+    "./worldmap": "./src/knowledge/data/worldmap.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:worldmap": "node scripts/build-worldmap.mjs"
   },
   "dependencies": {
     "@kira/core": "workspace:*",
@@ -32,7 +34,9 @@
   },
   "devDependencies": {
     "@types/node": "22.20.5",
+    "topojson-client": "3.1.0",
     "typescript": "5.9.3",
-    "vitest": "5.0.3"
+    "vitest": "5.0.3",
+    "world-atlas": "2.0.2"
   }
 }

@@ -37,20 +37,20 @@ function useStart(actions: Pick<QuizActions, 'start'>) {
   type Mode = Parameters<QuizActions['start']>[0]['mode']
   // Speed quiz berwaktu: hitung mundur 3, 2, 1, Go dulu; ronde dibuat saat Go muncul.
   const [counting, setCounting] = useState<{ key: string; topic: Topic; mode: Mode } | null>(null)
-  const start = (key: string, topic: Topic, mode: Mode) => {
+  const start = (key: string, topic: Topic, mode: Mode, variant?: 'map') => {
     if (mode === 'speed') {
       setBusy(key)
       setCounting({ key, topic, mode })
       return Promise.resolve()
     }
-    return launch(key, topic, mode)
+    return launch(key, topic, mode, variant)
   }
   const overlay = counting ? <CountdownOverlay onGo={() => void launch(counting.key, counting.topic, counting.mode)} onDone={() => setCounting(null)} /> : null
-  const launch = async (key: string, topic: Topic, mode: Mode) => {
+  const launch = async (key: string, topic: Topic, mode: Mode, variant?: 'map') => {
     setBusy(key)
     setError(null)
     try {
-      const res = await actions.start({ topic, mode })
+      const res = await actions.start({ topic, mode, ...(variant ? { variant } : {}) })
       if (res.ok) router.push(res.data.redirectTo)
       else setError({ message: res.message, reference: res.reference })
     } catch {
@@ -144,6 +144,7 @@ export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions
     { mode: 'learn' as const, title: 'Learn', blurb: 'Flip through flashcards and see the answers. Earn a little XP.', cta: 'Start flashcards' },
     { mode: 'quiz' as const, title: 'Quiz', blurb: '10 questions with no timer. You see why after each one.', cta: 'Start quiz' },
     { mode: 'speed' as const, title: 'Speed quiz', blurb: 'As many right as you can in 60 seconds.', cta: 'Start speed quiz' },
+    ...(t.id === 'continents' ? [{ mode: 'quiz' as const, variant: 'map' as const, title: 'Point on the map', blurb: 'Tap the right continent or ocean on a world map. 10 questions, no timer.', cta: 'Start map quiz' }] : []),
   ]
   return (
     <LearnerFrame shell={data.shell} current="quiz-arena" className="flex flex-col gap-5">
@@ -177,12 +178,12 @@ export function QuizTopicScreen({ data, actions }: { data: QuizTopicDTO; actions
         </p>
       ) : null}
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
-      <ul className="m-0 grid list-none gap-3 p-0 md:grid-cols-3">
+      <ul className={cx('m-0 grid list-none gap-3 p-0', modes.length > 3 ? 'md:grid-cols-2' : 'md:grid-cols-3')}>
         {modes.map((m) => (
-          <li key={m.mode} className={cx('flex flex-col gap-3 rounded-card border-2 border-border bg-surface p-5')}>
+          <li key={'variant' in m ? 'map' : m.mode} className={cx('flex flex-col gap-3 rounded-card border-2 border-border bg-surface p-5')}>
             <h2 className="m-0 text-h2 font-bold">{m.title}</h2>
             <p className="m-0 flex-1 text-body-lg text-fg-muted">{m.blurb}</p>
-            <Button loading={busy === m.mode} disabled={off} onClick={() => void start(m.mode, t.id, m.mode)}>
+            <Button loading={busy === ('variant' in m ? 'map' : m.mode)} disabled={off} onClick={() => void start('variant' in m ? 'map' : m.mode, t.id, m.mode, 'variant' in m ? m.variant : undefined)}>
               {m.cta}
             </Button>
           </li>

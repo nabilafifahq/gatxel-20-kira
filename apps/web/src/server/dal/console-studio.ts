@@ -155,10 +155,10 @@ export function childDataProblem(text: string, learnerNames: readonly string[]):
   return null
 }
 
-// Sama dengan AI_ITEM_TYPES di apps/worker/src/ai/item-schema.ts, tanpa hotspot dan label (bentuknya bergantung pada gambar buatan, jadi tidak ada varian atau terjemahan AI).
+// Sama dengan AI_ITEM_TYPES di apps/worker/src/ai/item-schema.ts.
 const AI_ITEM_TYPES: readonly string[] = [
   'mcq', 'multi', 'numeric', 'text', 'order', 'match', 'sort', 'numberline', 'clock', 'fraction',
-  'story', 'listen', 'tiles', 'spell', 'cloze', 'table', 'grid',
+  'story', 'listen', 'tiles', 'spell', 'cloze', 'table', 'grid', 'hotspot', 'label',
   'write', 'speak', 'draw', 'photo',
 ]
 

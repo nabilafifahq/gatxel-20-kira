@@ -4,6 +4,10 @@ import { allowedHosts, type Source } from '@kira/content/sources'
 import type { Logger } from '../log'
 import { parseAsdiv } from './datasets/asdiv'
 import { parseBebrasTask } from './datasets/bebras'
+import { parseBlimp } from './datasets/blimp'
+import { parseQasc } from './datasets/qasc'
+import { parseSciq } from './datasets/sciq'
+import { parseTabmwp } from './datasets/tabmwp'
 import { parseGsm8k } from './datasets/gsm8k'
 import { OPENTDB_CATEGORIES, OPENTDB_GAP_MS, openTdbUrl, parseOpenTdb } from './datasets/opentdb'
 import { parseScienceQa } from './datasets/scienceqa'
@@ -64,7 +68,9 @@ export async function collectSource(source: Source, cursor: number, deps: Collec
             ? parseGsm8k(texts.join('\n'))
             : source.importer === 'svamp'
               ? parseSvamp(texts[0] ?? '')
-              : null
+              : source.importer === 'tabmwp'
+                ? parseTabmwp(texts[0] ?? '')
+                : null
       if (!parsed) return { candidates: [], nextCursor: cursor, note: `importer ${source.importer ?? '-'} tidak membaca teks biasa` }
       const start = cursor >= parsed.rawCount ? 0 : cursor
       const slice = parsed.rows.slice(start, start + window)
@@ -72,14 +78,15 @@ export async function collectSource(source: Source, cursor: number, deps: Collec
       return { candidates: present(slice), nextCursor: next, note: `baris ${start + 1} sampai ${start + slice.length} dari ${parsed.rawCount}` }
     }
     case 'hf-rows': {
-      if (source.importer !== 'arc-easy' && source.importer !== 'openbookqa' && source.importer !== 'scienceqa') return { candidates: [], nextCursor: cursor, note: 'importer tidak cocok' }
+      if (source.importer === 'blimp') return collectBlimp(source, f, cursor, net)
+      if (source.importer !== 'arc-easy' && source.importer !== 'openbookqa' && source.importer !== 'scienceqa' && source.importer !== 'sciq' && source.importer !== 'qasc') return { candidates: [], nextCursor: cursor, note: 'importer tidak cocok' }
       const out: Candidate[] = []
       let offset = cursor
       let total = Number.POSITIVE_INFINITY
       for (let page = 0; page < HF_MAX_PAGES && offset < total && out.length < source.maxPerRun * 2; page++) {
         const url = `https://datasets-server.huggingface.co/rows?dataset=${encodeURIComponent(f.dataset)}&config=${encodeURIComponent(f.config)}&split=${encodeURIComponent(f.split)}&offset=${offset}&length=${HF_PAGE}`
         const body = await fetchText(url, net)
-        const parsed = source.importer === 'scienceqa' ? parseScienceQa(body) : parseScienceRows(body, source.importer)
+        const parsed = source.importer === 'scienceqa' ? parseScienceQa(body) : source.importer === 'sciq' ? parseSciq(body) : source.importer === 'qasc' ? parseQasc(body) : parseScienceRows(body, source.importer)
         total = parsed.total || offset + parsed.rawCount
         out.push(...present(parsed.rows))
         offset += parsed.rawCount
@@ -127,4 +134,23 @@ export async function collectSource(source: Source, cursor: number, deps: Collec
     case 'official-pdf':
       return { candidates: [], nextCursor: cursor, note: 'PDF diurus jalur impor' }
   }
+}
+
+/**
+ * BLiMP: satu konfigurasi per fenomena. Penanda lanjut adalah offset yang sama untuk semua konfigurasi
+ * (tiap fenomena punya 1000 pasangan), jadi tiap minggu membaca jendela baru dari setiap fenomena.
+ */
+async function collectBlimp(source: Source, f: Extract<NonNullable<Source['fetch']>, { kind: 'hf-rows' }>, cursor: number, net: Parameters<typeof fetchText>[1]): Promise<Collected> {
+  const configs = f.configs?.length ? f.configs : [f.config]
+  const each = Math.min(HF_PAGE, Math.max(5, Math.ceil((source.maxPerRun * 3) / configs.length)))
+  const out: Candidate[] = []
+  let total = Number.POSITIVE_INFINITY
+  for (const config of configs) {
+    const url = `https://datasets-server.huggingface.co/rows?dataset=${encodeURIComponent(f.dataset)}&config=${encodeURIComponent(config)}&split=${encodeURIComponent(f.split)}&offset=${cursor}&length=${each}`
+    const parsed = parseBlimp(await fetchText(url, net), config)
+    if (parsed.total) total = Math.min(total, parsed.total)
+    out.push(...present(parsed.rows))
+  }
+  const next = cursor + each >= total ? 0 : cursor + each
+  return { candidates: out, nextCursor: next, note: `${configs.length} fenomena, baris ${cursor + 1} sampai ${cursor + each}` }
 }

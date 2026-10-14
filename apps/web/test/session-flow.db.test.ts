@@ -156,15 +156,16 @@ describe.skipIf(!ready)('sesi harian', () => {
 
   it('pickDailyPaper: mini 8 soal 15 menit, penuh mengikuti preset, hasilnya tetap untuk masukan yang sama', async () => {
     const c = { orgId, learnerId, grade: 2 }
+    const pickP = (...a: [typeof c, Parameters<typeof m.paper.pickDailyPaper>[2], string, 'mini' | 'full']) => run((tx) => m.paper.pickDailyPaper(tx, ...a))
     for (const subject of ['math', 'english', 'science'] as const) {
-      const mini = await m.paper.pickDailyPaper(c, subject, WEDNESDAY, 'mini')
+      const mini = await pickP(c, subject, WEDNESDAY, 'mini')
       expect(mini, subject).not.toBeNull()
       expect(mini!.minutes).toBe(15)
       expect(mini!.itemRefs.length).toBe(8)
       expect(new Set(mini!.itemRefs).size).toBe(8)
       expect(mini!.title).toMatch(/mini paper$/)
-      expect(await m.paper.pickDailyPaper(c, subject, WEDNESDAY, 'mini')).toEqual(mini)
-      const full = await m.paper.pickDailyPaper(c, subject, SATURDAY, 'full')
+      expect(await pickP(c, subject, WEDNESDAY, 'mini')).toEqual(mini)
+      const full = await pickP(c, subject, SATURDAY, 'full')
       const preset = m.paperScoring.paperPresetFor(subject, 2, SATURDAY)
       expect(full!.minutes).toBe(preset!.rules.timeLimitMin)
       expect(full!.itemRefs.length).toBe(preset!.rules.questionCount)

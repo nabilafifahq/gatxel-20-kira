@@ -840,6 +840,18 @@ export type WeekSummaryDTO = {
   skillsToRepeat: { subject: Subject; title: string; note: string }[]
   tutorNote: string | null
   nextCompetition: { name: string; date: string } | null
+  /** Ringkasan arena minggu ini; kosong bila belum ada ronde dan belum ada topik dicoba. */
+  arena?: ArenaWeekDTO | null
+}
+export type ArenaWeekDTO = {
+  qmRounds: number
+  /** Soal per menit terbaik minggu ini dari sprint yang akurat, atau null. */
+  qmBestPpm: number | null
+  quizRounds: number
+  topicsTried: number
+  topicsTotal: number
+  factsKnown: number
+  factsTotal: number
 }
 export type FamilyHomeDTO = {
   shell: ConsoleShell

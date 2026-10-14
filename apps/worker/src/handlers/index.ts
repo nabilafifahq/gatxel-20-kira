@@ -3,6 +3,7 @@ import { draftHandler } from './drafts'
 import { gradeHandler } from './grade'
 import { importHandler } from './import'
 import { learnerDeleteHandler } from './learner-delete'
+import { sourcingRunHandler } from './sourcing'
 import { testHandler } from './test'
 import { ttsBatchHandler, ttsClipHandler } from './tts'
 import type { Handler } from './types'
@@ -20,4 +21,5 @@ export const HANDLERS: Record<JobKind, Handler> = {
   'learner.delete': learnerDeleteHandler,
   'tts.batch': ttsBatchHandler,
   'tts.clip': ttsClipHandler,
+  'sourcing.run': sourcingRunHandler,
 }
