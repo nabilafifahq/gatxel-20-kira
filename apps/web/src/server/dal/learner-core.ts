@@ -108,7 +108,9 @@ export async function dayRecords(tx: Tx, learner: LearnerRow, since: IsoDate): P
 const DAY_LETTER: Record<string, string> = { Monday: 'Mon', Tuesday: 'Tue', Wednesday: 'Wed', Thursday: 'Thu', Friday: 'Fri', Saturday: 'Sat', Sunday: 'Sun' }
 
 export async function streakFor(tx: Tx, learner: LearnerRow, today: IsoDate) {
-  const since = learner.startedOn ?? today
+  const started = learner.startedOn ?? today
+  // Setelah atur ulang streak, hari sebelum streak_since tidak dihitung lagi.
+  const since = learner.streakSince && learner.streakSince > started ? learner.streakSince : started
   const days = await dayRecords(tx, learner, since)
   const result = computeStreak({ days, today, restWeekdays: learner.restWeekdays, since })
   return result

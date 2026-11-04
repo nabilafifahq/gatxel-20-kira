@@ -506,6 +506,8 @@ export type PlanSlotDTO = {
   minutes: number
   questionCount: number
   config: PlanSlotConfig | null
+  /** Hanya untuk hari ini: sesinya sudah dimulai atau selesai di tablet, jadi isinya tidak bisa diubah (Wajib atau Opsional masih bisa). */
+  started?: boolean
 }
 export type PlannerDay = {
   date: string
@@ -536,6 +538,20 @@ export type PlannerDTO = {
   screenLimitMin: number
   prevWeekHref: string
   nextWeekHref: string
+  /** Aturan hari bawaan learner ini (Penuh, Seimbang, Ringan, atau Kustom) dan tautan untuk mengubahnya. */
+  dayPresetLabel: string
+  rulesHref: string
+}
+/** Hasil perubahan rencana. Bila mengenai hari ini, tablet langsung disamakan dan hasilnya dilaporkan di sini. */
+export type PlanChangeResult = {
+  today: boolean
+  /** Minggu ikut diterbitkan supaya perubahan hari ini langsung dipakai tablet. */
+  published: boolean
+  created: number
+  removed: number
+  regenerated: number
+  /** Sesi hari ini yang sedang berjalan atau selesai dan isinya dipertahankan. */
+  kept: number
 }
 export type UpsertSlotInput = {
   learnerId: string
@@ -549,16 +565,22 @@ export type UpsertSlotInput = {
   questionCount: number
   paperKind: 'mini' | 'full' | null
   config: PlanSlotConfig | null
+  /** Dibuka dari sesi otomatis hari itu: slot baru menggantikan sesi otomatis tersebut. */
+  fromAuto?: boolean
 }
+/** Sesi yang dituju perubahan cepat: slot yang ada, atau sesi otomatis (mapel dan jenis sesi pada tanggal itu). */
+export type SessionTarget = { learnerId: string; date: string; slotId: string | null; subject: Subject; session: SessionType }
 export type PlannerActions = {
-  upsertSlot(input: UpsertSlotInput): Promise<ActionResult>
-  moveSlot(input: { slotId: string; date: string }): Promise<ActionResult>
-  deleteSlot(slotId: string): Promise<ActionResult>
+  upsertSlot(input: UpsertSlotInput): Promise<ActionResult<PlanChangeResult>>
+  moveSlot(input: { slotId: string; date: string }): Promise<ActionResult<PlanChangeResult>>
+  deleteSlot(slotId: string): Promise<ActionResult<PlanChangeResult>>
+  setSessionRequired(input: SessionTarget & { required: boolean }): Promise<ActionResult<PlanChangeResult>>
+  removeSession(input: SessionTarget): Promise<ActionResult<PlanChangeResult>>
   setRestDay(input: { learnerId: string; date: string; rest: boolean }): Promise<ActionResult>
-  applySuggestions(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult>
-  publishWeek(input: { learnerId: string; weekStart: string }): Promise<ActionResult>
-  setDayTemplate(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult>
-  copyWeek(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number }>>
+  applySuggestions(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult<PlanChangeResult>>
+  publishWeek(input: { learnerId: string; weekStart: string }): Promise<ActionResult<PlanChangeResult>>
+  setDayTemplate(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult<PlanChangeResult>>
+  copyWeek(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number; change: PlanChangeResult }>>
 }
 
 // T04 Penyusun paper
@@ -711,7 +733,20 @@ export type SettingsDTO = {
   shell: ConsoleShell
   account: { name: string; email: string; passkeys: { id: string; name: string; createdAt: string; lastUsedAt: string | null }[] }
   devices: { id: string; name: string; learners: string[]; createdAt: string; lastSeenAt: string | null; expiresAt: string }[]
-  learners: { id: string; name: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean; soundEnabled?: boolean; musicEnabled?: boolean }[]
+  learners: {
+    id: string
+    name: string
+    screenLimitMin: number
+    restWeekdays: number[]
+    reviewEnabled: boolean
+    soundEnabled?: boolean
+    musicEnabled?: boolean
+    /** Aturan hari bawaan (Penuh, Seimbang, Ringan, Kustom) dan tingkat lengkapnya per hari, mapel, dan sesi. */
+    dayPreset?: DayPresetId
+    dayRules?: DayRulesDTO
+    /** Streak sekarang, untuk konfirmasi atur ulang streak. */
+    streak?: number
+  }[]
   members: { id: string; name: string; email: string; role: 'tutor' | 'guardian'; learners: string[] }[]
   invites: { id: string; email: string; role: 'tutor' | 'guardian'; expiresAt: string }[]
   email: { configured: boolean; from: string | null }
@@ -719,8 +754,16 @@ export type SettingsDTO = {
   /** APK tablet di <KIRA_DATA_DIR>/apk/kira.apk, diunduh lewat /api/apk. */
   apk?: { available: boolean; size: string | null; updatedAt: string | null }
 }
+export type DayPresetId = 'penuh' | 'seimbang' | 'ringan' | 'kustom'
+export type RuleLevelId = 'off' | 'optional' | 'required'
+/** Kunci hari '1' (Senin) sampai '6' (Sabtu), lalu mapel, lalu sesi. */
+export type DayRulesDTO = Record<string, Record<Subject, Record<'latihan' | 'tes' | 'paper', RuleLevelId>>>
 export type SettingsActions = {
   updateLearnerLimits(input: { learnerId: string; screenLimitMin: number; restWeekdays: number[]; reviewEnabled: boolean }): Promise<ActionResult>
+  /** Aturan hari bawaan; bila hari ini sudah punya sesi, tablet langsung disamakan. */
+  updateLearnerDayRules?(input: { learnerId: string; preset: DayPresetId; rules: DayRulesDTO | null }): Promise<ActionResult<PlanChangeResult>>
+  /** Hapus riwayat hari dan pembeku streak learner ini, lalu hitung ulang hari ini. Konfirmasi diketik: nama learner. */
+  resetLearnerStreak?(input: { learnerId: string; confirmName: string }): Promise<ActionResult<{ removedDays: number; streakBefore: number }>>
   /** Suara dan musik di perangkat anak; bila mati, pilihan perangkat tidak berlaku. */
   updateLearnerSound?(input: { learnerId: string; soundEnabled: boolean; musicEnabled: boolean }): Promise<ActionResult>
   revokeDevice(deviceId: string): Promise<ActionResult>

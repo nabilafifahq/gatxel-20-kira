@@ -226,6 +226,8 @@ export const learnerProfile = pgTable(
     active: boolean('active').notNull().default(false),
     xp: integer('xp').notNull().default(0),
     startedOn: date('started_on'),
+    /** Streak dihitung mulai tanggal ini (diisi saat tutor mengatur ulang streak, migrasi 0013). Kosong berarti sejak started_on. */
+    streakSince: date('streak_since'),
     createdAt: createdAt(),
     updatedAt: ts('updated_at').notNull().defaultNow(),
     deletedAt: ts('deleted_at'),
@@ -337,10 +339,23 @@ export const planSlot = pgTable(
     paperId: uuid('paper_id'),
     mode: text('mode', { enum: ['belajar', 'latihan', 'tes', 'kertas'] }).notNull().default('latihan'),
     questionCount: integer('question_count').notNull().default(10),
+    /** Slot menggantikan sesi dasar (aturan hari dan template) yang mapel dan jenisnya sama, Wajib atau Opsional (migrasi 0013). */
+    base: boolean('base').notNull().default(false),
+    /** Sesi dasar yang sama dimatikan untuk hari itu (migrasi 0013). */
+    off: boolean('off').notNull().default(false),
     createdAt: createdAt(),
   },
   (t) => [index('plan_slot_learner_date_idx').on(t.learnerId, t.date)],
 )
+
+/** Aturan hari bawaan per learner (migrasi 0013): preset dan, untuk Kustom, tingkat per hari, mapel, dan sesi. */
+export const dayRules = pgTable('day_rules', {
+  learnerId: uuid('learner_id').primaryKey(),
+  orgId: orgId(),
+  preset: text('preset', { enum: ['penuh', 'seimbang', 'ringan', 'kustom'] }).notNull().default('seimbang'),
+  rules: jsonb('rules'),
+  updatedAt: ts('updated_at').notNull().defaultNow(),
+})
 
 export const restDay = pgTable(
   'rest_day',

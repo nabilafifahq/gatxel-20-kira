@@ -106,7 +106,8 @@ export function questTotals(input: {
     const override = input.restOverrides.find((o) => o.date === date)
     const rest = override ? override.rest : Boolean(row?.rest) || input.restWeekdays.includes(weekday(date))
     if (rest) continue
-    planned += row && row.questsRequired > 0 ? row.questsRequired : DEFAULT_DAILY_QUESTS
+    // Hari tanpa sesi wajib (aturan hari Mati atau Opsional) netral: tidak menambah rencana.
+    planned += row ? row.questsRequired : DEFAULT_DAILY_QUESTS
   }
   return { done, planned: Math.max(planned, done) }
 }

@@ -11,8 +11,10 @@ import {
   deleteSlotAction,
   moveSlotAction,
   publishWeekAction,
+  removeSessionAction,
   setDayTemplateAction,
   setRestDayAction,
+  setSessionRequiredAction,
   upsertSlotAction,
 } from '@/server/actions/console-planner'
 
@@ -32,6 +34,8 @@ export default async function PlannerPage({ searchParams }: { searchParams: Prom
         upsertSlot: upsertSlotAction,
         moveSlot: moveSlotAction,
         deleteSlot: deleteSlotAction,
+        setSessionRequired: setSessionRequiredAction,
+        removeSession: removeSessionAction,
         setRestDay: setRestDayAction,
         applySuggestions: applySuggestionsAction,
         publishWeek: publishWeekAction,

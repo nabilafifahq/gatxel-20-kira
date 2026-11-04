@@ -6,6 +6,9 @@ import { tutorToday, tutorTodayAllClear, tutorTodayEmpty, tutorTodayPartial } fr
 import { LearnerDetailScreen } from '@/screens/console/LearnerDetailScreen'
 import { learnerDetail, learnerDetailNew } from '@/dev/fixtures/console-learner'
 import { fake } from '@/dev/fixtures/console-shared'
+import type { PlanChangeResult } from '@/lib/dto'
+
+const noChange: PlanChangeResult = { today: false, published: false, created: 0, removed: 0, regenerated: 0, kept: 0 }
 import { PlannerScreen } from '@/screens/console/PlannerScreen'
 import { planner, plannerEmpty, plannerPublished } from '@/dev/fixtures/console-planner'
 import { PaperBuilderScreen } from '@/screens/console/PaperBuilderScreen'
@@ -70,14 +73,16 @@ const PREVIEWS: Record<string, Render> = {
       <PlannerScreen
         data={state === 'terbit' ? plannerPublished : state === 'kosong' ? plannerEmpty : planner}
         actions={{
-          upsertSlot: fake(undefined, fail, 'Slot belum tersimpan.'),
-          moveSlot: fake(undefined, fail, 'Slot belum pindah.'),
-          deleteSlot: fake(undefined, fail, 'Slot belum terhapus.'),
+          upsertSlot: fake(noChange, fail, 'Slot belum tersimpan.'),
+          moveSlot: fake(noChange, fail, 'Slot belum pindah.'),
+          deleteSlot: fake(noChange, fail, 'Slot belum terhapus.'),
+          setSessionRequired: fake(noChange, fail, 'Sesi belum berubah.'),
+          removeSession: fake(noChange, fail, 'Sesi belum terhapus.'),
           setRestDay: fake(undefined, fail, 'Hari istirahat belum tersimpan.'),
-          applySuggestions: fake(undefined, fail, 'Usulan belum diterapkan.'),
-          publishWeek: fake(undefined, fail, 'Rencana belum terbit.'),
-          setDayTemplate: fake(undefined, fail, 'Template belum tersimpan.'),
-          copyWeek: fake({ copied: 12, skipped: 2 }, fail, 'Minggu belum tersalin.'),
+          applySuggestions: fake(noChange, fail, 'Usulan belum diterapkan.'),
+          publishWeek: fake(noChange, fail, 'Rencana belum terbit.'),
+          setDayTemplate: fake(noChange, fail, 'Template belum tersimpan.'),
+          copyWeek: fake({ copied: 12, skipped: 2, change: noChange }, fail, 'Minggu belum tersalin.'),
         }}
       />
     )

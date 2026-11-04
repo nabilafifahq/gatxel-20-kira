@@ -47,6 +47,7 @@ describe.skipIf(!ready)('arena DAL (Postgres)', () => {
   async function newLearner(grade = 2): Promise<{ id: string; run: <T>(fn: (tx: Tx) => Promise<T>) => Promise<T>; ctx: { orgId: string; userId: string; role: 'learner' } }> {
     const id = randomUUID()
     await owner`insert into learner_profile (user_id, org_id, name, grade, active, screen_limit_min) values (${id}, ${orgId}, 'Anak Tes __GTX_SEED__', ${grade}, true, 120)`
+    await owner`insert into day_rules (learner_id, org_id, preset) values (${id}, ${orgId}, 'penuh')`
     const ctx = { orgId, userId: id, role: 'learner' as const }
     return { id, ctx, run: (fn) => withOrg(app.db, ctx, fn) }
   }

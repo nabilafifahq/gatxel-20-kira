@@ -1,16 +1,22 @@
 'use server'
 
-import { refresh } from 'next/cache'
+import { refresh, revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { ENGLISH_SKILL_KINDS, SESSION_TYPES } from '@kira/core'
 import { isIsoDate } from '@kira/core/time'
-import type { ActionResult, DayTemplateId, UpsertSlotInput } from '@/lib/dto'
+import type { ActionResult, DayTemplateId, PlanChangeResult, SessionTarget, UpsertSlotInput } from '@/lib/dto'
 import { requireTutor } from '../auth/actor'
 import { runAction } from '../errors'
-import { applySuggestions, copyWeek, deleteSlot, moveSlot, publishWeek, setDayTemplate, setRestDay, upsertSlot } from '../dal/console-planner'
+import { applySuggestions, copyWeek, deleteSlot, moveSlot, publishWeek, removeSession, setDayTemplate, setRestDay, setSessionRequired, upsertSlot } from '../dal/console-planner'
 import { PER_QUESTION_MAX, PER_QUESTION_MIN, QUESTION_COUNT_MAX, QUESTION_COUNT_MIN } from '../dal/planner-logic'
 
 /** T03 Perencana mingguan. Setiap action memeriksa sesi tutor sendiri; kepemilikan diperiksa DAL lewat RLS. */
+
+/** Tablet membaca Today langsung dari server; setelah rencana berubah, halaman itu dimuat ulang saat dibuka atau difokuskan. */
+function refreshAll(change: PlanChangeResult | null): void {
+  refresh()
+  if (change?.today) revalidatePath('/today')
+}
 
 const isoDate = z.string().max(10).refine((v) => isIsoDate(v), 'Tanggal tidak valid. Muat ulang halaman rencana.')
 const subject = z.enum(['math', 'english', 'science'])
@@ -44,36 +50,61 @@ const upsertSchema = z
       })
       .strict()
       .nullable(),
+    fromAuto: z.boolean().optional(),
   })
   .strict()
 
-export async function upsertSlotAction(input: UpsertSlotInput): Promise<ActionResult> {
+const targetSchema = z
+  .object({ learnerId: z.string().uuid(), date: isoDate, slotId: z.string().uuid().nullable(), subject, session: z.enum(SESSION_TYPES) })
+  .strict()
+
+export async function upsertSlotAction(input: UpsertSlotInput): Promise<ActionResult<PlanChangeResult>> {
   return runAction('upsertSlot', async () => {
     const actor = await requireTutor()
     const data = upsertSchema.parse(input)
-    await upsertSlot(actor, data)
-    refresh()
-    return undefined
+    const change = await upsertSlot(actor, data)
+    refreshAll(change)
+    return change
   })
 }
 
-export async function moveSlotAction(input: { slotId: string; date: string }): Promise<ActionResult> {
+export async function setSessionRequiredAction(input: SessionTarget & { required: boolean }): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('setSessionRequired', async () => {
+    const actor = await requireTutor()
+    const data = targetSchema.extend({ required: z.boolean() }).strict().parse(input)
+    const change = await setSessionRequired(actor, data)
+    refreshAll(change)
+    return change
+  })
+}
+
+export async function removeSessionAction(input: SessionTarget): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('removeSession', async () => {
+    const actor = await requireTutor()
+    const data = targetSchema.parse(input)
+    const change = await removeSession(actor, data)
+    refreshAll(change)
+    return change
+  })
+}
+
+export async function moveSlotAction(input: { slotId: string; date: string }): Promise<ActionResult<PlanChangeResult>> {
   return runAction('moveSlot', async () => {
     const actor = await requireTutor()
     const data = z.object({ slotId: z.string().uuid(), date: isoDate }).strict().parse(input)
-    await moveSlot(actor, data)
-    refresh()
-    return undefined
+    const change = await moveSlot(actor, data)
+    refreshAll(change)
+    return change
   })
 }
 
-export async function deleteSlotAction(slotId: string): Promise<ActionResult> {
+export async function deleteSlotAction(slotId: string): Promise<ActionResult<PlanChangeResult>> {
   return runAction('deleteSlot', async () => {
     const actor = await requireTutor()
     const id = z.string().uuid().parse(slotId)
-    await deleteSlot(actor, id)
-    refresh()
-    return undefined
+    const change = await deleteSlot(actor, id)
+    refreshAll(change)
+    return change
   })
 }
 
@@ -87,7 +118,7 @@ export async function setRestDayAction(input: { learnerId: string; date: string;
   })
 }
 
-export async function applySuggestionsAction(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult> {
+export async function applySuggestionsAction(input: { learnerId: string; weekStart: string; ids: string[] }): Promise<ActionResult<PlanChangeResult>> {
   return runAction('applySuggestions', async () => {
     const actor = await requireTutor()
     const data = z
@@ -98,38 +129,38 @@ export async function applySuggestionsAction(input: { learnerId: string; weekSta
       })
       .strict()
       .parse(input)
-    await applySuggestions(actor, data)
-    refresh()
-    return undefined
+    const change = await applySuggestions(actor, data)
+    refreshAll(change)
+    return change
   })
 }
 
-export async function publishWeekAction(input: { learnerId: string; weekStart: string }): Promise<ActionResult> {
+export async function publishWeekAction(input: { learnerId: string; weekStart: string }): Promise<ActionResult<PlanChangeResult>> {
   return runAction('publishWeek', async () => {
     const actor = await requireTutor()
     const data = z.object({ learnerId: z.string().uuid(), weekStart: isoDate }).strict().parse(input)
-    await publishWeek(actor, data)
-    refresh()
-    return undefined
+    const change = await publishWeek(actor, data)
+    refreshAll(change)
+    return change
   })
 }
 
-export async function setDayTemplateAction(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult> {
+export async function setDayTemplateAction(input: { learnerId: string; date: string; template: DayTemplateId }): Promise<ActionResult<PlanChangeResult>> {
   return runAction('setDayTemplate', async () => {
     const actor = await requireTutor()
     const data = z.object({ learnerId: z.string().uuid(), date: isoDate, template: z.enum(['school', 'saturday', 'light']) }).strict().parse(input)
-    await setDayTemplate(actor, data)
-    refresh()
-    return undefined
+    const change = await setDayTemplate(actor, data)
+    refreshAll(change)
+    return change
   })
 }
 
-export async function copyWeekAction(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number }>> {
+export async function copyWeekAction(input: { learnerId: string; fromWeekStart: string; toWeekStart: string }): Promise<ActionResult<{ copied: number; skipped: number; change: PlanChangeResult }>> {
   return runAction('copyWeek', async () => {
     const actor = await requireTutor()
     const data = z.object({ learnerId: z.string().uuid(), fromWeekStart: isoDate, toWeekStart: isoDate }).strict().parse(input)
     const result = await copyWeek(actor, data)
-    refresh()
+    refreshAll(result.change)
     return result
   })
 }

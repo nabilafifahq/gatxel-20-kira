@@ -396,6 +396,7 @@ export async function assignPaper(
     kind: 'quest',
     session: 'paper',
     required: true,
+    base: true,
     skillId: dominantSkill(p.itemRefs.map((r) => resolved.get(r)?.skill).filter((s): s is string => Boolean(s))),
     paperId: p.id,
     mode: p.mode,
