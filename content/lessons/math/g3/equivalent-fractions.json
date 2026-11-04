@@ -34,6 +34,14 @@
     {
       "say": "With the same bottom number, more parts means a bigger fraction.",
       "show": "3/8 < 5/8"
+    },
+    {
+      "say": "Your turn. Cut two bars into different numbers of parts and shade the same amount on both.",
+      "tool": {
+        "kind": "fractionbar",
+        "bars": 2,
+        "split": 2
+      }
     }
   ],
   "check": [
@@ -94,6 +102,35 @@
         "Which cake has bigger pieces?"
       ],
       "explanation": "A cake cut into 4 has bigger pieces than a cake cut into 6. So 1/4 is bigger than 1/6."
+    },
+    {
+      "id": "m3.equivalent-fractions.903",
+      "skill": "m3.equivalent-fractions",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Bar 1 shows one half. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 2,
+          "locked": 1
+        },
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 2,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "Look at how much of bar 1 is shaded.",
+        "Bar 2 has twice as many parts.",
+        "Shade 2 parts of bar 2."
+      ],
+      "explanation": "One half is the same as 2 quarters, because bar 2 has twice as many parts."
     }
   ]
 }

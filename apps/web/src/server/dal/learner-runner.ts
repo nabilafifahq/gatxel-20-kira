@@ -3,6 +3,7 @@ import { and, eq, inArray, isNull } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
+import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
 import type { AnswerPayload, AnswerResult, RunnerDTO, RunnerItem, SavedResponse, Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
@@ -231,6 +232,16 @@ export function validAnswer(item: Item, answer: unknown): boolean {
       return strings(a.texts, 8, 40)
     case 'grid':
       return Array.isArray(a.cells) && a.cells.length === item.size * item.size && a.cells.every((c) => typeof c === 'number' && Number.isInteger(c) && c >= 0 && c < 100)
+    case 'blocks':
+      return parseBlocks(a.blocks) !== null
+    case 'fractionbar':
+      return parseBars(a.bars) !== null
+    case 'barmodel':
+      return parseModel(a.model) !== null
+    case 'tangram':
+      return parsePlacements(a.placed, item.slots.length, item.pieces.length) !== null
+    case 'geoboard':
+      return parsePegs(a.pegs, item.size) !== null
   }
 }
 

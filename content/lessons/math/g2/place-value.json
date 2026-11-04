@@ -28,6 +28,17 @@
         "alt": "5 ten rods and 13 small cubes."
       },
       "show": "63 = 50 + 13"
+    },
+    {
+      "say": "Your turn. Show 63, then trade 10 ones for a ten and break a ten back into ones.",
+      "tool": {
+        "kind": "blocks",
+        "blocks": {
+          "h": 0,
+          "t": 5,
+          "o": 13
+        }
+      }
     }
   ],
   "check": [
@@ -75,6 +86,31 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "m2.place-value.903",
+      "skill": "m2.place-value",
+      "type": "blocks",
+      "difficulty": 2,
+      "prompt": "You have 5 tens and 13 ones. Trade so that the number is shown with the fewest blocks.",
+      "places": "to",
+      "start": {
+        "h": 0,
+        "t": 5,
+        "o": 13
+      },
+      "target": {
+        "h": 0,
+        "t": 6,
+        "o": 3
+      },
+      "exact": true,
+      "hints": [
+        "Look for 10 ones that can become a ten.",
+        "Tap Trade 10 for 1 ten in the ones column.",
+        "You should end with 6 tens and 3 ones."
+      ],
+      "explanation": "5 tens and 13 ones is 63. Trading 10 ones for 1 ten leaves 6 tens and 3 ones."
     }
   ]
 }

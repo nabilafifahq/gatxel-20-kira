@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import { checkAnswer } from '@kira/content/check'
 import type { ClientItem } from '@kira/content/present'
-import type { SolutionStep } from '@kira/content/schema'
+import type { LessonStep } from '@kira/content/schema'
 import { Figure } from '@kira/figures'
 import type { LessonActions, LessonDTO } from '@/lib/dto'
 import { Button, ButtonLink, IconButton, IconLink } from '@/components/ui/Button'
@@ -15,6 +15,8 @@ import { useReducedMotion } from '@/components/learner/hooks'
 import { useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { ToolPlay } from '@/components/manipulatives/ToolPlay'
+import { TapSound } from '@/components/learner/TapSound'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
 import { Widget } from '@/components/widgets/Widget'
@@ -27,7 +29,7 @@ import { ActionError } from './common'
  * Selesai: completeLesson(skillId, benar, total) dipanggil sekali.
  */
 
-type Part = { kind: 'step'; step: SolutionStep; n: number } | { kind: 'check'; item: ClientItem; n: number }
+type Part = { kind: 'step'; step: LessonStep; n: number } | { kind: 'check'; item: ClientItem; n: number }
 type CheckState = { value: unknown | null; tries: number; status: 'open' | 'correct' | 'revealed'; firstTry: boolean | null }
 
 function firstSentence(text: string): string {
@@ -43,7 +45,7 @@ function passableAt(parts: Part[], checks: CheckState[], i: number): boolean {
   return checks[p.n]?.status !== 'open'
 }
 
-function dwellMs(step: SolutionStep): number {
+function dwellMs(step: LessonStep): number {
   return Math.max(3000, step.say.length * 70)
 }
 
@@ -99,13 +101,14 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       return
     }
     // Pemutar berhenti di depan soal cek sampai soal itu dijawab.
-    if (parts[at + 1]?.kind === 'check') setPlaying(false)
+    const upNext = parts[at + 1]
+    if (upNext?.kind === 'check' || (upNext?.kind === 'step' && upNext.step.tool)) setPlaying(false)
     setAt(at + 1)
   }, [at, total, complete, checks, parts])
 
   // Putar: langkah maju sendiri hanya setelah Play ditekan, berhenti di cek.
   useEffect(() => {
-    if (!playing || reduced || finished || !part || part.kind === 'check') return
+    if (!playing || reduced || finished || !part || part.kind === 'check' || part.step.tool) return
     let cancelled = false
     let timer = 0
     const advance = () => {
@@ -238,8 +241,14 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
             />
           ) : part ? (
             <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card bg-surface shadow-soft p-6 md:min-h-[380px]">
-              <div key={at} className="motion-fade flex w-full max-w-[520px] flex-col items-center gap-4 starting:opacity-0">
-                {part.step.figure ? (
+              <div key={at} className={cx('motion-fade flex w-full flex-col items-center gap-4 starting:opacity-0', part.step.tool ? 'max-w-[640px] pt-10' : 'max-w-[520px]')}>
+                {part.step.tool ? (
+                  <TapSound>
+                    <div className="w-full">
+                      <ToolPlay kind={part.step.tool.kind} config={part.step.tool} />
+                    </div>
+                  </TapSound>
+                ) : part.step.figure ? (
                   <div className="w-full">
                     <Figure spec={part.step.figure} />
                   </div>

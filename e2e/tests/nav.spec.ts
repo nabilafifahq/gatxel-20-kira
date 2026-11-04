@@ -8,9 +8,9 @@ test.afterAll(closeDb)
  * untuk sisanya (ketuk saja, target minimal 44 px).
  */
 
-const RAIL = ['Today', 'Map', 'Review', 'Competitions', 'English Skills', 'Quick Maths', 'Quiz Arena', 'Me']
+const RAIL = ['Today', 'Map', 'Review', 'Competitions', 'English Skills', 'Quick Maths', 'Quiz Arena', 'Maths Tools', 'Me']
 
-test('tablet: rel kiri memuat delapan tujuan utama', async ({ page }) => {
+test('tablet: rel kiri memuat semua tujuan utama termasuk Maths Tools', async ({ page }) => {
   const errors = watchErrors(page)
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')

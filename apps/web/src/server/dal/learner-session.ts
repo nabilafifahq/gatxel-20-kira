@@ -25,6 +25,7 @@ import {
 } from '@kira/core'
 import { tables } from '@kira/db'
 import { genRef, instanceSignature, newSeed } from '@kira/content/math'
+import { isFeatureOn } from './learner-features'
 import type { Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
@@ -143,7 +144,7 @@ function questLength(learner: LearnerRow, mode: string): number {
 async function topUp(
   tx: Tx,
   ctx: OrgContext,
-  input: { skillId: string; subject: Subject; slots: QuestSlot[]; count: number; theta: number; style: 'easy' | 'test'; avoid: ReadonlySet<string>; seen: Map<string, number>; rng: ReturnType<typeof createRng> },
+  input: { skillId: string; subject: Subject; slots: QuestSlot[]; count: number; theta: number; style: 'easy' | 'test'; avoid: ReadonlySet<string>; seen: Map<string, number>; rng: ReturnType<typeof createRng>; manipulatives: boolean },
 ): Promise<QuestSlot[]> {
   const need = input.count - input.slots.length
   if (need <= 0) return input.slots
@@ -151,7 +152,7 @@ async function topUp(
   const near = skillsFor(input.subject, sk?.grade ?? 2).filter((s) => s.id !== input.skillId && s.strand !== 'Oly' && !MANUAL_STRANDS.has(s.strand))
   const ordered = [...near.filter((s) => s.strand === sk?.strand), ...near.filter((s) => s.strand !== sk?.strand)].slice(0, 6)
   const cands: PoolCandidate[] = []
-  for (const s of ordered) cands.push(...(await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false })))
+  for (const s of ordered) cands.push(...(await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })))
   const picked = pickItems({
     candidates: cands.map((c) => ({ ...c, ...(input.seen.has(c.ref) && !c.unlimited ? { seenDaysAgo: input.seen.get(c.ref)! } : {}) })),
     theta: input.theta,
@@ -167,8 +168,9 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const rng = createRng(input.seedKey)
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
-  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
-  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false }))]
+  const manipulatives = await isFeatureOn(learner.userId, 'manipulatives')
+  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives }))]
   if (input.accept) pool = pool.filter(input.accept)
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)
@@ -199,7 +201,7 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
     const avoid = input.avoid ?? new Set<string>()
     slots = assembleSession({ kind: input.style === 'test' ? 'tes' : 'latihan', theta, dueRefs, candidates: withSeen(pool), count, avoid, reuse: false, rng })
     // Bank soal skill ini kurang: isi dari skill lain mapel yang sama, dan baru terakhir dengan soal yang dihindari.
-    if (!input.accept) slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng })
+    if (!input.accept) slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng, manipulatives })
     if (slots.length < count) {
       const used = new Set(slots.map((s) => s.ref))
       const band: [number, number] = input.style === 'test' ? [0.55, 0.75] : [0.85, 0.95]

@@ -1,0 +1,134 @@
+{
+  "skill": "m6.area-perimeter",
+  "items": [
+    {
+      "id": "m6.area-perimeter.701",
+      "skill": "m6.area-perimeter",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 4,
+      "prompt": "Make a rectangle with an area of 24 square units.",
+      "size": 8,
+      "rule": {
+        "shape": "rectangle",
+        "area": 24
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "hints": [
+        "A rectangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (6,0), (6,4), (0,4). It has 4 sides, a perimeter of 20 and an area of 24 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m6.area-perimeter.702",
+      "skill": "m6.area-perimeter",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 5,
+      "prompt": "Make an L-shape with 6 sides, all along the grid, a perimeter of 16 units and an area of 10 square units.",
+      "size": 5,
+      "rule": {
+        "sides": 6,
+        "rectilinear": true,
+        "perimeter": 16,
+        "area": 10
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "hints": [
+        "Count the sides in the Sides box. You need 6.",
+        "Area counts the squares inside. Perimeter counts the units around the outside. Both boxes update as you draw.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (4,0), (4,2), (1,2), (1,4), (0,4). It has 6 sides, a perimeter of 16 and an area of 10 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m6.area-perimeter.703",
+      "skill": "m6.area-perimeter",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 5,
+      "prompt": "Make a triangle with an area of 7.5 square units.",
+      "size": 6,
+      "rule": {
+        "shape": "triangle",
+        "area": 7.5
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "hints": [
+        "A triangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (5,0), (1,3). It has 3 sides, a perimeter of 13.2 and an area of 7.5 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    }
+  ]
+}

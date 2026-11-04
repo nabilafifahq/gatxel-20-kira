@@ -2,6 +2,7 @@ import 'server-only'
 import { and, eq, inArray, isNull } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { answerText, isPaperType, itemSchema, MANUAL_TYPES, presentItem, skillGrade, skillSubject, STRAND_NAMES, type ClientItem, type Item, type LabelPerm, type Lesson, type Passage, type Preset, type Skill, type Subject } from '@kira/content'
+import { MANIPULATIVE_GEN_LEVELS, MANIPULATIVE_TYPES } from '@kira/content/manip'
 import { GENERATORS, generateItem, isGenRef } from '@kira/content/math'
 import { loadContent, type ContentIndex } from '@kira/content/load'
 import type { Tx } from '../db'
@@ -122,13 +123,14 @@ export async function poolForSkill(
   tx: Tx,
   orgId: string,
   skillId: string,
-  opts: { allowManual: boolean; paperOnly?: boolean; /** Soal foto jawaban boleh ikut walau soal manual lain tidak (sesi dari tutor). */ allowPhoto?: boolean },
+  opts: { allowManual: boolean; paperOnly?: boolean; /** Soal foto jawaban boleh ikut walau soal manual lain tidak (sesi dari tutor). */ allowPhoto?: boolean; /** false bila fitur alat peraga dimatikan untuk learner ini. */ manipulatives?: boolean },
 ): Promise<PoolCandidate[]> {
   const out: PoolCandidate[] = []
   for (const item of content().itemsBySkill.get(skillId) ?? []) {
     const manual = MANUAL_TYPES.includes(item.type)
     if (manual && !opts.allowManual && !(opts.allowPhoto && item.type === 'photo')) continue
     if (item.type === 'draw') continue
+    if (opts.manipulatives === false && MANIPULATIVE_TYPES.has(item.type)) continue
     if (opts.paperOnly && !isPaperType(item.type)) continue
     if (item.lang === 'id' && !item.tags.includes('esmo') && !item.tags.includes('kmnr')) continue
     out.push({ ref: item.id, difficulty: item.difficulty, manual })
@@ -141,10 +143,11 @@ export async function poolForSkill(
     const body = r.body as { difficulty?: number; type?: string }
     if (body.type && MANUAL_TYPES.includes(body.type as Item['type']) && !opts.allowManual && !(opts.allowPhoto && body.type === 'photo')) continue
     if (opts.paperOnly && body.type && !isPaperType(body.type as Item['type'])) continue
+    if (opts.manipulatives === false && body.type && MANIPULATIVE_TYPES.has(body.type)) continue
     out.push({ ref: `org:${r.id}`, difficulty: body.difficulty ?? 3 })
   }
   const gen = GENERATORS.get(skillId)
-  if (gen) for (const level of gen.levels) out.push({ ref: `gen:${skillId}:${level}`, difficulty: level, unlimited: true })
+  if (gen) for (const level of gen.levels) if (!(opts.manipulatives === false && MANIPULATIVE_GEN_LEVELS.has(`${skillId}:${level}`))) out.push({ ref: `gen:${skillId}:${level}`, difficulty: level, unlimited: true })
   return out
 }
 

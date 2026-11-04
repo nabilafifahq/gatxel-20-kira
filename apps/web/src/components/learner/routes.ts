@@ -26,6 +26,7 @@ export const LEARNER_ROUTES = {
   practice: '/practice',
   flashcards: '/practice/cards',
   quizArena: '/quiz-arena',
+  tools: '/tools',
   esmo: '/esmo',
   competitions: '/competitions',
   pick: '/',
@@ -36,4 +37,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'reading' | 'world' | 'quick-maths' | 'quiz-arena' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'reading' | 'world' | 'quick-maths' | 'tools' | 'quiz-arena' | 'me'

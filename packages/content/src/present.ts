@@ -3,6 +3,7 @@ import type { FigureSpec } from '@kira/figures/spec'
 import { keyOf, type AnswerKey } from './check'
 import { flattenGrid, gridValues, type GridPuzzle } from './grid'
 import type { LabelPerm } from './labels'
+import type { PieceType, Pt } from './manip'
 import type { Item, Passage, SolutionStep } from './schema'
 
 /**
@@ -69,6 +70,12 @@ export type ClientItem = {
   labelDiagram?: ClientLabelDiagram
   table?: ClientTable
   grid?: ClientGrid
+  /** Alat peraga: hanya konfigurasi papan, tidak pernah target atau kunci. */
+  blocks?: { places: 'to' | 'hto'; start: { h: number; t: number; o: number } }
+  fractionbar?: { rows: { den?: number; locked?: number }[]; splits: number[] }
+  barmodel?: { kind: 'partwhole' | 'compare'; labels: string[]; barCount: number; maxUnits: number; unit?: { max: number }; unitName?: string }
+  tangram?: { pieces: PieceType[]; slots: Pt[][] }
+  geoboard?: { size: number }
   terms?: { term: string; en: string }[]
   expectedSeconds: number
   points?: number
@@ -103,6 +110,7 @@ const EXPECTED: Record<Item['type'], number> = {
   mcq: 45, multi: 60, numeric: 60, text: 60, order: 60, match: 75, sort: 75, numberline: 45, clock: 45, fraction: 45,
   write: 600, speak: 120, draw: 300,
   story: 150, listen: 45, tiles: 60, spell: 45, cloze: 60, hotspot: 30, label: 75, table: 90, grid: 180, photo: 300,
+  blocks: 60, fractionbar: 75, barmodel: 120, tangram: 150, geoboard: 90,
 }
 
 export function presentItem(item: Item, opt: PresentOptions): ClientItem {
@@ -258,6 +266,30 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
       }
       break
     }
+    case 'blocks':
+      out.blocks = { places: item.places, start: item.start }
+      break
+    case 'fractionbar':
+      out.fractionbar = { rows: item.rows, splits: item.splits }
+      break
+    case 'barmodel': {
+      const maxUnits = Math.min(12, Math.max(...item.bars.map((b) => b.units)) + 2)
+      out.barmodel = {
+        kind: item.kind,
+        labels: rng.shuffle([...item.bars.map((b) => b.label), ...item.extraLabels]),
+        barCount: item.bars.length,
+        maxUnits,
+        ...(item.unitValue !== undefined ? { unit: { max: Math.min(100, Math.max(12, Math.ceil((item.unitValue * 2) / 5) * 5)) } } : {}),
+        ...(item.unitName ? { unitName: item.unitName } : {}),
+      }
+      break
+    }
+    case 'tangram':
+      out.tangram = { pieces: item.pieces, slots: item.slots as unknown as Pt[][] }
+      break
+    case 'geoboard':
+      out.geoboard = { size: item.size }
+      break
     case 'grid':
       out.grid = { puzzle: item.puzzle, size: item.size, given: flattenGrid(item.given), values: gridValues(item.puzzle, item.size, flattenGrid(item.filled)) }
       break

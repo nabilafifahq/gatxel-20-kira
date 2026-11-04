@@ -1,0 +1,161 @@
+{
+  "skill": "m5.perimeter-area",
+  "items": [
+    {
+      "id": "m5.perimeter-area.701",
+      "skill": "m5.perimeter-area",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 4,
+      "prompt": "Make a right-angled triangle with an area of 6 square units.",
+      "size": 6,
+      "rule": {
+        "shape": "right-triangle",
+        "area": 6
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "hints": [
+        "A right-angled triangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (4,0), (0,3). It has 3 sides, a perimeter of 12 and an area of 6 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m5.perimeter-area.702",
+      "skill": "m5.perimeter-area",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 4,
+      "prompt": "Make an isosceles triangle with an area of 6 square units.",
+      "size": 5,
+      "rule": {
+        "shape": "isosceles-triangle",
+        "area": 6
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "hints": [
+        "A isosceles triangle: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (4,0), (2,3). It has 3 sides, a perimeter of 11.2 and an area of 6 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m5.perimeter-area.703",
+      "skill": "m5.perimeter-area",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 5,
+      "prompt": "Make a slanted parallelogram with an area of 6 square units. It must not be a rectangle.",
+      "size": 5,
+      "rule": {
+        "shape": "slanted-parallelogram",
+        "area": 6
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "hints": [
+        "A slanted parallelogram: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (3,0), (4,2), (1,2). It has 4 sides, a perimeter of 10.5 and an area of 6 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    },
+    {
+      "id": "m5.perimeter-area.704",
+      "skill": "m5.perimeter-area",
+      "source": "kira-original",
+      "type": "geoboard",
+      "difficulty": 5,
+      "prompt": "Make a trapezium with an area of 9 square units.",
+      "size": 5,
+      "rule": {
+        "shape": "trapezium",
+        "area": 9
+      },
+      "example": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "hints": [
+        "A trapezium: check the number of sides and the corners before you close the shape.",
+        "Area is the number of unit squares inside the shape. Watch the Area box as you change the shape.",
+        "If a number is too big or too small, tap Undo and move one corner by a peg."
+      ],
+      "explanation": "One answer uses the pegs (0,0), (4,0), (3,3), (1,3). It has 4 sides, a perimeter of 12.3 and an area of 9 square units.",
+      "tags": [
+        "manipulative",
+        "geoboard"
+      ]
+    }
+  ]
+}

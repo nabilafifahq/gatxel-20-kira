@@ -3,6 +3,7 @@ import { eq } from 'drizzle-orm'
 import { formatDateEn, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
+import { analysePegs, blocksValue, formatLength, parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { bestIndex } from '@kira/core'
 import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
 import type { Tx } from '../db'
@@ -90,6 +91,26 @@ export function yourAnswerText(item: Item, answer: unknown): string {
       const cells = (a.cells as number[]) ?? []
       const n = item.size
       return Array.from({ length: n }, (_, r) => cells.slice(r * n, r * n + n).map((c) => (c === 0 ? '_' : String(c))).join(' ')).join(' / ')
+    }
+    case 'blocks': {
+      const b = parseBlocks(a.blocks)
+      return b ? `${blocksValue(b)}: ${b.h} hundreds, ${b.t} tens, ${b.o} ones` : 'No answer'
+    }
+    case 'fractionbar':
+      return (parseBars(a.bars) ?? []).map((b, i) => `bar ${i + 1}: ${b.shaded}/${b.den}`).join('; ') || 'No answer'
+    case 'barmodel': {
+      const m = parseModel(a.model)
+      return m ? m.bars.map((b) => `${b.label}: ${b.units}`).join('; ') + (m.unit !== undefined ? `; 1 unit = ${m.unit}` : '') : 'No answer'
+    }
+    case 'tangram': {
+      const placed = parsePlacements(a.placed, item.slots.length, item.pieces.length)
+      return placed ? `${placed.filter(Boolean).length} of ${item.slots.length} pieces placed` : 'No answer'
+    }
+    case 'geoboard': {
+      const pegs = parsePegs(a.pegs, item.size)
+      if (!pegs) return 'No answer'
+      const info = analysePegs(pegs)
+      return info.ok ? `${info.sides} sides, area ${formatLength(info.area)}, perimeter ${formatLength(info.perimeter)}` : 'Shape not closed'
     }
   }
 }

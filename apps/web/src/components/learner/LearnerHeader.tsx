@@ -29,6 +29,7 @@ const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; 
   { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
   { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
   { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
+  { key: 'tools', label: 'Maths Tools', icon: 'pencil', href: LEARNER_ROUTES.tools },
   { key: 'world', label: 'Kira World', icon: 'star', href: LEARNER_ROUTES.world },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
