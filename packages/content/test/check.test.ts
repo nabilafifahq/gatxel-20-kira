@@ -134,3 +134,13 @@ describe('bentuk setara yang diketik anak', () => {
     expect(status(gen('Work out 5/6 - 3/8.'), { texts: ['12/24'] })).toBe('wrong')
   })
 })
+
+describe('bentuk waktu pada isian teks', () => {
+  const key = { type: 'text', blanks: [{ answers: ['11:20'], caseSensitive: false }] } as Parameters<typeof checkAnswer>[0]
+  it('spasi dan tanpa titik dua diterima, angka lain tidak', () => {
+    expect(checkAnswer(key, { texts: ['11 : 20'] }).status).toBe('correct')
+    expect(checkAnswer(key, { texts: ['1120'] }).status).toBe('correct')
+    expect(checkAnswer(key, { texts: ['1121'] }).status).toBe('wrong')
+    expect(checkAnswer(key, { texts: ['112'] }).status).toBe('wrong')
+  })
+})
