@@ -57,6 +57,8 @@ describe.skipIf(!ready)('dashboard orang tua', () => {
       (${a1}, ${orgA}, 'Anak Satu', 2, true, 90, '{}', ${today}),
       (${a2}, ${orgA}, 'Anak Dua', 3, true, 90, '{}', ${today}),
       (${b1}, ${orgB}, 'Anak Bayu', 4, true, 90, '{}', ${today})`
+    // Orang tua A mendaftar sendiri (punya kursi beta), jadi boleh menambah anak lewat addChild.
+    await owner`insert into auth.beta_seat (org_id, user_id, email_norm) values (${orgA}, ${gA}, ${`${gA}@example.test`})`
     await owner`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgA}, ${gA}, ${a1}), (${orgB}, ${gB}, ${b1})`
     for (const [id, org, nm] of [[a1, orgA, 'Anak Satu'], [a2, orgA, 'Anak Dua'], [b1, orgB, 'Anak Bayu']] as const) {
       await owner`insert into auth.user_account (id, org_id, kind, role, email, name) values (${id}, ${org}, 'learner', 'learner', null, ${nm})`
@@ -71,6 +73,7 @@ describe.skipIf(!ready)('dashboard orang tua', () => {
   })
 
   afterAll(async () => {
+    await owner`delete from auth.beta_seat where org_id = ${orgA}`
     await owner`delete from auth.user_account where org_id in (${orgA}, ${orgB})`
     await owner`delete from org where id in (${orgA}, ${orgB})`
     await Promise.all([owner.end(), end()])
