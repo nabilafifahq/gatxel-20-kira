@@ -4,7 +4,7 @@ import postgres from 'postgres'
 /**
  * Audit struktur keamanan database: setiap tabel data di skema public memakai RLS yang DIPAKSA dan punya
  * kebijakan; tabel identitas (skema auth) hanya bisa dibuka role kira_auth; fungsi SECURITY DEFINER
- * mengunci search_path dan tidak bisa dijalankan PUBLIC atau kira_app.
+ * mengunci search_path dan tidak bisa dijalankan PUBLIC atau kira_app (kecuali tiga fungsi yang sengaja dibuka).
  */
 const url = process.env.DATABASE_URL_OWNER
 const conn = url ? postgres(url, { max: 1, onnotice: () => {} }) : (null as never)
@@ -50,8 +50,9 @@ describe.skipIf(!url)('audit RLS dan fungsi', () => {
     for (const r of rows) {
       expect(r.cfg?.some((c) => c.startsWith('search_path=')), `${r.name} tanpa search_path`).toBe(true)
       expect(r.pub, `${r.name} bisa dijalankan PUBLIC`).toBe(false)
-      // Hanya kira_org_count (jumlah org untuk /setup) yang boleh dibuka untuk role aplikasi.
-      if (r.name !== 'kira_org_count') expect(r.app, `${r.name} bisa dijalankan kira_app`).toBe(false)
+      // Dibuka untuk role aplikasi dengan sengaja: kira_org_count (jumlah org untuk /setup), kira_seats_taken (jumlah
+      // kursi beta untuk halaman depan, hanya angka) dan app_family_has_tutor (hanya org milik pemanggil, lewat app_org_id()).
+      if (!['kira_org_count', 'kira_seats_taken', 'app_family_has_tutor'].includes(r.name)) expect(r.app, `${r.name} bisa dijalankan kira_app`).toBe(false)
     }
   })
 
