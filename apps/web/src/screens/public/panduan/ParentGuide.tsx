@@ -27,7 +27,7 @@ export function ParentGuide({ contact }: { contact: string }) {
           <h1 className="m-0 font-display text-h1 font-semibold">Panduan Kira untuk orang tua</h1>
           <p className="m-0 max-w-[60ch] text-body-lg">Semua yang perlu Ayah/Bunda ketahui: cara mulai, cara kerja setiap fitur dengan contoh anak, dan apa saja yang bisa diatur. Tidak perlu masuk untuk membacanya.</p>
           <p className="m-0 max-w-[60ch]">
-            Kira adalah ruang belajar harian untuk anak SD kelas 1 sampai 6, mengacu pada kerangka Cambridge Primary. Tampilan anak berbahasa Indonesia, soalnya berbahasa Inggris. Anak yang ingin membaca sendiri punya <A href="/panduan/anak">panduan bergambar</A>.
+            Kira adalah ruang belajar harian untuk anak SD kelas 1 sampai 6, mengacu pada kerangka Cambridge Primary. Tombol di layar anak berbahasa Indonesia, soalnya kebanyakan berbahasa Inggris. Anak yang ingin membaca sendiri punya <A href="/panduan/anak">panduan bergambar</A>.
           </p>
         </div>
       </header>
@@ -89,7 +89,7 @@ export function ParentGuide({ contact }: { contact: string }) {
             <h2 id="bantuan-judul" className="m-0 text-h1 font-semibold max-sm:text-h2">
               Hubungi kami
             </h2>
-            <p className="m-0 max-w-[60ch] text-body-lg">Ada yang membingungkan atau tidak berjalan? Tulis di halaman bantuan: pilih kategori, isi subjek dan pesan, dan kalau perlu lampirkan foto layar atau video pendek. Di halaman itu juga ada tombol WhatsApp.</p>
+            <p className="m-0 max-w-[60ch] text-body-lg">Ada yang membingungkan atau tidak berjalan? Tulis di halaman Bantuan dan masukan: pilih kategori, isi subjek dan pesan, dan kalau perlu lampirkan foto layar atau video pendek. Di halaman itu juga ada tombol untuk chat lewat WhatsApp.</p>
             <div>
               <ButtonLink href="/feedback" variant="primary">
                 Buka halaman bantuan
@@ -108,7 +108,7 @@ export function ParentGuide({ contact }: { contact: string }) {
               items={[
                 'Foto layar soalnya, supaya soal yang dimaksud mudah ditemukan.',
                 <>
-                  Buka <A href="/feedback">halaman bantuan</A>, tulis apa yang keliru, lalu lampirkan fotonya.
+                  Buka <A href="/feedback">halaman bantuan</A>, pilih kategori <L>Koreksi soal atau materi</L>, tulis apa yang keliru, lalu lampirkan fotonya.
                 </>,
                 'Anak juga bisa mengetuk tombol bendera di layar soal untuk menandai soal itu.',
               ]}
