@@ -13,86 +13,98 @@
     {
       "id": "c1",
       "title": "The Tin Box",
-      "text": "When the school holidays began, Kirana travelled with her brother Bima to their grandfather's village on the north coast of Java. Opa's house stood on stilts, only a few steps from the sea. At high tide, the water licked the bottom of the wooden ladder.\n\nOn the second rainy afternoon, Opa asked the children to tidy the storeroom. Behind a pile of fishing nets, Kirana found a dented biscuit tin. Inside, wrapped in plastic, lay a yellowing sheet of paper.\n\n\"It is a map,\" whispered Bima. The lines were drawn in blue pencil. A wavy coast, little pictures of trees, a tiny boat, and a cross in red ink at the far edge.\n\nKirana turned the paper over. On the back, in shaky handwriting, someone had written: Follow the tide, not the path.",
+      "text": "When the school holidays began, Kirana travelled with her brother Bima to their grandfather's village on the north coast of Java. Opa's house stood on stilts, only a few steps from the sea. At high tide, the water licked the bottom of the wooden ladder. At night, Kirana could hear it moving under the floorboards, as if the whole house were breathing.\n\nOpa was a quiet man with hands as rough as old rope. He mended nets on the porch and did not ask many questions. Their parents had told them that he had fished all his life, and that was all they knew about him.\n\nOn the second rainy afternoon, Opa asked the children to tidy the storeroom. It was dark in there, and it smelled of salt and tar. They found a rusty anchor, a broken radio and a bucket full of floats. Bima wanted to see if the radio still worked. Behind a pile of fishing nets, Kirana found a dented biscuit tin. It had been sealed with tape so old that it came away in flakes. Inside, wrapped in plastic, lay a yellowing sheet of paper.\n\n\"It is a map,\" whispered Bima.\n\nThe lines were drawn in blue pencil. There was a wavy coast, little pictures of trees, a tiny boat, and a cross in red ink at the far edge. Kirana guessed that a child had drawn it, because the trees all looked like broccoli. But it was a careful child. Along one thin line, he had written the number of steps: two hundred.\n\n\"Treasure,\" said Bima at once. \"It has a cross. Crosses always mean treasure.\"\n\nKirana turned the paper over. On the back, in shaky handwriting, someone had written: Follow the tide, not the path.\n\nShe read it twice while the rain drummed on the roof. How could anyone follow a tide? As far as she knew, it only went in and out.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Where does Opa's village lie?",
+          "prompt": "Where is Opa's village?",
           "options": [
+            "Inland, near a volcano",
             "On the south coast of Sumatra",
-            "On the north coast of Java",
-            "Inland near a volcano",
-            "On an island in Papua"
+            "On an island in Papua",
+            "On the north coast of Java"
           ],
-          "answer": 1,
+          "answer": 3,
           "why": "They travelled to their grandfather's village on the north coast of Java."
         },
         {
           "id": "q2",
-          "prompt": "Why can the water reach the ladder of Opa's house?",
+          "prompt": "What does \"as if the whole house were breathing\" describe?",
           "options": [
-            "The house is built in a swamp",
-            "The ladder is very short",
-            "There is a river inside",
-            "The house stands on stilts near the sea and the tide comes in"
+            "The sound of the sea moving under the floor at night",
+            "The way Opa slept and snored in the next room",
+            "The old wooden ladder creaking when Bima climbed it",
+            "The wind that blew through the walls of the storeroom"
           ],
-          "answer": 3,
-          "why": "Opa's house stood on stilts, a few steps from the sea, and at high tide the water licked the ladder."
+          "answer": 0,
+          "why": "At night, Kirana could hear the water moving under the floorboards, as if the whole house were breathing."
         },
         {
           "id": "q3",
-          "prompt": "What did the children do on the rainy afternoon?",
+          "prompt": "What did the children know about Opa before this holiday?",
           "options": [
-            "They went fishing",
-            "They tidied the storeroom",
-            "They sailed a boat",
-            "They cooked dinner"
+            "That he had grown up in the middle of a city",
+            "Only that he had fished all his life",
+            "That he had once drawn a famous map",
+            "That he had hidden treasure in the storeroom"
           ],
           "answer": 1,
-          "why": "Opa asked them to tidy the storeroom."
+          "why": "Their parents had told them that he had fished all his life, and that was all they knew about him."
         },
         {
           "id": "q4",
-          "prompt": "How did Kirana find the map?",
+          "prompt": "Where did Kirana find the tin?",
           "options": [
-            "Opa gave it to her",
-            "It fell from the roof",
-            "It was in a book",
-            "It was inside a biscuit tin behind some nets"
+            "Inside the bucket of floats",
+            "Beneath the floorboards",
+            "Behind a pile of fishing nets",
+            "Under the broken radio"
           ],
-          "answer": 3,
-          "why": "Behind a pile of fishing nets, Kirana found a dented biscuit tin with the paper inside."
+          "answer": 2,
+          "why": "Behind a pile of fishing nets, Kirana found a dented biscuit tin."
         },
         {
           "id": "q5",
-          "prompt": "Which mark showed something important on the map?",
+          "prompt": "Why did Kirana think a child had drawn the map?",
           "options": [
-            "A cross in red ink",
-            "A blue circle",
-            "A black arrow",
-            "A green star"
+            "The lines were drawn in blue pencil",
+            "The paper was yellow and very old",
+            "The trees all looked like broccoli",
+            "The writing on the back was shaky"
           ],
-          "answer": 0,
-          "why": "A cross in red ink was at the far edge of the map."
+          "answer": 2,
+          "why": "Kirana guessed that a child had drawn it, because the trees all looked like broccoli."
         },
         {
           "id": "q6",
-          "prompt": "What is written on the back of the map?",
+          "prompt": "Why does Bima think the map shows treasure?",
           "options": [
-            "Follow the sun",
-            "Ask your grandfather",
-            "Beware of the sea",
-            "Follow the tide, not the path"
+            "It was inside a locked tin",
+            "Opa told him about gold",
+            "It shows a tiny boat",
+            "It has a cross on it"
           ],
           "answer": 3,
-          "why": "On the back: Follow the tide, not the path."
+          "why": "Bima says, \"It has a cross. Crosses always mean treasure.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "Why does the message on the back puzzle Kirana?",
+          "options": [
+            "She thinks a tide only goes in and out, so it cannot lead anywhere",
+            "She thinks the message has been written by her brother",
+            "She cannot read the shaky handwriting on the old paper",
+            "She does not know what the word tide means in English"
+          ],
+          "answer": 0,
+          "why": "She asks how anyone could follow a tide, because as far as she knew, it only went in and out."
         }
       ]
     },
     {
       "id": "c2",
       "title": "What Opa Remembered",
-      "text": "At dinner, Kirana placed the map on the table. Opa put on his glasses and said nothing for a long time. Then he smiled, and his eyes shone.\n\n\"I drew this when I was twelve,\" he said. \"In those days the sea was angry. The waves had eaten the beach and knocked down half of our houses. The fishermen said the sea took one metre of land every year.\"\n\n\"What is the cross?\" asked Bima.\n\n\"That is where I planted my first mangrove seedling,\" said Opa. \"An old woman told me that the roots would hold the soil and break the waves. Everybody laughed at me. I planted it anyway.\"\n\nKirana's heart began to race. \"Is it still there?\" she asked.\n\n\"I have not been back for years,\" said Opa. \"The path is gone. Only the tide knows the way.\"",
+      "text": "At dinner, Kirana placed the map on the table, between the rice and the fried fish. Opa stopped chewing. He wiped his fingers, put on his glasses and said nothing for a long time. A moth bumped against the lamp. Bima kicked Kirana under the table. Then Opa smiled, and his eyes shone.\n\n\"I drew this when I was twelve,\" he said. \"My father had come from Bali to build boats here, so we were the new family. In those days the sea was angry. The waves had eaten the beach and knocked down half of our houses. The fishermen said the sea took one metre of land every year. My mother put a stick in the sand to mark the edge of the water. Each year, she moved it further back.\"\n\n\"What is the cross?\" asked Bima. \"Is it treasure?\"\n\n\"That is where I planted my first mangrove seedling,\" said Opa.\n\nBima's face fell.\n\n\"The old mangrove forest had been cut down for firewood and fish ponds,\" Opa went on. \"That was why the sea could come so far in. An old woman who sold salted fish told me that the roots would hold the soil and break the waves. She gave me a long green seedling, as thin as a pen, and she showed me how to push it into the mud. Everybody laughed at me. A boy with a stick, they said, against the whole sea. I planted it anyway. The next day, I planted another.\"\n\nKirana's heart began to race. \"Is it still there?\" she asked.\n\nOpa took off his glasses and folded them slowly. \"I have not been back for years,\" he said. \"My knees are too old for that mud, and the path is gone. Only the tide knows the way.\"\n\nHe tapped the back of the map with one finger, and he looked at them over the rice. It was hard to tell if he was asking them a question. Kirana looked at Bima, and Bima looked at Kirana.",
       "questions": [
         {
           "id": "q1",
@@ -108,379 +120,487 @@
         },
         {
           "id": "q2",
-          "prompt": "What had happened to the beach in those days?",
+          "prompt": "Why was Opa's family \"the new family\" in the village?",
           "options": [
-            "The waves had eaten it away",
-            "It had grown wider",
-            "It had become a forest",
-            "It had been sold"
+            "His mother had just bought a new house by the sea",
+            "His father had come from Bali to build boats there",
+            "They had moved to the village after the waves came",
+            "Opa's family had lost their old house in a storm"
           ],
-          "answer": 0,
-          "why": "The waves had eaten the beach and knocked down half of the houses."
+          "answer": 1,
+          "why": "He says, \"My father had come from Bali to build boats here, so we were the new family.\""
         },
         {
           "id": "q3",
-          "prompt": "What does the cross mark?",
+          "prompt": "Why did Opa's mother keep moving her stick further back?",
           "options": [
-            "A fishing spot",
-            "Opa's old school",
-            "A hidden treasure chest",
-            "The place of the first mangrove seedling"
+            "The edge of the water was coming further up the land",
+            "She was marking out land for building a new house",
+            "The stick was washed away each time the tide came in",
+            "She wanted more room to dry her fish on the sand"
           ],
-          "answer": 3,
-          "why": "Opa said it is where he planted his first mangrove seedling."
+          "answer": 0,
+          "why": "The stick marked the edge of the water, and the sea took about one metre of land every year."
         },
         {
           "id": "q4",
-          "prompt": "Why did the old woman advise planting mangroves?",
+          "prompt": "What does the cross on the map mark?",
           "options": [
-            "They give sweet fruit",
-            "They make shade",
-            "The roots hold the soil and break the waves",
-            "They keep fish away"
+            "The best fishing spot on the whole coast",
+            "A hidden box of gold and silver coins",
+            "The old house where Opa's family lived",
+            "The place of Opa's first mangrove seedling"
           ],
-          "answer": 2,
-          "why": "She told him the roots would hold the soil and break the waves."
+          "answer": 3,
+          "why": "Opa said, \"That is where I planted my first mangrove seedling.\""
         },
         {
           "id": "q5",
-          "prompt": "How did the other villagers react to Opa's idea?",
+          "prompt": "Why did Bima's face fall?",
           "options": [
-            "They laughed at him",
-            "They helped him",
-            "They asked for a map",
-            "They were afraid"
+            "He had been hoping for treasure, and it was only a seedling",
+            "He had kicked his sister and knew he would be in trouble",
+            "He did not like the taste of the fried fish at dinner",
+            "He was frightened by what Opa said about the angry sea"
           ],
           "answer": 0,
-          "why": "Everybody laughed at him."
+          "why": "He has just asked, \"Is it treasure?\" When he hears it is a seedling, he is disappointed."
         },
         {
           "id": "q6",
-          "prompt": "What does \"Only the tide knows the way\" suggest?",
+          "prompt": "Why had the sea been able to come so far in?",
           "options": [
-            "The sea is dangerous at night",
-            "Opa has forgotten his friends",
-            "The way to the place depends on the tide",
-            "No one can find the seedling"
+            "The moon had moved closer to the Earth",
+            "The rain had washed the sand into the sea",
+            "The old mangrove forest had been cut down",
+            "The boat builders had dug away the beach"
           ],
           "answer": 2,
-          "why": "The map says to follow the tide, so Opa means the route depends on the water level."
+          "why": "Opa says the old forest had been cut down for firewood and fish ponds. \"That was why the sea could come so far in.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "What did the old woman teach Opa?",
+          "options": [
+            "That a stick in the sand could show when the tide would come",
+            "That a map should always be drawn in blue pencil",
+            "That salted fish would sell for more money in the city",
+            "That mangrove roots could hold the soil and break the waves"
+          ],
+          "answer": 3,
+          "why": "She told him the roots would hold the soil and break the waves, and showed him how to plant a seedling."
+        },
+        {
+          "id": "q8",
+          "prompt": "What might Opa be hinting at the end of the chapter?",
+          "options": [
+            "He wants them to stop asking him questions at dinner",
+            "He would like the children to go and look for the tree",
+            "He would like them to mend his old fishing nets",
+            "He is cross that they took the map from the storeroom"
+          ],
+          "answer": 1,
+          "why": "He says the way is lost and his knees are too old, then he taps the map and looks at them as if asking a question."
         }
       ]
     },
     {
       "id": "c3",
       "title": "Reading the Tide",
-      "text": "The next morning, Opa showed the children a tide table, which his neighbour had pinned on the wall. It listed the times of high and low water for each day.\n\n\"The sea rises and falls twice a day, pulled by the moon,\" he explained. \"At high tide, the mangrove forest is half under water. At low tide, the mud appears, and you can walk between the roots. You must start soon after low tide begins, and you must be out before the water comes back.\"\n\nKirana counted on her fingers. \"Low tide is at ten o'clock today,\" she said. \"It turns about six hours later.\"\n\n\"Very good,\" said Opa. \"That gives you only a short time. I will lend you my boots. Take a rope, a water bottle and a whistle. And promise me you will turn back at the first sign of the tide.\"",
+      "text": "The next morning, Opa showed the children a tide table, which his neighbour had pinned on the wall. It was a long sheet of tiny numbers, and it listed the times of high and low water for each day.\n\n\"The sea rises and falls, pulled by the moon,\" he explained. \"At high tide, the mangrove forest is half under water. At low tide, the mud appears, and you can walk between the roots. You may go in while the water is low, but you must be out before it comes back.\"\n\nKirana ran her finger along the row for that day. \"Low tide is at ten o'clock today,\" she said. \"High tide is at four o'clock.\" She counted on her fingers. \"So it takes six hours to come all the way back.\"\n\n\"Very good,\" said Opa. \"But you must not wait until four o'clock. The water does not rise evenly. It comes slowly at first, and then much faster in the middle hours. And it does not only come from in front of you. It runs up the creeks and gets behind you. By one o'clock, the creeks are filling. By two, you will not find your way back on foot. That gives you only a short time.\"\n\nHe went to the shelf. \"I will lend you my boots. They are too big, so stuff the toes with rags. Take a rope, a water bottle and a whistle. If you are in trouble, blow three long blasts, and keep on blowing. And promise me you will turn back at the first sign of the tide.\"\n\nBima promised at once. Kirana looked at the back of the map again. \"How can we follow the tide,\" she asked, \"if it has gone out?\"\n\n\"The water leaves a trail when it goes,\" said Opa, and he would say no more. He went back to his nets. But as she packed her bag, Kirana saw him take his old binoculars down from the shelf and wipe the glass with his shirt.",
       "questions": [
         {
           "id": "q1",
           "prompt": "What did the tide table list?",
           "options": [
-            "The weather every day",
-            "The names of fish",
-            "The times of high and low water",
-            "The days of the week"
+            "The names of boats in the harbour",
+            "The weather for each day of the month",
+            "The prices of fish at the market",
+            "The times of high and low water"
           ],
-          "answer": 2,
+          "answer": 3,
           "why": "It listed the times of high and low water for each day."
         },
         {
           "id": "q2",
           "prompt": "According to Opa, what pulls the sea up and down?",
           "options": [
+            "The rain",
+            "The moon",
             "The wind",
-            "The sun only",
-            "The fishermen",
-            "The moon"
+            "The fishermen"
           ],
-          "answer": 3,
-          "why": "He said the sea rises and falls twice a day, pulled by the moon."
+          "answer": 1,
+          "why": "He said, \"The sea rises and falls, pulled by the moon.\""
         },
         {
           "id": "q3",
-          "prompt": "What does the mud look like at low tide?",
+          "prompt": "How long does the water take to come back from low tide to high tide that day?",
           "options": [
-            "It is hidden under water",
-            "It appears and you can walk between the roots",
-            "It turns into sand",
-            "It becomes a river"
+            "Two hours",
+            "Four hours",
+            "Six hours",
+            "Ten hours"
           ],
-          "answer": 1,
-          "why": "At low tide, the mud appears, and you can walk between the roots."
+          "answer": 2,
+          "why": "Low tide is at ten o'clock and high tide is at four o'clock. Kirana counts six hours."
         },
         {
           "id": "q4",
-          "prompt": "What time is low tide on that day?",
+          "prompt": "Why must the children not wait until four o'clock to come back?",
           "options": [
-            "Six o'clock",
-            "Ten o'clock",
-            "Noon",
-            "Four o'clock"
+            "The water rises fast in the middle hours and gets behind them",
+            "The mud becomes too hard to walk on in the afternoon sun",
+            "The boots will be too heavy for them to wear after lunch",
+            "Opa wants them home in time to help him with the nets"
           ],
-          "answer": 1,
-          "why": "Kirana says low tide is at ten o'clock today."
+          "answer": 0,
+          "why": "Opa says it comes much faster in the middle hours, and it runs up the creeks and gets behind you. By two, you will not find your way back on foot."
         },
         {
           "id": "q5",
           "prompt": "Which item is NOT in Opa's list for the children?",
           "options": [
+            "A compass",
             "A rope",
-            "A whistle",
             "A water bottle",
-            "A compass"
+            "A whistle"
           ],
-          "answer": 3,
-          "why": "Opa lists boots, a rope, a water bottle and a whistle."
+          "answer": 0,
+          "why": "Opa lists boots, a rope, a water bottle and a whistle. He does not mention a compass."
         },
         {
           "id": "q6",
-          "prompt": "Why does Opa make the children promise to turn back at the first sign of the tide?",
+          "prompt": "What should the children do if they get into trouble?",
           "options": [
-            "The water can rise quickly and trap them",
-            "The mud is too deep to walk in",
-            "The map will stop working",
-            "They will be too tired"
+            "Run back along the mud as fast as they possibly can",
+            "Blow three long blasts on the whistle and keep blowing",
+            "Tie the rope to a tree and shout as loudly as they can",
+            "Wave the map above their heads until someone sees it"
           ],
-          "answer": 0,
-          "why": "He warns that they must be out before the water comes back."
+          "answer": 1,
+          "why": "He says, \"If you are in trouble, blow three long blasts, and keep on blowing.\""
+        },
+        {
+          "id": "q7",
+          "prompt": "What does Opa mean by \"The water leaves a trail when it goes\"?",
+          "options": [
+            "You can see footprints in the mud left by the water",
+            "The water carries the seedling back to his house each day",
+            "The way the water flows out can show the way, if you look carefully",
+            "The tide leaves a line of painted marks along the mud"
+          ],
+          "answer": 2,
+          "why": "It answers Kirana's question about following a tide that has gone out. Water leaving the forest moves in a direction that can be followed."
+        },
+        {
+          "id": "q8",
+          "prompt": "What does the moment with the binoculars suggest?",
+          "options": [
+            "Opa wants to sell the binoculars to his neighbour",
+            "Opa has decided that he will go birdwatching instead",
+            "Opa thinks the glass has become too dirty to see through",
+            "Opa plans to keep watch over the children from a distance"
+          ],
+          "answer": 3,
+          "why": "He has just told them to blow a whistle in trouble, and now he quietly gets his binoculars ready. Binoculars are for watching things far away."
         }
       ]
     },
     {
       "id": "c4",
       "title": "Into the Roots",
-      "text": "At ten o'clock, the children set off. The sea had gone far away, and the beach was a great grey plain of mud. Bima held the map and Kirana led. Their boots made loud, sucking sounds.\n\nAt the edge of the forest, the mangrove roots rose out of the mud like hundreds of arched legs. \"They look like spiders,\" shivered Bima.\n\n\"They are called prop roots,\" said Kirana. \"I read about them. They help the tree stand in soft mud and take in air.\"\n\nLittle crabs scuttled away. Small fish with bulging eyes, called mudskippers, jumped across the mud on their fins. Kirana laughed. \"They are fish that walk!\"\n\nThe map said to follow the smallest creek for two hundred steps. They counted aloud together, one, two, three, all the way to the end.",
+      "text": "At ten o'clock, the children set off. The sea had gone far away, and the beach was a great grey plain of mud. Bima held the map and Kirana led. Their boots made loud, sucking sounds. With every step, the mud tried to keep them. Bima's left boot came off twice, and each time he stood on one leg like a heron and shouted until Kirana came back. Crossing the mud took nearly an hour.\n\nAt the edge of the forest, the mangrove roots rose out of the mud like hundreds of arched legs. Under the trees, the light turned green. All around them, the mud clicked and popped.\n\n\"They look like spiders,\" shivered Bima.\n\n\"They are called prop roots,\" said Kirana. \"I read about them. They help the tree stand in soft mud and take in air.\"\n\nShe put her hand on one. It was wet and rough, and tiny shells were stuck along it. Then she saw a dark line on the trunk behind it, where the shells stopped. The line was higher than her head. She stopped smiling and looked at her watch.\n\nLittle crabs scuttled away, each one waving a single big claw. Small fish with bulging eyes, called mudskippers, jumped across the mud on their fins. Kirana laughed in spite of herself. \"They are fish that walk!\"\n\n\"How can they breathe up here?\" asked Bima.\n\n\"They carry water in their gills, and they can take in air through their wet skin,\" she said.\n\nThe map said to follow the smallest creek for two hundred steps. They found it between two huge roots, no wider than a door. Some of the steps meant climbing, and some meant wading. They counted aloud together, one, two, three, all the way to the end. In that green, clicking place, the sound of their own voices was a great comfort.\n\nAt two hundred, they stopped. Neither of them was talking now. Kirana's watch said it was already past twelve.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "What did the children's boots sound like?",
+          "prompt": "Why did it take so long to cross the mud?",
           "options": [
-            "Like drums",
-            "Loud sucking sounds",
-            "Like bells",
-            "Like tapping"
+            "The children had forgotten the map and had to go back",
+            "The mud pulled at their boots, and Bima's boot came off twice",
+            "The children kept stopping to look for treasure on the way",
+            "A strong wind was blowing hard against them all the way"
           ],
           "answer": 1,
-          "why": "Their boots made loud, sucking sounds."
+          "why": "With every step, the mud tried to keep them, and Bima's left boot came off twice."
         },
         {
           "id": "q2",
           "prompt": "What did the mangrove roots look like to Bima?",
           "options": [
+            "Ladders",
             "Snakes",
             "Spiders",
-            "Ladders",
             "Fingers"
           ],
-          "answer": 1,
-          "why": "Bima said they look like spiders."
+          "answer": 2,
+          "why": "Bima said, \"They look like spiders.\""
         },
         {
           "id": "q3",
-          "prompt": "What are the arched roots called?",
+          "prompt": "How do prop roots help the tree?",
           "options": [
-            "Stilt boots",
-            "Air pipes",
-            "Prop roots",
-            "Mud sticks"
+            "They make the mud harder for people to cross",
+            "They help it catch small crabs for food",
+            "They keep the salt water away from the seeds",
+            "They help it stand in soft mud and take in air"
           ],
-          "answer": 2,
-          "why": "Kirana said they are called prop roots."
+          "answer": 3,
+          "why": "Kirana said, \"They help the tree stand in soft mud and take in air.\""
         },
         {
           "id": "q4",
-          "prompt": "How do prop roots help the tree?",
+          "prompt": "Why did Kirana stop smiling when she saw the dark line?",
           "options": [
-            "They find water in the sea",
-            "They help it stand in soft mud and take in air",
-            "They keep crabs away",
-            "They make the mud harder to walk on"
+            "It showed that the water would come back higher than her head",
+            "It reminded her that she had forgotten to bring her watch",
+            "It looked like the sort of mark a dangerous animal would make",
+            "It was the same colour as the mud on her brother's boots"
           ],
-          "answer": 1,
-          "why": "They help the tree stand in soft mud and take in air."
+          "answer": 0,
+          "why": "The shells stopped at the line, and it was higher than her head. That shows how high the water reaches, and she checks her watch."
         },
         {
           "id": "q5",
-          "prompt": "What are the fish with bulging eyes called?",
+          "prompt": "How can mudskippers breathe out of the water?",
           "options": [
-            "Crab fish",
-            "Mud crabs",
-            "Mudskippers",
-            "Skipjacks"
+            "They breathe through their fins as they jump over the mud",
+            "They carry water in their gills and take in air through wet skin",
+            "They hold one big breath of air before they leave the water",
+            "They stay in the shade until they can get back to the creek"
           ],
-          "answer": 2,
-          "why": "Small fish with bulging eyes are called mudskippers."
+          "answer": 1,
+          "why": "Kirana said, \"They carry water in their gills, and they can take in air through their wet skin.\""
         },
         {
           "id": "q6",
-          "prompt": "How did the children follow the map for two hundred steps?",
+          "prompt": "How did the children keep track of the two hundred steps?",
           "options": [
-            "They ran",
-            "They used a rope",
-            "They used a compass",
-            "They counted aloud together"
+            "They timed it with her watch",
+            "They tied knots in the rope",
+            "They counted aloud together",
+            "They used marks on the map"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "They counted aloud together, one, two, three, all the way to the end."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why might counting aloud have been \"a great comfort\"?",
+          "options": [
+            "Hearing their own voices made the strange forest feel less frightening",
+            "The noise frightened away all the crabs that were following them",
+            "Counting made the steps shorter and the mud a lot less deep",
+            "Bima could not walk at all unless somebody told him how far to go"
+          ],
+          "answer": 0,
+          "why": "The forest is green and clicking and they are nervous. The text says the sound of their own voices was a comfort."
         }
       ]
     },
     {
       "id": "c5",
       "title": "The Wrong Turn",
-      "text": "After two hundred steps, the creek split in two. The map showed only one line, but now there were two. Which one was right?\n\n\"We should go left,\" said Bima. \"It looks wider.\"\n\nKirana was not sure. She remembered the words on the back. Follow the tide, not the path. She dipped her finger in the water and felt a gentle current in the right-hand creek, flowing towards her and out to sea. The left-hand creek was almost still.\n\n\"At low tide, water drains out of the forest,\" she said. \"A creek with a current comes from deep inside, where the water has gathered. Opa drew that one. We go right!\"\n\nBima grumbled, but he followed. After a few minutes, the creek led them to a small clearing. They had arrived! But Kirana's watch said one o'clock. The tide had turned, and brown water had already begun to creep around their boots.",
+      "text": "After two hundred steps, the creek split in two. The map showed only one line, but now there were two. Which one was right?\n\n\"We should go left,\" said Bima. \"It looks wider.\" He was already moving. \"Wide means it goes somewhere.\"\n\nKirana caught his sleeve. She was not sure. Creeks could change in all those years. Then she remembered the words on the back. Follow the tide, not the path. And she remembered what Opa had said about the trail.\n\nShe crouched down and dipped her finger in the water. She felt a gentle current in the right-hand creek, flowing towards her and out to sea. Then she dropped a leaf into the left-hand creek. It sat there, turning slowly. The left-hand creek was almost still.\n\n\"At low tide, water drains out of the forest,\" she said. \"A creek with a current comes from deep inside, where the water has gathered. Opa drew that one. It may look small, but it is the real way in. We go right!\"\n\nBima grumbled, but he followed. \"If we end up in a swamp,\" he said, \"I will tell Opa it was your idea.\"\n\nThe right-hand creek was so narrow that they had to walk in it, with roots brushing both their shoulders. The mud grew deeper. They could not hear the sea any more. Mosquitoes whined around their ears. Kirana began to wonder if she had been wrong, but she did not say so. She just kept walking, and she kept her voice cheerful when she answered him.\n\nAfter a few minutes, the trees opened, and the creek led them to a small clearing with the sky above it. They had arrived!\n\nBut Kirana's watch said one o'clock. She looked down. A small leaf floated past her boot, and it was going the wrong way, into the forest. The tide had turned, and brown water had already begun to creep around their boots.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "What problem did the children meet?",
+          "prompt": "What problem did the children meet at the end of the two hundred steps?",
           "options": [
-            "They lost the rope",
-            "Bima fell in the mud",
-            "The creek split into two but the map showed only one",
-            "The map got wet"
+            "The creek split in two, but the map showed one line",
+            "Bima had dropped the map into the creek",
+            "A fallen tree had blocked the way ahead",
+            "The rope had snapped and been lost in the mud"
           ],
-          "answer": 2,
-          "why": "The creek split in two and the map showed only one line."
+          "answer": 0,
+          "why": "The creek split in two. The map showed only one line, but now there were two."
         },
         {
           "id": "q2",
-          "prompt": "Which way did Bima want to go?",
+          "prompt": "Why did Bima want to go left?",
           "options": [
-            "Left, because it looked wider",
-            "Right, because it was narrower",
-            "Back to the house",
-            "Straight ahead"
+            "He could see the sea at the end of it",
+            "He was afraid of the crabs on the right",
+            "He thought a wider creek must go somewhere",
+            "He remembered it from Opa's old stories"
           ],
-          "answer": 0,
-          "why": "Bima said, \"We should go left. It looks wider.\""
+          "answer": 2,
+          "why": "Bima said, \"It looks wider. Wide means it goes somewhere.\""
         },
         {
           "id": "q3",
-          "prompt": "What clue did Kirana use to choose?",
+          "prompt": "How did Kirana test the left-hand creek?",
           "options": [
-            "The colour of the water",
-            "A current in one creek and still water in the other",
-            "The sound of birds",
-            "The position of the sun"
+            "She pushed a long stick down into it",
+            "She walked a little way along it",
+            "She tasted the water to see if it was salty",
+            "She dropped a leaf in and watched it"
           ],
-          "answer": 1,
-          "why": "She felt a gentle current in the right-hand creek, while the left-hand creek was almost still."
+          "answer": 3,
+          "why": "She dropped a leaf into the left-hand creek. It sat there, turning slowly."
         },
         {
           "id": "q4",
-          "prompt": "What did Kirana understand about low tide?",
+          "prompt": "Why did Kirana think the creek with a current was the right one?",
           "options": [
-            "The water stops moving",
-            "Water drains out of the forest",
-            "The sea becomes salty",
-            "The mud turns hard"
+            "It was the only one of the two creeks that was wide enough",
+            "It must come from deep inside the forest, where the water gathers",
+            "It was closer to the sea, so it would be safer for them",
+            "Its water was cleaner and looked much better to drink"
           ],
           "answer": 1,
-          "why": "At low tide, water drains out of the forest."
+          "why": "She says, \"A creek with a current comes from deep inside, where the water has gathered.\""
         },
         {
           "id": "q5",
-          "prompt": "What did Kirana's watch say when they arrived?",
+          "prompt": "What does \"Follow the tide, not the path\" turn out to mean?",
           "options": [
-            "Ten o'clock",
-            "Noon",
-            "Two o'clock",
-            "One o'clock"
+            "Use the flow of the water, because the shape of a path can mislead you",
+            "Walk only at night, when the water is high and the moon is out",
+            "Keep the sea on your left side and do not look at the map",
+            "Stay away from the water and wait for the tide to go right out"
           ],
-          "answer": 3,
-          "why": "Her watch said one o'clock."
+          "answer": 0,
+          "why": "Bima's creek looks like a path because it is wide. Kirana ignores how it looks and uses the current, and that leads them to the clearing."
         },
         {
           "id": "q6",
-          "prompt": "Why is it a problem that the watch says one o'clock?",
+          "prompt": "Why did Kirana not tell Bima that she was starting to worry?",
           "options": [
-            "The tide had turned and water was rising around them",
-            "They were late for lunch",
-            "The map was too old",
-            "Opa would be angry about the boots"
+            "She wanted him to get lost in the mangrove forest",
+            "She did not want to frighten him or make him turn back",
+            "She was too tired from the walk to say anything",
+            "She had already forgotten what she had told him"
           ],
-          "answer": 0,
-          "why": "The tide had turned, and brown water had begun to creep around their boots."
+          "answer": 1,
+          "why": "She begins to wonder if she was wrong, but she keeps her voice cheerful. She is the one leading, so she is keeping him calm."
+        },
+        {
+          "id": "q7",
+          "prompt": "How did Kirana notice that the tide had turned?",
+          "options": [
+            "Bima's boot came off again and started to sink",
+            "The mudskippers all jumped into the creek at once",
+            "A wave broke over the tops of the mangrove trees",
+            "A small leaf floated into the forest instead of out"
+          ],
+          "answer": 3,
+          "why": "A small leaf floated past her boot, and it was going the wrong way, into the forest."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why is one o'clock a worrying time for the children?",
+          "options": [
+            "The batteries in Kirana's old watch were about to run out",
+            "The mosquitoes in the forest always come out at that time",
+            "Opa said the creeks start to fill by then, and they are far from home",
+            "They had promised to be home for their lunch at noon"
+          ],
+          "answer": 2,
+          "why": "Opa warned them, \"By one o'clock, the creeks are filling.\" Now they are deep in the forest and the water is rising."
         }
       ]
     },
     {
       "id": "c6",
       "title": "The First Tree",
-      "text": "In the clearing stood a mangrove tree taller than their house. Its trunk was thick and grey, and its branches spread wide. Around it, hundreds of younger trees grew in neat rows. A wooden board, almost covered with moss, read: First tree, planted by Wayan, aged twelve.\n\n\"Opa was Wayan!\" shouted Bima. \"That is his name!\"\n\nKirana touched the rough bark. \"He was right,\" she whispered. \"He grew a whole forest.\"\n\nShe blew her whistle three times, as Opa had asked. The sound travelled over the water, and soon the engine of a small boat came closer. Opa had been watching from the sea wall with binoculars. He lifted the children on board.\n\nOpa looked at the tree with wet eyes. \"Thank you for finding my little friend,\" he said. \"Now the whole village will know that the laughing was wrong.\"",
+      "text": "In the clearing stood a mangrove tree taller than their house. Its trunk was thick and grey, and its branches spread wide. Around it, hundreds of younger trees grew in neat rows, one behind another. A wooden board, almost covered with moss, read: First tree, planted by Wayan, aged twelve.\n\n\"Opa was Wayan!\" shouted Bima. \"That is his name!\" He had completely forgotten about treasure.\n\nKirana touched the rough bark. \"He was right,\" she whispered. \"He grew a whole forest.\"\n\nShe looked through the trees towards the sea. Somewhere out there, the waves were breaking on all these roots, long before they could reach the village. Above her head hung long green seedlings, as thin as pens. She reached up and took one.\n\n\"Kirana,\" said Bima in a small voice. \"The water.\"\n\nIt had reached the tops of their boots. The creek they had come by was twice as wide now, and it was moving fast. They could never walk back that way.\n\nKirana made herself breathe slowly. She tied the rope around the old trunk and helped Bima up onto the lowest branch. Then she climbed up beside him and blew her whistle three long blasts, as Opa had asked. She counted to ten, and she blew again. The sound travelled over the water.\n\nSoon the engine of a small boat came closer, nosing up the creek on the rising tide. Opa was standing at the front. He had been watching from the sea wall with binoculars since ten o'clock. He lifted the children on board.\n\nThen he turned off the engine, and nobody spoke. Opa looked at the tree with wet eyes and patted its trunk, the way you might pat an old buffalo.\n\n\"Thank you for finding my little friend,\" he said. \"Now the whole village will know that the laughing was wrong.\"\n\nKirana held out the green seedling. \"Where should this one go?\" she asked.\n\nOpa began to smile. \"How much of your holiday is left?\" he said.",
       "questions": [
         {
           "id": "q1",
           "prompt": "How tall was the first tree?",
           "options": [
-            "As tall as Bima",
-            "As tall as a coconut palm",
             "Taller than their house",
+            "As tall as Bima",
+            "As tall as a sea wall",
             "Only one metre tall"
           ],
-          "answer": 2,
-          "why": "The tree was taller than their house."
+          "answer": 0,
+          "why": "In the clearing stood a mangrove tree taller than their house."
         },
         {
           "id": "q2",
-          "prompt": "What was around the old tree?",
+          "prompt": "What do the neat rows of younger trees suggest?",
           "options": [
-            "Fishing boats",
-            "A fence",
-            "Hundreds of younger trees in neat rows",
-            "Rice fields"
+            "A big company had come to plant them for its timber",
+            "Someone planted them one by one over many years",
+            "The children had made a mistake about what they were",
+            "The trees had grown from seeds carried in by the sea"
           ],
-          "answer": 2,
-          "why": "Around it, hundreds of younger trees grew in neat rows."
+          "answer": 1,
+          "why": "Wild trees do not grow in neat rows. Opa said he planted another the next day, and Kirana says he grew a whole forest."
         },
         {
           "id": "q3",
           "prompt": "What name was on the wooden board?",
           "options": [
-            "Opa",
             "Kirana",
-            "Bima",
-            "Wayan"
+            "Opa",
+            "Wayan",
+            "Bima"
           ],
-          "answer": 3,
+          "answer": 2,
           "why": "The board read: First tree, planted by Wayan, aged twelve."
         },
         {
           "id": "q4",
-          "prompt": "What did Kirana do to call for help?",
+          "prompt": "How can you tell that Bima's feelings have changed?",
           "options": [
-            "She blew her whistle three times",
-            "She waved the map",
-            "She lit a fire",
-            "She shouted for Opa"
+            "He starts asking when they will get to the treasure",
+            "He says that the tree is much smaller than he hoped",
+            "He sits down and refuses to walk another step",
+            "He is excited about Opa's name and forgets about treasure"
           ],
-          "answer": 0,
-          "why": "She blew her whistle three times, as Opa had asked."
+          "answer": 3,
+          "why": "He shouts with joy at Opa's name, and the text says he had completely forgotten about treasure."
         },
         {
           "id": "q5",
-          "prompt": "How did Opa feel when he saw the tree?",
+          "prompt": "Why could the children not walk back?",
           "options": [
-            "Cross",
-            "Moved and proud",
-            "Worried",
-            "Bored"
+            "The creek was wider, moving fast and full of rising water",
+            "The rope had been left behind in the clearing",
+            "Bima's left boot had been lost in the deep mud",
+            "A boat had blocked the narrow creek behind them"
           ],
-          "answer": 1,
-          "why": "He looked at the tree with wet eyes and thanked the children."
+          "answer": 0,
+          "why": "The water reached the tops of their boots, and the creek was twice as wide and moving fast."
         },
         {
           "id": "q6",
-          "prompt": "What is the main message of the story?",
+          "prompt": "What did Kirana do to call for help?",
           "options": [
-            "Maps are always right",
-            "Children should never walk in mud",
-            "One small act of care can grow into something big that protects others",
-            "Tides are dangerous"
+            "She lit a small fire on a branch",
+            "She sent Bima back to fetch Opa",
+            "She blew three long blasts on her whistle",
+            "She waved the map above her head"
           ],
           "answer": 2,
-          "why": "A single seedling planted by a twelve-year-old became a forest that protects the village."
+          "why": "She blew her whistle three long blasts, as Opa had asked, then counted to ten and blew again."
+        },
+        {
+          "id": "q7",
+          "prompt": "How did Opa know that the children needed him?",
+          "options": [
+            "The neighbour had seen them in the creek and told him",
+            "He had been watching with binoculars and heard the whistle",
+            "He had gone with them all the way through the forest",
+            "He had planned to meet them at the tree at one o'clock"
+          ],
+          "answer": 1,
+          "why": "He had been watching from the sea wall with binoculars since ten o'clock. The whistle sound travelled over the water."
+        },
+        {
+          "id": "q8",
+          "prompt": "What is the main message of the story?",
+          "options": [
+            "Maps are always right if you follow them carefully",
+            "Treasure is something you can only find by accident",
+            "Children should never walk in mud without a grown-up",
+            "One small act of care can grow into something that protects others"
+          ],
+          "answer": 3,
+          "why": "A boy's seedling, laughed at by the village, became a forest that breaks the waves before they reach the village."
         }
       ]
     }
