@@ -8,7 +8,7 @@ import { AppError, conflict, invalid, notFound } from '../errors'
 import { auditTx, systemCtx } from '../audit'
 import { queueEmail, simpleEmail } from '../dal/outbox'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
-import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, releaseFailure, reserveFailure, throttleIp } from './ratelimit'
 import { ipPrefix } from '@/lib/access-log'
 import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
@@ -46,6 +46,12 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
     log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
     throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
   }
+  const reservation = await reserveFailure(key)
+  if (reservation.failures > ACCOUNT_LOCK_AFTER) {
+    await burnVerify(password)
+    log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
+    throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
+  }
   await escalatingDelay(failures)
   const rows = await authDb()
     .select({ id: userAccount.id, orgId: userAccount.orgId, role: userAccount.role, hash: userAccount.passwordHash })
@@ -57,18 +63,18 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
     // Pendaftar yang belum konfirmasi email: pesan ramah hanya bila password-nya cocok (tidak membocorkan email).
     const pending = (await authDb().select({ hash: signup.passwordHash }).from(signup).where(eq(signup.emailNorm, emailKey(email))).limit(1))[0]
     if (pending && (await verifySecret(pending.hash, password))) {
+      await releaseFailure(reservation.id)
       throw new AppError('invalid', 'Email ini belum dikonfirmasi. Buka email dari Kira lalu tekan Konfirmasi email, atau kirim ulang emailnya.', { unverified: email })
     }
     if (!pending) await burnVerify(password)
-    await recordAttempt(key, false)
     log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   if (!(await verifySecret(user.hash, password))) {
-    await recordAttempt(key, false)
     log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
+  await releaseFailure(reservation.id)
   await recordAttempt(key, true)
   await authDb().update(userAccount).set({ lastLoginAt: new Date(), failedLogins: 0 }).where(eq(userAccount.id, user.id))
   return { id: user.id, orgId: user.orgId, role: user.role }
