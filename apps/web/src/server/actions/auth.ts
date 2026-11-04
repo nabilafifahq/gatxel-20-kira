@@ -15,14 +15,16 @@ import { endCurrentSession, startSession } from '../auth/session'
 import { registerDevice } from '../auth/device'
 import { clientIp, throttleIp } from '../auth/ratelimit'
 import { ipHash } from '../auth/crypto'
+import { verifyTurnstile } from '../auth/turnstile'
 import { readAuthenticationResponse, readRegistrationResponse } from '../auth/webauthn-input'
 
 const email = z.string().trim().email('Format email belum benar.').max(200)
 const password = z.string().min(1, 'Isi password.').max(128)
 
-export async function passwordLoginAction(input: { email: string; password: string; next: string | null }): Promise<ActionResult<{ redirectTo: string }>> {
+export async function passwordLoginAction(input: { email: string; password: string; next: string | null; turnstile?: string }): Promise<ActionResult<{ redirectTo: string }>> {
   return runAction('passwordLogin', async () => {
-    const data = z.object({ email, password, next: z.string().max(300).nullable() }).strict().parse(input)
+    const data = z.object({ email, password, next: z.string().max(300).nullable(), turnstile: z.string().max(2048).optional() }).strict().parse(input)
+    await verifyTurnstile(data.turnstile, await clientIp())
     const user = await loginWithPassword(data.email, data.password)
     await startSession({ id: user.id, orgId: user.orgId, kind: 'adult' })
     await audit({ orgId: user.orgId, userId: user.id, role: user.role }, 'login.password', user.id)
@@ -71,8 +73,9 @@ export async function passkeyRegisterVerifyAction(input: { challengeId: string; 
   })
 }
 
-export async function requestResetAction(emailInput: string): Promise<ActionResult> {
+export async function requestResetAction(emailInput: string, turnstile?: string): Promise<ActionResult> {
   return runAction('requestReset', async () => {
+    await verifyTurnstile(z.string().max(2048).optional().parse(turnstile), await clientIp())
     await requestPasswordReset(email.parse(emailInput))
     return undefined
   })
