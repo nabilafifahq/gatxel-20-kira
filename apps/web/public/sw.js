@@ -14,7 +14,7 @@
  *   dipakai lebih dulu (akses yang dicabut tidak bertahan); simpanan hanya dipakai saat internet putus. Simpanan
  *   ini dihapus bersama simpanan halaman saat learner berganti.
  */
-const VERSION = 'kira-v1'
+const VERSION = 'kira-v2'
 const STATIC_CACHE = `${VERSION}-static`
 const PAGE_CACHE = `${VERSION}-pages`
 const AUDIO_CACHE = `${VERSION}-audio`

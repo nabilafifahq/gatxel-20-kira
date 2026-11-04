@@ -42,6 +42,7 @@ export function hostSay(text: string, delayMs = 0): void {
       if (delayMs > 0) await new Promise((r) => window.setTimeout(r, delayMs))
       if (token !== my || isSfxMuted()) return
       if (current) current.pause()
+      window.dispatchEvent(new CustomEvent('kira:host-start')) // bacaan soal berhenti: tidak ada bunyi di atas pembawa acara
       const url = URL.createObjectURL(blob)
       const audio = new Audio(url)
       current = audio

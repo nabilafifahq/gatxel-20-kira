@@ -1,17 +1,24 @@
 /**
- * Suara bahasa Inggris (Qwen3-TTS, rencana bagian 11). Modul murni yang dipakai bersama oleh web, worker,
- * dan uji: id gaya suara, aturan kunci simpanan klip, pemecah teks, dan penggolong kalimat.
+ * Suara bahasa Inggris (Kokoro-82M, rencana bagian 11). Modul murni yang dipakai bersama oleh web, worker,
+ * dan uji: peran suara, aturan kunci simpanan klip, pemecah teks, dan penggolong kalimat.
  *
- * Kunci simpanan klip = sha256 dari `ttsKeyInput(teks, gaya)`. Web (SubtleCrypto) dan worker (node:crypto)
- * harus menghitung masukan yang sama persis, jadi semua normalisasi ada di sini. Suara yang dipilih dari
- * pustaka gaya diputar secara deterministik dari kunci itu (`ttsSeed`), jadi teks yang sama selalu
- * mendapat suara yang sama.
+ * Aturan suara tetap (pilot publik): satu suara Inggris Britania perempuan yang hangat untuk semua soal,
+ * pelajaran, perintah, dan bacaan. Pembawa acara kuis dan dikte memakai suara yang SAMA dengan kecepatan berbeda,
+ * bukan orang lain. Satu-satunya suara kedua ('second') dipakai hanya untuk bacaan dialog yang secara tegas
+ * punya dua pembicara berlabel (lihat `dialogueTurns`). Satu klip selalu satu suara dari awal sampai akhir.
  *
- * Daftar suara dan instruksi per gaya ada di deploy/tts/styles.json (dibaca layanan Python). Uji
- * packages/core/src/tts.test.ts menjaga id gaya di sini tetap sama dengan berkas itu.
+ * Kunci simpanan klip = sha256 dari `ttsKeyInput(teks, peran)`. Masukannya memuat `TTS_VOICE_VERSION`, jadi klip
+ * dari suara lama (kunci tanpa versi) tidak pernah disajikan. Naikkan versi bila suara atau kecepatan berubah.
+ * Web (SubtleCrypto) dan worker (node:crypto) harus menghitung masukan yang sama persis, jadi semua
+ * normalisasi ada di sini. Daftar suara dan kecepatan ada di deploy/tts/styles.json (dibaca layanan Python);
+ * uji packages/content/test/tts-styles.test.ts menjaganya tetap sama dengan berkas ini.
  */
 
-export const TTS_STYLE_IDS = ['narrator', 'teacher', 'quizhost', 'child', 'robot', 'grandpa', 'dictation'] as const
+/** Versi suara. Bagian dari kunci klip. k1 = Kokoro-82M. */
+export const TTS_VOICE_VERSION = 'k1'
+
+/** Peran suara. teacher = suara utama (soal, pelajaran, cerita); quizhost dan dictation = suara utama dengan kecepatan lain. */
+export const TTS_STYLE_IDS = ['teacher', 'quizhost', 'dictation', 'second'] as const
 export type TtsStyleId = (typeof TTS_STYLE_IDS)[number]
 
 export const TTS_DEFAULT_STYLE: TtsStyleId = 'teacher'
@@ -19,25 +26,12 @@ export const TTS_DEFAULT_STYLE: TtsStyleId = 'teacher'
 /** Teks terpanjang yang dikirim sebagai satu klip. Teks lebih panjang dipecah per kalimat. */
 export const TTS_CLIP_MAX_CHARS = 280
 
-export const TTS_STYLE_LABELS: Record<TtsStyleId, string> = {
-  narrator: 'Warm storyteller',
-  teacher: 'Friendly teacher',
-  quizhost: 'Quiz host',
-  child: 'Child',
-  robot: 'Robot',
-  grandpa: 'Grandpa',
-  dictation: 'Slow and clear',
-}
-
-/** Model yang dipakai tiap gaya. Batch mengurutkan klip menurut model supaya layanan jarang bertukar model. */
-export const TTS_STYLE_MODEL: Record<TtsStyleId, 'design' | 'custom'> = {
-  narrator: 'design',
-  teacher: 'design',
-  quizhost: 'custom',
-  child: 'design',
-  robot: 'design',
-  grandpa: 'design',
-  dictation: 'design',
+/** Suara Kokoro tiap peran. Dikunci oleh uji: hanya dua suara berbeda, keduanya Inggris Britania. */
+export const TTS_STYLE_VOICE: Record<TtsStyleId, string> = {
+  teacher: 'bf_emma',
+  quizhost: 'bf_emma',
+  dictation: 'bf_emma',
+  second: 'bf_isabella',
 }
 
 export function isTtsStyle(v: unknown): v is TtsStyleId {
@@ -49,9 +43,9 @@ export function normalizeTtsText(text: string): string {
   return text.normalize('NFC').replace(/\s+/g, ' ').trim()
 }
 
-/** Masukan yang di-hash sha256 untuk kunci klip. */
+/** Masukan yang di-hash sha256 untuk kunci klip. Memuat versi suara. */
 export function ttsKeyInput(text: string, style: TtsStyleId): string {
-  return `${style}\n${normalizeTtsText(text)}`
+  return `${TTS_VOICE_VERSION}\n${style}\n${normalizeTtsText(text)}`
 }
 
 const KEY_RE = /^[0-9a-f]{64}$/
@@ -63,11 +57,6 @@ export function isTtsKey(v: unknown): v is string {
 export function ttsKeyFromFile(name: string): string | null {
   const m = /^([0-9a-f]{64})\.mp3$/.exec(name)
   return m ? m[1]! : null
-}
-
-/** Bilangan dari 8 hex pertama kunci. Layanan memakainya untuk memutar suara di dalam satu gaya. */
-export function ttsSeed(key: string): number {
-  return parseInt(key.slice(0, 8), 16)
 }
 
 export type TtsSentenceKind = 'praise' | 'question' | 'instruction' | 'statement'
@@ -182,8 +171,6 @@ export type TtsContext = 'question' | 'passage-story' | 'passage-other' | 'lesso
 
 export function styleForContext(ctx: TtsContext): TtsStyleId {
   switch (ctx) {
-    case 'passage-story':
-      return 'narrator'
     case 'arena':
       return 'quizhost'
     case 'dictation':
@@ -193,9 +180,44 @@ export function styleForContext(ctx: TtsContext): TtsStyleId {
   }
 }
 
-/** Gaya menurut jenis bacaan: cerita dan puisi dibawakan pencerita, teks informasi oleh guru. */
-export function styleForPassageKind(kind: string): TtsStyleId {
-  return kind === 'story' || kind === 'poem' || kind === 'diary' || kind === 'letter' || kind === 'dialogue' ? 'narrator' : 'teacher'
+/** Semua jenis bacaan dibawakan suara utama. Suara kedua hanya untuk dialog dua pembicara (`dialogueTurns`). */
+export function styleForPassageKind(_kind: string): TtsStyleId {
+  return 'teacher'
+}
+
+/**
+ * Dialog berlabel `Nama: kalimat` dengan TEPAT dua pembicara: pembicara pertama (menurut kemunculan) memakai suara
+ * utama, pembicara kedua memakai suara kedua. Label nama dan petunjuk panggung (dalam tanda kurung) tidak dibacakan.
+ * Bila pembicaranya satu atau lebih dari dua, atau ada baris yang tidak berlabel yang bukan petunjuk panggung,
+ * mengembalikan null dan seluruh bacaan memakai satu suara utama.
+ */
+export function dialogueTurns(text: string): TtsClipRequest[] | null {
+  const speakers: string[] = []
+  const turns: TtsClipRequest[] = []
+  for (const raw of text.split(/\n+/)) {
+    const line = raw.trim()
+    if (!line || /^\(.*\)$/.test(line)) continue
+    const m = /^([A-Za-z][A-Za-z .'-]{0,24}):\s+(.+)$/.exec(line)
+    if (!m) return null
+    const who = m[1]!.trim().toLowerCase()
+    if (who === 'characters') return null
+    let at = speakers.indexOf(who)
+    if (at < 0) {
+      speakers.push(who)
+      at = speakers.length - 1
+    }
+    if (at > 1) return null
+    const spoken = m[2]!.replace(/\([^)]*\)\s*/g, '').trim()
+    if (spoken) turns.push({ text: spoken, style: at === 0 ? 'teacher' : 'second' })
+  }
+  return speakers.length === 2 ? turns : null
+}
+
+/** Rencana klip bacaan: dialog dua pembicara per giliran, selain itu satu suara utama. */
+export function passageClipPlan(kind: string, text: string): TtsClipRequest[] {
+  const turns = kind === 'dialogue' ? dialogueTurns(text) : null
+  const raw = turns ?? splitClipText(text).map((t) => ({ text: t, style: styleForPassageKind(kind) }))
+  return raw.flatMap((c) => splitClipText(c.text).map((t) => ({ text: t, style: c.style }))).filter((c) => isClipText(c.text))
 }
 
 /** Soal ejaan dan dikte dibacakan dengan suara pelan dan jelas. Gaya mengikuti id skill (mis. e2.spelling-bee). */
@@ -307,6 +329,6 @@ export function hostStreakLine(streak: number): string | null {
 }
 
 export const TTS_FIXED_LINES: TtsClipRequest[] = [
-  ...[TTS_EXAMINER_INTRO, TTS_BEE_PRAISE, TTS_BEE_RETRY].map((text) => ({ text, style: 'teacher' as const })),
+    ...[TTS_EXAMINER_INTRO, TTS_BEE_PRAISE, TTS_BEE_RETRY].map((text) => ({ text, style: 'teacher' as const })),
   ...QUIZ_HOST_LINES.map((text) => ({ text, style: 'quizhost' as const })),
 ]

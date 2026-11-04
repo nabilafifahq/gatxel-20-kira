@@ -1,6 +1,7 @@
-import type { ContentIndex } from '@kira/content/load'
+import { findContentDir, loadContent, type ContentIndex } from '@kira/content/load'
+import { loadSpelling } from '@kira/content/spelling'
 import type { Item } from '@kira/content/schema'
-import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
+import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, spellingSpeechClips } from '@kira/content/speech'
 import { TTS_FIXED_LINES, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 
 /**
@@ -25,10 +26,10 @@ export function repoClips(index: ContentIndex): TtsClipRequest[] {
   return out
 }
 
-/** Buang klip kembar (teks dan gaya sama). Urutan pertama dipertahankan. */
-export function dedupe(clips: TtsClipRequest[]): TtsClipRequest[] {
+/** Buang klip kembar (teks dan peran sama). Urutan pertama dipertahankan. */
+export function dedupe<T extends TtsClipRequest>(clips: T[]): T[] {
   const seen = new Set<string>()
-  const out: TtsClipRequest[] = []
+  const out: T[] = []
   for (const c of clips) {
     const k = ttsKeyInput(c.text, c.style)
     if (seen.has(k)) continue
@@ -36,4 +37,20 @@ export function dedupe(clips: TtsClipRequest[]): TtsClipRequest[] {
     out.push(c)
   }
   return out
+}
+
+let globalKeys: Set<string> | null = null
+
+/**
+ * Masukan kunci (ttsKeyInput) semua klip konten bersama: repo dan kata ejaan. Klip dengan kunci di sini publik;
+ * teks lain dianggap milik org yang memintanya.
+ */
+export function globalClipKeys(): Set<string> {
+  if (!globalKeys) {
+    const { index } = loadContent()
+    const spelling = loadSpelling(findContentDir())
+    const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
+    globalKeys = new Set([...repoClips(index), ...spellingClips].map((c) => ttsKeyInput(c.text, c.style)))
+  }
+  return globalKeys
 }

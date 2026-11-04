@@ -1,11 +1,15 @@
-"""Layanan suara Kira (Qwen3-TTS). API HTTP kecil di jaringan internal Docker, tanpa port ke host.
+"""Layanan suara Kira (Kokoro-82M). API HTTP kecil di jaringan internal Docker, tanpa port ke host.
 
   GET  /health      status tanpa memuat model
-  POST /synthesize  {"style": "teacher", "segments": [{"text": "...", "kind": "question"}], "seed": 123, "format": "mp3"}
+  POST /synthesize  {"style": "teacher", "segments": [{"text": "...", "kind": "question"}], "format": "mp3"}
                     -> audio (audio/mpeg atau audio/wav). Header Authorization: Bearer KIRA_INTERNAL_TOKEN.
+  POST /batch       {"clips": [{"style": "teacher", "segments": [...]}, ...]}  (sampai 64 klip)
+                    -> JSON {"results": [{"ok": true, "mp3": "<base64>", "ms": 120} | {"ok": false, "error": "..."}]}
+                    Klip dibagi ke beberapa proses mesin (TTS_WORKERS) dan dikerjakan sejajar.
 
-Model dimuat malas saat permintaan pertama, di proses anak (engine.py). Setelah TTS_IDLE_SECONDS tanpa
-permintaan (default 600) proses anak dimatikan sehingga memori GPU kembali penuh. Kode galat:
+Tiap peran punya satu suara tetap (styles.json); tidak ada rotasi atau benih. Model dimuat malas saat permintaan pertama,
+di proses anak (engine.py). Setelah TTS_IDLE_SECONDS tanpa permintaan (default 600) proses anak dimatikan sehingga
+memori GPU kembali penuh. Kode galat:
   503 gpu_oom   GPU tidak punya cukup memori kosong (misalnya dipakai program lain); klien mencoba lagi nanti
   503 no_gpu    TTS_DEVICE=cuda tetapi kontainer tidak melihat GPU
   500 failed    kegagalan lain
@@ -13,8 +17,11 @@ permintaan (default 600) proses anak dimatikan sehingga memori GPU kembali penuh
 
 from __future__ import annotations
 
+import base64
 import hmac
 import io
+import queue
+from concurrent.futures import ThreadPoolExecutor
 import json
 import multiprocessing as mp
 import os
@@ -32,7 +39,10 @@ PORT = int(os.environ.get("TTS_PORT", "8000"))
 TOKEN = os.environ.get("KIRA_INTERNAL_TOKEN", "")
 IDLE_SECONDS = int(os.environ.get("TTS_IDLE_SECONDS", "600"))
 DEVICE = os.environ.get("TTS_DEVICE", "auto")  # auto | cuda | cpu
-MIN_FREE_MIB = int(os.environ.get("TTS_MIN_FREE_MIB", "7000"))
+MIN_FREE_MIB = int(os.environ.get("TTS_MIN_FREE_MIB", "1500"))
+WORKERS = max(1, int(os.environ.get("TTS_WORKERS", "3")))
+BATCH_CHUNK = int(os.environ.get("TTS_BATCH_CHUNK", "8"))
+MAX_BATCH = 64
 OOM_FALLBACK = os.environ.get("TTS_OOM_FALLBACK", "none")  # none | cpu
 CPU_DTYPE = os.environ.get("TTS_CPU_DTYPE", "float32")
 REQUEST_TIMEOUT = int(os.environ.get("TTS_REQUEST_TIMEOUT", "900"))
@@ -48,11 +58,11 @@ STYLES = engine.load_styles()
 def log(msg: str) -> None:
     print(f"[tts] {msg}", flush=True)
 
-
 class EngineHost:
-    """Memegang proses mesin. Satu permintaan pada satu waktu."""
+    """Memegang satu proses mesin. Satu permintaan pada satu waktu per proses."""
 
-    def __init__(self) -> None:
+    def __init__(self, n: int) -> None:
+        self.n = n
         self.lock = threading.Lock()
         self.proc: Any = None
         self.conn: Any = None
@@ -68,7 +78,7 @@ class EngineHost:
         self.proc.start()
         child.close()
         self.conn = parent
-        log(f"proses mesin dimulai (pid {self.proc.pid})")
+        log(f"proses mesin {self.n} dimulai (pid {self.proc.pid})")
 
     def stop(self, why: str) -> None:
         if self.proc is None:
@@ -84,7 +94,7 @@ class EngineHost:
                 self.proc.kill()
                 self.proc.join(timeout=5)
         finally:
-            log(f"proses mesin dihentikan ({why})")
+            log(f"proses mesin {self.n} dihentikan ({why})")
             self.proc = None
             self.conn = None
 
@@ -105,7 +115,7 @@ class EngineHost:
         self.stop("waktu habis")
         return {"ok": False, "error": "failed", "detail": "waktu habis"}
 
-    def synthesize(self, style: str, segments: list[dict[str, str]], seed: int) -> dict[str, Any]:
+    def synthesize(self, clips: list[dict[str, Any]]) -> dict[str, Any]:
         with self.lock:
             self.requests += 1
             device = "cpu" if time.monotonic() < self.cpu_until else DEVICE
@@ -120,7 +130,7 @@ class EngineHost:
                         device = "cpu"
                     else:
                         return res
-            req = {"style": style, "segments": segments, "seed": seed, "device": device, "minFreeMiB": MIN_FREE_MIB, "cpuDtype": CPU_DTYPE}
+            req = {"clips": clips, "device": device}
             res = self._ask(req)
             if not res.get("ok") and res.get("error") in ("gpu_oom", "no_gpu"):
                 # Mesin keluar sendiri setelah OOM supaya memori kembali; pastikan prosesnya hilang.
@@ -146,16 +156,54 @@ class EngineHost:
                 self.lock.release()
 
 
-HOST = EngineHost()
+class Pool:
+    """Beberapa proses mesin. Klip dibagi per potongan kecil dan dikerjakan sejajar (model 82M kecil, GPU muat banyak)."""
+
+    def __init__(self, n: int) -> None:
+        self.hosts = [EngineHost(i) for i in range(n)]
+        self.free: "queue.Queue[EngineHost]" = queue.Queue()
+        for h in self.hosts:
+            self.free.put(h)
+        self.exec = ThreadPoolExecutor(max_workers=n)
+
+    def _chunk(self, clips: list[dict[str, Any]]) -> dict[str, Any]:
+        host = self.free.get()
+        try:
+            return host.synthesize(clips)
+        finally:
+            self.free.put(host)
+
+    def run(self, clips: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Satu hasil per klip, urutan sama. Galat tingkat mesin (OOM dan sebagainya) diteruskan ke tiap klip di potongannya."""
+        chunks = [clips[i : i + BATCH_CHUNK] for i in range(0, len(clips), BATCH_CHUNK)]
+        out: list[dict[str, Any]] = []
+        for chunk, res in zip(chunks, self.exec.map(self._chunk, chunks)):
+            if res.get("ok"):
+                out.extend(res["results"])
+            else:
+                out.extend({"ok": False, "error": res.get("error", "failed"), "detail": res.get("detail", "")} for _ in chunk)
+        return out
+
+    def any_loaded(self) -> bool:
+        return any(h.loaded() for h in self.hosts)
+
+    def stop_all(self, why: str) -> None:
+        for h in self.hosts:
+            with h.lock:
+                h.stop(why)
+
+
+POOL = Pool(WORKERS)
 
 
 def idle_loop() -> None:
     while True:
         time.sleep(15)
-        try:
-            HOST.idle_check()
-        except Exception as e:  # noqa: BLE001
-            log(f"pemeriksaan idle gagal: {e}")
+        for h in POOL.hosts:
+            try:
+                h.idle_check()
+            except Exception as e:  # noqa: BLE001
+                log(f"pemeriksaan idle gagal: {e}")
 
 
 def encode_mp3(pcm: bytes, sr: int) -> bytes:
@@ -179,14 +227,13 @@ def encode_wav(pcm: bytes, sr: int) -> bytes:
     return buf.getvalue()
 
 
-def validate(body: Any) -> tuple[str, list[dict[str, str]], int, str] | str:
-    """Mengembalikan (style, segments, seed, format) atau pesan galat."""
-    if not isinstance(body, dict):
-        return "badan harus objek JSON"
-    style = body.get("style")
+def clean_clip(c: Any) -> dict[str, Any] | str:
+    if not isinstance(c, dict):
+        return "klip harus objek"
+    style = c.get("style")
     if style not in STYLES["styles"]:
         return "gaya tidak dikenal"
-    segs = body.get("segments")
+    segs = c.get("segments")
     if not isinstance(segs, list) or not 1 <= len(segs) <= MAX_SEGMENTS:
         return f"segments harus berisi 1 sampai {MAX_SEGMENTS} kalimat"
     clean: list[dict[str, str]] = []
@@ -202,13 +249,20 @@ def validate(body: Any) -> tuple[str, list[dict[str, str]], int, str] | str:
         clean.append({"text": text, "kind": kind})
     if total > MAX_TOTAL_CHARS:
         return "teks terlalu panjang"
-    seed = body.get("seed", 0)
-    if not isinstance(seed, int) or isinstance(seed, bool) or not 0 <= seed < 2**32:
-        return "seed harus bilangan bulat 32 bit"
+    return {"style": style, "segments": clean}
+
+
+def validate(body: Any) -> tuple[dict[str, Any], str] | str:
+    """Mengembalikan (klip, format) atau pesan galat."""
+    if not isinstance(body, dict):
+        return "badan harus objek JSON"
+    clip = clean_clip(body)
+    if isinstance(clip, str):
+        return clip
     fmt = body.get("format", "mp3")
     if fmt not in ("mp3", "wav"):
         return "format harus mp3 atau wav"
-    return style, clean, seed, fmt
+    return clip, fmt
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -236,41 +290,54 @@ class Handler(BaseHTTPRequestHandler):
         if self.path != "/health":
             self._json(404, {"error": "tidak ditemukan"})
             return
+        last = max(POOL.hosts, key=lambda h: h.last_used)
         self._json(200, {
             "ok": True,
+            "engine": "kokoro-82m",
+            "voiceVersion": STYLES.get("voiceVersion"),
             "deviceSetting": DEVICE,
-            "engineLoaded": HOST.loaded(),
-            "lastDevice": HOST.last_device,
+            "engineLoaded": POOL.any_loaded(),
+            "workers": WORKERS,
+            "lastDevice": last.last_device,
             "idleSeconds": IDLE_SECONDS,
-            "idleFor": int(time.monotonic() - HOST.last_used),
-            "requests": HOST.requests,
+            "idleFor": int(time.monotonic() - last.last_used),
+            "requests": sum(h.requests for h in POOL.hosts),
             "styles": sorted(STYLES["styles"].keys()),
         })
 
+    def _read_body(self, limit: int) -> Any:
+        length = int(self.headers.get("Content-Length", "0"))
+        if not 0 < length <= limit:
+            raise ValueError("ukuran badan salah")
+        return json.loads(self.rfile.read(length))
+
+    def _fail(self, res: dict[str, Any]) -> None:
+        code = res.get("error", "failed")
+        self._json(503 if code in ("gpu_oom", "no_gpu") else 500, {"error": code, "detail": res.get("detail", "")})
+
     def do_POST(self) -> None:  # noqa: N802
-        if self.path != "/synthesize":
+        if self.path not in ("/synthesize", "/batch"):
             self._json(404, {"error": "tidak ditemukan"})
             return
         if not self._authorised():
             self._json(401, {"error": "tidak berwenang"})
             return
         try:
-            length = int(self.headers.get("Content-Length", "0"))
-            if not 0 < length <= 20000:
-                raise ValueError("ukuran badan salah")
-            body = json.loads(self.rfile.read(length))
+            body = self._read_body(20000 if self.path == "/synthesize" else 400000)
         except (ValueError, json.JSONDecodeError) as e:
             self._json(400, {"error": f"badan tidak terbaca: {e}"})
+            return
+        if self.path == "/batch":
+            self._batch(body)
             return
         parsed = validate(body)
         if isinstance(parsed, str):
             self._json(400, {"error": parsed})
             return
-        style, segments, seed, fmt = parsed
-        res = HOST.synthesize(style, segments, seed)
+        clip, fmt = parsed
+        res = POOL.run([clip])[0]
         if not res.get("ok"):
-            code = res.get("error", "failed")
-            self._json(503 if code in ("gpu_oom", "no_gpu") else 500, {"error": code, "detail": res.get("detail", "")})
+            self._fail(res)
             return
         try:
             audio = encode_mp3(res["pcm"], res["sr"]) if fmt == "mp3" else encode_wav(res["pcm"], res["sr"])
@@ -280,11 +347,41 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "audio/mpeg" if fmt == "mp3" else "audio/wav")
         self.send_header("Content-Length", str(len(audio)))
-        self.send_header("X-Kira-Device", str(res.get("device", "-")))
+        self.send_header("X-Kira-Device", POOL.hosts[0].last_device)
         self.send_header("X-Kira-Gen-Ms", str(res.get("ms", 0)))
-        self.send_header("X-Kira-Voice", str(res.get("voice", ""))[:60].encode("ascii", "replace").decode())
+        self.send_header("X-Kira-Voice", str(res.get("voice", "")))
         self.end_headers()
         self.wfile.write(audio)
+
+    def _batch(self, body: Any) -> None:
+        clips_in = body.get("clips") if isinstance(body, dict) else None
+        if not isinstance(clips_in, list) or not 1 <= len(clips_in) <= MAX_BATCH:
+            self._json(400, {"error": f"clips harus berisi 1 sampai {MAX_BATCH} klip"})
+            return
+        cleaned = [clean_clip(c) for c in clips_in]
+        good = [c for c in cleaned if not isinstance(c, str)]
+        results = POOL.run(good) if good else []
+        it = iter(results)
+        pending: list[tuple[str, Any, Any]] = []
+        with ThreadPoolExecutor(max_workers=4) as enc:
+            for c in cleaned:
+                if isinstance(c, str):
+                    pending.append(("bad", c, None))
+                    continue
+                r = next(it)
+                pending.append(("ok", r, enc.submit(encode_mp3, r["pcm"], r["sr"]) if r.get("ok") else None))
+            out: list[dict[str, Any]] = []
+            for kind, r, fut in pending:
+                if kind == "bad":
+                    out.append({"ok": False, "error": "invalid", "detail": r})
+                elif fut is None:
+                    out.append({"ok": False, "error": r.get("error", "failed"), "detail": r.get("detail", "")})
+                else:
+                    try:
+                        out.append({"ok": True, "mp3": base64.b64encode(fut.result()).decode(), "ms": r.get("ms", 0)})
+                    except Exception as e:  # noqa: BLE001
+                        out.append({"ok": False, "error": "failed", "detail": str(e)[:200]})
+        self._json(200, {"results": out, "device": POOL.hosts[0].last_device})
 
 
 def main() -> None:
@@ -294,11 +391,11 @@ def main() -> None:
     threading.Thread(target=idle_loop, daemon=True).start()
     srv = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     srv.daemon_threads = True
-    log(f"siap di port {PORT} (device={DEVICE}, idle={IDLE_SECONDS} detik, minFree={MIN_FREE_MIB} MiB)")
+    log(f"siap di port {PORT} (device={DEVICE}, workers={WORKERS}, idle={IDLE_SECONDS} detik, minFree={MIN_FREE_MIB} MiB)")
     try:
         srv.serve_forever()
     finally:
-        HOST.stop("server berhenti")
+        POOL.stop_all("server berhenti")
 
 
 if __name__ == "__main__":

@@ -14,6 +14,6 @@ export async function GET() {
   const actor = await getActor()
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
   const enabled = ttsEnabled()
-  const urls = enabled && actor.role === 'learner' ? await inOrg(orgCtx(actor), (tx) => todayClipUrls(tx, actor.userId)) : []
+  const urls = enabled && actor.role === 'learner' ? await inOrg(orgCtx(actor), (tx) => todayClipUrls(tx, actor.orgId, actor.userId)) : []
   return NextResponse.json({ enabled, urls }, { headers: { 'Cache-Control': 'no-store' } })
 }

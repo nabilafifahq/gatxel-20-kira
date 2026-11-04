@@ -28,10 +28,15 @@ export function ttsStatus(): Promise<TtsStatus | null> {
   return p
 }
 
+/** Satu bagian bacaan: teks biasa (suara bawaan peran), atau teks dengan suara sendiri (giliran dialog dua pembicara). */
+export type SpeechPart = string | TtsClipRequest
+
 /** Teks yang akan dibuat klip: bagian-bagian dipecah per kalimat, yang tidak layak dibacakan dibuang. */
-export function clipPlan(input: string | readonly string[], style: TtsStyleId): TtsClipRequest[] {
+export function clipPlan(input: string | readonly SpeechPart[], style: TtsStyleId): TtsClipRequest[] {
   const parts = typeof input === 'string' ? [input] : input
-  return parts.flatMap((p) => splitClipText(p)).filter(isClipText).map((text) => ({ text, style }))
+  return parts
+    .flatMap((p) => (typeof p === 'string' ? splitClipText(p).map((text) => ({ text, style })) : splitClipText(p.text).map((text) => ({ text, style: p.style }))))
+    .filter((c) => isClipText(c.text))
 }
 
 /** Kunci klip (sha256 hex), atau null bila SubtleCrypto tidak tersedia (alamat http biasa). */
@@ -48,6 +53,18 @@ export async function clipKey(text: string, style: TtsStyleId): Promise<string |
 
 export type ClipSet = { blobs: Blob[]; missing: TtsClipRequest[]; failed: boolean }
 
+/**
+ * Klip yang sudah diambil, per kunci. Pramuat (preloadClips) mengisinya sebelum anak menekan tombol, jadi
+ * bacaan mulai tanpa menunggu jaringan. Dibatasi supaya memori tablet aman.
+ */
+const blobCache = new Map<string, Blob>()
+const BLOB_CACHE_MAX = 60
+function remember(key: string, blob: Blob): void {
+  blobCache.delete(key)
+  blobCache.set(key, blob)
+  while (blobCache.size > BLOB_CACHE_MAX) blobCache.delete(blobCache.keys().next().value as string)
+}
+
 /** Ambil semua klip rencana secara paralel. missing berisi klip yang belum dibuat (404), failed bila jaringan atau hash gagal. */
 export async function fetchClips(plan: TtsClipRequest[]): Promise<ClipSet> {
   const keys = await Promise.all(plan.map((c) => clipKey(c.text, c.style)))
@@ -56,8 +73,14 @@ export async function fetchClips(plan: TtsClipRequest[]): Promise<ClipSet> {
   const results = await Promise.all(
     keys.map(async (k): Promise<Fetched> => {
       try {
+        const hit = blobCache.get(k!)
+        if (hit) return { kind: 'ok', blob: hit }
         const res = await fetch(`/tts/${k}.mp3`, { credentials: 'same-origin' })
-        if (res.ok) return { kind: 'ok', blob: await res.blob() }
+        if (res.ok) {
+          const blob = await res.blob()
+          remember(k!, blob)
+          return { kind: 'ok', blob }
+        }
         return { kind: res.status === 404 ? 'missing' : 'failed' }
       } catch {
         return { kind: 'failed' }
@@ -69,6 +92,19 @@ export async function fetchClips(plan: TtsClipRequest[]): Promise<ClipSet> {
   const blobs: Blob[] = []
   for (const r of results) if (r.kind === 'ok') blobs.push(r.blob)
   return { blobs, missing, failed }
+}
+
+/**
+ * Ambil klip lebih dulu (soal yang sedang tampil), supaya tombol baca mulai di bawah satu detik. Hanya bila suara
+ * server aktif; tidak meminta klip yang belum ada dan tidak pernah melempar.
+ */
+export function preloadClips(input: string | readonly SpeechPart[], style: TtsStyleId): void {
+  if (typeof window === 'undefined' || !navigator.onLine) return
+  const plan = clipPlan(input, style)
+  if (plan.length === 0) return
+  void ttsStatus()
+    .then((s) => (s?.enabled ? fetchClips(plan) : undefined))
+    .catch(() => undefined)
 }
 
 const requested = new Set<string>()
@@ -97,10 +133,10 @@ export function precacheClips(urls: string[]): void {
 }
 
 /** Teks untuk suara bawaan perangkat: semua bagian, masing-masing diakhiri tanda baca supaya ada jeda. */
-export function deviceText(input: string | readonly string[]): string {
+export function deviceText(input: string | readonly SpeechPart[]): string {
   const parts = typeof input === 'string' ? [input] : input
   return parts
-    .map((p) => p.trim())
+    .map((p) => (typeof p === 'string' ? p : p.text).trim())
     .filter(Boolean)
     .map((p) => (/[.!?]$/.test(p) ? p : `${p}.`))
     .join(' ')

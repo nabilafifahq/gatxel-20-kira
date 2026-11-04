@@ -1,11 +1,12 @@
 'use client'
 
-import { useId, type ReactElement } from 'react'
+import { useEffect, useId, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
-import type { TtsStyleId } from '@kira/core/tts'
+import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { useSpeech, type SpeechInput, type SpeechLang } from './speech'
+import { preloadClips } from './tts-client'
 
 /**
  * Tombol baca suara (papan ReadAloudButton). Satu tombol untuk mulai dan berhenti
@@ -44,7 +45,14 @@ export function ReadAloudButton({
   const noteId = useId()
   const reading = status === 'reading'
   const off = status === 'unavailable'
-  if (lang === 'id') return null
+  // Pramuat klip soal yang sedang tampil: bacaan mulai di bawah satu detik saat tombol ditekan.
+  const preloadKey = JSON.stringify([text, style ?? null])
+  useEffect(() => {
+    if (lang === 'en-GB') preloadClips(text, style ?? TTS_DEFAULT_STYLE)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preloadKey, lang])
+  // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
+  if (lang === 'id' && off) return null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button

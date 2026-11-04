@@ -16,14 +16,17 @@ import {
   styleForSkill,
   ttsKeyFromFile,
   ttsKeyInput,
-  ttsSeed,
+  TTS_STYLE_IDS,
+  TTS_VOICE_VERSION,
+  dialogueTurns,
+  passageClipPlan,
 } from '../src/tts'
 
 describe('kunci klip', () => {
   it('menormalkan spasi dan membedakan gaya', () => {
     expect(normalizeTtsText('  Hello   there\n friend ')).toBe('Hello there friend')
-    expect(ttsKeyInput('Hello  there', 'teacher')).toBe('teacher\nHello there')
-    expect(ttsKeyInput('Hello there', 'narrator')).not.toBe(ttsKeyInput('Hello there', 'teacher'))
+    expect(ttsKeyInput('Hello  there', 'teacher')).toBe(`${TTS_VOICE_VERSION}\nteacher\nHello there`)
+    expect(ttsKeyInput('Hello there', 'dictation')).not.toBe(ttsKeyInput('Hello there', 'teacher'))
   })
   it('sha256 masukan menghasilkan kunci 64 hex yang dikenali', () => {
     const key = 'ab12'.repeat(16)
@@ -32,7 +35,6 @@ describe('kunci klip', () => {
     expect(ttsKeyFromFile(`../${key}.mp3`)).toBeNull()
     expect(ttsKeyFromFile(`${key}.wav`)).toBeNull()
     expect(isTtsKey('abc')).toBe(false)
-    expect(ttsSeed(key)).toBe(parseInt(key.slice(0, 8), 16))
   })
 })
 
@@ -114,7 +116,7 @@ describe('bagian soal yang dibacakan', () => {
     expect(styleForSkill('e2.spelling-bee')).toBe('dictation')
     expect(styleForSkill('e2.dictation')).toBe('dictation')
     expect(styleForSkill('e2.magic-e')).toBe('teacher')
-    expect(styleForPassageKind('story')).toBe('narrator')
+    expect(styleForPassageKind('story')).toBe('teacher')
     expect(styleForPassageKind('information')).toBe('teacher')
   })
 })
@@ -141,5 +143,57 @@ describe('suara pembawa acara Quiz Arena', () => {
       expect(isClipText(t)).toBe(true)
       expect(TTS_FIXED_LINES).toContainEqual({ text: t, style: 'quizhost' })
     }
+  })
+})
+
+const sha256 = async (input: string): Promise<string> =>
+  [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input)))].map((b) => b.toString(16).padStart(2, '0')).join('')
+
+describe('kunci memuat versi suara', () => {
+  it('versi masuk ke masukan hash, jadi klip suara lama (kunci tanpa versi) tidak pernah cocok', async () => {
+    const withVersion = await sha256(ttsKeyInput('Hello there', 'teacher'))
+    const legacy = await sha256('teacher\nHello there')
+    expect(withVersion).not.toBe(legacy)
+    expect(ttsKeyInput('Hello there', 'teacher').startsWith(`${TTS_VOICE_VERSION}\n`)).toBe(true)
+  })
+  it('kunci stabil: teks, peran, dan versi sama selalu menghasilkan kunci sama', async () => {
+    const k = (t: string, s: 'teacher' | 'quizhost') => sha256(ttsKeyInput(t, s))
+    expect(await k('What is 3 + 4?', 'teacher')).toBe(await k('What is 3 +  4?\n', 'teacher'))
+    expect(await k('What is 3 + 4?', 'teacher')).not.toBe(await k('What is 3 + 4?', 'quizhost'))
+  })
+})
+
+describe('aturan suara', () => {
+  it('hanya empat peran: tiga memakai suara utama dan satu suara kedua', () => {
+    expect([...TTS_STYLE_IDS]).toEqual(['teacher', 'quizhost', 'dictation', 'second'])
+  })
+  it('semua jenis bacaan memakai suara utama', () => {
+    for (const kind of ['story', 'poem', 'diary', 'letter', 'dialogue', 'information', 'report', 'instructions']) {
+      expect(styleForPassageKind(kind)).toBe('teacher')
+      if (kind !== 'dialogue') expect(passageClipPlan(kind, 'Once upon a time. There was a cat.').every((c) => c.style === 'teacher')).toBe(true)
+    }
+  })
+  it('dialog dengan tepat dua pembicara: pembicara kedua memakai suara kedua, label tidak dibacakan', () => {
+    const text = 'Rani: Can I play with you?\nDika: Yes, you can!\nRani: Thank you.'
+    expect(dialogueTurns(text)).toEqual([
+      { text: 'Can I play with you?', style: 'teacher' },
+      { text: 'Yes, you can!', style: 'second' },
+      { text: 'Thank you.', style: 'teacher' },
+    ])
+    expect(passageClipPlan('dialogue', text).map((c) => c.style)).toEqual(['teacher', 'second', 'teacher'])
+  })
+  it('petunjuk panggung dilewati; tiga pembicara atau satu pembicara tetap satu suara', () => {
+    expect(dialogueTurns('(A room.)\nA: Hi.\nB: (smiling) Hello.')).toEqual([
+      { text: 'Hi.', style: 'teacher' },
+      { text: 'Hello.', style: 'second' },
+    ])
+    expect(dialogueTurns('A: Hi.\nB: Hello.\nC: Hey.')).toBeNull()
+    expect(dialogueTurns('A: Hi.\nA: Again.')).toBeNull()
+    expect(dialogueTurns('Just a plain line.')).toBeNull()
+    const three = passageClipPlan('dialogue', 'A: Hi.\nB: Hello.\nC: Hey.')
+    expect(new Set(three.map((c) => c.style))).toEqual(new Set(['teacher']))
+  })
+  it('satu klip selalu satu peran, jadi satu suara dari awal sampai akhir', () => {
+    for (const c of passageClipPlan('dialogue', 'A: First line. Second sentence.\nB: Reply here.')) expect(TTS_STYLE_IDS).toContain(c.style)
   })
 })

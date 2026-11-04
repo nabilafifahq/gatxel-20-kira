@@ -5,7 +5,7 @@ import { isClipText, QUIZ_HOST_LINES, type TtsClipRequest } from '@kira/core/tts
 import { tables } from '@kira/db'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
 import type { OrgContext, Tx } from '../db'
-import { clipExists, clipKeyOf, ttsEnabled } from '../tts'
+import { clipExists, clipExistsFor, clipKeyOf, ttsEnabled } from '../tts'
 import { lesson, passage, resolveItems } from './content'
 import { enqueueJobTx } from './jobs'
 import type { AttemptItem } from './learner-runner'
@@ -39,7 +39,7 @@ export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipReques
   for (const c of clips) {
     if (!isClipText(c.text)) continue
     const key = clipKeyOf(c.text, c.style)
-    if (recent.has(key) || (await clipExists(key))) continue
+    if (recent.has(key) || (await clipExistsFor(key, ctx.orgId))) continue
     recent.set(key, now)
     fresh.push(c)
   }
@@ -68,7 +68,7 @@ async function hostClipUrls(): Promise<string[]> {
   return urls
 }
 
-export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
+export async function todayClipUrls(tx: Tx, orgId: string, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
   const host = await hostClipUrls()
   const quests = await tx
     .select({ attemptId: quest.attemptId, skillId: quest.skillId, mode: quest.mode, status: quest.status })
@@ -99,7 +99,7 @@ export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = j
   const urls = new Set<string>(host)
   for (const c of clips) {
     const key = clipKeyOf(c.text, c.style)
-    if (await clipExists(key)) urls.add(`/tts/${key}.mp3`)
+    if (await clipExistsFor(key, orgId)) urls.add(`/tts/${key}.mp3`)
   }
   return [...urls].slice(0, 600)
 }
