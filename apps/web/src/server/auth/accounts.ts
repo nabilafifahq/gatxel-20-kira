@@ -8,7 +8,9 @@ import { AppError, conflict, invalid, notFound } from '../errors'
 import { auditTx, systemCtx } from '../audit'
 import { queueEmail, simpleEmail } from '../dal/outbox'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
-import { ACCOUNT_LOCK_AFTER, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ACCOUNT_LOCK_AFTER, clientIp, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ipPrefix } from '@/lib/access-log'
+import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
 import { revokeUserSessions } from './session'
 import { setPin } from './pin'
@@ -40,6 +42,7 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
   const failures = await recentFailures(key)
   if (failures >= ACCOUNT_LOCK_AFTER) {
     await burnVerify(password)
+    log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
     throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
   }
   await escalatingDelay(failures)
@@ -52,10 +55,12 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
   if (!user || !user.hash) {
     await burnVerify(password)
     await recordAttempt(key, false)
+    log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   if (!(await verifySecret(user.hash, password))) {
     await recordAttempt(key, false)
+    log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   await recordAttempt(key, true)
