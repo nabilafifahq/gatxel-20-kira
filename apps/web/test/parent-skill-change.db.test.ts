@@ -48,7 +48,7 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
     return dbm.inOrg(ctx, async (tx) => session.ensureTodayQuests(tx, ctx, await core.loadLearner(tx, learner), today))
   }
   const questOf = async (learner: string, subject: string, sessionName: string) =>
-    (await owner`select id, skill_id, attempt_id, kind, status, title, plan_slot_id from quest where learner_id = ${learner} and date = ${today} and subject = ${subject} and session = ${sessionName} order by seq limit 1`)[0]!
+    (await owner`select id, skill_id, attempt_id, kind, status, title, plan_slot_id from quest where learner_id = ${learner} and date = ${today} and subject = ${subject} and session = ${sessionName} order by kind, seq limit 1`)[0]!
   const dayRecord = async (learner: string) => (await owner`select quests_done, quests_required from day_record where learner_id = ${learner} and date = ${today}`)[0]!
   const childSession = async (learner: string, questId: string, a = PA()) => (await R.parentChildDTO(a, learner)).today.sessions.find((s) => s.questId === questId)!
   /** Satu jawaban nyata di attempt ini: sesi menjadi sedang dikerjakan, seperti di runner. */
