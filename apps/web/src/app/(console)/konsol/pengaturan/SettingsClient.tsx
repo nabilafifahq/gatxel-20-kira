@@ -4,6 +4,7 @@ import { browserSupportsWebAuthn, startRegistration } from '@simplewebauthn/brow
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import type { ActionResult, SettingsActions, SettingsDTO } from '@/lib/dto'
+import { FamilyCodeCard } from '@/components/family/FamilyCodeCard'
 import { SettingsScreen } from '@/screens/console/SettingsScreen'
 import { passkeyRegisterOptionsAction, passkeyRegisterVerifyAction, registerDeviceAction } from '@/server/actions/auth'
 
@@ -12,7 +13,7 @@ import { passkeyRegisterOptionsAction, passkeyRegisterVerifyAction, registerDevi
  * Daftarkan perangkat ini memakai aturan yang sama dengan /perangkat (orang dewasa langsung
  * keluar dari browser ini), lalu browser dibawa ke halaman pilih learner.
  */
-export function SettingsClient({ data, actions }: { data: SettingsDTO; actions: Omit<SettingsActions, 'registerThisDevice'> }) {
+export function SettingsClient({ data, actions, familyCode = null }: { data: SettingsDTO; actions: Omit<SettingsActions, 'registerThisDevice'>; familyCode?: string | null }) {
   const router = useRouter()
   const [supported, setSupported] = useState(false)
   useEffect(() => {
@@ -44,5 +45,5 @@ export function SettingsClient({ data, actions }: { data: SettingsDTO; actions: 
     return { ok: true, data: undefined }
   }
 
-  return <SettingsScreen data={data} actions={{ ...actions, registerThisDevice }} registerPasskey={supported ? registerPasskey : undefined} />
+  return <SettingsScreen data={data} actions={{ ...actions, registerThisDevice }} registerPasskey={supported ? registerPasskey : undefined} familyCodeSlot={<FamilyCodeCard code={familyCode} />} />
 }

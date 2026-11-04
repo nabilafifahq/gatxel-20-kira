@@ -1178,6 +1178,14 @@ export const contestMedal = pgTable('contest_medal', {
   removedAt: ts('removed_at'),
 })
 
+/** Kode keluarga untuk anak masuk di browser (migrasi 0031). Satu per org; tulisan hanya lewat fungsi definer. */
+export const familyCode = pgTable('family_code', {
+  orgId: uuid('org_id').primaryKey().references(() => org.id, { onDelete: 'cascade' }),
+  code: text('code').notNull().unique(),
+  createdAt: createdAt(),
+  rotatedAt: ts('rotated_at'),
+})
+
 /** Tabel tenant yang wajib RLS. Dipakai migrasi RLS dan tes. */
 export const TENANT_TABLES = [
   'org', 'member_profile', 'learner_profile', 'guardian_link', 'consent_event', 'deletion_request', 'skill_state',
@@ -1188,6 +1196,7 @@ export const TENANT_TABLES = [
   'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state', 'placement_run', 'worksheet',
   'saved_word',
   'star_ledger', 'world_state', 'world_item', 'world_card', 'contest_medal',
+  'family_code',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */

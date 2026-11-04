@@ -7,6 +7,8 @@ import { cookies } from 'next/headers'
  */
 export const SESSION_COOKIE = '__Host-kira.session'
 export const DEVICE_COOKIE = '__Host-kira.device'
+/** Tiket singkat setelah kode keluarga benar, sebelum PIN. */
+export const FAMILY_TICKET_COOKIE = '__Host-kira.kode'
 
 export const SESSION_ABSOLUTE_MS = 24 * 60 * 60 * 1000
 export const SESSION_IDLE_MS = 60 * 60 * 1000

@@ -17,6 +17,7 @@ import { getDevice } from '@/server/auth/device'
 import { settingsDTO } from '@/server/dal/console-settings'
 import { load } from '@/server/page'
 import { spUuid, type SearchParams } from '@/server/params'
+import { familyCodeFor } from '@/server/dal/family-code'
 import { SettingsClient } from './SettingsClient'
 
 export const metadata: Metadata = { title: 'Pengaturan' }
@@ -28,10 +29,11 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
   if (!(await getActor()) && (await getDevice())) redirect('/')
   const actor = await pageActor(['tutor'], '/konsol/pengaturan')
   const sp = await searchParams
-  const data = await load(() => settingsDTO(actor, spUuid(sp, 'learner')))
+  const [data, familyCode] = await Promise.all([load(() => settingsDTO(actor, spUuid(sp, 'learner'))), load(() => familyCodeFor(actor))])
   return (
     <SettingsClient
       data={data}
+      familyCode={familyCode}
       actions={{
         updateLearnerLimits: updateLearnerLimitsAction,
         updateLearnerSound: updateLearnerSoundAction,

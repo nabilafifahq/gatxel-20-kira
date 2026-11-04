@@ -61,7 +61,8 @@ export type PinPicture = 'sun' | 'moon' | 'star' | 'cat' | 'fish' | 'tree' | 'ap
 export type PinScreenDTO = {
   learnerId: string
   name: string
-  avatar: AvatarName
+  /** Null di jalur kode keluarga: sebelum PIN benar, layar hanya menyebut nama depan. */
+  avatar: AvatarName | null
   /** Urutan 9 gambar di layar (tetap, tidak diacak supaya anak hafal posisinya). */
   pictures: PinPicture[]
   lockedUntil: string | null

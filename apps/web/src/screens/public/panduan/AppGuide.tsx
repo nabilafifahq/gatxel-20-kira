@@ -148,7 +148,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
             {
               fig: FIGURES.login,
               title: 'Buka Kira dan masuk',
-              body: 'Masuk dengan email dan password Ayah/Bunda. Di halaman Keluarga tekan Daftarkan perangkat ini, pilih anak, lalu tekan Daftarkan. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
+              body: 'Tekan Masuk, lalu Masuk sebagai anak, ketik kode keluarga dari halaman Keluarga, pilih nama, lalu tekan PIN gambar. Bisa juga masuk dengan email dan password Ayah/Bunda, lalu tekan Daftarkan perangkat ini. Sejak itu perangkat menampilkan pilihan nama anak dan PIN gambar.',
             },
           ].map((s, i) => (
             <div key={s.title} className="flex items-start gap-4 rounded-card bg-surface p-5 shadow-soft sm:items-center sm:gap-5">
@@ -180,13 +180,14 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
               iPad dan iPhone
             </h2>
           </div>
-          <p className="m-0">Belum ada aplikasi Kira untuk iPad dan iPhone. Website Kira berjalan di Safari dan bisa ditaruh di layar utama supaya terasa seperti aplikasi.</p>
+          <p className="m-0">Belum ada aplikasi Kira untuk iPad dan iPhone. Website Kira berjalan di Safari dan bisa ditaruh di layar utama supaya terasa seperti aplikasi. Anak tidak butuh email: cukup kode keluarga, nama, dan PIN gambar.</p>
           <Steps
             items={[
               <>Buka Safari, lalu ketik {host}.</>,
               'Ketuk tombol Bagikan (kotak dengan panah ke atas).',
               'Pilih Tambah ke Layar Utama, lalu ketuk Tambah.',
-              'Buka Kira dari ikon baru itu, masuk dengan akun Ayah/Bunda, lalu tekan Daftarkan perangkat ini di halaman Keluarga.',
+              'Buka Kira dari ikon baru itu, tekan Masuk, lalu Masuk sebagai anak, dan ketik kode keluarga dari halaman Keluarga.',
+              'Anak memilih namanya dan menekan PIN gambar. Berikutnya anak tinggal memilih nama dan PIN. Kalau kode diminta lagi saat membuka ikon itu pertama kali, ketik sekali lagi.',
             ]}
           />
         </section>

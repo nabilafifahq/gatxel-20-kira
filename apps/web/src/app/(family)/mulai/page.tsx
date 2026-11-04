@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { getActor } from '@/server/auth/actor'
 import { getDevice } from '@/server/auth/device'
 import { isFamilyOwner } from '@/server/auth/parent'
+import { familyCodeFor } from '@/server/dal/family-code'
 import { onboardingState } from '@/server/dal/onboarding'
 import { spString, spUuid, type SearchParams } from '@/server/params'
 
@@ -26,5 +27,5 @@ export default async function StartPage({ searchParams }: { searchParams: Promis
   const step = resolveStep(state.children, requested)
   const anak = spUuid(sp, 'anak')
   const custom = step === 2 && anak ? (state.children.find((c) => c.id === anak) ?? null) : null
-  return <Onboarding state={state} step={step} customChild={custom} />
+  return <Onboarding state={state} step={step} customChild={custom} familyCode={step === 3 ? await familyCodeFor(actor) : null} />
 }

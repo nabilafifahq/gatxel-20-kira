@@ -53,7 +53,7 @@ const STOPS: Stop[] = [
         </span>
       </span>
     ),
-    lines: ['Buka Kira.', 'Ketuk gambar dan namamu.', 'Ketuk empat gambar PIN-mu. Urut, ya.', 'Sudah! Kamu masuk.', 'Lupa PIN? Tidak apa-apa. Ayah atau Bunda bisa membuat PIN baru.'],
+    lines: ['Buka Kira.', 'Baru pertama di HP atau iPad ini? Ketuk Masuk, lalu Masuk sebagai anak, dan ketik kode keluarga dari Ayah atau Bunda.', 'Ketuk namamu.', 'Ketuk empat gambar PIN-mu. Urut, ya.', 'Sudah! Kamu masuk. Besok tinggal ketuk nama dan PIN.', 'Lupa PIN? Tidak apa-apa. Ayah atau Bunda bisa membuat PIN baru.'],
   },
   {
     id: 'hari-ini',

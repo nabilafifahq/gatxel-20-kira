@@ -16,7 +16,10 @@ import { GuardianConsent } from '@/components/family/GuardianConsent'
 import { addChildProblems, isComplete, type AddChildField, type Problems } from '@/lib/required-rules'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useAction } from '@/components/console/useAction'
+import { FamilyCodeCard } from '@/components/family/FamilyCodeCard'
+import { FamilyDevices } from '@/components/family/FamilyDevices'
 import { FamilyShell } from '@/components/family/FamilyShell'
+import type { FamilyDevice } from '@/server/dal/family-code'
 import { FirstRunChecklist } from '@/components/family/FirstRunChecklist'
 import type { ChecklistItem } from '@/server/dal/onboarding'
 import { UiIcon } from '@/components/ui/icons'
@@ -120,7 +123,7 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
   )
 }
 
-export function ParentHomeClient({ shell, data, checklist = null, owner = false }: { shell: ConsoleShell; data: ParentHomeDTO; checklist?: ChecklistItem[] | null; /** Orang tua yang memiliki keluarganya: bisa membuka ulang langkah persiapan. */ owner?: boolean }) {
+export function ParentHomeClient({ shell, data, checklist = null, owner = false, familyCode = null, devices = [] }: { shell: ConsoleShell; data: ParentHomeDTO; checklist?: ChecklistItem[] | null; /** Orang tua yang memiliki keluarganya: bisa membuka ulang langkah persiapan. */ owner?: boolean; familyCode?: string | null; devices?: FamilyDevice[] }) {
   const router = useRouter()
   const [addOpen, setAddOpen] = useState(false)
   const [deviceOpen, setDeviceOpen] = useState(false)
@@ -152,6 +155,9 @@ export function ParentHomeClient({ shell, data, checklist = null, owner = false 
           ))}
         </div>
       )}
+
+      <FamilyCodeCard code={familyCode} />
+      <FamilyDevices devices={devices} />
 
       <section aria-labelledby="atur" className="flex flex-col gap-3 rounded-card bg-surface p-4 shadow-soft">
         <h2 id="atur" className="m-0 text-h3 font-bold">

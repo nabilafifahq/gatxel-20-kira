@@ -124,7 +124,7 @@ export function PinScreen({
       <SignInBar grownUpHref={grownUpHref} />
       <main className="flex flex-1 flex-col items-center justify-center gap-8 px-4 pt-2 pb-10 md:px-10 lg:flex-row lg:gap-18 lg:pb-12">
         <section aria-label={t.shell.pin.signIn} className="flex w-full max-w-[440px] flex-col items-center gap-5 text-center lg:w-95 lg:flex-none lg:items-start lg:text-left">
-          <Avatar name={data.avatar} size={120} title={avatarLabel(data.avatar, lang)} className="h-24 w-24 md:h-30 md:w-30" />
+          {data.avatar ? <Avatar name={data.avatar} size={120} title={avatarLabel(data.avatar, lang)} className="h-24 w-24 md:h-30 md:w-30" /> : null}
           <div className="flex flex-col gap-1">
             <h1 className="m-0 text-h1 font-bold break-words">{t.shell.hi(data.name)}</h1>
             <p className="m-0 text-body-lg text-fg-muted">{locked ? t.shell.pin.resting : prompt}</p>

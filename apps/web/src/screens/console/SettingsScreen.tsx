@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { PasskeyRegisterFn, SettingsActions, SettingsDTO } from '@/lib/dto'
 import { Button, buttonClass } from '@/components/console/Button'
 import { ConsoleShell } from '@/components/console/ConsoleShell'
@@ -45,7 +45,7 @@ const WEEKDAYS = [
 
 const ROLE_LABEL = { tutor: 'Tutor', guardian: 'Orang tua' } as const
 
-export function SettingsScreen({ data, actions, registerPasskey }: SettingsScreenProps) {
+export function SettingsScreen({ data, actions, registerPasskey, familyCodeSlot = null }: SettingsScreenProps & { familyCodeSlot?: ReactNode }) {
   const toast = useToast()
   const today = jakartaDate()
 
@@ -337,6 +337,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
           Perangkat terdaftar
         </SectionHeading>
         <p className="-mt-1 mb-0 text-body text-fg-muted">Tablet learner memakai token perangkat 90 hari. Perangkat orang dewasa memakai sesi 24 jam.</p>
+        {familyCodeSlot}
         {devices.length === 0 ? (
           <Card>
             <p className="m-0 text-body font-bold">Belum ada perangkat learner.</p>

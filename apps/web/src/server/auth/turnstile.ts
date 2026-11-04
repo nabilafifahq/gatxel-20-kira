@@ -6,7 +6,7 @@ import { log } from '../log'
 /**
  * Cloudflare Turnstile untuk halaman auth publik (daftar, masuk, reset, daftar tunggu).
  * Aktif hanya bila KIRA_TURNSTILE_SITE_KEY dan KIRA_TURNSTILE_SECRET sama-sama diisi. Diverifikasi di server.
- * Area learner tidak pernah memuat skrip ini.
+ * Area learner tidak pernah memuat skrip ini, kecuali langkah kode keluarga di /masuk/anak, sebelum ada sesi anak.
  */
 export function turnstileSiteKey(): string | null {
   const e = env()
