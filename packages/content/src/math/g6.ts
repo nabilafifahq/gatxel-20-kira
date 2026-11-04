@@ -380,15 +380,24 @@ const rounding: Generator = {
       if (level === 3 && rng.chance(0.4) && !Number.isInteger(r)) {
         const lower = dec(Math.floor(u / 10), 2)
         const other = decider >= 5 ? lower : dec(Math.floor(u / 10) + 1, 2)
+        // 20.10 dan 20.1 bernilai sama: buang pengecoh yang nilainya sama dengan kunci atau pengecoh lain
+        const taken = new Set([Number(fx(r, 2).replace(/,/g, ''))])
+        const pool = [
+          { value: fx(other, 2), why: `The thousandths digit is ${decider}, so round ${decider >= 5 ? 'up' : 'down'}.` },
+          { value: fx(dec(Math.round(u / 100), 1), 1), why: 'That is rounded to one decimal place.' },
+          { value: String(Math.round(n)), why: 'That is rounded to the nearest whole number.' },
+          { value: fx(dec(Math.floor(u / 10) * 10 + 5, 3), 3), why: 'Rounding to two decimal places leaves two digits after the point.' },
+          { value: fx(dec(Math.round(r * 100) + 10, 2), 2), why: 'Round only the hundredths digit. The tenths digit stays the same here.' },
+        ].filter((d) => {
+          const v = Number(d.value.replace(/,/g, ''))
+          if (taken.has(v)) return false
+          taken.add(v)
+          return true
+        })
         const m = mcqFrom(
           rng,
           fx(r, 2),
-          [
-            { value: fx(other, 2), why: `The thousandths digit is ${decider}, so round ${decider >= 5 ? 'up' : 'down'}.` },
-            { value: fx(dec(Math.round(u / 100), 1), 1), why: 'That is rounded to one decimal place.' },
-            { value: String(Math.round(n)), why: 'That is rounded to the nearest whole number.' },
-            { value: fx(dec(Math.floor(u / 10) * 10 + 5, 3), 3), why: 'Rounding to two decimal places leaves two digits after the point.' },
-          ],
+          pool,
           4,
           (v) => v,
         )
@@ -853,7 +862,8 @@ const functionMachines: Generator = {
         eq = `${k}${letter} = ${k * v}`
         h3 = `${k}${letter} means ${k} × ${letter}. Divide ${k * v} by ${k}.`
         steps = [{ say: `Divide both sides by ${k}.`, show: `${letter} = ${k * v} ÷ ${k} = ${v}` }, { say: 'Check.', show: `${k} × ${v} = ${k * v}` }]
-        left = Array(Math.min(k, 6)).fill(letter)
+        // timbangan paling banyak 6 balok: 9n tidak boleh digambar sebagai 6 balok n
+        left = k > 6 ? [`${k}${letter}`] : Array(k).fill(letter)
         right = [String(k * v)]
       } else if (form === 2) {
         const k = rng.int(2, 5)
@@ -1287,10 +1297,13 @@ const orderOfOperations: Generator = {
     const extra = rng.int(1, 9)
     const name = rng.pick(NAMES)
     const correct = `${packs} × ${per} + ${extra}`
+    // pengecoh yang kebetulan bernilai sama dengan jawaban juga memberi total yang benar, jadi diganti
+    const total = packs * per + extra
+    const other = { value: `${packs} × ${per} − ${extra}`, why: 'That takes the extra pens away instead of adding them.' }
     const m = mcqText(rng, correct, [
       { value: `${packs} × (${per} + ${extra})`, why: `That adds ${extra} pens to every pack.` },
-      { value: `(${packs} + ${per}) × ${extra}`, why: 'That adds packs and pens together, which does not make sense.' },
-      { value: `${packs} + ${per} × ${extra}`, why: `That multiplies the pens in a pack by the extra pens.` },
+      (packs + per) * extra === total ? other : { value: `(${packs} + ${per}) × ${extra}`, why: 'That adds packs and pens together, which does not make sense.' },
+      packs + per * extra === total ? other : { value: `${packs} + ${per} × ${extra}`, why: `That multiplies the pens in a pack by the extra pens.` },
     ])
     return mcqItem({
       prompt: `${name} buys ${packs} packs of pens with ${per} pens in each pack, and ${extra} more pens. Which calculation gives the total number of pens?`,
@@ -1758,10 +1771,13 @@ const multiplyWritten: Generator = {
       const ra = roundTo(a, 1000)
       const rb = roundTo(b, 10)
       const est = ra * rb
+      // pengecoh yang lebih dekat ke hasil sebenarnya daripada est justru taksiran yang lebih baik
+      const up = (ra + 1000) * rb
+      const far = Math.abs(up - a * b) > Math.abs(est - a * b) ? up : ra > 1000 ? (ra - 1000) * rb : est * 100
       const m = mcqFrom(rng, est, [
         { value: est * 10, why: `Check the zeros: ${fmt(ra)} × ${rb} = ${fmt(est)}.` },
         { value: est / 10, why: `Check the zeros: ${fmt(ra)} × ${rb} = ${fmt(est)}.` },
-        { value: (ra + 1000) * rb, why: `${fmt(a)} rounds to ${fmt(ra)}.` },
+        { value: far, why: far === est * 100 ? `Check the zeros: ${fmt(ra)} × ${rb} = ${fmt(est)}.` : `${fmt(a)} rounds to ${fmt(ra)}.` },
         { value: ra * (rb + 10), why: `${b} rounds to ${rb}.` },
       ])
       return mcqItem({
@@ -2329,7 +2345,8 @@ const decimalsMultiplyDivide: Generator = {
         const m = mcqFrom(rng, ok, [
           { value: ok * 10, why: `Check the sizes: ${fmt(dec(a, 1))} ÷ ${fmt(dec(b, 1))} is about ${ra} ÷ ${rb}.` },
           { value: ra * rb, why: 'That multiplies instead of dividing.' },
-          { value: ok + 2, why: `${fmt(dec(a, 1))} is close to ${ra} and ${fmt(dec(b, 1))} is close to ${rb}.` },
+          // ok + 2 bisa lebih dekat ke hasil sebenarnya daripada ok, dan itu taksiran yang lebih baik
+          { value: Math.abs(ok + 2 - a / b) > Math.abs(ok - a / b) ? ok + 2 : ok - 2, why: `${fmt(dec(a, 1))} is close to ${ra} and ${fmt(dec(b, 1))} is close to ${rb}.` },
         ])
         return mcqItem({
           prompt: `Which is the best estimate for ${fmt(dec(a, 1))} ÷ ${fmt(dec(b, 1))}?`,
