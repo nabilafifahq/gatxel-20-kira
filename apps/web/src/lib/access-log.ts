@@ -8,7 +8,7 @@ import { pickClientIp } from '@/lib/client-ip'
  */
 export function ipPrefix(ip: string | null): string {
   if (!ip) return 'unknown'
-  if (ip.includes(':')) return ip.split(':').slice(0, 3).join(':') + '::/48'
+  if (ip.includes(':')) return ip.split(':').slice(0, 3).join(':').replace(/:+$/, '') + '::/48'
   const p = ip.split('.')
   return p.length === 4 ? `${p[0]}.${p[1]}.${p[2]}.0/24` : 'unknown'
 }

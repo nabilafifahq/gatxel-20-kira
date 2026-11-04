@@ -5,6 +5,8 @@ import { tables } from '@kira/db'
 import { authDb } from '../db'
 import { AppError } from '../errors'
 import { pickClientIp } from '@/lib/client-ip'
+import { ipPrefix } from '@/lib/access-log'
+import { log } from '../log'
 
 /**
  * Pembatas laju. Akun: jeda bertambah setelah 3 kali gagal dalam 15 menit dan
@@ -33,6 +35,7 @@ export async function throttleIp(action: string, perMinute: number, scope?: stri
   b.at = now
   if (b.tokens < 1) {
     buckets.set(key, b)
+    log.warn('keamanan: batas laju terlampaui', { event: 'ratelimit', action, scoped: scope !== undefined, ipPrefix: ipPrefix(ip === 'unknown' ? null : ip) })
     const retryAfter = Math.max(1, Math.ceil(((1 - b.tokens) / perMinute) * 60))
     throw new AppError('rate-limited', 'Terlalu banyak percobaan dari perangkat ini. Tunggu satu menit lalu coba lagi.', undefined, retryAfter)
   }
