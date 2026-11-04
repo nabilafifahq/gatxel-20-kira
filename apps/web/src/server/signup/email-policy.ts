@@ -91,7 +91,7 @@ export type EmailVerdict = { ok: true; key: string; email: string } | { ok: fals
 
 export const EMAIL_MESSAGES = {
   shape: 'Tulis alamat email lengkap, dengan @ dan nama domain.',
-  disposable: 'Alamat email sementara belum bisa dipakai di Kira. Pakai email yang kamu baca setiap hari, supaya kabar tentang akunmu sampai.',
+  disposable: 'Alamat email sementara belum bisa dipakai di Kira. Pakai email yang Anda baca setiap hari, supaya kabar tentang akun Anda sampai.',
   'no-mx': 'Alamat email ini sepertinya belum bisa menerima surat. Periksa penulisannya, atau pakai alamat lain.',
 } as const
 

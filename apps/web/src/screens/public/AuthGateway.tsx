@@ -132,10 +132,10 @@ function FullSeatsPanel({ turnstileSiteKey, onLogin }: { turnstileSiteKey: strin
         <h2 id="penuh-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Kursi beta sudah penuh
         </h2>
-        <p className="m-0 text-body text-fg-muted">Kami membuka Kira bertahap supaya setiap keluarga mendapat perhatian yang cukup. Tinggalkan email, dan kamu dikabari lebih dulu saat kursi dibuka lagi.</p>
+        <p className="m-0 text-body text-fg-muted">Kami membuka Kira bertahap supaya setiap keluarga mendapat perhatian yang cukup. Tinggalkan email, dan Anda dikabari lebih dulu saat kursi dibuka lagi.</p>
       </div>
       <WaitlistForm turnstileSiteKey={turnstileSiteKey} />
-      <p className="m-0 text-small text-fg-muted">Kami menyimpan alamat emailmu hanya untuk kabar ini. Setiap email punya tautan berhenti berlangganan.</p>
+      <p className="m-0 text-small text-fg-muted">Kami menyimpan alamat email Anda hanya untuk kabar ini. Setiap email punya tautan berhenti berlangganan.</p>
       <p className="m-0 text-body text-fg-muted">
         Sudah punya akun?{' '}
         <button type="button" onClick={onLogin} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
