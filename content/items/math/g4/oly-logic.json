@@ -522,6 +522,210 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m4.oly-logic.010",
+      "skill": "m4.oly-logic",
+      "difficulty": 4,
+      "prompt": "Ayu says, \"Budi took the cake.\" Budi says, \"I did not take it.\" Cici says, \"Ayu is lying.\" Exactly one of the three is telling the truth. Who took the cake?",
+      "hints": [
+        "Try each person as the one who took the cake.",
+        "Count how many of the three children tell the truth each time.",
+        "You need exactly one true statement."
+      ],
+      "explanation": "If Budi took it, only Ayu is truthful. If Ayu or Cici took it, two children tell the truth. Only Budi works.",
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Ayu",
+          "why": "Then Budi and Cici would both be telling the truth, which is two truths."
+        },
+        {
+          "text": "Cici",
+          "why": "Then Budi and Cici would both be telling the truth, which is two truths."
+        },
+        {
+          "text": "Budi"
+        },
+        {
+          "text": "Nobody took it",
+          "why": "Ayu says someone did, but there must be a cake taker for the statements to fit."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Trying each person shows that only one choice gives exactly one true statement."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.oly-logic.011",
+      "skill": "m4.oly-logic",
+      "difficulty": 3,
+      "prompt": "Rina is taller than Sam. Tom is shorter than Sam. Uli is taller than Rina. Who is the second shortest?",
+      "hints": [
+        "Draw the children in a line from tallest to shortest.",
+        "Uli is taller than Rina, and Rina is taller than Sam.",
+        "Put Tom at the short end."
+      ],
+      "explanation": "The order from tallest is Uli, Rina, Sam, Tom. Sam is second from the shortest.",
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rina",
+          "why": "Rina is taller than Sam, so she is not second shortest."
+        },
+        {
+          "text": "Tom",
+          "why": "Tom is the shortest of the four."
+        },
+        {
+          "text": "Uli",
+          "why": "Uli is the tallest."
+        },
+        {
+          "text": "Sam"
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The clues put all four children in one order."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m4.oly-logic.012",
+      "skill": "m4.oly-logic",
+      "difficulty": 4,
+      "prompt": "1 melon balances 3 pears. 1 pear balances 2 apples. How many apples balance 2 melons?",
+      "hints": [
+        "Work out how many apples balance 1 melon.",
+        "1 melon = 3 pears and each pear = 2 apples.",
+        "Then double it."
+      ],
+      "explanation": "1 melon = 3 pears = 6 apples. So 2 melons = 12 apples.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m4.oly-logic.013",
+      "skill": "m4.oly-logic",
+      "difficulty": 5,
+      "prompt": "On an island, knights always tell the truth and knaves always lie. Ali says, \"We are both knaves.\" Ali and Bo are each a knight or a knave. What are they?",
+      "hints": [
+        "Try Ali as a knight first.",
+        "A knight cannot say something false.",
+        "If Ali is a knave, his statement is false, so they are not both knaves."
+      ],
+      "explanation": "If Ali were a knight, his statement would be true and make him a knave. That is impossible. So Ali is a knave, his statement is false, and Bo must be a knight.",
+      "tags": [
+        "olympiad",
+        "ikmc"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Ali is a knight and Bo is a knave.",
+          "why": "A knight cannot say \"we are both knaves\", because that would be a lie."
+        },
+        {
+          "text": "Both are knaves.",
+          "why": "Then Ali would be telling the truth, but knaves always lie."
+        },
+        {
+          "text": "Both are knights.",
+          "why": "Then Ali would be lying, but knights tell the truth."
+        },
+        {
+          "text": "We cannot tell.",
+          "why": "Trying each case shows that only one pair works."
+        },
+        {
+          "text": "Ali is a knave and Bo is a knight."
+        }
+      ],
+      "answer": 4
+    },
+    {
+      "id": "m4.oly-logic.014",
+      "skill": "m4.oly-logic",
+      "difficulty": 4,
+      "prompt": "Dewi is 3 years older than Bayu. In 4 years the sum of their ages will be 33. How old is Dewi now?",
+      "hints": [
+        "Let Bayu be a number and Dewi be 3 more.",
+        "In 4 years each is 4 years older, so the sum is 8 more than now.",
+        "Their ages now add up to 25."
+      ],
+      "explanation": "In 4 years the sum is 33, so now it is 33 - 8 = 25. If Bayu is b, then b + (b + 3) = 25, so b = 11 and Dewi is 14.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 14
+    },
+    {
+      "id": "m4.oly-logic.015",
+      "skill": "m4.oly-logic",
+      "difficulty": 5,
+      "prompt": "A card has three statements. 1: \"Exactly one statement on this card is false.\" 2: \"Exactly two statements on this card are false.\" 3: \"All three statements on this card are false.\" Exactly one statement on the card is true. Which one?",
+      "hints": [
+        "Exactly one is true, so exactly two are false.",
+        "Which statement says exactly two are false?",
+        "Check that the other two are then false."
+      ],
+      "explanation": "One true statement means two false ones. Statement 2 says exactly two are false, which fits. Statements 1 and 3 are then false, as they should be.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Statement 2"
+        },
+        {
+          "text": "Statement 1",
+          "why": "If statement 1 were true, then two statements would be true or none. The count does not fit."
+        },
+        {
+          "text": "Statement 3",
+          "why": "If statement 3 were true, it would say itself is false."
+        },
+        {
+          "text": "None of them",
+          "why": "The card says exactly one is true."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "Testing each statement shows that only one case works."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

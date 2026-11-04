@@ -1,0 +1,58 @@
+{
+  "skill": "m4.convert-units",
+  "items": [
+    {
+      "id": "m4.convert-units.001",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A rope is 3 m 45 cm long. A scout cuts off 1 m 80 cm. How many centimetres of rope are left?",
+      "hints": [
+        "Change the lengths to centimetres.",
+        "3 m 45 cm is 345 cm.",
+        "Subtract 180 cm."
+      ],
+      "explanation": "3 m 45 cm = 345 cm and 1 m 80 cm = 180 cm. 345 - 180 = 165 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 165
+    },
+    {
+      "id": "m4.convert-units.002",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A jug holds 1.5 litres. Bayu fills glasses that each hold 250 ml. How many glasses can he fill from a full jug?",
+      "hints": [
+        "Change the litres into millilitres.",
+        "1.5 l = 1,500 ml.",
+        "How many 250 ml fit into 1,500 ml?"
+      ],
+      "explanation": "1.5 l = 1,500 ml. 1,500 ÷ 250 = 6 glasses.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 6
+    },
+    {
+      "id": "m4.convert-units.003",
+      "skill": "m4.convert-units",
+      "difficulty": 3,
+      "prompt": "A parcel has a mass of 2 kg 300 g. A card of 850 g is added. What is the total mass in grams?",
+      "hints": [
+        "Write 2 kg 300 g in grams.",
+        "2 kg 300 g = 2,300 g.",
+        "Add 850 g."
+      ],
+      "explanation": "2 kg 300 g = 2,300 g. Then 2,300 + 850 = 3,150 g.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "g",
+      "type": "numeric",
+      "answer": 3150
+    }
+  ]
+}

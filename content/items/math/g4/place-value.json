@@ -1,0 +1,98 @@
+{
+  "skill": "m4.place-value",
+  "items": [
+    {
+      "id": "m4.place-value.001",
+      "skill": "m4.place-value",
+      "difficulty": 3,
+      "prompt": "Dewi makes the largest 4-digit number she can with the digits 3, 0, 8 and 5, using each once. What is the value of the digit 3 in her number?",
+      "hints": [
+        "Put the biggest digit in the thousands place first.",
+        "Order the digits from the biggest to the smallest.",
+        "The number is 8,530. Which place is the 3 in?"
+      ],
+      "explanation": "The largest number is 8,530. The 3 is in the tens place, so its value is 30.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "30"
+        },
+        {
+          "text": "3",
+          "why": "That is the digit itself. Its value depends on the place it sits in."
+        },
+        {
+          "text": "300",
+          "why": "The hundreds place holds the 5 in her number."
+        },
+        {
+          "text": "3,000",
+          "why": "The thousands place holds the 8, the biggest digit."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.place-value.002",
+      "skill": "m4.place-value",
+      "difficulty": 4,
+      "prompt": "A shop counts 4 thousands, 12 hundreds and 7 ones of paper clips. How many paper clips is that altogether?",
+      "hints": [
+        "Change the 12 hundreds into a number first.",
+        "12 hundreds is 1,200.",
+        "4,000 + 1,200 + 7."
+      ],
+      "explanation": "12 hundreds is 1,200. So 4,000 + 1,200 + 7 = 5,207.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 5207
+    },
+    {
+      "id": "m4.place-value.003",
+      "skill": "m4.place-value",
+      "difficulty": 3,
+      "prompt": "Which number is 10 more than 4,995?",
+      "hints": [
+        "Add 10 to the tens digit.",
+        "The tens digit is 9. What happens when you add 1 ten to 9 tens?",
+        "4,995 is 5 short of 5,000. Add the other 5 afterwards."
+      ],
+      "explanation": "4,995 + 5 = 5,000, and 5 more makes 5,005. Adding 10 carries across the tens and hundreds.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "4,905",
+          "why": "You added 10 but did not carry into the hundreds. 95 + 10 is 105."
+        },
+        {
+          "text": "5,005"
+        },
+        {
+          "text": "5,095",
+          "why": "That is 100 more than 4,995."
+        },
+        {
+          "text": "4,996",
+          "why": "That is only 1 more."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m4.place-value.004",
+      "skill": "m4.place-value",
+      "difficulty": 4,
+      "prompt": "I am a 4-digit number. My hundreds digit is 3. My thousands digit is double my hundreds digit. My tens digit is 0. My ones digit is the sum of my thousands and hundreds digits. What number am I?",
+      "hints": [
+        "Start with the hundreds digit, which is 3.",
+        "Double 3 gives the thousands digit.",
+        "Add the thousands and hundreds digits for the ones digit."
+      ],
+      "explanation": "Thousands 6 (double 3), hundreds 3, tens 0, ones 6 + 3 = 9. The number is 6,309.",
+      "type": "numeric",
+      "answer": 6309
+    }
+  ]
+}

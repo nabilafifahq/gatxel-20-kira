@@ -1,0 +1,70 @@
+{
+  "skill": "m4.times-tables",
+  "items": [
+    {
+      "id": "m4.times-tables.001",
+      "skill": "m4.times-tables",
+      "difficulty": 2,
+      "prompt": "Sekar packs eggs in trays of 6. She fills 7 trays and has 4 eggs left over. How many eggs does she have?",
+      "hints": [
+        "Work out the eggs in the full trays.",
+        "7 × 6.",
+        "Add the 4 extra eggs."
+      ],
+      "explanation": "7 × 6 = 42. Then 42 + 4 = 46 eggs.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 46
+    },
+    {
+      "id": "m4.times-tables.002",
+      "skill": "m4.times-tables",
+      "difficulty": 2,
+      "prompt": "Which number is not in the 8 times table?",
+      "hints": [
+        "Count in 8s.",
+        "8, 16, 24, 32, 40, ...",
+        "Check each number in the list."
+      ],
+      "explanation": "Counting in 8s gives 56, 64, 72, 80. 74 is skipped, so it is not in the table.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "56",
+          "why": "8 × 7 = 56."
+        },
+        {
+          "text": "64",
+          "why": "8 × 8 = 64."
+        },
+        {
+          "text": "74"
+        },
+        {
+          "text": "80",
+          "why": "8 × 10 = 80."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.times-tables.003",
+      "skill": "m4.times-tables",
+      "difficulty": 3,
+      "prompt": "Each of 7 shelves holds 8 books. A teacher takes away 12 books. How many books are left?",
+      "hints": [
+        "Find the number of books on the shelves first.",
+        "7 × 8.",
+        "Take away 12."
+      ],
+      "explanation": "7 × 8 = 56 books. Then 56 - 12 = 44 books are left.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 44
+    }
+  ]
+}

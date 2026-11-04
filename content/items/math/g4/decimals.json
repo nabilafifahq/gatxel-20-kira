@@ -1,0 +1,70 @@
+{
+  "skill": "m4.decimals",
+  "items": [
+    {
+      "id": "m4.decimals.001",
+      "skill": "m4.decimals",
+      "difficulty": 3,
+      "prompt": "Which is the largest number?",
+      "hints": [
+        "Compare the tenths first.",
+        "Write 0.6 as 0.60 so all numbers have two decimal places.",
+        "Which one has the most tenths? If tied, compare hundredths."
+      ],
+      "explanation": "Writing all as hundredths gives 0.61, 0.60, 0.58 and 0.09. The biggest is 0.61.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "0.6",
+          "why": "0.6 is the same as 0.60, which is less than 0.61."
+        },
+        {
+          "text": "0.61"
+        },
+        {
+          "text": "0.58",
+          "why": "Having more digits does not make a decimal bigger. 0.58 has fewer tenths than 0.61."
+        },
+        {
+          "text": "0.09",
+          "why": "0.09 has no tenths, so it is the smallest."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m4.decimals.002",
+      "skill": "m4.decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A ribbon is 2.35 m long. Rangga cuts off 0.8 m. How many metres of ribbon are left?",
+      "answer": 1.55,
+      "allowDecimal": true,
+      "unit": "m",
+      "hints": [
+        "Line up the decimal points.",
+        "Write 0.8 as 0.80.",
+        "2.35 - 0.80."
+      ],
+      "explanation": "0.8 m is 0.80 m. Then 2.35 - 0.80 = 1.55 m.",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.decimals.003",
+      "skill": "m4.decimals",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Write 7 tenths and 4 hundredths as a decimal number.",
+      "answer": 0.74,
+      "allowDecimal": true,
+      "hints": [
+        "Tenths come first after the decimal point.",
+        "There is a 7 in the tenths place.",
+        "There is a 4 in the hundredths place."
+      ],
+      "explanation": "7 tenths is 0.7 and 4 hundredths is 0.04. Together they make 0.74."
+    }
+  ]
+}

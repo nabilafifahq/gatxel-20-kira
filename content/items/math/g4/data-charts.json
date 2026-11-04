@@ -1,0 +1,79 @@
+{
+  "skill": "m4.data-charts",
+  "items": [
+    {
+      "id": "m4.data-charts.001",
+      "skill": "m4.data-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The bar chart shows books borrowed from the school library. How many books were borrowed in the whole week?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "values": [
+          12,
+          18,
+          9,
+          15,
+          21
+        ],
+        "step": 3,
+        "yLabel": "Books",
+        "alt": "Bar chart of books borrowed: Monday 12, Tuesday 18, Wednesday 9, Thursday 15, Friday 21."
+      },
+      "answer": 75,
+      "hints": [
+        "Read the value of each bar.",
+        "The bars are 12, 18, 9, 15 and 21.",
+        "Add them in pairs."
+      ],
+      "explanation": "12 + 18 + 9 + 15 + 21 = 75 books.",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.data-charts.002",
+      "skill": "m4.data-charts",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "The pictogram shows the sport each child chose. Each star means 4 children. How many more children chose football than badminton?",
+      "figure": {
+        "kind": "pictogram",
+        "rows": [
+          {
+            "label": "Football",
+            "count": 6
+          },
+          {
+            "label": "Swimming",
+            "count": 4
+          },
+          {
+            "label": "Badminton",
+            "count": 3
+          }
+        ],
+        "icon": "star",
+        "key": 4,
+        "alt": "Pictogram, each star is 4 children. Football 6 stars, swimming 4 stars, badminton 3 stars."
+      },
+      "answer": 12,
+      "hints": [
+        "Count the stars in each row.",
+        "The difference is 6 - 3 stars.",
+        "Each star is 4 children."
+      ],
+      "explanation": "Football has 6 stars and badminton has 3 stars. The difference is 3 stars, and 3 × 4 = 12 children.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

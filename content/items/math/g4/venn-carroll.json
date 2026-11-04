@@ -1,0 +1,22 @@
+{
+  "skill": "m4.venn-carroll",
+  "items": [
+    {
+      "id": "m4.venn-carroll.001",
+      "skill": "m4.venn-carroll",
+      "difficulty": 4,
+      "prompt": "In a class of 30 pupils, 17 like football, 14 like swimming and 5 like both. How many pupils like neither football nor swimming?",
+      "hints": [
+        "The 5 pupils who like both are counted in both groups.",
+        "Football only is 17 - 5 and swimming only is 14 - 5.",
+        "Add football only, swimming only and both."
+      ],
+      "explanation": "Football only is 12 and swimming only is 9. With the 5 who like both, 12 + 9 + 5 = 26 like at least one. 30 - 26 = 4 like neither.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 4
+    }
+  ]
+}

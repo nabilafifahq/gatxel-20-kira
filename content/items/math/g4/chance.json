@@ -1,0 +1,55 @@
+{
+  "skill": "m4.chance",
+  "items": [
+    {
+      "id": "m4.chance.001",
+      "skill": "m4.chance",
+      "difficulty": 2,
+      "prompt": "A bag has 5 red counters, 3 blue counters and 2 green counters. Pick one without looking. Which statement is correct?",
+      "hints": [
+        "Count how many of each colour there are.",
+        "The colour with the most counters is the most likely.",
+        "Certain means it must happen every time."
+      ],
+      "explanation": "There are more red counters than any other colour, so red is the most likely. It is not certain, because blue and green are also in the bag.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Blue and green are equally likely.",
+          "why": "There are 3 blue and 2 green, so blue is a little more likely."
+        },
+        {
+          "text": "Green is more likely than blue.",
+          "why": "There are fewer green counters than blue counters."
+        },
+        {
+          "text": "Red is the most likely colour."
+        },
+        {
+          "text": "Red is certain.",
+          "why": "Red is not certain because there are other colours in the bag."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.chance.002",
+      "skill": "m4.chance",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these events in order, from the least likely to the most likely, when you roll a normal dice.",
+      "items": [
+        "rolling a 7",
+        "rolling a 6",
+        "rolling an even number",
+        "rolling a number less than 7"
+      ],
+      "hints": [
+        "A dice has the numbers 1 to 6.",
+        "One event cannot happen at all, and one must happen.",
+        "Compare how many numbers make each event happen."
+      ],
+      "explanation": "A 7 is impossible. A 6 is 1 out of 6. An even number is 3 out of 6. A number less than 7 is certain."
+    }
+  ]
+}

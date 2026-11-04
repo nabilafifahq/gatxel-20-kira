@@ -1,0 +1,56 @@
+{
+  "skill": "m4.money-rupiah",
+  "items": [
+    {
+      "id": "m4.money-rupiah.001",
+      "skill": "m4.money-rupiah",
+      "difficulty": 3,
+      "prompt": "Pens cost Rp3.500 each. Hadi buys 4 pens and pays with Rp20.000. How many rupiah change does he get?",
+      "hints": [
+        "Find the cost of 4 pens.",
+        "4 × 3.500.",
+        "Take that away from 20.000."
+      ],
+      "explanation": "4 × 3,500 = 14,000. Then 20,000 - 14,000 = 6,000. His change is Rp6.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 6000
+    },
+    {
+      "id": "m4.money-rupiah.002",
+      "skill": "m4.money-rupiah",
+      "difficulty": 4,
+      "prompt": "A notebook costs Rp7.500 and a ruler costs Rp2.250. Joko buys 3 notebooks and 2 rulers and pays with Rp30.000. How many rupiah change does he get?",
+      "hints": [
+        "Find the cost of the notebooks and the rulers separately.",
+        "3 × 7.500 and 2 × 2.250.",
+        "Add them, then take the total from 30.000."
+      ],
+      "explanation": "3 × 7,500 = 22,500 and 2 × 2,250 = 4,500. The total is 27,000, so the change is 30,000 - 27,000 = 3,000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3000
+    },
+    {
+      "id": "m4.money-rupiah.003",
+      "skill": "m4.money-rupiah",
+      "difficulty": 4,
+      "prompt": "A pack of 6 stickers costs Rp9.000. One sticker on its own costs Rp1.700. How many rupiah more does it cost to buy 6 single stickers than one pack?",
+      "hints": [
+        "Find the cost of 6 single stickers.",
+        "6 × 1.700.",
+        "Compare with Rp9.000."
+      ],
+      "explanation": "6 × 1,700 = 10,200. Then 10,200 - 9,000 = 1,200. Singles cost Rp1.200 more.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 1200
+    }
+  ]
+}
