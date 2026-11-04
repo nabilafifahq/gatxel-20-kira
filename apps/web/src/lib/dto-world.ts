@@ -111,6 +111,8 @@ export type BossDTO = {
   /** Hari belajar lagi sampai lawan berikutnya datang. Kosong bila semua sudah datang. */
   nextIn: number | null
   beaten: number
+  /** Batas layar hari ini habis: ronde baru ditolak server, jadi tombol mulai diganti pesan istirahat. */
+  limitReached: boolean
 }
 
 export type BossResultDTO = {

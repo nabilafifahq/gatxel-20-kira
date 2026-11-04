@@ -29,7 +29,7 @@ function LevelMark({ level }: { level: 1 | 2 | 3 }): ReactElement {
 }
 
 /** Papan lawan: Kira dan lawan masuk dari dua sisi, kelemahan dan hadiah terlihat, lalu tombol mulai. */
-function FaceOff({ boss: row, name, wonThisWeek, winStars }: { boss: BossRowDTO; name: string; wonThisWeek: boolean; winStars: number }): ReactElement {
+function FaceOff({ boss: row, name, wonThisWeek, winStars, limitReached }: { boss: BossRowDTO; name: string; wonThisWeek: boolean; winStars: number; limitReached: boolean }): ReactElement {
   const t = useT()
   const b = t.world.boss
   const boss = bossText(t.bosses, row.id, row)
@@ -77,9 +77,15 @@ function FaceOff({ boss: row, name, wonThisWeek, winStars }: { boss: BossRowDTO;
             </span>
           </div>
         ) : null}
-        <ButtonLink href={`/world/boss/start?b=${boss.id}`} prefetch={false} iconAfter="arrow-right" className="w-full md:w-auto md:self-start">
-          {boss.wins > 0 ? b.rematchName(boss.name) : b.start}
-        </ButtonLink>
+        {limitReached ? (
+          <p role="status" className="m-0 rounded-card border-2 border-fg bg-surface p-4 text-body-lg font-bold">
+            {t.arena.breakTime}
+          </p>
+        ) : (
+          <ButtonLink href={`/world/boss/start?b=${boss.id}`} prefetch={false} iconAfter="arrow-right" className="w-full md:w-auto md:self-start">
+            {boss.wins > 0 ? b.rematchName(boss.name) : b.start}
+          </ButtonLink>
+        )}
       </div>
     </section>
   )
@@ -106,7 +112,7 @@ export function BossScreen({ data }: { data: BossDTO }): ReactElement {
         <p className="m-0 text-body-lg text-fg-muted">{copy.intro(data.beaten, data.bosses.length)}</p>
       </header>
       <WorldTabs current="boss" />
-      {boss ? <FaceOff boss={boss} name={data.shell.name} wonThisWeek={data.wonThisWeek} winStars={data.winStars} /> : <p className="m-0 text-body-lg">{copy.resting}</p>}
+      {boss ? <FaceOff boss={boss} name={data.shell.name} wonThisWeek={data.wonThisWeek} winStars={data.winStars} limitReached={data.limitReached} /> : <p className="m-0 text-body-lg">{copy.resting}</p>}
       {data.bosses.length > 0 ? (
         <section aria-label={copy.allBosses} className="flex flex-col gap-3">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">

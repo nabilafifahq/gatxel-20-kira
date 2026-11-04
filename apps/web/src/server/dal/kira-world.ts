@@ -64,7 +64,7 @@ import type { OrgContext, Tx } from '../db'
 import { conflict, forbidden, invalid, notFound } from '../errors'
 import { loadQuizState } from './arena-state'
 import { skillsFor, subjectOfSkill } from './content'
-import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
+import { learnerShell, loadLearner, minutesOn, skillStates, streakFor } from './learner-core'
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
 import { featureMapFor, isFeatureOn, isFeatureOnTx } from './learner-features'
 import { guardAttemptItems } from './session-guard'
@@ -531,7 +531,7 @@ function bossRoster(available: readonly BossDef[], wins: Readonly<Record<string,
 
 export async function bossDTO(tx: Tx, learnerId: string): Promise<BossDTO> {
   const learner = await loadLearner(tx, learnerId)
-  const [shell, world, owned, days, map] = await Promise.all([learnerShell(tx, learner), loadWorld(tx, learnerId), ownedCardIds(tx, learnerId), studyDays(tx, learnerId), featureMapFor(tx, learnerId)])
+  const [shell, world, owned, days, map, minutes] = await Promise.all([learnerShell(tx, learner), loadWorld(tx, learnerId), ownedCardIds(tx, learnerId), studyDays(tx, learnerId), featureMapFor(tx, learnerId), minutesOn(tx, learnerId, jakartaDate())])
   const week = bossWeek()
   const wins = bossWinsOf(world.progress)
   const available = bossesAvailable((s) => effectiveOn(map, s))
@@ -563,6 +563,7 @@ export async function bossDTO(tx: Tx, learnerId: string): Promise<BossDTO> {
     spotlight: bossSpotlight(roster.filter((r) => r.open).map((r) => r.def.id), wins, week),
     nextIn: bossNextIn(days, available.length),
     beaten: available.filter((b) => (wins[b.id] ?? 0) > 0).length,
+    limitReached: minutes >= learner.screenLimitMin,
   }
 }
 
@@ -725,6 +726,8 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     .limit(1)
   if (open) return open.id
   const learner = await loadLearner(tx, learnerId)
+  // Batas layar berlaku untuk ronde baru. Ronde yang sudah terbuka di atas tetap boleh diselesaikan.
+  if ((await minutesOn(tx, learnerId, jakartaDate())) >= learner.screenLimitMin) throw forbidden('Time for a break.')
   const states = await skillStates(tx, learnerId)
   const date = jakartaDate()
   const tries = (await tx.select({ id: attempt.id }).from(attempt).where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + ':%'}`))).length
