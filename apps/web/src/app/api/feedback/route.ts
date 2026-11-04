@@ -179,5 +179,6 @@ export async function POST(req: Request) {
   if (r.ok) return NextResponse.json(r, { headers: noStore })
   // Berkas sudah tersimpan tetapi pesan gagal dicatat: jangan tinggalkan berkas tanpa pemilik.
   if (stored.path) await removeSupportFile(env().KIRA_DATA_DIR, stored.path).catch(() => log.warn('lampiran bantuan gagal dibuang', {}))
+  if (status === 500) r.message = 'Terjadi kesalahan di server Kira. Coba lagi sebentar lagi.'
   return NextResponse.json(r, { status, headers: { ...noStore, ...(retryAfter ? { 'Retry-After': String(retryAfter) } : {}) } })
 }

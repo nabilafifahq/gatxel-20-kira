@@ -24,7 +24,9 @@ export function FeedbackScreen({ viewer, turnstileSiteKey, appVersion, fromPath 
             <h2 id="whatsapp" className="m-0 font-display text-h3 font-semibold">
               Butuh jawaban cepat?
             </h2>
-            <p className="m-0 text-body">Chat langsung dengan tim Gatxel di {WHATSAPP_DISPLAY}.</p>
+            <p className="m-0 text-body">
+              Chat langsung dengan tim Gatxel di <strong className="whitespace-nowrap">{WHATSAPP_DISPLAY}</strong>.
+            </p>
           </div>
           <ButtonLink href={WHATSAPP_HELP_URL} external variant="primary" icon="chat" className="h-14! w-full text-body-lg!">
             Chat lewat WhatsApp

@@ -19,6 +19,7 @@ import { emailSamples, seatReopenedEmail } from '@kira/core/email-templates'
  *   waitlist-export        cetak CSV daftar tunggu yang terkonfirmasi dan belum berhenti (email, sumber, tanggal)
  *   waitlist-notify <n>    antrekan undangan kursi untuk n orang tertua di daftar tunggu (dikirim bertahap, 10 per menit)
  *   sourcing-now           jadwalkan pembaruan sumber soal (seperti jadwal Minggu dini hari) sekarang juga untuk setiap org
+ *   support-tickets [n]    cetak n pesan Bantuan terbaru (bawaan 20) beserta status emailnya, untuk saat SMTP bermasalah
  *   email-samples <email>  antrekan satu contoh setiap jenis email ke alamat itu; worker mengirimnya lewat SMTP_URL (bertahap, 10 per menit)
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
@@ -250,6 +251,17 @@ async function emailSamplesCommand(addressRaw: string | undefined): Promise<void
   console.log(`${samples.length} email contoh diantrekan ke ${to}. Worker mengirimnya lewat SMTP dalam sekitar 2 menit. Status: docker compose logs -f worker`)
 }
 
+/** Pesan Bantuan terbaru. Hanya perintah ini yang bisa membacanya: web cuma boleh menambah baris. */
+async function supportTickets(nRaw: string | undefined): Promise<void> {
+  const n = nRaw === undefined ? 20 : Number(nRaw)
+  if (!Number.isInteger(n) || n < 1 || n > 500) throw new Error('Pakai: admin support-tickets [jumlah 1 sampai 500]')
+  const rows = await sql`
+    select t.reference, t.created_at, t.category, t.sender_email, t.account_role, t.subject, t.message, t.attachment_name,
+      (select m.status from public_mail m where m.kind = 'support-ticket' and m.subject like '%(' || t.reference || ')' limit 1) as email_status
+    from support_ticket t order by t.created_at desc limit ${n}`
+  console.log(JSON.stringify(rows, null, 2))
+}
+
 const [cmd, arg] = process.argv.slice(2)
 try {
   if (cmd === 'status') await status()
@@ -264,8 +276,9 @@ try {
   else if (cmd === 'waitlist-notify') await waitlistNotify(arg)
   else if (cmd === 'sourcing-now') await sourcingNow()
   else if (cmd === 'email-samples') await emailSamplesCommand(arg)
+  else if (cmd === 'support-tickets') await supportTickets(arg)
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n> | email-samples <email>')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n> | email-samples <email> | support-tickets [n]')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

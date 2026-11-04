@@ -11,7 +11,7 @@ export type SupportFileType = { mime: 'image/png' | 'image/jpeg' | 'application/
 
 const PNG_SIG = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])
 /** Merek MP4 video. HEIC dan M4A sengaja tidak ada di daftar. */
-const MP4_BRANDS = new Set(['isom', 'iso2', 'iso3', 'iso4', 'iso5', 'iso6', 'mp41', 'mp42', 'avc1', 'M4V ', 'M4VH', 'M4VP', 'dash', 'qt  '])
+const MP4_BRANDS = new Set(['isom', 'iso2', 'iso3', 'iso4', 'iso5', 'iso6', 'mp41', 'mp42', 'avc1', 'M4V ', 'M4VH', 'M4VP', 'dash'])
 
 export function sniffAttachment(buf: Buffer): SupportFileType | null {
   if (buf.length < 12) return null

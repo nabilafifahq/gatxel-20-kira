@@ -180,7 +180,7 @@ test.describe('pendaftaran orang tua', () => {
       await page.goto(linkIn(confirmMail, '/kabar/konfirmasi/'))
       await page.getByRole('button', { name: 'Ya, kabari saya' }).click()
       await expect(page.getByRole('heading', { name: 'Kamu masuk daftar tunggu' })).toBeVisible()
-      const welcome = await mailTo(wl, 'Kamu ada di daftar tunggu')
+      const welcome = await mailTo(wl, 'Anda ada di daftar tunggu')
       await page.goto(linkIn(welcome, '/kabar/berhenti/'))
       await expect(page.getByRole('heading', { name: 'Kamu sudah berhenti berlangganan' })).toBeVisible()
       const [row] = await db()`select unsubscribed_at from auth.waitlist where email = ${wl}`

@@ -111,7 +111,8 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
     setErrors(problems)
     const first = Object.keys(problems).find((k) => problems[k as keyof Errors])
     if (first) {
-      document.querySelector<HTMLElement>(`[data-field="${first}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      document.querySelector<HTMLElement>(`[data-field="${first}"]`)?.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' })
       return
     }
     if (turnstileSiteKey && !captcha) {
@@ -197,7 +198,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
       </div>
 
       <fieldset data-field="category" className="m-0 flex flex-col gap-2 border-0 p-0">
-        <legend className="mb-2 p-0 text-body font-bold">Tentang apa pesan Anda?</legend>
+        <legend className="mb-2 p-0 text-small font-bold">Tentang apa pesan Anda?</legend>
         <div className="flex flex-col overflow-hidden rounded-control border-2 border-lavender">
           {SUPPORT_CATEGORIES.map((c, i) => {
             const on = category === c.id
@@ -308,7 +309,7 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
       )}
 
       <div data-field="attachment" className="flex flex-col gap-1.5">
-        <span className="text-body font-bold" id="lampiran-label">
+        <span className="text-small font-bold" id="lampiran-label">
           Lampiran (boleh dikosongkan)
         </span>
         {file ? (
@@ -323,8 +324,10 @@ export function FeedbackForm({ viewer, turnstileSiteKey, appVersion, fromPath }:
           <label className={cx('flex min-h-14 cursor-pointer items-center gap-3 rounded-control border-2 border-dashed px-4 py-2 font-semibold transition-colors duration-150 ease-kira hover:bg-lavender/50 motion-reduce:transition-none has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-fg', errors.attachment ? 'border-danger' : 'border-fg')}>
             <input ref={fileInput} type="file" name="attachment" accept={ATTACHMENT_ACCEPT} aria-labelledby="lampiran-label" onChange={chooseFile} className="sr-only" />
             <ConsoleIcon name="upload" size={22} />
-            <span className="min-w-0 flex-1">Pilih berkas</span>
-            <span className="text-small font-normal text-fg-muted">PNG, JPG, PDF, MP4, sampai 5 MB</span>
+            <span className="flex min-w-0 flex-1 flex-col">
+              <span>Pilih berkas</span>
+              <span className="text-small font-normal text-fg-muted">PNG, JPG, PDF, atau MP4, sampai 5 MB</span>
+            </span>
           </label>
         )}
         {errors.attachment ? (

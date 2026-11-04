@@ -2,6 +2,7 @@ import { mkdtempSync, readFileSync, rmSync, statSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterAll, describe, expect, it } from 'vitest'
+import { privacyNoticeData } from '@/server/legal'
 import { safePagePath, SUPPORT_CATEGORIES, WHATSAPP_DISPLAY, WHATSAPP_HELP_URL, WHATSAPP_PARTNER_URL } from '@/lib/support'
 import { newTicketReference, removeSupportFile, safeAttachmentName, sniffAttachment, storeSupportFile, supportDir } from '@/server/support-file'
 
@@ -110,5 +111,18 @@ describe('WhatsApp dan kategori', () => {
 
   it('lima kategori sesuai permintaan', () => {
     expect(SUPPORT_CATEGORIES.map((c) => c.label)).toEqual(['Masalah atau bug', 'Saran dan perbaikan', 'Koreksi soal atau materi', 'Kemitraan dengan Gatxel', 'Lainnya'])
+  })
+})
+
+describe('Kebijakan Privasi', () => {
+  it('versi naik dan pesan bantuan beserta masa simpannya tercatat', () => {
+    const notice = privacyNoticeData()
+    expect(notice.meta.version).toBe('2026-11-05')
+    const rows = notice.dataRows.map((r) => r.data)
+    expect(rows).toContain('Pesan bantuan')
+    expect(rows).toContain('Lampiran pesan bantuan')
+    expect(notice.dataRows.find((r) => r.data === 'Pesan bantuan')?.retention).toContain('12 bulan')
+    expect(notice.dataRows.find((r) => r.data === 'Lampiran pesan bantuan')?.retention).toContain('14 hari')
+    expect(notice.purposes.map((p) => p.title)).toContain('Bantuan dan masukan')
   })
 })
