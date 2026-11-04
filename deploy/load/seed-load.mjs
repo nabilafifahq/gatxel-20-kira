@@ -73,6 +73,8 @@ for (let start = 0; start < N; start += BATCH) {
         await tx`insert into auth.learner_secret (user_id, pin_hash) values (${k.id}, ${pinHash})`
         await tx`insert into learner_profile (user_id, org_id, name, avatar, grade, active, rest_weekdays, screen_limit_min) values (${k.id}, ${orgId}, ${k.name}, 'fox', ${k.grade}, true, '{}'::int[], 240)`
         await tx`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgId}, ${gid}, ${k.id})`
+        // Saldo bintang awal, supaya pembelian di toko Kira World benar-benar berjalan.
+        await tx`insert into star_ledger (org_id, learner_id, amount, reason, source, date) values (${orgId}, ${k.id}, 400, 'session', ${'seed:' + k.id}, ${today})`
         for (const purpose of ['learning', 'progress-email', 'audio', 'photo', 'ai-drafts']) {
           await tx`insert into consent_event (org_id, learner_id, guardian_id, recorded_by, purpose, granted, notice_version, method) values (${orgId}, ${k.id}, ${gid}, ${gid}, ${purpose}, true, '2026-10-12', 'in-app')`
         }

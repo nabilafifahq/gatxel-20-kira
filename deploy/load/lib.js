@@ -4,17 +4,34 @@ import http from 'k6/http'
 import { check, sleep } from 'k6'
 import { SharedArray } from 'k6/data'
 import { Counter, Rate } from 'k6/metrics'
+import exec from 'k6/execution'
 
 export const BASE = __ENV.BASE_URL || 'http://proxy:8080'
 export const MAILPIT = __ENV.MAILPIT_URL || 'http://mailpit:8025'
 // Faktor waktu berpikir: 1 = anak sungguhan (4 sampai 12 detik per soal), 0.25 = lebih rapat, 0 = tanpa jeda.
 export const THINK = Number(__ENV.THINK ?? 1)
+// Proxy meneruskan X-Forwarded-Host tanpa port, dan Next membandingkannya dengan Origin. Di produksi alamatnya tanpa port.
+export const ORIGIN = BASE.split(':').slice(0, 2).join(':')
 
 export const families = new SharedArray('families', () => JSON.parse(open('/out/families.json')))
 export const ACTIONS = JSON.parse(open('/out/actions.json'))
 
 export const bizErrors = new Counter('kira_business_errors')
 export const bizOk = new Rate('kira_business_ok')
+// Byte klip suara dan byte Mailpit dihitung terpisah, supaya byte per anak bisa dipisah menjadi halaman dan klip, dan Mailpit (hanya alat uji) bisa dikeluarkan.
+export const clipBytes = new Counter('kira_clip_bytes')
+export const clipCount = new Counter('kira_clip_count')
+export const toolBytes = new Counter('kira_tool_bytes')
+
+// Uji batas: setiap permintaan ditandai anak tangga yang sedang berjalan (step=VU puncak), supaya galat dan p95 bisa dibaca per anak tangga.
+const STEP_LIST = (__ENV.STEPS || '').split(',').filter(Boolean).map(Number)
+const STEP_SECONDS = Number(__ENV.STEP_SECONDS || 90)
+export function tagStep() {
+  if (!STEP_LIST.length) return
+  const elapsed = exec.instance.currentTestRunDuration / 1000
+  const i = Math.min(STEP_LIST.length - 1, Math.floor(elapsed / STEP_SECONDS))
+  exec.vu.metrics.tags.step = String(STEP_LIST[i])
+}
 
 const SESSION = '__Host-kira.session'
 const DEVICE = '__Host-kira.device'
@@ -39,8 +56,10 @@ export function cookieFor(kind, fam, kid) {
   return `${SESSION}=${kid.token}; ${DEVICE}=${fam.deviceToken}`
 }
 
+// Accept-Encoding seperti Cloudflare ke origin, supaya proxy benar-benar memampatkan HTML dan byte yang diukur sama dengan byte unggahan.
 export function headers(cookie, extra) {
-  return Object.assign({ Cookie: cookie || '', 'CF-Connecting-IP': fakeIp(), 'Accept-Language': 'id,en;q=0.8' }, extra || {})
+  tagStep()
+  return Object.assign({ Cookie: cookie || '', 'CF-Connecting-IP': fakeIp(), 'Accept-Language': 'id,en;q=0.8', 'Accept-Encoding': 'gzip' }, extra || {})
 }
 
 export function page(path, cookie, name) {
@@ -57,7 +76,7 @@ export function action(name, args, path, cookie, tag) {
       'Next-Action': id,
       'Content-Type': 'text/plain;charset=UTF-8',
       Accept: 'text/x-component',
-      Origin: BASE,
+      Origin: ORIGIN,
     }),
     tags: { name: tag || name },
   })
