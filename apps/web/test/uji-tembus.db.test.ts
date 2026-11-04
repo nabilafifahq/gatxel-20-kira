@@ -260,7 +260,7 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
       expect(JSON.stringify(dto.items)).not.toContain('The ship sails')
     }, 60_000)
 
-    it('pembuat sesi membuang soal dengar tanpa klip dari tes, dan membiarkannya di latihan', async () => {
+    it('pemilih soal tes melewati soal dengar tanpa klip, dan latihan tetap memakainya', async () => {
       const guard = await import('@/server/dal/session-guard')
       const clips = await clipFiles([LISTEN, SPELL])
       await clips.remove()
@@ -268,10 +268,12 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
       const tes = await inKid((tx) => guard.dropUnplayableAudio(tx, entries))
       expect(tes.map((e) => e.ref)).toEqual(['e1.digraphs.001'])
       expect(tes[0]!.position).toBe(1)
-      const guarded = await inKid((tx) => guard.guardAttemptItems(tx, entries, { seed: 'uji', mode: 'tes' }))
-      expect(guarded.some((e) => e.ref === LISTEN || e.ref === SPELL)).toBe(false)
-      const latihan = await inKid((tx) => guard.guardAttemptItems(tx, entries, { seed: 'uji', mode: 'latihan' }))
-      expect(latihan.length).toBeGreaterThan(1)
+      const content = await import('@/server/dal/content')
+      const pool = await inKid((tx) => content.poolForSkill(tx, orgId, 'e1.digraphs', { allowManual: false, playableOnly: true }))
+      expect(pool.length).toBeGreaterThan(0)
+      expect(pool.some((c) => c.ref === LISTEN || c.ref === SPELL)).toBe(false)
+      const semua = await inKid((tx) => content.poolForSkill(tx, orgId, 'e1.digraphs', { allowManual: false }))
+      expect(semua.some((c) => c.ref === LISTEN)).toBe(true)
       await clips.write()
       try {
         const ada = await inKid((tx) => guard.dropUnplayableAudio(tx, entries))

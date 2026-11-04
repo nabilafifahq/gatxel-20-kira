@@ -158,7 +158,7 @@ async function topUp(
   for (const [i, s] of ordered.entries()) {
     // Enam skill terdekat dulu; skill lain mapel dan kelas ini hanya bila soal yang belum dilihat masih kurang.
     if (i >= 6 && fresh >= need) break
-    const pool = await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })
+    const pool = await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives, playableOnly: input.style === 'test' })
     cands.push(...pool)
     fresh += pool.filter((c) => c.unlimited || (!input.seen.has(c.ref) && !input.avoid.has(c.ref))).length
   }

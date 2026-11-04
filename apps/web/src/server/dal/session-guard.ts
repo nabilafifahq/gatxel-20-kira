@@ -6,11 +6,9 @@ import { spokenClipRefs } from './tts'
 
 type Entry = { ref: string; difficulty: number; position: number }
 
-const NO_FEEDBACK_MODES = new Set(['tes', 'simulasi', 'kertas'])
-
 /**
- * Buang soal dengar dan eja yang klipnya belum ada: di mode tanpa kunci di perangkat soal itu tidak bisa diputar. Bila semua
- * soal terbuang, set dibiarkan dan layar menampilkan pesan, supaya sesi tidak kosong. Nomor urut dihitung ulang.
+ * Buang soal dengar dan eja yang klipnya belum ada, untuk set bebas seperti bos. Set dengan jumlah tetap (paper berpreset) tidak
+ * memakai ini: tes memilih soal lewat poolForSkill playableOnly, dan paper menampilkan pesan pada soal yang klipnya hilang.
  */
 export async function dropUnplayableAudio<T extends { ref: string; position: number }>(tx: Tx, items: readonly T[]): Promise<T[]> {
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
@@ -31,10 +29,9 @@ export async function dropUnplayableAudio<T extends { ref: string; position: num
  * dan bila tidak ada pengganti, set dipendekkan. Nomor urut dihitung ulang.
  */
 export async function guardAttemptItems<T extends Entry>(tx: Tx, items: readonly T[], o: { seed: string; mode?: string; avoid?: ReadonlySet<string> }): Promise<T[]> {
-  const playable = o.mode && NO_FEEDBACK_MODES.has(o.mode) ? await dropUnplayableAudio(tx, items) : items
-  if (playable.length < 2) return [...playable]
-  const resolved = await resolveItems(tx, playable.map((i) => i.ref))
-  const r = guardSet(playable, {
+  if (items.length < 2) return [...items]
+  const resolved = await resolveItems(tx, items.map((i) => i.ref))
+  const r = guardSet(items, {
     index: content(),
     items: resolved,
     seed: o.seed,
