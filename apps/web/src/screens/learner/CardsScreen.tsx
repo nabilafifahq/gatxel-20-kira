@@ -101,7 +101,7 @@ type Dir = 'word-to-meaning' | 'meaning-to-word' | 'spell'
 
 /** Arti tanpa contoh kalimat: contohnya memuat kata yang sedang ditanyakan. */
 function meaningOnly(back: string): string {
-  return back.replace(/s*Example:[sS]*$/, '').trim()
+  return back.replace(/\s*Example:[\s\S]*$/, '').trim()
 }
 
 function shuffleStable<T>(list: T[], seed: number): T[] {
