@@ -45,7 +45,7 @@ export default async function ParentGuidePage() {
 
       <GuideSection id="perangkat" title="4. Buka Kira di perangkat anak">
         <p className="m-0">
-          Di tablet atau HP yang akan dipakai anak, buka Kira lalu masuk dengan akunmu. Di halaman Mulai tekan Buka Kira untuk anak di perangkat ini. Perangkat itu lalu menampilkan pilihan nama anak dan PIN gambar, dan kamu otomatis keluar dari akun di perangkat tersebut supaya anak tidak membuka area orang tua.
+          Di tablet atau HP yang akan dipakai anak, buka Kira lalu masuk dengan akunmu. Di langkah Cara anak masuk tekan Mulai belajar sebagai anak. Perangkat itu lalu menampilkan pilihan nama anak dan PIN gambar, dan kamu otomatis keluar dari akun di perangkat tersebut supaya anak tidak membuka area orang tua.
         </p>
         <p className="m-0">Perangkat yang hilang atau dipinjam orang lain bisa dicabut dari Pengaturan.</p>
       </GuideSection>

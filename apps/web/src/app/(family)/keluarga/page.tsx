@@ -16,7 +16,8 @@ export default async function ParentHomePage() {
   const actor = await pageActor(['guardian', 'tutor'], '/keluarga')
   if (actor.role === 'tutor') redirect(FAMILY_ROUTES.week)
   const [{ shell }, data, checklist] = await Promise.all([load(() => consoleShell(actor, null)), load(() => parentHomeDTO(actor)), load(() => firstRunChecklist(actor))])
+  const owner = await isFamilyOwner(actor)
   // Orang tua yang mendaftar sendiri dan belum menambah anak melanjutkan onboarding.
-  if (data.children.length === 0 && (await isFamilyOwner(actor))) redirect('/mulai')
-  return <ParentHomeClient shell={shell} data={data} checklist={checklist} />
+  if (data.children.length === 0 && owner) redirect('/mulai')
+  return <ParentHomeClient shell={shell} data={data} checklist={checklist} owner={owner} />
 }

@@ -16,6 +16,10 @@ export type GatewayMode = 'signup' | 'login'
 const LOGIN_PATH = '/masuk'
 const SIGNUP_PATH = '/daftar'
 
+function titleOf(m: GatewayMode, full: boolean): string {
+  return m === 'login' ? 'Masuk, Kira' : full ? 'Daftar tunggu, Kira' : 'Daftar, Kira'
+}
+
 function modeOfPath(path: string, fallback: GatewayMode): GatewayMode {
   if (path === LOGIN_PATH) return 'login'
   if (path === SIGNUP_PATH) return 'signup'
@@ -49,10 +53,14 @@ export function AuthGateway({
   const [email, setEmail] = useState('')
 
   useEffect(() => {
-    const onPop = () => setModeState(modeOfPath(window.location.pathname, initialMode))
+    const onPop = () => {
+      const m = modeOfPath(window.location.pathname, initialMode)
+      setModeState(m)
+      document.title = titleOf(m, seats.full)
+    }
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
-  }, [initialMode])
+  }, [initialMode, seats.full])
 
   const setMode = useCallback(
     (m: GatewayMode) => {
@@ -60,7 +68,7 @@ export function AuthGateway({
       const query = m === 'login' && next ? `?next=${encodeURIComponent(next)}` : ''
       const url = (m === 'login' ? LOGIN_PATH : SIGNUP_PATH) + query
       if (window.location.pathname + window.location.search !== url) window.history.pushState(null, '', url)
-      document.title = m === 'login' ? 'Masuk, Kira' : seats.full ? 'Daftar tunggu, Kira' : 'Daftar, Kira'
+      document.title = titleOf(m, seats.full)
     },
     [next, seats.full],
   )

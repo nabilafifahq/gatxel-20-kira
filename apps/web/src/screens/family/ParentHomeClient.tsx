@@ -116,7 +116,7 @@ export function ChildCard({ c }: { c: ParentChildCard }) {
   )
 }
 
-export function ParentHomeClient({ shell, data, checklist = null }: { shell: ConsoleShell; data: ParentHomeDTO; checklist?: ChecklistItem[] | null }) {
+export function ParentHomeClient({ shell, data, checklist = null, owner = false }: { shell: ConsoleShell; data: ParentHomeDTO; checklist?: ChecklistItem[] | null; /** Orang tua yang memiliki keluarganya: bisa membuka ulang langkah persiapan. */ owner?: boolean }) {
   const router = useRouter()
   const [addOpen, setAddOpen] = useState(false)
   const [deviceOpen, setDeviceOpen] = useState(false)
@@ -162,6 +162,11 @@ export function ParentHomeClient({ shell, data, checklist = null }: { shell: Con
           <Button variant="secondary" className="h-12" onClick={() => setDeviceOpen(true)} disabled={data.children.length === 0}>
             Daftarkan perangkat ini
           </Button>
+          {owner && data.children.length > 0 ? (
+            <ButtonLink href="/mulai?langkah=3" variant="secondary" className="h-12">
+              Cara anak masuk
+            </ButtonLink>
+          ) : null}
           {data.apk.available ? (
             <ButtonLink href="/api/apk" variant="secondary" className="h-12" external>
               Unduh aplikasi tablet{data.apk.size ? ` (${data.apk.size})` : ''}

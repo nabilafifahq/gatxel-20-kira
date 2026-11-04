@@ -52,7 +52,7 @@ export const PasswordField = forwardRef<
           onClick={() => setShown((s) => !s)}
           className={cx(
             'absolute right-1.5 cursor-pointer rounded-sm border-0 bg-bg px-3 text-small font-bold text-fg hover:bg-divider',
-            size === 'L' ? 'top-1 h-11' : 'top-0.5 h-11',
+            size === 'L' ? 'top-1.5 h-11' : 'top-0.5 h-11',
           )}
         >
           {shown ? 'Sembunyikan' : 'Tampilkan'}

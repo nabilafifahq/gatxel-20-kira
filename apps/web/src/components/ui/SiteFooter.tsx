@@ -20,7 +20,7 @@ export const SITE_LINKS = [
  */
 export function SiteFooter({ area = 'public', note, current, className }: { area?: 'public' | 'learner'; note?: ReactNode; current?: 'privacy' | 'terms'; className?: string }): ReactElement {
   return (
-    <footer lang="id" data-testid="site-footer" className={cx('border-t border-divider bg-bg text-small text-fg', className)}>
+    <footer lang="id" data-testid="site-footer" className={cx('border-t border-divider bg-bg text-small text-fg print:hidden', className)}>
       <div className="mx-auto flex w-full max-w-[1120px] flex-col gap-1 px-4 py-4 pb-[max(16px,var(--safe-bottom))]">
         <nav aria-label="Tautan situs" className="flex flex-wrap items-center gap-x-5">
           {SITE_LINKS.map((l) => (

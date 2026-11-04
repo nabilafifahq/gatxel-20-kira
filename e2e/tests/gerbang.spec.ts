@@ -143,7 +143,7 @@ test('footer dengan teks persis ada di halaman depan, orang tua, anak, panduan, 
   await pinLogin(page, 'Aisha')
   await expectFooter(page, { partner: false })
 
-  const items = mcqItems('math.g2', 2)
+  const items = mcqItems('e2.', 2)
   const attempt = await createPracticeAttempt('Aisha', items)
   await page.goto(`/run/${attempt}`)
   await expect(page.getByTestId('site-footer')).toHaveCount(0)
@@ -298,5 +298,30 @@ test('tips pertama anak: bisa dilewati, tidak menahan anak, dan hanya muncul sek
     await expect(page.getByTestId('first-run-tips')).toHaveCount(0)
   } finally {
     await dropFamily(f)
+  }
+})
+
+test('kursi penuh: daftar tunggu tetap ramah, dan orang tua tetap bisa masuk dari layar yang sama', async ({ page }) => {
+  const run = randomUUID().slice(0, 8)
+  const [seat] = await db()`select count(*)::int as n from auth.beta_seat`
+  for (let i = 0; i < 100 - (seat!.n as number); i++) {
+    const id = randomUUID()
+    await db()`insert into auth.beta_seat (org_id, user_id, email_norm) values (${id}, ${id}, ${`penuh${i}.${run}@x.test`})`
+  }
+  try {
+    await page.goto('/')
+    await expect(page.getByText('Kursi beta sudah penuh.').first()).toBeVisible()
+    await expect(page.getByRole('tab', { name: 'Daftar tunggu', exact: true })).toHaveAttribute('aria-selected', 'true')
+    await expect(page.getByRole('heading', { name: 'Kursi beta sudah penuh' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Kenapa layak ditunggu' })).toBeVisible()
+    await expect(page.getByRole('checkbox', { name: /Kabari saya/ })).not.toBeChecked()
+    await expect(page.getByRole('button', { name: 'Masuk daftar tunggu' })).toBeVisible()
+    await expectNoSeriousA11y(page, '/ kursi penuh')
+    await page.getByRole('tab', { name: 'Masuk', exact: true }).click()
+    await expect(page).toHaveURL(/\/masuk$/)
+    await loginAdult(page, GUARDIAN)
+    await expect(page).toHaveURL(/\/keluarga/)
+  } finally {
+    await db()`delete from auth.beta_seat where email_norm like ${`%${run}%`}`
   }
 })

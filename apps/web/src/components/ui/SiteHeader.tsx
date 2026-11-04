@@ -36,7 +36,7 @@ export function SiteHeader({
   children?: ReactNode
 }): ReactElement {
   return (
-    <header lang="id" data-testid="site-header" className="pt-safe sticky top-0 z-30 border-b border-divider bg-surface">
+    <header lang="id" data-testid="site-header" className="pt-safe sticky top-0 z-30 border-b border-divider bg-surface print:hidden">
       <div className={cx('mx-auto flex h-14 w-full items-center gap-1 px-4', inner)}>
         {brandHref ? (
           <Link href={brandHref} aria-label="Kira, halaman utama" className="kira-press mr-auto inline-flex min-h-11 items-center text-fg no-underline hover:text-fg">

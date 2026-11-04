@@ -227,7 +227,7 @@ function StepPath({ state }: { state: OnboardingState }) {
           {state.children.map((c) => (
             <li key={c.id} className="flex items-start gap-3">
               <Avatar name={c.avatar} size={36} className="flex-none" />
-              <span className="text-body">{recommendationSummary(c.name, c.grade)}</span>
+              <span className="text-body">{c.setupPath === 'custom' && pending.length > 0 ? `${c.name} sudah diatur sendiri.` : recommendationSummary(c.name, c.grade)}</span>
             </li>
           ))}
         </ul>
@@ -300,7 +300,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
   }
 
   function shareText() {
-    return `Cara masuk Kira untuk ${names}: buka ${window.location.origin} di tablet atau HP anak. Orang tua masuk sekali, lalu tekan Buka Kira untuk anak. Setelah itu anak memilih namanya dan menekan PIN gambar.`
+    return `Cara masuk Kira untuk ${names}: buka ${window.location.origin} di tablet atau HP anak. Orang tua masuk sekali, lalu tekan Mulai belajar sebagai anak. Setelah itu anak memilih namanya dan menekan PIN gambar.`
   }
 
   async function share() {
@@ -339,7 +339,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
       <ol className="m-0 flex list-none flex-col gap-3 rounded-card bg-surface p-5 shadow-soft">
         {[
           'Buka Kira di tablet atau HP anak, lewat browser atau aplikasi.',
-          'Masuk dengan akun orang tua sekali saja, lalu tekan Buka Kira untuk anak.',
+          'Masuk dengan akun orang tua sekali saja, lalu tekan Mulai belajar sebagai anak di halaman ini.',
           'Anak memilih namanya dan menekan PIN gambar. Selesai.',
         ].map((t, i) => (
           <li key={t} className="flex items-start gap-3">
