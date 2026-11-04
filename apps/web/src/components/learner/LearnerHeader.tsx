@@ -119,7 +119,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               )}
             >
               <UiIcon name={n.icon} size={24} />
-              {n.label}
+              {t.shell.navPhone[n.key] ?? n.label}
               {n.key === 'review' ? <ReviewCount shell={shell} /> : null}
             </Link>
           )

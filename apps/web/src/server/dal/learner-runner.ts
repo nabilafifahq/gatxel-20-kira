@@ -76,7 +76,7 @@ export function attemptTitle(title: string, dict: Dict): string {
   if (title.startsWith(QUICK_REVIEW_PREFIX)) return dict.runner.dal.quickReviewTitle(title.slice(QUICK_REVIEW_PREFIX.length))
   const paper = /^(Math|English|Science) practice paper$/.exec(title)
   if (paper) return dict.runner.dal.paperTitle(dict.common.subject[paper[1]!.toLowerCase() as Subject])
-  return title
+  return dict.shell.questTitles[title] ?? title
 }
 
 /** Seed urutan tampil opsi dan kartu. Pembahasan memakai seed yang sama supaya urutannya sama dengan saat dikerjakan. */

@@ -661,8 +661,8 @@ const id: typeof en = {
     },
     add: { h: 'Tambah 1 ratusan', t: 'Tambah 1 puluhan', o: 'Tambah 1 satuan' },
     take: { h: 'Kurangi 1 ratusan', t: 'Kurangi 1 puluhan', o: 'Kurangi 1 satuan' },
-    tradeUp: { t: 'Tukar 10 jadi 1 ratusan', o: 'Tukar 10 jadi 1 puluhan' },
-    breakDown: { h: 'Pecah 1 jadi 10 puluhan', t: 'Pecah 1 jadi 10 satuan' },
+    tradeUp: { t: 'Tukar ke ratusan', o: 'Tukar ke puluhan' },
+    breakDown: { h: 'Pecah ke puluhan', t: 'Pecah ke satuan' },
     total: (total, sentence) => `${total} adalah ${sentence}`,
   },
   tangram: {

@@ -122,6 +122,7 @@ const en = {
     world: 'Kira World',
     me: 'Me',
   } as Record<LearnerNavKey, string>,
+  navPhone: {} as Partial<Record<string, string>>,
   navUi: {
     main: 'Main',
     more: 'More',
@@ -476,6 +477,8 @@ const id: typeof en = {
     'Math practice paper': 'Paper latihan Matematika',
     'English practice paper': 'Paper latihan Bahasa Inggris',
     'Science practice paper': 'Paper latihan Sains',
+    'Kira contest-style mini paper': 'Paper mini gaya lomba Kira',
+    'Kira contest-style full paper': 'Paper penuh gaya lomba Kira',
   },
   minutes: (n) => `${n} menit`,
   questions: (n) => `${n} soal`,
@@ -554,6 +557,7 @@ const id: typeof en = {
     world: 'Dunia Kira',
     me: 'Aku',
   },
+  navPhone: { review: 'Ulas' } as Partial<Record<string, string>>,
   navUi: {
     main: 'Utama',
     more: 'Menu',
