@@ -72,9 +72,10 @@ function PassagePanel({ passage, lang, tap = false }: { passage: NonNullable<Cli
   const bodyId = useId()
   return (
     <section aria-label={passage.title} className="rounded-control bg-lavender">
-      <div className="flex items-center gap-3 px-4 py-2">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-2">
         <UiIcon name="book" size={22} />
-        <h3 className="m-0 min-w-0 flex-1 text-body-lg font-bold">{passage.title}</h3>
+        {/* Di HP tombol turun ke baris sendiri, supaya judul tidak terjepit satu kata per baris. */}
+        <h3 className="m-0 min-w-0 flex-1 basis-40 text-body-lg font-bold">{passage.title}</h3>
         <Button variant="quiet" size="M" aria-expanded={open} aria-controls={bodyId} onClick={() => setOpen((o) => !o)} className="px-3">
           {open ? 'Hide the text' : 'Show the text'}
           <UiIcon name={open ? 'chevron-up' : 'chevron-down'} size={20} />
