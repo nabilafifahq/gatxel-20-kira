@@ -200,6 +200,16 @@ Untuk mengirim satu contoh setiap jenis email lewat SMTP produksi:
 
 Bila SMTP bermasalah, pesan Bantuan tetap tersimpan dan bisa dibaca dengan `.\deploy\windows\kira.ps1 admin support-tickets`.
 
+### Menghapus satu keluarga atas permintaan orang tua
+
+Selama pilot, orang tua meminta lewat halaman Bantuan (`/feedback`) atau WhatsApp. Jawab paling lambat 3 x 24 jam dan pastikan permintaan datang dari alamat email akun itu.
+
+1. `.\deploy\windows\kira.ps1 admin family-delete <email>` hanya menampilkan jumlah data dan id keluarga, tanpa mengubah apa pun. Bentuk email Gmail dengan titik atau +tag sama-sama dikenali.
+2. `.\deploy\windows\kira.ps1 admin family-delete <email> --confirm <id keluarga>` menjeda semua anak dan membuat permintaan hapus biasa. Data anak dihapus worker 7 hari kemudian, dan orang tua masih bisa membatalkannya dari halaman Privasi. Kabari orang tua tanggalnya.
+3. Setelah tanggal itu, jalankan perintah yang sama sekali lagi. Akun orang tua dan sisa data keluarga terhapus, dan kursinya kosong. Harus selesai paling lambat 30 hari sejak permintaan, sesuai Kebijakan Privasi.
+
+Catatan audit (12 bulan), pesan bantuan (12 bulan), email yang sudah terkirim (90 hari), dan cadangan (8 minggu) hilang sendiri saat lama simpannya habis. Keluarga bertutor tidak dilayani perintah ini.
+
 ## 11. Cadangan dan pemulihan
 
 Layanan `backup` membuat cadangan database setiap hari pukul 02.00 WIB ke `KIRA_HOST_BACKUPS\daily`, menyalin cadangan hari Minggu ke `weekly`, dan menyimpan 14 harian dan 8 mingguan. Kalau server mati saat jadwal, cadangan dibuat saat layanan menyala lagi. Status terakhir tampil di konsol, Pengaturan, bagian Cadangan.

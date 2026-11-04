@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs'
 import postgres from 'postgres'
 import { emailKey, isSafeAddress, type EmailIdentity } from '@kira/core/email'
 import { emailSamples, seatReopenedEmail } from '@kira/core/email-templates'
+import { familyDelete, familyPlan } from './family-delete'
 
 /**
  * Perintah admin server Kira. Dijalankan pemilik server dari terminal (Docker: lihat docs/pasang-windows.md).
@@ -20,6 +21,7 @@ import { emailSamples, seatReopenedEmail } from '@kira/core/email-templates'
  *   waitlist-notify <n>    antrekan undangan kursi untuk n orang tertua di daftar tunggu (dikirim bertahap, 10 per menit)
  *   sourcing-now           jadwalkan pembaruan sumber soal (seperti jadwal Minggu dini hari) sekarang juga untuk setiap org
  *   support-tickets [n]    cetak n pesan Bantuan terbaru (bawaan 20) beserta status emailnya, untuk saat SMTP bermasalah
+ *   family-delete <email> [--confirm <id keluarga>]  tanpa --confirm hanya menampilkan jumlah data; lihat scripts/family-delete.ts
  *   email-samples <email>  antrekan satu contoh setiap jenis email ke alamat itu; worker mengirimnya lewat SMTP_URL (bertahap, 10 per menit)
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
@@ -262,7 +264,27 @@ async function supportTickets(nRaw: string | undefined): Promise<void> {
   console.log(JSON.stringify(rows, null, 2))
 }
 
-const [cmd, arg] = process.argv.slice(2)
+/** Hapus satu keluarga atas permintaan orang tua. Tanpa --confirm hanya membaca. */
+async function familyDeleteCommand(emailRaw: string | undefined, flag: string | undefined, confirm: string | undefined): Promise<void> {
+  if (!emailRaw || (flag !== undefined && (flag !== '--confirm' || !confirm))) throw new Error('Pakai: admin family-delete <email orang tua> [--confirm <id keluarga>]')
+  if (!confirm) {
+    console.log(JSON.stringify(await familyPlan(sql, emailRaw), null, 2))
+    console.log('Belum ada yang berubah. Pastikan permintaan datang dari alamat email akun ini, lalu jalankan lagi dengan --confirm <orgId di atas>.')
+    return
+  }
+  const res = await familyDelete(sql, emailRaw, confirm)
+  if (res.status === 'scheduled') {
+    console.log(`${res.learners} anak dijeda dan dijadwalkan dihapus pada ${res.scheduledFor}. Orang tua masih bisa membatalkan dari halaman Privasi sampai tanggal itu. Jalankan perintah ini lagi setelah tanggal itu untuk menghapus akun orang tua dan mengosongkan kursi, paling lambat 30 hari sejak permintaan.`)
+  } else if (res.status === 'waiting') {
+    console.log(`${res.learners} anak masih menunggu penghapusan oleh worker (jadwal terakhir ${res.scheduledFor}). Jalankan lagi setelah worker selesai. Bila tanggalnya sudah lewat, periksa job learner.delete di log worker.`)
+  } else {
+    const [s] = await sql`select count(*)::int as taken from auth.beta_seat`
+    console.log(`Keluarga dihapus dan kursinya kosong. Kursi terpakai sekarang ${s!.taken} dari ${SEATS}. Catatan audit dan pesan bantuan tetap sampai lama simpannya habis.`)
+    if (res.mediaPaths.length > 0) console.log(`Berkas yang perlu dihapus dari folder data:\n${res.mediaPaths.join('\n')}`)
+  }
+}
+
+const [cmd, arg, arg2, arg3] = process.argv.slice(2)
 try {
   if (cmd === 'status') await status()
   else if (cmd === 'reset-link') await resetLink(arg)
@@ -277,8 +299,9 @@ try {
   else if (cmd === 'sourcing-now') await sourcingNow()
   else if (cmd === 'email-samples') await emailSamplesCommand(arg)
   else if (cmd === 'support-tickets') await supportTickets(arg)
+  else if (cmd === 'family-delete') await familyDeleteCommand(arg, arg2, arg3)
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n> | email-samples <email> | support-tickets [n]')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | reset-streak <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n> | email-samples <email> | support-tickets [n] | family-delete <email> [--confirm <id keluarga>]')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

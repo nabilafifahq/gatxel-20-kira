@@ -1,3 +1,4 @@
+import { WHATSAPP_HELP_URL } from '@/lib/support'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { dateId } from '@/components/console/format'
@@ -193,6 +194,11 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
         <p className="m-0">
           Hak nomor 3, 4, 5, dan 9 bisa dijalankan sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Hak lainnya diajukan ke{' '}
           {entity.email}. Setiap permintaan mendapat kode referensi dan ditanggapi paling lambat 3 x 24 jam sejak diterima.
+        </p>
+        <p className="m-0">
+          Untuk menghapus seluruh keluarga, termasuk akun orang tua, kirim permintaan lewat <Link href="/feedback">halaman Bantuan</Link> atau <a href={WHATSAPP_HELP_URL}>WhatsApp</a> dari
+          alamat email akun Anda. Permintaan ditanggapi paling lambat 3 x 24 jam. Data anak dihapus 7 hari setelah permintaan, akun orang tua paling lambat 30 hari, dan
+          data lainnya mengikuti lama simpan di bagian 3.
         </p>
       </LegalSection>
 
