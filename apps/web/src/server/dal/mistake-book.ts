@@ -11,6 +11,7 @@ import { inOrg } from '../db'
 import { invalid } from '../errors'
 import { shellIn } from './console-shell'
 import { promptPreview, resolveItems, skill } from './content'
+import { guardAttemptItems } from './session-guard'
 import { learnerShell, loadLearner } from './learner-core'
 import type { AttemptItem } from './learner-runner'
 import { classifyMistake, MISTAKE_LABEL, pickRedoItems, REDO_REF_PREFIX, REDO_SIZE, summariseTypes, topSkills } from './mistake-logic'
@@ -137,7 +138,8 @@ export async function startFixItSession(tx: Tx, ctx: OrgContext, learnerId: stri
   if (usable.length === 0) throw invalid('Nothing to fix yet.')
   const rng = createRng(`${learnerId}:${today}:fix-it`)
   const picked = pickRedoItems(usable, REDO_SIZE, (xs) => rng.shuffle(xs))
-  const items: AttemptItem[] = picked.map((m, i) => ({ ref: m.ref, section: 'core', position: i + 1, difficulty: resolved.get(m.ref)!.difficulty }))
+  const redoItems: AttemptItem[] = picked.map((m, i) => ({ ref: m.ref, section: 'core', position: i + 1, difficulty: resolved.get(m.ref)!.difficulty }))
+  const items = await guardAttemptItems(tx, redoItems, { seed: `${learnerId}:${today}:fix-it`, mode: 'latihan' })
   const bySubject = new Map<Subject, number>()
   for (const m of picked) bySubject.set(m.subject, (bySubject.get(m.subject) ?? 0) + 1)
   const subject = [...bySubject.entries()].sort((a, b) => b[1] - a[1])[0]![0]

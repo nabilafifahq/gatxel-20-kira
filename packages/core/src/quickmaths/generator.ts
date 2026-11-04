@@ -455,9 +455,8 @@ function genByOp(rng: Rng, op: QmOp, cfg: QmConfig): QmProblem {
   return op === 'add' ? manualAdd(rng, cfg) : op === 'sub' ? manualSub(rng, cfg) : op === 'mul' ? manualMul(rng, cfg) : manualDiv(rng, cfg)
 }
 
-/** Soal ke-`index` dari ronde dengan `seed`. */
-export function generateProblem(cfg: QmConfig, seed: string, index: number): QmProblem {
-  const rng = createRng(`${seed}#${index}`)
+function rawProblem(cfg: QmConfig, rngSeed: string, seed: string, index: number): QmProblem {
+  const rng = createRng(rngSeed)
   if (cfg.mode === 'flash') return genFlash(rng, clampLevel(cfg.flashLevel))
   if (cfg.mode === 'soroban') return genSoroban(rng, cfg.sorobanStage, clampLevel(cfg.sorobanLevel, 4))
   if (cfg.mode === 'tables') return genTables(rng, cfg, seed, index)
@@ -466,7 +465,49 @@ export function generateProblem(cfg: QmConfig, seed: string, index: number): QmP
   return genByOp(rng, op, cfg)
 }
 
+/**
+ * Tanda soal untuk aturan "tidak ada dua soal sama dalam satu ronde": soal hitung dengan operan sama pada operasi sama
+ * (7 + 5 dan 5 + 7) dianggap sama. Tanda bentuk soal lain memakai isi soalnya.
+ */
+export function problemSignature(p: QmProblem): string {
+  const pr = p.prompt
+  if (pr.kind === 'arith') {
+    const nums = (pr.text.match(/[0-9]+/g) ?? []).map(Number)
+    const op = pr.text.replace(/[0-9 ?=]/g, '')
+    return `arith:${op}:${p.missing ? 'm' : 'r'}:${(p.op === 'add' || p.op === 'mul' ? [...nums].sort((x, y) => x - y) : nums).join(',')}`
+  }
+  return JSON.stringify(pr)
+}
+
+const ROUNDS = new Map<string, QmProblem[]>()
+const MAX_REDRAWS = 40
+
+/** Seluruh soal satu ronde. Soal ke-i sama dengan yang dibuat dari `seed#i` kecuali bila kembar dengan soal sebelumnya, lalu diundi ulang. */
+export function generateRound(cfg: QmConfig, seed: string): QmProblem[] {
+  const key = `${seed}|${JSON.stringify(cfg)}`
+  const hit = ROUNDS.get(key)
+  if (hit) return hit
+  const out: QmProblem[] = []
+  const seen = new Set<string>()
+  for (let i = 0; i < cfg.count; i++) {
+    let p = rawProblem(cfg, `${seed}#${i}`, seed, i)
+    for (let k = 1; k <= MAX_REDRAWS && seen.has(problemSignature(p)); k++) p = rawProblem(cfg, `${seed}#${i}~${k}`, seed, i)
+    // Bank fakta ronde ini habis: soal terakhir yang diundi dipakai lagi daripada ronde dipendekkan, karena hitungan soal ikut skor.
+    seen.add(problemSignature(p))
+    out.push(p)
+  }
+  if (ROUNDS.size > 200) ROUNDS.clear()
+  ROUNDS.set(key, out)
+  return out
+}
+
+/** Soal ke-`index` dari ronde dengan `seed`. */
+export function generateProblem(cfg: QmConfig, seed: string, index: number): QmProblem {
+  const round = generateRound(cfg, seed)
+  return round[index] ?? rawProblem(cfg, `${seed}#${index}`, seed, index)
+}
+
 /** Bagian soal yang aman dikirim ke client. */
 export function clientPrompts(cfg: QmConfig, seed: string): QmProblem['prompt'][] {
-  return Array.from({ length: cfg.count }, (_, i) => generateProblem(cfg, seed, i).prompt)
+  return generateRound(cfg, seed).map((p) => p.prompt)
 }

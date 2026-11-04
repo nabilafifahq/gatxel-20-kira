@@ -9,6 +9,7 @@ import type { EnglishCardDTO, EnglishSkillsDTO, SpellingAnswerInput, SpellingRes
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { poolForSkill, skill, skillsFor } from './content'
+import { guardAttemptItems } from './session-guard'
 import { grantXp, learnerShell, loadLearner, recentSeen, skillStates, type LearnerRow } from './learner-core'
 import type { AttemptItem } from './learner-runner'
 import { buildQuestItems } from './learner-today'
@@ -135,11 +136,12 @@ export async function startEnglishSession(tx: Tx, ctx: OrgContext, learnerId: st
     .limit(1)
   if (open[0]) return open[0].id
   const len = SESSION_LENGTH[area]
-  const items =
+  let items =
     area === 'listening'
       ? await buildQuestItems(tx, ctx, learner, { skillId, subject: 'english', mode: 'latihan', date: jakartaDate(), seedKey: `${learnerId}:${Date.now()}:${skillId}`, length: len.count })
       : await pickManualItems(tx, ctx, learner, skillId, len.count)
   if (items.length === 0) throw invalid('No questions are ready for this skill yet.')
+  items = await guardAttemptItems(tx, items, { seed: `${learnerId}:${skillId}:${area}`, mode: 'latihan' })
   const level = yleLevelOfGrade(learner.grade)
   const title = `${level.name} ${area === 'speaking' ? 'speaking test' : area}`
   const [row] = await tx
