@@ -41,8 +41,8 @@ test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, so
     expect(await htmlLangOf(page)).toBe('id')
   }).toPass({ timeout: 40_000, intervals: [3000] })
   const nav = page.getByRole('navigation').first()
-  await expect(nav.getByRole('link', { name: 'Hari ini' })).toBeVisible()
-  await expect(nav.getByRole('link', { name: 'Peta' })).toBeVisible()
+  await expect(nav.getByRole('link', { name: 'Hari ini', exact: true })).toBeVisible()
+  await expect(nav.getByRole('link', { name: 'Peta', exact: true })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Today', exact: true })).toHaveCount(0)
   await expectNoSeriousA11y(page, 'Hari ini')
   await noHorizontalScroll(page)
@@ -58,12 +58,12 @@ test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, so
   await expect(page.getByRole('button', { name: 'Check', exact: true })).toHaveCount(0)
   // Soal ditampilkan kata per kata (kamus ketuk), jadi dicocokkan lewat isi teks elemennya.
   const firstWords = items[0]!.prompt.split(' ').slice(0, 3).join(' ')
-  await expect(page.locator('main [lang="en-GB"]', { hasText: firstWords }).first()).toBeVisible()
+  await expect(page.locator('[lang="en-GB"]', { hasText: firstWords }).first()).toBeVisible()
   await noHorizontalScroll(page)
   await expectNoSeriousA11y(page, 'sesi Indonesia')
 
   // Jawab: kata umpan balik Indonesia.
-  await page.locator('main [lang="en-GB"] button, main button[lang="en-GB"], main button:has([lang="en-GB"])').first().click()
+  await page.locator('[role="radiogroup"] [role="radio"], [role="radiogroup"] button, button[aria-pressed="false"]').first().click()
   await page.getByRole('button', { name: 'Periksa' }).click()
   await expect(page.getByText(/Betul|Benar|Hebat|Belum tepat/).first()).toBeVisible()
   await expect(page.getByText('Not yet', { exact: true })).toHaveCount(0)
