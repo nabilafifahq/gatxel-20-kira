@@ -208,8 +208,10 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
 
       <LegalSection id="keamanan" title="7. Keamanan dan kebocoran data">
         <p className="m-0">
-          Data dienkripsi saat dikirim dan saat disimpan. Setiap akun hanya bisa membuka data keluarganya sendiri, dan setiap akses ke data anak tercatat di log
-          audit. Password orang dewasa minimal 15 karakter dan diperiksa terhadap daftar password yang pernah bocor.
+          Data yang berpindah antara perangkat Anda dan Kira dienkripsi selama perjalanan lewat HTTPS. Data yang tersimpan berada di server milik Gatxel sendiri,
+          dan hanya pengelola yang punya akses ke server itu. Di database, data tiap keluarga dipisahkan, jadi setiap akun hanya bisa membuka data keluarganya
+          sendiri, dan tindakan penting pada data anak, seperti mengunduh dan menghapus, tercatat di log audit. Password orang dewasa minimal 15 karakter, disimpan
+          sebagai hash satu arah, dan diperiksa terhadap daftar password yang pernah bocor.
         </p>
         <p className="m-0">
           Kalau terjadi kebocoran data, Pengelola memberi tahu Orang Tua dan lembaga yang berwenang paling lambat 3 x 24 jam. Pemberitahuan itu menyebut data apa
