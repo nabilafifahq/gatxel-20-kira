@@ -88,32 +88,6 @@
         "true-false"
       ],
       "expectedSeconds": 15
-    },
-    {
-      "id": "m5.probability.802",
-      "skill": "m5.probability",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "True or false: When a coin is tossed twice there are 3 possible outcomes.",
-      "options": [
-        {
-          "text": "True"
-        },
-        {
-          "text": "False"
-        }
-      ],
-      "answer": 1,
-      "hints": [
-        "List them in order.",
-        "HT and TH are different.",
-        "There are four."
-      ],
-      "explanation": "The outcomes are HH, HT, TH and TT. That is 4 outcomes, and HT is different from TH.",
-      "tags": [
-        "true-false"
-      ],
-      "expectedSeconds": 15
     }
   ]
 }

@@ -108,13 +108,13 @@
       "id": "m3.perimeter-area.702",
       "skill": "m3.perimeter-area",
       "difficulty": 4,
-      "prompt": "A farmer has a rectangular vegetable plot that is 8 m long and 5 m wide. He wants to put a fence all the way round it.",
+      "prompt": "A farmer has a rectangular vegetable plot that is 8 m long and 6 m wide. He wants to put a fence all the way round it.",
       "hints": [
         "Add all four sides.",
         "Perimeter divided by the gap between posts.",
         "Area = length × width."
       ],
-      "explanation": "Perimeter: 8 + 5 + 8 + 5 = 26 m. Posts: 26 ÷ 2 = 13 because the fence goes round in a loop. Area: 8 × 5 = 40 square metres.",
+      "explanation": "Perimeter: 8 + 6 + 8 + 6 = 28 m. Posts: 28 ÷ 2 = 14 because the fence goes round in a loop. Area: 8 × 6 = 48 square metres.",
       "tags": [
         "multi-part",
         "word-problem"
@@ -124,18 +124,18 @@
         {
           "type": "numeric",
           "prompt": "What is the perimeter of the plot, in metres?",
-          "answer": 26,
+          "answer": 28,
           "unit": "m"
         },
         {
           "type": "numeric",
           "prompt": "He puts one fence post every 2 m round the whole plot. How many posts does he need?",
-          "answer": 13
+          "answer": 14
         },
         {
           "type": "numeric",
           "prompt": "What is the area of the plot, in square metres?",
-          "answer": 40,
+          "answer": 48,
           "unit": "m²"
         }
       ]
