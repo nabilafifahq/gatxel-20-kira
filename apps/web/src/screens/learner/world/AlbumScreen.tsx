@@ -151,7 +151,6 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
             </div>
             {open.owned && open.fact ? (
               <>
-                <RarityMark rarity={open.rarity} />
                 <p lang="en-GB" className="m-0 text-center text-body-lg">{open.fact}</p>
                 <ReadAloudButton text={`${open.name}. ${open.fact}`} subject="science" />
               </>

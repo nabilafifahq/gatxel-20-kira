@@ -218,7 +218,6 @@ export function BossResultScreen({ data }: { data: BossResultDTO }): ReactElemen
           <div className="kw-flip w-56 max-w-full">
             <CollectCard card={{ ...data.card, tone: 'mental' }} total={CARD_COUNT} big />
           </div>
-          <RarityMark rarity={data.card.rarity} />
           <p lang="en-GB" className="m-0 max-w-[460px] text-body-lg">{data.card.fact}</p>
         </section>
       ) : null}
