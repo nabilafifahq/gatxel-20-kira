@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { z } from 'zod'
+import { figureSpec } from '@kira/figures/spec'
 
 /**
  * Dek kartu belajar: content/flashcards/<mapel>/g<kelas>/<dek>.json dengan {id, subject, grade, title, cards}.
@@ -17,8 +18,8 @@ export const flashcardSchema = z
     id: z.string().regex(CARD_ID, 'id kartu: huruf kecil, angka, tanda hubung'),
     front: text(160),
     back: text(240),
-    /** Nama figur di @kira/figures; dirender bila dikenal. */
-    figure: z.string().regex(/^[a-z0-9-]{1,40}$/).optional(),
+    /** Gambar kartu: spesifikasi figur @kira/figures (sama dengan figur soal). */
+    figure: figureSpec.optional(),
     /** Teks yang dibacakan; kosong berarti depan. */
     say: text(200).optional(),
   })

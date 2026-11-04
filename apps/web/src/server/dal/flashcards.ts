@@ -12,6 +12,7 @@ import { invalid, notFound } from '../errors'
 import { featureMapFor } from './learner-features'
 import { learnerShell, loadLearner } from './learner-core'
 import { PERSONAL_DECK_ID, personalDeckFor } from './personal-deck'
+import type { FigureSpec } from '@kira/figures/spec'
 
 const { flashcardState, xpEvent } = tables
 
@@ -26,7 +27,7 @@ export const SESSION_CARDS = 10
 const XP_PER_CARD = 1
 const XP_DAILY_CAP = 20
 
-export type CardDTO = { id: string; front: string; back: string; say: string | null; figure: string | null }
+export type CardDTO = { id: string; front: string; back: string; say: string | null; figure: FigureSpec | null }
 export type DeckRow = { id: string; subject: 'math' | 'english' | 'science'; grade: number; title: string; total: number; known: number; due: number; personal: boolean }
 export type CardsHubDTO = { shell: LearnerShell; mode: 'cards' | 'vocab'; decks: DeckRow[] }
 export type CardSessionDTO = {

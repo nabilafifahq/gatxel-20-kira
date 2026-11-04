@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import type { CardSessionDTO, CardsHubDTO, DeckRow } from '@/server/dal/flashcards'
 import { finishCardsAction } from '@/server/actions/flashcards'
+import { Figure } from '@kira/figures'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { LearnerFrame, LearnerHeader } from '@/components/learner/LearnerHeader'
@@ -216,6 +217,11 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
             )}
           >
             <span className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-card border-2 border-border bg-surface p-6 text-center [backface-visibility:hidden]" aria-hidden={flipped}>
+              {card.figure ? (
+                <span className="block w-full max-w-[260px]">
+                  <Figure spec={card.figure} />
+                </span>
+              ) : null}
               <span className="text-h1 font-bold break-words">{card.front}</span>
               <span className="text-body text-fg-muted">Tap to flip</span>
             </span>
