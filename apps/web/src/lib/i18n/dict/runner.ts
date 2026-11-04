@@ -109,11 +109,11 @@ const en = {
   },
 
   feedback: {
-    sent: 'Sent to your tutor',
+    sent: 'Sent',
     saved: 'Saved',
     hintsUsed: (n: number) => `You used ${n} ${n === 1 ? 'hint' : 'hints'} on this one.`,
     secondTry: 'Right on the second try.',
-    sentBody: 'Your tutor will look at it and give you stars. Keep going with your quest.',
+    sentBody: 'A grown-up will look at it later. Keep going with your quest.',
     savedBody: 'Your answer is saved. You will see if it is right on the results page.',
     lookAgain: 'Look at the question again, then try once more.',
     theAnswer: 'The answer',
