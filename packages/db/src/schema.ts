@@ -1015,6 +1015,68 @@ export const sourceState = pgTable(
   (t) => [primaryKey({ columns: [t.orgId, t.sourceId] })],
 )
 
+// ---------------------------------------------------------------------------
+// Kira World (migrasi 0021)
+
+export const starLedger = pgTable(
+  'star_ledger',
+  {
+    id: bigserial('id', { mode: 'number' }).primaryKey(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    amount: integer('amount').notNull(),
+    reason: text('reason').notNull(),
+    source: text('source').notNull(),
+    date: date('date').notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [uniqueIndex('star_ledger_source_uq').on(t.learnerId, t.source), index('star_ledger_day_idx').on(t.learnerId, t.date)],
+)
+
+export const worldState = pgTable('world_state', {
+  learnerId: uuid('learner_id').primaryKey(),
+  orgId: orgId(),
+  pet: jsonb('pet'),
+  equipped: jsonb('equipped').notNull().default(sql`'{}'::jsonb`),
+  progress: jsonb('progress').notNull().default(sql`'{}'::jsonb`),
+  updatedAt: ts('updated_at').notNull().defaultNow(),
+})
+
+export const worldItem = pgTable(
+  'world_item',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    itemId: text('item_id').notNull(),
+    source: text('source').notNull(),
+    acquiredAt: ts('acquired_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.itemId] })],
+)
+
+export const worldCard = pgTable(
+  'world_card',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    cardId: text('card_id').notNull(),
+    source: text('source').notNull(),
+    acquiredAt: ts('acquired_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.cardId] })],
+)
+
+export const contestMedal = pgTable('contest_medal', {
+  id: id(),
+  orgId: orgId(),
+  learnerId: uuid('learner_id').notNull(),
+  title: text('title').notNull(),
+  medal: text('medal', { enum: ['gold', 'silver', 'bronze', 'honour', 'participant'] }).notNull(),
+  earnedOn: date('earned_on').notNull(),
+  createdAt: createdAt(),
+  removedAt: ts('removed_at'),
+})
+
 /** Tabel tenant yang wajib RLS. Dipakai migrasi RLS dan tes. */
 export const TENANT_TABLES = [
   'org', 'member_profile', 'learner_profile', 'guardian_link', 'consent_event', 'deletion_request', 'skill_state',
@@ -1023,6 +1085,7 @@ export const TENANT_TABLES = [
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state', 'daily_chest',
   'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
+  'star_ledger', 'world_state', 'world_item', 'world_card', 'contest_medal',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
@@ -1031,4 +1094,5 @@ export const LEARNER_SCOPED_TABLES = [
   'day_record', 'badge_award', 'note', 'week_report',
   'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
+  'star_ledger', 'world_state', 'world_item', 'world_card', 'contest_medal',
 ] as const
