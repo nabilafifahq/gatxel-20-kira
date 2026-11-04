@@ -3767,13 +3767,41 @@ const perimeterArea3: Generator = {
         const chosen = rng.sample([...byPer.keys()], 4)
         const longest = rng.chance(0.5)
         const target = longest ? Math.max(...chosen) : Math.min(...chosen)
-        const fig = (c: Cell[]): Fig => ({
-          kind: 'grid',
-          rows: Math.max(...c.map((x) => x[0])) + 1,
-          cols: Math.max(...c.map((x) => x[1])) + 1,
-          shaded: c,
-          alt: `A shape made of ${c.length} squares. Its perimeter is ${cellPerimeter(c)} units.`,
-        })
+        // Keliling di kelas ini dihitung dari tepi luar, jadi bangun berlubang membuat kunci salah. Tanpa rng: undian tetap sama.
+        const noHole = (c: Cell[]): Cell[] => {
+          const has = new Set(c.map(([r, k]) => `${r},${k}`))
+          const rows = Math.max(...c.map((x) => x[0])) + 1
+          const cols = Math.max(...c.map((x) => x[1])) + 1
+          const out = new Set<string>()
+          const stack: Cell[] = [[-1, -1]]
+          while (stack.length) {
+            const [r, k] = stack.pop()!
+            const key = `${r},${k}`
+            if (r < -1 || k < -1 || r > rows || k > cols || out.has(key) || has.has(key)) continue
+            out.add(key)
+            stack.push([r + 1, k], [r - 1, k], [r, k + 1], [r, k - 1])
+          }
+          if (out.size + has.size === (rows + 2) * (cols + 2)) return c
+          // Tangga: baris atas dan kolom kiri penuh, sisanya mengisi dari kiri atas. Luas dan keliling tetap, tanpa lubang.
+          const half = cellPerimeter(c) / 2
+          const w = Math.ceil(half / 2)
+          const h = half - w
+          const cells: Cell[] = []
+          for (let k = 0; k < w; k++) cells.push([0, k])
+          for (let r = 1; r < h; r++) cells.push([r, 0])
+          for (let r = 1; r < h; r++) for (let k = 1; k < w; k++) if (cells.length < c.length) cells.push([r, k])
+          return norm(cells)
+        }
+        const fig = (raw: Cell[]): Fig => {
+          const c = noHole(raw)
+          return {
+            kind: 'grid',
+            rows: Math.max(...c.map((x) => x[0])) + 1,
+            cols: Math.max(...c.map((x) => x[1])) + 1,
+            shaded: c,
+            alt: `A shape made of ${c.length} squares. Its perimeter is ${cellPerimeter(c)} units.`,
+          }
+        }
         return {
           type: 'mcq',
           prompt: `Each shape has an area of ${area} squares. Which shape has the ${longest ? 'longest' : 'shortest'} perimeter?`,
