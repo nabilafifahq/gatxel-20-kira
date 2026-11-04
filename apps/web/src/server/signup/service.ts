@@ -48,6 +48,10 @@ async function emailTaken(emailNorm: string, emailLower: string): Promise<boolea
 
 async function sendVerification(to: string, token: string): Promise<void> {
   if (!emailSendAllowed('verify', to)) return
+  await queueVerification(to, token)
+}
+
+async function queueVerification(to: string, token: string): Promise<void> {
   const mail = simpleEmail({
     title: 'Satu langkah lagi untuk membuka Kira',
     lines: ['Terima kasih sudah mendaftar. Tekan tombol di bawah untuk memastikan email ini milikmu. Setelah itu keluarga Kira kamu langsung dibuat dan kamu bisa menambahkan anak.', 'Tautan berlaku 24 jam dan hanya bisa dipakai sekali.'],
@@ -126,12 +130,14 @@ export async function resendVerification(emailRaw: string): Promise<void> {
   }
   const now = new Date()
   if (now.getTime() - row.lastSentAt.getTime() < RESEND_GAP_MS || row.sentCount >= RESEND_MAX) return
+  // Cek batas email sebelum memutar token: tanpa email baru, tautan lama harus tetap berlaku.
+  if (!emailSendAllowed('verify', row.email)) return
   const token = randomToken(32)
   await authDb()
     .update(signup)
     .set({ tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` })
     .where(eq(signup.id, row.id))
-  await sendVerification(row.email, token)
+  await queueVerification(row.email, token)
 }
 
 /** True bila email ini menunggu konfirmasi (dipakai untuk pesan ramah di halaman masuk). Tidak dipakai di jawaban publik. */
