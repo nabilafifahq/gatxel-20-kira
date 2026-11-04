@@ -12,13 +12,16 @@ import { en, id } from '@/lib/i18n/dict'
 
 type Node = string | ((...args: never[]) => string) | { [key: string]: Node }
 
-/** Parameter teks atau angka: coba angka dulu, lalu teks bila fungsi memanggil metode string. */
+/** Parameter teks atau angka: coba angka, lalu teks, lalu nilai pilihan seperti jenis operasi (add). */
 function callSample(fn: (...args: never[]) => string, sample: number): string {
-  try {
-    return String(fn(...(Array.from({ length: fn.length }, () => sample) as never[])))
-  } catch {
-    return fn(...(Array.from({ length: fn.length }, () => String(sample)) as never[]))
+  for (const value of [sample, String(sample), 'add']) {
+    try {
+      return String(fn(...(Array.from({ length: fn.length }, () => value) as never[])))
+    } catch {
+      // nilai contoh berikutnya
+    }
   }
+  throw new Error('Fungsi kamus tidak bisa dipanggil dengan nilai contoh')
 }
 
 /** Semua daun kamus: [jalur, nilai teks]. Fungsi dipanggil dengan angka dan nama contoh. */
@@ -39,8 +42,9 @@ const EN = leaves(en as unknown as Node)
 const ID = leaves(id as unknown as Node)
 
 describe('kamus antarmuka anak', () => {
-  it('kedua bahasa punya kunci yang persis sama, dan fungsi punya jumlah parameter yang sama', () => {
-    const shape = (xs: typeof EN) => [...new Map(xs.map((x) => [x.path, x.arity])).entries()].sort()
+  it('kedua bahasa punya kunci yang persis sama, dan jenis nilainya sama (teks atau fungsi)', () => {
+    // Bahasa Indonesia boleh mengabaikan parameter jamak, jadi jumlah parameternya bisa lebih sedikit.
+    const shape = (xs: typeof EN) => [...new Map(xs.map((x) => [x.path, x.arity === null ? 'teks' : 'fungsi'])).entries()].sort()
     expect(shape(ID)).toEqual(shape(EN))
   })
 
