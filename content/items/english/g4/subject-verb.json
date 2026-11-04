@@ -2,145 +2,889 @@
   "skill": "e4.subject-verb",
   "items": [
     {
-      "id": "e4.subject-verb.001", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 1,
+      "id": "e4.subject-verb.001",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "The dog ___ in the garden.",
       "options": [
-        { "text": "play", "why": "With one dog, the verb needs -s." },
-        { "text": "plays" },
-        { "text": "playing", "why": "Playing needs a helper word, like is playing." },
-        { "text": "are play", "why": "Are play is not correct English." }
+        {
+          "text": "play",
+          "why": "With one dog, the verb needs -s."
+        },
+        {
+          "text": "plays"
+        },
+        {
+          "text": "playing",
+          "why": "Playing needs a helper word, like is playing."
+        },
+        {
+          "text": "are play",
+          "why": "Are play is not correct English."
+        }
       ],
       "answer": 1,
-      "hints": ["Who is doing the action?", "The dog is one animal.", "With one person or thing, a present tense verb usually ends in -s."],
+      "hints": [
+        "Who is doing the action?",
+        "The dog is one animal.",
+        "With one person or thing, a present tense verb usually ends in -s."
+      ],
       "explanation": "The dog is one animal, like it. So the verb takes -s: the dog plays.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.subject-verb.002", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 1,
+      "id": "e4.subject-verb.002",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "The birds ___ singing.",
       "options": [
-        { "text": "is", "why": "Is goes with one. Birds means more than one." },
-        { "text": "am", "why": "Am goes only with I." },
-        { "text": "are" },
-        { "text": "was", "why": "Was goes with one. Birds means more than one." }
+        {
+          "text": "is",
+          "why": "Is goes with one. Birds means more than one."
+        },
+        {
+          "text": "am",
+          "why": "Am goes only with I."
+        },
+        {
+          "text": "are"
+        },
+        {
+          "text": "was",
+          "why": "Was goes with one. Birds means more than one."
+        }
       ],
       "answer": 2,
-      "hints": ["How many birds are there?", "Is goes with one, and are goes with more than one.", "Swap the birds for they. Which word fits?"],
+      "hints": [
+        "How many birds are there?",
+        "Is goes with one, and are goes with more than one.",
+        "Swap the birds for they. Which word fits?"
+      ],
       "explanation": "Birds is plural, like they, so we use are: the birds are singing.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.subject-verb.003", "skill": "e4.subject-verb", "type": "text", "difficulty": 2,
+      "id": "e4.subject-verb.003",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Write is or are.\nMy shoes ___ under the bed.",
-      "blanks": [{ "answers": ["are"] }],
-      "hints": ["Shoes means more than one shoe.", "One of the two verbs goes with one thing. The other goes with more than one.", "Swap my shoes for they. Which verb sounds right?"],
+      "blanks": [
+        {
+          "answers": [
+            "are"
+          ]
+        }
+      ],
+      "hints": [
+        "Shoes means more than one shoe.",
+        "One of the two verbs goes with one thing. The other goes with more than one.",
+        "Swap my shoes for they. Which verb sounds right?"
+      ],
       "explanation": "Shoes is plural, so we use are."
     },
     {
-      "id": "e4.subject-verb.004", "skill": "e4.subject-verb", "type": "text", "difficulty": 2,
+      "id": "e4.subject-verb.004",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Write was or were.\nAna and Kofi ___ late for school.",
-      "blanks": [{ "answers": ["were"] }],
-      "hints": ["How many people are late?", "Ana and Kofi together are like they.", "Try the sentence with they instead of Ana and Kofi. Which verb sounds right?"],
+      "blanks": [
+        {
+          "answers": [
+            "were"
+          ]
+        }
+      ],
+      "hints": [
+        "How many people are late?",
+        "Ana and Kofi together are like they.",
+        "Try the sentence with they instead of Ana and Kofi. Which verb sounds right?"
+      ],
       "explanation": "Ana and Kofi are two people, like they, so we use were."
     },
     {
-      "id": "e4.subject-verb.005", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 2,
+      "id": "e4.subject-verb.005",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "My brother ___ to school by bus.",
       "options": [
-        { "text": "go", "why": "With one person, go needs -es." },
-        { "text": "are going", "why": "Are goes with more than one." },
-        { "text": "going", "why": "Going needs a helper word." },
-        { "text": "goes" }
+        {
+          "text": "go",
+          "why": "With one person, go needs -es."
+        },
+        {
+          "text": "are going",
+          "why": "Are goes with more than one."
+        },
+        {
+          "text": "going",
+          "why": "Going needs a helper word."
+        },
+        {
+          "text": "goes"
+        }
       ],
       "answer": 3,
-      "hints": ["My brother is one person.", "Swap my brother for he.", "What do we say: he go or he goes?"],
+      "hints": [
+        "My brother is one person.",
+        "Swap my brother for he.",
+        "What do we say: he go or he goes?"
+      ],
       "explanation": "My brother is one person, like he, so we use goes."
     },
     {
-      "id": "e4.subject-verb.006", "skill": "e4.subject-verb", "type": "sort", "difficulty": 3,
+      "id": "e4.subject-verb.006",
+      "skill": "e4.subject-verb",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Sort the subjects. Do they go with is or are?",
-      "groups": ["Use is", "Use are"],
-      "items": [
-        { "text": "the cat", "group": 0 }, { "text": "my teacher", "group": 0 }, { "text": "the sky", "group": 0 }, { "text": "everyone", "group": 0 },
-        { "text": "the children", "group": 1 }, { "text": "Sam and Lina", "group": 1 }, { "text": "the mangoes", "group": 1 }, { "text": "the books", "group": 1 }
+      "groups": [
+        "Use is",
+        "Use are"
       ],
-      "hints": ["Is goes with one. Are goes with more than one.", "Two names joined by and make more than one.", "Watch out for everyone. Say it with is and with are, and listen."],
+      "items": [
+        {
+          "text": "the cat",
+          "group": 0
+        },
+        {
+          "text": "my teacher",
+          "group": 0
+        },
+        {
+          "text": "the sky",
+          "group": 0
+        },
+        {
+          "text": "everyone",
+          "group": 0
+        },
+        {
+          "text": "the children",
+          "group": 1
+        },
+        {
+          "text": "Sam and Lina",
+          "group": 1
+        },
+        {
+          "text": "the mangoes",
+          "group": 1
+        },
+        {
+          "text": "the books",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Is goes with one. Are goes with more than one.",
+        "Two names joined by and make more than one.",
+        "Watch out for everyone. Say it with is and with are, and listen."
+      ],
       "explanation": "The cat, my teacher, the sky and everyone take is. The children, Sam and Lina, the mangoes and the books take are."
     },
     {
-      "id": "e4.subject-verb.007", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 3,
+      "id": "e4.subject-verb.007",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which sentence is correct?",
       "options": [
-        { "text": "The girls have a new ball." },
-        { "text": "The girls has a new ball.", "why": "Girls is plural, so it needs have." },
-        { "text": "The girls haves a new ball.", "why": "Haves is not a word." },
-        { "text": "The girls is having a new ball.", "why": "Girls is plural, so is does not fit." }
+        {
+          "text": "The girls have a new ball."
+        },
+        {
+          "text": "The girls has a new ball.",
+          "why": "Girls is plural, so it needs have."
+        },
+        {
+          "text": "The girls haves a new ball.",
+          "why": "Haves is not a word."
+        },
+        {
+          "text": "The girls is having a new ball.",
+          "why": "Girls is plural, so is does not fit."
+        }
       ],
       "answer": 0,
-      "hints": ["How many girls are there?", "Has goes with one. Have goes with more than one.", "Swap the girls for they."],
+      "hints": [
+        "How many girls are there?",
+        "Has goes with one. Have goes with more than one.",
+        "Swap the girls for they."
+      ],
       "explanation": "The girls is plural, like they, so we use have."
     },
     {
-      "id": "e4.subject-verb.008", "skill": "e4.subject-verb", "type": "text", "difficulty": 3,
+      "id": "e4.subject-verb.008",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "Write does or do.\n___ your cats like fish?",
-      "blanks": [{ "answers": ["Do"] }],
-      "hints": ["Your cats means more than one cat.", "Does goes with one. Do goes with more than one.", "Swap your cats for they."],
+      "blanks": [
+        {
+          "answers": [
+            "Do"
+          ]
+        }
+      ],
+      "hints": [
+        "Your cats means more than one cat.",
+        "Does goes with one. Do goes with more than one.",
+        "Swap your cats for they."
+      ],
       "explanation": "Cats is plural, so we use do: Do your cats like fish?"
     },
     {
-      "id": "e4.subject-verb.009", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 4,
+      "id": "e4.subject-verb.009",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "The box of crayons ___ on the table.",
       "options": [
-        { "text": "are", "why": "The verb goes with box, not with crayons." },
-        { "text": "were", "why": "Were goes with more than one, but there is one box." },
-        { "text": "is" },
-        { "text": "have", "why": "Have does not fit in this sentence." }
+        {
+          "text": "are",
+          "why": "The verb goes with box, not with crayons."
+        },
+        {
+          "text": "were",
+          "why": "Were goes with more than one, but there is one box."
+        },
+        {
+          "text": "is"
+        },
+        {
+          "text": "have",
+          "why": "Have does not fit in this sentence."
+        }
       ],
       "answer": 2,
-      "hints": ["What is on the table: the box or the crayons?", "The main word is box. Of crayons tells you what is in it.", "There is one box. Is it is or are?"],
+      "hints": [
+        "What is on the table: the box or the crayons?",
+        "The main word is box. Of crayons tells you what is in it.",
+        "There is one box. Is it is or are?"
+      ],
       "explanation": "The main word is box, and there is one box. So we use is, even though crayons is plural.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.subject-verb.010", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 4,
+      "id": "e4.subject-verb.010",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "The leaves on the tree ___ turning brown.",
       "options": [
-        { "text": "is", "why": "The verb goes with leaves, not with tree." },
-        { "text": "has", "why": "Has turning is not correct." },
-        { "text": "was", "why": "Was goes with one, but there are many leaves." },
-        { "text": "are" }
+        {
+          "text": "is",
+          "why": "The verb goes with leaves, not with tree."
+        },
+        {
+          "text": "has",
+          "why": "Has turning is not correct."
+        },
+        {
+          "text": "was",
+          "why": "Was goes with one, but there are many leaves."
+        },
+        {
+          "text": "are"
+        }
       ],
       "answer": 3,
-      "hints": ["What is turning brown: the tree or the leaves?", "The words on the tree tell you where the leaves are.", "Read the sentence without on the tree. Which verb fits now?"],
+      "hints": [
+        "What is turning brown: the tree or the leaves?",
+        "The words on the tree tell you where the leaves are.",
+        "Read the sentence without on the tree. Which verb fits now?"
+      ],
       "explanation": "The leaves are turning brown. On the tree only tells us where the leaves are, so the verb agrees with leaves.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.subject-verb.011", "skill": "e4.subject-verb", "type": "multi", "difficulty": 4,
+      "id": "e4.subject-verb.011",
+      "skill": "e4.subject-verb",
+      "type": "multi",
+      "difficulty": 4,
       "prompt": "Choose 2 sentences where the verb agrees with the subject.",
       "options": [
-        { "text": "Rina and Joko walk to school." },
-        { "text": "The baby cry at night.", "why": "The baby is one, so it should be cries." },
-        { "text": "My friends was at the park.", "why": "Friends is plural, so it should be were." },
-        { "text": "The sun shines in the morning." }
+        {
+          "text": "Rina and Joko walk to school."
+        },
+        {
+          "text": "The baby cry at night.",
+          "why": "The baby is one, so it should be cries."
+        },
+        {
+          "text": "My friends was at the park.",
+          "why": "Friends is plural, so it should be were."
+        },
+        {
+          "text": "The sun shines in the morning."
+        }
       ],
-      "answers": [0, 3],
-      "hints": ["Find the subject of each sentence first.", "Is the subject one thing, or more than one?", "Check that the verb matches. One thing usually takes -s in the present."],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Find the subject of each sentence first.",
+        "Is the subject one thing, or more than one?",
+        "Check that the verb matches. One thing usually takes -s in the present."
+      ],
       "explanation": "Rina and Joko are two people, so walk is right. The sun is one thing, so shines is right."
     },
     {
-      "id": "e4.subject-verb.012", "skill": "e4.subject-verb", "type": "mcq", "difficulty": 5,
+      "id": "e4.subject-verb.012",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Each of the children ___ a book.",
       "options": [
-        { "text": "have", "why": "Each means every one on its own, so we use has." },
-        { "text": "has" },
-        { "text": "are having", "why": "This does not match each." },
-        { "text": "having", "why": "Having needs a helper word." }
+        {
+          "text": "have",
+          "why": "Each means every one on its own, so we use has."
+        },
+        {
+          "text": "has"
+        },
+        {
+          "text": "are having",
+          "why": "This does not match each."
+        },
+        {
+          "text": "having",
+          "why": "Having needs a helper word."
+        }
       ],
       "answer": 1,
-      "hints": ["Look at the first word: Each.", "Each means every single one, on its own.", "Is one child like he or like they?"],
+      "hints": [
+        "Look at the first word: Each.",
+        "Each means every single one, on its own.",
+        "Is one child like he or like they?"
+      ],
       "explanation": "Each means every single child, one at a time. So the verb is singular: each of the children has a book.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e4.subject-verb.013",
+      "skill": "e4.subject-verb",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Choose the right verb for each gap.\nThe cat ___ on the sofa. The cats ___ on the rug.",
+      "gaps": [
+        {
+          "options": [
+            "sleeps",
+            "sleep"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "sleeps",
+            "sleep"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Count how many cats there are in each sentence.",
+        "One cat takes the verb with -s. More than one cat does not.",
+        "Look at the first gap: the cat is one animal."
+      ],
+      "explanation": "One cat sleeps, with -s. Many cats sleep, with no -s."
+    },
+    {
+      "id": "e4.subject-verb.014",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "My sister ___ a red bike.",
+      "options": [
+        {
+          "text": "have",
+          "why": "Have goes with I, you, we and they, not with one person."
+        },
+        {
+          "text": "are having",
+          "why": "Are having is not the right form here."
+        },
+        {
+          "text": "has"
+        },
+        {
+          "text": "having",
+          "why": "Having needs a helper word, like is having."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Who owns the bike?",
+        "My sister is one person, like she.",
+        "She goes with has. I and they go with have."
+      ],
+      "explanation": "My sister is one person, like she. So we use has."
+    },
+    {
+      "id": "e4.subject-verb.015",
+      "skill": "e4.subject-verb",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a correct sentence.",
+      "answer": "The children are playing in the park.",
+      "distractors": [
+        "is",
+        "play"
+      ],
+      "hints": [
+        "Find the subject first: who is playing?",
+        "Children means more than one.",
+        "Start with The, then the subject, then are."
+      ],
+      "explanation": "Children is plural, so it takes are: the children are playing."
+    },
+    {
+      "id": "e4.subject-verb.016",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write has or have.\nDewi and Bayu ___ a new puppy.",
+      "blanks": [
+        {
+          "answers": [
+            "have"
+          ]
+        }
+      ],
+      "hints": [
+        "How many people own the puppy?",
+        "Dewi and Bayu together means two people.",
+        "Swap Dewi and Bayu for they. Which word fits?"
+      ],
+      "explanation": "Dewi and Bayu are two people, like they. So we write have."
+    },
+    {
+      "id": "e4.subject-verb.017",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "There ___ three mangoes in the bowl.",
+      "options": [
+        {
+          "text": "is",
+          "why": "Is goes with one thing. Three mangoes is more than one."
+        },
+        {
+          "text": "are"
+        },
+        {
+          "text": "was",
+          "why": "Was is for one thing in the past. This sentence is about now."
+        },
+        {
+          "text": "be",
+          "why": "Be cannot stand alone as the verb here."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the noun after there. How many?",
+        "Three mangoes is plural.",
+        "Plural nouns go with are, even when the sentence starts with there."
+      ],
+      "explanation": "The subject is three mangoes, which is plural. So we say there are three mangoes."
+    },
+    {
+      "id": "e4.subject-verb.018",
+      "skill": "e4.subject-verb",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each subject to the verb that fits.",
+      "pairs": [
+        [
+          "The bus",
+          "stops"
+        ],
+        [
+          "The buses",
+          "stop"
+        ],
+        [
+          "I",
+          "am"
+        ],
+        [
+          "You",
+          "are"
+        ]
+      ],
+      "hints": [
+        "One bus and many buses need different verbs.",
+        "Verbs for one thing usually end in -s.",
+        "I has its own special verb. Do that one first."
+      ],
+      "explanation": "One bus stops. Many buses stop. I goes with am, and you goes with are."
+    },
+    {
+      "id": "e4.subject-verb.019",
+      "skill": "e4.subject-verb",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the sentences. Is the verb correct, or does it need a fix?",
+      "groups": [
+        "Correct",
+        "Needs a fix"
+      ],
+      "items": [
+        {
+          "text": "The kites fly high.",
+          "group": 0
+        },
+        {
+          "text": "She walk to school.",
+          "group": 1
+        },
+        {
+          "text": "Tom and I are friends.",
+          "group": 0
+        },
+        {
+          "text": "The dogs barks loudly.",
+          "group": 1
+        },
+        {
+          "text": "He have a ruler.",
+          "group": 1
+        },
+        {
+          "text": "My mum is cooking.",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Find the subject in each sentence.",
+        "Ask: is the subject one or more than one?",
+        "Start with she. She is one person."
+      ],
+      "explanation": "Each verb must match its subject: she walks, the dogs bark, he has."
+    },
+    {
+      "id": "e4.subject-verb.020",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The class ___ finished its project.",
+      "options": [
+        {
+          "text": "have",
+          "why": "Class is one group here, and its shows it is singular."
+        },
+        {
+          "text": "are",
+          "why": "Are goes with more than one. The word its shows one group."
+        },
+        {
+          "text": "has"
+        },
+        {
+          "text": "were",
+          "why": "Were is the past and goes with more than one."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the small word its in the sentence.",
+        "A class acting as one group is singular.",
+        "Its is singular, so the verb should be singular too."
+      ],
+      "explanation": "The class is acting as one group. The word its shows this, so we use has."
+    },
+    {
+      "id": "e4.subject-verb.021",
+      "skill": "e4.subject-verb",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table. Write is or are for each subject.",
+      "head": [
+        "Subject",
+        "Verb (is or are)"
+      ],
+      "rows": [
+        [
+          "The pencil",
+          ""
+        ],
+        [
+          "The pencils",
+          ""
+        ],
+        [
+          "Bayu and Citra",
+          ""
+        ],
+        [
+          "The box of pencils",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "is"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "are"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "are"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "is"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the main noun in each subject.",
+        "In the last row, the box is the main noun, not the pencils.",
+        "Two people joined by and need are."
+      ],
+      "explanation": "Use is with one main noun and are with more than one. The box of pencils is about one box."
+    },
+    {
+      "id": "e4.subject-verb.022",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence has a mistake?",
+      "options": [
+        {
+          "text": "Kofi and Amara are in the choir.",
+          "why": "This one is correct. Two people go with are."
+        },
+        {
+          "text": "My uncle lives near the river.",
+          "why": "This one is correct. One uncle takes lives."
+        },
+        {
+          "text": "The girls in my class likes drawing."
+        },
+        {
+          "text": "Every morning, Yuki feeds the hens.",
+          "why": "This one is correct. Yuki is one person."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check each verb against its own subject.",
+        "Ignore words like in my class. Find who is doing the action.",
+        "Look at The girls. One or more than one?"
+      ],
+      "explanation": "The subject is the girls, which is plural. It should be: the girls in my class like drawing."
+    },
+    {
+      "id": "e4.subject-verb.023",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the correct form of the verb in brackets.\nMy uncle and his two sons ___ (live) near the river.",
+      "blanks": [
+        {
+          "answers": [
+            "live"
+          ]
+        }
+      ],
+      "hints": [
+        "How many people live there?",
+        "An uncle plus two sons makes three people.",
+        "Use the form that goes with they."
+      ],
+      "explanation": "There are three people, like they. So the verb has no -s: live."
+    },
+    {
+      "id": "e4.subject-verb.024",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In the middle of the field ___ two old trees.",
+      "options": [
+        {
+          "text": "is",
+          "why": "The subject comes after the verb here. Two trees is plural."
+        },
+        {
+          "text": "was",
+          "why": "Was is for one thing, and two trees is more than one."
+        },
+        {
+          "text": "are"
+        },
+        {
+          "text": "stands",
+          "why": "Stands goes with one thing, not two trees."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The subject is not at the start of this sentence.",
+        "Turn it around: Two old trees ___ in the middle of the field.",
+        "Two old trees is plural."
+      ],
+      "explanation": "The subject is two old trees, even though it comes after the verb. So we use are."
+    },
+    {
+      "id": "e4.subject-verb.025",
+      "skill": "e4.subject-verb",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose 2 sentences where the verb matches the subject.",
+      "options": [
+        {
+          "text": "The girls who sits at the back are quiet.",
+          "why": "Girls is plural, so it should be who sit."
+        },
+        {
+          "text": "The boy who lives next to the shops plays the drums."
+        },
+        {
+          "text": "A list of rules hang on the wall.",
+          "why": "The main noun is list, which is one thing. It should be hangs."
+        },
+        {
+          "text": "The books on the top shelf belong to Hadi."
+        },
+        {
+          "text": "The price of the mangoes are high.",
+          "why": "The main noun is price, which is one thing. It should be is."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ],
+      "hints": [
+        "Find the main noun before looking at the verb.",
+        "Words after of or on are not usually the subject.",
+        "Ask: does the verb match the girls, the list, the boy or the price?"
+      ],
+      "explanation": "The boy plays (one boy) and the books belong (many books). In the others, the verb matches the wrong noun."
+    },
+    {
+      "id": "e4.subject-verb.026",
+      "skill": "e4.subject-verb",
+      "type": "cloze",
+      "difficulty": 4,
+      "prompt": "Choose the right verb for each gap.\nEveryone in Row B ___ a ticket. Both of the guides ___ waiting.",
+      "gaps": [
+        {
+          "options": [
+            "has",
+            "have"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "is",
+            "are"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Everyone is a tricky word. It is singular, even though it means many people.",
+        "Both always means two, so it is plural.",
+        "Match: everyone with one verb, both with the other."
+      ],
+      "explanation": "Everyone takes a singular verb: has. Both is plural, so we use are."
+    },
+    {
+      "id": "e4.subject-verb.027",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "The scissors is in the drawer.",
+          "why": "Scissors is a pair of blades, so it takes are."
+        },
+        {
+          "text": "Mathematics are Citra's favourite subject.",
+          "why": "Mathematics is the name of one subject, so it takes is."
+        },
+        {
+          "text": "The news is good today."
+        },
+        {
+          "text": "My trousers is too long.",
+          "why": "Trousers is a pair, so it takes are."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Some words end in -s but do not mean more than one.",
+        "Others look single but are plural, like scissors and trousers.",
+        "News is a word that ends in -s but is one thing."
+      ],
+      "explanation": "News looks plural but is singular, so it is correct. Scissors and trousers are plural."
+    },
+    {
+      "id": "e4.subject-verb.028",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Read.\nAmara's team ___ practising every day. Its players ___ ready for the match.\nWhich pair fits?",
+      "options": [
+        {
+          "text": "are, is",
+          "why": "Team here is one group (its), and players is plural. These are the wrong way round."
+        },
+        {
+          "text": "is, are"
+        },
+        {
+          "text": "is, is",
+          "why": "Players is plural, so it needs are."
+        },
+        {
+          "text": "are, are",
+          "why": "Team is one group, shown by its, so it needs is."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for the clues its and players.",
+        "One group, then many people in it.",
+        "Fill each gap one at a time."
+      ],
+      "explanation": "Amara's team is one group, so it takes is. Its players are more than one, so they take are."
     }
   ]
 }

@@ -1,0 +1,626 @@
+{
+  "skill": "e4.spelling-strategies",
+  "items": [
+    {
+      "id": "e4.spelling-strategies.001",
+      "skill": "e4.spelling-strategies",
+      "type": "spell",
+      "difficulty": 1,
+      "prompt": "Listen, then spell the word.",
+      "word": "knife",
+      "sentence": "Use a sharp knife to cut the bread.",
+      "hints": [
+        "Say the word slowly. The first sound you hear is n.",
+        "The first letter is silent, so you cannot hear it.",
+        "Start with the silent letter, then add the letters for the sound n."
+      ],
+      "explanation": "Knife begins with a silent k. We write the k but we do not say it."
+    },
+    {
+      "id": "e4.spelling-strategies.002",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word has a silent letter?",
+      "options": [
+        {
+          "text": "lunch",
+          "why": "Every letter in lunch is sounded when you say it."
+        },
+        {
+          "text": "lemon",
+          "why": "You say every letter in lemon."
+        },
+        {
+          "text": "lamb"
+        },
+        {
+          "text": "lift",
+          "why": "Every letter in lift is sounded."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Say each word aloud and listen for every letter.",
+        "A silent letter is written but not heard.",
+        "Check the end of each word. One ends with a letter you do not say."
+      ],
+      "explanation": "In lamb the b at the end is silent. We say lam but we write lamb."
+    },
+    {
+      "id": "e4.spelling-strategies.003",
+      "skill": "e4.spelling-strategies",
+      "type": "spell",
+      "difficulty": 2,
+      "prompt": "Listen, then spell the word.",
+      "word": "wrong",
+      "sentence": "I gave the wrong answer and then I fixed it.",
+      "hints": [
+        "It starts with a sound you hear as r.",
+        "There is a silent letter at the start.",
+        "Think of write and wrist. They begin the same way."
+      ],
+      "explanation": "Wrong begins with a silent w. It is like write and wrist."
+    },
+    {
+      "id": "e4.spelling-strategies.004",
+      "skill": "e4.spelling-strategies",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Choose the right word for each gap.\n___ going to carry ___ bags to the car and put them ___.",
+      "gaps": [
+        {
+          "options": [
+            "They're",
+            "Their",
+            "There"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "They're",
+            "Their",
+            "There"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "They're",
+            "Their",
+            "There"
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Each word sounds the same but means something different.",
+        "They're is short for they are. Their shows owning. There shows a place.",
+        "Say they are in the first gap. Does it make sense?"
+      ],
+      "explanation": "They're means they are. Their shows that the bags belong to them. There tells us the place."
+    },
+    {
+      "id": "e4.spelling-strategies.005",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In the words want, war and water, how is the letter a said after the letter w?",
+      "options": [
+        {
+          "text": "like the a in cat",
+          "why": "Cat has a short a, but after w the sound changes."
+        },
+        {
+          "text": "like the o in hot"
+        },
+        {
+          "text": "like the e in bed",
+          "why": "There is no e sound in these words."
+        },
+        {
+          "text": "like the u in cup",
+          "why": "The sound is not like cup."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say want and then cat. Do the a sounds match?",
+        "After w, the letter a often changes its sound.",
+        "Listen for a sound that is close to the o in hot."
+      ],
+      "explanation": "After w, the letter a often sounds like o. That is why want, war and water look odd but follow a pattern."
+    },
+    {
+      "id": "e4.spelling-strategies.006",
+      "skill": "e4.spelling-strategies",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Listen, then spell the word.",
+      "word": "young",
+      "sentence": "The young bird could not fly yet.",
+      "hints": [
+        "The first sound is y, as in yes.",
+        "The middle sounds like u in cup, but it is spelt with two letters.",
+        "The vowel pair is the same as in touch and country."
+      ],
+      "explanation": "Young has the letters ou making a short u sound, like in touch and country."
+    },
+    {
+      "id": "e4.spelling-strategies.007",
+      "skill": "e4.spelling-strategies",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word to a word that rhymes with it.",
+      "pairs": [
+        [
+          "tough",
+          "stuff"
+        ],
+        [
+          "through",
+          "blue"
+        ],
+        [
+          "plough",
+          "cow"
+        ],
+        [
+          "cough",
+          "off"
+        ]
+      ],
+      "hints": [
+        "The letters ough can make different sounds.",
+        "Say the first word aloud, then each ending.",
+        "Start with through. It rhymes with a colour."
+      ],
+      "explanation": "The letters ough have different sounds: tough says uff, through says oo, plough says ow and cough says off."
+    },
+    {
+      "id": "e4.spelling-strategies.008",
+      "skill": "e4.spelling-strategies",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort the words by how ough is said.",
+      "groups": [
+        "Sounds like uff",
+        "Sounds like off",
+        "Sounds like ow"
+      ],
+      "items": [
+        {
+          "text": "tough",
+          "group": 0
+        },
+        {
+          "text": "rough",
+          "group": 0
+        },
+        {
+          "text": "enough",
+          "group": 0
+        },
+        {
+          "text": "cough",
+          "group": 1
+        },
+        {
+          "text": "trough",
+          "group": 1
+        },
+        {
+          "text": "plough",
+          "group": 2
+        },
+        {
+          "text": "bough",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Say each word aloud before you sort it.",
+        "Tough rhymes with stuff. Cow rhymes with plough.",
+        "Cough and trough both end the way off does."
+      ],
+      "explanation": "Ough can say uff in tough, rough and enough. It says off in cough and trough. It says ow in plough and bough."
+    },
+    {
+      "id": "e4.spelling-strategies.009",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Maya spells separate by thinking: there is a rat in sepArate. What does this trick help her remember?",
+      "options": [
+        {
+          "text": "that the word starts with s",
+          "why": "The trick is about a letter in the middle of the word."
+        },
+        {
+          "text": "that the middle part is spelt with a"
+        },
+        {
+          "text": "that the word ends with e",
+          "why": "The trick does not help with the last letter."
+        },
+        {
+          "text": "that the word has two syllables",
+          "why": "The trick is about a letter, not about syllables."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A trick like this is called a mnemonic.",
+        "Look at the capital letter in sepArate.",
+        "The word rat hides the letters a, r and a."
+      ],
+      "explanation": "The rat in sepArate reminds Maya to write a, not e, after sep. A memory trick helps with the tricky letter."
+    },
+    {
+      "id": "e4.spelling-strategies.010",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at these words: field, believe, piece, chief. What spelling rule do they follow?",
+      "options": [
+        {
+          "text": "i comes before e, as in field"
+        },
+        {
+          "text": "e comes before i, as in veil",
+          "why": "Veil is a different word. These four all have ie."
+        },
+        {
+          "text": "the word always ends with e",
+          "why": "Only believe ends with e."
+        },
+        {
+          "text": "the word must have double letters",
+          "why": "None of these words has a double letter."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the letters in the middle of each word.",
+        "Check which letter comes first, i or e.",
+        "Write the pairs out: f-ie-ld, bel-ie-ve."
+      ],
+      "explanation": "All four words have ie, with i first. This pattern gives us a rule: i before e (when the sound is ee and the letter before is not c)."
+    },
+    {
+      "id": "e4.spelling-strategies.011",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at these words: hope, hoping; make, making; bake, baking. What is the rule?",
+      "options": [
+        {
+          "text": "add ing and keep the e",
+          "why": "Hoping and making do not keep the e."
+        },
+        {
+          "text": "drop the e, then add ing"
+        },
+        {
+          "text": "double the last letter, then add ing",
+          "why": "Hoping does not have a double p."
+        },
+        {
+          "text": "change e to y, then add ing",
+          "why": "No word here has a y."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare hope with hoping. What happened to the last letter?",
+        "Check make and making in the same way.",
+        "The final e goes away before ing."
+      ],
+      "explanation": "When a word ends in e, we usually drop the e before adding ing: hope, hoping."
+    },
+    {
+      "id": "e4.spelling-strategies.012",
+      "skill": "e4.spelling-strategies",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these words in alphabetical order.",
+      "items": [
+        "mango",
+        "market",
+        "milk",
+        "mirror"
+      ],
+      "hints": [
+        "All four words begin with m, so look at the second letter.",
+        "Mango and market both start ma. Look at the third letter.",
+        "Compare n and r. Then compare milk and mirror in the same way."
+      ],
+      "explanation": "Ma comes before mi. Mango has n and market has r, so mango comes first. Milk has l and mirror has r, so milk comes first."
+    },
+    {
+      "id": "e4.spelling-strategies.013",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The guide words on a dictionary page are draw and drum. Which word is on this page?",
+      "options": [
+        {
+          "text": "dock",
+          "why": "Dock starts do, which comes before dr."
+        },
+        {
+          "text": "dusk",
+          "why": "Dusk starts du, which comes after dr."
+        },
+        {
+          "text": "dream"
+        },
+        {
+          "text": "dry",
+          "why": "Dry comes after drum because y comes after u."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Guide words tell you the first and last word on the page.",
+        "Check the first two letters, then the third.",
+        "The word must come after draw and before drum."
+      ],
+      "explanation": "Dream comes after draw (e after a) and before drum (e before u), so it is on this page."
+    },
+    {
+      "id": "e4.spelling-strategies.014",
+      "skill": "e4.spelling-strategies",
+      "type": "order",
+      "difficulty": 1,
+      "prompt": "Put the look, say, cover, write, check steps in the right order.",
+      "items": [
+        "Look at the word carefully",
+        "Say the word out loud",
+        "Cover the word",
+        "Write the word from memory",
+        "Check your spelling"
+      ],
+      "hints": [
+        "Think about what you do before you hide the word.",
+        "You cannot check until you have written.",
+        "Start with looking."
+      ],
+      "explanation": "First look at the word and say it. Then cover it, write it from memory and check."
+    },
+    {
+      "id": "e4.spelling-strategies.015",
+      "skill": "e4.spelling-strategies",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 words that are spelt correctly.",
+      "options": [
+        {
+          "text": "knock"
+        },
+        {
+          "text": "thum",
+          "why": "This is missing a silent letter. The word is thumb."
+        },
+        {
+          "text": "wrist"
+        },
+        {
+          "text": "rong",
+          "why": "The word needs a silent letter at the start."
+        },
+        {
+          "text": "gnat"
+        },
+        {
+          "text": "nife",
+          "why": "The word needs a silent letter at the start."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Three of the words have a silent letter in the right place.",
+        "Check words that begin with k, w or g and then n or r.",
+        "Say each word. Does it still match a word you know?"
+      ],
+      "explanation": "Knock has a silent k, wrist has a silent w and gnat has a silent g. The other three words are missing silent letters."
+    },
+    {
+      "id": "e4.spelling-strategies.016",
+      "skill": "e4.spelling-strategies",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Two words are spelt wrongly. Type them correctly.\nThe yung lamb drank wotter from the stream.\nCorrect spellings: ___ and ___",
+      "blanks": [
+        {
+          "answers": [
+            "young"
+          ]
+        },
+        {
+          "answers": [
+            "water"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the words that seem odd.",
+        "One word needs ou. The other has a after w.",
+        "Start with the first mistake in the sentence."
+      ],
+      "explanation": "Young has ou for a short u sound. Water has a after w."
+    },
+    {
+      "id": "e4.spelling-strategies.017",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Say the word hospital. Which part is said most strongly?",
+      "options": [
+        {
+          "text": "hos"
+        },
+        {
+          "text": "pi",
+          "why": "The middle part is said softly."
+        },
+        {
+          "text": "tal",
+          "why": "The last part is said softly."
+        },
+        {
+          "text": "all parts are the same",
+          "why": "In longer words one part is said more strongly."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Clap the beats of the word: hos-pi-tal.",
+        "One beat is louder and longer than the others.",
+        "Say it as if you are calling it out. Which part is loudest?"
+      ],
+      "explanation": "We stress the first part of hospital. The other two parts are unstressed and sound softer."
+    },
+    {
+      "id": "e4.spelling-strategies.018",
+      "skill": "e4.spelling-strategies",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by which part is stressed.",
+      "groups": [
+        "First part is stressed",
+        "Second part is stressed"
+      ],
+      "items": [
+        {
+          "text": "table",
+          "group": 0
+        },
+        {
+          "text": "garden",
+          "group": 0
+        },
+        {
+          "text": "carpet",
+          "group": 0
+        },
+        {
+          "text": "about",
+          "group": 1
+        },
+        {
+          "text": "begin",
+          "group": 1
+        },
+        {
+          "text": "today",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Say each word and listen for the louder part.",
+        "In table, the first part is louder.",
+        "In about, the first part is short and soft."
+      ],
+      "explanation": "In table, garden and carpet we say the first part more strongly. In about, begin and today we say the second part more strongly."
+    },
+    {
+      "id": "e4.spelling-strategies.019",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Tom keeps a list of words he spelt wrongly, with the correct spelling next to each. Why is this useful?",
+      "options": [
+        {
+          "text": "it shows him which words to learn"
+        },
+        {
+          "text": "it means he never needs to practise",
+          "why": "He still needs to practise the words."
+        },
+        {
+          "text": "it makes his writing longer",
+          "why": "The list does not change how long his writing is."
+        },
+        {
+          "text": "it lets him copy from friends",
+          "why": "The list is for his own learning."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A list like this is called a spelling log.",
+        "Think about what Tom does with the list later.",
+        "Which words keep appearing?"
+      ],
+      "explanation": "A spelling log shows the words you find hard, so you know what to learn next."
+    },
+    {
+      "id": "e4.spelling-strategies.020",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dewi meets a new word: unbreakable. What is the best way to read it?",
+      "options": [
+        {
+          "text": "look at the first letter only",
+          "why": "One letter is not enough to read the whole word."
+        },
+        {
+          "text": "skip it and keep going",
+          "why": "Skipping may stop you understanding the sentence."
+        },
+        {
+          "text": "split it into parts: un, break, able"
+        },
+        {
+          "text": "guess a word that looks like it",
+          "why": "Guessing from the shape can give the wrong word."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a word you already know inside the longer word.",
+        "Find the prefix and the suffix.",
+        "Read each part, then blend them together."
+      ],
+      "explanation": "Splitting unbreakable into un, break and able lets you read each small part and blend them."
+    },
+    {
+      "id": "e4.spelling-strategies.021",
+      "skill": "e4.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is spelt correctly?",
+      "options": [
+        {
+          "text": "Their going to be late.",
+          "why": "Their shows owning. They're means they are."
+        },
+        {
+          "text": "There coats are on the hook.",
+          "why": "There is a place. Their shows the coats belong to them."
+        },
+        {
+          "text": "They're coats are on the hook.",
+          "why": "They're means they are. It does not show belonging."
+        },
+        {
+          "text": "They're sure their friends will wait there."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check each sentence by saying they are in place of they're.",
+        "Their shows that something belongs to them. There shows a place.",
+        "Try the last sentence first."
+      ],
+      "explanation": "They're means they are. Their shows belonging. There is a place. The last sentence uses all three correctly."
+    }
+  ]
+}
