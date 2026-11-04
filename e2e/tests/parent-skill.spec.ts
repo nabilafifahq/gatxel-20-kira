@@ -31,6 +31,9 @@ async function resetDay(learner: string) {
   await db()`delete from plan_slot where learner_id = ${learner} and date = ${jakartaToday()}`
 }
 
+// Today pertama membuat sembilan sesi; di mesin yang sibuk itu butuh waktu.
+test.setTimeout(240_000)
+
 test.afterAll(async () => {
   const org = await seedOrgId()
   await db()`update day_rules set preset = 'penuh', rules = null where org_id = ${org}`
@@ -47,7 +50,7 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
   // Anak membuka Today di tabletnya sendiri.
   await registerTablet(child, ['Aisha', 'Raka'], 'Tablet ganti pelajaran')
   await pinLogin(child, 'Aisha')
-  await expect(child.getByText('Required today')).toBeVisible()
+  await expect(child.getByText('Required today')).toBeVisible({ timeout: 60_000 })
 
   // Orang tua di HP.
   const ctx = await browser.newContext({ baseURL: baseURL!, viewport: { width: 390, height: 844 }, locale: 'en-GB', timezoneId: 'Asia/Jakarta' })
@@ -73,8 +76,8 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
   await dialog.getByRole('radio', { name: literal(target.titleId) }).check()
   await dialog.getByRole('button', { name: 'Pakai pelajaran ini' }).click()
   await expect(dialog).toBeHidden({ timeout: 60_000 })
-  await expect(page.getByRole('status').filter({ hasText: `diganti ke ${target.titleId}` })).toBeVisible()
-  await expect(rowOf(page, 'Math, Latihan').getByText(target.titleId, { exact: true })).toBeVisible()
+  await expect(page.getByRole('status').filter({ hasText: `diganti ke ${target.titleId}` })).toBeVisible({ timeout: 60_000 })
+  await expect(rowOf(page, 'Math, Latihan').getByText(target.titleId, { exact: true })).toBeVisible({ timeout: 60_000 })
   await expect(rowOf(page, 'Math, Tes').getByText(target.titleId, { exact: true })).toBeVisible()
 
   const after = await questOf(lid, 'math', 'latihan')
@@ -84,7 +87,7 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
 
   // Today anak memakai pelajaran baru pada muat berikutnya, di perangkat yang berbeda.
   await child.goto('/today')
-  await expect(child.getByText(target.title).first()).toBeVisible()
+  await expect(child.getByText(target.title).first()).toBeVisible({ timeout: 60_000 })
 
   // Sesi yang sedang dikerjakan tetap berjalan.
   const lat = await questOf(lid, 'english', 'latihan')
@@ -130,7 +133,7 @@ test('orang tua menyiapkan hari ini sebelum anak membuka Today, lalu anak mendap
 
   await registerTablet(child, ['Aisha', 'Raka'], 'Tablet siapkan')
   await pinLogin(child, 'Raka')
-  await expect(child.getByText(target.title).first()).toBeVisible()
+  await expect(child.getByText(target.title).first()).toBeVisible({ timeout: 60_000 })
   await ctx.close()
 })
 
@@ -139,7 +142,7 @@ test('tutor keluarga lama mengganti pelajaran hari ini lewat Rencana, Today anak
   await resetDay(lid)
   await registerTablet(child, ['Aisha', 'Raka'], 'Tablet tutor')
   await pinLogin(child, 'Raka')
-  await expect(child.getByText('Required today')).toBeVisible()
+  await expect(child.getByText('Required today')).toBeVisible({ timeout: 60_000 })
   const before = await questOf(lid, 'math', 'latihan')
   const grade4 = JSON.parse(readFileSync(fileURLToPath(new URL('../../content/skills/math/g4.json', import.meta.url)), 'utf8')) as SkillFile
   const target = grade4.find((x) => x.id !== before.skill_id)!
@@ -160,6 +163,6 @@ test('tutor keluarga lama mengganti pelajaran hari ini lewat Rencana, Today anak
   expect((await questOf(lid, 'math', 'latihan')).kind).toBe('daily')
 
   await child.goto('/today')
-  await expect(child.getByText(target.title).first()).toBeVisible()
+  await expect(child.getByText(target.title).first()).toBeVisible({ timeout: 60_000 })
   await ctx.close()
 })
