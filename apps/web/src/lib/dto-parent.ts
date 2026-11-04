@@ -2,6 +2,7 @@ import type { FeatureMap } from '@kira/core/features'
 import type { AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, Subject, WeekSummaryDTO } from './dto'
 import type { ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 import type { ParentPlacementDTO } from './dto-placement'
+import type { UiLang } from './i18n/lang'
 
 /**
  * Dashboard orang tua (/keluarga). Teks untuk orang tua dalam bahasa Indonesia. Semua data dibaca lewat
@@ -121,6 +122,8 @@ export type ParentChildDTO = {
     screenLimitMin: number
     restWeekdays: number[]
     soundEnabled: boolean
+    uiLang: UiLang
+    uiLangSwitch: boolean
     musicEnabled: boolean
     dayPreset: DayPresetId
     features: FeatureMap

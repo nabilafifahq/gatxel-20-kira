@@ -6,6 +6,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import type { TtsStyleId } from '@kira/core/tts'
 import { useSpeech, type SpeechLang } from '@/components/learner/speech'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Tombol putar suara untuk soal dengar dan eja. Teksnya dibacakan lewat useSpeech dan tidak pernah
@@ -19,7 +20,7 @@ export function ListenButton({
   text,
   lang = 'en-GB',
   subject,
-  label = 'Play the audio',
+  label,
   disabled = false,
   style,
   className,
@@ -36,6 +37,7 @@ export function ListenButton({
   const { status, toggle } = useSpeech(lang)
   const [played, setPlayed] = useState(false)
   const noteId = useId()
+  const t = useT()
   const playing = status === 'reading'
   const off = status === 'unavailable'
   return (
@@ -59,11 +61,11 @@ export function ListenButton({
         )}
       >
         <UiIcon name={off ? 'speaker-off' : playing ? 'waveform' : 'speaker'} size={28} />
-        {playing ? 'Playing' : played ? 'Play it again' : label}
+        {playing ? t.widgets.shared.playing : played ? t.widgets.listen.again : (label ?? t.widgets.listen.play)}
       </button>
       {off ? (
         <span id={noteId} className="text-body text-fg-muted">
-          No English voice on this device.
+          {t.widgets.shared.noVoice}
         </span>
       ) : null}
     </span>

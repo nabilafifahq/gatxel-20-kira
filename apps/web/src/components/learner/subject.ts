@@ -1,4 +1,5 @@
 import type { QuestSubject, Subject } from '@/lib/dto'
+import type { Dict } from '@/lib/i18n'
 
 /** Nama mapel di layar learner (en-GB). */
 export const SUBJECT_NAME: Record<QuestSubject, string> = {
@@ -6,6 +7,11 @@ export const SUBJECT_NAME: Record<QuestSubject, string> = {
   english: 'English',
   science: 'Science',
   bonus: 'Bonus quest',
+}
+
+/** Nama mapel dalam bahasa tampilan anak. */
+export function subjectName(s: QuestSubject, t: Dict): string {
+  return s === 'bonus' ? t.shell.bonusQuest : t.common.subject[s]
 }
 
 /**

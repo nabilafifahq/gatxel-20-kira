@@ -190,6 +190,16 @@ SMTP_FROM="Kira <alamat@gmail.com>"
 
 Laporan mingguan otomatis terkirim setiap Minggu pukul 19.00 WIB ke orang tua yang menyetujui laporan lewat email.
 
+Pesan dari halaman Bantuan (`/feedback`) dikirim ke `KIRA_SUPPORT_EMAIL` (boleh beberapa, dipisah koma; kosong berarti `KIRA_LEGAL_EMAIL`). Alamat pertama juga menjadi `Reply-To` email keluar. Supaya pesan tidak masuk spam, domain di `SMTP_FROM` perlu SPF, DKIM, dan DMARC yang benar di DNS. Isi juga `KIRA_TURNSTILE_SITE_KEY` dan `KIRA_TURNSTILE_SECRET`, karena pengirim publik baru menerima balasan otomatis bila lolos Turnstile.
+
+Untuk mengirim satu contoh setiap jenis email lewat SMTP produksi:
+
+```powershell
+.\deploy\windows\kira.ps1 admin email-samples alamat@contoh.com
+```
+
+Bila SMTP bermasalah, pesan Bantuan tetap tersimpan dan bisa dibaca dengan `.\deploy\windows\kira.ps1 admin support-tickets`.
+
 ## 11. Cadangan dan pemulihan
 
 Layanan `backup` membuat cadangan database setiap hari pukul 02.00 WIB ke `KIRA_HOST_BACKUPS\daily`, menyalin cadangan hari Minggu ke `weekly`, dan menyimpan 14 harian dan 8 mingguan. Kalau server mati saat jadwal, cadangan dibuat saat layanan menyala lagi. Status terakhir tampil di konsol, Pengaturan, bagian Cadangan.

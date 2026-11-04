@@ -6,6 +6,8 @@ import { tables } from '@kira/db'
 import { classifyStyle, QUESTION_STYLES, type QuestionStyle } from '@kira/content/style'
 import { generateItem, isGenRef } from '@kira/content/math'
 import type { Subject } from '@/lib/dto'
+import type { Dict } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { invalid } from '../errors'
 import { content, skillsFor, strandName, type PoolCandidate } from './content'
@@ -44,16 +46,17 @@ export type PracticeDTO = {
   counts: readonly number[]
 }
 
-const OFF_LABEL: Partial<Record<FeatureKey, string>> = {
-  'quiz-arena': 'Quiz Arena',
-  'mental-math': 'Quick Maths',
-  'english-skills': 'English Skills',
-  'olympiad-math': 'Competitions',
-  'olympiad-english': 'Competitions',
-  'olympiad-science': 'Competitions',
+const OFF_LABEL: Partial<Record<FeatureKey, keyof Dict['lessons']['practice']['offLabel']>> = {
+  'quiz-arena': 'quizArena',
+  'mental-math': 'quickMaths',
+  'english-skills': 'englishSkills',
+  'olympiad-math': 'competitions',
+  'olympiad-english': 'competitions',
+  'olympiad-science': 'competitions',
 }
 
-const STYLE_LABEL: Record<QuestionStyle, string> = { short: 'Short questions', 'true-false': 'True or false', 'long-read': 'Long reading', 'word-problem': 'Word problems', mixed: 'Mixed' }
+
+const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
 
 /** Skill yang dipakai untuk satu topik (strand) di mapel dan kelas anak. Skill menulis dan bicara dilewati. */
 function strandSkills(subject: Subject, grade: number, strand: string): string[] {
@@ -87,57 +90,60 @@ function contestsFor(subject: Subject, grade: number): { id: string; name: strin
 const link = (id: string, title: string, sub: string, href: string): PracticeTile => ({ id, title, sub, href, drill: false })
 const drill = (id: string, title: string, sub: string, query: string): PracticeTile => ({ id, title, sub, href: `/practice/start?${query}`, drill: true })
 
-export function buildSections(grade: number, features: FeatureMap): PracticeSection[] {
+export function buildSections(grade: number, features: FeatureMap, dict: Dict): PracticeSection[] {
+  const copy = dict.lessons.practice
   const on = (k: FeatureKey) => effectiveOn(features, k)
   const sections: PracticeSection[] = []
 
   if (on('drill-math')) {
-    const tiles = strandsOf('math', grade, (s) => s !== 'Oly').map((t) => drill(`m-${t.strand}`, strandName(t.strand), `${t.skills} topics`, `subject=math&strand=${t.strand}`))
-    if (tiles.length) sections.push({ id: 'math', title: 'Math drill', hint: 'Pick a topic and practise it.', tiles })
+    const tiles = strandsOf('math', grade, (s) => s !== 'Oly').map((t) => drill(`m-${t.strand}`, strandName(t.strand), copy.topicCount(t.skills), `subject=math&strand=${t.strand}`))
+    if (tiles.length) sections.push({ id: 'math', title: copy.mathTitle, hint: copy.mathHint, tiles })
   }
   if (on('mental-math')) {
-    sections.push({ id: 'mental', title: 'Mental Math', hint: 'Fast sums in your head.', tiles: [link('quick', 'Quick Maths', 'Pick a mode and go', '/quick-maths')] })
+    sections.push({ id: 'mental', title: copy.mentalTitle, hint: copy.mentalHint, tiles: [link('quick', copy.quickMaths, copy.quickMathsSub, '/quick-maths')] })
   }
 
   const oly: PracticeTile[] = []
   for (const subject of ['math', 'english', 'science'] as const) {
     if (!on(`olympiad-${subject}` as FeatureKey)) continue
-    const label = subject === 'math' ? 'Math' : subject === 'english' ? 'English' : 'Science'
+    const label = dict.common.subject[subject]
     const skills = strandSkills(subject, grade, 'Oly')
-    if (skills.length) oly.push(drill(`oly-${subject}`, `${label} olympiad`, 'By topic', `subject=${subject}&strand=Oly`))
-    for (const c of contestsFor(subject, grade)) oly.push(drill(`contest-${subject}-${c.id}`, `${label}: ${c.name}`, `Contest style, ${c.count} questions`, `subject=${subject}&contest=${c.id}`))
+    if (skills.length) oly.push(drill(`oly-${subject}`, copy.subjectOlympiad(label), copy.byTopic, `subject=${subject}&strand=Oly`))
+    for (const c of contestsFor(subject, grade)) oly.push(drill(`contest-${subject}-${c.id}`, `${label}: ${c.name}`, copy.contestSub(c.count), `subject=${subject}&contest=${c.id}`))
   }
-  if (oly.length) sections.push({ id: 'olympiad', title: 'Olympiad', hint: 'Practise like the contest.', tiles: oly })
+  if (oly.length) sections.push({ id: 'olympiad', title: copy.olympiadTitle, hint: copy.olympiadHint, tiles: oly })
 
-  const sci = on('science') ? strandsOf('science', grade, () => true).map((t) => drill(`s-${t.strand}`, strandName(t.strand), 'Science facts', `subject=science&strand=${t.strand}`)) : []
-  if (sci.length) sections.push({ id: 'science', title: 'Science facts', hint: 'Short drills on what you know.', tiles: sci })
+  const sci = on('science') ? strandsOf('science', grade, () => true).map((t) => drill(`s-${t.strand}`, strandName(t.strand), copy.scienceSub, `subject=science&strand=${t.strand}`)) : []
+  if (sci.length) sections.push({ id: 'science', title: copy.scienceTitle, hint: copy.scienceHint, tiles: sci })
 
   const en: PracticeTile[] = []
   if (on('reading-room')) {
-    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Reading: /, ''), 'Reading', `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Reading: /, '')), copy.readingSub, `subject=english&strand=${t.strand}`))
   }
   if (on('english')) {
-    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Writing: /, ''), 'English', `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Writing: /, '')), copy.englishSub, `subject=english&strand=${t.strand}`))
   }
-  if (en.length) sections.push({ id: 'english', title: 'Reading and English', hint: 'Words, grammar and reading.', tiles: en })
+  if (en.length) sections.push({ id: 'english', title: copy.englishTitle, hint: copy.englishHint, tiles: en })
 
   const cards: PracticeTile[] = []
-  if (on('vocab')) cards.push(link('vocab', 'Vocab drill', 'Word to meaning, meaning to word', '/practice/cards?mode=vocab'))
-  if (on('flashcards')) cards.push(link('cards', 'Flashcards', 'Flip, say it, and come back later', '/practice/cards'))
-  if (cards.length) sections.push({ id: 'cards', title: 'Cards and words', hint: 'Short rounds, easy to start.', tiles: cards })
+  if (on('vocab')) cards.push(link('vocab', copy.vocab, copy.vocabSub, '/practice/cards?mode=vocab'))
+  if (on('flashcards')) cards.push(link('cards', copy.flashcards, copy.flashcardsSub, '/practice/cards'))
+  if (cards.length) sections.push({ id: 'cards', title: copy.cardsTitle, hint: copy.cardsHint, tiles: cards })
 
-  sections.push({ id: 'review', title: 'Quick review', hint: 'Refresh a lesson you finished.', tiles: [link('review', 'Finished lessons', 'Key steps, then 3 questions', '/practice/review')] })
+  sections.push({ id: 'review', title: copy.reviewTitle, hint: copy.reviewHint, tiles: [link('review', copy.reviewTile, copy.reviewSub, '/practice/review')] })
   return sections
 }
 
 export async function practiceDTO(tx: Tx, learnerId: string, off: string | null): Promise<PracticeDTO> {
   const learner = await loadLearner(tx, learnerId)
   const features = await featureMapFor(tx, learnerId)
+  const dict = await getT()
+  const offKey = off && off in OFF_LABEL ? OFF_LABEL[off as FeatureKey] : undefined
   return {
     shell: await learnerShell(tx, learner),
-    offNote: off && off in OFF_LABEL ? (OFF_LABEL[off as FeatureKey] ?? null) : null,
-    sections: buildSections(learner.grade, features),
-    styles: QUESTION_STYLES.map((id) => ({ id, label: STYLE_LABEL[id] })),
+    offNote: offKey ? dict.lessons.practice.offLabel[offKey] : null,
+    sections: buildSections(learner.grade, features, dict),
+    styles: QUESTION_STYLES.map((id) => ({ id, label: dict.lessons.practice.styles[id] })),
     counts: PRACTICE_COUNTS,
   }
 }
@@ -204,7 +210,7 @@ export async function startFreePractice(tx: Tx, ctx: OrgContext, learnerId: stri
     const ids = new Set<string>()
     for (const item of content().items.values()) if (item.skill.startsWith(prefix) && item.tags.includes(input.contest)) ids.add(item.skill)
     skills = [...ids]
-    title = `${input.contest.toUpperCase()} style practice`
+    title = (await getT()).lessons.practice.contestTitle(input.contest.toUpperCase())
   } else {
     skills = strandSkills(input.subject, learner.grade, input.strand!)
     title = skills.length ? strandName(input.strand!) : 'Practice'

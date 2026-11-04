@@ -7,7 +7,22 @@ import { DANGER, DIVIDER, ENGLISH, INK, MATH, MATH_50, SCIENCE, SCIENCE_50, STAR
 
 const line = { stroke: INK, strokeWidth: 2.5, strokeLinecap: 'round', strokeLinejoin: 'round' } as const
 
-export const FRAME_ART_IDS = ['frame-leaf', 'frame-wave', 'frame-gold', 'frame-star'] as const
+export const FRAME_ART_IDS = ['frame-leaf', 'frame-wave', 'frame-gold', 'frame-star', 'frame-lamp', 'frame-page', 'frame-comet', 'frame-heart', 'frame-note', 'frame-dot', 'frame-book', 'frame-moon', 'frame-crown'] as const
+
+/** Cincin warna dengan hiasan kecil yang berulang di sekelilingnya. */
+function charms(tone: string, n: number, charm: ReactElement): ReactElement {
+  return (
+    <g>
+      <circle cx="32" cy="32" r="30" fill="none" stroke={tone} strokeWidth="5" />
+      <circle cx="32" cy="32" r="33" fill="none" {...line} strokeWidth="1.200" />
+      {Array.from({ length: n }, (_, i) => (
+        <g key={i} transform={`rotate(${(i * 360) / n} 32 32) translate(32 5) scale(0.72) translate(-32 -3)`}>
+          {charm}
+        </g>
+      ))}
+    </g>
+  )
+}
 
 function ring(id: string): ReactElement {
   switch (id) {
@@ -36,6 +51,30 @@ function ring(id: string): ReactElement {
           <circle cx="32" cy="32" r="30" fill="none" stroke={STAR} strokeWidth="6" />
           <circle cx="32" cy="32" r="33" fill="none" {...line} strokeWidth="1.600" />
           <circle cx="32" cy="32" r="27" fill="none" {...line} strokeWidth="1.600" />
+        </g>
+      )
+    case 'frame-lamp':
+      return charms(STAR, 4, <path d="M26 5q0 -6 6 -6t6 6zM28 5h8" fill={STAR} {...line} strokeWidth="1.500" />)
+    case 'frame-page':
+      return charms(WHITE, 6, <path d="M28 -2h8v9h-8z" fill={WHITE} {...line} strokeWidth="1.500" />)
+    case 'frame-comet':
+      return charms(MATH, 3, <path d="M27 6l-3 -6l7 3l5 -2a3.500 3.500 0 1 1 -2 6z" fill={STAR} {...line} strokeWidth="1.500" />)
+    case 'frame-heart':
+      return charms(ENGLISH, 6, <path d="M32 7l-5 -5a3 3 0 0 1 5 -3a3 3 0 0 1 5 3z" fill={DANGER} {...line} strokeWidth="1.400" />)
+    case 'frame-note':
+      return charms(ENGLISH, 5, <path d="M31 6a2.500 2.500 0 1 1 -2 -2v-6l7 -1.500v2.500l-5 1z" fill={INK} stroke="none" />)
+    case 'frame-dot':
+      return charms(MATH, 12, <circle cx="32" cy="3" r="2.200" fill={STAR} stroke={INK} strokeWidth="1.200" />)
+    case 'frame-book':
+      return charms(SCIENCE, 4, <path d="M32 0q-4 -2 -7 -1v8q3 -1 7 1q4 -2 7 -1v-8q-3 -1 -7 1z" fill={WHITE} {...line} strokeWidth="1.400" />)
+    case 'frame-moon':
+      return charms(INK, 4, <path d="M34 -2a5 5 0 1 0 2 9a4 4 0 0 1 -2 -9z" fill={STAR} {...line} strokeWidth="1.300" />)
+    case 'frame-crown':
+      return (
+        <g>
+          <circle cx="32" cy="32" r="30" fill="none" stroke={STAR} strokeWidth="5" />
+          <circle cx="32" cy="32" r="33" fill="none" {...line} strokeWidth="1.400" />
+          <path d="M22 13l-1 -9l6 4l5 -7l5 7l6 -4l-1 9z" fill={STAR} {...line} strokeWidth="1.600" />
         </g>
       )
     default:
@@ -113,7 +152,7 @@ export function CupArt({ size = 64, tone = STAR, title, className }: { size?: nu
 }
 
 /** Segel sertifikat: lingkaran bergerigi dengan jumlah hari. */
-export function SealArt({ days, size = 96, className }: { days: number; size?: number; className?: string }): ReactElement {
+export function SealArt({ days, unit = 'DAYS', size = 96, className }: { days: number; unit?: string; size?: number; className?: string }): ReactElement {
   const teeth = Array.from({ length: 16 }, (_, i) => i)
   return (
     <svg width={size} height={size} viewBox="0 0 96 96" className={className} aria-hidden>
@@ -127,7 +166,7 @@ export function SealArt({ days, size = 96, className }: { days: number; size?: n
           {days}
         </text>
         <text x="48" y="68" textAnchor="middle" fontSize="9" fontWeight="700" fill={INK} stroke="none" fontFamily="system-ui, sans-serif">
-          DAYS
+          {unit}
         </text>
       </g>
       <path d="M30 80l-6 14l12 -4l4 6l6 -14zM66 80l6 14l-12 -4l-4 6l-6 -14z" fill={DANGER} {...line} strokeWidth="2" />

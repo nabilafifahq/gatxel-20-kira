@@ -4,7 +4,9 @@ import { z } from 'zod'
 import type { ActionResult } from '@/lib/dto'
 import type { QuizAnswerInput, QuizDTO, QuizResultDTO } from '@/lib/dto-reading'
 import { inOrg } from '../db'
-import { forbidden, runAction } from '../errors'
+import { forbidden } from '../errors'
+import { tOf } from '@/lib/i18n'
+import { runLearnerAction as runAction } from './learner-run'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { isFeatureOn } from '../dal/learner-features'
 import { logReadingSeconds, markChapterRead, saveProgress, startChapterQuiz, submitChapterQuiz } from '../dal/reading-room'
@@ -14,7 +16,7 @@ const chapterId = z.string().regex(/^c[1-8]$/)
 
 async function reader() {
   const actor = await requireLearner()
-  if (!(await isFeatureOn(actor.userId, 'reading-room'))) throw forbidden('Reading Room is switched off for you.')
+  if (!(await isFeatureOn(actor.userId, 'reading-room'))) throw forbidden(tOf(actor).reading.errors.readingOff)
   return actor
 }
 
@@ -30,7 +32,6 @@ export async function saveReadingProgressAction(input: { bookId: string; chapter
       await inOrg(orgCtx(actor), (tx) => saveProgress(tx, orgCtx(actor), actor.userId, data))
       return null
     },
-    'en-GB',
   )
 }
 
@@ -46,7 +47,6 @@ export async function logReadingTimeAction(input: { seconds: number }): Promise<
       await inOrg(orgCtx(actor), (tx) => logReadingSeconds(tx, orgCtx(actor), actor.userId, data.seconds))
       return null
     },
-    'en-GB',
   )
 }
 
@@ -61,7 +61,6 @@ export async function startChapterQuizAction(input: { bookId: string; chapterId:
       const data = chapterSchema.parse(input)
       return inOrg(orgCtx(actor), (tx) => startChapterQuiz(tx, orgCtx(actor), actor.userId, data.bookId, data.chapterId))
     },
-    'en-GB',
   )
 }
 
@@ -81,7 +80,6 @@ export async function submitChapterQuizAction(input: { quizId: string; answers: 
       const data = submitSchema.parse(input)
       return inOrg(orgCtx(actor), (tx) => submitChapterQuiz(tx, orgCtx(actor), actor.userId, data.quizId, data.answers))
     },
-    'en-GB',
   )
 }
 
@@ -94,6 +92,5 @@ export async function skipChapterQuizAction(input: { bookId: string; chapterId: 
       const data = chapterSchema.parse(input)
       return inOrg(orgCtx(actor), (tx) => markChapterRead(tx, orgCtx(actor), actor.userId, data.bookId, data.chapterId))
     },
-    'en-GB',
   )
 }

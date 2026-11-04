@@ -5,6 +5,7 @@ import { BLOCK_MAX, blocksValue, exchangeDown, exchangeUp, type Blocks } from '@
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { playSfx } from '@/components/learner/sfx'
+import { useT } from '@/lib/i18n/client'
 import type { ToolProps } from './types'
 
 /**
@@ -13,11 +14,6 @@ import type { ToolProps } from './types'
  */
 
 type Place = 'h' | 't' | 'o'
-const PLACE_NAME: Record<Place, { one: string; many: string; head: string }> = {
-  h: { one: 'hundred', many: 'hundreds', head: 'Hundreds' },
-  t: { one: 'ten', many: 'tens', head: 'Tens' },
-  o: { one: 'one', many: 'ones', head: 'Ones' },
-}
 
 function Flat(): ReactElement {
   return (
@@ -48,6 +44,7 @@ function Cube(): ReactElement {
 const SHAPE: Record<Place, () => ReactElement> = { h: Flat, t: Rod, o: Cube }
 
 export function PlaceValueBlocks({ value, onChange, disabled = false, feedback = null, onMilestone, places = 'hto' }: ToolProps<Blocks> & { places?: 'to' | 'hto' }): ReactElement {
+  const dict = useT()
   const locked = disabled || feedback !== null
   const cols: Place[] = places === 'to' ? ['t', 'o'] : ['h', 't', 'o']
   const total = blocksValue(value)
@@ -68,7 +65,7 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
 
   const edge = feedback === 'correct' ? 'border-success' : feedback === 'not-yet' ? 'border-warn' : 'border-divider'
   const sentence = cols
-    .map((p) => `${value[p]} ${value[p] === 1 ? PLACE_NAME[p].one : PLACE_NAME[p].many}`)
+    .map((p) => dict.widgets.blocks.count[p](value[p]))
     .join(', ')
 
   return (
@@ -79,12 +76,10 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
           const n = value[p]
           const canUp = p !== 'h' && n >= 10 && !(p === 't' && places === 'to')
           const canDown = p !== 'o' && n >= 1 && value[p === 'h' ? 't' : 'o'] + 10 <= BLOCK_MAX
-          const next = p === 'o' ? 'ten' : 'hundred'
-          const lower = p === 'h' ? 'tens' : 'ones'
           return (
-            <section key={p} aria-label={PLACE_NAME[p].head} className={cx('flex min-w-0 flex-col gap-2 rounded-card border-2 bg-surface p-3', edge)}>
+            <section key={p} aria-label={dict.widgets.blocks.head[p]} className={cx('flex min-w-0 flex-col gap-2 rounded-card border-2 bg-surface p-3', edge)}>
               <h3 className="m-0 flex items-baseline justify-between text-body font-bold">
-                {PLACE_NAME[p].head}
+                {dict.widgets.blocks.head[p]}
                 <span className="font-display text-h2 tabular-nums">{n}</span>
               </h3>
               <div className={cx('flex min-h-[72px] flex-wrap content-start items-end gap-1.5', p === 'o' && 'gap-1')}>
@@ -95,7 +90,7 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
               <div className="mt-auto flex gap-2">
                 <button
                   type="button"
-                  aria-label={`Add one ${PLACE_NAME[p].one}`}
+                  aria-label={dict.widgets.blocks.add[p]}
                   disabled={locked || n >= BLOCK_MAX}
                   onClick={() => add(p)}
                   className="inline-flex h-14 min-w-0 flex-1 cursor-pointer items-center justify-center rounded-control border-2 border-fg bg-surface text-h2 font-bold transition-transform duration-150 ease-kira enabled:active:scale-95 disabled:cursor-not-allowed disabled:border-divider disabled:text-border"
@@ -104,7 +99,7 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
                 </button>
                 <button
                   type="button"
-                  aria-label={`Take away one ${PLACE_NAME[p].one}`}
+                  aria-label={dict.widgets.blocks.take[p]}
                   disabled={locked || n <= 0}
                   onClick={() => take(p)}
                   className="inline-flex h-14 min-w-0 flex-1 cursor-pointer items-center justify-center rounded-control border-2 border-border bg-surface text-h2 font-bold transition-transform duration-150 ease-kira enabled:active:scale-95 disabled:cursor-not-allowed disabled:border-divider disabled:text-border"
@@ -114,12 +109,12 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
               </div>
               {p !== 'h' ? (
                 <Button variant={canUp ? 'primary' : 'secondary'} size="M" disabled={locked || !canUp} className={cx('w-full', canUp && !locked && 'kira-pulse')} onClick={() => set(exchangeUp(value, p), 'whoosh', 'trade')}>
-                  Trade 10 for 1 {next}
+                  {dict.widgets.blocks.tradeUp[p]}
                 </Button>
               ) : null}
               {p !== 'o' ? (
                 <Button variant="secondary" size="M" disabled={locked || !canDown} className="w-full" onClick={() => set(exchangeDown(value, p), 'whoosh', 'trade')}>
-                  Break 1 into 10 {lower}
+                  {dict.widgets.blocks.breakDown[p]}
                 </Button>
               ) : null}
             </section>
@@ -128,10 +123,10 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
       </div>
       <div className="flex items-center justify-between gap-3">
         <output aria-live="polite" className="text-body-lg font-bold tabular-nums">
-          {total} is {sentence}
+          {dict.widgets.blocks.total(total, sentence)}
         </output>
         <Button variant="secondary" size="M" disabled={locked || total === 0} onClick={() => set({ h: 0, t: 0, o: 0 })}>
-          Clear
+          {dict.widgets.shared.clear}
         </Button>
       </div>
     </div>

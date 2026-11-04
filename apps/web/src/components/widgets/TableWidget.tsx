@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asTexts } from './answers'
 import { CharKeypad, DIGITS_0_9, LETTERS_AZ } from './CharKeypad'
 import type { WidgetProps } from './types'
@@ -19,6 +20,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
   const style = SUBJECT_STYLE[subject]
   const table = item.table
   const [active, setActive] = useState(0)
+  const dict = useT()
   if (!table) return null
   const blanks = table.blanks
   const texts = asTexts(value, blanks.length)
@@ -46,14 +48,15 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
   return (
     <div className="flex w-full flex-col gap-4">
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your table' : 'Tap an empty box, then type.'}
+        {locked ? dict.widgets.table.yourTable : dict.widgets.table.tapThenType}
       </p>
-      <table lang={item.lang} className="w-full table-fixed border-collapse rounded-control border-2 border-border bg-surface font-reading text-h3">
+      {/* Di HP kolom mengikuti isinya dan hurufnya lebih kecil, supaya kata panjang tidak menimpa kolom sebelah. */}
+      <table lang={item.lang} className="w-full table-auto border-collapse rounded-control border-2 border-border bg-surface font-reading text-h3 wrap-anywhere max-md:text-body md:table-fixed">
         {table.caption ? <caption className="pb-2 text-left text-body-lg font-bold">{table.caption}</caption> : null}
         <thead>
           <tr>
             {table.head.map((h, c) => (
-              <th key={c} scope="col" className="border-2 border-border bg-bg px-2 py-2 text-left font-bold">
+              <th key={c} scope="col" className="border-2 border-border bg-bg px-2 py-2 text-left font-bold max-md:px-1.5">
                 {h}
               </th>
             ))}
@@ -66,7 +69,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
                 const bi = blankIndex(r, c)
                 if (bi < 0) {
                   return (
-                    <td key={c} className="border-2 border-border px-2 py-2">
+                    <td key={c} className="border-2 border-border px-2 py-2 max-md:px-1.5">
                       {text}
                     </td>
                   )
@@ -79,10 +82,10 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
                       type="button"
                       disabled={locked}
                       onClick={() => setActive(bi)}
-                      aria-label={`${table.head[c] ?? 'Column'}, row ${r + 1}: ${texts[bi] ? texts[bi] : 'empty'}${ok === true ? ', right' : ok === false ? ', not yet' : ''}`}
+                      aria-label={`${dict.widgets.table.cellAria(table.head[c] ?? dict.widgets.table.column, r + 1, texts[bi] ? texts[bi] : dict.widgets.shared.empty)}${ok === true ? dict.widgets.shared.ariaRight : ok === false ? dict.widgets.shared.ariaNotYet : ''}`}
                       aria-current={isActive ? 'true' : undefined}
                       className={cx(
-                        'flex min-h-14 w-full items-center justify-between gap-1 rounded-control px-2 text-left font-bold',
+                        'flex min-h-14 w-full min-w-14 items-center justify-between gap-1 rounded-control px-2 text-left font-bold',
                         ok === true
                           ? 'border-3 border-success bg-success-50'
                           : ok === false
@@ -95,7 +98,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
                         !locked && 'cursor-pointer hover:border-fg',
                       )}
                     >
-                      <span className="min-w-0 truncate">{texts[bi] ?? ''}</span>
+                      <span lang={item.lang} className="min-w-0 truncate">{texts[bi] ?? ''}</span>
                       {ok !== null ? <UiIcon name={ok ? 'check' : 'not-yet'} size={18} className={ok ? 'text-success' : 'text-warn'} /> : null}
                     </button>
                   </td>
@@ -108,19 +111,19 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
       {!locked && current ? (
         <div className="flex flex-col items-center gap-3">
           <div className="flex w-full max-w-[420px] items-center gap-3">
-            <output aria-live="polite" aria-label={`Box ${at + 1} of ${blanks.length}`} className={cx('flex h-14 min-w-0 flex-1 items-center rounded-control border-3 bg-surface px-4 font-reading text-h2 font-bold', style.border)}>
-              <span className="truncate">{cell}</span>
+            <output aria-live="polite" aria-label={dict.widgets.table.box(at + 1, blanks.length)} className={cx('flex h-14 min-w-0 flex-1 items-center rounded-control border-3 bg-surface px-4 font-reading text-h2 font-bold', style.border)}>
+              <span lang={item.lang} className="truncate">{cell}</span>
             </output>
             {blanks.length > 1 ? (
               <Button variant="secondary" iconAfter="arrow-right" onClick={() => setActive((at + 1) % blanks.length)}>
-                Next gap
+                {dict.widgets.table.nextGap}
               </Button>
             ) : null}
           </div>
           <CharKeypad
             keys={keys}
             columns={numeric ? 5 : 7}
-            label={numeric ? 'Numbers' : 'Letters'}
+            label={numeric ? dict.widgets.shared.numbers : dict.widgets.shared.letters}
             subject={subject}
             onKey={(k) => cell.length < 16 && set(at, cell + k)}
             onBackspace={() => set(at, cell.slice(0, -1))}

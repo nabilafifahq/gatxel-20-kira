@@ -103,10 +103,10 @@ export function PinChooser({
         ))}
       </div>
       <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" size="S" icon="arrowLeft" disabled={value.length === 0} onClick={() => onChange(value.slice(0, -1))}>
+        <Button variant="secondary" size="S" icon="arrowLeft" className="min-h-11" disabled={value.length === 0} onClick={() => onChange(value.slice(0, -1))}>
           Hapus gambar terakhir
         </Button>
-        <Button variant="quiet" size="S" disabled={value.length === 0} onClick={() => onChange([])}>
+        <Button variant="quiet" size="S" className="min-h-11" disabled={value.length === 0} onClick={() => onChange([])}>
           Ulangi dari awal
         </Button>
       </div>

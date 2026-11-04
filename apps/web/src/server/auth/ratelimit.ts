@@ -57,7 +57,15 @@ export async function recentFailures(key: string): Promise<number> {
   const rows = await authDb()
     .select({ n: sql<number>`count(*)::int` })
     .from(tables.loginAttempt)
-    .where(and(eq(tables.loginAttempt.key, key), eq(tables.loginAttempt.success, false), gt(tables.loginAttempt.at, new Date(Date.now() - WINDOW_MS))))
+    .where(
+      and(
+        eq(tables.loginAttempt.key, key),
+        eq(tables.loginAttempt.success, false),
+        gt(tables.loginAttempt.at, new Date(Date.now() - WINDOW_MS)),
+        // Masuk berhasil atau atur ulang password membuka kunci: yang dihitung hanya kegagalan sesudahnya.
+        sql`${tables.loginAttempt.at} > coalesce((select max(la.at) from auth.login_attempt la where la.key = ${key} and la.success), 'epoch'::timestamptz)`,
+      ),
+    )
   return rows[0]?.n ?? 0
 }
 

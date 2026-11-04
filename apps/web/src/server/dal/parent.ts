@@ -8,6 +8,7 @@ import type { AvatarName, Subject } from '@/lib/dto'
 import type { ParentChildCard, ParentChildDTO, ParentChildStatus, ParentHomeDTO, ParentResultDTO, ParentSessionDTO, ParentSkillDTO, ParentWorkDTO } from '@/lib/dto-parent'
 import type { Actor } from '../auth/actor'
 import { withFamilyAdmin, type ParentScope } from '../auth/parent'
+import { learnerUiPrefs } from '../auth/accounts'
 import type { Tx } from '../db'
 import { env } from '../env'
 import { notFound } from '../errors'
@@ -52,11 +53,13 @@ const SESSION_LABEL_ID: Record<string, string> = {
   'english-skill': 'Tugas English',
 }
 
-function statusLabel(s: ParentChildStatus, c: { requiredDone: number; requiredTotal: number; optionalDone: number }): string {
+function statusLabel(s: ParentChildStatus, c: { requiredDone: number; requiredTotal: number; optionalDone: number; optionalTotal: number }): string {
   switch (s) {
     case 'rest':
       return 'Hari istirahat'
     case 'none':
+      // Sesi dibuat saat anak membuka layar Hari Ini. Tanpa sesi sama sekali, anak memang belum membukanya.
+      if (c.optionalTotal === 0) return 'Belum membuka Kira hari ini'
       return c.optionalDone > 0 ? 'Tidak ada sesi wajib hari ini, sudah mencoba sesi opsional' : 'Tidak ada sesi wajib hari ini, streak aman'
     case 'not-started':
       return `Belum mulai, ${c.requiredTotal} sesi wajib menunggu`
@@ -223,8 +226,8 @@ async function skillMap(tx: Tx, learner: LearnerRow): Promise<{ map: ParentChild
       .map((s) => {
         const st = by.get(s.id)
         const mastery = st ? (st.gate === 'mastered' ? 100 : Math.round((st.stars / 3) * 100)) : 0
-        if (st && st.gate === 'reteach' && st.n > 0) weak.push({ subject, title: s.title, note: 'Perlu diulang, Kira akan menjadwalkannya lagi.' })
-        return { id: s.id, title: s.title, stars: st?.stars ?? 0, mastery, state: STATE_OF_GATE[st?.gate ?? 'new'] ?? 'baru', answered: st?.n ?? 0 } satisfies ParentSkillDTO
+        if (st && st.gate === 'reteach' && st.n > 0) weak.push({ subject, title: s.titleId ?? s.title, note: 'Perlu diulang, Kira akan menjadwalkannya lagi.' })
+        return { id: s.id, title: s.titleId ?? s.title, stars: st?.stars ?? 0, mastery, state: STATE_OF_GATE[st?.gate ?? 'new'] ?? 'baru', answered: st?.n ?? 0 } satisfies ParentSkillDTO
       })
     return { subject, label: SUBJECT_ID_LABEL[subject], skills }
   }).filter((g) => g.skills.length > 0)
@@ -298,6 +301,7 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
     const [o] = await tx.select({ name: org.name }).from(org).where(eq(org.id, actor.orgId)).limit(1)
     const attempts = (await recentAttempts(tx, learnerId)).map((a) => ({ ...a, href: `/keluarga/anak/${learnerId}/hasil/${a.id}` }))
     const streak = await streakFor(tx, learner, today)
+    const prefs = (await learnerUiPrefs([learnerId], actor.orgId)).get(learnerId)
     return {
       parentName: actor.name,
       familyName: o?.name ?? 'Keluarga',
@@ -317,6 +321,8 @@ export async function parentChildDTO(actor: Actor, learnerId: string): Promise<P
         restWeekdays: [...learner.restWeekdays].sort((a, b) => a - b),
         soundEnabled: learner.soundEnabled,
         musicEnabled: learner.musicEnabled,
+        uiLang: prefs?.uiLang ?? 'id',
+        uiLangSwitch: prefs?.uiLangSwitch ?? false,
         dayPreset: preset,
         features: await featureMapFor(tx, learnerId),
         dayRules: rules as never,

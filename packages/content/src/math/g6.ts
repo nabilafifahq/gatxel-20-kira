@@ -614,7 +614,7 @@ const powersOfTen: Generator = {
     }
     const u = rng.int(11, 99)
     const n = dec(u, 3)
-    const ans = dec(u * 10, 2)
+    const ans = dec(u, 2)
     return numItem({
       prompt: `What is ${fmt(n)} × 1,000 ÷ 100?`,
       answer: ans,
@@ -700,7 +700,7 @@ const sequences: Generator = {
       const fmtRule = (m: number, c: number) => (c === 0 ? `${m} × position` : `${m} × position ${c > 0 ? '+' : '−'} ${Math.abs(c)}`)
       const correct = fmtRule(mult, add)
       const wrong = [
-        { value: `position + ${mult}`, why: `Position 1 would give ${1 + mult}, not ${at(terms, 0)}.` },
+        { value: `position + ${mult}`, why: `Position 2 would give ${2 + mult}, not ${at(terms, 1)}.` },
         { value: fmtRule(mult, add + 1), why: `Position 1 would give ${mult + add + 1}, not ${at(terms, 0)}.` },
         { value: fmtRule(mult + 1, add - 1), why: `Position 2 would give ${2 * (mult + 1) + add - 1}, not ${at(terms, 1)}.` },
         { value: fmtRule(mult - 1, add + 1), why: `Position 2 would give ${2 * (mult - 1) + add + 1}, not ${at(terms, 1)}.` },

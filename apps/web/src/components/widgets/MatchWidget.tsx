@@ -3,6 +3,7 @@
 import { useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asPairs } from './answers'
 import type { WidgetProps } from './types'
 
@@ -21,6 +22,7 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
   const [pending, setPending] = useState<Pending>(null)
   const style = SUBJECT_STYLE[subject]
   const locked = disabled || !!feedback
+  const t = useT()
 
   const pairedLefts = pairs.map((p, l) => (p >= 0 ? l : -1)).filter((l) => l >= 0)
   const numberOfLeft = (l: number) => pairedLefts.indexOf(l) + 1
@@ -62,11 +64,12 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
     setPending({ side: 'right', r })
   }
 
+  // Di HP nomor pasangan menempel di sudut kartu, supaya kata panjang di kolom kanan tidak tertutup.
   const badge = (n: number) => (
-    <span className={cx('ml-auto inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill font-body text-body font-bold text-white', 'bg-fg')}>{n}</span>
+    <span className={cx('ml-auto inline-flex h-7.5 w-7.5 flex-none items-center justify-center rounded-pill font-body text-body font-bold text-white max-md:absolute max-md:-top-2 max-md:right-1 max-md:h-6.5 max-md:w-6.5', 'bg-fg')}>{n}</span>
   )
 
-  const cell = 'relative flex min-h-[84px] max-md:min-h-[68px] items-center gap-3 rounded-control px-3.5 py-2.5 text-left text-fg transition-transform duration-150 ease-kira'
+  const cell = 'relative flex min-h-[84px] max-md:min-h-[68px] items-center gap-3 rounded-control px-3.5 py-2.5 text-left text-fg transition-transform duration-150 ease-kira wrap-anywhere max-md:px-2.5 max-md:text-body-lg'
 
   const stateCls = (paired: boolean, isPending: boolean, ok: boolean | null) =>
     ok === true
@@ -82,9 +85,9 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
   return (
     <div className="flex w-full flex-col gap-3" onKeyDown={(e) => e.key === 'Escape' && setPending(null)}>
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your pairs' : pending ? 'Now tap its match.' : 'Tap a card, then tap its match.'}
+        {locked ? t.widgets.match.yourPairs : pending ? t.widgets.match.nowTapMatch : t.widgets.match.tapCard}
       </p>
-      <div className="grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-x-4 gap-y-3 max-md:gap-x-2.5">
+      <div className="grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-x-4 gap-y-3 max-md:grid-cols-2 max-md:gap-x-2.5">
         {left.map((text, l) => {
           const r = right[l]
           const pairedL = (pairs[l] ?? -1) >= 0
@@ -100,11 +103,11 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
                 type="button"
                 disabled={locked}
                 aria-pressed={pendL}
-                aria-label={`${text}${pairedL ? `, matched with ${right.find((x) => x.i === pairs[l])?.text ?? ''}` : ''}`}
+                aria-label={`${text}${pairedL ? t.widgets.match.ariaMatchedWith(right.find((x) => x.i === pairs[l])?.text ?? '') : ''}`}
                 onClick={() => tapLeft(l)}
-                className={cx(cell, 'font-reading text-h3', stateCls(pairedL, pendL, okL), !locked && 'cursor-pointer active:scale-97')}
+                className={cx(cell, 'font-reading md:text-h3', stateCls(pairedL, pendL, okL), !locked && 'cursor-pointer active:scale-97')}
               >
-                <span className="min-w-0">{text}</span>
+                <span lang={item.lang} className="min-w-0">{text}</span>
                 {pairedL ? badge(numberOfLeft(l)) : null}
               </button>
               {r ? (
@@ -112,11 +115,11 @@ export function MatchWidget({ item, value, onChange, disabled = false, feedback 
                   type="button"
                   disabled={locked}
                   aria-pressed={pendR}
-                  aria-label={`${r.text}${pairedR ? ', matched' : ''}`}
+                  aria-label={`${r.text}${pairedR ? t.widgets.match.ariaMatched : ''}`}
                   onClick={() => tapRight(r.i)}
-                  className={cx(cell, 'font-reading text-h3 font-bold', stateCls(pairedR, pendR, okR), !locked && 'cursor-pointer active:scale-97')}
+                  className={cx(cell, 'font-reading font-bold md:text-h3', stateCls(pairedR, pendR, okR), !locked && 'cursor-pointer active:scale-97')}
                 >
-                  <span className="min-w-0">{r.text}</span>
+                  <span lang={item.lang} className="min-w-0">{r.text}</span>
                   {pairedR ? badge(numberOfLeft(lOfR)) : null}
                 </button>
               ) : (

@@ -6,6 +6,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { useOnline } from '@/components/learner/hooks'
 import { formatClock } from '@/components/learner/Timer'
+import { useT } from '@/lib/i18n/client'
 import { asMedia } from './answers'
 import type { WidgetProps } from './types'
 
@@ -39,6 +40,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
   const [pos, setPos] = useState(0)
   const [playing, setPlaying] = useState(false)
   const [live, setLive] = useState('')
+  const dict = useT()
 
   const recRef = useRef<MediaRecorder | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -148,7 +150,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
     }, 250)
     rec.start(250)
     setPhase('recording')
-    setLive('Recording')
+    setLive(dict.widgets.speak.recordingLive)
   }
 
   const send = async () => {
@@ -159,7 +161,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
       const res = await onUpload(blob, 'audio')
       if (res) {
         onChange({ mediaId: res.mediaId })
-        setLive('Sent to your tutor.')
+        setLive(dict.widgets.speak.sentLive)
       } else setPhase('failed')
     } catch {
       setPhase('failed')
@@ -186,8 +188,8 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
   }
 
   useEffect(() => {
-    if (phase === 'recorded') setLive(`Recorded ${formatClock(len)}. Listen, send, or record again.`)
-  }, [phase, len])
+    if (phase === 'recorded') setLive(dict.widgets.speak.recordedLive(formatClock(len)))
+  }, [phase, len, dict])
 
   let body: ReactElement
   if (!onUpload) {
@@ -196,9 +198,9 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <Circle tone="muted">
           <UiIcon name="mic-off" size={48} />
         </Circle>
-        <span className="font-display text-h1 font-semibold">Talking answers are off</span>
-        <p className="m-0 max-w-[320px] text-body-lg">A grown-up can turn them on. You can skip this one for now.</p>
-        {onSkip ? <Button onClick={onSkip}>Skip this one</Button> : null}
+        <span className="font-display text-h1 font-semibold">{dict.widgets.speak.offTitle}</span>
+        <p className="m-0 max-w-[320px] text-body-lg">{dict.widgets.speak.offBody}</p>
+        {onSkip ? <Button onClick={onSkip}>{dict.widgets.shared.skipThisOne}</Button> : null}
       </Centered>
     )
   } else if (sentId) {
@@ -207,8 +209,8 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <span className="flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg bg-success text-white">
           <UiIcon name="check" size={52} />
         </span>
-        <span className="font-display text-h1 font-semibold">Sent to your tutor</span>
-        <p className="m-0 max-w-[320px] text-body-lg">Your tutor will listen and give you stars.</p>
+        <span className="font-display text-h1 font-semibold">{dict.widgets.speak.sentTitle}</span>
+        <p className="m-0 max-w-[320px] text-body-lg">{dict.widgets.speak.sentBody}</p>
       </Centered>
     )
   } else if (phase === 'blocked') {
@@ -217,13 +219,13 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <Circle tone="muted">
           <UiIcon name="mic-off" size={48} />
         </Circle>
-        <span className="font-display text-h1 font-semibold">The microphone is off</span>
-        <p className="m-0 max-w-[320px] text-body-lg">Kira cannot use the microphone on this device. Ask a grown-up to allow it in the settings.</p>
+        <span className="font-display text-h1 font-semibold">{dict.widgets.speak.blockedTitle}</span>
+        <p className="m-0 max-w-[320px] text-body-lg">{dict.widgets.speak.blockedBody}</p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button variant="secondary" onClick={() => void start()}>
-            Try again
+            {dict.common.tryAgain}
           </Button>
-          {onSkip ? <Button onClick={onSkip}>Skip this one</Button> : null}
+          {onSkip ? <Button onClick={onSkip}>{dict.widgets.shared.skipThisOne}</Button> : null}
         </div>
       </Centered>
     )
@@ -233,8 +235,8 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <Circle tone="ink">
           <UiIcon name="mic" size={60} />
         </Circle>
-        <span className="font-display text-h1 font-semibold">Allow the microphone</span>
-        <p className="m-0 max-w-[320px] text-body-lg">Tap Allow when the device asks. Kira only listens while you record.</p>
+        <span className="font-display text-h1 font-semibold">{dict.widgets.speak.allowTitle}</span>
+        <p className="m-0 max-w-[320px] text-body-lg">{dict.widgets.speak.allowBody}</p>
       </Centered>
     )
   } else if (phase === 'recording') {
@@ -248,16 +250,16 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <button
           type="button"
           onClick={stop}
-          aria-label="Stop recording"
+          aria-label={dict.widgets.speak.stop}
           className="flex h-34 w-34 cursor-pointer items-center justify-center rounded-pill border-6 border-danger-50 bg-danger p-0 text-white active:scale-97"
         >
           <UiIcon name="stop" size={48} />
         </button>
         <span className="inline-flex items-baseline gap-2.5">
           <span className="font-numbers text-h1 font-semibold tabular-nums">{formatClock(secs)}</span>
-          <span className="text-body font-semibold text-fg-muted">of {formatClock(maxSec)}</span>
+          <span className="text-body font-semibold text-fg-muted">{dict.widgets.speak.ofMax(formatClock(maxSec))}</span>
         </span>
-        <p className="m-0 text-body-lg font-bold">Recording. Tap the square to stop.</p>
+        <p className="m-0 text-body-lg font-bold">{dict.widgets.speak.recordingHint}</p>
       </Centered>
     )
   } else if (phase === 'recorded' || phase === 'uploading' || phase === 'failed') {
@@ -268,7 +270,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
           <button
             type="button"
             onClick={togglePlay}
-            aria-label={playing ? 'Pause your recording' : 'Listen to your recording'}
+            aria-label={playing ? dict.widgets.speak.pause : dict.widgets.speak.listen}
             className="flex h-14 w-14 flex-none cursor-pointer items-center justify-center rounded-pill bg-fg p-0 text-white"
           >
             <UiIcon name={playing ? 'pause' : 'play'} size={24} />
@@ -299,22 +301,22 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         </div>
         {phase === 'failed' ? (
           <p role="alert" className="m-0 rounded-control border-2 border-warn bg-surface px-4 py-3 text-body-lg font-semibold">
-            Your recording did not send. Check the internet, then tap Send to tutor again.
+            {dict.widgets.speak.failed}
           </p>
         ) : !online ? (
           <p className="m-0 flex items-center gap-2 text-body-lg font-semibold">
             <UiIcon name="offline" size={22} />
-            Offline. Your recording stays here until the internet is back.
+            {dict.widgets.speak.offline}
           </p>
         ) : (
-          <p className="m-0 text-body-lg">Listen to check it. Happy with it? Send it to your tutor.</p>
+          <p className="m-0 text-body-lg">{dict.widgets.speak.listenToCheck}</p>
         )}
         <div className="flex flex-col gap-3">
           <Button icon="send" loading={phase === 'uploading'} disabled={!online} onClick={() => void send()}>
-            {phase === 'uploading' ? 'Sending' : 'Send to tutor'}
+            {phase === 'uploading' ? dict.widgets.shared.sending : dict.widgets.shared.sendToTutor}
           </Button>
           <Button variant="secondary" icon="replay" disabled={phase === 'uploading'} onClick={again}>
-            Record again
+            {dict.widgets.speak.recordAgain}
           </Button>
         </div>
       </div>
@@ -326,26 +328,26 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
           type="button"
           onClick={() => void start()}
           disabled={disabled}
-          aria-label="Record your answer"
+          aria-label={dict.widgets.speak.recordAria}
           className="flex h-34 w-34 cursor-pointer items-center justify-center rounded-pill bg-fg p-0 text-white transition-transform duration-150 ease-kira active:scale-97 disabled:cursor-not-allowed disabled:bg-divider"
         >
           <UiIcon name="mic" size={60} />
         </button>
-        <span className="font-display text-h1 font-semibold">Record</span>
-        <p className="m-0 max-w-[300px] text-body-lg">Tap to record. You can talk for up to {maxSec} seconds.</p>
+        <span className="font-display text-h1 font-semibold">{dict.widgets.speak.record}</span>
+        <p className="m-0 max-w-[300px] text-body-lg">{dict.widgets.speak.recordHint(maxSec)}</p>
       </Centered>
     )
   }
 
   return (
-    <section aria-label="Your answer" className="flex w-full flex-col gap-4">
+    <section aria-label={dict.widgets.shared.yourAnswer} className="flex w-full flex-col gap-4">
       <span role="status" className="visually-hidden">
         {live}
       </span>
       {body}
       <p className="m-0 flex items-center gap-2 border-t border-divider pt-3.5 text-body text-fg-muted">
         <UiIcon name="lock" size={20} />
-        Only your tutor hears this.
+        {dict.widgets.speak.onlyTutor}
       </p>
     </section>
   )

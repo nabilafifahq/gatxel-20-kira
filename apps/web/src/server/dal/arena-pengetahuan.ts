@@ -40,11 +40,12 @@ import {
 } from '@kira/content/knowledge'
 import { tables } from '@kira/db'
 import type { ArenaRewardDTO, QuizAnswerResult, QuizHubDTO, QuizResultDTO, QuizRoundDTO, QuizStartInput, QuizTopicCard, QuizTopicDTO } from '@/lib/dto-arena'
+import type { Dict } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { AppError, conflict, invalid } from '../errors'
 import { trackDTOs } from './arena-tracks'
 import { finishedRoundsOn, loadQuizState, saveArenaState, trackTotals, type QuizState } from './arena-state'
-import { assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, xpNote, type SessionRow } from './arena-session'
+import { EN_DICT, assertCanPlay, assertOpen, clampMs, dropStaleRounds, loadSession, requestDict, xpNote, type SessionRow } from './arena-session'
 import { awardBadges, learnerShell, loadLearner } from './learner-core'
 import { awardDrillStars } from './kira-world'
 import { completeLinkedSession } from './learner-session'
@@ -54,9 +55,9 @@ const { arenaSession, xpEvent } = tables
 type QuizConfig = { topic: RoundTopic; mode: 'learn' | 'quiz' | 'speed'; plan: string[]; variant?: 'map' }
 type StoredQuizAnswer = { i: number; a: KAnswer | null; ms: number; t: number }
 
-function parseConfig(raw: unknown): QuizConfig {
+function parseConfig(raw: unknown, t: Dict = EN_DICT): QuizConfig {
   const c = raw as QuizConfig
-  if (!c || !isRoundTopic(c.topic) || !(c.mode in KROUND) || !Array.isArray(c.plan)) throw new AppError('invalid', 'That round is not valid.')
+  if (!c || !isRoundTopic(c.topic) || !(c.mode in KROUND) || !Array.isArray(c.plan)) throw new AppError('invalid', t.arena.errors.roundInvalid)
   return c
 }
 
@@ -64,19 +65,19 @@ function parseAnswers(raw: unknown): StoredQuizAnswer[] {
   return Array.isArray(raw) ? (raw as StoredQuizAnswer[]) : []
 }
 
-function topicTitle(topic: RoundTopic): string {
-  return topic === 'mix' ? 'Mixed quiz' : topicById(topic).title
+function topicTitle(topic: RoundTopic, t: Dict): string {
+  return topic === 'mix' ? t.arena.quiz.mixedTitle : topicById(topic).title
 }
 
 // ---------------------------------------------------------------------------
 
-export async function startQuizRound(tx: Tx, ctx: OrgContext, learnerId: string, input: QuizStartInput): Promise<{ roundId: string }> {
-  if (!isRoundTopic(input.topic)) throw invalid('That topic does not exist.')
-  if (input.topic === 'mix' && input.mode === 'learn') throw invalid('Flashcards need one topic.')
-  if (input.variant === 'map' && (input.topic !== 'continents' || input.mode !== 'quiz')) throw invalid('The map round is only for Continents and oceans.')
+export async function startQuizRound(tx: Tx, ctx: OrgContext, learnerId: string, input: QuizStartInput, t: Dict = EN_DICT): Promise<{ roundId: string }> {
+  if (!isRoundTopic(input.topic)) throw invalid(t.arena.errors.topicMissing)
+  if (input.topic === 'mix' && input.mode === 'learn') throw invalid(t.arena.errors.cardsOneTopic)
+  if (input.variant === 'map' && (input.topic !== 'continents' || input.mode !== 'quiz')) throw invalid(t.arena.errors.mapOnly)
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
-  await assertCanPlay(tx, learner, today)
+  await assertCanPlay(tx, learner, today, t)
   await dropStaleRounds(tx, learnerId)
   const state = await loadQuizState(tx, learnerId)
   const seed = randomUUID()
@@ -89,15 +90,15 @@ export async function startQuizRound(tx: Tx, ctx: OrgContext, learnerId: string,
   return { roundId: row!.id }
 }
 
-export async function answerQuizRound(tx: Tx, learnerId: string, input: { roundId: string; index: number; answer: KAnswer | null; ms: number }): Promise<QuizAnswerResult> {
-  const row = await loadSession(tx, learnerId, input.roundId, 'pengetahuan', true)
-  assertOpen(row)
-  const cfg = parseConfig(row.config)
-  if (input.index < 0 || input.index >= cfg.plan.length) throw invalid('That question does not exist.')
+export async function answerQuizRound(tx: Tx, learnerId: string, input: { roundId: string; index: number; answer: KAnswer | null; ms: number }, t: Dict = EN_DICT): Promise<QuizAnswerResult> {
+  const row = await loadSession(tx, learnerId, input.roundId, 'pengetahuan', true, t)
+  assertOpen(row, t)
+  const cfg = parseConfig(row.config, t)
+  if (input.index < 0 || input.index >= cfg.plan.length) throw invalid(t.arena.errors.noQuestion)
   const answers = parseAnswers(row.answers)
   if (cfg.mode === 'learn') {
     if (input.index < answers.length) return { correct: true }
-    if (input.index !== answers.length) throw conflict('Go through the cards in order.')
+    if (input.index !== answers.length) throw conflict(t.arena.errors.cardsInOrder)
     await tx.update(arenaSession).set({ answers: [...answers, { i: input.index, a: typeof input.answer === 'number' ? 1 : null, ms: clampMs(input.ms), t: Date.now() - row.startedAt.getTime() }] }).where(eq(arenaSession.id, row.id))
     return { correct: true }
   }
@@ -106,21 +107,21 @@ export async function answerQuizRound(tx: Tx, learnerId: string, input: { roundI
   const reveal = (ok: boolean): QuizAnswerResult => (timed ? { correct: ok } : { correct: ok, explain: q.key.explain, answerLabel: q.key.answerLabel })
   const prev = answers[input.index]
   if (prev) return reveal(isCorrectAnswer(q.key, prev.a))
-  if (input.index !== answers.length) throw conflict('Answer the questions in order.')
+  if (input.index !== answers.length) throw conflict(t.arena.errors.inOrder)
   const elapsed = Date.now() - row.startedAt.getTime()
   const limit = KROUND[cfg.mode].limitSec
-  if (limit && elapsed > limit * 1000 + SPRINT_GRACE_MS) throw conflict("Time's up.")
+  if (limit && elapsed > limit * 1000 + SPRINT_GRACE_MS) throw conflict(t.arena.errors.timeUp)
   await tx.update(arenaSession).set({ answers: [...answers, { i: input.index, a: input.answer, ms: clampMs(input.ms), t: elapsed }] }).where(eq(arenaSession.id, row.id))
   return reveal(isCorrectAnswer(q.key, input.answer))
 }
 
 // ---------------------------------------------------------------------------
 
-function yoursLabel(q: KQuestion, a: KAnswer | null): string {
-  if (a === null) return 'Skipped'
+function yoursLabel(q: KQuestion, a: KAnswer | null, t: Dict): string {
+  if (a === null) return t.arena.quiz.skipped
   const c = q.client
   if (c.kind === 'mc') return typeof a === 'number' ? (c.options[a]?.label ?? '') : ''
-  if (c.kind === 'tf') return a === true ? 'True' : a === false ? 'False' : ''
+  if (c.kind === 'tf') return a === true ? t.arena.quiz.true : a === false ? t.arena.quiz.false : ''
   if (c.kind === 'map') return typeof a === 'string' ? (MAP_REGIONS.find((r) => r.id === a)?.label ?? '') : ''
   return Array.isArray(a) ? a.map((id) => c.items.find((i) => i.id === id)?.label ?? '').join(', ') : ''
 }
@@ -129,15 +130,16 @@ function reviewPrompt(c: KClientQuestion): string {
   return c.prompt
 }
 
-export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string, roundId: string): Promise<QuizResultDTO> {
-  const row = await loadSession(tx, learnerId, roundId, 'pengetahuan', true)
+export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string, roundId: string, t: Dict = EN_DICT): Promise<QuizResultDTO> {
+  const res = t.arena.quiz.result
+  const row = await loadSession(tx, learnerId, roundId, 'pengetahuan', true, t)
   if (row.finishedAt) {
     const stored = (row.result as { dto?: QuizResultDTO } | null)?.dto
     if (stored) return stored
-    throw conflict('This round is already finished.')
+    throw conflict(t.arena.errors.alreadyFinished)
   }
   const learner = await loadLearner(tx, learnerId)
-  const cfg = parseConfig(row.config)
+  const cfg = parseConfig(row.config, t)
   const answers = parseAnswers(row.answers)
   const state: QuizState = await loadQuizState(tx, learnerId, true)
   const roundsBefore = await finishedRoundsOn(tx, learnerId, 'pengetahuan', row.date)
@@ -165,7 +167,9 @@ export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string
     if (ok) correct++
     know = recordKnow(know, factId, ok, q.key.kind === 'mc')
     const pic = q.client.kind === 'mc' ? q.client.pic : q.client.kind === 'tf' ? q.client.pic : undefined
-    review.push({ i: a.i, prompt: reviewPrompt(q.client), yours: yoursLabel(q, a.a), answer: q.key.answerLabel, ok, ...(pic ? { pic } : {}) })
+    // Benar dan Salah adalah kata antarmuka, jadi mengikuti bahasa anak seperti tombolnya.
+    const answer = q.client.kind !== 'tf' ? q.key.answerLabel : q.key.answerLabel === 'True' ? t.arena.quiz.true : q.key.answerLabel === 'False' ? t.arena.quiz.false : q.key.answerLabel
+    review.push({ i: a.i, prompt: reviewPrompt(q.client), yours: yoursLabel(q, a.a, t), answer, ok, ...(pic ? { pic } : {}) })
   }
 
   const info = KROUND[cfg.mode]
@@ -194,30 +198,30 @@ export async function finishQuizRound(tx: Tx, ctx: OrgContext, learnerId: string
   const accessories = newlyEarnedAccessories(trackLevels(before), trackLevels(after))
   const reward: ArenaRewardDTO = {
     xp,
-    xpNote: xpNote(roundsBefore),
-    trackLabel: 'Quiz XP',
-    levelUp: ups ? { level: ups.to, label: `Quiz level ${ups.to}` } : null,
+    xpNote: xpNote(roundsBefore, t),
+    trackLabel: t.arena.reward.trackLabel.pengetahuan,
+    levelUp: ups ? { level: ups.to, label: t.arena.reward.levelUp.pengetahuan(ups.to) } : null,
     badges: newBadges
       .map((b) => ARENA_BADGES.find((x) => x.id === b.id) ?? null)
       .filter((b): b is NonNullable<typeof b> => b !== null)
-      .map((b) => ({ id: b.id, title: b.title, description: b.description, glyph: b.glyph })),
-    accessories: accessories.map((a) => ({ id: a.id, label: a.label })),
+      .map((b) => ({ id: b.id, title: t.shell.badges[b.id]?.title ?? b.title, description: t.shell.badges[b.id]?.desc ?? b.description, glyph: b.glyph })),
+    accessories: accessories.map((a) => ({ id: a.id, label: t.shell.accessories[a.id] })),
     tracks: trackDTOs(after),
   }
   const lines =
     cfg.mode === 'learn'
-      ? [`You looked at ${answered} cards.`, 'Now try a quiz to see what stuck.']
+      ? [res.lookedAt(answered), res.tryQuiz]
       : cfg.mode === 'speed'
-        ? [`You got ${correct} right in ${info.limitSec} seconds.`]
-        : [`You got ${correct} of ${cfg.plan.length} right.`]
+        ? [res.speed(correct, info.limitSec)]
+        : [res.plain(correct, cfg.plan.length)]
   const dto: QuizResultDTO = {
     mode: cfg.mode,
-    topicTitle: topicTitle(cfg.topic),
+    topicTitle: topicTitle(cfg.topic, t),
     answered,
     correct,
     accuracy: answered > 0 ? Math.round((correct / answered) * 100) : 0,
     durationSec: Math.round(durationMs / 1000),
-    title: cfg.mode === 'learn' ? 'Cards done' : 'Round done',
+    title: cfg.mode === 'learn' ? res.cardsDone : res.roundDone,
     lines,
     review,
     reward,
@@ -241,9 +245,10 @@ function cardsOfPlan(plan: readonly string[]): LearnCard[] {
 }
 
 export async function quizRoundDTO(tx: Tx, learnerId: string, roundId: string): Promise<QuizRoundDTO> {
-  const row: SessionRow = await loadSession(tx, learnerId, roundId, 'pengetahuan')
+  const t = await requestDict()
+  const row: SessionRow = await loadSession(tx, learnerId, roundId, 'pengetahuan', false, t)
   const learner = await loadLearner(tx, learnerId)
-  const cfg = parseConfig(row.config)
+  const cfg = parseConfig(row.config, t)
   const info = KROUND[cfg.mode]
   const answers = parseAnswers(row.answers)
   const learn = cfg.mode === 'learn'
@@ -256,7 +261,7 @@ export async function quizRoundDTO(tx: Tx, learnerId: string, roundId: string): 
     id: row.id,
     mode: cfg.mode,
     topic: cfg.topic,
-    topicTitle: topicTitle(cfg.topic),
+    topicTitle: topicTitle(cfg.topic, t),
     timed: info.timed,
     limitSec: info.limitSec,
     elapsedSec: Math.max(0, Math.floor((Date.now() - row.startedAt.getTime()) / 1000)),
@@ -286,6 +291,7 @@ async function limitReached(tx: Tx, learnerId: string, today: IsoDate): Promise<
 }
 
 export async function quizHubDTO(tx: Tx, learnerId: string): Promise<QuizHubDTO> {
+  const t = await requestDict()
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
   const state = await loadQuizState(tx, learnerId)
@@ -295,13 +301,14 @@ export async function quizHubDTO(tx: Tx, learnerId: string): Promise<QuizHubDTO>
     tracks: trackDTOs(await trackTotals(tx, learnerId)),
     topics: TOPICS.map((t) => topicCard(t.id, state.know)),
     roundsToday,
-    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday) : null,
+    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday, t) : null,
     limitReached: await limitReached(tx, learnerId, today),
     speedBest: state.speedBest,
   }
 }
 
 export async function quizTopicDTO(tx: Tx, learnerId: string, id: TopicId): Promise<QuizTopicDTO> {
+  const t = await requestDict()
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
   const state = await loadQuizState(tx, learnerId)
@@ -313,6 +320,6 @@ export async function quizTopicDTO(tx: Tx, learnerId: string, id: TopicId): Prom
     tracks: trackDTOs(await trackTotals(tx, learnerId)),
     tiers: { open: openTier(topic, state.know), gated: topic.facts.length >= 60 },
     limitReached: await limitReached(tx, learnerId, today),
-    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday) : null,
+    xpNote: roundsToday >= FULL_XP_ROUNDS ? xpNote(roundsToday, t) : null,
   }
 }

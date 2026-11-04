@@ -4,6 +4,7 @@ import { useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asOrder } from './answers'
 import type { WidgetProps } from './types'
 
@@ -12,8 +13,6 @@ import type { WidgetProps } from './types'
  * Kartu di tempat bisa diketuk untuk dipindah ke tempat lain atau dikembalikan.
  * Nilai { order: number[] } berisi indeks asli kartu per tempat; -1 untuk tempat kosong.
  */
-
-const ORD = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th']
 
 type Picked = { from: 'pool'; card: number } | { from: 'slot'; slot: number } | null
 
@@ -26,7 +25,10 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
   const style = SUBJECT_STYLE[subject]
   const locked = disabled || !!feedback
   const long = cards.some((c) => c.text.length > 8)
+  // Kata 5 huruf ke atas tidak muat di empat kolom layar HP pada ukuran huruf besar.
+  const wide = cards.some((c) => c.text.length >= 5)
   const textOf = (i: number) => cards.find((c) => c.i === i)?.text ?? ''
+  const t = useT()
 
   const commit = (next: number[]) => {
     setPicked(null)
@@ -69,7 +71,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
   }
 
   const pickedText = picked ? (picked.from === 'pool' ? textOf(picked.card) : textOf(slots[picked.slot] ?? -1)) : ''
-  const cardText = long ? 'font-reading text-h3 font-bold' : 'font-reading text-h1 font-bold'
+  const cardText = long ? 'font-reading text-h3 font-bold' : cx('font-reading font-bold wrap-anywhere', wide ? 'text-h1 max-md:text-h3' : 'text-h1')
   const cardBox = long ? 'min-h-16 px-4 py-2 text-left justify-start' : 'h-[88px] max-md:h-18 justify-center'
 
   return (
@@ -83,9 +85,9 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
       }}
     >
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {locked ? 'Your order' : picked ? `Picked: ${pickedText}. Now tap its place.` : 'Tap a card, then tap its place.'}
+        {locked ? t.widgets.order.yourOrder : picked ? t.widgets.order.picked(pickedText) : t.widgets.order.tapCard}
       </p>
-      <ol aria-label="Your order" className={cx('m-0 grid list-none gap-3 p-0', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5')}>
+      <ol aria-label={t.widgets.order.yourOrder} className={cx('m-0 grid list-none gap-3 p-0', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5', !long && wide && 'max-md:grid-cols-3')}>
         {slots.map((card, k) => {
           const filled = card >= 0
           const ok = feedback ? card === k : null
@@ -93,7 +95,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
           const target = !!picked && !isPicked
           return (
             <li key={k} className={cx('flex gap-1.5', long ? 'flex-row items-center gap-3' : 'flex-col items-center')}>
-              {long ? <span className="w-10 flex-none text-body font-semibold text-fg-muted">{ORD[k] ?? k + 1}</span> : null}
+              {long ? <span className="w-10 flex-none text-body font-semibold text-fg-muted">{t.widgets.order.ordinal(k)}</span> : null}
               <button
                 type="button"
                 disabled={locked}
@@ -101,8 +103,8 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
                 aria-pressed={isPicked || undefined}
                 aria-label={
                   filled
-                    ? `${ORD[k] ?? k + 1}, ${textOf(card)}${ok === true ? ', right place' : ok === false ? ', not yet' : ''}`
-                    : `${ORD[k] ?? k + 1}, empty${target ? '. Tap to put the card here' : ''}`
+                    ? `${t.widgets.order.ordinal(k)}, ${textOf(card)}${ok === true ? t.widgets.shared.ariaRightPlace : ok === false ? t.widgets.shared.ariaNotYet : ''}`
+                    : `${t.widgets.order.ordinal(k)}${t.widgets.order.ariaEmpty}${target ? t.widgets.order.ariaPutHere : ''}`
                 }
                 className={cx(
                   'flex w-full items-center rounded-control p-0 text-fg transition-transform duration-150 ease-kira',
@@ -121,15 +123,15 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
                   !locked && 'cursor-pointer active:scale-97',
                 )}
               >
-                {filled ? <span className={cardText}>{textOf(card)}</span> : null}
+                {filled ? <span lang={item.lang} className={cardText}>{textOf(card)}</span> : null}
               </button>
-              {long ? null : <span className="text-body font-semibold text-fg-muted">{ORD[k] ?? k + 1}</span>}
+              {long ? null : <span className="text-body font-semibold text-fg-muted">{t.widgets.order.ordinal(k)}</span>}
             </li>
           )
         })}
       </ol>
       <div className="mt-2 flex items-center gap-3">
-        <span className="text-body font-semibold text-fg-muted">Cards</span>
+        <span className="text-body font-semibold text-fg-muted">{t.widgets.order.cards}</span>
         {picked?.from === 'slot' && !locked ? (
           <button
             type="button"
@@ -137,11 +139,11 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
             className="ml-auto inline-flex h-11 cursor-pointer items-center gap-2 rounded-control border-2 border-border bg-surface px-3 text-body font-bold hover:border-fg"
           >
             <UiIcon name="undo" size={20} />
-            Put it back
+            {t.widgets.order.putBack}
           </button>
         ) : null}
       </div>
-      <div className={cx('grid gap-3', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5')}>
+      <div className={cx('grid gap-3', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5', !long && wide && 'max-md:grid-cols-3')}>
         {cards.map((c) => {
           const used = slots.includes(c.i)
           const isPicked = picked?.from === 'pool' && picked.card === c.i
@@ -154,7 +156,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
               type="button"
               disabled={locked}
               aria-pressed={isPicked}
-              aria-label={`Card ${c.text}`}
+              aria-label={t.widgets.order.cardAria(c.text)}
               onClick={() => tapPool(c.i)}
               className={cx(
                 'flex w-full items-center rounded-control p-0 text-fg transition-transform duration-150 ease-kira',
@@ -163,7 +165,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
                 locked ? 'cursor-not-allowed opacity-50' : 'cursor-pointer hover:border-fg active:scale-97',
               )}
             >
-              <span className={cardText}>{c.text}</span>
+              <span lang={item.lang} className={cardText}>{c.text}</span>
             </button>
           )
         })}

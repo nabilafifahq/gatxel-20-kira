@@ -11,9 +11,11 @@
     "./scoring": "./src/scoring.ts",
     "./tts": "./src/tts.ts",
     "./english-skills": "./src/english-skills.ts",
-    "./features": "./src/features.ts",
     "./placement": "./src/placement.ts",
-    "./dictionary": "./src/dictionary.ts"
+    "./dictionary": "./src/dictionary.ts",
+    "./recommendation": "./src/recommendation.ts",
+    "./email": "./src/email.ts",
+    "./email-templates": "./src/email-templates.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",

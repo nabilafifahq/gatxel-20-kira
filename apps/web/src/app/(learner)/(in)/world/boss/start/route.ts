@@ -1,3 +1,4 @@
+import { z } from 'zod'
 import { isPrefetch, prefetchRefused, seeOther } from '@/server/http'
 import { inOrg } from '@/server/db'
 import { getActor, orgCtx } from '@/server/auth/actor'
@@ -6,14 +7,17 @@ import { isFeatureOn } from '@/server/dal/learner-features'
 
 export const dynamic = 'force-dynamic'
 
-/** Mulai tantangan Puzzle Robot: 10 soal campuran dari pembuat sesi pusat, lalu masuk ke runner. */
+/** Mulai tantangan bos pilihan anak. Id lawan diperiksa, lalu DAL memeriksa saklar mapel dan apakah lawan sudah datang. */
 export async function GET(req: Request) {
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return seeOther('/')
   if (!(await isFeatureOn(actor.userId, 'kira-world'))) return seeOther('/today')
   try {
-    const id = await inOrg(orgCtx(actor), (tx) => startBossSession(tx, orgCtx(actor), actor.userId))
+    // Hanya `b` yang dibaca: navigasi Link menambah parameter `_rsc`, jadi seluruh query tidak bisa diperiksa ketat.
+    const parsed = z.object({ b: z.string().min(1).max(40).regex(/^[a-z0-9-]+$/) }).strict().safeParse({ b: new URL(req.url).searchParams.get('b') })
+    if (!parsed.success) return seeOther('/world/boss')
+    const id = await inOrg(orgCtx(actor), (tx) => startBossSession(tx, orgCtx(actor), actor.userId, parsed.data.b))
     return seeOther(`/run/${id}`)
   } catch {
     return seeOther('/world/boss')

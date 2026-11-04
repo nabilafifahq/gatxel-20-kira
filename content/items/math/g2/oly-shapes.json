@@ -59,10 +59,7 @@
             "op": "+",
             "b": 2,
             "r": 8
-          },
-          "mark": [
-            "2"
-          ]
+          }
         }
       ],
       "tags": [
@@ -275,8 +272,53 @@
       "difficulty": 5,
       "prompt": "Kim draws a square. She joins each corner to the opposite corner with a line. How many triangles can you find?",
       "figure": {
-        "kind": "shape",
-        "shape": "square",
+        "kind": "scene",
+        "width": 160,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                30,
+                18
+              ],
+              [
+                130,
+                18
+              ],
+              [
+                130,
+                118
+              ],
+              [
+                30,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 30,
+            "y1": 18,
+            "x2": 130,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 130,
+            "y1": 18,
+            "x2": 30,
+            "y2": 118,
+            "width": 3,
+            "tone": "math"
+          }
+        ],
         "alt": "A square with two lines crossing in the middle. Each line joins a corner to the opposite corner. The lines cut the square into 4 small triangles."
       },
       "options": [
@@ -694,10 +736,7 @@
             "op": "+",
             "b": 4,
             "r": 12
-          },
-          "mark": [
-            "4"
-          ]
+          }
         }
       ],
       "tags": [
@@ -944,7 +983,7 @@
           "6 m",
           "4 m"
         ],
-        "alt": "A rectangle garden 6 m long and 4 m wide. Posts stand at every corner and every 2 m along each side."
+        "alt": "A rectangle garden 6 m long and 4 m wide."
       },
       "options": [
         {
@@ -1036,8 +1075,7 @@
             "r": 6
           },
           "mark": [
-            "24",
-            "4"
+            "24"
           ]
         },
         {
@@ -1361,7 +1399,7 @@
         },
         {
           "text": "Cylinder",
-          "why": "A cylinder does not make a square."
+          "why": "From above, a standing cylinder makes a circle, not a square."
         },
         {
           "text": "Cone",
@@ -1477,7 +1515,7 @@
         },
         {
           "text": "Rhombus",
-          "why": "A rhombus has no square corners."
+          "why": "All 4 sides of a rhombus are equal."
         },
         {
           "text": "Trapezium",
@@ -1497,13 +1535,13 @@
         "Square corners are right angles.",
         "Which shape has square corners, but sides of two different lengths?"
       ],
-      "explanation": "A square and a rectangle both have 4 square corners. In a rectangle the sides are not all equal. So I am a rectangle.",
+      "explanation": "A square and a rectangle both have 4 square corners. My sides are not all the same length, so I am not a square. So I am a rectangle.",
       "solution": [
         {
           "say": "A square and a rectangle both have 4 square corners."
         },
         {
-          "say": "In a rectangle the sides are not all equal."
+          "say": "My sides are not all the same length, so I am not a square."
         },
         {
           "say": "So I am a rectangle."
@@ -2135,13 +2173,13 @@
         "You can fold it across the middle two ways.",
         "You can also fold it from corner to corner."
       ],
-      "explanation": "A square folds into matching halves across the middle in 2 ways (up and down, and left and right). It also folds along each diagonal in 2 ways. In all, there are 4 lines.",
+      "explanation": "A square folds into matching halves across the middle in 2 ways (up and down, and left and right). It also folds along each of its 2 diagonals. In all, there are 4 lines.",
       "solution": [
         {
           "say": "A square folds into matching halves across the middle in 2 ways (up and down, and left and right)."
         },
         {
-          "say": "It also folds along each diagonal in 2 ways."
+          "say": "It also folds along each of its 2 diagonals."
         },
         {
           "say": "In all, there are 4 lines."
@@ -2192,7 +2230,7 @@
       "skill": "m2.oly-shapes",
       "type": "numeric",
       "difficulty": 4,
-      "prompt": "A paper is folded in half, and then in half again. A hole is punched through all the layers. How many holes are there when the paper is opened?",
+      "prompt": "A paper is folded in half, and then in half again. A hole is punched through all the layers, away from the folds. How many holes are there when the paper is opened?",
       "answer": 4,
       "tolerance": 0,
       "hints": [
@@ -2225,7 +2263,7 @@
       "skill": "m2.oly-shapes",
       "type": "numeric",
       "difficulty": 5,
-      "prompt": "A paper is folded in half 3 times. A hole is punched through all the layers. How many holes are there when the paper is opened?",
+      "prompt": "A paper is folded in half 3 times. A hole is punched through all the layers, away from the folds. How many holes are there when the paper is opened?",
       "answer": 8,
       "tolerance": 0,
       "hints": [
@@ -2279,7 +2317,7 @@
         },
         {
           "text": "6",
-          "why": "A cube has 6, but a prism has fewer."
+          "why": "A cube has 6, but this prism has fewer."
         }
       ],
       "answer": 3,
@@ -2341,7 +2379,7 @@
         },
         {
           "text": "12",
-          "why": "A cube has 12 edges. A pyramid has fewer."
+          "why": "A cube has 12 edges. This pyramid has fewer."
         }
       ],
       "answer": 3,
@@ -2382,7 +2420,7 @@
       "id": "m2.oly-shapes.040",
       "skill": "m2.oly-shapes",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "A cube has 12 edges and 8 corners. How many more edges than corners does it have?",
       "figure": {
         "kind": "solid",
@@ -2426,8 +2464,8 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-shapes.041",
@@ -2661,7 +2699,7 @@
             "r": 9
           },
           "mark": [
-            "3"
+            "3 rows of 3"
           ]
         },
         {
@@ -2845,7 +2883,7 @@
             "r": 9
           },
           "mark": [
-            "3"
+            "3 rows of 3"
           ]
         },
         {

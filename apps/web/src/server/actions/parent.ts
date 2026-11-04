@@ -17,11 +17,12 @@ import {
   parentSaveFeatures,
   parentSaveLimits,
   parentSaveSound,
+  parentSaveUiLang,
   parentSetQuestionCount,
   parentSetSessionRequired,
   parentUnlock,
 } from '../dal/parent-control'
-import { parentChangeSessionSkill, parentSkillOptions } from '../dal/parent-skill-change'
+import { parentChangeSessionSkill, parentPrepareToday, parentSkillOptions } from '../dal/parent-skill-change'
 import { parentSchemas as S } from './parent-schemas'
 
 /**
@@ -104,6 +105,16 @@ export async function parentSetQuestionCountAction(input: unknown): Promise<Acti
   })
 }
 
+export async function parentPrepareTodayAction(input: unknown): Promise<ActionResult<PlanChangeResult>> {
+  return runAction('parentPrepareToday', async () => {
+    const actor = await requireParent()
+    const data = S.unlock.parse(input)
+    const change = await parentPrepareToday(actor, data)
+    after(change)
+    return change
+  })
+}
+
 /** Daftar pilihan Ganti pelajaran, dimuat saat dialog dibuka supaya halaman anak tetap ringan. */
 export async function parentSkillOptionsAction(input: unknown): Promise<ActionResult<ParentSkillOptionsDTO>> {
   return runAction('parentSkillOptions', async () => {
@@ -168,6 +179,16 @@ export async function parentEditChildAction(input: unknown): Promise<ActionResul
     await parentEditChild(actor, data)
     refresh()
     return undefined
+  })
+}
+
+export async function parentSaveUiLangAction(input: unknown): Promise<ActionResult<null>> {
+  return runAction('parentSaveUiLang', async () => {
+    const actor = await requireParent()
+    const data = S.uiLang.parse(input)
+    await parentSaveUiLang(actor, data)
+    after(null)
+    return null
   })
 }
 

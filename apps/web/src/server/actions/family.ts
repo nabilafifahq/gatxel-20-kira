@@ -1,7 +1,7 @@
 'use server'
 
 import { refresh } from 'next/cache'
-import { throttleIp } from '../auth/ratelimit'
+import { emailSendAllowed, throttleIp } from '../auth/ratelimit'
 import { z } from 'zod'
 import type { ActionResult, ConsentPurpose } from '@/lib/dto'
 import { inOrg } from '../db'
@@ -11,7 +11,7 @@ import { orgCtx, requireActor, requireAdult } from '../auth/actor'
 import { revokeUserSessions } from '../auth/session'
 import { CONSENT_PURPOSES, syncLearnerActive } from '../dal/consent'
 import { learnerExport } from '../dal/data-export'
-import { assertGuardianOf, cancelDeletionTx, queueDeletionConfirmation, requestDeletionTx, setConsentTx } from '../dal/privacy'
+import { assertGuardianOf, cancelDeletionTx, queueDataExportConfirmation, queueDeletionConfirmation, requestDeletionTx, setConsentTx } from '../dal/privacy'
 import { log } from '../log'
 
 /**
@@ -55,6 +55,14 @@ export async function exportDataAction(learnerId: string): Promise<ActionResult<
       await auditTx(tx, ctx, 'data.exported', id, { from: 'privacy', pseudonym: false })
       return e
     })
+    if (actor.role === 'guardian' && actor.email && emailSendAllowed('data-export', actor.email)) {
+      try {
+        await queueDataExportConfirmation(actor.orgId, actor.email, { learnerId: id, learnerName: out.learnerName })
+      } catch {
+        // Unduhan sudah berhasil; pemberitahuan gagal tidak membatalkannya.
+        log.warn('email pemberitahuan unduhan data gagal masuk kotak keluar', {})
+      }
+    }
     return { filename: out.filename, json: out.json }
   })
 }

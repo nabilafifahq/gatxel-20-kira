@@ -1,10 +1,12 @@
 'use client'
 
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import { compareFractions, DEFAULT_SPLITS, type BarState } from '@kira/content/manip'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { playSfx } from '@/components/learner/sfx'
+import type { Dict } from '@/lib/i18n'
+import { useT } from '@/lib/i18n/client'
 import type { ToolProps } from './types'
 
 /**
@@ -16,11 +18,11 @@ export type FractionRowConfig = { den?: number; locked?: number }
 
 const TINT = ['bg-math', 'bg-science', 'bg-english'] as const
 
-function relationText(a: BarState, b: BarState): string {
+function relationText(a: BarState, b: BarState, t: Dict['widgets']['fractionBars']): string {
   const c = compareFractions(a.shaded, a.den, b.shaded, b.den)
   const fa = `${a.shaded}/${a.den}`
   const fb = `${b.shaded}/${b.den}`
-  return c === 0 ? `${fa} is equal to ${fb}` : c < 0 ? `${fa} is less than ${fb}` : `${fa} is more than ${fb}`
+  return c === 0 ? t.equal(fa, fb) : c < 0 ? t.less(fa, fb) : t.more(fa, fb)
 }
 
 export function initialBars(rows: FractionRowConfig[], splits: readonly number[], startSplit?: number): BarState[] {
@@ -37,6 +39,7 @@ export function FractionBars({
   splits = DEFAULT_SPLITS,
   showCompare = false,
 }: ToolProps<BarState[]> & { rows: FractionRowConfig[]; splits?: readonly number[]; showCompare?: boolean }): ReactElement {
+  const t = useT()
   const locked = disabled || feedback !== null
   const bars = value.length === rows.length ? value : initialBars(rows, splits)
 
@@ -62,14 +65,14 @@ export function FractionBars({
         const fixedShade = row.locked !== undefined
         const rowLocked = locked || fixedShade
         return (
-          <section key={i} aria-label={`Bar ${i + 1}`} className="flex flex-col gap-2 rounded-card border border-divider bg-surface p-3">
+          <section key={i} aria-label={t.widgets.barModel.bar(i + 1)} className="flex flex-col gap-2 rounded-card border border-divider bg-surface p-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="m-0 inline-flex items-center gap-1.5 text-body font-bold">
-                Bar {i + 1}
+                {t.widgets.barModel.bar(i + 1)}
                 {fixedShade ? (
                   <span className="inline-flex items-center gap-1 text-small font-semibold text-fg-muted">
                     <UiIcon name="lock" size={14} />
-                    already shaded
+                    {t.widgets.fractionBars.alreadyShaded}
                   </span>
                 ) : null}
               </h3>
@@ -78,8 +81,8 @@ export function FractionBars({
               </output>
             </div>
             {row.den === undefined ? (
-              <div role="radiogroup" aria-label={`Cut bar ${i + 1} into equal parts`} className="flex flex-wrap items-center gap-1.5">
-                <span className="text-small font-semibold text-fg-muted">Cut into</span>
+              <div role="radiogroup" aria-label={t.widgets.fractionBars.cutBarAria(i + 1)} className="flex flex-wrap items-center gap-1.5">
+                <span className="text-small font-semibold text-fg-muted">{t.widgets.fractionBars.cutInto}</span>
                 {splits.map((s) => (
                   <button
                     key={s}
@@ -98,7 +101,7 @@ export function FractionBars({
                 ))}
               </div>
             ) : null}
-            <div role="group" aria-label={`Bar ${i + 1}, cut into ${bar.den} equal parts`} className={cx('flex h-16 w-full overflow-hidden rounded-control border-3', ring)}>
+            <div role="group" aria-label={t.widgets.fractionBars.barCutAria(i + 1, bar.den)} style={{ '--den': bar.den, '--cols': bar.den >= 8 ? Math.ceil(bar.den / 2) : bar.den } as CSSProperties} className={cx('grid w-full gap-0.5 overflow-hidden rounded-control border-3 bg-fg [grid-template-columns:repeat(var(--cols),minmax(0,1fr))] sm:[grid-template-columns:repeat(var(--den),minmax(0,1fr))]', ring)}>
               {Array.from({ length: bar.den }, (_, k) => {
                 const on = k < bar.shaded
                 return (
@@ -106,11 +109,11 @@ export function FractionBars({
                     key={`${bar.den}-${k}`}
                     type="button"
                     aria-pressed={on}
-                    aria-label={`Part ${k + 1} of ${bar.den}${on ? ', shaded' : ''}`}
+                    aria-label={`${t.widgets.shared.part(k + 1, bar.den)}${on ? t.widgets.shared.ariaShaded : ''}`}
                     disabled={rowLocked}
                     onClick={() => shadeTo(i, k)}
                     className={cx(
-                      'relative min-w-0 flex-1 cursor-pointer border-0 border-l-2 border-fg p-0 first:border-l-0 disabled:cursor-default',
+                      'relative min-h-16 min-w-0 cursor-pointer border-0 p-0 disabled:cursor-default',
                       on ? (feedback === 'correct' ? 'bg-success' : feedback === 'not-yet' ? 'bg-warn' : TINT[i % TINT.length]) : 'bg-surface enabled:hover:bg-bg',
                     )}
                   >
@@ -127,7 +130,7 @@ export function FractionBars({
       })}
       {showCompare && bars.length >= 2 ? (
         <p role="status" className="m-0 rounded-control bg-bg px-4 py-2.5 text-body-lg font-bold">
-          {relationText(bars[0]!, bars[1]!)}
+          {relationText(bars[0]!, bars[1]!, t.widgets.fractionBars)}
         </p>
       ) : null}
     </div>

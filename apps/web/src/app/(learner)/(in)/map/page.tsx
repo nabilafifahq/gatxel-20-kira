@@ -10,6 +10,6 @@ export default async function MapPage({ searchParams }: { searchParams: Promise<
   const actor = await pageActor(['learner'])
   const { subject } = await searchParams
   const s = subject === 'english' || subject === 'science' || subject === 'math' ? subject : null
-  const data = await load(() => inOrg(orgCtx(actor), (tx) => mapDTO(tx, actor.userId, s)))
+  const data = await load(() => inOrg(orgCtx(actor), (tx) => mapDTO(tx, actor.userId, s, actor.uiLang)))
   return <MapScreen data={data} />
 }

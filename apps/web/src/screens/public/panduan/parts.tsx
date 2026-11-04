@@ -31,12 +31,12 @@ export function IconTile({ icon, tone = 'lavender', size = 48, children }: { ico
 }
 
 /** Langkah bernomor dengan angka bulat. */
-export function Steps({ items, start = 1 }: { items: ReactNode[]; start?: number }) {
+export function Steps({ items, start = 1, chip = 'bg-lavender' }: { items: ReactNode[]; start?: number; chip?: 'bg-lavender' | 'bg-surface' }) {
   return (
     <ol className="m-0 flex list-none flex-col gap-3 p-0">
       {items.map((item, i) => (
         <li key={i} className="flex gap-3">
-          <span aria-hidden="true" className="flex h-8 w-8 flex-none items-center justify-center rounded-pill bg-lavender font-numbers text-body font-bold tabular-nums">
+          <span aria-hidden="true" className={cx('flex h-8 w-8 flex-none items-center justify-center rounded-pill font-numbers text-body font-bold tabular-nums', chip)}>
             {start + i}
           </span>
           <span className="min-w-0 flex-1 pt-0.5">{item}</span>
@@ -49,9 +49,11 @@ export function Steps({ items, start = 1 }: { items: ReactNode[]; start?: number
 export type Feature = {
   id: string
   title: string
-  icon: UiIconName
+  icon: ReactNode
   tone?: Tone
   what: ReactNode
+  /** Tabel atau gambar kecil setelah penjelasan, bila kalimat saja kurang jelas. */
+  extra?: ReactNode
   /** Contoh anak yang cocok memakai fitur ini. Nama fiktif. */
   suits: ReactNode
   steps: ReactNode[]
@@ -64,7 +66,7 @@ export function FeatureCard({ f }: { f: Feature }) {
   return (
     <section id={f.id} aria-labelledby={`${f.id}-judul`} className="flex flex-col gap-4 rounded-card bg-surface p-6 shadow-soft max-sm:p-5">
       <div className="flex items-center gap-3">
-        <IconTile icon={f.icon} tone={f.tone} />
+        <IconTile tone={f.tone}>{f.icon}</IconTile>
         <h3 id={`${f.id}-judul`} className="m-0 text-h3 font-semibold">
           {f.title}
         </h3>
@@ -72,6 +74,7 @@ export function FeatureCard({ f }: { f: Feature }) {
       <div className={cx('grid gap-5', f.shot && 'md:grid-cols-[minmax(0,1fr)_220px]')}>
         <div className="flex min-w-0 flex-col gap-4">
           <p className="m-0">{f.what}</p>
+          {f.extra}
           <div className="rounded-control bg-lavender p-4">
             <p className="m-0 font-bold">Cocok untuk</p>
             <p className="m-0">{f.suits}</p>
@@ -85,13 +88,13 @@ export function FeatureCard({ f }: { f: Feature }) {
             <p className="m-0">{f.control}</p>
           </div>
         </div>
-        {f.shot ? <Shot {...f.shot} className="mx-auto w-full max-w-[280px] md:max-w-none" /> : null}
+        {f.shot ? <Shot {...f.shot} className="mx-auto w-full max-w-[240px] md:max-w-none" /> : null}
       </div>
     </section>
   )
 }
 
-/** Kepala kelompok fitur. */
+/** Kepala satu kelompok fitur. */
 export function GroupHeading({ id, title, intro }: { id: string; title: string; intro?: ReactNode }) {
   return (
     <div id={id} className="flex flex-col gap-2 pt-8 first:pt-0">

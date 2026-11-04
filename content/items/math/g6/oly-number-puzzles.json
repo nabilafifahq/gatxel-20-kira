@@ -862,7 +862,39 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 120000
+      "answer": 120000,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah do they have altogether?"
+          ]
+        },
+        {
+          "say": "The difference is 2 parts."
+        },
+        {
+          "say": "Giving Rp15.000 makes them equal, so half of the difference is 15.000 and 1 part is 15.000."
+        },
+        {
+          "say": "Altogether 8 parts, which is 8 × 15.000 = Rp120.000.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "×",
+            "b": 15000,
+            "r": 120000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp15.000"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "120000"
+        }
+      ]
     },
     {
       "id": "m6.oly-number-puzzles.017",

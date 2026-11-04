@@ -4,6 +4,7 @@ import { useCallback, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asValue } from './answers'
 import { CharKeypad, LETTERS_AZ } from './CharKeypad'
 import { ListenButton } from './ListenButton'
@@ -22,6 +23,7 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
   const locked = disabled || !!feedback
   const keys = [...LETTERS_AZ, ...(item.spellExtra ?? [])]
   const maxLen = Math.max(length + 3, 8)
+  const t = useT()
 
   const set = useCallback(
     (next: string) => {
@@ -33,10 +35,10 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
   const boxes = Math.max(length, letters.length)
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label="Hear the word" />
+      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} label={t.widgets.spell.hearWord} />
       <output
         aria-live="polite"
-        aria-label={letters === '' ? 'Your spelling is empty' : `Your spelling: ${letters.split('').join(' ')}`}
+        aria-label={letters === '' ? t.widgets.spell.emptyAria : t.widgets.spell.spellingAria(letters.split('').join(' '))}
         className="flex flex-wrap justify-center gap-1.5"
       >
         {Array.from({ length: boxes }, (_, i) => {
@@ -68,13 +70,13 @@ export function SpellWidget({ item, value, onChange, disabled = false, feedback 
       {feedback ? (
         <p className={cx('m-0 inline-flex items-center gap-2 text-body-lg font-bold', feedback === 'correct' ? 'text-success' : 'text-fg')}>
           <UiIcon name={feedback === 'correct' ? 'check' : 'not-yet'} size={22} className={feedback === 'correct' ? 'text-success' : 'text-warn'} />
-          {feedback === 'correct' ? 'Correct' : 'Not yet'}
+          {feedback === 'correct' ? t.widgets.shared.correct : t.widgets.shared.notYet}
         </p>
       ) : null}
       <CharKeypad
         keys={keys}
         upper
-        label="Letters"
+        label={t.widgets.shared.letters}
         subject={subject}
         disabled={locked}
         onKey={(k) => letters.length < maxLen && set(letters + k)}

@@ -6,6 +6,7 @@ import { DICT_POS_LABEL, lookupWord, SAVED_WORD_RE, type DictFile } from '@kira/
 import { DICT_CLIP_STYLE } from '@kira/core/dictionary'
 import { tables } from '@kira/db'
 import type { MyWordsDTO, SavedWordDTO } from '@/lib/dto-vocab'
+import { getT } from '@/lib/i18n/server'
 import type { Tx } from '../db'
 import { conflict, invalid } from '../errors'
 import { learnerShell, loadLearner } from './learner-core'
@@ -32,10 +33,10 @@ export function lemmaOf(raw: string): string | null {
  */
 export async function saveWordTx(tx: Tx, orgId: string, learnerId: string, raw: string): Promise<string> {
   const lemma = lemmaOf(raw)
-  if (!lemma || !SAVED_WORD_RE.test(lemma)) throw invalid('Kata itu tidak ada di kamus.')
+  if (!lemma || !SAVED_WORD_RE.test(lemma)) throw invalid((await getT()).reading.errors.notInDictionary)
   const [count] = await tx.select({ n: sql<number>`count(*)::int` }).from(savedWord).where(eq(savedWord.learnerId, learnerId))
   const [already] = await tx.select({ w: savedWord.word }).from(savedWord).where(and(eq(savedWord.learnerId, learnerId), eq(savedWord.word, lemma))).limit(1)
-  if (!already && (count?.n ?? 0) >= MAX_SAVED_WORDS) throw conflict('Daftar kata sudah penuh. Hapus beberapa kata dulu.')
+  if (!already && (count?.n ?? 0) >= MAX_SAVED_WORDS) throw conflict((await getT()).reading.errors.listFull)
   await tx.insert(savedWord).values({ orgId, learnerId, word: lemma }).onConflictDoNothing()
   return lemma
 }

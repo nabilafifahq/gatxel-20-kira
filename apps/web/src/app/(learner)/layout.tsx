@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import '../globals.css'
 import { FontPreload } from '@/components/ui/FontPreload'
+import { htmlLang } from '@/lib/i18n'
+import { I18nProvider } from '@/lib/i18n/client'
+import { getLang } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: { default: 'Kira', template: '%s, Kira' },
@@ -9,15 +12,18 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
 }
 
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#fffcf5' }
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#fffcf5' }
 
-export default function LearnerRootLayout({ children }: { children: React.ReactNode }) {
+export default async function LearnerRootLayout({ children }: { children: React.ReactNode }) {
+  const lang = await getLang()
   return (
-    <html lang="en-GB" data-area="learner">
+    <html lang={htmlLang(lang)} data-area="learner">
       <head>
         <FontPreload />
       </head>
-      <body className="font-body text-fg bg-bg">{children}</body>
+      <body className="font-body text-fg bg-bg">
+        <I18nProvider lang={lang}>{children}</I18nProvider>
+      </body>
     </html>
   )
 }

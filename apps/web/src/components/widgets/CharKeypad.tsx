@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Papan karakter untuk soal eja, tabel, dan teka-teki kotak: huruf atau angka sebagai tombol 56 px,
@@ -30,7 +31,7 @@ export function CharKeypad({
   columns = 7,
   upper = false,
   physicalKeyboard = true,
-  label = 'Keypad',
+  label,
   className,
 }: {
   keys: readonly string[]
@@ -46,6 +47,7 @@ export function CharKeypad({
   label?: string
   className?: string
 }): ReactElement {
+  const dict = useT()
   const handlers = useRef({ onKey, onBackspace, onClear })
   const keySet = useRef(keys)
   useEffect(() => {
@@ -83,21 +85,21 @@ export function CharKeypad({
     disabled ? 'cursor-not-allowed border-divider bg-bg text-border' : cx('cursor-pointer border-border bg-surface text-fg hover:border-fg active:scale-97', ACTIVE[subject]),
   )
   return (
-    <div role="group" aria-label={label} className={cx('flex w-full max-w-[420px] flex-col gap-2', className)}>
+    <div role="group" aria-label={label ?? dict.widgets.keypad.label} className={cx('flex w-full max-w-[420px] flex-col gap-2', className)}>
       <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
         {keys.map((k) => (
-          <button key={k} type="button" disabled={disabled} aria-label={k === ' ' ? 'Space' : k === '-' ? 'Hyphen' : k === "'" ? 'Apostrophe' : k === '.' ? 'Point' : k} onClick={() => onKey(k)} className={keyBase}>
-            {upper ? k.toUpperCase() : k}
+          <button key={k} type="button" disabled={disabled} aria-label={k === ' ' ? dict.widgets.keypad.space : k === '-' ? dict.widgets.keypad.hyphen : k === "'" ? dict.widgets.keypad.apostrophe : k === '.' ? dict.widgets.keypad.point : k} onClick={() => onKey(k)} className={keyBase}>
+            {k === ' ' ? <span className="text-body font-bold">{dict.widgets.keypad.space}</span> : upper ? k.toUpperCase() : k}
           </button>
         ))}
       </div>
       <div className="grid grid-cols-2 gap-1.5">
-        <button type="button" disabled={disabled} aria-label="Delete" onClick={onBackspace} className={cx(keyBase, 'gap-2 text-body-lg')}>
+        <button type="button" disabled={disabled} aria-label={dict.widgets.keypad.delete} onClick={onBackspace} className={cx(keyBase, 'gap-2 text-body-lg')}>
           <UiIcon name="backspace" size={24} />
-          Delete
+          {dict.widgets.keypad.delete}
         </button>
         <button type="button" disabled={disabled} onClick={onClear} className={cx(keyBase, 'text-body-lg')}>
-          Clear
+          {dict.widgets.shared.clear}
         </button>
       </div>
     </div>

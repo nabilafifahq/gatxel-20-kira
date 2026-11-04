@@ -1,19 +1,21 @@
 import 'server-only'
 import { eq } from 'drizzle-orm'
-import { formatDateEn, jakartaDate, type IsoDate } from '@kira/core'
+import { formatDateEn, formatDateId, jakartaDate, type IsoDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { answerText, MANUAL_TYPES, type Item } from '@kira/content'
 import { analysePegs, blocksValue, formatLength, parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { bestIndex } from '@kira/core'
 import type { ResultsDTO, RetryDTO, ReviewDTO, ReviewQuestionDTO, Subject } from '@/lib/dto'
+import { dictFor, type Dict } from '@/lib/i18n'
 import type { Tx } from '../db'
 import { preset, resolveItems, skill, toClient } from './content'
 import { presetForAttempt } from './learner-competition'
 import { learnerShell, loadLearner, markerFor } from './learner-core'
 import { xpBarFor } from './learner-xpbar'
-import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
+import { attemptTitle, exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 import { worldPeek } from './kira-world'
-import { familyOf, retryInfo, scoreOf, scoreText } from './learner-session'
+import { isFeatureOnTx } from './learner-features'
+import { familyOf, learnerLang, retryInfo, scoreOf, scoreText } from './learner-session'
 
 const { response } = tables
 
@@ -22,18 +24,18 @@ const SUBJECT_LABEL: Record<Subject, string> = { math: 'Math', english: 'English
 type Topic = { label: string; right: number; total: number }
 
 /** Teks jawaban learner untuk pembahasan. */
-export function yourAnswerText(item: Item, answer: unknown): string {
-  if (answer === null || answer === undefined) return 'No answer'
+export function yourAnswerText(item: Item, answer: unknown, t: Dict['runner']['dal']['answers'] = dictFor('en').runner.dal.answers): string {
+  if (answer === null || answer === undefined) return t.none
   const a = answer as Record<string, unknown>
   const letter = (i: number) => String.fromCharCode(65 + i)
   switch (item.type) {
     case 'mcq': {
       const i = a.choice as number
       const o = item.options[i]
-      return o ? (o.text ? `${letter(i)}. ${o.text}` : letter(i)) : 'No answer'
+      return o ? (o.text ? `${letter(i)}. ${o.text}` : letter(i)) : t.none
     }
     case 'multi':
-      return ((a.choices as number[]) ?? []).map((i) => (item.options[i]?.text ? `${letter(i)}. ${item.options[i]?.text}` : letter(i))).join('; ') || 'No answer'
+      return ((a.choices as number[]) ?? []).map((i) => (item.options[i]?.text ? `${letter(i)}. ${item.options[i]?.text}` : letter(i))).join('; ') || t.none
     case 'numeric':
       return `${a.value as string}${item.unit ? ` ${item.unit}` : ''}`
     case 'text':
@@ -49,44 +51,44 @@ export function yourAnswerText(item: Item, answer: unknown): string {
     case 'clock':
       return `${a.h as number}:${String(a.m as number).padStart(2, '0')}`
     case 'fraction':
-      return `${a.shaded as number} of ${item.parts} parts`
+      return t.fraction(a.shaded as number, item.parts)
     case 'write':
       return (a.text as string) ?? ''
     case 'speak':
-      return 'Voice recording sent'
+      return t.voice
     case 'draw':
-      return 'Drawing sent'
+      return t.drawing
     case 'photo':
-      return 'Photo sent'
+      return t.photo
     case 'story':
       return (
         ((a.parts as (Record<string, unknown> | null)[]) ?? [])
           .map((p, k) => {
             const part = item.parts[k]
-            if (!part || !p) return `${k + 1}. No answer`
+            if (!part || !p) return `${k + 1}. ${t.none}`
             if (part.type === 'mcq') {
               const o = part.options[p.choice as number]
-              return `${k + 1}. ${o?.text ?? 'No answer'}`
+              return `${k + 1}. ${o?.text ?? t.none}`
             }
             if (part.type === 'numeric') return `${k + 1}. ${String(p.value ?? '')}${part.unit ? ` ${part.unit}` : ''}`
             return `${k + 1}. ${((p.texts as string[]) ?? [])[0] ?? ''}`
           })
-          .join('; ') || 'No answer'
+          .join('; ') || t.none
       )
     case 'listen': {
       const o = item.options[a.choice as number]
-      return o ? (o.text ?? String.fromCharCode(65 + (a.choice as number))) : 'No answer'
+      return o ? (o.text ?? String.fromCharCode(65 + (a.choice as number))) : t.none
     }
     case 'tiles':
-      return ((a.words as string[]) ?? []).join(' ') || 'No answer'
+      return ((a.words as string[]) ?? []).join(' ') || t.none
     case 'spell':
-      return (a.value as string) || 'No answer'
+      return (a.value as string) || t.none
     case 'cloze':
     case 'hotspot':
     case 'table':
-      return ((a.texts as string[]) ?? []).filter(Boolean).join(', ') || 'No answer'
+      return ((a.texts as string[]) ?? []).filter(Boolean).join(', ') || t.none
     case 'label':
-      return ((a.texts as string[]) ?? []).map((t, i) => `${i + 1}. ${t || '?'}`).join('; ') || 'No answer'
+      return ((a.texts as string[]) ?? []).map((v, i) => `${i + 1}. ${v || '?'}`).join('; ') || t.none
     case 'grid': {
       const cells = (a.cells as number[]) ?? []
       const n = item.size
@@ -94,33 +96,33 @@ export function yourAnswerText(item: Item, answer: unknown): string {
     }
     case 'blocks': {
       const b = parseBlocks(a.blocks)
-      return b ? `${blocksValue(b)}: ${b.h} hundreds, ${b.t} tens, ${b.o} ones` : 'No answer'
+      return b ? t.blocks(blocksValue(b), b.h, b.t, b.o) : t.none
     }
     case 'fractionbar':
-      return (parseBars(a.bars) ?? []).map((b, i) => `bar ${i + 1}: ${b.shaded}/${b.den}`).join('; ') || 'No answer'
+      return (parseBars(a.bars) ?? []).map((b, i) => t.bar(i + 1, b.shaded, b.den)).join('; ') || t.none
     case 'barmodel': {
       const m = parseModel(a.model)
-      return m ? m.bars.map((b) => `${b.label}: ${b.units}`).join('; ') + (m.unit !== undefined ? `; 1 unit = ${m.unit}` : '') : 'No answer'
+      return m ? m.bars.map((b) => `${b.label}: ${b.units}`).join('; ') + (m.unit !== undefined ? `; 1 unit = ${m.unit}` : '') : t.none
     }
     case 'tangram': {
       const placed = parsePlacements(a.placed, item.slots.length, item.pieces.length)
-      return placed ? `${placed.filter(Boolean).length} of ${item.slots.length} pieces placed` : 'No answer'
+      return placed ? t.pieces(placed.filter(Boolean).length, item.slots.length) : t.none
     }
     case 'geoboard': {
       const pegs = parsePegs(a.pegs, item.size)
-      if (!pegs) return 'No answer'
+      if (!pegs) return t.none
       const info = analysePegs(pegs)
-      return info.ok ? `${info.sides} sides, area ${formatLength(info.area)}, perimeter ${formatLength(info.perimeter)}` : 'Shape not closed'
+      return info.ok ? t.shape(info.sides, formatLength(info.area), formatLength(info.perimeter)) : t.shapeOpen
     }
   }
 }
 
-function headlineFor(pct: number, pending: number, marker: 'tutor' | 'grownup' = 'tutor'): { headline: string; detail: string; tone: ResultsDTO['tone'] } {
-  if (pending > 0 && pct >= 0.5) return { headline: 'Great work so far', detail: marker === 'grownup' ? 'Your grown-up can look at the rest.' : 'Your tutor will mark the rest.', tone: 'normal' }
-  if (pct >= 1) return { headline: 'Every one right', detail: 'That is a full score. Brilliant.', tone: 'full' }
-  if (pct >= 0.7) return { headline: 'Strong work', detail: 'Look at the ones marked Not yet to see the steps.', tone: 'normal' }
-  if (pct >= 0.4) return { headline: 'Good effort', detail: 'Some of these were tricky. The steps will help.', tone: 'low' }
-  return { headline: 'You kept going', detail: 'These were hard. We will practise them again soon.', tone: 'low' }
+function headlineFor(pct: number, pending: number, marker: 'tutor' | 'grownup', t: Dict['runner']['dal']): { headline: string; detail: string; tone: ResultsDTO['tone'] } {
+  if (pending > 0 && pct >= 0.5) return { headline: t.headlines.soFar, detail: marker === 'grownup' ? t.details.grownupRest : t.details.tutorRest, tone: 'normal' }
+  if (pct >= 1) return { headline: t.headlines.full, detail: t.details.full, tone: 'full' }
+  if (pct >= 0.7) return { headline: t.headlines.strong, detail: t.details.strong, tone: 'normal' }
+  if (pct >= 0.4) return { headline: t.headlines.good, detail: t.details.good, tone: 'low' }
+  return { headline: t.headlines.kept, detail: t.details.kept, tone: 'low' }
 }
 
 /** Attempt yang belum dikumpulkan tidak punya hasil: halaman hasil kembali ke runner. */
@@ -133,6 +135,9 @@ export type NotSubmitted = { inProgress: true }
 export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): Promise<ResultsDTO | NotSubmitted> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status === 'in_progress') return { inProgress: true }
+  const lang = await learnerLang()
+  const dict = dictFor(lang)
+  const t = dict.runner.dal
   const learner = await loadLearner(tx, learnerId)
   const marker = await markerFor(tx)
   // Soal serupa dari putaran perbaikan tidak ikut skor sesi (tetap ada di review).
@@ -156,23 +161,23 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const p = presetForAttempt(a) ?? (a.presetId ? preset(a.presetId) : undefined)
   const scaledTarget = p?.rules.passMark ?? (a.kind.startsWith('esmo') ? 70 : null)
   const pct = total > 0 ? correct / Math.max(1, total - pending) : 0
-  const tone = headlineFor(pct, pending, marker)
+  const tone = headlineFor(pct, pending, marker, t)
   const topics = (result.byTopic ?? []).filter((t) => t.total > 0)
   const sorted = [...topics].sort((x, y) => y.right / y.total - x.right / x.total)
   const strongest = sorted.length > 1 ? sorted[0] : undefined
   const weakest = sorted.length > 1 ? sorted[sorted.length - 1] : undefined
   const subject = a.subject as Subject
-  const date = a.submittedAt ? formatDateEn(jakartaDate(a.submittedAt) as IsoDate, true) : ''
+  const date = a.submittedAt ? (lang === 'id' ? formatDateId : formatDateEn)(jakartaDate(a.submittedAt) as IsoDate, true) : ''
   const exit = exitFor(a)
-  const retry = await retryDTO(tx, a, total)
+  const retry = await retryDTO(tx, a, total, dict)
   return {
     shell: await learnerShell(tx, learner),
     marker,
     attemptId: a.id,
     subject,
-    title: a.title,
-    meta: `${total} questions${a.timeLimitS ? `, ${Math.round(a.timeLimitS / 60)} minutes` : ''}${date ? `, ${date}` : ''}`,
-    scoreLabel: a.scoreScaled !== null && a.scoreScaled !== undefined ? `${Math.round(a.scoreScaled)} out of 100` : `${correct} out of ${total}`,
+    title: attemptTitle(a.title, dict),
+    meta: `${t.metaQuestions(total)}${a.timeLimitS ? `, ${t.metaMinutes(Math.round(a.timeLimitS / 60))}` : ''}${date ? `, ${date}` : ''}`,
+    scoreLabel: a.scoreScaled !== null && a.scoreScaled !== undefined ? t.outOf(Math.round(a.scoreScaled), 100) : t.outOf(correct, total),
     scoreValue: a.scoreScaled !== null && a.scoreScaled !== undefined ? Math.round(a.scoreScaled) : p ? Math.round(a.scoreRaw ?? correct) : correct,
     scoreMax: a.scoreScaled !== null && a.scoreScaled !== undefined ? 100 : p ? Math.round(a.scoreMax ?? total) : total,
     scaled: a.scoreScaled !== null && a.scoreScaled !== undefined && scaledTarget !== null ? { value: Math.round(a.scoreScaled), target: scaledTarget } : null,
@@ -181,15 +186,15 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     timeUsedSec: result.timeUsedSec ?? a.elapsedS,
     timeLimitSec: a.timeLimitS,
     xp: a.xp,
-    ...(result.world ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
+    ...(result.world && (await isFeatureOnTx(tx, learnerId, 'kira-world')) ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
     newBadges: result.newBadges ?? [],
     questions,
-    strongest: strongest ? { topic: strongest.label, line: `${strongest.right} of ${strongest.total} right` } : null,
-    weakest: weakest && weakest !== strongest ? { topic: weakest.label, line: `${weakest.right} of ${weakest.total} right` } : null,
+    strongest: strongest ? { topic: strongest.label, line: t.topicLine(strongest.right, strongest.total) } : null,
+    weakest: weakest && weakest !== strongest ? { topic: weakest.label, line: t.topicLine(weakest.right, weakest.total) } : null,
     byTopic: topics,
     reviewHref: `/results/${a.id}/review`,
     backHref: exit,
-    backLabel: exit === '/esmo' ? 'Back to ESMO' : exit === '/competitions' ? 'Back to practice' : exit === '/review' ? 'Back to Review' : 'Back to Today',
+    backLabel: exit === '/esmo' ? t.backEsmo : exit === '/competitions' ? t.backPractice : exit === '/review' ? t.backReview : t.backToday,
     tone: tone.tone,
     retry,
     xpBar: await xpBarFor(tx, learnerId, a.id),
@@ -197,7 +202,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
 }
 
 /** Ulang sesi: skor resmi (percobaan pertama), skor terbaik, dan apakah masih ada ulangan yang belum selesai. */
-async function retryDTO(tx: Tx, a: Awaited<ReturnType<typeof loadAttempt>>, total: number): Promise<RetryDTO | null> {
+async function retryDTO(tx: Tx, a: Awaited<ReturnType<typeof loadAttempt>>, total: number, dict: Dict): Promise<RetryDTO | null> {
   const info = await retryInfo(tx, a)
   if (!info) return null
   const family = await familyOf(tx, info.rootId)
@@ -207,9 +212,9 @@ async function retryDTO(tx: Tx, a: Awaited<ReturnType<typeof loadAttempt>>, tota
   return {
     isRetry: a.retryOf !== null,
     retryNo: a.retryNo,
-    official: scoreText(root, total)?.text ?? 'Done',
-    best: bestAt > 0 ? (scoreText(done[bestAt]!, total)?.text ?? null) : null,
-    xpNote: 'Trying again earns a quarter of the XP.',
+    official: scoreText(root, total, dict.runner)?.text ?? dict.common.done,
+    best: bestAt > 0 ? (scoreText(done[bestAt]!, total, dict.runner)?.text ?? null) : null,
+    xpNote: dict.runner.dal.xpNote,
     continueOpen: family.some((f) => f.status === 'in_progress' && f.retryNo > 0),
   }
 }
@@ -217,6 +222,8 @@ async function retryDTO(tx: Tx, a: Awaited<ReturnType<typeof loadAttempt>>, tota
 export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, open: number | null): Promise<ReviewDTO | NotSubmitted> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status === 'in_progress') return { inProgress: true }
+  const dict = dictFor(await learnerLang())
+  const t = dict.runner.dal
   const learner = await loadLearner(tx, learnerId)
   const marker = await markerFor(tx)
   const items = (a.items as AttemptItem[]) ?? []
@@ -233,8 +240,8 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
     questions.push({
       position: it.position,
       item: toClient(item, { ref: it.ref, seed: presentationSeed(a), includeKey: true, includeHints: true }),
-      yourAnswerText: yourAnswerText(item, r?.answer ?? null),
-      correctAnswerText: MANUAL_TYPES.includes(item.type) ? `Your ${marker === 'grownup' ? 'grown-up can look at this' : 'tutor will mark this'}.` : answerText(item),
+      yourAnswerText: yourAnswerText(item, r?.answer ?? null, t.answers),
+      correctAnswerText: MANUAL_TYPES.includes(item.type) ? (marker === 'grownup' ? t.grownupMark : t.tutorMark) : answerText(item),
       status,
       explanation: item.explanation,
       whyYourAnswer: why,
@@ -249,7 +256,7 @@ export async function reviewDTO(tx: Tx, learnerId: string, attemptId: string, op
     shell: await learnerShell(tx, learner),
     marker,
     attemptId: a.id,
-    title: a.title,
+    title: attemptTitle(a.title, dict),
     subject: a.subject as Subject,
     questions,
     openPosition: open && questions.some((q) => q.position === open) ? open : firstWrong,

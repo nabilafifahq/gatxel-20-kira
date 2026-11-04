@@ -7,6 +7,7 @@
  * - Server tidak terjangkau (502 sampai 504 dan 520 sampai 530 dari Cloudflare, atau jaringan putus):
  *   halaman tersimpan atau halaman offline.
  * - Ganti learner (/bye) atau kembali ke pilihan learner menghapus simpanan halaman.
+ * - Halaman offline mengikuti bahasa tampilan anak terakhir (pesan ui-lang dari I18nProvider). Belum ada pesan: Indonesia.
  * - Klip suara bahasa Inggris (/tts/<sha256>.mp3): cache dulu. Klip untuk sesi hari ini disimpan di muka
  *   (pesan precache-audio dari TtsRuntime) supaya suara tetap ada saat internet rumah putus.
  * - Gambar media organisasi (/api/media/<id>, misalnya gambar soal paper): server melarang disimpan (no-store), jadi
@@ -19,7 +20,10 @@ const STATIC_CACHE = `${VERSION}-static`
 const PAGE_CACHE = `${VERSION}-pages`
 const AUDIO_CACHE = `${VERSION}-audio-k1` // k1 = versi suara; klip suara lama di kira-v1-audio dibuang saat aktivasi
 const MEDIA_CACHE = `${VERSION}-media`
+const META_CACHE = `${VERSION}-meta`
 const OFFLINE_URL = '/offline.html'
+const OFFLINE_ID_URL = '/offline-id.html'
+const UI_LANG_KEY = '/__kira-ui-lang'
 const MAX_PAGES = 60
 const MAX_STATIC = 400
 // Efek suara learner (varian per kejadian, sekitar 200 KB): disimpan saat pemasangan supaya bunyi tetap ada saat offline.
@@ -62,7 +66,8 @@ function isStatic(pathname) {
     pathname.startsWith('/dict/') ||
     pathname === '/favicon.ico' ||
     pathname === '/manifest.webmanifest' ||
-    pathname === OFFLINE_URL
+    pathname === OFFLINE_URL ||
+    pathname === OFFLINE_ID_URL
   )
 }
 
@@ -70,7 +75,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(STATIC_CACHE)
-      .then((cache) => cache.addAll([OFFLINE_URL, '/icons/icon-192.png', '/manifest.webmanifest', ...SOUNDS]))
+      .then((cache) => cache.addAll([OFFLINE_URL, OFFLINE_ID_URL, '/icons/icon-192.png', '/manifest.webmanifest', ...SOUNDS]))
       .then(() => self.skipWaiting()),
   )
 })
@@ -186,8 +191,20 @@ async function clearLearnerCaches() {
   await caches.delete(MEDIA_CACHE)
 }
 
+async function rememberUiLang(lang) {
+  const cache = await caches.open(META_CACHE)
+  await cache.put(UI_LANG_KEY, new Response(lang))
+}
+
+async function offlinePageFor() {
+  const cache = await caches.open(META_CACHE)
+  const hit = await cache.match(UI_LANG_KEY)
+  const lang = hit ? await hit.text() : 'id'
+  return lang === 'en' ? OFFLINE_URL : OFFLINE_ID_URL
+}
+
 async function offlineFallback() {
-  return (await caches.match(OFFLINE_URL)) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
+  return (await caches.match(await offlinePageFor())) || (await caches.match(OFFLINE_URL)) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
 }
 
 /** Halaman yang tidak disimpan: jaringan, dan halaman offline bila server tidak terjangkau. */
@@ -266,6 +283,7 @@ self.addEventListener('message', (event) => {
     event.waitUntil(precacheAudio(data.urls.filter((u) => typeof u === 'string')))
   }
   if (data.type === 'clear-pages') event.waitUntil(clearLearnerCaches())
+  if (data.type === 'ui-lang' && (data.lang === 'en' || data.lang === 'id')) event.waitUntil(rememberUiLang(data.lang))
 })
 
 self.addEventListener('fetch', (event) => {

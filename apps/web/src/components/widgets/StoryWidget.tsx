@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { SUBJECT_STYLE } from '@/components/learner/subject'
+import { useT } from '@/lib/i18n/client'
 import { asParts, isPartComplete } from './answers'
 import { McqWidget } from './McqWidget'
 import { NumericWidget } from './NumericWidget'
@@ -46,6 +47,7 @@ export function StoryWidget(props: WidgetProps): ReactElement | null {
   const style = SUBJECT_STYLE[subject]
   const firstOpen = given.findIndex((g, k) => !isPartComplete(parts[k]!, g))
   const [active, setActive] = useState(firstOpen >= 0 ? firstOpen : 0)
+  const t = useT()
   if (parts.length === 0) return null
   const k = Math.min(active, parts.length - 1)
   const part = parts[k]!
@@ -67,7 +69,7 @@ export function StoryWidget(props: WidgetProps): ReactElement | null {
   const inner = { item: sub, value: given[k] ?? null, onChange: setPart, disabled, feedback: partFeedback(k), subject }
   return (
     <div className="flex w-full flex-col gap-4">
-      <div role="tablist" aria-label="Questions about the story" className="flex flex-wrap gap-2">
+      <div role="tablist" aria-label={t.widgets.story.tabs} className="flex flex-wrap gap-2">
         {parts.map((p, i) => {
           const done = isPartComplete(p, given[i])
           const pf = partFeedback(i)
@@ -85,7 +87,7 @@ export function StoryWidget(props: WidgetProps): ReactElement | null {
                 i === k ? cx('border-3', style.border, style.tint) : 'border-2 border-border bg-surface hover:border-fg',
               )}
             >
-              Question {i + 1}
+              {t.widgets.story.question(i + 1)}
               {pf === 'correct' ? (
                 <UiIcon name="check" size={18} className="text-success" />
               ) : pf === 'not-yet' ? (
@@ -104,7 +106,7 @@ export function StoryWidget(props: WidgetProps): ReactElement | null {
         {part.type === 'mcq' ? <McqWidget key={sub.ref} {...inner} /> : part.type === 'numeric' ? <NumericWidget key={sub.ref} {...inner} /> : <TextWidget key={sub.ref} {...inner} />}
         {k < parts.length - 1 ? (
           <Button variant="secondary" iconAfter="arrow-right" className="self-start" onClick={() => setActive(k + 1)}>
-            Next question
+            {t.widgets.shared.nextQuestion}
           </Button>
         ) : null}
       </div>
