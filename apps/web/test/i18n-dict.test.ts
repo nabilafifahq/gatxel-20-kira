@@ -15,7 +15,7 @@ type Node = string | ((...args: never[]) => string) | { [key: string]: Node }
 /** Parameter teks atau angka: coba angka dulu, lalu teks bila fungsi memanggil metode string. */
 function callSample(fn: (...args: never[]) => string, sample: number): string {
   try {
-    return fn(...(Array.from({ length: fn.length }, () => sample) as never[]))
+    return String(fn(...(Array.from({ length: fn.length }, () => sample) as never[])))
   } catch {
     return fn(...(Array.from({ length: fn.length }, () => String(sample)) as never[]))
   }
