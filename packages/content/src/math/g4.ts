@@ -1723,9 +1723,12 @@ const decimals4: Generator = {
       const pick = rng.pick(['tenths', 'hundredths'] as const)
       const digit = pick === 'tenths' ? t : h
       const v = Number(x.toFixed(2))
+      // Angka yang sama bisa muncul dua kali (2.77, 4.45): sebut tempatnya supaya hanya satu pilihan yang benar.
+      const repeated = whole === digit || (pick === 'tenths' ? h : t) === digit
+      const which = !repeated ? `the ${digit}` : pick === 'tenths' ? `the ${digit} just after the point` : `the last ${digit}`
       return {
         type: 'mcq',
-        prompt: `What is the value of the ${digit} in ${fmt(v)}?`,
+        prompt: `What is the value of ${which} in ${fmt(v)}?`,
         ...textChoice(rng, `${digit} ${pick}`, [
           { value: `${digit} ${pick === 'tenths' ? 'hundredths' : 'tenths'}`, why: `The first place after the point is tenths. The second place is hundredths.` },
           { value: `${digit} ones`, why: 'The ones digit is before the decimal point.' },
