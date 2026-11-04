@@ -57,7 +57,7 @@ export function FamilyShell({
               {learnerName}
             </p>
           ) : null}
-          <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2">
+          <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2 lg:max-w-[880px] lg:justify-center">
             {nav.map((n) => {
               const on = n.key === active
               return (
