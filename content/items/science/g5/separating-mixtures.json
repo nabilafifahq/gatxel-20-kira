@@ -632,7 +632,7 @@
       "skill": "s5.separating-mixtures",
       "type": "numeric",
       "difficulty": 3,
-      "prompt": "A bowl of salt solution has a mass of 340 g and contains 40 g of salt. All the water evaporates. What mass of water was lost?",
+      "prompt": "A salt solution has a mass of 340 g and contains 40 g of salt. All the water evaporates. What mass of water was lost?",
       "answer": 300,
       "unit": "g",
       "hints": [
@@ -762,7 +762,10 @@
       "blanks": [
         {
           "answers": [
-            "filtrate"
+            "filtrate",
+            "the filtrate",
+            "filtered water",
+            "clean water"
           ]
         }
       ],
