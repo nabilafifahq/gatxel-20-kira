@@ -130,7 +130,7 @@ async function adultLogin(page, email, password, next) {
 async function scrollToHeading(page, name) {
   const h = page.getByRole('heading', { name, exact: true }).first()
   await h.waitFor({ state: 'visible', timeout: 15_000 })
-  await h.evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 16))
+  await h.evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 120))
 }
 
 async function publicShots() {
@@ -160,7 +160,9 @@ async function childShots() {
 
   if (!only.size || only.has('kamus')) {
     await page.goto(`${BASE}/lesson/e2.pronouns`)
-    const word = page.locator('p[aria-live="polite"]').getByRole('button').first()
+    const caption = page.locator('p[aria-live="polite"]')
+    await caption.waitFor({ state: 'visible', timeout: 30_000 })
+    const word = caption.getByRole('button', { name: /^(kind|shares|toys|friend|teacher)/i }).first().or(caption.getByRole('button').first()).first()
     await word.waitFor({ state: 'visible', timeout: 30_000 })
     await word.click()
     await page.getByRole('dialog').first().waitFor({ state: 'visible', timeout: 15_000 })
