@@ -22,10 +22,20 @@ const HOSTNAME = /^[a-z0-9-]+(\.[a-z0-9-]+)+(:\d+)?$/i
 const IPV4 = /^\d+(\.\d+){3}(:\d+)?$/
 
 /** Alamat https tujuan bila permintaan datang lewat http di balik Cloudflare; null bila tidak perlu. */
-export function httpsRedirectTarget(h: Headers, pathAndQuery: string, production: boolean): string | null {
+export function httpsRedirectTarget(h: Headers, pathAndQuery: string, production: boolean, configuredOrigin?: string): string | null {
   if (!production) return null
   if (visitorScheme(h) !== 'http') return null
-  const host = (h.get('x-forwarded-host') ?? h.get('host') ?? '').split(',')[0]!.trim()
+  // Hanya permintaan yang lewat Cloudflare: pemeriksaan kesehatan dan panggilan antar container tidak dialihkan.
+  if (!viaCloudflare(h)) return null
+  let host = (h.get('x-forwarded-host') ?? h.get('host') ?? '').split(',')[0]!.trim()
+  // Alamat publik yang dikonfigurasi menang atas header Host, supaya Host palsu tidak bisa mengarahkan pengalihan ke situs lain.
+  if (configuredOrigin?.startsWith('https://')) {
+    try {
+      host = new URL(configuredOrigin).host
+    } catch {
+      /* abaikan, pakai header */
+    }
+  }
   // Tanpa titik (localhost, nama layanan Docker) atau alamat IP berarti akses internal, bukan lewat Cloudflare.
   if (!HOSTNAME.test(host) || IPV4.test(host)) return null
   const path = pathAndQuery.startsWith('/') && !pathAndQuery.startsWith('//') ? pathAndQuery : '/'

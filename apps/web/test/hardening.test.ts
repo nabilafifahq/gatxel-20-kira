@@ -19,21 +19,27 @@ describe('pickClientIp', () => {
 
 describe('pengalihan https', () => {
   it('mengalihkan http di balik Cloudflare ke https', () => {
-    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host: 'kira.gatxel.com' }), '/masuk?x=1', true)).toBe('https://kira.gatxel.com/masuk?x=1')
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-ray': 'x', host: 'kira.gatxel.com' }), '/masuk?x=1', true)).toBe('https://kira.gatxel.com/masuk?x=1')
   })
   it('CF-Visitor https menang atas X-Forwarded-Proto http dari proxy tengah (tanpa loop)', () => {
     expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-visitor': '{"scheme":"https"}', host: 'kira.gatxel.com' }), '/', true)).toBeNull()
   })
+  it('tidak mengalihkan permintaan tanpa header Cloudflare (pemeriksaan kesehatan proxy)', () => {
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host: 'kira.gatxel.com' }), '/', true)).toBeNull()
+  })
   it('tidak mengalihkan localhost, nama layanan, IP, atau non-produksi', () => {
     for (const host of ['localhost:3000', 'web:3000', '127.0.0.1:3000', '192.168.1.5'])
       expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host }), '/', true)).toBeNull()
-    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host: 'kira.gatxel.com' }), '/', false)).toBeNull()
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-ray': 'x', host: 'kira.gatxel.com' }), '/', false)).toBeNull()
   })
   it('tidak bisa dipakai sebagai open redirect lewat path //', () => {
-    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host: 'kira.gatxel.com' }), '//evil.com', true)).toBe('https://kira.gatxel.com/')
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-ray': 'x', host: 'kira.gatxel.com' }), '//evil.com', true)).toBe('https://kira.gatxel.com/')
+  })
+  it('KIRA_ORIGIN https menang atas Host palsu', () => {
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-ray': 'x', host: 'evil.example.com' }), '/masuk', true, 'https://kira.gatxel.com')).toBe('https://kira.gatxel.com/masuk')
   })
   it('menolak host dengan karakter aneh', () => {
-    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', host: 'evil.com/@x' }), '/', true)).toBeNull()
+    expect(httpsRedirectTarget(h({ 'x-forwarded-proto': 'http', 'cf-ray': 'x', host: 'evil.com/@x' }), '/', true)).toBeNull()
   })
   it('visitorScheme dan viaCloudflare', () => {
     expect(visitorScheme(h({}))).toBeNull()

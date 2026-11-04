@@ -310,10 +310,10 @@ test.describe('header', () => {
     expect(h['set-cookie'] ?? '').not.toContain('Domain=')
     // Pengalihan hanya aktif di build produksi (E2E_PROD=1) dan untuk host publik.
     if (process.env.E2E_PROD === '1') {
-      const r = await ctx.get('/masuk?x=1', { headers: { Host: 'kira.gatxel.com', 'X-Forwarded-Proto': 'http' }, maxRedirects: 0 })
+      const r = await ctx.get('/masuk?x=1', { headers: { Host: 'kira.gatxel.com', 'X-Forwarded-Proto': 'http', 'CF-Ray': 'abc-CGK' }, maxRedirects: 0 })
       expect(r.status()).toBe(308)
       expect(r.headers()['location']).toBe('https://kira.gatxel.com/masuk?x=1')
-      const ok = await ctx.get('/masuk', { headers: { Host: 'kira.gatxel.com', 'X-Forwarded-Proto': 'http', 'CF-Visitor': '{"scheme":"https"}' }, maxRedirects: 0 })
+      const ok = await ctx.get('/masuk', { headers: { Host: 'kira.gatxel.com', 'X-Forwarded-Proto': 'http', 'CF-Ray': 'abc-CGK', 'CF-Visitor': '{"scheme":"https"}' }, maxRedirects: 0 })
       expect(ok.status()).not.toBe(308)
     }
   })
