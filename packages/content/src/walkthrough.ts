@@ -196,7 +196,7 @@ export function deriveSteps(item: Item): SolutionStep[] | null {
   if (item.type === 'mcq' || item.type === 'multi') {
     const right = item.type === 'mcq' ? [item.answer] : item.answers
     const w = item.options.map((o, i) => ({ o, i })).find(({ o, i }) => !right.includes(i) && o.why && o.text)
-    if (w && steps.length < 6) steps.push({ say: clip(`Not ${w.o.text}. ${w.o.why}`, 220) })
+    if (w && steps.length < 6) steps.push({ say: clip(`Not ${w.o.text.replace(/[.!?]+$/, '')}. ${w.o.why}`, 220) })
   }
   steps.push(answerStep(item, key))
   return steps.length >= 2 && steps.length <= 8 ? steps : null

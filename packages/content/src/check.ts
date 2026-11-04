@@ -482,7 +482,8 @@ export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
       return item.filled.map((r) => r.join(' ')).join(' / ')
     case 'blocks': {
       const t = item.target
-      const parts = [t.h > 0 ? `${t.h} hundreds` : '', t.t > 0 || item.places === 'to' ? `${t.t} tens` : '', `${t.o} ones`].filter(Boolean)
+      const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`
+      const parts = [t.h > 0 ? count(t.h, 'hundred', 'hundreds') : '', t.t > 0 || item.places === 'to' ? count(t.t, 'ten', 'tens') : '', count(t.o, 'one', 'ones')].filter(Boolean)
       return `${t.h * 100 + t.t * 10 + t.o}: ${parts.join(', ')}`
     }
     case 'fractionbar':

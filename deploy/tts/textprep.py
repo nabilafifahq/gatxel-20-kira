@@ -23,6 +23,9 @@ def _fraction(m: "re.Match[str]") -> str:
     return f"one {word}" if top == 1 else f"{top} {word}s"
 
 
+_SUPERSCRIPT = str.maketrans("\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079", "0123456789")
+
+
 def _rupiah(m: "re.Match[str]") -> str:
     raw = m.group(1)
     amount = raw.rstrip(".,")
@@ -33,8 +36,14 @@ def _rupiah(m: "re.Match[str]") -> str:
     return f"{amount} rupiah{tail}"
 
 
+def _power(m: "re.Match[str]") -> str:
+    # 10\u00b2\u2075 dibaca "10 to the power of 25", bukan digit yang ditempel.
+    return " to the power of " + m.group(1).translate(_SUPERSCRIPT)
+
+
 def prepare_text(text: str) -> str:
     t = " ".join(text.split())
+    t = re.sub(r"(?<=\d)([\u2070\u00b9\u00b2\u00b3\u2074-\u2079]+)", _power, t)
     t = re.sub(r"\bRp\.?\s*(\d[\d.,]*)", _rupiah, t)
     t = re.sub(r"\s\+\s", " plus ", t)
     t = re.sub(r"(?<![\d/])(\d{1,3})/(\d{1,3})(?![\d/])", _fraction, t)

@@ -20,6 +20,9 @@ class PrepareText(unittest.TestCase):
         self.assertEqual(prepare_text("It is 5 cm long."), "It is 5 centimetres long.")
         self.assertEqual(prepare_text("I am here."), "I am here.")
 
+    def test_powers(self) -> None:
+        self.assertEqual(prepare_text("10\u00b2\u2075 is big"), "10 to the power of 25 is big")
+
     def test_operators(self) -> None:
         self.assertEqual(prepare_text("3 x 4 = 12"), "3 times 4 equals 12")
         self.assertEqual(prepare_text("7 - 2"), "7 minus 2")
