@@ -31,10 +31,6 @@
         },
         {
           "say": "Her change is 20.000 - 12.500 = Rp7.500.",
-          "mark": [
-            "Rp20.000",
-            "Rp12.500"
-          ],
           "anim": {
             "k": "bar",
             "parts": [
@@ -48,7 +44,11 @@
             ],
             "total": 20000,
             "cur": "Rp"
-          }
+          },
+          "mark": [
+            "Rp20.000",
+            "Rp12.500"
+          ]
         },
         {
           "say": "So the answer is:",

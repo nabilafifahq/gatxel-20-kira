@@ -25,6 +25,8 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
   const style = SUBJECT_STYLE[subject]
   const locked = disabled || !!feedback
   const long = cards.some((c) => c.text.length > 8)
+  // Kata 5 huruf ke atas tidak muat di empat kolom layar HP pada ukuran huruf besar.
+  const wide = cards.some((c) => c.text.length >= 5)
   const textOf = (i: number) => cards.find((c) => c.i === i)?.text ?? ''
   const t = useT()
 
@@ -69,7 +71,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
   }
 
   const pickedText = picked ? (picked.from === 'pool' ? textOf(picked.card) : textOf(slots[picked.slot] ?? -1)) : ''
-  const cardText = long ? 'font-reading text-h3 font-bold' : 'font-reading text-h1 font-bold'
+  const cardText = long ? 'font-reading text-h3 font-bold' : cx('font-reading font-bold wrap-anywhere', wide ? 'text-h1 max-md:text-h3' : 'text-h1')
   const cardBox = long ? 'min-h-16 px-4 py-2 text-left justify-start' : 'h-[88px] max-md:h-18 justify-center'
 
   return (
@@ -85,7 +87,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
         {locked ? t.widgets.order.yourOrder : picked ? t.widgets.order.picked(pickedText) : t.widgets.order.tapCard}
       </p>
-      <ol aria-label={t.widgets.order.yourOrder} className={cx('m-0 grid list-none gap-3 p-0', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5')}>
+      <ol aria-label={t.widgets.order.yourOrder} className={cx('m-0 grid list-none gap-3 p-0', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5', !long && wide && 'max-md:grid-cols-3')}>
         {slots.map((card, k) => {
           const filled = card >= 0
           const ok = feedback ? card === k : null
@@ -141,7 +143,7 @@ export function OrderWidget({ item, value, onChange, disabled = false, feedback 
           </button>
         ) : null}
       </div>
-      <div className={cx('grid gap-3', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5')}>
+      <div className={cx('grid gap-3', long ? 'grid-cols-1' : n <= 4 ? 'grid-cols-4' : 'grid-cols-4 lg:grid-cols-5', !long && wide && 'max-md:grid-cols-3')}>
         {cards.map((c) => {
           const used = slots.includes(c.i)
           const isPicked = picked?.from === 'pool' && picked.card === c.i

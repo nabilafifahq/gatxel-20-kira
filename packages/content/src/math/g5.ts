@@ -4112,7 +4112,7 @@ const multiplyDecimals: Generator = {
         const r = Math.round(u / 10)
         const est = r * m
         const opts = [
-          { value: Math.floor(u / 10) * m === est ? (Math.floor(u / 10) + 2) * m : Math.floor(u / 10) * m, why: `${fmt(dec(u, 1))} rounds to ${r}, not ${Math.floor(u / 10)}.` },
+          { value: Math.floor(u / 10) * m === est ? (Math.floor(u / 10) + 2) * m : Math.floor(u / 10) * m, why: `${fmt(dec(u, 1))} rounds to ${r}, not ${Math.floor(u / 10) * m === est ? Math.floor(u / 10) + 2 : Math.floor(u / 10)}.` },
           { value: est * 10, why: `Check the size: ${fmt(dec(u, 1))} is about ${r}, so the answer is about ${r} × ${m}.` },
           { value: r + m, why: 'That adds the numbers instead of multiplying.' },
           { value: (r + 1) * m, why: `${fmt(dec(u, 1))} rounds to ${r}.` },

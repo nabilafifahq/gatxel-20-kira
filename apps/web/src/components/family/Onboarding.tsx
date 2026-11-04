@@ -138,6 +138,9 @@ function StepChildren({ state, pins, onPin }: { state: OnboardingState; pins: Re
               {pins[c.id] ? <PinPreview name={c.name} pin={pins[c.id]!} /> : null}
             </div>
             {c.active ? <UiIcon name="check-circle" size={24} className="flex-none text-success" title="Izin belajar sudah diberikan" /> : null}
+            <Link href={`${FAMILY_ROUTES.child(c.id)}#atur`} aria-label={`Ubah data ${c.name}`} className="kira-press inline-flex min-h-11 flex-none items-center px-1 font-bold">
+              Ubah
+            </Link>
           </div>
           {!c.active ? <ChildCard child={c} onSaved={refresh} /> : null}
         </div>

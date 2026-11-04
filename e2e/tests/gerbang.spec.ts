@@ -173,7 +173,17 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await expect(page.getByText('Centang izin Belajar di Kira')).toBeVisible()
     await consent.check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    // Tetap di langkah 1: orang tua melihat anak yang baru ditambahkan, bisa memperbaikinya, dan bisa menambah anak lain.
+    await expect(page).toHaveURL(/langkah=1/)
     await expect(page.getByText('Kelas 5')).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Ubah data Nara' })).toHaveAttribute('href', /\/keluarga\/anak\/.+#atur$/)
+    await page.getByRole('button', { name: 'Tambah anak lain' }).click()
+    await page.getByLabel('Nama panggilan').fill('Bayu')
+    for (const p of PIN) await page.getByRole('button', { name: p, exact: true }).click()
+    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('button', { name: 'Tambahkan anak' }).click()
+    await expect(page.getByRole('link', { name: 'Ubah data Bayu' })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Ubah data Nara' })).toBeVisible()
 
     await page.getByRole('link', { name: 'Lanjut pilih jalur' }).click()
     await expect(page).toHaveURL(/langkah=2/)
@@ -197,7 +207,8 @@ test('jalur rekomendasi sekali ketuk: tambah anak, satu ketukan, cara anak masuk
     await expect(page.locator('a[href="/panduan/aplikasi"]')).toBeVisible()
     await expectNoSeriousA11y(page, '/mulai langkah 3')
 
-    const [kid] = await db()`select user_id, setup_path from learner_profile where org_id = ${f.orgId}`
+    expect((await db()`select setup_path from learner_profile where org_id = ${f.orgId} and setup_path = 'recommended'`).length).toBe(2)
+    const [kid] = await db()`select user_id, setup_path from learner_profile where org_id = ${f.orgId} and name = 'Nara'`
     expect(kid!.setup_path).toBe('recommended')
     // Kelas 5: Paper menyala, olimpiade mati sampai dipilih orang tua.
     const off = (await db()`select key from learner_feature where learner_id = ${kid!.user_id as string} and enabled = false`).map((r) => r.key as string)
