@@ -119,6 +119,17 @@ export function effectiveOn(map: FeatureMap, key: FeatureKey): boolean {
   return need ? featureOn(map, need) : true
 }
 
+/**
+ * Dek kartu mengikuti saklar mapelnya. Dek English yang isinya kosakata mapel lain (misalnya Maths words used in English)
+ * ikut saklar mapel itu juga, supaya tidak muncul saat mapelnya dimatikan.
+ */
+export function deckOn(map: FeatureMap, deck: { id: string; subject: string }): boolean {
+  if (!effectiveOn(map, deck.subject as FeatureKey)) return false
+  if (/(^|-)maths(-|$)/.test(deck.id) && !effectiveOn(map, 'math')) return false
+  if (/(^|-)science(-|$)/.test(deck.id) && !effectiveOn(map, 'science')) return false
+  return true
+}
+
 /** Apakah satu skill boleh dibuka: mapelnya menyala, dan skill olimpiade (strand Oly) juga butuh saklar Olimpiade mapelnya. */
 export function skillAllowed(map: FeatureMap, subject: FeatureSubject, strand: string | null | undefined): boolean {
   if (!featureOn(map, subject)) return false
