@@ -320,14 +320,14 @@
       "skill": "m6.oly-patterns",
       "type": "numeric",
       "difficulty": 5,
-      "prompt": "What is the last digit of 2^2026 + 3^2026? Here 2^2026 means 2026 twos multiplied together.",
+      "prompt": "What is the last digit of 2²⁰²⁶ + 3²⁰²⁶? Here 2²⁰²⁶ means 2026 twos multiplied together.",
       "answer": 3,
       "hints": [
         "Find the cycle of last digits for powers of 2 and for powers of 3.",
         "Powers of 2 end in 2, 4, 8, 6. Powers of 3 end in 3, 9, 7, 1.",
         "2026 leaves a remainder of 2 when divided by 4."
       ],
-      "explanation": "Both cycles have length 4, and 2026 = 4 × 506 + 2. So 2^2026 ends in 4 and 3^2026 ends in 9. 4 + 9 = 13, which ends in 3.",
+      "explanation": "Both cycles have length 4, and 2026 = 4 × 506 + 2. So 2²⁰²⁶ ends in 4 and 3²⁰²⁶ ends in 9. 4 + 9 = 13, which ends in 3.",
       "solution": [
         {
           "say": "Cycle for 2.",

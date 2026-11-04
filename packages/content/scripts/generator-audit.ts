@@ -39,6 +39,14 @@ const NEG_OK = /negative|sequences|function|order-of-operations|coordinates|tran
 const FREE_RANGE = /money|time|length|mass|perimeter|area|coordinates|ratio|scale|percent|decimal|fdp|convert|volume|statistics|place-value|rounding|multiply-divide|powers/
 const FREE_FRACTION = /money|time|length|mass|fractions|shapes|chart|statistics|probability|decimal/
 
+const TEXT_FAULTS: [string, RegExp][] = [
+  ['bentuk tunggal', /(?<![\d.,/]|\d )\b1 (?:ones|tens|hundreds|thousands|tenths|hundredths|steps|children|parts|degrees|days|hours|minutes|coins|squares|units|boxes|sweets|apples|cookies|marbles|edges|vertices)\b/],
+  ['a atau an', /\b[Aa] (?:octagon|octagonal|oval|eighth|even chance)\b/],
+  ['kata berulang', /\bNot Not\b/],
+  ['nilai sama', /would give (\d[\d,.]*), not \1(?![\d])|rounds to (\d[\d,.]*), not \2(?![\d])/],
+  ['notasi mentah', /\d\s?\^\s?\d|\d\s?\*\s?\d|\d [xX] \d/],
+]
+
 const flags: Record<string, string[]> = {}
 const flag = (k: string, ref: string) => (flags[k] ??= []).push(ref)
 let combos = 0
@@ -112,6 +120,11 @@ for (const [skill, gen] of GENERATORS) {
       if (/ {2}\S/.test(prompt)) flag(`spasi ganda di ${skill}:${level}`, ref)
       if (/\b1 (apples|books|cats|pens|balls|boxes|bags|cars|stickers|sheets|cups|plates|pencils|marbles|bottles|seats|coins)\b/.test(prompt)) flag(`bentuk tunggal salah di ${skill}:${level}`, `${ref} ${prompt.slice(0, 70)}`)
       if (/\b([2-9]|\d\d+) (apple|book|cat|pen|ball|box|bag|car|sticker|cup|plate|pencil|marble|bottle|seat|coin)\b(?! cases?\b)/.test(prompt)) flag(`bentuk jamak salah di ${skill}:${level}`, `${ref} ${prompt.slice(0, 70)}`)
+      // Pola bahasa dan notasi di seluruh teks soal, termasuk opsi, petunjuk, dan pembahasan.
+      for (const [name, re] of TEXT_FAULTS) {
+        const hit = re.exec(text)
+        if (hit) flag(`${name} di ${skill}:${level}: "${hit[0]}"`, ref)
+      }
     }
     if (sigs.size < 20) sparse.push(`${skill}:${level} (${sigs.size} instans)`)
   }

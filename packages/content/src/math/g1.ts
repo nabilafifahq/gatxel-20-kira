@@ -1,6 +1,6 @@
 import type { Rng } from '@kira/core/rng'
 import type { FigureSpecInput, IconName } from '@kira/figures/spec'
-import { COUNTABLES, DAYS, MONTHS, NAMES, mcqFrom, numberWords, ordinal, plural, rupiah, timeWords } from './helpers'
+import { AAn, COUNTABLES, DAYS, MONTHS, NAMES, mcqFrom, numberWords, ordinal, plural, rupiah, timeWords } from './helpers'
 import type { Generator } from './types'
 
 /* -------------------------------------------------------------------------
@@ -589,7 +589,7 @@ const oddEven: Generator = {
         prompt: `Which number is ${wantEven ? 'even' : 'odd'}?`,
         ...mcqFrom(rng, target, others.map((o) => ({ value: o, why: wantEven ? `${o} is odd. One is left over when you make pairs.` : `${o} is even. It makes pairs with none left over.` })), 3),
         hints: ['Even numbers can be put into pairs with none left over.', 'Even numbers end in 0, 2, 4, 6 or 8.', 'Check each number. Does it end in 0, 2, 4, 6 or 8?'],
-        explanation: wantEven ? `${target} is even. ${target} things make pairs with none left over.` : `${target} is odd. Making pairs from ${target} things leaves one on its own.`,
+        explanation: wantEven ? `${target} is even. ${target} things make pairs with none left over.` : `${target} is odd. Making pairs from ${plural(target, 'thing', 'things')} leaves one on its own.`,
         solution: [
           { say: 'Even numbers end in 0, 2, 4, 6 or 8.' },
           { say: `${target} is ${wantEven ? 'even' : 'odd'}.`, figure: { kind: 'objects', items: [{ icon: 'sock', count: target }], alt: `A picture of ${plural(target, 'sock', 'socks')}.` } },
@@ -721,7 +721,7 @@ const placeValue20: Generator = {
         type: 'mcq',
         prompt: `Which shows ${n}?`,
         ...mcqFrom(rng, `1 ten and ${onesText(u)}`, rng.shuffle(ds), 3),
-        hints: [`Split ${n} into tens and ones.`, `The 1 in ${n} tells the tens. The ${u} tells the ones.`, `${n} is 10 and some more. How many more?`],
+        hints: [`Split ${n} into tens and ones.`, u === 1 ? 'The first 1 in 11 tells the tens. The second 1 tells the ones.' : `The 1 in ${n} tells the tens. The ${u} tells the ones.`, `${n} is 10 and some more. How many more?`],
         explanation: `${n} = 10 + ${u}, so it is 1 ten and ${onesText(u)}.`,
         solution,
       }
@@ -792,6 +792,10 @@ const compareOrder: Generator = {
         ...mcqFrom(rng, correct, all, 3),
         hints: [`Count the ${a.many}. Then count the ${b.many}.`, 'The bigger number means more.', `Count the ${a.many} first and remember the number.`],
         explanation: same ? `There are ${na} ${a.many} and ${nb} ${b.many}. That is the same number.` : `There are ${na} ${a.many} and ${nb} ${b.many}. ${Math.max(na, nb)} is more than ${Math.min(na, nb)}.`,
+        solution: [
+          { say: `There are ${na} ${a.many} and ${nb} ${b.many}.`, figure },
+          { say: same ? 'That is the same number.' : `${Math.max(na, nb)} is more than ${Math.min(na, nb)}.`, show: correct },
+        ],
       }
     }
     if (level === 2) {
@@ -950,12 +954,12 @@ const numberBonds10: Generator = {
         prompt: 'How many more counters make 10?',
         figure,
         answer: 10 - k,
-        hints: ['A full ten frame has 10 boxes.', 'Count the empty boxes.', `There are ${k} counters. Count on from ${k} to 10.`],
+        hints: ['A full ten frame has 10 boxes.', 'Count the empty boxes.', `${k === 1 ? 'There is 1 counter' : `There are ${k} counters`}. Count on from ${k} to 10.`],
         explanation: `${k} and ${10 - k} make 10.`,
         solution: [
-          { say: `There are ${k} counters.`, figure },
+          { say: `${k === 1 ? 'There is 1 counter' : `There are ${k} counters`}.`, figure },
           { say: `Count on from ${k} to 10.`, show: countList(k, 10) },
-          { say: `${10 - k} more make 10.`, show: `${k} + ${10 - k} = 10` },
+          { say: `${10 - k} more ${10 - k === 1 ? 'makes' : 'make'} 10.`, show: `${k} + ${10 - k} = 10` },
         ],
       }
     }
@@ -968,10 +972,10 @@ const numberBonds10: Generator = {
         prompt: front ? `${a} + ___ = 10` : `___ + ${a} = 10`,
         ...(withFrame ? { figure: frame(a, 5, `A ten frame with ${a} of the 10 boxes filled.`) } : {}),
         answer: 10 - a,
-        hints: ['Think of pairs that make 10.', 'Use a ten frame or your fingers.', `Start at ${a} and count on to 10.`],
+        hints: ['Think of pairs that make 10.', 'Use a ten frame or your fingers.', a === 10 ? 'The frame is already full, so you do not need any more.' : `Start at ${a} and count on to 10.`],
         explanation: `${a} and ${10 - a} make 10.`,
         solution: [
-          { say: `Show ${a} on a ten frame.`, figure: frame(a, 5, `A ten frame with ${a} boxes filled.`) },
+          { say: `Show ${a} on a ten frame.`, figure: frame(a, 5, `A ten frame with ${plural(a, 'box', 'boxes')} filled.`) },
           { say: 'Count the empty boxes.', show: front ? `${a} + ${10 - a} = 10` : `${10 - a} + ${a} = 10` },
         ],
       }
@@ -1001,7 +1005,7 @@ const numberBonds10: Generator = {
         figure: frame(k, 5, `10 seats in 2 rows of 5. ${k} seats are taken.`),
         answer: 10 - k,
         hints: ['Think of 10 as the whole bus.', `What goes with ${k} to make 10?`, `Count on from ${k} to 10.`],
-        explanation: `${k} and ${10 - k} make 10, so ${10 - k} seats are empty.`,
+        explanation: `${k} and ${10 - k} make 10, so ${plural(10 - k, 'seat', 'seats')} ${10 - k === 1 ? 'is' : 'are'} empty.`,
         tags: ['word-problem'],
       }
     }
@@ -1705,7 +1709,7 @@ const quarters: Generator = {
         figure: fracFig('circle', 4, eaten),
         answer: 4 - eaten,
         hints: ['How many quarters make a whole pizza?', `Take away the ${eaten} eaten.`, `A whole pizza is 4 quarters. Count back ${eaten}.`],
-        explanation: `A whole pizza is 4 quarters. 4 - ${eaten} = ${4 - eaten} quarters are left.`,
+        explanation: `A whole pizza is 4 quarters. 4 - ${eaten} = ${4 - eaten}, so ${plural(4 - eaten, 'quarter', 'quarters')} ${4 - eaten === 1 ? 'is' : 'are'} left.`,
         tags: ['word-problem'],
       }
     }
@@ -1876,7 +1880,7 @@ const oclockHalfPast: Generator = {
         figure,
         ...mcqFrom(rng, timeWords(h, 30), [
           { value: `half past ${nextHour(h)}`, why: `The short hand has gone past ${h}, but not past ${nextHour(h)}.` },
-          { value: "6 o'clock", why: 'The long hand on 6 means half past, not 6 o\'clock.' },
+          { value: "6 o'clock", why: "The long hand on 6 means half past. It does not mean 6 o'clock." },
           { value: `${h} o'clock`, why: "At o'clock the long hand points to 12." },
         ], 3),
         hints: ['Look at the long hand first.', 'When the long hand points to 6, it is half past.', 'The short hand has just gone past the hour. Which number is it past?'],
@@ -2044,7 +2048,8 @@ const shapes3d: Generator = {
     }
     if (level === 2) {
       const o = rng.pick(REAL_SOLIDS)
-      const others = rng.shuffle(G1_SOLIDS.filter((x) => x !== o.solid))
+      // Kotak dan balok mainan bisa disebut kubus atau balok; jangan tampilkan keduanya sebagai opsi. Filter sesudah shuffle agar jumlah undian tetap.
+      const others = rng.shuffle(G1_SOLIDS.filter((x) => x !== o.solid)).filter((x) => !(o.solid === 'cube' && x === 'cuboid') && !(o.solid === 'cuboid' && x === 'cube'))
       return {
         type: 'mcq',
         prompt: `${cap(o.text)} is shaped like which 3D shape?`,
@@ -2169,6 +2174,10 @@ const measureCompare: Generator = {
         ...mcqFrom(rng, correct, ds, 3),
         hints: ['Look at which side of the balance goes down.', 'The heavier side goes down. The lighter side goes up.', 'Find the lower side first.'],
         explanation: tilt === 'level' ? 'The balance is level, so the two weigh the same.' : `${cap(lower)} is on the lower side, so it is heavier. ${cap(higher)} is lighter.`,
+        solution: [
+          { say: tilt === 'level' ? 'The balance is level.' : `${cap(lower)} is on the lower side, so it is heavier.` },
+          { say: tilt === 'level' ? 'So the two weigh the same.' : `${cap(higher)} is lighter.`, show: correct },
+        ],
       }
     }
     if (level === 3) {
@@ -2183,7 +2192,7 @@ const measureCompare: Generator = {
           figure: { kind: 'jug', capacity: 1000, value, step: 100, unit: 'ml', alt },
           ...mcqFrom(rng, cap(state), words.filter((w) => w !== cap(state)).map((w) => ({ value: w, why: w === 'Full' ? 'A full jug has water right to the top.' : w === 'Empty' ? 'An empty jug has no water in it.' : 'A half full jug has water up to the middle.' })), 3),
           hints: ['Look at how high the water is.', 'Full is at the top. Empty is no water. Half full is in the middle.', 'Find the top of the water first.'],
-          explanation: `The jug is ${state}. ${alt}`,
+          explanation: `The jug is ${state}. ${state === 'full' ? 'The water goes right to the top.' : state === 'half full' ? 'The water comes up to the halfway mark.' : 'There is no water in it.'}`,
         }
       }
       const vals = rng.sample([100, 200, 300, 400, 500, 600, 700, 800, 900], 3)
@@ -2200,7 +2209,7 @@ const measureCompare: Generator = {
     }
     const t = rng.pick(RULER_THINGS)
     const len = rng.int(3, 14)
-    const figure: Fig = { kind: 'ruler', lengthCm: 15, objectCm: len, object: t.icon, alt: `A ${t.name} next to a ruler. It starts at 0 and ends at ${len} cm.` }
+    const figure: Fig = { kind: 'ruler', lengthCm: 15, objectCm: len, object: t.icon, alt: `${AAn(t.name)} next to a ruler. It starts at 0 and ends at ${len} cm.` }
     return {
       type: 'numeric',
       prompt: `How long is the ${t.name}?`,
@@ -2341,7 +2350,7 @@ const pictogramsGraphs: Generator = {
           figure,
           answer: counts[k]!,
           hints: [`Find the row for ${label.toLowerCase()}.`, 'Each star stands for 1 child.', 'Point to each star in the row and count.'],
-          explanation: `The ${label.toLowerCase()} row has ${counts[k]} stars, so ${counts[k]} children chose ${label.toLowerCase()}.`,
+          explanation: `The ${label.toLowerCase()} row has ${plural(counts[k]!, 'star', 'stars')}, so ${plural(counts[k]!, 'child', 'children')} chose ${label.toLowerCase()}.`,
         }
       }
       const most = rng.chance(0.5)
@@ -2351,9 +2360,9 @@ const pictogramsGraphs: Generator = {
         type: 'mcq',
         prompt: `Which was chosen by the ${most ? 'most' : 'fewest'} children?`,
         figure,
-        ...mcqFrom(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `${l} has ${counts[labels.indexOf(l)]} stars. ${ans} has ${most ? 'more' : 'fewer'}.` })), 3),
+        ...mcqFrom(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `The ${l.toLowerCase()} row has ${plural(counts[labels.indexOf(l)]!, 'star', 'stars')}. The ${ans.toLowerCase()} row has ${most ? 'more' : 'fewer'}.` })), 3),
         hints: ['Count the stars in each row.', most ? 'The most popular row has the most stars.' : 'The least popular row has the fewest stars.', `Count the stars for ${labels.find((l) => l !== ans)!.toLowerCase()} first.`],
-        explanation: `${ans} has ${target} stars. That is the ${most ? 'most' : 'fewest'}.`,
+        explanation: `The ${ans.toLowerCase()} row has ${plural(target, 'star', 'stars')}. That is the ${most ? 'most' : 'fewest'}.`,
       }
     }
     if (level === 3) {
@@ -2371,7 +2380,7 @@ const pictogramsGraphs: Generator = {
           figure,
           answer: diff,
           hints: ['Read the two blocks first.', `How many more means find the difference.`, `Count on from ${counts[lo]} to ${counts[hi]}.`],
-          explanation: `${labels[hi]} has ${counts[hi]} and ${labels[lo]} has ${counts[lo]}. ${counts[hi]} - ${counts[lo]} = ${diff}.`,
+          explanation: `The ${labels[hi]!.toLowerCase()} block shows ${counts[hi]} and the ${labels[lo]!.toLowerCase()} block shows ${counts[lo]}. ${counts[hi]} - ${counts[lo]} = ${diff}.`,
           solution: [
             { say: 'Read each block.', figure },
             { say: `Count on from ${counts[lo]} to ${counts[hi]}.`, show: `${counts[hi]} - ${counts[lo]} = ${diff}` },

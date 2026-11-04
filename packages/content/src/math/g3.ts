@@ -197,7 +197,7 @@ export function subSteps(a: number, b: number): Step[] {
       top[i] = top[i]! + 10
       say = j === i + 1
         ? `You cannot take ${bi} from ${was}. Exchange 1 ${PLACE1[j]} for 10 ${PLACES[i]}, so there are ${top[i]} ${PLACES[i]}.`
-        : `There are no ${PLACES[i + 1]} to exchange. Exchange 1 ${PLACE1[j]}, then 1 ${PLACE1[i + 1]}, so there are ${top[i]} ${PLACES[i]}.`
+        : `${j === i + 3 ? `There are no ${PLACES[i + 2]} or ${PLACES[i + 1]} to exchange. Exchange 1 ${PLACE1[j]}, then 1 ${PLACE1[i + 2]}, then 1 ${PLACE1[i + 1]}` : `There are no ${PLACES[i + 1]} to exchange. Exchange 1 ${PLACE1[j]}, then 1 ${PLACE1[i + 1]}`}, so there are ${top[i]} ${PLACES[i]}.`
     }
     const r = top[i]! - bi
     steps.push({ say: `${say}${say ? ' ' : ''}Take away the ${PLACES[i]}: ${top[i]} - ${bi} = ${r}.`.trim(), show: `${top[i]} - ${bi} = ${r}` })
@@ -261,7 +261,7 @@ const placeValue: Generator = {
       const total = h * 100 + t * 10 + o
       const figure: Fig = { kind: 'basetens', hundreds: h, tens: t, ones: o, alt: `Base ten blocks: ${H(h)}, ${T(t)} and ${O(o)}.` }
       const hints = !regroup
-        ? ['Count each kind of block on its own.', 'A big square is 100, a stick is 10 and a small cube is 1.', `The ${H(h)} make ${h * 100}.`]
+        ? ['Count each kind of block on its own.', 'A big square is 100, a stick is 10 and a small cube is 1.', `The ${H(h)} ${h === 1 ? 'makes' : 'make'} ${h * 100}.`]
         : bigTens
           ? ['Count the tens carefully. There are more than 9.', '10 tens make 1 hundred, so you can swap 10 tens for a hundred.', `${t} tens make ${t * 10}.`]
           : ['Count the ones carefully. There are more than 9.', '10 ones make 1 ten, so you can swap 10 ones for a ten.', `${o} ones make 1 ten and ${O(o - 10)}.`]
@@ -302,8 +302,8 @@ const placeValue: Generator = {
         hints: [`Find the digit ${d} in ${n}.`, 'From the right, the columns are ones, tens and hundreds.', `The ${d} is in the ${PLACES[pos]} column.`],
         explanation: `In ${n}, the ${d} is in the ${PLACES[pos]} column, so it is worth ${fmt(value)}.`,
         solution: [
-          { say: `Write ${n} in a place value chart.`, figure: { kind: 'table', head: ['H', 'T', 'O'], rows: [ds.map(String)], alt: `Place value chart: ${ds[0]} hundreds, ${ds[1]} tens, ${ds[2]} ones.` } },
-          { say: `The ${d} is in the ${PLACES[pos]} column.`, show: `${d} ${PLACES[pos]} = ${fmt(value)}` },
+          { say: `Write ${n} in a place value chart.`, figure: { kind: 'table', head: ['H', 'T', 'O'], rows: [ds.map(String)], alt: `Place value chart: ${H(ds[0]!)}, ${T(ds[1]!)}, ${O(ds[2]!)}.` } },
+          { say: `The ${d} is in the ${PLACES[pos]} column.`, show: `${d === 1 ? `1 ${PLACE1[pos]}` : `${d} ${PLACES[pos]}`} = ${fmt(value)}` },
         ],
       }
     }
@@ -398,7 +398,7 @@ const placeValue: Generator = {
         prompt: `Which is the same as ${n}?`,
         ...textChoice(rng, correct, wrong),
         hints: ['Work out the number each answer makes.', 'Swapping 1 hundred for 10 tens, or 1 ten for 10 ones, keeps the number the same.', `${n} has ${say(h, t, o)}.`],
-        explanation: `${cap(correct)} makes ${a * 100} + ${b * 10} + ${c} = ${n}.`,
+        explanation: `${cap(correct)} make ${a * 100} + ${b * 10} + ${c} = ${n}.`,
       }
     }
 
@@ -415,7 +415,7 @@ const placeValue: Generator = {
         prompt: `${name} has ${h} ${ctx.big}, ${t} ${ctx.mid} and ${o} ${ctx.single}. How many ${ctx.unit} does ${name} have?`,
         answer: total,
         hints: ['Work out what each kind of pack is worth.', `Each big pack is 100 and each smaller pack is 10.`, `${h} packs of 100 make ${h * 100}.`],
-        explanation: `${h} × 100 = ${h * 100}, ${t} × 10 = ${t * 10} and there are ${o} more. ${h * 100} + ${t * 10} + ${o} = ${total}.`,
+        explanation: `${h} × 100 = ${h * 100}, ${t} × 10 = ${t * 10} and ${o === 1 ? 'there is 1' : `there are ${o}`} more. ${h * 100} + ${t * 10} + ${o} = ${total}.`,
         solution: [
           { say: 'Find the hundreds.', show: `${h} × 100 = ${h * 100}` },
           { say: 'Find the tens.', show: `${t} × 10 = ${t * 10}` },
@@ -582,7 +582,7 @@ const compareOrder: Generator = {
           step: 10,
           answer: ans,
           hints: [`The line goes from ${min} to ${min + 100}.`, 'Each small step is 10.', `Count on in tens from ${min}: ${min + 10}, ${min + 20}, ...`],
-          explanation: `${ans} is ${k} steps of 10 after ${min}.`,
+          explanation: `${ans} is ${plural(k, 'step', 'steps')} of 10 after ${min}.`,
         }
       }
       const k = rng.pick([1, 3, 5, 7, 9, 11, 13, 15, 17, 19])
@@ -1438,7 +1438,7 @@ const timesTables3: Generator = {
         type: 'numeric',
         prompt: rng.chance(0.5) ? `${n} × ${t} = ___` : `${t} × ${n} = ___`,
         answer: p,
-        hints: [`Use the ${t} times table.`, `Count in ${t}s, ${n} times.`, n > 5 ? `5 × ${t} = ${5 * t}. Count on ${n - 5} more ${t}s.` : `Start at ${t} and count on in ${t}s.`],
+        hints: [`Use the ${t} times table.`, `Count in ${t}s, ${n} times.`, n > 5 ? `5 × ${t} = ${5 * t}. Count on ${n - 5 === 1 ? `1 more ${t}` : `${n - 5} more ${t}s`}.` : `Start at ${t} and count on in ${t}s.`],
         explanation: `${n} groups of ${t} make ${p}, so ${n} × ${t} = ${p}.`,
       }
     }
@@ -1676,12 +1676,12 @@ const division3: Generator = {
           type: 'mcq',
           prompt: `${n} children go on a trip. Each car takes ${t} children. How many cars are needed?`,
           ...textChoice(rng, String(q + 1), [
-            { value: String(q), why: `${q} cars only take ${q * t} children. ${r} more children still need a car.` },
+            { value: String(q), why: `${q} cars only take ${q * t} children. ${r === 1 ? '1 more child still needs' : `${r} more children still need`} a car.` },
             { value: `${q} r ${r}`, why: 'You cannot have part of a car. Every child needs a seat.' },
             { value: String(r), why: `${r} is the number of children left over after ${q} full cars.` },
           ]),
           hints: [`Work out ${n} ÷ ${t}.`, 'Think about the children who are left over. They need a car too.', `${q} × ${t} = ${q * t}.`],
-          explanation: `${n} ÷ ${t} = ${q} r ${r}. The ${r} children left over need one more car, so ${q + 1} cars are needed.`,
+          explanation: `${n} ÷ ${t} = ${q} r ${r}. The ${r === 1 ? '1 child left over needs' : `${r} children left over need`} one more car, so ${q + 1} cars are needed.`,
           tags: WORD,
         }
       }
@@ -1738,8 +1738,8 @@ const multiply2d1d: Generator = {
         prompt: rng.chance(0.5) ? `${a * 10} × ${b} = ___` : `${b} × ${a * 10} = ___`,
         figure: { kind: 'basetens', tens: a, alt: `Base ten blocks: ${plural(a, 'ten', 'tens')}, which is ${a * 10}.` },
         answer: a * b * 10,
-        hints: ['Use a times table fact you know.', `${a * 10} is ${a} tens.`, `${a} × ${b} = ${a * b}.`],
-        explanation: `${a} tens × ${b} = ${a * b} tens, which is ${a * b * 10}.`,
+        hints: ['Use a times table fact you know.', `${a * 10} is ${T(a)}.`, `${a} × ${b} = ${a * b}.`],
+        explanation: `${T(a)} × ${b} = ${T(a * b)}, which is ${a * b * 10}.`,
       }
     }
 
@@ -1776,7 +1776,7 @@ const multiply2d1d: Generator = {
         }
       }
       const ds = [
-        { value: tn * m + on, why: `This only multiplies the tens. The ${on} ones need multiplying by ${m} too.` },
+        { value: tn * m + on, why: `This only multiplies the tens. The ${on === 1 ? '1 one needs' : `${on} ones need`} multiplying by ${m} too.` },
         { value: n + m, why: 'This adds the numbers. × means groups of.' },
         { value: p + 10, why: 'Check the ones part again. Only carry the tens from it.' },
         { value: p - 10, why: `Check the ones part again. ${on} × ${m} = ${on * m}.` },
@@ -1934,7 +1934,7 @@ const fractions3: Generator = {
           { value: frac(d, d - s), why: 'The top number shows the parts you want. The bottom number shows all the parts.' },
         ]),
         hints: ['Count the parts that are not shaded.', 'The bottom number is all the equal parts.', `There are ${d} equal parts and ${s} ${s === 1 ? 'is' : 'are'} shaded.`],
-        explanation: `${d} - ${s} = ${d - s} parts are not shaded, so the answer is ${frac(d - s, d)}.`,
+        explanation: `${d} - ${s} = ${d - s === 1 ? '1 part is' : `${d - s} parts are`} not shaded, so the answer is ${frac(d - s, d)}.`,
       }
     }
 
@@ -1962,7 +1962,7 @@ const fractions3: Generator = {
         prompt: `Which picture shows ${frac(s, d)} shaded?`,
         ...figChoice(rng, fracFig(shape, d, s), wrong),
         hints: [`${frac(s, d)} means ${s} of ${d} equal parts.`, 'Count the equal parts in each picture, then count the shaded parts.', `Look for a shape with ${d} equal parts.`],
-        explanation: `The right picture has ${d} equal parts with ${s} shaded, which is ${frac(s, d)}.`,
+        explanation: `The correct picture has ${d} equal parts with ${s} shaded, which is ${frac(s, d)}.`,
       }
     }
 
@@ -2407,7 +2407,7 @@ const equivalent3: Generator = {
         type: 'numeric',
         prompt: `How many ${name} make ${frac(a, b)}?`,
         answer: a * (d2 / b),
-        hints: [`A ${name.slice(0, -1)} is ${frac(1, d2)}.`, `Write ${frac(a, b)} as a fraction with ${d2} at the bottom.`, a === 1 ? `Draw ${frac(1, b)} of a bar, then split every part into smaller parts until there are ${d2}.` : `${b} × ${d2 / b} = ${d2}.`],
+        hints: [`${cap(art(name.slice(0, -1)))} is ${frac(1, d2)}.`, `Write ${frac(a, b)} as a fraction with ${d2} at the bottom.`, a === 1 ? `Draw ${frac(1, b)} of a bar, then split every part into smaller parts until there are ${d2}.` : `${b} × ${d2 / b} = ${d2}.`],
         explanation: `${frac(a, b)} = ${frac(a * (d2 / b), d2)}, so ${a * (d2 / b)} ${name} make ${frac(a, b)}.`,
       }
     }
@@ -2619,7 +2619,7 @@ const moneyRupiah3: Generator = {
         prompt: `You can use Rp500 and Rp1.000 coins, and Rp2.000, Rp5.000, Rp10.000 and Rp20.000 notes. What is the smallest number of coins and notes that make ${rupiah(x)}?`,
         answer: pieces.length,
         hints: ['Use the biggest note you can first.', 'Keep choosing the biggest note or coin that still fits.', `Start with ${art(rupiah(pieces[0]!) + ' ' + NOTE_OR_COIN(pieces[0]!))}. What is left?`],
-        explanation: `${pieces.map((v) => rupiah(v)).join(' + ')} = ${rupiah(x)}. That is ${pieces.length} coins and notes.`,
+        explanation: `${pieces.map((v) => rupiah(v)).join(' + ')} = ${rupiah(x)}. That is ${pieces.length === 1 ? `1 ${x <= 1000 ? 'coin' : 'note'}` : `${pieces.length} coins and notes`}.`,
       }
     }
 
@@ -2676,7 +2676,7 @@ const timeClock3: Generator = {
         figure,
         ...textChoice(rng, timeWords(h, m), clockWrong(h, m)),
         hints: ['The long hand shows the minutes. The short hand shows the hour.', 'Count in 5s from the 12 to the long hand.', m === 0 ? 'The long hand points at the 12.' : `The long hand points at the ${m / 5}.`],
-        explanation: `The long hand is on the ${m === 0 ? 12 : m / 5}, which means ${m === 0 ? "o'clock" : `${m} minutes`}. The short hand ${m <= 30 ? `has just passed ${h}` : `is nearly at ${hour12(h + 1)}`}. The time is ${timeWords(h, m)}.`,
+        explanation: `The long hand is on the ${m === 0 ? 12 : m / 5}, which means ${m === 0 ? "o'clock" : `${m} minutes`}. The short hand ${m === 0 ? `is on the ${h}` : m <= 30 ? `has just passed ${h}` : `is nearly at ${hour12(h + 1)}`}. The time is ${timeWords(h, m)}.`,
       }
     }
 
@@ -2950,8 +2950,8 @@ const timeIntervals3: Generator = {
           { value: `${nd - 1 > 0 ? nd - 1 : nd + 2} ${next}`, why: `${MONTHS[mo]} has ${days} days, not ${days - 1}.` },
           { value: `${add - d > 0 ? add - d : nd + 3} ${next}`, why: `Count on ${add} days from ${d} ${MONTHS[mo]}.` },
         ]),
-        hints: [`How many days does ${MONTHS[mo]} have?`, `Count on to the end of ${MONTHS[mo]} first, then into ${next}.`, `From ${d} ${MONTHS[mo]} to ${days} ${MONTHS[mo]} is ${days - d} days.`],
-        explanation: `${days - d} days takes you to ${days} ${MONTHS[mo]}. ${add - (days - d)} more days is ${nd} ${next}.`,
+        hints: [`How many days does ${MONTHS[mo]} have?`, `Count on to the end of ${MONTHS[mo]} first, then into ${next}.`, `From ${d} ${MONTHS[mo]} to ${days} ${MONTHS[mo]} is ${plural(days - d, 'day', 'days')}.`],
+        explanation: `${plural(days - d, 'day takes', 'days take')} you to ${days} ${MONTHS[mo]}. ${plural(add - (days - d), 'more day', 'more days')} is ${nd} ${next}.`,
         tags: WORD,
       }
     }
@@ -3147,7 +3147,7 @@ const length3: Generator = {
         type: 'order',
         prompt: 'Put the lengths in order, starting with the shortest.',
         items: sorted.map((x) => x.t),
-        hints: ['Change all the lengths into centimetres first.', '1 m = 100 cm.', `${sorted[sorted.length - 1]!.t} is ${sorted[sorted.length - 1]!.v} cm.`],
+        hints: ['Change all the lengths into centimetres first.', '1 m = 100 cm.', `${sorted[sorted.length - 1]!.t}${sorted[sorted.length - 1]!.t.includes(' m') ? ` is ${sorted[sorted.length - 1]!.v} cm` : ' is already in centimetres'}.`],
         explanation: `In centimetres: ${sorted.map((x) => x.v).join(', ')}. So the order is ${sorted.map((x) => x.t).join(', ')}.`,
       }
     }
@@ -3390,7 +3390,7 @@ const temperature3: Generator = {
         prompt: `Which thermometer shows ${v} °C?`,
         ...figChoice(rng, th(v), wrong.slice(0, 3).map((x) => ({ figure: th(x), why: `This thermometer shows ${x} °C.` }))),
         hints: ['Look at the top of the red line on each thermometer.', 'Each mark is 5 degrees.', `Find ${v - (v % 10)} on the scale first.`],
-        explanation: `The right thermometer has its line at ${v} °C.`,
+        explanation: `The correct thermometer has its line at ${v} °C.`,
       }
     }
 
@@ -3449,8 +3449,8 @@ const temperature3: Generator = {
         prompt: `At 7 a.m. it was ${a} °C. At 1 p.m. it was ${b} °C. How many degrees warmer was it at 1 p.m.?`,
         answer: b - a,
         unit: '°C',
-        hints: ['Find the difference between the two temperatures.', `Count up from ${a} to ${b}.`, `From ${a} to ${Math.ceil((a + 1) / 10) * 10} is ${Math.ceil((a + 1) / 10) * 10 - a} degrees.`],
-        explanation: `${b} - ${a} = ${b - a}, so it was ${b - a} degrees warmer.`,
+        hints: ['Find the difference between the two temperatures.', `Count up from ${a} to ${b}.`, `From ${a} to ${Math.ceil((a + 1) / 10) * 10} is ${plural(Math.ceil((a + 1) / 10) * 10 - a, 'degree', 'degrees')}.`],
+        explanation: `${b} - ${a} = ${b - a}, so it was ${plural(b - a, 'degree', 'degrees')} warmer.`,
         tags: WORD,
       }
     }
@@ -3480,7 +3480,7 @@ const temperature3: Generator = {
         answer: hi - lo,
         unit: '°C',
         hints: ['Find the highest and the lowest temperature.', 'Take the lowest away from the highest.', `The highest temperature is ${hi} °C.`],
-        explanation: `The warmest was ${hi} °C and the coolest was ${lo} °C. ${hi} - ${lo} = ${hi - lo} degrees.`,
+        explanation: `The warmest was ${hi} °C and the coolest was ${lo} °C. ${hi} - ${lo} = ${plural(hi - lo, 'degree', 'degrees')}.`,
       }
     }
 
@@ -3767,13 +3767,41 @@ const perimeterArea3: Generator = {
         const chosen = rng.sample([...byPer.keys()], 4)
         const longest = rng.chance(0.5)
         const target = longest ? Math.max(...chosen) : Math.min(...chosen)
-        const fig = (c: Cell[]): Fig => ({
-          kind: 'grid',
-          rows: Math.max(...c.map((x) => x[0])) + 1,
-          cols: Math.max(...c.map((x) => x[1])) + 1,
-          shaded: c,
-          alt: `A shape made of ${c.length} squares. Its perimeter is ${cellPerimeter(c)} units.`,
-        })
+        // Keliling di kelas ini dihitung dari tepi luar, jadi bangun berlubang membuat kunci salah. Tanpa rng: undian tetap sama.
+        const noHole = (c: Cell[]): Cell[] => {
+          const has = new Set(c.map(([r, k]) => `${r},${k}`))
+          const rows = Math.max(...c.map((x) => x[0])) + 1
+          const cols = Math.max(...c.map((x) => x[1])) + 1
+          const out = new Set<string>()
+          const stack: Cell[] = [[-1, -1]]
+          while (stack.length) {
+            const [r, k] = stack.pop()!
+            const key = `${r},${k}`
+            if (r < -1 || k < -1 || r > rows || k > cols || out.has(key) || has.has(key)) continue
+            out.add(key)
+            stack.push([r + 1, k], [r - 1, k], [r, k + 1], [r, k - 1])
+          }
+          if (out.size + has.size === (rows + 2) * (cols + 2)) return c
+          // Tangga: baris atas dan kolom kiri penuh, sisanya mengisi dari kiri atas. Luas dan keliling tetap, tanpa lubang.
+          const half = cellPerimeter(c) / 2
+          const w = Math.ceil(half / 2)
+          const h = half - w
+          const cells: Cell[] = []
+          for (let k = 0; k < w; k++) cells.push([0, k])
+          for (let r = 1; r < h; r++) cells.push([r, 0])
+          for (let r = 1; r < h; r++) for (let k = 1; k < w; k++) if (cells.length < c.length) cells.push([r, k])
+          return norm(cells)
+        }
+        const fig = (raw: Cell[]): Fig => {
+          const c = noHole(raw)
+          return {
+            kind: 'grid',
+            rows: Math.max(...c.map((x) => x[0])) + 1,
+            cols: Math.max(...c.map((x) => x[1])) + 1,
+            shaded: c,
+            alt: `A shape made of ${c.length} squares. Its perimeter is ${cellPerimeter(c)} units.`,
+          }
+        }
         return {
           type: 'mcq',
           prompt: `Each shape has an area of ${area} squares. Which shape has the ${longest ? 'longest' : 'shortest'} perimeter?`,
@@ -3823,10 +3851,10 @@ const shapes2d3: Generator = {
       return {
         type: 'numeric',
         prompt: `How many ${what} does this shape have?`,
-        figure: shapeFig(p.shape, `A ${p.name} with ${p.sides} straight sides.`),
+        figure: shapeFig(p.shape, `${cap(art(p.name))} with ${p.sides} straight sides.`),
         answer: p.sides,
         hints: [what === 'sides' ? 'A side is a straight edge.' : 'A vertex is a corner, where two sides meet.', `Put your finger on one ${what === 'sides' ? 'side' : 'corner'} and count around the shape.`, `Stop when you get back to the ${what === 'sides' ? 'side' : 'corner'} you started on.`],
-        explanation: `The shape has ${p.sides} sides and ${p.sides} vertices.${p.name !== 'quadrilateral' ? ` It is a ${p.name}.` : ' It is a quadrilateral.'}`,
+        explanation: `The shape has ${p.sides} sides and ${p.sides} vertices.${p.name !== 'quadrilateral' ? ` It is ${art(p.name)}.` : ' It is a quadrilateral.'}`,
       }
     }
 
@@ -3839,9 +3867,10 @@ const shapes2d3: Generator = {
         type: 'mcq',
         prompt: 'What is the name of this shape?',
         figure: shapeFig(p.shape, `A shape with ${p.sides} straight sides.`),
-        ...textChoice(rng, p.name, rng.shuffle(names.filter((n) => n !== p.name)).slice(0, 3).map((n) => ({ value: n, why: `A ${n} has ${facts[n]}.` }))),
+        // Persegi juga persegi panjang: jangan jadi opsi saat kuncinya persegi. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, p.name, rng.shuffle(names.filter((n) => n !== p.name)).filter((n) => !(p.name === 'square' && n === 'rectangle')).slice(0, 3).map((n) => ({ value: n, why: `${cap(art(n))} has ${facts[n]}.` }))),
         hints: ['Count the sides.', 'Tri means 3, penta means 5, hexa means 6 and octa means 8.', 'Put your finger on one side and count around the shape.'],
-        explanation: `The shape has ${p.sides} sides, so it is a ${p.name}.`,
+        explanation: `The shape has ${p.sides} sides, so it is ${art(p.name)}.`,
       }
     }
 
@@ -3850,7 +3879,7 @@ const shapes2d3: Generator = {
       return {
         type: 'numeric',
         prompt: 'How many right angles does this shape have?',
-        figure: shapeFig(p.shape, `A ${p.name === 'quadrilateral' ? 'quadrilateral that leans' : p.name}. It has ${p.ra} right ${p.ra === 1 ? 'angle' : 'angles'}.`),
+        figure: shapeFig(p.shape, `${cap(art(p.name === 'quadrilateral' ? 'quadrilateral that leans' : p.name))}. It has ${p.ra} right ${p.ra === 1 ? 'angle' : 'angles'}.`),
         answer: p.ra,
         hints: ['A right angle is a square corner, like the corner of a book.', 'Check each corner with the corner of a piece of paper.', 'Start at one corner and check each corner in turn.'],
         explanation: p.ra ? `${p.ra === 4 ? 'All 4 corners are' : 'One corner is'} a square corner, so the shape has ${p.ra} right ${p.ra === 1 ? 'angle' : 'angles'}.` : 'None of the corners is a square corner, so the shape has 0 right angles.',
@@ -3867,8 +3896,8 @@ const shapes2d3: Generator = {
         type: 'mcq',
         prompt: `Which shape has ${n} sides?`,
         ...figChoice(rng, shapeFig(correct.shape, `A shape with ${n} sides.`), wrong),
-        hints: ['Count the sides of each shape.', 'Count around each shape, one side at a time.', `Look for a ${correct.name}.`],
-        explanation: `A ${correct.name} has ${n} sides.`,
+        hints: ['Count the sides of each shape.', 'Count around each shape, one side at a time.', `Look for ${art(correct.name)}.`],
+        explanation: `${cap(art(correct.name))} has ${n} sides.`,
       }
     }
 
@@ -3885,7 +3914,7 @@ const shapes2d3: Generator = {
           prompt: 'Sort the shapes by their sides.',
           groups: ['Only straight sides', 'Has a curved side'],
           items: rng.shuffle(items),
-          hints: ['Picture each shape in your head.', 'A circle has a curved side. A square has only straight sides.', `Draw a ${items[0]!.text} in the air with your finger.`],
+          hints: ['Picture each shape in your head.', 'A circle has a curved side. A square has only straight sides.', `Draw ${art(items[0]!.text)} in the air with your finger.`],
           explanation: `Curved: ${listAnd(items.filter((x) => x.group === 1).map((x) => x.text))}. Only straight: ${listAnd(items.filter((x) => x.group === 0).map((x) => x.text))}.`,
         }
       }
@@ -3899,7 +3928,7 @@ const shapes2d3: Generator = {
         prompt: 'A quadrilateral has 4 straight sides. Sort the shapes.',
         groups: ['Quadrilateral', 'Not a quadrilateral'],
         items: rng.shuffle(items),
-        hints: ['Count the sides of each shape in your head.', 'Quad means 4. A quadrilateral has exactly 4 straight sides.', `How many sides does a ${items[0]!.text} have?`],
+        hints: ['Count the sides of each shape in your head.', 'Quad means 4. A quadrilateral has exactly 4 straight sides.', `How many sides does ${art(items[0]!.text)} have?`],
         explanation: `Quadrilaterals: ${listAnd(items.filter((x) => x.group === 0).map((x) => x.text))}. The others do not have exactly 4 straight sides.`,
       }
     }
@@ -3907,7 +3936,7 @@ const shapes2d3: Generator = {
     const whoAmI = (): GeneratedItem => {
       const riddles = [
         { clue: 'I have 4 sides and 4 right angles. My sides are not all the same length.', a: 'rectangle', wrong: [['square', 'A square has 4 equal sides.'], ['hexagon', 'A hexagon has 6 sides.'], ['triangle', 'A triangle has 3 sides.']] },
-        { clue: 'I have 4 equal sides and 4 right angles.', a: 'square', wrong: [['rectangle', 'A rectangle has 2 long sides and 2 short sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['circle', 'A circle has no corners.']] },
+        { clue: 'I have 4 equal sides and 4 right angles.', a: 'square', wrong: [['triangle', 'A triangle has 3 sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['circle', 'A circle has no corners.']] },
         { clue: 'I have 3 sides and one of my angles is a right angle.', a: 'right-angled triangle', wrong: [['square', 'A square has 4 sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['rectangle', 'A rectangle has 4 sides.']] },
         { clue: 'I have 6 straight sides and 6 vertices.', a: 'hexagon', wrong: [['pentagon', 'A pentagon has 5 sides.'], ['octagon', 'An octagon has 8 sides.'], ['triangle', 'A triangle has 3 sides.']] },
         { clue: 'I have one curved side and no vertices.', a: 'circle', wrong: [['semicircle', 'A semicircle has a straight side too.'], ['square', 'A square has 4 vertices.'], ['triangle', 'A triangle has 3 vertices.']] },
@@ -3919,7 +3948,7 @@ const shapes2d3: Generator = {
         prompt: `${r.clue} What shape am I?`,
         ...textChoice(rng, r.a, r.wrong.map(([v, w]) => ({ value: v!, why: w! }))),
         hints: ['Read one clue at a time.', 'Cross out the shapes that do not match the first clue.', 'Now check the second clue for the shapes that are left.'],
-        explanation: `A ${r.a} matches every clue: ${r.clue.replace(/^I have /, '').replace(/\.$/, '').replace(/ I /g, ' it ').replace(/My /g, 'its ')}.`,
+        explanation: `${cap(art(r.a))} matches every clue: ${r.clue.replace(/^I have /, '').replace(/\.$/, '').replace(/ I /g, ' it ').replace(/\. My /g, ', and its ').replace(/My /g, 'its ')}.`,
       }
     }
 
@@ -3998,7 +4027,8 @@ const shapes3d3: Generator = {
         type: 'mcq',
         prompt: 'What is the name of this 3D shape?',
         figure: { kind: 'solid', solid: sd.solid, alt: `A 3D shape with ${sd.faceShapes}.` },
-        ...textChoice(rng, sd.name, rng.shuffle(SOLID3.filter((x) => x !== sd)).slice(0, 3).map((x) => ({ value: x.name, why: `A ${x.name} has ${x.faceShapes}.` }))),
+        // Kubus juga balok: jangan jadi opsi saat kuncinya kubus. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, sd.name, rng.shuffle(SOLID3.filter((x) => x !== sd)).filter((x) => !(sd.solid === 'cube' && x.solid === 'cuboid')).slice(0, 3).map((x) => ({ value: x.name, why: `A ${x.name} has ${x.faceShapes}.` }))),
         hints: ['Look at the shape of the faces.', 'Is any face curved? Are there any triangles?', 'Count the flat faces you can see.'],
         explanation: `This shape has ${sd.faceShapes}, so it is a ${sd.name}.`,
       }
@@ -4045,7 +4075,7 @@ const shapes3d3: Generator = {
         figure: { kind: 'solid', solid: q.s, alt: `A picture of a ${q.s}.` },
         answer: q.a,
         hints: [q.ask === 'flat faces' ? 'A flat face could sit flat on a table.' : 'A vertex is a pointed corner.', `Picture ${q.s === 'cylinder' ? 'a tin of soup' : q.s === 'cone' ? 'an ice cream cone' : 'a ball'}.`, q.ask === 'flat faces' ? 'Look at the top and the bottom of the shape.' : 'Run your finger over the shape. Is there anywhere sharp?'],
-        explanation: `${q.why} So it has ${q.a} ${q.ask}.`,
+        explanation: `${q.why} So it has ${q.a === 1 ? `1 ${q.ask === 'vertices' ? 'vertex' : q.ask.replace(/s$/, '')}` : `${q.a} ${q.ask}`}.`,
       }
     }
 
@@ -4055,7 +4085,8 @@ const shapes3d3: Generator = {
         type: 'mcq',
         prompt: `What are the faces of a ${sd.name}?`,
         figure: { kind: 'solid', solid: sd.solid, alt: `A picture of a ${sd.name}.` },
-        ...textChoice(rng, sd.faceShapes, rng.shuffle(SOLID3.filter((x) => x.faceShapes !== sd.faceShapes)).slice(0, 3).map((x) => ({ value: x.faceShapes, why: `These are the faces of a ${x.name}.` }))),
+        // Sisi persegi juga persegi panjang: 6 rectangles bukan pengecoh untuk kubus. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, sd.faceShapes, rng.shuffle(SOLID3.filter((x) => x.faceShapes !== sd.faceShapes)).filter((x) => !(sd.solid === 'cube' && x.solid === 'cuboid')).slice(0, 3).map((x) => ({ value: x.faceShapes, why: x.solid === 'sphere' ? 'This is the surface of a sphere.' : `These are the faces of a ${x.name}.` }))),
         hints: ['Imagine taking the shape apart, face by face.', 'Look at the bottom face first, then the faces around the sides.', `What shape is the bottom of a ${sd.name}?`],
         explanation: `A ${sd.name} has ${sd.faceShapes}.`,
       }
@@ -4069,7 +4100,7 @@ const shapes3d3: Generator = {
         groups: ['Can roll', 'Cannot roll'],
         items: rng.shuffle(items).map((x) => ({ text: x.name, group: x.rolls ? 0 : 1 })),
         hints: ['A shape can roll if it has a curved surface.', 'Shapes with only flat faces slide, but they do not roll.', `Does a ${items[0]!.name} have a curved surface?`],
-        explanation: `${cap(listAnd(items.filter((x) => x.rolls).map((x) => x.name)))} can roll because they have a curved surface.`,
+        explanation: `${cap(listAnd(items.filter((x) => x.rolls).map((x) => art(x.name))))} can roll because they have a curved surface.`,
       }
     }
 
@@ -4162,7 +4193,7 @@ const symmetry3: Generator = {
   skill: 'm3.symmetry',
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
-    const lineFig = (s: SymInfo, line: 'vertical' | 'horizontal'): Fig => ({ kind: 'shape', shape: s.shape, lineOfSymmetry: line, alt: `A ${s.name} with a dashed ${line} line.` })
+    const lineFig = (s: SymInfo, line: 'vertical' | 'horizontal'): Fig => ({ kind: 'shape', shape: s.shape, lineOfSymmetry: line, alt: `${cap(art(s.name))} with a dashed ${line} line.` })
 
     const whichLine = (): GeneratedItem => {
       const goods = SYM_SHAPES.flatMap((s) => [...(s.v ? [{ s, line: 'vertical' as const }] : []), ...(s.h ? [{ s, line: 'horizontal' as const }] : [])])
@@ -4208,13 +4239,13 @@ const symmetry3: Generator = {
     const both = (): GeneratedItem => {
       const good = rng.pick(SYM_SHAPES.filter((s) => s.v && s.h))
       const bad = rng.sample(SYM_SHAPES.filter((s) => !(s.v && s.h)), 3)
-      const f = (s: SymInfo): Fig => ({ kind: 'shape', shape: s.shape, alt: `A picture of a ${s.name}.` })
+      const f = (s: SymInfo): Fig => ({ kind: 'shape', shape: s.shape, alt: `A picture of ${art(s.name)}.` })
       return {
         type: 'mcq',
         prompt: 'Which shape has a vertical and a horizontal line of symmetry?',
-        ...figChoice(rng, f(good), bad.map((s) => ({ figure: f(s), why: s.v ? `A ${s.name} only has a vertical line of symmetry.` : `A ${s.name} has no vertical or horizontal line of symmetry.` }))),
+        ...figChoice(rng, f(good), bad.map((s) => ({ figure: f(s), why: s.v ? `${cap(art(s.name))} only has a vertical line of symmetry.` : `${cap(art(s.name))} has no vertical or horizontal line of symmetry.` }))),
         hints: ['Check two folds for each shape: up and down, then across.', 'Both halves must match for each fold.', 'Shapes that look the same upside down often have both lines.'],
-        explanation: `A ${good.name} can be folded down the middle and across the middle, and the halves match both times.`,
+        explanation: `${cap(art(good.name))} can be folded down the middle and across the middle, and the halves match both times.`,
       }
     }
 
@@ -4362,7 +4393,7 @@ const anglesTurns3: Generator = {
         figure: { kind: 'clock', h: 12, m: (from % 12) * 5, alt: `A clock with the minute hand pointing at ${from}.` },
         ...textChoice(rng, t.name, TURNS.filter((x) => x !== t).map((x) => ({ value: x.name, why: `A ${x.name} moves the hand ${3 * x.k} numbers.` }))),
         hints: ['Each right angle moves the minute hand 3 numbers.', `Count the numbers from ${from} to ${to}, going clockwise.`, `Count in 3s from ${from}, going clockwise.`],
-        explanation: `From ${from} to ${to} is ${3 * t.k} numbers, which is ${t.k} quarter ${t.k === 1 ? 'turn' : 'turns'}: a ${t.name}.`,
+        explanation: `From ${from} to ${to} is ${3 * t.k} numbers, which is ${t.k === 1 ? 'a quarter turn' : `${t.k} quarter turns: a ${t.name}`}.`,
       }
     }
 
@@ -4408,7 +4439,7 @@ function mapFig(points: readonly MapPoint[]): Fig {
     kind: 'coordinates',
     size: 7,
     points: points.map((p) => ({ x: p.x, y: p.y, label: p.label })),
-    alt: `A map on a square grid. ${points.map((p) => `${p.label} is the ${p.name}, ${p.x} squares from the left and ${p.y} squares up`).join('. ')}.`,
+    alt: `A map on a square grid. ${points.map((p) => `${p.label} is the ${p.name}, ${plural(p.x, 'square', 'squares')} from the left and ${plural(p.y, 'square', 'squares')} up`).join('. ')}.`,
   }
 }
 
@@ -4596,7 +4627,7 @@ const tallyTables3: Generator = {
         figure: tallyFig(labels, values, s.topic),
         answer: values[i]!,
         hints: ['Each tally mark stands for 1 child.', 'Each gate of marks with a line across stands for five. Count the gates in fives.', `Find the row for ${labels[i]}.`],
-        explanation: `${labels[i]} has ${Math.floor(values[i]! / 5)} ${Math.floor(values[i]! / 5) === 1 ? 'gate' : 'gates'} of 5 and ${values[i]! % 5} more, which is ${values[i]}.`,
+        explanation: `The ${labels[i]} row has ${Math.floor(values[i]! / 5)} ${Math.floor(values[i]! / 5) === 1 ? 'gate' : 'gates'} of 5 and ${values[i]! % 5} more, which is ${values[i]}.`,
       }
     }
 
@@ -4623,9 +4654,9 @@ const tallyTables3: Generator = {
           type: 'mcq',
           prompt: `The tally chart shows ${s.of('some children')}. Which was ${most ? 'the most' : 'the least'} popular?`,
           figure: tallyFig(labels, values, s.topic),
-          ...textChoice(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `${l} has ${values[labels.indexOf(l)]}. ${ans} has ${most ? 'more' : 'fewer'}.` }))),
+          ...textChoice(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `The ${l} row has ${values[labels.indexOf(l)]}. The ${ans} row has ${most ? 'more' : 'fewer'}.` }))),
           hints: ['Count the tally marks in each row.', most ? 'The most popular has the most marks.' : 'The least popular has the fewest marks.', `Write the number next to each row.`],
-          explanation: `${ans} has ${target}, which is the ${most ? 'most' : 'fewest'}.`,
+          explanation: `The ${ans} row has ${target}, which is the ${most ? 'most' : 'fewest'}.`,
         }
       }
       const [i, j] = rng.sample([0, 1, 2, 3], 2) as [number, number]
@@ -4636,7 +4667,7 @@ const tallyTables3: Generator = {
         figure: tallyFig(labels, values, s.topic),
         answer: values[a]! - values[b]!,
         hints: ['Count both rows first.', 'How many more means find the difference.', `Count the marks for ${labels[b]} first.`],
-        explanation: `${labels[a]} has ${values[a]} and ${labels[b]} has ${values[b]}. ${values[a]} - ${values[b]} = ${values[a]! - values[b]!}.`,
+        explanation: `The ${labels[a]} row has ${values[a]} and the ${labels[b]} row has ${values[b]}. ${values[a]} - ${values[b]} = ${values[a]! - values[b]!}.`,
       }
     }
 
@@ -4674,7 +4705,7 @@ const tallyTables3: Generator = {
         prompt: `Each child chose one answer. How many children were asked about their ${s.topic}?`,
         figure: tallyFig(labels, values, s.topic),
         answer: sum,
-        hints: ['Count each row of tally marks.', 'Add the four numbers together.', `${labels[0]} has ${values[0]}.`],
+        hints: ['Count each row of tally marks.', 'Add the four numbers together.', `The ${labels[0]} row has ${values[0]}.`],
         explanation: `${values.join(' + ')} = ${sum} children.`,
       }
     }
@@ -4708,9 +4739,9 @@ const tallyTables3: Generator = {
           type: 'mcq',
           prompt: `The table shows ${s.of('two classes')}. Which was the most popular in both classes together?`,
           figure: { kind: 'table', head: [cap(s.topic), 'Class 3A', 'Class 3B'], rows: labels.map((l, i) => [l, String(a[i]), String(b[i])]), alt: `Table: ${labels.map((l, i) => `${l} 3A ${a[i]}, 3B ${b[i]}`).join('; ')}.` },
-          ...textChoice(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `${l} has ${a[labels.indexOf(l)]} + ${b[labels.indexOf(l)]} = ${sums[labels.indexOf(l)]}. ${ans} has ${max}.` }))),
+          ...textChoice(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `The ${l} row has ${a[labels.indexOf(l)]} + ${b[labels.indexOf(l)]} = ${sums[labels.indexOf(l)]}. The ${ans} row has ${max}.` }))),
           hints: ['Add the two classes together for each row.', 'Write the total next to each row, then compare.', `${labels[(sums.indexOf(max) + 1) % 4]}: ${a[(sums.indexOf(max) + 1) % 4]} + ${b[(sums.indexOf(max) + 1) % 4]} = ${sums[(sums.indexOf(max) + 1) % 4]}.`],
-          explanation: `Totals: ${labels.map((l, i) => `${l} ${sums[i]}`).join(', ')}. ${ans} has the most with ${max}.`,
+          explanation: `Totals: ${labels.map((l, i) => `${l} ${sums[i]}`).join(', ')}. The ${ans} row has the most with ${max}.`,
         }
       }
       return total()
@@ -4769,7 +4800,7 @@ const pictogramsBars3: Generator = {
         figure,
         answer: values[i]!,
         hints: ['Look at the key first.', `Each whole symbol is ${key}.${halves ? ` Half a symbol is ${key / 2}.` : ''}`, `Count in ${key}s along the row for ${labels[i]}.`],
-        explanation: counts[i]! % 1 ? `${labels[i]} has ${plural(Math.floor(counts[i]!), 'whole symbol', 'whole symbols')} and a half. ${Math.floor(counts[i]!)} × ${key} = ${Math.floor(counts[i]!) * key}, and half a symbol is ${key / 2}, so ${values[i]}.` : `${labels[i]} has ${plural(counts[i]!, 'symbol', 'symbols')}. ${counts[i]} × ${key} = ${values[i]}.`,
+        explanation: counts[i]! % 1 ? `The ${labels[i]} row has ${plural(Math.floor(counts[i]!), 'whole symbol', 'whole symbols')} and a half. ${Math.floor(counts[i]!)} × ${key} = ${Math.floor(counts[i]!) * key}, and half a symbol is ${key / 2}, so ${values[i]}.` : `The ${labels[i]} row has ${plural(counts[i]!, 'symbol', 'symbols')}. ${counts[i]} × ${key} = ${values[i]}.`,
       }
     }
 
@@ -4855,7 +4886,7 @@ const pictogramsBars3: Generator = {
         prompt: 'How many children are shown in the pictogram altogether?',
         figure,
         answer: sum,
-        hints: ['Find the value of each row using the key.', 'Then add the four rows together.', `${labels[0]} has ${symCount(counts[0]!)}, which is ${values[0]}.`],
+        hints: ['Find the value of each row using the key.', 'Then add the four rows together.', `The ${labels[0]} row has ${symCount(counts[0]!)}, which is ${values[0]}.`],
         explanation: `${values.join(' + ')} = ${sum} children.`,
       }
     }
@@ -4933,7 +4964,7 @@ const vennCarroll3: Generator = {
   generate({ rng, level }) {
     const regionText = (r: string, a: NumRule, b: NumRule) =>
       r === 'a' ? `In the ${lc(a.name)} circle only` : r === 'b' ? `In the ${lc(b.name)} circle only` : r === 'both' ? 'In both circles' : 'Outside both circles'
-    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} and ${b.test(n) ? '' : 'not '}${b.pred}`
+    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} ${!a.test(n) && b.test(n) ? 'but is' : 'and'} ${b.test(n) ? '' : 'not '}${b.pred}`
 
     const where = (): GeneratedItem => {
       const [a, b] = rulePair(rng)
@@ -5018,7 +5049,7 @@ const vennCarroll3: Generator = {
         },
         ...numChoice(rng, moved, rng.sample(all.filter((x) => x !== moved), 3).map((x) => ({ value: x, why: `${x} fits both rules for its box.` })), { spread: [] }),
         hints: ['Each box has two rules: one from its column and one from its row.', 'Check every number against both rules for its box.', 'Start with the top left box.'],
-        explanation: `${moved} is ${a.test(moved) ? '' : 'not '}${a.pred} and ${b.test(moved) ? '' : 'not '}${b.pred}, so it belongs in the box for ${a.test(moved) ? lc(a.short) : `not ${lc(a.short)}`} and ${b.test(moved) ? lc(b.short) : `not ${lc(b.short)}`}.`,
+        explanation: `${moved} is ${a.test(moved) ? '' : 'not '}${a.pred} ${!a.test(moved) && b.test(moved) ? 'but is' : 'and'} ${b.test(moved) ? '' : 'not '}${b.pred}, so it belongs in the box for ${a.test(moved) ? lc(a.short) : `not ${lc(a.short)}`} and ${b.test(moved) ? lc(b.short) : `not ${lc(b.short)}`}.`,
       }
     }
 
@@ -5134,7 +5165,7 @@ const chance3: Generator = {
         kind,
         `A bag has ${desc}. ${pickName(rng)} takes one fruit without looking. How likely is it to be ${art(ask.one)}?`,
         { kind: 'objects', items, alt: `A bag with ${desc}.` },
-        ['Count each kind of fruit in the bag.', `Is there any ${ask.one} in the bag? Is there more of it than the other fruit?`, `There ${a === 1 ? 'is' : 'are'} ${plural(a, p.one, p.many)} in the bag.`],
+        ['Count each kind of fruit in the bag.', `Are there any ${ask.many} in the bag? Are there more of them than other fruit?`, `There ${a === 1 ? 'is' : 'are'} ${plural(a, p.one, p.many)} in the bag.`],
         kind === 'impossible'
           ? `There is no ${ask.one} in the bag, so it is impossible.`
           : kind === 'certain'
@@ -5154,7 +5185,7 @@ const chance3: Generator = {
         'The spinner is spun once. How likely is it to land on a shaded part?',
         { kind: 'fraction', shape: 'circle', parts, shaded, alt: `A spinner with ${parts} equal parts. ${shaded} ${shaded === 1 ? 'part is' : 'parts are'} shaded.` },
         ['Count the shaded parts and the white parts.', 'Compare them. Are there more shaded parts or more white parts?', `There are ${parts} parts altogether.`],
-        `${shaded} out of ${parts} parts are shaded, so landing on a shaded part is ${kind}.`,
+        `${shaded} out of ${parts} ${shaded === 1 ? 'part is' : 'parts are'} shaded, so landing on a shaded part is ${kind}.`,
       )
     }
 
