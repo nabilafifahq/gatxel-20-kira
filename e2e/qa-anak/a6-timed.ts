@@ -98,8 +98,8 @@ async function main() {
       .filter((x) => x.href.startsWith('/quest/') || x.href.startsWith('/run/') || x.href.includes('/start')),
   )
   say('INFO', `g${grade} Today tambahan: ${JSON.stringify(stops.map((s) => s.name.slice(0, 45)))}`)
-  const test = stops.find((s) => /^(Test|Tes)\b/i.test(s.name))
-  const paper = stops.find((s) => /^Paper\b/i.test(s.name))
+  const test = stops.find((s) => /\b(test|tes)\b/i.test(s.name))
+  const paper = stops.find((s) => /\bpaper\b/i.test(s.name))
   if (test) await runTest(page, f, 'tes', test.href).catch((e) => say(false, `g${grade} tes gagal ${String(e).split('\n')[0]!.slice(0, 200)}`))
   else say(false, `g${grade}: tes tambahan tidak ditemukan`)
   await page.goto('/today')
