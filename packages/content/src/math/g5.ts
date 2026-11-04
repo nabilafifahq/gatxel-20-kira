@@ -1,6 +1,6 @@
 import type { Rng } from '@kira/core/rng'
 import type { FigureSpecInput } from '@kira/figures/spec'
-import { fmt, gcd, mcqFrom, NAMES, numberWords, rupiah } from './helpers'
+import { fmt, gcd, mcqFrom, NAMES, numberWords, plural, rupiah } from './helpers'
 import type { GeneratedItem, Generator } from './types'
 
 /**
@@ -585,10 +585,10 @@ const placeValueMillions: Generator = {
           `Each small step is ${fmt(step)}.`,
           `Count on from ${fmt(min)} in steps of ${fmt(step)}.`,
         ],
-        explanation: `${fmt(ans)} is ${k} steps of ${fmt(step)} after ${fmt(min)}.`,
+        explanation: `${fmt(ans)} is ${plural(k, 'step', 'steps')} of ${fmt(step)} after ${fmt(min)}.`,
         solution: [
           { say: `Work out the size of one step: ${fmt(step)}.` },
-          { say: `Count ${k} steps from ${fmt(min)}.`, show: `${fmt(min)} + ${k} × ${fmt(step)} = ${fmt(ans)}` },
+          { say: `Count ${plural(k, 'step', 'steps')} from ${fmt(min)}.`, show: `${fmt(min)} + ${k} × ${fmt(step)} = ${fmt(ans)}` },
         ],
       })
     }
@@ -975,10 +975,10 @@ const decimalPlaceValue: Generator = {
             'There are 10 small steps between them. Each step is 0.01.',
             `Count on from ${fx(min, 1)} in hundredths.`,
           ],
-          explanation: `${fx(ans, 2)} is ${h} hundredths more than ${fx(min, 1)}.`,
+          explanation: `${fx(ans, 2)} is ${plural(h, 'hundredth', 'hundredths')} more than ${fx(min, 1)}.`,
           solution: [
             { say: `Each small step is one hundredth.` },
-            { say: `Count ${h} steps from ${fx(min, 1)}.`, show: `${fx(min, 1)} + ${fx(dec(h, 2), 2)} = ${fx(ans, 2)}` },
+            { say: `Count ${plural(h, 'step', 'steps')} from ${fx(min, 1)}.`, show: `${fx(min, 1)} + ${fx(dec(h, 2), 2)} = ${fx(ans, 2)}` },
           ],
         })
       }
@@ -992,7 +992,7 @@ const decimalPlaceValue: Generator = {
       const f = { n: u, d: 10 ** dp }
       return textItem({
         prompt: `Write ${fmt(n)} as a fraction.`,
-        answers: [fracAnswers(f)],
+        answers: [trailing ? [...fracAnswers(f), `${u0}/100`] : fracAnswers(f)],
         hints: [
           'The last decimal place tells you the denominator.',
           `${fmt(n)} has ${dp === 1 ? 'one decimal place' : 'two decimal places'}, so the denominator is ${10 ** dp}.`,
@@ -1022,7 +1022,7 @@ const decimalPlaceValue: Generator = {
           hints: [
             `How many ${name} make 1 whole?`,
             dp === 1 ? '1 whole is 10 tenths.' : '1 whole is 100 hundredths, and 1 tenth is 10 hundredths.',
-            `${w} wholes make ${w * 10 ** dp} ${name}.`,
+            `${plural(w, 'whole', 'wholes')} ${w === 1 ? 'makes' : 'make'} ${w * 10 ** dp} ${name}.`,
           ],
           explanation: `${fmt(n)} = ${dp === 1 ? `${w * 10} + ${t}` : `${w * 100} + ${t * 10} + ${h}`} ${name} = ${u} ${name}.`,
           solution: [
@@ -1039,12 +1039,12 @@ const decimalPlaceValue: Generator = {
           hints: [
             'You can swap 1 one for 10 tenths.',
             `Only ${w - 1} ${w - 1 === 1 ? 'one is' : 'ones are'} used, so 1 one has been changed into tenths.`,
-            `1 one is 10 tenths. Add the ${t} tenths that are already there.`,
+            `1 one is 10 tenths. Add the ${plural(t, 'tenth', 'tenths')} that ${t === 1 ? 'is' : 'are'} already there.`,
           ],
-          explanation: `${fmt(n)} is ${w} ones and ${t} tenths. Change 1 one into 10 tenths: ${w - 1} ones and ${10 + t} tenths.`,
+          explanation: `${fmt(n)} is ${plural(w, 'one', 'ones')} and ${plural(t, 'tenth', 'tenths')}. Change 1 one into 10 tenths: ${plural(w - 1, 'one', 'ones')} and ${10 + t} tenths.`,
           solution: [
-            { say: `Start with ${w} ones and ${t} tenths.` },
-            { say: 'Swap 1 one for 10 tenths.', show: `${w - 1} ones + ${10 + t} tenths = ${fmt(n)}` },
+            { say: `Start with ${plural(w, 'one', 'ones')} and ${plural(t, 'tenth', 'tenths')}.` },
+            { say: 'Swap 1 one for 10 tenths.', show: `${plural(w - 1, 'one', 'ones')} + ${10 + t} tenths = ${fmt(n)}` },
           ],
         })
       }
@@ -1055,12 +1055,12 @@ const decimalPlaceValue: Generator = {
         hints: [
           'You can swap 1 tenth for 10 hundredths.',
           `Only ${t - 1} ${t - 1 === 1 ? 'tenth is' : 'tenths are'} used, so 1 tenth has been changed into hundredths.`,
-          `1 tenth is 10 hundredths. Add the ${h} hundredths that are already there.`,
+          `1 tenth is 10 hundredths. Add the ${plural(h, 'hundredth', 'hundredths')} that ${h === 1 ? 'is' : 'are'} already there.`,
         ],
-        explanation: `${fx(n, 2)} is ${w} ones, ${t} tenths and ${h} hundredths. Change 1 tenth into 10 hundredths: ${10 + h} hundredths.`,
+        explanation: `${fx(n, 2)} is ${plural(w, 'one', 'ones')}, ${plural(t, 'tenth', 'tenths')} and ${plural(h, 'hundredth', 'hundredths')}. Change 1 tenth into 10 hundredths: ${10 + h} hundredths.`,
         solution: [
           { say: `Start with ${placePhrase(t, -1)} and ${placePhrase(h, -2)}.` },
-          { say: 'Swap 1 tenth for 10 hundredths.', show: `${t - 1} tenths + ${10 + h} hundredths` },
+          { say: 'Swap 1 tenth for 10 hundredths.', show: `${plural(t - 1, 'tenth', 'tenths')} + ${10 + h} hundredths` },
         ],
       })
     }
@@ -1124,7 +1124,7 @@ const compareDecimals: Generator = {
         hints: [
           'Compare the whole number parts first.',
           'If they match, compare the tenths, then the hundredths.',
-          level === 1 ? `All the numbers have ${w} ones. Look at the tenths.` : 'Write each number with two decimal places, like 3.50, before you compare.',
+          level === 1 ? `All the numbers have ${plural(w, 'one', 'ones')}. Look at the tenths.` : 'Write each number with two decimal places, like 3.50, before you compare.',
         ],
         explanation: `${fmt(c)} is the ${greatest ? 'greatest' : 'smallest'}. In order: ${asc.map(fmt).join(', ')}.`,
         solution: [
@@ -1149,10 +1149,10 @@ const compareDecimals: Generator = {
             'Each small step is 0.05, so two steps make 0.1.',
             `${fmt(ans)} is between ${fx(dec(Math.floor((w * 100 + k * 5) / 10), 1), 1)} and ${fx(dec(Math.floor((w * 100 + k * 5) / 10) + 1, 1), 1)}.`,
           ],
-          explanation: `${fmt(ans)} is ${k} steps of 0.05 after ${w}.`,
+          explanation: `${fmt(ans)} is ${plural(k, 'step', 'steps')} of 0.05 after ${w}.`,
           solution: [
             { say: 'Find the tenths first, then the half step.' },
-            { say: `Count ${k} steps of 0.05 from ${w}.`, show: `${w} + ${k} × 0.05 = ${fmt(ans)}` },
+            { say: `Count ${plural(k, 'step', 'steps')} of 0.05 from ${w}.`, show: `${w} + ${k} × 0.05 = ${fmt(ans)}` },
           ],
         })
       }
@@ -1722,9 +1722,9 @@ const negativeNumbers: Generator = {
           max: 10,
           step: 1,
           answer: v,
-          hints: ['Negative numbers are to the left of 0.', 'The further left you go, the smaller the number.', `Start at 0 and count ${-v} steps to the left.`],
-          explanation: `${v} is ${-v} steps to the left of 0.`,
-          solution: [{ say: 'Find 0 first.' }, { say: `Count ${-v} steps to the left.`, show: `0 → ${v}` }],
+          hints: ['Negative numbers are to the left of 0.', 'The further left you go, the smaller the number.', `Start at 0 and count ${plural(-v, 'step', 'steps')} to the left.`],
+          explanation: `${v} is ${plural(-v, 'step', 'steps')} to the left of 0.`,
+          solution: [{ say: 'Find 0 first.' }, { say: `Count ${plural(-v, 'step', 'steps')} to the left.`, show: `0 → ${v}` }],
         })
       }
       const coldest = rng.chance(0.6)
@@ -1778,15 +1778,15 @@ const negativeNumbers: Generator = {
       const ans = fall ? s - c : s + c
       const op = fall ? '−' : '+'
       return numItem({
-        prompt: `The temperature is ${deg(s)}. It ${fall ? 'falls' : 'rises'} by ${c} degrees. What is the temperature now?`,
+        prompt: `The temperature is ${deg(s)}. It ${fall ? 'falls' : 'rises'} by ${plural(c, 'degree', 'degrees')}. What is the temperature now?`,
         answer: ans,
         negative: true,
         unit: '°C',
         figure: thermo(s),
         hints: cross
-          ? [`Start at ${deg(s)} and count ${fall ? 'down' : 'up'} ${c} degrees.`, 'Count to 0 first, then count the rest.', `From ${deg(s)} to 0 is ${Math.abs(s)} degrees.`]
+          ? [`Start at ${deg(s)} and count ${fall ? 'down' : 'up'} ${plural(c, 'degree', 'degrees')}.`, 'Count to 0 first, then count the rest.', `From ${deg(s)} to 0 is ${plural(Math.abs(s), 'degree', 'degrees')}.`]
           : [
-              `Start at ${deg(s)} and count ${fall ? 'down' : 'up'} ${c} degrees.`,
+              `Start at ${deg(s)} and count ${fall ? 'down' : 'up'} ${plural(c, 'degree', 'degrees')}.`,
               fall ? 'Falling makes it colder, so the number after the minus sign gets bigger.' : 'Rising makes it warmer, so it moves towards 0.',
               `Count ${fall ? 'down' : 'up'} one degree at a time from ${deg(s)}.`,
             ],
@@ -1794,8 +1794,8 @@ const negativeNumbers: Generator = {
         solution: [
           { say: `Start at ${deg(s)}.`, figure: jumpLine(s, ans, `${op}${c}`) },
           cross
-            ? { say: `${Math.abs(s)} degrees takes you to 0. Then count ${c - Math.abs(s)} more.`, show: `${s} ${op} ${c} = ${ans}` }
-            : { say: `Count ${c} degrees ${fall ? 'down' : 'up'}.`, show: `${s} ${op} ${c} = ${ans}` },
+            ? { say: `${plural(Math.abs(s), 'degree', 'degrees')} takes you to 0. Then count ${c - Math.abs(s)} more.`, show: `${s} ${op} ${c} = ${ans}` }
+            : { say: `Count ${plural(c, 'degree', 'degrees')} ${fall ? 'down' : 'up'}.`, show: `${s} ${op} ${c} = ${ans}` },
         ],
         tags: [WP],
       })
@@ -1813,12 +1813,12 @@ const negativeNumbers: Generator = {
           hints: [
             'Picture both temperatures on a thermometer.',
             `Count from ${deg(low)} up to 0, then from 0 up to ${deg(high)}.`,
-            `From ${deg(low)} up to 0 is ${-low} degrees.`,
+            `From ${deg(low)} up to 0 is ${plural(-low, 'degree', 'degrees')}.`,
           ],
-          explanation: `${-low} degrees up to 0, then ${high} more: ${-low} + ${high} = ${high - low} degrees.`,
+          explanation: `${plural(-low, 'degree', 'degrees')} up to 0, then ${high} more: ${-low} + ${high} = ${high - low} degrees.`,
           solution: [
-            { say: `From ${deg(low)} to 0 is ${-low} degrees.`, figure: jumpLine(low, high) },
-            { say: `From 0 to ${deg(high)} is ${high} degrees.`, show: `${-low} + ${high} = ${high - low}` },
+            { say: `From ${deg(low)} to 0 is ${plural(-low, 'degree', 'degrees')}.`, figure: jumpLine(low, high) },
+            { say: `From 0 to ${deg(high)} is ${plural(high, 'degree', 'degrees')}.`, show: `${-low} + ${high} = ${high - low}` },
           ],
           tags: [WP],
         })
@@ -1839,7 +1839,7 @@ const negativeNumbers: Generator = {
             'Count the degrees between them on a number line, going through 0 if you need to.',
             `The lowest temperature is ${deg(lo)}.`,
           ],
-          explanation: `The highest is ${deg(hi)} and the lowest is ${deg(lo)}. From ${lo} up to 0 is ${-lo} degrees and from 0 up to ${hi} is ${hi} degrees, so the difference is ${hi - lo} degrees.`,
+          explanation: `The highest is ${deg(hi)} and the lowest is ${deg(lo)}. From ${lo} up to 0 is ${plural(-lo, 'degree', 'degrees')} and from 0 up to ${hi} is ${plural(hi, 'degree', 'degrees')}, so the difference is ${plural(hi - lo, 'degree', 'degrees')}.`,
           solution: [
             { say: `Highest ${deg(hi)}, lowest ${deg(lo)}.`, figure: jumpLine(lo, hi) },
             { say: 'Count the gap through 0.', show: `${-lo} + ${hi} = ${hi - lo}` },
@@ -1894,15 +1894,15 @@ const negativeNumbers: Generator = {
       const crosses = (a < 0 && ans > 0) || (a > 0 && ans < 0)
       const hints: Hints = [
         `Start at ${a} on a number line.`,
-        `${op === '+' ? 'Adding' : 'Subtracting'} ${b} means moving ${b} steps to the ${op === '+' ? 'right' : 'left'}.`,
-        crosses ? `From ${a}, it takes ${Math.abs(a)} steps to reach 0.` : `Move ${b} steps to the ${op === '+' ? 'right' : 'left'} of ${a}.`,
+        `${op === '+' ? 'Adding' : 'Subtracting'} ${b} means moving ${plural(b, 'step', 'steps')} to the ${op === '+' ? 'right' : 'left'}.`,
+        crosses ? `From ${a}, it takes ${plural(Math.abs(a), 'step', 'steps')} to reach 0.` : `Move ${plural(b, 'step', 'steps')} to the ${op === '+' ? 'right' : 'left'} of ${a}.`,
       ]
       const explanation = `Start at ${a} and move ${b} to the ${op === '+' ? 'right' : 'left'}. You land on ${ans}.`
       const solution: Step[] = [
         { say: `Start at ${a}.`, figure: jumpLine(a, ans, `${op}${b}`) },
         crosses
-          ? { say: `${Math.abs(a)} steps take you to 0, then ${b - Math.abs(a)} more.`, show: `${a} ${op} ${b} = ${ans}` }
-          : { say: `Move ${b} steps.`, show: `${a} ${op} ${b} = ${ans}` },
+          ? { say: `${plural(Math.abs(a), 'step', 'steps')} ${Math.abs(a) === 1 ? 'takes' : 'take'} you to 0, then ${b - Math.abs(a)} more.`, show: `${a} ${op} ${b} = ${ans}` }
+          : { say: `Move ${plural(b, 'step', 'steps')}.`, show: `${a} ${op} ${b} = ${ans}` },
       ]
       if (rng.chance(0.4)) {
         const m = mcqFrom(rng, ans, [
@@ -1923,7 +1923,7 @@ const negativeNumbers: Generator = {
       const f = rng.int(noon + 1, noon + 10)
       const ans = noon - f
       return numItem({
-        prompt: `At 06:00 the temperature was ${deg(s)}. By noon it had risen by ${r} degrees. By midnight it had fallen by ${f} degrees from noon. What was the temperature at midnight?`,
+        prompt: `At 06:00 the temperature was ${deg(s)}. By noon it had risen by ${plural(r, 'degree', 'degrees')}. By midnight it had fallen by ${plural(f, 'degree', 'degrees')} from noon. What was the temperature at midnight?`,
         answer: ans,
         negative: true,
         unit: '°C',
@@ -3192,7 +3192,7 @@ const divideWritten: Generator = {
           answer: q + 1,
           hints: [`Divide ${n} by ${per}.`, 'Think about the remainder. Does it need one more?', `${per} × ${q} = ${per * q}.`],
           explanation: `${n} ÷ ${per} = ${q} remainder ${r}. The ${plur(r, ctx.one, ctx.many)} left over ${r === 1 ? 'needs' : 'need'} one more ${ctx.unit}, so the answer is ${q + 1}.`,
-          solution: [...divideSteps(n, per).slice(-1), { say: `${r} are left over, so round up.`, show: `${q} + 1 = ${q + 1}` }],
+          solution: [...divideSteps(n, per).slice(-1), { say: `${plur(r, ctx.one, ctx.many)} ${r === 1 ? 'is' : 'are'} left over, so round up.`, show: `${q} + 1 = ${q + 1}` }],
           tags: [WP],
           secs: 120,
         })
@@ -3444,7 +3444,7 @@ const compareFractions: Generator = {
         const m = mcqFrom(
           rng,
           `${c}/${d}`,
-          ns.filter((x) => x !== c).map((x) => ({ value: `${x}/${d}`, why: `The parts are the same size, and ${x} ${denName(d)} is ${x < c ? 'fewer' : 'more'} than ${c} ${denName(d)}.` })),
+          ns.filter((x) => x !== c).map((x) => ({ value: `${x}/${d}`, why: `The parts are the same size, and ${x} ${denName(d, x !== 1)} is ${x < c ? 'less' : 'more'} than ${c} ${denName(d, c !== 1)}.` })),
           4,
           (v) => v,
         )
@@ -4005,7 +4005,7 @@ const addSubtractDecimals: Generator = {
         const ans = dec(ua1 * 10 + ub, 2)
         const wrong = dec(ua1 + ub, 2)
         const m = mcqFrom(rng, fmt(ans), [
-          { value: fmt(wrong), why: `Line up the decimal points. ${fmt(a)} has ${ua1 % 10} tenths, not ${ua1 % 10} hundredths.` },
+          { value: fmt(wrong), why: ua1 % 10 === 0 ? `Line up the decimal points. ${fmt(a)} is ${plural(a, 'one', 'ones')}, not ${plural(a, 'tenth', 'tenths')}.` : `Line up the decimal points. ${fmt(a)} has ${plural(ua1 % 10, 'tenth', 'tenths')}, not ${plural(ua1 % 10, 'hundredth', 'hundredths')}.` },
           { value: fmt(dec(ua1 * 10 + ub + 100, 2)), why: 'Check the ones column again.' },
           { value: fmt(dec(ua1 * 10 + ub - 10, 2)), why: 'Check the tenths column again.' },
           { value: fmt(dec(ua1 * 10 + ub, 3)), why: 'Check where the decimal point goes in the answer.' },
@@ -4041,13 +4041,14 @@ const addSubtractDecimals: Generator = {
       const c1 = rng.int(35, Math.floor(tu / 2))
       const c2 = rng.int(15, tu - c1 - 10)
       const left = tu - c1 - c2
+      const unitFor = (v: number) => (v === 100 && ctx.unit === 'litres' ? 'litre' : ctx.unit)
       return numItem({
-        prompt: `${ctx.what} ${ctx.verb} ${fmt(dec(tu, 2))} ${ctx.unit}. ${name} ${ctx.cut} ${fmt(dec(c1, 2))} ${ctx.unit} and then ${fmt(dec(c2, 2))} ${ctx.unit}. How much is left?`,
+        prompt: `${ctx.what} ${ctx.verb} ${fmt(dec(tu, 2))} ${ctx.unit}. ${name} ${ctx.cut} ${fmt(dec(c1, 2))} ${unitFor(c1)} and then ${fmt(dec(c2, 2))} ${unitFor(c2)}. How much is left?`,
         answer: dec(left, 2),
         decimal: true,
         unit: ctx.unit,
         hints: ['Add the two amounts taken first, or subtract them one at a time.', 'Line up the decimal points each time.', `${fmt(dec(c1, 2))} + ${fmt(dec(c2, 2))} = ${fmt(dec(c1 + c2, 2))}.`],
-        explanation: `${fmt(dec(c1, 2))} + ${fmt(dec(c2, 2))} = ${fmt(dec(c1 + c2, 2))}. ${fmt(dec(tu, 2))} − ${fmt(dec(c1 + c2, 2))} = ${fmt(dec(left, 2))} ${ctx.unit}.`,
+        explanation: `${fmt(dec(c1, 2))} + ${fmt(dec(c2, 2))} = ${fmt(dec(c1 + c2, 2))}. ${fmt(dec(tu, 2))} − ${fmt(dec(c1 + c2, 2))} = ${fmt(dec(left, 2))} ${unitFor(left)}.`,
         solution: [
           { say: 'Add the amounts taken.', show: `${fmt(dec(c1, 2))} + ${fmt(dec(c2, 2))} = ${fmt(dec(c1 + c2, 2))}` },
           { say: 'Subtract from the start amount.', show: `${fx(dec(tu, 2), 2)} − ${fx(dec(c1 + c2, 2), 2)} = ${fmt(dec(left, 2))}` },
@@ -4095,8 +4096,8 @@ const multiplyDecimals: Generator = {
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
     const tenthsSteps = (u: number, m: number): Step[] => [
-      { say: `${fmt(dec(u, 1))} is ${u} tenths.` },
-      { say: `${u} tenths × ${m} = ${u * m} tenths.`, show: `${u} × ${m} = ${u * m}` },
+      { say: `${fmt(dec(u, 1))} is ${plural(u, 'tenth', 'tenths')}.` },
+      { say: `${plural(u, 'tenth', 'tenths')} × ${m} = ${u * m} tenths.`, show: `${u} × ${m} = ${u * m}` },
       { say: `${u * m} tenths is ${fmt(dec(u * m, 1))}.`, show: `${fmt(dec(u, 1))} × ${m} = ${fmt(dec(u * m, 1))}` },
     ]
     if (level <= 2) {
@@ -4106,8 +4107,8 @@ const multiplyDecimals: Generator = {
         prompt: `Work out ${fmt(dec(u, 1))} × ${m}.`,
         answer: dec(u * m, 1),
         decimal: true,
-        hints: [`Think of ${fmt(dec(u, 1))} as ${u} tenths.`, `Multiply ${u} by ${m}, then change the answer back into tenths.`, `${u} tenths × ${m} gives a number of tenths.`],
-        explanation: `${fmt(dec(u, 1))} is ${u} tenths. ${u} × ${m} = ${u * m}, and ${u * m} tenths = ${fmt(dec(u * m, 1))}.`,
+        hints: [`Think of ${fmt(dec(u, 1))} as ${plural(u, 'tenth', 'tenths')}.`, `Multiply ${u} by ${m}, then change the answer back into tenths.`, `${plural(u, 'tenth', 'tenths')} × ${m} gives a number of tenths.`],
+        explanation: `${fmt(dec(u, 1))} is ${plural(u, 'tenth', 'tenths')}. ${u} × ${m} = ${u * m}, and ${u * m} tenths = ${fmt(dec(u * m, 1))}.`,
         solution: tenthsSteps(u, m),
       })
     }
@@ -4435,7 +4436,7 @@ const percentagesOfAmounts: Generator = {
       answer: (n * p) / 100,
       hints: [
         `If 10% is ${ten}, what is 100%?`,
-        p % 10 === 0 ? `${p}% is ${p / 10} lots of 10%.` : `${p}% is ${Math.floor(p / 10)} lots of 10% and one lot of 5%.`,
+        p % 10 === 0 ? `${p}% is ${p / 10} lots of 10%.` : `${p}% is ${plural(Math.floor(p / 10), 'lot', 'lots')} of 10% and one lot of 5%.`,
         p % 10 === 0 ? `Count up in lots of ${ten}.` : `5% is half of 10%, so 5% is ${fmt(ten / 2)}.`,
       ],
       explanation: `10% is ${ten}${p % 10 ? `, so 5% is ${fmt(ten / 2)}` : ''}. ${p}% = ${Math.floor(p / 10)} × ${ten}${p % 10 ? ` + ${fmt(ten / 2)}` : ''} = ${fmt((n * p) / 100)}.`,
@@ -4466,7 +4467,7 @@ const ratioProportion: Generator = {
         prompt: `On a necklace, for every ${a} red ${a === 1 ? 'bead' : 'beads'} there are ${b} blue beads. There are ${a * k} red beads. How many blue beads are there?`,
         answer: b * k,
         figure: beadFig,
-        hints: [`The pattern repeats: ${a} red, then ${b} blue.`, `How many groups of ${a} red beads are there?`, `${a * k} ÷ ${a} = ${k} groups.`],
+        hints: [`The pattern repeats: ${a} red, then ${b} blue.`, `How many groups of ${plural(a, 'red bead', 'red beads')} are there?`, `${a * k} ÷ ${a} = ${k} groups.`],
         explanation: `There are ${k} groups. Each group has ${b} blue beads, so ${k} × ${b} = ${b * k} blue beads.`,
         solution: [
           { say: 'Count the groups.', show: `${a * k} ÷ ${a} = ${k}`, figure: beadFig },
@@ -4771,7 +4772,7 @@ const time24: Generator = {
       prompt: `Write ${fixedTotal} minutes in hours and minutes. ${fixedTotal} minutes = ___ hours ___ minutes`,
       answers: [[String(Math.floor(fixedTotal / 60))], [String(fixedTotal % 60)]],
       hints: ['There are 60 minutes in 1 hour.', `Find how many lots of 60 fit into ${fixedTotal}.`, 'Count up in 60s: 60, 120, 180, and so on.'],
-      explanation: `${fixedTotal} ÷ 60 = ${Math.floor(fixedTotal / 60)} remainder ${fixedTotal % 60}, so ${fixedTotal} minutes = ${Math.floor(fixedTotal / 60)} hours ${fixedTotal % 60} minutes.`,
+      explanation: `${fixedTotal} ÷ 60 = ${Math.floor(fixedTotal / 60)} remainder ${fixedTotal % 60}, so ${fixedTotal} minutes = ${plural(Math.floor(fixedTotal / 60), 'hour', 'hours')} ${plural(fixedTotal % 60, 'minute', 'minutes')}.`,
       solution: [
         { say: 'Take out whole hours.', show: `${fixedTotal} ÷ 60 = ${Math.floor(fixedTotal / 60)} r ${fixedTotal % 60}` },
         { say: 'The remainder is minutes.', show: `${Math.floor(fixedTotal / 60)} h ${fixedTotal % 60} min` },
@@ -5184,9 +5185,9 @@ const shapes2d3d: Generator = {
         let c = rng.int(b + 1, a + b - 1)
         if (c <= b) c = b + 1
         if (c >= a + b) b = c - a + 1
-        sides = rng.shuffle([a, b, c])
         // 6, 8, 10 juga siku-siku, jadi "scalene" bukan satu-satunya opsi benar.
         if (a * a + b * b === c * c) c += 1
+        sides = rng.shuffle([a, b, c])
       }
       const names = ['equilateral', 'isosceles', 'scalene']
       if (kind === 3) {
@@ -5348,7 +5349,7 @@ const coordinatesTransformations: Generator = {
         prompt: 'What are the coordinates of point A? Write them like (2, 5).',
         answers: [coordAnswers(x, y)],
         figure: { kind: 'coordinates', size, points: all.map((p, i) => ({ x: p[0], y: p[1], label: at(labels, i) })), alt: `A grid with points ${all.map((p, i) => `${at(labels, i)} at (${p[0]}, ${p[1]})`).join(', ')}.` },
-        hints: ['Read across first, then up.', 'Start at (0, 0). Count along the x-axis, then up the y-axis.', `Point A is ${x} squares across from (0, 0).`],
+        hints: ['Read across first, then up.', 'Start at (0, 0). Count along the x-axis, then up the y-axis.', `Point A is ${plural(x, 'square', 'squares')} across from (0, 0).`],
         explanation: `Point A is ${x} across and ${y} up, so its coordinates are (${x}, ${y}).`,
         solution: [{ say: 'Count across along the x-axis.', show: `x = ${x}` }, { say: 'Count up the y-axis.', show: `(${x}, ${y})` }],
       })
@@ -5687,7 +5688,7 @@ const probability: Generator = {
       const shaded = rng.pick(range(1, parts - 1).filter((x) => x * 2 !== parts))
       const correct = shaded * 2 > parts ? 'landing on a shaded section' : 'landing on a white section'
       const m = mcqText(rng, correct, [
-        { value: correct === 'landing on a shaded section' ? 'landing on a white section' : 'landing on a shaded section', why: `There are ${correct.includes('shaded') ? parts - shaded : shaded} of those sections, which is fewer.` },
+        { value: correct === 'landing on a shaded section' ? 'landing on a white section' : 'landing on a shaded section', why: `There ${(correct.includes('shaded') ? parts - shaded : shaded) === 1 ? 'is' : 'are'} ${correct.includes('shaded') ? parts - shaded : shaded} of those sections, which is fewer.` },
         { value: 'they are equally likely', why: `${shaded} shaded and ${parts - shaded} white are not the same number.` },
         { value: 'it is impossible to land on either', why: 'The spinner must land on one of the sections.' },
       ])
@@ -5708,10 +5709,10 @@ const probability: Generator = {
       const ask = rng.pick(['red', 'blue'] as const)
       const n = ask === 'red' ? r : b
       return textItem({
-        prompt: `A bag has ${r} red, ${b} blue${g ? ` and ${g} green` : ''} counters. One counter is taken without looking. What is the probability that it is ${ask}? Write it as a fraction.`,
+        prompt: `A bag has ${g ? `${r} red, ${b} blue and ${g} green` : `${r} red and ${b} blue`} counters. One counter is taken without looking. What is the probability that it is ${ask}? Write it as a fraction.`,
         answers: [fracAnswers({ n, d: total }, { decimal: true })],
-        hints: ['Probability = number of ways it can happen ÷ total number of outcomes.', `How many counters are there altogether?`, `There are ${n} ${ask} counters.`],
-        explanation: `There are ${total} counters and ${n} are ${ask}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
+        hints: ['Probability = number of ways it can happen ÷ total number of outcomes.', `How many counters are there altogether?`, `There ${n === 1 ? 'is' : 'are'} ${plural(n, `${ask} counter`, `${ask} counters`)}.`],
+        explanation: `There are ${total} counters and ${n} ${n === 1 ? 'is' : 'are'} ${ask}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
         solution: [{ say: 'Count all the counters.', show: `${r} + ${b}${g ? ` + ${g}` : ''} = ${total}` }, { say: `Count the ${ask} ones.`, show: `${n}/${total}` }],
       })
     }

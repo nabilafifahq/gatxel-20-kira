@@ -1,4 +1,4 @@
-import { fmt, gcd, mcqFrom, NAMES, rupiah } from './helpers'
+import { AAn, fmt, gcd, mcqFrom, NAMES, plural, rupiah } from './helpers'
 import type { Generator } from './types'
 import {
   addMinutes,
@@ -271,10 +271,10 @@ const placeValue: Generator = {
         step: 0.001,
         answer: ans,
         hints: [`The line goes from ${fx(min, 2)} to ${fx(max, 2)}.`, 'There are 10 small steps. Each one is 0.001.', `Count on from ${fx(min, 2)} in thousandths.`],
-        explanation: `${fx(ans, 3)} is ${k} thousandths more than ${fx(min, 2)}.`,
+        explanation: `${fx(ans, 3)} is ${plural(k, 'thousandth', 'thousandths')} more than ${fx(min, 2)}.`,
         solution: [
           { say: 'Each small step is one thousandth.' },
-          { say: `Count ${k} steps from ${fx(min, 2)}.`, show: `${fx(min, 2)} + ${fx(dec(k, 3), 3)} = ${fx(ans, 3)}` },
+          { say: `Count ${plural(k, 'step', 'steps')} from ${fx(min, 2)}.`, show: `${fx(min, 2)} + ${fx(dec(k, 3), 3)} = ${fx(ans, 3)}` },
         ],
       })
     }
@@ -709,7 +709,7 @@ const sequences: Generator = {
       const fmtRule = (m: number, c: number) => (c === 0 ? `${m} × position` : `${m} × position ${c > 0 ? '+' : '−'} ${Math.abs(c)}`)
       const correct = fmtRule(mult, add)
       const wrong = [
-        { value: `position + ${mult}`, why: `Position 2 would give ${2 + mult}, not ${at(terms, 1)}.` },
+        { value: `position + ${mult}`, why: 2 + mult === at(terms, 1) ? `Position 1 would give ${1 + mult}, not ${at(terms, 0)}.` : `Position 2 would give ${2 + mult}, not ${at(terms, 1)}.` },
         { value: fmtRule(mult, add + 1), why: `Position 1 would give ${mult + add + 1}, not ${at(terms, 0)}.` },
         { value: fmtRule(mult + 1, add - 1), why: `Position 2 would give ${2 * (mult + 1) + add - 1}, not ${at(terms, 1)}.` },
         { value: fmtRule(mult - 1, add + 1), why: `Position 2 would give ${2 * (mult - 1) + add + 1}, not ${at(terms, 1)}.` },
@@ -974,7 +974,7 @@ const negativeNumbers: Generator = {
         max: 20,
         step: 2,
         answer: val,
-        hints: ['Negative numbers are to the left of 0.', 'Each mark on this line is 2 more than the one before.', `${val} is ${-val / 2} marks to the left of 0.`],
+        hints: ['Negative numbers are to the left of 0.', 'Each mark on this line is 2 more than the one before.', `${val} is ${plural(-val / 2, 'mark', 'marks')} to the left of 0.`],
         explanation: `${val} is ${-val} to the left of 0, which is ${-val / 2} marks of 2.`,
         solution: [{ say: 'Start at 0.' }, { say: `Count back in 2s to ${val}.`, show: `0 → ${val}` }],
       })
@@ -1020,7 +1020,7 @@ const negativeNumbers: Generator = {
         unit: 'degrees',
         figure: fig,
         hints: ['Find both temperatures in the table.', 'Find the difference by counting on a number line.', `${at(cities, j!)} was ${deg(cold)}.`],
-        explanation: `${warm} − ${par(cold)} = ${warm - cold}, so ${at(cities, i!)} was ${warm - cold} degrees warmer.`,
+        explanation: `${warm} − ${par(cold)} = ${warm - cold}, so ${at(cities, i!)} was ${plural(warm - cold, 'degree', 'degrees')} warmer.`,
         solution: [{ say: 'Read the two temperatures.', show: `${deg(warm)} and ${deg(cold)}`, figure: jumpLine(cold, warm) }, { say: 'Count the gap.', show: `${warm} − ${par(cold)} = ${warm - cold}` }],
         tags: [WP],
       })
@@ -1063,7 +1063,7 @@ const negativeNumbers: Generator = {
         prompt: `A freezer is at ${deg(inside)}. The kitchen is at ${deg(room)}. How many degrees colder is the freezer than the kitchen?`,
         answer: room - inside,
         unit: 'degrees',
-        hints: ['Find the gap between the two temperatures.', 'Count from the freezer temperature up to 0, then on to the kitchen temperature.', `From ${deg(inside)} up to 0 is ${-inside} degrees.`],
+        hints: ['Find the gap between the two temperatures.', 'Count from the freezer temperature up to 0, then on to the kitchen temperature.', `From ${deg(inside)} up to 0 is ${plural(-inside, 'degree', 'degrees')}.`],
         explanation: `${-inside} + ${room} = ${room - inside} degrees.`,
         solution: [{ say: 'Up to 0.', show: `${-inside}` }, { say: 'Then up to the kitchen temperature.', show: `${-inside} + ${room} = ${room - inside}` }],
         tags: [WP],
@@ -1301,14 +1301,14 @@ const orderOfOperations: Generator = {
     const total = packs * per + extra
     const other = { value: `${packs} × ${per} − ${extra}`, why: 'That takes the extra pens away instead of adding them.' }
     const m = mcqText(rng, correct, [
-      { value: `${packs} × (${per} + ${extra})`, why: `That adds ${extra} pens to every pack.` },
+      { value: `${packs} × (${per} + ${extra})`, why: `That adds ${plural(extra, 'pen', 'pens')} to every pack.` },
       (packs + per) * extra === total ? other : { value: `(${packs} + ${per}) × ${extra}`, why: 'That adds packs and pens together, which does not make sense.' },
       packs + per * extra === total ? other : { value: `${packs} + ${per} × ${extra}`, why: `That multiplies the pens in a pack by the extra pens.` },
     ])
     return mcqItem({
-      prompt: `${name} buys ${packs} packs of pens with ${per} pens in each pack, and ${extra} more pens. Which calculation gives the total number of pens?`,
+      prompt: `${name} buys ${packs} packs of pens with ${per} pens in each pack, and ${plural(extra, 'more pen', 'more pens')}. Which calculation gives the total number of pens?`,
       ...m,
-      hints: ['First find the pens in the packs.', `${packs} packs of ${per} pens means ${packs} × ${per}.`, `Then add the ${extra} extra pens.`],
+      hints: ['First find the pens in the packs.', `${packs} packs of ${per} pens means ${packs} × ${per}.`, `Then add the ${plural(extra, 'extra pen', 'extra pens')}.`],
       explanation: `${correct} = ${packs * per + extra} pens. Multiplication is done before addition, so no brackets are needed.`,
       solution: [{ say: 'Pens in packs.', show: `${packs} × ${per} = ${packs * per}` }, { say: 'Add the extra pens.', show: `${packs * per} + ${extra} = ${packs * per + extra}` }],
       tags: [WP],
@@ -2254,7 +2254,7 @@ const multiplyDivideFractions: Generator = {
     return numItem({
       prompt: `${name} spends 1/${q1} of some money on lunch, then 1/${q2} of what is left on a book. ${name} has ${rupiah(left)} left. How much money was there at the start, in rupiah?`,
       answer: start,
-      hints: ['Work backwards from the money left.', `After the book, ${q2 - 1}/${q2} of the money after lunch was left.`, `${rupiah(left)} is ${q2 - 1} parts out of ${q2}, so one part is ${rupiah(left / (q2 - 1))}.`],
+      hints: ['Work backwards from the money left.', `After the book, ${q2 - 1}/${q2} of the money after lunch was left.`, `${rupiah(left)} is ${plural(q2 - 1, 'part', 'parts')} out of ${q2}, so one part is ${rupiah(left / (q2 - 1))}.`],
       explanation: `After lunch there was ${rupiah(left)} ÷ ${q2 - 1} × ${q2} = ${rupiah(afterFirst)}. That is ${q1 - 1}/${q1} of the start, so the start was ${rupiah(afterFirst)} ÷ ${q1 - 1} × ${q1} = ${rupiah(start)}.`,
       solution: [
         { say: 'Undo the book.', show: `${fmt(left)} ÷ ${q2 - 1} × ${q2} = ${fmt(afterFirst)}` },
@@ -2689,8 +2689,8 @@ const ratioProportion: Generator = {
     return numItem({
       prompt: `In a box, the ratio of red pens to blue pens is ${a} : ${b}. There are ${diff} more blue pens than red pens. How many red pens are there?`,
       answer: a * k,
-      hints: [`The difference between the parts is ${b} − ${a} = ${b - a} parts.`, `${b - a} parts are ${diff} pens.`, `One part is ${diff} ÷ ${b - a}.`],
-      explanation: `${b - a} parts = ${diff}, so one part = ${k}. Red pens: ${a} × ${k} = ${a * k}.`,
+      hints: [`The difference between the parts is ${b} − ${a} = ${plural(b - a, 'part', 'parts')}.`, `${plural(b - a, 'part', 'parts')} ${b - a === 1 ? 'is' : 'are'} ${plural(diff, 'pen', 'pens')}.`, `One part is ${diff} ÷ ${b - a}.`],
+      explanation: `${plural(b - a, 'part', 'parts')} = ${diff}, so one part = ${k}. Red pens: ${a} × ${k} = ${a * k}.`,
       solution: [{ say: 'Find one part.', show: `${diff} ÷ ${b - a} = ${k}` }, { say: 'Red pens.', show: `${a} × ${k} = ${a * k}` }],
       tags: [WP],
       secs: 150,
@@ -3300,7 +3300,7 @@ const shapesProperties: Generator = {
       return numItem({
         prompt: `How many ${prop} does ${/^[aeiou]/.test(nm) ? 'an' : 'a'} ${nm} have?`,
         answer: val[prop],
-        hints: [prism ? `A prism has two matching ${base.name} ends joined by rectangles.` : `A pyramid has one ${base.name} base and triangles that meet at the top.`, `A ${base.name} has ${base.n} sides.`, prop === 'faces' ? (prism ? 'Count the two ends, then one rectangle for each side.' : 'Count the base, then one triangle for each side.') : prop === 'edges' ? (prism ? `Each end has ${base.n} edges, and edges join the two ends.` : `The base has ${base.n} edges, and edges go up to the top point.`) : prism ? `Each end has ${base.n} corners.` : `The base has ${base.n} corners, plus the top.`],
+        hints: [prism ? `A prism has two matching ${base.name} ends joined by rectangles.` : `A pyramid has one ${base.name} base and triangles that meet at the top.`, `${AAn(base.name)} has ${base.n} sides.`, prop === 'faces' ? (prism ? 'Count the two ends, then one rectangle for each side.' : 'Count the base, then one triangle for each side.') : prop === 'edges' ? (prism ? `Each end has ${base.n} edges, and edges join the two ends.` : `The base has ${base.n} edges, and edges go up to the top point.`) : prism ? `Each end has ${base.n} corners.` : `The base has ${base.n} corners, plus the top.`],
         explanation: `${cap(/^[aeiou]/.test(nm) ? 'an' : 'a')} ${nm} has ${val.faces} faces, ${val.edges} edges and ${val.vertices} vertices.`,
         solution: [{ say: prism ? 'Two ends plus the side faces.' : 'One base plus the triangles.' }, { say: `Count the ${prop}.`, show: String(val[prop]) }],
       })
@@ -3436,7 +3436,7 @@ const coordinates: Generator = {
         prompt: `Point P is at (${P[0]}, ${P[1]}) and point Q is at (${Q[0]}, ${Q[1]}). How many units apart are P and Q?`,
         answer: b - a,
         figure: coordFig([{ x: P[0], y: P[1], label: 'P' }, { x: Q[0], y: Q[1], label: 'Q' }]),
-        hints: [horiz ? 'The y-coordinates are the same, so the line PQ is horizontal.' : 'The x-coordinates are the same, so the line PQ is vertical.', `Count from ${a} to ${b} on the ${horiz ? 'x' : 'y'}-axis.`, `From ${a} to 0 is ${-a} units.`],
+        hints: [horiz ? 'The y-coordinates are the same, so the line PQ is horizontal.' : 'The x-coordinates are the same, so the line PQ is vertical.', `Count from ${a} to ${b} on the ${horiz ? 'x' : 'y'}-axis.`, `From ${a} to 0 is ${plural(-a, 'unit', 'units')}.`],
         explanation: `From ${a} to 0 is ${-a} and from 0 to ${b} is ${b}. ${-a} + ${b} = ${b - a} units.`,
         solution: [{ say: 'Count to 0.', show: String(-a) }, { say: 'Count on to the other point.', show: `${-a} + ${b} = ${b - a}` }],
       })
@@ -3714,7 +3714,7 @@ const graphsCharts: Generator = {
           prompt: `The frequency table shows quiz scores. How many children scored more than ${threshold}?`,
           answer: ans,
           figure: fig,
-          hints: [`Which groups have scores more than ${threshold}?`, `Add the numbers in the groups from ${threshold + 1} upwards.`, `The group ${at(groups, cut + 1)} has ${at(counts, cut + 1)} children.`],
+          hints: [`Which groups have scores more than ${threshold}?`, `Add the numbers in the groups from ${threshold + 1} upwards.`, `The group ${at(groups, cut + 1)} has ${plural(at(counts, cut + 1), 'child', 'children')}.`],
           explanation: `${counts.slice(cut + 1).join(' + ')} = ${ans} children.`,
           solution: [{ say: 'Pick the groups above the score.', show: groups.slice(cut + 1).join(', ') }, { say: 'Add their counts.', show: `${counts.slice(cut + 1).join(' + ')} = ${ans}` }],
         })
@@ -3726,7 +3726,7 @@ const graphsCharts: Generator = {
       const m = mcqFrom(
         rng,
         at(groups, best),
-        groups.map((g, i) => ({ g, i })).filter((o) => o.i !== best).map((o) => ({ value: o.g, why: `${o.g} has ${at(cs, o.i)} children, fewer than ${at(cs, best)}.` })),
+        groups.map((g, i) => ({ g, i })).filter((o) => o.i !== best).map((o) => ({ value: o.g, why: `${o.g} has ${plural(at(cs, o.i), 'child', 'children')}, fewer than ${at(cs, best)}.` })),
         4,
         (v) => v,
       )
@@ -3734,7 +3734,7 @@ const graphsCharts: Generator = {
         prompt: 'The frequency table shows quiz scores. Which group is the modal group?',
         ...m,
         figure: fig2,
-        hints: ['The modal group is the group with the most children.', 'Compare the numbers in the second column.', `The group ${at(groups, best === 0 ? 1 : 0)} has ${at(cs, best === 0 ? 1 : 0)} children.`],
+        hints: ['The modal group is the group with the most children.', 'Compare the numbers in the second column.', `The group ${at(groups, best === 0 ? 1 : 0)} has ${plural(at(cs, best === 0 ? 1 : 0), 'child', 'children')}.`],
         explanation: `${at(groups, best)} has the most children (${at(cs, best)}), so it is the modal group.`,
         solution: [{ say: 'Read the frequencies.', show: cs.join(', ') }, { say: 'Biggest frequency.', show: at(groups, best) }],
       })
@@ -3757,7 +3757,7 @@ const graphsCharts: Generator = {
         const m = mcqFrom(
           rng,
           label(i),
-          rises.map((r, j) => ({ r, j })).filter((o) => o.j !== i).map((o) => ({ value: label(o.j), why: `The temperature changed by ${o.r} degrees then, which is less than ${maxRise}.` })),
+          rises.map((r, j) => ({ r, j })).filter((o) => o.j !== i).map((o) => ({ value: label(o.j), why: `The temperature changed by ${o.r} ${Math.abs(o.r) === 1 ? 'degree' : 'degrees'} then, which is less than ${maxRise}.` })),
           4,
           (v) => v,
         )
@@ -3765,8 +3765,8 @@ const graphsCharts: Generator = {
           prompt: 'The line graph shows the temperature each hour. Between which two hours did the temperature rise the most?',
           ...m,
           figure: fig,
-          hints: ['Look for the steepest part going up.', 'Work out the change between each pair of hours.', `From hour 1 to hour 2 it changed by ${at(rises, 0)} degrees.`],
-          explanation: `The biggest rise is ${maxRise} degrees, between ${label(i)}.`,
+          hints: ['Look for the steepest part going up.', 'Work out the change between each pair of hours.', `From hour 1 to hour 2 it changed by ${at(rises, 0)} ${Math.abs(at(rises, 0)) === 1 ? 'degree' : 'degrees'}.`],
+          explanation: `The biggest rise is ${plural(maxRise, 'degree', 'degrees')}, between ${label(i)}.`,
           solution: [{ say: 'Find each change.', show: rises.join(', ') }, { say: 'The biggest rise.', show: label(i) }],
         })
       }
@@ -3777,7 +3777,7 @@ const graphsCharts: Generator = {
         unit: 'degrees',
         figure: fig,
         hints: ['Read both temperatures from the y-axis.', `Find hour ${a} and hour ${b} on the x-axis.`, `At hour ${a} it was ${at(temps, a! - 1)} °C.`],
-        explanation: `${at(temps, a! - 1)} °C and ${at(temps, b! - 1)} °C differ by ${Math.abs(at(temps, b! - 1) - at(temps, a! - 1))} degrees.`,
+        explanation: `${at(temps, a! - 1)} °C and ${at(temps, b! - 1)} °C differ by ${plural(Math.abs(at(temps, b! - 1) - at(temps, a! - 1)), 'degree', 'degrees')}.`,
         solution: [{ say: 'Read both values.', show: `${at(temps, a! - 1)} and ${at(temps, b! - 1)}` }, { say: 'Find the difference.', show: String(Math.abs(at(temps, b! - 1) - at(temps, a! - 1))) }],
       })
     }
@@ -3821,7 +3821,7 @@ const probability: Generator = {
           prompt: `${bag} One counter is taken without looking. What is the probability that it is ${colour}? Write it as a fraction.`,
           answers: [fracAnswers({ n, d: total }, { decimal: true })],
           hints: ['Probability = number of ways it can happen ÷ number of possible outcomes.', `Add up all the counters to find the number of outcomes.`, `Count the ${colour} counters. That is the top of the fraction.`],
-          explanation: `There are ${total} counters and ${n} are ${colour}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
+          explanation: `There are ${total} counters and ${n} ${n === 1 ? 'is' : 'are'} ${colour}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
           solution: [{ say: 'Count all the counters.', show: String(total) }, { say: `Count the ${colour} counters.`, show: String(n) }, { say: 'Divide.', show: `${n}/${total}` }],
         })
       }
@@ -3923,7 +3923,7 @@ const probability: Generator = {
       const k = rng.int(1, parts - 1)
       const spins = parts * rng.int(5, 20)
       return numItem({
-        prompt: `A fair spinner has ${parts} equal sections and ${k} of them are blue. It is spun ${spins} times. About how many times would you expect it to land on blue?`,
+        prompt: `A fair spinner has ${parts} equal sections and ${k} of them ${k === 1 ? 'is' : 'are'} blue. It is spun ${spins} times. About how many times would you expect it to land on blue?`,
         answer: (spins / parts) * k,
         figure: { kind: 'fraction', shape: 'circle', parts, shaded: k, alt: `A spinner with ${parts} equal sections, ${k} shaded blue.` },
         hints: [`The probability of blue is ${k}/${parts}.`, `Find ${k}/${parts} of ${spins}.`, `1/${parts} of ${spins} is ${spins / parts}.`],
