@@ -147,7 +147,7 @@ services:
       KIRA_DB_PREPARE: "off"
       KIRA_POOL_APP: ${KIRA_POOL_APP:-12}
       KIRA_POOL_AUTH: ${KIRA_POOL_AUTH:-6}
-      KIRA_VALKEY_URL: redis://:${KIRA_VALKEY_PASSWORD}@valkey:6379
+      KIRA_VALKEY_URL: redis://:${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN}}@valkey:6379
       NODE_OPTIONS: --max-old-space-size=${KIRA_WEB_HEAP_MB:-1024}
       KIRA_DATA_DIR: /data
       # Kosong: suara bahasa Inggris memakai suara bawaan tablet. Diisi http://tts:8000 saat profil tts dipakai.
@@ -202,7 +202,7 @@ services:
     command:
       - valkey-server
       - --requirepass
-      - ${KIRA_VALKEY_PASSWORD:?isi KIRA_VALKEY_PASSWORD di .env (hex acak)}
+      - ${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN:?isi KIRA_INTERNAL_TOKEN di .env}}
       - --save
       - ""
       - --appendonly
@@ -212,7 +212,7 @@ services:
       - --maxmemory-policy
       - allkeys-lru
     healthcheck:
-      test: ["CMD-SHELL", "valkey-cli -a ${KIRA_VALKEY_PASSWORD} --no-auth-warning ping | grep -q PONG"]
+      test: ["CMD-SHELL", "valkey-cli -a ${KIRA_VALKEY_PASSWORD:-${KIRA_INTERNAL_TOKEN}} --no-auth-warning ping | grep -q PONG"]
       interval: 10s
       timeout: 3s
       retries: 5
