@@ -119,13 +119,19 @@ def asr_score(reference: str, heard: str) -> float:
 # ---------------------------------------------------------------- audio
 
 def decode(path: str, sr: int) -> np.ndarray:
-    p = subprocess.run(
-        ["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", path, "-f", "f32le", "-ac", "1", "-ar", str(sr), "pipe:1"],
-        capture_output=True, check=False, timeout=60,
-    )
-    if p.returncode != 0 or not p.stdout:
-        raise RuntimeError("ffmpeg gagal: " + p.stderr.decode("utf-8", "replace")[:120])
-    return np.frombuffer(p.stdout, dtype=np.float32).copy()
+    """Baca mp3 lalu ubah ke `sr`. Memakai libsndfile di dalam proses: memanggil ffmpeg per klip terlalu lambat untuk puluhan ribu klip."""
+    import soundfile as sf
+    from scipy.signal import resample_poly
+
+    y, native = sf.read(path, dtype="float32", always_2d=False)
+    if y.ndim > 1:
+        y = y.mean(axis=1)
+    if native != sr:
+        g = math.gcd(int(native), sr)
+        y = resample_poly(y, sr // g, int(native) // g).astype(np.float32)
+    if len(y) == 0:
+        raise RuntimeError("audio kosong")
+    return np.ascontiguousarray(y, dtype=np.float32)
 
 
 def frame_db(y: np.ndarray, hop: int = 160) -> np.ndarray:

@@ -328,6 +328,35 @@ docker run --rm --gpus all --network host -v D:kira-data	ts:/data -v kira-tts-mo
 
 Ini juga bisa dilanjutkan (klip yang sudah diperiksa dan tidak berubah dilewati; `--force` memeriksa ulang semua).
 
+### Mengganti suara (backend lain, misalnya suara AI Gatxel)
+
+Layanan `tts` punya dua backend: `TTS_BACKEND=kokoro` (bawaan, di GPU lokal) dan `TTS_BACKEND=openai-compatible` (memanggil `POST <TTS_BASE_URL>/audio/speech`, format OpenAI, misalnya Open WebUI). Variabel untuk layanan `tts`:
+
+| Variabel | Arti |
+|---|---|
+| `TTS_BACKEND` | `kokoro` atau `openai-compatible` |
+| `TTS_BASE_URL` | mis. `http://host.docker.internal:3000/api/v1` (dari kontainer, `127.0.0.1` adalah kontainer itu sendiri, bukan PC) |
+| `TTS_API_KEY` | token Bearer Open WebUI (jangan ditulis di berkas yang masuk git) |
+| `TTS_MODEL` | nama model, bawaan `tts-1` |
+| `TTS_VOICE` | nama suara utama |
+| `TTS_VOICE_SECOND` | suara kedua untuk dialog dua pembicara (kosong: pakai suara utama) |
+| `TTS_VOICE_VERSION` | opsional; bawaan `oa-<nama suara>`. Versi masuk ke kunci klip |
+| `TTS_WORKERS` | banyak permintaan sejajar ke backend |
+
+Hanya satu suara yang didengar anak pada satu waktu. Penunjuk `<data>/tts/served-version.txt` menentukan versi yang disajikan; selama set baru belum lengkap dan lulus gerbang, versi lama tetap disajikan, juga untuk klip baru sesuai permintaan (job `tts.clip` dilewati bila layanan memakai suara yang berbeda dari yang disajikan, dan tablet memakai suara perangkat sampai klipnya ada). Urutannya:
+
+1. Uji kecepatan lebih dulu, tanpa mengubah apa pun. Langsung ke backend, 50 kalimat, dan perkiraan apakah 21.000 klip selesai sebelum pukul 06.00 WIB:
+
+   ```
+   docker run --rm --entrypoint python -v <repo>\deploy\tts:/app/tts:ro -w /app/tts kira-tts:latest speedtest.py --backend openai-compatible --base-url http://host.docker.internal:3000/api/v1 --api-key <KUNCI> --voice <NAMA> --concurrency 4
+   ```
+
+2. Jalankan layanan calon di port lain dengan variabel di atas (kontainer terpisah, mis. `-p 127.0.0.1:18770:8000`), lalu buat set penuh: `pnpm tts:generate -- --data-dir <data> --url http://127.0.0.1:18770 --token <KIRA_INTERNAL_TOKEN> --concurrency 4`. Versi diambil dari layanan itu sendiri (`/health`), jadi klipnya bernama lain dan tidak menimpa suara yang sedang disajikan.
+3. Periksa dengan `check_clips.py` (lihat di atas; `--manifest` bawaan `manifest.jsonl` adalah set terakhir yang dibuat).
+4. Pindahkan penunjuk bila lulus: `pnpm tts:promote -- --data-dir <data> --version <versi> --report <laporan.csv>`. Perintah ini menolak bila ada klip yang belum ada atau tingkat lulus di bawah 99%. Browser membaca versi baru dari `/api/tts/today` dan web dalam 5 detik; semua perangkat berpindah bersamaan.
+5. Kembali ke Kokoro kapan saja: `pnpm tts:promote -- --data-dir <data> --version k1 --report <laporan Kokoro>` (klipnya tetap ada di disk).
+
+
 ### Masalah yang sering muncul
 
 | Gejala | Penyebab dan jalan keluar |
