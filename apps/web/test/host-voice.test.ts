@@ -46,7 +46,7 @@ function setup() {
   )
 }
 
-const settle = () => new Promise((r) => setTimeout(r, 30))
+const settle = () => new Promise((r) => setTimeout(r, 120))
 
 describe('hostSay', () => {
   beforeEach(() => {
