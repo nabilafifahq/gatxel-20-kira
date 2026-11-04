@@ -187,7 +187,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         <div role="img" aria-label="Rough progress" className="flex h-2.5 min-w-0 flex-1 overflow-hidden rounded-pill bg-divider max-sm:order-last max-sm:basis-full">
           <span className="bg-fg transition-[width] duration-300 motion-reduce:transition-none" style={{ width: `${progress}%` }} />
         </div>
-        <Link href="/today" className="inline-flex h-11 flex-none items-center gap-1 px-2 text-body font-bold max-sm:ml-auto">
+        <Link href="/today" className="inline-flex h-11 flex-none items-center gap-1 px-2 text-body font-bold max-sm:ml-auto max-sm:px-0">
           <UiIcon name="close" size={20} />
           Stop for now
         </Link>

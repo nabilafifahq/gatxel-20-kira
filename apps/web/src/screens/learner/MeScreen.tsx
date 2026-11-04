@@ -251,7 +251,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
       ) : null}
 
       <section aria-label="Kira World" className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
-        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <div className="flex min-w-50 flex-1 flex-col gap-0.5">
           <h2 className="m-0 text-h3 font-bold">Kira World</h2>
           <p className="m-0 text-body text-fg-muted">Your friend, Star Shop, card album, story, Puzzle Robot and trophies.</p>
         </div>
