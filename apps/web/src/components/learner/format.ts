@@ -1,4 +1,4 @@
-import { htmlLang, type UiLang } from '@/lib/i18n'
+import { htmlLang, type UiLang } from '@/lib/i18n/lang'
 
 /** Format tanggal dan waktu untuk layar learner (bawaan en-GB, zona Asia/Jakarta). */
 

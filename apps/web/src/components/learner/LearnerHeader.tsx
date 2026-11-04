@@ -114,7 +114,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
+                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 whitespace-nowrap no-underline',
                 on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg',
               )}
             >
