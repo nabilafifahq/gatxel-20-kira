@@ -11,15 +11,20 @@ import { LEARNER_ROUTES } from '@/components/learner/routes'
  */
 
 export function Wordmark({ className }: { className?: string }): ReactElement {
-  return <KiraLogo size={36} className={className} />
+  return (
+    <>
+      <KiraLogo size={28} className={cx('sm:hidden', className)} />
+      <KiraLogo size={36} className={cx('max-sm:hidden', className)} />
+    </>
+  )
 }
 
 /** Bar atas layar Pilih learner dan Masuk anak (papan PilihLearner, MasukAnak). */
 export function SignInBar({ grownUpHref = LEARNER_ROUTES.grownUp }: { grownUpHref?: string }): ReactElement {
   return (
-    <header className="flex h-18 flex-none items-center gap-4 px-4 md:h-22 md:px-10">
+    <header className="flex h-18 flex-none items-center gap-2 px-3 sm:gap-4 sm:px-4 md:h-22 md:px-10">
       <Wordmark />
-      <ButtonLink href={grownUpHref} variant="secondary" icon="question" className="ml-auto">
+      <ButtonLink href={grownUpHref} variant="secondary" icon="question" className="ml-auto max-sm:h-12 max-sm:px-3.5 max-sm:text-body-lg">
         Ask a grown-up
       </ButtonLink>
     </header>
