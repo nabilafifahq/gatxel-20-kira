@@ -62,7 +62,7 @@ export function FamilyShell({
                   href={n.href}
                   aria-current={on ? 'page' : undefined}
                   className={cx(
-                    '-mb-px inline-flex h-11 items-center gap-2 border-0 border-b-3 px-3 text-body text-fg no-underline hover:text-fg',
+                    '-mb-px inline-flex h-11 flex-none items-center gap-2 whitespace-nowrap border-0 border-b-3 px-3 text-body text-fg no-underline hover:text-fg',
                     on ? 'border-fg font-extrabold' : 'border-transparent font-semibold text-fg-muted',
                   )}
                 >
