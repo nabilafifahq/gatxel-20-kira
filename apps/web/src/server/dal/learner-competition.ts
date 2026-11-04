@@ -8,6 +8,7 @@ import type { CompetitionIntroDTO, CompetitionPickDTO, EsmoDTO, EsmoPack, Subjec
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { content, preset, presets, skillsFor } from './content'
+import { guardAttemptItems } from './session-guard'
 import { learnerShell, loadLearner, type LearnerRow } from './learner-core'
 
 const { attempt, orgItem, competitionEvent } = tables
@@ -131,6 +132,7 @@ export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string
   if (open[0]) return open[0].id
   const picked = await pickSimulationItems(tx, learner, p, `${learnerId}:${presetId}:${Date.now()}`)
   if (picked.length === 0) throw invalid('No questions are ready for this practice yet.')
+  const simItems = await guardAttemptItems(tx, picked.map((x, i) => ({ ref: x.ref, section: 'core' as const, position: i + 1, difficulty: x.difficulty })), { seed: `${learnerId}:${presetId}:sim`, mode: 'simulasi' })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -141,7 +143,7 @@ export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string
       mode: 'simulasi',
       subject: p.subject,
       title: p.title,
-      items: picked.map((x, i) => ({ ref: x.ref, section: 'core', position: i + 1, difficulty: x.difficulty })),
+      items: simItems,
       timeLimitS: p.rules.timeLimitMin * 60,
     })
     .returning({ id: attempt.id })
@@ -235,6 +237,7 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
     .limit(1)
   if (open[0]) return open[0].id
   const p = preset(`esmo-practice-${pack.subject}-2026`)
+  const packItems = await guardAttemptItems(tx, pack.refs.map((ref, i) => ({ ref, section: 'core' as const, position: i + 1, difficulty: 3 })), { seed: `${learnerId}:${packId}`, mode: 'tes' })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -245,7 +248,7 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
       mode: 'tes',
       subject: pack.subject,
       title: `${pack.subject === 'math' ? 'ESMO Math' : 'ESMO English'} practice pack ${pack.num}`,
-      items: pack.refs.map((ref, i) => ({ ref, section: 'core', position: i + 1, difficulty: 3 })),
+      items: packItems,
       timeLimitS: (p?.rules.timeLimitMin ?? (pack.subject === 'math' ? 13 : 10)) * 60,
     })
     .returning({ id: attempt.id })
@@ -260,6 +263,7 @@ export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, 
   const rng = createRng(`${learnerId}:esmo-mock:${Date.now()}`)
   const refs = rng.shuffle(packs.flatMap((x) => x.refs)).slice(0, p.rules.questionCount)
   if (refs.length === 0) throw invalid('No ESMO questions are ready yet.')
+  const mockItems = await guardAttemptItems(tx, refs.map((ref, i) => ({ ref, section: 'core' as const, position: i + 1, difficulty: 3 })), { seed: `${learnerId}:esmo-mock:${subject}`, mode: 'simulasi' })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -270,7 +274,7 @@ export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, 
       mode: 'simulasi',
       subject,
       title: `${subject === 'math' ? 'ESMO Math' : 'ESMO English'} mock test`,
-      items: refs.map((ref, i) => ({ ref, section: 'core', position: i + 1, difficulty: 3 })),
+      items: mockItems,
       timeLimitS: p.rules.timeLimitMin * 60,
     })
     .returning({ id: attempt.id })

@@ -7,6 +7,7 @@ import type { CorrectionBookDTO, LessonDTO, MapDTO, MapSkillDTO, MeDTO, Subject 
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, promptPreview, resolveItems, skill, skillsFor, strandName, toClient } from './content'
+import { guardAttemptItems } from './session-guard'
 import { accessoryDTOs, trackDTOs } from './arena-tracks'
 import { trackTotals } from './arena-state'
 import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
@@ -162,9 +163,10 @@ export async function startReviewSession(tx: Tx, ctx: OrgContext, learnerId: str
     .limit(10)
   if (due.length === 0) throw invalid('No review cards today.')
   const resolved = await resolveItems(tx, due.map((d) => d.itemRef))
-  const items = due
+  const dueItems = due
     .filter((d) => resolved.has(d.itemRef))
     .map((d, i) => ({ ref: d.itemRef, section: 'warmup' as const, position: i + 1, difficulty: resolved.get(d.itemRef)!.difficulty }))
+  const items = await guardAttemptItems(tx, dueItems, { seed: `${learnerId}:${today}:review`, mode: 'review' })
   const subject = (due[0]!.subject as Subject) ?? 'math'
   const [row] = await tx
     .insert(attempt)
@@ -186,6 +188,7 @@ export async function startPractice(tx: Tx, ctx: OrgContext, learnerId: string, 
     seedKey: `${learnerId}:${Date.now()}:${skillId}`,
     length: 5,
   })
+  // buildQuestItems sudah melewati penjaga set.
   const [row] = await tx
     .insert(attempt)
     .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: sk.subject, title: sk.title, items })

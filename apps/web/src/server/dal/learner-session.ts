@@ -29,6 +29,7 @@ import type { Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
 import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
+import { guardAttemptItems } from './session-guard'
 import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
 import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
@@ -198,7 +199,8 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
     slots = assembleQuest({ mode: input.mode, theta, dueRefs, candidates: withSeen(pool), length: input.length ?? questLength(learner, input.mode), rng })
   }
   const taken = new Set<string>()
-  return slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
+  const built = slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
+  return guardAttemptItems(tx, built, { seed: `${input.seedKey}:guard`, mode: input.mode, ...(input.avoid ? { avoid: input.avoid } : {}) })
 }
 
 /** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */
@@ -312,6 +314,7 @@ async function planAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, spec: P
 }
 
 async function insertAttempt(tx: Tx, ctx: OrgContext, learnerId: string, q: Pick<QuestRow, 'id' | 'subject'>, plan: Plan): Promise<string> {
+  const guarded = await guardAttemptItems(tx, plan.items, { seed: `${q.id}:guard`, mode: plan.mode })
   const [row] = await tx
     .insert(attempt)
     .values({
@@ -322,7 +325,7 @@ async function insertAttempt(tx: Tx, ctx: OrgContext, learnerId: string, q: Pick
       mode: plan.mode,
       subject: q.subject,
       title: plan.title,
-      items: plan.items,
+      items: guarded,
       timeLimitS: plan.timeLimitS,
       presetId: plan.presetId,
     })
@@ -896,6 +899,7 @@ export async function createRetryAttempt(tx: Tx, ctx: OrgContext, learner: Learn
       allowManual: false,
     })
   }
+  items = await guardAttemptItems(tx, items, { seed: `${root.id}:retry:${retryNo}`, mode: root.mode })
   const [row] = await tx
     .insert(attempt)
     .values({
