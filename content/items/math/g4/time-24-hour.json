@@ -7,7 +7,7 @@
       "difficulty": 2,
       "prompt": "A train leaves at 18:45. What time is that on a 12-hour clock?",
       "hints": [
-        "After 12:00 you subtract 12 from the hours.",
+        "From 13:00 onwards you subtract 12 from the hours.",
         "18 - 12.",
         "Is it morning or afternoon?"
       ],
@@ -61,7 +61,7 @@
         },
         {
           "text": "21:10",
-          "why": "You forgot that 7:20 p.m. is 19:20, and then 2 hours 50 minutes is more than 2 hours."
+          "why": "You changed 70 minutes to 10 minutes but did not add the extra hour."
         }
       ],
       "answer": 1
@@ -108,7 +108,7 @@
       ],
       "answer": 1,
       "hints": [
-        "Add 12 to pm hours.",
+        "From 1 pm onwards, add 12 to the hours.",
         "8 + 12.",
         "It is the evening."
       ],
