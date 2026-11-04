@@ -8,8 +8,58 @@
       "difficulty": 3,
       "prompt": "Two angles of a triangle are 40° and 75°. What is the third angle?",
       "figure": {
-        "kind": "shape",
-        "shape": "triangle",
+        "kind": "scene",
+        "width": 240,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                20,
+                155
+              ],
+              [
+                220,
+                155
+              ],
+              [
+                183,
+                18
+              ]
+            ],
+            "closed": true,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 66,
+            "y": 140,
+            "text": "40°",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 204,
+            "y": 140,
+            "text": "75°",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 180,
+            "y": 50,
+            "text": "?",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
         "alt": "A triangle with two angles marked 40° and 75°. The third angle is unknown."
       },
       "options": [
@@ -129,23 +179,74 @@
       "difficulty": 5,
       "prompt": "A rectangle is split into 4 smaller rectangles by one straight line across and one straight line down. The top left has area 12 cm² and the top right 18 cm². The bottom left has area 20 cm². What is the area of the bottom right?",
       "figure": {
-        "kind": "table",
-        "head": [
-          "Part",
-          "Left",
-          "Right"
-        ],
-        "rows": [
-          [
-            "Top",
-            "12 cm²",
-            "18 cm²"
-          ],
-          [
-            "Bottom",
-            "20 cm²",
-            "?"
-          ]
+        "kind": "scene",
+        "width": 280,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 20,
+            "y": 10,
+            "w": 240,
+            "h": 160,
+            "r": 0,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 116,
+            "y1": 10,
+            "x2": 116,
+            "y2": 170,
+            "width": 2.5,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 20,
+            "y1": 70,
+            "x2": 260,
+            "y2": 70,
+            "width": 2.5,
+            "tone": "math"
+          },
+          {
+            "t": "text",
+            "x": 68,
+            "y": 45,
+            "text": "12 cm²",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 188,
+            "y": 45,
+            "text": "18 cm²",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 68,
+            "y": 125,
+            "text": "20 cm²",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 188,
+            "y": 125,
+            "text": "?",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          }
         ],
         "alt": "A rectangle split into 4 parts. Top left: 12 cm². Top right: 18 cm². Bottom left: 20 cm². Bottom right: unknown."
       },

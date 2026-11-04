@@ -118,16 +118,16 @@
             "tone": "math"
           }
         ],
-        "alt": "Beads on a string: red, blue, blue, red, blue, blue. The pattern repeats: 1 red bead, then 2 blue beads."
+        "alt": "Beads on a string: purple, blue, blue, purple, blue, blue. The pattern repeats: 1 purple bead, then 2 blue beads."
       },
       "options": [
         {
           "text": "4",
-          "why": "4 is the number of red beads."
+          "why": "4 is the number of purple beads."
         },
         {
           "text": "6",
-          "why": "6 is half of 12, but each group has more blue beads than red ones."
+          "why": "6 is half of 12, but each group has more blue beads than purple ones."
         },
         {
           "text": "8"
@@ -138,20 +138,20 @@
         },
         {
           "text": "12",
-          "why": "Not every bead is blue. Each group has 1 red bead."
+          "why": "Not every bead is blue. Each group has 1 purple bead."
         }
       ],
       "answer": 2,
       "hints": [
         "Find the group of beads that repeats.",
-        "Each group is red, blue, blue. Count how many groups fit in 12 beads.",
+        "Each group is purple, blue, blue. Count how many groups fit in 12 beads.",
         "Count in 3s up to 12: 3, 6, 9, 12."
       ],
-      "explanation": "12 beads make 4 groups of red, blue, blue. Each group has 2 blue beads, so there are 2 + 2 + 2 + 2 = 8 blue beads.",
+      "explanation": "12 beads make 4 groups of purple, blue, blue. Each group has 2 blue beads, so there are 2 + 2 + 2 + 2 = 8 blue beads.",
       "solution": [
         {
-          "say": "One group is red, blue, blue. That is 3 beads.",
-          "show": "red, blue, blue"
+          "say": "One group is purple, blue, blue. That is 3 beads.",
+          "show": "purple, blue, blue"
         },
         {
           "say": "Count in 3s to 12: 3, 6, 9, 12. So there are 4 groups.",
