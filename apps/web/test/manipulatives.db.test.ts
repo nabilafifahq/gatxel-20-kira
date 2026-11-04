@@ -58,6 +58,21 @@ describe.skipIf(!ready)('alat peraga di server', () => {
       runner.saveAnswer(tx, ctx, learnerId, { attemptId, position, answer, hintsUsed: 0, attemptNo: 1, timeMs: 3000, flagged: false, clientId: randomUUID(), answeredAt: new Date().toISOString() }),
     )
 
+  it('fitur manipulatives mati: soal alat dan tingkat generator alat tidak masuk kolam soal', async () => {
+    const content = await import('@/server/dal/content')
+    for (const skill of ['m2.place-value', 'm3.perimeter-area', 'm1.shapes-2d']) {
+      const on = await run((tx) => content.poolForSkill(tx, orgId, skill, { allowManual: false }))
+      const off = await run((tx) => content.poolForSkill(tx, orgId, skill, { allowManual: false, manipulatives: false }))
+      const toolRefs = [...index.items.values()].filter((i) => i.skill === skill && ['blocks', 'fractionbar', 'barmodel', 'tangram', 'geoboard'].includes(i.type)).map((i) => i.id)
+      expect(toolRefs.length, skill).toBeGreaterThan(0)
+      expect(on.map((c) => c.ref), skill).toEqual(expect.arrayContaining(toolRefs))
+      expect(off.map((c) => c.ref).filter((r) => toolRefs.includes(r)), skill).toEqual([])
+    }
+    const gen = await run((tx) => content.poolForSkill(tx, orgId, 'm2.place-value', { allowManual: false, manipulatives: false }))
+    expect(gen.some((c) => c.ref === 'gen:m2.place-value:2')).toBe(false)
+    expect(gen.some((c) => c.ref === 'gen:m2.place-value:1')).toBe(true)
+  })
+
   it('mode Tes tidak mengirim kunci, target, aturan, contoh, atau pembahasan ke perangkat', async () => {
     const dto = await run((tx) => runner.runnerDTO(tx, learnerId, attemptId))
     expect('items' in dto).toBe(true)
