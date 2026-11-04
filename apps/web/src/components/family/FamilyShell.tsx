@@ -19,14 +19,15 @@ export function FamilyShell({
   children,
 }: {
   shell: ConsoleShell
-  active: 'home' | 'privacy'
+  active: 'home' | 'week' | 'privacy'
   learnerName?: string
   children: ReactNode
 }) {
   // Anak yang sedang dipilih ikut pindah antara Ringkasan dan Privasi.
   const q = shell.currentLearnerId ? `?learner=${encodeURIComponent(shell.currentLearnerId)}` : ''
   const nav = [
-    { key: 'home', label: 'Ringkasan', href: `${FAMILY_ROUTES.home}${q}`, icon: 'report' as const },
+    { key: 'home', label: 'Anak saya', href: FAMILY_ROUTES.home, icon: 'learners' as const },
+    { key: 'week', label: 'Minggu ini', href: `${FAMILY_ROUTES.week}${q}`, icon: 'report' as const },
     { key: 'privacy', label: 'Privasi', href: `${FAMILY_ROUTES.privacy}${q}`, icon: 'shield' as const },
   ]
   return (

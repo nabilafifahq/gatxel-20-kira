@@ -28,6 +28,8 @@ export const CONSOLE_ROUTES = {
 
 export const FAMILY_ROUTES = {
   home: '/keluarga',
+  week: '/keluarga/minggu',
+  child: (id: string) => `/keluarga/anak/${encodeURIComponent(id)}`,
   privacy: '/keluarga/privasi',
 } as const
 
