@@ -47,6 +47,8 @@ export function BarModel({ value, onChange, disabled = false, feedback = null, c
   const totalUnits = bars.reduce((n, b) => n + b.units, 0)
   const ring = feedback === 'correct' ? 'border-success' : feedback === 'not-yet' ? 'border-warn' : 'border-fg'
   const unitNow = value.unit ?? 0
+  // Batang diukur terhadap yang terpanjang supaya perbandingannya jelas.
+  const longest = Math.max(4, ...bars.map((b) => b.units))
 
   const addBar = () => {
     if (locked || bars.length >= config.barCount) return
@@ -99,7 +101,7 @@ export function BarModel({ value, onChange, disabled = false, feedback = null, c
             <div key={i} className="flex items-center gap-2">
               <span className="w-24 flex-none truncate text-small font-bold md:w-32 md:text-body">{b.label || '?'}</span>
               <div className="relative h-12 flex-1">
-                <div className={cx('flex h-full overflow-hidden rounded-control border-3 transition-[width] duration-150 ease-kira', ring)} style={{ width: `${Math.max(b.units, 1) * (100 / config.maxUnits)}%` }}>
+                <div className={cx('flex h-full overflow-hidden rounded-control border-3 transition-[width] duration-150 ease-kira', ring)} style={{ width: `${(Math.max(b.units, 1) / longest) * 100}%` }}>
                   {segments(b, i)}
                 </div>
               </div>

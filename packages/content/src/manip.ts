@@ -9,6 +9,10 @@
 export type Blocks = { h: number; t: number; o: number }
 export const BLOCK_MAX = 30
 
+/** Jenis soal alat peraga, dan tingkat generator yang kadang membuat soal alat. Dipakai untuk menyaring bila fitur dimatikan. */
+export const MANIPULATIVE_TYPES: ReadonlySet<string> = new Set(['blocks', 'fractionbar', 'barmodel', 'tangram', 'geoboard'])
+export const MANIPULATIVE_GEN_LEVELS: ReadonlySet<string> = new Set(['m2.place-value:2', 'm3.perimeter-area:2'])
+
 const isInt = (x: unknown): x is number => typeof x === 'number' && Number.isInteger(x)
 
 export function blocksValue(b: Blocks): number {
