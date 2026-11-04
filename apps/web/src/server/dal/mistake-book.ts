@@ -188,13 +188,13 @@ export async function mistakeReportDTO(actor: Actor, learnerParam: string | null
       byType: summariseTypes(typed.map((t) => t.type)),
       bySkill: topSkills(typed.map((t) => t.skillId)).map((s) => ({
         skillId: s.skillId,
-        title: skill(s.skillId)?.title ?? s.skillId,
+        title: skill(s.skillId)?.titleId ?? skill(s.skillId)?.title ?? s.skillId,
         subject: skill(s.skillId)?.subject ?? 'math',
         count: s.count,
       })),
       items: recent.map((m) => ({
         ref: m.ref,
-        skillTitle: skill(m.skillId)?.title ?? m.skillId,
+        skillTitle: skill(m.skillId)?.titleId ?? skill(m.skillId)?.title ?? m.skillId,
         subject: m.subject,
         typeLabel: MISTAKE_LABEL[m.type],
         wrongOn: formatDateId(jakartaDate(m.answeredAt)),

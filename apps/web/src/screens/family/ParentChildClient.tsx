@@ -331,11 +331,11 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
       ) : null}
       {s.core ? (
         <div className="flex flex-wrap items-end gap-2">
-          <Button variant="secondary" size="S" disabled={busy} loading={toggle.pending} onClick={() => void run(toggle.run({ questId: s.questId, required: !s.required }))}>
+          <Button variant="secondary" size="S" className="min-h-11" disabled={busy} loading={toggle.pending} onClick={() => void run(toggle.run({ questId: s.questId, required: !s.required }))}>
             {s.required ? 'Jadikan opsional' : 'Jadikan wajib'}
           </Button>
           {!s.started ? (
-            <Button variant="quiet" size="S" tone="danger" disabled={busy} onClick={() => setConfirm(true)}>
+            <Button variant="quiet" size="S" className="min-h-11" tone="danger" disabled={busy} onClick={() => setConfirm(true)}>
               Hapus sesi
             </Button>
           ) : s.skillNote ? null : (
@@ -347,6 +347,7 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
               <Button
                 variant="secondary"
                 size="S"
+                className="min-h-11"
                 disabled={busy || Number(n) === s.questionCount}
                 loading={count.pending}
                 onClick={() => void run(count.run({ questId: s.questId, questionCount: Number(n) }))}
@@ -447,7 +448,7 @@ function Limits({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Batas waktu layar</h3>
-      <TextField label="Paling lama per hari (menit)" inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku mulai besok." />
+      <TextField label="Paling lama per hari (menit)" inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku langsung, juga untuk hari ini." />
       <fieldset className="m-0 flex flex-wrap gap-2 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Hari istirahat</legend>
         {[1, 2, 3, 4, 5, 6, 0].map((d) => {

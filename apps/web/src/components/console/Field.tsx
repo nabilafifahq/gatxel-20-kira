@@ -338,7 +338,7 @@ export function Switch({
         if (!busy) onChange(!checked)
       }}
       className={cx(
-        'relative flex h-8 w-14 flex-none cursor-pointer items-center rounded-pill border-2 p-[3px] disabled:cursor-not-allowed disabled:opacity-60',
+        'relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-[""] relative flex h-8 w-14 flex-none cursor-pointer items-center rounded-pill border-2 p-[3px] disabled:cursor-not-allowed disabled:opacity-60',
         checked ? 'border-fg bg-fg' : 'border-border bg-surface',
       )}
     >

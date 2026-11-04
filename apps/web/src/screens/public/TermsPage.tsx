@@ -69,7 +69,7 @@ export function TermsPage({ data, account }: TermsPageProps & { account?: ReactN
           akun yang dibuat orang dewasa dan setelah Orang Tua memberi persetujuan sesuai Kebijakan Privasi.
         </p>
         <p className="m-0">
-          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Perangkat yang hilang atau dipinjam orang lain bisa dicabut dari Pengaturan.
+          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Kalau perangkat hilang atau dipinjam orang lain, Orang Tua mengganti PIN gambar anak di halaman anak dan bisa meminta perangkat itu dicabut lewat {entity.email}. Keluarga bertutor mencabutnya sendiri dari Pengaturan konsol.
         </p>
       </LegalSection>
 
@@ -127,7 +127,7 @@ export function TermsPage({ data, account }: TermsPageProps & { account?: ReactN
 
       <LegalSection id="k-berhenti" title="10. Berhenti memakai Kira">
         <p className="m-0">
-          Pemilik akun dan Orang Tua bisa berhenti kapan saja dan menghapus akun dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>.
+          Pemilik akun dan Orang Tua bisa berhenti kapan saja. Akun dan data anak dihapus sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Untuk menghapus akun orang tua, kirim permintaan ke {entity.email}.
           Pengelola bisa menangguhkan akun yang melanggar bagian 6 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
           dihentikan.
         </p>

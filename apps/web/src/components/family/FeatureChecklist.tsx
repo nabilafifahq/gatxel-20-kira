@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useId, useState } from 'react'
 import { FEATURE_GROUPS, FEATURE_HINT, FEATURE_LABEL, FEATURE_NEEDS, FEATURE_PRESETS, featureOn, presetMap, type FeatureKey, type FeatureMap } from '@kira/core/features'
 import { Button } from '@/components/console/Button'
@@ -29,6 +30,7 @@ export function FeatureChecklist({
   primary?: boolean
   showPresets?: boolean
 }) {
+  const router = useRouter()
   const [map, setMap] = useState<FeatureMap>(initial)
   const [saved, setSaved] = useState(false)
   const save = useAction(parentSaveFeaturesAction)
@@ -108,6 +110,7 @@ export function FeatureChecklist({
           const r = await save.run({ learnerId, features: map })
           if (r.ok) {
             setSaved(true)
+            router.refresh()
             await onSaved?.()
           }
         }}
