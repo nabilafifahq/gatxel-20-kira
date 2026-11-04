@@ -67,6 +67,7 @@ describe.skipIf(!ready)('sesi harian', () => {
       case 'label':
         return { texts: item.labels }
       case 'table':
+      case 'text':
         return { texts: item.blanks.map((b) => b.answers[0]) }
       case 'grid':
         return { cells: item.filled.flat() }
