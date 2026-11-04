@@ -85,7 +85,14 @@ Catatan: kolom Bisnis OK 0,00 persen pada skenario yang hanya membaca halaman (T
 
 ## 5. Soak
 
-SOAK_TEKS
+Opsi 30 menit ada (`--stage soak --soak-min 30`). Malam ini dijalankan **12 menit** pada 100 anak (campuran, 850 detik termasuk naik dan turun), karena batas waktu malam ini:
+
+- 19.958 permintaan, 23,8 per detik, galat HTTP 0,00 persen, transaksi bisnis 100 persen.
+- p50 26 ms, p95 130 ms, p99 242 ms. Today p95 197 ms, simpan jawaban p95 105 ms, kumpul sesi p95 311 ms.
+- RAM total empat replika web: 1388 MiB pada menit pertama, 1448 pada menit ke-4, 1464 pada menit ke-8, 1463 pada menit ke-12 (mendatar, tidak ada tanda kebocoran dalam 12 menit). Sambungan Postgres 18 sampai 23, tidak merayap naik. PgBouncer tidak pernah punya klien yang menunggu.
+- Data keluar dari proxy 245 MB, rata-rata 2,3 Mbps.
+
+Soak 30 menit penuh, dan soak lebih lama pada 300 anak, belum dijalankan.
 
 ## 6. Gangguan
 
