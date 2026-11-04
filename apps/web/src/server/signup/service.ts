@@ -7,8 +7,8 @@ import { AppError, invalid } from '../errors'
 import { log } from '../log'
 import { NOTICE_VERSION, TERMS_VERSION } from '../auth/accounts'
 import { randomToken, sha256hex } from '../auth/crypto'
-import { hashSecret, passwordProblem } from '../auth/password'
-import { signupExistingEmail, signupVerifyEmail, waitlistConfirmEmail, waitlistWelcomeEmail } from '@kira/core/email-templates'
+import { burnVerify, hashSecret, passwordProblem, verifySecret } from '../auth/password'
+import { signupActivatedEmail, signupExistingEmail, signupVerifyEmail, waitlistConfirmEmail, waitlistWelcomeEmail } from '@kira/core/email-templates'
 import { queuePublicMail } from '../dal/outbox'
 import { emailIdentity } from '../email'
 import { emailSendAllowed } from '../auth/ratelimit'
@@ -60,6 +60,51 @@ async function sendAlreadyHaveAccount(to: string): Promise<void> {
   await queuePublicMail({ to, ...mail, kind: 'signup-existing' })
 }
 
+/** Kabar untuk pemilik email yang tidak merasa mendaftar. Akun tetap aktif bila email ini gagal masuk antrean. */
+async function sendActivated(to: string): Promise<void> {
+  try {
+    const mail = signupActivatedEmail(emailIdentity(), { loginUrl: `${origin()}/masuk` })
+    await queuePublicMail({ to, ...mail, kind: 'signup-active' })
+  } catch (e) {
+    log.error('email akun aktif gagal masuk antrean', { error: e })
+  }
+}
+
+type PendingSignup = typeof signup.$inferSelect
+
+async function pendingSignup(emailNorm: string): Promise<PendingSignup | undefined> {
+  return (await authDb().select().from(signup).where(and(eq(signup.emailNorm, emailNorm), sql`${signup.expiresAt} > now()`)).limit(1))[0]
+}
+
+/** Putar token dan kirim email baru, kecuali terlalu cepat atau batas email habis. Tanpa email baru, tautan lama tetap berlaku. */
+async function rotateAndSend(row: PendingSignup): Promise<void> {
+  const now = new Date()
+  if (now.getTime() - row.lastSentAt.getTime() < RESEND_GAP_MS) return
+  if (!emailSendAllowed('verify', row.email)) return
+  const token = randomToken(32)
+  await authDb()
+    .update(signup)
+    .set({ tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` })
+    .where(eq(signup.id, row.id))
+  await sendVerification(row.email, token)
+}
+
+/**
+ * Pendaftaran kedua untuk email yang masih menunggu. Password dan nama yang tersimpan tidak pernah ditimpa, karena
+ * tidak ada cara mengetahui pendaftar mana pemilik email. Password sama: sama dengan kirim ulang. Password berbeda: baris
+ * diberi tanda supaya tautan meminta password baru. Tanda dipasang sebelum pemeriksaan jeda dan batas email, karena
+ * tautan yang sudah terkirim juga harus berhenti mengaktifkan akun dengan password tersimpan. Tanda tidak pernah dicabut:
+ * mengulang password yang tersimpan tidak membuktikan apa pun.
+ */
+async function repeatSignup(row: PendingSignup, samePassword: boolean): Promise<void> {
+  if (samePassword) {
+    if (row.sentCount < RESEND_MAX) await rotateAndSend(row)
+    return
+  }
+  if (!row.conflict) await authDb().update(signup).set({ conflict: true }).where(eq(signup.id, row.id))
+  await rotateAndSend(row)
+}
+
 /**
  * Mulai pendaftaran: simpan pendaftar yang belum terverifikasi dan kirim email konfirmasi.
  * Pemanggil menampilkan jawaban yang sama apa pun hasilnya, supaya tidak membocorkan email yang sudah terdaftar.
@@ -75,19 +120,26 @@ export async function startSignup(input: { name: string; email: string; password
   if (problem) throw invalid(problem, { password: problem })
   if ((await seatInfo()).full) throw new AppError('unavailable', SEATS_FULL_MESSAGE)
 
-  // Hash dihitung di semua cabang supaya waktu respons tidak membedakan email yang sudah terdaftar.
+  // Satu hash dan satu verifikasi dihitung di semua cabang supaya waktu respons tidak membedakan email yang sudah
+  // terdaftar atau sedang menunggu konfirmasi.
   const passwordHash = await hashSecret(input.password)
+  const pending = await pendingSignup(verdict.key)
+  let samePassword = false
+  if (pending) samePassword = await verifySecret(pending.passwordHash, input.password)
+  else await burnVerify(input.password)
   if (await emailTaken(verdict.key, verdict.email)) {
     await sendAlreadyHaveAccount(verdict.email)
     return
   }
+  if (pending) {
+    await repeatSignup(pending, samePassword)
+    return
+  }
+  if (!emailSendAllowed('verify', verdict.email)) return
   const token = randomToken(32)
   const now = new Date()
-  const existing = (await authDb().select({ lastSentAt: signup.lastSentAt }).from(signup).where(eq(signup.emailNorm, verdict.key)).limit(1))[0]
-  if (existing && now.getTime() - existing.lastSentAt.getTime() < RESEND_GAP_MS) return
-  // Cek batas email sebelum menimpa pendaftar: tanpa email baru, tautan lama harus tetap berlaku.
-  if (!emailSendAllowed('verify', verdict.email)) return
-  await authDb()
+  // Baris yang sudah kedaluwarsa boleh ditimpa utuh. Baris yang masih berlaku tidak pernah ditimpa di sini.
+  const written = await authDb()
     .insert(signup)
     .values({
       email: verdict.email,
@@ -102,9 +154,17 @@ export async function startSignup(input: { name: string; email: string; password
     })
     .onConflictDoUpdate({
       target: signup.emailNorm,
-      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` },
+      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, lastSentAt: now, sentCount: 1, conflict: false },
+      where: sql`${signup.expiresAt} <= now()`,
     })
-  await sendVerification(verdict.email, token)
+    .returning({ id: signup.id })
+  if (written[0]) {
+    await sendVerification(verdict.email, token)
+    return
+  }
+  // Kalah balapan dengan pendaftaran lain untuk email yang sama: perlakukan sebagai pendaftaran kedua.
+  const raced = await pendingSignup(verdict.key)
+  if (raced) await repeatSignup(raced, await verifySecret(raced.passwordHash, input.password))
 }
 
 /** Kirim ulang email konfirmasi. Diam bila tidak ada pendaftar, terlalu sering, atau sudah lima kali. */
@@ -116,16 +176,8 @@ export async function resendVerification(emailRaw: string): Promise<void> {
     await new Promise((r) => setTimeout(r, 200 + Math.random() * 200))
     return
   }
-  const now = new Date()
-  if (now.getTime() - row.lastSentAt.getTime() < RESEND_GAP_MS || row.sentCount >= RESEND_MAX) return
-  // Cek batas email sebelum memutar token: tanpa email baru, tautan lama harus tetap berlaku.
-  if (!emailSendAllowed('verify', row.email)) return
-  const token = randomToken(32)
-  await authDb()
-    .update(signup)
-    .set({ tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` })
-    .where(eq(signup.id, row.id))
-  await sendVerification(row.email, token)
+  if (row.sentCount >= RESEND_MAX) return
+  await rotateAndSend(row)
 }
 
 /** True bila email ini menunggu konfirmasi (dipakai untuk pesan ramah di halaman masuk). Tidak dipakai di jawaban publik. */
@@ -134,28 +186,42 @@ export async function hasPendingSignup(emailRaw: string): Promise<boolean> {
   return Boolean(rows[0])
 }
 
-export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { status: 'full' | 'invalid' | 'taken' }
+export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { status: 'full' | 'invalid' | 'taken' | 'needs-password' }
 
 /**
  * Verifikasi token: buat keluarga dan ambil kursi sekaligus, di bawah kunci database.
- * Keputusan pemilik untuk pilot: tautan di email cukup, tanpa memasukkan password lagi. Risiko sisa: orang lain
- * mendaftar dengan email korban memakai password-nya sendiri, dan korban menekan tautan yang tidak dia minta
- * (pre-hijack). Emailnya meminta mengabaikan tautan bila bukan dia yang mendaftar.
+ * Keputusan pemilik untuk pilot: tautan di email cukup, tanpa memasukkan password lagi. Pengecualiannya pendaftar
+ * bertanda conflict: pemegang tautan membuat password baru, dan password itu dipasang di transaksi yang sama dengan
+ * pembuatan akun, jadi semua password dari formulir daftar mati. Risiko sisa ada di docs/laporan-keamanan.md.
  */
-export async function verifySignup(token: string): Promise<VerifyOutcome> {
+export async function verifySignup(token: string, newPassword?: string): Promise<VerifyOutcome> {
   if (token.length < 20 || token.length > 100) return { status: 'invalid' }
-  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${sha256hex(token)}, ${env().KIRA_BETA_SEATS})`)
+  const tokenHash = sha256hex(token)
+  const row = (await authDb().select({ email: signup.email, name: signup.name, conflict: signup.conflict }).from(signup).where(and(eq(signup.tokenHash, tokenHash), sql`${signup.expiresAt} > now()`)).limit(1))[0]
+  if (!row) return { status: 'invalid' }
+  let newHash: string | null = null
+  if (row.conflict) {
+    if (newPassword === undefined) return { status: 'needs-password' }
+    const problem = await passwordProblem(newPassword, { email: row.email, name: row.name })
+    if (problem) throw invalid(problem, { password: problem })
+    newHash = await hashSecret(newPassword)
+  }
+  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${tokenHash}, ${env().KIRA_BETA_SEATS}, ${newHash}::text)`)
   const r = (rows as unknown as { status: string; user_id: string | null; org_id: string | null }[])[0]
-  if (r?.status === 'ok' && r.user_id && r.org_id) return { status: 'ok', userId: r.user_id, orgId: r.org_id }
-  if (r?.status === 'full' || r?.status === 'taken') return { status: r.status }
+  if (r?.status === 'ok' && r.user_id && r.org_id) {
+    await sendActivated(row.email)
+    return { status: 'ok', userId: r.user_id, orgId: r.org_id }
+  }
+  if (r?.status === 'full' || r?.status === 'taken' || r?.status === 'needs-password') return { status: r.status }
   return { status: 'invalid' }
 }
 
-/** Apakah token konfirmasi masih berlaku (tanpa memakainya). */
-export async function signupTokenValid(token: string): Promise<boolean> {
-  if (token.length < 20 || token.length > 100) return false
-  const rows = await authDb().select({ id: signup.id }).from(signup).where(and(eq(signup.tokenHash, sha256hex(token)), sql`${signup.expiresAt} > now()`)).limit(1)
-  return Boolean(rows[0])
+/** Keadaan tautan konfirmasi tanpa memakainya: tidak berlaku, langsung aktif, atau meminta password baru dulu. */
+export async function signupTokenState(token: string): Promise<'invalid' | 'direct' | 'needs-password'> {
+  if (token.length < 20 || token.length > 100) return 'invalid'
+  const rows = await authDb().select({ conflict: signup.conflict }).from(signup).where(and(eq(signup.tokenHash, sha256hex(token)), sql`${signup.expiresAt} > now()`)).limit(1)
+  if (!rows[0]) return 'invalid'
+  return rows[0].conflict ? 'needs-password' : 'direct'
 }
 
 // ---------------------------------------------------------------------------

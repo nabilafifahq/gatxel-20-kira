@@ -27,6 +27,21 @@ export function signupVerifyEmail(id: EmailIdentity, input: { url: string }): Re
   )
 }
 
+export function signupActivatedEmail(id: EmailIdentity, input: { loginUrl: string }): RenderedEmail {
+  return renderEmail(
+    {
+      subject: 'Akun Kira Anda aktif',
+      preheader: 'Email Anda sudah terkonfirmasi dan akun keluarga sudah dibuat.',
+      heading: 'Akun Kira Anda aktif',
+      blocks: [{ kind: 'text', text: 'Email ini sudah terkonfirmasi dan akun keluarga Anda sudah dibuat. Anda bisa masuk kapan saja dengan email dan password Anda.' }],
+      action: { label: 'Masuk ke Kira', url: input.loginUrl },
+      after: [{ kind: 'text', text: 'Kalau bukan Anda yang mendaftar, atur ulang password lewat Lupa password dan hubungi kami.' }],
+      why: WHY_ACCOUNT,
+    },
+    id,
+  )
+}
+
 export function signupExistingEmail(id: EmailIdentity, input: { loginUrl: string }): RenderedEmail {
   return renderEmail(
     {
@@ -334,6 +349,7 @@ export function emailSamples(id: EmailIdentity): { kind: string; mail: RenderedE
   const learnerUrl = `${o}/keluarga/privasi`
   return [
     { kind: 'sample-signup-verify', mail: signupVerifyEmail(id, { url: `${o}/daftar/konfirmasi/${token}` }) },
+    { kind: 'sample-signup-active', mail: signupActivatedEmail(id, { loginUrl: `${o}/masuk` }) },
     { kind: 'sample-signup-existing', mail: signupExistingEmail(id, { loginUrl: `${o}/masuk` }) },
     { kind: 'sample-password-reset', mail: passwordResetEmail(id, { url: `${o}/reset/${token}` }) },
     { kind: 'sample-invite', mail: inviteEmail(id, { url: `${o}/undangan/${token}`, role: 'guardian', orgName: 'Keluarga Wiratama' }) },

@@ -39,14 +39,17 @@ export async function resendVerificationAction(input: { email: string; turnstile
   })
 }
 
-export type VerifyResult = { status: 'ok'; redirectTo: string } | { status: 'full' | 'invalid' | 'taken' }
+export type VerifyResult = { status: 'ok'; redirectTo: string } | { status: 'full' | 'invalid' | 'taken' | 'needs-password' }
 
-/** Dipanggil browser setelah halaman konfirmasi terbuka, jadi pemindai email tanpa JavaScript tidak memakai tautan. */
-export async function verifySignupAction(input: { token: string }): Promise<ActionResult<VerifyResult>> {
+/**
+ * Dipanggil browser setelah halaman konfirmasi terbuka, jadi pemindai email tanpa JavaScript tidak memakai tautan.
+ * Password hanya dipakai untuk pendaftar bertanda conflict, lewat langkah Buat password baru.
+ */
+export async function verifySignupAction(input: { token: string; password?: string }): Promise<ActionResult<VerifyResult>> {
   return runAction('verifySignup', async () => {
-    const data = z.object({ token: z.string().min(20).max(100) }).strict().parse(input)
+    const data = z.object({ token: z.string().min(20).max(100), password: z.string().max(128).optional() }).strict().parse(input)
     await throttleIp('signup-verify', 10)
-    const r = await verifySignup(data.token)
+    const r = await verifySignup(data.token, data.password)
     if (r.status !== 'ok') return { status: r.status }
     await startSession({ id: r.userId, orgId: r.orgId, kind: 'adult' })
     await audit({ orgId: r.orgId, userId: r.userId, role: 'guardian' }, 'login.signup', r.userId)

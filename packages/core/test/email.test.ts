@@ -37,7 +37,7 @@ describe('header email', () => {
 describe('semua jenis email', () => {
   it('mencakup setiap jenis yang dikirim Kira', () => {
     expect(samples.map((s) => s.kind).sort()).toEqual(
-      ['consent-request', 'data-export', 'deletion-request', 'invite', 'password-reset', 'seat-reopened', 'signup-existing', 'signup-verify', 'support-confirm', 'support-ticket', 'waitlist-confirm', 'waitlist-welcome', 'week-report'].map((k) => `sample-${k}`).sort(),
+      ['consent-request', 'data-export', 'deletion-request', 'invite', 'password-reset', 'seat-reopened', 'signup-active', 'signup-existing', 'signup-verify', 'support-confirm', 'support-ticket', 'waitlist-confirm', 'waitlist-welcome', 'week-report'].map((k) => `sample-${k}`).sort(),
     )
   })
 

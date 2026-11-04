@@ -219,6 +219,44 @@ test.describe('pendaftaran orang tua', () => {
     await expect(page.getByText('Nara').first()).toBeVisible()
   })
 
+  test('pendaftaran ganda: tautan meminta password baru, password lama mati, dan akun aktif dikabari', async ({ page }) => {
+    const other = `kira.ganda.${run}@gmail.com`
+    const before = await seatsFree()
+    await fillSignup(page, other)
+    await expect(page.getByRole('heading', { name: 'Cek email Anda' })).toBeVisible()
+    const link = linkIn(await mailTo(other, 'Konfirmasi email'), '/daftar/konfirmasi/')
+    // Pendaftaran kedua dengan password lain memasang tanda ini (alurnya diuji di signup.db.test.ts).
+    await db()`update auth.signup set conflict = true where email_norm = ${`kiraganda${run}@gmail.com`}`
+
+    await page.goto(link)
+    await expect(page.getByRole('heading', { name: 'Buat password baru' })).toBeVisible()
+    await expect(page.getByRole('list', { name: 'Syarat password' })).toBeVisible()
+    expect(await seatsFree()).toBe(before)
+    const field = page.getByLabel('Password baru', { exact: true })
+    const activate = page.getByRole('button', { name: 'Aktifkan akun' })
+    await expect(async () => {
+      await field.fill('Pendek-1!')
+      await activate.click()
+      await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible({ timeout: 1000 })
+    }).toPass()
+    expect(await seatsFree()).toBe(before)
+    await field.fill(NEW_PASSWORD)
+    await activate.click()
+    await expect(page).toHaveURL(/\/mulai/, { timeout: 45_000 })
+    expect(await seatsFree()).toBe(before - 1)
+    await mailTo(other, 'Akun Kira Anda aktif')
+
+    await page.context().clearCookies()
+    await page.goto('/masuk')
+    await page.getByLabel('Email', { exact: true }).first().fill(other)
+    await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
+    await page.getByRole('button', { name: 'Masuk', exact: true }).click()
+    await expect(page.getByText(/belum cocok/i).first()).toBeVisible()
+    await page.getByLabel('Password', { exact: true }).fill(NEW_PASSWORD)
+    await page.getByRole('button', { name: 'Masuk', exact: true }).click()
+    await expect(page).toHaveURL(/\/keluarga|\/mulai/)
+  })
+
   test('lupa password mengirim tautan dan jawabannya sama untuk email yang tidak dikenal', async ({ page }) => {
     await page.goto('/masuk')
     await page.getByRole('button', { name: 'Lupa password?' }).click()

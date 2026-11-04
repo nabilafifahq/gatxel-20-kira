@@ -377,21 +377,24 @@ Tiga nilai `.env` produksi yang perlu dipastikan: `KIRA_VALKEY_PASSWORD` terisi 
 
 ## Keputusan pemilik: konfirmasi email dan aturan password
 
-Tanggal: 5 November 2026, commit `b2fd7f7b`. Dua perubahan ini permintaan pemilik dan sudah berjalan di produksi. Keduanya menurunkan perlindungan yang dicatat di atas, jadi risikonya ditulis di sini.
+Tanggal: 5 November 2026, commit `b2fd7f7b`. Dua perubahan ini permintaan pemilik. Keduanya menurunkan perlindungan yang dicatat di atas, jadi risikonya ditulis di sini.
 
 ### Tautan konfirmasi langsung mengaktifkan akun
 
-Dulu halaman konfirmasi meminta password yang dibuat saat mendaftar, dan langkah itu menahan pre-hijack. Sekarang browser memanggil `verifySignupAction` begitu halaman terbuka, akun dibuat, lalu pengguna langsung masuk ke `/mulai` (`components/auth/VerifyClient.tsx`, `verifySignup(token)` di `server/signup/service.ts`). Token tetap 32 byte acak, disimpan sebagai hash, berlaku 24 jam, dan sekali pakai. Permintaan tanpa JavaScript tidak memakai token.
+Dulu halaman konfirmasi meminta password yang dibuat saat mendaftar. Sekarang browser memanggil `verifySignupAction` begitu halaman terbuka, akun dibuat, lalu pengguna langsung masuk ke `/mulai` (`components/auth/VerifyClient.tsx`, `verifySignup` di `server/signup/service.ts`). Token tetap 32 byte acak, disimpan sebagai hash, berlaku 24 jam, dan sekali pakai. Permintaan tanpa JavaScript tidak memakai token.
 
-Risiko sisa, tingkat sedang:
+Pendaftaran kedua untuk email yang masih menunggu tidak menimpa password atau nama yang tersimpan (migrasi `0032`):
 
-1. **Pre-hijack lewat tautan yang tidak diminta.** Seseorang mendaftar dengan email orang lain memakai password miliknya sendiri. Bila pemilik email menekan tautan itu, akun aktif dengan password si pendaftar dan pemilik email langsung masuk tanpa tahu. Anak yang kemudian ditambahkan bisa dilihat oleh orang yang memegang password itu.
-2. **Bentuk lain dari risiko yang sama.** `startSignup` menimpa password dan token pendaftar yang belum dikonfirmasi, setelah jeda satu menit. Bila orang lain mendaftar dengan email yang sama di antara pendaftaran asli dan klik pemilik email, tautan pertama mati, dan tautan di email terbaru mengaktifkan akun dengan password orang lain. Korban di sini memang sedang menunggu email, jadi kalimat "abaikan email ini" tidak menolongnya.
-3. **Pemindai tautan yang menjalankan JavaScript** bisa memakai token tanpa klik manusia. Akibatnya kursi terpakai, dan pengguna melihat "Tautan ini sudah tidak berlaku" walau akunnya aktif. Dia tetap bisa masuk dengan passwordnya. Untuk pendaftaran palsu, akun aktif tanpa klik pemilik email.
+- Password sama: dianggap kirim ulang, dan tautannya tetap langsung aktif.
+- Password berbeda: baris diberi tanda `conflict` dan token diputar. Tanda dipasang walau jeda satu menit atau batas email menahan email baru, jadi tautan yang sudah terkirim juga ikut berhenti mengaktifkan akun langsung. Tanda tidak bisa dicabut dengan mengulang password yang tersimpan.
+- Tautan bertanda membuka langkah "Buat password baru" dengan daftar centang. Password baru dipasang di transaksi yang sama dengan pembuatan akun (`kira_verify_signup`), jadi semua password dari formulir daftar mati, termasuk password orang lain yang mendaftar lebih dulu atau sesudahnya.
+- Jawaban publik dan waktunya sama di semua cabang: `startSignup` selalu menghitung satu hash dan satu verifikasi Argon2, dan aksinya dibungkus `evenTime`.
 
-Yang meredam: email konfirmasi memuat "Kalau bukan Anda, abaikan email ini.", pendaftaran dibatasi 6 per menit per IP, 5 email per alamat per jam, dan Turnstile bila dipasang. Pemilik email yang passwordnya tidak cocok bisa memakai Lupa password, yang mengganti password dan mencabut semua sesi. Tidak ada pemberitahuan ke pemilik email bahwa akunnya baru aktif.
+Risiko sisa, tingkat sedang: **orang menekan tautan yang tidak pernah dia minta, saat hanya ada satu pendaftaran.** Seseorang mendaftar dengan email orang lain memakai password miliknya sendiri. Bila pemilik email menekan tautan itu, akun aktif dengan password si pendaftar dan pemilik email langsung masuk. Anak yang kemudian ditambahkan bisa dilihat oleh orang yang memegang password itu. Pemindai tautan yang menjalankan JavaScript bisa melakukan klik semacam ini tanpa pemilik email, dan untuk pendaftaran asli akibatnya pengguna melihat "Tautan ini sudah tidak berlaku" walau akunnya aktif dan tetap bisa masuk dengan passwordnya.
 
-Bila risiko ini ingin ditutup: minta password dibuat sesudah tautan ditekan, atau kembalikan langkah password di halaman konfirmasi.
+Yang meredam: email konfirmasi memuat "Kalau bukan Anda, abaikan email ini.", dan setelah aktif pemilik email menerima "Akun Kira Anda aktif" dengan kalimat "Kalau bukan Anda yang mendaftar, atur ulang password lewat Lupa password dan hubungi kami". Lupa password mengganti password dan mencabut semua sesi. Pendaftaran dibatasi 6 per menit per IP, 5 email verifikasi per alamat per jam, dan Turnstile bila dipasang.
+
+Hal kecil yang tersisa: bila orang lain mendaftar lebih dulu, nama yang dia isi tetap menjadi nama akun setelah pemilik email membuat password baru. Orang tua belum punya layar untuk mengganti namanya sendiri, jadi penggantiannya lewat bantuan.
 
 ### Aturan password
 

@@ -88,6 +88,8 @@ export const signup = auth.table('signup', {
   ipHash: text('ip_hash'),
   sentCount: integer('sent_count').notNull().default(1),
   lastSentAt: ts('last_sent_at').notNull().defaultNow(),
+  /** Ada pendaftaran lain dengan password berbeda: tautan meminta password baru, tidak langsung mengaktifkan akun. */
+  conflict: boolean('conflict').notNull().default(false),
   createdAt: createdAt(),
 })
 

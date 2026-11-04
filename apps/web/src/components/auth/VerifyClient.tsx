@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
 import { InlineAlert } from '@/components/console/Feedback'
+import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { AuthCard } from '@/screens/public/PublicFrame'
 import { WaitlistFull } from '@/components/auth/WaitlistFull'
@@ -12,24 +13,39 @@ import { verifySignupAction } from '@/server/actions/signup'
 /**
  * Konfirmasi email. Browser langsung mengonfirmasi setelah halaman terbuka, lalu masuk ke langkah tambah anak.
  * Token dipakai lewat Server Action, jadi pemindai email dan pratinjau tautan tanpa JavaScript tidak memakainya.
+ * Bila ada pendaftaran lain dengan password berbeda, akun baru aktif setelah pemegang tautan membuat password baru.
  */
-export function VerifyClient({ token, valid }: { token: string; valid: boolean }) {
+export function VerifyClient({ token, valid, needsPassword }: { token: string; valid: boolean; needsPassword: boolean }) {
   const verify = useAction(verifySignupAction)
   const [outcome, setOutcome] = useState<'full' | 'invalid' | 'taken' | null>(valid ? null : 'invalid')
+  const [askPassword, setAskPassword] = useState(needsPassword)
+  const [password, setPassword] = useState('')
+  const [passwordError, setPasswordError] = useState<string | null>(null)
   const started = useRef(false)
 
-  async function confirm() {
-    const r = await verify.run({ token })
-    if (!r.ok) return
+  async function confirm(newPassword?: string) {
+    const r = await verify.run({ token, ...(newPassword === undefined ? {} : { password: newPassword }) })
+    if (!r.ok) {
+      if (r.fieldErrors?.password) setPasswordError(r.fieldErrors.password)
+      return
+    }
     if (r.data.status === 'ok') window.location.assign(r.data.redirectTo)
+    else if (r.data.status === 'needs-password') setAskPassword(true)
     else setOutcome(r.data.status)
   }
 
   useEffect(() => {
-    if (!valid || started.current) return
+    if (!valid || needsPassword || started.current) return
     started.current = true
     void confirm()
   }, [])
+
+  async function submitPassword(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const problem = passwordProblem(password)
+    setPasswordError(problem)
+    if (!problem) await confirm(password)
+  }
 
   if (outcome === 'full') return <WaitlistFull />
   if (outcome === 'taken') {
@@ -60,6 +76,41 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
             Masuk
           </Link>
         </div>
+      </AuthCard>
+    )
+  }
+  if (askPassword) {
+    return (
+      <AuthCard labelledBy="vf-judul">
+        <div className="flex flex-col gap-1">
+          <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
+            Buat password baru
+          </h1>
+          <p className="m-0 text-body text-fg-muted">Ada lebih dari satu pendaftaran dengan email ini, jadi password yang diisi saat mendaftar tidak dipakai. Buat password baru untuk mengaktifkan akun Anda.</p>
+        </div>
+        <form method="post" noValidate onSubmit={submitPassword} className="flex flex-col gap-5">
+          <PasswordField
+            name="new-password"
+            label="Password baru"
+            checklist
+            autoComplete="new-password"
+            size="L"
+            value={password}
+            error={passwordError}
+            onChange={(e) => {
+              setPassword(e.target.value)
+              if (passwordError) setPasswordError(null)
+            }}
+          />
+          {verify.error && !verify.error.fieldErrors?.password ? (
+            <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
+              Coba lagi. Bila tautan sudah tidak berlaku, daftar lagi dari halaman depan.
+            </InlineAlert>
+          ) : null}
+          <Button type="submit" variant="primary" loading={verify.pending} className="h-12! w-full">
+            Aktifkan akun
+          </Button>
+        </form>
       </AuthCard>
     )
   }
