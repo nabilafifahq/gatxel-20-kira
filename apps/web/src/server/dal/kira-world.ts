@@ -26,7 +26,6 @@ import {
   jakartaDate,
   nextBossCard,
   nextStage,
-  petGreeting,
   petStage,
   sessionStars,
   setComplete,
@@ -39,6 +38,8 @@ import {
   type PetKind,
 } from '@kira/core'
 import { TOPICS, topicProgress, type TopicId } from '@kira/content/knowledge'
+import { dictFor, type Dict } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import { tables } from '@kira/db'
 import type { OrgContext, Tx } from '../db'
 import { conflict, forbidden, invalid, notFound } from '../errors'
@@ -56,6 +57,11 @@ const { starLedger, worldState, worldItem, worldCard, contestMedal, skillState, 
  * Kira World. Semua perubahan bintang dan barang dihitung dan diperiksa di server. Bintang tidak pernah
  * berkurang karena libur; teman tidak pernah sakit atau pergi.
  */
+
+/** Teks dalam bahasa anak untuk pesan error dan sapaan. Di luar request (tes, skrip) memakai bahasa Inggris. */
+async function worldText(): Promise<Dict['world']> {
+  return (await getT().catch(() => dictFor('en'))).world
+}
 
 // ---------------------------------------------------------------------------
 // Dompet bintang
@@ -95,13 +101,13 @@ async function lockLearner(tx: Tx, learnerId: string): Promise<void> {
 
 /** Pakai bintang. Saldo diperiksa di server di bawah kunci. Sumber unik membuat panggilan ganda tidak memotong dua kali. */
 export async function spendStars(tx: Tx, learnerId: string, price: number, source: string, reason = 'spend'): Promise<void> {
-  if (!Number.isInteger(price) || price <= 0) throw invalid('That price is not valid.')
+  if (!Number.isInteger(price) || price <= 0) throw invalid((await worldText()).errors.badPrice)
   await lockLearner(tx, learnerId)
   const { balance } = await starTotals(tx, learnerId)
-  if (balance < price) throw conflict('You need more stars for that.')
+  if (balance < price) throw conflict((await worldText()).errors.needStars)
   const orgId = await orgOf(tx, learnerId)
   const rows = await tx.insert(starLedger).values({ orgId, learnerId, amount: -price, reason, source, date: jakartaDate() }).onConflictDoNothing().returning({ id: starLedger.id })
-  if (rows.length === 0) throw conflict('That was already done.')
+  if (rows.length === 0) throw conflict((await worldText()).errors.alreadyDone)
 }
 
 async function countToday(tx: Tx, learnerId: string, reason: string, date: IsoDate): Promise<number> {
@@ -281,30 +287,30 @@ export async function petDTO(tx: Tx, learnerId: string): Promise<PetDTO> {
     hatchAt: HATCH_AT_STARS,
     pet: pet ? { kind: pet.kind, name: pet.name, hearts: pet.hearts, stage, costume: world.equipped.petCostume ?? null, home: world.equipped.petHome ?? 'home-meadow' } : null,
     next: next ? { stage: next.stage, left: next.left } : null,
-    greeting: pet ? petGreeting(pet.name, away, Number(today.slice(-2))) : '',
+    greeting: pet ? (await worldText()).pet.greeting(pet.name, away, Number(today.slice(-2))) : '',
     homes: ownedHomes,
     costumes: ownedCostumes,
   }
 }
 
 export async function choosePet(tx: Tx, learnerId: string, input: { kind: string; name: string }): Promise<void> {
-  if (!isPetKind(input.kind)) throw invalid('Pick one of the six friends.')
+  if (!isPetKind(input.kind)) throw invalid((await worldText()).errors.pickFriend)
   const name = cleanPetName(input.name)
-  if (!name) throw invalid('Use 1 to 12 letters or numbers for the name.')
+  if (!name) throw invalid((await worldText()).errors.petName)
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
-  if (world.pet) throw conflict('You already have a friend.')
+  if (world.pet) throw conflict((await worldText()).errors.hasFriend)
   const { earned } = await starTotals(tx, learnerId)
-  if (earned < HATCH_AT_STARS) throw forbidden('The egg needs a few more stars.')
+  if (earned < HATCH_AT_STARS) throw forbidden((await worldText()).errors.eggNeedsStars)
   await saveWorld(tx, learnerId, { pet: { kind: input.kind, name, hearts: 0, hatchedOn: jakartaDate() } })
 }
 
 export async function treatPet(tx: Tx, learnerId: string, treatId: string, nonce: string): Promise<{ line: string; hearts: number }> {
   const treat = treatById(treatId)
-  if (!treat) throw notFound('That treat does not exist.')
+  if (!treat) throw notFound((await worldText()).errors.noTreat)
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
-  if (!world.pet) throw forbidden('Hatch your friend first.')
+  if (!world.pet) throw forbidden((await worldText()).errors.hatchFirst)
   await spendStars(tx, learnerId, treat.price, `treat:${treat.id}:${nonce}`)
   const pet = { ...world.pet, hearts: world.pet.hearts + 1 }
   await saveWorld(tx, learnerId, { pet })
@@ -340,10 +346,10 @@ function equippedIn(kind: string, id: string, eq_: Equipped, learner: { avatarAc
 
 export async function buyItem(tx: Tx, learnerId: string, itemId: string): Promise<void> {
   const item = ALL_ITEMS.find((i) => i.id === itemId)
-  if (!item || item.price <= 0 || CARD_SETS.some((s) => s.reward === item.id)) throw notFound('That item is not in the shop.')
+  if (!item || item.price <= 0 || CARD_SETS.some((s) => s.reward === item.id)) throw notFound((await worldText()).errors.notInShop)
   await lockLearner(tx, learnerId)
   const owned = await ownedItems(tx, learnerId)
-  if (owned.has(item.id)) throw conflict('You already have that.')
+  if (owned.has(item.id)) throw conflict((await worldText()).errors.alreadyOwned)
   await spendStars(tx, learnerId, item.price, `buy:${item.id}`)
   await giveItem(tx, learnerId, item.id, 'shop')
 }
@@ -352,9 +358,9 @@ export async function buyItem(tx: Tx, learnerId: string, itemId: string): Promis
 export async function equipItem(tx: Tx, learnerId: string, kind: 'petcostume' | 'pethome' | 'frame' | 'outfit' | 'backdrop', itemId: string | null): Promise<{ look: 'avatarAccessory' | 'avatarBackground'; value: string | null } | null> {
   if (itemId !== null) {
     const item = anyItem(itemId)
-    if (!item || item.kind !== kind) throw notFound('That item does not exist.')
+    if (!item || item.kind !== kind) throw notFound((await worldText()).errors.noItem)
     const owned = await ownedItems(tx, learnerId)
-    if (!owned.has(itemId)) throw forbidden('Earn or buy that first.')
+    if (!owned.has(itemId)) throw forbidden((await worldText()).errors.earnFirst)
   }
   // Pakaian dan latar avatar ditulis ke profil oleh pemanggil (peran sistem), seperti peti hadiah.
   if (kind === 'outfit') return { look: 'avatarAccessory', value: itemId }
@@ -456,7 +462,7 @@ export async function finishBoss(tx: Tx, learnerId: string, attemptId: string, r
 
 export async function bossResultDTO(tx: Tx, learnerId: string, attemptId: string) {
   const [a] = await tx.select().from(attempt).where(and(eq(attempt.id, attemptId), eq(attempt.learnerId, learnerId))).limit(1)
-  if (!a || !a.refId?.startsWith('boss:')) throw notFound('That challenge was not found.')
+  if (!a || !a.refId?.startsWith('boss:')) throw notFound((await worldText()).errors.noChallenge)
   const learner = await loadLearner(tx, learnerId)
   const shell = await learnerShell(tx, learner)
   const res = (a.result ?? {}) as { boss?: { won: boolean; stars: number; cardId: string | null } }
@@ -551,9 +557,10 @@ export async function worldPeek(tx: Tx, learnerId: string) {
   const today = jakartaDate()
   const last = await tx.select({ date: starLedger.date }).from(starLedger).where(and(eq(starLedger.learnerId, learnerId), sql`${starLedger.amount} > 0`)).orderBy(desc(starLedger.date)).limit(1)
   const away = last[0] ? daysBetween(last[0].date, today) : 0
+  const text = await worldText()
   return {
     stars,
-    pet: world.pet ? { kind: world.pet.kind, name: world.pet.name, stage: petStage(done), costume: world.equipped.petCostume ?? null, greeting: petGreeting(world.pet.name, away, Number(today.slice(-2))) } : null,
+    pet: world.pet ? { kind: world.pet.kind, name: world.pet.name, stage: petStage(done), costume: world.equipped.petCostume ?? null, greeting: text.pet.greeting(world.pet.name, away, Number(today.slice(-2))) } : null,
     canHatch: !world.pet && stars.earned >= HATCH_AT_STARS,
   }
 }
@@ -600,11 +607,12 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
       items.push(it)
     }
   }
-  if (items.length < 5) throw invalid('The robot is still warming up. Try again soon.')
+  if (items.length < 5) throw invalid((await worldText()).errors.robotWarming)
   const final = items.map((it, i) => ({ ...it, position: i + 1 }))
+  const title = (await worldText()).bossName
   const [row] = await tx
     .insert(attempt)
-    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title, refId: `boss:${week}:${tries + 1}`, items: final })
     .returning({ id: attempt.id })
   return row!.id
 }

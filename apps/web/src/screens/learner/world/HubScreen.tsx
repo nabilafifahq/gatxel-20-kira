@@ -1,8 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import type { ReactElement } from 'react'
 import { EggArt, PetArt, type PetArtKind } from '@kira/figures'
 import type { WorldHubDTO } from '@/lib/dto-world'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { WorldTabs } from '@/components/learner/world/parts'
 
@@ -22,38 +25,39 @@ function Tile({ href, icon, title, line }: { href: string; icon: UiIconName; tit
 }
 
 export function HubScreen({ data }: { data: WorldHubDTO }): ReactElement {
+  const t = useT()
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">
       <header className="flex flex-wrap items-center gap-4">
         <div className="flex min-w-0 flex-1 flex-col">
-          <h1 className="m-0 text-h1 font-bold">Kira World</h1>
-          <p className="m-0 text-body-lg text-fg-muted">Study to earn stars. Spend them on your friend and your shop.</p>
+          <h1 className="m-0 text-h1 font-bold">{t.world.name}</h1>
+          <p className="m-0 text-body-lg text-fg-muted">{t.world.hub.intro}</p>
         </div>
         <p className="m-0 inline-flex items-center gap-2 rounded-pill border-2 border-fg bg-surface px-5 py-2 text-h2 font-bold tabular-nums">
           <UiIcon name="star" size={30} className="text-star" />
           {data.stars.balance}
-          <span className="visually-hidden"> stars to spend</span>
+          <span className="visually-hidden"> {t.world.starsToSpend}</span>
         </p>
       </header>
       <WorldTabs current="home" />
       <Link href="/world/friend" prefetch={false} className="kw-animate flex items-center gap-4 rounded-card border-2 border-fg bg-science-50 p-4 text-fg no-underline">
         {data.pet ? <PetArt kind={data.pet.kind as PetArtKind} stage={data.pet.stage} costume={data.pet.costume} size={110} /> : <EggArt cracked={data.petState === 'ready'} size={110} />}
         <span className="flex min-w-0 flex-1 flex-col gap-1">
-          <span className="text-h2 font-bold">{data.pet ? data.pet.name : data.petState === 'ready' ? 'Your egg is ready!' : 'A mystery egg'}</span>
+          <span className="text-h2 font-bold">{data.pet ? data.pet.name : data.petState === 'ready' ? t.world.hub.eggReady : t.world.pet.mysteryEgg}</span>
           <span className="text-body-lg">
-            {data.pet ? data.pet.greeting : data.petState === 'ready' ? 'Tap to hatch it and meet your friend.' : `Earn ${data.hatchAt} stars and it will hatch.`}
+            {data.pet ? data.pet.greeting : data.petState === 'ready' ? t.world.hub.tapToHatch : t.world.hub.earnToHatch(data.hatchAt)}
           </span>
         </span>
         <UiIcon name="arrow-right" size={22} />
       </Link>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-        <Tile href="/world/shop" icon="gift" title="Star Shop" line="Homes, costumes, outfits, frames" />
-        <Tile href="/world/cards" icon="cards" title="Card album" line={`${data.cards.owned} of ${data.cards.total} cards earned`} />
-        <Tile href="/world/story" icon="book" title="Weekly story" line={`${data.story.open} of ${data.story.total} chapters open`} />
-        <Tile href="/world/boss" icon="bolt" title="Puzzle Robot" line={data.boss.wonThisWeek ? 'You beat it this week' : 'This week’s friendly challenge'} />
-        <Tile href="/world/trophies" icon="trophy" title="Trophy room" line="Badges, medals and certificates" />
+        <Tile href="/world/shop" icon="gift" title={t.world.shopName} line={t.world.hub.shopLine} />
+        <Tile href="/world/cards" icon="cards" title={t.world.hub.albumTitle} line={t.world.hub.cardsEarned(data.cards.owned, data.cards.total)} />
+        <Tile href="/world/story" icon="book" title={t.world.hub.storyTitle} line={t.world.hub.chaptersOpen(data.story.open, data.story.total)} />
+        <Tile href="/world/boss" icon="bolt" title={t.world.bossName} line={data.boss.wonThisWeek ? t.world.hub.bossWon : t.world.hub.bossLine} />
+        <Tile href="/world/trophies" icon="trophy" title={t.world.hub.trophyTitle} line={t.world.hub.trophyLine} />
       </div>
-      <p className="m-0 text-small text-fg-muted">Stars come from finishing your required sessions, perfect sessions, reading chapters and practice rounds.</p>
+      <p className="m-0 text-small text-fg-muted">{t.world.hub.starsFrom}</p>
     </LearnerFrame>
   )
 }

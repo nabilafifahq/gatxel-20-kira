@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { Kira, RobotArt } from '@kira/figures'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { playSfx } from '../sfx'
 
 /**
@@ -10,6 +11,7 @@ import { playSfx } from '../sfx'
  * Setiap jawaban benar menurunkan energi robot dan memicu efek pukulan. Jawaban salah tidak mengubah apa pun.
  */
 export function BossBar({ right, total }: { right: number; total: number }): ReactElement {
+  const t = useT()
   const prev = useRef(right)
   const [hits, setHits] = useState(0)
   const [ring, setRing] = useState(0)
@@ -30,14 +32,14 @@ export function BossBar({ right, total }: { right: number; total: number }): Rea
       </svg>
       <div className="flex min-w-0 flex-1 flex-col gap-1.5">
         <div className="flex items-baseline justify-between gap-2 text-small font-bold">
-          <span>Puzzle Robot</span>
-          <span className="tabular-nums">{Math.round(energy * 100)}% energy</span>
+          <span>{t.world.bossName}</span>
+          <span className="tabular-nums">{t.world.boss.energyLeft(Math.round(energy * 100))}</span>
         </div>
-        <div role="progressbar" aria-label="Robot energy" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(energy * 100)} className="h-4 overflow-hidden rounded-pill border-2 border-fg bg-divider">
+        <div role="progressbar" aria-label={t.world.boss.energy} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(energy * 100)} className="h-4 overflow-hidden rounded-pill border-2 border-fg bg-divider">
           <span className="block h-full w-full origin-left bg-science transition-transform duration-500 ease-kira" style={{ transform: `scaleX(${energy})` }} />
         </div>
         <p className="m-0 text-small text-fg-muted" aria-live="polite">
-          {down ? 'The robot powered down. Finish to see your prize!' : right === 0 ? 'Answer to power down the robot. A wrong answer costs nothing.' : `${right} hit${right === 1 ? '' : 's'} so far. Keep going!`}
+          {down ? t.world.boss.poweredDown : right === 0 ? t.world.boss.answerToStart : t.world.boss.hits(right)}
         </p>
       </div>
       <div className="relative flex-none">
