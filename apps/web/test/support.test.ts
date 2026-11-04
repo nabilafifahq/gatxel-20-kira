@@ -123,6 +123,6 @@ describe('Kebijakan Privasi', () => {
     expect(rows).toContain('Lampiran pesan bantuan')
     expect(notice.dataRows.find((r) => r.data === 'Pesan bantuan')?.retention).toContain('12 bulan')
     expect(notice.dataRows.find((r) => r.data === 'Lampiran pesan bantuan')?.retention).toContain('14 hari')
-    expect(notice.purposes.map((p) => p.title)).toContain('Bantuan dan masukan')
+    expect(notice.recipients.some((r) => r.name.startsWith('WhatsApp'))).toBe(true)
   })
 })

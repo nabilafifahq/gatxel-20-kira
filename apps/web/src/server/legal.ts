@@ -27,7 +27,6 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { title: 'Laporan mingguan lewat email', description: 'Mengirim ringkasan belajar seminggu sekali ke email orang tua.' },
       { title: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara supaya tutor bisa mendengar dan menilai.' },
       { title: 'Foto dan gambar jawaban', description: 'Menyimpan gambar dan foto jawaban di kertas supaya tutor bisa menilai.' },
-      { title: 'Bantuan dan masukan', description: 'Mengirim pesan yang Anda tulis di halaman Bantuan ke email tim Kira supaya bisa kami balas, dan mengirim nomor referensi ke email Anda. Bila Anda memilih chat lewat WhatsApp, percakapan itu berjalan di layanan WhatsApp dan mengikuti kebijakan mereka.' },
       { title: 'Bantuan AI untuk tutor', description: 'Mengirim teks soal atau foto jawaban tanpa nama anak ke layanan AI untuk membuat draf soal dan saran nilai yang selalu diperiksa tutor.' },
     ],
     dataRows: [
@@ -48,6 +47,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server; dan Turnstile di halaman daftar dan masuk bila diaktifkan)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
       { name: 'Anthropic PBC (Claude), hanya bila Bantuan AI disetujui', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
       { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui atau Anda mengirim pesan bantuan', data: 'Email orang tua dan isi ringkasan mingguan; isi pesan bantuan beserta lampirannya', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
+      { name: 'WhatsApp, hanya bila Anda sendiri memilih chat lewat WhatsApp di halaman Bantuan', data: 'Isi percakapan yang Anda tulis dan nomor Anda. Kira tidak mengirim data apa pun ke WhatsApp', location: 'Mengikuti kebijakan WhatsApp', abroad: true },
       { name: 'Have I Been Pwned (cek kebocoran password)', data: 'Lima karakter awal hash password, tanpa email atau nama', location: 'Australia', abroad: true },
     ],
     sessionHours: 24,
