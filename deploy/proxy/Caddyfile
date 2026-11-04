@@ -35,6 +35,8 @@
 		flush_interval -1
 		header_up X-Forwarded-For {client_ip}
 		header_up X-Real-IP {client_ip}
+		# Cloudflare meneruskan header buatan klien. Next dan sameOrigin membaca X-Forwarded-Host, jadi nilainya ditentukan di sini.
+		header_up X-Forwarded-Host {host}
 		# Aplikasi memberi no-transform supaya Cloudflare tidak mengubah isi halaman, tetapi Caddy tidak mau memampatkan
 		# respons bertanda itu. Tanda dilepas di sini agar HTML (sekitar 100 KB, jadi 15 KB bila dimampatkan) dikirim
 		# terkompresi lewat unggahan rumah, lalu dipasang lagi sebelum respons keluar (lihat header >Cache-Control di bawah).
@@ -105,7 +107,12 @@
 	}
 
 	# Unggahan besar: impor konsol (PDF paket resmi sampai 60 MB) dan media. Jenis dan ukuran per jenis tetap diperiksa web.
-	@big path /konsol/impor /konsol/impor/* /api/media /api/media/*
+	# Hanya bila ada cookie sesi: Next membaca seluruh body Server Action sebelum sesi diperiksa, jadi pengunjung anonim
+	# tidak boleh mengirim 62 MB. Tanpa cookie, batas 8 MB di bawah yang berlaku.
+	@big {
+		path /konsol/impor /konsol/impor/* /api/media /api/media/*
+		header Cookie *__Host-kira.session=*
+	}
 	handle @big {
 		request_body {
 			max_size 62MB

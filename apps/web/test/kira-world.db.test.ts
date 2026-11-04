@@ -2,8 +2,8 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import postgres from 'postgres'
 import { randomUUID } from 'node:crypto'
 import { createDb, withOrg, type Tx } from '@kira/db/client'
-import { BOSS_WIN_STARS } from '@kira/core'
-import { addMedal, albumDTO, applyLook, bossDTO, buyItem, choosePet, equipItem, finishBoss, finishChapter, grantStars, medalsOf, removeMedal, spendStars, starTotals, storyDTO, syncCards, treatPet } from '@/server/dal/kira-world'
+import { BOSS_WIN_STARS, jakartaDate, weekStart } from '@kira/core'
+import { addMedal, albumDTO, applyLook, bossDTO, buyItem, choosePet, equipItem, finishBoss, finishChapter, grantStars, medalsOf, removeMedal, spendStars, startBossSession, starTotals, storyDTO, syncCards, treatPet } from '@/server/dal/kira-world'
 
 /** Tes Kira World di Postgres sungguhan (migrasi 0021): dompet bintang, toko, teman, bos, RLS. */
 
@@ -131,6 +131,23 @@ describe.skipIf(!ready)('Kira World (Postgres)', () => {
     expect(closed.name).toBe('A new challenger')
     expect(closed.personality).toBe('')
     expect(dto.nextIn).toBe(2)
+  })
+
+  it('bos: batas layar habis menolak ronde baru, ronde yang sudah terbuka tetap bisa diselesaikan', async () => {
+    const l = await newLearner()
+    const ctx = { orgId, userId: l.id, role: 'learner' as const }
+    const today = jakartaDate()
+    const ref = `boss:${weekStart(today)}:robot:1`
+    const [open] = await owner`insert into attempt (org_id, learner_id, kind, mode, subject, title, ref_id, items) values (${orgId}, ${l.id}, 'test', 'latihan', 'math', 'Puzzle Robot', ${ref}, '[]'::jsonb) returning id`
+    await owner`insert into day_record (org_id, learner_id, date, minutes) values (${orgId}, ${l.id}, ${today}, 999)`
+    expect((await l.run((tx) => bossDTO(tx, l.id))).limitReached).toBe(true)
+    expect(await l.run((tx) => startBossSession(tx, ctx, l.id, 'robot'))).toBe(open!.id)
+    await owner`update attempt set status = 'submitted', submitted_at = now() where id = ${open!.id}`
+    await expect(l.run((tx) => startBossSession(tx, ctx, l.id, 'robot'))).rejects.toMatchObject({ code: 'forbidden' })
+    const [count] = await owner`select count(*)::int n from attempt where learner_id = ${l.id}`
+    expect(count!.n).toBe(1)
+    await owner`update day_record set minutes = 0 where learner_id = ${l.id}`
+    expect((await l.run((tx) => bossDTO(tx, l.id))).limitReached).toBe(false)
   })
 
   it('anak tidak melihat bintang anak lain (RLS) dan anak tidak bisa mencatat medali', async () => {

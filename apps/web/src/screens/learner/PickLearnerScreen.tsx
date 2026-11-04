@@ -46,14 +46,14 @@ export function PickLearnerScreen({
             <li key={l.id} className="flex">
                 <Link
                   href={pinHref(l.id)}
-                  aria-label={l.locked ? t.shell.pick.cardLabelLocked(l.name, l.grade) : t.shell.pick.cardLabel(l.name, l.grade)}
+                  aria-label={l.locked ? t.shell.pick.cardLabelLocked(l.name, l.grade) : l.doneToday ? t.shell.pick.doneLabel(l.name) : t.shell.pick.cardLabel(l.name, l.grade)}
                   className={`${CARD} relative border-border bg-surface text-fg no-underline transition-transform duration-150 ease-kira hover:border-fg active:scale-97`}
                 >
                   <Avatar name={l.avatar} size={120} title={avatarLabel(l.avatar, lang)} className="h-20 w-20 sm:h-30 sm:w-30" />
                   <span className="flex flex-col items-center">
                     <span className="text-h2 font-bold break-words">{l.name}</span>
                     <span className="text-body font-semibold text-fg-muted">{t.common.grade(l.grade)}</span>
-{l.doneToday ? (
+                    {l.doneToday ? (
                       <span className="inline-flex items-center gap-1.5 text-body font-bold">
                         <UiIcon name="moon" size={18} />
                         {t.shell.pick.doneForToday}

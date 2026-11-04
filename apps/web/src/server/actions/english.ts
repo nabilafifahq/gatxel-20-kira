@@ -7,6 +7,7 @@ import { inOrg } from '../db'
 import { runAction } from '../errors'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { finishSpellingRound } from '../dal/english-skills'
+import { assertFeatureOn } from '../dal/learner-features'
 
 const spellingSchema = z
   .object({
@@ -23,6 +24,7 @@ export async function finishSpellingAction(answers: SpellingAnswerInput[]): Prom
     'finishSpelling',
     async () => {
       const actor = await requireLearner()
+      await assertFeatureOn(actor.userId, 'english-skills')
       const input = spellingSchema.parse({ answers })
       return inOrg(orgCtx(actor), (tx) => finishSpellingRound(tx, orgCtx(actor), actor.userId, input.answers))
     },

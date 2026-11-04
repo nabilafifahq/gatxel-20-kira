@@ -37,7 +37,7 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
         <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Email ini sudah punya akun
         </h1>
-        <p className="m-0 text-body text-fg-muted">Masuk dengan email dan password yang kamu buat. Lupa password? Pakai Lupa password di halaman masuk.</p>
+        <p className="m-0 text-body text-fg-muted">Masuk dengan email dan password yang Anda buat. Lupa password? Pakai Lupa password di halaman masuk.</p>
         <Link href="/masuk" className="font-bold">
           Ke halaman masuk
         </Link>
@@ -50,7 +50,7 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
         <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Tautan ini sudah tidak berlaku
         </h1>
-        <p className="m-0 text-body text-fg-muted">Tautan konfirmasi berlaku 24 jam dan hanya bisa dipakai sekali. Daftar lagi atau masuk bila akunmu sudah dibuat. Pendaftaran yang tidak dikonfirmasi dalam 24 jam dihapus otomatis.</p>
+        <p className="m-0 text-body text-fg-muted">Tautan konfirmasi berlaku 24 jam dan hanya bisa dipakai sekali. Daftar lagi atau masuk bila akun Anda sudah dibuat. Pendaftaran yang tidak dikonfirmasi dalam 24 jam dihapus otomatis.</p>
         <div className="flex flex-wrap gap-4">
           <Link href="/daftar" className="font-bold">
             Daftar lagi
@@ -67,7 +67,7 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
       <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
         Satu tekan lagi
       </h1>
-      <p className="m-0 text-body text-fg-muted">Masukkan password yang kamu buat saat mendaftar, lalu tekan Konfirmasi. Keluarga Kira kamu langsung dibuat dan kamu masuk.</p>
+      <p className="m-0 text-body text-fg-muted">Masukkan password yang Anda buat saat mendaftar, lalu tekan Konfirmasi. Keluarga Kira Anda langsung dibuat dan Anda masuk.</p>
       <form method="post" noValidate onSubmit={confirm} className="flex flex-col gap-5">
         <PasswordField
           name="password"
@@ -76,7 +76,7 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
           size="L"
           value={password}
           error={wrong ? 'Password belum cocok dengan yang dibuat saat mendaftar.' : null}
-          hint="Ini memastikan hanya kamu yang menyelesaikan pendaftaran dengan email ini."
+          hint="Ini memastikan hanya Anda yang menyelesaikan pendaftaran dengan email ini."
           onChange={(e) => {
             setPassword(e.target.value)
             setWrong(false)
@@ -84,7 +84,7 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
         />
         {wrong ? (
           <p className="m-0 text-small text-fg-muted">
-            Lupa, atau bukan kamu yang mendaftar? <Link href="/daftar" className="font-bold">Daftar lagi</Link> untuk membuat password baru, lalu pakai email konfirmasi yang terbaru.
+            Lupa, atau bukan Anda yang mendaftar? <Link href="/daftar" className="font-bold">Daftar lagi</Link> untuk membuat password baru, lalu pakai email konfirmasi yang terbaru.
           </p>
         ) : null}
         {verify.error ? (

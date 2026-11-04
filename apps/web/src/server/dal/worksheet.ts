@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, count, eq } from 'drizzle-orm'
+import { and, count, eq, sql } from 'drizzle-orm'
 import { jakartaDate } from '@kira/core'
 import { answerText, isPaperType, type Item } from '@kira/content'
 import { GENERATORS, genRef, instanceSignature } from '@kira/content/math'
@@ -102,6 +102,8 @@ export async function createWorksheet(actor: Actor, input: { learnerId: string; 
     if (!s || s.strand === 'Oly') throw notFound('Skill ini tidak ditemukan. Muat ulang halaman lalu pilih lagi.')
     const n = lengthCount(input.length)
     if (availableFor(s.id) < MIN_SKILL_ITEMS) throw invalid('Skill ini belum punya cukup soal cetak. Pilih skill lain.')
+    // Hitung dan tulis di bawah kunci per keluarga: permintaan serentak tidak melewati batas harian.
+    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${'worksheet:' + actor.orgId}))`)
     if ((await usedToday(tx, actor.orgId, today)) >= WORKSHEET_PER_DAY) {
       throw invalid(`Batas ${WORKSHEET_PER_DAY} lembar per hari untuk keluarga ini sudah tercapai. Coba lagi besok, atau cetak ulang lembar yang sudah dibuat.`)
     }

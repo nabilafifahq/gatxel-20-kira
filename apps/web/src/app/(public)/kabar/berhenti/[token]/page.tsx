@@ -14,12 +14,12 @@ export default async function UnsubscribePage({ params }: { params: Promise<{ to
     <PublicFrame brandHref="/">
       <AuthCard labelledBy="berhenti-judul">
         <h1 id="berhenti-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
-          {ok ? 'Kamu sudah berhenti berlangganan' : 'Tautan ini tidak dikenal'}
+          {ok ? 'Anda sudah berhenti berlangganan' : 'Tautan ini tidak dikenal'}
         </h1>
         <p className="m-0 text-body text-fg-muted">
           {ok
-            ? 'Kami tidak akan mengirim kabar lagi ke alamat ini. Alamatnya dihapus dari daftar dalam 30 hari. Kalau ini keliru, kamu bisa mendaftar lagi kapan saja.'
-            : 'Tautan berhenti berlangganan ini salah atau sudah dihapus. Kalau kamu masih menerima email dari Kira, balas email itu dan kami hentikan.'}
+            ? 'Kami tidak akan mengirim kabar lagi ke alamat ini. Alamatnya dihapus dari daftar dalam 30 hari. Kalau ini keliru, Anda bisa mendaftar lagi kapan saja.'
+            : 'Tautan berhenti berlangganan ini salah atau sudah dihapus. Kalau Anda masih menerima email dari Kira, balas email itu dan kami hentikan.'}
         </p>
         <Link href="/" className="font-bold">
           Ke halaman depan

@@ -10,7 +10,7 @@ import { inviteEmail, passwordResetEmail } from '@kira/core/email-templates'
 import { queueEmail } from '../dal/outbox'
 import { emailIdentity } from '../email'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
-import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
+import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, releaseFailure, reserveFailure, throttleIp } from './ratelimit'
 import { ipPrefix } from '@/lib/access-log'
 import { log } from '../log'
 import { randomToken, safeEqual, sha256hex } from './crypto'
@@ -30,6 +30,14 @@ export function normaliseEmail(email: string): string {
   return email.trim().toLowerCase()
 }
 
+/**
+ * Akun dewasa dari alamat yang diketik: bentuk yang didaftarkan atau bentuk bakunya (titik dan +tag Gmail).
+ * Kalau keduanya cocok dengan akun berbeda (akun lama), yang persis sama menang.
+ */
+const adultByEmail = (email: string) => sql`(lower(${userAccount.email}) = ${email} or ${userAccount.emailNorm} = ${emailKey(email)})`
+const exactEmailFirst = (email: string) => sql`(lower(${userAccount.email}) = ${email}) desc`
+const loginKey = (email: string) => `email:${sha256hex(emailKey(email))}`
+
 export async function orgCount(): Promise<number> {
   const rows = await authDb().execute(sql`select kira_org_count() as n`)
   return Number((rows as unknown as { n: number }[])[0]?.n ?? 0)
@@ -42,9 +50,15 @@ export async function orgCount(): Promise<number> {
 export async function loginWithPassword(emailRaw: string, password: string): Promise<{ id: string; orgId: string; role: 'tutor' | 'guardian' | 'learner' }> {
   await throttleIp('login', 120)
   const email = normaliseEmail(emailRaw)
-  const key = `email:${sha256hex(email)}`
+  const key = loginKey(email)
   const failures = await recentFailures(key)
   if (failures >= ACCOUNT_LOCK_AFTER) {
+    await burnVerify(password)
+    log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
+    throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
+  }
+  const reservation = await reserveFailure(key)
+  if (reservation.failures > ACCOUNT_LOCK_AFTER) {
     await burnVerify(password)
     log.warn('keamanan: akun dikunci karena terlalu banyak kegagalan', { event: 'login.locked', ipPrefix: ipPrefix(await clientIp()) })
     throw new AppError('locked', 'Terlalu banyak percobaan masuk untuk email ini. Akun dikunci 15 menit. Coba lagi nanti atau pakai Lupa password.')
@@ -53,25 +67,26 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
   const rows = await authDb()
     .select({ id: userAccount.id, orgId: userAccount.orgId, role: userAccount.role, hash: userAccount.passwordHash })
     .from(userAccount)
-    .where(and(sql`lower(${userAccount.email}) = ${email}`, eq(userAccount.kind, 'adult'), isNull(userAccount.disabledAt)))
+    .where(and(adultByEmail(email), eq(userAccount.kind, 'adult'), isNull(userAccount.disabledAt)))
+    .orderBy(exactEmailFirst(email))
     .limit(1)
   const user = rows[0]
   if (!user || !user.hash) {
     // Pendaftar yang belum konfirmasi email: pesan ramah hanya bila password-nya cocok (tidak membocorkan email).
     const pending = (await authDb().select({ hash: signup.passwordHash }).from(signup).where(eq(signup.emailNorm, emailKey(email))).limit(1))[0]
     if (pending && (await verifySecret(pending.hash, password))) {
+      await releaseFailure(reservation.id)
       throw new AppError('invalid', 'Email ini belum dikonfirmasi. Buka email dari Kira lalu tekan Konfirmasi email, atau kirim ulang emailnya.', { unverified: email })
     }
     if (!pending) await burnVerify(password)
-    await recordAttempt(key, false)
     log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
   if (!(await verifySecret(user.hash, password))) {
-    await recordAttempt(key, false)
     log.warn('keamanan: login gagal', { event: 'login.failed', ipPrefix: ipPrefix(await clientIp()) })
     throw invalid(GENERIC_LOGIN_ERROR)
   }
+  await releaseFailure(reservation.id)
   await recordAttempt(key, true)
   await authDb().update(userAccount).set({ lastLoginAt: new Date(), failedLogins: 0 }).where(eq(userAccount.id, user.id))
   return { id: user.id, orgId: user.orgId, role: user.role }
@@ -188,16 +203,17 @@ export async function requestPasswordReset(emailRaw: string): Promise<void> {
 async function requestPasswordResetInner(emailRaw: string): Promise<void> {
   const email = normaliseEmail(emailRaw)
   const rows = await authDb()
-    .select({ id: userAccount.id, orgId: userAccount.orgId, name: userAccount.name })
+    .select({ id: userAccount.id, orgId: userAccount.orgId, name: userAccount.name, email: userAccount.email })
     .from(userAccount)
-    .where(and(sql`lower(${userAccount.email}) = ${email}`, eq(userAccount.kind, 'adult'), isNull(userAccount.disabledAt)))
+    .where(and(adultByEmail(email), eq(userAccount.kind, 'adult'), isNull(userAccount.disabledAt)))
+    .orderBy(exactEmailFirst(email))
     .limit(1)
   const user = rows[0]
-  if (!user) return
-  if (!emailSendAllowed('reset', email)) return
+  if (!user?.email) return
+  if (!emailSendAllowed('reset', emailKey(email))) return
   const link = await createResetLink(user.id)
   const mail = passwordResetEmail(emailIdentity(), { url: link })
-  await queueEmail(user.orgId, { to: email, ...mail, kind: 'password-reset' })
+  await queueEmail(user.orgId, { to: user.email, ...mail, kind: 'password-reset' })
 }
 
 export async function createResetLink(userId: string): Promise<string> {
@@ -235,7 +251,7 @@ export async function resetPassword(token: string, password: string): Promise<vo
   await authDb().update(resetToken).set({ usedAt: new Date() }).where(and(eq(resetToken.userId, row.userId), isNull(resetToken.usedAt)))
   await revokeUserSessions(row.userId)
   // Pesan kunci menyuruh orang tua memakai Lupa password, jadi password baru harus langsung membuka kuncinya.
-  if (row.email) await recordAttempt(`email:${sha256hex(normaliseEmail(row.email))}`, true)
+  if (row.email) await recordAttempt(loginKey(normaliseEmail(row.email)), true)
   await inOrg(systemCtx(row.orgId), (tx) => auditTx(tx, systemCtx(row.orgId), 'password.reset', row.userId))
 }
 

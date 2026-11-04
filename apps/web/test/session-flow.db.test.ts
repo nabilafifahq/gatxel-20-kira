@@ -291,8 +291,8 @@ describe.skipIf(!ready)('sesi harian', () => {
     const pq = all.find((q) => q.subject === 'math' && q.session === 'paper')!
     const root = await attemptRow(pq.attempt_id!)
     const refs = (root.items as { ref: string }[]).map((i) => i.ref)
-    // Percobaan pertama: hanya dua soal dijawab benar.
-    const first = await answer(root.id, 2)
+    // Percobaan pertama: hanya separuh soal dijawab benar, batas supaya sesi dihitung.
+    const first = await answer(root.id, Math.ceil(refs.length / 2))
     await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, root.id))
     const done = await attemptRow(root.id)
     expect(done.status === 'submitted' || done.status === 'needs_grading').toBe(true)
@@ -347,7 +347,7 @@ describe.skipIf(!ready)('sesi harian', () => {
     const order = ['latihan', 'tes', 'paper']
     const pending = day.filter((q) => q.kind === 'daily' && q.status !== 'done').sort((a, b) => order.indexOf(a.session) - order.indexOf(b.session))
     for (const q of pending) {
-      await answer(q.attemptId!, 3)
+      await answer(q.attemptId!, Math.ceil(((await attemptRow(q.attemptId!)).items as unknown[]).length / 2))
       await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, q.attemptId!))
     }
     const [full] = await owner`select quests_done, quests_required from day_record where learner_id = ${learnerId} and date = ${WEDNESDAY}`
@@ -384,7 +384,7 @@ describe.skipIf(!ready)('sesi harian', () => {
 
     const english = await import('@/server/dal/english-skills')
     const attemptId = await run((tx) => english.startEnglishSession(tx, ctx, learnerId, 'listening'))
-    await answer(attemptId, 2)
+    await answer(attemptId, Math.ceil(((await attemptRow(attemptId)).items as unknown[]).length / 2))
     await run((tx) => m.runner.submitAttempt(tx, ctx, learnerId, attemptId))
     const done = (await quests(today)).filter((q) => q.session === 'english-skill')
     const cfgOf = async (id: string) => ((await owner`select config from quest where id = ${id}`)[0]!.config as { task: string }).task

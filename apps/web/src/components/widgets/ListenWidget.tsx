@@ -14,7 +14,7 @@ export function ListenWidget(props: WidgetProps): ReactElement {
   const { item, subject, disabled = false } = props
   return (
     <div className="flex w-full flex-col gap-4">
-      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} disabled={disabled && !props.feedback} />
+      <ListenButton text={item.listenText ?? ''} lang={item.lang} subject={subject} style={speakableStyle(item)} disabled={disabled && !props.feedback} {...(item.listenClips ? { clips: item.listenClips } : {})} missing={item.listenMissing ?? false} />
       <McqWidget {...props} />
     </div>
   )

@@ -3,6 +3,7 @@ import { stat } from 'node:fs/promises'
 import { Readable } from 'node:stream'
 import { NextResponse } from 'next/server'
 import { getSession } from '@/server/auth/session'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { apkPath } from '@/server/dal/console-settings'
 import { env } from '@/server/env'
 
@@ -17,6 +18,8 @@ export async function GET() {
   if (!actor || (actor.role !== 'tutor' && actor.role !== 'guardian')) {
     return NextResponse.json({ ok: false, message: 'Masuk sebagai tutor atau orang tua untuk mengunduh aplikasi tablet.' }, { status: 401, headers: { 'Cache-Control': 'no-store' } })
   }
+  const limited = await throttleResponse('apk', 10, actor.userId)
+  if (limited) return limited
   const file = apkPath(env().KIRA_DATA_DIR)
   let size: number
   try {

@@ -110,13 +110,13 @@ export function CollectCard({ card, total, back = false, big = false, className 
       data-rarity={card.rarity}
       className={cx('kw-card flex aspect-[5/7] w-full flex-col rounded-card border-2 border-fg bg-surface', shiny && 'kw-holo', card.rarity === 'legendary' && 'kw-sheen', className)}
     >
-      <div className="flex items-center justify-between px-3 pt-2 text-small font-bold tabular-nums">
+      <div className="relative z-10 flex items-center justify-between px-3 pt-2 text-small font-bold tabular-nums">
         <span>{w.album.cardNo(no)}</span>
       </div>
       <div className={cx('mx-2.5 mt-1 flex flex-1 items-center justify-center rounded-control border-2 border-fg', TONE_BG[card.tone])}>
         <CardArt art={card.art} size={big ? 148 : 84} className="h-auto w-3/4" />
       </div>
-      <div className="flex flex-col gap-0.5 px-3 pt-2 pb-2.5">
+      <div className="relative z-10 flex flex-col gap-0.5 px-3 pt-2 pb-2.5">
         <span lang="en-GB" className={cx('font-bold', big ? 'text-h3' : 'text-body leading-5')}>{card.name}</span>
         <RarityMark rarity={card.rarity} />
       </div>

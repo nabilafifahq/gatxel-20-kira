@@ -9,8 +9,8 @@ const COPY = {
   family: {
     chunkTitle: 'Kira baru saja diperbarui',
     title: 'Halaman ini gagal dimuat',
-    chunkBody: 'Muat ulang untuk memakai versi terbaru. Data kamu tetap aman.',
-    body: 'Data kamu tetap aman. Coba lagi, atau kembali ke halaman awal.',
+    chunkBody: 'Muat ulang untuk memakai versi terbaru. Data Anda tetap aman.',
+    body: 'Data Anda tetap aman. Coba lagi, atau kembali ke halaman awal.',
     retry: 'Coba lagi',
     home: 'Ke halaman awal',
     homeHref: '/',

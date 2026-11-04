@@ -69,6 +69,19 @@ export async function recentFailures(key: string): Promise<number> {
   return rows[0]?.n ?? 0
 }
 
+/**
+ * Catat percobaan gagal LEBIH DULU, lalu hitung. Permintaan serentak semuanya terhitung sebelum password diperiksa, jadi
+ * paling banyak ACCOUNT_LOCK_AFTER percobaan yang sampai ke pemeriksaan password. Bila ternyata berhasil, baris ini dihapus.
+ */
+export async function reserveFailure(key: string): Promise<{ id: number; failures: number }> {
+  const [row] = await authDb().insert(tables.loginAttempt).values({ key, success: false }).returning({ id: tables.loginAttempt.id })
+  return { id: Number(row!.id), failures: await recentFailures(key) }
+}
+
+export async function releaseFailure(id: number): Promise<void> {
+  await authDb().delete(tables.loginAttempt).where(eq(tables.loginAttempt.id, id))
+}
+
 export async function recordAttempt(key: string, success: boolean): Promise<void> {
   await authDb().insert(tables.loginAttempt).values({ key, success })
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type ReactElement, type ReactNode } from 'react'
+import { useEffect, useState, type ReactElement, type ReactNode } from 'react'
 import type { SolutionStep } from '@kira/content/schema'
 import type { FigureSpec } from '@kira/figures'
 import type { RemedialLessonDTO, Subject } from '@/lib/dto'
@@ -96,6 +96,12 @@ export function FeedbackSheet({
   onLoadSolution?: () => void
 }): ReactElement {
   const canWatch = (solution?.length ?? 0) > 0 || hasSolution
+  // Ketukan kedua dari ketukan ganda pada Periksa tidak boleh langsung menekan Lanjut di lembar yang baru muncul.
+  const [armed, setArmed] = useState(false)
+  useEffect(() => {
+    const id = setTimeout(() => setArmed(true), 350)
+    return () => clearTimeout(id)
+  }, [])
   const [howOpen, setHowOpen] = useState(false)
   const [lessonOpen, setLessonOpen] = useState(false)
   const good = kind === 'correct' || kind === 'sent' || kind === 'saved'
@@ -235,7 +241,7 @@ export function FeedbackSheet({
             {t.showMeHow}
           </Button>
         ) : null}
-        <Button autoFocus iconAfter={primary.icon} onClick={primary.onClick}>
+        <Button autoFocus iconAfter={primary.icon} onClick={primary.onClick} className={armed ? undefined : 'pointer-events-none'}>
           {primary.label}
         </Button>
       </div>

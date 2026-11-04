@@ -24,7 +24,7 @@ export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | 
     e.preventDefault()
     const em = email.trim()
     const next: typeof errors = {}
-    if (!em) next.email = 'Isi email kamu.'
+    if (!em) next.email = 'Isi email Anda.'
     else if (!EMAIL_RE.test(em)) next.email = 'Tulis alamat email lengkap, dengan @ dan nama domain.'
     if (!consent) next.consent = 'Centang persetujuan supaya kami boleh mengirim kabar.'
     setErrors(next)
@@ -44,7 +44,7 @@ export function WaitlistForm({ turnstileSiteKey }: { turnstileSiteKey: string | 
   if (done) {
     return (
       <InlineAlert tone="success" title={`Cek email ${done}.`} live="status">
-        Kami mengirim satu email berisi tombol konfirmasi. Setelah kamu menekannya, kamu masuk daftar tunggu dan dikabari saat kursi dibuka lagi. Cek juga folder spam.
+        Kami mengirim satu email berisi tombol konfirmasi. Setelah Anda menekannya, Anda masuk daftar tunggu dan dikabari saat kursi dibuka lagi. Cek juga folder spam.
       </InlineAlert>
     )
   }

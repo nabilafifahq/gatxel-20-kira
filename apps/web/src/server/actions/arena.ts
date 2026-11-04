@@ -16,6 +16,7 @@ import { answerQmRound, finishQmRound, hintQmRound, startQmRound } from '../dal/
 import { answerQuizRound, finishQuizRound, startQuizRound } from '../dal/arena-pengetahuan'
 import { systemCtx } from '../audit'
 import { applyAccessory, assertAccessoryEarned } from '../dal/arena-tracks'
+import { assertFeatureOn } from '../dal/learner-features'
 
 /**
  * Action arena. Setiap action: requireLearner() lebih dulu, lalu Zod .strict(), lalu DAL yang hanya
@@ -56,6 +57,7 @@ export async function startQmAction(input: QmStartInput): Promise<ActionResult<{
     'startQm',
     async () => {
       const actor = await requireLearner()
+      await assertFeatureOn(actor.userId, 'mental-math')
       const data = startQm.parse(input)
       const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQmRound(tx, orgCtx(actor), actor.userId, data, tOf(actor)))
       return { redirectTo: `/quick-maths/play/${id}` }
@@ -108,6 +110,7 @@ export async function startQuizAction(input: QuizStartInput): Promise<ActionResu
     'startQuiz',
     async () => {
       const actor = await requireLearner()
+      await assertFeatureOn(actor.userId, 'quiz-arena')
       const data = startQuiz.parse(input)
       const { roundId: id } = await inOrg(orgCtx(actor), (tx) => startQuizRound(tx, orgCtx(actor), actor.userId, data, tOf(actor)))
       return { redirectTo: `/quiz-arena/play/${id}` }

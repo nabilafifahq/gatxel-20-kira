@@ -2,6 +2,7 @@ import { isEnglishSessionArea } from '@kira/core/english-skills'
 import { isPrefetch, prefetchRefused, seeOther } from '@/server/http'
 import { inOrg } from '@/server/db'
 import { getActor, orgCtx } from '@/server/auth/actor'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { startEnglishSession } from '@/server/dal/english-skills'
 
 export const dynamic = 'force-dynamic'
@@ -11,6 +12,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ area: st
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return seeOther('/')
+  // Satu mulai sesi menulis baris attempt. Anak sungguhan tidak pernah mendekati batas ini.
+  const limited = await throttleResponse('start', 60, actor.userId)
+  if (limited) return limited
   const { area } = await params
   if (!isEnglishSessionArea(area)) return seeOther('/english')
   try {

@@ -5,6 +5,8 @@ COPY --from=web /app/apps/web/.next/static /srv/static/_next/static
 COPY --from=web /app/apps/web/public /srv/public
 COPY deploy/proxy/Caddyfile /etc/caddy/Caddyfile
 COPY deploy/proxy/entrypoint.sh /entrypoint.sh
+# curl dan pustakanya tidak dipakai saat jalan. Trivy menemukan kerentanan kritis dan tinggi di paket ini.
+RUN apk del --no-network curl libcurl brotli-libs >/dev/null 2>&1 || apk upgrade --no-cache
 RUN chmod +x /entrypoint.sh && mkdir -p /srv/media
 EXPOSE 8080
 ENTRYPOINT ["/entrypoint.sh"]

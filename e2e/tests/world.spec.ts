@@ -154,9 +154,10 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, bos, pial
   await noHorizontalScroll(page)
   await shot('trophies')
 
-  // Sertifikat ditolak bila streak belum mencapai tonggaknya.
-  const res = await page.request.get('/world/certificate/100')
-  expect(res.status()).toBe(404)
+  // Sertifikat ditolak bila streak belum mencapai tonggaknya: anak dikembalikan ke ruang piala, bukan 404 kosong.
+  const res = await page.request.get('/world/certificate/100', { maxRedirects: 0 })
+  expect(res.status()).toBe(303)
+  expect(res.headers()['location']).toBe('/world/trophies')
 
   expect(errors).toEqual([])
 })

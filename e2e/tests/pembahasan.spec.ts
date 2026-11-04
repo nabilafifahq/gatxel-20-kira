@@ -4,7 +4,9 @@ import { closeDb, db, expectNoSeriousA11y, learnerId, mcqItems, noHorizontalScro
 test.afterAll(closeDb)
 
 async function answerMcq(page: Page, optionText: string) {
-  await page.getByRole('radio', { name: optionText }).or(page.getByRole('button', { name: optionText })).first().click()
+  // Kata di soal bisa diketuk (Kamus Ketuk) dan juga berperan tombol, jadi pilihan dicari hanya di dalam kelompok jawaban.
+  const answers = page.getByRole('group', { name: 'Answers' })
+  await answers.getByRole('radio', { name: optionText }).or(answers.getByRole('button', { name: optionText })).first().click()
   await page.getByRole('button', { name: 'Check', exact: true }).click()
 }
 

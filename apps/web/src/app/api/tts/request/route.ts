@@ -4,7 +4,7 @@ import { TTS_STYLE_IDS } from '@kira/core/tts'
 import { getActor, orgCtx } from '@/server/auth/actor'
 import { inOrg } from '@/server/db'
 import { requestClips } from '@/server/dal/tts'
-import { sameOrigin } from '@/server/http'
+import { parseJson, readTextCapped, sameOrigin } from '@/server/http'
 import { throttleResponse } from '@/server/auth/ratelimit'
 
 export const dynamic = 'force-dynamic'
@@ -26,8 +26,9 @@ export async function POST(req: Request) {
   if (!sameOrigin(req)) return NextResponse.json({ error: 'origin' }, { status: 403 })
   const limited = await throttleResponse('tts-request', 60, actor.userId)
   if (limited) return limited
-  if (Number(req.headers.get('content-length') ?? '0') > 20_000) return NextResponse.json({ error: 'too-large' }, { status: 413 })
-  const parsed = body.safeParse(await req.json().catch(() => null))
+  const text = await readTextCapped(req, 20_000)
+  if (text === null) return NextResponse.json({ error: 'too-large' }, { status: 413 })
+  const parsed = body.safeParse(parseJson(text))
   if (!parsed.success) return NextResponse.json({ error: 'invalid' }, { status: 400 })
   const queued = await inOrg(orgCtx(actor), (tx) => requestClips(tx, orgCtx(actor), parsed.data.clips))
   return NextResponse.json({ queued }, { headers: { 'Cache-Control': 'no-store' } })

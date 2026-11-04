@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getActor, orgCtx } from '@/server/auth/actor'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { inOrg } from '@/server/db'
 import { todayClipUrls } from '@/server/dal/tts'
 import { servedVoiceVersion, ttsEnabled } from '@/server/tts'
@@ -13,6 +14,8 @@ export const dynamic = 'force-dynamic'
 export async function GET() {
   const actor = await getActor()
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
+  const limited = await throttleResponse('tts-today', 120, actor.userId)
+  if (limited) return limited
   const enabled = ttsEnabled()
   const urls = enabled && actor.role === 'learner' ? await inOrg(orgCtx(actor), (tx) => todayClipUrls(tx, actor.orgId, actor.userId)) : []
   return NextResponse.json({ enabled, urls, voiceVersion: servedVoiceVersion() }, { headers: { 'Cache-Control': 'no-store' } })

@@ -34,7 +34,7 @@ const errors = async () => (await getT()).lessons.errors
 async function guard(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<Guarded> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status !== 'in_progress') throw invalid((await errors()).questHandedIn)
-  if (!modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid((await errors()).extraPracticeOnly)
+  if (a.refId?.startsWith('boss:') || !modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid((await errors()).extraPracticeOnly)
   const all = (a.items as AttemptItem[]) ?? []
   const slot = all.find((i) => i.position === position)
   if (!slot) throw notFound((await errors()).notInQuest)
@@ -107,7 +107,7 @@ export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: strin
   const slot = all.find((i) => i.position === position)
   if (!slot) throw notFound((await errors()).notInQuest)
   if (a.status === 'in_progress') {
-    const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode)
+    const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode) || (a.refId?.startsWith('boss:') ?? false)
     if (hidden || !modeShowsFeedback(a.mode as Mode) || a.mode === 'kilat') throw invalid((await errors()).stepsAfterHandIn)
     const rows = await tx.select().from(response).where(eq(response.attemptId, a.id))
     if (!latestByPosition(rows).has(position)) throw invalid((await errors()).answerFirst)

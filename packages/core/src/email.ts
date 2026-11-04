@@ -7,6 +7,37 @@
  * digelapkan klien email.
  */
 
+const GMAIL_DOMAINS = new Set(['gmail.com', 'googlemail.com'])
+
+/**
+ * Bentuk alamat: ASCII saja, tanpa kutip, komentar, atau alamat IP. Parser email dan IDNA membersihkan karakter seperti
+ * (komentar), titik lebar U+3002, atau spasi lebar nol, jadi `a@mailinator.com(x)` sampai ke domain sekali pakai walau
+ * tidak cocok dengan daftar blokir. Domain: label huruf dan angka, TLD huruf.
+ */
+export const EMAIL_SHAPE = /^[a-z0-9._+'&=~!#$^*{}|?/`-]+@([a-z0-9]([a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,63}$/
+
+export function splitEmail(email: string): { local: string; domain: string } | null {
+  const trimmed = email.trim().toLowerCase().replace(/\.$/, '')
+  const at = trimmed.lastIndexOf('@')
+  if (at < 1 || at === trimmed.length - 1 || !EMAIL_SHAPE.test(trimmed)) return null
+  return { local: trimmed.slice(0, at), domain: trimmed.slice(at + 1) }
+}
+
+/** Bentuk baku untuk keunikan dan pencarian akun: satu orang, satu alamat. Tidak dipakai sebagai alamat tujuan email. */
+export function emailKey(email: string): string {
+  const parts = splitEmail(email)
+  if (!parts) return email.trim().toLowerCase()
+  let local = parts.local
+  const plus = local.indexOf('+')
+  if (plus > 0) local = local.slice(0, plus)
+  let domain = parts.domain
+  if (GMAIL_DOMAINS.has(domain)) {
+    local = local.replace(/\./g, '')
+    domain = 'gmail.com'
+  }
+  return `${local}@${domain}`
+}
+
 const PAGE = '#FFFCF5'
 const CARD = '#FFFFFF'
 const INK = '#6546A5'

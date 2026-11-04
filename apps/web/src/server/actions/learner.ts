@@ -12,6 +12,7 @@ import { getDevice, touchDevice } from '../auth/device'
 import { checkPin } from '../auth/pin'
 import { endCurrentSession, startSession } from '../auth/session'
 import { clientIp, throttleIp } from '../auth/ratelimit'
+import { takeWindow } from '../limiter'
 import { ipHash } from '../auth/crypto'
 import { forwardProblemReport } from '../dal/support'
 import { log } from '../log'
@@ -87,16 +88,19 @@ const reportSchema = z
   .object({
     itemRef: z.string().min(3).max(120),
     reason: z.enum(['wrong-answer', 'confusing', 'picture', 'other']),
-    note: z.string().max(500),
+    note: z.string().max(300),
+    screen: z.enum(['practice', 'test']).optional(),
   })
   .strict()
 
-export async function reportProblemAction(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string }): Promise<ActionResult<{ reference: string }>> {
+export async function reportProblemAction(input: { itemRef: string; reason: 'wrong-answer' | 'confusing' | 'picture' | 'other'; note: string; screen?: 'practice' | 'test' }): Promise<ActionResult<{ reference: string }>> {
   return runAction(
     'reportProblem',
     async () => {
       const actor = await requireActor()
+      await throttleIp('report-problem', 20, actor.userId)
       const data = reportSchema.parse(input)
+      await throttleIp('problem-report', 10, actor.userId)
       const reference = newReference()
       await inOrg(orgCtx(actor), (tx) =>
         tx.insert(tables.problemReport).values({
@@ -111,8 +115,18 @@ export async function reportProblemAction(input: { itemRef: string; reason: 'wro
       )
       // Laporan sudah tersimpan: gagal meneruskan ke kotak bantuan tidak boleh menggagalkan laporan anak.
       try {
-        await throttleIp('problem-report-forward', 6, actor.userId)
-        await forwardProblemReport({ orgId: actor.orgId, reference, itemRef: data.itemRef, reason: data.reason, note: data.note, ipHash: ipHash(await clientIp()) })
+        if (await takeWindow(`problem-report-hour:${actor.orgId}`, 12, 3_600_000)) {
+          await forwardProblemReport({
+            orgId: actor.orgId,
+            reference,
+            itemRef: data.itemRef,
+            reason: data.reason,
+            note: data.note,
+            learnerId: actor.role === 'learner' ? actor.userId : null,
+            screen: data.screen ?? null,
+            ipHash: ipHash(await clientIp()),
+          })
+        }
       } catch (e) {
         log.warn('laporan soal tidak diteruskan ke kotak bantuan', { reference, error: e })
       }

@@ -290,6 +290,15 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     }
   }, [actions, data.attemptId, data.doneHref, queue, router, tp])
 
+  // Semua soal sudah terjawab saat halaman dibuka (muat ulang sebelum menekan Selesai): kumpulkan sekarang.
+  // Tanpa ini anak tertahan di layar selesai tanpa tombol dan hadiahnya tidak masuk. Kumpul ganda aman di server.
+  const resumedAllDone = useRef(finished)
+  useEffect(() => {
+    if (!resumedAllDone.current) return
+    resumedAllDone.current = false
+    void finish()
+  }, [finish])
+
   const next = useCallback(() => {
     playSfx('tap')
     const after = states.findIndex((s, k) => k > index && !DONE.includes(s.phase))
@@ -338,7 +347,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             <OfflineBanner state={syncState} pendingCount={queue.pending} />
           </span>
         ) : null}
-      {item && !finished ? <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} className="max-md:hidden" /> : null}
+      {item && !finished ? <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} screen="practice" /> : null}
     </header>
   )
 

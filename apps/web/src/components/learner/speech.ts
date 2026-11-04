@@ -4,7 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { duckMusic } from './music'
 import { stopHostVoice } from './host-voice'
-import { clipPlan, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
+import { clipPlan, fetchClipKeys, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
 
 /**
  * Baca suara. Aturan pemilik: suara tidak boleh berganti. Hanya klip yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan
@@ -84,6 +84,8 @@ export function useSpeech(lang: SpeechLang): {
   status: SpeechStatus
   toggle: (input: SpeechInput, opts?: SpeakOptions) => void
   speak: (input: SpeechInput, onEnd?: () => void, opts?: SpeakOptions) => void
+  /** Putar klip menurut kuncinya. Tanpa suara perangkat. onFail bila klip tidak ada atau gagal diputar. */
+  playKeys: (keys: readonly string[], onFail: () => void) => void
   stop: () => void
 } {
   const id = useId()
@@ -180,6 +182,35 @@ export function useSpeech(lang: SpeechLang): {
     [id, lang],
   )
 
+  const playKeys = useCallback(
+    (keys: readonly string[], onFail: () => void) => {
+      const my = ++token.current
+      stopSpeech()
+      stopHostVoice()
+      window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
+      setReading(true)
+      void (async () => {
+        const blobs = await fetchClipKeys(keys)
+        if (token.current !== my) return
+        if (!blobs || blobs.length === 0) {
+          setReading(false)
+          onFail()
+          return
+        }
+        playChain(
+          blobs,
+          () => token.current === my,
+          (ok) => {
+            if (token.current !== my) return
+            setReading(false)
+            if (!ok) onFail()
+          },
+        )
+      })()
+    },
+    [id],
+  )
+
   const toggle = useCallback(
     (input: SpeechInput, opts?: SpeakOptions) => {
       if (reading) stop()
@@ -191,5 +222,5 @@ export function useSpeech(lang: SpeechLang): {
   // Tombol disembunyikan/dinonaktifkan bila layanan klip mati, dan selalu untuk teks Indonesia (belum ada klip id).
   const unavailable = lang === 'id' || clipsReady === false
   const status: SpeechStatus = unavailable ? 'unavailable' : reading ? 'reading' : 'idle'
-  return { status, toggle, speak, stop }
+  return { status, toggle, speak, playKeys, stop }
 }

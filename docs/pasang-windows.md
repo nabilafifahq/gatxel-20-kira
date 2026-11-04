@@ -200,6 +200,16 @@ Untuk mengirim satu contoh setiap jenis email lewat SMTP produksi:
 
 Bila SMTP bermasalah, pesan Bantuan tetap tersimpan dan bisa dibaca dengan `.\deploy\windows\kira.ps1 admin support-tickets`.
 
+### Menghapus satu keluarga atas permintaan orang tua
+
+Selama pilot, orang tua meminta lewat halaman Bantuan (`/feedback`) atau WhatsApp. Jawab paling lambat 3 x 24 jam dan pastikan permintaan datang dari alamat email akun itu.
+
+1. `.\deploy\windows\kira.ps1 admin family-delete <email>` hanya menampilkan jumlah data dan id keluarga, tanpa mengubah apa pun. Bentuk email Gmail dengan titik atau +tag sama-sama dikenali.
+2. `.\deploy\windows\kira.ps1 admin family-delete <email> --confirm <id keluarga>` menjeda semua anak dan membuat permintaan hapus biasa. Data anak dihapus worker 7 hari kemudian, dan orang tua masih bisa membatalkannya dari halaman Privasi. Kabari orang tua tanggalnya.
+3. Setelah tanggal itu, jalankan perintah yang sama sekali lagi. Akun orang tua dan sisa data keluarga terhapus, dan kursinya kosong. Harus selesai paling lambat 30 hari sejak permintaan, sesuai Kebijakan Privasi.
+
+Catatan audit (12 bulan), pesan bantuan (12 bulan), email yang sudah terkirim (90 hari), dan cadangan (8 minggu) hilang sendiri saat lama simpannya habis. Keluarga bertutor tidak dilayani perintah ini.
+
 ## 11. Cadangan dan pemulihan
 
 Layanan `backup` membuat cadangan database setiap hari pukul 02.00 WIB ke `KIRA_HOST_BACKUPS\daily`, menyalin cadangan hari Minggu ke `weekly`, dan menyimpan 14 harian dan 8 mingguan. Kalau server mati saat jadwal, cadangan dibuat saat layanan menyala lagi. Status terakhir tampil di konsol, Pengaturan, bagian Cadangan.
@@ -220,6 +230,16 @@ docker compose start web worker
 ```
 
 Ganti nama berkas dengan cadangan yang dipilih (`dir D:\Kira\backups\daily`). `--single-transaction` membuat pemulihan berhasil seluruhnya atau tidak mengubah apa pun. Setelah itu jalankan `.\deploy\windows\kira.ps1 status`: baris `privileges` harus berisi `sesuai migrasi`. Uji pemulihan sekali setelah pemasangan supaya langkahnya sudah dikenal sebelum dibutuhkan.
+
+Cadangan dari versi yang lebih lama dari database sekarang tidak bisa dipulihkan dengan perintah di atas: `pg_restore` berhenti dengan `cannot drop constraint`, karena tabel baru masih merujuk tabel lama (tidak ada data yang berubah). Buat ulang database lebih dulu, lalu jalankan perintah di atas dan `kira.ps1 status`:
+
+```powershell
+docker compose stop web worker
+docker compose exec db psql -v ON_ERROR_STOP=1 -U postgres -d postgres -c "DROP DATABASE kira WITH (FORCE)" -c "CREATE DATABASE kira OWNER kira_owner ENCODING 'UTF8' TEMPLATE template0" -c "REVOKE ALL ON DATABASE kira FROM PUBLIC" -c "GRANT CONNECT ON DATABASE kira TO kira_app, kira_auth, kira_worker"
+docker compose exec db psql -v ON_ERROR_STOP=1 -U postgres -d kira -c "ALTER SCHEMA public OWNER TO kira_owner" -c "REVOKE ALL ON SCHEMA public FROM PUBLIC"
+```
+
+Setelah memulihkan cadangan lama, jalankan kode yang cocok dengan cadangan itu. Kode baru menjalankan migrasinya lagi lewat layanan `migrate`.
 
 ## 12. Pembaruan
 
@@ -454,13 +474,16 @@ node deploy/load/run.mjs --scenario mixed --stage 300
 
 ### Pindah dari susunan lama ke susunan ini (produksi)
 
-Di PC server Kira ada `docker-compose.override.yml` lokal (tidak ada di git) yang menerbitkan web di 3030, dan `COMPOSE_FILE` di `.env` memuatnya bersama `docker-compose.tts-gpu.yml`; profil `tts` juga aktif. Semua itu tetap dipakai, kecuali bagian port web di override.
+Di PC server Kira ada `docker-compose.override.yml` lokal (tidak ada di git) yang menerbitkan web di 3030, dan `COMPOSE_FILE` di `.env` memuatnya bersama `docker-compose.tts-gpu.yml`; profil `tts` juga aktif. Langkah di bawah sudah dilatih pada salinan data produksi (5 November 2026): situs tidak tersedia sekitar 45 detik saat PC normal dan sampai 3 menit saat PC sibuk.
 
-1. Cadangan dulu: `.\deploy\windows\kira.ps1 backup`. Pastikan berkas hasilnya ada.
-2. Tambahkan ke `.env`: `KIRA_VALKEY_PASSWORD=<hex acak 48 karakter>`, `KIRA_PROXY_PORT=3030`, `KIRA_WEB_REPLICAS=4`. Untuk pilot: `AI_PROVIDER=none`.
-3. Edit `docker-compose.override.yml`: hapus bagian `web: ports: - "127.0.0.1:3030:3000"`. Bila dibiarkan, port 3030 bentrok antara web dan proxy, dan beberapa replika tidak bisa berbagi satu port. Biarkan bagian lain (GPU, tts) dan biarkan `COMPOSE_FILE` serta `COMPOSE_PROFILES` apa adanya. Cloudflare Tunnel tidak perlu diubah (tetap `127.0.0.1:3030`).
-4. `git pull` (kode yang sudah digabung), lalu `docker compose up -d --build`. Compose membangun web, worker, dan proxy bersama, menjalankan migrasi 0015, merestart `db` (flag baru), membuat pgbouncer dan valkey, empat replika web, lalu proxy. Situs tidak tersedia sekitar 1 sampai 2 menit.
-5. Periksa: `docker compose ps` (semua healthy), `curl http://127.0.0.1:3030/api/health` memberi `{"ok":true}`, `curl -i http://127.0.0.1:3030/api/internal/weekly-report` memberi 404, buka situs lewat Cloudflare dan masuk sebagai Syakira, jawab satu soal, putar satu suara. Worker: `docker compose logs --tail 20 worker`.
-6. Setelah satu hari stabil, buat `pg_stat_statements` bila belum: `docker compose exec db psql -U postgres -d kira -c "create extension if not exists pg_stat_statements"`.
+1. Hentikan autopull: `Disable-ScheduledTask -TaskName 'Kira autopull'`. Bila main bergerak dan CI hijau, autopull memasang kode baru dalam 10 menit dengan `.env` dan override lama.
+2. Cadangan dulu: `.\deploy\windows\kira.ps1 backup`. Pastikan berkas hasilnya ada. Beri nama image lama supaya bisa kembali tanpa membangun: `docker tag kira-web:latest kira-web:lama`, `docker tag kira-worker:latest kira-worker:lama`.
+3. Tambahkan ke `.env`: `KIRA_VALKEY_PASSWORD=<hex acak 48 karakter>`, `KIRA_PROXY_PORT=3030`, `KIRA_WEB_REPLICAS=4`. Untuk pilot: `AI_PROVIDER=none`, `KIRA_MCP=off`. Hapus `COMPOSE_PROFILES=tts`: anak memutar klip statis, layanan `tts` tidak dipanggil saat aplikasi dipakai, dan dengan profil itu setiap `--build` juga membangun image tts (pernah 50 menit lalu gagal, dan web ikut tertunda). Biarkan `TTS_URL` terisi: bila kosong, web berhenti memakai klip.
+4. Edit `docker-compose.override.yml`: hapus bagian `web: ports: - "127.0.0.1:3030:3000"`. Bila dibiarkan, port 3030 bentrok antara web dan proxy dan `up` berhenti dengan error port setelah migrasi jalan; perbaiki override lalu ulangi `up`, situs kembali dalam sekitar 15 detik. Bila tidak ada isi lain, isi berkas dengan `services: {}`. Biarkan `COMPOSE_FILE`. Cloudflare Tunnel tidak perlu diubah (tetap `127.0.0.1:3030`).
+5. Tarik kode lalu bangun selagi situs lama masih jalan: `git merge --ff-only origin/main`, `docker compose build web worker proxy`.
+6. `docker compose stop web worker`, cadangan terakhir, lalu `docker compose up -d --no-build`. Compose menjalankan migrasi, merestart `db` (flag baru), membuat pgbouncer dan valkey, empat replika web, lalu proxy. Hentikan juga suara lama: `docker stop kira-tts-1`.
+7. Periksa: `docker compose ps` (semua healthy), `curl http://127.0.0.1:3030/api/health` memberi `{"ok":true}`, `curl -i http://127.0.0.1:3030/api/internal/weekly-report` memberi 404, buka situs lewat Cloudflare dan masuk sebagai Syakira, jawab satu soal, putar satu suara. Worker: `docker compose logs --tail 20 worker`.
 
-Pemulihan ke susunan lama: kembalikan bagian port web di override, `git checkout` ke commit sebelumnya, `docker compose up -d --build`. Data tidak berubah bentuk (migrasi 0015 hanya menambah fungsi dan satu penanda di `org.settings`), jadi pemulihan aman.
+Jangan membuat ekstensi `pg_stat_statements` di database `kira`: cadangan lalu memuat `CREATE EXTENSION`, dan pemulihan sebagai `kira_owner` gagal seluruhnya. Bila butuh statistik, buat di database `postgres`: `docker compose exec db psql -U postgres -d postgres -c "create extension if not exists pg_stat_statements"`. Statistik semua database tetap terlihat dari sana.
+
+Pemulihan ke susunan lama, data tetap: `docker compose stop worker`, `docker compose rm -sf proxy web pgbouncer valkey`, kembalikan override dan `.env`, `git checkout -B main <commit lama>`, kembalikan nama image lama, `docker compose up -d --no-build`. Migrasi hanya menambah tabel dan kolom, dan kode lama sudah diuji jalan di atas skema baru, jadi langkah ini tidak butuh cadangan. Pemulihan database hanya bila datanya sendiri rusak; itu membuang semua yang terjadi setelah cadangan, dan caranya ada di bagian 11.

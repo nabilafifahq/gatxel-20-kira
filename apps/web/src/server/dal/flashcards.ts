@@ -2,7 +2,7 @@ import 'server-only'
 import { and, eq } from 'drizzle-orm'
 import { z } from 'zod'
 import { jakartaDate, newCard, reviewCard, type CardState } from '@kira/core'
-import { effectiveOn, type FeatureKey } from '@kira/core/features'
+import { deckOn, effectiveOn } from '@kira/core/features'
 import { tables } from '@kira/db'
 import { findContentDir } from '@kira/content/load'
 import { loadFlashcards, type Deck, type Flashcard } from '@kira/content/flashcards'
@@ -11,7 +11,7 @@ import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { featureMapFor } from './learner-features'
-import { learnerShell, loadLearner } from './learner-core'
+import { learnerShell, loadLearner, lockLearnerScope } from './learner-core'
 import { PERSONAL_DECK_ID, personalDeckFor } from './personal-deck'
 import type { FigureSpec } from '@kira/figures/spec'
 
@@ -53,7 +53,7 @@ async function resolveDeck(tx: Tx, learnerId: string, grade: number, deckId: str
     return { id: PERSONAL_DECK_ID, title: p.title, subject: 'english', grade, cards: p.cards, backLang: p.backLang, personal: true }
   }
   const d = decks().find((x) => x.id === deckId)
-  if (!d) throw notFound((await getT()).reading.errors.noDeck)
+  if (!d || !deckOn(await featureMapFor(tx, learnerId), d)) throw notFound((await getT()).reading.errors.noDeck)
   return { id: d.id, title: d.title, subject: d.subject, grade: d.grade, cards: d.cards, backLang: 'en-GB', personal: false }
 }
 
@@ -68,7 +68,7 @@ export async function cardsHubDTO(tx: Tx, learnerId: string, mode: 'cards' | 'vo
   if (!effectiveOn(features, mode === 'vocab' ? 'vocab' : 'flashcards')) throw notFound()
   const now = new Date()
   const all: Resolved[] = decks()
-    .filter((d) => effectiveOn(features, d.subject as FeatureKey) && (mode === 'cards' || d.subject === 'english'))
+    .filter((d) => deckOn(features, d) && (mode === 'cards' || d.subject === 'english'))
     .map((d) => ({ id: d.id, title: d.title, subject: d.subject, grade: d.grade, cards: d.cards, backLang: 'en-GB' as const, personal: false }))
   if (effectiveOn(features, 'dictionary')) {
     const p = await personalDeckFor(tx, learnerId)
@@ -105,7 +105,7 @@ export async function cardSessionDTO(tx: Tx, learnerId: string, deckId: string, 
   const features = await featureMapFor(tx, learnerId)
   if (!effectiveOn(features, mode === 'vocab' ? 'vocab' : 'flashcards')) throw notFound()
   const d = await resolveDeck(tx, learnerId, learner.grade, deckId)
-  if (!effectiveOn(features, d.subject as FeatureKey)) throw notFound()
+  if (!deckOn(features, d)) throw notFound()
   const st = await statesOf(tx, learnerId, d.id)
   const now = new Date()
   const byDue = (a: Flashcard, b: Flashcard) => st.get(a.id)!.dueAt.getTime() - st.get(b.id)!.dueAt.getTime()
@@ -133,6 +133,8 @@ export const finishSchema = z
 export async function finishCards(tx: Tx, ctx: OrgContext, learnerId: string, raw: unknown): Promise<{ xp: number; knew: number; total: number }> {
   const input = finishSchema.safeParse(raw)
   if (!input.success) throw invalid((await getT()).reading.errors.badResults)
+  // Batas XP harian dibaca dan ditulis di bawah kunci: dek berbeda yang dikirim serentak tidak melewati batas.
+  await lockLearnerScope(tx, 'flashcards', learnerId)
   const learner = await loadLearner(tx, learnerId)
   const d = await resolveDeck(tx, learnerId, learner.grade, input.data.deckId)
   const valid = new Set(d.cards.map((c) => c.id))

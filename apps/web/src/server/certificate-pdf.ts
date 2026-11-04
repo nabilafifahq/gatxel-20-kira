@@ -18,10 +18,25 @@ function latin1(s: string): string {
     .trim()
 }
 
+/** Lebar huruf Helvetica dan Helvetica-Bold per 1000 em (AFM), untuk ASCII 32 sampai 126. */
+const WIDTHS = {
+  F1: [278, 278, 355, 556, 556, 889, 667, 191, 333, 333, 389, 584, 278, 333, 278, 278, 556, 556, 556, 556, 556, 556, 556, 556, 556, 556, 278, 278, 584, 584, 584, 556, 1015, 667, 667, 722, 722, 667, 611, 778, 722, 278, 500, 667, 556, 833, 722, 778, 667, 778, 722, 667, 611, 722, 667, 944, 667, 667, 611, 278, 278, 278, 469, 556, 333, 556, 556, 500, 556, 556, 278, 556, 556, 222, 222, 500, 222, 833, 556, 556, 556, 556, 333, 500, 278, 556, 500, 722, 500, 500, 500, 334, 260, 334, 584],
+  F2: [278, 333, 474, 556, 556, 889, 722, 238, 333, 333, 389, 584, 278, 333, 278, 278, 556, 556, 556, 556, 556, 556, 556, 556, 556, 556, 333, 333, 584, 584, 584, 611, 975, 722, 722, 722, 722, 667, 611, 778, 722, 278, 556, 722, 611, 833, 722, 778, 667, 778, 722, 667, 611, 722, 667, 944, 667, 667, 611, 333, 278, 333, 584, 556, 333, 556, 611, 556, 611, 556, 333, 611, 611, 278, 278, 556, 278, 889, 611, 611, 611, 611, 389, 556, 333, 611, 556, 778, 556, 556, 500, 389, 280, 389, 584],
+} as const
+
+function widthOf(font: 'F1' | 'F2', size: number, text: string): number {
+  let units = 0
+  for (const ch of text) units += WIDTHS[font][ch.charCodeAt(0) - 32] ?? 556
+  return (units * size) / 1000
+}
+
+/** Teks di tengah halaman. Yang terlalu lebar (nama panjang) mengecil supaya tetap di dalam bingkai. */
 function textAt(font: 'F1' | 'F2', size: number, y: number, text: string, rgb: string): string {
-  const width = text.length * size * (font === 'F2' ? 0.56 : 0.5)
-  const x = Math.max(30, (W - width) / 2)
-  return `BT /${font} ${size} Tf ${rgb} rg ${x.toFixed(1)} ${y} Td (${text}) Tj ET\n`
+  const max = W - 120
+  const full = widthOf(font, size, text)
+  const fitted = full > max ? (size * max) / full : size
+  const x = (W - widthOf(font, fitted, text)) / 2
+  return `BT /${font} ${fitted.toFixed(1)} Tf ${rgb} rg ${x.toFixed(1)} ${y} Td (${text}) Tj ET\n`
 }
 
 function star(cx: number, cy: number, r: number): string {
@@ -29,7 +44,7 @@ function star(cx: number, cy: number, r: number): string {
   for (let i = 0; i < 10; i++) {
     const rad = i % 2 === 0 ? r : r * 0.45
     const a = -Math.PI / 2 + (i * Math.PI) / 5
-    pts.push(`${(cx + rad * Math.cos(a)).toFixed(1)} ${(cy - rad * Math.sin(a) * -1).toFixed(1)}`)
+    pts.push(`${(cx + rad * Math.cos(a)).toFixed(1)} ${(cy - rad * Math.sin(a)).toFixed(1)}`)
   }
   return `${pts[0]} m ${pts.slice(1).join(' l ')} l h\n`
 }

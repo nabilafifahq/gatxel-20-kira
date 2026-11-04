@@ -1,3 +1,4 @@
+import { WHATSAPP_HELP_URL } from '@/lib/support'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { dateId } from '@/components/console/format'
@@ -194,6 +195,11 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
           Hak nomor 3, 4, 5, dan 9 bisa dijalankan sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Hak lainnya diajukan ke{' '}
           {entity.email}. Setiap permintaan mendapat kode referensi dan ditanggapi paling lambat 3 x 24 jam sejak diterima.
         </p>
+        <p className="m-0">
+          Untuk menghapus seluruh keluarga, termasuk akun orang tua, kirim permintaan lewat <Link href="/feedback">halaman Bantuan</Link> atau <a href={WHATSAPP_HELP_URL}>WhatsApp</a> dari
+          alamat email akun Anda. Permintaan ditanggapi paling lambat 3 x 24 jam. Data anak dihapus 7 hari setelah permintaan, akun orang tua paling lambat 30 hari, dan
+          data lainnya mengikuti lama simpan di bagian 3.
+        </p>
       </LegalSection>
 
       <LegalSection id="otomatis" title="6. Pemilihan soal otomatis">
@@ -202,14 +208,18 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
           Hasil ini tidak dipakai untuk iklan, tidak dijual, dan tidak dibagikan ke sekolah atau penyelenggara lomba.
         </p>
         <p className="m-0">
-          Orang Tua bisa mengajukan keberatan atas pemilihan soal otomatis ke {entity.email}. Setelah itu tutor menyusun soal secara manual untuk anak tersebut.
+          Orang Tua bisa mengajukan keberatan atas pemilihan soal otomatis ke {entity.email}. Di keluarga bertutor, setelah itu tutor menyusun soal secara manual
+          untuk anak tersebut. Di keluarga tanpa tutor, Orang Tua bisa memilih sendiri pelajaran tiap sesi dari halaman anak, dan kami membantu lewat email kalau ada yang
+          belum bisa diatur sendiri.
         </p>
       </LegalSection>
 
       <LegalSection id="keamanan" title="7. Keamanan dan kebocoran data">
         <p className="m-0">
-          Data dienkripsi saat dikirim dan saat disimpan. Setiap akun hanya bisa membuka data keluarganya sendiri, dan setiap akses ke data anak tercatat di log
-          audit. Password orang dewasa minimal 15 karakter dan diperiksa terhadap daftar password yang pernah bocor.
+          Data yang berpindah antara perangkat Anda dan Kira dienkripsi selama perjalanan lewat HTTPS. Data yang tersimpan berada di server milik Gatxel sendiri,
+          dan hanya pengelola yang punya akses ke server itu. Di database, data tiap keluarga dipisahkan, jadi setiap akun hanya bisa membuka data keluarganya
+          sendiri, dan tindakan penting pada data anak, seperti mengunduh dan menghapus, tercatat di log audit. Password orang dewasa minimal 15 karakter, disimpan
+          sebagai hash satu arah, dan diperiksa terhadap daftar password yang pernah bocor.
         </p>
         <p className="m-0">
           Kalau terjadi kebocoran data, Pengelola memberi tahu Orang Tua dan lembaga yang berwenang paling lambat 3 x 24 jam. Pemberitahuan itu menyebut data apa

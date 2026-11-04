@@ -158,7 +158,7 @@ async function topUp(
   for (const [i, s] of ordered.entries()) {
     // Enam skill terdekat dulu; skill lain mapel dan kelas ini hanya bila soal yang belum dilihat masih kurang.
     if (i >= 6 && fresh >= need) break
-    const pool = await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })
+    const pool = await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives, playableOnly: input.style === 'test' })
     cands.push(...pool)
     fresh += pool.filter((c) => c.unlimited || (!input.seen.has(c.ref) && !input.avoid.has(c.ref))).length
   }
@@ -178,8 +178,9 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
   const manipulatives = await isFeatureOn(learner.userId, 'manipulatives')
-  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
-  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives }))]
+  const playableOnly = input.style === 'test'
+  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, playableOnly, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives, playableOnly }))]
   if (input.accept) pool = pool.filter(input.accept)
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)
