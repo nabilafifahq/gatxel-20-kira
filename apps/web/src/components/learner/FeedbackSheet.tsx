@@ -11,6 +11,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { KiraStar } from '@/components/ui/KiraStar'
 import { useT } from '@/lib/i18n/client'
 import { SolutionPlayer } from './SolutionPlayer'
+import type { SpeechLang } from './speech'
 import { XpPill } from './XpPill'
 
 /**
@@ -69,7 +70,7 @@ export function FeedbackSheet({
   kind: FeedbackKind
   subject: Subject
   /** Bahasa isi soal (penjelasan, jawaban, hint), untuk atribut lang. */
-  contentLang?: string
+  contentLang?: SpeechLang
   xp?: number
   hintsUsed?: number
   secondTry?: boolean
@@ -261,7 +262,7 @@ export function FeedbackSheet({
           }
         >
           {solution && solution.length > 0 ? (
-            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} />
+            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} lang={contentLang} />
           ) : (
             <p className="m-0 text-body-lg" role="status">
               {t.gettingSteps}
