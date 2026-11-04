@@ -134,12 +134,12 @@ function Column({ a, t, tone }: { a: Extract<Anim, { k: 'column' }>; t: number; 
   const ca = a.op === '+' ? carries(a.a, a.b) : []
   const shown = visible === 0 ? 0 : t * visible
   const active = visible === 0 ? -1 : Math.min(visible - 1, Math.floor(shown))
-  const rowA = 56
-  const rowB = 98
-  const rowR = 150
+  const rowA = 76
+  const rowB = 118
+  const rowR = 170
   return (
     <>
-      {active >= 0 && t < 1 ? <rect x={colX(n - 1 - active) - cw / 2} y={20} width={cw} height={150} rx={8} className={tone.tint} /> : null}
+      {active >= 0 && t < 1 ? <rect x={colX(n - 1 - active) - cw / 2} y={34} width={cw} height={146} rx={8} className={tone.tint} /> : null}
       {[...as.padStart(n, ' ')].map((d, i) => (
         <text key={`a${i}`} x={colX(i)} y={rowA} textAnchor="middle" fontSize={fs} className="fill-fg font-display font-semibold">
           {d.trim()}
@@ -158,7 +158,7 @@ function Column({ a, t, tone }: { a: Extract<Anim, { k: 'column' }>; t: number; 
         if (!c || k + 1 >= n) return null
         const p = seg(shown, k, k + 0.6)
         return (
-          <text key={`c${k}`} x={colX(n - 1 - (k + 1))} y={26} textAnchor="middle" fontSize={fs * 0.55} className="fill-english font-display font-bold" opacity={p}>
+          <text key={`c${k}`} x={colX(n - 1 - (k + 1))} y={36} textAnchor="middle" fontSize={fs * 0.55} className="fill-english font-display font-bold" opacity={p}>
             1
           </text>
         )
@@ -323,7 +323,7 @@ function Lines({ a, t }: { a: Extract<Anim, { k: 'lines' }>; t: number }): React
       {a.lines.map((line, i) => {
         const p = ease(seg(t, (i / n) * 0.85, (i / n) * 0.85 + 0.15))
         const tick = seg(t, (i / n) * 0.85 + 0.1, (i / n) * 0.85 + 0.22)
-        const y = 34 + i * 30
+        const y = 54 + i * 32
         return (
           <g key={i} opacity={p} transform={`translate(${(1 - p) * -14} 0)`}>
             <text x={52} y={y + 8} fontSize={line.length > 36 ? 15 : 20} className="fill-fg font-display font-semibold">

@@ -163,6 +163,11 @@ export function FeedbackSheet({
               Watch how it works
             </Button>
           ) : null}
+          {remedial.watched && remedial.lesson === undefined ? (
+            <Button variant="secondary" icon="hint" loading disabled>
+              Getting a quick lesson
+            </Button>
+          ) : null}
           {remedial.watched && !remedial.lessonDone && remedial.lesson ? (
             <Button
               variant="secondary"
