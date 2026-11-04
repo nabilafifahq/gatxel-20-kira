@@ -8,6 +8,7 @@ import { Figure } from '@kira/figures'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { LearnerFrame, LearnerHeader } from '@/components/learner/LearnerHeader'
+import { DICT_CLIP_STYLE } from '@kira/core/dictionary'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { playSfx } from '@/components/learner/sfx'
 import { ActionError } from '@/screens/learner/common'
@@ -256,7 +257,8 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
           </span>
         </button>
         <div className="flex flex-wrap gap-3">
-          <ReadAloudButton text={flipped && backLang === 'en-GB' ? (card.say ?? card.back) : card.front} subject="english" showNote={false} />
+          {/* say adalah teks bacaan yang klipnya sudah dibuat. Dek pribadi memakai klip kata dari kamus. */}
+          <ReadAloudButton text={card.say ?? (flipped && backLang === 'en-GB' ? card.back : card.front)} {...(session.deck.personal ? { style: DICT_CLIP_STYLE } : {})} subject="english" showNote={false} />
         </div>
         {flipped ? (
           <div className="flex flex-wrap gap-3">
@@ -314,7 +316,8 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
             {card.front}
           </p>
         )}
-        {!meaningToWord && !spelling ? <ReadAloudButton text={card.front} subject="english" showNote={false} /> : null}
+        {/* Hanya katanya: say juga membacakan arti, yang justru jawaban latihan ini. */}
+        {!meaningToWord && !spelling ? <ReadAloudButton text={card.front} style={DICT_CLIP_STYLE} subject="english" showNote={false} /> : null}
       </div>
       {spelling ? (
         <form
