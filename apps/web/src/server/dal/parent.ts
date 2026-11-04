@@ -134,7 +134,7 @@ export async function parentHomeDTO(actor: Actor): Promise<ParentHomeDTO> {
       parentName: actor.name,
       familyName: o?.name ?? 'Keluarga',
       children,
-      maxChildren: env().KIRA_MAX_LEARNERS,
+      maxChildren: env().KIRA_MAX_LEARNERS_PER_FAMILY,
       apk: { available: apk.available, size: apk.size },
       hasTutor: marker === 'tutor',
     }

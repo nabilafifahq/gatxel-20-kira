@@ -101,7 +101,7 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
   const router = useRouter()
   const [addOpen, setAddOpen] = useState(false)
   const [deviceOpen, setDeviceOpen] = useState(false)
-  const canAdd = data.children.length < data.maxChildren
+  const canAdd = data.children.length < data.maxChildren && !data.hasTutor
 
   return (
     <FamilyShell shell={shell} active="home">

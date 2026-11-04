@@ -4,12 +4,12 @@ import { jakartaDate, type SessionType } from '@kira/core'
 import { tables } from '@kira/db'
 import type { AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, PinPicture, Subject } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
-import { createLearnerAccount } from '../auth/accounts'
 import { withFamilyAdmin, type ParentScope } from '../auth/parent'
 import { auditTx } from '../audit'
 import { env } from '../env'
 import { conflict, invalid, notFound } from '../errors'
 import type { Tx } from '../db'
+import { addChild } from './onboarding'
 import { rubricCriteriaOf } from './console-inbox-parent'
 import { gradeResponseTx } from './console-inbox'
 import { assertNameFree, resetPin, unlockLearner, updateLearner } from './console-learners'
@@ -150,25 +150,11 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
 }
 
 /**
- * Tambah anak oleh orang tua sendiri: akun anak dibuat, lalu ditautkan ke orang tua ini. Anak mulai aktif setelah
- * orang tua memberi persetujuan di halaman Privasi. Batas jumlah anak mengikuti KIRA_MAX_LEARNERS.
+ * Tambah anak oleh orang tua sendiri. Satu implementasi dengan onboarding (/mulai): batas per keluarga
+ * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan anak aktif setelah persetujuan di halaman Privasi.
  */
 export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<{ learnerId: string }> {
-  const max = env().KIRA_MAX_LEARNERS
-  const name = input.name.trim()
-  await withFamilyAdmin(actor, async (tx, scope) => {
-    const [n] = await tx.select({ n: sql<number>`count(*)::int` }).from(learnerProfile).where(isNull(learnerProfile.deletedAt))
-    if ((n?.n ?? 0) >= max) throw conflict(`Keluarga ini sudah punya ${max} anak, batas untuk saat ini.`)
-    await scope.elevate(() => assertNameFree(tx, name, null))
-  })
-  const learnerId = await createLearnerAccount({ orgId: actor.orgId, userId: actor.userId }, { name, grade: input.grade, avatar: input.avatar, pin: input.pin })
-  await withFamilyAdmin(actor, async (tx, scope) => {
-    await scope.elevate(async () => {
-      await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId }).onConflictDoNothing()
-    })
-    await auditTx(tx, scope.ctx, 'parent.child.added', learnerId, { grade: input.grade })
-  })
-  return { learnerId }
+  return { learnerId: await addChild(actor, input) }
 }
 
 /** Orang tua menilai hasil tulis, bicara, gambar, atau foto: Bagus (nilai penuh) atau Coba lagi (nol). Tidak mengubah streak. */
