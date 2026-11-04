@@ -409,8 +409,8 @@
       "type": "tiles",
       "answer": "My dog (a small terrier) loves bones.",
       "distractors": [
-        "puppy",
-        "big"
+        "with",
+        "terriers"
       ],
       "alternatives": []
     },
@@ -481,16 +481,16 @@
         {
           "options": [
             ",",
-            "(",
-            "-"
+            ".",
+            "?"
           ],
           "answer": 0
         },
         {
           "options": [
             ",",
-            ")",
-            "-"
+            ".",
+            "?"
           ],
           "answer": 0
         }
@@ -644,21 +644,26 @@
           "row": 0,
           "col": 1,
           "answers": [
-            "a well-behaved dog"
+            "a well-behaved dog",
+            "well-behaved"
           ]
         },
         {
           "row": 1,
           "col": 1,
           "answers": [
-            "a two-storey house"
+            "a two-storey house",
+            "two-storey",
+            "a two-story house",
+            "two-story"
           ]
         },
         {
           "row": 2,
           "col": 1,
           "answers": [
-            "an out-of-date map"
+            "an out-of-date map",
+            "out-of-date"
           ]
         }
       ]
