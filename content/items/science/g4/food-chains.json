@@ -56,7 +56,7 @@
       "skill": "s4.food-chains",
       "type": "text",
       "difficulty": 2,
-      "prompt": "Every food chain starts with a green plant. A plant is called a ___ because it makes its own food.",
+      "prompt": "A food chain usually starts with a green plant. A plant is called a ___ because it makes its own food.",
       "blanks": [
         {
           "answers": [
@@ -289,7 +289,7 @@
       "skill": "s4.food-chains",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Where does the energy in every food chain first come from?",
+      "prompt": "Where does the energy in a food chain first come from?",
       "options": [
         {
           "text": "the Sun"
@@ -512,7 +512,7 @@
         "A consumer has to eat something.",
         "Look for the animal."
       ],
-      "explanation": "A rabbit eats plants, so it is a consumer. The others are plants that make their own food."
+      "explanation": "A rabbit eats plants, so it is a consumer. The others make their own food."
     },
     {
       "id": "s4.food-chains.015",
@@ -800,7 +800,7 @@
       ],
       "hints": [
         "It eats something and is eaten by something.",
-        "The first animal in the chain only gets eaten.",
+        "The first animal in the chain eats a plant, so it is not a predator.",
         "The last animal in the chain is not eaten."
       ],
       "explanation": "The frog eats the caterpillar, so it is a predator, and the snake eats the frog, so it is also prey."
@@ -896,7 +896,7 @@
         },
         {
           "text": "Foxes and rabbits are not connected",
-          "why": "The numbers change together, which shows they are connected."
+          "why": "The numbers change together, which suggests they are connected."
         }
       ],
       "answer": 0,
@@ -1075,7 +1075,7 @@
       "hints": [
         "Producers make their own food.",
         "A predator hunts other animals.",
-        "Follow the arrows to see who eats whom."
+        "Follow the chain to see who eats whom."
       ],
       "explanation": "Algae are producers, and the seal hunts the fish so it is a predator."
     },
