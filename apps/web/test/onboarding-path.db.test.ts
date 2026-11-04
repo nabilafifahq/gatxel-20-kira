@@ -105,7 +105,7 @@ describe.skipIf(!ready)('jalur onboarding', () => {
     expect(await done()).toEqual(['child', 'path'])
     await onboarding.markFirstReportSeen(a)
     expect(await done()).toEqual(['child', 'path', 'report'])
-    await owner`insert into quest (org_id, learner_id, date, subject, session, kind, status, seq) values (${a.orgId}, ${kid}, '2026-11-05', 'math', 'latihan', 'daily', 'done', 0)`
+    await owner`insert into quest (org_id, learner_id, date, subject, session, mode, kind, status, seq) values (${a.orgId}, ${kid}, '2026-11-05', 'math', 'latihan', 'latihan', 'daily', 'done', 0)`
     expect(await onboarding.firstRunChecklist(a)).toBeNull()
   })
 
