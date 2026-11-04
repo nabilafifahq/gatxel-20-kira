@@ -267,7 +267,7 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
     await expect(page.getByRole('heading', { name: 'Fitur yang dipakai' })).toBeVisible()
 
     await page.goto('/keluarga/minggu')
-    await db()`insert into quest (org_id, learner_id, date, subject, session, mode, kind, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'latihan', 'daily', 'done', 0)`
+    await db()`insert into quest (org_id, learner_id, date, subject, session, mode, title, kind, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'latihan', 'Sesi', 'daily', 'done', 0)`
     await page.goto('/keluarga')
     await expect(page.getByRole('heading', { name: /Halo/ })).toBeVisible()
     await expect(page.getByTestId('first-run-checklist')).toHaveCount(0)
