@@ -17,7 +17,7 @@ export function signupVerifyEmail(id: EmailIdentity, input: { url: string }): Re
       subject: 'Konfirmasi email untuk akun Kira Anda',
       preheader: 'Satu langkah lagi: pastikan email ini milik Anda. Tautan berlaku 24 jam.',
       heading: 'Konfirmasi email Anda',
-      blocks: [{ kind: 'text', text: 'Terima kasih sudah mendaftar di Kira. Tekan tombol di bawah untuk memastikan email ini milik Anda. Setelah itu keluarga Anda dibuat dan Anda bisa menambahkan anak.' }],
+      blocks: [{ kind: 'text', text: 'Terima kasih sudah mendaftar di Kira. Tekan tombol di bawah untuk memastikan email ini milik Anda. Setelah itu akun keluarga Anda dibuat dan Anda bisa menambahkan anak.' }],
       action: { label: 'Konfirmasi email', url: input.url },
       after: [{ kind: 'text', text: 'Tautan ini berlaku 24 jam dan hanya bisa dipakai sekali. Di halaman konfirmasi, Anda akan diminta memasukkan password yang dibuat saat mendaftar.' }],
       ignoreLine: true,
