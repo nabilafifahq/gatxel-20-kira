@@ -33,6 +33,8 @@ test('anak baru: kartu di Today, tes tanpa skor, lewati, dan hari belajar tetap 
   const aisha = await learnerId('Aisha')
   const raka = await learnerId('Raka')
   await db()`delete from placement_run where org_id = ${org}`
+  // Tes lain sudah menjawab soal sebagai Aisha; tes penempatan otomatis hanya untuk anak yang belum punya jawaban.
+  await db()`delete from skill_state where learner_id = ${aisha}`
   await db()`update learner_profile set created_at = '2026-12-01T00:00:00Z' where user_id = ${aisha}`
   await db()`update learner_profile set created_at = '2026-01-10T00:00:00Z' where user_id = ${raka}`
 
