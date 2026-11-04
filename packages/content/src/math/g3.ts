@@ -3867,7 +3867,8 @@ const shapes2d3: Generator = {
         type: 'mcq',
         prompt: 'What is the name of this shape?',
         figure: shapeFig(p.shape, `A shape with ${p.sides} straight sides.`),
-        ...textChoice(rng, p.name, rng.shuffle(names.filter((n) => n !== p.name)).slice(0, 3).map((n) => ({ value: n, why: `${cap(art(n))} has ${facts[n]}.` }))),
+        // Persegi juga persegi panjang: jangan jadi opsi saat kuncinya persegi. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, p.name, rng.shuffle(names.filter((n) => n !== p.name)).filter((n) => !(p.name === 'square' && n === 'rectangle')).slice(0, 3).map((n) => ({ value: n, why: `${cap(art(n))} has ${facts[n]}.` }))),
         hints: ['Count the sides.', 'Tri means 3, penta means 5, hexa means 6 and octa means 8.', 'Put your finger on one side and count around the shape.'],
         explanation: `The shape has ${p.sides} sides, so it is ${art(p.name)}.`,
       }
@@ -3935,7 +3936,7 @@ const shapes2d3: Generator = {
     const whoAmI = (): GeneratedItem => {
       const riddles = [
         { clue: 'I have 4 sides and 4 right angles. My sides are not all the same length.', a: 'rectangle', wrong: [['square', 'A square has 4 equal sides.'], ['hexagon', 'A hexagon has 6 sides.'], ['triangle', 'A triangle has 3 sides.']] },
-        { clue: 'I have 4 equal sides and 4 right angles.', a: 'square', wrong: [['rectangle', 'A rectangle has 2 long sides and 2 short sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['circle', 'A circle has no corners.']] },
+        { clue: 'I have 4 equal sides and 4 right angles.', a: 'square', wrong: [['triangle', 'A triangle has 3 sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['circle', 'A circle has no corners.']] },
         { clue: 'I have 3 sides and one of my angles is a right angle.', a: 'right-angled triangle', wrong: [['square', 'A square has 4 sides.'], ['pentagon', 'A pentagon has 5 sides.'], ['rectangle', 'A rectangle has 4 sides.']] },
         { clue: 'I have 6 straight sides and 6 vertices.', a: 'hexagon', wrong: [['pentagon', 'A pentagon has 5 sides.'], ['octagon', 'An octagon has 8 sides.'], ['triangle', 'A triangle has 3 sides.']] },
         { clue: 'I have one curved side and no vertices.', a: 'circle', wrong: [['semicircle', 'A semicircle has a straight side too.'], ['square', 'A square has 4 vertices.'], ['triangle', 'A triangle has 3 vertices.']] },
@@ -4026,7 +4027,8 @@ const shapes3d3: Generator = {
         type: 'mcq',
         prompt: 'What is the name of this 3D shape?',
         figure: { kind: 'solid', solid: sd.solid, alt: `A 3D shape with ${sd.faceShapes}.` },
-        ...textChoice(rng, sd.name, rng.shuffle(SOLID3.filter((x) => x !== sd)).slice(0, 3).map((x) => ({ value: x.name, why: `A ${x.name} has ${x.faceShapes}.` }))),
+        // Kubus juga balok: jangan jadi opsi saat kuncinya kubus. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, sd.name, rng.shuffle(SOLID3.filter((x) => x !== sd)).filter((x) => !(sd.solid === 'cube' && x.solid === 'cuboid')).slice(0, 3).map((x) => ({ value: x.name, why: `A ${x.name} has ${x.faceShapes}.` }))),
         hints: ['Look at the shape of the faces.', 'Is any face curved? Are there any triangles?', 'Count the flat faces you can see.'],
         explanation: `This shape has ${sd.faceShapes}, so it is a ${sd.name}.`,
       }
@@ -4083,7 +4085,8 @@ const shapes3d3: Generator = {
         type: 'mcq',
         prompt: `What are the faces of a ${sd.name}?`,
         figure: { kind: 'solid', solid: sd.solid, alt: `A picture of a ${sd.name}.` },
-        ...textChoice(rng, sd.faceShapes, rng.shuffle(SOLID3.filter((x) => x.faceShapes !== sd.faceShapes)).slice(0, 3).map((x) => ({ value: x.faceShapes, why: `These are the faces of a ${x.name}.` }))),
+        // Sisi persegi juga persegi panjang: 6 rectangles bukan pengecoh untuk kubus. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...textChoice(rng, sd.faceShapes, rng.shuffle(SOLID3.filter((x) => x.faceShapes !== sd.faceShapes)).filter((x) => !(sd.solid === 'cube' && x.solid === 'cuboid')).slice(0, 3).map((x) => ({ value: x.faceShapes, why: `These are the faces of a ${x.name}.` }))),
         hints: ['Imagine taking the shape apart, face by face.', 'Look at the bottom face first, then the faces around the sides.', `What shape is the bottom of a ${sd.name}?`],
         explanation: `A ${sd.name} has ${sd.faceShapes}.`,
       }
