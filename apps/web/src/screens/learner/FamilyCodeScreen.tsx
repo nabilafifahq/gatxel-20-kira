@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, type FormEvent, type ReactElement } from 'react'
+import { useEffect, useRef, useState, type FormEvent, type ReactElement } from 'react'
 import type { ActionResult } from '@/lib/dto'
 import { TurnstileField } from '@/components/auth/TurnstileField'
 import { SiteFooter } from '@/components/ui/SiteFooter'
 import { Button } from '@/components/ui/Button'
 import { UiIcon } from '@/components/ui/icons'
-import { formatFamilyCode, normalizeFamilyCode, type FamilyChildChoice } from '@/lib/family-code'
+import { normalizeFamilyCode, type FamilyChildChoice } from '@/lib/family-code'
 import { useT } from '@/lib/i18n/client'
 import { ActionError, SignInBar } from './common'
 
@@ -41,6 +41,12 @@ export function FamilyCodeStep({
   const [pending, setPending] = useState(false)
   const [hint, setHint] = useState<string | null>(null)
   const [failure, setFailure] = useState<Failure | null>(null)
+  const input = useRef<HTMLInputElement>(null)
+
+  // Ketikan sebelum halaman selesai dimuat (jaringan lambat) tetap terbawa.
+  useEffect(() => {
+    if (input.current?.value) setCode(input.current.value)
+  }, [])
 
   async function submit(e: FormEvent) {
     e.preventDefault()
@@ -73,12 +79,13 @@ export function FamilyCodeStep({
           <h1 className="m-0 text-h1 font-bold">{t.title}</h1>
           <p className="m-0 text-body-lg text-fg-muted">{t.intro}</p>
         </div>
-        <form onSubmit={submit} noValidate className="flex w-full flex-col gap-4">
+        <form method="post" onSubmit={submit} noValidate className="flex w-full flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="kode-keluarga" className="text-body-lg font-bold">
               {t.label}
             </label>
             <input
+              ref={input}
               id="kode-keluarga"
               name="kode-keluarga"
               type="text"
@@ -88,12 +95,14 @@ export function FamilyCodeStep({
               autoCorrect="off"
               spellCheck={false}
               enterKeyHint="go"
-              placeholder="ABCD-2345"
+              placeholder="BCDF-2345"
+              maxLength={16}
               value={code}
               aria-invalid={Boolean(hint || failure)}
               aria-describedby={hint ? 'kode-keluarga-petunjuk' : undefined}
               onChange={(e) => {
-                setCode(formatFamilyCode(e.target.value))
+                // Nilai tidak diubah saat mengetik: mengubahnya menggandakan huruf di keyboard Android. Huruf besar hanya lewat CSS.
+                setCode(e.target.value)
                 setHint(null)
                 setFailure(null)
               }}

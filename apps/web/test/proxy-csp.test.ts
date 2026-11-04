@@ -20,7 +20,9 @@ describe('CSP dan Turnstile', () => {
   })
 
   it('halaman auth publik boleh memuat Turnstile bila dikonfigurasi', () => {
-    for (const p of ['/daftar', '/masuk', '/reset/abc', '/beranda']) expect(csp(p), p).toContain('challenges.cloudflare.com')
+    for (const p of ['/daftar', '/masuk', '/masuk/anak', '/reset/abc', '/beranda']) expect(csp(p), p).toContain('challenges.cloudflare.com')
+    // Langkah PIN dan area anak sesudahnya tetap tanpa skrip pihak ketiga.
+    expect(csp('/masuk/anak/8387fff0-944d-4558-85df-b5294f636414')).not.toContain('challenges.cloudflare.com')
   })
   it('halaman depan untuk pengunjung baru memuatnya, tetapi tablet terdaftar dan area learner tidak', () => {
     expect(csp('/')).toContain('challenges.cloudflare.com')

@@ -34,5 +34,7 @@ export default defineConfig({
         ...(existsSync(localChromium) && !process.env.CI ? { launchOptions: { executablePath: localChromium } } : {}),
       },
     },
+    // Hanya untuk e2e/tests/masuk-anak.spec.ts lewat HTTPS lokal: E2E_WEBKIT=1, playwright test --project webkit masuk-anak.
+    ...(process.env.E2E_WEBKIT ? [{ name: 'webkit', use: { ...devices['iPhone 13'], ignoreHTTPSErrors: true } }] : []),
   ],
 })

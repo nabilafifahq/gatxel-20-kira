@@ -284,7 +284,7 @@ self.addEventListener('fetch', (event) => {
   if (request.mode !== 'navigate') return
 
   // Pergantian learner: halaman anak sebelumnya tidak boleh tersisa di tablet.
-  if (url.pathname === '/bye' || url.pathname === '/' || url.pathname.startsWith('/pin/')) {
+  if (url.pathname === '/bye' || url.pathname === '/' || url.pathname.startsWith('/pin/') || url.pathname.startsWith('/masuk/anak')) {
     event.waitUntil(clearLearnerCaches())
     event.respondWith(fetchOrOffline(request))
     return
