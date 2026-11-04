@@ -144,7 +144,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
   const items = ((a.items as AttemptItem[]) ?? []).filter((i) => i.remedialOf === undefined)
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
   const latest = latestByPosition(await tx.select().from(response).where(eq(response.attemptId, a.id)))
-  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; newBadges?: ResultsDTO['newBadges']; world?: { stars: number; cards: string[] } } | null) ?? {}
+  const result = (a.result as { byTopic?: Topic[]; timeUsedSec?: number; pending?: number; notCounted?: ResultsDTO['notCounted']; newBadges?: ResultsDTO['newBadges']; world?: { stars: number; cards: string[] } } | null) ?? {}
   const questions = items.map((it) => {
     const r = latest.get(it.position)
     const item = resolved.get(it.ref)
@@ -186,6 +186,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     timeUsedSec: result.timeUsedSec ?? a.elapsedS,
     timeLimitSec: a.timeLimitS,
     xp: a.xp,
+    ...(result.notCounted ? { notCounted: result.notCounted } : {}),
     ...(result.world && (await isFeatureOnTx(tx, learnerId, 'kira-world')) ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
     newBadges: result.newBadges ?? [],
     questions,

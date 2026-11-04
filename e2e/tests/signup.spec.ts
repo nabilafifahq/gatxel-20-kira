@@ -83,7 +83,7 @@ test.describe('pendaftaran orang tua', () => {
   test('daftar, konfirmasi email, tambah anak, dan buka Kira untuk anak', async ({ page, context }) => {
     const before = await seatsFree()
     await fillSignup(page, email)
-    await expect(page.getByRole('heading', { name: 'Cek email kamu' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Cek email Anda' })).toBeVisible()
 
     // Belum dikonfirmasi: tidak bisa masuk, dengan pesan ramah dan tombol kirim ulang.
     const other = await context.newPage()
@@ -180,10 +180,10 @@ test.describe('pendaftaran orang tua', () => {
       const confirmMail = await mailTo(wl, 'Konfirmasi daftar tunggu')
       await page.goto(linkIn(confirmMail, '/kabar/konfirmasi/'))
       await page.getByRole('button', { name: 'Ya, kabari saya' }).click()
-      await expect(page.getByRole('heading', { name: 'Kamu masuk daftar tunggu' })).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Anda masuk daftar tunggu' })).toBeVisible()
       const welcome = await mailTo(wl, 'Anda ada di daftar tunggu')
       await page.goto(linkIn(welcome, '/kabar/berhenti/'))
-      await expect(page.getByRole('heading', { name: 'Kamu sudah berhenti berlangganan' })).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Anda sudah berhenti berlangganan' })).toBeVisible()
       const [row] = await db()`select unsubscribed_at from auth.waitlist where email = ${wl}`
       expect(row!.unsubscribed_at).not.toBeNull()
     } finally {

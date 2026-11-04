@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
-import { jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
+import { freeSessionDoneXp, sessionAnswersNeeded, jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
 import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
@@ -14,7 +14,7 @@ import { resolveItems, skill, toClient } from './content'
 import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
-import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, QUICK_REVIEW_PREFIX, refreshDayRecord } from './learner-core'
+import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, minutesOn, QUICK_REVIEW_PREFIX, refreshDayRecord } from './learner-core'
 import { parseBossRef } from '@kira/core'
 import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
 import { spokenClipRefs } from './tts'
@@ -106,15 +106,26 @@ export function latestByPosition(rows: ResponseRow[]): Map<number, ResponseRow> 
  * Attempt berwaktu selalu mulai pada render pertama: header simpan offline bisa dikirim siapa saja,
  * jadi soal tes berwaktu tidak pernah terkirim tanpa jam berjalan (dan tidak masuk simpanan offline).
  */
-export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true } | { locked: true }> {
+/** Layar hasil attempt ini: tantangan bos punya layar sendiri. */
+function resultHref(a: { id: string; refId: string | null }): string {
+  return a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
+}
+
+export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true; resultHref: string } | { locked: true } | { limit: true }> {
   const a = await loadAttempt(tx, learnerId, attemptId)
-  if (a.status !== 'in_progress') return { submitted: true }
+  if (a.status !== 'in_progress') return { submitted: true, resultHref: resultHref(a) }
   // Tes terbuka setelah Latihan mapel itu selesai; jam Tes tidak boleh mulai sebelumnya.
   if (a.kind === 'quest' && a.mode === 'tes' && !a.retryOf) {
     const q = await questOfAttempt(tx, a)
     if (q && (await isTesLocked(tx, q))) return { locked: true }
   }
   if (!a.openedAt && (opts.markOpened || a.timeLimitS)) {
+    // Batas layar: sesi baru tidak dimulai setelah batas tercapai. Sesi yang sudah berjalan boleh diselesaikan.
+    const { screenLimitMin } = await loadLearner(tx, learnerId)
+    if ((await minutesOn(tx, learnerId, jakartaDate())) >= screenLimitMin) {
+      const [answered] = await tx.select({ id: response.id }).from(response).where(eq(response.attemptId, a.id)).limit(1)
+      if (!answered) return { limit: true }
+    }
     const [o] = await tx
       .update(attempt)
       .set({ openedAt: new Date() })
@@ -375,7 +386,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   // Kunci baris attempt: kumpul ganda (klik dua kali, sinkron offline bersamaan) menunggu, lalu melihat status sudah selesai.
   await tx.execute(sql`select 1 from attempt where id = ${attemptId} and learner_id = ${learnerId} for update`)
   const a = await loadAttempt(tx, learnerId, attemptId)
-  const redirectTo = a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
+  const redirectTo = resultHref(a)
   if (a.status !== 'in_progress') return { redirectTo }
   const learner = await loadLearner(tx, learnerId)
   const date = jakartaDate()
@@ -449,7 +460,12 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
 
   const olympiad = items.some((it) => resolved.get(it.ref)?.tags.includes('olympiad'))
   // Sesi tanpa satu jawaban pun tetap bisa selesai (waktu habis, soal manual dilewati), tetapi tidak memberi XP selesai atau bintang.
-  const answeredAny = items.some((it) => ['correct', 'wrong', 'pending', 'answered'].includes(latest.get(it.position)?.status ?? 'blank'))
+  const isAnswered = (position: number) => ['correct', 'wrong', 'pending', 'answered'].includes(latest.get(position)?.status ?? 'blank')
+  const answeredAny = items.some((it) => isAnswered(it.position))
+  // Sesi dihitung untuk streak dan hadiah bila paling sedikit separuh soalnya dijawab.
+  const answeredCount = items.filter((it) => isAnswered(it.position)).length
+  const answersNeeded = sessionAnswersNeeded(items.length)
+  const counted = answeredCount >= answersNeeded
   const perfect = total > 0 && correct === total && firstTryAll
   const topics = [...byTopic.values()]
   const isRetry = a.retryOf !== null
@@ -463,7 +479,8 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     const before = (await submittedFamily(tx, a.retryOf!)).filter((f) => f.id !== a.id).map(scoreOf)
     improved = retryImproved(before, { raw: scoreRaw, max: scoreMax, scaled })
   }
-  const result = { perfect, olympiad, byTopic: topics, timeUsedSec: timeUsed, pending, session, passed, early, improved, retry: isRetry }
+  const notCounted = a.kind === 'quest' && !isRetry && q && q.status !== 'done' && !counted ? { answered: answeredCount, need: answersNeeded, total: items.length } : null
+  const result = { perfect, olympiad, byTopic: topics, timeUsedSec: timeUsed, pending, session, passed, early, improved, retry: isRetry, ...(notCounted ? { notCounted } : {}) }
 
   let worldGain: { stars: number; cards: string[] } = { stars: 0, cards: [] }
   let bossResult: { won: boolean; stars: number; cardId: string | null } | null = null
@@ -473,24 +490,29 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       const gained = answeredAny ? sessionCompletionXp({ session: session ?? 'latihan', perfect, retry: true }) : 0
       await grantXp(tx, ctx, learnerId, gained, 'quest-retry', a.id, date)
       xp += gained
+    } else if (notCounted && q) {
+      // Belum cukup dijawab: sesinya tetap terbuka dengan soal baru, tanpa XP selesai, bintang, atau streak.
+      await tx.update(quest).set({ status: 'ready', attemptId: null }).where(eq(quest.id, q.id))
     } else if (q && q.status !== 'done') {
       await tx.update(quest).set({ status: 'done', completedAt: new Date() }).where(eq(quest.id, q.id))
-      const gained = answeredAny ? sessionCompletionXp({ session: q.session, perfect }) : 0
+      const gained = sessionCompletionXp({ session: q.session, perfect })
       await grantXp(tx, ctx, learnerId, gained, 'quest', a.id, date)
       xp += gained
       await refreshDayRecord(tx, ctx, learnerId, q.date)
-      if (answeredAny) worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
+      worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
     }
   } else if (a.kind === 'simulation' || a.kind === 'esmo-mock' || a.kind === 'esmo-pack' || a.kind === 'review' || a.kind === 'paper' || a.kind === 'test') {
     const isBoss = a.refId?.startsWith('boss:') ?? false
     // Ulasan singkat punya batas XP harian (capQuickReviewXp), jadi tidak mendapat bonus selesai: 0 dari 3 tidak boleh memberi XP.
     const quickReview = a.title.startsWith(QUICK_REVIEW_PREFIX)
-    const done = isBoss || quickReview || !answeredAny ? 0 : a.kind === 'review' ? 10 : 20
+    const done = isBoss || quickReview ? 0 : freeSessionDoneXp({ kind: a.kind, correct, pending })
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
     if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)
-    // Sesi opsional bertipe tautan yang cocok ikut selesai.
-    if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
+    // Sesi opsional bertipe tautan yang cocok ikut selesai, kalau cukup soalnya dijawab.
+    if (!counted) {
+      // Tidak ada sesi yang ditandai selesai.
+    } else if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
     else if (a.kind === 'simulation') await completeLinkedSession(tx, learnerId, date, { session: 'simulation', subject: a.subject as Subject, ...(a.refId ? { presetId: a.refId } : {}) })
     else if (a.kind === 'esmo-mock' || a.kind === 'esmo-pack') await completeLinkedSession(tx, learnerId, date, { session: 'esmo', subject: a.subject as Subject })
     else {
@@ -500,7 +522,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     }
   }
   // Reading dikerjakan sebagai sesi reading; tugas Reading dari tutor ikut selesai.
-  if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf) {
+  if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf && counted) {
     const sks = [...new Set(items.map((it) => resolved.get(it.ref)?.skill).filter((x): x is string => !!x))].map((id) => ({ id, strand: skill(id)?.strand ?? '' }))
     if (isReadingAttempt({ questSession: session, skills: sks })) {
       await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: 'reading' })

@@ -261,7 +261,7 @@ export function ItemStatic({
         />
       ) : null}
 
-      {item.type === 'speak' ? <p className="m-0 text-body font-semibold">Read this aloud to your tutor.</p> : null}
+      {item.type === 'speak' ? <p className="m-0 text-body font-semibold">Read this aloud to a grown-up.</p> : null}
 
       {showKey ? (
         <div lang="id" className="flex flex-col gap-1 rounded-control border-2 border-success bg-success-50 px-3.5 py-2.5">

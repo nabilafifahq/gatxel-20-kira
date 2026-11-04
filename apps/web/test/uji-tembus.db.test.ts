@@ -168,15 +168,15 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     expect(c!.n).toBe(1)
   })
 
-  it('sesi harian yang dikumpulkan kosong selesai, tetapi tanpa XP selesai dan tanpa bintang', async () => {
+  it('sesi harian yang dikumpulkan kosong tetap terbuka, tanpa XP selesai dan tanpa bintang', async () => {
     await inKid(async (tx) => session.ensureTodayQuests(tx, ctx, await core.loadLearner(tx, kid), today))
     const [q] = await owner`select attempt_id, id from quest where learner_id = ${kid} and date = ${today} and kind = 'daily' and session = 'latihan' limit 1`
     const before = await inKid((tx) => world.starTotals(tx, kid))
     await inKid((tx) => runner.submitAttempt(tx, ctx, kid, q!.attempt_id as string))
     const after = await inKid((tx) => world.starTotals(tx, kid))
     expect(after.balance).toBe(before.balance)
-    const [row] = await owner`select status from quest where id = ${q!.id}`
-    expect(row!.status).toBe('done')
+    const [row] = await owner`select status, attempt_id from quest where id = ${q!.id}`
+    expect(row).toMatchObject({ status: 'ready', attempt_id: null })
     const [xp] = await owner`select count(*)::int as n from xp_event where learner_id = ${kid} and reason = 'quest' and ref = ${q!.attempt_id as string}`
     expect(xp!.n).toBe(0)
   }, 120_000)

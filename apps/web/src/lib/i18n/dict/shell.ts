@@ -148,6 +148,11 @@ const en = {
     code: 'Code for a grown-up',
   },
 
+  notFound: {
+    title: 'This page is not here',
+    body: 'That is okay. Your stars and answers are safe. Let us go back to Today.',
+  },
+
   navUi: {
     main: 'Main',
     more: 'More',
@@ -605,6 +610,11 @@ const id: typeof en = {
     retry: 'Coba lagi',
     home: 'Kembali ke Hari ini',
     code: 'Kode untuk orang dewasa',
+  },
+
+  notFound: {
+    title: 'Halaman ini tidak ada di sini',
+    body: 'Tidak apa-apa. Bintang dan jawabanmu tetap aman. Yuk, kembali ke Hari ini.',
   },
 
   navUi: {

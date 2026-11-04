@@ -64,8 +64,8 @@ export function SignupClient({
     e.preventDefault()
     const em = email.trim()
     const next: Errors = {}
-    if (name.trim().length < 2) next.name = 'Tulis nama kamu, paling sedikit 2 huruf.'
-    if (!em) next.email = 'Isi email kamu.'
+    if (name.trim().length < 2) next.name = 'Tulis nama Anda, paling sedikit 2 huruf.'
+    if (!em) next.email = 'Isi email Anda.'
     else if (!EMAIL_RE.test(em)) next.email = 'Tulis alamat email lengkap, dengan @ dan nama domain.'
     const n = [...password].length
     if (n < 15) next.password = `Password paling sedikit 15 karakter. Sekarang ${n} karakter.`
@@ -93,10 +93,10 @@ export function SignupClient({
     return (
       <AuthCard labelledBy="daftar-cek" bare={bare}>
         <H id="daftar-cek" className="m-0 text-h1 font-bold max-sm:text-h2">
-          Cek email kamu
+          Cek email Anda
         </H>
         <p className="m-0 text-body text-fg-muted">
-          Kami mengirim tombol konfirmasi ke <strong className="text-fg">{sentTo}</strong>. Tekan tombol itu, lalu keluarga Kira kamu langsung dibuat. Tautan berlaku 24 jam. Cek juga folder spam.
+          Kami mengirim tombol konfirmasi ke <strong className="text-fg">{sentTo}</strong>. Tekan tombol itu, lalu keluarga Kira Anda langsung dibuat. Tautan berlaku 24 jam. Cek juga folder spam.
         </p>
         {resent ? (
           <InlineAlert tone="success" title="Email dikirim ulang." live="status">
@@ -142,7 +142,7 @@ export function SignupClient({
           Daftar kursi beta
         </H>
         <p className="m-0 text-body text-fg-muted">
-          {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, kamu menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
+          {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, Anda menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, Anda menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
         </p>
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">

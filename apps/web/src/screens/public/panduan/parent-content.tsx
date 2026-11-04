@@ -930,7 +930,7 @@ const DATA: GuideFeature[] = [
     ],
     control: (
       <>
-        Setelah 7 hari data tidak bisa dikembalikan. Catatan audit disimpan 12 bulan, dan cadangan server hilang paling lama 8 minggu kemudian. Untuk menghapus akun orang tua, kirim permintaan lewat <A href="#bantuan">Hubungi kami</A>.
+        Setelah 7 hari data tidak bisa dikembalikan. Catatan audit disimpan 12 bulan, dan cadangan server hilang paling lama 8 minggu kemudian. Untuk menghapus seluruh keluarga, termasuk akun orang tua, kirim permintaan lewat <A href="/feedback">Bantuan</A> atau WhatsApp di <A href="#bantuan">Hubungi kami</A>. Kami menjawab paling lambat 3 x 24 jam. Data anak dihapus 7 hari setelah permintaan, akun orang tua paling lambat 30 hari, lalu kursi beta kembali kosong.
       </>
     ),
   },

@@ -60,7 +60,7 @@ export function FeatureChecklist({
               </button>
             ))}
           </div>
-          <p className="m-0 text-small text-fg-muted">Pilihan cepat hanya mengisi saklar di bawah. Kamu masih bisa mengubahnya sebelum menyimpan.</p>
+          <p className="m-0 text-small text-fg-muted">Pilihan cepat hanya mengisi saklar di bawah. Anda masih bisa mengubahnya sebelum menyimpan.</p>
         </div>
       ) : null}
       {FEATURE_GROUPS.map((g) => (

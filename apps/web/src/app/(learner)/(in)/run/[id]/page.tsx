@@ -18,8 +18,10 @@ export default async function RunPage({ params }: { params: Promise<{ id: string
   const h = await headers()
   const markOpened = h.get('x-kira-precache') !== '1' && !h.has('next-router-prefetch')
   const data = await load(() => inOrg(orgCtx(actor), (tx) => runnerDTO(tx, actor.userId, id, { markOpened })))
-  if ('submitted' in data) redirect(`/results/${id}`)
+  if ('submitted' in data) redirect(data.resultHref)
   // Tes belum terbuka: Latihan mapel itu dulu.
   if ('locked' in data) redirect('/today')
+  // Batas layar tercapai: layar Hari ini menampilkan ajakan istirahat yang ramah.
+  if ('limit' in data) redirect('/today')
   return <RunnerClient data={data} />
 }

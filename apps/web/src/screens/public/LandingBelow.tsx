@@ -10,9 +10,9 @@ import { KiraStar } from '@/components/ui/KiraStar'
  */
 
 const STEPS = [
-  { n: 1, title: 'Daftar dan konfirmasi email', body: 'Isi nama, email, dan password. Satu email konfirmasi, lalu keluarga Kira kamu siap.' },
+  { n: 1, title: 'Daftar dan konfirmasi email', body: 'Isi nama, email, dan password. Satu email konfirmasi, lalu keluarga Kira Anda siap.' },
   { n: 2, title: 'Tambah anak dan pilih jalur', body: 'Isi nama dan kelas, lalu pakai jalur rekomendasi sekali ketuk atau atur sendiri.' },
-  { n: 3, title: 'Anak mulai belajar', body: 'Anak masuk dengan PIN gambar di tablet atau HP, dan kamu membaca laporannya.' },
+  { n: 3, title: 'Anak mulai belajar', body: 'Anak masuk dengan PIN gambar di tablet atau HP, dan Anda membaca laporannya.' },
 ]
 
 const SUBJECTS = [
@@ -63,9 +63,9 @@ export function LandingBelow({ full }: { full: boolean }): ReactElement {
           </h2>
           <ul className="m-0 mt-4 flex list-none flex-col gap-2 p-0">
             <Check text="Anak belajar sedikit tiap hari, dengan soal yang naik tingkat pelan-pelan dari kelas 1 sampai 6." />
-            <Check text="Kamu yang mengatur: batas waktu layar, izin data per tujuan, dan hapus akun anak kapan saja." />
+            <Check text="Anda yang mengatur: batas waktu layar, izin data per tujuan, dan hapus akun anak kapan saja." />
             <Check text="Anak masuk dengan PIN gambar, tanpa email dan tanpa profil publik. Tidak ada iklan." />
-            <Check text="Kamu membaca ringkasan mingguan dan tahu apa yang sudah dan belum dikuasai anak." />
+            <Check text="Anda membaca ringkasan mingguan dan tahu apa yang sudah dan belum dikuasai anak." />
           </ul>
           <p className="m-0 mt-4 text-body">Yang lebih dulu masuk daftar dikabari lebih dulu.</p>
         </section>

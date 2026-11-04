@@ -97,7 +97,7 @@ const en = {
       picture: 'The picture has a problem',
       other: 'Something else',
     },
-    thanks: 'Thank you. Your tutor will look at this question.',
+    thanks: 'Thank you for telling us. We will check this question.',
     failed: 'The report did not send. Check the internet and try again.',
     aria: 'Report a problem with this question',
     title: 'Something wrong here?',
@@ -109,11 +109,11 @@ const en = {
   },
 
   feedback: {
-    sent: 'Sent to your tutor',
+    sent: 'Sent',
     saved: 'Saved',
     hintsUsed: (n: number) => `You used ${n} ${n === 1 ? 'hint' : 'hints'} on this one.`,
     secondTry: 'Right on the second try.',
-    sentBody: 'Your tutor will look at it and give you stars. Keep going with your quest.',
+    sentBody: 'A grown-up will look at it later. Keep going with your quest.',
     savedBody: 'Your answer is saved. You will see if it is right on the results page.',
     lookAgain: 'Look at the question again, then try once more.',
     theAnswer: 'The answer',
@@ -201,6 +201,7 @@ const en = {
   },
 
   results: {
+    needMore: (need: number, total: number, answered: number) => `Answer at least ${need} of ${total} questions to finish this session. You answered ${answered}. It is waiting for you on Today.`,
     marks: {
       correct: 'correct',
       wrong: 'not yet',
@@ -404,7 +405,7 @@ const id: typeof en = {
       picture: 'Gambarnya bermasalah',
       other: 'Hal lain',
     },
-    thanks: 'Terima kasih. Laporanmu sudah terkirim.',
+    thanks: 'Terima kasih sudah memberi tahu. Kami akan memeriksa soal ini.',
     failed: 'Laporannya belum terkirim. Periksa internet, lalu coba lagi.',
     aria: 'Laporkan masalah pada soal ini',
     title: 'Ada yang keliru di sini?',
@@ -508,6 +509,7 @@ const id: typeof en = {
   },
 
   results: {
+    needMore: (need, total, answered) => `Jawab paling sedikit ${need} dari ${total} soal supaya sesi ini selesai. Tadi kamu menjawab ${answered}. Sesinya menunggumu di halaman Hari ini.`,
     marks: {
       correct: 'benar',
       wrong: 'belum tepat',

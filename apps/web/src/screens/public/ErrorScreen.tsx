@@ -65,7 +65,7 @@ const COPY: Record<ErrorScreenProps['lang'], Record<ErrorScreenProps['kind'], Co
     '500': {
       title: 'This page did not load',
       what: 'Something went wrong on the Kira server. Your answers are safe.',
-      todo: 'Try again in a few minutes. If it still does not work, show this code to your tutor.',
+      todo: 'Try again in a few minutes. If it still does not work, show this code to a grown-up.',
       home: 'Go to Today',
       retry: 'Try again',
       refPrefix: 'Reference code',

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { activeSubjects, effectiveOn, FEATURE_GROUPS, FEATURE_KEYS, featureOn, olympiadOn, presetMap, sessionAllowed, skillAllowed } from '../src/features'
+import { deckOn, activeSubjects, effectiveOn, FEATURE_GROUPS, FEATURE_KEYS, featureOn, olympiadOn, presetMap, sessionAllowed, skillAllowed } from '../src/features'
 
 describe('saklar fitur', () => {
   it('semua kunci ada di tepat satu kelompok tampilan', () => {
@@ -48,5 +48,17 @@ describe('skillAllowed dan alat peraga', () => {
   it('Math mati ikut mematikan alat peraga Math', () => {
     expect(effectiveOn({ math: false }, 'manipulatives')).toBe(false)
     expect(effectiveOn({}, 'manipulatives')).toBe(true)
+  })
+})
+
+describe('deckOn', () => {
+  const off = (key: string) => ({ [key]: false }) as Parameters<typeof deckOn>[0]
+  it('dek English bertema Maths ikut saklar Math, dek English biasa tidak', () => {
+    expect(deckOn({}, { id: 'e6-maths-in-english', subject: 'english' })).toBe(true)
+    expect(deckOn(off('math'), { id: 'e6-maths-in-english', subject: 'english' })).toBe(false)
+    expect(deckOn(off('science'), { id: 'e4-science-words', subject: 'english' })).toBe(false)
+    expect(deckOn(off('math'), { id: 'e4-idioms', subject: 'english' })).toBe(true)
+    expect(deckOn(off('math'), { id: 'm1-maths-words', subject: 'math' })).toBe(false)
+    expect(deckOn(off('english'), { id: 'e4-idioms', subject: 'english' })).toBe(false)
   })
 })

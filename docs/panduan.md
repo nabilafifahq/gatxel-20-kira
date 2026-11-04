@@ -50,5 +50,6 @@ Claude Code lalu bisa melihat daftar learner (tanpa nama, hanya label seperti Le
 - **Privasi.** Setujui atau tarik persetujuan per tujuan: belajar (wajib untuk memakai Kira), laporan lewat email, rekaman suara, foto jawaban, dan draf AI. Setiap perubahan tercatat dengan versi Kebijakan Privasi.
 - **Unduh data.** Salinan semua data anak dalam JSON.
 - **Hapus akun anak.** Akun dijeda langsung dan dihapus permanen 7 hari kemudian. Selama 7 hari itu permintaan bisa dibatalkan.
+- **Hapus seluruh keluarga.** Kirim permintaan lewat halaman Bantuan (`/feedback`) atau WhatsApp. Kami menjawab paling lambat 3 x 24 jam. Data anak dihapus 7 hari setelah permintaan, akun orang tua paling lambat 30 hari.
 
 Kebijakan Privasi dan Ketentuan ada di `/privasi` dan `/ketentuan`.
