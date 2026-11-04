@@ -467,29 +467,6 @@
       ]
     },
     {
-      "id": "s3.food-groups.014",
-      "skill": "s3.food-groups",
-      "type": "cloze",
-      "difficulty": 2,
-      "prompt": "Rice and bread give us ___ to run and play.",
-      "hints": [
-        "Food helps your body do things.",
-        "You feel full of this after a good meal.",
-        "It is the power that lets you move."
-      ],
-      "explanation": "Foods like rice and bread give our bodies energy.",
-      "gaps": [
-        {
-          "options": [
-            "noise",
-            "energy",
-            "water"
-          ],
-          "answer": 1
-        }
-      ]
-    },
-    {
       "id": "s3.food-groups.015",
       "skill": "s3.food-groups",
       "type": "table",
@@ -527,7 +504,8 @@
           "answers": [
             "carbohydrate",
             "carbohydrates",
-            "carbs"
+            "carbs",
+            "starch"
           ]
         },
         {
@@ -536,7 +514,8 @@
           "answers": [
             "vitamins",
             "fruit",
-            "vitamin"
+            "fruit and vegetables",
+            "vitamins and minerals"
           ]
         }
       ]
@@ -1082,14 +1061,17 @@
           "col": 1,
           "answers": [
             "carbohydrates",
-            "carbohydrate"
+            "carbohydrate",
+            "carbs",
+            "starch"
           ]
         },
         {
           "row": 1,
           "col": 1,
           "answers": [
-            "protein"
+            "protein",
+            "proteins"
           ]
         },
         {
@@ -1097,7 +1079,8 @@
           "col": 1,
           "answers": [
             "fat",
-            "fats"
+            "fats",
+            "oil"
           ]
         },
         {
@@ -1105,8 +1088,9 @@
           "col": 1,
           "answers": [
             "vitamins",
-            "vitamin",
-            "vitamin c"
+            "vitamin c",
+            "fruit",
+            "vitamins and minerals"
           ]
         }
       ],

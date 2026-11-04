@@ -378,7 +378,7 @@
       "skill": "s5.fair-tests",
       "type": "label",
       "difficulty": 1,
-      "prompt": "Sari tests how fast ice melts. Label the equipment she uses.",
+      "prompt": "Sari tests how fast ice melts. Label the things she uses.",
       "figure": {
         "kind": "scene",
         "width": 320,
@@ -447,7 +447,7 @@
         "The thermometer measures temperature.",
         "The clock measures time."
       ],
-      "explanation": "She uses a thermometer for temperature, a clock for time and a spoon to stir. The ice cube is what she tests."
+      "explanation": "She uses a thermometer for temperature and a clock for time. She uses a spoon to put the ice in the water. The ice cube is what she tests."
     },
     {
       "id": "s5.fair-tests.012",
@@ -1112,7 +1112,12 @@
         {
           "answers": [
             "anomalous",
-            "anomaly"
+            "anomaly",
+            "odd",
+            "unusual",
+            "unexpected",
+            "outlier",
+            "strange"
           ]
         }
       ],
@@ -1245,7 +1250,7 @@
           "text": "Repeat each test three times."
         },
         {
-          "text": "Use the same equipment each time."
+          "text": "Check any odd result by testing again."
         },
         {
           "text": "Take the mean of the repeats."
@@ -1269,7 +1274,7 @@
         "A mean smooths out small differences.",
         "Cross out the ideas that make the test less careful."
       ],
-      "explanation": "Repeating, keeping equipment the same and using a mean all make the results more reliable."
+      "explanation": "Repeating, checking odd results and using a mean all make the results more reliable."
     },
     {
       "id": "s5.fair-tests.027",

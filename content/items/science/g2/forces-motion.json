@@ -89,19 +89,47 @@
       "tags": ["ksnr"]
     },
     {
-      "id": "s2.forces-motion.008", "skill": "s2.forces-motion", "type": "sort", "difficulty": 3,
+      "id": "s2.forces-motion.008",
+      "skill": "s2.forces-motion",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Is the force a push or a pull? Sort the cards.",
-      "groups": ["Push", "Pull"],
-      "items": [
-        { "text": "wind blowing a sailboat", "group": 0 },
-        { "text": "pressing a stapler", "group": 0 },
-        { "text": "squeezing toothpaste", "group": 0 },
-        { "text": "a magnet lifting a pin", "group": 1 },
-        { "text": "a horse moving a cart", "group": 1 },
-        { "text": "a tow truck moving a car", "group": 1 }
+      "groups": [
+        "Push",
+        "Pull"
       ],
-      "hints": ["A push moves something away. A pull moves it closer.", "Think about where the force comes from in each card.", "Start with the horse. Is the cart behind it or in front of it?"],
-      "explanation": "The wind blowing a sailboat, pressing a stapler and squeezing toothpaste are pushes. A magnet lifting a pin, a horse moving a cart and a tow truck moving a car are pulls."
+      "items": [
+        {
+          "text": "wind blowing a sailboat",
+          "group": 0
+        },
+        {
+          "text": "kicking a football",
+          "group": 0
+        },
+        {
+          "text": "pushing a swing",
+          "group": 0
+        },
+        {
+          "text": "a magnet lifting a pin",
+          "group": 1
+        },
+        {
+          "text": "a horse moving a cart",
+          "group": 1
+        },
+        {
+          "text": "a tow truck moving a car",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A push moves something away. A pull moves it closer.",
+        "Think about where the force comes from in each card.",
+        "Start with the horse. Is the cart behind it or in front of it?"
+      ],
+      "explanation": "The wind blowing a sailboat, kicking a football and pushing a swing are pushes. A magnet lifting a pin, a horse moving a cart and a tow truck moving a car are pulls."
     },
     {
       "id": "s2.forces-motion.009", "skill": "s2.forces-motion", "type": "mcq", "difficulty": 4,
@@ -258,8 +286,8 @@
           "text": "The Earth pulls it down."
         },
         {
-          "text": "It wants to sleep.",
-          "why": "Apples do not want things."
+          "text": "The air pushes it down.",
+          "why": "Air does not push it down. The Earth pulls it."
         }
       ],
       "answer": 2,
@@ -516,7 +544,7 @@
           "group": 1
         },
         {
-          "text": "hitting a ball with a bat",
+          "text": "turning the handlebars of a bike",
           "group": 2
         },
         {
@@ -526,10 +554,10 @@
       ],
       "hints": [
         "Brakes make things slower.",
-        "A bat sends the ball a new way.",
+        "Turning the handlebars sends the bike a new way.",
         "A big push gives speed."
       ],
-      "explanation": "Pedalling and pushing speed things up. Brakes and thick grass slow things down. A bat and a wall change the direction of a ball."
+      "explanation": "Pedalling and pushing speed things up. Brakes and thick grass slow things down. Turning the handlebars and a wall change the direction of movement."
     },
     {
       "id": "s2.forces-motion.027",
@@ -654,14 +682,14 @@
         "ice",
         "smooth tile",
         "carpet",
-        "sand"
+        "deep sand"
       ],
       "hints": [
         "Ice is slippery.",
-        "Sand is rough.",
+        "Deep sand is very rough.",
         "Carpet is in between."
       ],
-      "explanation": "Ice has the least friction so the car rolls furthest. Sand has the most friction so the car stops soonest."
+      "explanation": "Ice has the least friction so the car rolls furthest. Deep sand has the most friction so the car stops soonest."
     },
     {
       "id": "s2.forces-motion.031",
@@ -808,7 +836,9 @@
           "type": "text",
           "prompt": "What force slows the bike on the grass?",
           "answers": [
-            "friction"
+            "friction",
+            "rubbing",
+            "drag"
           ],
           "caseSensitive": false
         }
@@ -1008,7 +1038,10 @@
       "blanks": [
         {
           "answers": [
-            "friction"
+            "friction",
+            "rubbing",
+            "grip",
+            "friction force"
           ]
         }
       ],

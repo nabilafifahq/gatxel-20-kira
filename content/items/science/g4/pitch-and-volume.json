@@ -868,7 +868,7 @@
       "id": "s4.pitch-and-volume.022",
       "skill": "s4.pitch-and-volume",
       "type": "table",
-      "difficulty": 5,
+      "difficulty": 4,
       "prompt": "A ruler hangs over a table edge and is twanged. Complete the table with vibrations in 1 second.",
       "head": [
         "Overhang (cm)",
@@ -876,19 +876,19 @@
       ],
       "rows": [
         [
-          "5",
-          "72"
+          "2",
+          "80"
         ],
         [
-          "10",
-          "36"
+          "4",
+          "40"
         ],
         [
-          "15",
+          "8",
           ""
         ],
         [
-          "20",
+          "16",
           ""
         ]
       ],
@@ -897,23 +897,23 @@
           "row": 2,
           "col": 1,
           "answers": [
-            "24"
+            "20"
           ]
         },
         {
           "row": 3,
           "col": 1,
           "answers": [
-            "18"
+            "10"
           ]
         }
       ],
       "hints": [
-        "72 and 36: the overhang doubled and the vibrations halved.",
-        "Multiply overhang by vibrations for the first row.",
-        "The product stays the same, 360."
+        "From 2 cm to 4 cm the overhang doubled. The vibrations went from 80 to 40, so they halved.",
+        "Each time the overhang doubles, the vibrations halve.",
+        "Halve 40 to get the 8 cm row. Halve again for the 16 cm row."
       ],
-      "explanation": "Overhang × vibrations is always 360. So 15 cm gives 360 ÷ 15 = 24 and 20 cm gives 360 ÷ 20 = 18."
+      "explanation": "Each time the overhang doubles, the number of vibrations halves. So 8 cm gives 20 and 16 cm gives 10. A longer overhang vibrates more slowly."
     },
     {
       "id": "s4.pitch-and-volume.023",

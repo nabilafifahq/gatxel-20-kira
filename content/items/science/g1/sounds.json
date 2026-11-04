@@ -405,10 +405,10 @@
       "skill": "s1.sounds",
       "type": "multi",
       "difficulty": 2,
-      "prompt": "Choose all the things that make a sound.",
+      "prompt": "Choose all the things that are making a sound right now.",
       "options": [
         {
-          "text": "a stone"
+          "text": "a stone lying on the ground"
         },
         {
           "text": "a barking dog"
@@ -417,7 +417,7 @@
           "text": "a ringing bell"
         },
         {
-          "text": "a drum"
+          "text": "a drum being played"
         },
         {
           "text": "a book on a shelf"
@@ -433,64 +433,14 @@
         "A stone lies still.",
         "Dogs bark."
       ],
-      "explanation": "A drum, a bell and a dog make sounds. A stone and a book on a shelf are silent."
-    },
-    {
-      "id": "s1.sounds.022",
-      "skill": "s1.sounds",
-      "type": "match",
-      "difficulty": 1,
-      "prompt": "Match each animal to its sound.",
-      "pairs": [
-        [
-          "cow",
-          "moo"
-        ],
-        [
-          "dog",
-          "woof"
-        ],
-        [
-          "cat",
-          "meow"
-        ],
-        [
-          "duck",
-          "quack"
-        ]
-      ],
-      "hints": [
-        "A duck lives on a pond.",
-        "A cat is small and purrs.",
-        "A cow lives on a farm."
-      ],
-      "explanation": "A cow says moo and a dog says woof. A cat says meow and a duck says quack."
-    },
-    {
-      "id": "s1.sounds.023",
-      "skill": "s1.sounds",
-      "type": "order",
-      "difficulty": 2,
-      "prompt": "Order the sounds from the quietest to the loudest.",
-      "items": [
-        "whisper",
-        "talking",
-        "shouting",
-        "thunder"
-      ],
-      "hints": [
-        "A whisper is quiet.",
-        "Thunder is huge.",
-        "Shouting is louder than talking."
-      ],
-      "explanation": "A whisper is the quietest. Talking is louder, shouting is louder still and thunder is the loudest."
+      "explanation": "A drum being played, a bell and a dog make sounds. A stone lying still and a book on a shelf are silent."
     },
     {
       "id": "s1.sounds.024",
       "skill": "s1.sounds",
       "type": "cloze",
       "difficulty": 1,
-      "prompt": "A whisper is a ___ sound. A drum can be a ___ sound.",
+      "prompt": "A whisper is a ___ sound. Thunder is a ___ sound.",
       "gaps": [
         {
           "options": [
@@ -509,10 +459,10 @@
       ],
       "hints": [
         "Whispers are soft.",
-        "Drums go boom.",
+        "Thunder goes boom.",
         "The two blanks are opposite."
       ],
-      "explanation": "A whisper is quiet. A drum can be loud."
+      "explanation": "A whisper is quiet. Thunder is loud."
     },
     {
       "id": "s1.sounds.025",
@@ -770,7 +720,7 @@
       "type": "listen",
       "difficulty": 1,
       "prompt": "Listen. Which instrument do you hear?",
-      "listenText": "Boom, boom, boom. That is the loud drum.",
+      "listenText": "Boom, boom, boom.",
       "options": [
         {
           "text": "bell"
@@ -800,7 +750,9 @@
         {
           "answers": [
             "quiet",
-            "soft"
+            "soft",
+            "quietly",
+            "softly"
           ]
         }
       ],

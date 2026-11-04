@@ -362,29 +362,9 @@
       "type": "mcq",
       "difficulty": 2,
       "prompt": "Why is a pillow filled with something soft?",
-      "options": [
-        {
-          "text": "It is shiny.",
-          "why": "Softness is not shiny."
-        },
-        {
-          "text": "It is comfortable."
-        },
-        {
-          "text": "It is waterproof.",
-          "why": "Soft does not mean waterproof."
-        },
-        {
-          "text": "It is magnetic.",
-          "why": "Magnets do not matter."
-        }
-      ],
+      "options": [{"text":"It is shiny.","why":"Softness is not shiny."},{"text":"It is comfortable."},{"text":"It is waterproof.","why":"Soft does not mean waterproof."},{"text":"It is heavy.","why":"A heavy pillow would not be comfortable."}],
       "answer": 1,
-      "hints": [
-        "You rest your head on it.",
-        "Hard is not comfy.",
-        "Think about how it feels."
-      ],
+      "hints": ["You rest your head on it.","Hard is not comfy.","Think about how it feels."],
       "explanation": "A soft filling makes the pillow comfortable for your head."
     },
     {
@@ -392,30 +372,10 @@
       "skill": "s2.materials",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Which material is best for a long-lasting boat?",
-      "options": [
-        {
-          "text": "plastic"
-        },
-        {
-          "text": "paper",
-          "why": "Paper goes soggy."
-        },
-        {
-          "text": "a sponge",
-          "why": "A sponge soaks up water."
-        },
-        {
-          "text": "a cotton sheet",
-          "why": "Cotton soaks up water."
-        }
-      ],
+      "prompt": "Which material is best for a long-lasting toy boat?",
+      "options": [{"text":"plastic"},{"text":"paper","why":"Paper goes soggy."},{"text":"a sponge","why":"A sponge soaks up water."},{"text":"a cotton sheet","why":"Cotton soaks up water."}],
       "answer": 0,
-      "hints": [
-        "The boat must stay dry.",
-        "Waterproof is the key word.",
-        "Paper gets soggy."
-      ],
+      "hints": ["The boat must stay dry.","Waterproof is the key word.","Paper gets soggy."],
       "explanation": "Plastic is waterproof, so it keeps the water out and the boat floats."
     },
     {
@@ -424,29 +384,9 @@
       "type": "mcq",
       "difficulty": 3,
       "prompt": "A bicycle frame is made of metal. Why is this a good choice?",
-      "options": [
-        {
-          "text": "Metal is soft.",
-          "why": "Metal is hard."
-        },
-        {
-          "text": "Metal is see-through.",
-          "why": "You cannot see through metal."
-        },
-        {
-          "text": "Metal is very light and bendy.",
-          "why": "A frame must not bend."
-        },
-        {
-          "text": "Metal is strong and stiff."
-        }
-      ],
+      "options": [{"text":"Metal is soft.","why":"Metal is hard."},{"text":"Metal is see-through.","why":"You cannot see through metal."},{"text":"Metal is bendy and stretchy.","why":"A frame must not bend."},{"text":"Metal is strong and stiff."}],
       "answer": 3,
-      "hints": [
-        "A frame carries your weight.",
-        "It must not bend.",
-        "Which is strong?"
-      ],
+      "hints": ["A frame carries your weight.","It must not bend.","Which is strong?"],
       "explanation": "A bicycle frame carries the rider. Metal is strong and stiff."
     },
     {
@@ -916,19 +856,8 @@
       "type": "text",
       "difficulty": 3,
       "prompt": "A material that bends easily is called ___.",
-      "blanks": [
-        {
-          "answers": [
-            "flexible",
-            "bendy"
-          ]
-        }
-      ],
-      "hints": [
-        "Think of a rubber band.",
-        "It is the opposite of rigid.",
-        "It starts with f."
-      ],
+      "blanks": [{"answers":["flexible","bendy","pliable"]}],
+      "hints": ["Think of a rubber band.","It is the opposite of rigid.","It starts with f."],
       "explanation": "A flexible material bends easily without breaking."
     },
     {
@@ -1002,57 +931,12 @@
       "type": "mcq",
       "difficulty": 2,
       "prompt": "Which is the odd one out?",
-      "figure": {
-        "kind": "icons",
-        "items": [
-          {
-            "icon": "coin",
-            "label": "coin"
-          },
-          {
-            "icon": "key",
-            "label": "key"
-          },
-          {
-            "icon": "rubber-band",
-            "label": "rubber band"
-          },
-          {
-            "icon": "spoon",
-            "label": "spoon"
-          }
-        ],
-        "alt": "A coin, a key, a rubber band and a spoon."
-      },
-      "options": [
-        {
-          "text": "a coin",
-          "why": "A coin is metal."
-        },
-        {
-          "text": "rubber"
-        },
-        {
-          "text": "a key",
-          "why": "A key is metal."
-        },
-        {
-          "text": "a spoon",
-          "why": "This spoon is metal."
-        }
-      ],
+      "figure": {"kind":"icons","items":[{"icon":"coin","label":"coin"},{"icon":"key","label":"key"},{"icon":"rubber-band","label":"rubber band"},{"icon":"spoon","label":"spoon"}],"alt":"A coin, a key, a rubber band and a spoon."},
+      "options": [{"text":"a coin","why":"A coin is metal."},{"text":"a rubber band"},{"text":"a key","why":"A key is metal."},{"text":"a spoon","why":"This spoon is metal."}],
       "answer": 1,
-      "hints": [
-        "Three are hard and shiny.",
-        "Which one stretches?",
-        "Metal is hard."
-      ],
-      "explanation": "A coin, a key and a spoon are metal. Rubber is not a metal.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
+      "hints": ["Three are hard and shiny.","Which one stretches?","Metal is hard."],
+      "explanation": "A coin, a key and a spoon are metal. A rubber band is not metal.",
+      "tags": ["iksc","ksnr","reasoning"]
     },
     {
       "id": "s2.materials.039",

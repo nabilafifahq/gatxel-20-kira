@@ -109,10 +109,28 @@
       "explanation": "A seed, a mushroom and a worm are living. A seed grows into a plant and a mushroom grows too. A cloud, a candle and a clock do not eat or grow."
     },
     {
-      "id": "s1.living-things.009", "skill": "s1.living-things", "type": "text", "difficulty": 3,
+      "id": "s1.living-things.009",
+      "skill": "s1.living-things",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "A living thing gets bigger as it gets older. We say it ___.",
-      "blanks": [{ "answers": ["grows", "grow", "is growing"] }],
-      "hints": ["Think about what happens to you every year.", "A baby becomes a child, then an adult. Which word means getting bigger?", "Say this aloud: a puppy ___ into a dog."],
+      "blanks": [
+        {
+          "answers": [
+            "grows",
+            "grow",
+            "is growing",
+            "growing",
+            "grows up",
+            "grows bigger"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what happens to you every year.",
+        "A baby becomes a child, then an adult. Which word means getting bigger?",
+        "Say this aloud: a puppy ___ into a dog."
+      ],
       "explanation": "Living things grow. A puppy grows into a dog and a seed grows into a plant."
     },
     {
@@ -591,7 +609,9 @@
           "prompt": "What does the pet rabbit eat?",
           "answers": [
             "carrots",
-            "carrot"
+            "carrot",
+            "a carrot",
+            "the carrots"
           ],
           "caseSensitive": false
         }
@@ -855,7 +875,7 @@
       "skill": "s1.living-things",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Mia puts a stone and a bean seed in wet soil. Which one changes?",
+      "prompt": "Mia puts a stone and a bean seed in wet soil. She waits a week. Which one grows?",
       "options": [
         {
           "text": "the stone",

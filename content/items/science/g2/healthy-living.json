@@ -30,17 +30,48 @@
       "explanation": "Drinking water, playing outside and sleeping well all help keep us healthy. Washing hands and going to bed on time help too."
     },
     {
-      "id": "s2.healthy-living.003", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 1,
-      "prompt": "When should you wash your hands?",
-      "figure": { "kind": "icons", "items": [{ "icon": "soap", "label": "soap" }, { "icon": "hand", "label": "hands" }], "alt": "A bar of soap and a pair of hands." },
+      "id": "s2.healthy-living.003",
+      "skill": "s2.healthy-living",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which is a good time to wash your hands?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "soap",
+            "label": "soap"
+          },
+          {
+            "icon": "hand",
+            "label": "hands"
+          }
+        ],
+        "alt": "A bar of soap and a pair of hands."
+      },
       "options": [
-        { "text": "only on Sundays", "why": "Hands need washing many times every day." },
-        { "text": "only when they look dirty", "why": "Germs are too small to see, so hands can look clean and still have germs." },
-        { "text": "only after a bath", "why": "Wash hands many times each day, like before eating and after the toilet." },
-        { "text": "before eating" }
+        {
+          "text": "only on Sundays",
+          "why": "Hands need washing many times every day."
+        },
+        {
+          "text": "only when they look dirty",
+          "why": "Germs are too small to see, so hands can look clean and still have germs."
+        },
+        {
+          "text": "only after a bath",
+          "why": "Wash hands many times each day, like before eating and after the toilet."
+        },
+        {
+          "text": "before eating"
+        }
       ],
       "answer": 3,
-      "hints": ["Think about when germs could get into your mouth.", "Which choice happens every day, before food?", "Ask: what do your hands touch just before you eat?"],
+      "hints": [
+        "Think about when germs could get into your mouth.",
+        "Which choice happens every day, before food?",
+        "Ask: what do your hands touch just before you eat?"
+      ],
       "explanation": "We wash our hands before eating so that germs do not get onto our food. We also wash them after using the toilet."
     },
     {
@@ -190,14 +221,41 @@
       "tags": ["iksc"]
     },
     {
-      "id": "s2.healthy-living.016", "skill": "s2.healthy-living", "type": "numeric", "difficulty": 5,
-      "prompt": "Lily goes to sleep at 8 o'clock at night. She wakes up at 6 o'clock in the morning. How many hours does she sleep?",
-      "figure": { "kind": "icons", "items": [{ "icon": "moon", "label": "8 o'clock at night" }, { "icon": "bed", "label": "sleeping" }, { "icon": "sun", "label": "6 o'clock in the morning" }], "alt": "Lily goes to sleep at 8 o'clock at night and wakes at 6 o'clock in the morning.", "arrows": "chain" },
+      "id": "s2.healthy-living.016",
+      "skill": "s2.healthy-living",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "Lily goes to sleep at 8 o'clock at night. She sleeps 4 hours until midnight and 6 more hours until morning. How many hours does she sleep?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "moon",
+            "label": "8 o'clock at night"
+          },
+          {
+            "icon": "bed",
+            "label": "sleeping"
+          },
+          {
+            "icon": "sun",
+            "label": "6 o'clock in the morning"
+          }
+        ],
+        "alt": "Lily goes to sleep at 8 o'clock at night and wakes at 6 o'clock in the morning.",
+        "arrows": "chain"
+      },
       "answer": 10,
       "unit": "hours",
-      "hints": ["Count the hours from bedtime to midnight first.", "From 8 o'clock to 12 o'clock is 4 hours.", "Now count from 12 o'clock to 6 o'clock in the morning."],
-      "explanation": "From 8 o'clock to midnight is 4 hours. From midnight to 6 o'clock is 6 hours. 4 and 6 make 10 hours of sleep.",
-      "tags": ["ksnr"]
+      "hints": [
+        "Find the two numbers of hours in the story.",
+        "Add 4 and 6.",
+        "Count on from 4: 5, 6, 7, 8, 9, 10."
+      ],
+      "explanation": "Lily sleeps 4 hours until midnight and 6 hours after that. 4 and 6 make 10 hours of sleep.",
+      "tags": [
+        "ksnr"
+      ]
     },
     {
       "id": "s2.healthy-living.017", "skill": "s2.healthy-living", "type": "mcq", "difficulty": 4,
@@ -212,37 +270,6 @@
       "hints": ["Can you see germs with your eyes?", "Think about everything she touched in the garden.", "Ask: how would she know her hands had no germs?"],
       "explanation": "Germs are too small to see, so hands can look clean and still carry them. Ana should wash her hands with soap before eating.",
       "tags": ["iksc"]
-    },
-    {
-      "id": "s2.healthy-living.018",
-      "skill": "s2.healthy-living",
-      "type": "mcq",
-      "difficulty": 1,
-      "prompt": "How often should we brush our teeth?",
-      "options": [
-        {
-          "text": "once a month",
-          "why": "That is not often enough."
-        },
-        {
-          "text": "only on Sundays",
-          "why": "That is not often enough."
-        },
-        {
-          "text": "twice a day"
-        },
-        {
-          "text": "never",
-          "why": "Teeth need cleaning."
-        }
-      ],
-      "answer": 2,
-      "hints": [
-        "Think about your day.",
-        "After breakfast and before bed.",
-        "Not just once in a while."
-      ],
-      "explanation": "We brush our teeth in the morning and before bed."
     },
     {
       "id": "s2.healthy-living.019",
@@ -582,16 +609,16 @@
       "prompt": "Put the morning in order.",
       "items": [
         "wake up",
-        "brush teeth",
         "eat breakfast",
-        "go to school"
+        "go to school",
+        "do lessons"
       ],
       "hints": [
         "You wake up first.",
-        "You go to school last.",
-        "Brush teeth then eat."
+        "Lessons come last.",
+        "Breakfast comes before school."
       ],
-      "explanation": "We wake up first. Then we brush teeth, eat breakfast and go to school."
+      "explanation": "We wake up first. Then we eat breakfast, go to school and do lessons."
     },
     {
       "id": "s2.healthy-living.030",
@@ -603,14 +630,14 @@
         "put a little toothpaste on the brush",
         "brush all your teeth for two minutes",
         "spit out the toothpaste",
-        "rinse your mouth with water"
+        "rinse your toothbrush and put it away"
       ],
       "hints": [
         "Toothpaste goes on first.",
-        "Rinsing is last.",
-        "Spit before you rinse."
+        "Tidying the brush away is last.",
+        "Spit before you tidy up."
       ],
-      "explanation": "Put toothpaste on the brush and brush for two minutes. Then spit and rinse your mouth."
+      "explanation": "Put toothpaste on the brush and brush for two minutes. Then spit out the toothpaste and rinse your toothbrush."
     },
     {
       "id": "s2.healthy-living.031",
@@ -750,7 +777,9 @@
           "answers": [
             "the shade",
             "shade",
-            "in the shade"
+            "in the shade",
+            "in shade",
+            "under the shade"
           ],
           "caseSensitive": false
         }
@@ -982,42 +1011,6 @@
         "Bed is the other."
       ],
       "explanation": "She brushes twice a day, in the morning and at night.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
-    },
-    {
-      "id": "s2.healthy-living.040",
-      "skill": "s2.healthy-living",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "Which child makes the healthiest snack choice?",
-      "options": [
-        {
-          "text": "Eko: a bag of crisps",
-          "why": "Crisps are oily."
-        },
-        {
-          "text": "Dewi: slices of apple"
-        },
-        {
-          "text": "Fani: three sweets",
-          "why": "Sweets have lots of sugar."
-        },
-        {
-          "text": "Gus: a chocolate bar",
-          "why": "Chocolate bars have lots of sugar."
-        }
-      ],
-      "answer": 1,
-      "hints": [
-        "Which one is a fruit?",
-        "Treats are not everyday snacks.",
-        "Apples grow on trees."
-      ],
-      "explanation": "Apple slices are fruit. Fruit is a healthy snack.",
       "tags": [
         "iksc",
         "ksnr",

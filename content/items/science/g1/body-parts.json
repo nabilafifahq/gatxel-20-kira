@@ -68,11 +68,37 @@
       "explanation": "The elbow, wrist and fingers are on the arm and hand. The knee, ankle and toes are on the leg and foot."
     },
     {
-      "id": "s1.body-parts.007", "skill": "s1.body-parts", "type": "text", "difficulty": 2,
+      "id": "s1.body-parts.007",
+      "skill": "s1.body-parts",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "We chew our food with our ___.",
-      "figure": { "kind": "icons", "items": [{ "icon": "tooth", "label": "?" }], "alt": "A picture of a body part that is hard and white, with a question mark." },
-      "blanks": [{ "answers": ["teeth", "tooth"] }],
-      "hints": ["Think about eating a crunchy apple.", "Which parts in your mouth are hard and white?", "Run your tongue along the inside of your mouth."],
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "tooth",
+            "label": "?"
+          }
+        ],
+        "alt": "A picture of a body part that is hard and white, with a question mark."
+      },
+      "blanks": [
+        {
+          "answers": [
+            "teeth",
+            "tooth",
+            "mouth",
+            "jaws",
+            "jaw"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about eating a crunchy apple.",
+        "Which parts in your mouth are hard and white?",
+        "Run your tongue along the inside of your mouth."
+      ],
       "explanation": "We chew food with our teeth. Brushing them keeps them clean and strong."
     },
     {
@@ -1196,7 +1222,7 @@
           "group": 0
         },
         {
-          "text": "hand",
+          "text": "neck",
           "group": 0
         },
         {
@@ -1221,7 +1247,7 @@
         "Your head is at the top.",
         "Start with the knee."
       ],
-      "explanation": "The head, hand and shoulder are in the top half. The knee, foot and toe are in the bottom half."
+      "explanation": "The head, neck and shoulder are in the top half. The knee, foot and toe are in the bottom half."
     },
     {
       "id": "s1.body-parts.025",
@@ -1861,7 +1887,7 @@
           "label": "tummy",
           "x": 50,
           "y": 44.4,
-          "w": 29.2,
+          "w": 26,
           "h": 21.9
         },
         {
@@ -2170,15 +2196,15 @@
       "id": "s1.body-parts.040",
       "skill": "s1.body-parts",
       "type": "numeric",
-      "difficulty": 3,
-      "prompt": "Four friends take off both shoes. Each foot has 5 toes. How many toes can you count?",
-      "answer": 40,
+      "difficulty": 2,
+      "prompt": "Two friends take off both shoes. Each foot has 5 toes. How many toes can you count?",
+      "answer": 20,
       "hints": [
         "First find the toes on one friend.",
         "One friend has 10 toes.",
-        "Add 10 four times."
+        "Add 10 and 10."
       ],
-      "explanation": "Each friend has 2 feet with 5 toes. That is 10 toes each. 4 friends have 40 toes.",
+      "explanation": "Each friend has 2 feet with 5 toes. That is 10 toes each. 2 friends have 20 toes.",
       "tags": [
         "iksc",
         "ksnr",

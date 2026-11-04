@@ -356,7 +356,9 @@
             "reflects",
             "reflect",
             "bounces",
-            "bounces back"
+            "bounces back",
+            "bounces off",
+            "reflecting"
           ]
         }
       ],
@@ -464,14 +466,18 @@
           "row": 0,
           "col": 1,
           "answers": [
-            "transparent"
+            "transparent",
+            "see-through",
+            "clear"
           ]
         },
         {
           "row": 1,
           "col": 1,
           "answers": [
-            "opaque"
+            "opaque",
+            "blocks light",
+            "solid"
           ]
         }
       ]
@@ -667,7 +673,7 @@
       "skill": "s3.light-shadows",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "How can you make a toy's shadow on a wall smaller?",
+      "prompt": "The torch and the wall stay where they are. How can you make a toy's shadow on the wall smaller?",
       "options": [
         {
           "text": "Move the toy closer to the torch.",
@@ -675,7 +681,7 @@
         },
         {
           "text": "Turn the torch off.",
-          "why": "There would be no shadow."
+          "why": "With the torch off there would be no shadow at all. It would not be smaller."
         },
         {
           "text": "Move the toy closer to the wall."
@@ -729,10 +735,10 @@
       "skill": "s3.light-shadows",
       "type": "sort",
       "difficulty": 2,
-      "prompt": "Does it make a shadow? Sort the objects.",
+      "prompt": "Does it make a dark shadow? Sort the objects.",
       "groups": [
-        "Makes a shadow",
-        "No shadow"
+        "Makes a dark shadow",
+        "Makes almost no shadow"
       ],
       "items": [
         {
@@ -765,7 +771,7 @@
         "Clear things let light through.",
         "A person is opaque."
       ],
-      "explanation": "Opaque objects block light and make shadows. Clear glass, clear plastic and air let light through."
+      "explanation": "Opaque objects block light and make dark shadows. Clear glass, clear plastic and air let almost all the light through."
     },
     {
       "id": "s3.light-shadows.023",
@@ -923,7 +929,7 @@
       "skill": "s3.light-shadows",
       "type": "table",
       "difficulty": 1,
-      "prompt": "Copy the results. 9 am 30 cm, noon 10 cm, 3 pm 28 cm.",
+      "prompt": "At 9 am a shadow is 30 cm long. At noon it is 20 cm shorter. At 3 pm it is 18 cm longer than at noon. Fill in the table.",
       "head": [
         "Time",
         "Shadow (cm)"
@@ -959,11 +965,11 @@
         }
       ],
       "hints": [
-        "Read the numbers in the question.",
-        "9 am is first.",
-        "Copy each number."
+        "Start with 30 cm at 9 am.",
+        "For noon, take away 20 from 30.",
+        "For 3 pm, add 18 to the noon length."
       ],
-      "explanation": "The shadow was 30 cm at 9 am, 10 cm at noon and 28 cm at 3 pm."
+      "explanation": "At noon the shadow is 30 - 20 = 10 cm. At 3 pm it is 10 + 18 = 28 cm."
     },
     {
       "id": "s3.light-shadows.029",
@@ -990,7 +996,7 @@
         },
         {
           "type": "numeric",
-          "prompt": "How tall is the shadow at 40 cm?",
+          "prompt": "How much shorter is the shadow at 40 cm than at 20 cm?",
           "answer": 8,
           "tolerance": 0,
           "allowNegative": false,
@@ -999,10 +1005,10 @@
       ],
       "hints": [
         "Compare 16, 8 and 4.",
-        "Find the 40 cm number.",
-        "The numbers go down."
+        "The numbers go down as the toy moves away.",
+        "Take 8 away from 16."
       ],
-      "explanation": "The shadow shrinks as the toy moves away from the torch. At 40 cm it is 8 cm tall."
+      "explanation": "The shadow shrinks as the toy moves away from the torch. At 20 cm it is 16 cm tall and at 40 cm it is 8 cm tall, so it is 8 cm shorter."
     },
     {
       "id": "s3.light-shadows.030",
@@ -1240,7 +1246,8 @@
       "blanks": [
         {
           "answers": [
-            "translucent"
+            "translucent",
+            "semi-transparent"
           ]
         }
       ],
@@ -1328,7 +1335,7 @@
       "skill": "s3.light-shadows",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "A toy is placed 10, 30 or 50 cm from a torch. The wall stays put. Which gives the smallest shadow?",
+      "prompt": "A toy is placed 10, 30 or 50 cm from a torch, in front of a wall. The torch and the wall stay where they are. Which gives the smallest shadow?",
       "options": [
         {
           "text": "the toy 50 cm from the torch"

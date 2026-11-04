@@ -74,11 +74,37 @@
       "explanation": "Keeping drinks away from computers, flying kites far from power lines and drying your hands are safe rules. Never climb poles or use electrical things near water."
     },
     {
-      "id": "s2.electricity.006", "skill": "s2.electricity", "type": "text", "difficulty": 1,
+      "id": "s2.electricity.006",
+      "skill": "s2.electricity",
+      "type": "text",
+      "difficulty": 1,
       "prompt": "A torch gets its electricity from a ___.",
-      "figure": { "kind": "icons", "items": [{ "icon": "torch", "label": "torch" }], "alt": "A torch with its back opened." },
-      "blanks": [{ "answers": ["battery", "batteries"] }],
-      "hints": ["It goes inside the torch.", "You can buy them in sizes like AA.", "A TV remote uses the same thing."],
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "torch",
+            "label": "torch"
+          }
+        ],
+        "alt": "A torch with its back opened."
+      },
+      "blanks": [
+        {
+          "answers": [
+            "battery",
+            "batteries",
+            "cell",
+            "cells",
+            "power pack"
+          ]
+        }
+      ],
+      "hints": [
+        "It goes inside the torch.",
+        "You can buy them in sizes like AA.",
+        "A TV remote uses the same thing."
+      ],
       "explanation": "A torch gets electricity from batteries. Batteries store a small amount of electricity."
     },
     {
@@ -1280,14 +1306,14 @@
       "skill": "s2.electricity",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "A circuit has 1 battery, 1 bulb, 1 switch and 3 wires. How many parts are there?",
+      "prompt": "A circuit has 1 battery, 1 bulb, 1 switch and 3 wires. How many pieces are there in all?",
       "answer": 6,
       "hints": [
-        "Add all the parts.",
+        "Add all the pieces.",
         "1 + 1 + 1 is 3.",
         "Then add 3 wires."
       ],
-      "explanation": "1 + 1 + 1 + 3 = 6 parts."
+      "explanation": "1 + 1 + 1 + 3 = 6 pieces."
     },
     {
       "id": "s2.electricity.038",
@@ -1448,160 +1474,6 @@
       "explanation": "The bulb is shining. It changes electrical energy into light."
     },
     {
-      "id": "s2.electricity.039",
-      "skill": "s2.electricity",
-      "type": "label",
-      "difficulty": 2,
-      "prompt": "Label the circuit. One label is not needed.",
-      "figure": {
-        "kind": "scene",
-        "width": 320,
-        "height": 180,
-        "shapes": [
-          {
-            "t": "line",
-            "x1": 60,
-            "y1": 50,
-            "x2": 128,
-            "y2": 50,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 192,
-            "y1": 50,
-            "x2": 260,
-            "y2": 50,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 260,
-            "y1": 50,
-            "x2": 260,
-            "y2": 130,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 260,
-            "y1": 130,
-            "x2": 192,
-            "y2": 130,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 128,
-            "y1": 130,
-            "x2": 60,
-            "y2": 130,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 60,
-            "y1": 130,
-            "x2": 60,
-            "y2": 122,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "line",
-            "x1": 60,
-            "y1": 58,
-            "x2": 60,
-            "y2": 50,
-            "tone": "ink",
-            "width": 3
-          },
-          {
-            "t": "icon",
-            "icon": "battery",
-            "x": 28,
-            "y": 58,
-            "size": 64
-          },
-          {
-            "t": "icon",
-            "icon": "bulb",
-            "x": 128,
-            "y": 18,
-            "size": 64
-          },
-          {
-            "t": "icon",
-            "icon": "switch",
-            "x": 128,
-            "y": 98,
-            "size": 64
-          },
-          {
-            "t": "line",
-            "x1": 160,
-            "y1": 6,
-            "x2": 160,
-            "y2": 14,
-            "tone": "star",
-            "width": 4
-          },
-          {
-            "t": "line",
-            "x1": 122,
-            "y1": 18,
-            "x2": 128,
-            "y2": 24,
-            "tone": "star",
-            "width": 4
-          },
-          {
-            "t": "line",
-            "x1": 198,
-            "y1": 18,
-            "x2": 192,
-            "y2": 24,
-            "tone": "star",
-            "width": 4
-          }
-        ],
-        "alt": "A circuit drawn as a loop of wire with a battery on the left, a bulb at the top and a switch at the bottom. The bulb is shining."
-      },
-      "labels": [
-        "battery",
-        "bulb",
-        "switch"
-      ],
-      "spots": [
-        {
-          "x": 18.8,
-          "y": 50
-        },
-        {
-          "x": 50,
-          "y": 27.8
-        },
-        {
-          "x": 50,
-          "y": 72.2
-        }
-      ],
-      "extraLabels": [
-        "motor"
-      ],
-      "hints": [
-        "Start with the battery.",
-        "The bulb shines.",
-        "Motors turn."
-      ],
-      "explanation": "The battery is on the left and the bulb is at the top. The switch is at the bottom. There is no motor."
-    },
-    {
       "id": "s2.electricity.040",
       "skill": "s2.electricity",
       "type": "text",
@@ -1610,7 +1482,12 @@
       "blanks": [
         {
           "answers": [
-            "circuit"
+            "circuit",
+            "a circuit",
+            "complete circuit",
+            "closed circuit",
+            "electric circuit",
+            "loop"
           ]
         }
       ],
@@ -1691,19 +1568,19 @@
       "skill": "s2.electricity",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Tom uses a plastic spoon to fill a gap in a circuit. The bulb does not light. Why?",
+      "prompt": "Tom's bulb lights when a wire fills a gap in his circuit. He swaps the wire for a plastic spoon. The bulb does not light. Why?",
       "options": [
         {
           "text": "The spoon is too big for the gap.",
           "why": "Size is not the problem."
         },
         {
-          "text": "The bulb is broken or too old.",
-          "why": "The bulb is fine."
+          "text": "The bulb has stopped working.",
+          "why": "The bulb lit before, so it still works."
         },
         {
-          "text": "The wire is too short to reach.",
-          "why": "The wire is fine."
+          "text": "The spoon has no battery inside it.",
+          "why": "The spoon does not need a battery. The battery is already in the circuit."
         },
         {
           "text": "Plastic does not let electricity through."

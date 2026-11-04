@@ -48,11 +48,14 @@
       "explanation": "All living things grow and need food and water. Plants make their own food. Talking and going to school are things only some living things do."
     },
     {
-      "id": "s2.living-things.004", "skill": "s2.living-things", "type": "text", "difficulty": 1,
+      "id": "s2.living-things.004",
+      "skill": "s2.living-things",
+      "type": "text",
+      "difficulty": 1,
       "prompt": "A wooden chair is made from a ___.",
-      "figure": { "kind": "icons", "items": [{ "icon": "tree", "label": "?" }], "alt": "A tall living thing with a trunk, branches and leaves, marked with a question mark." },
-      "blanks": [{ "answers": ["tree", "trees"] }],
-      "hints": ["Wood comes from a plant.", "Think about a plant that grows tall and has a trunk.", "Look at the lines in wood. Where did they grow?"],
+      "figure": {"kind":"icons","items":[{"icon":"tree","label":"?"}],"alt":"A tall living thing with a trunk, branches and leaves, marked with a question mark."},
+      "blanks": [{"answers":["tree","trees","tree trunk","log"]}],
+      "hints": ["Wood comes from a plant.","Think about a plant that grows tall and has a trunk.","Look at the lines in wood. Where did they grow?"],
       "explanation": "Wood comes from trees. A wooden chair was once part of a living tree, so it was once alive."
     },
     {
@@ -212,29 +215,9 @@
       "type": "mcq",
       "difficulty": 2,
       "prompt": "A dry log was once part of a tree. What do we call it?",
-      "options": [
-        {
-          "text": "alive",
-          "why": "It no longer grows."
-        },
-        {
-          "text": "never alive",
-          "why": "It came from a living tree."
-        },
-        {
-          "text": "a rock",
-          "why": "It is wood, not rock."
-        },
-        {
-          "text": "once alive"
-        }
-      ],
+      "options": [{"text":"alive","why":"It no longer grows."},{"text":"never alive","why":"It came from a living tree."},{"text":"an animal","why":"It came from a tree, not an animal."},{"text":"once alive"}],
       "answer": 3,
-      "hints": [
-        "The tree grew long ago.",
-        "The log cannot grow now.",
-        "It is not a rock."
-      ],
+      "hints": ["The tree grew long ago.","The log cannot grow now.","It was part of a tree."],
       "explanation": "A log came from a living tree, but it is dead now. We say it was once alive."
     },
     {
@@ -367,29 +350,9 @@
       "type": "mcq",
       "difficulty": 4,
       "prompt": "A mushroom pops up after rain and grows bigger. What is it?",
-      "options": [
-        {
-          "text": "once alive",
-          "why": "It is growing now."
-        },
-        {
-          "text": "never alive",
-          "why": "It grows, so it is alive."
-        },
-        {
-          "text": "a rock",
-          "why": "Rocks do not grow."
-        },
-        {
-          "text": "a living thing"
-        }
-      ],
+      "options": [{"text":"once alive","why":"It is growing now."},{"text":"never alive","why":"It grows, so it is alive."},{"text":"dead","why":"It is growing, so it is not dead."},{"text":"alive"}],
       "answer": 3,
-      "hints": [
-        "It grows bigger.",
-        "Rocks do not grow.",
-        "Things that grow are alive."
-      ],
+      "hints": ["It grows bigger.","Dead things do not grow.","Things that grow are alive."],
       "explanation": "Mushrooms grow, so they are alive. They are not plants or animals but are living things called fungi."
     },
     {
@@ -685,39 +648,10 @@
       "type": "numeric",
       "difficulty": 2,
       "prompt": "How many living things are in the picture?",
-      "figure": {
-        "kind": "icons",
-        "items": [
-          {
-            "icon": "dog",
-            "label": "dog"
-          },
-          {
-            "icon": "tree",
-            "label": "tree"
-          },
-          {
-            "icon": "bee",
-            "label": "bee"
-          },
-          {
-            "icon": "rock",
-            "label": "rock"
-          },
-          {
-            "icon": "mushroom",
-            "label": "mushroom"
-          }
-        ],
-        "alt": "A dog, a tree, a bee, a rock and a mushroom."
-      },
+      "figure": {"kind":"icons","items":[{"icon":"dog","label":"dog"},{"icon":"tree","label":"tree"},{"icon":"bee","label":"bee"},{"icon":"rock","label":"rock"},{"icon":"mushroom","label":"mushroom"}],"alt":"A dog, a tree, a bee, a rock and a mushroom."},
       "answer": 4,
-      "hints": [
-        "Count only living things.",
-        "A mushroom is alive.",
-        "A chair is not alive."
-      ],
-      "explanation": "The dog, the tree, the bee and the mushroom are alive. The chair and the rock are not."
+      "hints": ["Count only living things.","A mushroom is alive.","A rock is not alive."],
+      "explanation": "The dog, the tree, the bee and the mushroom are alive. The rock is not."
     },
     {
       "id": "s2.living-things.031",
@@ -909,18 +843,8 @@
       "type": "text",
       "difficulty": 2,
       "prompt": "A rock was never ___.",
-      "blanks": [
-        {
-          "answers": [
-            "alive"
-          ]
-        }
-      ],
-      "hints": [
-        "Does a rock grow?",
-        "Rocks do not eat.",
-        "It starts with a."
-      ],
+      "blanks": [{"answers":["alive","living"]}],
+      "hints": ["Does a rock grow?","Rocks do not eat.","It starts with a."],
       "explanation": "A rock is a non-living thing. It was never alive."
     },
     {

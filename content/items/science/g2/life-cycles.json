@@ -2,11 +2,23 @@
   "skill": "s2.life-cycles",
   "items": [
     {
-      "id": "s2.life-cycles.001", "skill": "s2.life-cycles", "type": "order", "difficulty": 1,
+      "id": "s2.life-cycles.001",
+      "skill": "s2.life-cycles",
+      "type": "order",
+      "difficulty": 1,
       "prompt": "Put the life cycle of a chicken in order. Start with the egg.",
-      "items": ["egg", "chick", "young chicken", "adult hen"],
-      "hints": ["The chicken life cycle starts with an egg.", "Ask: what hatches out of the egg?", "Put the egg first, then think about what comes out of it."],
-      "explanation": "A chick hatches from the egg. It grows into a young chicken and then an adult hen, which lays more eggs."
+      "items": [
+        "egg",
+        "chick",
+        "young hen",
+        "adult hen"
+      ],
+      "hints": [
+        "The chicken life cycle starts with an egg.",
+        "Ask: what hatches out of the egg?",
+        "Put the egg first, then think about what comes out of it."
+      ],
+      "explanation": "A chick hatches from the egg. It grows into a young hen and then an adult hen, which lays more eggs."
     },
     {
       "id": "s2.life-cycles.002", "skill": "s2.life-cycles", "type": "order", "difficulty": 2,
@@ -79,11 +91,39 @@
       "explanation": "Adults have young, and the young grow up to have young of their own. The stages repeat again and again, like a circle."
     },
     {
-      "id": "s2.life-cycles.008", "skill": "s2.life-cycles", "type": "match", "difficulty": 2,
+      "id": "s2.life-cycles.008",
+      "skill": "s2.life-cycles",
+      "type": "match",
+      "difficulty": 2,
       "prompt": "Match each young animal to its adult.",
-      "pairs": [["tadpole", "frog"], ["caterpillar", "butterfly"], ["duckling", "duck"], ["foal", "horse"], ["cub", "lion"]],
-      "hints": ["Some young animals look like their parents and some do not.", "Do the names you know first.", "Start with the tadpole. What does it turn into?"],
-      "explanation": "A tadpole becomes a frog and a caterpillar becomes a butterfly. A duckling grows into a duck, a foal into a horse and a cub into a lion."
+      "pairs": [
+        [
+          "tadpole",
+          "frog"
+        ],
+        [
+          "caterpillar",
+          "butterfly"
+        ],
+        [
+          "duckling",
+          "duck"
+        ],
+        [
+          "foal",
+          "horse"
+        ],
+        [
+          "lamb",
+          "sheep"
+        ]
+      ],
+      "hints": [
+        "Some young animals look like their parents and some do not.",
+        "Do the names you know first.",
+        "Start with the tadpole. What does it turn into?"
+      ],
+      "explanation": "A tadpole becomes a frog and a caterpillar becomes a butterfly. A duckling grows into a duck, a foal into a horse and a lamb into a sheep."
     },
     {
       "id": "s2.life-cycles.009", "skill": "s2.life-cycles", "type": "order", "difficulty": 3,
@@ -157,13 +197,39 @@
       "tags": ["iksc"]
     },
     {
-      "id": "s2.life-cycles.015", "skill": "s2.life-cycles", "type": "numeric", "difficulty": 4,
-      "prompt": "A hen's egg takes about 21 days to hatch. Tegar's hen starts sitting on her eggs on 1 May. On what date in May should they hatch?",
-      "figure": { "kind": "icons", "items": [{ "icon": "hen", "label": "hen sitting on eggs" }, { "icon": "egg", "label": "21 days" }, { "icon": "chick", "label": "chick" }], "alt": "A hen sits on her eggs for 21 days before the chicks hatch." },
+      "id": "s2.life-cycles.015",
+      "skill": "s2.life-cycles",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A hen's egg takes 21 days to hatch. Tegar's hen starts sitting on her eggs on 1 May. Count on 21 days. On what date in May do they hatch?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "hen",
+            "label": "hen sitting on eggs"
+          },
+          {
+            "icon": "egg",
+            "label": "21 days"
+          },
+          {
+            "icon": "chick",
+            "label": "chick"
+          }
+        ],
+        "alt": "A hen sits on her eggs for 21 days before the chicks hatch."
+      },
       "answer": 22,
-      "hints": ["The eggs need about 21 days of sitting.", "Add 21 days to the start date.", "Start at 1 May and count on 21 days."],
-      "explanation": "1 May plus 21 days is 22 May. The chicks should hatch around 22 May.",
-      "tags": ["ksnr"]
+      "hints": [
+        "The eggs need about 21 days of sitting.",
+        "Add 21 days to the start date.",
+        "Start at 1 May and count on 21 days."
+      ],
+      "explanation": "1 May plus 21 days is 22 May. The chicks hatch on 22 May.",
+      "tags": [
+        "ksnr"
+      ]
     },
     {
       "id": "s2.life-cycles.016", "skill": "s2.life-cycles", "type": "draw", "difficulty": 3,
@@ -210,9 +276,9 @@
       "hints": [
         "A frog starts as an egg.",
         "The second stage lives in water and has a tail.",
-        "The last stage can jump."
+        "The last stage is the grown-up that can jump."
       ],
-      "explanation": "The stages are egg, tadpole and frog.",
+      "explanation": "The stages are egg, tadpole, froglet and frog.",
       "caption": "Frog life cycle",
       "head": [
         "Stage",
@@ -229,6 +295,10 @@
         ],
         [
           "3",
+          "froglet"
+        ],
+        [
+          "4",
           ""
         ]
       ],
@@ -237,14 +307,19 @@
           "row": 0,
           "col": 1,
           "answers": [
-            "egg"
+            "egg",
+            "eggs",
+            "frogspawn",
+            "spawn"
           ]
         },
         {
-          "row": 2,
+          "row": 3,
           "col": 1,
           "answers": [
-            "frog"
+            "frog",
+            "adult frog",
+            "adult"
           ]
         }
       ]
@@ -844,14 +919,18 @@
           "row": 1,
           "col": 1,
           "answers": [
-            "caterpillar"
+            "caterpillar",
+            "larva",
+            "caterpillars"
           ]
         },
         {
           "row": 2,
           "col": 1,
           "answers": [
-            "chick"
+            "chick",
+            "a chick",
+            "baby chick"
           ]
         }
       ],
@@ -867,7 +946,7 @@
       "skill": "s2.life-cycles",
       "type": "story",
       "difficulty": 3,
-      "prompt": "Zuri finds frogspawn in a pond. Some weeks later tiny tadpoles swim in the water. Then the tadpoles grow four legs. Later they leave the water as small frogs.",
+      "prompt": "Zuri finds frogspawn in a pond. Some weeks later tiny tadpoles swim in the water. Then the tadpoles grow legs. Later they leave the water as small frogs.",
       "parts": [
         {
           "type": "mcq",
@@ -887,7 +966,7 @@
         },
         {
           "type": "numeric",
-          "prompt": "How many legs does a tadpole grow?",
+          "prompt": "How many legs does a frog have?",
           "answer": 4,
           "tolerance": 0,
           "allowNegative": false,
@@ -896,10 +975,10 @@
       ],
       "hints": [
         "Read the second sentence.",
-        "Read the third sentence.",
-        "Count the legs."
+        "Think about the legs of a frog.",
+        "Picture a frog sitting on a lily pad."
       ],
-      "explanation": "The eggs hatch into tadpoles. The tadpoles grow four legs."
+      "explanation": "The eggs hatch into tadpoles. The tadpoles grow legs and become frogs. A frog has four legs."
     },
     {
       "id": "s2.life-cycles.037",
@@ -1122,7 +1201,10 @@
       "blanks": [
         {
           "answers": [
-            "tadpole"
+            "tadpole",
+            "a tadpole",
+            "tadpoles",
+            "polliwog"
           ]
         }
       ],
@@ -1132,42 +1214,6 @@
         "It starts with t."
       ],
       "explanation": "A baby frog with a tail is a tadpole."
-    },
-    {
-      "id": "s2.life-cycles.042",
-      "skill": "s2.life-cycles",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "Which order is right for a butterfly?",
-      "options": [
-        {
-          "text": "egg, caterpillar, chrysalis, butterfly"
-        },
-        {
-          "text": "egg, butterfly, caterpillar, chrysalis",
-          "why": "The butterfly comes last."
-        },
-        {
-          "text": "chrysalis, egg, caterpillar, butterfly",
-          "why": "The egg comes first."
-        },
-        {
-          "text": "caterpillar, egg, butterfly, chrysalis",
-          "why": "The egg comes first."
-        }
-      ],
-      "answer": 0,
-      "hints": [
-        "What comes first?",
-        "The butterfly is the adult.",
-        "The chrysalis is before the adult."
-      ],
-      "explanation": "A butterfly starts as an egg. Then it is a caterpillar, a chrysalis and finally a butterfly.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
     },
     {
       "id": "s2.life-cycles.043",

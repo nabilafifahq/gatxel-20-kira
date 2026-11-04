@@ -1356,49 +1356,6 @@
       "explanation": "A butterfly is an insect. All insects have six legs."
     },
     {
-      "id": "s1.animal-groups.026",
-      "skill": "s1.animal-groups",
-      "type": "sort",
-      "difficulty": 1,
-      "prompt": "What covers the animal? Sort the cards.",
-      "groups": [
-        "Fur",
-        "Feathers"
-      ],
-      "items": [
-        {
-          "text": "cat",
-          "group": 0
-        },
-        {
-          "text": "rabbit",
-          "group": 0
-        },
-        {
-          "text": "cow",
-          "group": 0
-        },
-        {
-          "text": "hen",
-          "group": 1
-        },
-        {
-          "text": "duck",
-          "group": 1
-        },
-        {
-          "text": "owl",
-          "group": 1
-        }
-      ],
-      "hints": [
-        "Birds have feathers.",
-        "Pets with soft coats have fur.",
-        "Start with the hen."
-      ],
-      "explanation": "Cats, rabbits and cows have fur. Hens, ducks and owls have feathers."
-    },
-    {
       "id": "s1.animal-groups.027",
       "skill": "s1.animal-groups",
       "type": "sort",
@@ -1418,7 +1375,7 @@
           "group": 0
         },
         {
-          "text": "crab",
+          "text": "whale",
           "group": 0
         },
         {
@@ -1439,7 +1396,7 @@
         "Camels walk in the desert.",
         "Start with the fish."
       ],
-      "explanation": "Fish, sharks and crabs live in water. Lions, camels and monkeys live on land."
+      "explanation": "Fish, sharks and whales live in water. Lions, camels and monkeys live on land."
     },
     {
       "id": "s1.animal-groups.028",
@@ -2271,15 +2228,15 @@
       "id": "s1.animal-groups.041",
       "skill": "s1.animal-groups",
       "type": "numeric",
-      "difficulty": 4,
-      "prompt": "2 birds and 3 insects sit on a branch. How many legs are there altogether?",
-      "answer": 22,
+      "difficulty": 3,
+      "prompt": "1 bird and 1 insect sit on a branch. How many legs are there altogether?",
+      "answer": 8,
       "hints": [
         "A bird has 2 legs.",
         "An insect has 6 legs.",
-        "Add the legs of the birds and the insects."
+        "Add the legs of the bird and the insect."
       ],
-      "explanation": "A bird has 2 legs, so 2 birds have 4 legs. An insect has 6 legs, so 3 insects have 18 legs. 4 + 18 = 22.",
+      "explanation": "A bird has 2 legs. An insect has 6 legs. 2 + 6 = 8.",
       "tags": [
         "iksc",
         "ksnr",
@@ -2291,7 +2248,7 @@
       "skill": "s1.animal-groups",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Which animal is the odd one out?",
+      "prompt": "Which animal is not an insect?",
       "figure": {
         "kind": "icons",
         "items": [

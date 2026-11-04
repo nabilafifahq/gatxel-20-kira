@@ -1225,7 +1225,7 @@
       "skill": "s4.conductors-insulators",
       "type": "hotspot",
       "difficulty": 4,
-      "prompt": "The end of a mains cable is cut open. Tap the part that is the electrical insulator.",
+      "prompt": "The end of a mains cable is cut open. Tap the part that carries the electricity.",
       "figure": {
         "kind": "scene",
         "width": 320,
@@ -1291,11 +1291,11 @@
         "alt": "A cable cut at the end. A thick outer covering is on the left, thin metal strands stick out in the middle and a solid plug body is on the right."
       },
       "hints": [
-        "An insulator stops electricity.",
-        "Metal strands carry electricity.",
-        "The covering keeps the electricity inside."
+        "Electricity flows through conductors.",
+        "Conductors are usually metals.",
+        "Look for the thin metal strands."
       ],
-      "explanation": "The plastic covering is the insulator. It keeps the electricity in the metal strands and keeps you safe.",
+      "explanation": "The metal strands are the conductor. They carry the electricity. The plastic covering is an insulator and keeps you safe.",
       "regions": [
         {
           "label": "outer covering",
@@ -1320,7 +1320,7 @@
         }
       ],
       "answers": [
-        0
+        1
       ]
     }
   ]

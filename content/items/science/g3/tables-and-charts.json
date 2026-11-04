@@ -334,7 +334,9 @@
           "answers": [
             "seconds",
             "second",
-            "secs"
+            "secs",
+            "sec",
+            "a second"
           ]
         }
       ],
@@ -1182,7 +1184,7 @@
       "pairs": [
         [
           "bar chart",
-          "compares amounts"
+          "uses bars to compare amounts"
         ],
         [
           "tally chart",
@@ -1202,7 +1204,7 @@
         "A pictogram has pictures.",
         "A table has rows."
       ],
-      "explanation": "A bar chart compares amounts. A tally chart counts with marks. A pictogram uses small pictures and a table has rows and columns."
+      "explanation": "A bar chart uses bars to compare amounts. A tally chart counts with marks. A pictogram uses small pictures and a table has rows and columns."
     },
     {
       "id": "s3.tables-and-charts.032",
@@ -1384,31 +1386,31 @@
       "skill": "s3.tables-and-charts",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "Three tests give 12, 14 and 13 seconds. What is the best single number to report?",
+      "prompt": "A toy car is timed three times. The results are 13, 14 and 13 seconds. Which number best shows what usually happened?",
       "options": [
         {
-          "text": "12 seconds, the smallest",
-          "why": "It is not typical."
-        },
-        {
           "text": "14 seconds, the biggest",
-          "why": "It is not typical."
+          "why": "It only happened once."
         },
         {
-          "text": "13 seconds, the average"
+          "text": "40 seconds, all added up",
+          "why": "That is a total, not a time the car took."
         },
         {
-          "text": "39 seconds, the total",
-          "why": "That is the sum, not a typical value."
+          "text": "13 seconds, it came up twice"
+        },
+        {
+          "text": "27 seconds, the two 13s added",
+          "why": "That is not a time the car took."
         }
       ],
       "answer": 2,
       "hints": [
-        "Add and divide by 3.",
-        "The numbers are close together.",
-        "The middle is 13."
+        "Look for a result that happens more than once.",
+        "Two of the three results are the same.",
+        "Which number appears twice?"
       ],
-      "explanation": "The average of 12, 14 and 13 is 13 seconds.",
+      "explanation": "The result 13 seconds came up twice, so it is the best number to report.",
       "tags": [
         "iksc",
         "ksnr",
