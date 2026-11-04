@@ -83,6 +83,8 @@ export async function pinLogin(page: Page, name: LearnerName): Promise<void> {
   await waitForPath(page, (p) => p.startsWith('/pin/'))
   for (const p of LEARNERS[name].pin) await page.getByRole('button', { name: p, exact: true }).click()
   await waitForPath(page, (p) => p === '/today')
+  // Today menampilkan kerangka pemuatan dulu; sesi hari ini dibuat saat halamannya selesai dirender.
+  await page.locator('#today-quests').waitFor({ state: 'attached', timeout: 30_000 })
 }
 
 /** Item MCQ dari konten repo untuk satu skill (dipakai untuk attempt tes yang bisa ditebak isinya). */
@@ -147,4 +149,15 @@ export async function noHorizontalScroll(page: Page): Promise<void> {
 
 export async function newTabletContext(context: BrowserContext): Promise<Page> {
   return context.newPage()
+}
+
+/**
+ * Jawaban yang benar untuk /api/internal/* tanpa token yang sah. Lewat proxy Caddy (stack Compose) rute ini ditutup dengan
+ * 404 kosong (tanpa isi dan tanpa content-type, bukan halaman 404 milik Next); langsung ke Next rute ada dan menolak dengan
+ * 401, atau 503 bila token server belum diatur. Status lain, misalnya 200, 400 atau 500, berarti ada yang terbuka.
+ */
+export async function internalClosed(res: { status(): number; text(): Promise<string>; headers(): Record<string, string> }): Promise<boolean> {
+  const status = res.status()
+  if (status === 404) return (await res.text()).length === 0 && !res.headers()['content-type']
+  return status === 401 || status === 503
 }

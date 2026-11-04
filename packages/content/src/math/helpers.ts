@@ -36,6 +36,18 @@ export function plural(n: number, one: string, many: string): string {
   return `${n} ${n === 1 ? one : many}`
 }
 
+/** Kata sandang a atau an sesuai bunyi awal kata: "an octagon", "a square", "an eighth". */
+export function aAn(word: string): string {
+  const vowelSound = /^(?:[ai]|e(?!u)|o(?!ne)|u(?!ni|se|su|tr)|hour|honest)/i.test(word)
+  return `${vowelSound ? 'an' : 'a'} ${word}`
+}
+
+/** Sama dengan aAn, huruf besar di awal kalimat: "An octagon". */
+export function AAn(word: string): string {
+  const s = aAn(word)
+  return s[0]!.toUpperCase() + s.slice(1)
+}
+
 const ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve',
   'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']

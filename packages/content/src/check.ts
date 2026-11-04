@@ -31,7 +31,7 @@ export type AnswerKey =
   | { type: 'mcq'; answer: number }
   | { type: 'multi'; answers: number[] }
   | { type: 'numeric'; answer: number; tolerance: number; acceptAlt?: number[] }
-  | { type: 'text'; blanks: { answers: string[]; caseSensitive: boolean }[] }
+  | { type: 'text'; blanks: { answers: string[]; caseSensitive: boolean; equiv?: 'fraction' | 'any' }[] }
   | { type: 'order'; length: number }
   | { type: 'match'; length: number }
   | { type: 'sort'; groupsOf: number[] }
@@ -95,7 +95,7 @@ export function keyOf(item: Item): AnswerKey {
     case 'numeric':
       return { type: 'numeric', answer: item.answer, tolerance: item.tolerance, ...(item.acceptAlt ? { acceptAlt: item.acceptAlt } : {}) }
     case 'text':
-      return { type: 'text', blanks: item.blanks.map((b) => ({ answers: b.answers, caseSensitive: b.caseSensitive })) }
+      return { type: 'text', blanks: item.blanks.map((b) => ({ answers: b.answers, caseSensitive: b.caseSensitive, ...equivalence(item, b.answers) })) }
     case 'order':
       return { type: 'order', length: item.items.length }
     case 'match':
@@ -160,8 +160,11 @@ export function keyOf(item: Item): AnswerKey {
  * menerima bila salah satunya cocok dengan kunci.
  */
 export function parseNumberCandidates(raw: string): number[] {
-  const s = raw.trim().replace(/\s+/g, '').replace(/^\+/, '')
+  const s = raw.trim().replace(/\s+/g, '').replace(/^\+/, '').replace(/^[−\u2013]/, '-')
   if (s === '' || s === '-' || s === '.' || s === ',') return []
+  // .9 dan ,9 sama dengan 0.9
+  const lead = /^(-?)[.,](\d+)$/.exec(s)
+  if (lead) return [Number(`${lead[1]}0.${lead[2]}`)]
   // 1/2 sebagai pecahan sederhana
   const frac = /^(-?\d+)\/(\d+)$/.exec(s)
   if (frac) {
@@ -203,13 +206,51 @@ function coordForm(s: string): string | null {
   return m ? `${m[1]},${m[2]}` : null
 }
 
-/** Isian teks cocok dengan jawaban yang diterima: sama setelah dirapikan, atau koordinat yang sama. */
+/** Nilai pecahan atau pecahan campuran yang diketik anak: "3/4", "1 3/4", "3 / 4". Null bila bukan pecahan. */
+function fractionValue(raw: string): number | null {
+  const s = raw.normalize('NFKC').replace(/\s*[/⁄]\s*/g, '/').replace(/\s+/g, ' ').trim().replace(/[.!?]+$/, '')
+  const m = /^(?:(\d+) )?(\d+)\/(\d+)$/.exec(s)
+  if (!m || Number(m[3]) === 0) return null
+  return Number(m[1] ?? 0) + Number(m[2]) / Number(m[3])
+}
+
+/**
+ * Soal generator yang tidak meminta bentuk tertentu menerima pecahan senilai, misalnya 22/48 untuk 11/24.
+ * Bila soal meminta pecahan, desimal tetap ditolak kecuali tercantum di jawaban yang diterima.
+ */
+function equivalence(item: Item, answers: readonly string[]): { equiv?: 'fraction' | 'any' } {
+  if (!item.id.startsWith('gen:') || !answers.some((a) => fractionValue(a) !== null)) return {}
+  if (/simplest|lowest terms|improper|mixed number/i.test(item.prompt)) return {}
+  return { equiv: /fraction/i.test(item.prompt) ? 'fraction' : 'any' }
+}
+
+function equalsValue(given: string, accepted: string, mode: 'fraction' | 'any'): boolean {
+  const target = fractionValue(accepted)
+  if (target === null) return false
+  const asFraction = fractionValue(given)
+  if (asFraction !== null) return close(asFraction, target, 0)
+  return mode === 'any' && parseNumberCandidates(given).some((v) => close(v, target, 0))
+}
+
+/**
+ * Isian teks cocok dengan jawaban yang diterima: sama setelah dirapikan, koordinat yang sama, spasi di sekitar
+ * garis pecahan dan titik dua diabaikan, waktu tanpa titik dua, atau angka yang sama ditulis lain (.9, 0,9, 1,200). Jawaban pecahan dan angka berakhiran
+ * nol seperti 3.50 tetap harus sama persis, karena bentuknya bisa jadi yang ditanyakan.
+ */
 function textMatches(given: string, accepted: string, caseSensitive: boolean): boolean {
   const g = normaliseText(given, caseSensitive)
   if (g === '') return false
-  if (g === normaliseText(accepted, caseSensitive)) return true
+  const a = normaliseText(accepted, caseSensitive)
+  if (g === a) return true
   const c = coordForm(accepted)
-  return c !== null && c === coordForm(given)
+  if (c !== null && c === coordForm(given)) return true
+  const tight = (s: string) => s.replace(/\s*⁄\s*/g, '/').replace(/\s*([/:])\s*/g, '$1')
+  if (tight(g) === tight(a)) return true
+  // Waktu tanpa titik dua: 1120 untuk 11:20.
+  const time = /^(\d{1,2}):(\d{2})$/.exec(a)
+  if (time && /^\d{3,4}$/.test(g) && Number(g) === Number(`${time[1]}${time[2]}`)) return true
+  if (g.includes('/') || !/^-?\d+(?:\.\d*[1-9])?$/.test(a)) return false
+  return parseNumberCandidates(g).some((v) => close(v, Number(a), 0))
 }
 
 /** Bentuk banding isian cloze. Tanda baca saja (".", "!", "?") tidak boleh habis dipangkas, karena itu jawabannya. */
@@ -293,6 +334,7 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       key.blanks.forEach((b, i) => {
         const given = typeof texts[i] === 'string' ? (texts[i] as string) : ''
         if (b.answers.some((ans) => textMatches(given, ans, b.caseSensitive))) right++
+        else if (b.equiv && b.answers.some((ans) => b.equiv !== undefined && equalsValue(given, ans, b.equiv))) right++
       })
       return verdict(right === key.blanks.length, right / key.blanks.length)
     }
@@ -443,7 +485,8 @@ export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
       return item.filled.map((r) => r.join(' ')).join(' / ')
     case 'blocks': {
       const t = item.target
-      const parts = [t.h > 0 ? `${t.h} hundreds` : '', t.t > 0 || item.places === 'to' ? `${t.t} tens` : '', `${t.o} ones`].filter(Boolean)
+      const count = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`
+      const parts = [t.h > 0 ? count(t.h, 'hundred', 'hundreds') : '', t.t > 0 || item.places === 'to' ? count(t.t, 'ten', 'tens') : '', count(t.o, 'one', 'ones')].filter(Boolean)
       return `${t.h * 100 + t.t * 10 + t.o}: ${parts.join(', ')}`
     }
     case 'fractionbar':

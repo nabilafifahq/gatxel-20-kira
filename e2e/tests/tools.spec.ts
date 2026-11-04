@@ -15,6 +15,11 @@ function firstOf<T extends { type: string }>(file: string, type: string): T {
   return j.items.find((i) => i.type === type)!
 }
 
+/** Id soal pertama di berkas alat peraga (nomor soal ditentukan saat penggabungan, jadi jangan ditulis tangan). */
+function firstId(file: string): string {
+  return (JSON.parse(readFileSync(`${ROOT}/content/items/math/${file}`, 'utf8')) as { items: { id: string }[] }).items[0]!.id
+}
+
 /** Susun tangram lewat ketukan, memakai orientasi yang dihitung dari soal. */
 async function solveTangram(page: Page, item: Tangram) {
   const used = new Set<number>()
@@ -107,9 +112,9 @@ test('soal alat peraga di latihan: lima jenis dijawab dengan ketukan dan dinilai
   const tangram = firstOf<Tangram>('g1/shapes-2d.tools.json', 'tangram')
   const geo = firstOf<Geo>('g2/shapes-2d.tools.json', 'geoboard')
   const refs = [
-    { id: 'm2.place-value.701', difficulty: 1 },
-    { id: 'm1.halves.701', difficulty: 1 },
-    { id: 'm2.addition.701', difficulty: 1 },
+    { id: firstId('g2/place-value.tools.json'), difficulty: 1 },
+    { id: firstId('g1/halves.tools.json'), difficulty: 1 },
+    { id: firstId('g2/addition.tools.json'), difficulty: 1 },
     { id: tangram.id, difficulty: 1 },
     { id: geo.id, difficulty: 1 },
   ]

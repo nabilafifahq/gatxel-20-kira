@@ -131,3 +131,23 @@ describe('splitSentences', () => {
     expect(splitSentences('No end mark')).toEqual(['No end mark'])
   })
 })
+
+describe('langkah penutup soal pilihan', () => {
+  const pic = (icon: string) => ({ figure: { kind: 'icons', items: [{ icon }], alt: `A picture of a ${icon}.` } })
+  const options = [pic('sun'), pic('cat'), pic('bus')]
+
+  it('pilihan bergambar yang diacak memperlihatkan gambar jawabannya, bukan huruf', () => {
+    const it0 = withWalkthrough(make({ type: 'mcq', prompt: 'Which picture starts with the sound s?', options, answer: 0 }))
+    const last = it0.solution?.at(-1)
+    expect(last?.show).toBeUndefined()
+    expect(last?.figure).toMatchObject({ kind: 'icons', alt: 'A picture of a sun.' })
+  })
+  it('pilihan bergambar berurutan tetap memakai hurufnya', () => {
+    const it0 = withWalkthrough(make({ type: 'mcq', prompt: 'Which picture starts with the sound s?', options, answer: 0, tags: ['keep-order'] }))
+    expect(it0.solution?.at(-1)?.show).toBe('A')
+  })
+  it('pilihan teks yang diacak tidak memakai huruf', () => {
+    const it0 = withWalkthrough(make({ type: 'mcq', prompt: 'What is 2 + 2?', options: [{ text: '3' }, { text: '4' }], answer: 1 }))
+    expect(it0.solution?.at(-1)?.show).toBe('4')
+  })
+})

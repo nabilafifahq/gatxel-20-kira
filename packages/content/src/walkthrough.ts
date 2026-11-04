@@ -155,6 +155,19 @@ function shownKey(item: Item, key: string): string {
   return item.tags.some((t) => KEEP_ORDER.has(t)) ? key : key.replace(/(^|; )[A-F]\. /g, '$1')
 }
 
+/**
+ * Langkah penutup. Opsi bergambar tidak punya teks, jadi kunci hanya huruf yang bisa berbeda dengan layar sesudah
+ * diacak: langkah ini memperlihatkan gambar jawabannya, atau teks alternatifnya bila jawabannya lebih dari satu gambar.
+ */
+function answerStep(item: Item, key: string): SolutionStep {
+  const step: SolutionStep = { say: 'So the answer is:', show: shownKey(item, key) }
+  if ((item.type !== 'mcq' && item.type !== 'multi') || item.tags.some((t) => KEEP_ORDER.has(t))) return step
+  const right = (item.type === 'mcq' ? [item.answer] : item.answers).map((i) => item.options[i])
+  if (!right.some((o) => o && !o.text && o.figure)) return step
+  if (right.length === 1 && right[0]?.figure) return { say: step.say, figure: right[0].figure }
+  return { say: step.say, show: clip(right.map((o) => o?.text ?? o?.figure?.alt ?? '').join('; '), 118) }
+}
+
 /** Penjelasan "mengapa" dari penjelasan yang sudah ada. Null bila soal tidak cocok. */
 export function deriveSteps(item: Item): SolutionStep[] | null {
   if (MANUAL.has(item.type)) return null
@@ -183,9 +196,9 @@ export function deriveSteps(item: Item): SolutionStep[] | null {
   if (item.type === 'mcq' || item.type === 'multi') {
     const right = item.type === 'mcq' ? [item.answer] : item.answers
     const w = item.options.map((o, i) => ({ o, i })).find(({ o, i }) => !right.includes(i) && o.why && o.text)
-    if (w && steps.length < 6) steps.push({ say: clip(`Not ${w.o.text}. ${w.o.why}`, 220) })
+    if (w && steps.length < 6) steps.push({ say: clip(`Not ${(w.o.text ?? '').replace(/[.!?]+$/, '')}. ${w.o.why}`, 220) })
   }
-  steps.push({ say: 'So the answer is:', show: shownKey(item, key) })
+  steps.push(answerStep(item, key))
   return steps.length >= 2 && steps.length <= 8 ? steps : null
 }
 
@@ -202,7 +215,7 @@ export function withWalkthrough<T extends Item>(item: T): T {
       } catch {
         key = ''
       }
-      if (key && key.length <= 118) return { ...item, solution: [...solution, { say: 'So the answer is:', show: shownKey(item, key) }] }
+      if (key && key.length <= 118) return { ...item, solution: [...solution, answerStep(item, key)] }
     }
     return full
   }

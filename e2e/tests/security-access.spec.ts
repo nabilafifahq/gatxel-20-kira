@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { closeDb, createPracticeAttempt, db, mcqItems } from './helpers'
+import { closeDb, createPracticeAttempt, db, internalClosed, mcqItems } from './helpers'
 import { api, createOrgB, dropOrgB, familyA, uploadPng, type OrgB } from './security-helpers'
 
 /**
@@ -136,7 +136,7 @@ test.describe('naik peran', () => {
 
   test('sesi anak tidak bisa memanggil API internal tanpa token', async () => {
     const res = await (await api(A.aisha)).post('/api/internal/weekly-report', { data: { orgId: A.orgId, learnerId: A.aishaId, weekStart: '2026-11-02' } })
-    expect([401, 503]).toContain(res.status())
+    expect(await internalClosed(res), `status ${res.status()}`).toBe(true)
   })
 })
 
