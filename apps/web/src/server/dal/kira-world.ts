@@ -4,6 +4,7 @@ import {
   ALL_ITEMS,
   BOSS_QUESTIONS,
   BOSS_WIN_AT,
+  bossWinAt,
   BOSS_WIN_STARS,
   CARDS,
   CARD_SETS,
@@ -43,7 +44,9 @@ import type { OrgContext, Tx } from '../db'
 import { conflict, forbidden, invalid, notFound } from '../errors'
 import { loadQuizState } from './arena-state'
 import { subjectOfSkill } from './content'
-import { learnerShell, loadLearner, streakFor } from './learner-core'
+import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
+import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
+import { isFeatureOn } from './learner-features'
 import type { LearnerShell } from '@/lib/dto'
 import type { AlbumDTO, BossDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
@@ -267,7 +270,7 @@ export async function petDTO(tx: Tx, learnerId: string): Promise<PetDTO> {
   const pet = world.pet
   const stage = petStage(done)
   const next = nextStage(done)
-  const ownedHomes = ALL_ITEMS.filter((i) => i.kind === 'pethome' && owned.has(i.id)).map((i) => ({ id: i.id, name: i.name }))
+  const ownedHomes = [{ id: 'home-meadow', name: 'Meadow nook' }, ...ALL_ITEMS.filter((i) => i.kind === 'pethome' && owned.has(i.id)).map((i) => ({ id: i.id, name: i.name }))]
   const ownedCostumes = ALL_ITEMS.filter((i) => i.kind === 'petcostume' && owned.has(i.id)).map((i) => ({ id: i.id, name: i.name }))
   const last = await tx.select({ date: starLedger.date }).from(starLedger).where(and(eq(starLedger.learnerId, learnerId), sql`${starLedger.amount} > 0`)).orderBy(desc(starLedger.date)).limit(1)
   const away = last[0] ? daysBetween(last[0].date, today) : 0
@@ -433,9 +436,9 @@ export async function bossDTO(tx: Tx, learnerId: string): Promise<BossDTO> {
 }
 
 /** Dipanggil saat attempt bos dikumpulkan. Menang bila benar sedikitnya BOSS_WIN_AT. Tanpa hukuman untuk kalah. */
-export async function finishBoss(tx: Tx, learnerId: string, attemptId: string, refId: string, correct: number): Promise<{ won: boolean; stars: number; cardId: string | null }> {
+export async function finishBoss(tx: Tx, learnerId: string, attemptId: string, refId: string, correct: number, total: number = BOSS_QUESTIONS): Promise<{ won: boolean; stars: number; cardId: string | null }> {
   const week = refId.split(':')[1] ?? bossWeek()
-  const won = correct >= BOSS_WIN_AT
+  const won = correct >= bossWinAt(total)
   if (!won) return { won: false, stars: 0, cardId: null }
   await lockLearner(tx, learnerId)
   const world = await loadWorld(tx, learnerId)
@@ -464,7 +467,7 @@ export async function bossResultDTO(tx: Tx, learnerId: string, attemptId: string
     submitted: a.submittedAt !== null,
     correct: a.scoreRaw ?? 0,
     total,
-    winAt: BOSS_WIN_AT,
+    winAt: bossWinAt(total),
     won: res.boss?.won ?? false,
     stars: res.boss?.stars ?? 0,
     card: card ? { id: card.id, no: cardNumber(card.id), name: card.name, rarity: card.rarity, art: card.art, fact: card.fact } : null,
@@ -556,3 +559,52 @@ export async function worldPeek(tx: Tx, learnerId: string) {
 }
 
 export type { LearnerShell }
+
+// ---------------------------------------------------------------------------
+// Mulai tantangan bos: 10 soal campuran sesuai tingkat anak lewat pembuat sesi pusat, tanpa duplikat.
+
+export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: string): Promise<string> {
+  const week = bossWeek()
+  const [open] = await tx
+    .select({ id: attempt.id })
+    .from(attempt)
+    .where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + '%'}`, eq(attempt.status, 'in_progress')))
+    .limit(1)
+  if (open) return open.id
+  const learner = await loadLearner(tx, learnerId)
+  const states = await skillStates(tx, learnerId)
+  const date = jakartaDate()
+  const tries = (await tx.select({ id: attempt.id }).from(attempt).where(and(eq(attempt.learnerId, learnerId), sql`${attempt.refId} like ${'boss:' + week + '%'}`))).length
+  const plan: { subject: 'math' | 'english' | 'science'; count: number }[] = [
+    { subject: 'math', count: 3 },
+    { subject: 'english', count: 3 },
+    { subject: 'science', count: 2 },
+    { subject: 'math', count: 2 },
+  ]
+  const usedSkills = new Set<string>()
+  const refs = new Set<string>()
+  const items: AttemptItem[] = []
+  for (const [i, p] of plan.entries()) {
+    if (!(await isFeatureOn(learnerId, p.subject))) continue
+    let picked: ReturnType<typeof autoSkill> | undefined
+    for (let k = 0; k < 6 && !picked; k++) {
+      const s = autoSkill(learner, p.subject, states, `${learnerId}:${week}:${tries}:${p.subject}:${i}:${k}`)
+      if (s && !usedSkills.has(s.id)) picked = s
+    }
+    if (!picked) continue
+    usedSkills.add(picked.id)
+    const built = await buildQuestItems(tx, ctx, learner, { skillId: picked.id, subject: p.subject, mode: 'latihan', date, seedKey: `boss:${learnerId}:${week}:${tries}:${i}`, length: p.count, style: 'easy', avoid: refs })
+    for (const it of built) {
+      if (refs.has(it.ref) || items.length >= BOSS_QUESTIONS) continue
+      refs.add(it.ref)
+      items.push(it)
+    }
+  }
+  if (items.length < 5) throw invalid('The robot is still warming up. Try again soon.')
+  const final = items.map((it, i) => ({ ...it, position: i + 1 }))
+  const [row] = await tx
+    .insert(attempt)
+    .values({ orgId: ctx.orgId, learnerId, kind: 'test', mode: 'latihan', subject: 'math', title: 'Puzzle Robot', refId: `boss:${week}:${tries + 1}`, items: final })
+    .returning({ id: attempt.id })
+  return row!.id
+}

@@ -22,6 +22,8 @@ const LOOK: Record<PetArtKind, Look> = {
   wavedrake: { body: KNOWLEDGE, belly: KNOWLEDGE_50, accent: MATH_50 },
 }
 
+const hl = { ...line, strokeWidth: 1.6 } as const
+
 function Eyes({ cx, cy, gap, r, happy }: { cx: number; cy: number; gap: number; r: number; happy?: boolean }): ReactElement {
   if (happy) {
     return (
@@ -307,57 +309,57 @@ function homeLayers(id: PetHomeArtId): ReactNode {
         <>
           <rect x="0" y="0" width="160" height="96" fill={MATH_50} />
           <rect x="0" y="76" width="160" height="20" fill={SCIENCE} />
-          <path d="M118 80V30" {...line} strokeWidth={9} />
-          <circle cx="118" cy="26" r="28" fill={SCIENCE} {...line} />
-          <rect x="102" y="38" width="32" height="22" rx="2" fill={WARN_50} {...line} />
-          <path d="M98 38l20-14l20 14z" fill={ENGLISH} {...line} />
-          <rect x="112" y="46" width="8" height="14" fill={WHITE} {...line} strokeWidth={2} />
-          <path d="M120 60l-8 20" {...line} strokeWidth={2} />
+          <path d="M118 80V30" {...hl} strokeWidth={9} />
+          <circle cx="118" cy="26" r="28" fill={SCIENCE} {...hl} />
+          <rect x="102" y="38" width="32" height="22" rx="2" fill={WARN_50} {...hl} />
+          <path d="M98 38l20-14l20 14z" fill={ENGLISH} {...hl} />
+          <rect x="112" y="46" width="8" height="14" fill={WHITE} {...hl} strokeWidth={2} />
+          <path d="M120 60l-8 20" {...hl} strokeWidth={2} />
         </>
       )
     case 'home-cave':
       return (
         <>
           <rect x="0" y="0" width="160" height="96" fill={KNOWLEDGE_50} />
-          <path d="M0 96V30q40 -26 80 -20t80 20v66z" fill={MUTED} {...line} />
-          <path d="M20 96V60q60 -34 120 0v36z" fill={KNOWLEDGE} {...line} />
-          <path d="M30 40l8 -14l8 14zM110 36l7 -12l7 12z" fill={MATH_50} {...line} strokeWidth={2} />
-          <path d="M126 70l5 -9l5 9zM26 78l4 -7l4 7z" fill={MENTAL_50} {...line} strokeWidth={2} />
+          <path d="M0 96V30q40 -26 80 -20t80 20v66z" fill={MUTED} {...hl} />
+          <path d="M20 96V60q60 -34 120 0v36z" fill={KNOWLEDGE} {...hl} />
+          <path d="M30 40l8 -14l8 14zM110 36l7 -12l7 12z" fill={MATH_50} {...hl} strokeWidth={2} />
+          <path d="M126 70l5 -9l5 9zM26 78l4 -7l4 7z" fill={MENTAL_50} {...hl} strokeWidth={2} />
         </>
       )
     case 'home-pond':
       return (
         <>
           <rect x="0" y="0" width="160" height="96" fill={SCIENCE_50} />
-          <ellipse cx="80" cy="76" rx="68" ry="16" fill={MATH_50} {...line} />
-          <ellipse cx="50" cy="74" rx="12" ry="4" fill={SCIENCE} {...line} strokeWidth={2} />
-          <ellipse cx="116" cy="80" rx="10" ry="3.500" fill={SCIENCE} {...line} strokeWidth={2} />
-          <circle cx="116" cy="76" r="3.500" fill={ENGLISH_50} {...line} strokeWidth={1.8} />
-          <path d="M14 70v-26M20 72v-18M146 70v-30M140 72v-14" {...line} />
+          <ellipse cx="80" cy="76" rx="68" ry="16" fill={MATH_50} {...hl} />
+          <ellipse cx="50" cy="74" rx="12" ry="4" fill={SCIENCE} {...hl} strokeWidth={2} />
+          <ellipse cx="116" cy="80" rx="10" ry="3.500" fill={SCIENCE} {...hl} strokeWidth={2} />
+          <circle cx="116" cy="76" r="3.500" fill={ENGLISH_50} {...hl} strokeWidth={1.8} />
+          <path d="M14 70v-26M20 72v-18M146 70v-30M140 72v-14" {...hl} />
         </>
       )
     case 'home-castle':
       return (
         <>
           <rect x="0" y="0" width="160" height="96" fill={MATH_50} />
-          <ellipse cx="30" cy="22" rx="22" ry="8" fill={WHITE} {...line} strokeWidth={2} />
-          <ellipse cx="132" cy="30" rx="20" ry="7" fill={WHITE} {...line} strokeWidth={2} />
-          <ellipse cx="80" cy="88" rx="78" ry="14" fill={WHITE} {...line} />
-          <rect x="56" y="36" width="48" height="46" fill={KNOWLEDGE_50} {...line} />
-          <rect x="44" y="26" width="16" height="56" fill={WHITE} {...line} />
-          <rect x="100" y="26" width="16" height="56" fill={WHITE} {...line} />
-          <path d="M42 26l10 -14l10 14zM98 26l10 -14l10 14z" fill={MENTAL} {...line} />
-          <path d="M72 82v-14a8 8 0 0 1 16 0v14z" fill={KNOWLEDGE} {...line} strokeWidth={2} />
+          <ellipse cx="30" cy="22" rx="22" ry="8" fill={WHITE} {...hl} strokeWidth={2} />
+          <ellipse cx="132" cy="30" rx="20" ry="7" fill={WHITE} {...hl} strokeWidth={2} />
+          <ellipse cx="80" cy="88" rx="78" ry="14" fill={WHITE} {...hl} />
+          <rect x="56" y="36" width="48" height="46" fill={KNOWLEDGE_50} {...hl} />
+          <rect x="44" y="26" width="16" height="56" fill={WHITE} {...hl} />
+          <rect x="100" y="26" width="16" height="56" fill={WHITE} {...hl} />
+          <path d="M42 26l10 -14l10 14zM98 26l10 -14l10 14z" fill={MENTAL} {...hl} />
+          <path d="M72 82v-14a8 8 0 0 1 16 0v14z" fill={KNOWLEDGE} {...hl} strokeWidth={2} />
         </>
       )
     default:
       return (
         <>
           <rect x="0" y="0" width="160" height="96" fill={MATH_50} />
-          <circle cx="132" cy="22" r="11" fill={STAR} {...line} />
-          <ellipse cx="38" cy="26" rx="20" ry="7" fill={WHITE} {...line} strokeWidth={2} />
-          <path d="M0 74q40 -22 80 -6t80 -12v40H0z" fill={SCIENCE} {...line} />
-          <g {...line} strokeWidth={2}>
+          <circle cx="132" cy="22" r="11" fill={STAR} {...hl} />
+          <ellipse cx="38" cy="26" rx="20" ry="7" fill={WHITE} {...hl} strokeWidth={2} />
+          <path d="M0 74q40 -22 80 -6t80 -12v40H0z" fill={SCIENCE} {...hl} />
+          <g {...hl} strokeWidth={2}>
             <path d="M24 84v-8M20 80h8" />
             <circle cx="24" cy="74" r="3" fill={ENGLISH_50} />
             <circle cx="128" cy="82" r="3" fill={STAR} />

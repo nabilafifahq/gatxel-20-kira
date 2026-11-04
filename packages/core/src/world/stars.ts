@@ -36,3 +36,8 @@ export type CertificateDays = (typeof CERTIFICATE_DAYS)[number]
 export function certificatesFor(bestStreak: number): CertificateDays[] {
   return CERTIFICATE_DAYS.filter((d) => bestStreak >= d)
 }
+
+/** Menang bila benar sedikitnya 70 persen dari soal yang ada (7 dari 10, 6 dari 8). */
+export function bossWinAt(total: number): number {
+  return Math.max(3, Math.ceil(total * 0.7))
+}

@@ -131,25 +131,26 @@ function Book({ x, y, tone = ENGLISH, s = 1, fly }: { x: number; y: number; tone
   )
 }
 
-/** Kira: anak berkepang dua dengan syal merah, digambar dari bentuk bulat. */
+/** Kira: anak berkepang dua dengan syal merah dan gaun hijau, digambar dari bentuk bulat. Tinggi sekitar 70. */
 export function Kira({ x, y, s = 1, flip = false }: { x: number; y: number; s?: number; flip?: boolean }): ReactElement {
   return (
-    <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`} {...line}>
-      <ellipse cx="0" cy="2" rx="18" ry="4" fill={DIVIDER} stroke="none" />
-      <rect x="-9" y="-22" width="7" height="22" rx="3" fill={MATH} />
-      <rect x="2" y="-22" width="7" height="22" rx="3" fill={MATH} />
-      <path d="M-14 -22q14 -22 28 0z" fill={SCIENCE} />
-      <path d="M-14 -22h28" />
-      <path d="M-12 -40q12 6 24 0l-2 10h-20z" fill={ENGLISH} />
-      <circle cx="0" cy="-54" r="15" fill={WARN_50} />
-      <path d="M-15 -56a15 15 0 0 1 30 0q-15 -9 -30 0z" fill={INK} />
-      <circle cx="-16" cy="-48" r="5" fill={INK} />
-      <circle cx="16" cy="-48" r="5" fill={INK} />
-      <circle cx="-5" cy="-53" r="2" fill={INK} stroke="none" />
-      <circle cx="5" cy="-53" r="2" fill={INK} stroke="none" />
-      <path d="M-4 -47q4 4 8 0" fill="none" strokeWidth="2" />
-      <path d="M12 -38l9 8" strokeWidth="5" stroke={WARN_50} />
-      <path d="M12 -38l9 8" />
+    <g transform={"translate(" + x + " " + y + ") scale(" + (flip ? -s : s) + " " + s + ")"} {...line}>
+      <ellipse cx="0" cy="2" rx="16" ry="3.500" fill={DIVIDER} stroke="none" />
+      <path d="M-6 -16v14M6 -16v14" strokeWidth="5" stroke={WARN_50} />
+      <path d="M-6 -16v14M6 -16v14" strokeWidth="1.800" />
+      <ellipse cx="-7" cy="-1" rx="6" ry="3" fill={MATH} />
+      <ellipse cx="7" cy="-1" rx="6" ry="3" fill={MATH} />
+      <path d="M-10 -17L-15 -36q15 -8 30 0L10 -17z" fill={SCIENCE} />
+      <path d="M-13 -35q13 6 26 0l-2 6q-11 5 -22 0z" fill={ENGLISH} />
+      <path d="M-17 -31l-7 11M17 -31l7 11" strokeWidth="4" stroke={WARN_50} />
+      <path d="M-17 -31l-7 11M17 -31l7 11" strokeWidth="1.600" />
+      <circle cx="0" cy="-48" r="13" fill={WARN_50} />
+      <path d="M-13 -50a13 13 0 0 1 26 0q-6 -7 -13 -5q-8 -3 -13 5z" fill={INK} />
+      <circle cx="-15" cy="-46" r="4.500" fill={INK} />
+      <circle cx="15" cy="-46" r="4.500" fill={INK} />
+      <circle cx="-4.500" cy="-47" r="1.800" fill={INK} stroke="none" />
+      <circle cx="4.500" cy="-47" r="1.800" fill={INK} stroke="none" />
+      <path d="M-3.500 -41q3.500 3.500 7 0" fill="none" strokeWidth="1.800" />
     </g>
   )
 }
@@ -339,10 +340,10 @@ export function StoryScene({ scene, cx = 50, zoom = 1, lumi, title, className }:
   const vy = Math.min(H - vh, Math.max(0, H - vh))
   const kiraX = Math.min(W - 40, Math.max(40, (cx / 100) * W - 40))
   return (
-    <svg viewBox={`${vx} ${vy} ${vw} ${vh}`} width="100%" className={className} preserveAspectRatio="xMidYMid slice" {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}>
+    <svg viewBox={`${vx} ${vy} ${vw} ${vh}`} width="100%" className={className} preserveAspectRatio="xMidYMax slice" {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}>
       <rect x="0" y="0" width={W} height={H} fill={body.sky} />
       {body.node}
-      <Kira x={kiraX} y={268} s={1.1} />
+      <Kira x={kiraX} y={272} s={1.5} />
       <Lumi x={(lumi.x / 100) * W} y={(lumi.y / 100) * H} s={1.1} />
     </svg>
   )

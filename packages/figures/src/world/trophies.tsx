@@ -57,9 +57,6 @@ export function FramedAvatar({ name, size = 80, frame, accessory, background, ti
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={className} {...(title ? { role: 'img', 'aria-label': title } : { 'aria-hidden': true })}>
       <circle cx={size / 2} cy={size / 2} r={size * 0.45} fill={WHITE} />
-      <g transform={`translate(${off} ${off})`}>
-        <foreignObject width={inner} height={inner} style={{ display: 'none' }} />
-      </g>
       <svg x={off} y={off} width={inner} height={inner} viewBox="0 0 64 64">
         <Avatar name={name} size={64} accessory={accessory ?? null} background={background ?? null} />
       </svg>

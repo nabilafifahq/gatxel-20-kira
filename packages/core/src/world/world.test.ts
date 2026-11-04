@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { BOSS_WIN_AT, CARDS, CARD_SETS, SHOP, STORY, cardEarned, cardsOfSet, certificatesFor, chaptersOpen, cleanPetName, diminishing, DRILL_STARS_BY_COUNT, nextBossCard, petStage, sessionStars, setComplete } from '../index'
+import { bossWinAt, CARDS, CARD_SETS, SHOP, STORY, cardEarned, cardsOfSet, certificatesFor, chaptersOpen, cleanPetName, diminishing, DRILL_STARS_BY_COUNT, nextBossCard, petStage, sessionStars, setComplete } from '../index'
 
 describe('bintang', () => {
   it('sesi wajib 3 bintang, sempurna +2, ulangan 0', () => {
@@ -66,5 +66,5 @@ describe('cerita', () => {
       expect(c.tease.length).toBeGreaterThan(10)
     }
   })
-  it('bos menang di 7 dari 10', () => expect(BOSS_WIN_AT).toBe(7))
+  it('bos menang di 70 persen', () => expect([10, 8, 5, 3].map(bossWinAt)).toEqual([7, 6, 4, 3]))
 })

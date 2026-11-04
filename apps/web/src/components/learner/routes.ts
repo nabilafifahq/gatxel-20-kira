@@ -15,6 +15,8 @@ export const LEARNER_ROUTES = {
   fixIt: '/fix-it',
   fixItStart: '/fix-it/start',
   me: '/me',
+  /** Kira World: bintang, teman, toko, album, cerita, robot, piala. */
+  world: '/world',
   quickMaths: '/quick-maths',
   quizArena: '/quiz-arena',
   esmo: '/esmo',
@@ -27,4 +29,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'quick-maths' | 'quiz-arena' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'quick-maths' | 'quiz-arena' | 'world' | 'me'

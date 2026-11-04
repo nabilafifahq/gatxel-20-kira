@@ -44,6 +44,7 @@ export function dtoKind(kind: AttemptRow['kind']): RunnerDTO['kind'] {
 }
 
 export function exitFor(a: Pick<AttemptRow, 'kind'> & { refId?: string | null }): string {
+  if (a.refId?.startsWith('boss:')) return '/world/boss'
   if (areaOfSessionRef(a.refId)) return '/english'
   if (a.kind === 'esmo-pack' || a.kind === 'esmo-mock') return '/esmo'
   if (a.kind === 'simulation') return '/competitions'
@@ -152,6 +153,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     showTerms: runnerItems.some((i) => (i.terms?.length ?? 0) > 0),
     offline: true,
     ...(areaOfSessionRef(a.refId) ? { englishArea: areaOfSessionRef(a.refId)! } : {}),
+    ...(a.refId?.startsWith('boss:') ? { boss: true } : {}),
   }
 }
 
@@ -439,7 +441,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     const done = isBoss ? 0 : a.kind === 'review' ? 10 : 20
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
-    if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct)
+    if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)
     // Sesi opsional bertipe tautan yang cocok ikut selesai.
     if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
     else if (a.kind === 'simulation') await completeLinkedSession(tx, learnerId, date, { session: 'simulation', subject: a.subject as Subject, ...(a.refId ? { presetId: a.refId } : {}) })
