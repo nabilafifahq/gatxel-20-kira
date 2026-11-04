@@ -416,7 +416,7 @@ test.describe('uji tembus 5 November', () => {
 
       await page.getByRole('button', { name: 'Play the audio' }).click()
       await expect.poll(() => keysOf(listen).every((k) => heard.includes(k))).toBe(true)
-      await page.getByRole('radio', { name: 'ch', exact: true }).or(page.getByRole('button', { name: /^(?:[A-E]\.?\s*)?ch$/ })).first().click()
+      await page.getByRole('button', { name: /^[A-E], ch$/ }).click()
       await page.getByRole('button', { name: 'Next', exact: true }).click()
 
       await page.getByRole('button', { name: 'Hear the word' }).click()
