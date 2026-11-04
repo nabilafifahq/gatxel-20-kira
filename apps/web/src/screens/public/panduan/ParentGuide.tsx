@@ -29,6 +29,20 @@ export function ParentGuide({ contact }: { contact: string }) {
           <p className="m-0 max-w-[60ch]">
             Kira adalah ruang belajar harian untuk anak SD kelas 1 sampai 6, mengacu pada kerangka Cambridge Primary. Tombol di layar anak berbahasa Indonesia, soalnya kebanyakan berbahasa Inggris. Anak yang ingin membaca sendiri punya <A href="/panduan/anak">panduan bergambar</A>.
           </p>
+          <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+            {[
+              ['#mulai', 'Mulai dalam 5 menit'],
+              ['#saklar', 'Atur fitur anak'],
+              ['#tanya', 'Tanya jawab'],
+              ['#bantuan', 'Hubungi kami'],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <a href={href} className="inline-flex min-h-11 items-center rounded-pill bg-surface px-4 font-bold no-underline shadow-soft">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
 
@@ -91,7 +105,7 @@ export function ParentGuide({ contact }: { contact: string }) {
             </h2>
             <p className="m-0 max-w-[60ch] text-body-lg">Ada yang membingungkan atau tidak berjalan? Tulis di halaman Bantuan dan masukan: pilih kategori, isi subjek dan pesan, dan kalau perlu lampirkan foto layar atau video pendek. Di halaman itu juga ada tombol untuk chat lewat WhatsApp.</p>
             <div>
-              <ButtonLink href="/feedback" variant="primary">
+              <ButtonLink href="/feedback" variant="primary" prefetch={false}>
                 Buka halaman bantuan
               </ButtonLink>
             </div>

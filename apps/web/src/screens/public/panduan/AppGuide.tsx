@@ -88,10 +88,10 @@ function DownloadCard({ who, apk }: Pick<AppGuideProps, 'who' | 'apk'>) {
         <>
           <p className="m-0">Aplikasi Android bisa diunduh setelah Ayah/Bunda masuk ke akun Kira. Belum punya akun? Daftar dulu, gratis selama beta.</p>
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/masuk?next=/panduan/aplikasi" variant="primary">
+            <ButtonLink href="/masuk?next=/panduan/aplikasi" variant="primary" prefetch={false}>
               Masuk untuk mengunduh
             </ButtonLink>
-            <ButtonLink href="/daftar" variant="secondary">
+            <ButtonLink href="/daftar" variant="secondary" prefetch={false}>
               Daftar kursi beta
             </ButtonLink>
           </div>
@@ -196,7 +196,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
             Tanpa memasang apa pun
           </h2>
           <p className="m-0">
-            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai">Mulai dalam 5 menit</Link>. Ada kendala saat memasang? Tulis di <Link href="/feedback">halaman bantuan</Link>.
+            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai" prefetch={false}>Mulai dalam 5 menit</Link>. Ada kendala saat memasang? Tulis di <Link href="/feedback" prefetch={false}>halaman bantuan</Link>.
           </p>
         </section>
       </div>

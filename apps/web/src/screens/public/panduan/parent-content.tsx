@@ -13,7 +13,7 @@ import type { Feature, ShotSpec } from './parts'
 /** Tautan di dalam kalimat atau langkah. */
 export function A({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <Link href={href} className="font-bold underline underline-offset-3">
+    <Link href={href} prefetch={false} className="font-bold underline underline-offset-3">
       {children}
     </Link>
   )
