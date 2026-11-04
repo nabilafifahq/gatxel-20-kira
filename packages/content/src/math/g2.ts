@@ -1984,7 +1984,8 @@ const shapes2d2: Generator = {
   generate({ rng, level }) {
     if (level === 1) {
       const s = rng.pick(G2_SHAPES)
-      const others = rng.shuffle(G2_SHAPES.filter((x) => x !== s))
+      // Persegi juga persegi panjang: jangan jadi opsi saat kuncinya persegi. Saring sesudah kocok agar jumlah tarikan rng tetap.
+      const others = rng.shuffle(G2_SHAPES.filter((x) => x !== s)).filter((x) => !(s === 'square' && x === 'rectangle'))
       return {
         type: 'mcq',
         prompt: 'What is the name of this shape?',
@@ -2080,7 +2081,8 @@ const shapes3d2: Generator = {
         type: 'mcq',
         prompt: 'What is the name of this 3D shape?',
         figure: solidFig(s),
-        ...mcqFrom(rng, SOLID_INFO[s].name, rng.shuffle(G2_SOLIDS.filter((x) => x !== s)).map((x) => ({ value: SOLID_INFO[x].name, why: SOLID_INFO[x].about }))),
+        // Kubus juga balok: jangan jadi opsi saat kuncinya kubus. Saring sesudah kocok agar jumlah tarikan rng tetap.
+        ...mcqFrom(rng, SOLID_INFO[s].name, rng.shuffle(G2_SOLIDS.filter((x) => x !== s)).filter((x) => !(s === 'cube' && x === 'cuboid')).map((x) => ({ value: SOLID_INFO[x].name, why: SOLID_INFO[x].about }))),
         hints: ['Look at the shape of each face.', 'Are there curved faces, or only flat ones?', 'Look at the bottom face first.'],
         explanation: `This is ${art(SOLID_INFO[s].name)} ${SOLID_INFO[s].name}. ${SOLID_INFO[s].about}`,
       }
@@ -2125,7 +2127,8 @@ const shapes3d2: Generator = {
         type: 'mcq',
         prompt: q.text,
         figure: solidFig(q.fig),
-        ...mcqFrom(rng, q.ans, ['circle', 'square', 'triangle', 'rectangle', 'pentagon'].filter((x) => x !== q.ans).map((x) => ({ value: x, why: `Look at the face again. It is not ${art(x)} ${x}.` }))),
+        // Sisi persegi juga persegi panjang: rectangle bukan pengecoh saat kuncinya square.
+        ...mcqFrom(rng, q.ans, ['circle', 'square', 'triangle', 'rectangle', 'pentagon'].filter((x) => x !== q.ans && !(q.ans === 'square' && x === 'rectangle')).map((x) => ({ value: x, why: `Look at the face again. It is not ${art(x)} ${x}.` }))),
         hints: ['Imagine printing the face on paper.', 'Count the sides of the face.', 'Look for straight sides or a curved edge.'],
         explanation: `${SOLID_INFO[q.fig].about}`,
       }
@@ -2170,7 +2173,8 @@ const shapes3d2: Generator = {
     return {
       type: 'mcq',
       prompt: `What 3D shape is ${obj.text}?`,
-      ...mcqFrom(rng, SOLID_INFO[obj.ans].name, rng.shuffle(G2_SOLIDS.filter((x) => x !== obj.ans)).map((x) => ({ value: SOLID_INFO[x].name, why: SOLID_INFO[x].about }))),
+      // Dadu dan kotak tisu bisa disebut kubus atau balok: jangan tampilkan keduanya. Saring sesudah kocok agar jumlah tarikan rng tetap.
+      ...mcqFrom(rng, SOLID_INFO[obj.ans].name, rng.shuffle(G2_SOLIDS.filter((x) => x !== obj.ans)).filter((x) => !(obj.ans === 'cube' && x === 'cuboid') && !(obj.ans === 'cuboid' && x === 'cube')).map((x) => ({ value: SOLID_INFO[x].name, why: SOLID_INFO[x].about }))),
       hints: [`Picture ${obj.text} in your hand.`, 'Are its faces flat, curved, or both?', 'Count its flat faces.'],
       explanation: `${cap(obj.text)} is shaped like ${art(SOLID_INFO[obj.ans].name)} ${SOLID_INFO[obj.ans].name}. ${SOLID_INFO[obj.ans].about}`,
     }
@@ -2897,7 +2901,7 @@ const chance: Generator = {
         const other = ans === A.many ? B.many : A.many
         return {
           type: 'mcq',
-          prompt: `${intro} Which are you ${more ? 'more' : 'less'} likely to pick?`,
+          prompt: `${intro} Which ${more ? 'are you more' : 'kind in the bag are you less'} likely to pick?`,
           figure,
           ...mcqFrom(rng, cap(ans), [
             { value: cap(other), why: `There are ${more ? 'fewer' : 'more'} ${other} than ${ans}.` },
@@ -2921,7 +2925,7 @@ const chance: Generator = {
           : { correct: pick(A), ds: [{ value: pick(C), why: `There are no ${C.many}, so it will not happen.` }, { value: pick(D), why: `There are no ${D.many}, so it will not happen.` }, { value: either, why: 'Everything in the bag is one of these, so it will happen for sure.' }] }
       return {
         type: 'mcq',
-        prompt: `${intro} Which ${target === 'will' ? 'will happen for sure' : target === 'will not' ? 'will not happen' : 'might happen'}?`,
+        prompt: `${intro} Which ${target === 'will' ? 'will happen for sure' : target === 'will not' ? 'will not happen' : 'might happen, but not for sure'}?`,
         figure,
         ...mcqFrom(rng, opts.correct, opts.ds),
         hints: ['Look at what is in the bag.', target === 'will' ? 'Will happen means it happens every time.' : target === 'will not' ? 'Will not happen means it can never happen.' : 'Might happen means it can happen, but not every time.', 'Check each sentence against the bag.'],
@@ -2948,7 +2952,7 @@ const chance: Generator = {
           : [{ figure: full[0]!, why: 'This spinner always lands on shaded.' }, { figure: empty[0]!, why: 'This spinner can never land on shaded.' }, { figure: empty[1]!, why: 'This spinner can never land on shaded.' }]
       return {
         type: 'mcq',
-        prompt: target === 'always' ? 'Which spinner will always land on shaded?' : target === 'never' ? 'Which spinner will never land on shaded?' : 'Which spinner might land on shaded?',
+        prompt: target === 'always' ? 'Which spinner will always land on shaded?' : target === 'never' ? 'Which spinner will never land on shaded?' : 'Which spinner might land on shaded, but not for sure?',
         ...mcqOpts(rng, { figure: correct }, ds, 4),
         hints: ['Look at how many parts are shaded on each spinner.', target === 'always' ? 'Always means every part is shaded.' : target === 'never' ? 'Never means no part is shaded.' : 'Might means some parts are shaded and some are not.', 'Check the spinners one at a time.'],
         explanation: target === 'always' ? 'Every part of that spinner is shaded, so it will always land on shaded.' : target === 'never' ? 'No part of that spinner is shaded, so it will never land on shaded.' : 'That spinner has some shaded parts and some white parts, so it might land on shaded.',
