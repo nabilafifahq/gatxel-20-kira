@@ -422,8 +422,39 @@
       "difficulty": 4,
       "prompt": "A square is cut into 3 equal rectangles. Each rectangle has a perimeter of 24 cm. What is the perimeter of the square?",
       "figure": {
-        "kind": "shape",
-        "shape": "square",
+        "kind": "scene",
+        "width": 220,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 40,
+            "y": 15,
+            "w": 140,
+            "h": 140,
+            "r": 0,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 87,
+            "y1": 15,
+            "x2": 87,
+            "y2": 155,
+            "width": 2.5,
+            "tone": "math"
+          },
+          {
+            "t": "line",
+            "x1": 133,
+            "y1": 15,
+            "x2": 133,
+            "y2": 155,
+            "width": 2.5,
+            "tone": "math"
+          }
+        ],
         "alt": "A square cut into 3 equal thin rectangles by 2 straight lines."
       },
       "answer": 36,
@@ -550,11 +581,48 @@
       "difficulty": 4,
       "prompt": "A garden is 20 m long and 12 m wide. A path 1 m wide runs all the way round the inside edge. What is the area of the path?",
       "figure": {
-        "kind": "shape",
-        "shape": "rectangle",
-        "sideLabels": [
-          "20 m",
-          "12 m"
+        "kind": "scene",
+        "width": 280,
+        "height": 170,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 20,
+            "y": 28,
+            "w": 200,
+            "h": 120,
+            "r": 0,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 30,
+            "y": 38,
+            "w": 180,
+            "h": 100,
+            "r": 0,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "text",
+            "x": 120,
+            "y": 13,
+            "text": "20 m",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 228,
+            "y": 93,
+            "text": "12 m",
+            "size": 15,
+            "tone": "ink",
+            "anchor": "start"
+          }
         ],
         "alt": "A rectangular garden 20 m long and 12 m wide, with a path 1 m wide along the inside of its edge."
       },
