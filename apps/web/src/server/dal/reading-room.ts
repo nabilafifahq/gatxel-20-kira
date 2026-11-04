@@ -284,6 +284,16 @@ export async function startChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: strin
   return show(row!.id, ids)
 }
 
+/** Setelah bab selesai, tempat melanjutkan pindah ke awal bab berikutnya. */
+async function advanceProgress(tx: Tx, ctx: OrgContext, learnerId: string, book: Book, chapterId: string): Promise<void> {
+  const next = book.chapters[book.chapters.findIndex((c) => c.id === chapterId) + 1]
+  const to = next?.id ?? chapterId
+  await tx
+    .insert(bookProgress)
+    .values({ orgId: ctx.orgId, learnerId, bookId: book.id, chapterId: to, sentenceIdx: 0 })
+    .onConflictDoUpdate({ target: [bookProgress.learnerId, bookProgress.bookId], set: { chapterId: to, sentenceIdx: 0, updatedAt: new Date() } })
+}
+
 async function maybeFinishBook(tx: Tx, ctx: OrgContext, learnerId: string, book: Book, chapterId: string): Promise<{ finished: boolean; xp: number }> {
   const done = (await doneCounts(tx, learnerId)).get(book.id)
   if (!done || done.size < book.chapters.length) return { finished: false, xp: 0 }
@@ -350,6 +360,7 @@ export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: stri
       },
     })
   await grantXp(tx, ctx, learnerId, xp, 'reading-quiz', `${book.id}:${chapter.id}`, jakartaDate())
+  await advanceProgress(tx, ctx, learnerId, book, chapter.id)
   const fin = await maybeFinishBook(tx, ctx, learnerId, book, chapter.id)
   const next = book.chapters[book.chapters.indexOf(chapter) + 1]
   return { correct, total, xp, review, bookFinished: fin.finished, bookXp: fin.xp, nextHref: next ? `/reading/${book.id}/${next.id}` : null }
@@ -361,6 +372,7 @@ export async function markChapterRead(tx: Tx, ctx: OrgContext, learnerId: string
   const chapter = book?.chapters.find((c) => c.id === chapterId)
   if (!book || !chapter) throw notFound('That chapter is not in this book.')
   await tx.insert(bookChapter).values({ orgId: ctx.orgId, learnerId, bookId, chapterId, quizCount: 0 }).onConflictDoNothing()
+  await advanceProgress(tx, ctx, learnerId, book, chapter.id)
   const fin = await maybeFinishBook(tx, ctx, learnerId, book, chapter.id)
   const next = book.chapters[book.chapters.indexOf(chapter) + 1]
   return { bookFinished: fin.finished, nextHref: next ? `/reading/${book.id}/${next.id}` : null }

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState, type ReactElement, type ReactNode } from 'react'
 import { BookCover } from '@kira/figures'
-import { BOOK_GENRE_LABEL, BOOK_LENGTH_LABEL, type BookLength } from '@kira/content/books'
+import type { BookLength } from '@kira/content/books'
 import type { BookCardDTO, ReadingLibraryDTO } from '@/lib/dto-reading'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -14,6 +14,8 @@ import { LearnerFrame } from '@/components/learner/LearnerHeader'
  * Ruang Baca (Reading Room): perpustakaan menurut level (kelas 1 sampai 6), jenis, genre, dan panjang, dengan buku
  * yang sedang dibaca dan rak buku yang sudah selesai. Tidak ada hukuman: buku boleh dibuka kapan saja.
  */
+
+const LENGTH_LABEL: Record<BookLength, string> = { short: 'Short', medium: 'Medium', long: 'Long' }
 
 function Chip({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }): ReactElement {
   return (
@@ -79,7 +81,7 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
   const [length, setLength] = useState<BookLength | 'all'>('all')
   const [genre, setGenre] = useState<string>('all')
 
-  const genres = useMemo(() => [...new Set(data.books.map((b) => b.genre))].sort(), [data.books])
+  const genres = useMemo(() => [...new Map(data.books.map((b) => [b.genre, b.genreLabel] as const)).entries()].sort((a, b) => a[1].localeCompare(b[1])), [data.books])
   const shown = data.books.filter(
     (b) => (level === 'all' || b.grade === level) && (kind === 'all' || b.kind === kind) && (length === 'all' || b.length === length) && (genre === 'all' || b.genre === genre),
   )
@@ -153,9 +155,9 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
           <Chip on={genre === 'all'} onClick={() => setGenre('all')}>
             Any genre
           </Chip>
-          {genres.map((g) => (
+          {genres.map(([g, label]) => (
             <Chip key={g} on={genre === g} onClick={() => setGenre(g)}>
-              {BOOK_GENRE_LABEL[g]}
+              {label}
             </Chip>
           ))}
         </div>
@@ -165,7 +167,7 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
           </Chip>
           {(['short', 'medium', 'long'] as const).map((l) => (
             <Chip key={l} on={length === l} onClick={() => setLength(l)}>
-              {BOOK_LENGTH_LABEL[l]}
+              {LENGTH_LABEL[l]}
             </Chip>
           ))}
         </div>

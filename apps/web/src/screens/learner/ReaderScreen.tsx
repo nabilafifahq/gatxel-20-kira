@@ -323,8 +323,8 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
           </article>
 
           <div className="flex flex-wrap items-center justify-between gap-3" role="group" aria-label="Page and read-along controls">
-            <div className="flex items-center gap-2">
-              <IconButton icon="skip-back" label="Previous sentence" variant="secondary" disabled={unavailable} onClick={() => step(-1)} />
+            <div className="flex flex-wrap items-center gap-2">
+              <IconButton icon="skip-back" label="Previous sentence" size="M" variant="secondary" disabled={unavailable} onClick={() => step(-1)} />
               <Button
                 variant={playing ? 'secondary' : 'primary'}
                 icon={playing ? 'pause' : 'play'}
@@ -337,6 +337,7 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
               <IconButton
                 icon="replay"
                 label="Read this sentence again"
+                size="M"
                 variant="secondary"
                 disabled={unavailable}
                 onClick={() => {
@@ -345,7 +346,7 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
                   setReplay((r) => r + 1)
                 }}
               />
-              <IconButton icon="skip-next" label="Next sentence" variant="secondary" disabled={unavailable} onClick={() => step(1)} />
+              <IconButton icon="skip-next" label="Next sentence" size="M" variant="secondary" disabled={unavailable} onClick={() => step(1)} />
             </div>
             <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 text-body font-bold">
               <input type="checkbox" checked={auto} onChange={toggleAuto} className="h-6 w-6 accent-fg" />
@@ -354,11 +355,11 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
           </div>
           {unavailable ? <p className="m-0 text-body text-fg-muted">No English voice on this device, so you will read this one by yourself. You can still enjoy the story.</p> : null}
 
-          <nav aria-label="Pages" className="flex items-center justify-between gap-3">
+          <nav aria-label="Pages" className="flex flex-wrap items-center justify-between gap-3">
             <Button variant="secondary" icon="arrow-left" disabled={page === 0} onClick={() => goPage(page - 1)}>
               Back
             </Button>
-            <span className="text-body font-bold tabular-nums">
+            <span className="order-first w-full text-center text-body font-bold tabular-nums md:order-none md:w-auto">
               Page {page + 1} of {data.pages.length}
             </span>
             {lastPage ? (
