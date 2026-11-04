@@ -347,7 +347,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             <OfflineBanner state={syncState} pendingCount={queue.pending} />
           </span>
         ) : null}
-      {item && !finished ? <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} screen="practice" className="max-md:hidden" /> : null}
+      {item && !finished ? <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} screen="practice" /> : null}
     </header>
   )
 

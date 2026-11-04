@@ -330,7 +330,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           {tt.lookAgain}
         </Button>
         <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
-        <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} screen="test" className="max-md:hidden" />
+        <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} screen="test" />
         <div className="ml-auto flex gap-3">
           <Button variant="secondary" icon="arrow-left" disabled={index === 0 || locked} onClick={() => go(index - 1)} className="max-sm:px-3">
             <span className="max-sm:sr-only">{tt.previous}</span>
