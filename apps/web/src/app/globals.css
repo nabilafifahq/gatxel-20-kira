@@ -283,6 +283,14 @@
     opacity: 0;
   }
 }
+@keyframes kira-mark {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
 @keyframes kira-pulse {
   0%,
   100% {
@@ -514,6 +522,13 @@
   }
   .kira-pulse {
     animation: kira-pulse 420ms var(--ease-kira) both;
+  }
+  /* Sorotan di kalimat soal pada pembahasan: warna menyapu dari kiri. */
+  .kira-mark {
+    background-image: linear-gradient(var(--color-star), var(--color-star));
+    background-color: transparent;
+    background-repeat: no-repeat;
+    animation: kira-mark 700ms var(--ease-kira) 200ms both;
   }
   /* Not yet: geseran mendatar yang lembut, tanpa memantul. */
   .kira-nudge {

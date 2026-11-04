@@ -51,7 +51,17 @@
         },
         {
           "say": "Tambahkan 3 ke 11.",
-          "show": "11 + 3 = 14"
+          "show": "11 + 3 = 14",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "+",
+            "b": 3,
+            "r": 14
+          },
+          "mark": [
+            "11"
+          ]
         }
       ],
       "tags": [
@@ -147,7 +157,14 @@
         },
         {
           "say": "Dua kelompok penuh sampai gambar ke-8.",
-          "show": "4 + 4 = 8"
+          "show": "4 + 4 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 4,
+            "r": 8
+          }
         },
         {
           "say": "Lanjutkan: ke-9 lingkaran, ke-10 segitiga, ke-11 segitiga.",
@@ -217,11 +234,29 @@
       "solution": [
         {
           "say": "Aturannya kurang 4.",
-          "show": "50, 46, 42, 38"
+          "show": "50, 46, 42, 38",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "50",
+              "46",
+              "42",
+              "38"
+            ]
+          }
         },
         {
           "say": "Lanjutkan.",
-          "show": "34, 30, 26, 22"
+          "show": "34, 30, 26, 22",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "34",
+              "30",
+              "26",
+              "22"
+            ]
+          }
         },
         {
           "say": "Bilangan ke-8 adalah 22."
@@ -303,7 +338,18 @@
         },
         {
           "say": "Selisih berikutnya +6.",
-          "show": "15 + 6 = 21"
+          "show": "15 + 6 = 21",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "+",
+            "b": 6,
+            "r": 21
+          },
+          "mark": [
+            "15",
+            "6"
+          ]
         }
       ],
       "tags": [
@@ -587,7 +633,17 @@
         },
         {
           "say": "Sisa menit.",
-          "show": "25 - 20 = 5 menit"
+          "show": "25 - 20 = 5 menit",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "-",
+            "b": 20,
+            "r": 5
+          },
+          "mark": [
+            "25"
+          ]
         },
         {
           "say": "Tambah sisanya.",
@@ -715,7 +771,18 @@
       "solution": [
         {
           "say": "Selisih tanggal.",
-          "show": "12 - 5 = 7 hari"
+          "show": "12 - 5 = 7 hari",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 5,
+            "r": 7
+          },
+          "mark": [
+            "12",
+            "5"
+          ]
         },
         {
           "say": "7 hari adalah satu minggu, jadi nama harinya sama.",
@@ -1025,7 +1092,14 @@
         },
         {
           "say": "Diagonal kedua membelah setiap segitiga besar menjadi 2.",
-          "show": "2 + 2 = 4"
+          "show": "2 + 2 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "+",
+            "b": 2,
+            "r": 4
+          }
         },
         {
           "say": "Jadi ada 4 potong segitiga kecil."
@@ -1111,7 +1185,14 @@
       "solution": [
         {
           "say": "Sisi segi lima.",
-          "show": "5 + 5 = 10"
+          "show": "5 + 5 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 5,
+            "r": 10
+          }
         },
         {
           "say": "Sisi segitiga.",
@@ -1119,7 +1200,14 @@
         },
         {
           "say": "Jumlahkan.",
-          "show": "10 + 9 = 19"
+          "show": "10 + 9 = 19",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 9,
+            "r": 19
+          }
         }
       ],
       "tags": [
@@ -1195,7 +1283,14 @@
         },
         {
           "say": "Jumlahkan.",
-          "show": "4 + 1 = 5"
+          "show": "4 + 1 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 1,
+            "r": 5
+          }
         }
       ],
       "tags": [
@@ -1335,7 +1430,14 @@
       "solution": [
         {
           "say": "Jumlah angka 10, selisih 4.",
-          "show": "7 + 3 = 10, 7 - 3 = 4"
+          "show": "7 + 3 = 10, 7 - 3 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 3,
+            "r": 10
+          }
         },
         {
           "say": "Angka puluhan yang lebih besar: 7.",
@@ -1343,7 +1445,14 @@
         },
         {
           "say": "Periksa: 7 + 3 = 10 dan 7 adalah 4 lebih besar dari 3.",
-          "show": "73"
+          "show": "73",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 3,
+            "r": 10
+          }
         }
       ],
       "tags": [
@@ -1405,11 +1514,32 @@
       "solution": [
         {
           "say": "Kurangi 42 dengan 15.",
-          "show": "42 - 15 = 27"
+          "show": "42 - 15 = 27",
+          "anim": {
+            "k": "combine",
+            "a": 42,
+            "op": "-",
+            "b": 15,
+            "r": 27
+          },
+          "mark": [
+            "42",
+            "15"
+          ]
         },
         {
           "say": "Periksa.",
-          "show": "27 + 15 = 42"
+          "show": "27 + 15 = 42",
+          "anim": {
+            "k": "combine",
+            "a": 27,
+            "op": "+",
+            "b": 15,
+            "r": 42
+          },
+          "mark": [
+            "15"
+          ]
         }
       ],
       "tags": [
@@ -1467,11 +1597,28 @@
       "solution": [
         {
           "say": "Bilangan yang jumlah angkanya 5.",
-          "show": "14, 23, 32, 41, 50"
+          "show": "14, 23, 32, 41, 50",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "14",
+              "23",
+              "32",
+              "41",
+              "50"
+            ]
+          }
         },
         {
           "say": "Tukar dan cari selisihnya.",
-          "show": "41 - 14 = 27, 32 - 23 = 9"
+          "show": "41 - 14 = 27, 32 - 23 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 41,
+            "op": "-",
+            "b": 14,
+            "r": 27
+          }
         },
         {
           "say": "Hanya 14 yang bertambah 27.",
@@ -1559,7 +1706,15 @@
         },
         {
           "say": "Tambah koin.",
-          "show": "Rp9.000 + Rp1.000 = Rp10.000"
+          "show": "Rp9.000 + Rp1.000 = Rp10.000",
+          "anim": {
+            "k": "combine",
+            "a": 9000,
+            "op": "+",
+            "b": 1000,
+            "r": 10000,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -1625,7 +1780,15 @@
         },
         {
           "say": "Jumlahkan.",
-          "show": "Rp500 + Rp1.000 = Rp1.500"
+          "show": "Rp500 + Rp1.000 = Rp1.500",
+          "anim": {
+            "k": "combine",
+            "a": 500,
+            "op": "+",
+            "b": 1000,
+            "r": 1500,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -1701,19 +1864,63 @@
       "solution": [
         {
           "say": "Uang kertas.",
-          "show": "3 × Rp2.000 = Rp6.000"
+          "show": "3 × Rp2.000 = Rp6.000",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 2000,
+            "r": 6000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.000"
+          ]
         },
         {
           "say": "Uang koin.",
-          "show": "4 × Rp500 = Rp2.000"
+          "show": "4 × Rp500 = Rp2.000",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 500,
+            "r": 2000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp500"
+          ]
         },
         {
           "say": "Semua uang.",
-          "show": "Rp6.000 + Rp2.000 = Rp8.000"
+          "show": "Rp6.000 + Rp2.000 = Rp8.000",
+          "anim": {
+            "k": "combine",
+            "a": 6000,
+            "op": "+",
+            "b": 2000,
+            "r": 8000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.000"
+          ]
         },
         {
           "say": "Sisa uang.",
-          "show": "Rp8.000 - Rp6.500 = Rp1.500"
+          "show": "Rp8.000 - Rp6.500 = Rp1.500",
+          "anim": {
+            "k": "combine",
+            "a": 8000,
+            "op": "-",
+            "b": 6500,
+            "r": 1500,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp6.500"
+          ]
         }
       ],
       "tags": [
@@ -1775,11 +1982,31 @@
       "solution": [
         {
           "say": "Satu pasang.",
-          "show": "Rp2.000 + Rp1.000 = Rp3.000"
+          "show": "Rp2.000 + Rp1.000 = Rp3.000",
+          "anim": {
+            "k": "combine",
+            "a": 2000,
+            "op": "+",
+            "b": 1000,
+            "r": 3000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.000",
+            "Rp1.000"
+          ]
         },
         {
           "say": "Banyak pasang.",
-          "show": "5 × Rp3.000 = Rp15.000"
+          "show": "5 × Rp3.000 = Rp15.000",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 3000,
+            "r": 15000,
+            "cur": "Rp"
+          }
         },
         {
           "say": "Jadi ada 5 lembar Rp2.000.",
@@ -1849,15 +2076,36 @@
       "solution": [
         {
           "say": "Puluhan.",
-          "show": "20 + 30 = 50"
+          "show": "20 + 30 = 50",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 30,
+            "r": 50
+          }
         },
         {
           "say": "Satuan.",
-          "show": "5 + 7 = 12"
+          "show": "5 + 7 = 12",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 7,
+            "r": 12
+          }
         },
         {
           "say": "Gabungkan.",
-          "show": "50 + 12 = 62"
+          "show": "50 + 12 = 62",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "+",
+            "b": 12,
+            "r": 62
+          }
         }
       ],
       "tags": [
@@ -1915,11 +2163,32 @@
       "solution": [
         {
           "say": "Kalikan.",
-          "show": "8 × 5 = 40"
+          "show": "8 × 5 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "×",
+            "b": 5,
+            "r": 40
+          },
+          "mark": [
+            "8",
+            "5"
+          ]
         },
         {
           "say": "Kurangi.",
-          "show": "40 - 12 = 28"
+          "show": "40 - 12 = 28",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "-",
+            "b": 12,
+            "r": 28
+          },
+          "mark": [
+            "12"
+          ]
         }
       ],
       "tags": [
@@ -1977,15 +2246,46 @@
       "solution": [
         {
           "say": "Sisi kanan.",
-          "show": "25 + 9 = 34"
+          "show": "25 + 9 = 34",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "+",
+            "b": 9,
+            "r": 34
+          },
+          "mark": [
+            "25",
+            "9"
+          ]
         },
         {
           "say": "Kebalikannya.",
-          "show": "34 + 18 = 52"
+          "show": "34 + 18 = 52",
+          "anim": {
+            "k": "combine",
+            "a": 34,
+            "op": "+",
+            "b": 18,
+            "r": 52
+          },
+          "mark": [
+            "18"
+          ]
         },
         {
           "say": "Periksa.",
-          "show": "52 - 18 = 34"
+          "show": "52 - 18 = 34",
+          "anim": {
+            "k": "combine",
+            "a": 52,
+            "op": "-",
+            "b": 18,
+            "r": 34
+          },
+          "mark": [
+            "18"
+          ]
         }
       ],
       "tags": [
@@ -2057,7 +2357,17 @@
         },
         {
           "say": "Dipetik 5.",
-          "show": "24 - 5 = 19"
+          "show": "24 - 5 = 19",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "-",
+            "b": 5,
+            "r": 19
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -2123,19 +2433,54 @@
       "solution": [
         {
           "say": "Ambil selisihnya.",
-          "show": "30 - 6 = 24"
+          "show": "30 - 6 = 24",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 6,
+            "r": 24
+          },
+          "mark": [
+            "30",
+            "6"
+          ]
         },
         {
           "say": "Bagi dua.",
-          "show": "24 ÷ 2 = 12 (Rudi)"
+          "show": "24 ÷ 2 = 12 (Rudi)",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 2,
+            "r": 12
+          }
         },
         {
           "say": "Kelereng Doni.",
-          "show": "12 + 6 = 18"
+          "show": "12 + 6 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 6,
+            "r": 18
+          },
+          "mark": [
+            "6"
+          ]
         },
         {
           "say": "Periksa.",
-          "show": "12 + 18 = 30"
+          "show": "12 + 18 = 30",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 18,
+            "r": 30
+          }
         }
       ],
       "tags": [
@@ -2197,7 +2542,14 @@
         },
         {
           "say": "Halte kedua: separuh turun.",
-          "show": "32 ÷ 2 = 16"
+          "show": "32 ÷ 2 = 16",
+          "anim": {
+            "k": "combine",
+            "a": 32,
+            "op": "÷",
+            "b": 2,
+            "r": 16
+          }
         },
         {
           "say": "Masih ada 16 penumpang."

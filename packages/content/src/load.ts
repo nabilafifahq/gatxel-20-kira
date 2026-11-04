@@ -3,7 +3,9 @@ import { join, relative } from 'node:path'
 import { validateRules } from '@kira/core/scoring'
 import { z } from 'zod'
 import { flattenGrid, gridRulesOk, gridValues, sizeAllowed, solveGrid } from './grid'
+import { animProblem } from './anim'
 import { GENERATORS, generateUncached, genRef } from './math'
+import { solutionReaches, withWalkthrough } from './walkthrough'
 import {
   catalogSchema,
   itemFileSchema,
@@ -245,12 +247,29 @@ function newTypeProblems(item: Item): string[] {
   return p
 }
 
+/** Pembahasan bergerak: hitungan gerakan benar, sorotan ada di soal, dan langkah sampai ke jawaban berkunci. */
+export function solutionProblems(item: Item): string[] {
+  const p: string[] = []
+  const steps = item.solution ?? []
+  steps.forEach((s, i) => {
+    if (s.anim) {
+      const m = animProblem(s.anim)
+      if (m) p.push(`Pembahasan langkah ${i + 1}: ${m}`)
+    }
+    if (s.focus === 'figure' && !item.figure) p.push(`Pembahasan langkah ${i + 1}: focus figure tapi soal tanpa gambar`)
+    for (const w of s.mark ?? []) if (!item.prompt.includes(w)) p.push(`Pembahasan langkah ${i + 1}: sorotan "${w}" tidak ada di soal`)
+  })
+  if (steps.length > 0 && solutionReaches(item) === false) p.push(`Pembahasan tidak sampai ke jawaban berkunci (${item.id})`)
+  return p
+}
+
 /** Pemeriksaan isi yang tidak bisa dinyatakan di skema Zod. */
 export function semanticProblems(item: Item, ctx: { passages?: Map<string, Passage> } = {}): string[] {
   const p: string[] = []
   const hintSet = new Set(item.hints.map((h) => h.toLowerCase()))
   if (hintSet.size !== item.hints.length) p.push('Hint tidak boleh sama')
   if (item.hints.some((h) => h.trim().toLowerCase() === item.explanation.trim().toLowerCase())) p.push('Hint sama dengan penjelasan')
+  p.push(...solutionProblems(item))
   for (const t of textsOf(item)) {
     if (BANNED_CHARS.test(t)) p.push(`Ada em dash atau en dash: "${t.slice(0, 50)}"`)
     if (BANNED_WORDS.test(t)) p.push(`Kata terlarang GTX: "${t.slice(0, 50)}"`)
@@ -387,9 +406,10 @@ export function loadContent(dir: string = findContentDir()): LoadResult {
       if (item.skill !== expectedSkill) errors.push({ file: rel, message: `${item.id}: skill harus ${expectedSkill}` })
       if (!ITEM_ID.test(item.id) || !item.id.startsWith(`${expectedSkill}.`)) errors.push({ file: rel, message: `${item.id}: id harus ${expectedSkill}.NNN` })
       if (index.items.has(item.id)) errors.push({ file: rel, message: `${item.id}: id soal kembar` })
-      for (const msg of semanticProblems(item, { passages: index.passages })) errors.push({ file: rel, message: `${item.id}: ${msg}` })
-      index.items.set(item.id, item)
-      index.itemsBySkill.set(item.skill, [...(index.itemsBySkill.get(item.skill) ?? []), item])
+      const full = withWalkthrough(item)
+      for (const msg of semanticProblems(full, { passages: index.passages })) errors.push({ file: rel, message: `${item.id}: ${msg}` })
+      index.items.set(item.id, full)
+      index.itemsBySkill.set(item.skill, [...(index.itemsBySkill.get(item.skill) ?? []), full])
     }
   }
 

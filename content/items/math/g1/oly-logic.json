@@ -111,11 +111,25 @@
         },
         {
           "say": "Cats have 4 legs each.",
-          "show": "4 + 4 = 8"
+          "show": "4 + 4 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 4,
+            "r": 8
+          }
         },
         {
           "say": "Add them.",
-          "show": "6 + 8 = 14"
+          "show": "6 + 8 = 14",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 8,
+            "r": 14
+          }
         }
       ],
       "tags": [
@@ -291,7 +305,23 @@
         },
         {
           "say": "Semuanya ada 3 + 1 = 4 anak.",
-          "show": "3 + 1 = 4"
+          "show": "3 + 1 = 4",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 1
+              }
+            ],
+            "total": 4
+          },
+          "mark": [
+            "3",
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -386,11 +416,37 @@
       "solution": [
         {
           "say": "Tom now: 3 years older than Mei.",
-          "show": "5 + 3 = 8"
+          "show": "5 + 3 = 8",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "+",
+            "b": 3,
+            "r": 8
+          },
+          "mark": [
+            "5",
+            "3"
+          ]
         },
         {
           "say": "In 2 years, add 2.",
-          "show": "8 + 2 = 10"
+          "show": "8 + 2 = 10",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 10
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -853,7 +909,23 @@
           "say": "3 squares make 12, so a square is 4."
         },
         {
-          "say": "A square and a circle make 7, so the circle is 7 - 4 = 3."
+          "say": "A square and a circle make 7, so the circle is 7 - 4 = 3.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 3,
+                "q": true
+              }
+            ],
+            "total": 7
+          },
+          "mark": [
+            "7"
+          ]
         }
       ],
       "tags": [

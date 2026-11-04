@@ -68,7 +68,7 @@ export async function attemptProgress(tx: Tx, attemptIds: string[]): Promise<Map
     .from(response)
     .where(inArray(response.attemptId, attemptIds))
   for (const a of atts) {
-    const items = (a.items as AttemptItem[]) ?? []
+    const items = ((a.items as AttemptItem[]) ?? []).filter((i) => i.remedialOf === undefined)
     const latest = new Map<number, { no: number; status: string }>()
     for (const r of resp.filter((x) => x.attemptId === a.id)) {
       const cur = latest.get(r.position)
@@ -411,7 +411,7 @@ export async function doneTodayDTO(tx: Tx, learnerId: string): Promise<DoneToday
       .sort((a, b) => SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject) || byPath(a, b))
       .map((q) => {
         const a = atts.find((x) => x.id === q.attemptId)
-        const items = ((a?.items as AttemptItem[]) ?? []).length
+        const items = ((a?.items as AttemptItem[]) ?? []).filter((i) => i.remedialOf === undefined).length
         const s = a && q.status === 'done' ? scoreText(a, items) : null
         return {
           subject: q.subject as Subject,

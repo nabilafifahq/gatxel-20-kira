@@ -35,6 +35,20 @@ for (const subject of SUBJECTS) {
   }
 }
 console.log(rows.join('\n'))
+// Pembahasan bergerak: jumlah soal olimpiade yang punya gerakan, dan cakupan pembahasan per mapel.
+const MIN_OLY_ANIMATED = 150
+let olyAnimated = 0
+const solved: Record<string, [number, number]> = {}
+for (const item of index.items.values()) {
+  const subj = index.skills.get(item.skill)?.subject ?? 'math'
+  const row = (solved[subj] ??= [0, 0])
+  row[1]++
+  if (item.solution && item.solution.length > 0) row[0]++
+  if (item.skill.includes('.oly-') && item.solution?.some((s) => s.anim)) olyAnimated++
+}
+console.log(`Pembahasan: ${Object.entries(solved).map(([k, [a, b]]) => `${k} ${a}/${b}`).join(', ')}; olimpiade ber-gerakan ${olyAnimated}`)
+if (scopes.length === 0 && olyAnimated < MIN_OLY_ANIMATED) allErrors.push({ file: 'items/oly', message: `Soal olimpiade ber-gerakan ${olyAnimated}, minimal ${MIN_OLY_ANIMATED}` })
+
 console.log(`Bacaan ${index.passages.size}, lomba ${index.competitions.length}, preset ${index.presets.length}`)
 console.log(`Dek kartu ${cards.decks.length}, kartu ${cards.decks.reduce((n, d) => n + d.cards.length, 0)}`)
 console.log(`Kata Spelling Bee: starters ${spelling.levels.starters.length}, movers ${spelling.levels.movers.length}, flyers ${spelling.levels.flyers.length}`)

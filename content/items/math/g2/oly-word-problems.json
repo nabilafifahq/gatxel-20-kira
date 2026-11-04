@@ -100,10 +100,36 @@
       "explanation": "Ben has 12 + 7 = 19 stickers. Together they have 12 + 19 = 31 stickers.",
       "solution": [
         {
-          "say": "Ben has 12 + 7 = 19 stickers."
+          "say": "Ben has 12 + 7 = 19 stickers.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 7,
+            "r": 19
+          },
+          "mark": [
+            "12",
+            "7"
+          ]
         },
         {
-          "say": "Together they have 12 + 19 = 31 stickers."
+          "say": "Together they have 12 + 19 = 31 stickers.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 19
+              }
+            ],
+            "total": 31
+          },
+          "mark": [
+            "12"
+          ]
         }
       ],
       "tags": [
@@ -201,7 +227,29 @@
           "say": "That makes 4 blocks in all."
         },
         {
-          "say": "24 / 4 = 6, so there are 6 blue marbles."
+          "say": "24 / 4 = 6, so there are 6 blue marbles.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6,
+                "q": true
+              },
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 24
+          },
+          "mark": [
+            "24"
+          ]
         }
       ],
       "tags": [
@@ -309,13 +357,41 @@
       "explanation": "Take away the extra 6: 30 - 6 = 24. Share equally: 24 / 2 = 12 for Bela. Ani has 12 + 6 = 18 stickers.",
       "solution": [
         {
-          "say": "Take away the extra 6: 30 - 6 = 24."
+          "say": "Take away the extra 6: 30 - 6 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 6,
+            "r": 24
+          },
+          "mark": [
+            "30",
+            "6"
+          ]
         },
         {
-          "say": "Share equally: 24 / 2 = 12 for Bela."
+          "say": "Share equally: 24 / 2 = 12 for Bela.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 2,
+            "r": 12
+          }
         },
         {
-          "say": "Ani has 12 + 6 = 18 stickers."
+          "say": "Ani has 12 + 6 = 18 stickers.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "+",
+            "b": 6,
+            "r": 18
+          },
+          "mark": [
+            "6"
+          ]
         }
       ],
       "tags": [
@@ -344,13 +420,39 @@
       "explanation": "Take away the extra 4 m: 20 - 4 = 16. Each piece would be 8 m. The longer piece is 8 + 4 = 12 m.",
       "solution": [
         {
-          "say": "Take away the extra 4 m: 20 - 4 = 16."
+          "say": "Take away the extra 4 m: 20 - 4 = 16.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "-",
+            "b": 4,
+            "r": 16
+          },
+          "mark": [
+            "20",
+            "4"
+          ]
         },
         {
           "say": "Each piece would be 8 m."
         },
         {
-          "say": "The longer piece is 8 + 4 = 12 m."
+          "say": "The longer piece is 8 + 4 = 12 m.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -382,7 +484,35 @@
           "say": "That is 6 blocks in all."
         },
         {
-          "say": "18 / 6 = 3, so Tia has 3 cards."
+          "say": "18 / 6 = 3, so Tia has 3 cards.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3,
+                "q": true
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 18
+          },
+          "mark": [
+            "18"
+          ]
         }
       ],
       "tags": [
@@ -412,10 +542,36 @@
           "say": "Box B has 4 extra and box C has 6 extra, so 10 extra in all."
         },
         {
-          "say": "37 - 10 = 27."
+          "say": "37 - 10 = 27.",
+          "anim": {
+            "k": "combine",
+            "a": 37,
+            "op": "-",
+            "b": 10,
+            "r": 27
+          },
+          "mark": [
+            "37"
+          ]
         },
         {
-          "say": "Share between 3 boxes: 27 / 3 = 9."
+          "say": "Share between 3 boxes: 27 / 3 = 9.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 27
+          }
         },
         {
           "say": "Box A has 9 balls."
@@ -449,7 +605,22 @@
           "say": "The 15 pages left are the other half of the book."
         },
         {
-          "say": "The whole book is 15 + 15 = 30 pages."
+          "say": "The whole book is 15 + 15 = 30 pages.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 15
+              },
+              {
+                "v": 15
+              }
+            ],
+            "total": 30
+          },
+          "mark": [
+            "15"
+          ]
         }
       ],
       "tags": [
@@ -491,10 +662,28 @@
       "explanation": "Take away the 4 extra girls: 28 - 4 = 24. Share equally: 24 / 2 = 12 boys. There are 16 girls.",
       "solution": [
         {
-          "say": "Take away the 4 extra girls: 28 - 4 = 24."
+          "say": "Take away the 4 extra girls: 28 - 4 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 28,
+            "op": "-",
+            "b": 4,
+            "r": 24
+          },
+          "mark": [
+            "28",
+            "4"
+          ]
         },
         {
-          "say": "Share equally: 24 / 2 = 12 boys."
+          "say": "Share equally: 24 / 2 = 12 boys.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 2,
+            "r": 12
+          }
         },
         {
           "say": "There are 16 girls."
@@ -533,7 +722,41 @@
           "say": "So 2 blocks = 16, which means 1 block = 8."
         },
         {
-          "say": "Tom started with 3 x 8 = 24 cards."
+          "say": "Tom started with 3 x 8 = 24 cards.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              },
+              {
+                "v": 3
+              }
+            ],
+            "total": 24
+          },
+          "mark": [
+            "3",
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -560,10 +783,34 @@
       "explanation": "Take away the 6: 30 - 6 = 24. Share equally: 24 / 2 = 12. The smaller number is 12 and the bigger is 18.",
       "solution": [
         {
-          "say": "Take away the 6: 30 - 6 = 24."
+          "say": "Take away the 6: 30 - 6 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 6,
+            "r": 24
+          },
+          "mark": [
+            "30",
+            "6"
+          ]
         },
         {
-          "say": "Share equally: 24 / 2 = 12."
+          "say": "Share equally: 24 / 2 = 12.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12,
+                "q": true
+              },
+              {
+                "v": 12
+              }
+            ],
+            "total": 24
+          }
         },
         {
           "say": "The smaller number is 12 and the bigger is 18."
@@ -593,10 +840,40 @@
       "explanation": "Take away the 5 loose oranges: 29 - 5 = 24. Share between 3 bags: 24 / 3 = 8. Each bag holds 8 oranges.",
       "solution": [
         {
-          "say": "Take away the 5 loose oranges: 29 - 5 = 24."
+          "say": "Take away the 5 loose oranges: 29 - 5 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "-",
+            "b": 5,
+            "r": 24
+          },
+          "mark": [
+            "29",
+            "5"
+          ]
         },
         {
-          "say": "Share between 3 bags: 24 / 3 = 8."
+          "say": "Share between 3 bags: 24 / 3 = 8.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 8,
+                "q": true
+              },
+              {
+                "v": 8
+              },
+              {
+                "v": 8
+              }
+            ],
+            "total": 24
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Each bag holds 8 oranges."
@@ -669,10 +946,30 @@
           "say": "That is 3 blocks in all."
         },
         {
-          "say": "36 / 3 = 12 cm for the blue part."
+          "say": "36 / 3 = 12 cm for the blue part.",
+          "anim": {
+            "k": "combine",
+            "a": 36,
+            "op": "÷",
+            "b": 3,
+            "r": 12
+          },
+          "mark": [
+            "36"
+          ]
         },
         {
-          "say": "The red part is 2 x 12 = 24 cm."
+          "say": "The red part is 2 x 12 = 24 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 12,
+            "r": 24
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -698,13 +995,46 @@
       "explanation": "Take away the 5 extra cows: 29 - 5 = 24. Share equally: 24 / 2 = 12 hens. There are 12 + 5 = 17 cows.",
       "solution": [
         {
-          "say": "Take away the 5 extra cows: 29 - 5 = 24."
+          "say": "Take away the 5 extra cows: 29 - 5 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "-",
+            "b": 5,
+            "r": 24
+          },
+          "mark": [
+            "29",
+            "5"
+          ]
         },
         {
-          "say": "Share equally: 24 / 2 = 12 hens."
+          "say": "Share equally: 24 / 2 = 12 hens.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 2,
+            "r": 12
+          }
         },
         {
-          "say": "There are 12 + 5 = 17 cows."
+          "say": "There are 12 + 5 = 17 cows.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 17
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -731,13 +1061,37 @@
       "explanation": "The top shelf has 28 - 18 = 10 more books. Each book that moves makes the gap 2 smaller. So 10 / 2 = 5 books must move.",
       "solution": [
         {
-          "say": "The top shelf has 28 - 18 = 10 more books."
+          "say": "The top shelf has 28 - 18 = 10 more books.",
+          "anim": {
+            "k": "combine",
+            "a": 28,
+            "op": "-",
+            "b": 18,
+            "r": 10
+          },
+          "mark": [
+            "28",
+            "18"
+          ]
         },
         {
           "say": "Each book that moves makes the gap 2 smaller."
         },
         {
-          "say": "So 10 / 2 = 5 books must move."
+          "say": "So 10 / 2 = 5 books must move.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5,
+                "q": true
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 10
+          }
         }
       ],
       "tags": [
@@ -768,13 +1122,39 @@
           "say": "A is 11 cm longer than C."
         },
         {
-          "say": "Take away the extra: 25 - 11 = 14."
+          "say": "Take away the extra: 25 - 11 = 14.",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "-",
+            "b": 11,
+            "r": 14
+          },
+          "mark": [
+            "25"
+          ]
         },
         {
           "say": "Share equally: C is 7 cm."
         },
         {
-          "say": "Then B is 7 + 4 = 11 cm, and A is 18 cm."
+          "say": "Then B is 7 + 4 = 11 cm, and A is 18 cm.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 11
+          },
+          "mark": [
+            "7",
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -850,10 +1230,31 @@
       "explanation": "14 + 5 = 19 children. Then 19 - 8 = 11 children are in the park.",
       "solution": [
         {
-          "say": "14 + 5 = 19 children."
+          "say": "14 + 5 = 19 children.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "+",
+            "b": 5,
+            "r": 19
+          },
+          "mark": [
+            "14",
+            "5"
+          ]
         },
         {
-          "say": "Then 19 - 8 = 11 children are in the park."
+          "say": "Then 19 - 8 = 11 children are in the park.",
+          "anim": {
+            "k": "combine",
+            "a": 19,
+            "op": "-",
+            "b": 8,
+            "r": 11
+          },
+          "mark": [
+            "8"
+          ]
         }
       ],
       "tags": [
@@ -896,10 +1297,31 @@
       "explanation": "5 boxes hold 5 x 6 = 30 eggs. Mum uses 13, so 30 - 13 = 17 eggs are left.",
       "solution": [
         {
-          "say": "5 boxes hold 5 x 6 = 30 eggs."
+          "say": "5 boxes hold 5 x 6 = 30 eggs.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 6,
+            "r": 30
+          },
+          "mark": [
+            "5",
+            "6"
+          ]
         },
         {
-          "say": "Mum uses 13, so 30 - 13 = 17 eggs are left."
+          "say": "Mum uses 13, so 30 - 13 = 17 eggs are left.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 13,
+            "r": 17
+          },
+          "mark": [
+            "13"
+          ]
         }
       ],
       "tags": [
@@ -926,10 +1348,43 @@
       "explanation": "Ben gives away 36 - 8 = 28 sweets. Each friend gets 28 / 4 = 7 sweets.",
       "solution": [
         {
-          "say": "Ben gives away 36 - 8 = 28 sweets."
+          "say": "Ben gives away 36 - 8 = 28 sweets.",
+          "anim": {
+            "k": "combine",
+            "a": 36,
+            "op": "-",
+            "b": 8,
+            "r": 28
+          },
+          "mark": [
+            "36",
+            "8"
+          ]
         },
         {
-          "say": "Each friend gets 28 / 4 = 7 sweets."
+          "say": "Each friend gets 28 / 4 = 7 sweets.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7,
+                "q": true
+              },
+              {
+                "v": 7
+              },
+              {
+                "v": 7
+              },
+              {
+                "v": 7
+              }
+            ],
+            "total": 28
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -959,10 +1414,37 @@
           "say": "The opposite of adding 7 is taking away 7."
         },
         {
-          "say": "15 - 7 = 8."
+          "say": "15 - 7 = 8.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7
+              },
+              {
+                "v": 8,
+                "q": true
+              }
+            ],
+            "total": 15
+          },
+          "mark": [
+            "15",
+            "7"
+          ]
         },
         {
-          "say": "Check: 8 + 7 = 15."
+          "say": "Check: 8 + 7 = 15.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 7,
+            "r": 15
+          },
+          "mark": [
+            "7"
+          ]
         }
       ],
       "tags": [
@@ -988,13 +1470,44 @@
       "explanation": "Undo take away 3 by adding 3: 11 + 3 = 14. Undo doubling by halving: 14 / 2 = 7. Check: 7 x 2 = 14 and 14 - 3 = 11.",
       "solution": [
         {
-          "say": "Undo take away 3 by adding 3: 11 + 3 = 14."
+          "say": "Undo take away 3 by adding 3: 11 + 3 = 14.",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "+",
+            "b": 3,
+            "r": 14
+          },
+          "mark": [
+            "11",
+            "3"
+          ]
         },
         {
-          "say": "Undo doubling by halving: 14 / 2 = 7."
+          "say": "Undo doubling by halving: 14 / 2 = 7.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7,
+                "q": true
+              },
+              {
+                "v": 7
+              }
+            ],
+            "total": 14
+          }
         },
         {
-          "say": "Check: 7 x 2 = 14 and 14 - 3 = 11."
+          "say": "Check: 7 x 2 = 14 and 14 - 3 = 11.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "×",
+            "b": 2,
+            "r": 14
+          }
         }
       ],
       "tags": [
@@ -1021,13 +1534,48 @@
       "explanation": "Undo doubling by halving: 20 / 2 = 10. Undo take away 6 by adding 6: 10 + 6 = 16. Check: 16 - 6 = 10 and 10 x 2 = 20.",
       "solution": [
         {
-          "say": "Undo doubling by halving: 20 / 2 = 10."
+          "say": "Undo doubling by halving: 20 / 2 = 10.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 2,
+            "r": 10
+          },
+          "mark": [
+            "20"
+          ]
         },
         {
-          "say": "Undo take away 6 by adding 6: 10 + 6 = 16."
+          "say": "Undo take away 6 by adding 6: 10 + 6 = 16.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 16
+          },
+          "mark": [
+            "6"
+          ]
         },
         {
-          "say": "Check: 16 - 6 = 10 and 10 x 2 = 20."
+          "say": "Check: 16 - 6 = 10 and 10 x 2 = 20.",
+          "anim": {
+            "k": "combine",
+            "a": 16,
+            "op": "-",
+            "b": 6,
+            "r": 10
+          },
+          "mark": [
+            "6"
+          ]
         }
       ],
       "tags": [
@@ -1069,10 +1617,31 @@
       "explanation": "Before Bo gave her 3 she had 12 - 3 = 9. Before she gave 5 to Ana she had 9 + 5 = 14 stickers.",
       "solution": [
         {
-          "say": "Before Bo gave her 3 she had 12 - 3 = 9."
+          "say": "Before Bo gave her 3 she had 12 - 3 = 9.",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "12",
+            "3"
+          ]
         },
         {
-          "say": "Before she gave 5 to Ana she had 9 + 5 = 14 stickers."
+          "say": "Before she gave 5 to Ana she had 9 + 5 = 14 stickers.",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "+",
+            "b": 5,
+            "r": 14
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -1100,13 +1669,41 @@
       "explanation": "Before buying the pen she had Rp2.000 + Rp1.000 = Rp3.000. That was half of her money. So she started with Rp3.000 x 2 = Rp6.000.",
       "solution": [
         {
-          "say": "Before buying the pen she had Rp2.000 + Rp1.000 = Rp3.000."
+          "say": "Before buying the pen she had Rp2.000 + Rp1.000 = Rp3.000.",
+          "anim": {
+            "k": "combine",
+            "a": 2000,
+            "op": "+",
+            "b": 1000,
+            "r": 3000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2.000",
+            "Rp1.000"
+          ]
         },
         {
           "say": "That was half of her money."
         },
         {
-          "say": "So she started with Rp3.000 x 2 = Rp6.000."
+          "say": "So she started with Rp3.000 x 2 = Rp6.000.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3000
+              },
+              {
+                "v": 3000
+              }
+            ],
+            "total": 6000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp2"
+          ]
         }
       ],
       "tags": [
@@ -1133,10 +1730,36 @@
       "explanation": "Before he ate 2 more there were 3 + 2 = 5 cookies. That was half of the cookies, so there were 5 x 2 = 10 at the start.",
       "solution": [
         {
-          "say": "Before he ate 2 more there were 3 + 2 = 5 cookies."
+          "say": "Before he ate 2 more there were 3 + 2 = 5 cookies.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "3",
+            "2"
+          ]
         },
         {
-          "say": "That was half of the cookies, so there were 5 x 2 = 10 at the start."
+          "say": "That was half of the cookies, so there were 5 x 2 = 10 at the start.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 10
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -1163,10 +1786,36 @@
       "explanation": "Before the 8 got on, there were 20 - 8 = 12. Before the 5 got off, there were 12 + 5 = 17 people.",
       "solution": [
         {
-          "say": "Before the 8 got on, there were 20 - 8 = 12."
+          "say": "Before the 8 got on, there were 20 - 8 = 12.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "-",
+            "b": 8,
+            "r": 12
+          },
+          "mark": [
+            "20",
+            "8"
+          ]
         },
         {
-          "say": "Before the 5 got off, there were 12 + 5 = 17 people."
+          "say": "Before the 5 got off, there were 12 + 5 = 17 people.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 5
+              }
+            ],
+            "total": 17
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -1193,13 +1842,53 @@
       "explanation": "Undo take away 4: 17 + 4 = 21. Undo times 3: 21 / 3 = 7. Check: 7 x 3 = 21 and 21 - 4 = 17.",
       "solution": [
         {
-          "say": "Undo take away 4: 17 + 4 = 21."
+          "say": "Undo take away 4: 17 + 4 = 21.",
+          "anim": {
+            "k": "combine",
+            "a": 17,
+            "op": "+",
+            "b": 4,
+            "r": 21
+          },
+          "mark": [
+            "17",
+            "4"
+          ]
         },
         {
-          "say": "Undo times 3: 21 / 3 = 7."
+          "say": "Undo times 3: 21 / 3 = 7.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7,
+                "q": true
+              },
+              {
+                "v": 7
+              },
+              {
+                "v": 7
+              }
+            ],
+            "total": 21
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "Check: 7 x 3 = 21 and 21 - 4 = 17."
+          "say": "Check: 7 x 3 = 21 and 21 - 4 = 17.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "×",
+            "b": 3,
+            "r": 21
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1227,7 +1916,17 @@
       "explanation": "Doubling back for each of the 3 days: 5 x 2 = 10, then 20, then 40. The pond started with 40 litres.",
       "solution": [
         {
-          "say": "Doubling back for each of the 3 days: 5 x 2 = 10, then 20, then 40."
+          "say": "Doubling back for each of the 3 days: 5 x 2 = 10, then 20, then 40.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 2,
+            "r": 10
+          },
+          "mark": [
+            "5"
+          ]
         },
         {
           "say": "The pond started with 40 litres."
@@ -1261,7 +1960,39 @@
         "kmnr"
       ],
       "points": 4,
-      "expectedSeconds": 120
+      "expectedSeconds": 120,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How old is Raka now?"
+          ]
+        },
+        {
+          "say": "In 5 years he will be 12, so now he is 12 - 5 = 7 years old.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 7,
+                "q": true
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "12",
+            "5"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "7 years"
+        }
+      ]
     },
     {
       "id": "m2.oly-word-problems.031",
@@ -1279,16 +2010,60 @@
       "explanation": "Undo take away 4: 14 + 4 = 18. Undo doubling: 18 / 2 = 9. Undo add 3: 9 - 3 = 6. Check: 6 + 3 = 9, 9 x 2 = 18 and 18 - 4 = 14.",
       "solution": [
         {
-          "say": "Undo take away 4: 14 + 4 = 18."
+          "say": "Undo take away 4: 14 + 4 = 18.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "+",
+            "b": 4,
+            "r": 18
+          },
+          "mark": [
+            "14",
+            "4"
+          ]
         },
         {
-          "say": "Undo doubling: 18 / 2 = 9."
+          "say": "Undo doubling: 18 / 2 = 9.",
+          "anim": {
+            "k": "combine",
+            "a": 18,
+            "op": "÷",
+            "b": 2,
+            "r": 9
+          }
         },
         {
-          "say": "Undo add 3: 9 - 3 = 6."
+          "say": "Undo add 3: 9 - 3 = 6.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 6,
+                "q": true
+              }
+            ],
+            "total": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
-          "say": "Check: 6 + 3 = 9, 9 x 2 = 18 and 18 - 4 = 14."
+          "say": "Check: 6 + 3 = 9, 9 x 2 = 18 and 18 - 4 = 14.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1315,10 +2090,37 @@
       "explanation": "The shop sold 50 - 9 = 41 apples in all. It sold 12 in the afternoon, so 41 - 12 = 29 in the morning.",
       "solution": [
         {
-          "say": "The shop sold 50 - 9 = 41 apples in all."
+          "say": "The shop sold 50 - 9 = 41 apples in all.",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "-",
+            "b": 9,
+            "r": 41
+          },
+          "mark": [
+            "50",
+            "9"
+          ]
         },
         {
-          "say": "It sold 12 in the afternoon, so 41 - 12 = 29 in the morning."
+          "say": "It sold 12 in the afternoon, so 41 - 12 = 29 in the morning.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 12
+              },
+              {
+                "v": 29,
+                "q": true
+              }
+            ],
+            "total": 41
+          },
+          "mark": [
+            "12"
+          ]
         }
       ],
       "tags": [
@@ -1351,10 +2153,30 @@
           "say": "Before the first gift she had (6 + 1) x 2 = 14."
         },
         {
-          "say": "Check: 14 gives 7 + 1 = 8 and keeps 6."
+          "say": "Check: 14 gives 7 + 1 = 8 and keeps 6.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 1,
+            "r": 8
+          },
+          "mark": [
+            "1"
+          ]
         },
         {
-          "say": "Then 6 gives 3 + 1 = 4 and keeps 2."
+          "say": "Then 6 gives 3 + 1 = 4 and keeps 2.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 1,
+            "r": 4
+          },
+          "mark": [
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -1432,13 +2254,50 @@
       "explanation": "Undo take away 4: 30 + 4 = 34. Undo add 9: 34 - 9 = 25. Check: 25 + 9 = 34 and 34 - 4 = 30.",
       "solution": [
         {
-          "say": "Undo take away 4: 30 + 4 = 34."
+          "say": "Undo take away 4: 30 + 4 = 34.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "+",
+            "b": 4,
+            "r": 34
+          },
+          "mark": [
+            "30",
+            "4"
+          ]
         },
         {
-          "say": "Undo add 9: 34 - 9 = 25."
+          "say": "Undo add 9: 34 - 9 = 25.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9
+              },
+              {
+                "v": 25,
+                "q": true
+              }
+            ],
+            "total": 34
+          },
+          "mark": [
+            "9"
+          ]
         },
         {
-          "say": "Check: 25 + 9 = 34 and 34 - 4 = 30."
+          "say": "Check: 25 + 9 = 34 and 34 - 4 = 30.",
+          "anim": {
+            "k": "combine",
+            "a": 25,
+            "op": "+",
+            "b": 9,
+            "r": 34
+          },
+          "mark": [
+            "9"
+          ]
         }
       ],
       "tags": [
@@ -1465,10 +2324,36 @@
       "explanation": "His sister is 7 + 3 = 10 years old now. In 4 years she will be 10 + 4 = 14.",
       "solution": [
         {
-          "say": "His sister is 7 + 3 = 10 years old now."
+          "say": "His sister is 7 + 3 = 10 years old now.",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 3,
+            "r": 10
+          },
+          "mark": [
+            "7",
+            "3"
+          ]
         },
         {
-          "say": "In 4 years she will be 10 + 4 = 14."
+          "say": "In 4 years she will be 10 + 4 = 14.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 14
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -1495,10 +2380,36 @@
       "explanation": "Mum is 4 x 8 = 32 now. Dina will be 12 in 4 years, so Mum will be 32 + 4 = 36.",
       "solution": [
         {
-          "say": "Mum is 4 x 8 = 32 now."
+          "say": "Mum is 4 x 8 = 32 now.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 8,
+            "r": 32
+          },
+          "mark": [
+            "4",
+            "8"
+          ]
         },
         {
-          "say": "Dina will be 12 in 4 years, so Mum will be 32 + 4 = 36."
+          "say": "Dina will be 12 in 4 years, so Mum will be 32 + 4 = 36.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 32
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 36
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -1526,10 +2437,37 @@
       "explanation": "Rani is 10 - 6 = 4 now. Three years ago she was 4 - 3 = 1 year old.",
       "solution": [
         {
-          "say": "Rani is 10 - 6 = 4 now."
+          "say": "Rani is 10 - 6 = 4 now.",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "-",
+            "b": 6,
+            "r": 4
+          },
+          "mark": [
+            "10",
+            "6"
+          ]
         },
         {
-          "say": "Three years ago she was 4 - 3 = 1 year old."
+          "say": "Three years ago she was 4 - 3 = 1 year old.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 3
+              },
+              {
+                "v": 1,
+                "q": true
+              }
+            ],
+            "total": 4
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1557,13 +2495,46 @@
       "explanation": "Take away the extra 30: 38 - 30 = 8. The son is 8 / 2 = 4. The father is 4 + 30 = 34.",
       "solution": [
         {
-          "say": "Take away the extra 30: 38 - 30 = 8."
+          "say": "Take away the extra 30: 38 - 30 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 38,
+            "op": "-",
+            "b": 30,
+            "r": 8
+          },
+          "mark": [
+            "38",
+            "30"
+          ]
         },
         {
-          "say": "The son is 8 / 2 = 4."
+          "say": "The son is 8 / 2 = 4.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "÷",
+            "b": 2,
+            "r": 4
+          }
         },
         {
-          "say": "The father is 4 + 30 = 34."
+          "say": "The father is 4 + 30 = 34.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 30
+              }
+            ],
+            "total": 34
+          },
+          "mark": [
+            "30"
+          ]
         }
       ],
       "tags": [
@@ -1597,7 +2568,17 @@
           "say": "Each year the total goes up by 2."
         },
         {
-          "say": "They need 24 - 14 = 10 more, so it takes 10 / 2 = 5 years."
+          "say": "They need 24 - 14 = 10 more, so it takes 10 / 2 = 5 years.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "-",
+            "b": 14,
+            "r": 10
+          },
+          "mark": [
+            "24"
+          ]
         }
       ],
       "tags": [
@@ -1640,10 +2621,31 @@
       "explanation": "Ani is 6 + 2 = 8. Ben is 8 + 3 = 11 years old.",
       "solution": [
         {
-          "say": "Ani is 6 + 2 = 8."
+          "say": "Ani is 6 + 2 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 2,
+            "r": 8
+          },
+          "mark": [
+            "6",
+            "2"
+          ]
         },
         {
-          "say": "Ben is 8 + 3 = 11 years old."
+          "say": "Ben is 8 + 3 = 11 years old.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 3,
+            "r": 11
+          },
+          "mark": [
+            "3"
+          ]
         }
       ],
       "tags": [
@@ -1674,7 +2676,22 @@
           "say": "The gap between their ages is always 4 years."
         },
         {
-          "say": "When Mia is 10, her brother is 10 + 4 = 14."
+          "say": "When Mia is 10, her brother is 10 + 4 = 14.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 14
+          },
+          "mark": [
+            "10"
+          ]
         }
       ],
       "tags": [
@@ -1734,7 +2751,17 @@
       "explanation": "The middle number is 24 / 3 = 8. The numbers are 7, 8 and 9. The smallest number is 7.",
       "solution": [
         {
-          "say": "The middle number is 24 / 3 = 8."
+          "say": "The middle number is 24 / 3 = 8.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 3,
+            "r": 8
+          },
+          "mark": [
+            "24"
+          ]
         },
         {
           "say": "The numbers are 7, 8 and 9."
@@ -1803,7 +2830,14 @@
           "say": "The numbers are on each side of 12 and differ by 2, so they are 11 and 13."
         },
         {
-          "say": "11 + 13 = 24."
+          "say": "11 + 13 = 24.",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "+",
+            "b": 13,
+            "r": 24
+          }
         },
         {
           "say": "The bigger number is 13."
@@ -1875,7 +2909,17 @@
           "say": "Double 12 is 24."
         },
         {
-          "say": "24 - 17 = 7."
+          "say": "24 - 17 = 7.",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "-",
+            "b": 17,
+            "r": 7
+          },
+          "mark": [
+            "17"
+          ]
         },
         {
           "say": "So double 12 is 7 more than 17."
@@ -1904,7 +2948,17 @@
       "explanation": "The number is 14 x 2 = 28. A quarter of 28 is 7. Also, a quarter is half of 14, which is 7.",
       "solution": [
         {
-          "say": "The number is 14 x 2 = 28."
+          "say": "The number is 14 x 2 = 28.",
+          "anim": {
+            "k": "combine",
+            "a": 14,
+            "op": "×",
+            "b": 2,
+            "r": 28
+          },
+          "mark": [
+            "14"
+          ]
         },
         {
           "say": "A quarter of 28 is 7."
@@ -1940,7 +2994,14 @@
           "say": "The pairs that multiply to 12 are 1 and 12, 2 and 6, and 3 and 4."
         },
         {
-          "say": "Only 3 + 4 = 7."
+          "say": "Only 3 + 4 = 7.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 4,
+            "r": 7
+          }
         },
         {
           "say": "The bigger number is 4."

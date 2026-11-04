@@ -333,7 +333,19 @@
           "say": "The tens place has a 7 in 70 to 79, which is 10."
         },
         {
-          "say": "In all, 10 + 10 = 20."
+          "say": "In all, 10 + 10 = 20.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 10
+              }
+            ],
+            "total": 20
+          }
         }
       ],
       "tags": [
@@ -396,7 +408,23 @@
           "say": "Swapping the first and last digits of 742 gives 247."
         },
         {
-          "say": "The new number is 742 - 247 = 495 smaller."
+          "say": "The new number is 742 - 247 = 495 smaller.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 247
+              },
+              {
+                "v": 495,
+                "q": true
+              }
+            ],
+            "total": 742
+          },
+          "mark": [
+            "742"
+          ]
         }
       ],
       "tags": [

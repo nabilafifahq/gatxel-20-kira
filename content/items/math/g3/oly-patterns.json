@@ -154,11 +154,32 @@
         },
         {
           "say": "Figure 10 is 9 steps after figure 1.",
-          "show": "9 × 4 = 36"
+          "show": "9 × 4 = 36",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 4,
+            "r": 36
+          },
+          "mark": [
+            "9",
+            "4"
+          ]
         },
         {
           "say": "Add the first square.",
-          "show": "1 + 36 = 37"
+          "show": "1 + 36 = 37",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 36,
+            "r": 37
+          },
+          "mark": [
+            "1"
+          ]
         }
       ],
       "tags": [
@@ -305,7 +326,16 @@
         },
         {
           "say": "Check with the jumps.",
-          "show": "25 + 11 = 36"
+          "show": "25 + 11 = 36",
+          "anim": {
+            "k": "line",
+            "min": 22,
+            "max": 39,
+            "start": 25,
+            "jumps": [
+              11
+            ]
+          }
         }
       ],
       "tags": [
@@ -347,11 +377,36 @@
         },
         {
           "say": "Size of the jumps.",
-          "show": "99 × 4 = 396"
+          "show": "99 × 4 = 396",
+          "anim": {
+            "k": "combine",
+            "a": 99,
+            "op": "×",
+            "b": 4,
+            "r": 396
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Add to the start.",
-          "show": "5 + 396 = 401"
+          "show": "5 + 396 = 401",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5
+              },
+              {
+                "v": 396
+              }
+            ],
+            "total": 401
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -436,7 +491,14 @@
         },
         {
           "say": "Kelompok penuh dalam 50 lampu.",
-          "show": "12 × 4 = 48"
+          "show": "12 × 4 = 48",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 4,
+            "r": 48
+          }
         },
         {
           "say": "Lampu ke-49 dan ke-50 adalah merah dan kuning.",
@@ -522,15 +584,41 @@
       "solution": [
         {
           "say": "Find the rule.",
-          "show": "3 + 4 = 7, 4 + 7 = 11"
+          "show": "3 + 4 = 7, 4 + 7 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 4,
+            "r": 7
+          }
         },
         {
           "say": "Check it.",
-          "show": "7 + 11 = 18, 11 + 18 = 29"
+          "show": "7 + 11 = 18, 11 + 18 = 29",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 11,
+            "r": 18
+          }
         },
         {
           "say": "Add the last two.",
-          "show": "18 + 29 = 47"
+          "show": "18 + 29 = 47",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 18
+              },
+              {
+                "v": 29
+              }
+            ],
+            "total": 47
+          }
         }
       ],
       "tags": [
@@ -559,11 +647,34 @@
         },
         {
           "say": "The middle date is the average.",
-          "show": "45 ÷ 3 = 15"
+          "show": "45 ÷ 3 = 15",
+          "anim": {
+            "k": "combine",
+            "a": 45,
+            "op": "÷",
+            "b": 3,
+            "r": 15
+          },
+          "mark": [
+            "45"
+          ]
         },
         {
           "say": "The first Monday is 7 days before the middle one.",
-          "show": "15 - 7 = 8"
+          "show": "15 - 7 = 8",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 7
+              },
+              {
+                "v": 8,
+                "q": true
+              }
+            ],
+            "total": 15
+          }
         },
         {
           "say": "Check.",
@@ -628,15 +739,47 @@
       "solution": [
         {
           "say": "Multiply by 2 again and again. Watch only the last digit.",
-          "show": "2, 4, 8, 6, 2, 4, 8, 6"
+          "show": "2, 4, 8, 6, 2, 4, 8, 6",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "4",
+              "8",
+              "6",
+              "2",
+              "4",
+              "8",
+              "6"
+            ]
+          }
         },
         {
           "say": "The cycle is 4 long.",
-          "show": "2, 4, 8, 6"
+          "show": "2, 4, 8, 6",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "2",
+              "4",
+              "8",
+              "6"
+            ]
+          }
         },
         {
           "say": "20 twos end exactly at the end of a cycle.",
-          "show": "20 ÷ 4 = 5"
+          "show": "20 ÷ 4 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 4,
+            "r": 5
+          },
+          "mark": [
+            "20"
+          ]
         },
         {
           "say": "The last digit is 6.",
@@ -747,7 +890,14 @@
           "say": "Each number is 3 times the one before: 2, 6, 18, 54."
         },
         {
-          "say": "Then 54 x 3 = 162."
+          "say": "Then 54 x 3 = 162.",
+          "anim": {
+            "k": "combine",
+            "a": 54,
+            "op": "×",
+            "b": 3,
+            "r": 162
+          }
         }
       ],
       "tags": [
@@ -805,7 +955,19 @@
           "say": "The jumps are +3, +5, +7 and +9."
         },
         {
-          "say": "The next jump is +11, and 25 + 11 = 36."
+          "say": "The next jump is +11, and 25 + 11 = 36.",
+          "anim": {
+            "k": "line",
+            "min": 22,
+            "max": 39,
+            "start": 25,
+            "jumps": [
+              11
+            ]
+          },
+          "mark": [
+            "25"
+          ]
         },
         {
           "say": "These are also 6 x 6."
@@ -854,7 +1016,19 @@
           "say": "The next jump is +32."
         },
         {
-          "say": "So 33 + 32 = 65."
+          "say": "So 33 + 32 = 65.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 33
+              },
+              {
+                "v": 32
+              }
+            ],
+            "total": 65
+          }
         }
       ],
       "tags": [
@@ -881,7 +1055,14 @@
       "explanation": "Figure 1 has 1 x 1 + 1 = 2 tiles, figure 2 has 2 x 2 + 1 = 5 tiles, and so on. Figure 6 has 6 x 6 + 1 = 37 tiles.",
       "solution": [
         {
-          "say": "Figure 1 has 1 x 1 + 1 = 2 tiles, figure 2 has 2 x 2 + 1 = 5 tiles, and so on."
+          "say": "Figure 1 has 1 x 1 + 1 = 2 tiles, figure 2 has 2 x 2 + 1 = 5 tiles, and so on.",
+          "anim": {
+            "k": "combine",
+            "a": 1,
+            "op": "+",
+            "b": 1,
+            "r": 2
+          }
         },
         {
           "say": "Figure 6 has 6 x 6 + 1 = 37 tiles."
@@ -1422,7 +1603,16 @@
           "say": "The jumps are +1, +2, +3, +4, +5."
         },
         {
-          "say": "The next jump is +6, and 16 + 6 = 22."
+          "say": "The next jump is +6, and 16 + 6 = 22.",
+          "anim": {
+            "k": "line",
+            "min": 14,
+            "max": 24,
+            "start": 16,
+            "jumps": [
+              6
+            ]
+          }
         }
       ],
       "tags": [
@@ -1524,10 +1714,29 @@
       "explanation": "The pattern adds the last two numbers: 8 + 13 = 21. The next number is 13 + 21 = 34.",
       "solution": [
         {
-          "say": "The pattern adds the last two numbers: 8 + 13 = 21."
+          "say": "The pattern adds the last two numbers: 8 + 13 = 21.",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 13,
+            "r": 21
+          }
         },
         {
-          "say": "The next number is 13 + 21 = 34."
+          "say": "The next number is 13 + 21 = 34.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 13
+              },
+              {
+                "v": 21
+              }
+            ],
+            "total": 34
+          }
         }
       ],
       "tags": [

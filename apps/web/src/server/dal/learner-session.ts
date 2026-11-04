@@ -53,6 +53,8 @@ export type AttemptItem = {
   difficulty: number
   /** Nomor soal pada aturan skor preset. Kosong berarti sama dengan position (paper yang diulang diacak). */
   scorePos?: number
+  /** Soal saudara dari putaran perbaikan: nomor soal yang salah. Tidak ikut skor sesi. */
+  remedialOf?: number
 }
 
 const MANUAL_STRANDS = new Set(['Wc', 'SL', 'Wp'])

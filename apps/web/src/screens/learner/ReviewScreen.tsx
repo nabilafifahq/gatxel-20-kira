@@ -106,7 +106,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
 
       <div className="flex min-h-0 flex-1 flex-col gap-6 lg:flex-row">
         {player ? (
-          <SolutionPlayer key={q.position} steps={player} subject={data.subject} figure={q.item.figure} className="w-full flex-none lg:w-90" lang={q.item.lang} />
+          <SolutionPlayer key={q.position} steps={player} subject={data.subject} figure={q.item.figure} prompt={q.item.prompt} className="w-full flex-none lg:w-90" lang={q.item.lang} />
         ) : showFigure && q.item.figure ? (
           <div className="w-full flex-none lg:w-90">
             <FigureFrame spec={q.item.figure} paper={data.subject === 'math'} />

@@ -158,15 +158,36 @@
         },
         {
           "say": "2 corners on line 1, 1 corner on line 2.",
-          "show": "3 × 3 = 9"
+          "show": "3 × 3 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          }
         },
         {
           "say": "2 corners on line 2, 1 corner on line 1.",
-          "show": "3 × 3 = 9"
+          "show": "3 × 3 = 9",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          }
         },
         {
           "say": "Total.",
-          "show": "9 + 9 = 18"
+          "show": "9 + 9 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "+",
+            "b": 9,
+            "r": 18
+          }
         }
       ],
       "tags": [
@@ -251,7 +272,18 @@
         },
         {
           "say": "Multiples of 5.",
-          "show": "200 ÷ 5 = 40"
+          "show": "200 ÷ 5 = 40",
+          "anim": {
+            "k": "combine",
+            "a": 200,
+            "op": "÷",
+            "b": 5,
+            "r": 40
+          },
+          "mark": [
+            "200",
+            "5"
+          ]
         },
         {
           "say": "Multiples of 15, counted twice.",
@@ -314,7 +346,14 @@
         },
         {
           "say": "Banyak tiket.",
-          "show": "9 × 10 = 90"
+          "show": "9 × 10 = 90",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 10,
+            "r": 90
+          }
         }
       ],
       "tags": [
@@ -370,7 +409,16 @@
         },
         {
           "say": "Each step adds the ways for the two steps before it.",
-          "show": "3, 5, 8, 13"
+          "show": "3, 5, 8, 13",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "3",
+              "5",
+              "8",
+              "13"
+            ]
+          }
         },
         {
           "say": "6 steps: 13 ways.",
@@ -408,11 +456,31 @@
         },
         {
           "say": "Count from every corner.",
-          "show": "6 × 3 = 18"
+          "show": "6 × 3 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 3,
+            "r": 18
+          }
         },
         {
           "say": "Each diagonal is counted twice.",
-          "show": "18 ÷ 2 = 9"
+          "show": "18 ÷ 2 = 9",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 9,
+                "q": true
+              },
+              {
+                "v": 9
+              }
+            ],
+            "total": 18
+          }
         }
       ],
       "tags": [
@@ -445,7 +513,20 @@
         },
         {
           "say": "At least one 7.",
-          "show": "900 - 648 = 252"
+          "show": "900 - 648 = 252",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 648
+              },
+              {
+                "v": 252,
+                "q": true
+              }
+            ],
+            "total": 900
+          }
         }
       ],
       "tags": [
@@ -472,7 +553,38 @@
       "points": 3,
       "expectedSeconds": 150,
       "type": "numeric",
-      "answer": 15
+      "answer": 15,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many handshakes are there?"
+          ]
+        },
+        {
+          "say": "Each of 6 friends shakes 5 hands, which is 30, but every handshake is counted twice."
+        },
+        {
+          "say": "30 ÷ 2 = 15.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 15,
+                "q": true
+              },
+              {
+                "v": 15
+              }
+            ],
+            "total": 30
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "15"
+        }
+      ]
     },
     {
       "id": "m4.oly-counting.011",
@@ -512,7 +624,46 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 18
+      "answer": 18,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rectangles of any size can you find, including the"
+          ]
+        },
+        {
+          "say": "There are 4 vertical lines and 3 horizontal lines."
+        },
+        {
+          "say": "A rectangle uses 2 vertical lines (6 ways) and 2 horizontal lines (3 ways)."
+        },
+        {
+          "say": "6 × 3 = 18.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              },
+              {
+                "v": 6
+              }
+            ],
+            "total": 18
+          },
+          "mark": [
+            "3"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "18"
+        }
+      ]
     },
     {
       "id": "m4.oly-counting.013",
@@ -592,7 +743,45 @@
       "points": 5,
       "expectedSeconds": 210,
       "type": "numeric",
-      "answer": 276
+      "answer": 276,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many digits are used to number all the pages?"
+          ]
+        },
+        {
+          "say": "Pages 1 to 9 use 9 digits."
+        },
+        {
+          "say": "Pages 10 to 99 use 90 × 2 = 180.",
+          "anim": {
+            "k": "combine",
+            "a": 90,
+            "op": "×",
+            "b": 2,
+            "r": 180
+          }
+        },
+        {
+          "say": "Pages 100 to 128 use 29 × 3 = 87.",
+          "anim": {
+            "k": "combine",
+            "a": 29,
+            "op": "×",
+            "b": 3,
+            "r": 87
+          }
+        },
+        {
+          "say": "The total is 9 + 180 + 87 = 276."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "276"
+        }
+      ]
     }
   ]
 }

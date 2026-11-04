@@ -51,7 +51,14 @@
         },
         {
           "say": "Tambahkan 5 ke 20.",
-          "show": "20 + 5 = 25"
+          "show": "20 + 5 = 25",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 5,
+            "r": 25
+          }
         }
       ],
       "tags": [
@@ -220,7 +227,17 @@
         },
         {
           "say": "Maju 2 jam.",
-          "show": "3 + 2 = 5"
+          "show": "3 + 2 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "2"
+          ]
         },
         {
           "say": "Jadi pukul 5."
@@ -394,7 +411,14 @@
       "solution": [
         {
           "say": "Sudut 2 segitiga.",
-          "show": "3 + 3 = 6"
+          "show": "3 + 3 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 3,
+            "r": 6
+          }
         },
         {
           "say": "Sudut 1 persegi.",
@@ -402,7 +426,14 @@
         },
         {
           "say": "Jumlahkan.",
-          "show": "6 + 4 = 10"
+          "show": "6 + 4 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "+",
+            "b": 4,
+            "r": 10
+          }
         }
       ],
       "tags": [
@@ -468,7 +499,18 @@
         },
         {
           "say": "Angka satuan: 3 + 2 = 5.",
-          "show": "35"
+          "show": "35",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "+",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "3",
+            "2"
+          ]
         },
         {
           "say": "Jadi aku adalah 35."
@@ -555,15 +597,39 @@
       "solution": [
         {
           "say": "Jumlahkan uang kertas.",
-          "show": "Rp2.000 + Rp2.000 = Rp4.000"
+          "show": "Rp2.000 + Rp2.000 = Rp4.000",
+          "anim": {
+            "k": "combine",
+            "a": 2000,
+            "op": "+",
+            "b": 2000,
+            "r": 4000,
+            "cur": "Rp"
+          }
         },
         {
           "say": "Tambahkan koin Rp1.000.",
-          "show": "Rp4.000 + Rp1.000 = Rp5.000"
+          "show": "Rp4.000 + Rp1.000 = Rp5.000",
+          "anim": {
+            "k": "combine",
+            "a": 4000,
+            "op": "+",
+            "b": 1000,
+            "r": 5000,
+            "cur": "Rp"
+          }
         },
         {
           "say": "Tambahkan koin Rp500.",
-          "show": "Rp5.000 + Rp500 = Rp5.500"
+          "show": "Rp5.000 + Rp500 = Rp5.500",
+          "anim": {
+            "k": "combine",
+            "a": 5000,
+            "op": "+",
+            "b": 500,
+            "r": 5500,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -625,11 +691,32 @@
       "solution": [
         {
           "say": "Tambahkan dulu.",
-          "show": "8 + 7 = 15"
+          "show": "8 + 7 = 15",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "+",
+            "b": 7,
+            "r": 15
+          },
+          "mark": [
+            "8",
+            "7"
+          ]
         },
         {
           "say": "Lalu kurangi.",
-          "show": "15 - 5 = 10"
+          "show": "15 - 5 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 15,
+            "op": "-",
+            "b": 5,
+            "r": 10
+          },
+          "mark": [
+            "5"
+          ]
         }
       ],
       "tags": [
@@ -697,11 +784,32 @@
       "solution": [
         {
           "say": "Rina memberi 5 kelereng.",
-          "show": "12 - 5 = 7"
+          "show": "12 - 5 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "-",
+            "b": 5,
+            "r": 7
+          },
+          "mark": [
+            "12",
+            "5"
+          ]
         },
         {
           "say": "Rina membeli 3 kelereng.",
-          "show": "7 + 3 = 10"
+          "show": "7 + 3 = 10",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "+",
+            "b": 3,
+            "r": 10
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Kelereng Rina sekarang 10."
@@ -770,15 +878,46 @@
       "solution": [
         {
           "say": "Hitung sisi kanan.",
-          "show": "13 - 2 = 11"
+          "show": "13 - 2 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 13,
+            "op": "-",
+            "b": 2,
+            "r": 11
+          },
+          "mark": [
+            "13",
+            "2"
+          ]
         },
         {
           "say": "Cari bilangan yang ditambah 4 menjadi 11.",
-          "show": "11 - 4 = 7"
+          "show": "11 - 4 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 11,
+            "op": "-",
+            "b": 4,
+            "r": 7
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Periksa: 4 + 7 = 11.",
-          "show": "4 + 7 = 11"
+          "show": "4 + 7 = 11",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "+",
+            "b": 7,
+            "r": 11
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [

@@ -90,11 +90,32 @@
       "solution": [
         {
           "say": "Middle number.",
-          "show": "125 ÷ 5 = 25"
+          "show": "125 ÷ 5 = 25",
+          "anim": {
+            "k": "combine",
+            "a": 125,
+            "op": "÷",
+            "b": 5,
+            "r": 25
+          },
+          "mark": [
+            "125",
+            "5"
+          ]
         },
         {
           "say": "The five numbers.",
-          "show": "21, 23, 25, 27, 29"
+          "show": "21, 23, 25, 27, 29",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "21",
+              "23",
+              "25",
+              "27",
+              "29"
+            ]
+          }
         },
         {
           "say": "Largest.",
@@ -154,7 +175,17 @@
         },
         {
           "say": "First digit.",
-          "show": "30 - 27 = 3"
+          "show": "30 - 27 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 27,
+            "r": 3
+          },
+          "mark": [
+            "30"
+          ]
         },
         {
           "say": "Answer.",
@@ -294,15 +325,42 @@
         },
         {
           "say": "Seperempat harga awal.",
-          "show": "Rp150.000 ÷ 3 = Rp50.000"
+          "show": "Rp150.000 ÷ 3 = Rp50.000",
+          "anim": {
+            "k": "combine",
+            "a": 150000,
+            "op": "÷",
+            "b": 3,
+            "r": 50000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp150.000"
+          ]
         },
         {
           "say": "Harga awal.",
-          "show": "4 × Rp50.000 = Rp200.000"
+          "show": "4 × Rp50.000 = Rp200.000",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 50000,
+            "r": 200000,
+            "cur": "Rp"
+          }
         },
         {
           "say": "Periksa: 25% dari Rp200.000 adalah Rp50.000.",
-          "show": "Rp200.000 - Rp50.000 = Rp150.000"
+          "show": "Rp200.000 - Rp50.000 = Rp150.000",
+          "anim": {
+            "k": "combine",
+            "a": 200000,
+            "op": "-",
+            "b": 50000,
+            "r": 150000,
+            "cur": "Rp"
+          }
         }
       ],
       "tags": [
@@ -354,19 +412,72 @@
       "solution": [
         {
           "say": "Undo ÷ 8.",
-          "show": "7 × 8 = 56"
+          "show": "7 × 8 = 56",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "×",
+            "b": 8,
+            "r": 56
+          },
+          "mark": [
+            "7",
+            "8"
+          ]
         },
         {
           "say": "Undo - 12.",
-          "show": "56 + 12 = 68"
+          "show": "56 + 12 = 68",
+          "anim": {
+            "k": "combine",
+            "a": 56,
+            "op": "+",
+            "b": 12,
+            "r": 68
+          },
+          "mark": [
+            "12"
+          ]
         },
         {
           "say": "Undo × 4.",
-          "show": "68 ÷ 4 = 17"
+          "show": "68 ÷ 4 = 17",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 17,
+                "q": true
+              },
+              {
+                "v": 17
+              },
+              {
+                "v": 17
+              },
+              {
+                "v": 17
+              }
+            ],
+            "total": 68
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "Check.",
-          "show": "17 × 4 = 68, 68 - 12 = 56, 56 ÷ 8 = 7"
+          "show": "17 × 4 = 68, 68 - 12 = 56, 56 ÷ 8 = 7",
+          "anim": {
+            "k": "combine",
+            "a": 17,
+            "op": "×",
+            "b": 4,
+            "r": 68
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -399,7 +510,14 @@
         },
         {
           "say": "Largest 3-digit one.",
-          "show": "63 × 15 = 945"
+          "show": "63 × 15 = 945",
+          "anim": {
+            "k": "combine",
+            "a": 63,
+            "op": "×",
+            "b": 15,
+            "r": 945
+          }
         }
       ],
       "tags": [
@@ -481,7 +599,32 @@
           "why": "The decimal point was moved one place too many. 0.02 × 300 is 6."
         }
       ],
-      "answer": 3
+      "answer": 3,
+      "solution": [
+        {
+          "say": "Read what the question asks."
+        },
+        {
+          "say": "Multiplying both numbers by 100 does not change the answer."
+        },
+        {
+          "say": "60 ÷ 2 = 30.",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 2,
+            "r": 30
+          }
+        },
+        {
+          "say": "Not 0.3. You divided 6 by 2 and then moved the point the wrong way."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "D. 30"
+        }
+      ]
     },
     {
       "id": "m5.oly-number-puzzles.011",
@@ -523,7 +666,39 @@
           "why": "That is the whole number, not 2/3 of it."
         }
       ],
-      "answer": 2
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is 2/3 of that number?"
+          ]
+        },
+        {
+          "say": "One fifth is 36 ÷ 3 = 12, so the number is 12 × 5 = 60.",
+          "anim": {
+            "k": "combine",
+            "a": 36,
+            "op": "÷",
+            "b": 3,
+            "r": 12
+          },
+          "mark": [
+            "36",
+            "3"
+          ]
+        },
+        {
+          "say": "Then 2/3 of 60 = 40."
+        },
+        {
+          "say": "Not 24. 3/5 of the number is 36, so the number is more than 36. 24 is too small."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 40"
+        }
+      ]
     },
     {
       "id": "m5.oly-number-puzzles.012",
@@ -607,7 +782,38 @@
           "why": "It works, but it is not the smallest."
         }
       ],
-      "answer": 2
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the smallest whole number bigger than 2 that leaves"
+          ]
+        },
+        {
+          "say": "The number minus 2 must be a multiple of 3, 4 and 5."
+        },
+        {
+          "say": "The smallest such number is 60, so the answer is 60 + 2 = 62.",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "+",
+            "b": 2,
+            "r": 62
+          },
+          "mark": [
+            "2"
+          ]
+        },
+        {
+          "say": "Not 32. It leaves remainder 2 with 3 and 5, but with 4 it leaves 0."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 62"
+        }
+      ]
     },
     {
       "id": "m5.oly-number-puzzles.014",
@@ -627,7 +833,35 @@
       "points": 3,
       "expectedSeconds": 150,
       "type": "numeric",
-      "answer": 40
+      "answer": 40,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the largest of them?"
+          ]
+        },
+        {
+          "say": "The middle number is 114 ÷ 3 = 38.",
+          "anim": {
+            "k": "combine",
+            "a": 114,
+            "op": "÷",
+            "b": 3,
+            "r": 38
+          },
+          "mark": [
+            "114"
+          ]
+        },
+        {
+          "say": "The numbers are 36, 38 and 40, so the largest is 40."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "40"
+        }
+      ]
     },
     {
       "id": "m5.oly-number-puzzles.015",
@@ -708,7 +942,32 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 41
+      "answer": 41,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is their sum?"
+          ]
+        },
+        {
+          "say": "20 × 21 = 420, so the numbers are 20 and 21.",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "×",
+            "b": 21,
+            "r": 420
+          }
+        },
+        {
+          "say": "Their sum is 41."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "41"
+        }
+      ]
     }
   ]
 }

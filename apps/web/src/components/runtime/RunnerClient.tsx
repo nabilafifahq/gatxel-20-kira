@@ -5,7 +5,7 @@ import { RunnerScreen } from '@/screens/learner'
 import type { ActionResult, AnswerPayload, AnswerResult, RunnerDTO, SavedResponse } from '@/lib/dto'
 import { checkAnswer } from '@kira/content/check'
 import { isNetworkError, localAnswers, queueAnswer, queueSubmit } from '@/lib/offline/outbox'
-import { reportProblemAction, saveAnswerAction, submitAttemptAction } from '@/server/actions/learner'
+import { addRemedialItemAction, remedialLessonAction, reportProblemAction, saveAnswerAction, submitAttemptAction, walkthroughAction } from '@/server/actions/learner'
 import { keepScreenAwake } from '@/lib/native'
 
 /**
@@ -67,6 +67,9 @@ export function RunnerClient({ data }: { data: RunnerDTO }) {
         }
       },
       reportProblem: reportProblemAction,
+      remedialLesson: remedialLessonAction,
+      addRemedialItem: addRemedialItemAction,
+      walkthrough: walkthroughAction,
     }),
     [],
   )

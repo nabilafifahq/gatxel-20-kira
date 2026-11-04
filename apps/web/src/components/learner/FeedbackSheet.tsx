@@ -2,7 +2,8 @@
 
 import { useState, type ReactElement, type ReactNode } from 'react'
 import type { SolutionStep } from '@kira/content/schema'
-import type { Subject } from '@/lib/dto'
+import type { FigureSpec } from '@kira/figures'
+import type { RemedialLessonDTO, Subject } from '@/lib/dto'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
@@ -23,6 +24,24 @@ export type FeedbackKind = 'correct' | 'not-yet' | 'revealed' | 'sent' | 'saved'
 
 type Action = { label: string; onClick: () => void; icon?: 'arrow-right' }
 
+/**
+ * Putaran perbaikan setelah jawaban salah di Latihan: tonton pembahasan, satu langkah pelajaran, lalu satu
+ * soal serupa. Tiap langkah muncul setelah yang sebelumnya, dan Next selalu ada, jadi tidak memaksa.
+ * lesson: undefined belum dimuat, null skill belum punya pelajaran.
+ */
+export type RemedialProps = {
+  watched: boolean
+  lessonDone: boolean
+  lesson: RemedialLessonDTO | null | undefined
+  loading: boolean
+  /** Ada soal serupa untuk dicoba. */
+  canTry: boolean
+  onWatched: () => void
+  onLessonOpen: () => void
+  onLessonDone: () => void
+  onTry: () => void
+}
+
 export function FeedbackSheet({
   kind,
   subject,
@@ -38,6 +57,12 @@ export function FeedbackSheet({
   savedLine,
   primary,
   className,
+  remedial,
+  prompt,
+  figure,
+  fixItNote = false,
+  hasSolution = false,
+  onLoadSolution,
 }: {
   kind: FeedbackKind
   subject: Subject
@@ -56,7 +81,16 @@ export function FeedbackSheet({
   savedLine?: string | null
   primary: Action
   className?: string
+  remedial?: RemedialProps
+  prompt?: string
+  figure?: FigureSpec
+  /** Soal serupa juga salah: skill masuk Fix-it. */
+  fixItNote?: boolean
+  /** Pembahasan ada tetapi belum dimuat (dimuat malas). */
+  hasSolution?: boolean
+  onLoadSolution?: () => void
 }): ReactElement {
+  const canWatch = (solution?.length ?? 0) > 0 || hasSolution
   const [howOpen, setHowOpen] = useState(false)
   const good = kind === 'correct' || kind === 'sent' || kind === 'saved'
 
@@ -122,6 +156,55 @@ export function FeedbackSheet({
         </div>
       ) : null}
 
+      {kind === 'revealed' && fixItNote ? (
+        <p className="m-0 rounded-control bg-bg px-4 py-3 text-body font-semibold">This one is tricky. It is now in Fix-it, so you can practise it again later.</p>
+      ) : null}
+
+      {kind === 'revealed' && remedial ? (
+        <div className="flex flex-col gap-2.5 rounded-control border border-divider bg-bg p-4" data-testid="remedial-panel">
+          <div className="text-body font-bold">Let us fix this one</div>
+          {!remedial.watched && canWatch ? (
+            <Button
+              variant="secondary"
+              icon="play"
+              onClick={() => {
+                onLoadSolution?.()
+                setHowOpen(true)
+              }}
+            >
+              Watch how it works
+            </Button>
+          ) : null}
+          {remedial.watched && remedial.lesson === undefined ? (
+            <Button variant="secondary" icon="hint" loading disabled>
+              Getting a quick lesson
+            </Button>
+          ) : null}
+          {remedial.watched && !remedial.lessonDone && remedial.lesson ? (
+            <Button
+              variant="secondary"
+              icon="hint"
+              loading={remedial.loading}
+              onClick={() => {
+                remedial.onLessonOpen()
+                setLessonOpen(true)
+              }}
+            >
+              One quick lesson
+            </Button>
+          ) : null}
+          {(remedial.watched && (remedial.lessonDone || remedial.lesson === null)) || (!canWatch && !remedial.watched) ? (
+            remedial.canTry ? (
+              <Button loading={remedial.loading} onClick={remedial.onTry}>
+                Try one like it
+              </Button>
+            ) : (
+              <p className="m-0 text-body text-fg-muted">Great, you have seen how it works. Keep going.</p>
+            )
+          ) : null}
+        </div>
+      ) : null}
+
       {savedLine ? (
         <div className="flex items-center gap-2 text-body font-semibold">
           <UiIcon name="offline" size={20} />
@@ -135,8 +218,14 @@ export function FeedbackSheet({
             {showHintLabel ?? 'Show hint'}
           </Button>
         ) : null}
-        {kind === 'revealed' && solution && solution.length > 0 ? (
-          <Button variant="secondary" onClick={() => setHowOpen(true)}>
+        {kind === 'revealed' && canWatch && !remedial ? (
+          <Button
+            variant="secondary"
+            onClick={() => {
+              onLoadSolution?.()
+              setHowOpen(true)
+            }}
+          >
             Show me how
           </Button>
         ) : null}
@@ -145,9 +234,58 @@ export function FeedbackSheet({
         </Button>
       </div>
 
-      {solution && solution.length > 0 ? (
-        <Dialog open={howOpen} onClose={() => setHowOpen(false)} title="Show me how" size="lg" footer={<Button variant="secondary" onClick={() => setHowOpen(false)}>Close</Button>}>
-          <SolutionPlayer steps={solution} subject={subject} />
+      {canWatch ? (
+        <Dialog
+          open={howOpen}
+          onClose={() => {
+            setHowOpen(false)
+            remedial?.onWatched()
+          }}
+          title="Show me how"
+          size="lg"
+          footer={
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setHowOpen(false)
+                remedial?.onWatched()
+              }}
+            >
+              Close
+            </Button>
+          }
+        >
+          {solution && solution.length > 0 ? (
+            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} />
+          ) : (
+            <p className="m-0 text-body-lg" role="status">
+              Getting the steps ready.
+            </p>
+          )}
+        </Dialog>
+      ) : null}
+      {remedial?.lesson ? (
+        <Dialog
+          open={lessonOpen}
+          onClose={() => {
+            setLessonOpen(false)
+            remedial.onLessonDone()
+          }}
+          title={remedial.lesson.title}
+          size="lg"
+          footer={
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setLessonOpen(false)
+                remedial.onLessonDone()
+              }}
+            >
+              Close
+            </Button>
+          }
+        >
+          <SolutionPlayer steps={remedial.lesson.steps} subject={subject} label="Quick lesson" />
         </Dialog>
       ) : null}
     </div>

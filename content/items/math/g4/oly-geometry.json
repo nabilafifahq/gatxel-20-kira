@@ -38,11 +38,28 @@
       "solution": [
         {
           "say": "Side.",
-          "show": "36 ÷ 4 = 9 cm"
+          "show": "36 ÷ 4 = 9 cm",
+          "anim": {
+            "k": "combine",
+            "a": 36,
+            "op": "÷",
+            "b": 4,
+            "r": 9
+          },
+          "mark": [
+            "36"
+          ]
         },
         {
           "say": "Area.",
-          "show": "9 × 9 = 81 cm²"
+          "show": "9 × 9 = 81 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 9,
+            "op": "×",
+            "b": 9,
+            "r": 81
+          }
         }
       ],
       "tags": [
@@ -99,7 +116,18 @@
       "solution": [
         {
           "say": "Area of the rectangle.",
-          "show": "12 × 8 = 96 cm²"
+          "show": "12 × 8 = 96 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 8,
+            "r": 96
+          },
+          "mark": [
+            "12",
+            "8"
+          ]
         },
         {
           "say": "The rhombus covers half of each quarter.",
@@ -107,7 +135,14 @@
         },
         {
           "say": "Area of the rhombus.",
-          "show": "96 ÷ 2 = 48 cm²"
+          "show": "96 ÷ 2 = 48 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 96,
+            "op": "÷",
+            "b": 2,
+            "r": 48
+          }
         }
       ],
       "tags": [
@@ -161,7 +196,17 @@
       "solution": [
         {
           "say": "Remove 1 layer from both ends of each edge.",
-          "show": "4 - 2 = 2"
+          "show": "4 - 2 = 2",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "-",
+            "b": 2,
+            "r": 2
+          },
+          "mark": [
+            "4"
+          ]
         },
         {
           "say": "The inner cube.",
@@ -261,7 +306,17 @@
         },
         {
           "say": "Their perimeters.",
-          "show": "74, 40, 30, 26, 24"
+          "show": "74, 40, 30, 26, 24",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "74",
+              "40",
+              "30",
+              "26",
+              "24"
+            ]
+          }
         },
         {
           "say": "The largest.",
@@ -307,15 +362,47 @@
       "solution": [
         {
           "say": "Along the length.",
-          "show": "30 ÷ 10 = 3"
+          "show": "30 ÷ 10 = 3",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "÷",
+            "b": 10,
+            "r": 3
+          },
+          "mark": [
+            "30",
+            "10"
+          ]
         },
         {
           "say": "Along the width.",
-          "show": "20 ÷ 10 = 2"
+          "show": "20 ÷ 10 = 2",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "÷",
+            "b": 10,
+            "r": 2
+          },
+          "mark": [
+            "20",
+            "10"
+          ]
         },
         {
           "say": "Up the height.",
-          "show": "10 ÷ 10 = 1"
+          "show": "10 ÷ 10 = 1",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "÷",
+            "b": 10,
+            "r": 1
+          },
+          "mark": [
+            "10"
+          ]
         },
         {
           "say": "Total.",
@@ -358,15 +445,42 @@
         },
         {
           "say": "One part.",
-          "show": "24 ÷ 8 = 3 cm"
+          "show": "24 ÷ 8 = 3 cm",
+          "anim": {
+            "k": "combine",
+            "a": 24,
+            "op": "÷",
+            "b": 8,
+            "r": 3
+          },
+          "mark": [
+            "24"
+          ]
         },
         {
           "say": "Side of the square.",
-          "show": "3 × 3 = 9 cm"
+          "show": "3 × 3 = 9 cm",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 3,
+            "r": 9
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Perimeter of the square.",
-          "show": "4 × 9 = 36 cm"
+          "show": "4 × 9 = 36 cm",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 9,
+            "r": 36
+          }
         }
       ],
       "tags": [
@@ -405,7 +519,22 @@
         },
         {
           "say": "Two halves.",
-          "show": "4 + 4 = 8"
+          "show": "4 + 4 = 8",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4
+              },
+              {
+                "v": 4
+              }
+            ],
+            "total": 8
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -440,7 +569,18 @@
       "solution": [
         {
           "say": "Whole garden.",
-          "show": "20 × 12 = 240 m²"
+          "show": "20 × 12 = 240 m²",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "×",
+            "b": 12,
+            "r": 240
+          },
+          "mark": [
+            "20",
+            "12"
+          ]
         },
         {
           "say": "Inside the path: 1 m off each end.",
@@ -448,7 +588,20 @@
         },
         {
           "say": "Path.",
-          "show": "240 - 180 = 60 m²"
+          "show": "240 - 180 = 60 m²",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 180
+              },
+              {
+                "v": 60,
+                "q": true
+              }
+            ],
+            "total": 240
+          }
         }
       ],
       "tags": [
@@ -518,7 +671,32 @@
       "expectedSeconds": 150,
       "unit": "°",
       "type": "numeric",
-      "answer": 70
+      "answer": 70,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the size of one of the other two angles, in degrees?"
+          ]
+        },
+        {
+          "say": "180 - 40 = 140, and the two equal angles share it, so each is 70°.",
+          "anim": {
+            "k": "combine",
+            "a": 180,
+            "op": "-",
+            "b": 40,
+            "r": 140
+          },
+          "mark": [
+            "40"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "70 °"
+        }
+      ]
     },
     {
       "id": "m4.oly-geometry.013",
@@ -539,7 +717,35 @@
       "expectedSeconds": 180,
       "unit": "cm²",
       "type": "numeric",
-      "answer": 54
+      "answer": 54,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its area in square centimetres?"
+          ]
+        },
+        {
+          "say": "Length plus width is 15."
+        },
+        {
+          "say": "The length is 3 more than the width, so the width is 6 and the length is 9."
+        },
+        {
+          "say": "The area is 6 × 9 = 54.",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 9,
+            "r": 54
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "54 cm²"
+        }
+      ]
     },
     {
       "id": "m4.oly-geometry.014",
@@ -600,7 +806,35 @@
       "expectedSeconds": 150,
       "unit": "°",
       "type": "numeric",
-      "answer": 150
+      "answer": 150,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "At 5 o'clock, what is the angle between the hour hand and"
+          ]
+        },
+        {
+          "say": "A full turn is 360° and there are 12 hours, so each hour is 30°."
+        },
+        {
+          "say": "At 5 o'clock the hands are 5 hours apart, so 5 × 30 = 150°.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 30,
+            "r": 150
+          },
+          "mark": [
+            "5"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "150 °"
+        }
+      ]
     }
   ]
 }

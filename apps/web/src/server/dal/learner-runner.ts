@@ -25,6 +25,13 @@ type ResponseRow = typeof response.$inferSelect
 
 const HIDDEN_MODES = new Set(['tes', 'simulasi', 'kertas'])
 
+/** Pembahasan bergerak dimuat malas lewat walkthroughFor, supaya runner tidak membawa langkah semua soal. */
+export function lazySolution<T extends { reveal?: { solution?: unknown; hasSolution?: boolean } }>(client: T): T {
+  if (!client.reveal?.solution) return client
+  const { solution: _steps, ...rest } = client.reveal
+  return { ...client, reveal: { ...rest, hasSolution: true } }
+}
+
 export function dtoKind(kind: AttemptRow['kind']): RunnerDTO['kind'] {
   switch (kind) {
     case 'quest':
@@ -116,7 +123,8 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     if (!item) continue
     const perm = hidden ? labelPerm(a.id, it.ref, labelCount(item)) : null
     byPosition.set(it.position, { item, perm })
-    runnerItems.push({ ...toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }), position: it.position, section: it.section })
+    const client = lazySolution(toClient(item, { ref: it.ref, seed, includeKey: feedback, includeHints: hints, labels: perm }))
+    runnerItems.push({ ...client, position: it.position, section: it.section, ...(it.remedialOf !== undefined ? { remedialOf: it.remedialOf } : {}) })
   }
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)
@@ -338,8 +346,10 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   if (a.status !== 'in_progress') return { redirectTo }
   const learner = await loadLearner(tx, learnerId)
   const date = jakartaDate()
-  const items = (a.items as AttemptItem[]) ?? []
-  const resolved = await resolveItems(tx, items.map((i) => i.ref))
+  const allItems = (a.items as AttemptItem[]) ?? []
+  // Soal saudara dari putaran perbaikan tidak ikut skor sesi; jawabannya sudah masuk mesin belajar.
+  const items = allItems.filter((i) => i.remedialOf === undefined)
+  const resolved = await resolveItems(tx, allItems.map((i) => i.ref))
   const resp = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(resp)
   let xp = 0

@@ -38,11 +38,28 @@
       "solution": [
         {
           "say": "25% of 400.",
-          "show": "400 ÷ 4 = 100"
+          "show": "400 ÷ 4 = 100",
+          "anim": {
+            "k": "combine",
+            "a": 400,
+            "op": "÷",
+            "b": 4,
+            "r": 100
+          },
+          "mark": [
+            "400"
+          ]
         },
         {
           "say": "20% of 100.",
-          "show": "100 ÷ 5 = 20"
+          "show": "100 ÷ 5 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "÷",
+            "b": 5,
+            "r": 20
+          }
         }
       ],
       "tags": [
@@ -90,15 +107,43 @@
       "solution": [
         {
           "say": "Total of 4.",
-          "show": "4 × 15 = 60"
+          "show": "4 × 15 = 60",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 15,
+            "r": 60
+          },
+          "mark": [
+            "4",
+            "15"
+          ]
         },
         {
           "say": "Total of 5.",
-          "show": "5 × 17 = 85"
+          "show": "5 × 17 = 85",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 17,
+            "r": 85
+          },
+          "mark": [
+            "17"
+          ]
         },
         {
           "say": "Fifth number.",
-          "show": "85 - 60 = 25"
+          "show": "85 - 60 = 25",
+          "anim": {
+            "k": "combine",
+            "a": 85,
+            "op": "-",
+            "b": 60,
+            "r": 25
+          }
         }
       ],
       "tags": [
@@ -146,7 +191,17 @@
       "solution": [
         {
           "say": "Small case.",
-          "show": "1000 - 25 = 975"
+          "show": "1000 - 25 = 975",
+          "anim": {
+            "k": "combine",
+            "a": 1000,
+            "op": "-",
+            "b": 25,
+            "r": 975
+          },
+          "mark": [
+            "25"
+          ]
         },
         {
           "say": "Pattern.",
@@ -206,7 +261,17 @@
         },
         {
           "say": "What is left.",
-          "show": "10/2 = 5"
+          "show": "10/2 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "÷",
+            "b": 2,
+            "r": 5
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -243,7 +308,17 @@
         },
         {
           "say": "Check.",
-          "show": "2 × 72 = 144 = 12 × 12, 3 × 72 = 216 = 6 × 6 × 6"
+          "show": "2 × 72 = 144 = 12 × 12, 3 × 72 = 216 = 6 × 6 × 6",
+          "anim": {
+            "k": "combine",
+            "a": 2,
+            "op": "×",
+            "b": 72,
+            "r": 144
+          },
+          "mark": [
+            "2"
+          ]
         }
       ],
       "tags": [
@@ -290,7 +365,18 @@
         },
         {
           "say": "Harga jual.",
-          "show": "Rp800.000 + Rp200.000 = Rp1.000.000"
+          "show": "Rp800.000 + Rp200.000 = Rp1.000.000",
+          "anim": {
+            "k": "combine",
+            "a": 800000,
+            "op": "+",
+            "b": 200000,
+            "r": 1000000,
+            "cur": "Rp"
+          },
+          "mark": [
+            "Rp800.000"
+          ]
         }
       ],
       "tags": [
@@ -376,15 +462,45 @@
       "solution": [
         {
           "say": "Sum by pairing.",
-          "show": "50 × 101 = 5050"
+          "show": "50 × 101 = 5050",
+          "anim": {
+            "k": "combine",
+            "a": 50,
+            "op": "×",
+            "b": 101,
+            "r": 5050
+          }
         },
         {
           "say": "Divide by 7.",
-          "show": "7 × 721 = 5047"
+          "show": "7 × 721 = 5047",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "×",
+            "b": 721,
+            "r": 5047
+          },
+          "mark": [
+            "7"
+          ]
         },
         {
           "say": "Remainder.",
-          "show": "5050 - 5047 = 3"
+          "show": "5050 - 5047 = 3",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 5047
+              },
+              {
+                "v": 3,
+                "q": true
+              }
+            ],
+            "total": 5050
+          }
         }
       ],
       "tags": [
@@ -413,7 +529,21 @@
         },
         {
           "say": "Factors.",
-          "show": "1, 2, 3, 4, 6, 9, 12, 18, 36"
+          "show": "1, 2, 3, 4, 6, 9, 12, 18, 36",
+          "anim": {
+            "k": "seq",
+            "items": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "6",
+              "9",
+              "12",
+              "18",
+              "36"
+            ]
+          }
         },
         {
           "say": "Sum.",
@@ -466,7 +596,48 @@
           "why": "You divided 60 by 4 without taking the 20 away first."
         }
       ],
-      "answer": 2
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the mean of the four numbers left?"
+          ]
+        },
+        {
+          "say": "The total is 5 × 12 = 60.",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "×",
+            "b": 12,
+            "r": 60
+          },
+          "mark": [
+            "12"
+          ]
+        },
+        {
+          "say": "Without 20 the total is 40."
+        },
+        {
+          "say": "The mean of four numbers is 40 ÷ 4 = 10.",
+          "anim": {
+            "k": "combine",
+            "a": 40,
+            "op": "÷",
+            "b": 4,
+            "r": 10
+          }
+        },
+        {
+          "say": "Not 4. You subtracted 20 from the mean. Find the total first."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 10"
+        }
+      ]
     },
     {
       "id": "m6.oly-number-puzzles.011",
@@ -528,7 +699,35 @@
           "why": "This works, but it is not the smallest. Check smaller numbers."
         }
       ],
-      "answer": 1
+      "answer": 1,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the smallest number of marbles he could have?"
+          ]
+        },
+        {
+          "say": "Adding 1 makes the number a multiple of both 6 and 5, so a multiple of 30."
+        },
+        {
+          "say": "The smallest number over 20 is 30 − 1 = 29.",
+          "anim": {
+            "k": "combine",
+            "a": 30,
+            "op": "-",
+            "b": 1,
+            "r": 29
+          }
+        },
+        {
+          "say": "Not 24. 24 leaves 4 when divided by 5 but 0 when divided by 6."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "B. 29"
+        }
+      ]
     },
     {
       "id": "m6.oly-number-puzzles.013",
@@ -610,7 +809,40 @@
       "points": 5,
       "expectedSeconds": 210,
       "type": "numeric",
-      "answer": 12
+      "answer": 12,
+      "solution": [
+        {
+          "say": "Read what the question asks."
+        },
+        {
+          "say": "Count factors of 5: there are 10 multiples of 5 up to 50, and 2 of them (25 and 50) have an extra 5."
+        },
+        {
+          "say": "That is 10 + 2 = 12 fives, and plenty of 2s.",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 2
+              }
+            ],
+            "total": 12
+          },
+          "mark": [
+            "2"
+          ]
+        },
+        {
+          "say": "So there are 12 zeros."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "12"
+        }
+      ]
     },
     {
       "id": "m6.oly-number-puzzles.016",

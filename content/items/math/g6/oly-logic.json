@@ -90,11 +90,28 @@
       "solution": [
         {
           "say": "Worst case: two whole colours.",
-          "show": "10 + 10 = 20"
+          "show": "10 + 10 = 20",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "+",
+            "b": 10,
+            "r": 20
+          },
+          "mark": [
+            "10"
+          ]
         },
         {
           "say": "The next marble is the third colour.",
-          "show": "20 + 1 = 21"
+          "show": "20 + 1 = 21",
+          "anim": {
+            "k": "combine",
+            "a": 20,
+            "op": "+",
+            "b": 1,
+            "r": 21
+          }
         }
       ],
       "tags": [
@@ -146,7 +163,14 @@
         },
         {
           "say": "At most every other seat.",
-          "show": "10 ÷ 2 = 5"
+          "show": "10 ÷ 2 = 5",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "÷",
+            "b": 2,
+            "r": 5
+          }
         },
         {
           "say": "Check the liars: each has knights as neighbours, so their words are false.",
@@ -239,7 +263,19 @@
         },
         {
           "say": "Ali.",
-          "show": "10 + 7 = 17"
+          "show": "10 + 7 = 17",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 10
+              },
+              {
+                "v": 7
+              }
+            ],
+            "total": 17
+          }
         }
       ],
       "tags": [
@@ -294,7 +330,14 @@
         },
         {
           "say": "Seluruh perjalanan dikurangi waktu berhenti.",
-          "show": "155 - 15 = 140 menit"
+          "show": "155 - 15 = 140 menit",
+          "anim": {
+            "k": "combine",
+            "a": 155,
+            "op": "-",
+            "b": 15,
+            "r": 140
+          }
         }
       ],
       "tags": [
@@ -417,11 +460,34 @@
         },
         {
           "say": "All wins would give 18.",
-          "show": "6 × 3 = 18"
+          "show": "6 × 3 = 18",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 3,
+            "r": 18
+          },
+          "mark": [
+            "3"
+          ]
         },
         {
           "say": "Draws.",
-          "show": "18 - 15 = 3"
+          "show": "18 - 15 = 3",
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 15
+              },
+              {
+                "v": 3,
+                "q": true
+              }
+            ],
+            "total": 18
+          }
         }
       ],
       "tags": [
@@ -587,7 +653,35 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 12
+      "answer": 12,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "When the watch shows 11:00 at night, how many real hours"
+          ]
+        },
+        {
+          "say": "The watch moves 55 minutes each real hour."
+        },
+        {
+          "say": "660 ÷ 55 = 12, so 12 real hours have passed.",
+          "anim": {
+            "k": "combine",
+            "a": 660,
+            "op": "÷",
+            "b": 55,
+            "r": 12
+          }
+        },
+        {
+          "say": "It is midnight."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "12"
+        }
+      ]
     },
     {
       "id": "m6.oly-logic.015",
@@ -691,7 +785,42 @@
           "why": "That is all the gloves, which is far more than needed."
         }
       ],
-      "answer": 3
+      "answer": 3,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many gloves must be taken out to be sure of having a"
+          ]
+        },
+        {
+          "say": "In the worst case you take all 3 × 4 = 12 left-hand gloves and have no pair.",
+          "anim": {
+            "k": "combine",
+            "a": 3,
+            "op": "×",
+            "b": 4,
+            "r": 12
+          },
+          "mark": [
+            "3",
+            "4"
+          ]
+        },
+        {
+          "say": "The 13th glove must be a right-hand one, which matches a colour you already hold."
+        },
+        {
+          "say": "So 13."
+        },
+        {
+          "say": "Not 4. Four gloves could all be left-hand gloves."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "D. 13"
+        }
+      ]
     }
   ]
 }

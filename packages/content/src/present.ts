@@ -75,7 +75,7 @@ export type ClientItem = {
   /** Hanya mode latihan. */
   hints?: string[]
   key?: AnswerKey
-  reveal?: { explanation: string; tip?: string; solution?: SolutionStep[]; answerText: string; whyWrong?: (string | null)[] }
+  reveal?: { explanation: string; tip?: string; solution?: SolutionStep[]; /** Pembahasan ada tetapi dimuat malas (runner Latihan). */ hasSolution?: boolean; answerText: string; whyWrong?: (string | null)[] }
 }
 
 export type PresentOptions = {

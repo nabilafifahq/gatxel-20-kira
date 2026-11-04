@@ -43,11 +43,29 @@
       "solution": [
         {
           "say": "Rectangle.",
-          "show": "10 × 6 = 60 cm²"
+          "show": "10 × 6 = 60 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 10,
+            "op": "×",
+            "b": 6,
+            "r": 60
+          },
+          "mark": [
+            "10",
+            "6"
+          ]
         },
         {
           "say": "Half of it.",
-          "show": "60 ÷ 2 = 30 cm²"
+          "show": "60 ÷ 2 = 30 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 60,
+            "op": "÷",
+            "b": 2,
+            "r": 30
+          }
         }
       ],
       "tags": [
@@ -100,7 +118,14 @@
       "solution": [
         {
           "say": "Triangles from one corner.",
-          "show": "8 - 2 = 6"
+          "show": "8 - 2 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 8,
+            "op": "-",
+            "b": 2,
+            "r": 6
+          }
         },
         {
           "say": "Angle sum.",
@@ -169,7 +194,17 @@
         },
         {
           "say": "Square.",
-          "show": "4 × 12.5 = 50 cm²"
+          "show": "4 × 12.5 = 50 cm²",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 12.5,
+            "r": 50
+          },
+          "mark": [
+            "4"
+          ]
         }
       ],
       "tags": [
@@ -221,7 +256,17 @@
         },
         {
           "say": "Work it out.",
-          "show": "22 × 2 = 44 cm"
+          "show": "22 × 2 = 44 cm",
+          "anim": {
+            "k": "combine",
+            "a": 22,
+            "op": "×",
+            "b": 2,
+            "r": 44
+          },
+          "mark": [
+            "22"
+          ]
         }
       ],
       "tags": [
@@ -460,11 +505,33 @@
       "solution": [
         {
           "say": "Base AB.",
-          "show": "7 - 1 = 6"
+          "show": "7 - 1 = 6",
+          "anim": {
+            "k": "combine",
+            "a": 7,
+            "op": "-",
+            "b": 1,
+            "r": 6
+          },
+          "mark": [
+            "7",
+            "1"
+          ]
         },
         {
           "say": "Height from C to AB.",
-          "show": "5 - 1 = 4"
+          "show": "5 - 1 = 4",
+          "anim": {
+            "k": "combine",
+            "a": 5,
+            "op": "-",
+            "b": 1,
+            "r": 4
+          },
+          "mark": [
+            "5",
+            "1"
+          ]
         },
         {
           "say": "Area.",
@@ -517,7 +584,38 @@
           "why": "You may have used length 12 and width 12."
         }
       ],
-      "answer": 2
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its area in square centimetres?"
+          ]
+        },
+        {
+          "say": "Length plus width is 18 cm."
+        },
+        {
+          "say": "The width is 6 cm and the length is 12 cm."
+        },
+        {
+          "say": "The area is 12 × 6 = 72 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 12,
+            "op": "×",
+            "b": 6,
+            "r": 72
+          }
+        },
+        {
+          "say": "Not 36. This is the perimeter. The area is length times width."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 72"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.011",
@@ -579,7 +677,41 @@
           "why": "This is the square before any triangles are cut off."
         }
       ],
-      "answer": 1
+      "answer": 1,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the area left, in square centimetres?"
+          ]
+        },
+        {
+          "say": "Each triangle has area 3 × 3 ÷ 2 = 4."
+        },
+        {
+          "say": "5."
+        },
+        {
+          "say": "Four of them make 18."
+        },
+        {
+          "say": "So 100 − 18 = 82 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 100,
+            "op": "-",
+            "b": 18,
+            "r": 82
+          }
+        },
+        {
+          "say": "Not 64. You cut away squares with side 3, not triangles. A triangle is half of a square."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "B. 82"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.013",
@@ -599,7 +731,35 @@
       "points": 3,
       "expectedSeconds": 150,
       "type": "numeric",
-      "answer": 150
+      "answer": 150,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is its total surface area in square centimetres?"
+          ]
+        },
+        {
+          "say": "The side is 5 cm because 5 × 5 × 5 = 125."
+        },
+        {
+          "say": "Each face has area 25 cm² and there are 6 faces."
+        },
+        {
+          "say": "6 × 25 = 150 cm².",
+          "anim": {
+            "k": "combine",
+            "a": 6,
+            "op": "×",
+            "b": 25,
+            "r": 150
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "150"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.014",
@@ -619,7 +779,35 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 96
+      "answer": 96,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the size of angle B in degrees?"
+          ]
+        },
+        {
+          "say": "B + C = 120°."
+        },
+        {
+          "say": "In 5 equal parts, one part is 24°, so C = 24° and B = 4 × 24 = 96°.",
+          "anim": {
+            "k": "combine",
+            "a": 4,
+            "op": "×",
+            "b": 24,
+            "r": 96
+          },
+          "mark": [
+            "4"
+          ]
+        },
+        {
+          "say": "So the answer is:",
+          "show": "96"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.015",
@@ -661,7 +849,41 @@
           "why": "You added each of the cut lengths four times."
         }
       ],
-      "answer": 2
+      "answer": 2,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "What is the total perimeter of the 3 rectangles together"
+          ]
+        },
+        {
+          "say": "The square has perimeter 48 cm."
+        },
+        {
+          "say": "Each cut is 12 cm and makes two new edges, adding 24 cm."
+        },
+        {
+          "say": "Two cuts add 48 cm."
+        },
+        {
+          "say": "The total is 48 + 48 = 96 cm.",
+          "anim": {
+            "k": "combine",
+            "a": 48,
+            "op": "+",
+            "b": 48,
+            "r": 96
+          }
+        },
+        {
+          "say": "Not 48. This is the perimeter of the square only. The cuts make new edges."
+        },
+        {
+          "say": "So the answer is:",
+          "show": "C. 96"
+        }
+      ]
     },
     {
       "id": "m6.oly-geometry.016",
