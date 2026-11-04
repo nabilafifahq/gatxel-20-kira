@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FEATURE_GROUPS, FEATURE_LABEL, FEATURE_PRESETS, featureOn, presetMap, type FeatureKey, type FeatureMap } from '@kira/core/features'
 import { Button } from '@/components/console/Button'
@@ -13,6 +14,7 @@ import { parentSaveFeaturesAction } from '@/server/actions/parent'
  * dengan tiga preset. Semua menyala bawaan. Penyimpanan lewat aksi orang tua; server yang menegakkan pilihan.
  */
 export function FeatureChecklist({ learnerId, name, initial, onSaved }: { learnerId: string; name: string; initial: FeatureMap; onSaved?: () => void }) {
+  const router = useRouter()
   const [map, setMap] = useState<FeatureMap>(initial)
   const [saved, setSaved] = useState(false)
   const save = useAction(parentSaveFeaturesAction)
@@ -64,6 +66,7 @@ export function FeatureChecklist({ learnerId, name, initial, onSaved }: { learne
           const r = await save.run({ learnerId, features: map })
           if (r.ok) {
             setSaved(true)
+            router.refresh()
             onSaved?.()
           }
         }}
