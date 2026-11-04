@@ -60,7 +60,7 @@ export function TilesWidget({ item, value, onChange, disabled = false, feedback 
             aria-label={`${w}, word ${i + 1} of ${words.length}. Tap to take it back.`}
             onClick={() => take(i)}
             className={cx(
-              'inline-flex min-h-14 items-center rounded-control border-2 px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
+              'inline-flex min-h-14 min-w-14 items-center justify-center rounded-control border-2 px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
               locked ? 'cursor-default border-divider bg-surface' : cx('cursor-pointer bg-surface hover:border-fg active:scale-97', style.border, style.tint),
             )}
           >
@@ -76,7 +76,7 @@ export function TilesWidget({ item, value, onChange, disabled = false, feedback 
             disabled={locked}
             onClick={() => place(t.text)}
             className={cx(
-              'inline-flex min-h-14 items-center rounded-control border-2 px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
+              'inline-flex min-h-14 min-w-14 items-center justify-center rounded-control border-2 px-4 py-2 font-reading text-h3 font-bold text-fg transition-transform duration-150 ease-kira',
               locked ? 'cursor-not-allowed border-divider bg-bg text-border' : 'cursor-pointer border-border bg-surface hover:border-fg active:scale-97',
             )}
           >
