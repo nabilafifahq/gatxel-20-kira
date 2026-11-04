@@ -50,12 +50,13 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
         {locked ? dict.widgets.table.yourTable : dict.widgets.table.tapThenType}
       </p>
-      <table className="w-full table-fixed border-collapse rounded-control border-2 border-border bg-surface font-reading text-h3">
-        {table.caption ? <caption lang={item.lang} className="pb-2 text-left text-body-lg font-bold">{table.caption}</caption> : null}
+      {/* Di HP kolom mengikuti isinya dan hurufnya lebih kecil, supaya kata panjang tidak menimpa kolom sebelah. */}
+      <table lang={item.lang} className="w-full table-auto border-collapse rounded-control border-2 border-border bg-surface font-reading text-h3 wrap-anywhere max-md:text-body md:table-fixed">
+        {table.caption ? <caption className="pb-2 text-left text-body-lg font-bold">{table.caption}</caption> : null}
         <thead>
           <tr>
             {table.head.map((h, c) => (
-              <th key={c} scope="col" lang={item.lang} className="border-2 border-border bg-bg px-2 py-2 text-left font-bold">
+              <th key={c} scope="col" className="border-2 border-border bg-bg px-2 py-2 text-left font-bold max-md:px-1.5">
                 {h}
               </th>
             ))}
@@ -68,7 +69,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
                 const bi = blankIndex(r, c)
                 if (bi < 0) {
                   return (
-                    <td key={c} lang={item.lang} className="border-2 border-border px-2 py-2">
+                    <td key={c} className="border-2 border-border px-2 py-2 max-md:px-1.5">
                       {text}
                     </td>
                   )
@@ -84,7 +85,7 @@ export function TableWidget({ item, value, onChange, disabled = false, feedback 
                       aria-label={`${dict.widgets.table.cellAria(table.head[c] ?? dict.widgets.table.column, r + 1, texts[bi] ? texts[bi] : dict.widgets.shared.empty)}${ok === true ? dict.widgets.shared.ariaRight : ok === false ? dict.widgets.shared.ariaNotYet : ''}`}
                       aria-current={isActive ? 'true' : undefined}
                       className={cx(
-                        'flex min-h-14 w-full items-center justify-between gap-1 rounded-control px-2 text-left font-bold',
+                        'flex min-h-14 w-full min-w-14 items-center justify-between gap-1 rounded-control px-2 text-left font-bold',
                         ok === true
                           ? 'border-3 border-success bg-success-50'
                           : ok === false

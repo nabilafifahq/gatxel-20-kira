@@ -169,7 +169,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
                 </Button>
               </div>
             ) : (
-              <Button iconAfter="arrow-right" loading={submit.state === 'busy'} onClick={() => submit.redirectTo && router.push(submit.redirectTo)}>
+              <Button iconAfter="arrow-right" loading={submit.state === 'busy'} onClick={() => submit.redirectTo && router.replace(submit.redirectTo)}>
                 {ts.seeResults}
               </Button>
             )}

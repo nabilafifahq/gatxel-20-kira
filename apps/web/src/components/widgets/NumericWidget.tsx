@@ -1,6 +1,7 @@
 'use client'
 
 import type { ReactElement } from 'react'
+import { NUMERIC_MAX_DIGITS } from '@kira/content/check'
 import { useMediaQuery } from '@/components/learner/hooks'
 import { NumericKeypad } from '@/components/learner/NumericKeypad'
 import { asValue } from './answers'
@@ -22,6 +23,7 @@ export function NumericWidget({ item, value, onChange, disabled = false, feedbac
         allowNegative={!!item.allowNegative}
         decimalChar={item.lang === 'id' ? ',' : '.'}
         unit={item.unit}
+        maxLength={NUMERIC_MAX_DIGITS}
         size={phone ? 'M' : 'L'}
         showLabel={!phone}
       />

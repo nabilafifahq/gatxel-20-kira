@@ -79,6 +79,9 @@ export type Answer =
   | { placed: (readonly [number, number, 0 | 1] | null)[] }
   | { pegs: (readonly [number, number])[]; closed: boolean }
 
+/** Batas digit keypad jawaban angka. Harus lebih panjang dari jawaban terpanjang di bank soal dan generator (test/keypad-limit.test.ts). */
+export const NUMERIC_MAX_DIGITS = 10
+
 export type CheckStatus = 'correct' | 'wrong' | 'blank' | 'pending'
 
 export type CheckResult = { status: CheckStatus; score: number; partial?: number }
@@ -194,6 +197,21 @@ export function normaliseText(s: string, caseSensitive: boolean): string {
   return caseSensitive ? t : t.toLowerCase()
 }
 
+/** Koordinat "(1, 1)", "(1,1)", "1, 1", dan "( 1 , 1 )" adalah jawaban yang sama. Null bila bukan koordinat. */
+function coordForm(s: string): string | null {
+  const m = /^\(?\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)?$/.exec(s.normalize('NFKC').replace(/−/g, '-').trim())
+  return m ? `${m[1]},${m[2]}` : null
+}
+
+/** Isian teks cocok dengan jawaban yang diterima: sama setelah dirapikan, atau koordinat yang sama. */
+function textMatches(given: string, accepted: string, caseSensitive: boolean): boolean {
+  const g = normaliseText(given, caseSensitive)
+  if (g === '') return false
+  if (g === normaliseText(accepted, caseSensitive)) return true
+  const c = coordForm(accepted)
+  return c !== null && c === coordForm(given)
+}
+
 /** Bentuk banding isian cloze. Tanda baca saja (".", "!", "?") tidak boleh habis dipangkas, karena itu jawabannya. */
 export const clozeForm = (s: string) => normaliseText(s, false) || s.normalize('NFKC').trim()
 
@@ -273,8 +291,8 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       const texts = Array.isArray(a.texts) ? (a.texts as unknown[]) : []
       let right = 0
       key.blanks.forEach((b, i) => {
-        const given = typeof texts[i] === 'string' ? normaliseText(texts[i] as string, b.caseSensitive) : ''
-        if (given !== '' && b.answers.some((ans) => normaliseText(ans, b.caseSensitive) === given)) right++
+        const given = typeof texts[i] === 'string' ? (texts[i] as string) : ''
+        if (b.answers.some((ans) => textMatches(given, ans, b.caseSensitive))) right++
       })
       return verdict(right === key.blanks.length, right / key.blanks.length)
     }
