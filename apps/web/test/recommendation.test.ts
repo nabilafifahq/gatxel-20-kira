@@ -5,7 +5,8 @@ import { describe, expect, it } from 'vitest'
 import { effectiveOn, FEATURE_KEYS, FEATURE_NEEDS, isFeatureKey, activeSubjects } from '@kira/core/features'
 import { recommendationFor, recommendationSummary } from '@kira/core/recommendation'
 
-const SKILLS_DIR = fileURLToPath(new URL('../../../content/skills', import.meta.url))
+const CONTENT = fileURLToPath(new URL('../../../content', import.meta.url))
+const SKILLS_DIR = join(CONTENT, 'skills')
 
 /** Jumlah skill per mapel dan kelas dari content/skills. */
 function skillCounts(): Map<string, number> {
@@ -53,6 +54,11 @@ describe('jalur rekomendasi', () => {
         expect(activeSubjects(r.features)).toEqual(r.subjects)
       })
 
+      it('fitur yang menyala punya konten untuk kelas itu', () => {
+        if (r.on.includes('reading-room')) expect(readdirSync(join(CONTENT, 'books', String(grade))).length).toBeGreaterThan(0)
+        if (r.on.includes('flashcards')) for (const s of r.subjects) expect(readdirSync(join(CONTENT, 'flashcards', s, `g${grade}`)).length).toBeGreaterThan(0)
+      })
+
       it('olimpiade hanya menyala atas pilihan orang tua', () => {
         expect(r.on.some((k) => k.startsWith('olympiad-'))).toBe(false)
       })
@@ -66,9 +72,8 @@ describe('jalur rekomendasi', () => {
     })
   }
 
-  it('Paper hanya untuk kelas 5 ke atas, Quiz Arena untuk kelas 3 ke atas', () => {
-    for (const g of [1, 2, 3, 4]) expect(recommendationFor(g).off).toContain('paper')
-    for (const g of [5, 6]) expect(recommendationFor(g).on).toContain('paper')
+  it('Paper menyala di semua kelas karena hari Seimbang memuatnya sebagai opsional, Quiz Arena mulai kelas 3', () => {
+    for (const g of [1, 2, 3, 4, 5, 6]) expect(recommendationFor(g).on).toContain('paper')
     for (const g of [1, 2]) expect(recommendationFor(g).off).toContain('quiz-arena')
     for (const g of [3, 4, 5, 6]) expect(recommendationFor(g).on).toContain('quiz-arena')
   })

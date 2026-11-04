@@ -41,7 +41,7 @@ const TONE: Record<ParentChildCard['status'], string> = {
 export function ChildCard({ c }: { c: ParentChildCard }) {
   const pct = c.requiredTotal > 0 ? Math.round((c.requiredDone / c.requiredTotal) * 100) : c.status === 'none' && c.optionalTotal > 0 ? 100 : 0
   return (
-    <article aria-labelledby={`anak-${c.id}`} className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-4">
+    <article aria-labelledby={`anak-${c.id}`} className="flex flex-col gap-3 rounded-card bg-surface p-4 shadow-soft">
       <div className="flex items-center gap-3">
         <Avatar name={c.avatar} size={56} className="flex-none" />
         <div className="flex min-w-0 flex-1 flex-col">
@@ -151,7 +151,7 @@ export function ParentHomeClient({ shell, data, checklist = null, owner = false 
         </div>
       )}
 
-      <section aria-labelledby="atur" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-4">
+      <section aria-labelledby="atur" className="flex flex-col gap-3 rounded-card bg-surface p-4 shadow-soft">
         <h2 id="atur" className="m-0 text-h3 font-bold">
           Perangkat dan data
         </h2>

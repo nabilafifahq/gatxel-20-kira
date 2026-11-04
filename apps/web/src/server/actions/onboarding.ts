@@ -50,7 +50,7 @@ export async function applyPathAction(input: { mode: 'recommended' | 'skipped'; 
       .strict()
       .parse(input)
     const r = await applyRecommendedPath(actor, data)
-    refresh()
+    // Tanpa refresh(): layar langsung pindah ke langkah berikutnya, yang membaca data segar.
     if (r.today) revalidatePath('/today')
     return { applied: r.applied }
   })
@@ -62,7 +62,6 @@ export async function markCustomPathAction(input: { learnerId: string }): Promis
     const actor = await requireParent()
     const data = z.object({ learnerId: z.string().uuid() }).strict().parse(input)
     await markCustomPath(actor, data.learnerId)
-    refresh()
     return { learnerId: data.learnerId }
   })
 }
