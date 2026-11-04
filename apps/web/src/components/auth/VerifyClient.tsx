@@ -29,7 +29,6 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
     if (!valid || started.current) return
     started.current = true
     void confirm()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (outcome === 'full') return <WaitlistFull />
