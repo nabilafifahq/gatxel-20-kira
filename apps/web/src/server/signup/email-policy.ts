@@ -1,3 +1,4 @@
+import { EMAIL_SHAPE, emailKey, splitEmail } from '@kira/core/email'
 import { resolveMx } from 'node:dns/promises'
 import { DISPOSABLE_SNAPSHOT } from './disposable-snapshot'
 
@@ -28,31 +29,7 @@ export const EXTRA_DISPOSABLE_DOMAINS: readonly string[] = [
 ]
 
 const BLOCKED = new Set<string>([...DISPOSABLE_SNAPSHOT, ...EXTRA_DISPOSABLE_DOMAINS])
-const GMAIL = new Set(['gmail.com', 'googlemail.com'])
-
-export const EMAIL_SHAPE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
-
-export function splitEmail(email: string): { local: string; domain: string } | null {
-  const trimmed = email.trim().toLowerCase()
-  const at = trimmed.lastIndexOf('@')
-  if (at < 1 || at === trimmed.length - 1 || !EMAIL_SHAPE.test(trimmed)) return null
-  return { local: trimmed.slice(0, at), domain: trimmed.slice(at + 1).replace(/\.$/, '') }
-}
-
-/** Bentuk baku untuk keunikan: satu orang, satu alamat. Tidak dipakai sebagai alamat tujuan email. */
-export function emailKey(email: string): string {
-  const parts = splitEmail(email)
-  if (!parts) return email.trim().toLowerCase()
-  let local = parts.local
-  const plus = local.indexOf('+')
-  if (plus > 0) local = local.slice(0, plus)
-  let domain = parts.domain
-  if (GMAIL.has(domain)) {
-    local = local.replace(/\./g, '')
-    domain = 'gmail.com'
-  }
-  return `${local}@${domain}`
-}
+export { EMAIL_SHAPE, emailKey, splitEmail }
 
 /** True bila domain (atau induknya) ada di daftar sekali pakai. */
 export function isDisposableDomain(domain: string): boolean {

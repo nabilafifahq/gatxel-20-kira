@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import postgres from 'postgres'
-import { isSafeAddress, type EmailIdentity } from '@kira/core/email'
+import { emailKey, isSafeAddress, type EmailIdentity } from '@kira/core/email'
 import { emailSamples, seatReopenedEmail } from '@kira/core/email-templates'
 
 /**
@@ -71,7 +71,7 @@ async function resetLink(emailRaw: string | undefined): Promise<void> {
   const origin = (process.env.KIRA_ORIGIN ?? '').replace(/\/$/, '')
   if (!origin.startsWith('https://') && !origin.startsWith('http://localhost')) throw new Error('KIRA_ORIGIN belum diisi dengan alamat https Kira.')
   const email = normaliseEmail(emailRaw)
-  const users = await sql`select id from auth.user_account where lower(email) = ${email} and kind = 'adult' and disabled_at is null limit 1`
+  const users = await sql`select id from auth.user_account where (lower(email) = ${email} or email_norm = ${emailKey(email)}) and kind = 'adult' and disabled_at is null order by (lower(email) = ${email}) desc limit 1`
   if (!users[0]) throw new Error('Akun dewasa dengan email itu tidak ditemukan.')
   const token = randomBytes(32).toString('base64url')
   await sql`insert into auth.reset_token (user_id, token_hash, expires_at) values (${users[0].id}, ${sha256hex(token)}, now() + interval '30 minutes')`
@@ -81,9 +81,9 @@ async function resetLink(emailRaw: string | undefined): Promise<void> {
 async function unlock(emailRaw: string | undefined): Promise<void> {
   if (!emailRaw) throw new Error('Pakai: admin unlock <email>')
   const email = normaliseEmail(emailRaw)
-  const key = `email:${sha256hex(email)}`
+  const key = `email:${sha256hex(emailKey(email))}`
   const res = await sql`delete from auth.login_attempt where key = ${key} and success = false`
-  await sql`update auth.user_account set failed_logins = 0, locked_until = null where lower(email) = ${email}`
+  await sql`update auth.user_account set failed_logins = 0, locked_until = null where lower(email) = ${email} or email_norm = ${emailKey(email)}`
   console.log(`Kunci masuk dibuka. ${res.count} percobaan gagal dihapus.`)
 }
 
