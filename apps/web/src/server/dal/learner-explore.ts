@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, asc, eq, gte, inArray, lte, sql } from 'drizzle-orm'
 import { accessoryById, addDays, ARENA_BADGES, BADGES, createRng, formatDateEn, formatDateId, jakartaDate, levelProgress, weekday, weekdayNameEn, weekdayNameId, type IsoDate } from '@kira/core'
-import { activeSubjects, skillAllowed } from '@kira/core/features'
+import { activeSubjects, effectiveOn, skillAllowed } from '@kira/core/features'
 import { tables } from '@kira/db'
 import { AVATARS, type AvatarName } from '@kira/figures/spec'
 import type { CorrectionBookDTO, LessonDTO, MapDTO, MapSkillDTO, MeDTO, Subject } from '@/lib/dto'
@@ -98,7 +98,8 @@ export async function meDTO(tx: Tx, learnerId: string, lang: UiLang = 'en'): Pro
     xpIntoLevel: lp.into,
     xpLevelSpan: lp.span,
     xpToNext: lp.toNext,
-    badges: [...BADGES, ...ARENA_BADGES].map((b) => {
+    // Lencana Quick Maths yang belum didapat tidak ditampilkan bila Hitung cepat dimatikan orang tua.
+    badges: [...BADGES, ...ARENA_BADGES].filter((b) => !b.id.startsWith('qm-') || effectiveOn(features, 'mental-math') || awarded.has(b.id)).map((b) => {
       const got = awarded.get(b.id)
       const text = t.shell.badges[b.id]
       return { id: b.id, title: text?.title ?? b.title, description: text?.desc ?? b.description, earnedAt: got ? got.awardedAt.toISOString() : null, isNew: Boolean(got && !got.seen), ...('glyph' in b ? { glyph: b.glyph } : {}) }
