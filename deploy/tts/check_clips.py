@@ -36,6 +36,7 @@ import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
 from typing import Any
 
 import numpy as np
@@ -54,8 +55,9 @@ EDGE_SILENCE_S = 1.2
 INNER_SILENCE_S = {"teacher": 1.6, "quizhost": 1.6, "second": 1.6, "dictation": 2.4}
 SILENT_RATIO = 0.6
 SILENCE_DB = -45.0
-PHRASE_JUMP_ST = 8.0  # semiton antar frasa dalam satu klip (laki-laki ke perempuan sekitar 10 sampai 12)
-CLIP_DEVIATION_ST = 5.0  # simpangan median F0 klip dari median suara yang sama
+PHRASE_JUMP_ST = 10.5  # semiton antar frasa dalam satu klip: pergantian suara laki-laki/perempuan sekitar 10 sampai 12; intonasi wajar sampai 9
+CLIP_DEVIATION_ST = 8.0  # simpangan median F0 klip dari median suara yang sama; intonasi satu kata bisa +-7, pergantian jenis suara 10 atau lebih
+DEVIATION_MIN_SECONDS = 1.2  # klip lebih pendek (satu kata) tidak punya cukup kontur nada untuk dibandingkan
 ASR_MIN_SCORE = 0.8
 ASR_MIN_SCORE_SHORT = 0.6  # klip 3 sampai 4 kata
 
@@ -91,6 +93,8 @@ def normalise(text: str) -> list[str]:
     """Teks jadi daftar kata huruf kecil: angka jadi kata, tanda baca dan singkatan umum diseragamkan."""
     t = text.lower().replace("’", "'")
     t = re.sub(r"(?<=\d),(?=\d{3}\b)", "", t)
+    t = re.sub(r"\+(?=\d)", "plus ", t)
+    t = re.sub(r"(?<![\w)])-(?=\d)", "minus ", t)
     t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{number_words(int(m.group(1)))} point {' '.join(ONES[int(d)] for d in m.group(2))}", t)
     t = re.sub(r"\d+", lambda m: number_words(int(m.group(0))), t)
     t = re.sub(r"\bmr\b\.?", "mister", t)
@@ -160,13 +164,37 @@ def silence_stats(y: np.ndarray) -> tuple[float, float, float, float]:
     return first * hop / SR, (len(quiet) - 1 - last) * hop / SR, inner * hop / SR, float(quiet.mean())
 
 
+def f0_track(y: np.ndarray) -> np.ndarray:
+    """F0 (Hz) tiap bingkai 20 md dengan autokorelasi (FFT, vektor); NaN bila tak bersuara.
+
+    Tanpa librosa/numba: pYIN macet atau mematikan proses pekerja pada ribuan klip pendek, dan jauh lebih lambat. Untuk
+    tujuan di sini (median nada per frasa, lompatan suara) pelacak autokorelasi cukup; salah oktaf jarang dan tidak
+    mengubah median frasa.
+    """
+    hop, win = 320, 640  # 20 md hop, bingkai 40 md pada 16 kHz
+    if len(y) < win:
+        return np.array([])
+    n = 1 + (len(y) - win) // hop
+    idx = np.arange(win)[None, :] + hop * np.arange(n)[:, None]
+    fr = y[idx].astype(np.float64)
+    fr -= fr.mean(axis=1, keepdims=True)
+    fr *= np.hanning(win)[None, :]
+    spec = np.fft.rfft(fr, n=2 * win, axis=1)
+    ac = np.fft.irfft(spec * np.conj(spec), axis=1)[:, :win]
+    ac0 = ac[:, 0] + 1e-9
+    lo, hi = SR // 450, SR // 65  # lag untuk 450 Hz dan 65 Hz
+    seg = ac[:, lo:hi] / ac0[:, None]
+    lag = seg.argmax(axis=1) + lo
+    peak = seg.max(axis=1)
+    rms = np.sqrt(np.mean(fr**2, axis=1))
+    voiced = (peak > 0.35) & (rms > 0.01)
+    return np.where(voiced, SR / lag, np.nan)
+
+
 def f0_phrases(y: np.ndarray) -> list[float]:
     """Median F0 (semiton terhadap 100 Hz) tiap frasa bersuara. Frasa dipisah oleh bagian tak bersuara lebih dari 200 md."""
-    import librosa
-
-    hop = 320  # 20 md
-    f0, voiced, _ = librosa.pyin(y, fmin=65, fmax=450, sr=SR, frame_length=1024, hop_length=hop, resolution=0.25, n_thresholds=20, fill_na=np.nan)
-    st = 12 * np.log2(np.where(voiced & np.isfinite(f0), f0, np.nan) / 100.0)
+    f0 = f0_track(y)
+    st = 12 * np.log2(f0 / 100.0)
     phrases: list[list[float]] = []
     cur: list[float] = []
     gap = 0
@@ -256,7 +284,7 @@ def judge(row: dict[str, Any], text: str) -> list[str]:
         flags.append("hening di tepi")
     if row["inner_sil"] > INNER_SILENCE_S.get(style, 1.6):
         flags.append("jeda terlalu lama")
-    if row["silent_ratio"] > SILENT_RATIO:
+    if row["silent_ratio"] > SILENT_RATIO and secs >= 1.5:
         flags.append("terlalu banyak hening")
     if row.get("phrase_jump_st", 0) > PHRASE_JUMP_ST:
         flags.append(f"lompatan nada {row['phrase_jump_st']} st")
@@ -285,8 +313,11 @@ def voice_deviation(rows: list[dict[str, Any]], voice_of: dict[str, str]) -> Non
         dev = float(r["f0_median"]) - med[v]
         r["f0_dev_st"] = round(dev, 2)
         tag = f"suara beda {round(dev, 1)} st"
-        flags = [f for f in str(r.get("flags", "")).split("; ") if f and not f.startswith("suara beda")]
-        if abs(dev) > CLIP_DEVIATION_ST:
+        # Nilai ambang dihitung ulang dari metrik yang tersimpan, jadi laporan lama ikut memakai ambang saat ini.
+        flags = [f for f in str(r.get("flags", "")).split("; ") if f and not f.startswith("suara beda") and not f.startswith("lompatan nada")]
+        if r.get("phrase_jump_st") not in (None, "") and float(r["phrase_jump_st"]) > PHRASE_JUMP_ST:
+            flags.append(f"lompatan nada {r['phrase_jump_st']} st")
+        if abs(dev) > CLIP_DEVIATION_ST and float(r.get("seconds") or 0) >= DEVIATION_MIN_SECONDS:
             flags.append(tag)
         r["flags"] = "; ".join(flags)
         r["pass"] = "" if flags else "ok"
@@ -334,7 +365,8 @@ class Analyzer:
     def _fresh(self) -> ProcessPoolExecutor:
         if self.ex:
             self.ex.shutdown(wait=False, cancel_futures=True)
-        self.ex = ProcessPoolExecutor(self.procs)
+        # spawn, bukan fork: proses yang sudah memuat numpy/numba/BLAS lalu di-fork bisa saling mengunci.
+        self.ex = ProcessPoolExecutor(self.procs, mp_context=get_context("spawn"))
         return self.ex
 
     def map(self, fn: Any, jobs: list[Any], chunksize: int = 1) -> list[dict[str, Any]]:
@@ -344,7 +376,7 @@ class Analyzer:
         redo: list[int] = []
         for i, f in enumerate(futs):
             try:
-                results[i] = f.result(timeout=600)
+                results[i] = f.result(timeout=300)
             except Exception:  # noqa: BLE001 - pekerja mati atau waktu habis
                 redo.append(i)
         for i in redo:
