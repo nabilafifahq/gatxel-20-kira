@@ -41,6 +41,120 @@
           "answer": 1
         }
       ]
+    },
+    {
+      "id": "m1.add-within-20.801",
+      "skill": "m1.add-within-20",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 8 + 5 = 13.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Break 5 into 2 and 3.",
+        "8 + 2 = 10.",
+        "10 + 3 = 13."
+      ],
+      "explanation": "Make 10 first: 8 + 2 = 10. Then add the other 3 to get 13.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.add-within-20.802",
+      "skill": "m1.add-within-20",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 9 + 6 = 14.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Make 10 with the 9 first.",
+        "Break 6 into 1 and 5.",
+        "10 + 5 = 15."
+      ],
+      "explanation": "9 + 1 = 10, then 10 + 5 = 15. So 9 + 6 = 15, not 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.add-within-20.803",
+      "skill": "m1.add-within-20",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Adding 9 + 4 gives the same answer as 10 + 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Take 1 from the 4.",
+        "Give that 1 to the 9.",
+        "9 + 4 = 10 + 3."
+      ],
+      "explanation": "9 + 4 = 13 and 10 + 3 = 13. Moving one from the 4 to the 9 makes 10.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.add-within-20.701",
+      "skill": "m1.add-within-20",
+      "difficulty": 1,
+      "prompt": "8 + 7 = ?",
+      "hints": [
+        "Start at 8.",
+        "Count on 7 more.",
+        "8 + 2 makes 10, then add 5."
+      ],
+      "explanation": "8 + 2 = 10 and 10 + 5 = 15, so 8 + 7 = 15.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 15
+    },
+    {
+      "id": "m1.add-within-20.702",
+      "skill": "m1.add-within-20",
+      "difficulty": 2,
+      "prompt": "12 + 5 = ?",
+      "hints": [
+        "Keep the 12 in your head.",
+        "Count on 5 from 12.",
+        "12, 13, 14, 15, 16, 17."
+      ],
+      "explanation": "The ones add up: 2 + 5 = 7, so 12 + 5 = 17.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 17
     }
   ]
 }

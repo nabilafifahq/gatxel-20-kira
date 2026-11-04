@@ -146,6 +146,102 @@
       "extraLabels": [
         "star"
       ]
+    },
+    {
+      "id": "m1.shapes-2d.801",
+      "skill": "m1.shapes-2d",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A triangle has 3 sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the sides of a triangle.",
+        "Think of a slice of pizza.",
+        "There are 3."
+      ],
+      "explanation": "The word tri means three. A triangle has three straight sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.shapes-2d.802",
+      "skill": "m1.shapes-2d",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A square has 3 sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the sides of a window or a tile.",
+        "It has more than 3.",
+        "A square has 4 sides."
+      ],
+      "explanation": "A square has 4 equal sides and 4 corners.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.shapes-2d.803",
+      "skill": "m1.shapes-2d",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A circle has no straight sides and no corners.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Run your finger around a circle.",
+        "Is there any corner?",
+        "No straight sides, no corners."
+      ],
+      "explanation": "A circle is round all the way and has one curved edge.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.shapes-2d.701",
+      "skill": "m1.shapes-2d",
+      "difficulty": 1,
+      "prompt": "How many sides does a triangle have?",
+      "hints": [
+        "Tri means three.",
+        "Picture a triangle and count its edges.",
+        "Count with your finger."
+      ],
+      "explanation": "A triangle has 3 straight sides.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 5,
+      "type": "numeric",
+      "answer": 3
     }
   ]
 }

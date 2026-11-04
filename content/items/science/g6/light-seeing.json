@@ -1275,6 +1275,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.light-seeing.701",
+      "skill": "s6.light-seeing",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Light bending as it enters water is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "refraction"
+          ]
+        }
+      ],
+      "hints": [
+        "A straw looks bent in water.",
+        "It starts with ref.",
+        "The word ends in tion."
+      ],
+      "explanation": "Refraction is the bending of light as it passes into another material.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

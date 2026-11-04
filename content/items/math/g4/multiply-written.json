@@ -34,6 +34,84 @@
       ],
       "type": "numeric",
       "answer": 38000
+    },
+    {
+      "id": "m4.multiply-written.801",
+      "skill": "m4.multiply-written",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 34 × 3 = 102.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 34 into 30 and 4.",
+        "Multiply each part by 3.",
+        "Add the two answers."
+      ],
+      "explanation": "30 × 3 = 90 and 4 × 3 = 12. 90 + 12 = 102.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.multiply-written.802",
+      "skill": "m4.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 215 × 4 = 840.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 215 into 200 and 15.",
+        "15 × 4 is 60.",
+        "800 + 60."
+      ],
+      "explanation": "200 × 4 = 800 and 15 × 4 = 60. 800 + 60 = 860, not 840.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.multiply-written.803",
+      "skill": "m4.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 126 × 5 = 630.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 126 into 100 and 26.",
+        "26 × 5 is 130.",
+        "500 + 130."
+      ],
+      "explanation": "100 × 5 = 500 and 26 × 5 = 130. 500 + 130 = 630.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

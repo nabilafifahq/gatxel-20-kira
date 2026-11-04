@@ -68,6 +68,120 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m6.squares-cubes.801",
+      "skill": "m6.squares-cubes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 5³ = 125.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply 5 three times.",
+        "5 × 5 = 25.",
+        "25 × 5."
+      ],
+      "explanation": "5 × 5 × 5 = 25 × 5 = 125.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.squares-cubes.802",
+      "skill": "m6.squares-cubes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The square root of 81 is 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number times itself makes 81?",
+        "Try 9.",
+        "9 × 9."
+      ],
+      "explanation": "9 × 9 = 81, so the square root of 81 is 9. 8 × 8 = 64.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.squares-cubes.803",
+      "skill": "m6.squares-cubes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 4³ = 12.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The small 3 means multiply three 4s.",
+        "4 × 4 = 16.",
+        "16 × 4."
+      ],
+      "explanation": "4³ means 4 × 4 × 4 = 64. The number 12 is 4 × 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.squares-cubes.701",
+      "skill": "m6.squares-cubes",
+      "difficulty": 3,
+      "prompt": "4 cubed = ?",
+      "hints": [
+        "Cubed means 4 × 4 × 4.",
+        "4 × 4 = 16.",
+        "16 × 4."
+      ],
+      "explanation": "4 × 4 × 4 = 16 × 4 = 64.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 64
+    },
+    {
+      "id": "m6.squares-cubes.702",
+      "skill": "m6.squares-cubes",
+      "difficulty": 2,
+      "prompt": "The square root of 81 is what?",
+      "hints": [
+        "Which number times itself is 81?",
+        "Try 9.",
+        "9 × 9."
+      ],
+      "explanation": "9 × 9 = 81, so the square root of 81 is 9.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 9
     }
   ]
 }

@@ -1568,6 +1568,162 @@
         "long-passage"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e3.main-idea.801",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The main idea of a text is what it is mostly about.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What is the text mostly about?",
+        "It is the main point.",
+        "The title may help."
+      ],
+      "explanation": "The main idea is the big point. Example: A text about whales is mostly about whales.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.main-idea.802",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A key detail is the same thing as the main idea.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which is the big point?",
+        "Details are small.",
+        "Details support the main idea."
+      ],
+      "explanation": "The main idea is the big point. Key details are smaller facts that support it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.main-idea.803",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The title of a text often gives a clue to the main idea.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the title first.",
+        "It names the topic.",
+        "It points to the big idea."
+      ],
+      "explanation": "Titles tell us what a text is about. Example: A text called Life in the Desert is about living in the desert.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.main-idea.804",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The main idea of a text is one tiny fact that is only in one sentence.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is it big or small?",
+        "It covers the whole text.",
+        "Details are small."
+      ],
+      "explanation": "The main idea is the big point of the whole text. Tiny facts are details.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.main-idea.805",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Key details in a text support the main idea.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do they help the main idea?",
+        "They add facts.",
+        "They support it."
+      ],
+      "explanation": "Key details give extra facts that explain or prove the main idea.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.main-idea.806",
+      "skill": "e3.main-idea",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The first sentence of a paragraph often tells us the main idea of that paragraph.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where does a paragraph start?",
+        "Read the first sentence.",
+        "The rest add details."
+      ],
+      "explanation": "Many writers put the main idea first and then add details. Look at the first sentence to help.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

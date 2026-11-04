@@ -2062,6 +2062,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.habitats.701",
+      "skill": "s2.habitats",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A camel lives in the...",
+      "options": [
+        {
+          "text": "desert"
+        },
+        {
+          "text": "ocean"
+        },
+        {
+          "text": "snow"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "It is hot and dry.",
+        "It has a hump.",
+        "It has lots of sand."
+      ],
+      "explanation": "Camels are suited to hot, dry deserts.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

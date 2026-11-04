@@ -17,6 +17,84 @@
       "max": 400,
       "step": 10,
       "answer": 350
+    },
+    {
+      "id": "m3.compare-order.801",
+      "skill": "m3.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 658 is greater than 586.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the hundreds first.",
+        "6 is more than 5.",
+        "So 658 is greater."
+      ],
+      "explanation": "Both have different hundreds. 6 hundreds is more than 5 hundreds, so 658 is greater.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.compare-order.802",
+      "skill": "m3.compare-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The numbers 307, 370 and 73 are in order from smallest to largest.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which number has no hundreds?",
+        "Put the smallest first.",
+        "73, 307, 370."
+      ],
+      "explanation": "73 is the smallest because it has no hundreds. The order should be 73, 307, 370.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.compare-order.701",
+      "skill": "m3.compare-order",
+      "difficulty": 1,
+      "prompt": "Which number is bigger?",
+      "hints": [
+        "Compare the hundreds first.",
+        "3 hundreds or 4 hundreds?",
+        "More hundreds means bigger."
+      ],
+      "explanation": "412 has 4 hundreds and 398 has only 3 hundreds, so 412 is bigger.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "398"
+        },
+        {
+          "text": "412"
+        }
+      ],
+      "answer": 1
     }
   ]
 }

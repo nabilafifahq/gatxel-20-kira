@@ -1401,6 +1401,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.light-shadows.701",
+      "skill": "s5.light-shadows",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "A shadow is longest when the Sun is ___ in the sky.",
+      "blanks": [
+        {
+          "answers": [
+            "low"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of a shadow at sunrise.",
+        "The opposite is high.",
+        "It has three letters."
+      ],
+      "explanation": "When the Sun is low, shadows are long. When it is high, they are short.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

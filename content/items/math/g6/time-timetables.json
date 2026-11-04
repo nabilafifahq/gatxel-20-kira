@@ -70,6 +70,115 @@
       "unit": "min",
       "type": "numeric",
       "answer": 207
+    },
+    {
+      "id": "m6.time-timetables.801",
+      "skill": "m6.time-timetables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A train that leaves at 09:50 and arrives at 12:20 takes 2 hours 30 minutes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count on to the next hour.",
+        "Then count whole hours.",
+        "10 + 20 minutes."
+      ],
+      "explanation": "09:50 to 10:00 is 10 min. 10:00 to 12:00 is 2 h. 12:00 to 12:20 is 20 min. Total 2 h 30 min.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.time-timetables.802",
+      "skill": "m6.time-timetables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When it is 10:00 in WIB (UTC+7), it is 09:00 in WITA (UTC+8).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which zone is further east?",
+        "East zones are ahead.",
+        "Add 1 hour."
+      ],
+      "explanation": "WITA is 1 hour ahead of WIB, so it is 11:00 in WITA.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.time-timetables.701",
+      "skill": "m6.time-timetables",
+      "difficulty": 4,
+      "prompt": "In Indonesia, WIB is the time in Jakarta. WITA is 1 hour ahead of WIB. A plane leaves Jakarta at 07:30 WIB and the flight to Makassar takes 2 hours 40 minutes.",
+      "hints": [
+        "2 hours is 120 minutes.",
+        "07:30 plus 2 h 40 min.",
+        "Add 1 hour to the Jakarta time."
+      ],
+      "explanation": "2 h 40 min = 160 min. 07:30 + 2 h 40 min = 10:10 WIB. WITA is 1 hour ahead, so the time in Makassar is 11:10.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many minutes is the flight?",
+          "answer": 160,
+          "unit": "min"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What time is it in Jakarta when the plane lands?",
+          "options": [
+            {
+              "text": "09:50"
+            },
+            {
+              "text": "10:10"
+            },
+            {
+              "text": "10:40"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the time in Makassar (WITA) when the plane lands?",
+          "options": [
+            {
+              "text": "10:10"
+            },
+            {
+              "text": "11:10"
+            },
+            {
+              "text": "12:10"
+            }
+          ],
+          "answer": 1
+        }
+      ]
     }
   ]
 }

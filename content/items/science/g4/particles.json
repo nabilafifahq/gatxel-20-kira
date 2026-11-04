@@ -701,6 +701,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.particles.701",
+      "skill": "s4.particles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In which state are the particles furthest apart?",
+      "options": [
+        {
+          "text": "Gas"
+        },
+        {
+          "text": "Liquid"
+        },
+        {
+          "text": "Solid"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Gases spread out to fill a space.",
+        "Solid particles are packed close.",
+        "Furthest apart means most free."
+      ],
+      "explanation": "Gas particles are far apart and move freely.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

@@ -2928,6 +2928,73 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.graphs-evidence.701",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "What is the mean of 8, 10, 12 and 14?",
+      "answer": 11,
+      "tolerance": 0,
+      "hints": [
+        "Add them up first.",
+        "The total is 44.",
+        "Divide 44 by 4."
+      ],
+      "explanation": "8 plus 10 plus 12 plus 14 is 44. 44 divided by 4 is 11.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
+    },
+    {
+      "id": "s6.graphs-evidence.702",
+      "skill": "s6.graphs-evidence",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Hana measured a bean plant every 5 days. Day 0: 2 cm. Day 5: 6 cm. Day 10: 10 cm. Day 15: 14 cm. Day 20: 18 cm.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many cm did it grow every 5 days?",
+          "answer": 4,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "numeric",
+          "prompt": "If the pattern continues, how tall on day 25?",
+          "answer": 22,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What does the graph line look like?",
+          "options": [
+            {
+              "text": "A steady rising straight line"
+            },
+            {
+              "text": "A flat line"
+            },
+            {
+              "text": "A line that goes down"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "6 take away 2.",
+        "Add the same growth to 18.",
+        "It rises by the same amount each time."
+      ],
+      "explanation": "It grows 4 cm every 5 days. 18 + 4 = 22 cm. Equal steps make a straight line.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

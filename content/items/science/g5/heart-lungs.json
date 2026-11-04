@@ -1149,6 +1149,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.heart-lungs.701",
+      "skill": "s5.heart-lungs",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The heart pumps ___ around the body.",
+      "blanks": [
+        {
+          "answers": [
+            "blood"
+          ]
+        }
+      ],
+      "hints": [
+        "It is red.",
+        "It carries oxygen.",
+        "It starts with b."
+      ],
+      "explanation": "The heart pumps blood around the body.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

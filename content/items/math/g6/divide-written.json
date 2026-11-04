@@ -70,6 +70,58 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m6.divide-written.801",
+      "skill": "m6.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 75 ÷ 4 = 18.75.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide to find the whole number part.",
+        "What is left over?",
+        "3 ÷ 4 = 0.75."
+      ],
+      "explanation": "4 × 18 = 72 with 3 left. 3 ÷ 4 = 0.75, so 75 ÷ 4 = 18.75.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.divide-written.802",
+      "skill": "m6.divide-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 250 ÷ 15 = 16 remainder 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find 15 × 16.",
+        "Subtract from 250.",
+        "A remainder must be smaller than the divisor."
+      ],
+      "explanation": "15 × 16 = 240, so the remainder is 10. A remainder of 20 is bigger than 15, which is impossible.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

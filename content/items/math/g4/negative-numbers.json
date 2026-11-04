@@ -67,6 +67,129 @@
       "tags": [
         "word-problem"
       ]
+    },
+    {
+      "id": "m4.negative-numbers.801",
+      "skill": "m4.negative-numbers",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A temperature of -3 degrees is colder than 2 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which side of zero is each temperature?",
+        "Picture a thermometer.",
+        "Below zero is colder."
+      ],
+      "explanation": "Numbers below zero are colder than numbers above zero. -3 is less than 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.negative-numbers.802",
+      "skill": "m4.negative-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number -8 is greater than -2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Picture a number line.",
+        "Which is further to the left?",
+        "-2 is closer to zero."
+      ],
+      "explanation": "On a number line -8 is further left than -2, so -8 is less than -2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.negative-numbers.803",
+      "skill": "m4.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Starting at 3 and counting back 5 gives -2.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count back one step at a time.",
+        "You will pass through zero.",
+        "3 steps get you to 0, then 2 more."
+      ],
+      "explanation": "3, 2, 1, 0, -1, -2. Five steps back lands on -2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.negative-numbers.804",
+      "skill": "m4.negative-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A temperature that rises from -4 degrees to 3 degrees has gone up by 1 degree.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the steps to zero first.",
+        "Then count on from zero to 3.",
+        "4 + 3 is the total rise."
+      ],
+      "explanation": "From -4 to 0 is 4 degrees, then 0 to 3 is 3 more. The rise is 7 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.negative-numbers.701",
+      "skill": "m4.negative-numbers",
+      "difficulty": 3,
+      "prompt": "5 - 8 = ?",
+      "hints": [
+        "Count back 8 from 5.",
+        "You pass zero.",
+        "5 steps reach 0, 3 more go below."
+      ],
+      "explanation": "5 - 5 = 0 and 3 more steps go below zero, so the answer is -3.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": -3,
+      "allowNegative": true
     }
   ]
 }

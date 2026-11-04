@@ -2134,6 +2134,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.electricity.701",
+      "skill": "s2.electricity",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Never put your fingers in a plug ___.",
+      "blanks": [
+        {
+          "answers": [
+            "socket"
+          ]
+        }
+      ],
+      "hints": [
+        "It is on the wall.",
+        "Plugs go into it.",
+        "It starts with s."
+      ],
+      "explanation": "Mains electricity is dangerous, so never touch a plug socket.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

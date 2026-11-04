@@ -1027,6 +1027,214 @@
         "long-passage"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e3.text-features.801",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A story has characters, a setting and a plot.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a story you know.",
+        "Who, where and what happens?",
+        "These parts are in every story."
+      ],
+      "explanation": "Characters are who is in the story, the setting is where and when, and the plot is what happens.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.802",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A report is a made-up story about imaginary characters.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is a report a story?",
+        "Reports give facts.",
+        "Reports are true."
+      ],
+      "explanation": "A report gives true facts about a topic. A story is made up.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.803",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A playscript lists the names of the characters before the words they say.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the start of each line.",
+        "A name comes first.",
+        "It shows who is talking."
+      ],
+      "explanation": "In a playscript each speaker's name is written before their lines. Example: Tom: I am here.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.804",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A playscript uses speech marks around every line spoken.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at a playscript.",
+        "Who speaks is shown by the name.",
+        "No marks are needed."
+      ],
+      "explanation": "A playscript does not need speech marks because the name of each speaker is written before their words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.805",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A letter often begins with a greeting such as Dear Sam.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first line of a letter.",
+        "Who is it to?",
+        "Dear ..."
+      ],
+      "explanation": "Letters begin with a greeting and end with a goodbye and the name of the writer.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.806",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Instructions often use numbered steps.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at a recipe.",
+        "Why are there numbers?",
+        "They show the order."
+      ],
+      "explanation": "Numbers show the order of the steps. Example: 1 Wash your hands. 2 Dry them.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.807",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A contents page is found at the end of a book and lists the hard words.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where do you look for a chapter?",
+        "Which page lists chapters?",
+        "At the front."
+      ],
+      "explanation": "A contents page is usually at the start of a book and lists the chapters or sections. A glossary lists hard words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.text-features.808",
+      "skill": "e3.text-features",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: A glossary explains hard words and is usually found near the end of a book.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a word list.",
+        "It is not at the front.",
+        "It is at the back."
+      ],
+      "explanation": "A glossary is like a little dictionary for the book. It helps with new words.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

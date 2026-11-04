@@ -1095,6 +1095,92 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.separating-mixtures.701",
+      "skill": "s5.separating-mixtures",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "How can you separate sand from water?",
+      "options": [
+        {
+          "text": "Sieving air"
+        },
+        {
+          "text": "Filtering"
+        },
+        {
+          "text": "Using a magnet"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Sand does not dissolve.",
+        "Pour through paper.",
+        "Paper catches the sand."
+      ],
+      "explanation": "Sand does not dissolve, so filter paper catches it and the water passes through.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s5.separating-mixtures.702",
+      "skill": "s5.separating-mixtures",
+      "type": "story",
+      "difficulty": 4,
+      "prompt": "Lina had a mixture of sand, salt and iron filings. First she used a magnet. Then she added water and stirred. She poured it through filter paper. At last she heated the salty water in a dish until it was dry.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "What did the magnet remove?",
+          "options": [
+            {
+              "text": "Sand"
+            },
+            {
+              "text": "Salt"
+            },
+            {
+              "text": "Iron filings"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "What stayed on the filter paper?",
+          "options": [
+            {
+              "text": "Iron"
+            },
+            {
+              "text": "Sand"
+            },
+            {
+              "text": "Salt"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What was left in the dish after heating?",
+          "answers": [
+            "salt"
+          ]
+        }
+      ],
+      "hints": [
+        "Magnets attract iron.",
+        "Sand does not dissolve.",
+        "Salt dissolves, then stays behind when the water evaporates."
+      ],
+      "explanation": "The magnet takes the iron. Sand does not dissolve so the filter catches it. Salt is left after evaporation.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -1340,6 +1340,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.food-chains.701",
+      "skill": "s4.food-chains",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "An animal that hunts other animals is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "predator"
+          ]
+        }
+      ],
+      "hints": [
+        "The animal it hunts is the prey.",
+        "A lion is one.",
+        "It starts with pred."
+      ],
+      "explanation": "A predator hunts and eats other animals, called prey.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

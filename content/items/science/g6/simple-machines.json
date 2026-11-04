@@ -1166,6 +1166,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.simple-machines.701",
+      "skill": "s6.simple-machines",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A lever turns about a fixed point called the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "pivot",
+            "fulcrum"
+          ]
+        }
+      ],
+      "hints": [
+        "The see-saw has one in the middle.",
+        "It is the turning point.",
+        "It starts with p or f."
+      ],
+      "explanation": "The pivot (or fulcrum) is the point a lever turns about.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

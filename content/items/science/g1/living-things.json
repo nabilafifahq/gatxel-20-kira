@@ -1639,6 +1639,33 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.living-things.701",
+      "skill": "s1.living-things",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A stone is living.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a stone eat or grow?",
+        "Living things grow and need food.",
+        "A stone does neither."
+      ],
+      "explanation": "A stone does not grow, eat or breathe, so it is not living.",
+      "tags": [
+        "quick-fire",
+        "true-false"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

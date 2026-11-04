@@ -1334,6 +1334,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.sounds.701",
+      "skill": "s1.sounds",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "You walk away from a ringing bell. The sound gets...",
+      "options": [
+        {
+          "text": "quieter"
+        },
+        {
+          "text": "louder"
+        },
+        {
+          "text": "the same"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a sound far away.",
+        "It is harder to hear.",
+        "Far away means quiet."
+      ],
+      "explanation": "Sounds get quieter as you move further from the source.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

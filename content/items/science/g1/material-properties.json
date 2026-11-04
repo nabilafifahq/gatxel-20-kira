@@ -1485,6 +1485,53 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.material-properties.701",
+      "skill": "s1.material-properties",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Kim squeezed four things. The sponge squashed a lot. The wooden block did not. The metal spoon did not. The cotton wool squashed a lot.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many things squashed easily?",
+          "answer": 2,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which one is hard?",
+          "options": [
+            {
+              "text": "Cotton wool"
+            },
+            {
+              "text": "Wooden block"
+            },
+            {
+              "text": "Sponge"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What word means easy to squash?",
+          "answers": [
+            "soft"
+          ]
+        }
+      ],
+      "hints": [
+        "Two things squashed.",
+        "Hard things do not squash.",
+        "The word has four letters."
+      ],
+      "explanation": "The sponge and cotton wool squashed, so 2. The wooden block is hard. Easy to squash is soft.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

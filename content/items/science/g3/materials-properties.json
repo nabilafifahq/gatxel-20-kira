@@ -1431,6 +1431,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.materials-properties.701",
+      "skill": "s3.materials-properties",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets light pass right through is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "transparent"
+          ]
+        }
+      ],
+      "hints": [
+        "You can see clearly through it.",
+        "Clear glass is one.",
+        "It starts with tr."
+      ],
+      "explanation": "Transparent materials let light through so you can see clearly through them.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

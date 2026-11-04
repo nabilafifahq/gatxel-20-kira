@@ -36,6 +36,58 @@
         "m": 25
       },
       "stepMinutes": 5
+    },
+    {
+      "id": "m2.telling-time.801",
+      "skill": "m2.telling-time",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Quarter past 3 is the same as 3:15.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Quarter of an hour is how many minutes?",
+        "The long hand points to 3.",
+        "3:15."
+      ],
+      "explanation": "Quarter past means 15 minutes after the hour, so it is 3:15.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.telling-time.802",
+      "skill": "m2.telling-time",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Quarter to 6 is the same as 6:45.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Quarter to means before the hour.",
+        "Which hour is it before?",
+        "It is 5:45."
+      ],
+      "explanation": "Quarter to 6 is 15 minutes before 6, which is 5:45. 6:45 is quarter to 7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

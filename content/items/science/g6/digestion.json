@@ -1501,6 +1501,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.digestion.701",
+      "skill": "s6.digestion",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Most nutrients are absorbed in the small ___.",
+      "blanks": [
+        {
+          "answers": [
+            "intestine",
+            "intestines"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a long coiled tube.",
+        "It comes after the stomach.",
+        "It starts with in."
+      ],
+      "explanation": "The small intestine absorbs nutrients into the blood.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

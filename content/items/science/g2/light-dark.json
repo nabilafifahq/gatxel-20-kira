@@ -1856,6 +1856,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.light-dark.701",
+      "skill": "s2.light-dark",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Something that makes its own light is a light ___.",
+      "blanks": [
+        {
+          "answers": [
+            "source"
+          ]
+        }
+      ],
+      "hints": [
+        "The Sun is one.",
+        "A torch is one.",
+        "It starts with s."
+      ],
+      "explanation": "A light source makes its own light, such as the Sun or a torch.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -1632,6 +1632,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.water-cycle.701",
+      "skill": "s5.water-cycle",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Water vapour turning back into liquid is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "condensation",
+            "condensing"
+          ]
+        }
+      ],
+      "hints": [
+        "It forms clouds.",
+        "Cold makes it happen.",
+        "It starts with cond."
+      ],
+      "explanation": "Condensation is when a gas cools and becomes a liquid.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

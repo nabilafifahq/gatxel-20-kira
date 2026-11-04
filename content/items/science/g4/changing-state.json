@@ -1207,6 +1207,80 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.changing-state.701",
+      "skill": "s4.changing-state",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Liquid water turning into water vapour is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "evaporation",
+            "evaporating"
+          ]
+        }
+      ],
+      "hints": [
+        "It happens when puddles dry.",
+        "Heat makes it happen.",
+        "It starts with evap."
+      ],
+      "explanation": "Evaporation is when a liquid turns into a gas.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s4.changing-state.702",
+      "skill": "s4.changing-state",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Three saucers each held 20 ml of water. Saucer A was on a sunny windowsill, B on a shady shelf and C in a fridge. After a day, A had 5 ml left, B had 14 ml and C had 18 ml.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many ml evaporated from saucer A?",
+          "answer": 15,
+          "tolerance": 0,
+          "unit": "ml"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Where did water evaporate fastest?",
+          "options": [
+            {
+              "text": "Saucer C"
+            },
+            {
+              "text": "Saucer A"
+            },
+            {
+              "text": "Saucer B"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "What is the change from liquid to gas called?",
+          "answers": [
+            "evaporation",
+            "evaporating"
+          ]
+        }
+      ],
+      "hints": [
+        "20 take away 5.",
+        "The least left means most lost.",
+        "It starts with evap."
+      ],
+      "explanation": "20 - 5 = 15 ml. A lost the most so it was fastest. Heat speeds up evaporation.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

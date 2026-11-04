@@ -785,6 +785,186 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e3.prefixes.801",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Adding un- to the word happy makes the word unhappy, which means not happy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A prefix goes at the start of a word.",
+        "What does un- do to the meaning?",
+        "Unhappy is the opposite of happy."
+      ],
+      "explanation": "The prefix un- often means not. Example: unhappy means not happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.802",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The prefix dis- means again.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of rewrite.",
+        "Which prefix means again?",
+        "Dis- changes the meaning to the opposite."
+      ],
+      "explanation": "The prefix re- means again. Dis- usually means not or the opposite. Example: dislike means not like.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.803",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Adding re- to the word write makes rewrite, which means to write again.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does re- mean?",
+        "Say write again.",
+        "Rewrite means again."
+      ],
+      "explanation": "The prefix re- means again. Example: rebuild means to build again.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.804",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word untie means to undo a tie.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is it the opposite of tie?",
+        "Think of shoelaces.",
+        "Un- reverses."
+      ],
+      "explanation": "Un- can mean to undo or reverse an action. Example: untie, undo.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.805",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word disappear is spelt with only one p.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Spell appear first.",
+        "How many p letters does appear have?",
+        "Add dis- to the front."
+      ],
+      "explanation": "Disappear is spelt d-i-s-a-p-p-e-a-r. The base word appear has two p letters, and the prefix dis- does not change it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.806",
+      "skill": "e3.prefixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Adding a prefix to a word changes the spelling of the base word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the prefix and look at the base word.",
+        "Does happy lose any letters?",
+        "The base word stays the same."
+      ],
+      "explanation": "A prefix is added without changing the base word. Example: un + happy = unhappy, with the same spelling as happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.prefixes.701",
+      "skill": "e3.prefixes",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Add un- to happy: ___.",
+      "blanks": [
+        {
+          "answers": [
+            "unhappy"
+          ]
+        }
+      ],
+      "hints": [
+        "Un means not.",
+        "Put un at the front.",
+        "un + happy"
+      ],
+      "explanation": "Unhappy means not happy.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

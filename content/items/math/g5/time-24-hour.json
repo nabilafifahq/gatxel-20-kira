@@ -77,6 +77,105 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m5.time-24-hour.801",
+      "skill": "m5.time-24-hour",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The time 18:45 is 6.45 pm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Subtract 12 from the hour.",
+        "18 - 12.",
+        "It is evening."
+      ],
+      "explanation": "18 - 12 = 6, so 18:45 is 6.45 pm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.time-24-hour.802",
+      "skill": "m5.time-24-hour",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A film that starts at 14:20 and ends at 16:05 lasts 2 hours 15 minutes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count on to 15:00 then 16:00.",
+        "14:20 to 15:00 is 40 minutes.",
+        "Then 1 hour and 5 minutes more."
+      ],
+      "explanation": "14:20 to 16:00 is 1 h 40 min, then 5 more minutes gives 1 h 45 min.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.time-24-hour.701",
+      "skill": "m5.time-24-hour",
+      "difficulty": 4,
+      "prompt": "A coach leaves Jakarta at 08:50 and the journey takes 4 hours 45 minutes. The coach back leaves at 15:20 and arrives at 19:50.",
+      "hints": [
+        "4 hours is 240 minutes.",
+        "08:50 plus 4 hours is 12:50.",
+        "Journey back: 15:20 to 19:50."
+      ],
+      "explanation": "4 h 45 min = 285 min. 08:50 + 4 h = 12:50, plus 45 min is 13:35. The journey back is 4 h 30 min = 270 min, which is 15 minutes shorter.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many minutes is the journey to the destination?",
+          "answer": 285,
+          "unit": "min"
+        },
+        {
+          "type": "mcq",
+          "prompt": "At what time does the coach arrive at the destination?",
+          "options": [
+            {
+              "text": "12:35"
+            },
+            {
+              "text": "13:35"
+            },
+            {
+              "text": "13:45"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many minutes shorter is the journey back than the journey there?",
+          "answer": 15,
+          "unit": "min"
+        }
+      ]
     }
   ]
 }

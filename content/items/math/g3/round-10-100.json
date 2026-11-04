@@ -17,6 +17,133 @@
       "max": 100,
       "step": 10,
       "answer": 70
+    },
+    {
+      "id": "m3.round-10-100.801",
+      "skill": "m3.round-10-100",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 47 rounds to 50 when rounded to the nearest 10.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which two tens is 47 between?",
+        "Look at the ones digit.",
+        "7 is 5 or more, so round up."
+      ],
+      "explanation": "47 is between 40 and 50. The ones digit 7 is 5 or more, so round up to 50.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.round-10-100.802",
+      "skill": "m3.round-10-100",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 350 rounds to 300 when rounded to the nearest 100.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the tens digit.",
+        "The tens digit is 5.",
+        "5 means round up to 400."
+      ],
+      "explanation": "350 is halfway between 300 and 400. When it is halfway, we round up to 400.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.round-10-100.701",
+      "skill": "m3.round-10-100",
+      "difficulty": 2,
+      "prompt": "Round 463 to the nearest 10.",
+      "hints": [
+        "Look at the ones digit, 3.",
+        "Less than 5 means round down.",
+        "Which tens is 463 closer to?"
+      ],
+      "explanation": "The ones digit is 3, which is less than 5, so round down to 460.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 460
+    },
+    {
+      "id": "m3.round-10-100.702",
+      "skill": "m3.round-10-100",
+      "difficulty": 2,
+      "prompt": "Round 450 to the nearest 100.",
+      "hints": [
+        "Look at the tens digit, 5.",
+        "A 5 or more means round up.",
+        "The nearest hundreds are 400 and 500."
+      ],
+      "explanation": "The tens digit is 5, so we round up to 500.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 500
+    },
+    {
+      "id": "m3.round-10-100.703",
+      "skill": "m3.round-10-100",
+      "difficulty": 3,
+      "prompt": "The school collects plastic bottle tops. On Monday they collect 238, on Tuesday 195 and on Wednesday 311.",
+      "hints": [
+        "Look at the ones digit for tens.",
+        "Look at the tens digit for hundreds.",
+        "Round each to hundreds first, then add."
+      ],
+      "explanation": "238 rounds to 240 (nearest 10). 195 rounds to 200 (nearest 100). Estimate: 200 + 200 + 300 = 700. Exact: 238 + 195 + 311 = 744.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "Round Monday's number to the nearest 10.",
+          "answer": 240
+        },
+        {
+          "type": "numeric",
+          "prompt": "Round Tuesday's number to the nearest 100.",
+          "answer": 200
+        },
+        {
+          "type": "numeric",
+          "prompt": "Estimate the total by rounding each day to the nearest 100 and adding.",
+          "answer": 700
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the exact total of bottle tops?",
+          "answer": 744
+        }
+      ]
     }
   ]
 }

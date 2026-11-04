@@ -54,6 +54,95 @@
       ],
       "type": "numeric",
       "answer": 108
+    },
+    {
+      "id": "m6.ratio-proportion.801",
+      "skill": "m6.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The ratio 12 : 18 simplifies to 2 : 3.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find a common factor.",
+        "6 goes into both.",
+        "Divide both numbers."
+      ],
+      "explanation": "Divide both by 6: 12 ÷ 6 = 2 and 18 ÷ 6 = 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.ratio-proportion.802",
+      "skill": "m6.ratio-proportion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Sharing 60 in the ratio 1 : 5 gives 10 and 40.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the ratio parts.",
+        "60 ÷ 6.",
+        "Do 10 + 40 reach 60?"
+      ],
+      "explanation": "There are 1 + 5 = 6 parts, each worth 10. The shares are 10 and 50, which add to 60.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.ratio-proportion.701",
+      "skill": "m6.ratio-proportion",
+      "difficulty": 4,
+      "prompt": "A batik maker mixes red and yellow dye in the ratio 2 : 5. She makes 28 litres of dye in one batch.",
+      "hints": [
+        "2 + 5 = 7 parts.",
+        "28 ÷ 7 gives one part.",
+        "70 ÷ 7 gives one part for the big batch."
+      ],
+      "explanation": "There are 7 parts, so one part is 28 ÷ 7 = 4 L. Red: 2 × 4 = 8 L. Yellow: 5 × 4 = 20 L. For 70 L, one part is 10 L, so yellow is 50 L.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many litres of red dye are in the batch?",
+          "answer": 8,
+          "unit": "L"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many litres of yellow dye are in the batch?",
+          "answer": 20,
+          "unit": "L"
+        },
+        {
+          "type": "numeric",
+          "prompt": "For a bigger order she makes 70 litres in the same ratio. How many litres of yellow are needed?",
+          "answer": 50,
+          "unit": "L"
+        }
+      ]
     }
   ]
 }

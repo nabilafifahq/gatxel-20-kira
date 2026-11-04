@@ -84,6 +84,113 @@
           }
         ]
       }
+    },
+    {
+      "id": "m3.perimeter-area.801",
+      "skill": "m3.perimeter-area",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle that is 5 cm long and 3 cm wide has a perimeter of 16 cm.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add all four sides.",
+        "5 + 3 + 5 + 3.",
+        "The total is 16."
+      ],
+      "explanation": "Perimeter is the distance around. 5 + 3 + 5 + 3 = 16 cm.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.perimeter-area.802",
+      "skill": "m3.perimeter-area",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A rectangle that is 4 squares long and 3 squares wide has an area of 14 squares.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the squares in each row.",
+        "There are 3 rows of 4.",
+        "3 × 4 = 12."
+      ],
+      "explanation": "Area is the number of squares inside. 4 × 3 = 12 squares, not 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.perimeter-area.701",
+      "skill": "m3.perimeter-area",
+      "difficulty": 2,
+      "prompt": "A square has sides of 4 cm. What is its perimeter in cm?",
+      "hints": [
+        "A square has 4 equal sides.",
+        "Add all the sides.",
+        "4 × 4."
+      ],
+      "explanation": "4 + 4 + 4 + 4 = 16 cm.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 16,
+      "unit": "cm"
+    },
+    {
+      "id": "m3.perimeter-area.702",
+      "skill": "m3.perimeter-area",
+      "difficulty": 4,
+      "prompt": "A farmer has a rectangular vegetable plot that is 8 m long and 5 m wide. He wants to put a fence all the way round it.",
+      "hints": [
+        "Add all four sides.",
+        "Perimeter divided by the gap between posts.",
+        "Area = length × width."
+      ],
+      "explanation": "Perimeter: 8 + 5 + 8 + 5 = 26 m. Posts: 26 ÷ 2 = 13 because the fence goes round in a loop. Area: 8 × 5 = 40 square metres.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the perimeter of the plot, in metres?",
+          "answer": 26,
+          "unit": "m"
+        },
+        {
+          "type": "numeric",
+          "prompt": "He puts one fence post every 2 m round the whole plot. How many posts does he need?",
+          "answer": 13
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the area of the plot, in square metres?",
+          "answer": 40,
+          "unit": "m²"
+        }
+      ]
     }
   ]
 }

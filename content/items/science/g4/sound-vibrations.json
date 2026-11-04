@@ -1344,6 +1344,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.sound-vibrations.701",
+      "skill": "s4.sound-vibrations",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Sounds are made when things ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vibrate",
+            "vibrates"
+          ]
+        }
+      ],
+      "hints": [
+        "A guitar string does this.",
+        "It is a quick back and forth movement.",
+        "The word starts with vib."
+      ],
+      "explanation": "Sounds are made by vibrations, which are tiny quick movements.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

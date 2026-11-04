@@ -65,6 +65,146 @@
       ],
       "type": "numeric",
       "answer": 44
+    },
+    {
+      "id": "m4.times-tables.801",
+      "skill": "m4.times-tables",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: 7 × 8 = 56.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in sevens.",
+        "Use 7 × 7 = 49 and add one more 7.",
+        "49 + 7."
+      ],
+      "explanation": "Eight sevens make 56. Count in 7s: 7, 14, 21, 28, 35, 42, 49, 56.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.times-tables.802",
+      "skill": "m4.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 6 × 7 = 48.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use 6 × 6 = 36.",
+        "Add one more 6.",
+        "36 + 6."
+      ],
+      "explanation": "6 × 7 = 42. It is 6 × 8 that equals 48.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.times-tables.803",
+      "skill": "m4.times-tables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If 8 × 4 = 32, then 8 × 5 = 36.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Going from 4 groups to 5 groups adds one group.",
+        "One group of 8 is 8.",
+        "32 + 8."
+      ],
+      "explanation": "One more group of 8 adds 8, so 8 × 5 = 32 + 8 = 40.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.times-tables.804",
+      "skill": "m4.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 9 × 6 and 6 × 9 both equal 54.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does the order matter in multiplication?",
+        "Picture an array turned on its side.",
+        "Both are 54."
+      ],
+      "explanation": "Multiplication can be done in either order and the answer is the same.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.times-tables.701",
+      "skill": "m4.times-tables",
+      "difficulty": 2,
+      "prompt": "7 × 8 = ?",
+      "hints": [
+        "Remember 5, 6, 7, 8: 56 = 7 × 8.",
+        "7 × 8 = 7 × 4 doubled.",
+        "28 + 28."
+      ],
+      "explanation": "7 × 4 = 28 and doubling gives 7 × 8 = 56.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 56
+    },
+    {
+      "id": "m4.times-tables.702",
+      "skill": "m4.times-tables",
+      "difficulty": 2,
+      "prompt": "9 × 7 = ?",
+      "hints": [
+        "10 × 7 = 70.",
+        "Subtract one 7.",
+        "70 - 7."
+      ],
+      "explanation": "10 × 7 = 70, and 9 × 7 is one 7 less: 63.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 63
     }
   ]
 }

@@ -68,6 +68,139 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m6.volume-cuboids.801",
+      "skill": "m6.volume-cuboids",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A cuboid 4 cm long, 3 cm wide and 2 cm high has a volume of 24 cm³.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Multiply length, width and height.",
+        "4 × 3 = 12.",
+        "12 × 2."
+      ],
+      "explanation": "4 × 3 × 2 = 24 cm³.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.volume-cuboids.802",
+      "skill": "m6.volume-cuboids",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A volume of 1 cm³ holds 10 ml.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How many cm³ in a litre?",
+        "1,000 ml is 1,000 cm³.",
+        "1 cm³ is 1 ml."
+      ],
+      "explanation": "1 cm³ holds exactly 1 ml. A litre is 1,000 cm³.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.volume-cuboids.803",
+      "skill": "m6.volume-cuboids",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A cuboid with a volume of 1,000 cm³ holds 1 litre.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "1 cm³ holds 1 ml.",
+        "1,000 ml is a litre.",
+        "Multiply by 1,000."
+      ],
+      "explanation": "1 cm³ = 1 ml, so 1,000 cm³ = 1,000 ml = 1 litre.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.volume-cuboids.701",
+      "skill": "m6.volume-cuboids",
+      "difficulty": 3,
+      "prompt": "A cuboid is 2 cm by 3 cm by 5 cm. Volume in cm³?",
+      "hints": [
+        "Multiply the three lengths.",
+        "2 × 3 = 6.",
+        "6 × 5."
+      ],
+      "explanation": "Volume = length × width × height = 2 × 3 × 5 = 30 cm³.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 30,
+      "unit": "cm³"
+    },
+    {
+      "id": "m6.volume-cuboids.702",
+      "skill": "m6.volume-cuboids",
+      "difficulty": 4,
+      "prompt": "A water tank is a cuboid 80 cm long, 50 cm wide and 40 cm high. 1 litre of water takes up 1,000 cm³. The tank is filled with a bucket that holds 8 litres.",
+      "hints": [
+        "Volume = length × width × height.",
+        "Divide by 1,000 to change cm³ to litres.",
+        "Divide the litres by 8."
+      ],
+      "explanation": "Volume: 80 × 50 × 40 = 160,000 cm³. In litres: 160,000 ÷ 1,000 = 160 L. Buckets: 160 ÷ 8 = 20.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the volume of the tank, in cm³?",
+          "answer": 160000,
+          "unit": "cm³"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many litres of water does a full tank hold?",
+          "answer": 160,
+          "unit": "L"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many full buckets of 8 litres are needed to fill the tank?",
+          "answer": 20
+        }
+      ]
     }
   ]
 }

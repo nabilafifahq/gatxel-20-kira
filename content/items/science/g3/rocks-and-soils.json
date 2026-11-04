@@ -1429,6 +1429,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.rocks-and-soils.701",
+      "skill": "s3.rocks-and-soils",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The remains of ancient living things in rock are ___.",
+      "blanks": [
+        {
+          "answers": [
+            "fossils",
+            "fossil"
+          ]
+        }
+      ],
+      "hints": [
+        "Dinosaur bones are found like this.",
+        "They are in rock.",
+        "It starts with f."
+      ],
+      "explanation": "Fossils are the remains or marks of living things from long ago, kept in rock.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

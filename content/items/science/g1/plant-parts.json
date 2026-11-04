@@ -2675,6 +2675,87 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.plant-parts.701",
+      "skill": "s1.plant-parts",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The part of a plant in the soil is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "roots",
+            "root"
+          ]
+        }
+      ],
+      "hints": [
+        "It holds the plant in the ground.",
+        "It drinks water from the soil.",
+        "It starts with r."
+      ],
+      "explanation": "The roots hold the plant in the soil and take in water.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
+    },
+    {
+      "id": "s1.plant-parts.702",
+      "skill": "s1.plant-parts",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Ravi grew two beans with water. Bean A sat on a bright windowsill. Bean B was in a dark cupboard. After a week, A had green leaves and B was pale and thin.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which bean looks healthier?",
+          "options": [
+            {
+              "text": "Bean A"
+            },
+            {
+              "text": "Bean B"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What did Bean B not get?",
+          "answers": [
+            "light",
+            "sunlight",
+            "sun"
+          ]
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which part takes in water from the soil?",
+          "options": [
+            {
+              "text": "Leaves"
+            },
+            {
+              "text": "Flower"
+            },
+            {
+              "text": "Roots"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Look at the colours.",
+        "Where was Bean B kept?",
+        "Roots are under the ground."
+      ],
+      "explanation": "Bean A had light so it stayed healthy. Plants need light. Roots take in water.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

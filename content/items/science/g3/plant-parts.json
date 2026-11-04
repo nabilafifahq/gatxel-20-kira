@@ -2045,6 +2045,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.plant-parts.701",
+      "skill": "s3.plant-parts",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The part of a plant that takes in water is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "roots",
+            "root"
+          ]
+        }
+      ],
+      "hints": [
+        "It is under the ground.",
+        "It starts with r.",
+        "r, o, o, t, s."
+      ],
+      "explanation": "Roots take in water from the soil.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

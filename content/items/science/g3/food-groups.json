@@ -1615,6 +1615,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.food-groups.701",
+      "skill": "s3.food-groups",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which nutrient helps us grow and repair our bodies?",
+      "options": [
+        {
+          "text": "Fibre"
+        },
+        {
+          "text": "Water"
+        },
+        {
+          "text": "Protein"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Meat, fish, eggs and beans have it.",
+        "It builds the body.",
+        "It starts with p."
+      ],
+      "explanation": "Protein helps the body to grow and to repair itself.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

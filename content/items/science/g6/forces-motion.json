@@ -1357,6 +1357,93 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.forces-motion.701",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Equal forces in opposite directions are...",
+      "options": [
+        {
+          "text": "unbalanced"
+        },
+        {
+          "text": "balanced"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "They cancel each other.",
+        "The result is zero.",
+        "Equal means balanced."
+      ],
+      "explanation": "Equal opposite forces cancel, so they are balanced.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s6.forces-motion.702",
+      "skill": "s6.forces-motion",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A sled is pulled forward with 40 N. Friction acts backwards with 15 N.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the resultant forward force in N?",
+          "answer": 25,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Are the forces balanced or unbalanced?",
+          "options": [
+            {
+              "text": "Unbalanced"
+            },
+            {
+              "text": "Balanced"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "If friction rose to 40 N, what would the resultant force be?",
+          "answer": 0,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What happens to a moving sled then?",
+          "options": [
+            {
+              "text": "It speeds up"
+            },
+            {
+              "text": "It goes backwards"
+            },
+            {
+              "text": "It keeps moving at a steady speed"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "40 - 15.",
+        "The forces are not equal.",
+        "Equal forces cancel."
+      ],
+      "explanation": "40 - 15 = 25 N, unbalanced. If friction is 40 N the forces are balanced, so the resultant is 0 and speed stays steady.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

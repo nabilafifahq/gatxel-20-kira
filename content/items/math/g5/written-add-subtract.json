@@ -65,6 +65,58 @@
       ],
       "type": "numeric",
       "answer": 135495
+    },
+    {
+      "id": "m5.written-add-subtract.801",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 48,375 + 6,925 = 55,300.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Line up the digits by place value.",
+        "Carry whenever a column reaches 10 or more.",
+        "Estimate: 48,000 + 7,000."
+      ],
+      "explanation": "Add in columns: 5+5=10, 7+2+1=10, 3+9+1=13, 8+6+1=15, and 4+1=5. The result is 55,300.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.written-add-subtract.802",
+      "skill": "m5.written-add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 70,000 - 28,456 = 41,644.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer back to 28,456.",
+        "Does 41,644 + 28,456 make 70,000?",
+        "Estimate: 70,000 - 28,000 = 42,000, then take away 456 more."
+      ],
+      "explanation": "70,000 - 28,456 = 41,544. Check: 41,544 + 28,456 = 70,000, but 41,644 + 28,456 = 70,100.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

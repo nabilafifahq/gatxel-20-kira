@@ -69,6 +69,58 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m6.multiply-written.801",
+      "skill": "m6.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 36 × 24 = 864.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 24 into 20 and 4.",
+        "Multiply 36 by each.",
+        "Add the two answers."
+      ],
+      "explanation": "36 × 20 = 720 and 36 × 4 = 144. 720 + 144 = 864.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.multiply-written.802",
+      "skill": "m6.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 125 × 16 = 2,500.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "125 × 8 = 1,000.",
+        "16 is 8 × 2.",
+        "Double 1,000."
+      ],
+      "explanation": "125 × 16 = 125 × 8 × 2 = 1,000 × 2 = 2,000.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

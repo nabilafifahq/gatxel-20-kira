@@ -640,6 +640,33 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.flowers.701",
+      "skill": "s5.flowers",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Pollen is made in the ___ of a flower.",
+      "blanks": [
+        {
+          "answers": [
+            "anther",
+            "anthers",
+            "stamen",
+            "stamens"
+          ]
+        }
+      ],
+      "hints": [
+        "It is part of the male part.",
+        "It sits on top of the filament.",
+        "It starts with a."
+      ],
+      "explanation": "Pollen is made in the anther, which is part of the stamen.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

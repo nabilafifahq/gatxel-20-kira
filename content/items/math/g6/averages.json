@@ -62,6 +62,119 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m6.averages.801",
+      "skill": "m6.averages",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The mean of 4, 6, 8, 10 and 12 is 8.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add all the numbers.",
+        "Divide by how many there are.",
+        "40 ÷ 5."
+      ],
+      "explanation": "4 + 6 + 8 + 10 + 12 = 40 and 40 ÷ 5 = 8.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.averages.802",
+      "skill": "m6.averages",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The median of 3, 9, 5, 1 and 7 is 9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Put the numbers in order first.",
+        "Find the middle one.",
+        "Two numbers on each side."
+      ],
+      "explanation": "In order: 1, 3, 5, 7, 9. The middle value is 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.averages.701",
+      "skill": "m6.averages",
+      "difficulty": 2,
+      "prompt": "What is the mean of 4, 6, 8, 10 and 12?",
+      "hints": [
+        "Add them all up.",
+        "Total is 40.",
+        "Divide by 5."
+      ],
+      "explanation": "4 + 6 + 8 + 10 + 12 = 40, and 40 ÷ 5 = 8.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 8
+    },
+    {
+      "id": "m6.averages.702",
+      "skill": "m6.averages",
+      "difficulty": 5,
+      "prompt": "A farmer weighs the rice he harvests on five days: 40 kg, 38 kg, 51 kg, 46 kg and 50 kg.",
+      "hints": [
+        "Range = largest - smallest.",
+        "Total of the five days ÷ 5.",
+        "For six days at mean 46, the total must be 6 × 46."
+      ],
+      "explanation": "Range: 51 - 38 = 13. Total 225, mean 225 ÷ 5 = 45. Ordered: 38, 40, 46, 50, 51, so the median is 46. Six days at 46 need 276 kg, so day 6 is 276 - 225 = 51 kg.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What is the range of the five amounts, in kg?",
+          "answer": 13,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the mean amount per day, in kg?",
+          "answer": 45,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the median amount, in kg?",
+          "answer": 46,
+          "unit": "kg"
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many kg must he harvest on day 6 for the mean of all six days to be 46 kg?",
+          "answer": 51,
+          "unit": "kg"
+        }
+      ]
     }
   ]
 }

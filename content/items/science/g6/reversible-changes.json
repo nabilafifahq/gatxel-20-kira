@@ -1078,6 +1078,32 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.reversible-changes.701",
+      "skill": "s6.reversible-changes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Melting ice is a ___ change.",
+      "options": [
+        {
+          "text": "reversible"
+        },
+        {
+          "text": "irreversible"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you freeze it again?",
+        "Water can turn back to ice.",
+        "A change you can undo."
+      ],
+      "explanation": "Melted ice can be frozen again, so it is reversible.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

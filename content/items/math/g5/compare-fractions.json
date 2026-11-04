@@ -74,6 +74,58 @@
         "Compare the fraction parts: 1/2, 3/5, 2/3 and 3/4."
       ],
       "explanation": "As decimals they are 1.5, 1.6, about 1.67 and 1.75. So the order is 1 1/2, 1 3/5, 5/3, 7/4."
+    },
+    {
+      "id": "m5.compare-fractions.801",
+      "skill": "m5.compare-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The improper fraction 7/4 is equal to the mixed number 1 3/4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Divide 7 by 4.",
+        "The quotient is the whole number.",
+        "The remainder goes on top."
+      ],
+      "explanation": "7 ÷ 4 = 1 remainder 3, so 7/4 = 1 3/4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.compare-fractions.802",
+      "skill": "m5.compare-fractions",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The mixed number 2 1/3 is equal to 7/6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Change 2 wholes into thirds.",
+        "2 = 6/3.",
+        "6/3 + 1/3."
+      ],
+      "explanation": "2 1/3 = 6/3 + 1/3 = 7/3, not 7/6. The denominator stays 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

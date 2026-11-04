@@ -68,6 +68,58 @@
       "explanation": "The width is 6 - 1 = 5 units and the height is 5 - 2 = 3 units. The area is 5 × 3 = 15 square units.",
       "type": "numeric",
       "answer": 15
+    },
+    {
+      "id": "m5.coordinates-transformations.801",
+      "skill": "m5.coordinates-transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: When the point (2, 3) is translated 4 right and 1 down, it moves to (6, 2).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Right changes x, down changes y.",
+        "Add 4 to x.",
+        "Subtract 1 from y."
+      ],
+      "explanation": "x: 2 + 4 = 6. y: 3 - 1 = 2.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.coordinates-transformations.802",
+      "skill": "m5.coordinates-transformations",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Reflecting the point (3, 2) in the vertical mirror line x = 5 gives (8, 2).",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How far is x = 3 from the mirror line?",
+        "The image is the same distance on the other side.",
+        "5 + 2."
+      ],
+      "explanation": "(3, 2) is 2 units left of the line, so the image is 2 units right: (7, 2).",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

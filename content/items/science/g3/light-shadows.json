@@ -1469,6 +1469,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.light-shadows.701",
+      "skill": "s3.light-shadows",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A shadow forms when an ___ object blocks light.",
+      "blanks": [
+        {
+          "answers": [
+            "opaque"
+          ]
+        }
+      ],
+      "hints": [
+        "Light cannot pass through it.",
+        "A wall is one.",
+        "It starts with o."
+      ],
+      "explanation": "An opaque object blocks light, so a dark shadow forms behind it.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

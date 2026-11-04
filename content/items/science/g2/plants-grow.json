@@ -1704,6 +1704,53 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.plants-grow.701",
+      "skill": "s2.plants-grow",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Four pots of cress. Pot 1 had light and water. Pot 2 had light but no water. Pot 3 was in the dark with water. Pot 4 was in the dark with no water. After 5 days only Pot 1 was tall and green.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which pot was healthiest?",
+          "options": [
+            {
+              "text": "Pot 4"
+            },
+            {
+              "text": "Pot 1"
+            },
+            {
+              "text": "Pot 2"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "text",
+          "prompt": "Name one thing Pot 2 did not get.",
+          "answers": [
+            "water"
+          ]
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many pots had no light?",
+          "answer": 2,
+          "tolerance": 0
+        }
+      ],
+      "hints": [
+        "Read which pot is tall and green.",
+        "Pot 2 had light.",
+        "Pots 3 and 4 were in the dark."
+      ],
+      "explanation": "Pot 1 had light and water. Pot 2 had no water. Pots 3 and 4 had no light, so 2 pots.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

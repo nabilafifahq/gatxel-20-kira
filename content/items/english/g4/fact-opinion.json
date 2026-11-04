@@ -1320,6 +1320,188 @@
         "long-passage"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e4.fact-opinion.801",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"Jakarta is the capital city of Indonesia\" is a fact.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you check it?",
+        "Look in an atlas.",
+        "Facts can be proved."
+      ],
+      "explanation": "A fact can be checked and proved true. You can look in an atlas to check it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.802",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"Durians are the best fruit in the world\" is a fact.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Could someone disagree?",
+        "Best depends on taste.",
+        "It is a feeling."
+      ],
+      "explanation": "Best is what someone thinks, so it is an opinion. People can disagree.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.803",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"The film was boring\" is an opinion.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Could someone disagree?",
+        "It depends on the person.",
+        "Opinions are feelings."
+      ],
+      "explanation": "Boring is what someone feels. Another person might think the film was exciting.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.804",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: A fact is something that depends on what each person feels.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can you check a feeling?",
+        "Facts do not change from person to person.",
+        "Facts can be proved."
+      ],
+      "explanation": "A fact can be checked. What each person feels is an opinion.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.805",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Words such as best, worst and beautiful often show that a sentence is an opinion.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do these words show feelings?",
+        "They are judgement words.",
+        "They suggest opinions."
+      ],
+      "explanation": "These words describe what someone thinks, so they signal an opinion.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.806",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"Water boils at 100 degrees Celsius at sea level\" is an opinion.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can it be tested?",
+        "You can measure it.",
+        "Facts can be tested."
+      ],
+      "explanation": "This can be measured and checked, so it is a fact.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.fact-opinion.701",
+      "skill": "e4.fact-opinion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Cats are the best pets. Is this fact or opinion?",
+      "options": [
+        {
+          "text": "Fact"
+        },
+        {
+          "text": "Opinion"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Can it be checked?",
+        "People may disagree.",
+        "Best is a feeling."
+      ],
+      "explanation": "Best is what someone thinks, so it is an opinion.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

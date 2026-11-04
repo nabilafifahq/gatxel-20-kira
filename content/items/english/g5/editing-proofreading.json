@@ -703,6 +703,188 @@
         "The sentence has no full stop."
       ],
       "explanation": "There are four mistakes: Dewi needs a capital, freind should be friend, too should be to, and a full stop is missing."
+    },
+    {
+      "id": "e5.editing-proofreading.801",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Every sentence should begin with a capital letter.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What starts a sentence?",
+        "Capital letter.",
+        "Check the first letter."
+      ],
+      "explanation": "Capital letters mark the start of sentences, as in The dog ran.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.802",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"We was late for school\" has no grammar mistakes.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Check the verb.",
+        "Which verb goes with we?",
+        "Were."
+      ],
+      "explanation": "With we, use were, so the sentence is We were late for school.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.803",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word \"recieved\" in the sentence \"I recieved a letter\" is a spelling mistake.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the order of letters.",
+        "Remember the rule after c.",
+        "E before i after c."
+      ],
+      "explanation": "The correct spelling is received, with i before e except after c.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.804",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"The dog wagged it's tail\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does it is fit?",
+        "Try replacing it's with it is.",
+        "Its with no apostrophe."
+      ],
+      "explanation": "It's means it is. Its without an apostrophe shows belonging, so the sentence should say its tail.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.805",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"She go to school every day\" contains a verb mistake.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the verb.",
+        "Add s or es.",
+        "She goes."
+      ],
+      "explanation": "With she, the verb needs an s, so it should be She goes to school every day.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.806",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Proofreading means writing the first draft of a text.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "When does proofreading happen?",
+        "After writing.",
+        "It is checking."
+      ],
+      "explanation": "Proofreading means checking a finished piece of writing for mistakes.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e5.editing-proofreading.807",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sentence \"Their going to the park\" contains a mistake.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try replacing their with they are.",
+        "Does it fit?",
+        "They're."
+      ],
+      "explanation": "Their shows belonging. The sentence needs they're, meaning they are.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

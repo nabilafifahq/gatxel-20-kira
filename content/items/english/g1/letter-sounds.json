@@ -1339,6 +1339,136 @@
       "answers": [
         0
       ]
+    },
+    {
+      "id": "e1.letter-sounds.801",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word cat has three sounds: c, a and t.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say the word slowly: c, a, t.",
+        "Count the sounds you hear.",
+        "Each letter makes one sound here."
+      ],
+      "explanation": "Cat has three letters and three sounds, c-a-t.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.letter-sounds.802",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word pig starts with the sound m.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say pig slowly and listen to the first sound.",
+        "Which letter says p?",
+        "It does not start like mum."
+      ],
+      "explanation": "Pig starts with the sound p.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.letter-sounds.803",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The words hat and cat end with the same sound.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say each word and listen to the end.",
+        "Look at the last letter of each word.",
+        "Both end with t."
+      ],
+      "explanation": "Both words end with t, so they end with the same sound.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.letter-sounds.804",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The words dog and log start with the same sound.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Listen to the first sound of each word.",
+        "Rhyming words end the same.",
+        "One starts with d and one with l."
+      ],
+      "explanation": "Dog starts with d and log starts with l. They rhyme, but they start with different sounds.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.letter-sounds.805",
+      "skill": "e1.letter-sounds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word sun has the letter u in the middle.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Spell sun letter by letter.",
+        "Which letter is second?",
+        "The middle sound is u."
+      ],
+      "explanation": "Sun is spelt s-u-n, so u is in the middle.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

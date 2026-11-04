@@ -1287,7 +1287,7 @@
       "skill": "s3.forces-friction",
       "type": "mcq",
       "difficulty": 1,
-      "prompt": "True or false: A push or a pull is called a force.",
+      "prompt": "True or false: A force can be a push or a pull on an object.",
       "options": [
         {
           "text": "True"
@@ -1385,6 +1385,63 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.forces-friction.701",
+      "skill": "s3.forces-friction",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A toy car rolled down the same ramp onto three surfaces. It travelled 40 cm on carpet, 90 cm on wood and 120 cm on tiles.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which surface had the most friction?",
+          "options": [
+            {
+              "text": "Wood"
+            },
+            {
+              "text": "Tiles"
+            },
+            {
+              "text": "Carpet"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many cm further did the car go on tiles than on carpet?",
+          "answer": 80,
+          "tolerance": 0,
+          "unit": "cm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What should stay the same?",
+          "options": [
+            {
+              "text": "The distance"
+            },
+            {
+              "text": "The height of the ramp"
+            },
+            {
+              "text": "The surface"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "More friction stops the car sooner.",
+        "120 take away 40.",
+        "Only the surface changes."
+      ],
+      "explanation": "The car stopped shortest on carpet so carpet has the most friction. 120 - 40 = 80 cm. The ramp height must stay the same.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

@@ -63,6 +63,84 @@
       "unit": "m",
       "type": "numeric",
       "answer": 52
+    },
+    {
+      "id": "m5.primes-squares.801",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 29 is a prime number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Try dividing by 2, 3 and 5.",
+        "None go in exactly.",
+        "It has just two factors."
+      ],
+      "explanation": "29 is only divisible by 1 and 29. No smaller number except 1 divides it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.primes-squares.802",
+      "skill": "m5.primes-squares",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 51 is a prime number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try dividing 51 by 3.",
+        "Add the digits: 5 + 1 = 6.",
+        "3 × 17."
+      ],
+      "explanation": "51 = 3 × 17, so it has more than two factors.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.primes-squares.701",
+      "skill": "m5.primes-squares",
+      "difficulty": 3,
+      "prompt": "Is 51 a prime number?",
+      "hints": [
+        "A prime has exactly two factors.",
+        "Try dividing 51 by 3.",
+        "3 × 17 = 51."
+      ],
+      "explanation": "51 = 3 × 17, so it has more than two factors and is not prime.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No"
+        }
+      ],
+      "answer": 1
     }
   ]
 }

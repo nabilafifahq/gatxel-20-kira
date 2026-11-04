@@ -1693,6 +1693,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.skeletons.701",
+      "skill": "s3.skeletons",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The bones in your head make up your ___.",
+      "blanks": [
+        {
+          "answers": [
+            "skull"
+          ]
+        }
+      ],
+      "hints": [
+        "It protects your brain.",
+        "It starts with s.",
+        "s, k, u, l, l."
+      ],
+      "explanation": "The skull is the set of bones in the head. It protects the brain.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

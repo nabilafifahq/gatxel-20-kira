@@ -36,6 +36,102 @@
         "m": 30
       },
       "stepMinutes": 30
+    },
+    {
+      "id": "m1.oclock-half-past.801",
+      "skill": "m1.oclock-half-past",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: When the short hand points to 3 and the long hand points to 12, the time is 3 o'clock.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which hand shows the hour?",
+        "The long hand is on 12.",
+        "It is 3 o'clock."
+      ],
+      "explanation": "The long hand on 12 means o'clock. The short hand shows the hour, which is 3.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.oclock-half-past.802",
+      "skill": "m1.oclock-half-past",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: When the long hand points to 6, the time is 6 o'clock.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Where is the long hand for o'clock?",
+        "6 is halfway round the clock.",
+        "It means half past."
+      ],
+      "explanation": "The long hand on 6 means half past. It is o'clock only when the long hand is on 12.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.oclock-half-past.803",
+      "skill": "m1.oclock-half-past",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: At half past 4, the long hand points to 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Halfway round the clock is which number?",
+        "The short hand is between 4 and 5.",
+        "The long hand is on 6."
+      ],
+      "explanation": "Half past means the long hand is on 6, halfway round the clock.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.oclock-half-past.701",
+      "skill": "m1.oclock-half-past",
+      "difficulty": 2,
+      "prompt": "At half past 3 the minute hand points to which number?",
+      "hints": [
+        "Half past means half way round the clock.",
+        "The clock face has 12 numbers.",
+        "Half of 12."
+      ],
+      "explanation": "Half past is half way round the clock, so the minute hand points to 6.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "numeric",
+      "answer": 6
     }
   ]
 }

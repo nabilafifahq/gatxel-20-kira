@@ -77,6 +77,120 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m2.times-tables.801",
+      "skill": "m2.times-tables",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: 5 × 4 = 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Skip count in 5s.",
+        "Four jumps of 5.",
+        "The fourth number is 20."
+      ],
+      "explanation": "Count in 5s four times: 5, 10, 15, 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.times-tables.802",
+      "skill": "m2.times-tables",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 6 × 5 = 35.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Skip count in 5s.",
+        "Count six jumps.",
+        "The sixth number is 30."
+      ],
+      "explanation": "Count in 5s six times: 5, 10, 15, 20, 25, 30. So 6 × 5 = 30.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.times-tables.803",
+      "skill": "m2.times-tables",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: All the numbers in the 2 times table are even.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List 2, 4, 6, 8.",
+        "Look at the last digits.",
+        "They are all even."
+      ],
+      "explanation": "Every answer is two equal groups put together, so it can be shared into pairs.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.times-tables.701",
+      "skill": "m2.times-tables",
+      "difficulty": 1,
+      "prompt": "5 × 7 = ?",
+      "hints": [
+        "Count in 5s seven times.",
+        "5, 10, 15, 20, ...",
+        "Half of 10 × 7."
+      ],
+      "explanation": "Counting in 5s seven times gives 35.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 35
+    },
+    {
+      "id": "m2.times-tables.702",
+      "skill": "m2.times-tables",
+      "difficulty": 1,
+      "prompt": "2 × 8 = ?",
+      "hints": [
+        "Double 8.",
+        "8 + 8.",
+        "Count in 2s eight times."
+      ],
+      "explanation": "Double 8 is 16.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6,
+      "type": "numeric",
+      "answer": 16
     }
   ]
 }

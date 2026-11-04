@@ -1164,6 +1164,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.teeth.701",
+      "skill": "s4.teeth",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The sharp front teeth for biting food are ___.",
+      "blanks": [
+        {
+          "answers": [
+            "incisors",
+            "incisor"
+          ]
+        }
+      ],
+      "hints": [
+        "They are at the front of the mouth.",
+        "They cut and bite.",
+        "It starts with in."
+      ],
+      "explanation": "Incisors are the sharp front teeth that cut food.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

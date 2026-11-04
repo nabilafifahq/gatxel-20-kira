@@ -1485,6 +1485,103 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.fair-test.701",
+      "skill": "s2.fair-test",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Bean A is 7 cm tall. Bean B is 10 cm. How many cm taller is B?",
+      "answer": 3,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Find the difference.",
+        "Take away the smaller number.",
+        "10 take away 7."
+      ],
+      "explanation": "10 minus 7 is 3, so bean B is 3 cm taller.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s2.fair-test.702",
+      "skill": "s2.fair-test",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Plants grew 4, 9 and 6 cm. Biggest minus smallest, in cm?",
+      "answer": 5,
+      "tolerance": 0,
+      "unit": "cm",
+      "hints": [
+        "Find the biggest and smallest.",
+        "Biggest is 9, smallest is 4.",
+        "9 take away 4."
+      ],
+      "explanation": "The biggest growth is 9 cm and the smallest is 4 cm. 9 minus 4 is 5 cm.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
+    },
+    {
+      "id": "s2.fair-test.703",
+      "skill": "s2.fair-test",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Ben tested paper towels. He poured 50 ml of water onto each. Towel A soaked up 20 ml, towel B soaked up 35 ml and towel C soaked up 28 ml.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which towel soaked up the most?",
+          "options": [
+            {
+              "text": "A"
+            },
+            {
+              "text": "B"
+            },
+            {
+              "text": "C"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many ml more did B soak up than A?",
+          "answer": 15,
+          "tolerance": 0,
+          "unit": "ml"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What must stay the same to keep the test fair?",
+          "options": [
+            {
+              "text": "The towel used"
+            },
+            {
+              "text": "The result"
+            },
+            {
+              "text": "The amount of water poured"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Compare 20, 35 and 28.",
+        "35 take away 20.",
+        "Only one thing changes: the towel."
+      ],
+      "explanation": "B soaked up 35 ml, the most. 35 minus 20 is 15. The water poured must stay the same.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

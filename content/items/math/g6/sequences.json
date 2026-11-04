@@ -47,6 +47,58 @@
       "tags": [],
       "type": "numeric",
       "answer": 206
+    },
+    {
+      "id": "m6.sequences.801",
+      "skill": "m6.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: With the position-to-term rule 3n + 2, the 10th term is 32.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Replace n with 10.",
+        "Multiply first.",
+        "30 + 2."
+      ],
+      "explanation": "Put n = 10: 3 × 10 + 2 = 32.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.sequences.802",
+      "skill": "m6.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The next number in the sequence of triangular numbers 1, 3, 6, 10, 15 is 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the gaps between terms.",
+        "The gaps are 2, 3, 4, 5.",
+        "The next gap is 6."
+      ],
+      "explanation": "The gaps grow by 1 each time: 2, 3, 4, 5, so the next gap is 6 and the next term is 21.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

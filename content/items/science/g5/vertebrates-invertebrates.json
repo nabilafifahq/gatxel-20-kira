@@ -1372,6 +1372,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.701",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Animals with a backbone are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "vertebrates",
+            "vertebrate"
+          ]
+        }
+      ],
+      "hints": [
+        "Fish and birds have one.",
+        "The opposite is invertebrate.",
+        "It starts with vert."
+      ],
+      "explanation": "Vertebrates are animals with a backbone.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

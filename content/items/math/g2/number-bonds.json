@@ -52,6 +52,76 @@
           ]
         }
       ]
+    },
+    {
+      "id": "m2.number-bonds.801",
+      "skill": "m2.number-bonds",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 13 + 7 = 20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the ones first.",
+        "3 + 7 = 10.",
+        "10 + 10 = 20."
+      ],
+      "explanation": "13 + 7: 13 + 2 = 15, 15 + 5 = 20. Or 3 + 7 = 10, and 10 + 10 = 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.number-bonds.802",
+      "skill": "m2.number-bonds",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 40 + 50 = 100.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add 4 tens and 5 tens.",
+        "9 tens is how many?",
+        "40 + 50 = 90."
+      ],
+      "explanation": "4 tens + 5 tens = 9 tens, which is 90. You need 60 and 40, or 50 and 50, to make 100.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.number-bonds.701",
+      "skill": "m2.number-bonds",
+      "difficulty": 2,
+      "prompt": "__ + 64 = 100",
+      "hints": [
+        "What does 64 need to reach 100?",
+        "Make 70 first, then 100.",
+        "6 + 30."
+      ],
+      "explanation": "64 + 6 = 70 and 70 + 30 = 100, so the missing number is 36.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 36
     }
   ]
 }

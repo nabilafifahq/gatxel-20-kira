@@ -1426,6 +1426,79 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.conductors-insulators.701",
+      "skill": "s4.conductors-insulators",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A material that lets electricity pass through is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "conductor",
+            "electrical conductor"
+          ]
+        }
+      ],
+      "hints": [
+        "Metals are good at this.",
+        "The opposite is an insulator.",
+        "It starts with c."
+      ],
+      "explanation": "A conductor lets electricity pass through. Metals are good conductors.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s4.conductors-insulators.702",
+      "skill": "s4.conductors-insulators",
+      "type": "story",
+      "difficulty": 2,
+      "prompt": "Ella tested materials in a circuit gap. The bulb lit with the copper wire, the iron nail and the aluminium foil. It did not light with the plastic comb, the wooden stick or the rubber.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many materials made the bulb light?",
+          "answer": 3,
+          "tolerance": 0
+        },
+        {
+          "type": "text",
+          "prompt": "What do we call a material that lets electricity pass?",
+          "answers": [
+            "conductor",
+            "a conductor"
+          ]
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which is an insulator?",
+          "options": [
+            {
+              "text": "Copper"
+            },
+            {
+              "text": "Iron"
+            },
+            {
+              "text": "Rubber"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Count the ones that lit the bulb.",
+        "Metals did well.",
+        "Insulators stop electricity."
+      ],
+      "explanation": "Three materials lit the bulb. Materials that let electricity pass are conductors. Rubber is an insulator.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

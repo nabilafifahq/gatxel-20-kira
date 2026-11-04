@@ -1587,6 +1587,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.living-things.701",
+      "skill": "s2.living-things",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these was once alive?",
+      "options": [
+        {
+          "text": "A glass cup"
+        },
+        {
+          "text": "A plastic toy"
+        },
+        {
+          "text": "A wooden spoon"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Wood comes from a tree.",
+        "Think about where each thing comes from.",
+        "Trees are alive."
+      ],
+      "explanation": "Wood comes from trees, which were alive, so a wooden spoon was once alive.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

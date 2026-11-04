@@ -990,6 +990,186 @@
           ]
         }
       ]
+    },
+    {
+      "id": "e2.past-tense-ed.801",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The past tense of walk is walked.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Say yesterday I ...",
+        "Add ed to the end.",
+        "It already happened."
+      ],
+      "explanation": "We add -ed to most verbs to show that something already happened. Example: Yesterday I walked to school.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.802",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The past tense of jump is jumpt.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the word end with the letters ed?",
+        "Jumpt is not a real word.",
+        "Add ed."
+      ],
+      "explanation": "Add -ed to jump to make jumped. Example: She jumped over the log.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.803",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The past tense of play is played.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Just add ed.",
+        "Do not change the y.",
+        "Play plus ed."
+      ],
+      "explanation": "Play ends in a vowel and y, so we simply add -ed. Example: We played football.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.804",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The past tense of stop is stopped, with two p letters.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the p letters in stopped.",
+        "Short words double their last letter.",
+        "Compare it with hopped."
+      ],
+      "explanation": "In short words with one vowel and one consonant at the end, we double the last letter before adding -ed. Example: The bus stopped.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.805",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The past tense of bake is bakeed.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the end of bake.",
+        "Do not add a second e.",
+        "Just add d."
+      ],
+      "explanation": "Bake already ends in e, so we only add d. The past tense is baked.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.806",
+      "skill": "e2.past-tense-ed",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: When we add -ed to the word cry, the spelling becomes cryed.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the letter before the y.",
+        "The y changes to i.",
+        "The past tense is cried."
+      ],
+      "explanation": "When a word ends in a consonant and y, we change the y to i before -ed. Cry becomes cried.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.past-tense-ed.701",
+      "skill": "e2.past-tense-ed",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Past tense of walk: ___.",
+      "blanks": [
+        {
+          "answers": [
+            "walked"
+          ]
+        }
+      ],
+      "hints": [
+        "It happened already.",
+        "Add ed.",
+        "walk + ed"
+      ],
+      "explanation": "Add -ed to walk to make walked.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

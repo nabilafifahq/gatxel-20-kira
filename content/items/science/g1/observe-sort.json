@@ -1437,6 +1437,52 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.observe-sort.701",
+      "skill": "s1.observe-sort",
+      "type": "story",
+      "difficulty": 1,
+      "prompt": "Mia looked for minibeasts in the garden. She found 4 ants, 3 snails and 2 worms.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many snails did Mia find?",
+          "answer": 3,
+          "tolerance": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many minibeasts did she find altogether?",
+          "answer": 9,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which did she find the fewest of?",
+          "options": [
+            {
+              "text": "Snails"
+            },
+            {
+              "text": "Worms"
+            },
+            {
+              "text": "Ants"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Count each group.",
+        "4 plus 3 plus 2.",
+        "Fewest means the smallest number."
+      ],
+      "explanation": "Mia found 9 minibeasts: 4 + 3 + 2. She found only 2 worms, which is the smallest group.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

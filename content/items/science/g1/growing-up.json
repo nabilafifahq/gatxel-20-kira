@@ -1398,6 +1398,54 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.growing-up.701",
+      "skill": "s1.growing-up",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A baby cat is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "kitten"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a young cat.",
+        "It starts with k.",
+        "k, i, t, t, e, n."
+      ],
+      "explanation": "A baby cat is called a kitten.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
+    },
+    {
+      "id": "s1.growing-up.702",
+      "skill": "s1.growing-up",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A baby frog is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "tadpole"
+          ]
+        }
+      ],
+      "hints": [
+        "It lives in water and has a tail.",
+        "It later grows legs.",
+        "It starts with t."
+      ],
+      "explanation": "A baby frog is called a tadpole.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

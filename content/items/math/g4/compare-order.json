@@ -64,6 +64,84 @@
       "explanation": "The numbers are 3,999, 4,000, 4,001, 4,002 and 4,003. That makes 5.",
       "type": "numeric",
       "answer": 5
+    },
+    {
+      "id": "m4.compare-order.801",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The number 7,205 is greater than 7,052.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the thousands first.",
+        "If the thousands match, compare the hundreds.",
+        "2 hundreds beats 0 hundreds."
+      ],
+      "explanation": "Both have 7 thousands. Then 2 hundreds is more than 0 hundreds, so 7,205 is greater.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.compare-order.802",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 3,490 is greater than 3,940.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the hundreds digits.",
+        "Which is more, 4 hundreds or 9 hundreds?",
+        "3,940 is the greater number."
+      ],
+      "explanation": "Both have 3 thousands, but 4 hundreds is less than 9 hundreds, so 3,490 is smaller.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.compare-order.803",
+      "skill": "m4.compare-order",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The numbers 5,120, 5,021 and 5,210 are in order from smallest to largest.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare the hundreds digits of all three.",
+        "0 hundreds is the smallest.",
+        "5,021 should come first."
+      ],
+      "explanation": "The correct order is 5,021, 5,120, 5,210. The list starts with 5,120, which is not the smallest.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

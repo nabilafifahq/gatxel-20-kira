@@ -1663,6 +1663,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.life-cycles.701",
+      "skill": "s2.life-cycles",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A butterfly lays an egg. What hatches from it?",
+      "blanks": [
+        {
+          "answers": [
+            "caterpillar",
+            "a caterpillar"
+          ]
+        }
+      ],
+      "hints": [
+        "It is long and has many legs.",
+        "It eats leaves.",
+        "It starts with c."
+      ],
+      "explanation": "A butterfly egg hatches into a caterpillar.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

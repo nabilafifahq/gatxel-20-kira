@@ -65,6 +65,58 @@
       ],
       "type": "numeric",
       "answer": 4000
+    },
+    {
+      "id": "m5.mental-add-subtract.801",
+      "skill": "m5.mental-add-subtract",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 198 + 47 = 245.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Round 198 up to 200.",
+        "Do 200 + 47.",
+        "Subtract the extra 2."
+      ],
+      "explanation": "Add 200 + 47 = 247, then take away 2: 245.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.mental-add-subtract.802",
+      "skill": "m5.mental-add-subtract",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 1,000 - 357 = 653.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add your answer to 357 to check.",
+        "357 + 643.",
+        "Count up from 357 to 400, then to 1,000."
+      ],
+      "explanation": "Check 357 + 653 = 1,010, not 1,000. The answer is 643.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

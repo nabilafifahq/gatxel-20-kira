@@ -2089,6 +2089,78 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.variables-and-graphs.701",
+      "skill": "s4.variables-and-graphs",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "The thing we measure in a test is the ___ variable.",
+      "blanks": [
+        {
+          "answers": [
+            "dependent"
+          ]
+        }
+      ],
+      "hints": [
+        "It depends on what we change.",
+        "The changed one is independent.",
+        "It starts with d."
+      ],
+      "explanation": "The dependent variable is what we measure. It depends on the thing we change.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
+    },
+    {
+      "id": "s4.variables-and-graphs.702",
+      "skill": "s4.variables-and-graphs",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Hot tea cooled. Temperatures: 0 min 90 C, 10 min 70 C, 20 min 56 C, 30 min 46 C, 40 min 40 C.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "What was the temperature at 20 minutes?",
+          "answer": 56,
+          "tolerance": 0,
+          "unit": "C"
+        },
+        {
+          "type": "numeric",
+          "prompt": "By how many degrees did it fall in the first 10 minutes?",
+          "answer": 20,
+          "tolerance": 0,
+          "unit": "C"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the pattern?",
+          "options": [
+            {
+              "text": "It cools quickly at first, then more slowly"
+            },
+            {
+              "text": "It cools at the same rate"
+            },
+            {
+              "text": "It warms up"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Read the 20 minutes row.",
+        "90 take away 70.",
+        "Compare the drops: 20, 14, 10, 6."
+      ],
+      "explanation": "At 20 minutes it was 56. 90 - 70 = 20. The drops get smaller, so it cools more slowly.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

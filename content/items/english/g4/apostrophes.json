@@ -844,6 +844,187 @@
         "Only one makes sense with belonging."
       ],
       "explanation": "Whose turn asks who owns the turn. In the other sentences, the meaning is who is or belonging, so the spelling is mixed up."
+    },
+    {
+      "id": "e4.apostrophes.801",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The phrase \"the girl's bag\" shows that the bag belongs to one girl.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look where the apostrophe is.",
+        "It comes before the s.",
+        "Apostrophe before s means one owner."
+      ],
+      "explanation": "With one owner, add apostrophe s after the noun.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.802",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The phrase \"the girls' bags\" shows that the bags belong to one girl.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look where the apostrophe is.",
+        "It comes after the s.",
+        "After s means more than one."
+      ],
+      "explanation": "The apostrophe after the s shows more than one owner, so it means the bags of several girls.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.803",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The phrase \"the boys' ball\" means the ball belongs to more than one boy.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the apostrophe?",
+        "After the s.",
+        "The owners are plural."
+      ],
+      "explanation": "For a plural noun ending in s, add an apostrophe after the s.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.804",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"Apple's for sale\" uses an apostrophe correctly.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is it showing belonging?",
+        "The apples do not own anything.",
+        "Just add s."
+      ],
+      "explanation": "Apostrophes do not make plurals. The sentence should say Apples for sale.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.805",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The phrase \"the children's toys\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Does children end in s?",
+        "It does not.",
+        "Add apostrophe s."
+      ],
+      "explanation": "Children is an irregular plural that does not end in s, so we add apostrophe s.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.806",
+      "skill": "e4.apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The phrase \"the childrens' toys\" is correct.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does children end in s?",
+        "Add apostrophe s.",
+        "Apostrophe goes before the added s."
+      ],
+      "explanation": "Children does not end in s, so the apostrophe goes before the s: the children's toys.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e4.apostrophes.701",
+      "skill": "e4.apostrophes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The toy of the boy is the ___ toy.",
+      "blanks": [
+        {
+          "answers": [
+            "boy's",
+            "boy’s"
+          ]
+        }
+      ],
+      "hints": [
+        "It belongs to one boy.",
+        "Add apostrophe s.",
+        "boy + apostrophe + s"
+      ],
+      "explanation": "For one owner we add 's: the boy's toy.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

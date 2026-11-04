@@ -1067,6 +1067,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.earth-structure.701",
+      "skill": "s6.earth-structure",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "The hottest, innermost layer of the Earth is the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "core",
+            "inner core"
+          ]
+        }
+      ],
+      "hints": [
+        "It is at the centre.",
+        "It is below the mantle.",
+        "It has four letters."
+      ],
+      "explanation": "The core is the innermost and hottest layer of the Earth.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

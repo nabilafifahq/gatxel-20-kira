@@ -777,6 +777,188 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e6.active-passive.801",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The dog chased the cat\" is in the active voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who is doing the chasing?",
+        "Find the subject.",
+        "The subject does the action."
+      ],
+      "explanation": "In an active sentence, the subject does the action. The dog is doing the chasing.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.802",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The sentence \"The cake was eaten by Tom\" is in the active voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the cake do anything?",
+        "Who or what receives the action?",
+        "The subject receives the action."
+      ],
+      "explanation": "The cake receives the action, so the sentence is passive.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.803",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence \"The window was broken by the ball\" is in the passive voice.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is the window doing the action?",
+        "Look for was and by.",
+        "The subject receives the action."
+      ],
+      "explanation": "The window receives the action. The ball did the breaking.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.804",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The passive voice of \"Sara painted the picture\" is \"The picture painted Sara\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who really did the painting?",
+        "The picture must be the one painted.",
+        "Use was painted by."
+      ],
+      "explanation": "The correct passive sentence is The picture was painted by Sara. The object of the active sentence becomes the subject.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.805",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In a passive sentence, the person doing the action can be left out, as in \"The window was broken\".",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is there a by phrase in the sentence?",
+        "Do we know who broke it?",
+        "The doer does not have to be named."
+      ],
+      "explanation": "A passive sentence can leave out who did the action, which is useful when it is not known.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.806",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: In an active sentence, the subject receives the action.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of The teacher read the story.",
+        "Who does the reading?",
+        "Active subjects do the action."
+      ],
+      "explanation": "In an active sentence the subject does the action. In a passive sentence the subject receives it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e6.active-passive.701",
+      "skill": "e6.active-passive",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The ball was kicked by Sam. Is this active or passive?",
+      "options": [
+        {
+          "text": "Passive"
+        },
+        {
+          "text": "Active"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Who does the action?",
+        "The ball receives the action.",
+        "Was kicked by shows passive."
+      ],
+      "explanation": "The ball receives the action, so the sentence is passive.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

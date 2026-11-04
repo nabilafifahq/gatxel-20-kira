@@ -65,6 +65,110 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m5.fractions-of-amounts.801",
+      "skill": "m5.fractions-of-amounts",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Three quarters of 48 is 36.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find a quarter first.",
+        "Then multiply by 3.",
+        "12 × 3."
+      ],
+      "explanation": "48 ÷ 4 = 12, and 12 × 3 = 36.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.fractions-of-amounts.802",
+      "skill": "m5.fractions-of-amounts",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Two fifths of 35 is 16.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find a fifth first.",
+        "35 ÷ 5.",
+        "Multiply by 2."
+      ],
+      "explanation": "35 ÷ 5 = 7, and 7 × 2 = 14, not 16.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.fractions-of-amounts.701",
+      "skill": "m5.fractions-of-amounts",
+      "difficulty": 2,
+      "prompt": "3/5 of 40 = ?",
+      "hints": [
+        "Find 1/5 first.",
+        "40 ÷ 5.",
+        "Then multiply by 3."
+      ],
+      "explanation": "1/5 of 40 = 8, so 3/5 = 3 × 8 = 24.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 24
+    },
+    {
+      "id": "m5.fractions-of-amounts.702",
+      "skill": "m5.fractions-of-amounts",
+      "difficulty": 4,
+      "prompt": "A school has 180 students on a trip day. 2/5 go to the museum, 1/3 go to the zoo, and the rest go to the park.",
+      "hints": [
+        "Find 1/5 of 180, then double it.",
+        "Divide 180 by 3.",
+        "Take both groups from 180."
+      ],
+      "explanation": "1/5 of 180 = 36, so 2/5 = 72. 1/3 of 180 = 60. Park: 180 - 72 - 60 = 48 students.",
+      "tags": [
+        "multi-part",
+        "word-problem"
+      ],
+      "type": "story",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many students go to the museum?",
+          "answer": 72
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many students go to the zoo?",
+          "answer": 60
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many students go to the park?",
+          "answer": 48
+        }
+      ]
     }
   ]
 }

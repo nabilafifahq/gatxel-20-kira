@@ -1898,6 +1898,162 @@
         "long-passage"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e3.inference.801",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: Inferring means using clues in a text to work out something that is not stated.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What are the clues?",
+        "Think and work it out.",
+        "Not stated directly."
+      ],
+      "explanation": "Inferring is reading between the lines. Example: if a character shivers, we can infer that she is cold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.inference.802",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: If Mia slams the door and stamps her feet, she is probably delighted.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "How do people act when they are angry?",
+        "Think of stamping.",
+        "Not happy."
+      ],
+      "explanation": "Slamming a door and stamping feet are clues that a person is angry or upset.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.inference.803",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: If a character has tears on her face, we can infer that she is sad.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does crying show?",
+        "It is a clue.",
+        "Think of a sad person."
+      ],
+      "explanation": "Tears are a clue to feeling sad or upset. We use clues to work out feelings.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.inference.804",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: If a girl is smiling and skipping, she is probably upset.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What do smiles show?",
+        "Skipping is a happy action.",
+        "She is likely to be happy."
+      ],
+      "explanation": "Smiling and skipping are clues that she is happy.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.inference.805",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Words around an unknown word can help us work out its meaning.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the sentence.",
+        "The nearby words give hints.",
+        "Use the clues."
+      ],
+      "explanation": "These are called context clues. Example: The ravenous boy ate three plates of food. The clue tells us ravenous means very hungry.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e3.inference.806",
+      "skill": "e3.inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: Evidence from the text should be used to support what we infer.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Where is the clue?",
+        "Point to the words.",
+        "Good ideas have proof."
+      ],
+      "explanation": "A good inference is based on clues from the text, not just a guess. Example: She shivered, so she was cold.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

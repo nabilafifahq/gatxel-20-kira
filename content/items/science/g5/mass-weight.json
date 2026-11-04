@@ -1296,6 +1296,32 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.mass-weight.701",
+      "skill": "s5.mass-weight",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Weight is measured in ___.",
+      "blanks": [
+        {
+          "answers": [
+            "newtons",
+            "newton",
+            "n"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a unit of force.",
+        "It is named after Isaac Newton.",
+        "It starts with n."
+      ],
+      "explanation": "Weight is a force, so it is measured in newtons.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

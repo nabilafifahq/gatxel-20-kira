@@ -1505,6 +1505,113 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.magnets.701",
+      "skill": "s3.magnets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A magnet has a north and a south ___.",
+      "blanks": [
+        {
+          "answers": [
+            "pole",
+            "poles"
+          ]
+        }
+      ],
+      "hints": [
+        "Each end is called this.",
+        "The Earth has two at the top and bottom.",
+        "It starts with p."
+      ],
+      "explanation": "The two ends of a magnet are its north pole and south pole.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s3.magnets.702",
+      "skill": "s3.magnets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two north poles are put close together. They...",
+      "options": [
+        {
+          "text": "do nothing"
+        },
+        {
+          "text": "repel"
+        },
+        {
+          "text": "attract"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Like poles are the same.",
+        "Same poles push apart.",
+        "Push apart is repel."
+      ],
+      "explanation": "Like poles repel each other, so two north poles push apart.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s3.magnets.703",
+      "skill": "s3.magnets",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Omar tested five objects with a magnet: paper clip (steel), iron nail, wooden spoon, rubber and copper coin. The paper clip and the iron nail stuck to the magnet. The others did not.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many objects were magnetic?",
+          "answer": 2,
+          "tolerance": 0
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which material is magnetic?",
+          "options": [
+            {
+              "text": "Wood"
+            },
+            {
+              "text": "Rubber"
+            },
+            {
+              "text": "Iron"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which pole would a north pole attract?",
+          "options": [
+            {
+              "text": "North pole"
+            },
+            {
+              "text": "South pole"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Count what stuck.",
+        "Iron is a metal that sticks.",
+        "Unlike poles attract."
+      ],
+      "explanation": "Two objects stuck. Iron is magnetic, wood and rubber are not. Unlike poles attract, so north attracts south.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

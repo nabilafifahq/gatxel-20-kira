@@ -672,6 +672,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s6.rocks-soil.701",
+      "skill": "s6.rocks-soil",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Rock made when magma or lava cools is ___ rock.",
+      "blanks": [
+        {
+          "answers": [
+            "igneous"
+          ]
+        }
+      ],
+      "hints": [
+        "Volcanoes make it.",
+        "It is one of three kinds.",
+        "It starts with i."
+      ],
+      "explanation": "Igneous rock forms when molten rock cools and hardens.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

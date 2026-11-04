@@ -62,6 +62,58 @@
       ],
       "type": "numeric",
       "answer": 25000
+    },
+    {
+      "id": "m5.sequences.801",
+      "skill": "m5.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The next term in the sequence 2, 6, 18, 54 is 162.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find what the first number is multiplied by.",
+        "6 ÷ 2 = 3.",
+        "54 × 3."
+      ],
+      "explanation": "The rule is multiply by 3. 54 × 3 = 162.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.sequences.802",
+      "skill": "m5.sequences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The sequence 100, 93, 86, 79 follows the rule subtract 6.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out the gap between terms.",
+        "100 - 93.",
+        "The gap is 7."
+      ],
+      "explanation": "Each term is 7 less than the one before, so the rule is subtract 7.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

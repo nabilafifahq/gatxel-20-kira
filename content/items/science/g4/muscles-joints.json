@@ -1044,6 +1044,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.muscles-joints.701",
+      "skill": "s4.muscles-joints",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Muscles can only pull. They cannot ___.",
+      "blanks": [
+        {
+          "answers": [
+            "push"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of the opposite of pull.",
+        "Pulling and ... are opposites.",
+        "It starts with p and has four letters."
+      ],
+      "explanation": "Muscles can only pull, so they work in pairs to move bones.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

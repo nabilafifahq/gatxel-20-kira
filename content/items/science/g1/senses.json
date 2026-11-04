@@ -1603,6 +1603,60 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.senses.701",
+      "skill": "s1.senses",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part of the body do we use to smell?",
+      "options": [
+        {
+          "text": "Nose"
+        },
+        {
+          "text": "Ears"
+        },
+        {
+          "text": "Eyes"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of a flower.",
+        "You breathe in through it.",
+        "It is on the middle of your face."
+      ],
+      "explanation": "We smell with our nose.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
+    },
+    {
+      "id": "s1.senses.702",
+      "skill": "s1.senses",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "We hear with our ___.",
+      "blanks": [
+        {
+          "answers": [
+            "ears",
+            "ear"
+          ]
+        }
+      ],
+      "hints": [
+        "Which part is on the side of your head?",
+        "It is not your eyes.",
+        "It starts with e."
+      ],
+      "explanation": "We hear sounds with our ears.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

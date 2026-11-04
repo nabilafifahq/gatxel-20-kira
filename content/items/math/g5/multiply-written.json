@@ -65,6 +65,58 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m5.multiply-written.801",
+      "skill": "m5.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 23 × 14 = 322.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Split 14 into 10 and 4.",
+        "Multiply 23 by each.",
+        "Add the answers."
+      ],
+      "explanation": "23 × 10 = 230 and 23 × 4 = 92. 230 + 92 = 322.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.multiply-written.802",
+      "skill": "m5.multiply-written",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3,125 × 4 = 12,400.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 3,125 into 3,000 and 125.",
+        "125 × 4 = 500.",
+        "12,000 + 500."
+      ],
+      "explanation": "3,000 × 4 = 12,000 and 125 × 4 = 500, so the total is 12,500.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

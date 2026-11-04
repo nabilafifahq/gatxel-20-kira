@@ -62,6 +62,58 @@
       "tags": [],
       "type": "numeric",
       "answer": 4
+    },
+    {
+      "id": "m6.function-machines.801",
+      "skill": "m6.function-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: An input of 7 put through the machine multiply by 3 then subtract 4 gives an output of 17.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Do the steps in order.",
+        "Multiply first.",
+        "21 - 4."
+      ],
+      "explanation": "7 × 3 = 21, then 21 - 4 = 17.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.function-machines.802",
+      "skill": "m6.function-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: In the equation n + 15 = 40, the value of n is 55.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Use the inverse operation.",
+        "Subtract 15 from 40.",
+        "Check by adding."
+      ],
+      "explanation": "n = 40 - 15 = 25. Check: 25 + 15 = 40.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

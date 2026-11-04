@@ -650,6 +650,30 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.energy.701",
+      "skill": "s4.energy",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Energy is never used up. It is only ___ from one store to another.",
+      "blanks": [
+        {
+          "answers": [
+            "transferred"
+          ]
+        }
+      ],
+      "hints": [
+        "Energy moves from place to place.",
+        "The word starts with trans.",
+        "Passed on or moved."
+      ],
+      "explanation": "Energy cannot be made or destroyed. It is transferred from one store to another.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

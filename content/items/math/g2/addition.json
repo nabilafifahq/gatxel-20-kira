@@ -24,6 +24,94 @@
           }
         ]
       }
+    },
+    {
+      "id": "m2.addition.801",
+      "skill": "m2.addition",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 34 + 25 = 59.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Add the tens first.",
+        "Add the ones next.",
+        "50 + 9."
+      ],
+      "explanation": "Add the tens: 30 + 20 = 50. Add the ones: 4 + 5 = 9. Then 50 + 9 = 59.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.addition.802",
+      "skill": "m2.addition",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 46 + 38 = 74.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the tens, then the ones.",
+        "The ones make more than 10.",
+        "70 + 14 = 84."
+      ],
+      "explanation": "Tens: 40 + 30 = 70. Ones: 6 + 8 = 14. Then 70 + 14 = 84, not 74.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m2.addition.701",
+      "skill": "m2.addition",
+      "difficulty": 2,
+      "prompt": "34 + 25 = ?",
+      "hints": [
+        "Add the tens: 30 + 20.",
+        "Add the ones: 4 + 5.",
+        "Put the two answers together."
+      ],
+      "explanation": "30 + 20 = 50 and 4 + 5 = 9, so 34 + 25 = 59.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 59
+    },
+    {
+      "id": "m2.addition.702",
+      "skill": "m2.addition",
+      "difficulty": 3,
+      "prompt": "47 + 36 = ?",
+      "hints": [
+        "Add the ones first: 7 + 6.",
+        "13 ones is 1 ten and 3 ones.",
+        "40 + 30 + 10 + 3."
+      ],
+      "explanation": "7 + 6 = 13 and 40 + 30 = 70, so 70 + 13 = 83.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12,
+      "type": "numeric",
+      "answer": 83
     }
   ]
 }

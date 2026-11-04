@@ -1740,6 +1740,94 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s5.friction-resistance.701",
+      "skill": "s5.friction-resistance",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "A parachute slows a fall by increasing air ___.",
+      "blanks": [
+        {
+          "answers": [
+            "resistance"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a force that pushes back.",
+        "Air pushes against the falling object.",
+        "It starts with res."
+      ],
+      "explanation": "A big parachute has more air resistance, so it falls slowly.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
+    },
+    {
+      "id": "s5.friction-resistance.702",
+      "skill": "s5.friction-resistance",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "A spring balance pulled a block over four surfaces. Readings: sandpaper 8 N, carpet 6 N, wood 4 N, glass 2 N.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which surface had the most friction?",
+          "options": [
+            {
+              "text": "Wood"
+            },
+            {
+              "text": "Sandpaper"
+            },
+            {
+              "text": "Glass"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many N more was the pull on sandpaper than on glass?",
+          "answer": 6,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "numeric",
+          "prompt": "What is the mean pull in N?",
+          "answer": 5,
+          "tolerance": 0,
+          "unit": "N"
+        },
+        {
+          "type": "mcq",
+          "prompt": "What is the unit of force?",
+          "options": [
+            {
+              "text": "Newton"
+            },
+            {
+              "text": "Kilogram"
+            },
+            {
+              "text": "Metre"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The biggest pull means most friction.",
+        "8 take away 2.",
+        "Add them all (20) then divide by 4."
+      ],
+      "explanation": "Sandpaper needed 8 N. 8 - 2 = 6. The total is 20, divided by 4 is 5. Force is measured in newtons.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

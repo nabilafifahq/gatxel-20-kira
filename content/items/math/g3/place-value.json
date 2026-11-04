@@ -26,6 +26,76 @@
         }
       ],
       "answer": 2
+    },
+    {
+      "id": "m3.place-value.801",
+      "skill": "m3.place-value",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: In the number 482, the digit 8 is worth 80.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which place is the 8 in?",
+        "The hundreds are on the left, then the tens.",
+        "8 tens = 80."
+      ],
+      "explanation": "The 8 is in the tens place, so it is worth 8 tens, which is 80.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.place-value.802",
+      "skill": "m3.place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 705, the digit 7 is worth 70.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which place is the 7 in?",
+        "There are three digits.",
+        "7 hundreds = 700."
+      ],
+      "explanation": "The 7 is in the hundreds place, so it is worth 700.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m3.place-value.701",
+      "skill": "m3.place-value",
+      "difficulty": 1,
+      "prompt": "What is the 5 worth in 352?",
+      "hints": [
+        "Which column is the 5 in?",
+        "352 is hundreds, tens and ones.",
+        "The 5 is in the tens place."
+      ],
+      "explanation": "The 5 is in the tens place, so it is worth 50.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 50
     }
   ]
 }

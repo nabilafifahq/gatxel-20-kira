@@ -26,6 +26,84 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "m1.number-names.801",
+      "skill": "m1.number-names",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word fourteen is written 14.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Fourteen has the word four in it.",
+        "Think of 10 and 4.",
+        "Ten and four make 14."
+      ],
+      "explanation": "Fourteen means 1 ten and 4 ones, which is written 14.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.number-names.802",
+      "skill": "m1.number-names",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 13 is written 31.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Which digit comes first, the 1 or the 3?",
+        "Thirteen is one ten and three ones.",
+        "The 1 goes first."
+      ],
+      "explanation": "13 has 1 ten and 3 ones. 31 is a different number, so the digits must not be swapped.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m1.number-names.803",
+      "skill": "m1.number-names",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The word sixteen is the number 60.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Sixteen ends in teen.",
+        "Teen numbers are between 13 and 19.",
+        "Sixteen is 16."
+      ],
+      "explanation": "Sixteen is 16, which is 1 ten and 6 ones. Sixty is 60 and is much bigger.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

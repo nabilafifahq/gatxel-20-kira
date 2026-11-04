@@ -62,6 +62,162 @@
       ],
       "type": "numeric",
       "answer": 12
+    },
+    {
+      "id": "m4.factors-multiples.801",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 12 is a multiple of 4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count in 4s.",
+        "Does 4 divide 12 exactly?",
+        "4, 8, 12."
+      ],
+      "explanation": "4 × 3 = 12, so 12 is in the 4 times table.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.factors-multiples.802",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 6 is a factor of 32.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does 6 divide into 32 exactly?",
+        "Count in 6s: 6, 12, 18, 24, 30, 36.",
+        "You skip 32."
+      ],
+      "explanation": "32 ÷ 6 = 5 remainder 2, so 6 does not divide 32 exactly. It is not a factor.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.factors-multiples.803",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The factors of 18 are 1, 2, 3, 6, 9 and 18.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find pairs that multiply to make 18.",
+        "Try 1, 2, 3, 4, 5, 6 in turn.",
+        "4 and 5 do not divide 18."
+      ],
+      "explanation": "1 × 18, 2 × 9 and 3 × 6 all make 18, giving these six factors.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.factors-multiples.804",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: Every multiple of 5 ends in the digit 5.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "List the first few multiples of 5.",
+        "Look at 5 × 2.",
+        "10 ends in 0."
+      ],
+      "explanation": "Multiples of 5 end in 5 or 0. For example, 10 and 20 are multiples of 5.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.factors-multiples.805",
+      "skill": "m4.factors-multiples",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: The number 24 has exactly 8 factors.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "List factor pairs of 24.",
+        "1×24, 2×12, 3×8, 4×6.",
+        "Each pair gives 2 factors."
+      ],
+      "explanation": "The factors are 1, 2, 3, 4, 6, 8, 12 and 24. That is 8 factors.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.factors-multiples.701",
+      "skill": "m4.factors-multiples",
+      "difficulty": 2,
+      "prompt": "Is 36 a multiple of 9?",
+      "hints": [
+        "Count in 9s.",
+        "9, 18, 27, ...",
+        "What is 9 × 4?"
+      ],
+      "explanation": "9 × 4 = 36, so 36 is a multiple of 9.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Yes"
+        },
+        {
+          "text": "No"
+        }
+      ],
+      "answer": 0
     }
   ]
 }

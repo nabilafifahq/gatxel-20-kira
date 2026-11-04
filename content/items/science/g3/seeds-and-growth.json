@@ -1389,6 +1389,31 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s3.seeds-and-growth.701",
+      "skill": "s3.seeds-and-growth",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "A seed needs water, warmth and ___ to germinate.",
+      "blanks": [
+        {
+          "answers": [
+            "air",
+            "oxygen"
+          ]
+        }
+      ],
+      "hints": [
+        "It is all around us.",
+        "We breathe it.",
+        "It has three letters."
+      ],
+      "explanation": "Seeds need water, warmth and air to germinate. They do not need light yet.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 12
     }
   ]
 }

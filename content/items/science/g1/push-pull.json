@@ -1171,6 +1171,32 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s1.push-pull.701",
+      "skill": "s1.push-pull",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A footballer kicks a ball. Is this a push or a pull?",
+      "options": [
+        {
+          "text": "A pull"
+        },
+        {
+          "text": "A push"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The foot moves the ball away.",
+        "Does the ball come towards you?",
+        "Pushes move things away."
+      ],
+      "explanation": "A kick sends the ball away from the foot. That is a push.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
     }
   ]
 }

@@ -521,6 +521,102 @@
         "Compare 50, 25 and 10."
       ],
       "explanation": "50% is bigger than 25% and 10%, so it is the greatest."
+    },
+    {
+      "id": "m4.percent-intro.801",
+      "skill": "m4.percent-intro",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: 50% means 50 out of every 100.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does per cent mean?",
+        "Out of 100.",
+        "50/100 is the same as 1/2."
+      ],
+      "explanation": "Percent means out of 100. 50 out of 100 is half.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.percent-intro.802",
+      "skill": "m4.percent-intro",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 10% of a number is half of that number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What is 50%?",
+        "10% means 1 out of 10 equal parts.",
+        "Divide by 10, not 2."
+      ],
+      "explanation": "Half is 50%. 10% is 10/100, one tenth.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.percent-intro.803",
+      "skill": "m4.percent-intro",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The fraction 1/6 is smaller than 1/4.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "More parts means smaller parts.",
+        "Compare 6 and 4.",
+        "A sixth slice is smaller."
+      ],
+      "explanation": "Unit fractions with a bigger denominator are smaller. Sixths are smaller than quarters.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.percent-intro.701",
+      "skill": "m4.percent-intro",
+      "difficulty": 3,
+      "prompt": "What is 1/4 as a percentage? (write the number only)",
+      "hints": [
+        "A percentage is out of 100.",
+        "1/4 of 100.",
+        "100 ÷ 4."
+      ],
+      "explanation": "1/4 of 100 is 25, so 1/4 = 25%.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10,
+      "type": "numeric",
+      "answer": 25
     }
   ]
 }

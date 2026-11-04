@@ -76,6 +76,58 @@
         }
       ],
       "answer": 0
+    },
+    {
+      "id": "m5.decimal-place-value.801",
+      "skill": "m5.decimal-place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 3.47 the digit 4 is worth 4 tenths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which place is just after the point?",
+        "The first place is tenths.",
+        "4 tenths is 0.4."
+      ],
+      "explanation": "The first digit after the decimal point is the tenths place, so 4 means 0.4.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.decimal-place-value.802",
+      "skill": "m5.decimal-place-value",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: In the number 6.08 the digit 8 stands for 8 tenths.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the places after the decimal point.",
+        "The 0 is in the tenths place.",
+        "The 8 is in the hundredths place."
+      ],
+      "explanation": "The 8 is in the second place after the point, the hundredths place, so it is 8 hundredths.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

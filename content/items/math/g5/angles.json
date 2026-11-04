@@ -61,6 +61,58 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m5.angles.801",
+      "skill": "m5.angles",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: Angles on a straight line add up to 180 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many degrees in a full turn?",
+        "A straight line is half of that.",
+        "360 ÷ 2."
+      ],
+      "explanation": "A straight line is a half turn, and a half turn is 180 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m5.angles.802",
+      "skill": "m5.angles",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A triangle can have angles of 50, 60 and 80 degrees.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Add the three angles.",
+        "Angles in a triangle total 180.",
+        "The sum is too big."
+      ],
+      "explanation": "50 + 60 + 80 = 190, but the angles in a triangle always add up to 180 degrees.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

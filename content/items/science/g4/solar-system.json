@@ -634,6 +634,35 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s4.solar-system.701",
+      "skill": "s4.solar-system",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How many planets orbit the Sun?",
+      "options": [
+        {
+          "text": "9"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Count from Mercury to Neptune.",
+        "It is an even number.",
+        "It is more than 7."
+      ],
+      "explanation": "There are eight planets orbiting the Sun.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 6
     }
   ]
 }

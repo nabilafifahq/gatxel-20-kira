@@ -79,6 +79,84 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "m6.shapes-properties.801",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The diameter of a circle is twice its radius.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Diameter goes across; radius goes to the centre.",
+        "Two radii make a diameter.",
+        "Radius is half the diameter."
+      ],
+      "explanation": "The diameter goes all the way across, through the centre. The radius is half of it.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.shapes-properties.802",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: All parallelograms have four equal sides.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of a rectangle.",
+        "Does a rectangle have four equal sides?",
+        "Only a rhombus has four equal sides."
+      ],
+      "explanation": "A parallelogram has two pairs of parallel sides, but a rectangle that is not a square is a parallelogram with unequal sides.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.shapes-properties.803",
+      "skill": "m6.shapes-properties",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A cube has 6 faces and 8 vertices.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Count the faces.",
+        "Count the corners.",
+        "4 on top and 4 on the bottom."
+      ],
+      "explanation": "A cube has 6 square faces and 8 corners.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

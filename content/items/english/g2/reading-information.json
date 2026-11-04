@@ -2313,6 +2313,162 @@
         "long-passage"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e2.reading-information.801",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: A fact is something that is true and can be checked.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you check it?",
+        "Is it true?",
+        "Facts are not opinions."
+      ],
+      "explanation": "Facts can be checked in books or by looking. Example: Cats have four legs.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.reading-information.802",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The sentence Ice cream is the best food is a fact.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Would everyone agree?",
+        "Can you check it?",
+        "Opinions say what someone thinks."
+      ],
+      "explanation": "It is an opinion because people have different ideas about the best food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.reading-information.803",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: We can work out how a character feels from what they do and say.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What does the character do?",
+        "Actions give clues.",
+        "Think of smiling or crying."
+      ],
+      "explanation": "A character who smiles and sings is probably happy, even if the text does not say so.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.reading-information.804",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A heading in a fact text tells you what the part below is about.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the bold words at the top of a part.",
+        "They are written to help you.",
+        "The heading names the topic."
+      ],
+      "explanation": "Headings help us find information quickly. Example: a heading called Food tells you the part is about food.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.reading-information.805",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: A text always tells us in words exactly how every character feels.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Do all stories say how someone feels?",
+        "Look at what the character does.",
+        "Some feelings are hidden."
+      ],
+      "explanation": "Often we must work out feelings from clues like actions and words. This is called inference.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e2.reading-information.806",
+      "skill": "e2.reading-information",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "True or false: To find a fact in a text you can look for key words from the question.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which words in the question are important?",
+        "Scan the text for those words.",
+        "Read the sentence around it."
+      ],
+      "explanation": "Matching key words in the question helps you find the right sentence. Example: for Where do penguins live, look for penguins and live.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

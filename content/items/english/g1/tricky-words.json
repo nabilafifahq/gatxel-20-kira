@@ -782,6 +782,160 @@
         }
       ],
       "answer": 1
+    },
+    {
+      "id": "e1.tricky-words.801",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word the is a tricky word.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Can you sound out the?",
+        "The spelling is not what it sounds like.",
+        "We learn it by heart."
+      ],
+      "explanation": "Tricky words cannot be sounded out easily, so we learn them by sight.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.tricky-words.802",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "True or false: The word said is spelt s-e-d.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of the ai in said.",
+        "Say it, then check each letter.",
+        "It has four letters."
+      ],
+      "explanation": "Said is spelt s-a-i-d. It is a tricky word.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.tricky-words.803",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word was starts with the letter w.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Spell was.",
+        "It is a three-letter word.",
+        "The first letter is w."
+      ],
+      "explanation": "Was is spelt w-a-s.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.tricky-words.804",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The word they is spelt t-h-a-y.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think of the e in they.",
+        "It rhymes with day.",
+        "The third letter is e."
+      ],
+      "explanation": "They is spelt t-h-e-y.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.tricky-words.805",
+      "skill": "e1.tricky-words",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: We learn tricky words by remembering how they look.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Why do we call them tricky?",
+        "Sounding them out does not always work.",
+        "Practise them often."
+      ],
+      "explanation": "Tricky words do not follow the usual sound rules, so we practise reading and spelling them often.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "e1.tricky-words.701",
+      "skill": "e1.tricky-words",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Yesterday I ___ hello. (say)",
+      "blanks": [
+        {
+          "answers": [
+            "said"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a tricky word.",
+        "Say changes in the past.",
+        "s, a, i, d."
+      ],
+      "explanation": "The past of say is said. It is a tricky word to spell.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 10
     }
   ]
 }

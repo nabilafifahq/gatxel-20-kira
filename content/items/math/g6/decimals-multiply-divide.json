@@ -73,6 +73,58 @@
         }
       ],
       "answer": 3
+    },
+    {
+      "id": "m6.decimals-multiply-divide.801",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 3.6 ÷ 4 = 0.9.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of 3.6 as 36 tenths.",
+        "36 ÷ 4.",
+        "Check by multiplying."
+      ],
+      "explanation": "36 tenths divided by 4 is 9 tenths, which is 0.9. Check: 4 × 0.9 = 3.6.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m6.decimals-multiply-divide.802",
+      "skill": "m6.decimals-multiply-divide",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: 2.35 × 4 = 9.20.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Split 2.35 into 2, 0.3 and 0.05.",
+        "Multiply each part by 4.",
+        "8 + 1.2 + 0.2."
+      ],
+      "explanation": "2 × 4 = 8, 0.3 × 4 = 1.2 and 0.05 × 4 = 0.2. Total 9.40, not 9.20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
     }
   ]
 }

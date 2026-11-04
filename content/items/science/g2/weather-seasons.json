@@ -1790,6 +1790,77 @@
         "true-false"
       ],
       "expectedSeconds": 15
+    },
+    {
+      "id": "s2.weather-seasons.701",
+      "skill": "s2.weather-seasons",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A ___ measures how hot or cold the air is.",
+      "blanks": [
+        {
+          "answers": [
+            "thermometer"
+          ]
+        }
+      ],
+      "hints": [
+        "It has a tube with a red line.",
+        "It shows degrees.",
+        "It starts with th."
+      ],
+      "explanation": "A thermometer measures temperature.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 8
+    },
+    {
+      "id": "s2.weather-seasons.702",
+      "skill": "s2.weather-seasons",
+      "type": "story",
+      "difficulty": 3,
+      "prompt": "Aisha used a rain gauge each school day. Monday 0 mm, Tuesday 5 mm, Wednesday 10 mm, Thursday 0 mm, Friday 15 mm.",
+      "parts": [
+        {
+          "type": "numeric",
+          "prompt": "How many mm of rain fell in total?",
+          "answer": 30,
+          "tolerance": 0,
+          "unit": "mm"
+        },
+        {
+          "type": "mcq",
+          "prompt": "Which day was the wettest?",
+          "options": [
+            {
+              "text": "Friday"
+            },
+            {
+              "text": "Wednesday"
+            },
+            {
+              "text": "Monday"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "numeric",
+          "prompt": "How many days were dry?",
+          "answer": 2,
+          "tolerance": 0
+        }
+      ],
+      "hints": [
+        "Add all five readings.",
+        "Largest number is wettest.",
+        "Dry means 0 mm."
+      ],
+      "explanation": "5 + 10 + 15 = 30 mm. Friday had 15 mm. Monday and Thursday were dry.",
+      "tags": [
+        "investigation"
+      ]
     }
   ]
 }

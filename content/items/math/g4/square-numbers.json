@@ -395,6 +395,102 @@
         "The number ends in 5."
       ],
       "explanation": "5 × 5 = 25."
+    },
+    {
+      "id": "m4.square-numbers.801",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 36 is a square number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Is there a number that multiplied by itself makes 36?",
+        "Try 6.",
+        "6 × 6."
+      ],
+      "explanation": "6 × 6 = 36, so 36 is a square number.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.802",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "True or false: The number 20 is a square number.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Try 4 × 4 and 5 × 5.",
+        "20 is between them.",
+        "It falls in the gap."
+      ],
+      "explanation": "4 × 4 = 16 and 5 × 5 = 25. No whole number times itself makes 20.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.803",
+      "skill": "m4.square-numbers",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "True or false: The 7th square number is 49.",
+      "options": [
+        {
+          "text": "True"
+        },
+        {
+          "text": "False"
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The 7th square is 7 × 7.",
+        "Or list them in order.",
+        "7 × 7."
+      ],
+      "explanation": "The square numbers are 1, 4, 9, 16, 25, 36, 49. The 7th is 7 × 7 = 49.",
+      "tags": [
+        "true-false"
+      ],
+      "expectedSeconds": 15
+    },
+    {
+      "id": "m4.square-numbers.701",
+      "skill": "m4.square-numbers",
+      "difficulty": 2,
+      "prompt": "7 squared = ?",
+      "hints": [
+        "Squared means times itself.",
+        "7 × 7.",
+        "7 × 7 is 7 sevens."
+      ],
+      "explanation": "7 squared is 7 × 7 = 49.",
+      "tags": [
+        "quick-fire"
+      ],
+      "expectedSeconds": 7,
+      "type": "numeric",
+      "answer": 49
     }
   ]
 }
