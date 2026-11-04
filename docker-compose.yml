@@ -113,6 +113,9 @@ services:
       DATABASE_URL_OWNER: postgres://kira_owner:${KIRA_OWNER_PASSWORD}@db:5432/kira
       PGSSLROOTCERT: /certs/ca.crt
       KIRA_ORIGIN: ${KIRA_ORIGIN}
+      # Footer email yang dibuat perintah admin (undangan kursi, email contoh).
+      KIRA_LEGAL_NAME: ${KIRA_LEGAL_NAME:-}
+      KIRA_LEGAL_ADDRESS: ${KIRA_LEGAL_ADDRESS:-}
     volumes:
       - *ca-mount
     networks: [internal]
@@ -172,6 +175,7 @@ services:
       KIRA_LEGAL_NAME: ${KIRA_LEGAL_NAME:-}
       KIRA_LEGAL_ADDRESS: ${KIRA_LEGAL_ADDRESS:-}
       KIRA_LEGAL_EMAIL: ${KIRA_LEGAL_EMAIL:-}
+      KIRA_SUPPORT_EMAIL: ${KIRA_SUPPORT_EMAIL:-}
       KIRA_LEGAL_PHONE: ${KIRA_LEGAL_PHONE:-}
       KIRA_LEGAL_COURT: ${KIRA_LEGAL_COURT:-}
       KIRA_LEGAL_EFFECTIVE: ${KIRA_LEGAL_EFFECTIVE:-}
@@ -279,6 +283,8 @@ services:
       TTS_URL: ${TTS_URL:-}
       SMTP_URL: ${SMTP_URL:-}
       SMTP_FROM: ${SMTP_FROM:-}
+      KIRA_SUPPORT_EMAIL: ${KIRA_SUPPORT_EMAIL:-}
+      KIRA_LEGAL_EMAIL: ${KIRA_LEGAL_EMAIL:-}
       AI_PROVIDER: ${AI_PROVIDER:-none}
       CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
       CLAUDE_MODEL_AUTHOR: ${CLAUDE_MODEL_AUTHOR:-claude-sonnet-5-5}

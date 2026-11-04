@@ -254,6 +254,9 @@ export function LandingScreen({ seats, curriculumClaim, turnstileSiteKey }: Land
           <Link href="/ketentuan" className="inline-flex min-h-11 items-center font-bold">
             Syarat dan Ketentuan
           </Link>
+          <Link href="/feedback" className="inline-flex min-h-11 items-center font-bold">
+            Bantuan
+          </Link>
           <Link href="/masuk" className="inline-flex min-h-11 items-center font-bold sm:ml-auto">
             Masuk
           </Link>

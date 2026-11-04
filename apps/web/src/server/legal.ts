@@ -20,13 +20,14 @@ function entity() {
 export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
-    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-04' },
+    meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-05' },
     storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
     purposes: [
       { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare (Cloudflare Tunnel), termasuk pusat data di luar Indonesia. Wajib untuk memakai Kira.' },
       { title: 'Laporan mingguan lewat email', description: 'Mengirim ringkasan belajar seminggu sekali ke email orang tua.' },
       { title: 'Rekaman suara', description: 'Menyimpan rekaman latihan berbicara supaya tutor bisa mendengar dan menilai.' },
       { title: 'Foto dan gambar jawaban', description: 'Menyimpan gambar dan foto jawaban di kertas supaya tutor bisa menilai.' },
+      { title: 'Bantuan dan masukan', description: 'Mengirim pesan yang Anda tulis di halaman Bantuan ke email tim Kira supaya bisa kami balas, dan mengirim nomor referensi ke email Anda. Bila Anda memilih chat lewat WhatsApp, percakapan itu berjalan di layanan WhatsApp dan mengikuti kebijakan mereka.' },
       { title: 'Bantuan AI untuk tutor', description: 'Mengirim teks soal atau foto jawaban tanpa nama anak ke layanan AI untuk membuat draf soal dan saran nilai yang selalu diperiksa tutor.' },
     ],
     dataRows: [
@@ -38,13 +39,15 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { data: 'Log keamanan', detail: 'Waktu masuk, percobaan gagal, hash alamat IP, catatan audit', purpose: 'Mencegah dan menyelidiki penyalahgunaan', basis: 'Kepentingan sah dan kewajiban hukum', retention: 'Percobaan masuk 30 hari, catatan audit 12 bulan' },
       { data: 'Pendaftaran yang belum dikonfirmasi', detail: 'Nama orang tua, email, hash password, hash alamat IP', purpose: 'Memastikan email milik pendaftar sebelum akun dibuat', basis: 'Persetujuan', retention: '24 jam, lalu dihapus otomatis' },
       { data: 'Daftar tunggu kabar', detail: 'Alamat email, waktu persetujuan, status konfirmasi dan berhenti berlangganan', purpose: 'Mengabari saat kursi beta dibuka lagi', basis: 'Persetujuan', retention: 'Sampai berhenti berlangganan, lalu dihapus dalam 30 hari; konfirmasi yang tidak diklik dihapus dalam 14 hari' },
-      { data: 'Email keluar', detail: 'Alamat tujuan dan isi email (laporan, undangan, konfirmasi pendaftaran, kabar kursi)', purpose: 'Pengiriman laporan, undangan, konfirmasi, dan kabar', basis: 'Persetujuan', retention: '90 hari' },
+      { data: 'Pesan bantuan', detail: 'Kategori, subjek, isi pesan, email pengirim, id dan peran akun bila sudah masuk, jenis browser, ukuran layar, versi aplikasi, waktu, halaman asal, hash alamat IP', purpose: 'Menjawab pertanyaan, memperbaiki masalah, dan mencegah penyalahgunaan', basis: 'Kepentingan sah dan persetujuan saat mengirim', retention: '12 bulan, lalu dihapus otomatis' },
+      { data: 'Lampiran pesan bantuan', detail: 'Berkas PNG, JPG, PDF, atau MP4 yang Anda pilih sendiri, tanpa alamat publik', purpose: 'Memahami masalah yang dilaporkan', basis: 'Persetujuan saat mengirim', retention: 'Dihapus dari server setelah terkirim ke email tim, paling lama 14 hari' },
+      { data: 'Email keluar', detail: 'Alamat tujuan dan isi email (laporan, undangan, konfirmasi pendaftaran, kabar kursi, pesan bantuan)', purpose: 'Pengiriman laporan, undangan, konfirmasi, kabar, dan pesan bantuan', basis: 'Persetujuan', retention: '90 hari' },
       { data: 'Cadangan database', detail: 'Salinan seluruh data di atas', purpose: 'Pemulihan bila server rusak', basis: 'Kepentingan sah', retention: '14 cadangan harian dan 8 cadangan mingguan, paling lama 8 minggu' },
     ],
     recipients: [
       { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server; dan Turnstile di halaman daftar dan masuk bila diaktifkan)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
       { name: 'Anthropic PBC (Claude), hanya bila Bantuan AI disetujui', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
-      { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui', data: 'Email orang tua dan isi ringkasan mingguan', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
+      { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui atau Anda mengirim pesan bantuan', data: 'Email orang tua dan isi ringkasan mingguan; isi pesan bantuan beserta lampirannya', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
       { name: 'Have I Been Pwned (cek kebocoran password)', data: 'Lima karakter awal hash password, tanpa email atau nama', location: 'Australia', abroad: true },
     ],
     sessionHours: 24,

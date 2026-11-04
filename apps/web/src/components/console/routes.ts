@@ -41,6 +41,7 @@ export const PUBLIC_ROUTES = {
   signup: '/daftar',
   privacyNotice: '/privasi',
   terms: '/ketentuan',
+  feedback: '/feedback',
 } as const
 
 export const PRINT_ROUTES = {

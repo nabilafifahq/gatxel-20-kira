@@ -21,7 +21,7 @@ import { emailKey } from '../signup/email-policy'
 const { userAccount, invite, resetToken, signup } = tables
 
 export const TERMS_VERSION = '2026-11-04'
-export const NOTICE_VERSION = '2026-11-04'
+export const NOTICE_VERSION = '2026-11-05'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 
