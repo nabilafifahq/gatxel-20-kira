@@ -12,6 +12,8 @@ import { conflict, forbidden, invalid } from '../errors'
 import { latestConsents, syncLearnerActive, type ConsentPurposeId } from './consent'
 import { applyDefaultPreset } from './default-preset'
 import { setConsentTx } from './privacy'
+import { featureMapFor } from './learner-features'
+import type { FeatureMap } from '@kira/core/features'
 
 const { learnerProfile, guardianLink } = tables
 
@@ -19,7 +21,7 @@ const { learnerProfile, guardianLink } = tables
 export const ONBOARDING_PURPOSES = ['learning', 'progress-email', 'audio', 'photo'] as const satisfies readonly ConsentPurposeId[]
 export type OnboardingPurpose = (typeof ONBOARDING_PURPOSES)[number]
 
-export type OnboardingChild = { id: string; name: string; grade: number; avatar: AvatarName; active: boolean; consents: Record<OnboardingPurpose, boolean> }
+export type OnboardingChild = { id: string; name: string; grade: number; avatar: AvatarName; active: boolean; consents: Record<OnboardingPurpose, boolean>; features: FeatureMap }
 export type OnboardingState = { parentName: string; children: OnboardingChild[]; max: number }
 
 export async function onboardingState(actor: Actor): Promise<OnboardingState> {
@@ -31,6 +33,8 @@ export async function onboardingState(actor: Actor): Promise<OnboardingState> {
       .where(and(eq(guardianLink.guardianId, actor.userId), isNull(learnerProfile.deletedAt)))
       .orderBy(learnerProfile.createdAt)
     const consents = await latestConsents(tx, rows.map((r) => r.id))
+    const features = new Map<string, FeatureMap>()
+    for (const r of rows) features.set(r.id, await featureMapFor(tx, r.id))
     return {
       parentName: actor.name,
       max: env().KIRA_MAX_LEARNERS_PER_FAMILY,
@@ -41,6 +45,7 @@ export async function onboardingState(actor: Actor): Promise<OnboardingState> {
         avatar: r.avatar as AvatarName,
         active: r.active,
         consents: Object.fromEntries(ONBOARDING_PURPOSES.map((p) => [p, consents.get(r.id)?.get(p)?.granted ?? false])) as Record<OnboardingPurpose, boolean>,
+        features: features.get(r.id) ?? {},
       })),
     }
   })

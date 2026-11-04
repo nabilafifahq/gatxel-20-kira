@@ -34,6 +34,8 @@ import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
 import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 import { dayRulesFor } from './learner-rules'
+import { featureMapFor } from './learner-features'
+import { sessionAllowed } from '@kira/core/features'
 
 const { quest, attempt, planSlot, planWeek, reviewCard, paper, response } = tables
 
@@ -123,6 +125,10 @@ export type BuildInput = {
    * otomatis harian tidak memakainya karena MANUAL_STRANDS hanya memuat strand menulis dan bicara.
    */
   allowPhoto?: boolean
+  /** Latihan Bebas: skill tambahan yang ikut dalam satu kumpulan soal (satu topik punya beberapa skill). */
+  extraSkills?: readonly string[]
+  /** Latihan Bebas: saring kandidat (gaya soal, gaya lomba). Dengan saringan ini soal tidak diisi dari skill lain. */
+  accept?: (c: PoolCandidate) => boolean
 }
 
 function questLength(learner: LearnerRow, mode: string): number {
@@ -158,7 +164,9 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const rng = createRng(input.seedKey)
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
-  const pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
+  for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false }))]
+  if (input.accept) pool = pool.filter(input.accept)
   const seen = await recentSeen(tx, learner.userId)
   const states = await skillStates(tx, learner.userId)
   const theta = states.get(input.skillId)?.theta ?? 0
@@ -188,7 +196,7 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
     const avoid = input.avoid ?? new Set<string>()
     slots = assembleSession({ kind: input.style === 'test' ? 'tes' : 'latihan', theta, dueRefs, candidates: withSeen(pool), count, avoid, reuse: false, rng })
     // Bank soal skill ini kurang: isi dari skill lain mapel yang sama, dan baru terakhir dengan soal yang dihindari.
-    slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng })
+    if (!input.accept) slots = await topUp(tx, ctx, { skillId: input.skillId, subject: input.subject, slots, count, theta, style: input.style, avoid, seen, rng })
     if (slots.length < count) {
       const used = new Set(slots.map((s) => s.ref))
       const band: [number, number] = input.style === 'test' ? [0.55, 0.75] : [0.85, 0.95]
@@ -546,7 +554,8 @@ export async function syncDay(tx: Tx, ctx: OrgContext, learner: LearnerRow, date
   const day = await publishedDay(tx, learner.userId, date)
   const { rules } = await dayRulesFor(tx, learner.userId)
   const rowById = new Map(day.rows.map((r) => [r.id, r]))
-  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows), rules }), await taperSubjects(tx, learner.userId, date))
+  const features = await featureMapFor(tx, learner.userId)
+  const entries = dropTaperEntries(composeDay({ template: day.template, date, slots: plannedSlots(day.rows), rules }), await taperSubjects(tx, learner.userId, date)).filter((e) => sessionAllowed(features, e.subject, e.session))
   // Paper Kertas dikerjakan di kertas dan dinilai lewat Input LJK, jadi tidak ada sesi tablet untuk slot itu.
   const live = entries.filter((e) => !(e.slotId && rowById.get(e.slotId)?.mode === 'kertas'))
 

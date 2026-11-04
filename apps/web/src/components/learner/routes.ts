@@ -16,6 +16,9 @@ export const LEARNER_ROUTES = {
   fixItStart: '/fix-it/start',
   me: '/me',
   quickMaths: '/quick-maths',
+  /** Latihan Bebas: anak memilih apa yang mau dilatih. */
+  practice: '/practice',
+  flashcards: '/practice/cards',
   quizArena: '/quiz-arena',
   esmo: '/esmo',
   competitions: '/competitions',
@@ -27,4 +30,4 @@ export const LEARNER_ROUTES = {
   switchLearner: '/bye',
 } as const
 
-export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'english' | 'quick-maths' | 'quiz-arena' | 'me'
+export type LearnerNavKey = 'today' | 'map' | 'review' | 'competitions' | 'practice' | 'english' | 'quick-maths' | 'quiz-arena' | 'me'

@@ -15,6 +15,7 @@ import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
+import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { WeekSummary } from '@/components/family/WeekSummary'
 import { AvatarPicker } from '@/screens/console/LearnersScreen'
@@ -225,7 +226,10 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </Section>
 
       <Section id="atur" title="Pengaturan" hint="Aturan hari, waktu layar, suara, PIN, dan profil">
-        <h3 className="m-0 text-body font-bold">Aturan hari</h3>
+        <h3 className="m-0 text-body font-bold">Fitur yang dipakai</h3>
+        <p className="m-0 text-small text-fg-muted">Matikan mapel atau fitur yang belum dipakai {c.name}. Mapel yang dimatikan tidak muncul di hari belajar dan tidak dihitung untuk streak.</p>
+        <FeatureChecklist learnerId={c.id} name={c.name} initial={data.controls.features} />
+        <h3 className="m-0 border-t border-divider pt-4 text-body font-bold">Aturan hari</h3>
         <DayRulesEditor
           learnerName={c.name}
           preset={data.controls.dayPreset}

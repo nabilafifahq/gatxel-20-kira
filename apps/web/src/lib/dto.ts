@@ -1,3 +1,4 @@
+import type { FeatureMap } from '@kira/core/features'
 /**
  * Kontrak data antara server (DAL, halaman) dan komponen layar.
  * Komponen layar hanya menerima DTO ini dan memanggil action lewat props.
@@ -41,6 +42,8 @@ export type LearnerShell = {
   /** Tampilkan tombol Review di navigasi bila Buku Koreksi aktif (Fase 2). */
   showReview: boolean
   dueReviewCount: number
+  /** Saklar fitur dari orang tua; kunci yang tidak ada berarti menyala (migrasi 0017). */
+  features?: FeatureMap
 }
 
 export type StreakDay = { date: string; label: string; longLabel: string; status: DayStatus; isToday: boolean }

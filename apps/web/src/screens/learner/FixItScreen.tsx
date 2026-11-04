@@ -23,6 +23,9 @@ export function FixItScreen({ data }: { data: FixItDTO }): ReactElement {
               : 'Questions you miss in tests and papers wait here until you get them right.'}
           </p>
         </div>
+        <ButtonLink href="/practice/review" variant="secondary" className="w-full md:w-auto">
+          Review a lesson
+        </ButtonLink>
         {data.canStart ? (
           <ButtonLink href={LEARNER_ROUTES.fixItStart} prefetch={false} iconAfter="arrow-right" className="w-full px-6.5 md:w-auto">
             {data.saturday ? 'Start Saturday fix-it' : 'Fix some now'}

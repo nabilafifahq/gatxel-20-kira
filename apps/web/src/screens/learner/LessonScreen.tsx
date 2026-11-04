@@ -213,6 +213,9 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
                 <ButtonLink href={data.backHref} variant="secondary">
                   Back to the map
                 </ButtonLink>
+                <ButtonLink href={`/practice/review/${data.skillId}`} variant="secondary" prefetch={false}>
+                  Review this lesson
+                </ButtonLink>
                 <ButtonLink href={data.practiseHref} iconAfter="arrow-right">
                   Practise now
                 </ButtonLink>

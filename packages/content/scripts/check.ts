@@ -3,6 +3,7 @@ import { checkGenerators, findContentDir, loadContent } from '../src/load'
 import { SUBJECTS } from '../src/schema'
 import { GENERATORS } from '../src/math'
 import { loadSpelling } from '../src/spelling'
+import { loadFlashcards } from '../src/flashcards'
 
 const dir = findContentDir()
 const started = Date.now()
@@ -17,7 +18,8 @@ const warnings = loaded.warnings.filter(inScope)
 const genProblems = checkGenerators(index.skills, Number(process.env.SEEDS ?? 25)).filter(inScope)
 const spelling = loadSpelling(dir)
 const extraProblems = checkExtras(dir, index).filter(inScope)
-const allErrors = [...errors, ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems]
+const cards = loadFlashcards(dir)
+const allErrors = [...errors, ...cards.errors.filter(inScope), ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems]
 if (scopes.length) console.log(`Scope: ${scopes.join(', ')} (error di luar scope disembunyikan: ${loaded.errors.length - errors.length})`)
 
 const rows: string[] = []
@@ -32,6 +34,7 @@ for (const subject of SUBJECTS) {
 }
 console.log(rows.join('\n'))
 console.log(`Bacaan ${index.passages.size}, lomba ${index.competitions.length}, preset ${index.presets.length}`)
+console.log(`Dek kartu ${cards.decks.length}, kartu ${cards.decks.reduce((n, d) => n + d.cards.length, 0)}`)
 console.log(`Kata Spelling Bee: starters ${spelling.levels.starters.length}, movers ${spelling.levels.movers.length}, flyers ${spelling.levels.flyers.length}`)
 
 const showWarn = process.argv.includes('--warnings')

@@ -6,6 +6,7 @@ import type { AvatarName, LearnerShell } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
 import { MoreNav } from './MoreNav'
+import { effectiveOn, type FeatureKey } from '@kira/core/features'
 import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
 
 /**
@@ -18,14 +19,15 @@ import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
  * Delapan tujuan utama. Rel tablet menampilkan semuanya. Bar bawah di HP hanya memuat PHONE_PRIMARY;
  * sisanya ada di lembar "More" (MoreNav).
  */
-const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }[] = [
+const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; features?: FeatureKey[] }[] = [
   { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
   { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
-  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions },
-  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english },
-  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths },
-  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena },
+  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
+  { key: 'practice', label: 'Practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
+  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
+  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
+  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
@@ -48,7 +50,7 @@ export function avatarLabel(avatar: AvatarName): string {
 const PHONE_PRIMARY: readonly LearnerNavKey[] = ['today', 'map', 'review', 'me']
 
 function navItems(shell: LearnerShell) {
-  return NAV.filter((n) => n.key !== 'review' || shell.showReview)
+  return NAV.filter((n) => (n.key !== 'review' || shell.showReview) && (!n.features || n.features.some((f) => effectiveOn(shell.features ?? {}, f))))
 }
 
 function ReviewCount({ shell }: { shell: LearnerShell }): ReactElement | null {

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FEATURE_KEYS } from '@kira/core/features'
 import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
 
 /**
@@ -16,7 +17,10 @@ const name = z.string().trim().min(1, 'Isi nama anak.').max(40, 'Nama paling ban
 const grade = z.number().int('Pilih kelas 1 sampai 6.').min(1, 'Pilih kelas 1 sampai 6.').max(6, 'Pilih kelas 1 sampai 6.')
 const pin = z.array(z.enum(PIN_PICTURES)).length(4, 'Pilih 4 gambar untuk PIN.')
 
+const featureMap = z.object(Object.fromEntries(FEATURE_KEYS.map((k) => [k, z.boolean().optional()])) as Record<(typeof FEATURE_KEYS)[number], z.ZodOptional<z.ZodBoolean>>).strict()
+
 export const parentSchemas = {
+  features: z.object({ learnerId: id, features: featureMap }).strict(),
   dayRules: z
     .object({
       learnerId: id,

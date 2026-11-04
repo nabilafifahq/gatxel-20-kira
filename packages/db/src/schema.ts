@@ -1032,3 +1032,31 @@ export const LEARNER_SCOPED_TABLES = [
   'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
 ] as const
+
+/** Saklar fitur per learner (migrasi 0017). Tanpa baris berarti menyala. */
+export const learnerFeature = pgTable(
+  'learner_feature',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    key: text('key').notNull(),
+    enabled: boolean('enabled').notNull(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.key] })],
+)
+
+/** Keadaan FSRS satu kartu belajar per anak (migrasi 0017). Isi dek ada di content/flashcards. */
+export const flashcardState = pgTable(
+  'flashcard_state',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    deckId: text('deck_id').notNull(),
+    cardId: text('card_id').notNull(),
+    card: jsonb('card').notNull(),
+    dueAt: ts('due_at').notNull(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.deckId, t.cardId] }), index('flashcard_state_due_idx').on(t.learnerId, t.dueAt)],
+)

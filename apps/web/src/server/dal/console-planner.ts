@@ -34,6 +34,8 @@ import { skillTitle, SUBJECT_ORDER } from './console-common'
 import { shellIn } from './console-shell'
 import { paperPresetFor } from './daily-paper-scoring'
 import { dayRulesFor } from './learner-rules'
+import { featureMapFor } from './learner-features'
+import { sessionAllowed } from '@kira/core/features'
 import { questContentDiffers, questSlotValues, questStarted, syncTodayIfCreated, type QuestRow } from './learner-session'
 import {
   SESSION_LABEL_ID,
@@ -512,7 +514,8 @@ async function dayEntries(tx: Tx, learner: PlanLearner, date: IsoDate): Promise<
   const rows = await slotsBetween(tx, learner.id, date, date)
   const { rules } = await dayRulesFor(tx, learner.id)
   const template = templateAt(weekRow?.templates, date)
-  return { entries: composeDay({ template, date, slots: plannedOf(rows), rules }), template, rules }
+  const features = await featureMapFor(tx, learner.id)
+  return { entries: composeDay({ template, date, slots: plannedOf(rows), rules }).filter((e) => sessionAllowed(features, e.subject, e.session)), template, rules }
 }
 
 // ---------------------------------------------------------------------------
