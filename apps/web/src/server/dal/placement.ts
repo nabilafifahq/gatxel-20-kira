@@ -34,7 +34,7 @@ import type {
 import type { OrgContext, Tx } from '../db'
 import { conflict, invalid, notFound } from '../errors'
 import { content, resolveItems, skill, skillsFor, toClient } from './content'
-import { isFeatureOn } from './learner-features'
+import { isFeatureOnTx } from './learner-features'
 import { jenjangOf, loadLearner, recentSeen, type LearnerRow } from './learner-core'
 import { validAnswer } from './learner-runner'
 export { placementStartGrade } from './placement-grade'
@@ -95,13 +95,14 @@ function materialise(ref: string, rng: ReturnType<typeof createRng>, usedSignatu
 // ---------------------------------------------------------------------------
 // Aturan akses
 
-export async function placementOn(learnerId: string): Promise<boolean> {
-  return isFeatureOn(learnerId, 'placement')
+/** Selalu di transaksi pemanggil: meminta sambungan kedua dari pool saat transaksi terbuka membuat pool saling menunggu di bawah beban. */
+async function placementOn(tx: Tx, learnerId: string): Promise<boolean> {
+  return isFeatureOnTx(tx, learnerId, 'placement')
 }
 
-async function enabledSubjects(learnerId: string): Promise<Subject[]> {
+async function enabledSubjects(tx: Tx, learnerId: string): Promise<Subject[]> {
   const out: Subject[] = []
-  for (const s of PLACEMENT_SUBJECTS) if (await isFeatureOn(learnerId, s)) out.push(s)
+  for (const s of PLACEMENT_SUBJECTS) if (await isFeatureOnTx(tx, learnerId, s)) out.push(s)
   return out
 }
 
@@ -120,12 +121,12 @@ async function openRuns(tx: Tx, learnerId: string): Promise<RunRow[]> {
  */
 export async function ensureAutoPlacement(tx: Tx, ctx: OrgContext, learner: LearnerRow): Promise<void> {
   if (learner.createdAt.getTime() < Date.parse(PLACEMENT_AUTO_SINCE)) return
-  if (!(await placementOn(learner.userId))) return
+  if (!(await placementOn(tx, learner.userId))) return
   const any = await tx.select({ id: placementRun.id }).from(placementRun).where(eq(placementRun.learnerId, learner.userId)).limit(1)
   if (any[0]) return
   const answered = await tx.select({ n: sql<number>`count(*)::int` }).from(skillState).where(and(eq(skillState.learnerId, learner.userId), sql`${skillState.nAnswers} > 0`))
   if ((answered[0]?.n ?? 0) > 0) return
-  const subjects = await enabledSubjects(learner.userId)
+  const subjects = await enabledSubjects(tx, learner.userId)
   if (subjects.length === 0) return
   await tx
     .insert(placementRun)
@@ -135,7 +136,7 @@ export async function ensureAutoPlacement(tx: Tx, ctx: OrgContext, learner: Lear
 
 /** Kartu hari pertama di Today. Kosong bila tidak ada tes yang menunggu, atau fitur mati. */
 export async function placementCard(tx: Tx, ctx: OrgContext, learnerId: string): Promise<PlacementCardDTO | null> {
-  if (!(await placementOn(learnerId))) return null
+  if (!(await placementOn(tx, learnerId))) return null
   const learner = await loadLearner(tx, learnerId)
   await ensureAutoPlacement(tx, ctx, learner)
   const rows = await openRuns(tx, learnerId)
@@ -208,7 +209,7 @@ export async function placementEntry(tx: Tx, ctx: OrgContext, learnerId: string,
   const learner = await loadLearner(tx, learnerId)
   const jenjang = jenjangOf(learner.grade)
   const avatar = learner.avatar as AvatarName
-  if (!(await placementOn(learnerId))) return { kind: 'nothing', jenjang, avatar }
+  if (!(await placementOn(tx, learnerId))) return { kind: 'nothing', jenjang, avatar }
   await ensureAutoPlacement(tx, ctx, learner)
   const rows = await openRuns(tx, learnerId)
   const parsed = subjectParam ? subjectSchema.safeParse(subjectParam) : null
@@ -407,11 +408,11 @@ export function resultDTO(run: Pick<RunRow, 'id' | 'subject' | 'result' | 'finis
 
 /** Bagian "Tes penempatan" di halaman anak untuk orang tua. Dibaca sebagai guardian (RLS menjaga tautan). */
 export async function parentPlacement(tx: Tx, learner: LearnerRow): Promise<ParentPlacementDTO> {
-  const on = await placementOn(learner.userId)
+  const on = await placementOn(tx, learner.userId)
   if (!on) return { enabled: false, subjects: [], disclaimer: PLACEMENT_DISCLAIMER }
   const rows = await tx.select().from(placementRun).where(eq(placementRun.learnerId, learner.userId)).orderBy(desc(placementRun.createdAt))
   const subjects: ParentPlacementSubjectDTO[] = []
-  for (const subject of await enabledSubjects(learner.userId)) {
+  for (const subject of await enabledSubjects(tx, learner.userId)) {
     const mine = rows.filter((r) => r.subject === subject)
     const open = mine.find((r) => r.status === 'ready' || r.status === 'in_progress')
     const done = mine.filter((r) => r.status === 'done').sort((a, b) => (b.finishedAt?.getTime() ?? 0) - (a.finishedAt?.getTime() ?? 0))[0]
@@ -437,7 +438,7 @@ export async function parentPlacement(tx: Tx, learner: LearnerRow): Promise<Pare
 /** Orang tua menyiapkan tes (atau tes ulang). Satu kali sebulan setelah tes selesai. Pemanggil sudah memastikan tautan orang tua. */
 export async function requestPlacement(tx: Tx, ctx: OrgContext, learnerId: string, subjectRaw: string, origin: 'parent' | 'tutor' = 'parent'): Promise<void> {
   const subject = subjectSchema.parse(subjectRaw)
-  if (!(await placementOn(learnerId)) || !(await isFeatureOn(learnerId, subject))) throw conflict('Tes penempatan belum aktif untuk mapel ini.')
+  if (!(await placementOn(tx, learnerId)) || !(await isFeatureOnTx(tx, learnerId, subject))) throw conflict('Tes penempatan belum aktif untuk mapel ini.')
   const learner = await loadLearner(tx, learnerId)
   const rows = await tx.select().from(placementRun).where(and(eq(placementRun.learnerId, learnerId), eq(placementRun.subject, subject)))
   if (rows.some((r) => r.status === 'ready' || r.status === 'in_progress')) throw conflict('Tes ini sudah disiapkan. Anak akan melihatnya di layar Hari Ini.')

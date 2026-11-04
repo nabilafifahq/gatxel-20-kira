@@ -25,7 +25,7 @@ import {
 } from '@kira/core'
 import { tables } from '@kira/db'
 import { genRef, instanceSignature, newSeed } from '@kira/content/math'
-import { isFeatureOn } from './learner-features'
+import { isFeatureOnTx } from './learner-features'
 import type { Subject } from '@/lib/dto'
 import { dictFor, type Dict, type UiLang } from '@/lib/i18n'
 import { getLang } from '@/lib/i18n/server'
@@ -177,7 +177,8 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   const rng = createRng(input.seedKey)
   const sk = skill(input.skillId)
   const allowManual = input.allowManual ?? (input.style === 'test' ? false : sk ? MANUAL_STRANDS.has(sk.strand) : false)
-  const manipulatives = await isFeatureOn(learner.userId, 'manipulatives')
+  // Dibaca di transaksi yang sama: meminta sambungan kedua dari pool saat transaksi terbuka membuat pool saling menunggu di bawah beban.
+  const manipulatives = await isFeatureOnTx(tx, learner.userId, 'manipulatives')
   const playableOnly = input.style === 'test'
   let pool = await poolForSkill(tx, ctx.orgId, input.skillId, { allowManual, manipulatives, playableOnly, ...(input.allowPhoto ? { allowPhoto: true } : {}) })
   for (const sid of input.extraSkills ?? []) pool = [...pool, ...(await poolForSkill(tx, ctx.orgId, sid, { allowManual: false, manipulatives, playableOnly }))]

@@ -71,14 +71,13 @@ async function hostClipUrls(): Promise<string[]> {
   return urls
 }
 
-export async function todayClipUrls(tx: Tx, orgId: string, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
-  const host = await hostClipUrls()
+export async function todayClipPlan(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<TtsClipRequest[]> {
   const quests = await tx
     .select({ attemptId: quest.attemptId, skillId: quest.skillId, mode: quest.mode, status: quest.status })
     .from(quest)
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date)))
   const open = quests.filter((q) => q.status !== 'done' && q.attemptId)
-  if (open.length === 0) return host
+  if (open.length === 0) return []
   const attempts = await tx
     .select({ items: attempt.items })
     .from(attempt)
@@ -99,10 +98,21 @@ export async function todayClipUrls(tx: Tx, orgId: string, learnerId: string, da
     const l = q.skillId && q.mode === 'belajar' ? lesson(q.skillId) : undefined
     if (l) clips.push(...lessonSpeechClips(l))
   }
-  const urls = new Set<string>(host)
-  for (const c of clips) {
-    const key = clipKeyOf(c.text, c.style)
-    if (await clipExistsFor(key, orgId)) urls.add(`/tts/${key}.mp3`)
+  return clips
+}
+
+const STAT_BATCH = 32
+
+/** Alamat klip yang sudah ada dari rencana hari ini, dengan klip pembawa acara. Membaca disk, jadi dipanggil di luar transaksi: jangan memegang sambungan database selama ratusan stat. */
+export async function existingClipUrls(clips: TtsClipRequest[], orgId: string): Promise<string[]> {
+  const urls = new Set<string>(await hostClipUrls())
+  const keys = [...new Set(clips.map((c) => clipKeyOf(c.text, c.style)))]
+  for (let i = 0; i < keys.length; i += STAT_BATCH) {
+    const batch = keys.slice(i, i + STAT_BATCH)
+    const found = await Promise.all(batch.map((k) => clipExistsFor(k, orgId)))
+    batch.forEach((k, n) => {
+      if (found[n]) urls.add(`/tts/${k}.mp3`)
+    })
   }
   return [...urls].slice(0, 600)
 }

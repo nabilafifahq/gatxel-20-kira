@@ -1,6 +1,7 @@
 import 'server-only'
 import { createDb, withOrg, type Db, type OrgContext, type Tx } from '@kira/db/client'
 import { env } from './env'
+import { noteDbAccess, runHoldingTx } from './tx-guard'
 
 /**
  * Dua pool koneksi: kira_app (data tenant, RLS) dan kira_auth (skema auth).
@@ -26,16 +27,18 @@ function pools(): Pools {
 }
 
 export function appDb(): Db {
+  noteDbAccess('app')
   return pools().app
 }
 
 export function authDb(): Db {
+  noteDbAccess('auth')
   return pools().auth
 }
 
 /** Transaksi tenant dengan konteks RLS. */
 export function inOrg<T>(ctx: OrgContext, fn: (tx: Tx) => Promise<T>): Promise<T> {
-  return withOrg(appDb(), ctx, fn)
+  return withOrg(appDb(), ctx, (tx) => runHoldingTx(() => fn(tx)))
 }
 
 export type { Db, Tx, OrgContext }

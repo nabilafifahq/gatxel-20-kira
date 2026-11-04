@@ -21,12 +21,16 @@ const envFile = arg('env', 'C:/kw4/stg/env.staging')
 const name = arg('name', `${scenario}-${stage}`)
 const soakMin = arg('soak-min', '30')
 const hold = arg('hold', '180')
+const steps = arg('steps', '')
+const stepSeconds = arg('step-seconds', '90')
+const burstN = arg('burst-n', '130')
 const outDir = join(here, 'out', name)
 mkdirSync(outDir, { recursive: true })
 
 const envText = readFileSync(envFile, 'utf8')
 const envVal = (k) => (envText.match(new RegExp('^' + k + '=(.*)$', 'm')) || [])[1]?.trim()
 const appPw = envVal('KIRA_APP_PASSWORD')
+const valkeyPw = envVal('KIRA_VALKEY_PASSWORD') || envVal('KIRA_INTERNAL_TOKEN')
 
 const sh = (cmd, args, opts = {}) => {
   try {
@@ -36,20 +40,61 @@ const sh = (cmd, args, opts = {}) => {
   }
 }
 
+// --- Valkey: hit dan miss sejak uji mulai ---
+const valkeyStats = () => {
+  const t = sh('docker', ['exec', '-e', `REDISCLI_AUTH=${valkeyPw}`, '-e', `VALKEYCLI_AUTH=${valkeyPw}`, `${project}-valkey-1`, 'valkey-cli', 'INFO', 'stats'])
+  const num = (k) => Number((new RegExp(k + ':(\\d+)').exec(t) || [])[1] || 0)
+  return { hits: num('keyspace_hits'), misses: num('keyspace_misses') }
+}
+const valkeyStart = valkeyStats()
+const sinkCount = () => sh('docker', ['logs', `${project}-tts-sink`], { stdio: ['ignore', 'pipe', 'ignore'] }).split('\n').filter((l) => l.includes('"method"')).length
+const sinkStart = sinkCount()
+
+// --- GPU (nvidia-smi tiap 5 detik) dan CPU seluruh PC (typeperf tiap 5 detik) ---
+const gpuSamples = []
+const hostCpu = []
+const lineProc = (cmd, args, onLine) => {
+  try {
+    const p = spawn(cmd, args, { stdio: ['ignore', 'pipe', 'ignore'] })
+    let buf = ''
+    p.stdout.on('data', (d) => {
+      buf += d
+      const parts = buf.split(/\r?\n/)
+      buf = parts.pop()
+      for (const l of parts) onLine(l)
+    })
+    p.on('error', () => {})
+    return p
+  } catch {
+    return null
+  }
+}
+const gpuProc = lineProc('nvidia-smi', ['--query-gpu=utilization.gpu,memory.used,power.draw', '--format=csv,noheader,nounits', '-l', '5'], (l) => {
+  const [util, mem, power] = l.split(',').map((x) => Number(x))
+  if (Number.isFinite(util)) gpuSamples.push({ t: Date.now(), util, mem, power })
+})
+const cpuProc = lineProc('typeperf', ['\\Processor(_Total)\\% Processor Time', '-si', '5'], (l) => {
+  const m = /^"[^"]+","([\d.]+)"/.exec(l)
+  if (m) hostCpu.push(Number(m[1]))
+})
+
 // --- Cuplikan sumber daya tiap 5 detik ---
 const samples = []
 let sampling = true
 const pct = (s) => Number(String(s).replace('%', '')) || 0
 const mib = (s) => {
-  const m = /([\d.]+)\s*(KiB|MiB|GiB|B)/.exec(s || '')
+  const m = /([0-9.]+)s*(KiB|MiB|GiB|kB|MB|GB|B)/.exec(s || '')
   if (!m) return 0
-  const v = Number(m[1])
-  return m[2] === 'GiB' ? v * 1024 : m[2] === 'MiB' ? v : m[2] === 'KiB' ? v / 1024 : v / 1048576
+  const unit = { GiB: 1024, MiB: 1, KiB: 1 / 1024, GB: 1000 / 1.048576, MB: 1 / 1.048576, kB: 1 / 1048.576, B: 1 / 1048576 }
+  return Number(m[1]) * unit[m[2]]
 }
 async function sampleLoop() {
   while (sampling) {
     const t = Date.now()
-    const stats = sh('docker', ['stats', '--no-stream', '--format', '{{json .}}']).trim().split('\n').filter(Boolean).map((l) => JSON.parse(l)).filter((s) => s.Name.startsWith(project + '-'))
+    const allStats = sh('docker', ['stats', '--no-stream', '--format', '{{json .}}']).trim().split('\n').filter(Boolean).map((l) => JSON.parse(l))
+    const stats = allStats.filter((s) => s.Name.startsWith(project + '-'))
+    const otherCpu = allStats.filter((s) => !s.Name.startsWith(project + '-')).reduce((a, s) => a + pct(s.CPUPerc), 0)
+    const proxyTx = mib((allStats.find((s) => s.Name === `${project}-proxy-1`)?.NetIO || '').split('/')[1])
     const pg = sh('docker', ['exec', `${project}-db-1`, 'psql', '-U', 'postgres', '-d', 'kira', '-tAF', ',', '-c', "select count(*) filter (where state='active'), count(*) filter (where state='idle'), count(*) filter (where state like 'idle in%'), count(*) from pg_stat_activity where datname='kira'"]).trim()
     const [active, idle, idleTx, total] = pg.split(',').map(Number)
     const pgb = sh('docker', ['exec', '-e', `PGPASSWORD=${appPw}`, `${project}-db-1`, 'psql', '-h', 'pgbouncer', '-p', '6432', '-U', 'kira_app', '-d', 'pgbouncer', '-tAF', ',', '-c', 'SHOW POOLS']).trim()
@@ -57,13 +102,16 @@ async function sampleLoop() {
     let sv_active = 0
     for (const row of pgb.split('\n').filter(Boolean)) {
       const c = row.split(',')
+      // Kolom SHOW POOLS: database, user, cl_active, cl_waiting, cl_active_cancel_req, cl_waiting_cancel_req, sv_active, ...
       if (c[0] === 'kira') {
         cl_waiting += Number(c[3]) || 0
-        sv_active += Number(c[4]) || 0
+        sv_active += Number(c[6]) || 0
       }
     }
     samples.push({
       t,
+      otherCpu,
+      proxyTx,
       containers: stats.map((s) => ({ name: s.Name.replace(project + '-', '').replace(/-run-.*$/, '-run'), cpu: pct(s.CPUPerc), mem: mib(s.MemUsage.split('/')[0]) })),
       pg: { active, idle, idleTx, total },
       pgb: { cl_waiting, sv_active },
@@ -75,7 +123,7 @@ const sampler = sampleLoop()
 
 // --- k6 ---
 const composeArgs = ['compose', '-p', project, '--env-file', envFile, '--profile', 'loadtest', '--profile', 'loadrun', 'run', '--rm', '-T',
-  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`, '-e', `HOLD=${hold}`,
+  '-e', `SCENARIO=${scenario}`, '-e', `STAGE=${stage}`, '-e', `THINK=${think}`, '-e', `SOAK_MIN=${soakMin}`, '-e', `HOLD=${hold}`, '-e', `STEPS=${steps}`, '-e', `STEP_SECONDS=${stepSeconds}`, '-e', `BURST_N=${burstN}`,
   'k6', 'run', `--summary-export=/out/${name}/summary.json`, '/load/kira.js']
 console.log('docker', composeArgs.join(' '))
 const started = Date.now()
@@ -92,6 +140,10 @@ const code = await new Promise((resolve) => {
 const finished = Date.now()
 sampling = false
 await sampler
+gpuProc?.kill()
+cpuProc?.kill()
+const valkeyEnd = valkeyStats()
+const sinkEnd = sinkCount()
 
 // --- Ringkasan ---
 const summaryPath = join(outDir, 'summary.json')
@@ -121,6 +173,7 @@ for (const key of Object.keys(m)) {
 rows.sort((a, b) => b.count - a.count)
 const dur = trend('http_req_duration')
 const peak = (f) => samples.reduce((a, s) => Math.max(a, f(s) || 0), 0)
+const peakOf = (a, k) => a.reduce((x, s) => Math.max(x, s[k] || 0), 0)
 const containers = {}
 for (const s of samples) for (const c of s.containers) {
   const k = c.name.replace(/-\d+$/, '')
@@ -140,8 +193,36 @@ for (const s of samples) {
     containers[k].memPeak = Math.max(containers[k].memPeak, v.mem)
   }
 }
+const txSeries = samples.map((s) => ({ t: s.t, tx: s.proxyTx })).filter((s) => s.tx > 0)
+let txPeak = 0
+for (let i = 1; i < txSeries.length; i++) {
+  const dt = (txSeries[i].t - txSeries[i - 1].t) / 1000
+  if (dt > 0) txPeak = Math.max(txPeak, ((txSeries[i].tx - txSeries[i - 1].tx) * 8 * 1.048576) / dt)
+}
+const hits = valkeyEnd.hits - valkeyStart.hits
+const misses = valkeyEnd.misses - valkeyStart.misses
+const avg = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 0)
+const stepRows = []
+for (const n of steps.split(',').filter(Boolean)) {
+  const d = m[`http_req_duration{step:${n}}`]
+  if (!d || !d.count) continue
+  const fr = m[`http_req_failed{step:${n}}`]
+  const biz = m[`kira_business_ok{step:${n}}`]
+  stepRows.push({ vus: Number(n), count: d.count, p50: d.med, p95: d['p(95)'], p99: d['p(99)'], httpErr: fr ? (fr.value ?? fr.rate ?? 0) : 0, bizOk: biz ? (biz.value ?? biz.rate ?? null) : null })
+}
 const result = {
   name, scenario, stage, think,
+  clipBytes: trend('kira_clip_bytes')?.count ?? 0,
+  clipCount: trend('kira_clip_count')?.count ?? 0,
+  toolBytes: trend('kira_tool_bytes')?.count ?? 0,
+  signup: Object.fromEntries(['kira_signup_started', 'kira_signup_rejected_full', 'kira_signup_rejected_other', 'kira_verify_ok', 'kira_verify_full', 'kira_verify_other', 'kira_verify_no_mail'].map((k) => [k.replace('kira_', ''), trend(k)?.count ?? 0])),
+  valkey: { hits, misses, hitRate: hits + misses > 0 ? hits / (hits + misses) : null },
+  proxyTxPeakMbps: txPeak,
+  gpu: { utilPeak: peakOf(gpuSamples, 'util'), utilAvg: avg(gpuSamples.map((s) => s.util)), memMin: Math.min(...gpuSamples.map((s) => s.mem)), memMax: peakOf(gpuSamples, 'mem'), powerPeak: peakOf(gpuSamples, 'power'), samples: gpuSamples.length },
+  hostCpu: { avg: avg(hostCpu), peak: Math.max(0, ...hostCpu), samples: hostCpu.length },
+  otherContainersCpuPeak: Math.round(peak((s) => s.otherCpu)),
+  ttsSinkRequests: sinkEnd - sinkStart,
+  steps: stepRows,
   seconds: Math.round((finished - started) / 1000),
   exit: code,
   requests: trend('http_reqs')?.count ?? 0,
@@ -177,5 +258,16 @@ lines.push('|---|---:|---:|---:|')
 for (const [k, v] of Object.entries(result.resources)) lines.push(`| ${k} | ${v.replicas} | ${v.cpuPeakPercentOfOneCore}% | ${v.memPeakMiB} |`)
 lines.push('')
 lines.push(`Postgres: sambungan total puncak ${result.postgres.totalPeak}, aktif puncak ${result.postgres.activePeak}, idle in transaction puncak ${result.postgres.idleInTxPeak}. PgBouncer: klien menunggu puncak ${result.pgbouncer.clientsWaitingPeak}, sambungan server aktif puncak ${result.pgbouncer.serverActivePeak}.`)
+lines.push('')
+lines.push(`Valkey: hit ${hits}, miss ${misses}, rasio hit ${result.valkey.hitRate === null ? '-' : f(result.valkey.hitRate * 100, 1) + '%'}. Proxy keluar: puncak ${f(txPeak, 1)} Mbps. Klip: ${result.clipCount} berkas, ${f(result.clipBytes / 1e6, 1)} MB.`)
+lines.push(`GPU: pakai puncak ${result.gpu.utilPeak}%, rata-rata ${f(result.gpu.utilAvg, 1)}%, memori ${result.gpu.memMin} sampai ${result.gpu.memMax} MiB, daya puncak ${f(result.gpu.powerPeak, 0)} W (${result.gpu.samples} cuplikan). Permintaan yang sampai ke penjaga TTS: ${result.ttsSinkRequests}.`)
+lines.push(`CPU seluruh PC: rata-rata ${f(result.hostCpu.avg, 0)}%, puncak ${f(result.hostCpu.peak, 0)}% (${result.hostCpu.samples} cuplikan). Kontainer lain (bukan staging) puncak ${result.otherContainersCpuPeak}% satu inti.`)
+if (Object.values(result.signup).some(Boolean)) lines.push('Pendaftaran: ' + JSON.stringify(result.signup))
+if (stepRows.length) {
+  lines.push('')
+  lines.push('| Anak tangga (VU) | Permintaan | p50 ms | p95 ms | p99 ms | Galat HTTP | Bisnis OK |')
+  lines.push('|---:|---:|---:|---:|---:|---:|---:|')
+  for (const s of stepRows) lines.push(`| ${s.vus} | ${s.count} | ${f(s.p50)} | ${f(s.p95)} | ${f(s.p99)} | ${f(s.httpErr * 100, 2)}% | ${s.bizOk === null ? '-' : f(s.bizOk * 100, 1) + '%'} |`)
+}
 writeFileSync(join(outDir, 'result.md'), lines.join('\n') + '\n')
 console.log(lines.join('\n'))
