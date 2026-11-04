@@ -1,6 +1,7 @@
 import 'server-only'
 import { eq } from 'drizzle-orm'
 import { ACCESSORIES, TRACK_TEXT, accessoryHowToEarn, isAccessoryEarned, trackLevels, trackProgress, type AccessoryId, type TrackXp } from '@kira/core'
+import { effectiveOn, type FeatureMap } from '@kira/core/features'
 import { tables } from '@kira/db'
 import type { AccessoryDTO, XpTrackDTO } from '@/lib/dto-arena'
 import type { Dict } from '@/lib/i18n'
@@ -27,13 +28,25 @@ export function trackDTOs(totals: TrackXp): XpTrackDTO[] {
   })
 }
 
+function trackOn(track: string, features: FeatureMap): boolean {
+  if (track === 'hitung') return effectiveOn(features, 'mental-math')
+  if (track === 'pengetahuan') return effectiveOn(features, 'quiz-arena')
+  return true
+}
+
+/** Bar XP yang saklarnya menyala: Hitung cepat dan Quiz Arena yang dimatikan orang tua tidak tampil. */
+export function tracksFor(tracks: XpTrackDTO[], features: FeatureMap): XpTrackDTO[] {
+  return tracks.filter((t) => trackOn(t.track, features))
+}
+
 export async function xpTracksDTO(tx: Tx, learnerId: string): Promise<XpTrackDTO[]> {
   return trackDTOs(await trackTotals(tx, learnerId))
 }
 
-export function accessoryDTOs(totals: TrackXp): AccessoryDTO[] {
+export function accessoryDTOs(totals: TrackXp, features: FeatureMap = {}): AccessoryDTO[] {
   const levels = trackLevels(totals)
-  return ACCESSORIES.map((a) => ({ id: a.id, label: a.label, earned: isAccessoryEarned(a, levels), howToEarn: accessoryHowToEarn(a) }))
+  // Aksesori jalur yang dimatikan disembunyikan, kecuali yang sudah telanjur didapat.
+  return ACCESSORIES.filter((a) => isAccessoryEarned(a, levels) || trackOn(a.track, features)).map((a) => ({ id: a.id, label: a.label, earned: isAccessoryEarned(a, levels), howToEarn: accessoryHowToEarn(a) }))
 }
 
 /** Aksesori hanya boleh dipakai setelah didapat dari level jalur XP. Dipanggil dengan transaksi learner. */

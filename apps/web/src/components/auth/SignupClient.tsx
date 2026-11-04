@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
 import { Checkbox, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
@@ -12,6 +12,8 @@ import { AuthCard } from '@/screens/public/PublicFrame'
 import { resendVerificationAction, signUpAction } from '@/server/actions/signup'
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
+/** Sama dengan RESEND_GAP_MS di server. Di bawah jeda ini server tidak mengirim apa pun. */
+const RESEND_WAIT_S = 60
 type Errors = { name?: string; email?: string; password?: string; consent?: string }
 
 /** Pendaftaran orang tua: nama, email, password, persetujuan. Setelah terkirim, layar berganti ke petunjuk cek email. */
@@ -47,8 +49,16 @@ export function SignupClient({
   const [errors, setErrors] = useState<Errors>({})
   const [sentTo, setSentTo] = useState<string | null>(null)
   const [resent, setResent] = useState(false)
+  const [wait, setWait] = useState(0)
   const signup = useAction(signUpAction)
   const resend = useAction(resendVerificationAction)
+
+  const waiting = wait > 0
+  useEffect(() => {
+    if (!waiting) return
+    const t = window.setInterval(() => setWait((s) => Math.max(0, s - 1)), 1000)
+    return () => window.clearInterval(t)
+  }, [waiting])
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -70,6 +80,9 @@ export function SignupClient({
     if (r.ok) {
       setSentTo(em)
       setPassword('')
+      setResent(false)
+      setWait(RESEND_WAIT_S)
+      setCaptchaKey((k) => k + 1)
     } else {
       if (r.fieldErrors) setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.email, password: r.fieldErrors.password, consent: r.fieldErrors.consent })
       setCaptchaKey((k) => k + 1)
@@ -87,20 +100,25 @@ export function SignupClient({
         </p>
         {resent ? (
           <InlineAlert tone="success" title="Email dikirim ulang." live="status">
-            Kalau belum juga sampai dalam beberapa menit, tunggu sebentar lalu coba lagi.
+            Pakai tautan di email terbaru, karena tautan yang lama sudah tidak berlaku.
           </InlineAlert>
-        ) : (
-          <Button
-            variant="secondary"
-            loading={resend.pending}
-            onClick={async () => {
-              const r = await resend.run({ email: sentTo, ...(captcha ? { turnstile: captcha } : {}) })
-              if (r.ok) setResent(true)
-            }}
-          >
-            Kirim ulang email
-          </Button>
-        )}
+        ) : null}
+        <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} resetKey={captchaKey} />
+        <Button
+          variant="secondary"
+          loading={resend.pending}
+          disabled={waiting || (Boolean(turnstileSiteKey) && !captcha)}
+          onClick={async () => {
+            const r = await resend.run({ email: sentTo, ...(captcha ? { turnstile: captcha } : {}) })
+            setCaptchaKey((k) => k + 1)
+            if (r.ok) {
+              setResent(true)
+              setWait(RESEND_WAIT_S)
+            }
+          }}
+        >
+          {waiting ? `Kirim ulang dalam ${wait} detik` : 'Kirim ulang email'}
+        </Button>
         {resend.error ? (
           <InlineAlert tone="danger" title={resend.error.message} reference={resend.error.reference}>
             Coba lagi dalam beberapa menit.

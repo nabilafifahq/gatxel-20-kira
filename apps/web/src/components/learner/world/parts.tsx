@@ -11,6 +11,11 @@ import { useT } from '@/lib/i18n/client'
 
 /** Bagian bersama layar Kira World. */
 
+/** Cara gulir yang menghormati prefers-reduced-motion. */
+export function scrollMotion(): ScrollBehavior {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
 const TABS = [
   { href: '/world', key: 'home' },
   { href: '/world/friend', key: 'friend' },

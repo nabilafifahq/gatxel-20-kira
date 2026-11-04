@@ -21,7 +21,7 @@ import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { comboLevel } from '@/components/learner/ComboStars'
 import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
-import { useSpeech } from '@/components/learner/speech'
+import { stopSpeech, useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
@@ -228,6 +228,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
 
   const check = useCallback(async () => {
     if (!item || !st || st.phase !== 'answer' || !isAnswerComplete(item, st.value)) return
+    // Bacaan soal berhenti sebelum bunyi benar atau salah, supaya tidak bertumpuk.
+    stopSpeech()
     if (isManualType(item.type)) {
       void send(index, st)
       patch(index, { phase: 'sent', first: st.first ?? 'answered' })
@@ -278,7 +280,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     try {
       const res = await actions.submitAttempt(data.attemptId, submitClientId.current)
       if (res.ok) {
-        router.push(res.data.redirectTo || data.doneHref)
+        // replace: tombol kembali tidak membuka lagi runner yang sudah dikumpulkan.
+        router.replace(res.data.redirectTo || data.doneHref)
         return
       }
       setSubmit({ state: 'error', message: res.message, reference: res.reference })
@@ -416,7 +419,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         />
       ) : null}
       {syncState ? <OfflineBanner state={syncState} pendingCount={queue.pending} variant="banner" className="mx-4 mb-2.5 md:hidden" /> : null}
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 max-lg:grid-rows-[auto_1fr_auto] md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
         <section aria-label={t.runner.question} className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:col-start-1 lg:row-start-1">
           <QuestionView
             key={item.ref}
@@ -433,7 +436,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         </section>
         <section aria-label={tp.yourAnswer} tabIndex={0} className="relative flex min-h-0 flex-col overflow-y-auto py-1 focus-visible:outline-3 focus-visible:outline-fg lg:col-start-2 lg:row-start-1">
           <RunnerCorner shell={data.shell} phase={st.phase} streak={streak} xp={st.xp} nonce={`${item.ref}-${st.attemptNo}`} />
-          <div className={cx('m-auto flex w-full flex-col items-center gap-3.5', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
+          <div className={cx('m-auto flex w-full flex-col items-center gap-3.5 max-md:[&>*>*>p:first-child]:pr-12', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
             <Widget
               item={item}
               value={st.value}
@@ -449,7 +452,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
           {englishArea === 'listening' ? null : (
-            <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+            <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
           )}
           {selfSend ? null : (
             <Button
@@ -464,7 +467,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
           )}
         </footer>
         {sheetOpen ? (
-          <div className="fixed inset-x-0 bottom-0 z-30 lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-end lg:pb-6">
+          // Lembar yang lebih tinggi dari layar digulir di dalam dirinya: judul dan kunci tidak terpotong di HP.
+          <div className="fixed inset-x-0 bottom-0 z-30 max-h-svh overflow-y-auto overscroll-contain lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-h-full lg:self-end lg:pb-6">
             <FeedbackSheet
               key={`${item.ref}-${st.phase}`}
               kind={st.phase === 'correct' ? 'correct' : st.phase === 'not-yet' ? 'not-yet' : st.phase === 'revealed' ? 'revealed' : st.phase === 'answered' ? 'saved' : 'sent'}

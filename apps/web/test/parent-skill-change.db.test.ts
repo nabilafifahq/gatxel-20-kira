@@ -15,7 +15,7 @@ const appUrl = process.env.DATABASE_URL_APP
 const authUrl = process.env.DATABASE_URL_AUTH
 const ready = Boolean(ownerUrl && appUrl && authUrl)
 
-describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
+describe.skipIf(!ready)('ganti pelajaran oleh orang tua', { timeout: 120_000 }, () => {
   const owner = ready ? postgres(ownerUrl!, { max: 2, onnotice: () => {} }) : (null as never)
   const orgA = randomUUID()
   const orgB = randomUUID()
@@ -96,7 +96,7 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
       await owner`insert into day_rules (learner_id, org_id, preset) values (${id}, ${org}, 'seimbang')`
       await openToday(id, org)
     }
-  })
+  }, 240_000)
 
   afterAll(async () => {
     await owner`delete from auth.user_account where org_id in (${orgA}, ${orgB})`

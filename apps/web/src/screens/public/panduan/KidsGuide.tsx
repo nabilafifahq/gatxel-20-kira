@@ -135,7 +135,7 @@ const STOPS: Stop[] = [
     tone: 'lavender',
     thumb: <RobotArt size={56} />,
     art: <RobotArt size={160} />,
-    lines: ['Ada 14 lawan yang lucu.', 'Yang pertama Robot Teka-Teki.', 'Ada 10 soal. Jawab benar 7 soal. Kamu menang!', 'Menang? Kamu dapat kartu dan bintang.', 'Belum menang? Tidak ada yang hilang.', 'Boleh coba lagi kapan saja.'],
+    lines: ['Ada 14 lawan yang lucu.', 'Yang pertama Puzzle Robot.', 'Ada 10 soal. Jawab benar 7 soal. Kamu menang!', 'Menang? Kamu dapat kartu dan bintang.', 'Belum menang? Tidak ada yang hilang.', 'Boleh coba lagi kapan saja.'],
   },
   {
     id: 'kamus',
@@ -196,7 +196,7 @@ const STOPS: Stop[] = [
         <UiIcon name="lock" size={88} />
       </span>
     ),
-    lines: ['PIN dan password itu rahasia.', 'Jangan beri tahu teman.', 'Jangan beri tahu orang yang tidak kamu kenal.', 'Ada yang membuatmu takut? Beri tahu orang dewasa.', 'Kamu tidak akan dimarahi karena bercerita.'],
+    lines: ['PIN dan password itu rahasia.', 'Jangan beri tahu teman.', 'Jangan beri tahu orang yang tidak kamu kenal.', 'Ada yang membuatmu takut? Beri tahu orang dewasa.', 'Bercerita itu selalu boleh.'],
   },
 ]
 

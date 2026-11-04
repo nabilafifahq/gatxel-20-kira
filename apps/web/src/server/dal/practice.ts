@@ -55,6 +55,10 @@ const OFF_LABEL: Partial<Record<FeatureKey, keyof Dict['lessons']['practice']['o
   'olympiad-science': 'competitions',
 }
 
+const STYLE_LABEL: Record<QuestionStyle, string> = { short: 'Short questions', 'true-false': 'True or false', 'long-read': 'Long reading', 'word-problem': 'Word problems', mixed: 'Mixed' }
+
+const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
+
 /** Skill yang dipakai untuk satu topik (strand) di mapel dan kelas anak. Skill menulis dan bicara dilewati. */
 function strandSkills(subject: Subject, grade: number, strand: string): string[] {
   return skillsFor(subject, grade)

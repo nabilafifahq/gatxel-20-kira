@@ -10,7 +10,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { Confetti } from '@/components/learner/Confetti'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { playSfx } from '@/components/learner/sfx'
-import { CollectCard, RarityMark, WorldTabs } from '@/components/learner/world/parts'
+import { CollectCard, RarityMark, WorldTabs, scrollMotion } from '@/components/learner/world/parts'
 import { useT } from '@/lib/i18n/client'
 import { bossText } from '@/lib/i18n/dict/bosses'
 
@@ -97,7 +97,7 @@ export function BossScreen({ data }: { data: BossDTO }): ReactElement {
   const pick = (id: string) => {
     playSfx('whoosh')
     setPicked(id)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: scrollMotion() })
   }
   return (
     <LearnerFrame shell={data.shell} current="world" className="flex flex-col gap-4 md:gap-5">

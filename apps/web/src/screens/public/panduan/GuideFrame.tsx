@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { cx } from '@/components/ui/cx'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 
 export type GuideTab = 'ortu' | 'anak' | 'aplikasi'
 
@@ -10,7 +11,7 @@ const TABS: { key: GuideTab; href: string; label: string }[] = [
   { key: 'aplikasi', href: '/panduan/aplikasi', label: 'Aplikasi' },
 ]
 
-/** Kerangka tiga halaman panduan: merek, tab antarpanduan, isi, dan tautan dokumen hukum di bawah. */
+/** Kerangka tiga halaman panduan: merek, tab antarpanduan, isi, dan footer situs. */
 export function GuideFrame({ tab, children }: { tab: GuideTab; children: ReactNode }) {
   return (
     <div className="flex min-h-svh flex-col bg-bg text-fg">
@@ -35,26 +36,7 @@ export function GuideFrame({ tab, children }: { tab: GuideTab; children: ReactNo
       <main id="isi" className="mx-auto flex w-full max-w-[1120px] flex-1 flex-col px-4 pt-2 pb-12">
         {children}
       </main>
-      <footer className="border-t border-divider">
-        <div className="mx-auto flex w-full max-w-[1120px] flex-wrap items-center gap-x-6 gap-y-1 px-4 py-4">
-          <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center font-bold">
-            Halaman depan
-          </Link>
-          <Link href="/privasi" prefetch={false} className="inline-flex min-h-11 items-center font-bold">
-            Kebijakan Privasi
-          </Link>
-          <Link href="/ketentuan" prefetch={false} className="inline-flex min-h-11 items-center font-bold">
-            Syarat dan Ketentuan
-          </Link>
-          <Link href="/feedback" prefetch={false} className="inline-flex min-h-11 items-center font-bold">
-            Bantuan
-          </Link>
-          <Link href="/masuk" prefetch={false} className="inline-flex min-h-11 items-center font-bold sm:ml-auto">
-            Masuk
-          </Link>
-          <p className="m-0 w-full text-small">Build by Gatxel @ 2026 Made with Love by GATteam</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

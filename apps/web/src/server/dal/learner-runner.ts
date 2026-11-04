@@ -474,7 +474,9 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     }
   } else if (a.kind === 'simulation' || a.kind === 'esmo-mock' || a.kind === 'esmo-pack' || a.kind === 'review' || a.kind === 'paper' || a.kind === 'test') {
     const isBoss = a.refId?.startsWith('boss:') ?? false
-    const done = isBoss ? 0 : a.kind === 'review' ? 10 : 20
+    // Ulasan singkat punya batas XP harian (capQuickReviewXp), jadi tidak mendapat bonus selesai: 0 dari 3 tidak boleh memberi XP.
+    const quickReview = a.title.startsWith(QUICK_REVIEW_PREFIX)
+    const done = isBoss || quickReview ? 0 : a.kind === 'review' ? 10 : 20
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
     if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)

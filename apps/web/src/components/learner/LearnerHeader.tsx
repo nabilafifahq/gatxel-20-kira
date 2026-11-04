@@ -30,12 +30,12 @@ const NAV: { key: LearnerNavKey; icon: UiIconName; href: string; features?: Feat
   { key: 'review', icon: 'cards', href: LEARNER_ROUTES.review },
   { key: 'competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
   { key: 'practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
-  { key: 'reading', icon: 'book', href: LEARNER_ROUTES.reading },
+  { key: 'reading', icon: 'book', href: LEARNER_ROUTES.reading, features: ['reading-room'] },
   { key: 'english', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
   { key: 'quick-maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
   { key: 'quiz-arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
-  { key: 'tools', icon: 'pencil', href: LEARNER_ROUTES.tools },
-  { key: 'world', icon: 'star', href: LEARNER_ROUTES.world },
+  { key: 'tools', icon: 'pencil', href: LEARNER_ROUTES.tools, features: ['manipulatives'] },
+  { key: 'world', icon: 'star', href: LEARNER_ROUTES.world, features: ['kira-world'] },
   { key: 'me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 

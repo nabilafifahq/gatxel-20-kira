@@ -63,6 +63,29 @@ describe('checkAnswer numeric', () => {
   })
 })
 
+describe('checkAnswer text fairness', () => {
+  const text = (answers: string[], caseSensitive = false): Item =>
+    itemSchema.parse({ id: 'e4.test.001', skill: 'e4.test', type: 'text', difficulty: 2, prompt: 'Write it.', blanks: [{ answers, caseSensitive }], hints: ['One.', 'Two.', 'Three.'], explanation: 'Because.' })
+  const status = (item: Item, value: string) => checkAnswer(keyOf(item), { texts: [value] }).status
+
+  it('capitals, extra spaces and a full stop do not cost the mark', () => {
+    const item = text(['water vapour'])
+    for (const v of ['Water Vapour', '  water   vapour ', 'WATER VAPOUR', 'water vapour.']) expect(status(item, v)).toBe('correct')
+    expect(status(item, 'water')).toBe('wrong')
+  })
+
+  it('a capital is still marked where the question teaches capitals', () => {
+    expect(status(text(['Dewi'], true), 'dewi')).toBe('wrong')
+    expect(status(text(['Dewi'], true), 'Dewi')).toBe('correct')
+  })
+
+  it('every way of writing the same coordinates passes', () => {
+    const item = text(['(-3, -2)'])
+    for (const v of ['(-3, -2)', '(-3,-2)', '-3,-2', '-3, -2', '( -3 , -2 )', '(−3, −2)']) expect(status(item, v)).toBe('correct')
+    for (const v of ['(3, -2)', '(-2, -3)', '-3']) expect(status(item, v)).toBe('wrong')
+  })
+})
+
 describe('answerText', () => {
   it('names tutor-marked items in the language asked for', () => {
     const write = itemSchema.parse({

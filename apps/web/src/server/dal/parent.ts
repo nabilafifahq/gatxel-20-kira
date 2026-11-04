@@ -58,8 +58,8 @@ function statusLabel(s: ParentChildStatus, c: { requiredDone: number; requiredTo
     case 'rest':
       return 'Hari istirahat'
     case 'none':
-      // Tanpa sesi sama sekali, hari ini mungkin hanya belum dibuka di tablet: jangan menjanjikan streak aman.
-      if (c.optionalTotal === 0) return 'Belum ada sesi hari ini'
+      // Sesi dibuat saat anak membuka layar Hari Ini. Tanpa sesi sama sekali, anak memang belum membukanya.
+      if (c.optionalTotal === 0) return 'Belum membuka Kira hari ini'
       return c.optionalDone > 0 ? 'Tidak ada sesi wajib hari ini, sudah mencoba sesi opsional' : 'Tidak ada sesi wajib hari ini, streak aman'
     case 'not-started':
       return `Belum mulai, ${c.requiredTotal} sesi wajib menunggu`

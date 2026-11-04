@@ -174,7 +174,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   // Setelah kumpul manual berhasil, langsung ke halaman hasil.
   useEffect(() => {
-    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.push(submit.redirectTo)
+    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.replace(submit.redirectTo)
   }, [submit, phase, router])
 
   if (!item || !cur) {
@@ -303,7 +303,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
         </section>
         <section aria-label={tt.answers} className="relative flex min-h-0 flex-col overflow-y-auto py-1 lg:flex-1">
           <RunnerCorner shell={data.shell} phase="answer" timed streak={0} xp={0} nonce={item.ref} />
-          <div className="m-auto flex w-full flex-col gap-3.5">
+          <div className="m-auto flex w-full flex-col gap-3.5 max-md:[&>*>*>p:first-child]:pr-12">
             <WidgetDensityContext.Provider value="exam">
               <Widget item={item} value={cur.value} onChange={setValue} disabled={locked} feedback={null} subject={subject} onUpload={upload} />
             </WidgetDensityContext.Provider>
@@ -329,7 +329,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
           <UiIcon name={cur.flagged ? 'flag-filled' : 'flag'} size={22} className={cur.flagged ? 'text-warn' : undefined} />
           {tt.lookAgain}
         </Button>
-        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+        <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
         <ReportControl itemRef={item.ref} reportProblem={actions.reportProblem} className="max-md:hidden" />
         <div className="ml-auto flex gap-3">
           <Button variant="secondary" icon="arrow-left" disabled={index === 0 || locked} onClick={() => go(index - 1)} className="max-sm:px-3">
@@ -422,7 +422,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             <Button
               iconAfter="arrow-right"
               loading={submit.state === 'busy'}
-              onClick={() => submit.redirectTo && router.push(submit.redirectTo)}
+              onClick={() => submit.redirectTo && router.replace(submit.redirectTo)}
               data-autofocus
             >
               {tt.seeScore}

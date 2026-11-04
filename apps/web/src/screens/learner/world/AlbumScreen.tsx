@@ -9,7 +9,7 @@ import { UiIcon } from '@/components/ui/icons'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { playSfx } from '@/components/learner/sfx'
-import { CollectCard, RarityMark, WorldTabs } from '@/components/learner/world/parts'
+import { CollectCard, RarityMark, WorldTabs, scrollMotion } from '@/components/learner/world/parts'
 import { CARD_SETS } from '@kira/core'
 import type { Dict } from '@/lib/i18n'
 import { useT } from '@/lib/i18n/client'
@@ -52,7 +52,7 @@ export function AlbumScreen({ data }: { data: AlbumDTO }): ReactElement {
             playSfx('tap')
             setSetId(s.id)
             // Di HP kartu ada jauh di bawah daftar set, jadi layar ikut turun ke set yang dipilih.
-            requestAnimationFrame(() => shelf.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+            requestAnimationFrame(() => shelf.current?.scrollIntoView({ behavior: scrollMotion(), block: 'start' }))
           }}
           className={cx('flex min-h-14 w-full cursor-pointer flex-col gap-1.5 rounded-card border-2 p-3 text-left', s.id === current?.id ? 'border-fg bg-knowledge-50' : 'border-border bg-surface hover:border-fg')}
         >

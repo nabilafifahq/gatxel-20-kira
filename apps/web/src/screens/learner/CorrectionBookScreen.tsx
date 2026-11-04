@@ -64,6 +64,9 @@ export function CorrectionBookScreen({ data, todayHref = LEARNER_ROUTES.today, e
             {copy.start}
           </ButtonLink>
         ) : null}
+        <ButtonLink href="/practice/review" variant="secondary" className="w-full md:w-auto">
+          Review a lesson
+        </ButtonLink>
       </header>
 
       {extra}

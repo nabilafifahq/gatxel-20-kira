@@ -3,6 +3,8 @@ import { and, desc, eq, inArray, isNull } from 'drizzle-orm'
 import { createRng, MINI_PAPER_MINUTES, type IsoDate } from '@kira/core'
 import { MANUAL_TYPES, type Item } from '@kira/content'
 import { findContentDir } from '@kira/content/load'
+import { MANIPULATIVE_GEN_LEVELS } from '@kira/content/manip'
+import { GENERATORS, genRef, instanceSignature, newSeed, type Level } from '@kira/content/math'
 import { loadPrograms } from '@kira/content/extras'
 import { programPosition, type Program } from '@kira/content/programs'
 import { tables } from '@kira/db'
@@ -10,6 +12,7 @@ import type { Subject } from '@/lib/dto'
 import type { Tx } from '../db'
 import { content, skillsFor } from './content'
 import { paperPresetFor } from './daily-paper-scoring'
+import { recentGeneratedContent, recentSeen } from './learner-core'
 import {
   assembleKiraPaper,
   choosePaper,
@@ -90,6 +93,44 @@ function usable(item: { type: Item['type']; lang?: string }): boolean {
   return !MANUAL_TYPES.includes(item.type) && item.lang !== 'id'
 }
 
+/** Soal generator Math kelas ini di tingkat tersulit, satu per skill, untuk paper saat bank olimpiade (76 sampai 412 soal per kelas) habis. */
+function mathSpare(grade: number, need: number, rng: ReturnType<typeof createRng>, taken: Set<string>): PoolItem[] {
+  const skills = rng.shuffle([...GENERATORS.entries()].filter(([id]) => id.startsWith(`m${grade}.`)))
+  const out: PoolItem[] = []
+  for (let round = 0; out.length < need && round < 4; round++) {
+    for (const [id, gen] of skills) {
+      if (out.length >= need) break
+      const levels = gen.levels.filter((l) => !MANIPULATIVE_GEN_LEVELS.has(`${id}:${l}`))
+      const level = levels[levels.length - 1] as Level | undefined
+      if (level === undefined) continue
+      // Isi yang sudah keluar dilewati: generator bersempit (misalnya sisi kubus) tidak mengulang soal yang sama.
+      for (let tries = 0; tries < 12; tries++) {
+        const ref = genRef(id, level, newSeed(rng))
+        const sig = instanceSignature(ref)
+        if (taken.has(sig)) continue
+        taken.add(sig)
+        out.push({ ref, skillId: id, difficulty: level })
+        break
+      }
+    }
+  }
+  return out
+}
+
+/** Soal tertulis kelas ini di luar skill lomba yang belum pernah keluar, untuk English dan Science saat bank lomba habis. */
+function writtenSpare(subject: Subject, grade: number, need: number, rng: ReturnType<typeof createRng>, seen: ReadonlySet<string>): PoolItem[] {
+  const contest = contestSkillIds(subject, grade)
+  const out: PoolItem[] = []
+  for (const s of rng.shuffle(skillsFor(subject, grade).filter((x) => !contest.has(x.id)))) {
+    const fresh = (content().itemsBySkill.get(s.id) ?? []).filter((item) => usable(item) && !seen.has(item.id))
+    for (const item of rng.shuffle([...fresh]).slice(0, 3)) {
+      if (out.length >= need) return out
+      out.push({ ref: item.id, skillId: s.id, difficulty: item.difficulty })
+    }
+  }
+  return out
+}
+
 /** Soal olimpiade di repo dan draf AI atau tulisan tutor yang sudah disetujui (org_item), untuk satu mapel dan grade. */
 export async function kiraPool(tx: Tx, orgId: string, subject: Subject, grade: number): Promise<PoolItem[]> {
   const skillIds = contestSkillIds(subject, grade)
@@ -150,7 +191,16 @@ export async function pickDailyPaper(tx: Tx, ctx: DailyPaperCtx, subject: Subjec
     // penilaian preset (daily-paper-scoring) pas. Tanpa preset: FULL_COUNT soal dengan 1,5 menit per soal.
     const contest = effective === 'full' ? paperPresetFor(subject, ctx.grade, date) : undefined
     const fullCount = contest?.rules.questionCount ?? FULL_COUNT
-    const made = assembleKiraPaper(await kiraPool(tx, ctx.orgId, subject, ctx.grade), effective === 'full' ? fullCount : MINI_COUNT, picks, rng)
+    // Soal yang sudah dijawab di sesi lain juga dihitung sudah dilihat, supaya paper tidak mengulang soal Latihan atau Tes.
+    const seen = await recentSeen(tx, ctx.learnerId)
+    const answered: PickRecord = { competition: null, year: null, date, itemRefs: [...seen.keys()] }
+    const made = assembleKiraPaper(
+      await kiraPool(tx, ctx.orgId, subject, ctx.grade),
+      effective === 'full' ? fullCount : MINI_COUNT,
+      [...picks, answered],
+      rng,
+      (need) => (subject === 'math' ? mathSpare(ctx.grade, need, rng, recentGeneratedContent(seen)) : writtenSpare(subject, ctx.grade, need, rng, new Set([...picks.flatMap((p) => p.itemRefs), ...seen.keys()]))),
+    )
     if (made) {
       const title = effective === 'full' ? 'Kira contest-style full paper' : 'Kira contest-style mini paper'
       const minutes = effective === 'mini' ? MINI_PAPER_MINUTES : contest && made.refs.length >= fullCount ? contest.rules.timeLimitMin : made.minutes

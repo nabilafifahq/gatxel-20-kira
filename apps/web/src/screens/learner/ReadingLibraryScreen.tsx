@@ -143,6 +143,9 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
             </Chip>
           ))}
         </div>
+        <details className="flex flex-col gap-3">
+          <summary className="inline-flex min-h-11 cursor-pointer items-center text-body font-bold">{tr.library.moreFilters}</summary>
+          <div className="flex flex-col gap-3 pt-2">
         <div role="group" aria-label={tr.library.kindGroup} className="flex flex-wrap gap-2">
           <Chip on={kind === 'all'} onClick={() => setKind('all')}>
             {tr.library.kindAll}
@@ -174,6 +177,8 @@ export function ReadingLibraryScreen({ data }: { data: ReadingLibraryDTO }): Rea
             </Chip>
           ))}
         </div>
+          </div>
+        </details>
         {shown.length === 0 ? (
           <p className="m-0 rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">{tr.library.noMatch}</p>
         ) : (

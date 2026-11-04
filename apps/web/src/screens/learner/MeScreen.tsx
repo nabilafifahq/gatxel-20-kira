@@ -190,12 +190,16 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
           </h2>
           <XpTrackBars tracks={data.tracks} />
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
-              {t.shell.nav['quick-maths']}
-            </ButtonLink>
-            <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
-              {t.shell.nav['quiz-arena']}
-            </ButtonLink>
+            {data.tracks.some((x) => x.track === 'hitung') ? (
+              <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
+                {t.shell.nav['quick-maths']}
+              </ButtonLink>
+            ) : null}
+            {data.tracks.some((x) => x.track === 'pengetahuan') ? (
+              <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
+                {t.shell.nav['quiz-arena']}
+              </ButtonLink>
+            ) : null}
           </div>
         </section>
       ) : null}
@@ -262,7 +266,7 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
       ) : null}
 
       <section aria-label={t.shell.nav.world} className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
-        <div className="flex min-w-0 flex-1 basis-56 flex-col gap-0.5">
+        <div className="flex min-w-50 flex-1 flex-col gap-0.5">
           <h2 className="m-0 text-h3 font-bold">{t.shell.nav.world}</h2>
           <p className="m-0 text-body text-fg-muted">{t.shell.me.worldLine}</p>
         </div>

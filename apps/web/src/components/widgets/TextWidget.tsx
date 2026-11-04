@@ -80,7 +80,7 @@ export function TextPrompt({ item, value, onChange, disabled = false, feedback =
     onChange(next.every((x) => x === '') ? null : { texts: next })
   }
   return (
-    <p id={id} className={cx('text-question m-0', className)}>
+    <p id={id} lang={item.lang} className={cx('text-question m-0 min-w-0 flex-1', className)}>
       {parts.map((part, i) => (
         <span key={i}>
           <span lang={item.lang}>{part}</span>
