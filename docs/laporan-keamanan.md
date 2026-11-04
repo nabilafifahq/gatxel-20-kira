@@ -4,6 +4,8 @@ Tanggal: 4 sampai 5 November 2026. Cabang: `pilot/aman`. Pemeriksa: agen "aman" 
 
 ## Ringkasan
 
+Uji tembus internal terbaru ada di bagian "Uji tembus internal, 5 November 2026" di akhir laporan ini. Beberapa risiko sisa di bagian 4 sudah berubah di sana.
+
 - Tidak ada temuan **kritis**. Satu temuan **tinggi** ditemukan dan diperbaiki: alamat IP klien diambil dari `X-Forwarded-For` entri pertama, yang bisa dipalsukan penyerang sehingga semua batas laju per IP bisa dilewati.
 - Perbaikan lain: HTTP biasa dialihkan ke HTTPS, `/api/internal/*` tidak terlihat dari internet, MCP mati secara bawaan, batas laju di semua rute tulis, kunci akun setelah 20 kegagalan (dulu 100), unggahan dibersihkan dari EXIF dan dibatasi per peran dan per hari, token atur ulang password diklaim secara atomik, cadangan per jam dengan salinan terenkripsi dan skrip uji pemulihan.
 - Tersisa untuk pemilik: pengaturan Cloudflare (bagian 6), dua baris di `docker-compose.yml` (bagian 5), dan keputusan tentang beberapa risiko sisa (bagian 4).
@@ -191,3 +193,184 @@ Dashboard Cloudflare, zona `gatxel.com`, hostname `kira.gatxel.com`. Nilai yang 
 - Kode: `apps/web/src/lib/{client-ip,https-redirect,image-clean,access-log}.ts`, `apps/web/src/proxy.ts`, `server/auth/{ratelimit,actor,accounts}.ts`, `server/media.ts`, `app/api/*`.
 - Cadangan: `deploy/backup/backup.sh`, `deploy/backup/restore-test.sh`.
 - Pemindaian: `docs/keamanan/` (lihat `README.md` di sana).
+
+## Uji tembus internal, 5 November 2026
+
+**Ini uji internal, dan tidak independen.** Pengujinya agen Claude yang bekerja untuk pemilik, memakai kode yang sama dengan tim pembuatnya dan membaca kode sumbernya. Hasil ini tidak menggantikan audit pihak ketiga. Strix tidak dijalankan karena butuh kredit berbayar.
+
+Cabang `pilot/aman2`, dari `pilot/gabung` commit `d244a7c`. Sebelum selesai, `pilot/gabung` terbaru (`19843a9`, 241 commit lebih baru) digabung ke cabang ini, lalu uji peran, uji lintas keluarga, uji ulang perbaikan, dan tes otomatis dijalankan lagi. sqlmap dan ZAP tidak diulang. Semua serangan hanya ke stack lokal Docker bernama `kirasec` di `127.0.0.1:3190`, dengan data fiksi. `kira.gatxel.com`, `C:\Kira\app`, dan container `kira-*-1` tidak disentuh.
+
+### Ringkasan
+
+| Tingkat | Jumlah | Status |
+|---|---|---|
+| Kritis | 0 | |
+| Tinggi | 0 | |
+| Sedang | 8 | Semua diperbaiki dan diuji ulang |
+| Rendah | 15 | Diperbaiki dan diuji ulang, kecuali R2 (sebagian) dan R13 (dibiarkan) |
+| Terbuka, perlu keputusan pemilik | 11 | Lihat bagian "Yang masih terbuka" |
+
+Tidak ditemukan kebocoran data antar keluarga, naik peran, injeksi SQL, atau XSS tersimpan. Kesimpulan ini berlaku untuk jalur yang diuji di bawah, dan belum tentu berlaku untuk jalur yang tidak diuji.
+
+### Cara kerja
+
+Stack: proxy Caddy, 2 replika web, PgBouncer, Valkey, Postgres, worker, dan Mailpit, dibangun dari `docker-compose.yml` yang sama dengan produksi, dengan nama image sendiri dan rahasia acak baru. Seed: tiga keluarga fiksi, dua tutor, dan satu orang tua kedua di keluarga A yang hanya tertaut ke satu anak. Id Server Action diambil dari manifest build produksi: 134 action pada uji pertama, 141 setelah penggabungan.
+
+Alat: skrip Node dengan permintaan sungguhan, sqlmap, OWASP ZAP, Playwright, `pnpm audit`, dan pindai image. Skrip uji disimpan di luar repo karena memuat token sesi uji.
+
+### Yang diuji dan hasilnya
+
+| Area | Cara | Hasil |
+|---|---|---|
+| Peran, semua Server Action | 138 dari 141 action dipanggil tanpa sesi, sebagai anak, orang tua, dan tutor. `registerDeviceAction` diuji lintas keluarga. `signOutAction` dan `signOutLearnerAction` hanya dibaca kodenya karena mencabut sesi pemanggil | Lulus. Anak ditolak di semua aksi orang tua dan tutor, termasuk saklar fitur dan batas layar |
+| Peran, Route Handler dan halaman | 25 rute ditemukan otomatis. 15 dipanggil langsung tanpa sesi atau dengan peran salah, sisanya dibaca kodenya dan sebagian dicakup `security-access.spec.ts`. Halaman: 71 alamat dari 95 | Lulus |
+| Lintas keluarga dan lintas saudara | 110 panggilan aksi dengan id keluarga lain atau saudara, 83 halaman dan rute baca, `/api/sync`, `/api/media`. Sebelum dan sesudah, checksum semua baris keluarga B dan anak saudara dibandingkan | Lulus. Nol baris berubah, nol nama keluarga lain di respons. Dua aksi tutor (`recordOfflineConsentAction`, `sendReportAction`) berhenti di validasi, jadi jalur datanya tidak tercapai |
+| Balapan, 20 permintaan serentak | Bintang, beli barang, saldo negatif, beli ganda, ulang nonce, kartu, bos, peti, kumpul sesi, XP, kursi, kuis baca, ejaan, kartu belajar, lembar kerja, tambah anak, token atur ulang, undangan | Saldo bintang, kursi, peti, bos, dan token sudah aman. Kuis baca dan ejaan gagal (S4), diperbaiki. Kursi: tersisa 1, 20 serentak, tepat 1 berhasil dan total 100 |
+| Nilai dari klien | Skor, harga, id barang, kolom tambahan, ulang permintaan lama | Kolom tambahan ditolak `.strict()`. Skor pelajaran dari klien: R2 |
+| Kebocoran jawaban | HTML dan RSC pada Tes, Kertas, Simulasi, ESMO, Bos, Penempatan, Quick Maths berwaktu, Quiz Arena, Kuis Baca, Alat. Aksi pembahasan sebelum kumpul | Bos dan soal dengar gagal (S1, S2), diperbaiki. Yang lain bersih |
+| Injeksi SQL | sqlmap level 2, risiko 1, teknik boolean dan waktu, 58 target, 75 detik per target, pada build sebelum perbaikan | Nol temuan. 11 target berhenti karena batas waktu, tanpa temuan. Nilai ditolak Zod sebelum sampai SQL. Hasil: `docs/keamanan/sqlmap-hasil2.txt` |
+| ZAP | Baseline publik, orang tua, anak, dan API scan, pada build sebelum perbaikan | 0 FAIL. Peringatan sama dengan pass sebelumnya (`style-src 'unsafe-inline'`, COEP dan CORP) ditambah header kebijakan pada berkas statis. Hasil: `docs/keamanan/zap2-*.md` |
+| XSS tersimpan | Nama anak, nama teman, medali, kata tersimpan, laporan soal, catatan, nama perangkat, parameter URL, pada 39 alamat anak, orang tua, tutor, cetak, dan 3 jenis email di Mailpit | Lulus, semua di-escape. Nama teman dan kata tersimpan ditolak validasi. Judul paper dan catatan nilai orang tua tidak tersimpan karena data uji, jadi tampilannya tidak diuji. Email laporan mingguan hanya dicakup tes unit lama |
+| Injeksi PDF dan template | Sertifikat sungguhan dengan nama anak berisi operator PDF, tanda kurung, dan garis miring terbalik. Hari di luar 7, 30, 100, dan path | Lulus. Tanda kurung dan garis miring dibuang, nama tetap satu string teks di PDF. Berkas itu dibaca sebagai teks dan belum dibuka di pembaca PDF. `0x7` dan `7.0` dibaca sebagai 7 dan memberi sertifikat yang sama, tidak berbahaya |
+| SSRF | Semua `fetch` di web dan worker | Tidak ada URL dari pengguna: hanya HaveIBeenPwned, Turnstile, dan alamat AI dari env |
+| Path traversal | 46 path mentah lewat soket ke proxy: media, klip, buku, statis, `.env`, `.git`, `/api/internal` dengan variasi penulisan | Lulus |
+| Redirect terbuka | 19 bentuk `next`, Host palsu | `next` gagal (S3), diperbaiki. Pengalihan HTTPS memakai `KIRA_ORIGIN` di produksi |
+| Sesi | Fiksasi, keluar, kedaluwarsa, menganggur, cookie, persetujuan dicabut | Lulus. `__Host-`, `Secure`, `HttpOnly`, `SameSite=Lax` |
+| Token | Atur ulang dipakai ulang, kedaluwarsa, 20 serentak. Verifikasi dipakai ulang, undangan 20 serentak | Lulus |
+| Brute force | 40 percobaan serentak | Gagal (S6), diperbaiki |
+| Pemalsuan IP | `X-Forwarded-For`, `X-Real-IP`, `True-Client-IP`, `Forwarded`, `CF-Connecting-IP` | Hanya `CF-Connecting-IP` yang dipercaya. Lihat T9 |
+| Turnstile | Kunci uji Cloudflare yang selalu gagal: token kosong dan palsu pada daftar, masuk, atur ulang, kirim ulang, daftar tunggu | Lulus, 8 dari 8 ditolak. Rahasia tidak ada di halaman |
+| CSRF | Origin lain, `null`, mirip subdomain, pada Server Action dan rute | Lulus. Temuan terkait: R4 |
+| Enumerasi akun | Pesan dan waktu pada masuk, atur ulang, kirim ulang, daftar, daftar tunggu | Pesan sama. Waktu daftar tunggu berbeda (R6), diperbaiki |
+| Email sekali pakai | 34 bentuk: subdomain, plus, huruf besar, titik akhir, Unicode, komentar, alamat IP | Gagal pada 6 bentuk (R5), diperbaiki. Plus dan titik Gmail dihitung satu alamat |
+| Header dan paparan | CSP, HSTS, framing, `/api/health`, source map, port, Valkey, PgBouncer | Lulus. Temuan terkait: T10 dan R13 |
+| Rahasia di image | Semua layer `kirasec-web` (14.796 berkas), `kirasec-worker` (9.222), `kirasec-proxy` (751), dan riwayat build, dicari menurut pola dan nilai env uji, tanpa mencetak nilai. Folder `node_modules` dan paket sistem hanya dicek nama berkasnya | Nol. Satu cocokan di image worker adalah contoh `XXXX` di cache kompilasi CLI, bukan kunci |
+| Ketergantungan | `pnpm audit --prod` dan semua. Trivy (kerentanan tinggi dan kritis yang sudah ada perbaikannya) pada tiga image | `pnpm audit --prod`: 0. Semua: 2 sedang, alat pengembangan. `npm audit` tidak bisa jalan karena repo memakai `pnpm-lock.yaml`. Trivy: lihat R15 dan T11 |
+| Penolakan layanan | Body besar, JSON dalam, kueri 1 MB, header 200 KB, sambungan lambat, halaman mahal | Lihat S7, S8, R3 |
+
+### Temuan dan status
+
+| # | Tingkat | Temuan | Bukti | Status | Commit |
+|---|---|---|---|---|---|
+| S1 | Sedang | Teks dengar soal dengar dan eja (katanya sendiri) ada di payload Tes, Simulasi, Bos, dan Penempatan. Dilaporkan QA, dipastikan di `present.ts` | Kode | Diperbaiki: perangkat hanya menerima kunci klip, tidak jatuh ke suara perangkat. Soal tanpa klip diganti soal lain saat sesi disusun, sehingga jumlah soal tetap. Attempt lama menampilkan pesan dua bahasa. Penempatan melewati soal eja. Putar dan nilai diuji di browser sungguhan | `3a51444`, `388dedc` |
+| S2 | Sedang | Tantangan bos memberi 10 bintang dan kartu, tetapi kunci, pembahasan, dan solusinya terkirim sebelum menjawab | 8 soal, 8 kunci di RSC | Diperbaiki: dinilai server | `5c8e37b` |
+| S3 | Sedang | Redirect terbuka: `next=/<tab>/situs-lain` lolos dan browser membacanya sebagai `//situs-lain`. Baris baru membuat halaman masuk 500 | Terbukti | Diperbaiki | `1a8ac0d` |
+| S4 | Sedang | Kuis baca dikumpulkan serentak memberi XP berkali-kali. Ejaan melewati batas harian | Kuis: 2 menjadi 40 XP. Ejaan: 600 dari batas 40 | Diperbaiki dengan kunci per anak. Bintang sudah aman sejak awal | `8475fcc` |
+| S5 | Sedang | Saklar fitur hanya menutup halaman. Anak bisa mulai Quick Maths, Quiz Arena, ESMO, English Skills, dan latihan mapel yang dimatikan orang tua, sebagian cukup dengan mengetik alamat | Terbukti pada 6 jalur | Diperbaiki di aksi dan rute | `8475fcc` |
+| S6 | Sedang | Kunci akun bisa dilewati: 40 percobaan serentak semuanya diperiksa, batasnya 20 | 40 dari 40 | Diperbaiki: paling banyak 20 sampai ke pemeriksaan password | `93124a7` |
+| S7 | Sedang | Pengunjung tanpa sesi boleh mengirim sampai 62 MB ke `/konsol/impor`, dan Next membacanya sebelum sesi diperiksa | Dari konfigurasi proxy. Belum dibuktikan dengan beban | Diperbaiki: 62 MB hanya bila ada cookie sesi. Anonim 20 MB kini 413. Orang tua yang masuk masih bisa mengirim 62 MB | `b1a0ab7` |
+| S8 | Sedang | Satu permintaan `/api/sync` membawa 120 transaksi, jadi batas 60 per menit setara 7.200 transaksi | Dari kode | Diperbaiki: anggaran 1.200 butir per menit | `b1a0ab7` |
+| R1 | Rendah | Sesi yang dikumpulkan kosong memberi XP dan 3 bintang. Ulangan kosong memberi XP | Terbukti | Diperbaiki: tanpa XP dan bintang. Sesi tetap selesai, lihat T1 | `5c8e37b`, `a2a3e78` |
+| R2 | Rendah | Skor cek pelajaran datang dari klien: XP untuk skill apa pun tanpa membuka pelajaran | 70 XP dari 7 skill | Sebagian: batas 100 XP per hari dan saklar mapel. Skornya tetap dari klien | `8475fcc` |
+| R3 | Rendah | Rute dinamis tanpa batas laju: mulai sesi, sertifikat, `tts/today`, APK, berhenti kabar. Body chunked tidak dibatasi di rute | Mulai sesi menulis baris tiap kali | Diperbaiki | `8fa60c4` |
+| R4 | Rendah | Proxy meneruskan `X-Forwarded-Host` dari klien, dan aplikasi memakainya untuk pemeriksaan Origin | Origin dan header palsu lolos pemeriksaan | Diperbaiki | `6876c67` |
+| R5 | Rendah | Email sekali pakai lolos dengan `a@mailinator.com(x)`, titik lebar U+3002, spasi lebar nol, `%00`, `a%mailinator.com@gmail.com`, dan `a@[127.0.0.1]` | 6 bentuk | Diperbaiki | `86a5de5` |
+| R6 | Rendah | Daftar tunggu menjawab sekitar 140 ms lebih cepat untuk email terdaftar | 57 ms lawan 195 ms | Diperbaiki: kini 677 ms lawan 713 ms | `b1a0ab7` |
+| R7 | Rendah | Proxy menjawab 502 sesekali pada POST, karena Node menutup sambungan setelah 5 detik sementara Caddy memakainya sampai 30 detik | 4 dari 20 | Diperbaiki, 0 dari 60 | `6876c67` |
+| R8 | Rendah | Pola baca lalu tulis pada batas lembar kerja dan XP kartu | Belum terbukti sebelum perbaikan: uji pertama memakai skill yang salah | Diperbaiki sebagai pencegahan | `8475fcc` |
+| R9 | Rendah | Kuis baca dimulai serentak membuat 20 kuis terbuka | Terbukti | Diperbaiki | `8475fcc` |
+| R10 | Rendah | Laporan soal tanpa batas sendiri | Kode | Diperbaiki, 20 per menit | `b1a0ab7` |
+| R11 | Rendah | Pembahasan dan bantuan bos bisa diminta lewat aksi | Kode | Diperbaiki | `5c8e37b` |
+| R12 | Rendah | Bos dimulai 20 kali serentak membuat 20 attempt. Hadiah tetap sekali | Terbukti | Dibatasi 60 per menit | `8fa60c4` |
+| R13 | Rendah | Berkas statis dari Caddy tanpa `Permissions-Policy` dan header sejenis | ZAP | Dibiarkan: berkas statis, tanpa risiko praktis | |
+| R14 | Rendah | Saat Valkey mati, cookie lama masih diterima 5 detik setelah keluar, karena Route Handler dan halaman memakai salinan cache memori yang berbeda. Dengan Valkey, cookie lama langsung ditolak. Permintaan yang sedang berjalan juga bisa mengisi cache lagi tepat setelah keluar (belum terbukti, ditutup sekaligus) | Tes e2e lama gagal, dan terulang dengan `fetch` biasa | Diperbaiki: cache memori dibagi, dan sesi yang baru dicabut tidak bisa masuk cache selama 30 detik. Tes lama tidak diubah | `587d99a`, `01a86d5` |
+| R15 | Rendah | Trivy: kerentanan tinggi di npm bawaan image Node (`undici`, `brace-expansion`), kritis dan tinggi di `curl` dan `brotli` image Caddy. Tidak dipakai saat jalan | Trivy | Diperbaiki di image web dan proxy: paket-paket itu dibuang. Image worker masih memuat npm karena Claude CLI dipasang lewat npm, dan AI mati selama pilot | `08cd7ff` |
+
+### Yang masih terbuka
+
+Ini perlu keputusan pemilik, atau terlalu besar untuk malam ini.
+
+| # | Hal | Dampak | Usul |
+|---|---|---|---|
+| T1 | Sesi kosong tetap selesai, jadi tetap menghitung streak, peti harian, dan sertifikat. Anak bisa menjaga streak tanpa menjawab | Rendah, tanpa XP dan bintang | Pemilik memutuskan: wajibkan minimal satu jawaban untuk streak. Ini aturan produk, jadi belum diubah |
+| T2 | Latihan mengirim kunci ke perangkat, supaya umpan balik instan dan jalan offline. Anak yang membuka data jaringan bisa mendapat bonus sempurna, 2 bintang per sesi | Rendah | Diterima untuk pilot |
+| T3 | Kunci klip adalah SHA-256 dari gaya dan teks. Orang yang punya daftar kata bisa mencocokkannya di luar Kira, dan suara klip memang jawabannya | Rendah, butuh skrip | Pakai id acak bila dianggap perlu |
+| T4 | Spelling Bee mengirim kata ke perangkat. XP dibatasi 40 per hari | Rendah | Diterima |
+| T5 | Batas layar hanya menahan mulai arena dan tampilan Today. `/run` dan `/practice` tetap jalan, dan menit dihitung dari detak perangkat | Sedang untuk janji ke orang tua | Pemilik memutuskan apakah batas ini wajib ditegakkan |
+| T6 | Orang tua tidak bisa mencabut tablet yang hilang. Cabut perangkat hanya untuk tutor. Token tablet berlaku 90 hari, dan masih dijaga PIN anak yang terkunci setelah 5 kali salah | Sedang | Tambah layar cabut perangkat untuk orang tua |
+| T7 | Bila `TTS_URL` diisi, pengguna yang masuk bisa meminta klip teks bebas, 60 per jam, dan klip tersaji publik di `/tts/<hash>.mp3` | Rendah | Batasi ke teks yang ada di bank soal |
+| T8 | Jam Tes menerima `answeredAt` dari perangkat, dengan kelonggaran 10 menit untuk jawaban offline | Rendah | Diterima |
+| T9 | `CF-Connecting-IP` dipercaya dari semua yang sampai ke proxy, jadi batas per IP bisa dilewati oleh program di komputer server. Dari internet tidak bisa, karena Cloudflare menimpa header itu dan port proxy hanya di `127.0.0.1` | Rendah | Diterima. Jangan pernah membuka port proxy ke jaringan |
+| T10 | Batas email per alamat ada di memori tiap replika, jadi 5 per jam menjadi 20 dengan 4 replika. Bila Valkey lambat lebih dari 250 ms, batas laju memakai memori selama 5 detik (terlihat saat uji di PC yang sibuk). Jatah unggah harian dihitung tidak atomik, selisihnya paling banyak 30 berkas | Rendah | Pindahkan batas email ke Valkey setelah pilot |
+
+| T11 | Biner Caddy 2.11.7 memuat Go 1.26.8, `x/net` 0.59, dan `go-jose` 4.1.5 dengan kerentanan tinggi menurut Trivy. Versi terbaru `caddy:2-alpine` saat diperiksa masih 2.11.7, jadi belum ada pembaruan. Dampaknya pada Caddy belum dianalisis. Paket sistem image web bersih | Belum diketahui | Naikkan digest Caddy begitu rilis baru ada, lalu pindai ulang |
+
+Catatan untuk integrator: `kira-gerbang-pg` dan `kira-gerbang-mail` milik agen lain terbuka di `0.0.0.0` (port 54481 sampai 54483). Ini container uji dan bukan bagian compose produksi, tetapi sebaiknya dihapus.
+
+### Batas laju yang berlaku sekarang
+
+Ember token per menit. Disimpan di Valkey, dibagi semua replika. Tanpa Valkey, tiap replika menghitung sendiri.
+
+| Rute atau aksi | Batas | Kunci |
+|---|---|---|
+| Semua Server Action bersesi | 900 anak, 300 dewasa | akun |
+| `saveAnswer`, jawaban arena | 600 | akun |
+| `submitAttempt` | 120 | akun |
+| `/api/sync` | 60 permintaan dan 1.200 butir | akun |
+| `/api/heartbeat` | 30 | akun |
+| `/api/media` tulis | 30 anak, 60 dewasa | akun |
+| `/api/media/[id]` baca | 600 | akun |
+| `/api/tts/request` | 60, dan 60 klip baru per jam | akun |
+| `/api/tts/today` | 120 | akun |
+| `/tts/[file]` (klip publik tanpa sesi. Hanya permintaan yang meleset dibatasi) | 600 | IP |
+| `/api/apk` | 10 | akun |
+| Mulai sesi (`/practice`, `/english`, `/esmo`, `/review`, `/fix-it`, `/world/boss`) | 60 | akun |
+| Sertifikat PDF | 20 | akun |
+| Peti, persetujuan | 30 | akun |
+| Laporan soal | 20 | akun |
+| Undang anggota | 10 | akun |
+| Masuk | 120 per IP, 20 gagal per email lalu kunci 15 menit | IP dan email |
+| Atur ulang: minta, pakai | 20, 30 | IP |
+| PIN | 240 per IP, 5 salah per anak lalu kunci 15 menit | IP dan anak |
+| Daftar, kirim ulang, verifikasi | 6, 4, 10 | IP |
+| Daftar tunggu: gabung, konfirmasi, berhenti | 5, 20, 20 | IP |
+| Passkey, setup, terima undangan | 30, 10, 10 | IP |
+| Email per alamat tujuan | 5 per jam per jenis | memori replika |
+| Lembar kerja | 10 per hari per keluarga | keluarga |
+| Body | 8 MB, 62 MB untuk `/konsol/impor` dan `/api/media` bila bersesi. Anak 12 MB per unggahan | proxy dan rute |
+| Header | Caddy memutus sambungan yang lambat setelah 10 detik. Header terlalu besar dijawab 431 | proxy |
+
+Halaman biasa dan `/api/health` tidak dibatasi aplikasi. Halaman biasa diserahkan ke aturan Cloudflare di bawah. Batas umum 60 per menit tidak dipasang di semua rute, karena `/api/media/[id]` dan klip bisa dipanggil puluhan kali dalam satu layar oleh anak biasa. Rute API yang membaca atau menulis data sudah punya batas sendiri di tabel ini.
+
+### Daftar Cloudflare yang masih harus dikerjakan pemilik
+
+Rincian ada di bagian 6. Ini urutan pendeknya. Belum ada satu pun yang bisa diuji dari sini.
+
+1. **DNS dan Tunnel.** `kira` Proxied. Tunnel `gatxel-PC` menunjuk ke `http://127.0.0.1:3030` (proxy). Tanpa aturan lain di hostname itu, dan tanpa port forwarding di router.
+2. **SSL/TLS.** Full (strict), Always Use HTTPS On, TLS minimum 1.2, TLS 1.3 On. HSTS di Cloudflare Off karena aplikasi sudah mengirimnya.
+3. **Turnstile.** Buat widget `Kira pilot` untuk `kira.gatxel.com`, mode Managed. Isi `KIRA_TURNSTILE_SITE_KEY` dan `KIRA_TURNSTILE_SECRET` di `.env` produksi. **Turnstile hanya aktif bila keduanya terisi.** Setelah itu buka `/masuk`, pastikan widget muncul dan bisa masuk.
+4. **Aturan WAF.** Block `/api/internal` dan `/api/mcp`. Bila Turnstile sudah aktif, aturan tantangan masuk tidak perlu.
+5. **Managed Ruleset.** Free Ruleset On. Di paket Pro ke atas, OWASP dengan pengecualian `POST /api/media` dan `POST /api/feedback`.
+6. **Rate limiting.** Satu aturan Free: `POST` ke `/masuk`, `/reset`, `/undangan`, `/daftar`, 30 per 10 detik per IP. Di paket Pro: `/api/` 300 per menit, dan halaman biasa 600 per menit.
+7. **Speed dan cache.** Rocket Loader, Auto Minify, Email Obfuscation, Mirage, dan Polish Off. Cache hanya `/_next/static/*`, `/fonts/*`, `/icons/*`, `/sounds/*`, `/dict/*`, `/panduan-img/*`, dan `/tts/*.mp3`. Yang lain Bypass.
+8. **Bot Fight Mode Off** untuk malam pertama. Always Online Off.
+9. **Notifikasi.** Security Events ambang tinggi ke email. 48 jam pertama, periksa Security Events setiap pagi.
+10. **Setelah semua menyala,** coba dari HP lewat data seluler: daftar, masuk, atur ulang password, tablet anak.
+
+Tiga nilai `.env` produksi yang perlu dipastikan: `KIRA_VALKEY_PASSWORD` terisi sendiri dan tidak jatuh ke `KIRA_INTERNAL_TOKEN`, `KIRA_MCP=off`, dan `KIRA_HIBP=on`.
+
+### Batas uji ini
+
+- **Internal.** Penguji dan pembuat memakai model dan kode yang sama, jadi titik buta yang sama bisa terlewat di keduanya.
+- **Bukan lewat Cloudflare.** Header, WAF, dan Tunnel sungguhan tidak diuji. Perilaku `CF-Connecting-IP` diuji dengan mengirim header itu langsung ke proxy.
+- **`/feedback` diuji hidup sebagian,** setelah masuk ke `pilot/gabung`: anak ditolak, Origin lain ditolak, kolom tambahan, CRLF di subjek, kolom jebakan, lampiran palsu (SVG, HTML, PHP, PNG rusak), nama berkas jahat, 6 MB, 9 MB, tanpa `Content-Length`, dan 8 per menit per IP. Semua lulus. Yang belum: email ke tim dan lampirannya (stack uji tanpa alamat tim), dan Turnstile pada formulir ini. PDF dan MP4 lampiran tidak dibersihkan, jadi tim harus berhati-hati saat membukanya.
+- **Trivy hanya melaporkan** tingkat tinggi dan kritis yang sudah punya perbaikan. Image worker perlu dibaca ulang hasilnya setelah digabung.
+- **sqlmap dan ZAP dijalankan sebelum perbaikan.** Perbaikan tidak mengubah cara kueri dibuat, tetapi pindaian tidak diulang pada build akhir.
+- **sqlmap dibatasi** level 2, risiko 1, 75 detik per target. Beban DoS dibuat sedang karena PC dipakai bersama, jadi batas kapasitas sungguhan tidak diukur di sini (lihat `docs/laporan-beban.md`).
+- **Tidak diuji:** email sungguhan, passkey, APK Android dan WebView, halaman konsol tutor secara mendalam, antarmuka worker, cadangan dan pemulihan, serangan fisik pada komputer rumah.
+- **Kode yang masuk lewat `pilot/gabung` setelah `d244a7c`** (suara, bahasa, verifikasi materi, perbaikan QA) hanya melewati uji ulang di atas, tanpa pembacaan kode seperti bagian lain.
+- **Tes browser soal dengar** memakai berkas MP3 hening buatan, jadi yang terbukti adalah alur putar dan nilainya. Mutu suara tidak diuji.
+- Hasil S7 dan S8 berasal dari membaca konfigurasi dan kode. Keduanya tidak dibuktikan dengan beban sungguhan sebelum diperbaiki.
+
+### Hasil tes pada kode akhir
+
+- `pnpm lint`: lulus. `pnpm typecheck`: lulus. `pnpm test`: 1.966 lulus, 3 gagal (tiga kegagalan jalur Windows yang sudah dikenal), 9 dilewati.
+- Tes database (`--project db --project web-db`) di Postgres sekali pakai: 252 dari 252 lulus, termasuk 14 tes baru di `uji-tembus.db.test.ts`.
+- E2E `security-input` dan `security-access` pada image akhir: 48 dari 48 lulus, termasuk browser sungguhan yang memutar klip soal dengar dan eja lalu dinilai 2 dari 2.
+- E2E `security.spec`, `timed`, `placement`, dan `english` lulus satu commit sebelum akhir. `world.spec` gagal di pemeriksaan kontras warna (`color-contrast`) pada layar bos dan album, jadi langkah sesudahnya di tes itu tidak berjalan. Kontras itu berasal dari layar yang sudah ada dan tidak disentuh perbaikan ini, tetapi perlu dibetulkan sebelum tes itu bisa lulus.
+- Layar bos tanpa kunci hanya diuji tampil di browser. Penilaian servernya diuji di tes database.
+- Stack uji dihapus setelah selesai.
+
+### Cara mengulang
+
+`apps/web/test/uji-tembus.db.test.ts` (Postgres), `apps/web/test/hardening.test.ts`, `apps/web/test/email-policy.test.ts`, dan blok `uji tembus 5 November` di `e2e/tests/security-input.spec.ts`. sqlmap: `docs/keamanan/sqlmap2.py`.

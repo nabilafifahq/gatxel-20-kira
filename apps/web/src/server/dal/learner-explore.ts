@@ -13,7 +13,8 @@ import { guardAttemptItems } from './session-guard'
 import { accessoryDTOs, trackDTOs, tracksFor } from './arena-tracks'
 import { featureMapFor } from './learner-features'
 import { trackTotals } from './arena-state'
-import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
+import { badgesOf, learnerShell, loadLearner, lockLearnerScope, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
+import { assertFeatureOnTx } from './learner-features'
 import { completeLinkedSession } from './learner-session'
 import { buildQuestItems, SUBJECT_ORDER } from './learner-today'
 
@@ -235,18 +236,30 @@ export async function lessonDTO(tx: Tx, learnerId: string, skillId: string, then
   }
 }
 
+/**
+ * Batas XP pelajaran per hari. Soal cek pelajaran dinilai di perangkat, jadi angka benar dari klien tidak bisa dipercaya
+ * sepenuhnya. Sepuluh pelajaran sehari jauh di atas pemakaian anak sungguhan, tetapi skrip tidak bisa memanen XP dari semua skill.
+ */
+export const LESSON_XP_DAILY_CAP = 100
+
 export async function completeLesson(tx: Tx, ctx: OrgContext, learnerId: string, skillId: string, correct: number, total: number): Promise<void> {
-  if (!skill(skillId)) throw notFound()
+  const sk = skill(skillId)
+  if (!sk) throw notFound()
+  await assertFeatureOnTx(tx, learnerId, sk.subject)
+  await lockLearnerScope(tx, 'lesson', learnerId)
+  const today = jakartaDate()
   await tx
     .insert(skillState)
     .values({ orgId: ctx.orgId, learnerId, skillId, lessonDoneAt: new Date() })
     .onConflictDoUpdate({ target: [skillState.learnerId, skillState.skillId], set: { lessonDoneAt: new Date() } })
   // XP pelajaran sekali per skill per hari (indeks unik xp_event_lesson_once); panggilan ulang tidak menambah XP.
   if (correct > 0) {
-    await tx
-      .insert(tables.xpEvent)
-      .values({ orgId: ctx.orgId, learnerId, amount: Math.min(10, Math.min(correct, total) * 5), reason: 'lesson', ref: skillId, date: jakartaDate() })
-      .onConflictDoNothing()
+    const [used] = await tx
+      .select({ n: sql<number>`coalesce(sum(${tables.xpEvent.amount}), 0)::int` })
+      .from(tables.xpEvent)
+      .where(and(eq(tables.xpEvent.learnerId, learnerId), eq(tables.xpEvent.reason, 'lesson'), eq(tables.xpEvent.date, today)))
+    const amount = Math.min(10, Math.min(correct, total) * 5, LESSON_XP_DAILY_CAP - (used?.n ?? 0))
+    if (amount > 0) await tx.insert(tables.xpEvent).values({ orgId: ctx.orgId, learnerId, amount, reason: 'lesson', ref: skillId, date: today }).onConflictDoNothing()
   }
   // Sesi opsional "Lesson" untuk skill ini ikut selesai.
   await completeLinkedSession(tx, learnerId, jakartaDate(), { session: 'lesson', skillId })

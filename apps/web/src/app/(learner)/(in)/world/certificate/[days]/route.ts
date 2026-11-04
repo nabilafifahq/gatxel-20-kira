@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { tOf } from '@/lib/i18n'
 import { certificatePdf } from '@/server/certificate-pdf'
 import { getActor, orgCtx } from '@/server/auth/actor'
+import { throttleResponse } from '@/server/auth/ratelimit'
 import { inOrg } from '@/server/db'
 import { certificateData } from '@/server/dal/kira-world'
 import { isFeatureOn } from '@/server/dal/learner-features'
@@ -14,6 +15,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ days: st
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return new Response(null, { status: 401 })
+  const limited = await throttleResponse('certificate', 20, actor.userId)
+  if (limited) return limited
   if (!(await isFeatureOn(actor.userId, 'kira-world'))) return new Response(null, { status: 404 })
   const days = z.coerce.number().int().safeParse((await params).days)
   if (!days.success) return new Response(null, { status: 404 })

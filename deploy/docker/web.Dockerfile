@@ -34,9 +34,13 @@ RUN mkdir -p /repo/tools-dist \
     done
 
 FROM ${NODE_IMAGE} AS run
-ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 \
+# KEEP_ALIVE_TIMEOUT lebih lama dari keepalive 30 detik di Caddyfile: tanpa ini Node menutup sambungan setelah 5 detik dan
+# POST yang kebetulan memakai sambungan itu dijawab 502 oleh proxy (tidak diulang karena bukan idempoten).
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME=0.0.0.0 KEEP_ALIVE_TIMEOUT=65000 \
     KIRA_CONTENT_DIR=/app/content KIRA_MIGRATIONS_DIR=/app/migrations KIRA_DATA_DIR=/data
 WORKDIR /app
+# npm dan corepack tidak dipakai saat jalan. Trivy menemukan kerentanan tinggi hanya di salinan npm bawaan image Node.
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
 COPY --from=build --chown=node:node /repo/apps/web/.next/standalone ./
 COPY --from=build --chown=node:node /repo/apps/web/.next/static ./apps/web/.next/static
 COPY --from=build --chown=node:node /repo/apps/web/public ./apps/web/public

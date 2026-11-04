@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 import { and, eq, gt, inArray, isNull, ne, sql } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { authDb } from '../db'
-import { kvConfigured, kvDel, kvGet, kvSet } from '../kv'
+import { kvConfigured, kvDel, kvEval, kvGet, kvSet } from '../kv'
 import { log } from '../log'
 import { clearCookie, readCookie, SESSION_ABSOLUTE_MS, SESSION_COOKIE, SESSION_IDLE_MS, writeCookie } from './cookies'
 import { randomToken, sha256hex } from './crypto'
@@ -36,7 +36,10 @@ export type SessionInfo = {
 const CACHE_TTL_S = 15
 const LOCAL_TTL_MS = 5000
 type CachedSession = { info: Omit<SessionInfo, 'createdAt'> & { createdAt: string }; expiresAt: number; lastSeenAt: number }
-const local = new Map<string, { at: number; v: CachedSession }>()
+// Di globalThis: Route Handler dan halaman memakai salinan modul yang berbeda, jadi cache di variabel modul tidak ikut terhapus
+// saat keluar lewat /keluar dan sesi lama masih diterima sampai 5 detik bila Valkey mati.
+const g = globalThis as unknown as { __kiraSessionLocal?: Map<string, { at: number; v: CachedSession }>; __kiraSessionDead?: Map<string, number> }
+const local = (g.__kiraSessionLocal ??= new Map())
 const touched = new Set<string>()
 let flusher: NodeJS.Timeout | null = null
 
@@ -61,17 +64,34 @@ async function cacheGet(id: string): Promise<CachedSession | null> {
   return null
 }
 
+/**
+ * Tanda sesi yang baru dicabut. Permintaan yang sudah berjalan (misalnya prefetch halaman) bisa membaca sesi dari database
+ * tepat sebelum dicabut, lalu mengisi cache sesudahnya, sehingga sesi yang sudah keluar masih diterima sampai cache habis.
+ * Selama tanda ini ada, cache tidak diisi.
+ */
+const DEAD_TTL_S = 30
+const dead = (g.__kiraSessionDead ??= new Map<string, number>())
+const deadKey = (id: string) => `sessdead:${id}`
+const PUT_UNLESS_DEAD = `if redis.call('EXISTS', KEYS[2]) == 0 then redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2]) end return 1`
+
 async function cachePut(id: string, v: CachedSession): Promise<void> {
   if (cacheOff()) return
+  if ((dead.get(id) ?? 0) > Date.now()) return
   local.set(id, { at: Date.now(), v })
   if (local.size > 5000) local.clear()
-  await kvSet(cacheKey(id), JSON.stringify(v), CACHE_TTL_S)
+  await kvEval(PUT_UNLESS_DEAD, [cacheKey(id), deadKey(id)], [JSON.stringify(v), CACHE_TTL_S])
 }
 
 /** Hapus cache sesi (semua replika bila Valkey tersedia). */
 export async function invalidateSessions(ids: string[]): Promise<void> {
   if (ids.length === 0) return
-  for (const id of ids) local.delete(id)
+  const until = Date.now() + DEAD_TTL_S * 1000
+  for (const id of ids) {
+    local.delete(id)
+    dead.set(id, until)
+  }
+  if (dead.size > 5000) for (const [k, v] of dead) if (v <= Date.now()) dead.delete(k)
+  await Promise.all(ids.map((id) => kvSet(deadKey(id), '1', DEAD_TTL_S)))
   await kvDel(...ids.map(cacheKey))
 }
 

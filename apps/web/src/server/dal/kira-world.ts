@@ -67,7 +67,7 @@ import { skillsFor, subjectOfSkill } from './content'
 import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
 import { featureMapFor, isFeatureOnTx } from './learner-features'
-import { guardAttemptItems } from './session-guard'
+import { dropUnplayableAudio, guardAttemptItems } from './session-guard'
 import type { LearnerShell } from '@/lib/dto'
 import type { AlbumDTO, BossDTO, BossResultDTO, CardMiniDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
@@ -757,7 +757,8 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     const subject = def.subjects.filter(on)[i % def.subjects.filter(on).length]!
     await add(subject, [], Math.min(3, questions - items.length), `fill${i}`)
   }
-  const guarded = await guardAttemptItems(tx, items, { seed, mode: 'latihan' })
+  // Bos tidak mengirim kunci atau teks dengar, jadi soal dengar tanpa klip tidak bisa dikerjakan.
+  const guarded = await dropUnplayableAudio(tx, await guardAttemptItems(tx, items, { seed, mode: 'latihan' }))
   if (guarded.length < 5) throw invalid('This boss is still warming up. Try again soon.')
   const [row] = await tx
     .insert(attempt)

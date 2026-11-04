@@ -29,7 +29,7 @@ import type {
 import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { conflict, invalid, notFound } from '../errors'
-import { grantXp, learnerShell, loadLearner } from './learner-core'
+import { grantXp, learnerShell, loadLearner, lockLearnerScope } from './learner-core'
 import { awardReadingStars } from './kira-world'
 
 /**
@@ -254,6 +254,7 @@ export async function logReadingSeconds(tx: Tx, ctx: OrgContext, learnerId: stri
  * jadi mengulang kuis memberi soal baru lebih dulu. Kuis yang belum dikumpulkan dan masih baru dilanjutkan.
  */
 export async function startChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: string, bookId: string, chapterId: string): Promise<QuizDTO> {
+  await lockLearnerScope(tx, 'reading', learnerId)
   const book = bookById(bookId)
   const chapter = book?.chapters.find((c) => c.id === chapterId)
   if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
@@ -321,6 +322,9 @@ async function maybeFinishBook(tx: Tx, ctx: OrgContext, learnerId: string, book:
 
 /** Nilai kuis di server. XP hanya untuk kuis pertama sebuah bab; mengulang tidak menambah XP. */
 export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: string, quizId: string, answers: QuizAnswerInput[]): Promise<QuizResultDTO> {
+  // Kumpul ganda (klik dua kali, permintaan serentak) menunggu di sini lalu melihat kuis sudah dikumpulkan. Tanpa kunci, tiap
+  // permintaan membaca "belum dikumpulkan" dan XP diberikan berkali-kali.
+  await lockLearnerScope(tx, 'reading', learnerId)
   const [quiz] = await tx.select().from(bookQuiz).where(and(eq(bookQuiz.id, quizId), eq(bookQuiz.learnerId, learnerId))).limit(1)
   if (!quiz) throw notFound((await getT()).reading.errors.noQuiz)
   if (quiz.submittedAt) throw conflict((await getT()).reading.errors.quizSent)
@@ -374,6 +378,7 @@ export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: stri
 
 /** Selesaikan bab tanpa kuis (anak memilih melewatinya). Tidak ada XP. */
 export async function markChapterRead(tx: Tx, ctx: OrgContext, learnerId: string, bookId: string, chapterId: string): Promise<{ bookFinished: boolean; nextHref: string | null }> {
+  await lockLearnerScope(tx, 'reading', learnerId)
   const book = bookById(bookId)
   const chapter = book?.chapters.find((c) => c.id === chapterId)
   if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)

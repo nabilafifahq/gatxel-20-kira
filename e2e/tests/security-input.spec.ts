@@ -1,6 +1,9 @@
+import { mkdirSync, rmSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { expect, test } from '@playwright/test'
+import { isClipText, splitClipText, styleForSkill, ttsKeyInput } from '../../packages/core/src/tts'
 import { closeDb, createPracticeAttempt, db, GUARDIAN, loginAdult, mcqItems, TUTOR } from './helpers'
-import { api, BASE, familyA, SESSION_COOKIE, sha256, uploadPng } from './security-helpers'
+import { api, BASE, familyA, learnerSession, SESSION_COOKIE, sha256, uploadPng } from './security-helpers'
 
 /** Masukan jahat: CSRF, XSS tersimpan, redirect terbuka, traversal path, metode, ukuran, sesi. */
 
@@ -326,5 +329,143 @@ test.describe('header', () => {
       const body = await (await ctx.get(s)).text()
       expect(body, s).not.toMatch(/KIRA_SECRET|KIRA_INTERNAL_TOKEN|DATABASE_URL_|postgres:\/\/|aman-secret|KIRA_SETUP_TOKEN/)
     }
+  })
+})
+
+test.describe('uji tembus 5 November', () => {
+  test('next dengan tab atau baris baru tidak mengalihkan keluar', async () => {
+    const ctx = await api(A.mama)
+    for (const n of ['/%09/contoh-jahat.test', '/%0a/contoh-jahat.test', '/%0d/contoh-jahat.test']) {
+      const res = await ctx.get(`/masuk?next=${n}`, { maxRedirects: 0 })
+      expect(res.status(), n).toBe(307)
+      expect(res.headers().location, n).toBe('/keluarga')
+    }
+  })
+
+  test('saklar mati: rute mulai sesi tidak membuat attempt walau alamatnya diketik langsung', async () => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const ctx = await api(kid)
+    await db()`insert into learner_feature (learner_id, org_id, key, enabled) values
+      (${A.aishaId}, ${A.orgId}, 'english-skills', false), (${A.aishaId}, ${A.orgId}, 'olympiad-math', false)
+      on conflict (learner_id, key) do update set enabled = false`
+    try {
+      const [before] = await db()`select count(*)::int as n from attempt where learner_id = ${A.aishaId}`
+      for (const path of ['/english/listening/start', '/esmo/mock/math']) {
+        const res = await ctx.get(path, { maxRedirects: 0 })
+        expect(res.status(), path).toBe(303)
+        expect(res.headers().location ?? '', path).not.toContain('/run/')
+      }
+      const [after] = await db()`select count(*)::int as n from attempt where learner_id = ${A.aishaId}`
+      expect(after!.n).toBe(before!.n)
+    } finally {
+      await db()`delete from learner_feature where learner_id = ${A.aishaId} and key in ('english-skills', 'olympiad-math')`
+    }
+  })
+
+  test('tantangan bos: kunci dan pembahasan tidak ada di halaman runner', async ({ browser }) => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const ctx = await api(kid)
+    const start = await ctx.get('/world/boss/start?b=robot', { maxRedirects: 0 })
+    const location = start.headers().location ?? ''
+    test.skip(!location.includes('/run/'), 'Bank soal seed terlalu kecil untuk tantangan bos')
+    const body = (await (await ctx.get(location)).text()).replace(/\\"/g, '"')
+    for (const field of ['"key":', '"reveal":', '"explanation":', '"whyWrong":', '"hasSolution":']) expect(body, field).not.toContain(field)
+    // Layar tetap terbuka tanpa kunci. Penilaian server untuk soal bos diuji di uji-tembus.db.test.ts.
+    const context = await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { Cookie: `${SESSION_COOKIE}=${kid.token}` } })
+    const page = await context.newPage()
+    await page.goto(location)
+    await expect(page.getByRole('region', { name: 'Question' })).toBeVisible()
+    await context.close()
+  })
+
+  test('rute mulai sesi dibatasi 60 per menit per anak', async () => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const ctx = await api(kid)
+    const statuses: number[] = []
+    for (let i = 0; i < 70; i++) statuses.push((await ctx.get('/practice/start?subject=science&mode=tidak-ada', { maxRedirects: 0 })).status())
+    expect(statuses).toContain(429)
+    // Ember terisi 1 per detik selama tes berjalan, jadi sedikit di atas 60 masih wajar.
+    expect(statuses.filter((s) => s === 303).length).toBeLessThan(70)
+  })
+
+  test('tes berwaktu: soal dengar dan eja diputar dari klip, kata tidak ada di halaman, jawaban dinilai', async ({ browser }) => {
+    const dataDir = process.env.KIRA_DATA_DIR
+    test.skip(!dataDir, 'Butuh KIRA_DATA_DIR yang sama dengan server')
+    const listen = { id: 'e1.digraphs.014', skill: 'e1.digraphs', text: 'chop' }
+    const spell = { id: 'e1.digraphs.016', skill: 'e1.digraphs', text: 'ship. The ship sails on the sea. ship.' }
+    const keysOf = (t: { skill: string; text: string }) => splitClipText(t.text).filter(isClipText).map((c) => sha256(ttsKeyInput(c, styleForSkill(t.skill))))
+    const keys = [...keysOf(listen), ...keysOf(spell)]
+    const dir = join(dataDir!, 'tts')
+    mkdirSync(dir, { recursive: true })
+    // Beberapa frame MP3 hening yang sah, supaya browser benar-benar bisa memutarnya.
+    const frame = Buffer.alloc(417)
+    Buffer.from([0xff, 0xfb, 0x90, 0x64]).copy(frame)
+    const silence = Buffer.concat(Array.from({ length: 40 }, () => frame))
+    for (const k of keys) writeFileSync(join(dir, `${k}.mp3`), silence)
+    const attemptId = await createPracticeAttempt('Aisha', [{ id: listen.id, difficulty: 2 }, { id: spell.id, difficulty: 2 }], { mode: 'tes', timeLimitS: 600 })
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const context = await browser.newContext({ baseURL: BASE, extraHTTPHeaders: { Cookie: `${SESSION_COOKIE}=${kid.token}` } })
+    const page = await context.newPage()
+    await page.addInitScript(() => {
+      const w = window as unknown as { __deviceSpeech: number }
+      w.__deviceSpeech = 0
+      if ('speechSynthesis' in window) window.speechSynthesis.speak = () => void w.__deviceSpeech++
+    })
+    const heard: string[] = []
+    page.on('response', (r) => {
+      if (r.url().includes('/tts/') && r.ok()) heard.push(r.url().split('/').pop()!.replace('.mp3', ''))
+    })
+    try {
+      const res = await page.goto(`/run/${attemptId}`)
+      const html = (await res!.text()).replace(/\\"/g, '"')
+      for (const leak of ['"listenText":', 'chop', 'The ship sails']) expect(html, leak).not.toContain(leak)
+      expect(html).toContain('"listenClips":')
+
+      await page.getByRole('button', { name: 'Play the audio' }).click()
+      await expect.poll(() => keysOf(listen).every((k) => heard.includes(k))).toBe(true)
+      await page.getByRole('button', { name: /^[A-E], ch$/ }).click()
+      await page.getByRole('button', { name: 'Next', exact: true }).click()
+
+      await page.getByRole('button', { name: 'Hear the word' }).click()
+      await expect.poll(() => keysOf(spell).every((k) => heard.includes(k))).toBe(true)
+      for (const letter of 'ship') await page.getByRole('button', { name: letter, exact: true }).click()
+      await expect(page.getByText(/did not load|not ready yet/)).toHaveCount(0)
+      expect(await page.evaluate(() => (window as unknown as { __deviceSpeech: number }).__deviceSpeech)).toBe(0)
+
+      await page.getByRole('button', { name: 'Hand in', exact: true }).click()
+      await page.getByRole('dialog').getByRole('button', { name: 'Hand in', exact: true }).click()
+      await expect.poll(async () => (await db()`select status from attempt where id = ${attemptId}`)[0]!.status, { timeout: 30_000 }).toBe('submitted')
+      const [row] = await db()`select score_raw from attempt where id = ${attemptId}`
+      expect(row!.score_raw).toBe(2)
+    } finally {
+      await context.close()
+      for (const k of keys) rmSync(join(dir, `${k}.mp3`), { force: true })
+    }
+  })
+
+  test('/api/sync menghitung anggaran per butir, bukan per permintaan', async () => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const ctx = await api(kid, { 'Content-Type': 'application/json' })
+    const answers = Array.from({ length: 100 }, () => ({ bukan: 'jawaban' }))
+    const statuses: number[] = []
+    for (let i = 0; i < 14; i++) statuses.push((await ctx.post('/api/sync', { data: { answers, submits: [] } })).status())
+    expect(statuses).toContain(429)
+    expect(statuses.filter((s) => s === 200).length).toBeLessThanOrEqual(12)
+  })
+
+  test('/api/sync menolak body chunked yang terlalu besar', async () => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const res = await fetch(`${BASE}/api/sync`, {
+      method: 'POST',
+      headers: { Cookie: `${SESSION_COOKIE}=${kid.token}`, 'Content-Type': 'application/json' },
+      body: new ReadableStream({
+        start(c) {
+          for (let i = 0; i < 20; i++) c.enqueue(new Uint8Array(100 * 1024))
+          c.close()
+        },
+      }),
+      duplex: 'half',
+    } as RequestInit)
+    expect(res.status).toBe(413)
   })
 })

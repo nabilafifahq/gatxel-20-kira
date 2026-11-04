@@ -12,7 +12,8 @@ import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { poolForSkill, skill, skillsFor } from './content'
 import { guardAttemptItems } from './session-guard'
-import { grantXp, learnerShell, loadLearner, recentSeen, skillStates, type LearnerRow } from './learner-core'
+import { grantXp, learnerShell, loadLearner, lockLearnerScope, recentSeen, skillStates, type LearnerRow } from './learner-core'
+import { assertFeatureOnTx } from './learner-features'
 import type { AttemptItem } from './learner-runner'
 import { buildQuestItems } from './learner-today'
 
@@ -124,6 +125,7 @@ async function pickManualItems(tx: Tx, ctx: OrgContext, learner: LearnerRow, ski
 
 /** Mulai (atau lanjutkan) sesi English Skills. Mengembalikan id attempt untuk /run/<id>. */
 export async function startEnglishSession(tx: Tx, ctx: OrgContext, learnerId: string, area: EnglishSessionArea): Promise<string> {
+  await assertFeatureOnTx(tx, learnerId, 'english-skills')
   const learner = await loadLearner(tx, learnerId)
   const skillId = sessionSkillId(learner.grade, area)
   const sk = skill(skillId)
@@ -180,6 +182,8 @@ export async function spellingRound(tx: Tx, learnerId: string): Promise<Spelling
  * yang diulang terus tidak menambah XP tanpa batas.
  */
 export async function finishSpellingRound(tx: Tx, ctx: OrgContext, learnerId: string, answers: SpellingAnswerInput[]): Promise<SpellingResultDTO> {
+  // Satu putaran per anak pada satu waktu: batas XP harian dibaca dan ditulis di bawah kunci.
+  await lockLearnerScope(tx, 'spelling', learnerId)
   const learner = await loadLearner(tx, learnerId)
   const level = yleLevelOfGrade(learner.grade)
   const byId = new Map(spelling().levels[level.id].map((w) => [spellingId(level.id as SpellingLevel, w.word), w]))

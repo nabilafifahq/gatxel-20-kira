@@ -62,6 +62,10 @@ export type ClientItem = {
   parts?: ClientPart[]
   /** Teks yang dibacakan suara (listen dan spell). Dikirim ke perangkat supaya bisa dibacakan, tetapi tidak pernah ditampilkan atau masuk speakableText. */
   listenText?: string
+  /** Mode tanpa umpan balik: kunci klip (sha256) pengganti listenText. Kata atau kalimatnya tidak pernah dikirim. */
+  listenClips?: string[]
+  /** Mode tanpa umpan balik: klip belum ada, jadi soal ini tidak bisa didengar. */
+  listenMissing?: boolean
   spellLength?: number
   spellExtra?: string[]
   tiles?: string[]
@@ -97,6 +101,8 @@ export type PresentOptions = {
    * baru setelah itu `i` diganti label. Tidak boleh dipakai bersama includeKey, karena kunci memakai indeks asli.
    */
   labels?: LabelPerm
+  /** Jangan kirim teks dengar (soal dengar dan eja): di mode tanpa umpan balik teks itu adalah jawabannya. */
+  hideSpoken?: boolean
 }
 
 /** Teks yang diputar tombol dengar: soal dengar memakai listenText, soal eja memakai kata lalu kalimat contoh. */
@@ -216,7 +222,7 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
     case 'listen': {
       const opts = item.options.map((o, i) => ({ i, ...(o.text ? { text: o.text } : {}), ...(o.figure ? { figure: o.figure } : {}) }))
       out.options = relabel(rng.shuffle(opts))
-      out.listenText = item.listenText
+      if (!opt.hideSpoken) out.listenText = item.listenText
       break
     }
     case 'tiles': {
@@ -228,7 +234,7 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
       break
     }
     case 'spell':
-      out.listenText = listenTextOf(item) ?? ''
+      if (!opt.hideSpoken) out.listenText = listenTextOf(item) ?? ''
       out.spellLength = item.word.length
       {
         const extra = [...new Set([item.word, ...item.alsoAccept].join('').split('').filter((c) => c === "'" || c === '-'))]
