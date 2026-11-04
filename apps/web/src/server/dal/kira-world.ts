@@ -346,25 +346,27 @@ export async function buyItem(tx: Tx, learnerId: string, itemId: string): Promis
 }
 
 /** Pakai atau lepas barang yang dimiliki. Outfit dan latar avatar ditulis ke profil, sisanya ke keadaan dunia. */
-export async function equipItem(tx: Tx, learnerId: string, kind: 'petcostume' | 'pethome' | 'frame' | 'outfit' | 'backdrop', itemId: string | null): Promise<void> {
+export async function equipItem(tx: Tx, learnerId: string, kind: 'petcostume' | 'pethome' | 'frame' | 'outfit' | 'backdrop', itemId: string | null): Promise<{ look: 'avatarAccessory' | 'avatarBackground'; value: string | null } | null> {
   if (itemId !== null) {
     const item = anyItem(itemId)
     if (!item || item.kind !== kind) throw notFound('That item does not exist.')
     const owned = await ownedItems(tx, learnerId)
     if (!owned.has(itemId)) throw forbidden('Earn or buy that first.')
   }
+  // Pakaian dan latar avatar ditulis ke profil oleh pemanggil (peran sistem), seperti peti hadiah.
+  if (kind === 'outfit') return { look: 'avatarAccessory', value: itemId }
+  if (kind === 'backdrop') return { look: 'avatarBackground', value: itemId }
   const world = await loadWorld(tx, learnerId)
-  if (kind === 'outfit') {
-    await tx.update(learnerProfile).set({ avatarAccessory: itemId, updatedAt: new Date() }).where(eq(learnerProfile.userId, learnerId))
-  } else if (kind === 'backdrop') {
-    await tx.update(learnerProfile).set({ avatarBackground: itemId, updatedAt: new Date() }).where(eq(learnerProfile.userId, learnerId))
-  } else {
-    const eqp: Equipped = { ...world.equipped }
-    if (kind === 'petcostume') eqp.petCostume = itemId
-    else if (kind === 'pethome') eqp.petHome = itemId
-    else eqp.frame = itemId
-    await saveWorld(tx, learnerId, { equipped: eqp })
-  }
+  const eqp: Equipped = { ...world.equipped }
+  if (kind === 'petcostume') eqp.petCostume = itemId
+  else if (kind === 'pethome') eqp.petHome = itemId
+  else eqp.frame = itemId
+  await saveWorld(tx, learnerId, { equipped: eqp })
+  return null
+}
+
+export async function applyLook(tx: Tx, learnerId: string, look: 'avatarAccessory' | 'avatarBackground', value: string | null): Promise<void> {
+  await tx.update(learnerProfile).set({ [look]: value, updatedAt: new Date() }).where(eq(learnerProfile.userId, learnerId))
 }
 
 // ---------------------------------------------------------------------------
