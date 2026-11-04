@@ -21,10 +21,16 @@ export const SHEET_CSS = `
 @media screen and (max-width: 52rem) {
   .print-stack { align-items: flex-start; overflow-x: auto; max-width: 100vw; }
 }
+/* HP: lembar A4 diperkecil supaya terbaca utuh tanpa menggeser ke samping. */
+@media screen and (max-width: 52rem) { .print-sheet { zoom: 0.9; } }
+@media screen and (max-width: 46rem) { .print-sheet { zoom: 0.8; } }
+@media screen and (max-width: 40rem) { .print-sheet { zoom: 0.62; } }
+@media screen and (max-width: 31rem) { .print-sheet { zoom: 0.47; } }
+@media screen and (max-width: 26rem) { .print-sheet { zoom: 0.42; } }
 @media print {
   html, body { background: var(--color-white) !important; }
   .print-stack { gap: 0; padding: 0; background: var(--color-white); }
-  .print-sheet { border: 0; break-after: page; }
+  .print-sheet { border: 0; break-after: page; zoom: 1 !important; }
   .print-sheet:last-child { break-after: auto; }
   .print-sheet, .print-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }

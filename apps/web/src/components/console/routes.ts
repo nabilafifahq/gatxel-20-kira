@@ -29,6 +29,9 @@ export const CONSOLE_ROUTES = {
 export const FAMILY_ROUTES = {
   home: '/keluarga',
   week: '/keluarga/minggu',
+  coach: '/keluarga/pelatih',
+  sheet: '/keluarga/lembar',
+  report: '/keluarga/rapor',
   child: (id: string) => `/keluarga/anak/${encodeURIComponent(id)}`,
   privacy: '/keluarga/privasi',
 } as const
@@ -43,5 +46,8 @@ export const PUBLIC_ROUTES = {
 export const PRINT_ROUTES = {
   paper: (id: string) => `/cetak/paper/${encodeURIComponent(id)}`,
   key: (id: string) => `/cetak/kunci/${encodeURIComponent(id)}`,
+  worksheet: (id: string) => `/cetak/lembar/${encodeURIComponent(id)}`,
+  worksheetKey: (id: string) => `/cetak/lembar/${encodeURIComponent(id)}/kunci`,
+  report: (learnerId: string, month: string) => `/cetak/rapor/${encodeURIComponent(learnerId)}?bulan=${encodeURIComponent(month)}`,
   ljk: (attemptId: string) => `/cetak/ljk/${encodeURIComponent(attemptId)}`,
 } as const

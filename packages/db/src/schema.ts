@@ -398,6 +398,23 @@ export const dayRules = pgTable('day_rules', {
   updatedAt: ts('updated_at').notNull().defaultNow(),
 })
 
+/** Lembar kerja yang dibuat orang tua (migrasi 0022): batas harian per keluarga dan seed untuk membuka ulang lembar yang sama. */
+export const worksheet = pgTable(
+  'worksheet',
+  {
+    id: id(),
+    orgId: orgId(),
+    learnerId: uuid('learner_id').notNull(),
+    createdBy: uuid('created_by'),
+    subject: text('subject', { enum: ['math', 'english', 'science'] }).notNull(),
+    skillId: text('skill_id').notNull(),
+    itemCount: smallint('item_count').notNull(),
+    day: date('day').notNull(),
+    createdAt: createdAt(),
+  },
+  (t) => [index('worksheet_org_day_idx').on(t.orgId, t.day)],
+)
+
 export const restDay = pgTable(
   'rest_day',
   {
@@ -1022,7 +1039,7 @@ export const TENANT_TABLES = [
   'day_record', 'badge_award', 'media', 'note', 'problem_report', 'competition_event', 'org_item', 'ai_job',
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state',
+  'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state', 'worksheet',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
@@ -1030,5 +1047,5 @@ export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'note', 'week_report',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_pick',
+  'paper_pick', 'worksheet',
 ] as const
