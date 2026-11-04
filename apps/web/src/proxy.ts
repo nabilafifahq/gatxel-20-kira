@@ -9,6 +9,7 @@ import { accessLogLine } from '@/lib/access-log'
  */
 export function proxy(request: NextRequest) {
   const redirect = httpsRedirectTarget(request.headers, request.nextUrl.pathname + request.nextUrl.search, process.env.NODE_ENV === 'production', process.env.KIRA_ORIGIN)
+  // eslint-disable-next-line no-console -- log akses JSON satu baris; proxy tidak bisa memakai server/log (server-only)
   if (process.env.KIRA_ACCESS_LOG !== 'off') console.log(accessLogLine(request.method, request.nextUrl.pathname, request.headers))
   if (redirect) return NextResponse.redirect(redirect, 308)
   if (request.nextUrl.pathname.startsWith('/api/')) return NextResponse.next()
