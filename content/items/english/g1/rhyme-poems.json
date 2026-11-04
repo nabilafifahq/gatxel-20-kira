@@ -573,24 +573,24 @@
       "skill": "e1.rhyme-poems",
       "type": "mcq",
       "difficulty": 1,
-      "prompt": "Which word rhymes with cat?",
+      "prompt": "Which word rhymes with sun?",
       "hints": [
         "Rhyming words end with the same sound.",
-        "Say cat, then say each choice.",
-        "You wear it on your head."
+        "Say sun and then each word.",
+        "Sun and one word both end in -un."
       ],
-      "explanation": "Cat and hat rhyme.",
+      "explanation": "Sun and run end with the same sound, so they rhyme.",
       "options": [
         {
-          "text": "hat"
+          "text": "run"
         },
         {
-          "text": "dog",
-          "why": "Dog does not end in at."
+          "text": "pen",
+          "why": "Pen ends with a different sound."
         },
         {
-          "text": "sun",
-          "why": "Sun does not end in at."
+          "text": "bed",
+          "why": "Bed ends with a different sound."
         }
       ],
       "answer": 0

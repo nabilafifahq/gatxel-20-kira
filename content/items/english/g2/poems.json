@@ -563,28 +563,28 @@
       "skill": "e2.poems",
       "type": "mcq",
       "difficulty": 1,
-      "prompt": "Which word rhymes with moon?",
+      "prompt": "Which word rhymes with rain?",
       "hints": [
-        "Say moon aloud.",
         "Rhyming words end with the same sound.",
-        "You eat with it."
+        "Say rain slowly and listen to the end.",
+        "Which word ends in -ain?"
       ],
-      "explanation": "Moon and spoon rhyme.",
+      "explanation": "Rain and train end with the same sound, so they rhyme.",
       "options": [
         {
-          "text": "spoon"
+          "text": "train"
         },
         {
-          "text": "mat",
-          "why": "Mat does not end like moon."
+          "text": "rice",
+          "why": "Rice ends with a different sound."
         },
         {
-          "text": "dog",
-          "why": "Dog does not end like moon."
+          "text": "road",
+          "why": "Road ends with a different sound."
         },
         {
-          "text": "sun",
-          "why": "Sun does not end like moon."
+          "text": "ring",
+          "why": "Ring ends with a different sound."
         }
       ],
       "answer": 0

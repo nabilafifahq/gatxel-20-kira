@@ -68,15 +68,15 @@
       "skill": "s4.earth-sun-moon",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "How many hours does the Earth take to spin round once?",
-      "answer": 24,
-      "unit": "hours",
+      "prompt": "How many days does the Earth take to travel once round the Sun in a normal year?",
       "hints": [
-        "One spin gives one day and one night.",
-        "How long is one whole day?",
-        "Count the hours from midnight to the next midnight."
+        "This is the length of a normal year.",
+        "A leap year has one more day.",
+        "It is a little more than 360."
       ],
-      "explanation": "The Earth spins round once every 24 hours. That gives us one day and one night."
+      "explanation": "The Earth takes about 365 days to go once round the Sun. That is one year.",
+      "answer": 365,
+      "unit": "days"
     },
     {
       "id": "s4.earth-sun-moon.004",

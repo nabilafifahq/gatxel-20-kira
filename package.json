@@ -18,7 +18,7 @@
     "test": "vitest run --project core --project content --project figures --project web --project worker",
     "test:db": "vitest run --project db --project web-db",
     "test:all": "vitest run",
-    "content:check": "tsx packages/content/scripts/check.ts",
+    "content:check": "tsx packages/content/scripts/check.ts && node scripts/audit-duplicates.mjs",
     "db:generate": "drizzle-kit generate --config packages/db/drizzle.config.ts",
     "db:migrate": "tsx packages/db/scripts/migrate.ts",
     "db:seed": "tsx packages/db/scripts/seed.ts",

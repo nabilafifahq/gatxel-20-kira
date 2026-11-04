@@ -393,21 +393,21 @@
       "prompt": "Which sentence is a question?",
       "hints": [
         "A question asks something.",
-        "It ends with a curly mark.",
-        "It starts with Where."
+        "Look for the sentence that wants an answer.",
+        "It ends with a question mark."
       ],
-      "explanation": "Where is my hat? asks something, so it ends with a question mark.",
+      "explanation": "Do you like rice? asks something, so it is a question.",
       "options": [
         {
-          "text": "I have a hat.",
-          "why": "This tells us something."
+          "text": "I like rice.",
+          "why": "This tells us something. It is not asking."
         },
         {
-          "text": "What a big hat!",
-          "why": "This shows a strong feeling."
+          "text": "Rice is white.",
+          "why": "This tells us a fact."
         },
         {
-          "text": "Where is my hat?"
+          "text": "Do you like rice?"
         }
       ],
       "answer": 2

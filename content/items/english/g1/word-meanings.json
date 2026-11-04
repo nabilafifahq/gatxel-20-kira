@@ -1107,31 +1107,31 @@
       "skill": "e1.word-meanings",
       "type": "mcq",
       "difficulty": 2,
-      "prompt": "Which one is a fruit?",
+      "prompt": "Which one is a vegetable?",
       "hints": [
-        "Fruits grow on trees or plants.",
-        "They are often sweet.",
-        "It is orange or yellow inside."
+        "Vegetables are plants we eat, often in a main meal.",
+        "A rabbit likes this one.",
+        "It is orange."
       ],
-      "explanation": "A mango is a fruit.",
+      "explanation": "A carrot is a vegetable. Bananas and apples are fruits.",
+      "options": [
+        {
+          "text": "banana",
+          "why": "A banana is a fruit."
+        },
+        {
+          "text": "carrot"
+        },
+        {
+          "text": "apple",
+          "why": "An apple is a fruit."
+        }
+      ],
+      "answer": 1,
       "tags": [
         "esmo",
         "iklc"
-      ],
-      "options": [
-        {
-          "text": "carrot",
-          "why": "A carrot is a vegetable."
-        },
-        {
-          "text": "bread",
-          "why": "Bread is made from flour."
-        },
-        {
-          "text": "mango"
-        }
-      ],
-      "answer": 2
+      ]
     },
     {
       "id": "e1.word-meanings.023",
