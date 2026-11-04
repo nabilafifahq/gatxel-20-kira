@@ -63,9 +63,12 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
     expect(row!.password_hash).not.toContain(PASSWORD)
     expect(new Date(row!.expires_at).getTime() - Date.now()).toBeGreaterThan(23 * 3600 * 1000)
     expect(new Date(row!.expires_at).getTime() - Date.now()).toBeLessThanOrEqual(24 * 3600 * 1000)
-    const ok = await svc.verifySignup(token)
+    // Pre-hijack: tanpa password yang benar, token tidak terpakai dan kursi tidak terambil.
+    expect((await svc.verifySignup(token, 'password-orang-lain-yang-salah')).status).toBe('password')
+    expect(await count(owner`select count(*)::int as n from auth.signup where email_norm = ${`ibu${run}@gmail.com`}`)).toBe(1)
+    const ok = await svc.verifySignup(token, PASSWORD)
     expect(ok.status).toBe('ok')
-    expect((await svc.verifySignup(token)).status).toBe('invalid')
+    expect((await svc.verifySignup(token, PASSWORD)).status).toBe('invalid')
     const [u] = await owner`select role, kind, email_norm from auth.user_account where lower(email) = ${email}`
     expect(u).toMatchObject({ role: 'guardian', kind: 'adult', email_norm: `ibu${run}@gmail.com` })
   })
@@ -104,7 +107,7 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
     await svc.startSignup({ name: 'Ibu Tiga', email, password: PASSWORD, consent: true, ipHash: 'x' })
     const token = tokenOf((await mailTo(email, 'signup-verify'))!.text as string, '/daftar/konfirmasi/')
     await owner`update auth.signup set expires_at = now() - interval '1 minute' where email_norm = ${`tiga${run}@gmail.com`}`
-    expect((await svc.verifySignup(token)).status).toBe('invalid')
+    expect((await svc.verifySignup(token, PASSWORD)).status).toBe('invalid')
     await owner`select kira_purge_public()`
     expect(await count(owner`select count(*)::int as n from auth.signup where email_norm = ${`tiga${run}@gmail.com`}`)).toBe(0)
   })

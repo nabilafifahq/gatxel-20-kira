@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
 import { InlineAlert } from '@/components/console/Feedback'
+import { PasswordField } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { AuthCard } from '@/screens/public/PublicFrame'
 import { WaitlistFull } from '@/components/auth/WaitlistFull'
@@ -16,11 +17,16 @@ import { verifySignupAction } from '@/server/actions/signup'
 export function VerifyClient({ token, valid }: { token: string; valid: boolean }) {
   const verify = useAction(verifySignupAction)
   const [outcome, setOutcome] = useState<'full' | 'invalid' | 'taken' | null>(valid ? null : 'invalid')
+  const [password, setPassword] = useState('')
+  const [wrong, setWrong] = useState(false)
 
-  async function confirm() {
-    const r = await verify.run({ token })
+  async function confirm(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (!password) return setWrong(true)
+    const r = await verify.run({ token, password })
     if (!r.ok) return
     if (r.data.status === 'ok') window.location.assign(r.data.redirectTo)
+    else if (r.data.status === 'password') setWrong(true)
     else setOutcome(r.data.status)
   }
 
@@ -61,15 +67,35 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
       <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
         Satu tekan lagi
       </h1>
-      <p className="m-0 text-body text-fg-muted">Tekan tombol di bawah untuk memastikan email ini milikmu. Keluarga Kira kamu langsung dibuat dan kamu masuk.</p>
-      {verify.error ? (
-        <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
-          Coba lagi dalam beberapa menit.
-        </InlineAlert>
-      ) : null}
-      <Button variant="primary" loading={verify.pending} onClick={confirm} className="h-12! w-full">
-        Konfirmasi email
-      </Button>
+      <p className="m-0 text-body text-fg-muted">Masukkan password yang kamu buat saat mendaftar, lalu tekan Konfirmasi. Keluarga Kira kamu langsung dibuat dan kamu masuk.</p>
+      <form method="post" noValidate onSubmit={confirm} className="flex flex-col gap-5">
+        <PasswordField
+          name="password"
+          label="Password"
+          autoComplete="current-password"
+          size="L"
+          value={password}
+          error={wrong ? 'Password belum cocok dengan yang dibuat saat mendaftar.' : null}
+          hint="Ini memastikan hanya kamu yang menyelesaikan pendaftaran dengan email ini."
+          onChange={(e) => {
+            setPassword(e.target.value)
+            setWrong(false)
+          }}
+        />
+        {wrong ? (
+          <p className="m-0 text-small text-fg-muted">
+            Lupa, atau bukan kamu yang mendaftar? <Link href="/daftar" className="font-bold">Daftar lagi</Link> untuk membuat password baru, lalu pakai email konfirmasi yang terbaru.
+          </p>
+        ) : null}
+        {verify.error ? (
+          <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
+            Coba lagi dalam beberapa menit.
+          </InlineAlert>
+        ) : null}
+        <Button type="submit" variant="primary" loading={verify.pending} className="h-12! w-full">
+          Konfirmasi email
+        </Button>
+      </form>
     </AuthCard>
   )
 }

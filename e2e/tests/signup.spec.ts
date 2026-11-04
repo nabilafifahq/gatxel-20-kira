@@ -97,6 +97,11 @@ test.describe('pendaftaran orang tua', () => {
     // Membuka tautan saja tidak memakai token atau kursi.
     await page.goto(link)
     expect(await seatsFree()).toBe(before)
+    await page.getByLabel('Password', { exact: true }).fill('password-yang-salah-sama-sekali')
+    await page.getByRole('button', { name: 'Konfirmasi email' }).click()
+    await expect(page.getByText('Password belum cocok dengan yang dibuat saat mendaftar.')).toBeVisible()
+    expect(await seatsFree()).toBe(before)
+    await page.getByLabel('Password', { exact: true }).fill(PASSWORD)
     await page.getByRole('button', { name: 'Konfirmasi email' }).click()
     await expect(page).toHaveURL(/\/mulai$/)
     expect(await seatsFree()).toBe(before - 1)

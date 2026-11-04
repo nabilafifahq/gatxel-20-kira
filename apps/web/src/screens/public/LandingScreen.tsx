@@ -17,19 +17,19 @@ const SUBJECTS = [
   {
     key: 'math',
     name: 'Math',
-    pill: 'bg-math-50 text-math',
+    pill: 'bg-math-50 text-fg',
     body: 'Hitung, bilangan, bangun, dan soal cerita. Soalnya naik tingkat sedikit demi sedikit, dan soal yang masih sulit muncul lagi beberapa hari kemudian sampai anak lancar.',
   },
   {
     key: 'english',
     name: 'English',
-    pill: 'bg-english-50 text-english',
+    pill: 'bg-english-50 text-fg',
     body: 'Kosakata, tata bahasa, dan membaca pendek. Ada soal yang dibacakan dengan suara yang sama setiap hari, jadi anak terbiasa mendengar satu suara yang konsisten.',
   },
   {
     key: 'science',
     name: 'Science',
-    pill: 'bg-science-50 text-science',
+    pill: 'bg-science-50 text-fg',
     body: 'Makhluk hidup, benda dan sifatnya, bumi, serta cara kerja alam sehari-hari. Dengan gambar yang jelas dan kalimat yang pendek.',
   },
 ] as const
@@ -83,15 +83,15 @@ export function LandingScreen({ seats, curriculumClaim, turnstileSiteKey }: Land
           <div aria-hidden="true" className="rounded-card border border-divider bg-surface p-6 shadow-sm max-lg:hidden">
             <p className="m-0 text-small font-bold text-fg-muted">Latihan hari ini</p>
             <ol className="m-0 mt-4 flex list-none flex-col gap-3 p-0">
-              <li className="flex items-center gap-3 rounded-control bg-math-50 px-4 py-3 text-math">
+              <li className="flex items-center gap-3 rounded-control bg-math-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">1</span>
                 <span className="text-body font-bold">Math, 8 soal</span>
               </li>
-              <li className="flex items-center gap-3 rounded-control bg-english-50 px-4 py-3 text-english">
+              <li className="flex items-center gap-3 rounded-control bg-english-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">2</span>
                 <span className="text-body font-bold">English, 8 soal</span>
               </li>
-              <li className="flex items-center gap-3 rounded-control bg-science-50 px-4 py-3 text-science">
+              <li className="flex items-center gap-3 rounded-control bg-science-50 px-4 py-3 text-fg">
                 <span className="font-display text-h2 font-semibold">3</span>
                 <span className="text-body font-bold">Science, 8 soal</span>
               </li>

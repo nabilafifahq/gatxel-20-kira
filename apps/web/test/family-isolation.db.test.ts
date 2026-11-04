@@ -126,7 +126,7 @@ describe.skipIf(!ready)('isolasi antar keluarga', () => {
   it('A tidak melihat atau mengubah hasil, XP, dan kemajuan B di tabel mana pun', async () => {
     const ctx = { orgId: A.orgId, userId: A.userId, role: 'guardian' as const }
     for (const t of ['learner_profile', 'guardian_link', 'member_profile', 'consent_event', 'attempt', 'response', 'xp_event', 'skill_state', 'media', 'note', 'audit_log', 'outbox_email']) {
-      const seen = await dbm.inOrg(ctx, (tx) => tx.execute(sql.raw(`select count(*)::int as n from ${t} where org_id = '${B.orgId}'`)))
+      const seen = await dbm.inOrg(ctx, (tx) => tx.execute(sql`select count(*)::int as n from ${sql.identifier(t)} where org_id = ${B.orgId}`))
       expect((seen as unknown as { n: number }[])[0]!.n, t).toBe(0)
     }
     const upd = await dbm.inOrg(ctx, (tx) => tx.execute(sql`update attempt set title = 'diubah' where id = ${attemptB} returning id`))
