@@ -749,6 +749,67 @@ export async function setSessionRequired(actor: Actor, input: SessionTarget & { 
 }
 
 /**
+ * Ganti pelajaran sesi Latihan atau Tes hari ini yang belum dimulai, untuk hari ini saja. Sesi otomatis mendapat slot
+ * dasar, sesi lain slotnya diubah. Wajib atau Opsional, jumlah soal, dan waktu tetap sama, jadi hitungan streak tidak
+ * berubah. Soalnya dibuat ulang lewat applyToday, titik yang sama dengan perubahan rencana lain. Pemanggil sudah
+ * memeriksa kepemilikan dan bahwa skill itu sah untuk learner ini.
+ */
+export async function setSessionSkillTx(
+  tx: Tx,
+  ctx: OrgContext,
+  input: { learnerId: string; skillId: string; targets: readonly { slotId: string | null; subject: Subject; session: SessionType }[] },
+): Promise<PlanChangeResult> {
+  const today = jakartaDate()
+  const learner = await planLearner(tx, input.learnerId)
+  await assertNotRest(tx, learner, today)
+  const weekId = await ensureWeek(tx, ctx, learner.id, weekStart(today))
+  for (const t of input.targets) {
+    const q = await questForTarget(tx, learner.id, today, t)
+    if (q && (await questStarted(tx, q))) throw conflict(startedText(q, learner.name))
+    const { entries } = await dayEntries(tx, learner, today)
+    const same = (e: DayEntry) => e.baseline && e.subject === t.subject && e.session === t.session
+    const slotId = t.slotId ?? entries.find((e) => same(e) && e.slotId !== null)?.slotId ?? null
+    let changed: string
+    if (slotId) {
+      const slot = await slotById(tx, slotId)
+      if (slot.learnerId !== learner.id || slot.date !== today) throw notFound('Slot tidak ditemukan untuk hari ini. Muat ulang halaman.')
+      if (slot.paperId) throw conflict('Slot ini berisi paper dari Penyusun paper, jadi pelajarannya tidak bisa diganti dari sini.')
+      await tx.update(planSlot).set({ skillId: input.skillId }).where(eq(planSlot.id, slot.id))
+      changed = slot.id
+    } else {
+      const entry = entries.find((e) => same(e) && e.slotId === null)
+      if (!entry) throw conflict('Sesi ini sudah tidak ada hari ini. Muat ulang halaman.')
+      const v = await autoSlotValues(tx, learner, today, today, entry)
+      const [row] = await tx
+        .insert(planSlot)
+        .values({
+          orgId: ctx.orgId,
+          planWeekId: weekId,
+          learnerId: learner.id,
+          date: today,
+          subject: t.subject,
+          kind: 'quest',
+          session: t.session,
+          required: entry.required,
+          paperKind: null,
+          config: v.config,
+          skillId: input.skillId,
+          paperId: null,
+          mode: v.mode,
+          questionCount: v.questionCount,
+          base: true,
+          off: false,
+        })
+        .returning({ id: planSlot.id })
+      changed = row!.id
+    }
+    await auditTx(tx, ctx, 'plan.session.skill', changed, { learnerId: learner.id, date: today, subject: t.subject, session: t.session, skillId: input.skillId })
+  }
+  await touchWeek(tx, weekId)
+  return applyToday(tx, ctx, learner.id, [today], today, { publish: true })
+}
+
+/**
  * Hapus satu sesi dari sebuah hari. Slot tambahan dihapus; slot yang menggantikan sesi dasar, dan sesi otomatis,
  * dimatikan (Mati) supaya sesi dasarnya tidak muncul lagi. Sesi hari ini yang sudah dimulai atau selesai tidak
  * bisa dihapus (jadikan Opsional).

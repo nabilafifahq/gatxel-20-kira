@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { FEATURE_KEYS } from '@kira/core/features'
+import { SKILL_ID } from '@kira/content/schema'
 import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
 
 /**
@@ -32,6 +33,7 @@ export const parentSchemas = {
   quest: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.') }).strict(),
   sessionRequired: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), required: z.boolean() }).strict(),
   sessionTarget: z.object({ learnerId: id, subject, session: coreSession }).strict(),
+  sessionSkill: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), skillId: z.string().max(80).regex(SKILL_ID, 'Pilih pelajaran dari daftar.') }).strict(),
   questionCount: z.object({ questId: z.string().uuid('Sesi tidak valid. Muat ulang halaman.'), questionCount: z.number().int().min(5, 'Paling sedikit 5 soal.').max(30, 'Paling banyak 30 soal.') }).strict(),
   limits: z
     .object({

@@ -25,6 +25,8 @@ import { yourAnswerText } from './learner-results'
 import { openMistakes } from './mistake-book'
 import { parentPlacement } from './placement'
 import { topSkills } from './mistake-logic'
+import { answeredByAttempt } from './parent-skill-change'
+import { sessionName, sessionState, skillChangeView, type SkillSession } from './session-skill-logic'
 import { weekSummaryDTO } from './week-summary'
 
 /**
@@ -72,12 +74,18 @@ async function todayCounts(tx: Tx, learnerId: string, date: IsoDate) {
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
     .groupBy(quest.kind, quest.status)
   const sum = (kind: string, status?: string) => rows.filter((r) => r.kind === kind && (!status || r.status === status)).reduce((a, r) => a + r.n, 0)
+  // Status quest tetap ready sampai selesai; sesi yang sudah dijawab sebagian terlihat dari jawabannya, seperti di Today anak.
+  const [answered] = await tx
+    .select({ n: sql<number>`count(*)::int` })
+    .from(response)
+    .innerJoin(quest, eq(quest.attemptId, response.attemptId))
+    .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
   return {
     requiredTotal: sum('daily'),
     requiredDone: sum('daily', 'done'),
     optionalTotal: sum('extra'),
     optionalDone: sum('extra', 'done'),
-    anyStarted: rows.some((r) => r.status !== 'ready'),
+    anyStarted: rows.some((r) => r.status !== 'ready') || (answered?.n ?? 0) > 0,
   }
 }
 
@@ -159,33 +167,45 @@ async function todaySessions(tx: Tx, learnerId: string, date: IsoDate): Promise<
       status: quest.status,
       attemptId: quest.attemptId,
       seq: quest.seq,
+      skillId: quest.skillId,
+      title: quest.title,
       raw: attempt.scoreRaw,
       max: attempt.scoreMax,
       scaled: attempt.scoreScaled,
       aStatus: attempt.status,
+      openedAt: attempt.openedAt,
       count: sql<number | null>`case when ${attempt.items} is null then null else jsonb_array_length(${attempt.items}) end`,
     })
     .from(quest)
     .leftJoin(attempt, eq(attempt.id, quest.attemptId))
     .where(and(eq(quest.learnerId, learnerId), eq(quest.date, date), ne(quest.kind, 'bonus')))
   const order = (s: string) => ['latihan', 'tes', 'paper'].indexOf(s)
+  const answered = await answeredByAttempt(tx, rows.map((r) => r.attemptId))
+  const plans: SkillSession[] = rows.map((r) => ({ id: r.id, subject: r.subject as Subject, session: r.session, required: r.kind === 'daily', seq: r.seq, skillId: r.skillId, state: sessionState(r.status, answered.get(r.attemptId ?? '') ?? 0, r.openedAt !== null) }))
   return rows
     .sort((a, b) => Number(b.kind === 'daily') - Number(a.kind === 'daily') || SUBJECT_ORDER.indexOf(a.subject as Subject) - SUBJECT_ORDER.indexOf(b.subject as Subject) || order(a.session) - order(b.session) || a.seq - b.seq)
     .map((r) => {
       const submitted = r.aStatus !== null && r.aStatus !== 'in_progress'
+      const plan = plans.find((p) => p.id === r.id)!
+      const view = skillChangeView(plan, plans, sessionName)
+      const sk = r.skillId ? skill(r.skillId) : undefined
       return {
         questId: r.id,
         subject: r.subject as Subject,
         label: sessionLabel(r.session),
         session: r.session,
         required: r.kind === 'daily',
-        state: r.status === 'done' ? 'done' : r.status === 'in_progress' ? 'in-progress' : 'ready',
-        started: r.status !== 'ready',
+        state: plan.state,
+        started: plan.state !== 'ready',
         score: submitted ? (r.scaled != null ? `${Math.round(r.scaled)} dari 100` : r.raw != null ? `${r.raw} dari ${r.max ?? r.count ?? 0}` : null) : null,
         questionCount: r.count ?? null,
         core: CORE.has(r.session),
         attemptId: r.attemptId,
         resultHref: submitted && r.attemptId ? `/keluarga/anak/${learnerId}/hasil/${r.attemptId}` : null,
+        skill: sk ? { title: sk.titleId, titleEn: sk.title } : null,
+        contentTitle: sk ? null : r.title,
+        canChangeSkill: view.canChange,
+        skillNote: view.note,
       } satisfies ParentSessionDTO
     })
 }
