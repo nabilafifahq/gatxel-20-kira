@@ -160,7 +160,7 @@ export function keyOf(item: Item): AnswerKey {
  * menerima bila salah satunya cocok dengan kunci.
  */
 export function parseNumberCandidates(raw: string): number[] {
-  const s = raw.trim().replace(/\s+/g, '').replace(/^\+/, '').replace(/^[−–]/, '-')
+  const s = raw.trim().replace(/\s+/g, '').replace(/^\+/, '').replace(/^[−\u2013]/, '-')
   if (s === '' || s === '-' || s === '.' || s === ',') return []
   // .9 dan ,9 sama dengan 0.9
   const lead = /^(-?)[.,](\d+)$/.exec(s)
