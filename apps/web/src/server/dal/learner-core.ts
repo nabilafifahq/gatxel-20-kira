@@ -32,6 +32,7 @@ import {
 } from '@kira/core'
 import { tables } from '@kira/db'
 import type { Item } from '@kira/content'
+import { instanceSignature } from '@kira/content/math'
 import type { Jenjang, LearnerShell, StreakDTO, AvatarName } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
@@ -346,6 +347,23 @@ export async function awardBadges(tx: Tx, ctx: OrgContext, learner: LearnerRow, 
   }
   const arena = await awardArenaBadges(tx, ctx, lid)
   return [...fresh, ...arena].map((b) => ({ id: b.id, title: b.title, description: b.description }))
+}
+
+/**
+ * Isi soal generator yang dijawab 30 hari terakhir. Seed lain bisa menghasilkan soal yang sama persis, jadi membandingkan ref
+ * saja tidak cukup untuk aturan tanpa soal ulangan. Dibatasi 400 soal terbaru supaya membangun sesi tetap ringan.
+ */
+export function recentGeneratedContent(seen: ReadonlyMap<string, number>): Set<string> {
+  const refs = [...seen].filter(([ref, days]) => ref.startsWith('gen:') && days <= 30).sort((a, b) => a[1] - b[1]).slice(0, 400)
+  const out = new Set<string>()
+  for (const [ref] of refs) {
+    try {
+      out.add(instanceSignature(ref))
+    } catch {
+      // Ref lama dari generator yang sudah berubah: tidak ada isi untuk dibandingkan.
+    }
+  }
+  return out
 }
 
 /** Soal yang pernah dijawab learner dan berapa hari lalu. Seluruh riwayat dipakai supaya soal tidak berulang sebelum bank habis. */

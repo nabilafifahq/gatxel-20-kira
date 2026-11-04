@@ -33,7 +33,7 @@ import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidat
 import { guardAttemptItems } from './session-guard'
 import { pickDailyPaper, taperSubjects } from './daily-paper'
 import { paperPresetFor } from './daily-paper-scoring'
-import { isRestDay, loadLearner, markerFor, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
+import { isRestDay, loadLearner, markerFor, recentGeneratedContent, recentSeen, refreshDayRecord, skillStates, type LearnerRow } from './learner-core'
 import { dayRulesFor } from './learner-rules'
 import { featureMapFor } from './learner-features'
 import { sessionAllowed } from '@kira/core/features'
@@ -150,9 +150,16 @@ async function topUp(
   if (need <= 0) return input.slots
   const sk = skill(input.skillId)
   const near = skillsFor(input.subject, sk?.grade ?? 2).filter((s) => s.id !== input.skillId && s.strand !== 'Oly' && !MANUAL_STRANDS.has(s.strand))
-  const ordered = [...near.filter((s) => s.strand === sk?.strand), ...near.filter((s) => s.strand !== sk?.strand)].slice(0, 6)
+  const ordered = [...near.filter((s) => s.strand === sk?.strand), ...near.filter((s) => s.strand !== sk?.strand)]
   const cands: PoolCandidate[] = []
-  for (const s of ordered) cands.push(...(await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })))
+  let fresh = 0
+  for (const [i, s] of ordered.entries()) {
+    // Enam skill terdekat dulu; skill lain mapel dan kelas ini hanya bila soal yang belum dilihat masih kurang.
+    if (i >= 6 && fresh >= need) break
+    const pool = await poolForSkill(tx, ctx.orgId, s.id, { allowManual: false, manipulatives: input.manipulatives })
+    cands.push(...pool)
+    fresh += pool.filter((c) => c.unlimited || (!input.seen.has(c.ref) && !input.avoid.has(c.ref))).length
+  }
   const picked = pickItems({
     candidates: cands.map((c) => ({ ...c, ...(input.seen.has(c.ref) && !c.unlimited ? { seenDaysAgo: input.seen.get(c.ref)! } : {}) })),
     theta: input.theta,
@@ -211,7 +218,7 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   } else {
     slots = assembleQuest({ mode: input.mode, theta, dueRefs, candidates: withSeen(pool), length: input.length ?? questLength(learner, input.mode), rng })
   }
-  const taken = new Set<string>()
+  const taken = recentGeneratedContent(seen)
   const built = slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
   // Pengganti dari penjaga juga menghindari soal yang sudah pernah dijawab, selama bank masih punya pilihan.
   return guardAttemptItems(tx, built, { seed: `${input.seedKey}:guard`, mode: input.mode, avoid: new Set([...(input.avoid ?? []), ...seen.keys()]) })
