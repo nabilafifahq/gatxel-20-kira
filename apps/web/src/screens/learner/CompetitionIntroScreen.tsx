@@ -61,7 +61,7 @@ export function CompetitionIntroScreen({
             <div role="note" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3.5">
               <UiIcon name="warning" size={24} className="mt-0.5 flex-none text-warn" />
               <span className="text-body-lg font-semibold">
-                Your tutor is still checking these rules. This practice may be a little different from the real {name}, and the score is not counted.
+                These rules are still being checked. This practice may be a little different from the real {name}, and the score is not counted.
               </span>
             </div>
           )}
@@ -105,7 +105,7 @@ export function CompetitionIntroScreen({
           </div>
           <p className="m-0 text-body-lg">
             {data.questionCount} questions.{' '}
-            {data.verified ? 'Find a quiet place and a pencil for working out.' : 'You can still practise. Your tutor will tell you when the real rules are ready.'}
+            {data.verified ? 'Find a quiet place and a pencil for working out.' : 'You can still practise. The real rules may be a little different.'}
           </p>
           {state.kind === 'error' ? <ActionError message={state.message} reference={state.reference} className="self-stretch text-left" /> : null}
           <Button

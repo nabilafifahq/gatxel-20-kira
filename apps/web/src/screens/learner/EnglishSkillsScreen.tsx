@@ -38,7 +38,7 @@ function Card({ card }: { card: EnglishCardDTO }): ReactElement {
         </p>
       ) : null}
       {card.unavailable ? (
-        <p className="m-0 mt-auto rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">Nothing here for your grade yet. Your tutor is adding more.</p>
+        <p className="m-0 mt-auto rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">Nothing here for your grade yet.</p>
       ) : (
         <ButtonLink href={card.href} variant="primary" className="mt-auto w-full">
           {card.cta}

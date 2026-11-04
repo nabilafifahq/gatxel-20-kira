@@ -159,7 +159,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
       const res = await onUpload(blob, 'audio')
       if (res) {
         onChange({ mediaId: res.mediaId })
-        setLive('Sent to your tutor.')
+        setLive('Saved for your grown-up.')
       } else setPhase('failed')
     } catch {
       setPhase('failed')
@@ -207,8 +207,8 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         <span className="flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg bg-success text-white">
           <UiIcon name="check" size={52} />
         </span>
-        <span className="font-display text-h1 font-semibold">Sent to your tutor</span>
-        <p className="m-0 max-w-[320px] text-body-lg">Your tutor will listen and give you stars.</p>
+        <span className="font-display text-h1 font-semibold">Saved for your grown-up</span>
+        <p className="m-0 max-w-[320px] text-body-lg">Your grown-up can listen to it.</p>
       </Centered>
     )
   } else if (phase === 'blocked') {
@@ -299,7 +299,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
         </div>
         {phase === 'failed' ? (
           <p role="alert" className="m-0 rounded-control border-2 border-warn bg-surface px-4 py-3 text-body-lg font-semibold">
-            Your recording did not send. Check the internet, then tap Send to tutor again.
+            Your recording did not send. Check the internet, then tap Send it again.
           </p>
         ) : !online ? (
           <p className="m-0 flex items-center gap-2 text-body-lg font-semibold">
@@ -307,11 +307,11 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
             Offline. Your recording stays here until the internet is back.
           </p>
         ) : (
-          <p className="m-0 text-body-lg">Listen to check it. Happy with it? Send it to your tutor.</p>
+          <p className="m-0 text-body-lg">Listen to check it. Happy with it? Send it.</p>
         )}
         <div className="flex flex-col gap-3">
           <Button icon="send" loading={phase === 'uploading'} disabled={!online} onClick={() => void send()}>
-            {phase === 'uploading' ? 'Sending' : 'Send to tutor'}
+            {phase === 'uploading' ? 'Sending' : 'Send it'}
           </Button>
           <Button variant="secondary" icon="replay" disabled={phase === 'uploading'} onClick={again}>
             Record again
@@ -345,7 +345,7 @@ export function SpeakWidget({ item, value, onChange, disabled = false, onUpload,
       {body}
       <p className="m-0 flex items-center gap-2 border-t border-divider pt-3.5 text-body text-fg-muted">
         <UiIcon name="lock" size={20} />
-        Only your tutor hears this.
+        Only your grown-up can hear this.
       </p>
     </section>
   )

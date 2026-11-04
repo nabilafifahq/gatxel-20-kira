@@ -206,7 +206,7 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
 
       {questions.length === 0 || !q ? (
         <main className="flex flex-1 items-center justify-center px-4 pb-10">
-          <p className="m-0 text-body-lg">The answers for this paper are not ready yet. Try again after your tutor has marked it.</p>
+          <p className="m-0 text-body-lg">The answers for this paper are not ready yet. Try again a little later.</p>
         </main>
       ) : (
         <div className="flex min-h-0 flex-1 flex-col gap-4 px-4 pb-6 md:px-8 md:pb-8 lg:flex-row lg:gap-6">

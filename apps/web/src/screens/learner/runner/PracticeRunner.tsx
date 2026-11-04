@@ -451,7 +451,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               className="ml-auto min-w-0 flex-1 sm:min-w-35 sm:flex-none md:min-w-50"
               icon={manual ? 'send' : undefined}
             >
-              {manual ? 'Send to tutor' : 'Check'}
+              {manual ? 'Send it' : 'Check'}
             </Button>
           )}
         </footer>

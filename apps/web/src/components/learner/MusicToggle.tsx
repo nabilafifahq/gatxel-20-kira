@@ -23,7 +23,7 @@ export function MusicToggle({ className }: { className?: string }): ReactElement
       disabled={blocked}
       aria-label={
         blocked
-          ? 'Music is turned off by your tutor.'
+          ? 'Music is turned off by your grown-up.'
           : on
             ? 'Music is on. Turn it off.'
             : 'Music is off. Turn it on.'
@@ -34,7 +34,7 @@ export function MusicToggle({ className }: { className?: string }): ReactElement
         if (!on) playSfx('tap')
       }}
     >
-      {blocked ? 'Music off by tutor' : on ? 'Music on' : 'Music off'}
+      {blocked ? 'Music off for now' : on ? 'Music on' : 'Music off'}
     </Button>
   )
 }

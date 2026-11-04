@@ -94,7 +94,7 @@ export function ReportControl({ itemRef, reportProblem, className }: { itemRef: 
       if (res.ok) {
         setOpen(false)
         setNote('')
-        toast({ kind: 'success', title: 'Thank you. Your tutor will look at this question.', reference: res.data.reference })
+        toast({ kind: 'success', title: 'Thank you. Your report is saved.', reference: res.data.reference })
       } else {
         setError({ message: res.message, reference: res.reference })
       }
@@ -111,7 +111,7 @@ export function ReportControl({ itemRef, reportProblem, className }: { itemRef: 
         open={open}
         onClose={close}
         title="Something wrong here?"
-        description="Tell your tutor what is wrong with this question."
+        description="Tell us what is wrong with this question."
         size="md"
         footer={
           <>
@@ -119,7 +119,7 @@ export function ReportControl({ itemRef, reportProblem, className }: { itemRef: 
               Cancel
             </Button>
             <Button loading={busy} onClick={() => void send()} icon="send">
-              Send to tutor
+              Send
             </Button>
           </>
         }

@@ -80,8 +80,8 @@ export async function englishSkillsDTO(tx: Tx, learnerId: string): Promise<Engli
   const wordsForLevel = spelling().levels[level.id].length
   const cards: EnglishCardDTO[] = [
     sessionCard('listening', 'Listening', 'Listen to a short talk, then pick the right answer. Press the speaker as many times as you like.', 'Start listening'),
-    sessionCard('speaking', 'Speaking test', 'An examiner asks you questions about pictures. You record your answers. Your tutor listens and gives you feedback.', 'Start the test'),
-    sessionCard('writing', 'Writing', 'Write sentences about a picture and keep a short journal. Your tutor reads it and helps you improve.', 'Start writing'),
+    sessionCard('speaking', 'Speaking test', 'An examiner asks you questions about pictures. You record your answers. A grown-up can listen to them.', 'Start the test'),
+    sessionCard('writing', 'Writing', 'Write sentences about a picture and keep a short journal. A grown-up can read it with you.', 'Start writing'),
     {
       area: 'spelling',
       title: 'Spelling Bee',

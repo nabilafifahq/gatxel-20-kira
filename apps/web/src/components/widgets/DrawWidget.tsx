@@ -353,14 +353,14 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
       {sentId ? (
         <div role="status" className="flex flex-wrap items-center gap-3 rounded-control border-2 border-success bg-success-50 px-4 py-3">
           <UiIcon name="check-circle" size={28} className="text-success" />
-          <span className="flex-1 text-body-lg font-bold">Sent to your tutor. Your tutor will look and give you stars.</span>
+          <span className="flex-1 text-body-lg font-bold">Saved. Your grown-up can look at it.</span>
         </div>
       ) : mode === 'paper' ? (
         <div role="status" className="flex flex-col gap-3 rounded-control border-2 border-border bg-bg px-4 py-3">
           <span className="text-body-lg font-bold">
             {onUpload
-              ? 'Draw it on paper. When you finish, show your tutor. Your tutor takes a photo.'
-              : 'Drawings cannot be sent from this device yet. Draw it on paper and show your tutor.'}
+              ? 'Draw it on paper. When you finish, show your grown-up.'
+              : 'Drawings cannot be sent from this device yet. Draw it on paper and show your grown-up.'}
           </span>
           <div className="flex flex-wrap gap-3">
             {onUpload ? (
@@ -391,7 +391,7 @@ export function DrawWidget({ item, value, onChange, disabled = false, onUpload, 
             </span>
           ) : null}
           <Button icon="send" loading={sending} disabled={!online || disabled} onClick={() => void send()} className="ml-auto">
-            {sending ? 'Sending' : 'Send to tutor'}
+            {sending ? 'Sending' : 'Send it'}
           </Button>
         </div>
       )}

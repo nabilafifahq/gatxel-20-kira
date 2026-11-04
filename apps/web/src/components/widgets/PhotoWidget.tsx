@@ -91,7 +91,7 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
   return (
     <div className="flex w-full flex-col gap-4">
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {sent ? 'Your photo is ready. Send it to your tutor.' : 'Take a photo of your answer on paper.'}
+        {sent ? 'Your photo is ready. Tap Send it.' : 'Take a photo of your answer on paper.'}
       </p>
       {preview ? (
         // Foto dari perangkat sendiri (blob), bukan aset luar.

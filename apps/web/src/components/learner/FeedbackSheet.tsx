@@ -97,7 +97,7 @@ export function FeedbackSheet({
 
   let title: ReactNode = 'Correct'
   if (kind === 'not-yet' || kind === 'revealed') title = 'Not yet'
-  if (kind === 'sent') title = 'Sent to your tutor'
+  if (kind === 'sent') title = 'Saved for your grown-up'
   if (kind === 'saved') title = 'Saved'
 
   return (
@@ -126,7 +126,7 @@ export function FeedbackSheet({
         </p>
       ) : null}
 
-      {kind === 'sent' ? <p className="m-0 text-body-lg">Your tutor will look at it and give you stars. Keep going with your quest.</p> : null}
+      {kind === 'sent' ? <p className="m-0 text-body-lg">Your grown-up can look at it. Keep going with your quest.</p> : null}
       {kind === 'saved' ? <p className="m-0 text-body-lg">Your answer is saved. You will see if it is right on the results page.</p> : null}
 
       {kind === 'not-yet' && hint ? (
