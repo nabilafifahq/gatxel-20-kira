@@ -331,6 +331,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             number={item.position}
             subject={subject}
             hideTools
+            tapWords
             listen={englishArea === 'listening'}
             answer={{ value: st.value, onChange: (v) => answering && patch(index, { value: v }), disabled: !answering, feedback }}
           >

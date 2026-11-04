@@ -15,6 +15,8 @@ export const LEARNER_ROUTES = {
   fixIt: '/fix-it',
   fixItStart: '/fix-it/start',
   me: '/me',
+  /** Kamus Ketuk: kata yang disimpan anak. */
+  myWords: '/my-words',
   quickMaths: '/quick-maths',
   quizArena: '/quiz-arena',
   esmo: '/esmo',

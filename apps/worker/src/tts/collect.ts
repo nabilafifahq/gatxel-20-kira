@@ -1,6 +1,9 @@
 import type { ContentIndex } from '@kira/content/load'
 import type { Item } from '@kira/content/schema'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
+import { loadDictionary } from '@kira/content/dictionary'
+import { findContentDir } from '@kira/content/load'
+import { dictionaryWordClips } from '@kira/core/dictionary'
 import { TTS_FIXED_LINES, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 
 /**
@@ -36,4 +39,13 @@ export function dedupe(clips: TtsClipRequest[]): TtsClipRequest[] {
     out.push(c)
   }
   return out
+}
+
+/** Klip satu kata untuk Kamus Ketuk (content/dictionary/en-id.json). Tanpa berkas kamus, tidak ada klip tambahan. */
+export function dictionaryClips(dir: string = findContentDir()): TtsClipRequest[] {
+  try {
+    return dictionaryWordClips(loadDictionary(dir))
+  } catch {
+    return []
+  }
 }

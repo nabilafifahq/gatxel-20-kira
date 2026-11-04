@@ -109,7 +109,7 @@ function AvatarDialog({
   )
 }
 
-function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
+function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; myWords: boolean }): ReactElement {
   const toast = useToast()
   const [avatar, setAvatar] = useState<AvatarName>(data.shell.avatar)
   const [accessory, setAccessory] = useState<string | null>(data.shell.accessory ?? null)
@@ -192,6 +192,17 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
               Quiz Arena
             </ButtonLink>
           </div>
+        </section>
+      ) : null}
+
+      {myWords ? (
+        <section aria-labelledby="me-words" className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
+          <h2 id="me-words" className="m-0 min-w-0 flex-1 text-h2 font-bold">
+            My words
+          </h2>
+          <ButtonLink href={LEARNER_ROUTES.myWords} variant="secondary" size="M" icon="book">
+            Open my words
+          </ButtonLink>
         </section>
       ) : null}
 
@@ -354,10 +365,10 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
   )
 }
 
-export function MeScreen({ data, actions }: { data: MeDTO; actions: MeActions }): ReactElement {
+export function MeScreen({ data, actions, myWords = false }: { data: MeDTO; actions: MeActions; myWords?: boolean }): ReactElement {
   return (
     <ToastProvider area="learner">
-      <MeBody data={data} actions={actions} />
+      <MeBody data={data} actions={actions} myWords={myWords} />
     </ToastProvider>
   )
 }
