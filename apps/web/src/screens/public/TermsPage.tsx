@@ -103,6 +103,10 @@ export function TermsPage({ data }: TermsPageProps) {
           Soal buatan Kira, ilustrasi, dan desain aplikasi adalah milik Pengelola. Paket soal resmi lomba tetap milik penyelenggaranya. Paket itu hanya dipakai
           untuk latihan pribadi di akun keluarga dan tidak ikut diekspor.
         </p>
+        <p className="m-0">
+          Kamus Ketuk memakai data bentuk kata dari Wiktionary (diolah lewat Wiktextract/Kaikki.org) di bawah lisensi{' '}
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer">CC BY-SA 4.0</a>. Data itu sudah diolah dan digabung dengan arti buatan Kira. Arti Indonesia dan arti English sederhana ditulis oleh Kira dan tidak disalin dari Wiktionary.
+        </p>
       </LegalSection>
 
       <LegalSection id="k-tanggung" title="8. Tanggung jawab Pengelola">

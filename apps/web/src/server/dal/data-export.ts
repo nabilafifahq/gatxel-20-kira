@@ -21,7 +21,7 @@ import { loadLearner } from './learner-core'
  * (status benar atau salah sama dengan membocorkan kunci jawaban sebelum dikumpulkan).
  */
 
-const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile, arenaSession, arenaState, dailyChest } = tables
+const { consentEvent, deletionRequest, skillState, attempt, response, reviewCard, note, weekReport, xpEvent, badgeAward, dayRecord, media, memberProfile, arenaSession, arenaState, dailyChest, savedWord } = tables
 
 export const EXPORT_PSEUDONYM = 'learner_1'
 const HIDDEN_MODES = new Set(['tes', 'simulasi', 'kertas'])
@@ -190,6 +190,7 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
     .from(dailyChest)
     .where(eq(dailyChest.learnerId, learnerId))
     .orderBy(asc(dailyChest.date))
+  const savedWords = await tx.select({ word: savedWord.word, savedAt: savedWord.savedAt }).from(savedWord).where(eq(savedWord.learnerId, learnerId)).orderBy(asc(savedWord.savedAt))
   const badges = await tx
     .select({ badgeId: badgeAward.badgeId, awardedAt: badgeAward.awardedAt })
     .from(badgeAward)
@@ -297,6 +298,7 @@ export async function learnerExport(tx: Tx, learnerId: string, opts: { pseudonym
     xpEvents: xp,
     arenaRounds: arena.map((a) => ({ ...a, finishedAt: iso(a.finishedAt) })),
     arenaProgress: arenaProgress.map((a) => ({ arena: a.arena, data: a.data, updatedAt: iso(a.updatedAt) })),
+    savedWords: savedWords.map((w) => ({ word: w.word, savedAt: iso(w.savedAt) })),
     dailyChests: chests.map((c) => ({ date: c.date, rewardKind: c.rewardKind, rewardId: c.rewardId, openedAt: iso(c.openedAt) })),
     badges: badges.map((b) => ({ badgeId: b.badgeId, awardedAt: iso(b.awardedAt) })),
     dayRecords: days,

@@ -437,6 +437,18 @@ export const worksheet = pgTable(
   (t) => [index('worksheet_org_day_idx').on(t.orgId, t.day)],
 )
 
+/** Kata yang disimpan anak dari Kamus Ketuk (migrasi 0019): bentuk dasar huruf kecil, satu baris per kata per learner. */
+export const savedWord = pgTable(
+  'saved_word',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    orgId: orgId(),
+    word: text('word').notNull(),
+    savedAt: ts('saved_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.word] })],
+)
+
 export const restDay = pgTable(
   'rest_day',
   {
@@ -1062,6 +1074,7 @@ export const TENANT_TABLES = [
   'ai_draft', 'import_batch', 'job', 'outbox_email', 'week_report', 'audit_log',
   'arena_session', 'arena_state', 'daily_chest',
   'paper_library', 'paper_pick', 'program_run', 'source_record', 'source_state', 'placement_run', 'worksheet',
+  'saved_word',
 ] as const
 
 /** Tabel yang berisi data per learner; dibatasi lagi untuk role learner dan guardian. */
@@ -1069,7 +1082,7 @@ export const LEARNER_SCOPED_TABLES = [
   'skill_state', 'plan_week', 'plan_slot', 'rest_day', 'quest', 'attempt', 'response', 'review_card', 'xp_event',
   'day_record', 'badge_award', 'note', 'week_report', 'placement_run',
   'arena_session', 'arena_state', 'daily_chest',
-  'paper_pick', 'worksheet',
+  'paper_pick', 'worksheet', 'saved_word',
 ] as const
 
 /** Saklar fitur per learner (migrasi 0017). Tanpa baris berarti menyala. */

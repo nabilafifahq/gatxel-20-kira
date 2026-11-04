@@ -67,7 +67,9 @@ const baseConfig: NextConfig = {
       { source: '/(.*)', headers: securityHeaders },
       // no-transform: Cloudflare tidak boleh mengubah isi halaman (misalnya menyisipkan skrip analitik),
       // karena CSP learner melarang skrip luar.
-      { source: '/((?!_next/static|fonts|icons|sounds).*)', headers: [{ key: 'Cache-Control', value: 'no-store, no-transform, max-age=0' }] },
+      { source: '/((?!_next/static|fonts|icons|sounds|dict).*)', headers: [{ key: 'Cache-Control', value: 'no-store, no-transform, max-age=0' }] },
+      // Kamus Ketuk (public/dict): nama berhash, tidak pernah berubah isinya.
+      { source: '/dict/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       // Efek suara CC0 (public/sounds): berkas kecil yang tidak berubah, boleh disimpan sehari.
       { source: '/sounds/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, no-transform' }] },
     ]

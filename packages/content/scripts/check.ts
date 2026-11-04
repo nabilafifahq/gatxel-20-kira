@@ -1,3 +1,4 @@
+import { checkDictionary } from '../src/dictionary'
 import { checkExtras } from '../src/extras'
 import { checkGenerators, findContentDir, loadContent } from '../src/load'
 import { SUBJECTS } from '../src/schema'
@@ -19,7 +20,8 @@ const genProblems = checkGenerators(index.skills, Number(process.env.SEEDS ?? 25
 const spelling = loadSpelling(dir)
 const extraProblems = checkExtras(dir, index).filter(inScope)
 const cards = loadFlashcards(dir)
-const allErrors = [...errors, ...cards.errors.filter(inScope), ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems]
+const dictProblems = checkDictionary(dir, new Map([...index.skills].map(([id, sk]) => [id, sk.strand]))).filter(inScope)
+const allErrors = [...errors, ...cards.errors.filter(inScope), ...genProblems, ...spelling.errors.filter(inScope), ...extraProblems, ...dictProblems]
 if (scopes.length) console.log(`Scope: ${scopes.join(', ')} (error di luar scope disembunyikan: ${loaded.errors.length - errors.length})`)
 
 const rows: string[] = []

@@ -9,7 +9,7 @@ import { generate } from '../src/handlers/tts'
 import type { HandlerCtx } from '../src/handlers/types'
 import { createTtsClient } from '../src/tts/client'
 import { passageSpeechClips as passageClips } from '@kira/content/speech'
-import { dedupe, itemClips, repoClips } from '../src/tts/collect'
+import { dedupe, dictionaryClips, itemClips, repoClips } from '../src/tts/collect'
 import { clipKey, hasClip, writeClip } from '../src/tts/store'
 
 const mcq = (over: Partial<Item> = {}): Item =>
@@ -53,6 +53,15 @@ describe('klip dari soal', () => {
   it('klip kembar dibuang', () => {
     const a = itemClips(mcq())
     expect(dedupe([...a, ...a]).length).toBe(a.length)
+  })
+})
+
+describe('Kamus Ketuk', () => {
+  it('menambahkan klip satu kata (gaya dikte) untuk kata dasar dan bentuk jadian', () => {
+    const clips = dictionaryClips(join(__dirname, '../../../content'))
+    expect(clips.length).toBeGreaterThan(8000)
+    expect(clips.every((c) => c.style === 'dictation' && isClipText(c.text))).toBe(true)
+    expect(clips.some((c) => c.text === 'ran')).toBe(true)
   })
 })
 
