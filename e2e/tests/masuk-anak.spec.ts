@@ -1,4 +1,4 @@
-import { devices, expect, test, type Page } from '@playwright/test'
+import { devices, expect, test, type Locator, type Page } from '@playwright/test'
 import { db, expectNoSeriousA11y, GUARDIAN, learnerId, LEARNERS, loginAdult, noHorizontalScroll, seedOrgId, TUTOR, waitForPath, watchErrors } from './helpers'
 
 /**
@@ -14,14 +14,18 @@ const WRONG_PIN = ['Pohon', 'Apel', 'Perahu', 'Bola']
 
 const codeOf = async (org: string) => (await db()`select code from family_code where org_id = ${org}`)[0]!.code as string
 
+/** Tunggu React terpasang: WebKit di mesin uji lebih lambat dari jari, dan ketukan sebelum itu tidak terhitung. */
+async function hydrated(el: Locator) {
+  await expect.poll(() => el.evaluate((node) => Object.keys(node).some((k) => k.startsWith('__reactProps')))).toBe(true)
+}
+
 async function tapPin(page: Page, pin: string[]) {
-  // Tunggu React terpasang: WebKit di mesin uji lebih lambat dari jari, dan ketukan sebelum itu tidak terhitung.
-  const first = page.getByRole('button', { name: pin[0]!, exact: true })
-  await expect.poll(() => first.evaluate((el) => Object.keys(el).some((k) => k.startsWith('__reactProps')))).toBe(true)
+  await hydrated(page.getByRole('button', { name: pin[0]!, exact: true }))
   for (const p of pin) await page.getByRole('button', { name: p, exact: true }).click()
 }
 
 async function typeCode(page: Page, code: string) {
+  await hydrated(page.getByLabel('Kode keluarga'))
   await page.getByLabel('Kode keluarga').fill(code)
   await page.getByRole('button', { name: 'Lanjut' }).click()
 }
@@ -102,6 +106,7 @@ test('anak baru masuk di browser baru: kode, nama, PIN, lalu berikutnya langsung
   await page.goto('/')
   await page.getByRole('link', { name: 'Name not here? Use the family code' }).click()
   await waitForPath(page, (p) => p === '/masuk/anak')
+  await hydrated(page.getByLabel('Family code'))
   await page.getByLabel('Family code').fill(await codeOf(org))
   await page.getByRole('button', { name: 'Next' }).click()
   await page.getByRole('link', { name: 'Raka', exact: true }).click()
@@ -111,7 +116,8 @@ test('anak baru masuk di browser baru: kode, nama, PIN, lalu berikutnya langsung
   const shared = await db()`select learner_ids from auth.device where org_id = ${org} and name = 'Perangkat Aisha' and revoked_at is null`
   expect(shared).toHaveLength(1)
   expect(new Set(shared[0]!.learner_ids as string[])).toEqual(new Set([aisha, await learnerId('Raka')]))
-  expect(errors.filter((e) => !e.includes('401'))).toEqual([])
+  // WebKit melaporkan prefetch dan detak yang terputus oleh perpindahan halaman dengan kalimat 'access control checks'.
+  expect(errors.filter((e) => !e.includes('401') && !e.includes('access control checks'))).toEqual([])
   await context.close()
 })
 
@@ -137,8 +143,10 @@ test('saklar fitur dan batas layar berlaku untuk sesi dari kode keluarga', async
     await page.goto('/quick-maths')
     await waitForPath(page, (p) => p === '/practice')
     // Batas layar dibaca per anak dari sesi, sama seperti perangkat yang didaftarkan orang tua.
-    const beat = await page.evaluate(() => fetch('/api/heartbeat', { method: 'POST' }).then((r) => r.json() as Promise<{ limit: number }>))
-    expect(beat.limit).toBe(45)
+    // Detak dalam 45 detik dijawab dari cache, jadi nilai baru bisa baru terbaca setelah cache itu lewat.
+    await expect
+      .poll(() => page.evaluate(() => fetch('/api/heartbeat', { method: 'POST' }).then((r) => r.json() as Promise<{ limit: number }>).then((b) => b.limit)), { timeout: 70_000, intervals: [5000] })
+      .toBe(45)
   } finally {
     await db()`delete from learner_feature where learner_id = ${id}`
     await db()`update learner_profile set screen_limit_min = ${before} where user_id = ${id}`
