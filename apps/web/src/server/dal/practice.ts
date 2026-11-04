@@ -55,6 +55,8 @@ const OFF_LABEL: Partial<Record<FeatureKey, string>> = {
 
 const STYLE_LABEL: Record<QuestionStyle, string> = { short: 'Short questions', 'true-false': 'True or false', 'long-read': 'Long reading', 'word-problem': 'Word problems', mixed: 'Mixed' }
 
+const sentenceCase = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1)
+
 /** Skill yang dipakai untuk satu topik (strand) di mapel dan kelas anak. Skill menulis dan bicara dilewati. */
 function strandSkills(subject: Subject, grade: number, strand: string): string[] {
   return skillsFor(subject, grade)
@@ -92,7 +94,7 @@ export function buildSections(grade: number, features: FeatureMap): PracticeSect
   const sections: PracticeSection[] = []
 
   if (on('drill-math')) {
-    const tiles = strandsOf('math', grade, (s) => s !== 'Oly').map((t) => drill(`m-${t.strand}`, strandName(t.strand), `${t.skills} topics`, `subject=math&strand=${t.strand}`))
+    const tiles = strandsOf('math', grade, (s) => s !== 'Oly').map((t) => drill(`m-${t.strand}`, strandName(t.strand), `${t.skills} ${t.skills === 1 ? 'topic' : 'topics'}`, `subject=math&strand=${t.strand}`))
     if (tiles.length) sections.push({ id: 'math', title: 'Math drill', hint: 'Pick a topic and practise it.', tiles })
   }
   if (on('mental-math')) {
@@ -114,10 +116,10 @@ export function buildSections(grade: number, features: FeatureMap): PracticeSect
 
   const en: PracticeTile[] = []
   if (on('reading-room')) {
-    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Reading: /, ''), 'Reading', `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => s.startsWith('R'))) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Reading: /, '')), 'Reading', `subject=english&strand=${t.strand}`))
   }
   if (on('english')) {
-    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, strandName(t.strand).replace(/^Writing: /, ''), 'English', `subject=english&strand=${t.strand}`))
+    for (const t of strandsOf('english', grade, (s) => !s.startsWith('R') && s !== 'Oly')) en.push(drill(`e-${t.strand}`, sentenceCase(strandName(t.strand).replace(/^Writing: /, '')), 'English', `subject=english&strand=${t.strand}`))
   }
   if (en.length) sections.push({ id: 'english', title: 'Reading and English', hint: 'Words, grammar and reading.', tiles: en })
 

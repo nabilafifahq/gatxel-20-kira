@@ -309,7 +309,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
             </div>
           </>
         )}
-        <p className="m-0 text-body text-fg-muted">For Grade 2: answers are never negative and sharing always comes out even.</p>
+        <p className="m-0 text-body text-fg-muted">Answers are never negative and sharing always comes out even.</p>
       </Card>
 
       <Card title="Pick a game" id="games">
