@@ -2929,7 +2929,9 @@ const primesSquares: Generator = {
     for (let attempt = 0; attempt < 60; attempt++) {
       const usePrimes = rng.chance(0.5)
       const lo = rng.int(1, 8) * 10
-      const hi = lo + rng.pick([10, 20, 30])
+      const span = rng.pick([10, 20, 30])
+      // PRIMES_TO_100 berhenti di 100. Rentang lewat 100 membuat 103 dan 107 juga benar tanpa terhitung.
+      const hi = usePrimes ? Math.min(100, lo + span) : lo + span
       const pool = usePrimes ? PRIMES_TO_100.filter((p) => p > lo && p < hi) : Array.from({ length: 10 }, (_, i) => (i + 1) ** 2).filter((s) => s > lo && s < hi)
       if (pool.length < 2) continue
       const kind = rng.int(0, 2)
@@ -3031,7 +3033,7 @@ const multiplyWritten: Generator = {
           { value: ra + rb, why: 'That adds the numbers instead of multiplying.' },
         ])
         return mcqItem({
-          prompt: `Which is the best estimate for ${a} × ${b}?`,
+          prompt: `Which is the best estimate for ${a} × ${b}? Round each number to the nearest 10 first.`,
           ...m,
           hints: ['Round each number to the nearest 10.', `${a} is close to ${ra}.`, `Work out ${ra / 10} × ${rb / 10} and then think about the zeros.`],
           explanation: `${a} ≈ ${ra} and ${b} ≈ ${rb}, so ${a} × ${b} ≈ ${ra} × ${rb} = ${fmt(est)}. The exact answer is ${fmt(ans)}.`,
@@ -4119,7 +4121,7 @@ const multiplyDecimals: Generator = {
         ]
         const m2 = mcqFrom(rng, est, opts)
         return mcqItem({
-          prompt: `Which is the best estimate for ${fmt(dec(u, 1))} × ${m}?`,
+          prompt: `Which is the best estimate for ${fmt(dec(u, 1))} × ${m}? Round ${fmt(dec(u, 1))} to the nearest whole number first.`,
           ...m2,
           hints: ['Round the decimal to the nearest whole number.', `Which whole number is ${fmt(dec(u, 1))} closest to?`, `Multiply your rounded number by ${m}.`],
           explanation: `${fmt(dec(u, 1))} ≈ ${r}, so ${fmt(dec(u, 1))} × ${m} ≈ ${r} × ${m} = ${est}. The exact answer is ${fmt(dec(u * m, 1))}.`,
@@ -4453,7 +4455,7 @@ const ratioProportion: Generator = {
       const k = rng.int(2, 6)
       const beadFig: Fig = {
         kind: 'pattern',
-        items: [...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' }), ...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' })].slice(0, 14),
+        items: [...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' }), ...Array(a).fill({ shape: 'circle', tone: 'english' }), ...Array(b).fill({ shape: 'circle', tone: 'math' })].slice(0, a + b > 7 ? a + b : 14),
         alt: `A string of beads: ${a} red then ${b} blue, repeated.`,
       }
       return numItem({
@@ -5028,8 +5030,9 @@ const angles: Generator = {
           ],
         })
       }
-      const wrong = uniq([d < 90 ? d + 60 : d - 60, 90 === d ? 45 : 90, 180 - d === d ? d + 30 : 180 - d, d < 90 ? d + 100 : Math.max(10, d - 100)])
-        .filter((x) => x > 0 && x < 180 && x !== d)
+      // Tanpa busur, selisih di bawah 20 derajat tidak bisa dibedakan dengan mata, jadi pengecoh sedekat itu diganti.
+      const wrong = uniq([d < 90 ? d + 60 : d - 60, 90 === d ? 45 : 90, 180 - d === d ? d + 30 : 180 - d, d < 90 ? d + 100 : Math.max(10, d - 100), d + 60, d - 60, d + 90, d - 40])
+        .filter((x) => x > 0 && x < 180 && Math.abs(x - d) >= 20)
         .map((x) => ({ value: `${x}°`, why: `${x}° is ${angleWithArticle(x)}. This angle is ${d < 90 ? 'less than' : d === 90 ? 'exactly' : 'more than'} 90°.` }))
       const m = mcqFrom(rng, `${d}°`, wrong, 4, (v) => v)
       return mcqItem({
@@ -5215,7 +5218,7 @@ const shapes2d3d: Generator = {
       const qs = [
         { q: 'Which quadrilateral has exactly one pair of parallel sides?', a: 'trapezium', w: [['parallelogram', 'A parallelogram has two pairs of parallel sides.'], ['rectangle', 'A rectangle has two pairs of parallel sides.'], ['kite', 'A kite has no parallel sides.']] },
         { q: 'Which quadrilateral has four equal sides but no right angles?', a: 'rhombus', w: [['square', 'A square has four right angles.'], ['rectangle', 'A rectangle has four right angles.'], ['kite', 'A kite has two pairs of equal sides, not four equal sides.']] },
-        { q: 'Which quadrilateral has two pairs of equal sides that are next to each other?', a: 'kite', w: [['rhombus', 'All four sides of a rhombus are equal.'], ['parallelogram', 'In a parallelogram, equal sides are opposite each other.'], ['trapezium', 'A trapezium does not need any equal sides.']] },
+        { q: 'Which quadrilateral has two pairs of equal sides that are next to each other?', a: 'kite', w: [['rectangle', 'In a rectangle, equal sides are opposite each other.'], ['parallelogram', 'In a parallelogram, equal sides are opposite each other.'], ['trapezium', 'A trapezium does not need any equal sides.']] },
         { q: 'Which quadrilateral has four right angles and two pairs of equal sides, but not four equal sides?', a: 'rectangle', w: [['square', 'A square has four equal sides.'], ['rhombus', 'A rhombus does not have right angles.'], ['parallelogram', 'A parallelogram does not need right angles.']] },
       ] as const
       if (rng.chance(0.55)) {
