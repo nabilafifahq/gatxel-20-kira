@@ -1,1 +1,27 @@
 === passwordLoginAction (email, password) ===
+[14:37:29] [WARNING] using '/tmp/sqlmap' as the output directory
+[14:37:29] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' from file '/usr/local/lib/python3.12/site-packages/sqlmap/data/txt/user-agents.txt'
+[14:37:29] [INFO] testing connection to the target URL
+[14:37:30] [WARNING] reflective value(s) found and filtering out
+[14:37:30] [INFO] testing if the target URL content is stable
+[14:37:31] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, refer to user's manual paragraph 'Page comparison'
+[14:37:31] [INFO] testing if (custom) POST parameter '#1*' is dynamic
+[14:37:32] [WARNING] (custom) POST parameter '#1*' does not appear to be dynamic
+[14:37:33] [INFO] testing for SQL injection on (custom) POST parameter '#1*'
+[14:37:36] [INFO] (custom) POST parameter '#1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[14:37:40] [INFO] heuristic (extended) test shows that the back-end DBMS could be 'InterSystems Cache' 
+[14:37:42] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+[14:37:43] [INFO] 'ORDER BY' technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
+[14:37:47] [INFO] target URL appears to have 38 columns in query
+[14:40:43] [WARNING] if UNION based SQL injection is not detected, please consider forcing the back-end DBMS (e.g. '--dbms=mysql') 
+[14:41:45] [WARNING] false positive or unexploitable injection point detected
+[14:41:45] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+[14:41:45] [INFO] testing if (custom) POST parameter '#2*' is dynamic
+[14:41:46] [INFO] (custom) POST parameter '#2*' appears to be dynamic
+[14:41:47] [INFO] testing for SQL injection on (custom) POST parameter '#2*'
+[14:41:52] [INFO] (custom) POST parameter '#2*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[14:42:56] [WARNING] false positive or unexploitable injection point detected
+[14:42:56] [WARNING] (custom) POST parameter '#2*' does not seem to be injectable
+[14:42:56] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment')
+[14:42:56] [WARNING] HTTP error codes detected during run:
+=== requestResetAction (email) ===

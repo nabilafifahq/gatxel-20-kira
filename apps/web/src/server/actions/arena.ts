@@ -122,6 +122,7 @@ export async function answerQuizAction(input: { roundId: string; index: number; 
     'answerQuiz',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('arena-answer', 600, actor.userId)
       const data = answerQuiz.parse(input)
       return inOrg(orgCtx(actor), (tx) => answerQuizRound(tx, actor.userId, data))
     },
