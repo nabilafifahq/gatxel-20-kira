@@ -2048,7 +2048,8 @@ const shapes3d: Generator = {
     }
     if (level === 2) {
       const o = rng.pick(REAL_SOLIDS)
-      const others = rng.shuffle(G1_SOLIDS.filter((x) => x !== o.solid))
+      // Kotak dan balok mainan bisa disebut kubus atau balok; jangan tampilkan keduanya sebagai opsi. Filter sesudah shuffle agar jumlah undian tetap.
+      const others = rng.shuffle(G1_SOLIDS.filter((x) => x !== o.solid)).filter((x) => !(o.solid === 'cube' && x === 'cuboid') && !(o.solid === 'cuboid' && x === 'cube'))
       return {
         type: 'mcq',
         prompt: `${cap(o.text)} is shaped like which 3D shape?`,
