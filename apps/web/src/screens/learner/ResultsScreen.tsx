@@ -171,6 +171,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
             <p className="m-0 text-h3 font-bold">{data.headline}</p>
             {esmo ? <p className="m-0 text-body-lg">{data.detail}</p> : null}
           </div>
+          {data.notCounted ? <NoteBox>{tr.needMore(data.notCounted.need, data.notCounted.total, data.notCounted.answered)}</NoteBox> : null}
           <SessionCelebration
             attemptId={data.attemptId}
             avatar={data.shell.avatar}

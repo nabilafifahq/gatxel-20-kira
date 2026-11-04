@@ -249,6 +249,8 @@ export type XpBarDTO = {
 
 export type ResultsDTO = {
   shell: LearnerShell
+  /** Sesi harian yang kurang dari separuh soalnya dijawab: belum selesai, dan yang dibutuhkan ditampilkan ke anak. */
+  notCounted?: { answered: number; need: number; total: number }
   /** Siapa yang melihat jawaban tulis, bicara, gambar, dan foto: tutor, atau orang dewasa di rumah bila keluarga tanpa tutor. */
   marker?: 'tutor' | 'grownup'
   attemptId: string

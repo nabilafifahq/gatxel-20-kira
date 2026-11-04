@@ -1,7 +1,7 @@
 import 'server-only'
 import { and, eq, inArray, isNull, sql } from 'drizzle-orm'
 import { z } from 'zod'
-import { freeSessionDoneXp, jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
+import { freeSessionDoneXp, sessionAnswersNeeded, jakartaDate, modeAllowsHints, modeShowsFeedback, retryImproved, scoreWithPreset, sessionCompletionXp, type Mode } from '@kira/core'
 import { tables } from '@kira/db'
 import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
@@ -454,7 +454,12 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
 
   const olympiad = items.some((it) => resolved.get(it.ref)?.tags.includes('olympiad'))
   // Sesi tanpa satu jawaban pun tetap bisa selesai (waktu habis, soal manual dilewati), tetapi tidak memberi XP selesai atau bintang.
-  const answeredAny = items.some((it) => ['correct', 'wrong', 'pending', 'answered'].includes(latest.get(it.position)?.status ?? 'blank'))
+  const isAnswered = (position: number) => ['correct', 'wrong', 'pending', 'answered'].includes(latest.get(position)?.status ?? 'blank')
+  const answeredAny = items.some((it) => isAnswered(it.position))
+  // Sesi dihitung untuk streak dan hadiah bila paling sedikit separuh soalnya dijawab.
+  const answeredCount = items.filter((it) => isAnswered(it.position)).length
+  const answersNeeded = sessionAnswersNeeded(items.length)
+  const counted = answeredCount >= answersNeeded
   const perfect = total > 0 && correct === total && firstTryAll
   const topics = [...byTopic.values()]
   const isRetry = a.retryOf !== null
@@ -468,7 +473,8 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     const before = (await submittedFamily(tx, a.retryOf!)).filter((f) => f.id !== a.id).map(scoreOf)
     improved = retryImproved(before, { raw: scoreRaw, max: scoreMax, scaled })
   }
-  const result = { perfect, olympiad, byTopic: topics, timeUsedSec: timeUsed, pending, session, passed, early, improved, retry: isRetry }
+  const notCounted = a.kind === 'quest' && !isRetry && q && q.status !== 'done' && !counted ? { answered: answeredCount, need: answersNeeded, total: items.length } : null
+  const result = { perfect, olympiad, byTopic: topics, timeUsedSec: timeUsed, pending, session, passed, early, improved, retry: isRetry, ...(notCounted ? { notCounted } : {}) }
 
   let worldGain: { stars: number; cards: string[] } = { stars: 0, cards: [] }
   let bossResult: { won: boolean; stars: number; cardId: string | null } | null = null
@@ -478,13 +484,16 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
       const gained = answeredAny ? sessionCompletionXp({ session: session ?? 'latihan', perfect, retry: true }) : 0
       await grantXp(tx, ctx, learnerId, gained, 'quest-retry', a.id, date)
       xp += gained
+    } else if (notCounted && q) {
+      // Belum cukup dijawab: sesinya tetap terbuka dengan soal baru, tanpa XP selesai, bintang, atau streak.
+      await tx.update(quest).set({ status: 'ready', attemptId: null }).where(eq(quest.id, q.id))
     } else if (q && q.status !== 'done') {
       await tx.update(quest).set({ status: 'done', completedAt: new Date() }).where(eq(quest.id, q.id))
-      const gained = answeredAny ? sessionCompletionXp({ session: q.session, perfect }) : 0
+      const gained = sessionCompletionXp({ session: q.session, perfect })
       await grantXp(tx, ctx, learnerId, gained, 'quest', a.id, date)
       xp += gained
       await refreshDayRecord(tx, ctx, learnerId, q.date)
-      if (answeredAny) worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
+      worldGain = await awardSessionStars(tx, learnerId, { attemptId: a.id, required: q.kind === 'daily', perfect, retry: false, date })
     }
   } else if (a.kind === 'simulation' || a.kind === 'esmo-mock' || a.kind === 'esmo-pack' || a.kind === 'review' || a.kind === 'paper' || a.kind === 'test') {
     const isBoss = a.refId?.startsWith('boss:') ?? false
@@ -494,8 +503,10 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     await grantXp(tx, ctx, learnerId, done, `${a.kind}-done`, a.id, date)
     xp += done
     if (isBoss) bossResult = await finishBoss(tx, learnerId, a.id, a.refId!, correct, total)
-    // Sesi opsional bertipe tautan yang cocok ikut selesai.
-    if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
+    // Sesi opsional bertipe tautan yang cocok ikut selesai, kalau cukup soalnya dijawab.
+    if (!counted) {
+      // Tidak ada sesi yang ditandai selesai.
+    } else if (a.kind === 'review') await completeLinkedSession(tx, learnerId, date, { session: 'review' })
     else if (a.kind === 'simulation') await completeLinkedSession(tx, learnerId, date, { session: 'simulation', subject: a.subject as Subject, ...(a.refId ? { presetId: a.refId } : {}) })
     else if (a.kind === 'esmo-mock' || a.kind === 'esmo-pack') await completeLinkedSession(tx, learnerId, date, { session: 'esmo', subject: a.subject as Subject })
     else {
@@ -505,7 +516,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
     }
   }
   // Reading dikerjakan sebagai sesi reading; tugas Reading dari tutor ikut selesai.
-  if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf) {
+  if (a.subject === 'english' && a.kind === 'quest' && !a.retryOf && counted) {
     const sks = [...new Set(items.map((it) => resolved.get(it.ref)?.skill).filter((x): x is string => !!x))].map((id) => ({ id, strand: skill(id)?.strand ?? '' }))
     if (isReadingAttempt({ questSession: session, skills: sks })) {
       await completeLinkedSession(tx, learnerId, date, { session: 'english-skill', subject: 'english', task: 'reading' })

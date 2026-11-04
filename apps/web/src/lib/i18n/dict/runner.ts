@@ -201,6 +201,7 @@ const en = {
   },
 
   results: {
+    needMore: (need: number, total: number, answered: number) => `Answer at least ${need} of ${total} questions to finish this session. You answered ${answered}. It is waiting for you on Today.`,
     marks: {
       correct: 'correct',
       wrong: 'not yet',
@@ -508,6 +509,7 @@ const id: typeof en = {
   },
 
   results: {
+    needMore: (need, total, answered) => `Jawab paling sedikit ${need} dari ${total} soal supaya sesi ini selesai. Tadi kamu menjawab ${answered}. Sesinya menunggumu di halaman Hari ini.`,
     marks: {
       correct: 'benar',
       wrong: 'belum tepat',

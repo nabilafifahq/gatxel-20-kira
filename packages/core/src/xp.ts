@@ -53,6 +53,11 @@ export function freeSessionDoneXp(input: { kind: string; correct: number; pendin
   return input.kind === 'review' ? 10 : 20
 }
 
+/** Sesi dihitung untuk streak dan hadiah bila paling sedikit separuh soalnya dijawab. */
+export function sessionAnswersNeeded(total: number): number {
+  return Math.ceil(Math.max(0, total) / 2)
+}
+
 export function xpForLevel(level: number): number {
   const l = Math.max(1, Math.floor(level))
   return 50 * (l - 1) * l
