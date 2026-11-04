@@ -94,10 +94,18 @@ describe.skipIf(!ready)('putaran perbaikan', () => {
     const resolved = await run((tx) => m.content.resolveItems(tx, items.map((i) => i.ref)))
     const target = items.find((i) => ['mcq', 'numeric'].includes(resolved.get(i.ref)!.type))!
     await expect(run((tx) => m.remedial.remedialLesson(tx, learnerId, lat, target.position))).rejects.toThrow()
+    await expect(run((tx) => m.remedial.walkthroughFor(tx, learnerId, lat, target.position))).rejects.toThrow()
     await save(lat, target.position, right(resolved.get(target.ref)!))
+    const steps = await run((tx) => m.remedial.walkthroughFor(tx, learnerId, lat, target.position))
+    expect(steps?.length ?? 0).toBeGreaterThan(1)
     await expect(run((tx) => m.remedial.addRemedialItem(tx, learnerId, orgId, lat, target.position))).rejects.toThrow()
     const tes = await attemptOf('tes')
     await expect(run((tx) => m.remedial.addRemedialItem(tx, learnerId, orgId, tes, 1))).rejects.toThrow()
+    // Tes berwaktu yang masih berjalan tidak membuka pembahasan, bahkan sesudah soal dijawab.
+    const tesItems = await itemsOf(tes)
+    const tesResolved = await run((tx) => m.content.resolveItems(tx, tesItems.map((i) => i.ref)))
+    const tesTarget = tesItems.find((i) => ['mcq', 'numeric'].includes(tesResolved.get(i.ref)!.type))
+    if (tesTarget) await expect(run((tx) => m.remedial.walkthroughFor(tx, learnerId, tes, tesTarget.position))).rejects.toThrow()
   })
 
   it('setelah salah: pelajaran, satu soal serupa yang tidak kembar, tidak ikut skor, dan salah lagi masuk Fix-it', async () => {

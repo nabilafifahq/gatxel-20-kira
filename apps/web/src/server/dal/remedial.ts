@@ -9,7 +9,7 @@ import type { Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, poolForSkill, resolveItems, toClient } from './content'
 import { pickSibling } from './remedial-logic'
-import { latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
+import { latestByPosition, lazySolution, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 
 /**
  * Putaran perbaikan di Latihan. Setelah jawaban salah yang sudah terbuka kuncinya: pembahasan, satu langkah
@@ -56,7 +56,7 @@ export async function addRemedialItem(tx: Tx, learnerId: string, orgId: string, 
   const { a, slot, all } = await guard(tx, learnerId, attemptId, position)
   const mode = a.mode as Mode
   const render = (entry: AttemptItem, item: Item): RunnerItem => ({
-    ...toClient(item, { ref: entry.ref, seed: presentationSeed(a), includeKey: true, includeHints: modeAllowsHints(mode) }),
+    ...lazySolution(toClient(item, { ref: entry.ref, seed: presentationSeed(a), includeKey: true, includeHints: modeAllowsHints(mode) })),
     position: entry.position,
     section: 'core',
     remedialOf: position,
@@ -76,4 +76,23 @@ export async function addRemedialItem(tx: Tx, learnerId: string, orgId: string, 
   const entry: AttemptItem = { ref, section: 'core', position: Math.max(...all.map((i) => i.position)) + 1, difficulty: item.difficulty, remedialOf: position }
   await tx.update(attempt).set({ items: [...all, entry] }).where(eq(attempt.id, a.id))
   return render(entry, item)
+}
+
+/**
+ * Langkah pembahasan satu soal, dimuat malas. Hanya sesudah soal dijawab di mode umpan balik, atau sesudah
+ * attempt dikumpulkan (mode berwaktu). Mode berwaktu yang masih berjalan tidak pernah mendapatkannya.
+ */
+export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<SolutionStep[] | null> {
+  const a = await loadAttempt(tx, learnerId, attemptId)
+  const all = (a.items as AttemptItem[]) ?? []
+  const slot = all.find((i) => i.position === position)
+  if (!slot) throw notFound('That question is not in this quest.')
+  if (a.status === 'in_progress') {
+    const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode)
+    if (hidden || !modeShowsFeedback(a.mode as Mode) || a.mode === 'kilat') throw invalid('The steps open after you hand in.')
+    const rows = await tx.select().from(response).where(eq(response.attemptId, a.id))
+    if (!latestByPosition(rows).has(position)) throw invalid('Answer the question first.')
+  }
+  const item = (await resolveItems(tx, [slot.ref])).get(slot.ref)
+  return item?.solution ?? null
 }

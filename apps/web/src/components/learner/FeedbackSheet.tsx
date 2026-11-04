@@ -61,6 +61,8 @@ export function FeedbackSheet({
   prompt,
   figure,
   fixItNote = false,
+  hasSolution = false,
+  onLoadSolution,
 }: {
   kind: FeedbackKind
   subject: Subject
@@ -84,7 +86,11 @@ export function FeedbackSheet({
   figure?: FigureSpec
   /** Soal serupa juga salah: skill masuk Fix-it. */
   fixItNote?: boolean
+  /** Pembahasan ada tetapi belum dimuat (dimuat malas). */
+  hasSolution?: boolean
+  onLoadSolution?: () => void
 }): ReactElement {
+  const canWatch = (solution?.length ?? 0) > 0 || hasSolution
   const [howOpen, setHowOpen] = useState(false)
   const [lessonOpen, setLessonOpen] = useState(false)
   const style = SUBJECT_STYLE[subject]
@@ -158,8 +164,15 @@ export function FeedbackSheet({
       {kind === 'revealed' && remedial ? (
         <div className="flex flex-col gap-2.5 rounded-control border border-divider bg-bg p-4" data-testid="remedial-panel">
           <div className="text-body font-bold">Let us fix this one</div>
-          {!remedial.watched && solution && solution.length > 0 ? (
-            <Button variant="secondary" icon="play" onClick={() => setHowOpen(true)}>
+          {!remedial.watched && canWatch ? (
+            <Button
+              variant="secondary"
+              icon="play"
+              onClick={() => {
+                onLoadSolution?.()
+                setHowOpen(true)
+              }}
+            >
               Watch how it works
             </Button>
           ) : null}
@@ -181,7 +194,7 @@ export function FeedbackSheet({
               One quick lesson
             </Button>
           ) : null}
-          {(remedial.watched && (remedial.lessonDone || remedial.lesson === null)) || (!solution?.length && !remedial.watched) ? (
+          {(remedial.watched && (remedial.lessonDone || remedial.lesson === null)) || (!canWatch && !remedial.watched) ? (
             remedial.canTry ? (
               <Button loading={remedial.loading} onClick={remedial.onTry}>
                 Try one like it
@@ -206,8 +219,14 @@ export function FeedbackSheet({
             {showHintLabel ?? 'Show hint'}
           </Button>
         ) : null}
-        {kind === 'revealed' && solution && solution.length > 0 && !remedial ? (
-          <Button variant="secondary" onClick={() => setHowOpen(true)}>
+        {kind === 'revealed' && canWatch && !remedial ? (
+          <Button
+            variant="secondary"
+            onClick={() => {
+              onLoadSolution?.()
+              setHowOpen(true)
+            }}
+          >
             Show me how
           </Button>
         ) : null}
@@ -216,7 +235,7 @@ export function FeedbackSheet({
         </Button>
       </div>
 
-      {solution && solution.length > 0 ? (
+      {canWatch ? (
         <Dialog
           open={howOpen}
           onClose={() => {
@@ -237,7 +256,13 @@ export function FeedbackSheet({
             </Button>
           }
         >
-          <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} />
+          {solution && solution.length > 0 ? (
+            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} />
+          ) : (
+            <p className="m-0 text-body-lg" role="status">
+              Getting the steps ready.
+            </p>
+          )}
         </Dialog>
       ) : null}
       {remedial?.lesson ? (

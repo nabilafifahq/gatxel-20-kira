@@ -3,7 +3,7 @@
 import { z } from 'zod'
 import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
 import { tables } from '@kira/db'
-import type { ActionResult, AnswerPayload, AnswerResult, AvatarName, PinPicture, RemedialLessonDTO, RunnerItem } from '@/lib/dto'
+import type { ActionResult, AnswerPayload, AnswerResult, AvatarName, PinPicture, RemedialLessonDTO, RunnerItem, SolutionStepDTO } from '@/lib/dto'
 import { inOrg } from '../db'
 import { AppError, newReference, notFound, runAction, toFailure } from '../errors'
 import { orgCtx, requireActor, requireLearner } from '../auth/actor'
@@ -16,7 +16,7 @@ import { answerPayloadSchema, saveAnswer, submitAttempt } from '../dal/learner-r
 import { completeLesson } from '../dal/learner-explore'
 import { loadLearner } from '../dal/learner-core'
 import { createRetryAttempt } from '../dal/learner-session'
-import { addRemedialItem, remedialLesson } from '../dal/remedial'
+import { addRemedialItem, remedialLesson, walkthroughFor } from '../dal/remedial'
 import { startEsmoMock, startEsmoPack, startSimulation } from '../dal/learner-competition'
 import { audit } from '../audit'
 
@@ -216,6 +216,20 @@ export async function addRemedialItemAction(input: { attemptId: string; position
       const data = remedialSchema.parse(input)
       const item = await inOrg(orgCtx(actor), (tx) => addRemedialItem(tx, actor.userId, actor.orgId, data.attemptId, data.position))
       return { item }
+    },
+    'en-GB',
+  )
+}
+
+/** Pembahasan bergerak satu soal, dimuat saat anak membukanya. */
+export async function walkthroughAction(input: { attemptId: string; position: number }): Promise<ActionResult<{ steps: SolutionStepDTO[] | null }>> {
+  return runAction(
+    'walkthrough',
+    async () => {
+      const actor = await requireLearner()
+      const data = remedialSchema.parse(input)
+      const steps = await inOrg(orgCtx(actor), (tx) => walkthroughFor(tx, actor.userId, data.attemptId, data.position))
+      return { steps }
     },
     'en-GB',
   )

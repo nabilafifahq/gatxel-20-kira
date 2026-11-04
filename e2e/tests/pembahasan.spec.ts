@@ -27,7 +27,9 @@ test('Latihan: salah dua kali membuka pembahasan, pelajaran, dan satu soal serup
   const attemptId = await mathAttempt('latihan', items)
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')
-  await page.goto(`/run/${attemptId}`)
+  const first = await page.goto(`/run/${attemptId}`)
+  // Pembahasan dimuat malas: halaman runner tidak membawa langkahnya.
+  expect(await first!.text()).not.toContain('"solution":[')
   await expect(page.getByText('Question 1 of 2')).toBeVisible()
 
   const wrongText = items[0]!.options.find((_, i) => i !== items[0]!.answer)!.text!

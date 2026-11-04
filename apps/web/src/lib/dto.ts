@@ -212,6 +212,7 @@ export type AnswerResult = {
   /** Untuk mode tanpa umpan balik, status disembunyikan menjadi 'answered'. */
 }
 
+export type SolutionStepDTO = SolutionStep
 export type RemedialLessonDTO = { title: string; steps: SolutionStep[] }
 
 export type RunnerActions = {
@@ -221,6 +222,8 @@ export type RunnerActions = {
   /** Putaran perbaikan di Latihan (tidak ada di mode berwaktu). */
   remedialLesson?(input: { attemptId: string; position: number }): Promise<ActionResult<{ lesson: RemedialLessonDTO | null }>>
   addRemedialItem?(input: { attemptId: string; position: number }): Promise<ActionResult<{ item: RunnerItem | null }>>
+  /** Pembahasan bergerak satu soal, dimuat malas. */
+  walkthrough?(input: { attemptId: string; position: number }): Promise<ActionResult<{ steps: SolutionStep[] | null }>>
 }
 
 // ---------------------------------------------------------------------------

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState, type ReactElement } from 'rea
 import { checkAnswer } from '@kira/content/check'
 import { TTS_EXAMINER_INTRO } from '@kira/core/tts'
 import { answerXp } from '@kira/core'
+import type { SolutionStep } from '@kira/content/schema'
 import type { RemedialLessonDTO, RunnerActions, RunnerDTO, RunnerItem, SegmentState } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
 import type { FigureSpec } from '@kira/figures'
@@ -81,6 +82,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const [states, setStates] = useState<QState[]>(() => initState(data, sortedItems(data)))
   // Putaran perbaikan (hanya Latihan): per nomor soal yang salah.
   const [rem, setRem] = useState<Record<number, Rem>>({})
+  // Pembahasan bergerak dimuat malas per soal.
+  const [walk, setWalk] = useState<Record<number, SolutionStep[] | 'loading' | null>>({})
   const [index, setIndex] = useState(() => {
     const st = initState(data, sortedItems(data))
     const first = st.findIndex((s) => !DONE.includes(s.phase))
@@ -120,6 +123,29 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const patch = useCallback((i: number, p: Partial<QState>) => {
     setStates((list) => list.map((s, k) => (k === i ? { ...s, ...p } : s)))
   }, [])
+
+  const walkAsked = useRef(new Set<number>())
+  const loadWalk = useCallback(
+    async (position: number) => {
+      if (!actions.walkthrough || walkAsked.current.has(position)) return
+      walkAsked.current.add(position)
+      setWalk((w) => ({ ...w, [position]: 'loading' }))
+      await queue.flush(3000)
+      try {
+        const res = await actions.walkthrough({ attemptId: data.attemptId, position })
+        setWalk((w) => ({ ...w, [position]: res.ok ? res.data.steps : null }))
+        if (!res.ok) walkAsked.current.delete(position)
+      } catch {
+        setWalk((w) => ({ ...w, [position]: null }))
+        walkAsked.current.delete(position)
+      }
+    },
+    [actions, data.attemptId, queue],
+  )
+  const revealedItemPos = item && st?.phase === 'revealed' && item.reveal?.hasSolution ? item.position : null
+  useEffect(() => {
+    if (revealedItemPos !== null) void loadWalk(revealedItemPos)
+  }, [revealedItemPos, loadWalk])
 
   const remedialOn = Boolean(actions.remedialLesson && actions.addRemedialItem) && data.allowRetry && data.kind !== 'lesson-check'
   const patchRem = useCallback((position: number, p: Partial<Rem>) => {
@@ -437,7 +463,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               secondTry={st.attemptNo > 1}
               explanation={item.reveal?.explanation}
               answerText={item.reveal?.answerText}
-              solution={item.reveal?.solution ?? null}
+              solution={item.reveal?.solution ?? (Array.isArray(walk[item.position]) ? (walk[item.position] as SolutionStep[]) : null)}
+              hasSolution={Boolean(item.reveal?.hasSolution)}
+              onLoadSolution={() => void loadWalk(item.position)}
               hint={st.phase === 'not-yet' && st.hintsUsed > 0 && hints[st.hintsUsed - 1] ? { label: `Hint ${st.hintsUsed} of ${hints.length}`, text: hints[st.hintsUsed - 1] ?? '' } : null}
               onShowHint={st.phase === 'not-yet' && st.hintsUsed === 0 && hints.length > 0 ? openHint : undefined}
               showHintLabel={`Show hint ${st.hintsUsed + 1}`}
