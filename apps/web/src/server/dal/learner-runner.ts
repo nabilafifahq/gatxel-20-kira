@@ -6,6 +6,7 @@ import { tables } from '@kira/db'
 import { parseBars, parseBlocks, parseModel, parsePegs, parsePlacements } from '@kira/content/manip'
 import { answerFromLabels, answerToLabels, checkAnswer, keyOf, labelCount, type Item, type LabelPerm } from '@kira/content'
 import type { AnswerPayload, AnswerResult, RunnerDTO, RunnerItem, SavedResponse, Subject } from '@/lib/dto'
+import { dictFor, type Dict } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { labelPerm, runnerSeed } from '../labels'
@@ -13,9 +14,9 @@ import { resolveItems, skill, toClient } from './content'
 import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
-import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, refreshDayRecord } from './learner-core'
+import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, QUICK_REVIEW_PREFIX, refreshDayRecord } from './learner-core'
 import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
-import { completeLinkedSession, isTesLocked, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
+import { completeLinkedSession, isTesLocked, learnerLang, questOfAttempt, scoreOf, submittedFamily, type AttemptItem } from './learner-session'
 
 export type { AttemptItem }
 
@@ -63,8 +64,19 @@ export function exitFor(a: Pick<AttemptRow, 'kind'> & { refId?: string | null })
 export async function loadAttempt(tx: Tx, learnerId: string, attemptId: string): Promise<AttemptRow> {
   if (!z.string().uuid().safeParse(attemptId).success) throw notFound()
   const rows = await tx.select().from(attempt).where(and(eq(attempt.id, attemptId), eq(attempt.learnerId, learnerId))).limit(1)
-  if (!rows[0]) throw notFound('Soal ini tidak ditemukan.')
+  if (!rows[0]) throw notFound(dictFor(await learnerLang()).runner.dal.errors.attemptNotFound)
   return rows[0]
+}
+
+/**
+ * Judul attempt tersimpan dalam bahasa Inggris dan dibaca konsol juga, jadi judul buatan aplikasi diterjemahkan
+ * saat tampil. Judul dari konten (skill, paper) tetap apa adanya.
+ */
+export function attemptTitle(title: string, dict: Dict): string {
+  if (title.startsWith(QUICK_REVIEW_PREFIX)) return dict.runner.dal.quickReviewTitle(title.slice(QUICK_REVIEW_PREFIX.length))
+  const paper = /^(Math|English|Science) practice paper$/.exec(title)
+  if (paper) return dict.runner.dal.paperTitle(dict.common.subject[paper[1]!.toLowerCase() as Subject])
+  return title
 }
 
 /** Seed urutan tampil opsi dan kartu. Pembahasan memakai seed yang sama supaya urutannya sama dengan saat dikerjakan. */
@@ -148,7 +160,7 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     kind: dtoKind(a.kind),
     mode: (mode === 'kertas' ? 'tes' : mode) as RunnerDTO['mode'],
     subject: a.subject as Subject,
-    title: a.title,
+    title: attemptTitle(a.title, dictFor(await learnerLang())),
     items: runnerItems,
     saved,
     timeLimitSec: a.timeLimitS,
@@ -276,16 +288,16 @@ export async function saveAnswer(tx: Tx, ctx: OrgContext, learnerId: string, p: 
     if (Date.parse(p.answeredAt) > deadline || Date.now() > deadline + 10 * 60 * 1000) return { status: 'answered', xp: 0 }
   }
   const slot = ((a.items as AttemptItem[]) ?? []).find((i) => i.position === p.position)
-  if (!slot) throw invalid('Nomor soal tidak ada di attempt ini.')
+  if (!slot) throw invalid(dictFor(await learnerLang()).runner.dal.errors.noSuchNumber)
   const item = (await resolveItems(tx, [slot.ref])).get(slot.ref)
-  if (!item) throw notFound('Soal tidak ditemukan.')
+  if (!item) throw notFound(dictFor(await learnerLang()).runner.dal.errors.itemNotFound)
   // Mode tanpa umpan balik: perangkat mengirim label rahasia, basis data menyimpan indeks asli.
   const answer = answerFromLabels(item, p.answer, HIDDEN_MODES.has(a.mode) ? labelPerm(a.id, slot.ref, labelCount(item)) : null) as AnswerPayload['answer']
-  if (!validAnswer(item, answer)) throw invalid('Bentuk jawaban tidak sesuai soal.')
+  if (!validAnswer(item, answer)) throw invalid(dictFor(await learnerLang()).runner.dal.errors.badAnswer)
   if ((item.type === 'speak' || item.type === 'draw' || item.type === 'photo') && answer) {
     const mediaId = (answer as { mediaId: string }).mediaId
     const m = await tx.select({ id: media.id }).from(media).where(and(eq(media.id, mediaId), eq(media.learnerId, learnerId))).limit(1)
-    if (!m[0]) throw invalid('Rekaman atau gambar tidak ditemukan.')
+    if (!m[0]) throw invalid(dictFor(await learnerLang()).runner.dal.errors.mediaNotFound)
   }
   const check = checkAnswer(keyOf(item), answer)
   const date = jakartaDate()

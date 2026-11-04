@@ -27,6 +27,8 @@ import { tables } from '@kira/db'
 import { genRef, instanceSignature, newSeed } from '@kira/content/math'
 import { isFeatureOn } from './learner-features'
 import type { Subject } from '@/lib/dto'
+import { dictFor, type Dict, type UiLang } from '@/lib/i18n'
+import { getLang } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
 import { poolForSkill, preset, resolveItems, skill, skillsFor, type PoolCandidate } from './content'
@@ -869,9 +871,9 @@ export async function familyOf(tx: Tx, rootId: string): Promise<AttemptRow[]> {
  */
 export async function createRetryAttempt(tx: Tx, ctx: OrgContext, learner: LearnerRow, attemptId: string): Promise<string> {
   const [a] = await tx.select().from(attempt).where(and(eq(attempt.id, attemptId), eq(attempt.learnerId, learner.userId))).limit(1)
-  if (!a) throw notFound('Sesi ini tidak ditemukan.')
+  if (!a) throw notFound(dictFor(await learnerLang()).runner.dal.errors.sessionNotFound)
   const info = await retryInfo(tx, a)
-  if (!info) throw conflict('Sesi ini belum selesai atau tidak bisa diulang.')
+  if (!info) throw conflict(dictFor(await learnerLang()).runner.dal.errors.cannotRetry)
   const family = await familyOf(tx, info.rootId)
   const root = family[0]!
   const open = family.find((f) => f.status === 'in_progress' && f.retryNo > 0)
@@ -896,7 +898,7 @@ export async function createRetryAttempt(tx: Tx, ctx: OrgContext, learner: Learn
       if (s) counts.set(s, (counts.get(s) ?? 0) + 1)
     }
     const main = info.quest.skillId ?? [...counts.entries()].sort((x, y) => y[1] - x[1])[0]?.[0]
-    if (!main) throw conflict('Soal untuk sesi ini tidak ditemukan.')
+    if (!main) throw conflict(dictFor(await learnerLang()).runner.dal.errors.noRetryItems)
     const avoid = new Set<string>()
     for (const f of family) for (const it of (f.items as AttemptItem[]) ?? []) avoid.add(it.ref)
     // Sesi lain mapel yang sama hari itu juga dihindari (Latihan dan Tes memakai skill yang sama).
@@ -937,10 +939,22 @@ export async function createRetryAttempt(tx: Tx, ctx: OrgContext, learner: Learn
 
 export type ScoreText = { text: string; raw: number | null; max: number | null; scaled: number | null }
 
+/**
+ * Bahasa tampilan anak untuk teks yang disusun di DAL. Layar learner selalu punya sesi. Di luar request
+ * (tes, skrip) sesi tidak terbaca, jadi teksnya bahasa Inggris seperti sebelumnya.
+ */
+export async function learnerLang(): Promise<UiLang> {
+  try {
+    return await getLang()
+  } catch {
+    return 'en'
+  }
+}
+
 /** Skor sebuah percobaan sebagai teks untuk learner, misalnya "8 of 10" atau "72 out of 100". */
-export function scoreText(a: { scoreRaw: number | null; scoreMax: number | null; scoreScaled: number | null }, total: number): ScoreText | null {
+export function scoreText(a: { scoreRaw: number | null; scoreMax: number | null; scoreScaled: number | null }, total: number, t: Dict['runner'] = dictFor('en').runner): ScoreText | null {
   if (a.scoreRaw === null && a.scoreScaled === null) return null
-  const text = a.scoreScaled !== null ? `${Math.round(a.scoreScaled)} out of 100` : `${Math.round(a.scoreRaw ?? 0)} of ${Math.round(a.scoreMax ?? total)}`
+  const text = a.scoreScaled !== null ? t.dal.outOf(Math.round(a.scoreScaled), 100) : t.dal.scoreOf(Math.round(a.scoreRaw ?? 0), Math.round(a.scoreMax ?? total))
   return { text, raw: a.scoreRaw, max: a.scoreMax, scaled: a.scoreScaled }
 }
 
