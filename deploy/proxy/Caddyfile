@@ -107,7 +107,12 @@
 	}
 
 	# Unggahan besar: impor konsol (PDF paket resmi sampai 60 MB) dan media. Jenis dan ukuran per jenis tetap diperiksa web.
-	@big path /konsol/impor /konsol/impor/* /api/media /api/media/*
+	# Hanya bila ada cookie sesi: Next membaca seluruh body Server Action sebelum sesi diperiksa, jadi pengunjung anonim
+	# tidak boleh mengirim 62 MB. Tanpa cookie, batas 8 MB di bawah yang berlaku.
+	@big {
+		path /konsol/impor /konsol/impor/* /api/media /api/media/*
+		header Cookie *__Host-kira.session=*
+	}
 	handle @big {
 		request_body {
 			max_size 62MB

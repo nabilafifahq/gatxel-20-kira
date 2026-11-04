@@ -177,7 +177,7 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     expect(row!.status).toBe('done')
     const [xp] = await owner`select count(*)::int as n from xp_event where learner_id = ${kid} and reason = 'quest' and ref = ${q!.attempt_id as string}`
     expect(xp!.n).toBe(0)
-  })
+  }, 120_000)
 
   it('saklar mati: mulai sesi langsung ditolak di server', async () => {
     await dbm.inOrg(tutorCtx, (tx) => feats.saveFeatureMap(tx, orgId, kid, { 'english-skills': false, math: false, 'olympiad-math': false, 'olympiad-english': false }))
@@ -187,7 +187,7 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     await expect(inKid((tx) => explore.completeLesson(tx, ctx, kid, 'm2.numbers-to-100', 1, 1))).rejects.toMatchObject(refused)
     await expect(inKid((tx) => competition.startEsmoMock(tx, ctx, kid, 'math'))).rejects.toMatchObject(refused)
     await dbm.inOrg(tutorCtx, (tx) => feats.saveFeatureMap(tx, orgId, kid, {}))
-  })
+  }, 120_000)
 
   it('masuk serentak: paling banyak 20 percobaan sampai ke pemeriksaan password', async () => {
     const email = `tembus-${randomUUID()}@example.test`

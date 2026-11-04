@@ -378,6 +378,16 @@ test.describe('uji tembus 5 November', () => {
     expect(statuses.filter((s) => s === 303).length).toBeLessThanOrEqual(62)
   })
 
+  test('/api/sync menghitung anggaran per butir, bukan per permintaan', async () => {
+    const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
+    const ctx = await api(kid, { 'Content-Type': 'application/json' })
+    const answers = Array.from({ length: 100 }, () => ({ bukan: 'jawaban' }))
+    const statuses: number[] = []
+    for (let i = 0; i < 14; i++) statuses.push((await ctx.post('/api/sync', { data: { answers, submits: [] } })).status())
+    expect(statuses).toContain(429)
+    expect(statuses.filter((s) => s === 200).length).toBeLessThanOrEqual(12)
+  })
+
   test('/api/sync menolak body chunked yang terlalu besar', async () => {
     const kid = await learnerSession(A.aishaId, A.orgId, A.tutorId)
     const res = await fetch(`${BASE}/api/sync`, {
