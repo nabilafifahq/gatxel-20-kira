@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { figureSpec } from '@kira/figures/spec'
+import { animSchema } from './anim'
 
 export { ICON_NAMES } from '@kira/figures/spec'
 export type { IconName } from '@kira/figures/spec'
@@ -93,6 +94,10 @@ export const solutionStepSchema = z
     say: text(220),
     show: text(120).optional(),
     figure: figureSpec.optional(),
+    /** Gambar bergerak untuk langkah ini (lihat anim.ts). */
+    anim: animSchema.optional(),
+    /** Bagian kalimat soal yang disorot saat langkah ini tampil. Harus muncul persis di prompt. */
+    mark: z.array(text(60)).min(1).max(4).optional(),
   })
   .strict()
 export type SolutionStep = z.infer<typeof solutionStepSchema>
