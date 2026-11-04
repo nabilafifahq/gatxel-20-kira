@@ -32,8 +32,8 @@ test('quest yang disimpan offline bisa dijawab dan tersinkron setelah online', a
   await db()`delete from rest_day where learner_id = ${lid} and date = ${today}`
   await db()`update learner_profile set rest_weekdays = '{}' where user_id = ${lid}`
   await db()`
-    insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, paper_id, mode, question_count)
-    values (${org}, ${w!.id}, ${lid}, ${today}, 'english', 'quest', ${p!.id}, 'latihan', 3)`
+    insert into plan_slot (org_id, plan_week_id, learner_id, date, subject, kind, paper_id, mode, question_count, base)
+    values (${org}, ${w!.id}, ${lid}, ${today}, 'english', 'quest', ${p!.id}, 'latihan', 3, true)`
 
   await registerTablet(page, ['Aisha'])
   await pinLogin(page, 'Aisha')

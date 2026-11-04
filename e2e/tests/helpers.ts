@@ -83,6 +83,8 @@ export async function pinLogin(page: Page, name: LearnerName): Promise<void> {
   await waitForPath(page, (p) => p.startsWith('/pin/'))
   for (const p of LEARNERS[name].pin) await page.getByRole('button', { name: p, exact: true }).click()
   await waitForPath(page, (p) => p === '/today')
+  // Today menampilkan kerangka pemuatan dulu; sesi hari ini dibuat saat halamannya selesai dirender.
+  await page.locator('#today-quests').waitFor({ state: 'attached', timeout: 30_000 })
 }
 
 /** Item MCQ dari konten repo untuk satu skill (dipakai untuk attempt tes yang bisa ditebak isinya). */
