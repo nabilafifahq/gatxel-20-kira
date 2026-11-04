@@ -44,13 +44,40 @@ export type AlbumDTO = {
   sets: { id: string; name: string; blurb: string; earnedBy: string; complete: boolean; reward: string; cards: CardDTO[] }[]
 }
 
+/** Satu kartu ringkas untuk momen hadiah. */
+export type CardMiniDTO = { id: string; no: number; name: string; rarity: Rarity; art: string; fact: string }
+
 export type StoryDTO = {
   shell: LearnerShell
   title: string
   goalDays: number
   thisWeekDays: number
   open: number
-  chapters: { n: number; title: string; scene: string; isOpen: boolean; pages: { text: string; cx: number; zoom: number; lx: number; ly: number }[]; tease: string }[]
+  chapters: {
+    n: number
+    title: string
+    isOpen: boolean
+    /** Sudah pernah ditandai selesai. */
+    done: boolean
+    /** Besar cahaya Lumi di bab ini. */
+    glow: number
+    pages: {
+      text: string
+      scene: string
+      cx: number
+      cy?: number
+      zoom: number
+      lx: number
+      ly: number
+      pip: { x: number; y: number }
+      kira: { x: number; y: number; flip?: boolean; read?: boolean; worry?: boolean }
+      show: readonly string[]
+    }[]
+    /** Sobekan surat bab ini. Kosong untuk bab yang belum terbuka. */
+    scrap: string | null
+    wonder: string
+    tease: string
+  }[]
 }
 
 export type BossDTO = {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { bossWinAt, CARDS, CARD_SETS, SHOP, STORY, cardEarned, cardsOfSet, certificatesFor, chaptersOpen, cleanPetName, diminishing, DRILL_STARS_BY_COUNT, nextBossCard, petStage, sessionStars, setComplete } from '../index'
+import { bossWinAt, CARDS, CARD_SETS, SHOP, STORY, STORY_SCENE_IDS, cardEarned, cardsOfSet, certificatesFor, chaptersOpen, cleanPetName, cleanStoryDone, diminishing, DRILL_STARS_BY_COUNT, lumiGlow, nextBossCard, petStage, sessionStars, setComplete } from '../index'
 
 describe('bintang', () => {
   it('sesi wajib 3 bintang, sempurna +2, ulangan 0', () => {
@@ -65,6 +65,34 @@ describe('cerita', () => {
       expect(c.pages.length).toBeGreaterThanOrEqual(4)
       expect(c.tease.length).toBeGreaterThan(10)
     }
+  })
+  it('terbaca sebagai buku bergambar: kalimat pendek, halaman ringkas, refrein berubah, tanpa kata terlarang', () => {
+    const banned = /unlock|\u2014|\u2013|hurry|last chance|before it is too late|lives left/i
+    for (const c of STORY) {
+      expect(c.pages.length).toBeGreaterThanOrEqual(10)
+      expect(c.scrap.length).toBeGreaterThan(10)
+      expect(c.wonder.endsWith('?')).toBe(true)
+      for (const t of [c.title, c.scrap, c.wonder, c.tease, ...c.pages.map((p) => p.text)]) expect(banned.test(t), t).toBe(false)
+      for (const p of c.pages) {
+        expect(p.text.split(/\s+/).length, p.text).toBeLessThanOrEqual(36)
+        for (const s of p.text.split(/(?<=[.!?\u201D])\s+/)) expect(s.split(/\s+/).length, s).toBeLessThanOrEqual(19)
+      }
+      expect(c.pages.map((p) => p.text).join(' ')).toMatch(/One \w+ at a time/)
+    }
+  })
+  it('buku enam warna, Pip di setiap gambar, Lumi makin terang, adegan dikenal', () => {
+    for (const c of STORY) for (const p of c.pages) {
+      expect(p.pip.x).toBeGreaterThanOrEqual(0)
+      expect(p.pip.x).toBeLessThanOrEqual(100)
+      expect(STORY_SCENE_IDS as readonly string[]).toContain(p.scene ?? c.scene)
+    }
+    expect(lumiGlow(8)).toBeGreaterThan(lumiGlow(1))
+    expect(STORY[7]!.pages.map((p) => p.text).join(' ')).toContain('Pip')
+    expect(STORY.slice(0, 7).flatMap((c) => c.pages.map((p) => p.text)).join(' ')).not.toContain('Pip')
+  })
+  it('daftar bab selesai dibersihkan', () => {
+    expect(cleanStoryDone([2, 2, 1, 99, 'x', 0])).toEqual([1, 2])
+    expect(cleanStoryDone(null)).toEqual([])
   })
   it('bos menang di 70 persen', () => expect([10, 8, 5, 3].map(bossWinAt)).toEqual([7, 6, 4, 3]))
 })

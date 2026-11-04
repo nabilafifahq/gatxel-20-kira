@@ -796,6 +796,16 @@
     transform: translateX(0) scale(1);
   }
 }
+@keyframes kw-page {
+  from {
+    opacity: 0;
+    transform: translateX(26px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
 @keyframes kw-flash-ring {
   from {
     opacity: 0.9;
@@ -933,6 +943,9 @@
   }
   .kw-hit {
     animation: kw-hit 520ms var(--ease-kira) both;
+  }
+  .kw-page {
+    animation: kw-page 360ms var(--ease-kira) both;
   }
   .kw-flash-ring {
     animation: kw-flash-ring 600ms var(--ease-kira) both;

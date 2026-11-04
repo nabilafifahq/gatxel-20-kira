@@ -19,11 +19,14 @@ import {
   cardHint,
   cardNumber,
   certificatesFor,
+  chapterByN,
   chaptersOpen,
+  cleanStoryDone,
   cleanPetName,
   diminishing,
   isPetKind,
   jakartaDate,
+  lumiGlow,
   nextBossCard,
   nextStage,
   petGreeting,
@@ -48,7 +51,7 @@ import { learnerShell, loadLearner, skillStates, streakFor } from './learner-cor
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
 import { isFeatureOn } from './learner-features'
 import type { LearnerShell } from '@/lib/dto'
-import type { AlbumDTO, BossDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
+import type { AlbumDTO, BossDTO, CardMiniDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
 const { starLedger, worldState, worldItem, worldCard, contestMedal, skillState, dayRecord, quest, learnerProfile, attempt } = tables
 
@@ -142,7 +145,7 @@ export async function awardDrillStars(tx: Tx, learnerId: string, roundId: string
 
 type PetState = { kind: PetKind; name: string; hearts: number; hatchedOn: IsoDate; lastTreat?: { id: string; at: string } }
 type Equipped = { petCostume?: string | null; petHome?: string | null; frame?: string | null }
-type Progress = { boss?: Record<string, string | null>; storySeen?: number }
+type Progress = { boss?: Record<string, string | null>; storyDone?: number[] }
 export type WorldRow = { pet: PetState | null; equipped: Equipped; progress: Progress }
 
 async function loadWorld(tx: Tx, learnerId: string): Promise<WorldRow> {
@@ -387,8 +390,9 @@ async function goalWeeks(tx: Tx, learnerId: string): Promise<{ weeks: number; th
 
 export async function storyDTO(tx: Tx, learnerId: string): Promise<StoryDTO> {
   const learner = await loadLearner(tx, learnerId)
-  const [shell, g] = await Promise.all([learnerShell(tx, learner), goalWeeks(tx, learnerId)])
+  const [shell, g, world] = await Promise.all([learnerShell(tx, learner), goalWeeks(tx, learnerId), loadWorld(tx, learnerId)])
   const open = chaptersOpen(g.weeks)
+  const done = new Set(cleanStoryDone(world.progress.storyDone))
   return {
     shell,
     title: 'Kira and the Lost Library',
@@ -398,12 +402,46 @@ export async function storyDTO(tx: Tx, learnerId: string): Promise<StoryDTO> {
     chapters: STORY.map((c) => ({
       n: c.n,
       title: c.title,
-      scene: c.scene,
       isOpen: c.n <= open,
-      pages: c.n <= open ? c.pages.map((p) => ({ text: p.text, cx: p.look.cx, zoom: p.look.zoom, lx: p.lumi.x, ly: p.lumi.y })) : [],
+      done: done.has(c.n),
+      glow: lumiGlow(c.n),
+      // Halaman, sobekan surat, dan pertanyaan bab yang belum terbuka tidak dikirim ke browser.
+      pages:
+        c.n <= open
+          ? c.pages.map((p) => ({
+              text: p.text,
+              scene: p.scene ?? c.scene,
+              cx: p.look.cx,
+              ...(p.look.cy !== undefined ? { cy: p.look.cy } : {}),
+              zoom: p.look.zoom,
+              lx: p.lumi.x,
+              ly: p.lumi.y,
+              pip: p.pip,
+              kira: p.kira,
+              show: p.show,
+            }))
+          : [],
+      scrap: c.n <= open ? c.scrap : null,
+      wonder: c.n <= open ? c.wonder : '',
       tease: c.tease,
     })),
   }
+}
+
+/** Tandai bab selesai dibaca. Hanya bab yang sudah terbuka. Kartu kenangan bab diberikan lewat syncCards. */
+export async function finishChapter(tx: Tx, learnerId: string, n: number): Promise<{ cards: CardMiniDTO[] }> {
+  await lockLearner(tx, learnerId)
+  const [g, world] = await Promise.all([goalWeeks(tx, learnerId), loadWorld(tx, learnerId)])
+  if (n > chaptersOpen(g.weeks) || !chapterByN(n)) throw forbidden('That chapter is not open yet.')
+  const done = cleanStoryDone(world.progress.storyDone)
+  if (!done.includes(n)) await saveWorld(tx, learnerId, { progress: { ...world.progress, storyDone: [...done, n] } })
+  const fresh = await syncCards(tx, learnerId)
+  return { cards: fresh.map((c) => cardMini(c.id)).filter((c): c is CardMiniDTO => c !== null) }
+}
+
+function cardMini(id: string): CardMiniDTO | null {
+  const c = CARDS.find((x) => x.id === id)
+  return c ? { id: c.id, no: cardNumber(c.id), name: c.name, rarity: c.rarity, art: c.art, fact: c.fact } : null
 }
 
 // ---------------------------------------------------------------------------

@@ -4,13 +4,14 @@ import { z } from 'zod'
 import { refresh } from 'next/cache'
 import { jakartaDate } from '@kira/core'
 import type { ActionResult } from '@/lib/dto'
+import type { CardMiniDTO } from '@/lib/dto-world'
 import { systemCtx } from '../audit'
 import { inOrg } from '../db'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { requireParent, withFamilyAdmin } from '../auth/parent'
 import { forbidden, runAction } from '../errors'
 import { isFeatureOn } from '../dal/learner-features'
-import { addMedal, applyLook, buyItem, choosePet, equipItem, removeMedal, treatPet } from '../dal/kira-world'
+import { addMedal, applyLook, buyItem, choosePet, equipItem, finishChapter, removeMedal, treatPet } from '../dal/kira-world'
 
 /**
  * Aksi Kira World. Urutan: requireLearner (atau requireParent), Zod .strict(), saklar fitur, lalu DAL.
@@ -24,6 +25,18 @@ async function learner() {
 }
 
 const idText = z.string().min(1).max(60).regex(/^[a-z0-9-]+$/)
+
+export async function finishChapterAction(input: unknown): Promise<ActionResult<{ cards: CardMiniDTO[] }>> {
+  return runAction(
+    'finishChapter',
+    async () => {
+      const actor = await learner()
+      const data = z.object({ n: z.number().int().min(1).max(20) }).strict().parse(input)
+      return inOrg(orgCtx(actor), (tx) => finishChapter(tx, actor.userId, data.n))
+    },
+    'en-GB',
+  )
+}
 
 export async function choosePetAction(input: unknown): Promise<ActionResult> {
   return runAction(
