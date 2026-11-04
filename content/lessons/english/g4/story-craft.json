@@ -1,0 +1,90 @@
+{
+  "skill": "e4.story-craft",
+  "title": "Narrators, characters and plans",
+  "steps": [
+    {
+      "say": "The narrator tells the story. A first-person narrator is a character who says I.",
+      "show": "I tiptoed down the stairs."
+    },
+    {
+      "say": "A third-person narrator is outside the story and says he, she or they.",
+      "show": "Leo tiptoed down the stairs."
+    },
+    {
+      "say": "Writers build a character through what the character does, says and thinks.",
+      "show": "Joko wipes the board without being asked: helpful"
+    },
+    {
+      "say": "Words that describe the setting create a mood.",
+      "show": "dim, dusty, a cobweb, groaning floorboards"
+    },
+    {
+      "say": "Plan before you write. A story mountain has an opening, build-up, problem, solution and ending.",
+      "show": "opening, build-up, problem, solution, ending"
+    }
+  ],
+  "check": [
+    {
+      "id": "e4.story-craft.901",
+      "skill": "e4.story-craft",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "We ran to the gate. Which viewpoint is this?",
+      "options": [
+        {
+          "text": "first person"
+        },
+        {
+          "text": "third person",
+          "why": "Third person uses he, she or they."
+        },
+        {
+          "text": "second person",
+          "why": "Second person uses you."
+        },
+        {
+          "text": "no viewpoint",
+          "why": "Every story has a narrator."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the pronoun we.",
+        "First person uses I or we.",
+        "The narrator is one of the characters."
+      ],
+      "explanation": "We shows the narrator is part of the story, so it is first person."
+    },
+    {
+      "id": "e4.story-craft.902",
+      "skill": "e4.story-craft",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which tool helps you plan the opening, problem and ending of a story?",
+      "options": [
+        {
+          "text": "a story mountain"
+        },
+        {
+          "text": "a timeline of your day",
+          "why": "A timeline orders events but does not plan a plot."
+        },
+        {
+          "text": "a spelling log",
+          "why": "A spelling log is for words, not for story plans."
+        },
+        {
+          "text": "a glossary",
+          "why": "A glossary explains words."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about shapes used for plans.",
+        "It has a rise and a fall.",
+        "It is named after a mountain."
+      ],
+      "explanation": "A story mountain shows the build-up to the problem and the way it is solved."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "skill": "e4.skim-scan",
+  "title": "Skimming and scanning",
+  "steps": [
+    {
+      "say": "Skimming means looking quickly to get the general idea of a text.",
+      "show": "Look at the title, headings and first lines."
+    },
+    {
+      "say": "Scanning means moving your eyes fast to find one fact.",
+      "show": "a date, a name, a number"
+    },
+    {
+      "say": "Use skimming to decide what a text is about. Use scanning to answer a question.",
+      "show": "skim: what is it about? scan: what time?"
+    },
+    {
+      "say": "Key words are the important words that carry the main points.",
+      "show": "large eyes, soft feathers, hunt at night"
+    },
+    {
+      "say": "Make notes with key words, not whole sentences.",
+      "show": "red panda: forests, bamboo, dusk"
+    }
+  ],
+  "check": [
+    {
+      "id": "e4.skim-scan.901",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You want to find the date of a school fair in a letter. What should you do?",
+      "options": [
+        {
+          "text": "skim the title only",
+          "why": "The title may not give the date."
+        },
+        {
+          "text": "scan the letter for a date"
+        },
+        {
+          "text": "read every word slowly",
+          "why": "This takes too long for one fact."
+        },
+        {
+          "text": "skip to the last line only",
+          "why": "The date may not be in the last line."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You know what fact you want.",
+        "Move your eyes quickly over the text.",
+        "Look for numbers and month names."
+      ],
+      "explanation": "Scanning is quick looking for one fact, such as a date."
+    },
+    {
+      "id": "e4.skim-scan.902",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which notes are best for a paragraph about owls?",
+      "options": [
+        {
+          "text": "Owls are birds that hunt at night and have big eyes.",
+          "why": "This is a whole sentence. Notes should be short."
+        },
+        {
+          "text": "owls: night hunters, big eyes, soft feathers"
+        },
+        {
+          "text": "owls are lovely",
+          "why": "This is an opinion, not a fact from the text."
+        },
+        {
+          "text": "birds",
+          "why": "This is too short and does not show the main points."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Good notes are short.",
+        "They use key words.",
+        "They hold facts, not opinions."
+      ],
+      "explanation": "Notes use a few key words that hold the main facts."
+    }
+  ]
+}

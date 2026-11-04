@@ -885,6 +885,278 @@
         "Fill each gap one at a time."
       ],
       "explanation": "Amara's team is one group, so it takes is. Its players are more than one, so they take are."
+    },
+    {
+      "id": "e4.subject-verb.029",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "There are two roads to the beach and they both lead there. You can take ___ road.",
+      "options": [
+        {
+          "text": "either"
+        },
+        {
+          "text": "neither",
+          "why": "Neither would mean you could take no road."
+        },
+        {
+          "text": "both",
+          "why": "Both needs a plural noun, as in both roads."
+        },
+        {
+          "text": "all",
+          "why": "All is used for three or more things."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The word must show you may choose one of two.",
+        "You only take one road.",
+        "Which word means one or the other?"
+      ],
+      "explanation": "Either means one or the other of two. You choose one road, and both lead to the beach."
+    },
+    {
+      "id": "e4.subject-verb.030",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "I have two pens. The ink is dry in both, so ___ pen works.",
+      "options": [
+        {
+          "text": "both",
+          "why": "Both is used with a plural noun, as in both pens."
+        },
+        {
+          "text": "either",
+          "why": "Either pen would work. The ink is dry, so they do not."
+        },
+        {
+          "text": "every",
+          "why": "Every is used for three or more things."
+        },
+        {
+          "text": "neither"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The ink is dry in each pen.",
+        "So the pens do not work.",
+        "Which word means not one and not the other?"
+      ],
+      "explanation": "Neither means not one and not the other. Neither pen works because the ink is dry in both."
+    },
+    {
+      "id": "e4.subject-verb.031",
+      "skill": "e4.subject-verb",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words. Are they used for two things or for three or more?",
+      "groups": [
+        "Two things",
+        "Three or more things"
+      ],
+      "items": [
+        {
+          "text": "either",
+          "group": 0
+        },
+        {
+          "text": "neither",
+          "group": 0
+        },
+        {
+          "text": "both",
+          "group": 0
+        },
+        {
+          "text": "all",
+          "group": 1
+        },
+        {
+          "text": "several",
+          "group": 1
+        },
+        {
+          "text": "none",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Either, neither and both are about a pair.",
+        "All and several need a bigger group.",
+        "Say a sentence about two shoes with each word."
+      ],
+      "explanation": "Either, neither and both are used for two things. All, several and none are used for bigger groups."
+    },
+    {
+      "id": "e4.subject-verb.032",
+      "skill": "e4.subject-verb",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order to make a correct sentence.",
+      "answer": "Both of the doors were open.",
+      "distractors": [
+        "was"
+      ],
+      "hints": [
+        "Both goes with more than one thing.",
+        "Start with Both.",
+        "The verb must match more than one door."
+      ],
+      "explanation": "Both means two, so it takes were. The sentence reads: Both of the doors were open."
+    },
+    {
+      "id": "e4.subject-verb.033",
+      "skill": "e4.subject-verb",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write is or are in each gap.\nBoth of my cousins ___ coming. Neither of them ___ late.",
+      "blanks": [
+        {
+          "answers": [
+            "are"
+          ]
+        },
+        {
+          "answers": [
+            "is"
+          ]
+        }
+      ],
+      "hints": [
+        "Both means two people.",
+        "Neither takes a singular verb because it means each one on their own.",
+        "Start with the first gap. How many cousins does both mean?"
+      ],
+      "explanation": "Both goes with are because it means two. Neither goes with is because it means not one of the two."
+    },
+    {
+      "id": "e4.subject-verb.034",
+      "skill": "e4.subject-verb",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "Neither of the boys are here.",
+          "why": "In standard writing, neither takes is."
+        },
+        {
+          "text": "Neither of the boys is here."
+        },
+        {
+          "text": "Both of the boys is here.",
+          "why": "Both takes are."
+        },
+        {
+          "text": "Either of the boys are here.",
+          "why": "In standard writing, either takes is."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Neither and either each mean one of two.",
+        "Both means the two together.",
+        "Look for the sentence with the verb that matches one boy at a time."
+      ],
+      "explanation": "Neither and either take is in standard writing, because they mean one boy at a time. Both takes are."
+    },
+    {
+      "id": "e4.subject-verb.035",
+      "skill": "e4.subject-verb",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table. Write am, is or are.",
+      "head": [
+        "Subject",
+        "Verb"
+      ],
+      "rows": [
+        [
+          "I",
+          ""
+        ],
+        [
+          "She",
+          ""
+        ],
+        [
+          "We",
+          ""
+        ],
+        [
+          "The dogs",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "am"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "is"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "are"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "are"
+          ]
+        }
+      ],
+      "hints": [
+        "The verb to be changes with the person.",
+        "I is a special case.",
+        "Plural subjects take are."
+      ],
+      "explanation": "I takes am, she takes is, and we and the dogs take are."
+    },
+    {
+      "id": "e4.subject-verb.036",
+      "skill": "e4.subject-verb",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Choose was or were for each gap.\nI ___ late and my friends ___ waiting.",
+      "gaps": [
+        {
+          "options": [
+            "was",
+            "were"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "was",
+            "were"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The past form of to be also changes with the subject.",
+        "I is one person.",
+        "Friends is more than one."
+      ],
+      "explanation": "I goes with was. My friends is plural, so it goes with were."
     }
   ]
 }

@@ -109,11 +109,11 @@
       "prompt": "In the words want, war and water, how is the letter a said after the letter w?",
       "options": [
         {
-          "text": "like the a in cat",
-          "why": "Cat has a short a, but after w the sound changes."
+          "text": "like the o in hot"
         },
         {
-          "text": "like the o in hot"
+          "text": "like the a in cat",
+          "why": "Cat has a short a, but after w the sound changes."
         },
         {
           "text": "like the e in bed",
@@ -124,7 +124,7 @@
           "why": "The sound is not like cup."
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "hints": [
         "Say want and then cat. Do the a sounds match?",
         "After w, the letter a often changes its sound.",
@@ -238,18 +238,18 @@
           "why": "The trick is about a letter in the middle of the word."
         },
         {
-          "text": "that the middle part is spelt with a"
-        },
-        {
           "text": "that the word ends with e",
           "why": "The trick does not help with the last letter."
         },
         {
           "text": "that the word has two syllables",
           "why": "The trick is about a letter, not about syllables."
+        },
+        {
+          "text": "that the middle part is spelt with a"
         }
       ],
-      "answer": 1,
+      "answer": 3,
       "hints": [
         "A trick like this is called a mnemonic.",
         "Look at the capital letter in sepArate.",
@@ -265,11 +265,11 @@
       "prompt": "Look at these words: field, believe, piece, chief. What spelling rule do they follow?",
       "options": [
         {
-          "text": "i comes before e, as in field"
-        },
-        {
           "text": "e comes before i, as in veil",
           "why": "Veil is a different word. These four all have ie."
+        },
+        {
+          "text": "i comes before e, as in field"
         },
         {
           "text": "the word always ends with e",
@@ -280,7 +280,7 @@
           "why": "None of these words has a double letter."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Look at the letters in the middle of each word.",
         "Check which letter comes first, i or e.",
@@ -354,14 +354,14 @@
           "why": "Dusk starts du, which comes after dr."
         },
         {
-          "text": "dream"
-        },
-        {
           "text": "dry",
           "why": "Dry comes after drum because y comes after u."
+        },
+        {
+          "text": "dream"
         }
       ],
-      "answer": 2,
+      "answer": 3,
       "hints": [
         "Guide words tell you the first and last word on the page.",
         "Check the first two letters, then the third.",
@@ -537,9 +537,6 @@
       "prompt": "Tom keeps a list of words he spelt wrongly, with the correct spelling next to each. Why is this useful?",
       "options": [
         {
-          "text": "it shows him which words to learn"
-        },
-        {
           "text": "it means he never needs to practise",
           "why": "He still needs to practise the words."
         },
@@ -548,11 +545,14 @@
           "why": "The list does not change how long his writing is."
         },
         {
+          "text": "it shows him which words to learn"
+        },
+        {
           "text": "it lets him copy from friends",
           "why": "The list is for his own learning."
         }
       ],
-      "answer": 0,
+      "answer": 2,
       "hints": [
         "A list like this is called a spelling log.",
         "Think about what Tom does with the list later.",
@@ -599,6 +599,9 @@
       "prompt": "Which sentence is spelt correctly?",
       "options": [
         {
+          "text": "They're sure their friends will wait there."
+        },
+        {
           "text": "Their going to be late.",
           "why": "Their shows owning. They're means they are."
         },
@@ -609,12 +612,9 @@
         {
           "text": "They're coats are on the hook.",
           "why": "They're means they are. It does not show belonging."
-        },
-        {
-          "text": "They're sure their friends will wait there."
         }
       ],
-      "answer": 3,
+      "answer": 0,
       "hints": [
         "Check each sentence by saying they are in place of they're.",
         "Their shows that something belongs to them. There shows a place.",

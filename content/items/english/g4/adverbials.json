@@ -852,6 +852,94 @@
         "Then look for more adverbials after the verb."
       ],
       "explanation": "After the rain, is the fronted adverbial. Happily and in the garden are further adverbials."
+    },
+    {
+      "id": "e4.adverbials.029",
+      "skill": "e4.adverbials",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose the 2 adverbs.\nThe old man walked slowly and carefully across the bridge.",
+      "options": [
+        {
+          "text": "old",
+          "why": "Old is an adjective. It describes the man."
+        },
+        {
+          "text": "slowly"
+        },
+        {
+          "text": "across",
+          "why": "Across is a preposition."
+        },
+        {
+          "text": "carefully"
+        },
+        {
+          "text": "bridge",
+          "why": "Bridge is a noun."
+        }
+      ],
+      "answers": [
+        1,
+        3
+      ],
+      "hints": [
+        "An adverb tells more about a verb.",
+        "Ask: how did the old man walk?",
+        "Adverbs often end in -ly."
+      ],
+      "explanation": "Slowly and carefully tell us how the man walked. They are adverbs."
+    },
+    {
+      "id": "e4.adverbials.030",
+      "skill": "e4.adverbials",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Copy the adverb that tells how often.\nWe always visit Grandma on Sundays.",
+      "blanks": [
+        {
+          "answers": [
+            "always"
+          ]
+        }
+      ],
+      "hints": [
+        "Ask yourself: how often do they visit?",
+        "Look for a word that tells how many times.",
+        "It comes before the verb visit."
+      ],
+      "explanation": "Always tells how often we visit Grandma, so it is an adverb of frequency."
+    },
+    {
+      "id": "e4.adverbials.031",
+      "skill": "e4.adverbials",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Silently, the cat crept towards the bird.\n\nWhy does the writer use the adverb silently?",
+      "options": [
+        {
+          "text": "to tell us where the cat went",
+          "why": "Towards the bird tells where. Silently tells how."
+        },
+        {
+          "text": "to tell us how the cat moved"
+        },
+        {
+          "text": "to tell us when the cat moved",
+          "why": "The word is not about time."
+        },
+        {
+          "text": "to tell us how many cats there were",
+          "why": "The word does not show a number."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Adverbs tell more about verbs.",
+        "Which verb does silently describe?",
+        "Is it about how, when or where?"
+      ],
+      "explanation": "Silently tells us how the cat crept. It helps the reader imagine the cat moving without a sound."
     }
   ]
 }

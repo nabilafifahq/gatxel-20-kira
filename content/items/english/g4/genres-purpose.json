@@ -1,0 +1,531 @@
+{
+  "skill": "e4.genres-purpose",
+  "items": [
+    {
+      "id": "e4.genres-purpose.001",
+      "skill": "e4.genres-purpose",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the books. Are they fiction or non-fiction?",
+      "groups": [
+        "Fiction",
+        "Non-fiction"
+      ],
+      "items": [
+        {
+          "text": "A fairy tale about a magic key",
+          "group": 0
+        },
+        {
+          "text": "A made-up adventure about a pirate cat",
+          "group": 0
+        },
+        {
+          "text": "A mystery set in a school",
+          "group": 0
+        },
+        {
+          "text": "A guide to Indonesian birds",
+          "group": 1
+        },
+        {
+          "text": "A book of science experiments",
+          "group": 1
+        },
+        {
+          "text": "The life story of a real inventor",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Fiction is made up. Non-fiction gives true facts.",
+        "Ask yourself: could this book be a true record?",
+        "Start with the guide to birds."
+      ],
+      "explanation": "Fiction books tell made-up stories. Non-fiction books give real facts and information."
+    },
+    {
+      "id": "e4.genres-purpose.002",
+      "skill": "e4.genres-purpose",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each story type to its typical feature.",
+      "pairs": [
+        [
+          "Fantasy story",
+          "magic, imaginary creatures or other worlds"
+        ],
+        [
+          "Historical story",
+          "set in the past, with details from that time"
+        ],
+        [
+          "Story about a dilemma",
+          "a character must make a hard choice"
+        ],
+        [
+          "Fable",
+          "a short tale with a lesson at the end"
+        ]
+      ],
+      "hints": [
+        "Each story type has something that makes it special.",
+        "The word historical is linked to history.",
+        "A dilemma is a tricky choice between two things."
+      ],
+      "explanation": "A fantasy story has magic, a historical story is set in the past, a dilemma story is about a hard choice and a fable ends with a lesson."
+    },
+    {
+      "id": "e4.genres-purpose.003",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "The dragon lifted its silver head and spoke in a voice like rolling thunder. “Only the one who can read the stars may open the door,” it said. Mira held the glowing key tighter.\n\nWhat type of story is this?",
+      "options": [
+        {
+          "text": "a historical story",
+          "why": "There are no details from a real time in the past."
+        },
+        {
+          "text": "a story about a real school day",
+          "why": "A talking dragon and a glowing key are not real."
+        },
+        {
+          "text": "a fantasy story"
+        },
+        {
+          "text": "a news report",
+          "why": "News reports give real facts, not made-up tales."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for things that cannot happen in real life.",
+        "A dragon that speaks is a big clue.",
+        "Which type of story has magic and imaginary creatures?"
+      ],
+      "explanation": "A talking dragon and a glowing key make this a fantasy story. The events could not really happen."
+    },
+    {
+      "id": "e4.genres-purpose.004",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In 1928, Pak Anwar rode his horse cart to the harbour. There were no cars on the road, only carts, bicycles and one noisy tram. He had come to meet the steamship that brought letters from across the sea.\n\nHow can you tell this is a historical story?",
+      "options": [
+        {
+          "text": "It gives the date and shows how people lived long ago."
+        },
+        {
+          "text": "It has a talking animal.",
+          "why": "No animal talks in this text."
+        },
+        {
+          "text": "It has a moral at the end.",
+          "why": "There is no lesson or moral in the text."
+        },
+        {
+          "text": "It is written as a list of steps.",
+          "why": "The text is not a list or instructions."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the first words of the text.",
+        "What kind of transport does Pak Anwar use?",
+        "A historical story is set in the past."
+      ],
+      "explanation": "The year 1928 and the horse cart, tram and steamship show a time long ago. This is typical of a historical story."
+    },
+    {
+      "id": "e4.genres-purpose.005",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rina found a purse on the school field. Inside was money and a card with a name. She knew exactly what she wanted to buy with the money, but the name was Bu Lestari, the school cook. Rina held the purse for a long time.\n\nWhat kind of story is this likely to be?",
+      "options": [
+        {
+          "text": "a fantasy story",
+          "why": "There is no magic in the text."
+        },
+        {
+          "text": "an instruction text",
+          "why": "The text does not tell a reader how to do something."
+        },
+        {
+          "text": "a poem about nature",
+          "why": "It is not a poem and it is not about nature."
+        },
+        {
+          "text": "a story about a dilemma"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "What problem does Rina have?",
+        "She has to choose between two things.",
+        "A story where a character faces a hard choice has a special name."
+      ],
+      "explanation": "Rina must decide between keeping the money and returning the purse. A story about a hard choice is a dilemma story."
+    },
+    {
+      "id": "e4.genres-purpose.006",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A poster says: “SPLASH WORLD! The BEST waterpark in the city! Only Rp20.000. Come this weekend!” What is the main purpose of the poster?",
+      "options": [
+        {
+          "text": "to tell a story",
+          "why": "There is no story in the poster."
+        },
+        {
+          "text": "to persuade people to visit"
+        },
+        {
+          "text": "to explain how a waterpark works",
+          "why": "The poster does not explain how anything works."
+        },
+        {
+          "text": "to record what happened last weekend",
+          "why": "The poster is about what to do next, not what happened before."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the words BEST and Come.",
+        "Who is the poster talking to?",
+        "What does the writer want readers to do?"
+      ],
+      "explanation": "An advert tries to persuade readers. This poster wants people to visit the waterpark."
+    },
+    {
+      "id": "e4.genres-purpose.007",
+      "skill": "e4.genres-purpose",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read the poster: “SPLASH WORLD! The BEST waterpark in the city! Slides and pools for everyone. Only Rp20.000. Come this weekend!” Choose 3 features that help it persuade.",
+      "options": [
+        {
+          "text": "capital letters and exclamation marks"
+        },
+        {
+          "text": "the word BEST"
+        },
+        {
+          "text": "a table of opening times",
+          "why": "The poster does not have a table."
+        },
+        {
+          "text": "a command: Come this weekend!"
+        },
+        {
+          "text": "a paragraph about the park history",
+          "why": "The poster has no paragraph about history."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "An advert wants you to feel excited and to act.",
+        "Look for strong, bold words and commands.",
+        "Cross out features that are not in the poster."
+      ],
+      "explanation": "The poster uses capitals, exclamation marks, the strong word BEST and a command. These help to persuade the reader."
+    },
+    {
+      "id": "e4.genres-purpose.008",
+      "skill": "e4.genres-purpose",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each text type to its purpose.",
+      "pairs": [
+        [
+          "News report",
+          "to tell what happened"
+        ],
+        [
+          "Advert",
+          "to persuade you to buy or visit"
+        ],
+        [
+          "Explanation",
+          "to tell how or why something happens"
+        ],
+        [
+          "Diary entry",
+          "to record events and feelings in your own words"
+        ]
+      ],
+      "hints": [
+        "Each text type is written for a reason.",
+        "A diary is personal.",
+        "An advert wants you to do something."
+      ],
+      "explanation": "A news report recounts events, an advert persuades, an explanation tells how or why and a diary records the writer's own day and feelings."
+    },
+    {
+      "id": "e4.genres-purpose.009",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "When the sun warms the sea, water turns into vapour and rises. High in the sky it cools and forms tiny drops that make clouds. When the drops grow heavy, they fall as rain.\n\nWhat type of text is this?",
+      "options": [
+        {
+          "text": "a recount of a trip",
+          "why": "It does not tell about a person's trip."
+        },
+        {
+          "text": "an explanation"
+        },
+        {
+          "text": "an advert",
+          "why": "It does not try to persuade."
+        },
+        {
+          "text": "a playscript",
+          "why": "It has no speakers or stage directions."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does the text tell how something happens?",
+        "It uses when and the order of events in nature.",
+        "It explains a process."
+      ],
+      "explanation": "The text explains how rain forms step by step. This is an explanation text."
+    },
+    {
+      "id": "e4.genres-purpose.010",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "On Tuesday, a tree fell across Jalan Melati. Traffic stopped for three hours. Workers cut it up and cleared the road by noon.\n\nWhich features show this is a recount?",
+      "options": [
+        {
+          "text": "It uses commands such as cut and clear.",
+          "why": "The verbs are in the past tense. They are not commands."
+        },
+        {
+          "text": "It uses the word you to talk to the reader.",
+          "why": "The text does not speak to the reader."
+        },
+        {
+          "text": "It uses rhyme and a chorus.",
+          "why": "There is no rhyme in the text."
+        },
+        {
+          "text": "It uses past tense and tells events in order."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A recount tells what happened.",
+        "Look at the verbs. Are they fell and stopped, or fall and stop?",
+        "Check whether the events go in time order."
+      ],
+      "explanation": "A recount uses past tense verbs and tells events in the order they happened."
+    },
+    {
+      "id": "e4.genres-purpose.011",
+      "skill": "e4.genres-purpose",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the features. Do they belong to a playscript or a story?",
+      "groups": [
+        "Playscript",
+        "Story"
+      ],
+      "items": [
+        {
+          "text": "the speaker's name, then a colon",
+          "group": 0
+        },
+        {
+          "text": "stage directions in brackets",
+          "group": 0
+        },
+        {
+          "text": "a list of characters at the start",
+          "group": 0
+        },
+        {
+          "text": "paragraphs of narration",
+          "group": 1
+        },
+        {
+          "text": "speech marks around spoken words",
+          "group": 1
+        },
+        {
+          "text": "she said and he asked after speech",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A playscript is written to be acted out.",
+        "In a story, the narrator tells what happens.",
+        "Which features tell actors what to do?"
+      ],
+      "explanation": "Playscripts show who speaks with names and use stage directions. Stories use paragraphs, speech marks and phrases such as she said."
+    },
+    {
+      "id": "e4.genres-purpose.012",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Story A: a boy shares his lunch with a hungry classmate and finds a new friend. Story B: a girl gives half of her prize money to a neighbour whose roof leaked.\n\nWhat theme do both stories share?",
+      "options": [
+        {
+          "text": "kindness and sharing"
+        },
+        {
+          "text": "winning prizes",
+          "why": "Only Story B has a prize, and it is not the main point."
+        },
+        {
+          "text": "getting lost",
+          "why": "Nobody gets lost in either story."
+        },
+        {
+          "text": "fear of the dark",
+          "why": "Neither story is about fear."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A theme is the big idea of a story.",
+        "Ask what both characters do for someone else.",
+        "Think of one word that fits them both."
+      ],
+      "explanation": "Both characters share what they have with someone who needs it. The shared theme is kindness and sharing."
+    },
+    {
+      "id": "e4.genres-purpose.013",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Story A: Tomo hides a broken window. The lie grows bigger until he tells the truth and feels lighter. Story B: a shepherd boy cries wolf for fun and nobody believes him when the wolf really comes.\n\nWhich theme do both stories share?",
+      "options": [
+        {
+          "text": "the importance of being brave",
+          "why": "Neither story is mainly about being brave."
+        },
+        {
+          "text": "teasing other people",
+          "why": "Teasing is only in Story B, and it is not the main point."
+        },
+        {
+          "text": "the importance of telling the truth"
+        },
+        {
+          "text": "working together as a team",
+          "why": "Neither story shows a team."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at what goes wrong because of a false word or a hidden fact.",
+        "Decide what lesson each character learns.",
+        "Which idea is the same in both?"
+      ],
+      "explanation": "In both stories, a lie causes trouble. The shared theme is the importance of honesty."
+    },
+    {
+      "id": "e4.genres-purpose.014",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Where would you look in a library for a book about volcanoes?",
+      "options": [
+        {
+          "text": "in the fiction shelves",
+          "why": "Fiction shelves have made-up stories."
+        },
+        {
+          "text": "in the picture-book box only",
+          "why": "A book about volcanoes could be anywhere in the non-fiction area."
+        },
+        {
+          "text": "in the non-fiction shelves, in the science section"
+        },
+        {
+          "text": "in the poetry corner",
+          "why": "Poetry is a different section."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Is a book about volcanoes made up or factual?",
+        "Libraries put factual books in a different area.",
+        "Look for the science books."
+      ],
+      "explanation": "A book about volcanoes gives facts, so it is a non-fiction book. Libraries group non-fiction books by subject, such as science."
+    },
+    {
+      "id": "e4.genres-purpose.015",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A picture in a story shows Dewi as tiny next to an enormous wooden door. What does the picture add to the words?",
+      "options": [
+        {
+          "text": "It shows that the door is huge and Dewi may feel small."
+        },
+        {
+          "text": "It shows that Dewi is a very old person.",
+          "why": "Nothing in the picture shows her age."
+        },
+        {
+          "text": "It proves the story is a true one.",
+          "why": "A picture does not make a story true."
+        },
+        {
+          "text": "It tells us the date of the story.",
+          "why": "A picture of a door does not give a date."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the size of Dewi with the size of the door.",
+        "Illustrations can show feelings as well as objects.",
+        "Why might the artist make Dewi so small?"
+      ],
+      "explanation": "The big door next to small Dewi shows how large and scary the door might seem to her. Pictures add ideas to the words."
+    },
+    {
+      "id": "e4.genres-purpose.016",
+      "skill": "e4.genres-purpose",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The moon is a lantern hung on a thread of cloud.\n\nWhat is the poet doing in this line?",
+      "options": [
+        {
+          "text": "giving facts about the moon",
+          "why": "The line is a picture in words, not a list of facts."
+        },
+        {
+          "text": "telling us a story in order",
+          "why": "The line is a single image, not a story."
+        },
+        {
+          "text": "giving instructions",
+          "why": "No instruction is given."
+        },
+        {
+          "text": "using a picture in words to compare the moon with a lantern"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Poets often paint pictures with words.",
+        "The moon is called something it is not.",
+        "What two things are being compared?"
+      ],
+      "explanation": "The poet compares the moon to a lantern. This is imagery, a picture made with words."
+    }
+  ]
+}

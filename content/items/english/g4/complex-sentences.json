@@ -874,6 +874,111 @@
         "Dinner alone is only a noun."
       ],
       "explanation": "In the second sentence, before is followed by dinner was ready, which has a subject and a verb. So it joins two clauses."
+    },
+    {
+      "id": "e4.complex-sentences.029",
+      "skill": "e4.complex-sentences",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose the 2 connectives in this sentence.\nAlthough it was late, Ravi kept working because he wanted to finish.",
+      "options": [
+        {
+          "text": "Although"
+        },
+        {
+          "text": "late",
+          "why": "Late is an adjective, not a connective."
+        },
+        {
+          "text": "because"
+        },
+        {
+          "text": "working",
+          "why": "Working is a verb, not a connective."
+        },
+        {
+          "text": "finish",
+          "why": "Finish is a verb, not a connective."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "A connective joins parts of a sentence.",
+        "Look for words that start extra clauses.",
+        "One is at the start of the sentence and one is in the middle."
+      ],
+      "explanation": "Although and because join clauses, so they are connectives."
+    },
+    {
+      "id": "e4.complex-sentences.030",
+      "skill": "e4.complex-sentences",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the connectives by the job they do.",
+      "groups": [
+        "Time",
+        "Reason",
+        "Contrast"
+      ],
+      "items": [
+        {
+          "text": "before",
+          "group": 0
+        },
+        {
+          "text": "until",
+          "group": 0
+        },
+        {
+          "text": "after",
+          "group": 0
+        },
+        {
+          "text": "because",
+          "group": 1
+        },
+        {
+          "text": "so that",
+          "group": 1
+        },
+        {
+          "text": "although",
+          "group": 2
+        },
+        {
+          "text": "but",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Time connectives tell when.",
+        "Reason connectives tell why.",
+        "Contrast connectives show things that are different."
+      ],
+      "explanation": "Before, until and after link time. Because and so that link reasons. Although and but show contrast."
+    },
+    {
+      "id": "e4.complex-sentences.031",
+      "skill": "e4.complex-sentences",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Copy the connective that joins the two clauses.\nDewi took an umbrella because the sky looked dark.",
+      "blanks": [
+        {
+          "answers": [
+            "because"
+          ]
+        }
+      ],
+      "hints": [
+        "A connective is a joining word.",
+        "It comes in the middle of the sentence.",
+        "It tells why Dewi took an umbrella."
+      ],
+      "explanation": "Because joins the two clauses and gives the reason."
     }
   ]
 }
