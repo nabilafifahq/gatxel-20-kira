@@ -425,13 +425,13 @@
       "id": "m6.oly-counting.010",
       "skill": "m6.oly-counting",
       "difficulty": 3,
-      "prompt": "Dewi has 4 shirts, 3 skirts and 2 hats. An outfit is one shirt, one skirt and one hat. How many different outfits can she make?",
+      "prompt": "Dewi has 6 shirts, 3 skirts and 2 hats. An outfit is one shirt, one skirt and one hat. How many different outfits can she make?",
       "hints": [
         "For each shirt, count the skirts.",
-        "4 shirts and 3 skirts make 12 pairs.",
+        "6 shirts and 3 skirts make 18 pairs.",
         "Each pair can have 2 different hats."
       ],
-      "explanation": "Multiply the choices: 4 × 3 × 2 = 24 outfits.",
+      "explanation": "Multiply the choices: 6 × 3 × 2 = 36 outfits.",
       "tags": [
         "olympiad",
         "ikmc",
@@ -442,23 +442,23 @@
       "type": "mcq",
       "options": [
         {
-          "text": "9",
-          "why": "You added 4 + 3 + 2. Outfits are made by choosing one of each, so multiply."
-        },
-        {
-          "text": "12",
-          "why": "You multiplied only two of the numbers. A hat is chosen too."
+          "text": "11",
+          "why": "You added 6 + 3 + 2. Outfits are made by choosing one of each, so multiply."
         },
         {
           "text": "18",
-          "why": "Check the multiplying: 4 × 3 × 2."
+          "why": "You multiplied only two of the numbers. A hat is chosen too."
         },
         {
-          "text": "24"
+          "text": "24",
+          "why": "Check the multiplying: 6 × 3 × 2."
         },
         {
-          "text": "48",
-          "why": "This is 4 × 3 × 2 × 2. The hat count is only counted once."
+          "text": "36"
+        },
+        {
+          "text": "72",
+          "why": "This is 6 × 3 × 2 × 2. The hat count is only counted once."
         }
       ],
       "answer": 3
@@ -549,13 +549,13 @@
       "id": "m6.oly-counting.014",
       "skill": "m6.oly-counting",
       "difficulty": 4,
-      "prompt": "How many 3-digit numbers have digits that add up to 5?",
+      "prompt": "How many 3-digit numbers have digits that add up to 7?",
       "hints": [
         "The first digit is at least 1.",
-        "List by the first digit: 1, 2, 3, 4 or 5.",
-        "If the first digit is 1, the other two digits add up to 4."
+        "List by the first digit: 1, 2, 3, 4, 5, 6 or 7.",
+        "If the first digit is 1, the other two digits add up to 6."
       ],
-      "explanation": "First digit 1: the other two add to 4, which gives 5 numbers. First digit 2: add to 3, giving 4 numbers. First digit 3: 3 numbers. First digit 4: 2 numbers. First digit 5: 1 number. 5 + 4 + 3 + 2 + 1 = 15.",
+      "explanation": "First digit 1: the other two add to 6, which gives 7 numbers. First digit 2: add to 5, giving 6 numbers. First digit 3: 5 numbers. First digit 4: 4 numbers. First digit 5: 3 numbers. First digit 6: 2 numbers. First digit 7: 1 number. 7 + 6 + 5 + 4 + 3 + 2 + 1 = 28.",
       "tags": [
         "olympiad",
         "kmnr"
@@ -563,7 +563,7 @@
       "points": 4,
       "expectedSeconds": 180,
       "type": "numeric",
-      "answer": 15
+      "answer": 28
     },
     {
       "id": "m6.oly-counting.015",
