@@ -202,3 +202,23 @@ describe('versi suara yang disajikan', () => {
     vi.unstubAllGlobals()
   })
 })
+
+describe('tts.clip saat layanan tts berhenti', () => {
+  it('dilewati dengan tenang: tidak melempar, tidak mencoba ulang, tidak menulis berkas', async () => {
+    const { ttsClipHandler, ttsBatchHandler } = await import('../src/handlers/tts')
+    const dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    vi.stubGlobal('fetch', async () => {
+      throw new TypeError('fetch failed', { cause: { code: 'ENOTFOUND' } })
+    })
+    const h = {
+      env: { TTS_URL: 'http://tts:8000', KIRA_DATA_DIR: dir, KIRA_INTERNAL_TOKEN: 'x'.repeat(40) },
+      job: { payload: { clips: [{ text: 'Hello there.', style: 'teacher' }] } },
+      log: { info() {}, warn() {}, error() {}, child() { return this } },
+      signal: new AbortController().signal,
+    } as unknown as HandlerCtx
+    expect(await ttsClipHandler.run(h)).toMatchObject({ skipped: expect.any(String) })
+    expect(await ttsBatchHandler.run(h)).toMatchObject({ skipped: expect.any(String) })
+    vi.unstubAllGlobals()
+    await rm(dir, { recursive: true, force: true })
+  })
+})
