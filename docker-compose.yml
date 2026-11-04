@@ -349,7 +349,7 @@ services:
 
   # Seed keluarga uji (hanya staging; menolak jalan bila KIRA_ORIGIN bukan http://127.0.0.1).
   seed:
-    profiles: ["loadtest"]
+    profiles: ["loadrun"]
     image: ${KIRA_WEB_IMAGE:-kira-web:latest}
     pull_policy: never
     restart: "no"
@@ -371,7 +371,7 @@ services:
     networks: [internal]
 
   k6:
-    profiles: ["loadtest"]
+    profiles: ["loadrun"]
     image: grafana/k6@sha256:3e4186aea62e11a45560bfc51e19eeafe82fc07ce069c78aff44b7ff893d9a5e
     entrypoint: ["k6"]
     environment:

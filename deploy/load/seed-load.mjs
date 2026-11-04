@@ -6,10 +6,16 @@
 import { createHash, randomBytes, randomUUID } from 'node:crypto'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
+import { readdirSync } from 'node:fs'
 
+// Image standalone Next menyimpan paket di /app/node_modules/.pnpm/<nama>@<versi>/node_modules/<nama> (toko pnpm datar).
 const require = createRequire('/app/package.json')
-const postgres = require('postgres')
-const { hash } = require('@node-rs/argon2')
+const store = (pkg) => {
+  const dir = readdirSync('/app/node_modules/.pnpm').find((d) => d.startsWith(pkg.replace('/', '+') + '@'))
+  return `/app/node_modules/.pnpm/${dir}/node_modules/${pkg}`
+}
+const postgres = (await import(store('postgres') + '/src/index.js')).default
+const { hash } = require(store('@node-rs/argon2'))
 
 if (process.env.KIRA_LOADTEST_OK !== '1' || !(process.env.KIRA_ORIGIN ?? '').startsWith('http://127.0.0.1')) {
   console.error('Seed uji beban ditolak: hanya untuk staging (KIRA_LOADTEST_OK=1 dan KIRA_ORIGIN=http://127.0.0.1:...).')
