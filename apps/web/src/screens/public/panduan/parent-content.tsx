@@ -780,7 +780,7 @@ const DUNIA: GuideFeature[] = [
     id: 'bos',
     title: 'Tantangan bos',
     icon: ui('bolt'),
-    what: 'Ada 14 lawan ramah dalam 3 level, mulai dari Robot Teka-Teki. Satu tantangan berisi 10 soal biasa sesuai kelas anak, dan anak menang kalau benar 7. Lawan baru datang setiap 2 hari belajar. Kemenangan pertama dalam seminggu memberi 10 bintang, dan kemenangan pertama atas seorang lawan memberi kartunya.',
+    what: 'Ada 14 lawan ramah dalam 3 level, mulai dari Puzzle Robot. Satu tantangan berisi 10 soal biasa sesuai kelas anak, dan anak menang kalau benar 7. Lawan baru datang setiap 2 hari belajar. Kemenangan pertama dalam seminggu memberi 10 bintang, dan kemenangan pertama atas seorang lawan memberi kartunya.',
     suits: 'Raka kelas 4 suka tantangan. Ia memilih lawan yang kelemahannya Math, dan kalah pun ia hanya perlu mencoba lagi.',
     steps: [
       <>
