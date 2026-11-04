@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
+import { ACCESSORY_IDS, ALL_ITEMS, ARENA_BADGES, BADGES, CARD_SETS, CHEST_ACCESSORIES, CHEST_BACKGROUNDS, CHEST_STICKERS, PET_KIND_IDS, TREATS } from '@kira/core'
 import { dictFor, htmlLang, parseUiLang, tOf } from '@/lib/i18n'
 import { en, id } from '@/lib/i18n/dict'
 
@@ -42,10 +43,27 @@ const EN = leaves(en as unknown as Node)
 const ID = leaves(id as unknown as Node)
 
 describe('kamus antarmuka anak', () => {
-  it('kedua bahasa punya kunci yang persis sama, dan jenis nilainya sama (teks atau fungsi)', () => {
-    // Bahasa Indonesia boleh mengabaikan parameter jamak, jadi jumlah parameternya bisa lebih sedikit.
-    const shape = (xs: typeof EN) => [...new Map(xs.map((x) => [x.path, x.arity === null ? 'teks' : 'fungsi'])).entries()].sort()
-    expect(shape(ID)).toEqual(shape(EN))
+  it('semua kunci Inggris ada di kamus Indonesia, dengan jenis nilai yang sama (teks atau fungsi)', () => {
+    // Peta menurut id (lencana, hadiah peti) kosong di kamus Inggris karena teksnya berasal dari @kira/core.
+    const kinds = new Map(ID.map((x) => [x.path, x.arity === null ? 'teks' : 'fungsi']))
+    for (const x of EN) expect(kinds.get(x.path), x.path).toBe(x.arity === null ? 'teks' : 'fungsi')
+  })
+
+  it('teks menurut id untuk data @kira/core lengkap, jadi lencana dan hadiah baru tidak tampil Inggris', () => {
+    const missing = (name: string, ids: readonly string[], map: object) => ids.filter((x) => !(x in map)).map((x) => `${name}: ${x}`)
+    const s = id.shell
+    const w = id.world
+    expect([
+      ...missing('lencana', [...BADGES.map((b) => b.id), ...ARENA_BADGES.map((b) => b.id)], s.badges),
+      ...missing('stiker', CHEST_STICKERS.map((x) => x.id), s.rewards.sticker),
+      ...missing('latar', CHEST_BACKGROUNDS.map((x) => x.id), s.rewards.background),
+      ...missing('aksesori peti', CHEST_ACCESSORIES.map((x) => x.id), s.rewards.accessory),
+      ...missing('aksesori', ACCESSORY_IDS, s.accessories),
+      ...missing('barang toko', ALL_ITEMS.map((x) => x.id), w.items),
+      ...missing('camilan', TREATS.map((x) => x.id), w.treats),
+      ...missing('teman', PET_KIND_IDS, w.petBlurbs),
+      ...missing('set kartu', CARD_SETS.map((x) => x.id), w.sets),
+    ]).toEqual([])
   })
 
   it('tidak ada nilai kosong atau hasil fungsi yang rusak', () => {
