@@ -209,8 +209,6 @@ const en = {
     unknownCard: 'That card is not in this deck.',
     notInDictionary: 'That word is not in the dictionary.',
     listFull: 'Your word list is full. Remove a few words first.',
-    badInput: 'Something in the answer is not right. Please try again.',
-    generic: 'Something went wrong. Try again in a moment.',
   },
 }
 
@@ -370,8 +368,6 @@ const id: typeof en = {
     unknownCard: 'Kartu itu tidak ada di set ini.',
     notInDictionary: 'Kata itu tidak ada di kamus.',
     listFull: 'Daftar kata sudah penuh. Hapus beberapa kata dulu.',
-    badInput: 'Ada jawaban yang belum pas. Coba lagi, ya.',
-    generic: 'Ada yang tidak beres. Coba lagi, ya.',
   },
 }
 
