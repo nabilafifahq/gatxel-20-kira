@@ -18,6 +18,7 @@ import { CONSOLE_ROUTES } from '@/components/console/routes'
 import { SkillPicker } from '@/components/console/SkillPicker'
 import { useToast } from '@/components/console/Toast'
 import { useAction } from '@/components/console/useAction'
+import { changeMessage } from '@/components/console/DayRulesEditor'
 import { MODE_LABEL, SESSION_LABEL, WeekPlannerGrid, slotChip } from '@/components/console/WeekPlannerGrid'
 
 /**
@@ -36,6 +37,8 @@ type SlotForm = {
   slotId?: string
   /** Dibuka dari sesi otomatis template: menyimpan membuat slot yang menggantikannya. */
   fromAuto: boolean
+  /** Sesi hari ini sudah dimulai: hanya Wajib atau Opsional yang bisa berubah. */
+  started?: boolean
   date: string
   subject: Subject
   session: SessionType
@@ -136,6 +139,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
   const upsert = useAction(actions.upsertSlot)
   const move = useAction(actions.moveSlot)
   const del = useAction(actions.deleteSlot)
+  const removeAuto = useAction(actions.removeSession)
   const rest = useAction(actions.setRestDay)
   const apply = useAction(actions.applySuggestions)
   const publish = useAction(actions.publishWeek)
@@ -197,6 +201,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       ...emptyForm(slot.date, slot.subject),
       ...(slot.auto ? {} : { slotId: slot.id }),
       fromAuto: slot.auto,
+      ...(slot.started ? { started: true } : {}),
       session: slot.session,
       required: slot.required,
       skillId: slot.skillId,
@@ -259,6 +264,7 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       subject: form.subject,
       session: form.session,
       required: core ? form.required : false,
+      ...(form.fromAuto && !form.slotId ? { fromAuto: true } : {}),
       skillId: skill,
       mode: form.session === 'tes' ? 'tes' : 'latihan',
       questionCount: needsCount ? count : 10,
@@ -306,7 +312,18 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
       const idx = next.required ? list.findIndex((s) => s.auto && s.date === next.date && s.subject === next.subject && s.session === next.session) : -1
       return idx >= 0 ? list.map((s, i) => (i === idx ? next : s)) : [...list, next]
     })
-    toast({ tone: 'success', title: form.slotId ? 'Sesi diperbarui.' : `${next.title} masuk ke ${dayLabel(form.date)}.` })
+    toast({ tone: 'success', title: form.slotId ? 'Sesi diperbarui.' : `${next.title} masuk ke ${dayLabel(form.date)}.`, ...(changeMessage(r.data) ? { body: changeMessage(r.data)! } : {}) })
+    setForm(null)
+  }
+
+  /** Hapus sesi otomatis (dari aturan hari atau template) untuk satu hari: server membuat slot yang mematikannya. */
+  async function removeAutoSession() {
+    if (!form) return
+    removeAuto.reset()
+    const r = await removeAuto.run({ learnerId: data.learnerId, date: form.date, slotId: null, subject: form.subject, session: form.session })
+    if (!r.ok) return
+    setSlots((list) => list.filter((s) => !(s.auto && s.date === form.date && s.subject === form.subject && s.session === form.session)))
+    toast({ tone: 'success', title: `${SESSION_LABEL[form.session]} ${SUBJECT_LABEL[form.subject]} dihapus dari ${dayLabel(form.date)}.`, ...(changeMessage(r.data) ? { body: changeMessage(r.data)! } : {}) })
     setForm(null)
   }
 
@@ -610,6 +627,11 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
         footer={
           form ? (
             <>
+              {form.fromAuto && !form.slotId ? (
+                <Button variant="quiet" icon="trash" tone="danger" className="mr-auto" loading={removeAuto.pending} onClick={() => void removeAutoSession()}>
+                  Hapus sesi
+                </Button>
+              ) : null}
               {form.slotId ? (
                 <Button
                   variant="quiet"
@@ -646,6 +668,11 @@ export function PlannerScreen({ data, actions }: PlannerScreenProps) {
               void saveSlot()
             }}
           >
+            {form.started ? (
+              <InlineAlert tone="info" title="Sesi ini sudah dimulai hari ini." live="none">
+                Isi soal dan jawaban anak tetap. Yang bisa berubah hanya status wajib atau opsionalnya, dan hari ini dihitung ulang saat itu juga.
+              </InlineAlert>
+            ) : null}
             <div className="grid gap-5 sm:grid-cols-2">
               <RadioGroup
                 name="mapel"

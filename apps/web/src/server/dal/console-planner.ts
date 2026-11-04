@@ -33,7 +33,6 @@ import { content, preset, presets, skill as skillById } from './content'
 import { skillTitle, SUBJECT_ORDER } from './console-common'
 import { shellIn } from './console-shell'
 import { paperPresetFor } from './daily-paper-scoring'
-import { loadLearner } from './learner-core'
 import { dayRulesFor } from './learner-rules'
 import { questContentDiffers, questSlotValues, questStarted, syncTodayIfCreated, type QuestRow } from './learner-session'
 import {

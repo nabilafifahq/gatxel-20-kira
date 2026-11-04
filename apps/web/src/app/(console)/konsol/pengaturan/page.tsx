@@ -7,6 +7,8 @@ import {
   renameDeviceAction,
   revokeDeviceAction,
   revokeInviteAction,
+  resetLearnerStreakAction,
+  updateLearnerDayRulesAction,
   updateLearnerLimitsAction,
   updateLearnerSoundAction,
 } from '@/server/actions/console-settings'
@@ -33,6 +35,8 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
       actions={{
         updateLearnerLimits: updateLearnerLimitsAction,
         updateLearnerSound: updateLearnerSoundAction,
+        updateLearnerDayRules: updateLearnerDayRulesAction,
+        resetLearnerStreak: resetLearnerStreakAction,
         revokeDevice: revokeDeviceAction,
         renameDevice: renameDeviceAction,
         removePasskey: removePasskeyAction,

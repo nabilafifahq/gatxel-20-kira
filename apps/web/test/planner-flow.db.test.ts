@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import postgres from 'postgres'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { addDays, jakartaDate, weekStart, weekday } from '@kira/core'
+import { addDays, jakartaDate, weekStart } from '@kira/core'
 
 /**
  * Perencana mingguan di Postgres sungguhan: sesi wajib dari template, slot yang menggantikan sesi dasar,

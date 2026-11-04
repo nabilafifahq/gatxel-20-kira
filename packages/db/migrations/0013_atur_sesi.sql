@@ -23,10 +23,10 @@ ALTER TABLE day_rules FORCE ROW LEVEL SECURITY;
 --> statement-breakpoint
 CREATE POLICY day_rules_org ON day_rules USING (org_id = app_org_id()) WITH CHECK (org_id = app_org_id());
 --> statement-breakpoint
--- Learner membaca aturannya sendiri (untuk menyusun Today), orang tua hanya membaca, hanya tutor yang mengubah.
+-- Learner membaca aturannya sendiri (untuk menyusun Today), tutor dan orang tua yang tertaut boleh mengubah.
 CREATE POLICY day_rules_learner ON day_rules AS RESTRICTIVE
   USING (app_can_see_learner(learner_id))
-  WITH CHECK (app_role() = 'tutor' AND app_can_see_learner(learner_id));
+  WITH CHECK (app_role() IN ('tutor', 'guardian') AND app_can_see_learner(learner_id));
 --> statement-breakpoint
 GRANT SELECT, INSERT, UPDATE, DELETE ON day_rules TO kira_app, kira_worker;
 --> statement-breakpoint

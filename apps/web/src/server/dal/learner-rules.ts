@@ -15,3 +15,13 @@ export async function dayRulesFor(tx: Tx, learnerId: string): Promise<{ preset: 
   const preset = row?.preset ?? DEFAULT_PRESET
   return { preset, rules: effectiveRules(preset, row?.rules) }
 }
+
+/** Aturan hari dan streak sekarang untuk tampilan tutor dan orang tua. */
+export async function rulesAndStreak(tx: Tx, learnerId: string): Promise<{ dayPreset: DayPreset; dayRules: DayRules; streak: number }> {
+  const { loadLearner, streakFor } = await import('./learner-core')
+  const { jakartaDate } = await import('@kira/core')
+  const { preset, rules } = await dayRulesFor(tx, learnerId)
+  const l = await loadLearner(tx, learnerId)
+  const s = await streakFor(tx, l, jakartaDate())
+  return { dayPreset: preset, dayRules: rules, streak: s.current }
+}
