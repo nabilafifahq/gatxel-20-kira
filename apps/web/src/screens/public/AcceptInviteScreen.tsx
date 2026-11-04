@@ -113,7 +113,7 @@ export function AcceptInviteScreen({ token, invite, acceptInvite }: AcceptInvite
             id="undangan-password"
             name="new-password"
             label="Password"
-            hint="Paling sedikit 15 karakter. Tidak perlu huruf besar, angka, atau simbol."
+            checklist
             autoComplete="new-password"
             value={password}
             error={errors.password}

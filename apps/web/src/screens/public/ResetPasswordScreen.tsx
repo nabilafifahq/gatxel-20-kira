@@ -64,7 +64,7 @@ export function ResetPasswordScreen({ token, valid, resetPassword }: ResetPasswo
             id="reset-password"
             name="new-password"
             label="Password baru"
-            hint="Paling sedikit 15 karakter. Tidak perlu huruf besar, angka, atau simbol. Kalimat pendek yang mudah diingat juga boleh."
+            checklist
             autoComplete="new-password"
             size="L"
             value={password}

@@ -1,6 +1,8 @@
 'use client'
 
 import { forwardRef, useId, useState, type InputHTMLAttributes, type ReactNode } from 'react'
+import { UiIcon } from '@/components/ui/icons'
+import { PASSWORD_RULES, passwordRuleProblem } from '@/lib/password-rules'
 import { cx } from './cx'
 import { controlBorder, FieldShell } from './Field'
 
@@ -19,8 +21,10 @@ export const PasswordField = forwardRef<
     labelAside?: ReactNode
     autoComplete: 'current-password' | 'new-password'
     size?: 'M' | 'L'
+    /** Tampilkan daftar syarat yang tercentang sambil mengetik (untuk password baru). */
+    checklist?: boolean
   }
->(function PasswordField({ id, label, hint, error, labelAside, className, size = 'M', ...rest }, ref) {
+>(function PasswordField({ id, label, hint, error, labelAside, className, size = 'M', checklist = false, ...rest }, ref) {
   const auto = useId()
   const fid = id ?? `pw${auto.replace(/:/g, '')}`
   const [shown, setShown] = useState(false)
@@ -61,15 +65,34 @@ export const PasswordField = forwardRef<
           {shown ? 'Password terlihat' : ''}
         </span>
       </div>
+      {checklist ? <PasswordChecklist value={typeof rest.value === 'string' ? rest.value : ''} /> : null}
     </FieldShell>
   )
 })
 
-/** Aturan password NIST SP 800-63B-4: panjang saja, tanpa aturan komposisi. */
+function PasswordChecklist({ value }: { value: string }) {
+  return (
+    <ul aria-label="Syarat password" className="m-0 mt-2 flex list-none flex-col gap-1 p-0">
+      {PASSWORD_RULES.map((r) => {
+        const met = r.test(value)
+        return (
+          <li key={r.key} className={cx('flex items-center gap-2 text-small transition-colors', met ? 'text-success' : 'text-fg-muted')}>
+            <span aria-hidden="true" className={cx('inline-flex size-5 shrink-0 items-center justify-center rounded-full border-2', met ? 'border-success bg-success text-bg' : 'border-divider')}>
+              {met ? <UiIcon name="check" size={12} /> : null}
+            </span>
+            <span>{r.label}</span>
+            <span className="visually-hidden">{met ? 'sudah terpenuhi' : 'belum terpenuhi'}</span>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+/** Pemeriksaan di browser, sama dengan aturan di server. */
 export function passwordProblem(pw: string): string | null {
   const n = [...pw].length
   if (n === 0) return 'Isi password dulu.'
-  if (n < 15) return `Password paling sedikit 15 karakter. Sekarang ${n} karakter.`
   if (n > 128) return `Password paling panjang 128 karakter. Sekarang ${n} karakter.`
-  return null
+  return passwordRuleProblem(pw)
 }

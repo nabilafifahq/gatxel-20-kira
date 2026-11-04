@@ -1,34 +1,36 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/console/Button'
 import { InlineAlert } from '@/components/console/Feedback'
-import { PasswordField } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { AuthCard } from '@/screens/public/PublicFrame'
 import { WaitlistFull } from '@/components/auth/WaitlistFull'
 import { verifySignupAction } from '@/server/actions/signup'
 
 /**
- * Konfirmasi email. Tautan di email hanya membuka halaman ini; kursi baru diambil saat tombol ditekan,
- * supaya pemindai email atau pratinjau tautan tidak menghabiskan token.
+ * Konfirmasi email. Browser langsung mengonfirmasi setelah halaman terbuka, lalu masuk ke langkah tambah anak.
+ * Token dipakai lewat Server Action, jadi pemindai email dan pratinjau tautan tanpa JavaScript tidak memakainya.
  */
 export function VerifyClient({ token, valid }: { token: string; valid: boolean }) {
   const verify = useAction(verifySignupAction)
   const [outcome, setOutcome] = useState<'full' | 'invalid' | 'taken' | null>(valid ? null : 'invalid')
-  const [password, setPassword] = useState('')
-  const [wrong, setWrong] = useState(false)
+  const started = useRef(false)
 
-  async function confirm(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    if (!password) return setWrong(true)
-    const r = await verify.run({ token, password })
+  async function confirm() {
+    const r = await verify.run({ token })
     if (!r.ok) return
     if (r.data.status === 'ok') window.location.assign(r.data.redirectTo)
-    else if (r.data.status === 'password') setWrong(true)
     else setOutcome(r.data.status)
   }
+
+  useEffect(() => {
+    if (!valid || started.current) return
+    started.current = true
+    void confirm()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (outcome === 'full') return <WaitlistFull />
   if (outcome === 'taken') {
@@ -65,37 +67,22 @@ export function VerifyClient({ token, valid }: { token: string; valid: boolean }
   return (
     <AuthCard labelledBy="vf-judul">
       <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
-        Satu tekan lagi
+        {verify.error ? 'Email belum terkonfirmasi' : 'Mengonfirmasi email Anda'}
       </h1>
-      <p className="m-0 text-body text-fg-muted">Masukkan password yang Anda buat saat mendaftar, lalu tekan Konfirmasi. Keluarga Kira Anda langsung dibuat dan Anda masuk.</p>
-      <form method="post" noValidate onSubmit={confirm} className="flex flex-col gap-5">
-        <PasswordField
-          name="password"
-          label="Password"
-          autoComplete="current-password"
-          size="L"
-          value={password}
-          error={wrong ? 'Password belum cocok dengan yang dibuat saat mendaftar.' : null}
-          hint="Ini memastikan hanya Anda yang menyelesaikan pendaftaran dengan email ini."
-          onChange={(e) => {
-            setPassword(e.target.value)
-            setWrong(false)
-          }}
-        />
-        {wrong ? (
-          <p className="m-0 text-small text-fg-muted">
-            Lupa, atau bukan Anda yang mendaftar? <Link href="/daftar" className="font-bold">Daftar lagi</Link> untuk membuat password baru, lalu pakai email konfirmasi yang terbaru.
-          </p>
-        ) : null}
-        {verify.error ? (
+      {verify.error ? (
+        <>
           <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
-            Coba lagi dalam beberapa menit.
+            Sambungan mungkin terputus. Tekan tombol di bawah untuk mencoba lagi.
           </InlineAlert>
-        ) : null}
-        <Button type="submit" variant="primary" loading={verify.pending} className="h-12! w-full">
-          Konfirmasi email
-        </Button>
-      </form>
+          <Button type="button" variant="primary" loading={verify.pending} className="h-12! w-full" onClick={() => void confirm()}>
+            Konfirmasi email
+          </Button>
+        </>
+      ) : (
+        <p role="status" className="m-0 text-body text-fg-muted">
+          Sebentar ya. Akun keluarga Anda sedang disiapkan, lalu Anda langsung masuk.
+        </p>
+      )}
     </AuthCard>
   )
 }

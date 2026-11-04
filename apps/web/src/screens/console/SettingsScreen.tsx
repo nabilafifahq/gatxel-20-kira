@@ -691,7 +691,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
         onClose={() => setPwOpen(false)}
         dismissible={!changePw.pending}
         title="Ganti password"
-        description="Paling sedikit 15 karakter. Kalimat pendek yang mudah diingat lebih aman daripada kata acak yang pendek."
+        description="Paling sedikit 13 karakter, dengan huruf kapital, angka, dan simbol, misalnya ! @ # $ % &."
         footer={
           <>
             <Button variant="secondary" onClick={() => setPwOpen(false)} disabled={changePw.pending}>

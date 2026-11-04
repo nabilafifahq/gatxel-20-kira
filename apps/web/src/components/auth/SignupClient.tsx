@@ -5,7 +5,7 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
 import { Checkbox, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
-import { PasswordField } from '@/components/console/PasswordField'
+import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
 import { TurnstileField } from '@/components/auth/TurnstileField'
 import { AuthCard } from '@/screens/public/PublicFrame'
@@ -67,8 +67,8 @@ export function SignupClient({
     if (name.trim().length < 2) next.name = 'Tulis nama Anda, paling sedikit 2 huruf.'
     if (!em) next.email = 'Isi email Anda.'
     else if (!EMAIL_RE.test(em)) next.email = 'Tulis alamat email lengkap, dengan @ dan nama domain.'
-    const n = [...password].length
-    if (n < 15) next.password = `Password paling sedikit 15 karakter. Sekarang ${n} karakter.`
+    const pwProblem = passwordProblem(password)
+    if (pwProblem) next.password = pwProblem
     if (!consent) next.consent = 'Centang persetujuan untuk melanjutkan.'
     setErrors(next)
     if (Object.keys(next).length > 0) return
@@ -182,7 +182,7 @@ export function SignupClient({
           size="L"
           value={password}
           error={errors.password}
-          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah diingat paling baik."
+          checklist
           onChange={(e) => {
             setPassword(e.target.value)
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))

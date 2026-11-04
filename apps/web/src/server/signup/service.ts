@@ -7,7 +7,7 @@ import { AppError, invalid } from '../errors'
 import { log } from '../log'
 import { NOTICE_VERSION, TERMS_VERSION } from '../auth/accounts'
 import { randomToken, sha256hex } from '../auth/crypto'
-import { hashSecret, passwordProblem, verifySecret } from '../auth/password'
+import { hashSecret, passwordProblem } from '../auth/password'
 import { signupExistingEmail, signupVerifyEmail, waitlistConfirmEmail, waitlistWelcomeEmail } from '@kira/core/email-templates'
 import { queuePublicMail } from '../dal/outbox'
 import { emailIdentity } from '../email'
@@ -132,18 +132,16 @@ export async function hasPendingSignup(emailRaw: string): Promise<boolean> {
   return Boolean(rows[0])
 }
 
-export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { status: 'full' | 'invalid' | 'taken' | 'password' }
+export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { status: 'full' | 'invalid' | 'taken' }
 
 /**
  * Verifikasi token: buat keluarga dan ambil kursi sekaligus, di bawah kunci database.
- * Pemilik email harus memasukkan lagi password yang dibuat saat mendaftar. Tanpa ini orang lain bisa mendaftar
- * dengan email korban dan password-nya sendiri, lalu masuk ke akun yang dikonfirmasi korban (pre-hijack).
+ * Keputusan pemilik untuk pilot: tautan di email cukup, tanpa memasukkan password lagi. Risiko sisa: orang lain
+ * mendaftar dengan email korban memakai password-nya sendiri, dan korban menekan tautan yang tidak dia minta
+ * (pre-hijack). Emailnya meminta mengabaikan tautan bila bukan dia yang mendaftar.
  */
-export async function verifySignup(token: string, password: string): Promise<VerifyOutcome> {
+export async function verifySignup(token: string): Promise<VerifyOutcome> {
   if (token.length < 20 || token.length > 100) return { status: 'invalid' }
-  const row = (await authDb().select({ hash: signup.passwordHash }).from(signup).where(and(eq(signup.tokenHash, sha256hex(token)), sql`${signup.expiresAt} > now()`)).limit(1))[0]
-  if (!row) return { status: 'invalid' }
-  if (!(await verifySecret(row.hash, password))) return { status: 'password' }
   const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${sha256hex(token)}, ${env().KIRA_BETA_SEATS})`)
   const r = (rows as unknown as { status: string; user_id: string | null; org_id: string | null }[])[0]
   if (r?.status === 'ok' && r.user_id && r.org_id) return { status: 'ok', userId: r.user_id, orgId: r.org_id }

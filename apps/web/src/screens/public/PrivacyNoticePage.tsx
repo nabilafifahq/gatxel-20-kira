@@ -218,7 +218,7 @@ export function PrivacyNoticePage({ data, account }: PrivacyNoticePageProps & { 
         <p className="m-0">
           Data yang berpindah antara perangkat Anda dan Kira dienkripsi selama perjalanan lewat HTTPS. Data yang tersimpan berada di server milik Gatxel sendiri,
           dan hanya pengelola yang punya akses ke server itu. Di database, data tiap keluarga dipisahkan, jadi setiap akun hanya bisa membuka data keluarganya
-          sendiri, dan tindakan penting pada data anak, seperti mengunduh dan menghapus, tercatat di log audit. Password orang dewasa minimal 15 karakter, disimpan
+          sendiri, dan tindakan penting pada data anak, seperti mengunduh dan menghapus, tercatat di log audit. Password orang dewasa minimal 13 karakter, disimpan
           sebagai hash satu arah, dan diperiksa terhadap daftar password yang pernah bocor.
         </p>
         <p className="m-0">

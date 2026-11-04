@@ -33,7 +33,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Daftar',
     body: (
       <>
-        Buka <A href="/daftar">halaman Daftar</A>, isi nama orang tua, email, dan password minimal 15 karakter, centang persetujuan, lalu tekan <L>Daftar</L>.
+        Buka <A href="/daftar">halaman Daftar</A>, isi nama orang tua, email, dan password minimal 13 karakter dengan huruf kapital, angka, dan simbol, centang persetujuan, lalu tekan <L>Daftar</L>.
       </>
     ),
   },
@@ -41,7 +41,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Konfirmasi email',
     body: (
       <>
-        Buka email dari Kira dalam 24 jam, masukkan lagi password tadi, lalu tekan <L>Konfirmasi email</L>. Satu kursi beta kini milik keluarga.
+        Buka email dari Kira dalam 24 jam, lalu tekan <L>Konfirmasi email</L>. Akun langsung aktif, Ayah/Bunda langsung masuk, dan satu kursi beta kini milik keluarga.
       </>
     ),
   },
@@ -93,7 +93,7 @@ const AKUN: GuideFeature[] = [
       <>
         Buka <A href="/daftar">halaman Daftar</A>, lalu isi nama orang tua, email, dan password.
       </>,
-      'Buat password paling sedikit 15 karakter. Kalimat panjang yang mudah diingat lebih aman daripada kata acak.',
+      'Buat password paling sedikit 13 karakter dengan huruf kapital, angka, dan simbol. Daftar centang di bawah kolom password menunjukkan yang sudah terpenuhi.',
       <>
         Centang persetujuan, lalu tekan <L>Daftar</L>.
       </>,

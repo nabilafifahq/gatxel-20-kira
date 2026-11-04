@@ -3,12 +3,12 @@ import { createHash } from 'node:crypto'
 import { hash, verify } from '@node-rs/argon2'
 import { env } from '../env'
 import { log } from '../log'
+import { PASSWORD_MAX, passwordRuleProblem } from '@/lib/password-rules'
 
 /** Argon2id m=19456, t=2, p=1 (GTX-ENG-001). Algorithm.Argon2id = 2. */
 const OPTIONS = { memoryCost: 19456, timeCost: 2, parallelism: 1, algorithm: 2 as never }
 
-export const PASSWORD_MIN = 15
-export const PASSWORD_MAX = 128
+export { PASSWORD_MAX, PASSWORD_MIN } from '@/lib/password-rules'
 
 export function hashSecret(secret: string): Promise<string> {
   return hash(secret, OPTIONS)
@@ -57,7 +57,8 @@ export async function isPwned(password: string): Promise<boolean> {
 
 /** Pesan validasi password dalam Bahasa Indonesia, atau null bila diterima. */
 export async function passwordProblem(password: string, context: { email?: string; name?: string }): Promise<string | null> {
-  if (password.length < PASSWORD_MIN) return `Password minimal ${PASSWORD_MIN} karakter. Kalimat pendek yang mudah diingat juga boleh.`
+  const rule = passwordRuleProblem(password)
+  if (rule) return rule
   if (password.length > PASSWORD_MAX) return `Password paling panjang ${PASSWORD_MAX} karakter.`
   const lower = password.toLowerCase()
   if (context.email && lower.includes(context.email.toLowerCase().split('@')[0] ?? '\u0000')) return 'Password tidak boleh memuat alamat email.'

@@ -14,7 +14,7 @@ import { AuthCard, PublicFrame } from './PublicFrame'
 /**
  * Setup pertama server Kira: membuat akun keluarga dan akun tutor pemilik.
  * Kode setup sekali pakai mencegah orang lain di jaringan yang sama mengambil alih
- * server yang baru dipasang. Password mengikuti NIST: paling sedikit 15 karakter,
+ * server yang baru dipasang. Password paling sedikit 13 karakter, dengan huruf kapital, angka, dan simbol,
  * tanpa aturan komposisi, paste boleh.
  */
 
@@ -129,7 +129,7 @@ export function SetupScreen({ createOrg }: SetupScreenProps) {
             id="setup-password"
             name="new-password"
             label="Password"
-            hint="Paling sedikit 15 karakter. Tidak perlu huruf besar, angka, atau simbol. Kalimat pendek yang mudah diingat juga boleh."
+            checklist
             autoComplete="new-password"
             value={password}
             error={errors.password}
