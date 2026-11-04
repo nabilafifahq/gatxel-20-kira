@@ -96,7 +96,7 @@ describe('buku Ruang Baca', () => {
   it('klip suara: satu klip pencerita per kalimat, dengan teks yang sama dengan penyaji', () => {
     const b = sample()
     const clips = bookSpeechClips(b)
-    expect(clips.every((c) => c.style === 'narrator')).toBe(true)
+    expect(clips.every((c) => c.style === 'teacher')).toBe(true)
     const expected = b.chapters.flatMap((c) => chapterSentences(c).flatMap((s) => splitClipText(s.text)))
     expect(clips.map((c) => c.text)).toEqual(expected)
   })

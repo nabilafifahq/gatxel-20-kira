@@ -11,7 +11,7 @@ import urllib.request
 
 base, token = sys.argv[1], sys.argv[2]
 style = sys.argv[3] if len(sys.argv) > 3 else "teacher"
-body = json.dumps({"style": style, "segments": [{"text": "What can you see in the picture?", "kind": "question"}], "seed": 7, "format": "mp3"}).encode()
+body = json.dumps({"style": style, "segments": [{"text": "What can you see in the picture?", "kind": "question"}], "format": "mp3"}).encode()
 for n in (1, 2):
     req = urllib.request.Request(base + "/synthesize", data=body, headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
     t0 = time.monotonic()
