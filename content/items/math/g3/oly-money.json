@@ -332,28 +332,23 @@
       "explanation": "Take Rp10.000. Rp8.500 is left. Take Rp5.000. Rp3.500 is left. Take Rp2.000. Rp1.500 is left. Take Rp1.000. Rp500 is left. Take Rp500. That is 5 pieces.",
       "solution": [
         {
-          "say": "Take Rp10.000."
+          "say": "Take Rp10.000. Rp8.500 is left."
         },
         {
-          "say": "Rp8.500 is left."
+          "say": "Take Rp5.000. Rp3.500 is left."
         },
         {
-          "say": "Take Rp5.000."
+          "say": "Take Rp2.000. Rp1.500 is left."
         },
         {
-          "say": "Rp3.500 is left."
+          "say": "Take Rp1.000. Rp500 is left."
         },
         {
-          "say": "Take Rp2.000."
+          "say": "Take Rp500. Nothing is left."
         },
         {
-          "say": "Rp1.500 is left."
-        },
-        {
-          "say": "Take Rp1.000."
-        },
-        {
-          "say": "Rp500 is left."
+          "say": "That is 5 pieces.",
+          "show": "5"
         }
       ],
       "tags": [
