@@ -308,7 +308,7 @@ export function weekReportEmail(id: EmailIdentity, w: WeekReportInput): Rendered
     if (w.coach.items.length) blocks.push({ kind: 'list', items: w.coach.items })
     else if (w.coach.starter) blocks.push({ kind: 'list', items: [w.coach.starter] })
     if (w.coach.strength) blocks.push({ kind: 'text', text: `Yang patut dipuji: ${w.coach.strength}.` })
-    blocks.push({ kind: 'callout', title: 'Kalimat untuk anak:', text: w.coach.praise })
+    blocks.push({ kind: 'callout', text: `Kalimat untuk anak: ${w.coach.praise}` })
     if (w.coach.url) blocks.push({ kind: 'link', label: 'Lihat semua kegiatan dan lembar kerja', url: w.coach.url })
   }
   return renderEmail(

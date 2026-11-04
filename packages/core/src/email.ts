@@ -173,7 +173,7 @@ function buttonHtml(action: EmailAction): string {
       'style="margin:10px 0 14px 0;border-collapse:separate;"',
       `<tr><td align="center" bgcolor="${INK}" style="background-color:${INK};border-radius:12px;mso-padding-alt:14px 28px;"><a href="${url}" target="_blank" style="display:inline-block;padding:14px 28px;border-radius:12px;background-color:${INK};color:${ON_INK};font-family:${FONT};font-size:16px;line-height:22px;font-weight:700;text-decoration:none;">${escapeHtml(action.label)}</a></td></tr>`,
     ) +
-    `<p style="${base('margin:0 0 18px 0;font-size:14px;line-height:22px;word-break:break-all;')}">Kalau tombol tidak berfungsi, salin tautan ini ke browser Anda:<br>${anchor(action.url, action.url, 'font-weight:400;')}</p>`
+    `<p style="${base('margin:0 0 18px 0;font-size:14px;line-height:22px;')}">Kalau tombol tidak berfungsi, salin tautan ini ke browser Anda:<br>${anchor(action.url, action.url, 'font-weight:400;word-break:break-all;')}</p>`
   )
 }
 
@@ -207,7 +207,7 @@ export function renderEmail(c: EmailContent, id: EmailIdentity): RenderedEmail {
     `@media (prefers-color-scheme:dark){.kira-page{background-color:${INK}!important}}` +
     '</style></head>' +
     `<body class="kira-page" style="margin:0;padding:0;background-color:${PAGE};">` +
-    `<div style="display:none;max-height:0;max-width:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:${PAGE};">${escapeHtml(c.preheader)}</div>` +
+    `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">${escapeHtml(c.preheader)}</div>` +
     table(
       `width="100%" class="kira-page" bgcolor="${PAGE}" style="background-color:${PAGE};border-collapse:collapse;"`,
       `<tr><td align="center" class="kira-outer" style="padding:28px 12px 40px;">` +
