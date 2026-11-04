@@ -56,6 +56,8 @@ const baseConfig: NextConfig = {
   serverExternalPackages: ['@node-rs/argon2', 'postgres'],
   experimental: {
     // 61 MB: PDF paket resmi sampai 60 MB lewat Server Action impor (T12). Semua action tetap memeriksa sesi.
+    // Batas ini berlaku untuk semua action; proxy (deploy/proxy/Caddyfile) menurunkannya menjadi 8 MB di semua jalur
+    // kecuali /konsol/impor dan /api/media, jadi jalur learner tidak pernah menerima isi lebih dari 8 MB.
     // allowedOrigins: alamat publik Kira (KIRA_ORIGIN saat build image) bila proxy tidak meneruskan host aslinya.
     serverActions: { bodySizeLimit: '61mb', ...(publicHost ? { allowedOrigins: [publicHost] } : {}) },
     globalNotFound: true,

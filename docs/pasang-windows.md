@@ -345,7 +345,7 @@ worker -> web:3000 (jaringan internal, tanpa proxy);   worker, migrate, backup -
 
 | Variabel | Bawaan | Arti |
 |---|---|---|
-| `KIRA_VALKEY_PASSWORD` | wajib | Password Valkey, hex acak (`kira.ps1 init` mengisinya). |
+| `KIRA_VALKEY_PASSWORD` | `KIRA_INTERNAL_TOKEN` | Password Valkey, hex acak (`kira.ps1 init` mengisinya). Bila kosong, memakai `KIRA_INTERNAL_TOKEN`. |
 | `KIRA_PROXY_PORT` | 3030 | Port proxy di 127.0.0.1. |
 | `KIRA_WEB_REPLICAS` | 4 | Jumlah replika web. |
 | `KIRA_POOL_APP`, `KIRA_POOL_AUTH` | 12, 6 | Sambungan per replika ke PgBouncer. |
