@@ -5,7 +5,7 @@ import { getActor, orgCtx } from '@/server/auth/actor'
 import { inOrg } from '@/server/db'
 import { certificateData } from '@/server/dal/kira-world'
 import { isFeatureOn } from '@/server/dal/learner-features'
-import { isPrefetch, prefetchRefused } from '@/server/http'
+import { isPrefetch, prefetchRefused, seeOther } from '@/server/http'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,10 +13,11 @@ export const dynamic = 'force-dynamic'
 export async function GET(req: Request, { params }: { params: Promise<{ days: string }> }) {
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
-  if (!actor || actor.role !== 'learner') return new Response(null, { status: 401 })
-  if (!(await isFeatureOn(actor.userId, 'kira-world'))) return new Response(null, { status: 404 })
+  if (!actor || actor.role !== 'learner') return seeOther('/')
+  // Saklar mati atau tonggak belum tercapai: arahkan ke layar anak. Respons 404 kosong membuat ponsel mengunduh berkas kosong.
+  if (!(await isFeatureOn(actor.userId, 'kira-world'))) return seeOther('/today')
   const days = z.coerce.number().int().safeParse((await params).days)
-  if (!days.success) return new Response(null, { status: 404 })
+  if (!days.success) return seeOther('/world/trophies')
   try {
     const d = await inOrg(orgCtx(actor), (tx) => certificateData(tx, actor.userId, days.data))
     const t = tOf(actor).world.certificate
@@ -25,6 +26,6 @@ export async function GET(req: Request, { params }: { params: Promise<{ days: st
       headers: { 'Content-Type': 'application/pdf', 'Content-Disposition': `inline; filename="${t.fileName(d.days)}"`, 'Cache-Control': 'private, no-store' },
     })
   } catch {
-    return new Response(null, { status: 404 })
+    return seeOther('/world/trophies')
   }
 }
