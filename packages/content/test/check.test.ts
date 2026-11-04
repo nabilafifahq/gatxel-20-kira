@@ -105,7 +105,7 @@ describe('answerText', () => {
 
 describe('bentuk setara yang diketik anak', () => {
   const numeric = { type: 'numeric', answer: 0.9, tolerance: 0 } as const
-  const textKey = (answers: string[], equiv?: 'fraction' | 'any') => ({ type: 'text', blanks: [{ answers, caseSensitive: false, ...(equiv ? { equiv } : {}) }] }) as const
+  const textKey = (answers: string[], equiv?: 'fraction' | 'any'): Parameters<typeof checkAnswer>[0] => ({ type: 'text', blanks: [{ answers, caseSensitive: false, ...(equiv ? { equiv } : {}) }] })
   const status = (key: Parameters<typeof checkAnswer>[0], answer: unknown) => checkAnswer(key, answer).status
 
   it('angka tanpa nol di depan dan tanda minus lain', () => {
