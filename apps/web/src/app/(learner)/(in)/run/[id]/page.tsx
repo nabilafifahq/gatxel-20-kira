@@ -21,5 +21,7 @@ export default async function RunPage({ params }: { params: Promise<{ id: string
   if ('submitted' in data) redirect(data.resultHref)
   // Tes belum terbuka: Latihan mapel itu dulu.
   if ('locked' in data) redirect('/today')
+  // Batas layar tercapai: layar Hari ini menampilkan ajakan istirahat yang ramah.
+  if ('limit' in data) redirect('/today')
   return <RunnerClient data={data} />
 }

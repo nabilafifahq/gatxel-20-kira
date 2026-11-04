@@ -14,7 +14,7 @@ import { resolveItems, skill, toClient } from './content'
 import { presetRulesFor } from './daily-paper-scoring'
 import { effectiveRules, presetForAttempt } from './learner-competition'
 import { areaOfSessionRef, isReadingAttempt } from '@kira/core/english-skills'
-import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, QUICK_REVIEW_PREFIX, refreshDayRecord } from './learner-core'
+import { applyOutcome, awardBadges, grantXp, learnerShell, loadLearner, minutesOn, QUICK_REVIEW_PREFIX, refreshDayRecord } from './learner-core'
 import { parseBossRef } from '@kira/core'
 import { awardReadingStars, awardSessionStars, finishBoss } from './kira-world'
 import { spokenClipRefs } from './tts'
@@ -111,7 +111,7 @@ function resultHref(a: { id: string; refId: string | null }): string {
   return a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
 }
 
-export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true; resultHref: string } | { locked: true }> {
+export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true; resultHref: string } | { locked: true } | { limit: true }> {
   const a = await loadAttempt(tx, learnerId, attemptId)
   if (a.status !== 'in_progress') return { submitted: true, resultHref: resultHref(a) }
   // Tes terbuka setelah Latihan mapel itu selesai; jam Tes tidak boleh mulai sebelumnya.
@@ -120,6 +120,12 @@ export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, op
     if (q && (await isTesLocked(tx, q))) return { locked: true }
   }
   if (!a.openedAt && (opts.markOpened || a.timeLimitS)) {
+    // Batas layar: sesi baru tidak dimulai setelah batas tercapai. Sesi yang sudah berjalan boleh diselesaikan.
+    const { screenLimitMin } = await loadLearner(tx, learnerId)
+    if ((await minutesOn(tx, learnerId, jakartaDate())) >= screenLimitMin) {
+      const [answered] = await tx.select({ id: response.id }).from(response).where(eq(response.attemptId, a.id)).limit(1)
+      if (!answered) return { limit: true }
+    }
     const [o] = await tx
       .update(attempt)
       .set({ openedAt: new Date() })
