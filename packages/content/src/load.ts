@@ -230,10 +230,8 @@ function newTypeProblems(item: Item): string[] {
       if (item.places === 'to' && (target.h > 0 || start.h > 0)) p.push('Papan puluhan dan satuan tidak boleh memakai ratusan')
       if (item.exact) {
         if (start.h === target.h && start.t === target.t && start.o === target.o) p.push('Susunan awal sudah sama dengan target')
-        if (val(start) !== val(target) && !item.prompt) p.push('Target persis tanpa tukar butuh penjelasan')
       } else if (val(start) === val(target)) p.push('Nilai awal sudah sama dengan target')
       if (target.o > 9 && !item.exact) p.push('Target sebaiknya ditulis dalam susunan baku (satuan di bawah 10)')
-      if (item.exact && val(start) === val(target) && target.o > 9) p.push('Susunan target persis tidak boleh punya 10 satuan atau lebih')
       break
     }
     case 'fractionbar': {
@@ -428,7 +426,7 @@ export function loadContent(dir: string = findContentDir()): LoadResult {
   // Soal
   for (const file of walk(join(dir, 'items'))) {
     const rel = relative(dir, file)
-    const m = /^items[\\/](math|english|science)[\\/]g([1-6])[\\/]([a-z0-9-]+)\.json$/.exec(rel)
+    const m = /^items[\\/](math|english|science)[\\/]g([1-6])[\\/]([a-z0-9-]+)(?:\.tools)?\.json$/.exec(rel)
     if (!m) {
       errors.push({ file: rel, message: 'Nama file soal harus items/<subject>/g<grade>/<slug>.json' })
       continue

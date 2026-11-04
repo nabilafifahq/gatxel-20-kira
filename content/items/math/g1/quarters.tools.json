@@ -1,0 +1,131 @@
+{
+  "skill": "m1.quarters",
+  "items": [
+    {
+      "id": "m1.quarters.701",
+      "skill": "m1.quarters",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade one quarter of the bar.",
+      "rows": [
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        {
+          "num": 1,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "The bar is cut into 4 equal parts.",
+        "A quarter is one of the 4 parts.",
+        "Tap one part."
+      ],
+      "explanation": "A quarter is 1 of 4 equal parts, so 1 part is shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.quarters.702",
+      "skill": "m1.quarters",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade three quarters of the bar.",
+      "rows": [
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        {
+          "num": 3,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "The bar has 4 equal parts.",
+        "Each part is one quarter.",
+        "Shade 3 parts."
+      ],
+      "explanation": "Three quarters means 3 of the 4 equal parts are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.quarters.703",
+      "skill": "m1.quarters",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Cut the bar into quarters, then shade one quarter.",
+      "rows": [
+        {}
+      ],
+      "splits": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "targets": [
+        {
+          "num": 1,
+          "den": 4
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Quarters need 4 equal parts.",
+        "Tap 4 under Cut into.",
+        "Shade 1 part."
+      ],
+      "explanation": "Quarters come from 4 equal parts. Shading 1 part shows one quarter.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.quarters.704",
+      "skill": "m1.quarters",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Cut the bar into quarters, then shade two quarters.",
+      "rows": [
+        {}
+      ],
+      "splits": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "targets": [
+        {
+          "num": 2,
+          "den": 4
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Quarters need 4 equal parts.",
+        "Tap 4 under Cut into.",
+        "Shade 2 parts."
+      ],
+      "explanation": "Two quarters is 2 of the 4 equal parts. It is the same as one half.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}

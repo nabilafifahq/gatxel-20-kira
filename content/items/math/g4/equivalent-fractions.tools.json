@@ -1,0 +1,114 @@
+{
+  "skill": "m4.equivalent-fractions",
+  "items": [
+    {
+      "id": "m4.equivalent-fractions.701",
+      "skill": "m4.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows two thirds. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 3,
+          "locked": 2
+        },
+        {
+          "den": 12
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 8,
+          "den": 12
+        }
+      ],
+      "hints": [
+        "12 is 4 times 3.",
+        "Multiply the shaded parts by 4 too.",
+        "Shade 8 parts of bar 2."
+      ],
+      "explanation": "Two thirds is the same as 8 twelfths, because 2 times 4 is 8 and 3 times 4 is 12.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m4.equivalent-fractions.702",
+      "skill": "m4.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 4,
+      "prompt": "Bar 1 shows three sixths. Cut bar 2 any way that can show the same amount, then shade it.",
+      "rows": [
+        {
+          "den": 6,
+          "locked": 3
+        },
+        {}
+      ],
+      "splits": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "targets": [
+        null,
+        {
+          "num": 1,
+          "den": 2
+        }
+      ],
+      "hints": [
+        "Three sixths is the same as one half.",
+        "Pick a number of parts that can be split into 2 equal groups.",
+        "For example 4 parts with 2 shaded, or 8 parts with 4 shaded."
+      ],
+      "explanation": "Three sixths is one half. Any even number of parts works, shading half of them.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m4.equivalent-fractions.703",
+      "skill": "m4.equivalent-fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows five tenths. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 10,
+          "locked": 5
+        },
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        null,
+        {
+          "num": 2,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "Five tenths is the same as one half.",
+        "Bar 2 has 4 parts, and half of 4 is 2.",
+        "Shade 2 parts of bar 2."
+      ],
+      "explanation": "Five tenths is one half, and one half of bar 2 is 2 of its 4 parts.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}

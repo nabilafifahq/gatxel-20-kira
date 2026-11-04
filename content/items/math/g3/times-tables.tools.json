@@ -1,0 +1,110 @@
+{
+  "skill": "m3.times-tables",
+  "items": [
+    {
+      "id": "m3.times-tables.701",
+      "skill": "m3.times-tables",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 2,
+      "kind": "compare",
+      "prompt": "Gita has 3 times as many shells as Hana. Hana has 4 shells. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Hana",
+          "units": 1
+        },
+        {
+          "label": "Gita",
+          "units": 3
+        }
+      ],
+      "extraLabels": [
+        "Indra"
+      ],
+      "unitValue": 4,
+      "unitName": "shells",
+      "hints": [
+        "Hana is the smaller amount, so she gets 1 unit.",
+        "Gita has 3 times as many, so she gets 3 units.",
+        "One unit is the number of shells Hana has."
+      ],
+      "explanation": "Hana is 1 unit, which is 4 shells. Gita is 3 units, which is 3 groups of 4.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    },
+    {
+      "id": "m3.times-tables.702",
+      "skill": "m3.times-tables",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 2,
+      "kind": "compare",
+      "prompt": "A ribbon is 5 times as long as a string. The string is 3 cm long. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "String",
+          "units": 1
+        },
+        {
+          "label": "Ribbon",
+          "units": 5
+        }
+      ],
+      "extraLabels": [
+        "Rope"
+      ],
+      "unitValue": 3,
+      "unitName": "cm",
+      "hints": [
+        "The string is the shorter length, so it gets 1 unit.",
+        "The ribbon is 5 times as long, so it gets 5 units.",
+        "One unit is the length of the string."
+      ],
+      "explanation": "The string is 1 unit, which is 3 cm. The ribbon is 5 units, which is 5 groups of 3 cm.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    },
+    {
+      "id": "m3.times-tables.703",
+      "skill": "m3.times-tables",
+      "source": "kira-original",
+      "type": "barmodel",
+      "difficulty": 3,
+      "kind": "compare",
+      "prompt": "Indra has 2 times as many cards as Joko. Joko has 7 cards. Build the model and say what one unit is worth.",
+      "bars": [
+        {
+          "label": "Joko",
+          "units": 1
+        },
+        {
+          "label": "Indra",
+          "units": 2
+        }
+      ],
+      "extraLabels": [
+        "Kiki"
+      ],
+      "unitValue": 7,
+      "unitName": "cards",
+      "hints": [
+        "Joko has the smaller amount, so he gets 1 unit.",
+        "Indra has twice as many, so he gets 2 units.",
+        "One unit is the number of cards Joko has."
+      ],
+      "explanation": "Joko is 1 unit, which is 7 cards. Indra is 2 units, which is 14 cards.",
+      "tags": [
+        "manipulative",
+        "barmodel",
+        "compare"
+      ]
+    }
+  ]
+}

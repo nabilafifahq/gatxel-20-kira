@@ -222,7 +222,7 @@ export const blocksItem = z
   .object({ ...base, type: z.literal('blocks'), places: z.enum(['to', 'hto']).default('hto'), start: blocksTriple.default({ h: 0, t: 0, o: 0 }), target: blocksTriple, exact: z.boolean().default(false) })
   .strict()
 const fractionRow = z.object({ den: z.number().int().min(2).max(12).optional(), locked: z.number().int().min(0).max(12).optional() }).strict()
-/** Batang pecahan: 1 sampai 3 batang. Anak memilih pembagian (kecuali den dikunci) lalu mengarsir. targets[i] adalah nilai yang harus diwakili batang i; relation membandingkan batang 1 dengan batang 2. */
+/** Batang pecahan: 1 sampai 3 batang. Anak memilih pembagian (kecuali den dikunci) lalu mengarsir. targets[i] adalah nilai yang harus diwakili batang i; relation: bagaimana batang 2 dibanding batang 1 (gt berarti batang 2 lebih besar). */
 export const fractionbarItem = z
   .object({
     ...base,

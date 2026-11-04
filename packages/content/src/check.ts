@@ -426,7 +426,7 @@ export function answerText(item: Item, lang: 'en-GB' | 'id' = 'en-GB'): string {
       return `${t.h * 100 + t.t * 10 + t.o}: ${parts.join(', ')}`
     }
     case 'fractionbar':
-      return item.targets.map((t, i) => (t ? `bar ${i + 1}: ${t.num}/${t.den}` : null)).filter(Boolean).join('; ') || (item.relation === 'lt' ? 'Bar 1 is less than bar 2' : item.relation === 'gt' ? 'Bar 1 is more than bar 2' : 'The bars are equal')
+      return item.targets.map((t, i) => (t ? `bar ${i + 1}: ${t.num}/${t.den}` : null)).filter(Boolean).join('; ') || (item.relation === 'lt' ? 'Bar 2 shows less than bar 1' : item.relation === 'gt' ? 'Bar 2 shows more than bar 1' : 'The bars show the same amount')
     case 'barmodel':
       return item.bars.map((b) => `${b.label}: ${b.units} unit${b.units === 1 ? '' : 's'}`).join('; ') + (item.unitValue !== undefined ? `; 1 unit = ${item.unitValue}` : '')
     case 'tangram':

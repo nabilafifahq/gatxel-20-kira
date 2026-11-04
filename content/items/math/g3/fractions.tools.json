@@ -1,0 +1,140 @@
+{
+  "skill": "m3.fractions",
+  "items": [
+    {
+      "id": "m3.fractions.701",
+      "skill": "m3.fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade four fifths of the bar.",
+      "rows": [
+        {
+          "den": 5
+        }
+      ],
+      "targets": [
+        {
+          "num": 4,
+          "den": 5
+        }
+      ],
+      "hints": [
+        "The bar is cut into 5 equal parts.",
+        "The top number says how many parts to shade.",
+        "Shade 4 parts."
+      ],
+      "explanation": "Four fifths means 4 of the 5 equal parts are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.fractions.702",
+      "skill": "m3.fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Cut the bar into tenths, then shade seven tenths.",
+      "rows": [
+        {}
+      ],
+      "splits": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "targets": [
+        {
+          "num": 7,
+          "den": 10
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Tenths need 10 equal parts.",
+        "Tap 10 under Cut into.",
+        "Shade 7 parts."
+      ],
+      "explanation": "Tenths come from 10 equal parts, and seven tenths means 7 of them are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.fractions.703",
+      "skill": "m3.fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Shade three sixths on bar 1 and one third on bar 2.",
+      "rows": [
+        {
+          "den": 6
+        },
+        {
+          "den": 3
+        }
+      ],
+      "targets": [
+        {
+          "num": 3,
+          "den": 6
+        },
+        {
+          "num": 1,
+          "den": 3
+        }
+      ],
+      "hints": [
+        "Bar 1 has 6 parts and bar 2 has 3 parts.",
+        "Three sixths means 3 of the 6 parts.",
+        "One third means 1 of the 3 parts."
+      ],
+      "explanation": "Bar 1 has 3 of 6 parts shaded and bar 2 has 1 of 3 parts shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m3.fractions.704",
+      "skill": "m3.fractions",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 3,
+      "prompt": "Bar 1 shows three quarters. Shade bar 2 so it shows the same amount.",
+      "rows": [
+        {
+          "den": 4,
+          "locked": 3
+        },
+        {
+          "den": 8
+        }
+      ],
+      "targets": [
+        null,
+        null
+      ],
+      "relation": "eq",
+      "hints": [
+        "Compare the lengths of the shaded parts.",
+        "Each quarter is the same as 2 eighths.",
+        "Shade 6 parts of bar 2."
+      ],
+      "explanation": "Three quarters is 6 eighths, because each quarter is 2 eighths.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}

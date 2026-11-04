@@ -96,7 +96,8 @@ export function fractionBarOk(key: FractionBarKey, bars: BarState[] | null): boo
     const a = bars[0]!
     const b = bars[1]
     if (!b) return false
-    const c = compareFractions(a.shaded, a.den, b.shaded, b.den)
+    // relation: how bar 2 compares with bar 1.
+    const c = compareFractions(b.shaded, b.den, a.shaded, a.den)
     const want = key.relation === 'lt' ? -1 : key.relation === 'gt' ? 1 : 0
     if (c !== want) return false
   }
@@ -367,6 +368,7 @@ export function analysePegs(pegs: readonly Peg[]): GeoInfo {
   const n = pegs.length
   if (n < 3) return { ...empty, reason: 'few' }
   if (new Set(pegs.map((p) => `${p[0]},${p[1]}`)).size !== n) return { ...empty, reason: 'repeat' }
+  if (pegs.every((p) => cross(pegs[0]!, pegs[1]!, p) === 0)) return { ...empty, reason: 'flat' }
   // Sisi tidak boleh bersilang atau bersentuhan kecuali tetangga di satu titik sudut.
   for (let i = 0; i < n; i++) {
     const a = pegs[i]!

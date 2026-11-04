@@ -1,0 +1,125 @@
+{
+  "skill": "m1.halves",
+  "items": [
+    {
+      "id": "m1.halves.701",
+      "skill": "m1.halves",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade one half of the bar.",
+      "rows": [
+        {
+          "den": 2
+        }
+      ],
+      "targets": [
+        {
+          "num": 1,
+          "den": 2
+        }
+      ],
+      "hints": [
+        "The bar is cut into 2 equal parts.",
+        "A half is one of the 2 equal parts.",
+        "Tap one part to shade it."
+      ],
+      "explanation": "A half is 1 of 2 equal parts, so 1 part is shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.halves.702",
+      "skill": "m1.halves",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 1,
+      "prompt": "Shade both halves to show the whole bar.",
+      "rows": [
+        {
+          "den": 2
+        }
+      ],
+      "targets": [
+        {
+          "num": 2,
+          "den": 2
+        }
+      ],
+      "hints": [
+        "The bar has 2 equal parts.",
+        "A whole is every part.",
+        "Shade both parts."
+      ],
+      "explanation": "Two halves make one whole, so both parts are shaded.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.halves.703",
+      "skill": "m1.halves",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "Cut the bar into 2 equal parts, then shade one half.",
+      "rows": [
+        {}
+      ],
+      "splits": [
+        2,
+        3,
+        4
+      ],
+      "targets": [
+        {
+          "num": 1,
+          "den": 2
+        }
+      ],
+      "exactSplit": true,
+      "hints": [
+        "Halves need 2 equal parts.",
+        "Tap 2 under Cut into.",
+        "Then shade 1 part."
+      ],
+      "explanation": "Cutting into 2 equal parts makes halves, and shading 1 part shows one half.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    },
+    {
+      "id": "m1.halves.704",
+      "skill": "m1.halves",
+      "source": "kira-original",
+      "type": "fractionbar",
+      "difficulty": 2,
+      "prompt": "This bar has 4 equal parts. Shade one half of it.",
+      "rows": [
+        {
+          "den": 4
+        }
+      ],
+      "targets": [
+        {
+          "num": 2,
+          "den": 4
+        }
+      ],
+      "hints": [
+        "Half means 2 equal groups.",
+        "Split the 4 parts into 2 equal groups.",
+        "Shade 2 parts."
+      ],
+      "explanation": "Half of 4 parts is 2 parts, so 2 of 4 is the same as one half.",
+      "tags": [
+        "manipulative",
+        "fractionbar"
+      ]
+    }
+  ]
+}
