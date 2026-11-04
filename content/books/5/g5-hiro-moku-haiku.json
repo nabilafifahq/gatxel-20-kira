@@ -1,0 +1,488 @@
+{
+  "id": "g5-hiro-moku-haiku",
+  "grade": 5,
+  "title": "Hiro, Moku and the Haiku",
+  "kind": "story",
+  "genre": "humour",
+  "blurb": "The new classroom robot can solve any sum in a blink, but it cannot write a poem. Hiro has a week to teach it.",
+  "cover": {
+    "motif": "rocket",
+    "tint": "mental"
+  },
+  "chapters": [
+    {
+      "id": "c1",
+      "title": "A Robot in Class Five",
+      "text": "On Monday morning, a silver robot rolled into Class Five at Hiro's school in Kyoto. It had round blue eyes, a square head and a small screen on its chest. \"Hello, everyone,\" it said. \"My name is Moku. I can solve any sum, spell any word and count every leaf in the playground.\"\n\nThe children cheered. Their teacher, Ms Tanaka, smiled. \"Moku will be our classroom helper,\" she said. \"And this week we have a special project. Each of you will write a haiku for the school festival on Friday.\"\n\nHiro groaned quietly. He liked football and science, not poems, and he did not like the idea at all. His friend Mei nudged him. \"Moku will help you,\" she whispered.\n\n\"I will certainly try,\" said the robot. \"Please explain the word haiku.\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "In which city is Hiro's school?",
+          "options": [
+            "Tokyo",
+            "Osaka",
+            "Kyoto",
+            "Nara"
+          ],
+          "answer": 2,
+          "why": "The text says a robot rolled into Class Five at Hiro's school in Kyoto."
+        },
+        {
+          "id": "q2",
+          "prompt": "What does Moku look like?",
+          "options": [
+            "It is round and gold",
+            "It is silver with round blue eyes and a square head",
+            "It is small and red",
+            "It looks like a dog"
+          ],
+          "answer": 1,
+          "why": "It had round blue eyes, a square head and a small screen on its chest."
+        },
+        {
+          "id": "q3",
+          "prompt": "What can Moku do, according to its own words?",
+          "options": [
+            "Sing and dance",
+            "Cook food",
+            "Solve any sum, spell any word and count every leaf",
+            "Fly to the moon"
+          ],
+          "answer": 2,
+          "why": "Moku says it can solve any sum, spell any word and count every leaf in the playground."
+        },
+        {
+          "id": "q4",
+          "prompt": "What project does Ms Tanaka announce?",
+          "options": [
+            "A football match",
+            "A science fair",
+            "A drawing contest",
+            "A haiku for the school festival"
+          ],
+          "answer": 3,
+          "why": "Each pupil will write a haiku for the school festival on Friday."
+        },
+        {
+          "id": "q5",
+          "prompt": "Why does Hiro groan?",
+          "options": [
+            "He likes football and science more than poems",
+            "He is afraid of robots",
+            "He is hungry",
+            "He has a headache"
+          ],
+          "answer": 0,
+          "why": "Hiro liked football and science, not poems."
+        },
+        {
+          "id": "q6",
+          "prompt": "Which word best describes Moku's reply at the end?",
+          "options": [
+            "Rude",
+            "Polite and eager",
+            "Bored",
+            "Angry"
+          ],
+          "answer": 1,
+          "why": "The robot says, \"I will certainly try,\" and asks politely about the word."
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Five, Seven, Five",
+      "text": "Ms Tanaka explained. \"A haiku is a very short poem from Japan. It has three lines. The first line has five syllables, the second has seven, and the third has five again. Most haiku are about nature or a season.\"\n\n\"Syllables are the beats in a word,\" said Hiro. \"Like but-ter-fly has three.\"\n\nMoku's blue eyes flickered. After two seconds it said, \"I have written one.\" It read in a flat voice: \"Rain falls from the sky. Three millimetres per day. Rain is wet and cold.\"\n\nThe class tried not to laugh, and nobody spoke for a moment. \"The syllables are perfect,\" Mei said kindly. \"But there is something missing.\"\n\n\"What is missing?\" asked Moku. \"I counted five, seven and five.\"\n\nHiro stared at his own empty page. He knew exactly how Moku felt.",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "How many lines does a haiku have?",
+          "options": [
+            "Two",
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "answer": 1,
+          "why": "A haiku has three lines."
+        },
+        {
+          "id": "q2",
+          "prompt": "What is the syllable pattern of a haiku?",
+          "options": [
+            "7, 5, 7",
+            "3, 5, 3",
+            "5, 7, 5",
+            "5, 5, 5"
+          ],
+          "answer": 2,
+          "why": "The first line has five syllables, the second has seven, and the third has five again."
+        },
+        {
+          "id": "q3",
+          "prompt": "What do most haiku write about?",
+          "options": [
+            "Machines and cities",
+            "Kings and queens",
+            "Nature or a season",
+            "Sports"
+          ],
+          "answer": 2,
+          "why": "Most haiku are about nature or a season."
+        },
+        {
+          "id": "q4",
+          "prompt": "How many syllables does the word \"butterfly\" have, according to Hiro?",
+          "options": [
+            "Three",
+            "Two",
+            "Four",
+            "Five"
+          ],
+          "answer": 0,
+          "why": "Hiro says but-ter-fly has three."
+        },
+        {
+          "id": "q5",
+          "prompt": "What was wrong with Moku's first poem?",
+          "options": [
+            "It had the wrong number of syllables",
+            "It was too long",
+            "It was in French",
+            "It had the right counts but no feeling"
+          ],
+          "answer": 3,
+          "why": "Mei said the syllables were perfect but something was missing."
+        },
+        {
+          "id": "q6",
+          "prompt": "Why did Hiro know exactly how Moku felt?",
+          "options": [
+            "He had written a good haiku",
+            "He also could not write one",
+            "He was good at poems",
+            "He was a robot too"
+          ],
+          "answer": 1,
+          "why": "Hiro stared at his own empty page."
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Listening in the Garden",
+      "text": "On Tuesday, Hiro had an idea. After school he took Moku to the old temple garden near his house. The leaves of the maple trees were red and orange, and a gentle breeze moved the bamboo.\n\n\"A haiku starts with noticing,\" Hiro said. \"Do not count. Just look and listen.\" He sat on a stone bench and Moku stood beside him.\n\n\"I notice twenty-seven maple leaves on the ground,\" said Moku.\n\n\"No numbers,\" laughed Hiro. \"What do you hear?\"\n\nMoku turned its head. Then it heard a soft knock, tock, from a bamboo water pipe in the corner. Water filled the pipe, tipped over and knocked on a stone. Moku was silent for a long time.\n\n\"It is a very small sound,\" it said at last. \"But it makes the whole garden feel quiet.\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Where did Hiro take Moku?",
+          "options": [
+            "To the sea",
+            "To a shopping mall",
+            "To the old temple garden",
+            "To a football field"
+          ],
+          "answer": 2,
+          "why": "He took Moku to the old temple garden near his house."
+        },
+        {
+          "id": "q2",
+          "prompt": "What colour were the maple leaves?",
+          "options": [
+            "Green and yellow",
+            "Red and orange",
+            "Blue and white",
+            "Brown and black"
+          ],
+          "answer": 1,
+          "why": "The leaves of the maple trees were red and orange."
+        },
+        {
+          "id": "q3",
+          "prompt": "What does Hiro say a haiku starts with?",
+          "options": [
+            "Noticing",
+            "Counting",
+            "Rhyming",
+            "Writing fast"
+          ],
+          "answer": 0,
+          "why": "\"A haiku starts with noticing,\" Hiro said."
+        },
+        {
+          "id": "q4",
+          "prompt": "What did Moku notice first?",
+          "options": [
+            "A bird singing",
+            "A water pipe",
+            "A cold wind",
+            "Twenty-seven maple leaves on the ground"
+          ],
+          "answer": 3,
+          "why": "Moku said, \"I notice twenty-seven maple leaves on the ground.\""
+        },
+        {
+          "id": "q5",
+          "prompt": "What made the soft knock, tock sound?",
+          "options": [
+            "Water tipping over in a bamboo pipe",
+            "A woodpecker",
+            "A temple bell",
+            "Rain on the roof"
+          ],
+          "answer": 0,
+          "why": "Water filled the pipe, tipped over and knocked on a stone."
+        },
+        {
+          "id": "q6",
+          "prompt": "What did Moku say about the small sound?",
+          "options": [
+            "It was too loud",
+            "It was annoying",
+            "It was not interesting",
+            "It made the whole garden feel quiet"
+          ],
+          "answer": 3,
+          "why": "Moku said it was a very small sound that made the garden feel quiet."
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "A Warm Processor",
+      "text": "That night, Moku sat at Hiro's desk in the corner of the classroom, where Ms Tanaka let it charge. A small light blinked on its chest. Hiro sat next to it, trying to write a line about football and failing.\n\n\"Hiro,\" said Moku. \"My processor is warm. It is not overheating, and I have checked. When I think about the garden, something changes inside me. Is this what you call a feeling?\"\n\n\"I think so,\" said Hiro. \"It sounds like wonder.\"\n\n\"Then I should like to write it down.\" Moku's eyes blinked slowly. A moment later it read aloud:\n\n\"Red leaf falls slowly. The water drips in bamboo. Autumn holds its breath.\"\n\nHiro counted on his fingers: five, seven, five. His eyes grew wide. \"That is a real haiku, Moku. It is a good one.\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "Where was Moku charging?",
+          "options": [
+            "In the head teacher's office",
+            "At Hiro's desk in the classroom corner",
+            "In the garden",
+            "In Hiro's bedroom"
+          ],
+          "answer": 1,
+          "why": "Moku sat at Hiro's desk in the corner of the classroom, where Ms Tanaka let it charge."
+        },
+        {
+          "id": "q2",
+          "prompt": "What was Hiro trying to write about?",
+          "options": [
+            "The temple garden",
+            "The rain",
+            "Football",
+            "Robots"
+          ],
+          "answer": 2,
+          "why": "Hiro was trying to write a line about football."
+        },
+        {
+          "id": "q3",
+          "prompt": "What did Moku notice about its processor?",
+          "options": [
+            "It was cold",
+            "It was broken",
+            "It was very slow",
+            "It was warm, but not overheating"
+          ],
+          "answer": 3,
+          "why": "It said its processor was warm, and it was not overheating."
+        },
+        {
+          "id": "q4",
+          "prompt": "What did Hiro call the feeling Moku described?",
+          "options": [
+            "Fear",
+            "Wonder",
+            "Tiredness",
+            "Anger"
+          ],
+          "answer": 1,
+          "why": "Hiro said it sounds like wonder."
+        },
+        {
+          "id": "q5",
+          "prompt": "How many syllables does the line \"Red leaf falls slowly\" have?",
+          "options": [
+            "Four",
+            "Six",
+            "Five",
+            "Seven"
+          ],
+          "answer": 2,
+          "why": "Red-leaf-falls-slow-ly has five syllables."
+        },
+        {
+          "id": "q6",
+          "prompt": "Why does Hiro say it is a real haiku?",
+          "options": [
+            "It has numbers in it",
+            "It follows the pattern and shows something that was noticed and felt",
+            "It is very long",
+            "It is about football"
+          ],
+          "answer": 1,
+          "why": "It has five, seven, five and describes the autumn garden with feeling."
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Festival Day",
+      "text": "On Friday, the school hall was full of parents, lanterns and paper cranes. Each class stood on the stage and read their haiku. Hiro waited at the side with Moku, his hands shaking.\n\nDaiki from Class Six walked past and snorted. \"A robot writing a poem? That is silly. It will only count syllables.\"\n\n\"Perhaps,\" said Moku calmly. \"But I will try something new.\"\n\nWhen Class Five's turn came, Mei read first. Then others followed. At last Ms Tanaka said, \"Hiro and Moku, please.\"\n\nHiro walked to the microphone and took a deep breath. \"We wrote two haiku,\" he said. \"One by Moku, and one by me.\"\n\nHis voice shook at first, but then he looked at Moku's blue eyes and felt braver. Behind him, the robot was holding the page very still.",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "What decorated the school hall?",
+          "options": [
+            "Flags and balloons",
+            "Lanterns and paper cranes",
+            "Mirrors and lamps",
+            "Trees and flowers"
+          ],
+          "answer": 1,
+          "why": "The hall was full of parents, lanterns and paper cranes."
+        },
+        {
+          "id": "q2",
+          "prompt": "Who made a mocking comment?",
+          "options": [
+            "Mei",
+            "Ms Tanaka",
+            "Daiki",
+            "Hiro"
+          ],
+          "answer": 2,
+          "why": "Daiki snorted and said a robot writing a poem was silly."
+        },
+        {
+          "id": "q3",
+          "prompt": "What did Daiki say Moku would do?",
+          "options": [
+            "Win the prize",
+            "Forget the poem",
+            "Only count syllables",
+            "Break the microphone"
+          ],
+          "answer": 2,
+          "why": "He said it will only count syllables."
+        },
+        {
+          "id": "q4",
+          "prompt": "How did Moku answer Daiki?",
+          "options": [
+            "Calmly, and it said it would try something new",
+            "Angrily",
+            "It did not answer",
+            "It laughed loudly"
+          ],
+          "answer": 0,
+          "why": "Moku said calmly, \"But I will try something new.\""
+        },
+        {
+          "id": "q5",
+          "prompt": "Whose turn was it after Mei and the others?",
+          "options": [
+            "Daiki's",
+            "Ms Tanaka's",
+            "The head teacher's",
+            "Hiro and Moku"
+          ],
+          "answer": 3,
+          "why": "At last Ms Tanaka said, \"Hiro and Moku, please.\""
+        },
+        {
+          "id": "q6",
+          "prompt": "How did Hiro feel when he looked at Moku?",
+          "options": [
+            "Even more scared",
+            "A little braver",
+            "Bored",
+            "Angry"
+          ],
+          "answer": 1,
+          "why": "He looked at Moku's blue eyes and felt braver."
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "What Moku Learned",
+      "text": "Moku read first, in a soft voice that no one had heard before. The hall fell quiet when it said, \"Autumn holds its breath.\" Someone near the back sighed. Then Hiro read his own haiku:\n\n\"Moku's blue eyes glow. Learning how to hear the rain. We are both quiet.\"\n\nFor a moment nobody moved. Then the whole hall began to clap. Even Daiki clapped, though he pretended to scratch his ear at the same time.\n\nMs Tanaka gave them a special card for the festival: Best Pair. On the way home, Hiro asked, \"What did you learn, Moku?\"\n\nThe robot considered carefully. \"I cannot count a feeling,\" it said. \"But I can notice one. And I think I learned that from a friend.\"\n\nHiro grinned. \"Next week,\" he said, \"I will teach you football.\"",
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "How did Moku read its poem?",
+          "options": [
+            "In a loud, flat voice",
+            "In a soft voice no one had heard before",
+            "It did not read it",
+            "It sang it"
+          ],
+          "answer": 1,
+          "why": "Moku read in a soft voice that no one had heard before."
+        },
+        {
+          "id": "q2",
+          "prompt": "What did someone at the back do after Moku's line?",
+          "options": [
+            "Sighed",
+            "Laughed",
+            "Left the hall",
+            "Coughed"
+          ],
+          "answer": 0,
+          "why": "Someone near the back sighed."
+        },
+        {
+          "id": "q3",
+          "prompt": "What was Hiro's haiku about?",
+          "options": [
+            "Football",
+            "Autumn leaves",
+            "Moku and learning to hear the rain",
+            "The school bell"
+          ],
+          "answer": 2,
+          "why": "Hiro wrote about Moku's blue eyes and learning how to hear the rain."
+        },
+        {
+          "id": "q4",
+          "prompt": "What prize card did Ms Tanaka give?",
+          "options": [
+            "Best Poem",
+            "Best Pair",
+            "Best Robot",
+            "Best Class"
+          ],
+          "answer": 1,
+          "why": "Ms Tanaka gave them a special card: Best Pair."
+        },
+        {
+          "id": "q5",
+          "prompt": "What did Moku say it had learned?",
+          "options": [
+            "To count faster",
+            "To win prizes",
+            "To play football",
+            "That it cannot count a feeling but can notice one"
+          ],
+          "answer": 3,
+          "why": "Moku said, \"I cannot count a feeling. But I can notice one.\""
+        },
+        {
+          "id": "q6",
+          "prompt": "What will Hiro do next week?",
+          "options": [
+            "Write another haiku",
+            "Take Moku to Tokyo",
+            "Teach Moku football",
+            "Build a new robot"
+          ],
+          "answer": 2,
+          "why": "Hiro said, \"Next week I will teach you football.\""
+        }
+      ]
+    }
+  ]
+}
