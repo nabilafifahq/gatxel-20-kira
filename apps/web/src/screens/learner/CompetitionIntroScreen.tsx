@@ -61,7 +61,7 @@ export function CompetitionIntroScreen({
             <div role="note" className="flex items-start gap-2.5 rounded-control border-2 border-warn bg-surface px-4 py-3.5">
               <UiIcon name="warning" size={24} className="mt-0.5 flex-none text-warn" />
               <span className="text-body-lg font-semibold">
-                Your tutor is still checking these rules. This practice may be a little different from the real {name}, and the score is not counted.
+                We are still checking these rules. This practice may be a little different from the real {name}, and the score is not counted.
               </span>
             </div>
           )}

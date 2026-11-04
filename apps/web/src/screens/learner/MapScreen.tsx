@@ -145,7 +145,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
         </div>
       ) : (
         <p className="m-0 rounded-card bg-surface shadow-soft p-6 text-body-lg">
-          The {SUBJECT_NAME[subject]} map is not ready yet. Your tutor adds the chapters for Grade {data.grade}.
+          The {SUBJECT_NAME[subject]} map is not ready yet. New chapters for Grade {data.grade} are on the way.
         </p>
       )}
 

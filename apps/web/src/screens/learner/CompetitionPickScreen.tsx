@@ -19,7 +19,7 @@ export function CompetitionPickScreen({ data }: { data: CompetitionPickDTO }): R
       </header>
       {data.presets.length === 0 ? (
         <p className="m-0 rounded-card border-2 border-dashed border-border bg-surface p-8 text-center text-body-lg">
-          No competitions to practise yet. Your tutor adds them when a competition is coming up.
+          No competitions to practise yet. New ones appear when a competition is coming up.
         </p>
       ) : (
         <div className="@container">
@@ -56,7 +56,7 @@ export function CompetitionPickScreen({ data }: { data: CompetitionPickDTO }): R
                 ))}
               </ul>
               <span className="text-body text-fg-muted">
-                {p.lastTry ? `Last try: ${p.lastTry}` : p.verified ? 'Not tried yet' : 'Your tutor is checking this one'}
+                {p.lastTry ? `Last try: ${p.lastTry}` : p.verified ? 'Not tried yet' : 'We are still checking this one'}
               </span>
               <ButtonLink href={p.href} variant={p.verified ? 'primary' : 'secondary'} className="mt-auto w-full">
                 {p.verified ? 'Choose' : 'Have a look'}
