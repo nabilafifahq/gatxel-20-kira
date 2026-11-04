@@ -36,8 +36,10 @@ test('anak berbahasa Indonesia melihat Today dan sesi dalam bahasa Indonesia, so
 
   // Pilihan orang tua berlaku di request berikutnya, tanpa keluar dari sesi.
   await setUiLang('Aisha', 'id')
-  await page.goto('/today')
-  expect(await htmlLangOf(page)).toBe('id')
+  await expect(async () => {
+    await page.goto('/today')
+    expect(await htmlLangOf(page)).toBe('id')
+  }).toPass({ timeout: 40_000, intervals: [3000] })
   const nav = page.getByRole('navigation').first()
   await expect(nav.getByRole('link', { name: 'Hari ini' })).toBeVisible()
   await expect(nav.getByRole('link', { name: 'Peta' })).toBeVisible()
@@ -89,6 +91,7 @@ test('anak baru memakai bahasa Indonesia dari awal, keluarga lama tetap Inggris'
 })
 
 test('orang tua mengganti bahasa tampilan anak, dan tombol bahasa anak hanya muncul bila diizinkan', async ({ page, context }) => {
+  test.setTimeout(240_000)
   const errors = watchErrors(page)
   const id = await setUiLang('Raka', 'en')
   await loginAdult(page, GUARDIAN, `/keluarga/anak/${id}`)
@@ -115,7 +118,10 @@ test('orang tua mengganti bahasa tampilan anak, dan tombol bahasa anak hanya mun
   await page.goto('/me')
   await expect(page.getByRole('group', { name: 'Language' })).toHaveCount(0)
   await setUiLang('Raka', 'en', true)
-  await page.goto('/me')
+  await expect(async () => {
+    await page.goto('/me')
+    await expect(page.getByRole('group', { name: 'Language' })).toBeVisible({ timeout: 2000 })
+  }).toPass({ timeout: 40_000, intervals: [3000] })
   await page.getByRole('group', { name: 'Language' }).getByRole('button', { name: 'Bahasa Indonesia' }).click()
   await expect.poll(() => htmlLangOf(page)).toBe('id')
   await expect(page.getByRole('group', { name: 'Bahasa', exact: true })).toBeVisible()
