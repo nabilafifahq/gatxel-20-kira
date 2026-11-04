@@ -1,5 +1,5 @@
 import type { IconName } from '@kira/figures/spec'
-import { COUNTABLES, DAYS, MONTHS, NAMES, digital, mcqFrom, numberWords, ordinal, plural, rupiah, timeWords } from './helpers'
+import { AAn, COUNTABLES, DAYS, MONTHS, NAMES, digital, mcqFrom, numberWords, ordinal, plural, rupiah, timeWords } from './helpers'
 import {
   SHAPE_INFO, SHOP_ITEMS, SOLID_INFO, THINGS, art, cap, clockFig, coinOrNote, countList, fracFig, frame, listAnd, mcqOpts,
   moneyFig, nextHour, onesText, pickName, range, seqFig, shapeFig, solidFig, tensText, twoNames,
@@ -116,7 +116,7 @@ const numbersTo100: Generator = {
         figure,
         answer: total,
         hints: ['Count the full ones in 10s.', `There are ${tt} full ${thing.holders}. Count 10, 20 and on.`, `After the full ${thing.holders}, count on the ${uu} in the last one.`],
-        explanation: `${tt} tens make ${tt * 10}, and ${uu} more make ${total}.`,
+        explanation: `${tt} tens make ${tt * 10}, and ${uu} more ${uu === 1 ? 'makes' : 'make'} ${total}.`,
         solution: [
           { say: `Count the full ${thing.holders} in 10s.`, show: countList(10, tt * 10, 10), figure },
           { say: `Count on the last ${uu}.`, show: countList(tt * 10, total) },
@@ -132,7 +132,7 @@ const numbersTo100: Generator = {
       prompt: `Eggs come in trays of 10. ${name} has ${tt} trays and ${plural(uu, 'more egg', 'more eggs')}. How many eggs does ${name} have?`,
       answer: tt * 10 + uu,
       hints: ['Each tray is a ten.', `${tt} trays is ${tensText(tt)}. Count in 10s.`, `Count the trays: 10, 20 and on. Then add the ${uu}.`],
-      explanation: `${tt} tens make ${tt * 10}, and ${uu} more make ${tt * 10 + uu}.`,
+      explanation: `${tt} tens make ${tt * 10}, and ${uu} more ${uu === 1 ? 'makes' : 'make'} ${tt * 10 + uu}.`,
       tags: ['word-problem'],
     }
   },
@@ -368,7 +368,7 @@ const placeValue: Generator = {
         type: 'numeric',
         prompt,
         answer,
-        hints: ['Split the number into tens and ones.', `The ${t} in ${n} means ${tensText(t)}.`, v === 1 ? `Put ${t} tens and ${u} ones together.` : `${n} is ${t} tens and ${onesText(u)}.`],
+        hints: ['Split the number into tens and ones.', `The ${t} in ${n} means ${tensText(t)}.`, v === 1 ? `Put ${t} tens and ${onesText(u)} together.` : `${n} is ${t} tens and ${onesText(u)}.`],
         explanation: `${n} is ${tensText(t)} and ${onesText(u)}, so ${n} = ${t * 10} + ${u}.`,
         solution: [{ say: `Split ${n}.`, figure: tensFig(t, u), show: `${n} = ${t * 10} + ${u}` }, { say: 'The tens and ones together make the number.' }],
       }
@@ -395,10 +395,10 @@ const placeValue: Generator = {
           prompt: 'What number do these tens and ones make?',
           figure,
           answer: n,
-          hints: ['Count the rods in 10s first.', `There are more than 10 cubes. 10 cubes make 1 more ten.`, `${t - 1} rods make ${(t - 1) * 10}. Then count on the ${u + 10} cubes.`],
+          hints: ['Count the rods in 10s first.', `There are more than 10 cubes. 10 cubes make 1 more ten.`, `${plural(t - 1, 'rod', 'rods')} ${t - 1 === 1 ? 'makes' : 'make'} ${(t - 1) * 10}. Then count on the ${u + 10} cubes.`],
           explanation: `${tensText(t - 1)} and ${onesText(u + 10)} is the same as ${tensText(t)} and ${onesText(u)}. That makes ${n}.`,
           solution: [
-            { say: `${t - 1} rods make ${(t - 1) * 10}.`, figure },
+            { say: `${plural(t - 1, 'rod', 'rods')} ${t - 1 === 1 ? 'makes' : 'make'} ${(t - 1) * 10}.`, figure },
             { say: `${u + 10} cubes are 1 ten and ${onesText(u)}.`, show: `${u + 10} = 10 + ${u}` },
             { say: `${(t - 1) * 10} + ${u + 10} = ${n}.`, show: `${(t - 1) * 10} + ${u + 10} = ${n}`, figure: tensFig(t, u) },
           ],
@@ -459,7 +459,7 @@ const compareOrder2: Generator = {
           { value: `${b} ${s} ${a}`, why: `${b} is ${s === '<' ? 'greater' : 'less'} than ${a}.` },
         ]),
         hints: ['< means less than. > means greater than.', 'Compare the tens digits first.', ta === tb ? `Both numbers have ${tensText(ta)}. Compare the ones.` : `${a} has ${tensText(ta)}. ${b} has ${tensText(tb)}.`],
-        explanation: ta === tb ? `Both have ${tensText(ta)}, and ${a % 10} ones is ${s === '<' ? 'less' : 'more'} than ${b % 10} ones, so ${correct}.` : `${tensText(ta)} is ${s === '<' ? 'less' : 'more'} than ${tensText(tb)}, so ${correct}.`,
+        explanation: ta === tb ? `Both have ${tensText(ta)}, and ${onesText(a % 10)} is ${s === '<' ? 'less' : 'more'} than ${onesText(b % 10)}, so ${correct}.` : `${tensText(ta)} is ${s === '<' ? 'less' : 'more'} than ${tensText(tb)}, so ${correct}.`,
         tip: 'The open side of < or > faces the bigger number.',
       }
     }
@@ -562,7 +562,7 @@ const numberBonds: Generator = {
         hints: ['A full twenty frame has 20 boxes.', a < 10 ? `Use a bond to 10: ${a} + ${10 - a} = 10, then add another 10.` : `${a} is 10 and ${a - 10}. What goes with ${a - 10} to make 10?`, 'Count the empty boxes.'],
         explanation: `${a} and ${20 - a} make 20.`,
         solution: [
-          { say: `${a} boxes are filled.`, figure: frame(a, 10, `A twenty frame with ${a} boxes filled.`) },
+          { say: `${plural(a, 'box', 'boxes')} ${a === 1 ? 'is' : 'are'} filled.`, figure: frame(a, 10, `A twenty frame with ${plural(a, 'box', 'boxes')} filled.`) },
           { say: 'The empty boxes make the rest of 20.', show: front ? `${a} + ${20 - a} = 20` : `${20 - a} + ${a} = 20` },
         ],
       }
@@ -630,8 +630,8 @@ const numberBonds: Generator = {
         type: 'numeric',
         prompt: `${a} + ${10 - a} = 10. Use this to fill the gap: ${a * 10} + ___ = 100.`,
         answer: (10 - a) * 10,
-        hints: ['Look at how the two number sentences are alike.', `${a * 10} is ${a} tens.`, `${a} tens and how many tens make 10 tens?`],
-        explanation: `${a} + ${10 - a} = 10, so ${a} tens + ${10 - a} tens = 10 tens. ${a * 10} + ${(10 - a) * 10} = 100.`,
+        hints: ['Look at how the two number sentences are alike.', `${a * 10} is ${tensText(a)}.`, `${tensText(a)} and how many tens make 10 tens?`],
+        explanation: `${a} + ${10 - a} = 10, so ${tensText(a)} + ${tensText(10 - a)} = 10 tens. ${a * 10} + ${(10 - a) * 10} = 100.`,
       }
     }
     const a = rng.pick(range(11, 89).filter((x) => x % 10 !== 0))
@@ -665,7 +665,7 @@ const addition: Generator = {
           type: 'numeric',
           prompt: `${aa} + ${bb} = ___`,
           answer: aa + bb,
-          hints: ['Only the ones change here.', `Add ${bb} to the ${aa % 10} ones.`, `${aa % 10} + ${bb} = ${(aa % 10) + bb}. Keep the tens the same.`],
+          hints: ['Only the ones change here.', `Add ${bb} to the ${onesText(aa % 10)}.`, `${aa % 10} + ${bb} = ${(aa % 10) + bb}. Keep the tens the same.`],
           explanation: `${aa % 10} + ${bb} = ${(aa % 10) + bb}, and the ${tensText(Math.floor(aa / 10))} stay the same, so ${aa} + ${bb} = ${aa + bb}.`,
           solution: [{ say: 'Add the ones.', show: `${aa % 10} + ${bb} = ${(aa % 10) + bb}` }, { say: 'Keep the tens.', show: `${aa} + ${bb} = ${aa + bb}` }],
         }
@@ -1099,9 +1099,9 @@ const timesTables: Generator = {
         type: 'numeric',
         prompt: swap ? `${s} × ${a} = ___` : `${a} × ${s} = ___`,
         answer: a * s,
-        hints: [s === 1 ? 'Multiplying by 1 keeps the number the same.' : `Use the ${s} times table.`, s === 1 ? `Think of ${a} groups with 1 in each.` : `Count in ${s}s, ${a} times.`, s === 1 ? 'Count the groups.' : `Count in ${s}s on your fingers. Stop when ${a} fingers are up.`],
-        explanation: `${a} × ${s} = ${a * s}. ${s === 1 ? `${a} lots of 1 is ${a}.` : `Counting in ${s}s, ${a} times, gives ${a * s}.`}`,
-        solution: s === 1 ? [{ say: `${a} lots of 1.`, show: `${a} × 1 = ${a}` }, { say: 'The number stays the same.' }] : [{ say: `Count in ${s}s, ${a} times.`, show: countList(s, a * s, s) }, { say: `So the answer is ${a * s}.`, show: `${a} × ${s} = ${a * s}` }],
+        hints: [s === 1 ? 'Multiplying by 1 keeps the number the same.' : `Use the ${s} times table.`, s === 1 ? `Think of ${plural(a, 'group', 'groups')} with 1 in each.` : `Count in ${s}s, ${a === 1 ? '1 time' : `${a} times`}.`, s === 1 ? 'Count the groups.' : `Count in ${s}s on your fingers. Stop when ${a === 1 ? '1 finger is' : `${a} fingers are`} up.`],
+        explanation: `${a} × ${s} = ${a * s}. ${s === 1 ? `${a === 1 ? '1 lot' : `${a} lots`} of 1 is ${a}.` : `Counting in ${s}s, ${a === 1 ? '1 time' : `${a} times`}, gives ${a * s}.`}`,
+        solution: s === 1 ? [{ say: `${a === 1 ? '1 lot' : `${a} lots`} of 1.`, show: `${a} × 1 = ${a}` }, { say: 'The number stays the same.' }] : [{ say: `Count in ${s}s, ${a === 1 ? '1 time' : `${a} times`}.`, show: countList(s, a * s, s) }, { say: `So the answer is ${a * s}.`, show: `${a} × ${s} = ${a * s}` }],
       }
     }
     if (level === 3) {
@@ -1750,7 +1750,7 @@ const tellingTime: Generator = {
           { value: digital(h, (m + 5) % 60), why: 'Count in 5s round the clock again.' },
           { value: digital(h, m === 55 ? 50 : 60 - m), why: 'Count the minutes from 12 going clockwise.' },
         ]),
-        hints: ['Count the minutes in 5s from 12.', `The long hand points to ${m / 5}.`, `Count ${m / 5} fives: 5, 10, 15...`],
+        hints: ['Count the minutes in 5s from 12.', `The long hand points to ${m / 5}.`, m / 5 <= 3 ? `Count ${m / 5 === 1 ? '1 five' : `${m / 5} fives`}: ${countList(5, m, 5)}.` : `Count ${m / 5} fives: 5, 10, 15 and on.`],
         explanation: `The long hand points to ${m / 5}, which is ${m} minutes. The short hand is after ${h}. The time is ${digital(h, m)}.`,
       }
     }
@@ -2130,7 +2130,7 @@ const shapes3d2: Generator = {
       return {
         type: 'mcq',
         prompt: `I have ${info.flat} faces, ${info.edges} edges and ${info.vertices} vertices. What shape am I?`,
-        ...mcqFrom(rng, info.name, rng.shuffle(G2_SOLIDS.filter((x) => x !== s && !(s === 'cube' && x === 'cuboid'))).map((x) => ({ value: SOLID_INFO[x].name, why: `${cap(art(SOLID_INFO[x].name))} ${SOLID_INFO[x].name} has ${SOLID_INFO[x].flat} flat faces, ${SOLID_INFO[x].edges} edges and ${SOLID_INFO[x].vertices} vertices.` }))),
+        ...mcqFrom(rng, info.name, rng.shuffle(G2_SOLIDS.filter((x) => x !== s && !(s === 'cube' && x === 'cuboid'))).map((x) => ({ value: SOLID_INFO[x].name, why: `${cap(art(SOLID_INFO[x].name))} ${SOLID_INFO[x].name} has ${plural(SOLID_INFO[x].flat, 'flat face', 'flat faces')}, ${plural(SOLID_INFO[x].edges, 'edge', 'edges')} and ${plural(SOLID_INFO[x].vertices, 'vertex', 'vertices')}.` }))),
         hints: ['Start with the number of vertices.', 'Picture each shape and count its corners.', `Which shape has exactly ${info.vertices} vertices?`],
         explanation: `${cap(art(info.name))} ${info.name} has ${info.flat} faces, ${info.edges} edges and ${info.vertices} vertices.`,
         tags: ['olympiad'],
@@ -2281,7 +2281,7 @@ const length2: Generator = {
       const start = level === 1 ? 0 : rng.int(1, 5)
       const len = rng.int(3, level === 1 ? 18 : 12)
       const end = start + len
-      const figure: Fig = { kind: 'ruler', lengthCm: 20, objectCm: len, objectStartCm: start, object: t.icon, alt: `A ${t.name} next to a ruler. It starts at ${start} cm and ends at ${end} cm.` }
+      const figure: Fig = { kind: 'ruler', lengthCm: 20, objectCm: len, objectStartCm: start, object: t.icon, alt: `${AAn(t.name)} next to a ruler. It starts at ${start} cm and ends at ${end} cm.` }
       return {
         type: 'numeric',
         prompt: `How long is the ${t.name}?`,
@@ -2659,7 +2659,7 @@ const charts: Generator = {
         figure: { kind: 'tally', rows: labels.map((l, i) => ({ label: l, count: counts[i]! })), alt: `Tally chart: ${s.title.toLowerCase()}. ${labels.map((l, i) => `${l}: ${counts[i]}`).join(', ')}.` },
         answer: c,
         hints: ['A gate of 4 marks with a line across is 5.', 'Count the gates in 5s first.', 'Then count on the single marks.'],
-        explanation: c % 5 === 0 ? `${c / 5} gates of 5 make ${c}.` : `${Math.floor(c / 5)} gates make ${Math.floor(c / 5) * 5}, and ${c % 5} more makes ${c}.`,
+        explanation: c % 5 === 0 ? `${c / 5} gates of 5 make ${c}.` : `${Math.floor(c / 5)} ${Math.floor(c / 5) === 1 ? 'gate makes' : 'gates make'} ${Math.floor(c / 5) * 5}, and ${c % 5} more makes ${c}.`,
       }
     }
     if (level === 2) {
@@ -2674,9 +2674,9 @@ const charts: Generator = {
           type: 'mcq',
           prompt: `Which was chosen by the ${most ? 'most' : 'fewest'} children?`,
           figure,
-          ...mcqFrom(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `${l} has ${counts[labels.indexOf(l)]} stars. ${ans} has ${t}.` }))),
+          ...mcqFrom(rng, ans, labels.filter((l) => l !== ans).map((l) => ({ value: l, why: `The ${lower(l)} row has ${counts[labels.indexOf(l)]} stars. The ${lower(ans)} row has ${t}.` }))),
           hints: ['Count the stars in each row.', most ? 'The longest row is the most popular.' : 'The shortest row is the least popular.', `Count the stars for ${lower(labels.find((l) => l !== ans)!)} first.`],
-          explanation: `${ans} has ${t} stars, the ${most ? 'most' : 'fewest'} of any row.`,
+          explanation: `The ${lower(ans)} row has ${t} stars, the ${most ? 'most' : 'fewest'} of any row.`,
         }
       }
       const order = [0, 1, 2, 3].sort((a, b) => counts[b]! - counts[a]!)
@@ -2743,7 +2743,7 @@ const charts: Generator = {
       prompt: `Each star stands for 2 children. How many more children chose ${lower(labels[hi]!)} than ${lower(labels[lo]!)}?`,
       figure,
       answer: counts[hi]! - counts[lo]!,
-      hints: ['Each star is 2 children.', `Work out how many children each row stands for.`, `${labels[hi]} has ${icons[hi]} stars, which is ${counts[hi]} children.`],
+      hints: ['Each star is 2 children.', `Work out how many children each row stands for.`, `The ${lower(labels[hi]!)} row has ${icons[hi]} stars, which is ${counts[hi]} children.`],
       explanation: `${labels[hi]}: ${counts[hi]}. ${labels[lo]}: ${counts[lo]}. ${counts[hi]} - ${counts[lo]} = ${counts[hi]! - counts[lo]!}.`,
       tags: ['olympiad'],
     }
@@ -2773,6 +2773,11 @@ const carrollVenn: Generator = {
         ]),
         hints: ['Check one rule at a time.', `Is ${n} even? Is ${n} less than 20?`, `Start with the column: does ${n} end in 0, 2, 4, 6 or 8?`],
         explanation: `${n} is ${even ? 'even' : 'not even'} and ${small ? 'less than 20' : 'not less than 20'}, so it goes in that box.`,
+        solution: [
+          { say: `${n} ends in ${n % 10}, so it is ${even ? 'even' : 'not even'}.`, figure },
+          { say: `${n} is ${small ? 'less than 20' : 'not less than 20'}.` },
+          { say: 'So it goes in this box:', show: correct },
+        ],
       }
     }
     if (level === 2) {
@@ -2893,7 +2898,7 @@ const chance: Generator = {
             { value: 'Both are equally likely', why: `${a} and ${b} are not the same number.` },
           ]),
           hints: ['Count each kind in the bag.', 'The kind with more in the bag is more likely.', `Compare ${a} and ${b}.`],
-          explanation: `There are ${a} ${A.many} and ${b} ${B.many}. There are ${more ? 'more' : 'fewer'} ${ans}, so you are ${more ? 'more' : 'less'} likely to pick one.`,
+          explanation: `There are ${a} ${A.many} and ${plural(b, B.one, B.many)}. There are ${more ? 'more' : 'fewer'} ${ans}, so you are ${more ? 'more' : 'less'} likely to pick one.`,
         }
       }
       const target = rng.pick(['will', 'will not', 'might'] as const)
@@ -2910,6 +2915,10 @@ const chance: Generator = {
         ...mcqFrom(rng, opts.correct, opts.ds),
         hints: ['Look at what is in the bag.', target === 'will' ? 'Will happen means it happens every time.' : target === 'will not' ? 'Will not happen means it can never happen.' : 'Might happen means it can happen, but not every time.', 'Check each sentence against the bag.'],
         explanation: target === 'will' ? `Everything in the bag is ${art(A.one)} ${A.one} or ${art(B.one)} ${B.one}, so that will happen.` : target === 'will not' ? `There are no ${C.many} in the bag, so picking one will not happen.` : `There are ${A.many} and ${B.many}, so picking ${art(A.one)} ${A.one} might happen.`,
+        solution: [
+          { say: `The bag has ${plural(a, A.one, A.many)} and ${plural(b, B.one, B.many)}.`, figure },
+          { say: target === 'will' ? `Everything in the bag is ${art(A.one)} ${A.one} or ${art(B.one)} ${B.one}, so that will happen.` : target === 'will not' ? `There are no ${C.many} in the bag, so picking one will not happen.` : `There are ${A.many} and ${B.many}, so picking ${art(A.one)} ${A.one} might happen.`, show: opts.correct },
+        ],
       }
     }
     if (level === 2) {
@@ -2945,7 +2954,7 @@ const chance: Generator = {
         figure,
         answer: b,
         hints: [`For sure means the bag has only ${A.many}.`, `Every ${B.one} must come out.`, `Count the ${B.many}.`],
-        explanation: `If all ${b} ${b === 1 ? B.one : B.many} come out, only ${A.many} are left, so you will pick ${art(A.one)} ${A.one} for sure.`,
+        explanation: `${b === 1 ? `If the 1 ${B.one} comes out` : `If all ${b} ${B.many} come out`}, only ${A.many} are left, so you will pick ${art(A.one)} ${A.one} for sure.`,
         tags: ['olympiad'],
       }
     }
