@@ -7,6 +7,7 @@ import { Figure, type FigureSpec } from '@kira/figures'
 import type { Subject } from '@/lib/dto'
 import { Button, IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { useReducedMotion } from './hooks'
 import { useSpeech, type SpeechLang } from './speech'
 import { SUBJECT_STYLE } from './subject'
@@ -30,13 +31,28 @@ function dwellMs(step: SolutionStep | undefined): number {
   return Math.max(3200, step.say.length * 70 + (step.anim ? 1200 : 0))
 }
 
+/** Posisi sorotan di teks. Angka tidak boleh menempel pada angka lain, misalnya 3 di dalam 34 atau Rp3 di dalam Rp3.500. */
+function findMark(text: string, m: string): number {
+  if (!/\d/.test(m)) return text.indexOf(m)
+  for (let at = text.indexOf(m); at >= 0; at = text.indexOf(m, at + 1)) {
+    const before = text.slice(Math.max(0, at - 2), at)
+    const after = text.slice(at + m.length, at + m.length + 2)
+    const startsDigit = /^\d/.test(m)
+    const endsDigit = /\d$/.test(m)
+    if (startsDigit && (/\d$/.test(before) || /\d[.,]$/.test(before))) continue
+    if (endsDigit && /^(\d|[.,]\d)/.test(after)) continue
+    return at
+  }
+  return -1
+}
+
 /** Kalimat soal dengan bagian `mark` disorot. Sorotan hanya tampil bila langkah memintanya. */
-function MarkedPrompt({ prompt, marks, reduced }: { prompt: string; marks: readonly string[]; reduced: boolean }): ReactElement {
+function MarkedPrompt({ prompt, marks, reduced, lang }: { prompt: string; marks: readonly string[]; reduced: boolean; lang: string }): ReactElement {
   const spans: { text: string; hit: boolean }[] = []
   let rest = prompt
-  const wanted = [...marks].sort((a, b) => prompt.indexOf(a) - prompt.indexOf(b))
+  const wanted = [...marks].sort((a, b) => findMark(prompt, a) - findMark(prompt, b))
   for (const m of wanted) {
-    const at = rest.indexOf(m)
+    const at = findMark(rest, m)
     if (at < 0) continue
     if (at > 0) spans.push({ text: rest.slice(0, at), hit: false })
     spans.push({ text: m, hit: true })
@@ -44,7 +60,7 @@ function MarkedPrompt({ prompt, marks, reduced }: { prompt: string; marks: reado
   }
   if (rest) spans.push({ text: rest, hit: false })
   return (
-    <p className="m-0 w-full rounded-card border border-divider bg-surface px-3 py-2 text-left font-reading text-body leading-snug">
+    <p lang={lang} className="m-0 w-full rounded-card border border-divider bg-surface px-3 py-2 text-left font-reading text-body leading-snug">
       {spans.map((s, i) =>
         s.hit ? (
           <mark key={i} className={cx('rounded-sm bg-star px-0.5 font-bold text-fg', !reduced && 'kira-mark')}>
@@ -65,7 +81,7 @@ export function SolutionPlayer({
   lang = 'en-GB',
   reduced: reducedProp,
   className,
-  label = 'Solution player',
+  label,
   figure: fallbackFigure,
   prompt,
   onFinished,
@@ -85,6 +101,8 @@ export function SolutionPlayer({
   /** Dipanggil saat langkah terakhir sudah tampil. */
   onFinished?: () => void
 }): ReactElement {
+  const dict = useT()
+  const t = dict.runner.solution
   const prefersReduced = useReducedMotion()
   const reduced = reducedProp ?? prefersReduced
   const [step, setStep] = useState(0)
@@ -139,7 +157,7 @@ export function SolutionPlayer({
   useEffect(() => () => speechRef.current.stop(), [])
 
   if (total === 0 || !current) {
-    return <p className="m-0 text-body-lg text-fg-muted">The steps for this question are not ready yet.</p>
+    return <p className="m-0 text-body-lg text-fg-muted">{t.notReady}</p>
   }
 
   const go = (n: number) => {
@@ -151,17 +169,17 @@ export function SolutionPlayer({
   const figure = (current.figure ?? fallbackFigure) as FigureSpec | undefined
 
   return (
-    <div role="region" aria-label={label} className={cx('flex flex-col overflow-hidden rounded-card bg-surface shadow-soft', className)}>
+    <div role="region" aria-label={label ?? t.player} className={cx('flex flex-col overflow-hidden rounded-card bg-surface shadow-soft', className)}>
       <div className="relative flex min-h-[200px] items-center justify-center bg-bg px-4 pt-5 pb-3">
         <div key={step} className="motion-fade flex w-full flex-col items-center gap-3 starting:opacity-0">
-          {prompt && current.mark ? <MarkedPrompt prompt={prompt} marks={current.mark} reduced={reduced} /> : null}
+          {prompt && current.mark ? <MarkedPrompt prompt={prompt} marks={current.mark} reduced={reduced} lang={lang} /> : null}
           {current.anim ? <AnimStage anim={current.anim} subject={subject} reduced={reduced} /> : null}
           {!current.anim && figure ? (
             <div className={cx('w-full max-w-[380px] rounded-card', current.focus === 'figure' && cx('p-1 ring-4 ring-star', !reduced && 'kira-pulse'))}>
               <Figure spec={figure} />
             </div>
           ) : null}
-          {current.show && !current.anim ? <div className="text-center font-numbers text-h1 font-semibold tabular-nums">{current.show}</div> : null}
+          {current.show && !current.anim ? <div lang={lang} className="text-center font-numbers text-h1 font-semibold tabular-nums">{current.show}</div> : null}
           {!current.anim && !figure && !current.show && !current.mark ? (
             <div aria-hidden="true" className="font-numbers text-display font-semibold text-border tabular-nums">
               {step + 1}
@@ -170,13 +188,13 @@ export function SolutionPlayer({
         </div>
         {reduced ? (
           <span className="absolute top-2.5 left-2.5 inline-flex h-7 items-center rounded-pill border border-border bg-surface px-2.5 text-body font-bold">
-            Still pictures
+            {t.stillPictures}
           </span>
         ) : !playing && step > 0 ? (
-          <span className="absolute top-2.5 left-2.5 inline-flex h-7 items-center rounded-pill bg-fg px-2.5 text-body font-bold text-white">Paused</span>
+          <span className="absolute top-2.5 left-2.5 inline-flex h-7 items-center rounded-pill bg-fg px-2.5 text-body font-bold text-white">{t.paused}</span>
         ) : null}
       </div>
-      <p aria-live="polite" className="m-0 bg-fg px-4 py-3 font-reading text-h3 text-white">
+      <p aria-live="polite" lang={lang} className="m-0 bg-fg px-4 py-3 font-reading text-h3 text-white">
         {current.say}
       </p>
       <div className="flex flex-col gap-2.5 p-3">
@@ -184,18 +202,18 @@ export function SolutionPlayer({
           {reduced ? (
             <>
               <Button variant="secondary" icon="skip-back" disabled={atStart} onClick={() => go(step - 1)}>
-                Back
+                {dict.common.back}
               </Button>
               <Button variant="secondary" iconAfter="skip-next" disabled={atEnd} onClick={() => go(step + 1)} className="ml-auto">
-                Next
+                {dict.common.next}
               </Button>
             </>
           ) : (
             <>
-              <IconButton icon="skip-back" label="Previous step" disabled={atStart} onClick={() => go(step - 1)} />
+              <IconButton icon="skip-back" label={t.previousStep} disabled={atStart} onClick={() => go(step - 1)} />
               <IconButton
                 icon={playing ? 'pause' : 'play'}
-                label={playing ? 'Pause' : 'Play'}
+                label={playing ? t.pause : t.play}
                 variant="primary"
                 onClick={() => {
                   if (playing) setPlaying(false)
@@ -205,18 +223,18 @@ export function SolutionPlayer({
                   }
                 }}
               />
-              <IconButton icon="skip-next" label="Next step" disabled={atEnd} onClick={() => go(step + 1)} />
+              <IconButton icon="skip-next" label={t.nextStep} disabled={atEnd} onClick={() => go(step + 1)} />
               {canSpeak ? (
                 <IconButton
                   icon={sound ? 'speaker' : 'speaker-off'}
-                  label={sound ? 'Read aloud is on. Tap to turn it off' : 'Read aloud is off. Tap to turn it on'}
+                  label={sound ? t.soundOn : t.soundOff}
                   variant="secondary"
                   onClick={() => setSound((v) => !v)}
                 />
               ) : null}
               <IconButton
                 icon="replay"
-                label="Play again from the start"
+                label={t.replay}
                 className="ml-auto"
                 onClick={() => {
                   setStep(0)
@@ -227,12 +245,10 @@ export function SolutionPlayer({
           )}
         </div>
         <div className="flex items-center justify-between text-body font-bold">
-          <span className="tabular-nums">
-            Step {step + 1} of {total}
-          </span>
-          <span className="font-semibold text-fg-muted">{reduced ? (atEnd ? 'Last step' : 'Tap Next') : playing ? 'Playing' : 'Tap Play'}</span>
+          <span className="tabular-nums">{t.stepOf(step + 1, total)}</span>
+          <span className="font-semibold text-fg-muted">{reduced ? (atEnd ? t.lastStep : t.tapNext) : playing ? t.playing : t.tapPlay}</span>
         </div>
-        <div role="progressbar" aria-label={`Step ${step + 1} of ${total}`} aria-valuemin={1} aria-valuemax={total} aria-valuenow={step + 1} className="flex gap-1">
+        <div role="progressbar" aria-label={t.stepOf(step + 1, total)} aria-valuemin={1} aria-valuemax={total} aria-valuenow={step + 1} className="flex gap-1">
           {steps.map((_, i) => (
             <span key={i} className="flex h-2 flex-1 overflow-hidden rounded-pill bg-divider">
               <span className={cx(style.bar, 'w-full transition-transform duration-240 ease-kira origin-left', i <= step ? 'scale-x-100' : 'scale-x-0')} />

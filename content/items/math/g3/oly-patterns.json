@@ -6,7 +6,7 @@
       "skill": "m3.oly-patterns",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Floor tiles are numbered 1, 2, 3 and so on. They are coloured red, green, blue, red, green, blue, again and again. Which of these tiles is blue?",
+      "prompt": "Floor tiles are numbered 1, 2, 3 and so on. They are coloured purple, yellow, blue, purple, yellow, blue, again and again. Which of these tiles is blue?",
       "figure": {
         "kind": "pattern",
         "items": [
@@ -35,27 +35,27 @@
             "tone": "math"
           }
         ],
-        "alt": "Tiles 1 to 6 in a row: red, green, blue, red, green, blue. Tile 1 is red."
+        "alt": "Tiles 1 to 6 in a row: purple, yellow, blue, purple, yellow, blue. Tile 1 is purple."
       },
       "options": [
         {
           "text": "Tile 31",
-          "why": "31 is 1 more than 30, a multiple of 3, so tile 31 is red."
+          "why": "31 is 1 more than 30, a multiple of 3, so tile 31 is purple."
         },
         {
           "text": "Tile 40",
-          "why": "40 is 1 more than 39, a multiple of 3, so tile 40 is red."
+          "why": "40 is 1 more than 39, a multiple of 3, so tile 40 is purple."
         },
         {
           "text": "Tile 52",
-          "why": "52 is 1 more than 51, a multiple of 3, so tile 52 is red."
+          "why": "52 is 1 more than 51, a multiple of 3, so tile 52 is purple."
         },
         {
           "text": "Tile 66"
         },
         {
           "text": "Tile 80",
-          "why": "80 is 2 more than 78, a multiple of 3, so tile 80 is green."
+          "why": "80 is 2 more than 78, a multiple of 3, so tile 80 is yellow."
         }
       ],
       "answer": 3,
@@ -423,41 +423,18 @@
       "lang": "id",
       "prompt": "Lampu hias di pagar menyala dengan warna merah, kuning, hijau, biru, lalu berulang. Lampu pertama berwarna merah. Ada 50 lampu dari ujung ke ujung. Berapa lampu yang berwarna hijau?",
       "figure": {
-        "kind": "pattern",
+        "kind": "sequence",
         "items": [
-          {
-            "shape": "circle",
-            "tone": "english"
-          },
-          {
-            "shape": "circle",
-            "tone": "star"
-          },
-          {
-            "shape": "circle",
-            "tone": "science"
-          },
-          {
-            "shape": "circle",
-            "tone": "math"
-          },
-          {
-            "shape": "circle",
-            "tone": "english"
-          },
-          {
-            "shape": "circle",
-            "tone": "star"
-          },
-          {
-            "shape": "circle",
-            "tone": "science"
-          },
-          {
-            "shape": "circle",
-            "tone": "math"
-          }
+          "merah",
+          "kuning",
+          "hijau",
+          "biru",
+          "merah",
+          "kuning",
+          "hijau",
+          "biru"
         ],
+        "style": "boxes",
         "alt": "Lampu 1 sampai 8: merah, kuning, hijau, biru, merah, kuning, hijau, biru."
       },
       "options": [

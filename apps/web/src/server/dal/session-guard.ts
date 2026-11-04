@@ -1,3 +1,4 @@
+import { sql } from 'drizzle-orm'
 import { guardSet } from '@kira/content'
 import type { Tx } from '../db'
 import { content, resolveItems } from './content'
@@ -13,10 +14,11 @@ const NO_FEEDBACK_MODES = new Set(['tes', 'simulasi', 'kertas'])
  */
 export async function dropUnplayableAudio<T extends { ref: string; position: number }>(tx: Tx, items: readonly T[]): Promise<T[]> {
   const resolved = await resolveItems(tx, items.map((i) => i.ref))
+  const [org] = (await tx.execute(sql`select app_org_id()::text as id`)) as unknown as { id: string }[]
   const kept: T[] = []
   for (const it of items) {
     const item = resolved.get(it.ref)
-    const spoken = item ? await spokenClipRefs(item) : null
+    const spoken = item ? await spokenClipRefs(item, org!.id) : null
     if (!spoken || spoken.ready) kept.push(it)
   }
   if (kept.length === 0 || kept.length === items.length) return [...items]

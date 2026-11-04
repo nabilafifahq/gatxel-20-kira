@@ -7,6 +7,7 @@ import type { ActionResult, AvatarName } from '@/lib/dto'
 import type { ChestDTO, ChestRewardDTO } from '@/lib/dto-motion'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { playSfx, primeSfx } from './sfx'
 
 /**
@@ -19,12 +20,6 @@ import { playSfx, primeSfx } from './sfx'
 export type ChestActions = {
   open(): Promise<ActionResult<ChestRewardDTO>>
   equip(input: { kind: 'accessory' | 'background'; id: string | null }): Promise<ActionResult>
-}
-
-const KIND_WORD: Record<ChestRewardDTO['kind'], string> = {
-  sticker: 'sticker',
-  background: 'avatar background',
-  accessory: 'accessory',
 }
 
 export function ChestArt({
@@ -110,6 +105,7 @@ export function DailyChest({
   actions?: ChestActions
   className?: string
 }): ReactElement {
+  const t = useT()
   const router = useRouter()
   const [stage, setStage] = useState<'idle' | 'busy' | 'revealed'>('idle')
   const [reward, setReward] = useState<ChestRewardDTO | null>(chest.reward)
@@ -139,7 +135,7 @@ export function DailyChest({
         router.refresh()
       }, 700)
     } catch {
-      setError('The chest did not open. Check your connection and try again.')
+      setError(t.shell.chest.notOpened)
       setStage('idle')
     }
   }
@@ -153,7 +149,7 @@ export function DailyChest({
       playSfx('tap')
       setWorn(!worn)
       router.refresh()
-    } else setError(res && !res.ok ? res.message : 'That did not work. Try again.')
+    } else setError(res && !res.ok ? res.message : t.shell.chest.notWorked)
   }
 
   const opening = stage === 'busy' && reward !== null
@@ -171,7 +167,7 @@ export function DailyChest({
       </div>
       <div className="flex min-w-0 flex-1 basis-56 flex-col items-start gap-2">
         <h2 id="chest-title" className="m-0 text-h2 font-bold">
-          Daily chest
+          {t.shell.chest.title}
         </h2>
         {state === 'opened' && shown ? (
           <div role="status" className="kira-flip-in flex flex-wrap items-center gap-4">
@@ -180,7 +176,7 @@ export function DailyChest({
             </span>
             <span className="flex min-w-0 flex-col gap-1">
               <span className="text-body-lg font-bold">
-                {shown.isNew ? `You earned a new ${KIND_WORD[shown.kind]}` : 'You found this one again'}
+                {shown.isNew ? t.shell.chest.earnedNew(t.shell.chest.kind[shown.kind]) : t.shell.chest.foundAgain}
               </span>
               <span className="text-body text-fg-muted">{shown.label}</span>
               {shown.kind !== 'sticker' && actions ? (
@@ -192,7 +188,7 @@ export function DailyChest({
                   aria-pressed={worn}
                   className="self-start"
                 >
-                  {worn ? 'Take it off' : 'Wear it'}
+                  {worn ? t.shell.chest.takeOff : t.shell.chest.wear}
                 </Button>
               ) : null}
             </span>
@@ -202,7 +198,7 @@ export function DailyChest({
             <p className="m-0 text-body text-fg-muted">{chest.line}</p>
             {state === 'ready' && actions ? (
               <Button variant="primary" size="M" loading={stage === 'busy'} onClick={open}>
-                Open your chest
+                {t.shell.chest.open}
               </Button>
             ) : null}
           </>

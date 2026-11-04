@@ -128,7 +128,7 @@ describe('email dan pengalihan', () => {
   it('simpleEmail meng-escape judul, baris, tombol, dan tautan (nama anak berisi HTML)', () => {
     const evil = '<img src=x onerror=alert(1)>"\'&'
     const { html } = simpleEmail({ title: evil, lines: [evil], buttonLabel: evil, buttonUrl: 'https://kira.test/x?a="><script>alert(1)</script>', footer: evil })
-    expect(html).not.toContain('<img')
+    expect(html).not.toContain('<img src=x')
     expect(html).not.toContain('<script>')
     expect(html).not.toMatch(/onerror=alert\(1\)>/)
     expect(html).toContain('&lt;img')

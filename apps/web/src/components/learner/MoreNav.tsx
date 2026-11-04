@@ -5,6 +5,7 @@ import { useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import type { LearnerNavKey } from './routes'
 
 /**
@@ -16,6 +17,7 @@ import type { LearnerNavKey } from './routes'
 export type MoreItem = { key: LearnerNavKey; label: string; icon: UiIconName; href: string }
 
 export function MoreNav({ items, current }: { items: readonly MoreItem[]; current: LearnerNavKey | null }): ReactElement | null {
+  const t = useT()
   const [open, setOpen] = useState(false)
   if (items.length === 0) return null
   const inside = items.some((n) => n.key === current)
@@ -32,10 +34,10 @@ export function MoreNav({ items, current }: { items: readonly MoreItem[]; curren
         )}
       >
         <UiIcon name="more" size={24} />
-        More
-        {inside ? <span className="visually-hidden"> (current page is inside)</span> : null}
+        {t.shell.navUi.more}
+        {inside ? <span className="visually-hidden">{t.shell.navUi.currentInside}</span> : null}
       </button>
-      <Dialog open={open} onClose={() => setOpen(false)} title="More" size="sm" initialFocus="none">
+      <Dialog open={open} onClose={() => setOpen(false)} title={t.shell.navUi.more} size="sm" initialFocus="none">
         <ul className="m-0 flex list-none flex-col gap-2 p-0">
           {items.map((n) => {
             const on = n.key === current
@@ -62,7 +64,7 @@ export function MoreNav({ items, current }: { items: readonly MoreItem[]; curren
           onClick={() => setOpen(false)}
           className="min-h-14 cursor-pointer rounded-control border-2 border-border bg-surface px-5 text-body-lg font-bold text-fg"
         >
-          Close
+          {t.common.close}
         </button>
       </Dialog>
     </>

@@ -1,0 +1,259 @@
+=== action requestResetAction [tanpa temuan] exit 0
+  [18:34:39] [WARNING] heuristic (basic) test shows that (custom) POST parameter '#1*' might not be SQL injectable
+  [18:35:05] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+  [18:35:05] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action resetPasswordAction [tanpa temuan] exit 0
+  [18:34:35] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:34:36] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:35:07] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:35:32] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:35:32] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action passwordLoginAction [batas waktu tercapai, tanpa temuan] exit 124
+  [18:34:36] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:34:37] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:35:07] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+=== action signUpAction [tanpa temuan] exit 0
+  [18:35:08] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:35:08] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:35:34] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:35:34] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:36:02] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:36:02] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action joinWaitlistAction [tanpa temuan] exit 0
+  [18:35:52] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:36:23] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:36:23] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action confirmWaitlistAction [tanpa temuan] exit 0
+  [18:36:06] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:36:33] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:36:33] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action verifySignupAction [batas waktu tercapai, tanpa temuan] exit 124
+  [18:35:36] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:35:53] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'Boolean-based blind - Parameter replace (DUAL)' injectable 
+=== action acceptInviteAction [tanpa temuan] exit 0
+  [18:36:27] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:36:32] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause (comment)' injectable 
+  [18:36:50] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:36:51] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:36:57] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:36:57] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action submitPinAction [tanpa temuan] exit 0
+  [18:36:35] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:36:35] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:37:08] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+  [18:37:08] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action parentSaveLimitsAction [tanpa temuan] exit 0
+  [18:36:50] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:37:13] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:37:13] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action parentSaveFeaturesAction [tanpa temuan] exit 0
+  [18:37:01] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:37:24] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:37:24] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action parentMarkWorkAction [tanpa temuan] exit 0
+  [18:37:33] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause (comment)' injectable 
+  [18:37:33] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:37:34] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:37:35] [INFO] (custom) POST parameter 'JSON #2*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+  [18:37:35] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:37:35] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action parentEditChildAction [tanpa temuan] exit 0
+  [18:37:16] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:37:16] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:37:56] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:37:56] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action createWorksheetAction [tanpa temuan] exit 0
+  [18:37:41] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:37:41] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:38:10] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:38:10] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action requestDeletionAction [tanpa temuan] exit 0
+  [18:38:15] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+  [18:38:16] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:38:16] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:38:17] [INFO] (custom) POST parameter 'JSON #2*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+  [18:38:17] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:38:17] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action setConsentAction [tanpa temuan] exit 0
+  [18:37:57] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:37:58] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:38:21] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:38:21] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action parentAddMedalAction [batas waktu tercapai, tanpa temuan] exit 124
+  [18:37:10] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:37:13] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause (subquery - comment)' injectable 
+=== action exportDataAction [tanpa temuan] exit 0
+  [18:38:18] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:38:18] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:38:41] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+  [18:38:41] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action addChildAction [tanpa temuan] exit 0
+  [18:38:23] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:38:23] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:38:46] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:38:46] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action saveAnswerAction [tanpa temuan] exit 0
+  [18:38:25] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:38:46] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:38:47] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:39:07] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:39:07] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action submitChapterQuizAction [tanpa temuan] exit 0
+  [18:38:48] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:38:48] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:39:19] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:39:19] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action saveWordAction [tanpa temuan] exit 0
+  [18:39:10] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:39:39] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:39:39] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action startChapterQuizAction [tanpa temuan] exit 0
+  [18:38:44] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:39:14] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:39:14] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:39:54] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:39:54] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action buyItemAction [tanpa temuan] exit 0
+  [18:39:46] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:39:46] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:40:14] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:40:14] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action choosePetAction [tanpa temuan] exit 0
+  [18:39:21] [CRITICAL] heuristics detected that the target is protected by some kind of WAF/IPS
+  [18:39:21] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:39:21] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:39:59] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:40:25] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:40:25] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action treatPetAction [tanpa temuan] exit 0
+  [18:39:55] [CRITICAL] heuristics detected that the target is protected by some kind of WAF/IPS
+  [18:39:55] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:39:55] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:40:23] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:40:47] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:40:47] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action answerPlacementAction [tanpa temuan] exit 0
+  [18:40:16] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:40:16] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:40:39] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:41:02] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:41:02] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action finishCardsAction [tanpa temuan] exit 0
+  [18:40:27] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:40:28] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:40:52] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:41:14] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:41:14] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action completeLessonAction [tanpa temuan] exit 0
+  [18:41:04] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:41:04] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:41:30] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+  [18:41:30] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action reportProblemAction [tanpa temuan] exit 0
+  [18:40:49] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:40:49] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:41:19] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:41:59] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:41:59] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action startQuizAction [tanpa temuan] exit 0
+  [18:41:33] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:41:33] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:42:01] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:42:01] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action finishSpellingAction [tanpa temuan] exit 0
+  [18:41:15] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:41:15] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:41:41] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:42:04] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:42:04] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== action inviteMemberAction [tanpa temuan] exit 0
+  [18:42:06] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:42:06] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:42:22] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'SQLite AND boolean-based blind - WHERE or HAVING clause (JSON)' injectable 
+  [18:42:22] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:42:22] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== GET /results/{id} [tanpa temuan] exit 0
+  [18:42:24] [CRITICAL] page not found (404)
+=== GET /run/{id} [tanpa temuan] exit 0
+  [18:42:25] [CRITICAL] page not found (404)
+=== action savePaperAction [tanpa temuan] exit 0
+  [18:42:21] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'Boolean-based blind - Parameter replace (CASE)' injectable 
+  [18:42:23] [WARNING] (custom) POST parameter 'JSON #1*' does not seem to be injectable
+  [18:42:23] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #2*' might not be SQL injectable
+  [18:42:24] [INFO] (custom) POST parameter 'JSON #2*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+  [18:42:25] [WARNING] (custom) POST parameter 'JSON #2*' does not seem to be injectable
+  [18:42:25] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. You c
+=== GET /world/boss/result/{id} [tanpa temuan] exit 0
+  [18:42:26] [CRITICAL] page not found (404)
+=== action addNoteAction [tanpa temuan] exit 0
+  [18:42:03] [WARNING] heuristic (basic) test shows that (custom) POST parameter '#1*' might not be SQL injectable
+  [18:42:53] [WARNING] (custom) POST parameter '#1*' does not seem to be injectable
+  [18:42:53] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== GET /reading/{book}/{chapter} [batas waktu tercapai, tanpa temuan] exit 124
+  [18:42:27] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:42:29] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+  [18:43:16] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:43:16] [WARNING] heuristic (basic) test shows that URI parameter '#2*' might not be SQL injectable
+=== GET /practice/{skill} [batas waktu tercapai, tanpa temuan] exit 124
+  [18:42:29] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+=== GET /keluarga/anak/{id} [tanpa temuan] exit 0
+  [18:43:41] [CRITICAL] page not found (404)
+=== GET /practice/start?subject [batas waktu tercapai, tanpa temuan] exit 124
+  [18:42:57] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+=== GET /cetak/lembar/{id} [tanpa temuan] exit 0
+  [18:44:09] [CRITICAL] page not found (404)
+=== GET /keluarga/lembar?skill [tanpa temuan] exit 0
+  [18:43:44] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:43:45] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+  [18:44:48] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:44:48] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== GET /konsol/learner/{id} [tanpa temuan] exit 0
+  [18:44:49] [CRITICAL] page not found (404)
+=== GET /keluarga/rapor?learner&bulan [batas waktu tercapai, tanpa temuan] exit 124
+  [18:43:44] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:43:45] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+=== GET /api/media/{id} [tanpa temuan] exit 0
+  [18:44:56] [CRITICAL] page not found (404)
+=== GET /tts/{file} [tanpa temuan] exit 0
+  [18:44:57] [CRITICAL] page not found (404)
+=== GET /cetak/rapor/{id}?bulan [tanpa temuan] exit 0
+  [18:44:10] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:44:11] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+  [18:45:17] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:45:17] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== GET /konsol/bank-soal?q [batas waktu tercapai, tanpa temuan] exit 124
+  [18:44:52] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:44:53] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+=== GET /reset/{token} [tanpa temuan] exit 0
+  [18:45:19] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:45:19] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:46:04] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:46:04] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. You c
+=== GET /masuk?next [batas waktu tercapai, tanpa temuan] exit 124
+  [18:44:59] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:44:59] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:45:44] [WARNING] URI parameter '#1*' does not seem to be injectable
+=== GET /kabar/konfirmasi/{token} [tanpa temuan] exit 0
+  [18:46:14] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:46:15] [WARNING] heuristic (basic) test shows that URI parameter '#1*' might not be SQL injectable
+  [18:46:18] [INFO] URI parameter '#1*' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+  [18:46:36] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:46:36] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. If yo
+=== GET /undangan/{token} [tanpa temuan] exit 0
+  [18:46:05] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:46:06] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:46:48] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:46:48] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. You c
+=== GET /daftar/konfirmasi/{token} [tanpa temuan] exit 0
+  [18:46:07] [WARNING] target URL content is not stable (i.e. content differs). sqlmap will base the page comparison on a sequence matcher. If no dynamic nor injectable parameters are detected, or in case of junk results, 
+  [18:46:07] [CRITICAL] target URL content appears to be heavily dynamic. sqlmap is going to retry the request(s)
+  [18:46:53] [WARNING] URI parameter '#1*' does not seem to be injectable
+  [18:46:53] [CRITICAL] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. You c
+=== POST /api/kabar/berhenti/{token} [tanpa temuan] exit 0
+  [18:46:54] [CRITICAL] page not found (404)
+=== POST /api/sync [batas waktu tercapai, tanpa temuan] exit 124
+  [18:46:39] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+=== POST /api/tts/request [batas waktu tercapai, tanpa temuan] exit 124
+  [18:46:52] [WARNING] heuristic (basic) test shows that (custom) POST parameter 'JSON #1*' might not be SQL injectable
+  [18:47:22] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)
+SELESAI

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { dateId } from '@/components/console/format'
 import { FAMILY_ROUTES, PUBLIC_ROUTES } from '@/components/console/routes'
@@ -28,7 +29,7 @@ const TOC = [
   { id: 'k-hukum', label: '12. Hukum dan sengketa' },
 ]
 
-export function TermsPage({ data }: TermsPageProps) {
+export function TermsPage({ data, account }: TermsPageProps & { account?: ReactNode }) {
   const { entity, meta } = data
   const contact = entity.phone ? `email ${entity.email}, telepon ${entity.phone}` : `email ${entity.email}`
   return (
@@ -42,7 +43,8 @@ export function TermsPage({ data }: TermsPageProps) {
         </>
       }
       toc={TOC}
-      footerNote={`${entity.name}, ${entity.address}`}
+      footerNote={`Pengelola: ${entity.name}`}
+      account={account}
     >
       <LegalSection id="k-pengelola" title="1. Pengelola">
         <p className="m-0">
@@ -67,7 +69,7 @@ export function TermsPage({ data }: TermsPageProps) {
           akun yang dibuat orang dewasa dan setelah Orang Tua memberi persetujuan sesuai Kebijakan Privasi.
         </p>
         <p className="m-0">
-          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Perangkat yang hilang atau dipinjam orang lain bisa dicabut dari Pengaturan.
+          Anak masuk dengan PIN gambar di perangkat yang didaftarkan orang dewasa. Kalau perangkat hilang atau dipinjam orang lain, Orang Tua mengganti PIN gambar anak di halaman anak dan bisa meminta perangkat itu dicabut lewat {entity.email}. Keluarga bertutor mencabutnya sendiri dari Pengaturan konsol.
         </p>
       </LegalSection>
 
@@ -85,7 +87,7 @@ export function TermsPage({ data }: TermsPageProps) {
       <LegalSection id="k-setuju" title="5. Cara ketentuan ini berlaku">
         <p className="m-0">
           Ketentuan ini berlaku saat orang dewasa mencentang kotak persetujuan Syarat dan Ketentuan ketika membuat akun. Kotak itu kosong saat dibuka dan terpisah
-          dari persetujuan pemrosesan data. Kira mencatat ID akun, waktu, alamat IP, dan versi ketentuan yang disetujui.
+          dari persetujuan pemrosesan data. Kira mencatat ID akun, waktu, hash alamat IP, dan versi ketentuan yang disetujui.
         </p>
       </LegalSection>
 
@@ -125,8 +127,8 @@ export function TermsPage({ data }: TermsPageProps) {
 
       <LegalSection id="k-berhenti" title="10. Berhenti memakai Kira">
         <p className="m-0">
-          Pemilik akun dan Orang Tua bisa berhenti kapan saja dan menghapus akun dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>.
-          Pengelola bisa menangguhkan akun yang melanggar bagian 5 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
+          Pemilik akun dan Orang Tua bisa berhenti kapan saja. Akun dan data anak dihapus sendiri dari halaman <Link href={FAMILY_ROUTES.privacy}>Privasi keluarga</Link>. Untuk menghapus akun orang tua, kirim permintaan ke {entity.email}.
+          Pengelola bisa menangguhkan akun yang melanggar bagian 6 setelah memberi tahu pemilik akun beserta alasannya, dan akun dibuka lagi setelah pelanggaran
           dihentikan.
         </p>
       </LegalSection>

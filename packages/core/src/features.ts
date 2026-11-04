@@ -35,6 +35,28 @@ export const FEATURE_LABEL: Record<FeatureKey, string> = {
   placement: 'Tes penempatan',
 }
 
+/** Satu kalimat tentang apa yang dilakukan tiap saklar, untuk orang tua. */
+export const FEATURE_HINT: Record<FeatureKey, string> = {
+  math: 'Sesi Math harian: bilangan, bangun, dan soal cerita.',
+  english: 'Sesi English harian: kosakata, tata bahasa, dan membaca.',
+  science: 'Sesi Science harian: makhluk hidup, benda, dan alam.',
+  'olympiad-math': 'Soal bergaya lomba Math, lebih menantang.',
+  'olympiad-english': 'Soal bergaya lomba English, lebih menantang.',
+  'olympiad-science': 'Soal bergaya lomba Science, lebih menantang.',
+  'drill-math': 'Latihan tambahan Math per skill, kapan saja.',
+  'mental-math': 'Berhitung cepat dalam ronde pendek.',
+  vocab: 'Latihan kata baru bahasa Inggris.',
+  flashcards: 'Kartu tanya jawab per mapel, tinggal balik dan ketuk.',
+  'quiz-arena': 'Kuis pengetahuan umum per topik.',
+  'reading-room': 'Buku cerita pendek sesuai kelas.',
+  'english-skills': 'Latihan menyimak, membaca, menulis, dan berbicara.',
+  paper: 'Paket soal panjang seperti ujian kertas.',
+  'kira-world': 'Dunia bermain yang dibuka dengan bintang hasil belajar.',
+  dictionary: 'Ketuk kata di soal untuk melihat artinya.',
+  manipulatives: 'Blok, batang pecahan, dan papan untuk memahami Math.',
+  placement: 'Tes singkat di awal supaya soal pas dengan kemampuan.',
+}
+
 export const FEATURE_GROUPS: { id: string; title: string; keys: FeatureKey[] }[] = [
   { id: 'daily', title: 'Mapel harian', keys: ['math', 'english', 'science'] },
   { id: 'olympiad', title: 'Olimpiade', keys: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
@@ -87,6 +109,7 @@ export const FEATURE_NEEDS: Partial<Record<FeatureKey, FeatureKey>> = {
   'olympiad-science': 'science',
   'drill-math': 'math',
   'mental-math': 'math',
+  manipulatives: 'math',
 }
 
 /** Menyala setelah memperhitungkan ketergantungan. Vocab dan flashcards berdiri sendiri. */
@@ -94,6 +117,12 @@ export function effectiveOn(map: FeatureMap, key: FeatureKey): boolean {
   if (!featureOn(map, key)) return false
   const need = FEATURE_NEEDS[key]
   return need ? featureOn(map, need) : true
+}
+
+/** Apakah satu skill boleh dibuka: mapelnya menyala, dan skill olimpiade (strand Oly) juga butuh saklar Olimpiade mapelnya. */
+export function skillAllowed(map: FeatureMap, subject: FeatureSubject, strand: string | null | undefined): boolean {
+  if (!featureOn(map, subject)) return false
+  return strand === 'Oly' ? olympiadOn(map, subject) : true
 }
 
 const SESSION_FEATURE: Record<string, FeatureKey | undefined> = {

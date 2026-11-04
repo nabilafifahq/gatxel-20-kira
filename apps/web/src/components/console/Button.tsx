@@ -16,7 +16,7 @@ export type ButtonSize = 'M' | 'S'
 
 const BASE =
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control font-extrabold no-underline select-none ' +
-  'transition-transform duration-150 ease-kira enabled:hover:-translate-y-px enabled:active:translate-y-0.5 max-sm:h-auto max-sm:max-w-full max-sm:py-2 max-sm:whitespace-normal max-sm:text-center'
+  'kira-press transition-transform duration-150 ease-kira enabled:hover:-translate-y-px max-sm:h-auto max-sm:max-w-full max-sm:py-2 max-sm:whitespace-normal max-sm:text-center'
 
 const SIZE: Record<ButtonSize, string> = {
   M: 'h-12 min-h-12 px-5 text-body',

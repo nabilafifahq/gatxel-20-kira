@@ -1,0 +1,111 @@
+diff --git a/packages/content/src/math/g6.ts b/packages/content/src/math/g6.ts
+--- a/packages/content/src/math/g6.ts
++++ b/packages/content/src/math/g6.ts
+@@ -614,7 +614,7 @@ const powersOfTen: Generator = {
+     }
+     const u = rng.int(11, 99)
+     const n = dec(u, 3)
+-    const ans = dec(u * 10, 2)
++    const ans = dec(u, 2)
+     return numItem({
+       prompt: `What is ${fmt(n)} × 1,000 ÷ 100?`,
+       answer: ans,
+@@ -700,7 +700,7 @@ const sequences: Generator = {
+       const fmtRule = (m: number, c: number) => (c === 0 ? `${m} × position` : `${m} × position ${c > 0 ? '+' : '−'} ${Math.abs(c)}`)
+       const correct = fmtRule(mult, add)
+       const wrong = [
+-        { value: `position + ${mult}`, why: `Position 1 would give ${1 + mult}, not ${at(terms, 0)}.` },
++        { value: `position + ${mult}`, why: `Position 2 would give ${2 + mult}, not ${at(terms, 1)}.` },
+         { value: fmtRule(mult, add + 1), why: `Position 1 would give ${mult + add + 1}, not ${at(terms, 0)}.` },
+         { value: fmtRule(mult + 1, add - 1), why: `Position 2 would give ${2 * (mult + 1) + add - 1}, not ${at(terms, 1)}.` },
+         { value: fmtRule(mult - 1, add + 1), why: `Position 2 would give ${2 * (mult - 1) + add + 1}, not ${at(terms, 1)}.` },
+diff --git a/packages/content/src/math/g5.ts b/packages/content/src/math/g5.ts
+--- a/packages/content/src/math/g5.ts
++++ b/packages/content/src/math/g5.ts
+@@ -4112,7 +4112,7 @@ const multiplyDecimals: Generator = {
+         const r = Math.round(u / 10)
+         const est = r * m
+         const opts = [
+-          { value: Math.floor(u / 10) * m === est ? (Math.floor(u / 10) + 2) * m : Math.floor(u / 10) * m, why: `${fmt(dec(u, 1))} rounds to ${r}, not ${Math.floor(u / 10)}.` },
++          { value: Math.floor(u / 10) * m === est ? (Math.floor(u / 10) + 2) * m : Math.floor(u / 10) * m, why: `${fmt(dec(u, 1))} rounds to ${r}, not ${Math.floor(u / 10) * m === est ? Math.floor(u / 10) + 2 : Math.floor(u / 10)}.` },
+           { value: est * 10, why: `Check the size: ${fmt(dec(u, 1))} is about ${r}, so the answer is about ${r} × ${m}.` },
+           { value: r + m, why: 'That adds the numbers instead of multiplying.' },
+           { value: (r + 1) * m, why: `${fmt(dec(u, 1))} rounds to ${r}.` },
+diff --git a/packages/content/src/walkthrough.ts b/packages/content/src/walkthrough.ts
+--- a/packages/content/src/walkthrough.ts
++++ b/packages/content/src/walkthrough.ts
+@@ -124,7 +124,7 @@ export function animateSteps(item: Item, steps: readonly SolutionStep[]): Soluti
+ }
+ 
+ const splitSentences = (text: string): string[] =>
+-  (text.match(/[^.!?]+[.!?]+(?:["')\]]+)?|[^.!?]+$/g) ?? [text]).map((s) => s.trim()).filter(Boolean)
++  (text.match(/(?:[^.!?]|\.(?=\d))+[.!?]+(?:["')\]]+)?|(?:[^.!?]|\.(?=\d))+$/g) ?? [text]).map((s) => s.trim()).filter(Boolean)
+ 
+ function clip(text: string, max: number): string {
+   if (text.length <= max) return text
+@@ -147,6 +147,13 @@ function questionMark(prompt: string): string | null {
+   return tok.length >= 8 && prompt.includes(tok) ? tok : null
+ }
+ 
++/** Opsi diacak saat tampil kecuali soal lomba, jadi huruf opsi di kunci hanya berlaku bila urutannya tetap. */
++const KEEP_ORDER = new Set(['keep-order', 'esmo', 'ikmc', 'sasmo'])
++function shownKey(item: Item, key: string): string {
++  if (item.type !== 'mcq' && item.type !== 'multi') return key
++  return item.tags.some((t) => KEEP_ORDER.has(t)) ? key : key.replace(/(^|; )[A-F]\. /g, '$1')
++}
++
+ /** Penjelasan "mengapa" dari penjelasan yang sudah ada. Null bila soal tidak cocok. */
+ export function deriveSteps(item: Item): SolutionStep[] | null {
+   if (MANUAL.has(item.type)) return null
+@@ -177,7 +184,7 @@ export function deriveSteps(item: Item): SolutionStep[] | null {
+     const w = item.options.map((o, i) => ({ o, i })).find(({ o, i }) => !right.includes(i) && o.why && o.text)
+     if (w && steps.length < 6) steps.push({ say: clip(`Not ${w.o.text}. ${w.o.why}`, 220) })
+   }
+-  steps.push({ say: 'So the answer is:', show: key })
++  steps.push({ say: 'So the answer is:', show: shownKey(item, key) })
+   return steps.length >= 2 && steps.length <= 8 ? steps : null
+ }
+ 
+@@ -194,7 +201,7 @@ export function withWalkthrough<T extends Item>(item: T): T {
+       } catch {
+         key = ''
+       }
+-      if (key && key.length <= 118) return { ...item, solution: [...solution, { say: 'So the answer is:', show: key }] }
++      if (key && key.length <= 118) return { ...item, solution: [...solution, { say: 'So the answer is:', show: shownKey(item, key) }] }
+     }
+     return full
+   }
+diff --git a/apps/web/src/components/learner/SolutionPlayer.tsx b/apps/web/src/components/learner/SolutionPlayer.tsx
+--- a/apps/web/src/components/learner/SolutionPlayer.tsx
++++ b/apps/web/src/components/learner/SolutionPlayer.tsx
+@@ -30,13 +30,28 @@ function dwellMs(step: SolutionStep | undefined): number {
+   return Math.max(3200, step.say.length * 70 + (step.anim ? 1200 : 0))
+ }
+ 
++/** Posisi sorotan di teks. Angka tidak boleh menempel pada angka lain, misalnya 3 di dalam 34 atau Rp3 di dalam Rp3.500. */
++function findMark(text: string, m: string): number {
++  if (!/\d/.test(m)) return text.indexOf(m)
++  for (let at = text.indexOf(m); at >= 0; at = text.indexOf(m, at + 1)) {
++    const before = text.slice(Math.max(0, at - 2), at)
++    const after = text.slice(at + m.length, at + m.length + 2)
++    const startsDigit = /^\d/.test(m)
++    const endsDigit = /\d$/.test(m)
++    if (startsDigit && (/\d$/.test(before) || /\d[.,]$/.test(before))) continue
++    if (endsDigit && /^(\d|[.,]\d)/.test(after)) continue
++    return at
++  }
++  return -1
++}
++
+ /** Kalimat soal dengan bagian `mark` disorot. Sorotan hanya tampil bila langkah memintanya. */
+ function MarkedPrompt({ prompt, marks, reduced }: { prompt: string; marks: readonly string[]; reduced: boolean }): ReactElement {
+   const spans: { text: string; hit: boolean }[] = []
+   let rest = prompt
+-  const wanted = [...marks].sort((a, b) => prompt.indexOf(a) - prompt.indexOf(b))
++  const wanted = [...marks].sort((a, b) => findMark(prompt, a) - findMark(prompt, b))
+   for (const m of wanted) {
+-    const at = rest.indexOf(m)
++    const at = findMark(rest, m)
+     if (at < 0) continue
+     if (at > 0) spans.push({ text: rest.slice(0, at), hit: false })
+     spans.push({ text: m, hit: true })

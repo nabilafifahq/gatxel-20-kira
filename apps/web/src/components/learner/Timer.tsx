@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { useReducedMotion } from './hooks'
 import { playSfx, primeSfx } from './sfx'
 import {
@@ -69,6 +70,7 @@ export function Timer({
   /** Bunyi tik di 10 detik terakhir dan bunyi waktu habis. Tetap tunduk pada tombol suara. */
   tick?: boolean
 }): ReactElement {
+  const t = useT().runner.timer
   const s = Math.max(0, Math.floor(seconds))
   const countdown = mode === 'countdown'
   const calm = warnAt <= 0
@@ -112,9 +114,9 @@ export function Timer({
     return () => cancelAnimationFrame(raf)
   }, [s, full, countdown, reduce])
 
-  const aria = !countdown ? `${spokenDuration(s)} spent` : up ? "Time's up" : `${spokenDuration(s)} left`
-  const lowLabel = warnAt >= 60 && !urgent ? '1 minute left' : `${s} ${s === 1 ? 'second' : 'seconds'} left`
-  const label = !countdown ? 'so far' : up ? "Time's up" : low ? lowLabel : 'left'
+  const aria = !countdown ? t.spent(spokenDuration(s, t)) : up ? t.timeUp : t.leftAria(spokenDuration(s, t))
+  const lowLabel = warnAt >= 60 && !urgent ? t.oneMinuteLeft : t.secondsLeft(s)
+  const label = !countdown ? t.soFar : up ? t.timeUp : low ? lowLabel : t.left
   const stroke = grow ? RING_STROKE_URGENT : RING_STROKE
   const borderTone = up ? 'border-fg' : tone === 'red' ? 'border-danger' : low && tone === 'amber' ? 'border-warn' : 'border-border'
 
@@ -177,7 +179,7 @@ export function Timer({
         )}
       </div>
       <span role="status" className="visually-hidden">
-        {low || up ? (up ? "Time's up" : warnAt >= 60 ? '1 minute left' : 'Almost out of time') : ''}
+        {low || up ? (up ? t.timeUp : warnAt >= 60 ? t.oneMinuteLeft : t.almostOut) : ''}
       </span>
     </>
   )

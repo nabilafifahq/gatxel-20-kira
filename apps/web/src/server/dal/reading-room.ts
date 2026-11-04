@@ -24,7 +24,9 @@ import type {
   ReaderDTO,
   ReadingLibraryDTO,
   ReadingSummaryDTO,
+  ResumeLabelDTO,
 } from '@/lib/dto-reading'
+import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { conflict, invalid, notFound } from '../errors'
 import { grantXp, learnerShell, loadLearner, lockLearnerScope } from './learner-core'
@@ -112,14 +114,15 @@ async function secondsSince(tx: Tx, learnerId: string, from: IsoDate): Promise<n
   return row?.s ?? 0
 }
 
-function resumeTarget(book: Book, progress: ProgressRow | undefined, done: Set<string> | undefined): { chapterId: string; label: string } {
+function resumeTarget(book: Book, progress: ProgressRow | undefined, done: Set<string> | undefined): { chapterId: string; label: ResumeLabelDTO } {
+  const total = book.chapters.length
   if (progress && !progress.finishedAt && book.chapters.some((c) => c.id === progress.chapterId)) {
     const n = book.chapters.findIndex((c) => c.id === progress.chapterId) + 1
-    return { chapterId: progress.chapterId, label: `Chapter ${n} of ${book.chapters.length}` }
+    return { chapterId: progress.chapterId, label: { kind: 'chapter', n, total } }
   }
   const next = book.chapters.find((c) => !done?.has(c.id)) ?? book.chapters[0]!
   const n = book.chapters.indexOf(next) + 1
-  return { chapterId: next.id, label: done && done.size > 0 && !progress?.finishedAt ? `Chapter ${n} of ${book.chapters.length}` : 'Start reading' }
+  return { chapterId: next.id, label: { kind: done && done.size > 0 && !progress?.finishedAt ? 'chapter' : 'start', n, total } }
 }
 
 export async function readingSummary(tx: Tx, learnerId: string, today: IsoDate = jakartaDate()): Promise<ReadingSummaryDTO> {
@@ -164,7 +167,7 @@ export async function readingLibraryDTO(tx: Tx, learnerId: string): Promise<Read
 
 export async function bookDetailDTO(tx: Tx, learnerId: string, bookId: string): Promise<BookDetailDTO> {
   const book = bookById(bookId)
-  if (!book) throw notFound('That book is not on the shelf.')
+  if (!book) throw notFound((await getT()).reading.errors.noBook)
   const learner = await loadLearner(tx, learnerId)
   const progress = (await progressMap(tx, learnerId)).get(book.id)
   const done = (await doneCounts(tx, learnerId)).get(book.id)
@@ -180,14 +183,14 @@ export async function bookDetailDTO(tx: Tx, learnerId: string, bookId: string): 
       href: `/reading/${book.id}/${c.id}`,
     })),
     resumeHref: `/reading/${book.id}/${target.chapterId}`,
-    resumeLabel: progress?.finishedAt ? 'Read it again' : target.label,
+    resumeLabel: progress?.finishedAt ? { ...target.label, kind: 'again' } : target.label,
   }
 }
 
 export async function readerDTO(tx: Tx, learnerId: string, bookId: string, chapterId: string): Promise<ReaderDTO> {
   const book = bookById(bookId)
   const chapter = book?.chapters.find((c) => c.id === chapterId)
-  if (!book || !chapter) throw notFound('That chapter is not in this book.')
+  if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
   const learner = await loadLearner(tx, learnerId)
   const progress = (await progressMap(tx, learnerId)).get(book.id)
   const done = (await doneCounts(tx, learnerId)).get(book.id)
@@ -219,7 +222,7 @@ export async function readerDTO(tx: Tx, learnerId: string, bookId: string, chapt
 export async function saveProgress(tx: Tx, ctx: OrgContext, learnerId: string, input: { bookId: string; chapterId: string; sentenceIdx: number }): Promise<void> {
   const book = bookById(input.bookId)
   const chapter = book?.chapters.find((c) => c.id === input.chapterId)
-  if (!book || !chapter) throw notFound('That chapter is not in this book.')
+  if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
   const max = Math.max(0, chapterSentences(chapter).length - 1)
   const sentenceIdx = Math.min(Math.max(0, input.sentenceIdx), max)
   await tx
@@ -254,7 +257,7 @@ export async function startChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: strin
   await lockLearnerScope(tx, 'reading', learnerId)
   const book = bookById(bookId)
   const chapter = book?.chapters.find((c) => c.id === chapterId)
-  if (!book || !chapter) throw notFound('That chapter is not in this book.')
+  if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
   const byId = new Map(chapter.questions.map((q) => [q.id, q]))
   const show = (id: string, ids: string[]): QuizDTO => ({
     quizId: id,
@@ -323,14 +326,14 @@ export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: stri
   // permintaan membaca "belum dikumpulkan" dan XP diberikan berkali-kali.
   await lockLearnerScope(tx, 'reading', learnerId)
   const [quiz] = await tx.select().from(bookQuiz).where(and(eq(bookQuiz.id, quizId), eq(bookQuiz.learnerId, learnerId))).limit(1)
-  if (!quiz) throw notFound('That quiz was not found.')
-  if (quiz.submittedAt) throw conflict('You already sent in this quiz.')
+  if (!quiz) throw notFound((await getT()).reading.errors.noQuiz)
+  if (quiz.submittedAt) throw conflict((await getT()).reading.errors.quizSent)
   const book = bookById(quiz.bookId)
   const chapter = book?.chapters.find((c) => c.id === quiz.chapterId)
-  if (!book || !chapter) throw notFound('That chapter is not in this book.')
+  if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
   const chosen = new Map<string, number>()
   for (const a of answers) {
-    if (!quiz.questionIds.includes(a.questionId)) throw invalid('That answer does not belong to this quiz.')
+    if (!quiz.questionIds.includes(a.questionId)) throw invalid((await getT()).reading.errors.answerNotInQuiz)
     chosen.set(a.questionId, a.choice)
   }
   let correct = 0
@@ -339,7 +342,7 @@ export async function submitChapterQuiz(tx: Tx, ctx: OrgContext, learnerId: stri
     const q = chapter.questions.find((x) => x.id === qid)
     if (!q) continue
     const choice = chosen.get(qid) ?? -1
-    if (choice >= q.options.length) throw invalid('That answer is not one of the choices.')
+    if (choice >= q.options.length) throw invalid((await getT()).reading.errors.answerNotChoice)
     if (choice === q.answer) correct++
     review.push({ questionId: q.id, prompt: q.prompt, options: q.options, chosen: choice, answer: q.answer, why: q.why })
   }
@@ -378,7 +381,7 @@ export async function markChapterRead(tx: Tx, ctx: OrgContext, learnerId: string
   await lockLearnerScope(tx, 'reading', learnerId)
   const book = bookById(bookId)
   const chapter = book?.chapters.find((c) => c.id === chapterId)
-  if (!book || !chapter) throw notFound('That chapter is not in this book.')
+  if (!book || !chapter) throw notFound((await getT()).reading.errors.noChapter)
   await tx.insert(bookChapter).values({ orgId: ctx.orgId, learnerId, bookId, chapterId, quizCount: 0 }).onConflictDoNothing()
   await advanceProgress(tx, ctx, learnerId, book, chapter.id)
   const fin = await maybeFinishBook(tx, ctx, learnerId, book, chapter.id)

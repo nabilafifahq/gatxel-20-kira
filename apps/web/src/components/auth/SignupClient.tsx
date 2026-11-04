@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
 import { Checkbox, TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
@@ -12,12 +12,36 @@ import { AuthCard } from '@/screens/public/PublicFrame'
 import { resendVerificationAction, signUpAction } from '@/server/actions/signup'
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
+/** Sama dengan RESEND_GAP_MS di server. Di bawah jeda ini server tidak mengirim apa pun. */
+const RESEND_WAIT_S = 60
 type Errors = { name?: string; email?: string; password?: string; consent?: string }
 
 /** Pendaftaran orang tua: nama, email, password, persetujuan. Setelah terkirim, layar berganti ke petunjuk cek email. */
-export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey: string | null; seatsLeft: number }) {
+export function SignupClient({
+  turnstileSiteKey,
+  seatsLeft,
+  bare = false,
+  onSwitchToLogin,
+  sharedEmail = '',
+  onEmailChange,
+}: {
+  turnstileSiteKey: string | null
+  seatsLeft: number
+  /** Tanpa kartu: panel kanan layar masuk. Judul menjadi h2. */
+  bare?: boolean
+  /** Pindah ke Masuk di halaman yang sama. Tanpa ini, tautan biasa ke /masuk. */
+  onSwitchToLogin?: () => void
+  /** Email yang dibawa dari form Masuk. */
+  sharedEmail?: string
+  onEmailChange?: (email: string) => void
+}) {
+  const H = bare ? 'h2' : 'h1'
   const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [email, setEmailState] = useState(sharedEmail)
+  const setEmail = (v: string) => {
+    setEmailState(v)
+    onEmailChange?.(v)
+  }
   const [password, setPassword] = useState('')
   const [consent, setConsent] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>(null)
@@ -25,8 +49,16 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
   const [errors, setErrors] = useState<Errors>({})
   const [sentTo, setSentTo] = useState<string | null>(null)
   const [resent, setResent] = useState(false)
+  const [wait, setWait] = useState(0)
   const signup = useAction(signUpAction)
   const resend = useAction(resendVerificationAction)
+
+  const waiting = wait > 0
+  useEffect(() => {
+    if (!waiting) return
+    const t = window.setInterval(() => setWait((s) => Math.max(0, s - 1)), 1000)
+    return () => window.clearInterval(t)
+  }, [waiting])
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -48,6 +80,9 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
     if (r.ok) {
       setSentTo(em)
       setPassword('')
+      setResent(false)
+      setWait(RESEND_WAIT_S)
+      setCaptchaKey((k) => k + 1)
     } else {
       if (r.fieldErrors) setErrors({ name: r.fieldErrors.name, email: r.fieldErrors.email, password: r.fieldErrors.password, consent: r.fieldErrors.consent })
       setCaptchaKey((k) => k + 1)
@@ -56,29 +91,34 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
 
   if (sentTo) {
     return (
-      <AuthCard labelledBy="daftar-cek">
-        <h1 id="daftar-cek" className="m-0 text-h1 font-bold max-sm:text-h2">
+      <AuthCard labelledBy="daftar-cek" bare={bare}>
+        <H id="daftar-cek" className="m-0 text-h1 font-bold max-sm:text-h2">
           Cek email kamu
-        </h1>
+        </H>
         <p className="m-0 text-body text-fg-muted">
           Kami mengirim tombol konfirmasi ke <strong className="text-fg">{sentTo}</strong>. Tekan tombol itu, lalu keluarga Kira kamu langsung dibuat. Tautan berlaku 24 jam. Cek juga folder spam.
         </p>
         {resent ? (
           <InlineAlert tone="success" title="Email dikirim ulang." live="status">
-            Kalau belum juga sampai dalam beberapa menit, tunggu sebentar lalu coba lagi.
+            Pakai tautan di email terbaru, karena tautan yang lama sudah tidak berlaku.
           </InlineAlert>
-        ) : (
-          <Button
-            variant="secondary"
-            loading={resend.pending}
-            onClick={async () => {
-              const r = await resend.run({ email: sentTo, ...(captcha ? { turnstile: captcha } : {}) })
-              if (r.ok) setResent(true)
-            }}
-          >
-            Kirim ulang email
-          </Button>
-        )}
+        ) : null}
+        <TurnstileField siteKey={turnstileSiteKey} onToken={setCaptcha} resetKey={captchaKey} />
+        <Button
+          variant="secondary"
+          loading={resend.pending}
+          disabled={waiting || (Boolean(turnstileSiteKey) && !captcha)}
+          onClick={async () => {
+            const r = await resend.run({ email: sentTo, ...(captcha ? { turnstile: captcha } : {}) })
+            setCaptchaKey((k) => k + 1)
+            if (r.ok) {
+              setResent(true)
+              setWait(RESEND_WAIT_S)
+            }
+          }}
+        >
+          {waiting ? `Kirim ulang dalam ${wait} detik` : 'Kirim ulang email'}
+        </Button>
         {resend.error ? (
           <InlineAlert tone="danger" title={resend.error.message} reference={resend.error.reference}>
             Coba lagi dalam beberapa menit.
@@ -96,13 +136,13 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
   }
 
   return (
-    <AuthCard labelledBy="daftar-judul">
+    <AuthCard labelledBy="daftar-judul" bare={bare}>
       <div className="flex flex-col gap-1">
-        <h1 id="daftar-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
+        <H id="daftar-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Daftar kursi beta
-        </h1>
+        </H>
         <p className="m-0 text-body text-fg-muted">
-          Untuk orang tua. Tersisa {seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.
+          {bare ? 'Untuk orang tua. Setelah email dikonfirmasi, kamu menambahkan anak dan bisa mulai hari ini.' : `Untuk orang tua. Tersisa ${seatsLeft} kursi. Setelah email dikonfirmasi, kamu menambahkan anak sendiri dan bisa mulai belajar di hari yang sama.`}
         </p>
       </div>
       <form method="post" noValidate onSubmit={submit} className="flex flex-col gap-5">
@@ -142,7 +182,7 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
           size="L"
           value={password}
           error={errors.password}
-          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah kamu ingat lebih baik daripada kata acak."
+          hint="Paling sedikit 15 karakter. Kalimat panjang yang mudah diingat paling baik."
           onChange={(e) => {
             setPassword(e.target.value)
             if (errors.password) setErrors((x) => ({ ...x, password: undefined }))
@@ -183,9 +223,15 @@ export function SignupClient({ turnstileSiteKey, seatsLeft }: { turnstileSiteKey
       </form>
       <p className="m-0 text-body text-fg-muted">
         Sudah punya akun?{' '}
-        <Link href="/masuk" className="font-bold">
-          Masuk
-        </Link>
+        {onSwitchToLogin ? (
+          <button type="button" onClick={onSwitchToLogin} className="cursor-pointer border-0 bg-transparent p-0 font-bold text-accent underline underline-offset-3">
+            Masuk
+          </button>
+        ) : (
+          <Link href="/masuk" className="font-bold">
+            Masuk
+          </Link>
+        )}
       </p>
     </AuthCard>
   )

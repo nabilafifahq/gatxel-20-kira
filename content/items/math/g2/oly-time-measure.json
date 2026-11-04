@@ -39,7 +39,7 @@
       "answer": 4,
       "hints": [
         "The short hand shows the hours.",
-        "The short hand is just past the 3.",
+        "The short hand is between 3 and 4, so the hour is still 3.",
         "The long hand points to 6. How many minutes is that?"
       ],
       "explanation": "The short hand is between 3 and 4, so the hour is 3. The long hand points to 6, which is 30 minutes. The time is 3:30.",
@@ -170,7 +170,7 @@
       "id": "m2.oly-time-measure.004",
       "skill": "m2.oly-time-measure",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "School starts at 7:30 and lasts 4 hours. When does school end?",
       "options": [
         {
@@ -214,8 +214,8 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-time-measure.005",
@@ -331,7 +331,7 @@
       "id": "m2.oly-time-measure.007",
       "skill": "m2.oly-time-measure",
       "type": "mcq",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "The long hand points to 6. The short hand is between 4 and 5. What time is it?",
       "options": [
         {
@@ -377,8 +377,8 @@
         "sasmo",
         "keep-order"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-time-measure.008",
@@ -560,10 +560,7 @@
               }
             ],
             "total": 10
-          },
-          "mark": [
-            "6"
-          ]
+          }
         }
       ],
       "tags": [
@@ -1420,7 +1417,7 @@
             "total": 9
           },
           "mark": [
-            "3"
+            "3 February"
           ]
         }
       ],
@@ -1737,7 +1734,7 @@
             "total": 110
           },
           "mark": [
-            "5"
+            "5 cm taller"
           ]
         }
       ],
@@ -1795,7 +1792,7 @@
       "id": "m2.oly-time-measure.032",
       "skill": "m2.oly-time-measure",
       "type": "numeric",
-      "difficulty": 5,
+      "difficulty": 3,
       "prompt": "In the picture, 2 balls balance 4 cubes. How many cubes balance 3 balls?",
       "figure": {
         "kind": "balance",
@@ -1839,8 +1836,7 @@
             "total": 6
           },
           "mark": [
-            "3",
-            "2"
+            "3 balls"
           ]
         }
       ],
@@ -1849,8 +1845,8 @@
         "ikmc",
         "hkimo"
       ],
-      "points": 5,
-      "expectedSeconds": 150
+      "points": 3,
+      "expectedSeconds": 90
     },
     {
       "id": "m2.oly-time-measure.033",
@@ -1925,10 +1921,10 @@
         "1 m is 100 cm.",
         "1 m 10 cm is 100 + 10."
       ],
-      "explanation": "In centimetres the lengths are 110, 105, 100, 99 and 109. The longest is 1 m 10 cm.",
+      "explanation": "In centimetres the lengths are 105, 110, 100, 99 and 109. The longest is 1 m 10 cm.",
       "solution": [
         {
-          "say": "In centimetres the lengths are 110, 105, 100, 99 and 109."
+          "say": "In centimetres the lengths are 105, 110, 100, 99 and 109."
         },
         {
           "say": "The longest is 1 m 10 cm."
@@ -2057,7 +2053,7 @@
       "id": "m2.oly-time-measure.038",
       "skill": "m2.oly-time-measure",
       "type": "numeric",
-      "difficulty": 5,
+      "difficulty": 2,
       "prompt": "A box balances 2 pears and a 100 g weight. One pear weighs 150 g. How many grams does the box weigh?",
       "answer": 400,
       "tolerance": 0,
@@ -2096,8 +2092,8 @@
         "kmnr",
         "sasmo"
       ],
-      "points": 5,
-      "expectedSeconds": 150
+      "points": 3,
+      "expectedSeconds": 75
     }
   ]
 }

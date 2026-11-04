@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import type { ReviewDTO, ReviewQuestionDTO } from '@/lib/dto'
+import { useT } from '@/lib/i18n/client'
 import { Button, ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
@@ -23,13 +24,6 @@ import { isManualType, letterAt } from '@/components/widgets/answers'
  * memakai potongan teks soal.
  */
 
-const STATUS_WORD: Record<ReviewQuestionDTO['status'], string> = {
-  correct: 'correct',
-  wrong: 'not yet',
-  blank: 'no answer',
-  pending: 'waiting to be looked at',
-}
-
 /** Pisahkan "B. 4" menjadi huruf dan teks. Huruf mengikuti urutan opsi di layar. */
 function splitAnswer(text: string, q: ReviewQuestionDTO): { letter: string | null; text: string } {
   const m = /^([A-F])\.\s+(.+)$/.exec(text)
@@ -50,12 +44,16 @@ function AnswerRow({
   answer,
   tone,
   badge,
+  lang,
 }: {
   label: string
   answer: { letter: string | null; text: string }
   tone: 'correct' | 'not-yet' | 'plain'
   badge?: 'correct' | 'not-yet'
+  /** Bahasa isi jawaban. Kosong bila teksnya teks antarmuka. */
+  lang?: string
 }): ReactElement {
+  const copy = useT().lessons.review
   return (
     <div className="flex flex-wrap items-center gap-2.5">
       <span className="w-26 flex-none text-body font-semibold text-fg-muted">{label}</span>
@@ -70,14 +68,14 @@ function AnswerRow({
           {answer.letter}
         </span>
       ) : null}
-      <span className="font-reading text-h3 font-bold break-words">
+      <span lang={lang} className="font-reading text-h3 font-bold break-words">
         {answer.letter ? <span className="visually-hidden">{answer.letter}. </span> : null}
         {answer.text}
       </span>
       {badge ? (
         <span className={cx('inline-flex h-7 items-center gap-1 rounded-pill px-2.5 text-body font-bold text-white', badge === 'correct' ? 'bg-success' : 'bg-warn')}>
           <UiIcon name={badge === 'correct' ? 'check' : 'not-yet'} size={16} />
-          {badge === 'correct' ? 'Correct' : 'Not yet'}
+          {badge === 'correct' ? copy.correct : copy.notYet}
         </span>
       ) : null}
     </div>
@@ -85,9 +83,10 @@ function AnswerRow({
 }
 
 function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; data: ReviewDTO; onNext: () => void; isLast: boolean }): ReactElement {
+  const copy = useT().lessons.review
   const manual = isManualType(q.item.type)
   const ok = q.status === 'correct'
-  const yours = q.status === 'blank' ? { letter: null, text: 'No answer' } : splitAnswer(q.yourAnswerText, q)
+  const yours = q.status === 'blank' ? { letter: null, text: copy.noAnswer } : splitAnswer(q.yourAnswerText, q)
   const key = splitAnswer(q.correctAnswerText, q)
   const player = q.solution && q.solution.length > 0 ? q.solution : null
   const showFigure = !player && q.item.figure
@@ -98,8 +97,8 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           {q.position}
         </span>
         <h2 id={`review-q-${q.position}`} tabIndex={-1} className="m-0 min-w-0 flex-1 text-question font-normal focus:outline-none">
-          <span className="visually-hidden">Question {q.position}. </span>
-          {q.item.prompt}
+          <span className="visually-hidden">{copy.questionHidden(q.position)} </span>
+          <span lang={q.item.lang}>{q.item.prompt}</span>
         </h2>
         <ReadAloudButton text={speakableClipParts(q.item)} style={speakableStyle(q.item)} lang={q.item.lang} subject={data.subject} showNote={false} compact />
       </div>
@@ -109,45 +108,45 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
           <SolutionPlayer key={q.position} steps={player} subject={data.subject} figure={q.item.figure} prompt={q.item.prompt} className="w-full flex-none lg:w-90" lang={q.item.lang} />
         ) : showFigure && q.item.figure ? (
           <div className="w-full flex-none lg:w-90">
-            <FigureFrame spec={q.item.figure} paper={data.subject === 'math'} />
+            <FigureFrame spec={q.item.figure} paper={data.subject === 'math'} lang={q.item.lang} />
           </div>
         ) : null}
 
         <div className="flex min-w-0 flex-1 flex-col gap-3.5">
           <div className="flex flex-col gap-2.5">
             {manual ? (
-              <p className="m-0 text-body-lg">{data.marker === 'grownup' ? (q.status === 'pending' ? 'Your grown-up can look at this one. It does not change your score.' : 'Your grown-up looked at this one.') : q.status === 'pending' ? 'Your tutor has not marked this one yet.' : 'Your tutor marked this one.'}</p>
+              <p className="m-0 text-body-lg">{data.marker === 'grownup' ? (q.status === 'pending' ? copy.grownupPending : copy.grownupDone) : q.status === 'pending' ? copy.tutorPending : copy.tutorDone}</p>
             ) : (
               <>
-                <AnswerRow label="Your answer" answer={yours} tone={ok ? 'correct' : 'not-yet'} badge={ok ? 'correct' : 'not-yet'} />
-                {ok ? null : <AnswerRow label="Answer" answer={key} tone="correct" />}
+                <AnswerRow label={copy.yourAnswer} answer={yours} tone={ok ? 'correct' : 'not-yet'} badge={ok ? 'correct' : 'not-yet'} {...(q.status === 'blank' ? {} : { lang: q.item.lang })} />
+                {ok ? null : <AnswerRow label={copy.answer} answer={key} tone="correct" lang={q.item.lang} />}
               </>
             )}
           </div>
           {q.tutorFeedback ? (
             <div className="flex flex-col gap-1 rounded-control border-2 border-fg bg-surface px-4 py-3">
-              <h3 className="m-0 text-body-lg font-bold">{data.marker === 'grownup' ? 'From your grown-up' : 'From your tutor'}</h3>
+              <h3 className="m-0 text-body-lg font-bold">{data.marker === 'grownup' ? copy.fromGrownup : copy.fromTutor}</h3>
               <p className="m-0 font-reading text-body-lg">{q.tutorFeedback}</p>
             </div>
           ) : null}
           {!ok && q.whyYourAnswer ? (
             <div className="flex flex-col gap-1">
-              <h3 className="m-0 text-body-lg font-bold">Why {yours.text} is not right</h3>
-              <p className="m-0 font-reading text-body-lg">{q.whyYourAnswer}</p>
+              <h3 className="m-0 text-body-lg font-bold">{copy.whyNot(yours.text)}</h3>
+              <p lang={q.item.lang} className="m-0 font-reading text-body-lg">{q.whyYourAnswer}</p>
             </div>
           ) : null}
           {q.explanation ? (
             <div className="flex flex-col gap-1">
-              <h3 className="m-0 text-body-lg font-bold">How to solve it</h3>
-              <p className="m-0 font-reading text-body-lg">{q.explanation}</p>
+              <h3 className="m-0 text-body-lg font-bold">{copy.howToSolve}</h3>
+              <p lang={q.item.lang} className="m-0 font-reading text-body-lg">{q.explanation}</p>
             </div>
           ) : null}
           {q.tip ? (
             <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-0.5 flex-none" />
               <div className="flex flex-col">
-                <span className="text-body font-bold">Tip</span>
-                <span className="text-body">{q.tip}</span>
+                <span className="text-body font-bold">{copy.tip}</span>
+                <span lang={q.item.lang} className="text-body">{q.tip}</span>
               </div>
             </div>
           ) : null}
@@ -157,11 +156,11 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
       <div className="flex flex-none flex-wrap items-center gap-3">
         {q.similarHref && !ok ? (
           <ButtonLink href={q.similarHref} prefetch={false} variant="secondary" icon="replay">
-            Try a similar one
+            {copy.trySimilar}
           </ButtonLink>
         ) : null}
         <Button onClick={onNext} iconAfter="arrow-right" className="ml-auto">
-          {isLast ? 'Back to question 1' : 'Next question'}
+          {isLast ? copy.backToFirst : copy.nextQuestion}
         </Button>
       </div>
     </section>
@@ -169,6 +168,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
 }
 
 export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
+  const copy = useT().lessons.review
   const questions = data.questions
   const start = Math.max(
     0,
@@ -194,23 +194,23 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg lg:h-svh lg:overflow-hidden">
       <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:h-22 md:gap-4 md:px-8 md:py-0">
-        <IconLink href={data.backHref} icon="arrow-left" label="Back to the score" />
+        <IconLink href={data.backHref} icon="arrow-left" label={copy.backToScore} />
         <SubjectChip subject={data.subject} size="M" />
         <div className="flex min-w-0 flex-col">
           <h1 className="m-0 text-body-lg font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">
-            {right} of {questions.length} right
+            {copy.rightCount(right, questions.length)}
           </span>
         </div>
       </header>
 
       {questions.length === 0 || !q ? (
         <main className="flex flex-1 items-center justify-center px-4 pb-10">
-          <p className="m-0 text-body-lg">The answers for this paper are not ready yet. Try again after your tutor has marked it.</p>
+          <p className="m-0 text-body-lg">{copy.notReady}</p>
         </main>
       ) : (
         <div className="flex min-h-0 flex-1 flex-col gap-4 px-4 pb-6 md:px-8 md:pb-8 lg:flex-row lg:gap-6">
-          <nav aria-label="Questions" className="lg:w-72 lg:flex-none">
+          <nav aria-label={copy.questionsNav} className="lg:w-72 lg:flex-none">
             <div ref={listRef} className="flex flex-wrap gap-2 lg:h-full lg:flex-col lg:flex-nowrap lg:gap-1.5 lg:overflow-y-auto lg:pr-1">
               {questions.map((x, i) => {
                 const on = i === sel
@@ -219,7 +219,7 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
                     key={x.position}
                     type="button"
                     aria-current={on ? 'true' : undefined}
-                    aria-label={`Question ${x.position}, ${STATUS_WORD[x.status]}`}
+                    aria-label={copy.questionStatus(x.position, copy.status[x.status])}
                     onClick={() => pick(i)}
                     className={cx(
                       'flex h-14 flex-none cursor-pointer items-center gap-2 rounded-control px-2.5 text-left text-fg lg:h-15 lg:gap-3 lg:px-3.5',
@@ -229,7 +229,7 @@ export function ReviewScreen({ data }: { data: ReviewDTO }): ReactElement {
                     <span className={cx('inline-flex h-8 min-w-10 flex-none items-center justify-center rounded-pill px-2.5 text-body font-bold text-white tabular-nums', 'bg-fg')}>
                       {x.position}
                     </span>
-                    <span className="hidden min-w-0 flex-1 truncate text-body font-semibold lg:block">{x.item.prompt}</span>
+                    <span lang={x.item.lang} className="hidden min-w-0 flex-1 truncate text-body font-semibold lg:block">{x.item.prompt}</span>
                     <StatusIcon status={x.status} />
                   </button>
                 )

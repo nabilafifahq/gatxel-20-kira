@@ -19,6 +19,7 @@ import { TapSound } from '@/components/learner/TapSound'
 import { Soroban } from '@/components/learner/arena/Soroban'
 import { ExitControl } from '@/screens/learner/runner/parts'
 import { ActionError } from '@/screens/learner/common'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Ronde Quick Maths: latihan, sprint, target, tabel, Flash Anzan, dan sempoa. Jawaban diperiksa di server;
@@ -34,6 +35,7 @@ function sleep(ms: number): Promise<void> {
 }
 
 function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; shown: boolean; flashIndex: number; flashing: boolean }): ReactElement {
+  const t = useT().arena.qm.play
   if (prompt.kind === 'arith') {
     return (
       <p lang="en-GB" aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
@@ -52,29 +54,31 @@ function Prompt({ prompt, shown, flashIndex, flashing }: { prompt: QmPrompt; sho
           </p>
         ) : shown ? (
           <>
-            <p className="m-0 text-h2 font-bold">What is the total?</p>
-            <p className="m-0 text-body-lg text-fg-muted">Type it in.</p>
+            <p className="m-0 text-h2 font-bold">{t.total}</p>
+            <p className="m-0 text-body-lg text-fg-muted">{t.typeIt}</p>
           </>
         ) : (
-          <p className="m-0 text-h2 font-bold">{prompt.terms.length} numbers will flash by</p>
+          <p className="m-0 text-h2 font-bold">{t.willFlash(prompt.terms.length)}</p>
         )}
       </div>
     )
   }
-  return <p className="m-0 text-center text-h2 font-bold">Soroban</p>
+  return <p className="m-0 text-center text-h2 font-bold">{t.soroban}</p>
 }
 
 function ReviewList({ rows }: { rows: QmReviewRow[] }): ReactElement {
+  const dict = useT().arena
+  const t = dict.qm.result
   return (
     <details className="w-full rounded-control border border-divider bg-surface">
-      <summary className="flex min-h-12 cursor-pointer items-center px-4 text-body-lg font-bold">See my answers</summary>
+      <summary className="flex min-h-12 cursor-pointer items-center px-4 text-body-lg font-bold">{dict.round.seeAnswers}</summary>
       <ol className="m-0 flex list-none flex-col gap-1.5 p-4 pt-1">
         {rows.map((r) => (
           <li key={r.i} className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-body tabular-nums">
             <UiIcon name={r.ok ? 'check' : 'not-yet'} size={18} className={r.ok ? 'text-success' : 'text-warn'} />
             <span className="font-bold">{r.text}</span>
-            <span className="text-fg-muted">{r.yours === null ? 'skipped' : `you said ${r.yours}`}</span>
-            {!r.ok ? <span className="font-bold">answer {r.answer}</span> : null}
+            <span className="text-fg-muted">{r.yours === null ? t.skipped : t.youSaid(r.yours)}</span>
+            {!r.ok ? <span className="font-bold">{t.answer(r.answer)}</span> : null}
           </li>
         ))}
       </ol>
@@ -83,6 +87,8 @@ function ReviewList({ rows }: { rows: QmReviewRow[] }): ReactElement {
 }
 
 function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmResultDTO; actions: QmActions }): ReactElement {
+  const dict = useT().arena
+  const t = dict.qm.result
   const router = useRouter()
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
@@ -95,15 +101,15 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
       if (res.ok) router.push(res.data.redirectTo)
       else setError({ message: res.message, reference: res.reference })
     } catch {
-      setError({ message: 'Your next round could not start. Check the internet and try again.', reference: 'KRA-QM-NET' })
+      setError({ message: dict.errors.yourNextRoundNet, reference: 'KRA-QM-NET' })
     } finally {
       setBusy(false)
     }
   }
   return (
-    <section aria-label="Round done" className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-5 py-8 text-center md:px-8">
+    <section aria-label={dict.round.doneAria} className="flex w-full max-w-[640px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-5 py-8 text-center md:px-8">
       <h1 className="m-0 font-display text-display font-semibold">{result.title}</h1>
-      {result.strategyDone ? <p className="m-0 text-body-lg font-bold text-fg">{result.strategyDone.title}: you have the hang of it.</p> : null}
+      {result.strategyDone ? <p className="m-0 text-body-lg font-bold text-fg">{t.gotIt(result.strategyDone.title)}</p> : null}
       {result.lines.map((l) => (
         <p key={l} className="m-0 text-body-lg">
           {l}
@@ -112,8 +118,8 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
       {result.mission ? (
         <p role="status" className="m-0 rounded-card border-2 border-fg bg-mental-50 px-4 py-2 text-body-lg font-bold text-fg">
           {result.mission.complete
-            ? `Daily mission done!${result.mission.bonusXp > 0 ? ` Bonus ${result.mission.bonusXp} XP.` : ''}`
-            : `Mission step ${result.mission.stepsDone} of ${result.mission.stepsTotal} done.`}
+            ? t.missionDone(result.mission.bonusXp)
+            : t.missionStep(result.mission.stepsDone, result.mission.stepsTotal)}
         </p>
       ) : null}
       {result.levelNotes.map((n) => (
@@ -126,15 +132,15 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
       <div className="flex flex-wrap justify-center gap-3">
         {data.again ? (
           <Button iconAfter="replay" loading={busy} onClick={() => void again()}>
-            Play again
+            {dict.round.playAgain}
           </Button>
         ) : null}
         <ButtonLink href={result.nextHref} variant={data.again ? 'secondary' : 'primary'} iconAfter="arrow-right">
-          {data.mission ? 'Back to the mission' : 'Back to Quick Maths'}
+          {data.mission ? t.backMission : t.backHub}
         </ButtonLink>
         {data.focus ? (
           <ButtonLink href={`/quick-maths/lessons/${data.focus.id}`} variant="secondary">
-            Lesson again
+            {t.lessonAgain}
           </ButtonLink>
         ) : null}
       </div>
@@ -144,6 +150,9 @@ function ResultView({ data, result, actions }: { data: QmRoundDTO; result: QmRes
 }
 
 export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; actions: QmActions }): ReactElement {
+  const dict = useT()
+  const t = dict.arena
+  const play = t.qm.play
   const online = useOnline()
   const reduced = useReducedMotion()
   const total = data.prompts.length
@@ -222,7 +231,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
       }
     } catch {
       finishCalled.current = false
-      setError({ message: 'Your round could not be handed in yet. Check the internet and try again.', reference: 'KRA-QM-NET' })
+      setError({ message: t.errors.handInNet, reference: 'KRA-QM-NET' })
     } finally {
       setFinishing(false)
     }
@@ -269,7 +278,8 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         try {
           const res = await actions.answer({ roundId: data.id, index, answer, ms })
           if (res.ok) return res.data
-          if (res.message.includes('order') || res.message.includes("Time's up")) return null
+          // Pesan server mengikuti bahasa anak; urutan salah dan waktu habis tidak perlu dicoba lagi.
+          if (res.message.includes('order') || res.message.includes('urutan') || res.message.includes("Time's up") || res.message.includes('Waktu habis')) return null
         } catch {
           // jaringan: coba lagi
         }
@@ -329,7 +339,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
   }
 
   const answered = Math.min(index, total)
-  const progress = useMemo(() => (timed ? null : `Question ${Math.min(answered + 1, total)} of ${total}`), [answered, timed, total])
+  const progress = useMemo(() => (timed ? null : t.round.questionOf(Math.min(answered + 1, total), total)), [answered, t, timed, total])
   const syncState = !online ? 'offline' : syncFailed ? 'pending' : null
 
   return (
@@ -337,15 +347,15 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
       <header className="flex h-18 flex-none items-center gap-3 px-4 md:h-22 md:gap-4 md:px-8">
         <ExitControl
           exitHref={data.exitHref}
-          title="Leave this round?"
-          body={timed ? 'Your answers so far are saved, but this round will not count.' : 'Your answers so far are saved.'}
-          stayLabel="Keep going"
-          leaveLabel="Leave"
-          ariaLabel="Exit round"
+          title={t.round.exitTitle}
+          body={timed ? t.round.exitBodyTimed : t.round.exitBody}
+          stayLabel={t.round.stay}
+          leaveLabel={t.round.leave}
+          ariaLabel={t.round.exitAria}
           beforeLeave={() => chain.current.catch(() => undefined)}
         />
         <div className="flex min-w-0 flex-1 flex-col">
-          <span className="truncate text-body-lg font-bold">{data.mission ? `Daily mission: ${data.mission.title}` : data.title}</span>
+          <span className="truncate text-body-lg font-bold">{data.mission ? play.missionTitle(data.mission.title) : data.title}</span>
           <span className="truncate text-body text-fg-muted">{progress ?? data.subtitle}</span>
         </div>
         {syncState ? (
@@ -356,7 +366,7 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         {(timed || stopwatch) && !result ? (
           <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums">
             <UiIcon name="check-circle" size={24} className="text-success" />
-            {right} right
+            {t.round.right(right)}
           </span>
         ) : null}
         {!result && timed && remaining !== null ? <Timer mode="countdown" seconds={remaining} compact warnAt={10} /> : !result && stopwatch ? <Timer mode="stopwatch" seconds={elapsed} compact /> : null}
@@ -366,28 +376,28 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
         {result ? (
           <ResultView data={data} result={result} actions={actions} />
         ) : finishing || over || timeUp ? (
-          <section aria-label="Finishing" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
-            <h1 className="m-0 font-display text-display font-semibold">{timeUp ? "Time's up" : 'All done'}</h1>
+          <section aria-label={t.round.finishingAria} className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
+            <h1 className="m-0 font-display text-display font-semibold">{timeUp ? t.round.timeUp : t.round.allDone}</h1>
             {error ? (
               <div role="alert" className="flex flex-col items-center gap-2">
                 <p className="m-0 text-body-lg">{error.message}</p>
-                <p className="m-0 text-body text-fg-muted tabular-nums">Reference {error.reference}</p>
+                <p className="m-0 text-body text-fg-muted tabular-nums">{t.reference(error.reference)}</p>
                 <Button variant="secondary" onClick={() => void finish()}>
-                  Try again
+                  {dict.common.tryAgain}
                 </Button>
               </div>
             ) : (
               <p className="m-0 flex items-center gap-2 text-body-lg">
-                <UiIcon name="spinner" size={22} /> Counting up your answers
+                <UiIcon name="spinner" size={22} /> {t.round.counting}
               </p>
             )}
           </section>
         ) : prompt ? (
-          <section aria-label="Question" className="flex w-full max-w-[980px] flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
+          <section aria-label={t.round.questionAria} className="flex w-full max-w-[980px] flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
             {!online ? (
               <p role="alert" className="m-0 flex items-center gap-2 self-center rounded-control border-2 border-warn px-3 py-2 text-body font-bold">
                 <UiIcon name="offline" size={20} />
-                You are offline. Quick Maths needs the internet.
+                {t.qm.offline}
               </p>
             ) : null}
             <div className="flex flex-col gap-6 md:flex-row md:items-center">
@@ -395,13 +405,13 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                 <Prompt prompt={prompt} shown={stage === 'answer'} flashIndex={flashIndex} flashing={stage === 'showing' && kind === 'flash'} />
 
                 {prompt.kind === 'bead-read' || prompt.kind === 'bead-set' ? (
-                  <p className="m-0 max-w-[520px] text-center text-body text-fg-muted">The upper bead is worth 5. Each lower bead is worth 1. Beads that touch the middle bar count.</p>
+                  <p className="m-0 max-w-[520px] text-center text-body text-fg-muted">{play.beadRule}</p>
                 ) : null}
                 {prompt.kind === 'bead-read' ? <Soroban digits={prompt.digits} labels showValues={prompt.rods === 1} /> : null}
                 {prompt.kind === 'bead-set' ? (
                   <div className="flex w-full flex-col items-center gap-3">
-                    <p lang="en-GB" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
-                      Show {prompt.target}
+                    <p className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
+                      {play.show(prompt.target)}
                     </p>
                     <Soroban digits={beads} onChange={setBeads} labels showValues={prompt.rods === 1} disabled={Boolean(feedback) || busy} />
                   </div>
@@ -409,8 +419,8 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                 {prompt.kind === 'bead-anzan' ? (
                   <div className="flex w-full flex-col items-center gap-3">
                     <Soroban digits={prompt.digits} hidden={stage !== 'showing'} labels={false} />
-                    {stage === 'showing' ? <p className="m-0 text-body-lg font-bold">Look carefully, then it hides.</p> : null}
-                    {stage === 'answer' ? <p className="m-0 text-h3 font-bold">{prompt.add === null ? 'What number was it?' : `Now add ${prompt.add}. What is the total?`}</p> : null}
+                    {stage === 'showing' ? <p className="m-0 text-body-lg font-bold">{play.lookCarefully}</p> : null}
+                    {stage === 'answer' ? <p className="m-0 text-h3 font-bold">{prompt.add === null ? play.whichNumber : play.addThen(prompt.add)}</p> : null}
                   </div>
                 ) : null}
 
@@ -421,15 +431,15 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                       if (kind === 'flash') setFlashIndex(-1)
                     }}
                   >
-                    {kind === 'flash' ? 'Start' : 'Show me'}
+                    {kind === 'flash' ? dict.common.start : play.showMe}
                   </Button>
                 ) : null}
 
                 {hint && !feedback ? (
                   <div role="note" className="w-full max-w-[560px] rounded-control border-2 border-fg bg-mental-50 p-4 text-left">
-                    <p className="m-0 text-body font-bold text-fg">Hint: {hint.title}</p>
+                    <p className="m-0 text-body font-bold text-fg">{play.hint} <span lang="en-GB">{hint.title}</span></p>
                     {hint.steps.map((st) => (
-                      <p key={st} className="m-0 text-body-lg">
+                      <p key={st} lang="en-GB" className="m-0 text-body-lg">
                         {st}
                       </p>
                     ))}
@@ -440,14 +450,14 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
                   <div role="status" className="flex w-full max-w-[560px] flex-col items-center gap-3 text-center">
                     <span className={cx('inline-flex h-8 items-center gap-1 rounded-pill px-3 text-body font-bold text-white', feedback.ok ? 'bg-success' : 'bg-warn')}>
                       <UiIcon name={feedback.ok ? 'check' : 'not-yet'} size={16} />
-                      {feedback.ok ? 'Correct' : 'Not yet'}
+                      {feedback.ok ? t.round.correct : t.round.notYet}
                     </span>
-                    {!feedback.ok && feedback.answer !== undefined ? <p className="m-0 text-h2 font-bold tabular-nums">The answer is {feedback.answer}</p> : null}
+                    {!feedback.ok && feedback.answer !== undefined ? <p className="m-0 text-h2 font-bold tabular-nums">{play.theAnswer(feedback.answer)}</p> : null}
                     {!feedback.ok && feedback.hint ? (
                       <div className="w-full rounded-control border-2 border-fg bg-mental-50 p-4 text-left">
-                        <p className="m-0 text-body font-bold text-fg">{feedback.hint.title}</p>
+                        <p lang="en-GB" className="m-0 text-body font-bold text-fg">{feedback.hint.title}</p>
                         {feedback.hint.steps.map((st) => (
-                          <p key={st} className="m-0 text-body-lg">
+                          <p key={st} lang="en-GB" className="m-0 text-body-lg">
                             {st}
                           </p>
                         ))}
@@ -464,21 +474,21 @@ export function QuickMathsRoundScreen({ data, actions }: { data: QmRoundDTO; act
 
                 {feedback && !feedback.ok ? (
                   <Button iconAfter="arrow-right" onClick={advance} data-autofocus className="w-full max-w-[360px]">
-                    Next
+                    {dict.common.next}
                   </Button>
                 ) : !feedback && stage === 'answer' ? (
                   <div className="flex w-full max-w-[360px] flex-col gap-2.5">
                     <Button onClick={check} loading={busy} disabled={(prompt.kind !== 'bead-set' && value === '') || !online} className="w-full">
-                      Check
+                      {dict.common.check}
                     </Button>
                     {data.hints && prompt.kind === 'arith' ? (
                       <Button variant="secondary" icon="hint" onClick={() => void askHint()} loading={hintBusy} disabled={Boolean(hint)} className="w-full">
-                        Show a hint
+                        {play.showHint}
                       </Button>
                     ) : null}
                     {timed ? (
                       <Button variant="quiet" onClick={() => void submit(null)} className="w-full">
-                        Skip
+                        {dict.common.skip}
                       </Button>
                     ) : null}
                   </div>

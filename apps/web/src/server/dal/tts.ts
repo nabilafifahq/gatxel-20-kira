@@ -7,7 +7,7 @@ import type { Item } from '@kira/content'
 import { tables } from '@kira/db'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
 import type { OrgContext, Tx } from '../db'
-import { clipExists, clipKeyOf, ttsEnabled } from '../tts'
+import { clipExists, clipExistsFor, clipKeyOf, ttsEnabled } from '../tts'
 import { lesson, passage, resolveItems } from './content'
 import { enqueueJobTx } from './jobs'
 import { claimOnce, takeWindow } from '../limiter'
@@ -26,12 +26,12 @@ const PER_USER_HOURLY = 60
  * ini tidak punya teks dengar. ready false bila ada klip yang belum dibuat: mode tanpa umpan balik tidak boleh jatuh ke suara
  * perangkat, karena suara perangkat butuh teksnya, dan teks itu adalah jawabannya.
  */
-export async function spokenClipRefs(item: Item): Promise<{ keys: string[]; ready: boolean } | null> {
+export async function spokenClipRefs(item: Item, orgId: string): Promise<{ keys: string[]; ready: boolean } | null> {
   const heard = listenTextOf(item)
   if (heard === null) return null
   const style = styleForSkill(item.skill)
   const keys = splitClipText(heard).filter(isClipText).map((text) => clipKeyOf(text, style))
-  const found = await Promise.all(keys.map(clipExists))
+  const found = await Promise.all(keys.map((k) => clipExistsFor(k, orgId)))
   return { keys, ready: item.lang === 'en-GB' && keys.length > 0 && found.every(Boolean) }
 }
 
@@ -42,7 +42,7 @@ export async function requestClips(tx: Tx, ctx: OrgContext, clips: TtsClipReques
   for (const c of clips) {
     if (!isClipText(c.text)) continue
     const key = clipKeyOf(c.text, c.style)
-    if (await clipExists(key)) continue
+    if (await clipExistsFor(key, ctx.orgId)) continue
     if (!(await claimOnce(`tts:${key}`, RECENT_MS))) continue
     fresh.push(c)
   }
@@ -71,7 +71,7 @@ async function hostClipUrls(): Promise<string[]> {
   return urls
 }
 
-export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
+export async function todayClipUrls(tx: Tx, orgId: string, learnerId: string, date: IsoDate = jakartaDate()): Promise<string[]> {
   const host = await hostClipUrls()
   const quests = await tx
     .select({ attemptId: quest.attemptId, skillId: quest.skillId, mode: quest.mode, status: quest.status })
@@ -102,7 +102,7 @@ export async function todayClipUrls(tx: Tx, learnerId: string, date: IsoDate = j
   const urls = new Set<string>(host)
   for (const c of clips) {
     const key = clipKeyOf(c.text, c.style)
-    if (await clipExists(key)) urls.add(`/tts/${key}.mp3`)
+    if (await clipExistsFor(key, orgId)) urls.add(`/tts/${key}.mp3`)
   }
   return [...urls].slice(0, 600)
 }

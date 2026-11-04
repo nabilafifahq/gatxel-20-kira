@@ -3,6 +3,7 @@
 import type { ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 import { asTexts, blankCount } from './answers'
 import type { WidgetProps } from './types'
 
@@ -35,6 +36,7 @@ function BlankInput({
   feedback: WidgetProps['feedback']
   subject: WidgetProps['subject']
 }): ReactElement {
+  const t = useT()
   return (
     <input
       type="text"
@@ -44,7 +46,7 @@ function BlankInput({
       autoCapitalize="off"
       spellCheck={false}
       enterKeyHint="done"
-      aria-label={total > 1 ? `Gap ${index + 1} of ${total}` : 'Your answer'}
+      aria-label={total > 1 ? t.widgets.shared.gap(index + 1, total) : t.widgets.shared.yourAnswer}
       value={text}
       disabled={disabled}
       maxLength={60}
@@ -71,20 +73,21 @@ export function TextPrompt({ item, value, onChange, disabled = false, feedback =
   const total = Math.max(1, item.blanks ?? 1)
   const texts = asTexts(value, total)
   const parts = item.prompt.split(/_{3,}/)
+  const dict = useT()
   const set = (i: number, t: string) => {
     const next = texts.slice()
     next[i] = t
     onChange(next.every((x) => x === '') ? null : { texts: next })
   }
   return (
-    <p id={id} lang={item.lang} className={cx('text-question m-0', className)}>
+    <p id={id} lang={item.lang} className={cx('text-question m-0 min-w-0 flex-1', className)}>
       {parts.map((part, i) => (
         <span key={i}>
-          {part}
+          <span lang={item.lang}>{part}</span>
           {i < parts.length - 1 && i < total ? (
             <BlankInput index={i} total={total} text={texts[i] ?? ''} onText={(t) => set(i, t)} disabled={disabled || !!feedback} feedback={feedback} subject={subject} />
           ) : i < parts.length - 1 ? (
-            <span aria-label="blank">___</span>
+            <span aria-label={dict.widgets.shared.blank}>___</span>
           ) : null}
         </span>
       ))}
@@ -103,12 +106,13 @@ export function TextWidget({ item, value, onChange, disabled = false, feedback =
     onChange(next.every((x) => x === '') ? null : { texts: next })
   }
   const rest = Array.from({ length: total - inline }, (_, k) => inline + k)
+  const dict = useT()
   return (
     <div className="flex w-full flex-col gap-4">
       {rest.length > 0 ? (
         rest.map((i) => (
           <label key={i} className="flex flex-col gap-2">
-            <span className="text-body font-semibold text-fg-muted">{total > 1 ? `Answer ${i + 1}` : 'Your answer'}</span>
+            <span className="text-body font-semibold text-fg-muted">{total > 1 ? dict.widgets.text.answerN(i + 1) : dict.widgets.shared.yourAnswer}</span>
             <span className="text-question">
               <BlankInput index={i} total={total} text={texts[i] ?? ''} onText={(t) => set(i, t)} disabled={disabled || !!feedback} feedback={feedback} subject={subject} />
             </span>
@@ -117,7 +121,7 @@ export function TextWidget({ item, value, onChange, disabled = false, feedback =
       ) : (
         <p className="m-0 flex items-center gap-2 text-body-lg text-fg-muted">
           <UiIcon name="pencil" size={22} />
-          {total > 1 ? 'Type a word in each gap.' : 'Type your answer in the gap.'}
+          {total > 1 ? dict.widgets.text.typeEachGap : dict.widgets.text.typeInGap}
         </p>
       )}
     </div>

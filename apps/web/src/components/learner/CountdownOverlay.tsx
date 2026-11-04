@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { playSfx, primeSfx } from './sfx'
 
 /**
@@ -21,6 +22,7 @@ export function CountdownOverlay({
   onGo?: () => void
   onDone?: () => void
 }): ReactElement | null {
+  const t = useT().runner.countdown
   const [n, setN] = useState(from)
   const [open, setOpen] = useState(true)
   const go = useRef(onGo)
@@ -47,7 +49,7 @@ export function CountdownOverlay({
     return () => window.clearTimeout(id)
   }, [n])
   if (!open) return null
-  const label = n > 0 ? String(n) : 'Go!'
+  const label = n > 0 ? String(n) : t.go
   return (
     <div
       role="status"

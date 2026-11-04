@@ -185,9 +185,9 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
     await dbm.inOrg(tutorCtx, (tx) => feats.saveFeatureMap(tx, orgId, kid, { 'english-skills': false, math: false, 'olympiad-math': false, 'olympiad-english': false }))
     const refused = { code: 'forbidden' }
     await expect(inKid((tx) => english.startEnglishSession(tx, ctx, kid, 'listening'))).rejects.toMatchObject(refused)
-    await expect(inKid((tx) => explore.startPractice(tx, ctx, kid, 'm2.numbers-to-100'))).rejects.toMatchObject(refused)
+    await expect(inKid((tx) => explore.startPractice(tx, ctx, kid, 'm2.numbers-to-100'))).rejects.toMatchObject({ code: 'not-found' })
     await expect(inKid((tx) => explore.completeLesson(tx, ctx, kid, 'm2.numbers-to-100', 1, 1))).rejects.toMatchObject(refused)
-    await expect(inKid((tx) => competition.startEsmoMock(tx, ctx, kid, 'math'))).rejects.toMatchObject(refused)
+    await expect(inKid((tx) => competition.startEsmoMock(tx, ctx, kid, 'math'))).rejects.toMatchObject({ code: 'not-found' })
     await dbm.inOrg(tutorCtx, (tx) => feats.saveFeatureMap(tx, orgId, kid, {}))
   }, 120_000)
 
@@ -207,7 +207,7 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
       const files: string[] = []
       const keys = new Map<string, string[]>()
       for (const ref of refs) {
-        const spoken = await ttsDal.spokenClipRefs(items.get(ref)!)
+        const spoken = await ttsDal.spokenClipRefs(items.get(ref)!, orgId)
         keys.set(ref, spoken!.keys)
         for (const k of spoken!.keys) files.push(join(dir, `${k}.mp3`))
       }

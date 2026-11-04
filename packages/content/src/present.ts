@@ -262,13 +262,17 @@ export function presentItem(item: Item, opt: PresentOptions): ClientItem {
         ...(item.caption ? { caption: item.caption } : {}),
         head: item.head,
         rows: item.rows.map((row, r) => row.map((cell, c) => (blankAt.has(`${r}:${c}`) ? '' : cell))),
-        blanks: item.blanks.map((b) => ({
-          row: b.row,
-          col: b.col,
-          numeric: b.answers.every((a) => /^-?[\d.,/ ]+$/.test(a)),
-          // Tanda selain huruf dan angka di jawaban (titik desimal, garis miring, tanda hubung, spasi), supaya papan tidak menampilkan tombol yang tidak perlu.
-          extra: [...new Set(b.answers.join('').split('').filter((c) => !/[A-Za-z0-9]/.test(c)))],
-        })),
+        blanks: item.blanks.map((b) => {
+          const numeric = b.answers.every((a) => /^-?[\d.,/ ]+$/.test(a))
+          return {
+            row: b.row,
+            col: b.col,
+            numeric,
+            // Tanda selain huruf dan angka di jawaban (titik desimal, garis miring, tanda hubung, spasi), supaya papan tidak menampilkan tombol yang tidak perlu.
+            // Papan huruf tidak punya angka, jadi jawaban campuran seperti "10:00 a.m." membawa angkanya sendiri.
+            extra: [...new Set(b.answers.join('').split('').filter((c) => (numeric ? !/[A-Za-z0-9]/.test(c) : !/[A-Za-z]/.test(c))))],
+          }
+        }),
       }
       break
     }

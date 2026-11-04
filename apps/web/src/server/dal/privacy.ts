@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, desc, eq, inArray, isNull, sql } from 'drizzle-orm'
-import { addDays, formatDateId, jakartaDate, jakartaMidnight, type IsoDate } from '@kira/core/time'
+import { dataExportEmail, deletionRequestEmail } from '@kira/core/email-templates'
+import { addDays, formatDateId, jakartaClock, jakartaDate, jakartaMidnight, type IsoDate } from '@kira/core/time'
 import { tables } from '@kira/db'
 import type { ConsentPurpose, ConsoleShell, PrivacyDTO } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
@@ -16,7 +17,8 @@ import { CONSENT_PURPOSES, latestConsents, recordConsentTx, type ConsentPurposeI
 import { shellIn } from './console-shell'
 import { enqueueJobTx } from './jobs'
 import { loadLearner } from './learner-core'
-import { queueEmail, simpleEmail } from './outbox'
+import { queueEmail } from './outbox'
+import { emailIdentity } from '../email'
 
 /**
  * G02 Privasi keluarga. Orang tua mengubah persetujuan, mengunduh data, dan meminta atau
@@ -236,16 +238,17 @@ export async function deactivateLearnerTx(tx: Tx, ctx: OrgContext, learnerId: st
 /** Email konfirmasi ke orang tua yang meminta: kode referensi, tanggal hapus, dan cara membatalkan. */
 export async function queueDeletionConfirmation(orgId: string, to: string, info: DeletionRequested & { learnerId: string }): Promise<void> {
   const date = formatDateId(info.scheduledFor)
-  const mail = simpleEmail({
-    title: `Permintaan hapus akun ${info.learnerName} tercatat`,
-    lines: [
-      `Kode referensi: ${info.reference}.`,
-      `Akun dan data belajar ${info.learnerName} dihapus pada ${date}. Sampai tanggal itu ${info.learnerName} tidak bisa masuk ke Kira.`,
-      `Untuk membatalkan, buka halaman Privasi keluarga lalu pilih Batalkan penghapusan sebelum ${date}.`,
-    ],
-    buttonLabel: 'Buka halaman Privasi',
-    buttonUrl: `${origin()}/keluarga/privasi?learner=${encodeURIComponent(info.learnerId)}`,
-    footer: 'Kalau permintaan ini bukan dari kamu, buka halaman Privasi dan batalkan sekarang.',
+  const mail = deletionRequestEmail(emailIdentity(), { url: `${origin()}/keluarga/privasi?learner=${encodeURIComponent(info.learnerId)}`, learnerName: info.learnerName, reference: info.reference, dateLabel: date })
+  await queueEmail(orgId, { to, ...mail, kind: 'deletion-request' })
+}
+
+/** Email pemberitahuan setelah salinan data diunduh, supaya unduhan yang tidak dikenal segera terlihat. */
+export async function queueDataExportConfirmation(orgId: string, to: string, info: { learnerId: string; learnerName: string }): Promise<void> {
+  const now = new Date()
+  const mail = dataExportEmail(emailIdentity(), {
+    url: `${origin()}/keluarga/privasi?learner=${encodeURIComponent(info.learnerId)}`,
+    learnerName: info.learnerName,
+    whenLabel: `${formatDateId(jakartaDate(now))}, ${jakartaClock(now)}`,
   })
-  await queueEmail(orgId, { to, subject: `Permintaan hapus akun ${info.learnerName} tercatat`, html: mail.html, text: mail.text, kind: 'deletion-request' })
+  await queueEmail(orgId, { to, ...mail, kind: 'data-export' })
 }

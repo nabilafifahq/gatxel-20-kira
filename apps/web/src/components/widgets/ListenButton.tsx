@@ -6,6 +6,7 @@ import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import type { TtsStyleId } from '@kira/core/tts'
 import { useSpeech, type SpeechLang } from '@/components/learner/speech'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Tombol putar suara untuk soal dengar dan eja. Teksnya dibacakan lewat useSpeech dan tidak pernah
@@ -19,7 +20,7 @@ export function ListenButton({
   text,
   lang = 'en-GB',
   subject,
-  label = 'Play the audio',
+  label,
   disabled = false,
   style,
   className,
@@ -43,9 +44,10 @@ export function ListenButton({
   const [played, setPlayed] = useState(false)
   const [loadFailed, setLoadFailed] = useState(false)
   const noteId = useId()
+  const t = useT()
   const playing = status === 'reading'
   const off = missing || (clips === undefined && status === 'unavailable')
-  const note = missing ? 'The audio for this question is not ready yet. Skip it and carry on.' : off ? 'No English voice on this device.' : loadFailed ? 'The audio did not load. Check the connection and try again.' : null
+  const note = missing ? t.widgets.shared.audioNotReady : off ? t.widgets.shared.noVoice : loadFailed ? t.widgets.shared.audioFailed : null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button
@@ -74,7 +76,7 @@ export function ListenButton({
         )}
       >
         <UiIcon name={off ? 'speaker-off' : playing ? 'waveform' : 'speaker'} size={28} />
-        {playing ? 'Playing' : played ? 'Play it again' : label}
+        {playing ? t.widgets.shared.playing : played ? t.widgets.listen.again : (label ?? t.widgets.listen.play)}
       </button>
       {note ? (
         <span id={noteId} className="text-body text-fg-muted">

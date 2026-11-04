@@ -202,16 +202,19 @@ export function Checkbox({ id, label, description, indeterminate, className, ...
   const fid = id ?? `c${auto.replace(/:/g, '')}`
   return (
     <div className={cx('flex min-h-6 items-start gap-2.5', className)}>
-      <input
-        id={fid}
-        type="checkbox"
-        ref={(el) => {
-          if (el) el.indeterminate = Boolean(indeterminate)
-        }}
-        aria-describedby={description ? `${fid}-desc` : undefined}
-        className="mt-[3px] size-5 flex-none cursor-pointer accent-fg disabled:cursor-not-allowed"
-        {...rest}
-      />
+      {/* Kotak 20 px dengan area tekan 44 px: label pembungkus melebar 12 px ke tiap sisi tanpa menggeser tata letak. */}
+      <label className="-m-3 flex-none cursor-pointer p-3 has-disabled:cursor-not-allowed">
+        <input
+          id={fid}
+          type="checkbox"
+          ref={(el) => {
+            if (el) el.indeterminate = Boolean(indeterminate)
+          }}
+          aria-describedby={description ? `${fid}-desc` : undefined}
+          className="mt-[3px] block size-5 cursor-pointer accent-fg disabled:cursor-not-allowed"
+          {...rest}
+        />
+      </label>
       <span className="flex min-w-0 flex-col">
         <label htmlFor={fid} className="cursor-pointer text-body font-semibold">
           {label}
@@ -335,7 +338,7 @@ export function Switch({
         if (!busy) onChange(!checked)
       }}
       className={cx(
-        'relative flex h-8 w-14 flex-none cursor-pointer items-center rounded-pill border-2 p-[3px] disabled:cursor-not-allowed disabled:opacity-60',
+        'relative after:absolute after:-inset-y-1.5 after:inset-x-0 after:content-[""] relative flex h-8 w-14 flex-none cursor-pointer items-center rounded-pill border-2 p-[3px] disabled:cursor-not-allowed disabled:opacity-60',
         checked ? 'border-fg bg-fg' : 'border-border bg-surface',
       )}
     >

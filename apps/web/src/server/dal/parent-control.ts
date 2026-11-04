@@ -20,8 +20,10 @@ import { updateLearnerSoundTx } from './learner-motion'
 import { autoSkill } from './learner-session'
 import { placementStartGrade } from './placement-grade'
 import { resolveItems } from './content'
-import { saveFeaturesTx } from './learner-features'
-import type { FeatureMap } from '@kira/core/features'
+import { featureMapFor, saveFeaturesTx } from './learner-features'
+import { sessionAllowed, type FeatureMap } from '@kira/core/features'
+import type { UiLang } from '@/lib/i18n/lang'
+import { setLearnerUiPrefs } from '../auth/accounts'
 
 /**
  * Aksi orang tua atas anaknya. Setiap fungsi memeriksa guardian_link lebih dulu (`ownChild`), lalu memakai
@@ -103,7 +105,9 @@ async function latihanSkillFor(actor: Actor, learnerId: string, subject: Subject
 
 /** Tambah sesi opsional hari ini (paling banyak 10 sesi tambahan; server menolak yang ke-11). */
 export async function parentAddOptional(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async () => undefined)
+  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async (tx) => {
+    if (!sessionAllowed(await featureMapFor(tx, input.learnerId), input.subject, input.session)) throw conflict('Mapel atau jenis sesi ini sedang dimatikan untuk anak ini. Nyalakan dulu di Pengaturan.')
+  })
   const skillId = input.session === 'latihan' ? await latihanSkillFor(actor, input.learnerId, input.subject) : null
   return upsertSlot(asStaff(actor), {
     learnerId: input.learnerId,
@@ -176,7 +180,13 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
  * Tambah anak oleh orang tua sendiri. Satu implementasi dengan onboarding (/mulai): batas per keluarga
  * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan anak aktif setelah persetujuan di halaman Privasi.
  */
-export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<{ learnerId: string }> {
+/** Bahasa tampilan anak dan izin anak menggantinya sendiri. Sesi anak membacanya lagi di request berikutnya. */
+export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean }): Promise<void> {
+  await ownChild(actor, input.learnerId, 'uilang', { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch }, async () => undefined)
+  await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch })
+}
+
+export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<{ learnerId: string }> {
   return { learnerId: await addChild(actor, input) }
 }
 

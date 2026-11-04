@@ -1,0 +1,49 @@
+math	3	step	m3.temperature.802	hint: 100 °C is the top of the thermometer scale (not true of most thermometers) => much hotter than a very hot day	minor
+math	3	step	m3.time-clock.001	at 8:40 the short hand is just before 9 (it is two thirds of the way) => between 8 and 9, nearer to 9	minor
+math	3	lang	m3.compare-order.801	Both have different hundreds. => The hundreds are different.	minor
+math	3	lang	m3.complements-multiples.803	which always ends in 5 or 0 => which always end in 5 or 0	minor
+math	4	step	m4.time-24-hour.002	why on 21:10 blamed forgetting 19:20 (that gives 10:10) => real mistake: 70 minutes became 10 with no extra hour	minor
+math	4	step	m4.time-24-hour.001	hint: after 12:00 subtract 12 (12:30 would break) => from 13:00 onwards	minor
+math	4	step	m4.time-24-hour.802	hint: add 12 to pm hours (12:30 pm stays 12:30) => from 1 pm onwards	minor
+math	4	step	m4.perimeter-area.802	hint: do not multiply for perimeter (2 × (l + w) and 4 × side are multiplying, used in other items) => do not multiply length by width	minor
+math	4	step	m4.equivalent-fractions.802	unclear: the bottoms were not multiplied by the same number => top ×2, bottom ×3	minor
+math	4	lang	m4.percent-intro.010	three options: smaller => the smallest	minor
+math	4	lang	m4.percent-intro.010	Fourths => Quarters (en-GB)	minor
+math	4	amb	m4.percent-intro.012	one cake cannot be cut both ways: the same cake => an identical cake	minor
+math	4	amb	m4.percent-intro.018	percent needs equal parts: 100 tiny pieces => 100 tiny equal pieces	minor
+math	4	fact	m4.square-numbers.007	4 why notes and 1 hint on .007, .008, .009: not a number multiplied by itself / nothing multiplied by itself => whole number	minor
+math	5	fact	m5.perimeter-area.001	a square corner of 4 m by 3 m (4 by 3 is not a square) => a rectangular corner	serious
+math	5	fact	m5.round-decimals.002	why on 3.39: rounds down to 3.4 (it goes up, 3.39 is less than 3.4) => rounds to 3.4	serious
+math	5	step	m5.add-subtract-decimals.003	why on 3.70: 4.5 is not 4.05 (4.05 + 3.25 = 7.30) => not 0.45 (0.45 + 3.25 = 3.70)	minor
+math	5	step	m5.decimal-place-value.001	why on 7.012: 3 tenths changed to hundredths (that gives 7.15) => leaves out the 3 tenths, 12 thousandths	minor
+math	5	step	m5.compare-fractions.001	hint: try twelfths (5/8 and 7/10 do not go into twelfths) => removed, keep distance from 1	minor
+math	5	step	m5.order-divisibility.011	why on 24 said only that is not correct => 2 × 3 × 4 is the real mistake	minor
+math	5	step	m5.round-whole-numbers.002	why on Rp2.949.000: only the case was rounded (correct rounding gives Rp3.049.000) => and it was rounded down	minor
+math	6	fact	m6.averages.003	why on 9.67: this is the mean (the mean is 54 ÷ 6 = 9) => median is halfway between 8 and 9	serious
+math	6	fact	m6.place-value.001	why on 24,079: zero can go in a smaller place, the thousands place (thousands is a bigger place than hundreds) => smaller digit in a bigger place	serious
+math	6	step	m6.add-subtract-fractions.003	why on 1/2: 3/6 adds tops and bottoms in a different way (no such working gives 6) => 2/3 alone is more than 1/2	minor
+math	6	step	m6.percentages.003	why on Rp101.000: fall is 10% of the higher price (does not lead to 101,000, it repeats note A) => final price is below Rp100.000	minor
+math	6	fact	m6.rotational-symmetry.004	a parallelogram has order 2 (a square is a parallelogram with order 4) => this one, half turn and full turn	minor
+math	6	fact	m6.rotational-symmetry.008	a rectangle has order 2 (a square is a rectangle) => or order 4 if it is a square	minor
+math	6	fact	m6.rotational-symmetry.009	rectangle and parallelogram have order 2 (a square has order 4) => looks the same after a half turn, order at least 2, 2 notes	minor
+math	6	amb	m6.rotational-symmetry.011	looks the same after a quarter turn (could be order 8) => smallest turn is a quarter turn	minor
+math	6	amb	m6.rotational-symmetry.017	matches after each 180 degree turn (a square does too, order 4) => first matches after 180 degrees	minor
+math	6	amb	m6.rotational-symmetry.023	looks the same after a half turn has order 2 (a square does too, order 4) => first looks the same	minor
+math	6	amb	m6.rotational-symmetry.014	sort item rectangle in order 2 (a square is a rectangle) => rectangle (not a square), explanation too	minor
+math	6	amb	m6.shapes-properties.003	long side of the rectangle equals the circumference (false for a tall thin cylinder) => the side that wraps around the circle	minor
+math	6	fact	m6.shapes-properties.001	hint: a rhombus is a slanted square => has four equal sides, like a square pushed over	minor
+math	6	step	m6.squares-cubes.002	multiplied by itself three times (that is a fourth power) => used three times in a multiplication, 2 hints	minor
+math	6	fact	m6.squares-cubes.003	a square root is much smaller than half (false for small numbers: root of 4 is half of 4) => the square root of 200	minor
+math	5	fit	m5.coordinates-transformations.001	reflection to a negative x uses four quadrants, Cambridge Stage 6 content; kept, d=4	minor
+math	5	fit	m5.perimeter-area.002	hints use w and 6w, algebra above Stage 5; kept, d=4, child can reason in widths	minor
+math	6	fit	m6.function-machines.003	solving 5n - 7 = n + 9 (unknown on both sides) is above Stage 6; kept, d=5	minor
+math	6	fit	m6.negative-numbers.003, m6.negative-numbers.701	subtracting a negative number is above Stage 6; kept, d=4	minor
+math	6	fit	m6.transformations.003	rule (x, y) to (y, -x) for a rotation about the origin is above Stage 6; kept, d=5	minor
+math	6	fit	m6.sequences.003, m6.compare-fractions.003	inequality with n and 3k/7k algebra are above Stage 6; kept, d=5	minor
+math	5	step	m5.percentages-of-amounts.003	why on Rp1.510.000: you added 10 (that gives Rp1.500.010) => you added Rp10.000	minor
+math	3	amb	m3.place-value.807	4 hundreds, 15 tens, 10 ones is also 560 and was marked wrong (exact check) => and no ones	serious
+math	4	amb	m4.place-value.806	13 hundreds and 15 tens is also 1,450 and was marked wrong (exact check) => with the fewest blocks	serious
+math	4	amb	m4.place-value.808	19 hundreds and 17 tens is also 2,070 and was marked wrong (exact check) => with the fewest blocks	serious
+math	4	amb	m4.place-value.811	12 hundreds and 105 ones is also 1,305 and was marked wrong (exact check) => with the fewest blocks	serious
+math	3-4	open	packages/content/scripts/peraga-items.ts	the generator still holds the old prompts of m3.place-value.807, m4.place-value.806, .808, .811; re-running it reverts the fixes in the .tools.json files; not changed because app code is out of scope	minor
+math	6	open	m5.multiply-decimals and m6.sequences generators	why notes say 9.3 rounds to 9, not 9 and Position 1 would give 9, not 9. Fix in usulan-perbaikan-kode.diff, not applied	minor

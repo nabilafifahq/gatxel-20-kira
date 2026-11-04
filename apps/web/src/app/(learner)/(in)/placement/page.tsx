@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getT } from '@/lib/i18n/server'
 import { PlacementScreen } from '@/screens/learner/PlacementScreen'
 import { inOrg } from '@/server/db'
 import { orgCtx, pageActor } from '@/server/auth/actor'
@@ -7,7 +8,9 @@ import { load } from '@/server/page'
 import { answerPlacementAction, skipPlacementAction } from '@/server/actions/placement'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Starting point' }
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await getT()).shell.titles.startingPoint }
+}
 
 /** Tes penempatan: /placement?subject=math. Tanpa parameter, satu tes langsung mulai; beberapa tes menampilkan pilihan mapel. */
 export default async function PlacementPage({ searchParams }: { searchParams: Promise<{ subject?: string }> }) {

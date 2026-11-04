@@ -8,6 +8,7 @@ import { kvConfigured, kvDel, kvEval, kvGet, kvSet } from '../kv'
 import { log } from '../log'
 import { clearCookie, readCookie, SESSION_ABSOLUTE_MS, SESSION_COOKIE, SESSION_IDLE_MS, writeCookie } from './cookies'
 import { randomToken, sha256hex } from './crypto'
+import type { UiLang } from '@/lib/i18n/lang'
 
 const { session, userAccount, device } = tables
 
@@ -21,6 +22,10 @@ export type SessionInfo = {
   email: string | null
   deviceId: string | null
   createdAt: Date
+  /** Bahasa tampilan anak, ikut terbaca bersama sesi supaya tidak ada query tambahan. Opsional hanya untuk fixture tes. */
+  uiLang?: UiLang
+  /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
+  uiLangSwitch?: boolean
 }
 
 /**
@@ -40,7 +45,11 @@ let flusher: NodeJS.Timeout | null = null
 
 const cacheKey = (id: string) => `sess:${id}`
 
+/** KIRA_TODAY_CACHE=off (CI e2e, yang mengubah database langsung) mematikan juga cache sesi. */
+const cacheOff = () => process.env.KIRA_TODAY_CACHE === 'off'
+
 async function cacheGet(id: string): Promise<CachedSession | null> {
+  if (cacheOff()) return null
   const raw = await kvGet(cacheKey(id))
   if (raw) {
     try {
@@ -66,6 +75,7 @@ const deadKey = (id: string) => `sessdead:${id}`
 const PUT_UNLESS_DEAD = `if redis.call('EXISTS', KEYS[2]) == 0 then redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2]) end return 1`
 
 async function cachePut(id: string, v: CachedSession): Promise<void> {
+  if (cacheOff()) return
   if ((dead.get(id) ?? 0) > Date.now()) return
   local.set(id, { at: Date.now(), v })
   if (local.size > 5000) local.clear()
@@ -137,6 +147,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
       role: userAccount.role,
       name: userAccount.name,
       email: userAccount.email,
+      uiLang: userAccount.uiLang,
+      uiLangSwitch: userAccount.uiLangSwitch,
     })
     .from(session)
     .innerJoin(userAccount, eq(session.userId, userAccount.id))
@@ -169,6 +181,8 @@ export const getSession = cache(async (): Promise<SessionInfo | null> => {
     email: row.email,
     deviceId: row.deviceId,
     createdAt: row.createdAt,
+    uiLang: row.uiLang,
+    uiLangSwitch: row.uiLangSwitch,
   }
   await cachePut(id, { info: { ...info, createdAt: info.createdAt.toISOString() }, expiresAt: row.expiresAt.getTime(), lastSeenAt: Math.max(row.lastSeenAt.getTime(), now) })
   return info
@@ -209,6 +223,12 @@ export async function revokeUserSessions(userId: string, exceptSessionId?: strin
     ? and(eq(session.userId, userId), isNull(session.revokedAt), ne(session.id, exceptSessionId))
     : and(eq(session.userId, userId), isNull(session.revokedAt))
   const rows = await authDb().update(session).set({ revokedAt: new Date() }).where(cond).returning({ id: session.id })
+  await invalidateSessions(rows.map((r) => r.id))
+}
+
+/** Hapus cache semua sesi satu pengguna (pilihan bahasa berubah): sesinya tetap berlaku, nilainya dibaca ulang. */
+export async function invalidateUserSessions(userId: string): Promise<void> {
+  const rows = await authDb().select({ id: session.id }).from(session).where(and(eq(session.userId, userId), isNull(session.revokedAt)))
   await invalidateSessions(rows.map((r) => r.id))
 }
 

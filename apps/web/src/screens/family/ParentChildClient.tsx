@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Avatar } from '@kira/figures'
 import type { AvatarName, ConsoleShell, PinPicture, Subject } from '@/lib/dto'
 import type { ParentChildDTO, ParentSessionDTO, ParentWorkDTO } from '@/lib/dto-parent'
@@ -14,10 +14,14 @@ import { RadioGroup, Select, Switch, TextField } from '@/components/console/Fiel
 import { PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useToast } from '@/components/console/Toast'
+import { UiIcon } from '@/components/ui/icons'
 import { useAction } from '@/components/console/useAction'
 import { ChangeSkill } from '@/components/family/ChangeSkill'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
+import { activeSubjects, type FeatureMap } from '@kira/core/features'
 import { FamilyShell } from '@/components/family/FamilyShell'
+import { UiLangChoice } from '@/components/family/UiLangChoice'
+import type { UiLang } from '@/lib/i18n/lang'
 import { WeekSummary } from '@/components/family/WeekSummary'
 import { PlacementSection } from './PlacementSection'
 import { AvatarPicker } from '@/screens/console/LearnersScreen'
@@ -25,12 +29,14 @@ import {
   parentAddOptionalAction,
   parentEditChildAction,
   parentMarkWorkAction,
+  parentPrepareTodayAction,
   parentRemoveSessionAction,
   parentResetPinAction,
   parentResetStreakAction,
   parentSaveDayRulesAction,
   parentSaveLimitsAction,
   parentSaveSoundAction,
+  parentSaveUiLangAction,
   parentSetQuestionCountAction,
   parentSetSessionRequiredAction,
   parentUnlockAction,
@@ -46,8 +52,18 @@ const SUBJECT_NAME: Record<Subject, string> = { math: 'Math', english: 'English'
 const DAY = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 
 function Section({ id, title, hint, open, children }: { id: string; title: string; hint?: string; open?: boolean; children: ReactNode }) {
+  const ref = useRef<HTMLDetailsElement>(null)
+  // Tautan "Pengaturan" dan "Mapel dan fitur" dari beranda membuka bagian ini langsung.
+  useEffect(() => {
+    const hash = window.location.hash
+    const target = hash === `#${id}` ? ref.current : hash && /^#[a-z-]+$/.test(hash) ? ref.current?.querySelector(hash) : null
+    if (target && ref.current) {
+      ref.current.open = true
+      target.scrollIntoView({ block: 'start' })
+    }
+  }, [id])
   return (
-    <details open={open} className="group rounded-card border border-divider bg-surface">
+    <details ref={ref} open={open} className="group rounded-card border border-divider bg-surface">
       <summary className="flex min-h-14 cursor-pointer list-none items-center gap-3 px-4 py-3">
         <span className="flex min-w-0 flex-1 flex-col">
           <h2 id={id} className="m-0 text-h3 font-bold">
@@ -55,9 +71,7 @@ function Section({ id, title, hint, open, children }: { id: string; title: strin
           </h2>
           {hint ? <span className="text-small text-fg-muted">{hint}</span> : null}
         </span>
-        <span aria-hidden="true" className="text-h3 font-bold text-fg-muted group-open:rotate-90">
-          ›
-        </span>
+        <UiIcon name="chevron-right" size={20} className="text-fg-muted transition-transform duration-150 ease-kira group-open:rotate-90" />
       </summary>
       <div aria-labelledby={id} className="flex flex-col gap-4 border-t border-divider px-4 py-4">
         {children}
@@ -108,13 +122,11 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </p>
 
       <Section id="hari-ini" title="Sesi hari ini" hint="Wajib dulu, lalu opsional. Hanya sesi wajib yang dihitung untuk streak." open>
-        {data.today.sessions.length === 0 ? (
-          <p className="m-0 text-body text-fg-muted">Belum ada sesi hari ini. Sesi dibuat otomatis saat {c.name} membuka layar Hari Ini.</p>
-        ) : null}
+        {data.today.sessions.length === 0 ? <PrepareToday learnerId={c.id} name={c.name} canPrepare={c.active && c.status !== 'rest'} /> : null}
         {note ? <InlineAlert tone="success" title={note} /> : null}
         <SessionList title="Wajib" sessions={required} onNote={setNote} learnerId={c.id} />
         <SessionList title="Opsional" sessions={optional} onNote={setNote} learnerId={c.id} />
-        <AddOptional learnerId={c.id} onNote={setNote} />
+        <AddOptional learnerId={c.id} features={data.controls.features} onNote={setNote} />
       </Section>
 
       <Section id="hasil" title="Hasil terbaru" hint="Buka satu sesi untuk melihat soal, jawaban anak, jawaban benar, dan penjelasan.">
@@ -234,7 +246,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
       </Section>
 
       <Section id="atur" title="Pengaturan" hint="Aturan hari, waktu layar, suara, PIN, dan profil">
-        <h3 className="m-0 text-body font-bold">Fitur yang dipakai</h3>
+        <h3 id="fitur" className="m-0 text-body font-bold">Fitur yang dipakai</h3>
         <p className="m-0 text-small text-fg-muted">Matikan mapel atau fitur yang belum dipakai {c.name}. Mapel yang dimatikan tidak muncul di hari belajar dan tidak dihitung untuk streak.</p>
         <FeatureChecklist learnerId={c.id} name={c.name} initial={data.controls.features} />
         <h3 className="m-0 border-t border-divider pt-4 text-body font-bold">Aturan hari</h3>
@@ -246,6 +258,7 @@ export function ParentChildClient({ shell, data }: { shell: ConsoleShell; data: 
         />
         <Limits c={data.controls} learnerId={c.id} name={c.name} onSaved={() => toast({ tone: 'success', title: 'Batas waktu layar tersimpan.' })} />
         <Sound c={data.controls} learnerId={c.id} onSaved={() => toast({ tone: 'success', title: 'Pilihan suara tersimpan.' })} />
+        <UiLangSettings c={data.controls} learnerId={c.id} name={c.name} onSaved={() => toast({ tone: 'success', title: 'Bahasa tampilan tersimpan.' })} />
         <PinTools learnerId={c.id} name={c.name} onDone={(t) => toast({ tone: 'success', title: t })} />
         <EditProfile learnerId={c.id} name={c.name} grade={data.controls.grade} avatar={data.controls.avatar} />
         <div className="flex flex-col gap-2">
@@ -318,11 +331,11 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
       ) : null}
       {s.core ? (
         <div className="flex flex-wrap items-end gap-2">
-          <Button variant="secondary" size="S" disabled={busy} loading={toggle.pending} onClick={() => void run(toggle.run({ questId: s.questId, required: !s.required }))}>
+          <Button variant="secondary" size="S" className="min-h-11" disabled={busy} loading={toggle.pending} onClick={() => void run(toggle.run({ questId: s.questId, required: !s.required }))}>
             {s.required ? 'Jadikan opsional' : 'Jadikan wajib'}
           </Button>
           {!s.started ? (
-            <Button variant="quiet" size="S" tone="danger" disabled={busy} onClick={() => setConfirm(true)}>
+            <Button variant="quiet" size="S" className="min-h-11" tone="danger" disabled={busy} onClick={() => setConfirm(true)}>
               Hapus sesi
             </Button>
           ) : s.skillNote ? null : (
@@ -334,6 +347,7 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
               <Button
                 variant="secondary"
                 size="S"
+                className="min-h-11"
                 disabled={busy || Number(n) === s.questionCount}
                 loading={count.pending}
                 onClick={() => void run(count.run({ questId: s.questId, questionCount: Number(n) }))}
@@ -364,8 +378,28 @@ function SessionRow({ s, onNote }: { s: ParentSessionDTO; onNote: (n: string | n
   )
 }
 
-function AddOptional({ learnerId, onNote }: { learnerId: string; onNote: (n: string | null) => void }) {
-  const [subject, setSubject] = useState<Subject>('math')
+function PrepareToday({ learnerId, name, canPrepare }: { learnerId: string; name: string; canPrepare: boolean }) {
+  const prepare = useAction(parentPrepareTodayAction)
+  return (
+    <div className="flex flex-col gap-2">
+      <p className="m-0 text-body text-fg-muted">
+        Belum ada sesi hari ini. Sesi dibuat otomatis saat {name} membuka layar Hari Ini.
+        {canPrepare ? ' Bisa juga disiapkan sekarang supaya pelajarannya bisa diganti lebih dulu.' : ''}
+      </p>
+      {canPrepare ? (
+        <Button variant="secondary" className="self-start" loading={prepare.pending} onClick={() => void prepare.run({ learnerId })}>
+          Siapkan sesi hari ini
+        </Button>
+      ) : null}
+      <ActionError error={prepare.error} />
+    </div>
+  )
+}
+
+function AddOptional({ learnerId, features, onNote }: { learnerId: string; features: FeatureMap; onNote: (n: string | null) => void }) {
+  const subjects = activeSubjects(features)
+  const [picked, setSubject] = useState<Subject | null>(null)
+  const subject = picked && subjects.includes(picked) ? picked : (subjects[0] ?? 'math')
   const [session, setSession] = useState<'latihan' | 'tes' | 'paper'>('latihan')
   const add = useAction(parentAddOptionalAction)
   return (
@@ -376,7 +410,7 @@ function AddOptional({ learnerId, onNote }: { learnerId: string; onNote: (n: str
           label="Mata pelajaran"
           value={subject}
           onChange={(e) => setSubject(e.target.value as Subject)}
-          options={(['math', 'english', 'science'] as const).map((s) => ({ value: s, label: SUBJECT_NAME[s] }))}
+          options={subjects.map((s) => ({ value: s, label: SUBJECT_NAME[s] }))}
         />
         <Select
           label="Jenis"
@@ -414,7 +448,7 @@ function Limits({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']
   return (
     <div className="flex flex-col gap-3 border-t border-divider pt-4">
       <h3 className="m-0 text-body font-bold">Batas waktu layar</h3>
-      <TextField label="Paling lama per hari (menit)" inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku mulai besok." />
+      <TextField label="Paling lama per hari (menit)" inputMode="numeric" value={minutes} onChange={(e) => setMinutes(e.target.value)} hint="Antara 15 dan 180 menit. Berlaku langsung, juga untuk hari ini." />
       <fieldset className="m-0 flex flex-wrap gap-2 border-0 p-0">
         <legend className="mb-1 p-0 text-small font-bold">Hari istirahat</legend>
         {[1, 2, 3, 4, 5, 6, 0].map((d) => {
@@ -477,6 +511,30 @@ function Sound({ c, learnerId, onSaved }: { c: ParentChildDTO['controls']; learn
           Musik latar
         </span>
         <Switch checked={music} onChange={(v) => void commit(sound, v)} labelledBy="mus" busy={save.pending} />
+      </div>
+      <ActionError error={save.error} />
+    </div>
+  )
+}
+
+function UiLangSettings({ c, learnerId, name, onSaved }: { c: ParentChildDTO['controls']; learnerId: string; name: string; onSaved: () => void }) {
+  const [lang, setLang] = useState<UiLang>(c.uiLang)
+  const [allow, setAllow] = useState(c.uiLangSwitch)
+  const save = useAction(parentSaveUiLangAction)
+  async function commit(l: UiLang, a: boolean) {
+    setLang(l)
+    setAllow(a)
+    const r = await save.run({ learnerId, uiLang: l, uiLangSwitch: a })
+    if (r.ok) onSaved()
+  }
+  return (
+    <div className="flex flex-col gap-3 border-t border-divider pt-4">
+      <UiLangChoice name="bahasa-anak" value={lang} onChange={(v) => void commit(v, allow)} disabled={save.pending} />
+      <div className="flex items-center gap-3">
+        <span id="bahasa-izin" className="flex-1 text-body">
+          {name} boleh mengganti bahasa sendiri
+        </span>
+        <Switch checked={allow} onChange={(v) => void commit(lang, v)} labelledBy="bahasa-izin" busy={save.pending} />
       </div>
       <ActionError error={save.error} />
     </div>

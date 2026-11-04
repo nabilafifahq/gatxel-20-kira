@@ -276,7 +276,14 @@ describe('presentItem', () => {
   it('table blanks are emptied and flagged numeric', () => {
     const c = present(table)
     expect(c.table!.rows).toEqual([['Cat', '4'], ['Bird', ''], ['Spider', '']])
-    expect(c.table!.blanks).toEqual([{ row: 1, col: 1, numeric: true, extra: [] }, { row: 2, col: 1, numeric: false, extra: [] }])
+    expect(c.table!.blanks).toEqual([{ row: 1, col: 1, numeric: true, extra: [] }, { row: 2, col: 1, numeric: false, extra: ['8'] }])
+  })
+
+  it('table with a mixed answer brings its digits to the letter keypad', () => {
+    const mixed = make({ ...table, blanks: [{ row: 1, col: 1, answers: ['10:00 a.m.', '10am'] }] })
+    const b = present(mixed).table!.blanks[0]!
+    expect(b.numeric).toBe(false)
+    expect(b.extra).toEqual(expect.arrayContaining(['1', '0', ':', ' ', '.']))
   })
 
   it('story parts get their own options, local indices without labels', () => {

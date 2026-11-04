@@ -31,10 +31,6 @@
         },
         {
           "say": "Her change is 20.000 - 12.500 = Rp7.500.",
-          "mark": [
-            "Rp20.000",
-            "Rp12.500"
-          ],
           "anim": {
             "k": "bar",
             "parts": [
@@ -48,7 +44,11 @@
             ],
             "total": 20000,
             "cur": "Rp"
-          }
+          },
+          "mark": [
+            "Rp20.000",
+            "Rp12.500"
+          ]
         },
         {
           "say": "So the answer is:",
@@ -191,7 +191,7 @@
             "cur": "Rp"
           },
           "mark": [
-            "Rp3",
+            "3 pens",
             "Rp2.000"
           ]
         },
@@ -336,7 +336,6 @@
             "cur": "Rp"
           },
           "mark": [
-            "Rp4",
             "Rp4.000"
           ]
         }
@@ -365,28 +364,23 @@
       "explanation": "Take Rp10.000. Rp8.500 is left. Take Rp5.000. Rp3.500 is left. Take Rp2.000. Rp1.500 is left. Take Rp1.000. Rp500 is left. Take Rp500. That is 5 pieces.",
       "solution": [
         {
-          "say": "Take Rp10.000."
+          "say": "Take Rp10.000. Rp8.500 is left."
         },
         {
-          "say": "Rp8.500 is left."
+          "say": "Take Rp5.000. Rp3.500 is left."
         },
         {
-          "say": "Take Rp5.000."
+          "say": "Take Rp2.000. Rp1.500 is left."
         },
         {
-          "say": "Rp3.500 is left."
+          "say": "Take Rp1.000. Rp500 is left."
         },
         {
-          "say": "Take Rp2.000."
+          "say": "Take Rp500. Nothing is left."
         },
         {
-          "say": "Rp1.500 is left."
-        },
-        {
-          "say": "Take Rp1.000."
-        },
-        {
-          "say": "Rp500 is left."
+          "say": "That is 5 pieces.",
+          "show": "5"
         }
       ],
       "tags": [

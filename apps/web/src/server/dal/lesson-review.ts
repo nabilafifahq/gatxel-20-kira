@@ -4,12 +4,13 @@ import { jakartaDate } from '@kira/core'
 import { effectiveOn } from '@kira/core/features'
 import { tables } from '@kira/db'
 import type { LearnerShell, Subject } from '@/lib/dto'
+import { dictFor } from '@/lib/i18n'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { lesson, skill, strandName } from './content'
 import { featureMapFor } from './learner-features'
 import { learnerShell, loadLearner, QUICK_REVIEW_PREFIX } from './learner-core'
-import { buildQuestItems } from './learner-session'
+import { buildQuestItems, learnerLang } from './learner-session'
 import { guardPracticeRefs } from './practice-guard'
 
 const { skillState, attempt } = tables
@@ -63,7 +64,7 @@ async function requireFinished(tx: Tx, learnerId: string, skillId: string) {
   const l = lesson(skillId)
   if (!sk || !l) throw notFound()
   const [row] = await tx.select({ at: skillState.lessonDoneAt }).from(skillState).where(and(eq(skillState.learnerId, learnerId), eq(skillState.skillId, skillId))).limit(1)
-  if (!row?.at) throw notFound('Selesaikan pelajarannya dulu.')
+  if (!row?.at) throw notFound(dictFor(await learnerLang()).runner.dal.errors.lessonFirst)
   if (!effectiveOn(await featureMapFor(tx, learnerId), sk.subject)) throw notFound()
   return { sk, l }
 }

@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   const limited = await throttleResponse('start', 60, actor.userId)
   if (limited) return limited
   try {
-    const id = await inOrg(orgCtx(actor), (tx) => startReviewSession(tx, orgCtx(actor), actor.userId))
+    const id = await inOrg(orgCtx(actor), (tx) => startReviewSession(tx, orgCtx(actor), actor.userId, actor.uiLang))
     return seeOther(`/run/${id}`)
   } catch {
     return seeOther('/review')

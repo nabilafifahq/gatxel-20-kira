@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function CorrectionBookPage() {
   const actor = await pageActor(['learner'])
-  const data = await load(() => inOrg(orgCtx(actor), (tx) => correctionBookDTO(tx, actor.userId)))
+  const data = await load(() => inOrg(orgCtx(actor), (tx) => correctionBookDTO(tx, actor.userId, actor.uiLang)))
   // Buku Salah (Fix-it Book) tampil sebagai kartu di atas kartu review bila ada soal yang menunggu.
   const fixIt = await load(() => inOrg(orgCtx(actor), (tx) => fixItDTO(tx, actor.userId)))
   return <CorrectionBookScreen data={data} extra={<FixItCard open={fixIt.open} saturday={fixIt.saturday} />} />

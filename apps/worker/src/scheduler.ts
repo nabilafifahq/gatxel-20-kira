@@ -6,6 +6,7 @@ import { listOrgIds, workerCtx } from './db'
 import type { Env } from './env'
 import type { Logger } from './log'
 import type { AiProvider } from './ai/types'
+import { sweepSupportFiles } from './support-files'
 import { deleteStored } from './media'
 import { runWeeklySourcing } from './sourcing/run'
 
@@ -64,8 +65,11 @@ export async function runRetention(deps: ScheduleDeps): Promise<string> {
       failed++
     }
   }
+  // Lampiran bantuan yang tidak terkirim (SMTP mati, gagal permanen) dihapus setelah 14 hari.
+  await deps.client`update public_mail set attachment_path = null where attachment_path is not null and created_at < now() - interval '14 days'`
+  const attachments = await sweepSupportFiles(deps.env.KIRA_DATA_DIR).catch(() => 0)
   const purged = await deps.client<{ n: number }[]>`select kira_purge_public() as n`
-  deps.log.info('retensi selesai', { media: rows.length, failedFiles: failed, purgedPublic: purged[0]?.n ?? 0 })
+  deps.log.info('retensi selesai', { media: rows.length, failedFiles: failed, purgedPublic: purged[0]?.n ?? 0, supportAttachments: attachments })
   return `selesai: ${rows.length} berkas media dihapus${failed ? `, ${failed} gagal` : ''}`
 }
 

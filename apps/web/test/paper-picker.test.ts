@@ -178,3 +178,20 @@ describe('assembleKiraPaper', () => {
     expect(assembleKiraPaper(dup, 10, [], createRng('x'))!.refs).toHaveLength(6)
   })
 })
+
+describe('assembleKiraPaper, soal yang sudah keluar', () => {
+  const pool = Array.from({ length: 6 }, (_, i) => ({ ref: `m4.oly-a.00${i}`, skillId: 'm4.oly-a', difficulty: 3 }))
+  const pick = (itemRefs: string[]) => ({ competition: null, year: null, date: '2026-11-01', itemRefs })
+
+  it('memakai soal cadangan baru sebelum mengulang soal lama', () => {
+    const spare = (need: number) => Array.from({ length: need }, (_, i) => ({ ref: `gen:m4.add:5:s${i}`, skillId: 'm4.add', difficulty: 5 }))
+    const made = assembleKiraPaper(pool, 8, [pick(pool.map((p) => p.ref))], createRng('a'), spare)!
+    expect(made.refs).toHaveLength(8)
+    expect(made.refs.every((r) => r.startsWith('gen:'))).toBe(true)
+  })
+
+  it('tanpa cadangan soal lama tetap mengisi kekurangan', () => {
+    const made = assembleKiraPaper(pool, 6, [pick(pool.slice(0, 3).map((p) => p.ref))], createRng('b'))!
+    expect(made.refs).toHaveLength(6)
+  })
+})

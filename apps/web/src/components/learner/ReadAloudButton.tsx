@@ -1,16 +1,18 @@
 'use client'
 
-import { useId, type ReactElement } from 'react'
+import { useEffect, useId, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
-import type { TtsStyleId } from '@kira/core/tts'
+import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
+import { useT } from '@/lib/i18n/client'
 import { useSpeech, type SpeechInput, type SpeechLang } from './speech'
+import { preloadClips } from './tts-client'
 
 /**
  * Tombol baca suara (papan ReadAloudButton). Satu tombol untuk mulai dan berhenti
  * dengan aria-pressed. Tinggi 56 px. Saat membaca, latar memakai tint mapel.
- * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip Qwen belum aktif; tombol tetap
+ * Tidak tersedia berarti perangkat tidak punya suara bahasa Inggris dan klip suara belum aktif; tombol tetap
  * terlihat dengan garis putus-putus. Teks Indonesia tidak dibacakan, jadi untuk lang="id" tombol tidak tampil.
  */
 
@@ -34,7 +36,7 @@ export function ReadAloudButton({
   compact?: boolean
   /** Tampilkan kalimat "No English voice on this tablet." saat tidak tersedia. */
   showNote?: boolean
-  /** Gaya suara Qwen (guru, pencerita, dikte). Bawaan: guru. */
+  /** Gaya suara klip (guru, pencerita, dikte). Bawaan: guru. */
   style?: TtsStyleId
   /** Label tombol bila bukan Read aloud (misalnya Play the question). */
   labels?: { idle: string; busy: string }
@@ -42,15 +44,22 @@ export function ReadAloudButton({
 }): ReactElement | null {
   const { status, toggle } = useSpeech(lang)
   const noteId = useId()
+  const t = useT()
   const reading = status === 'reading'
   const off = status === 'unavailable'
-  if (lang === 'id') return null
+  // Pramuat klip soal yang sedang tampil: bacaan mulai di bawah satu detik saat tombol ditekan.
+  const preloadKey = JSON.stringify([text, style ?? null])
+  useEffect(() => {
+    if (lang === 'en-GB') preloadClips(text, style ?? TTS_DEFAULT_STYLE)
+  }, [preloadKey, lang])
+  // Teks Indonesia dibacakan suara perangkat; tanpa suara Indonesia di perangkat tombol disembunyikan.
+  if (lang === 'id' && off) return null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button
         type="button"
         aria-pressed={off ? undefined : reading}
-        aria-label={compact ? (reading ? 'Stop reading' : 'Read aloud') : undefined}
+        aria-label={compact ? (reading ? t.widgets.readAloud.stop : t.widgets.readAloud.idle) : undefined}
         aria-describedby={off ? noteId : undefined}
         disabled={off}
         onClick={() => toggle(text, style ? { style } : undefined)}
@@ -65,11 +74,11 @@ export function ReadAloudButton({
         )}
       >
         <UiIcon name={off ? 'speaker-off' : reading ? 'waveform' : 'speaker'} size={22} />
-        {compact ? null : reading ? (labels?.busy ?? 'Reading') : (labels?.idle ?? 'Read aloud')}
+        {compact ? null : reading ? (labels?.busy ?? t.widgets.readAloud.busy) : (labels?.idle ?? t.widgets.readAloud.idle)}
       </button>
       {off ? (
         <span id={noteId} className={cx('text-body text-fg-muted', showNote ? '' : 'visually-hidden')}>
-          No English voice on this device.
+          {t.widgets.shared.noVoice}
         </span>
       ) : null}
     </span>

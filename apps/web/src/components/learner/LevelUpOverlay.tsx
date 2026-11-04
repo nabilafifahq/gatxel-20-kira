@@ -4,6 +4,7 @@ import { useEffect, type CSSProperties, type ReactElement } from 'react'
 import type { XpTrack } from '@kira/core'
 import type { AvatarName } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { Mascot } from './Mascot'
 
 /**
@@ -12,10 +13,10 @@ import { Mascot } from './Mascot'
  * hilang sendiri setelah beberapa detik. Cincin melebar dan angka level masuk (transform dan opacity).
  */
 
-const TONE: Record<XpTrack, { bg: string; fg: string; ring: string; name: string }> = {
-  belajar: { bg: 'bg-star', fg: 'text-fg', ring: 'border-fg', name: 'Learning' },
-  hitung: { bg: 'bg-mental', fg: 'text-fg', ring: 'border-fg', name: 'Quick Maths' },
-  pengetahuan: { bg: 'bg-knowledge', fg: 'text-fg', ring: 'border-fg', name: 'Quiz' },
+const TONE: Record<XpTrack, { bg: string; fg: string; ring: string }> = {
+  belajar: { bg: 'bg-star', fg: 'text-fg', ring: 'border-fg' },
+  hitung: { bg: 'bg-mental', fg: 'text-fg', ring: 'border-fg' },
+  pengetahuan: { bg: 'bg-knowledge', fg: 'text-fg', ring: 'border-fg' },
 }
 
 export const LEVEL_UP_MS = 3200
@@ -31,7 +32,9 @@ export function LevelUpOverlay({
   avatar: AvatarName
   onDone: () => void
 }): ReactElement {
+  const t = useT()
   const tone = TONE[track]
+  const trackName = t.shell.levelUp.track[track]
   useEffect(() => {
     const id = window.setTimeout(onDone, LEVEL_UP_MS)
     return () => window.clearTimeout(id)
@@ -39,7 +42,7 @@ export function LevelUpOverlay({
   return (
     <div
       role="status"
-      aria-label={`Level ${level}. ${tone.name}. You levelled up!`}
+      aria-label={t.shell.levelUp.aria(level, trackName)}
       className={cx(
         'kira-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center gap-5 px-6 text-center',
         tone.bg,
@@ -57,9 +60,9 @@ export function LevelUpOverlay({
         </span>
       </span>
       <Mascot name={avatar} mood="celebrate" size={88} />
-      <p className="m-0 font-display text-display font-semibold">You levelled up!</p>
+      <p className="m-0 font-display text-display font-semibold">{t.shell.levelUp.title}</p>
       <p className="m-0 text-h3 font-bold">
-        {tone.name} level {level}
+        {t.shell.levelUp.trackLevel(trackName, level)}
       </p>
       <button
         type="button"
@@ -69,7 +72,7 @@ export function LevelUpOverlay({
           'border-fg bg-surface text-fg',
         )}
       >
-        Continue
+        {t.common.continue}
       </button>
     </div>
   )

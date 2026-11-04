@@ -6,6 +6,8 @@ import { tables } from '@kira/db'
 import { findContentDir } from '@kira/content/load'
 import { loadSpelling, spellingId, type SpellingLevel, type SpellingLoad } from '@kira/content/spelling'
 import type { EnglishCardDTO, EnglishSkillsDTO, SpellingAnswerInput, SpellingResultDTO, SpellingRoundDTO } from '@/lib/dto-english'
+import { dictFor } from '@/lib/i18n'
+import { getT } from '@/lib/i18n/server'
 import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { poolForSkill, skill, skillsFor } from './content'
@@ -23,7 +25,7 @@ import { buildQuestItems } from './learner-today'
 
 const { attempt, xpEvent } = tables
 
-const SESSION_LENGTH: Record<EnglishSessionArea, { count: number; minutes: number; noun: string }> = {
+const SESSION_LENGTH: Record<EnglishSessionArea, { count: number; minutes: number; noun: 'question' | 'task' }> = {
   listening: { count: 6, minutes: 6, noun: 'question' },
   speaking: { count: 5, minutes: 6, noun: 'question' },
   writing: { count: 2, minutes: 12, noun: 'task' },
@@ -38,10 +40,6 @@ let spellingCache: SpellingLoad | null = null
 function spelling(): SpellingLoad {
   spellingCache ??= loadSpelling(findContentDir())
   return spellingCache
-}
-
-function plural(n: number, noun: string): string {
-  return `${n} ${noun}${n === 1 ? '' : 's'}`
 }
 
 async function sessionsDone(tx: Tx, learnerId: string): Promise<Map<string, number>> {
@@ -61,46 +59,47 @@ export async function englishSkillsDTO(tx: Tx, learnerId: string): Promise<Engli
   const done = await sessionsDone(tx, learnerId)
   const readingSkills = groups.reading
   const readingDone = readingSkills.filter((s) => states.get(s.id)?.gate === 'mastered').length
+  const copy = (await getT()).lessons.english
 
-  const sessionCard = (area: EnglishSessionArea, title: string, blurb: string, cta: string): EnglishCardDTO => {
+  const sessionCard = (area: EnglishSessionArea): EnglishCardDTO => {
     const len = SESSION_LENGTH[area]
     const exists = (items: number) => Boolean(skill(sessionSkillId(learner.grade, area))) && items > 0
     const n = done.get(sessionRef(area)) ?? 0
     return {
       area,
-      title,
-      blurb,
-      detail: `${plural(len.count, len.noun)}, about ${len.minutes} minutes`,
-      progress: n > 0 ? `${plural(n, 'session')} done` : null,
+      title: copy.areas[area].title,
+      blurb: copy.areas[area].blurb,
+      detail: len.noun === 'task' ? copy.tasksDetail(len.count, len.minutes) : copy.questionsDetail(len.count, len.minutes),
+      progress: n > 0 ? copy.sessionsDone(n) : null,
       href: `/english/${area}/start`,
-      cta,
+      cta: copy.areas[area].cta,
       unavailable: !exists(1),
     }
   }
 
   const wordsForLevel = spelling().levels[level.id].length
   const cards: EnglishCardDTO[] = [
-    sessionCard('listening', 'Listening', 'Listen to a short talk, then pick the right answer. Press the speaker as many times as you like.', 'Start listening'),
-    sessionCard('speaking', 'Speaking test', 'An examiner asks you questions about pictures. You record your answers. Your tutor listens and gives you feedback.', 'Start the test'),
-    sessionCard('writing', 'Writing', 'Write sentences about a picture and keep a short journal. Your tutor reads it and helps you improve.', 'Start writing'),
+    sessionCard('listening'),
+    sessionCard('speaking'),
+    sessionCard('writing'),
     {
       area: 'spelling',
-      title: 'Spelling Bee',
-      blurb: 'Hear a word and the sentence it comes from. Then spell it. Ten words in a round.',
-      detail: `${BEE_WORDS} words, about 6 minutes`,
+      title: copy.areas.spelling.title,
+      blurb: copy.areas.spelling.blurb,
+      detail: copy.beeDetail(BEE_WORDS),
       progress: null,
       href: '/english/spelling',
-      cta: 'Join the Bee',
+      cta: copy.areas.spelling.cta,
       unavailable: wordsForLevel < BEE_WORDS,
     },
     {
       area: 'reading',
-      title: 'Reading',
-      blurb: 'Stories, poems and facts, with questions. Reading skills are on the map, together with your daily quests.',
-      detail: `${plural(readingSkills.length, 'skill')} for your grade`,
-      progress: readingSkills.length > 0 ? `${readingDone} of ${readingSkills.length} skills mastered` : null,
+      title: copy.areas.reading.title,
+      blurb: copy.areas.reading.blurb,
+      detail: copy.skillsForGrade(readingSkills.length),
+      progress: readingSkills.length > 0 ? copy.skillsMastered(readingDone, readingSkills.length) : null,
       href: '/map',
-      cta: 'Open the map',
+      cta: copy.areas.reading.cta,
       unavailable: readingSkills.length === 0,
     },
   ]
@@ -108,7 +107,7 @@ export async function englishSkillsDTO(tx: Tx, learnerId: string): Promise<Engli
     shell: await learnerShell(tx, learner),
     levelName: level.name,
     cefr: level.cefr,
-    ladder: YLE_LEVELS.map((l) => ({ name: l.name, cefr: l.cefr, grades: `Grades ${l.grades[0]} and ${l.grades[1]}`, current: l.id === level.id })),
+    ladder: YLE_LEVELS.map((l) => ({ name: l.name, cefr: l.cefr, grades: copy.grades(l.grades[0], l.grades[1]), current: l.id === level.id })),
     cards,
   }
 }
@@ -142,10 +141,11 @@ export async function startEnglishSession(tx: Tx, ctx: OrgContext, learnerId: st
     area === 'listening'
       ? await buildQuestItems(tx, ctx, learner, { skillId, subject: 'english', mode: 'latihan', date: jakartaDate(), seedKey: `${learnerId}:${Date.now()}:${skillId}`, length: len.count })
       : await pickManualItems(tx, ctx, learner, skillId, len.count)
-  if (items.length === 0) throw invalid('No questions are ready for this skill yet.')
+  if (items.length === 0) throw invalid((await getT()).lessons.errors.noQuestions)
   items = await guardAttemptItems(tx, items, { seed: `${learnerId}:${skillId}:${area}`, mode: 'latihan' })
   const level = yleLevelOfGrade(learner.grade)
-  const title = `${level.name} ${area === 'speaking' ? 'speaking test' : area}`
+  // Judul sesi ikut bahasa anak. Di luar request (tes DB) tetap Inggris.
+  const title = (await getT().catch(() => dictFor('en'))).lessons.english.sessionTitle[area](level.name)
   const [row] = await tx
     .insert(attempt)
     .values({ orgId: ctx.orgId, learnerId, kind: 'test', refId: sessionRef(area), mode: 'latihan', subject: 'english', title, items })
@@ -199,7 +199,7 @@ export async function finishSpellingRound(tx: Tx, ctx: OrgContext, learnerId: st
       xp += a.tries === 1 ? XP_FIRST_TRY : XP_SECOND_TRY
     }
   }
-  if (seen.size === 0) throw invalid('Nothing to check.')
+  if (seen.size === 0) throw invalid((await getT()).lessons.errors.nothingToCheck)
   const left = Math.max(0, BEE_DAILY_XP_CAP - (await beeXpToday(tx, learnerId)))
   const granted = Math.min(xp, left)
   await grantXp(tx, ctx, learnerId, granted, 'spelling-bee', level.id, jakartaDate())

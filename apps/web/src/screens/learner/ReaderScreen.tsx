@@ -18,6 +18,7 @@ import { SentenceText } from '@/components/learner/reading/SentenceText'
 import { playSfx } from '@/components/learner/sfx'
 import { useSpeech } from '@/components/learner/speech'
 import { XpPill } from '@/components/learner/XpPill'
+import { useT } from '@/lib/i18n/client'
 import { ActionError } from './common'
 
 /**
@@ -27,7 +28,6 @@ import { ActionError } from './common'
  */
 
 const SIZES = [20, 24, 28, 34] as const
-const SIZE_NAMES = ['Small', 'Medium', 'Large', 'Extra large'] as const
 const KEY_SIZE = 'kira.reader.size'
 const KEY_AUTO = 'kira.reader.auto'
 const HEARTBEAT_MS = 30_000
@@ -64,6 +64,8 @@ type Actions = {
 }
 
 export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Actions }): ReactElement {
+  const t = useT()
+  const tr = t.reading.reader
   const { speak, stop, status } = useSpeech('en-GB')
   const flat = useMemo(() => data.pages.flatMap((p) => p.sentences), [data.pages])
   const pageOf = useMemo(() => {
@@ -121,7 +123,7 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
         }
         setCur(next)
       },
-      { style: 'narrator' },
+      { style: 'teacher' },
     )
     return () => stop()
   }, [playing, cur, replay, phase, flat, pageOf, speak, stop])
@@ -267,21 +269,21 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
   const header = (
     <header className="flex flex-wrap items-center justify-between gap-3">
       <div className="flex min-w-0 flex-col">
-        <Link href={data.bookHref} className="inline-flex min-h-11 items-center gap-1.5 text-body font-bold text-fg no-underline">
+        <Link href={data.bookHref} lang="en-GB" className="inline-flex min-h-11 items-center gap-1.5 text-body font-bold text-fg no-underline">
           <UiIcon name="arrow-left" size={18} />
           {data.bookTitle}
         </Link>
         <h1 className="m-0 text-h2 font-bold">
-          Chapter {data.chapterNumber}: {data.chapterTitle}
+          {tr.chapterHeading(data.chapterNumber)} <span lang="en-GB">{data.chapterTitle}</span>
         </h1>
       </div>
       {phase === 'reading' ? (
-        <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Reading settings">
-          <IconButton icon="minus" label="Smaller text" size="M" variant="secondary" disabled={size === 0} onClick={() => changeSize(-1)} className="h-12 w-12" />
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-label={tr.settings}>
+          <IconButton icon="minus" label={tr.smaller} size="M" variant="secondary" disabled={size === 0} onClick={() => changeSize(-1)} className="h-12 w-12" />
           <span className="min-w-24 text-center text-small font-bold" aria-live="polite">
-            Text: {SIZE_NAMES[size]}
+            {tr.textSize(tr.sizeNames[size] ?? '')}
           </span>
-          <IconButton icon="plus" label="Larger text" size="M" variant="secondary" disabled={size === SIZES.length - 1} onClick={() => changeSize(1)} className="h-12 w-12" />
+          <IconButton icon="plus" label={tr.larger} size="M" variant="secondary" disabled={size === SIZES.length - 1} onClick={() => changeSize(1)} className="h-12 w-12" />
         </div>
       ) : null}
     </header>
@@ -294,10 +296,10 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
       {phase === 'reading' ? (
         <>
           <article
-            aria-label={`${data.bookTitle}, chapter ${data.chapterNumber}, page ${page + 1} of ${data.pages.length}`}
+            aria-label={tr.pageAria(data.bookTitle, data.chapterNumber, page + 1, data.pages.length)}
             className="rounded-card border border-divider bg-surface px-5 py-6 md:px-10 md:py-9"
           >
-            <div className="font-reading" style={{ fontSize: `${SIZES[size]}px`, lineHeight: 1.75, maxWidth: '40em' }}>
+            <div lang="en-GB" className="font-reading" style={{ fontSize: `${SIZES[size]}px`, lineHeight: 1.75, maxWidth: '40em' }}>
               {paragraphs.map((p) => (
                 <p key={p.paragraph} className="m-0 mb-[0.9em] last:mb-0">
                   {p.items.map((s) => (
@@ -322,9 +324,9 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
             </div>
           </article>
 
-          <div className="flex flex-wrap items-center justify-between gap-3" role="group" aria-label="Page and read-along controls">
+          <div className="flex flex-wrap items-center justify-between gap-3" role="group" aria-label={tr.controls}>
             <div className="flex flex-wrap items-center gap-2">
-              <IconButton icon="skip-back" label="Previous sentence" size="M" variant="secondary" disabled={unavailable} onClick={() => step(-1)} />
+              <IconButton icon="skip-back" label={tr.prevSentence} size="M" variant="secondary" disabled={unavailable} onClick={() => step(-1)} />
               <Button
                 variant={playing ? 'secondary' : 'primary'}
                 icon={playing ? 'pause' : 'play'}
@@ -332,11 +334,11 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
                 disabled={unavailable}
                 onClick={togglePlay}
               >
-                {playing ? 'Pause' : active ? 'Play' : 'Read along'}
+                {playing ? tr.pause : active ? tr.play : tr.readAlong}
               </Button>
               <IconButton
                 icon="replay"
-                label="Read this sentence again"
+                label={tr.sentenceAgain}
                 size="M"
                 variant="secondary"
                 disabled={unavailable}
@@ -346,29 +348,29 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
                   setReplay((r) => r + 1)
                 }}
               />
-              <IconButton icon="skip-next" label="Next sentence" size="M" variant="secondary" disabled={unavailable} onClick={() => step(1)} />
+              <IconButton icon="skip-next" label={tr.nextSentence} size="M" variant="secondary" disabled={unavailable} onClick={() => step(1)} />
             </div>
             <label className="inline-flex min-h-11 cursor-pointer items-center gap-2 text-body font-bold">
               <input type="checkbox" checked={auto} onChange={toggleAuto} className="h-6 w-6 accent-fg" />
-              Turn pages by itself
+              {tr.autoTurn}
             </label>
           </div>
-          {unavailable ? <p className="m-0 text-body text-fg-muted">No English voice on this device, so you will read this one by yourself. You can still enjoy the story.</p> : null}
+          {unavailable ? <p className="m-0 text-body text-fg-muted">{tr.noVoice}</p> : null}
 
-          <nav aria-label="Pages" className="flex flex-wrap items-center justify-between gap-3">
+          <nav aria-label={tr.pagesNav} className="flex flex-wrap items-center justify-between gap-3">
             <Button variant="secondary" icon="arrow-left" disabled={page === 0} onClick={() => goPage(page - 1)}>
-              Back
+              {t.common.back}
             </Button>
             <span className="order-first w-full text-center text-body font-bold tabular-nums md:order-none md:w-auto">
-              Page {page + 1} of {data.pages.length}
+              {tr.pageOf(page + 1, data.pages.length)}
             </span>
             {lastPage ? (
               <Button variant="primary" iconAfter="check" onClick={finishReading}>
-                Finish chapter
+                {tr.finishChapter}
               </Button>
             ) : (
               <Button variant="primary" iconAfter="arrow-right" onClick={() => goPage(page + 1)}>
-                Next page
+                {tr.nextPage}
               </Button>
             )}
           </nav>
@@ -378,17 +380,17 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
       {phase === 'intro' ? (
         <section aria-labelledby="done" className="flex max-w-2xl flex-col gap-4 rounded-card border-2 border-english bg-english-50 p-6">
           <h2 id="done" className="m-0 text-h1 font-bold">
-            You finished the chapter
+            {tr.doneTitle}
           </h2>
-          <p className="m-0 text-body-lg">Ready for a few questions? Think about what happened in the chapter. You earn XP the first time you answer.</p>
-          {data.done ? <p className="m-0 text-body text-fg-muted">You have read this chapter before. New questions come first.</p> : null}
+          <p className="m-0 text-body-lg">{tr.doneIntro}</p>
+          {data.done ? <p className="m-0 text-body text-fg-muted">{tr.readBefore}</p> : null}
           {error ? <ActionError message={error.message} reference={error.reference} /> : null}
           <div className="flex flex-wrap gap-3">
             <Button variant="primary" loading={busy} onClick={() => void beginQuiz()}>
-              Answer the questions
+              {tr.answerQuestions}
             </Button>
             <Button variant="secondary" disabled={busy} onClick={() => void skipQuiz()}>
-              Skip the questions
+              {tr.skipQuestions}
             </Button>
           </div>
         </section>
@@ -397,17 +399,17 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
       {phase === 'quiz' && quiz ? (
         <section aria-labelledby="qtitle" className="flex max-w-3xl flex-col gap-4">
           <p className="m-0 text-body font-bold tabular-nums" id="qtitle">
-            Question {qIndex + 1} of {quiz.questions.length}
+            {tr.questionOf(qIndex + 1, quiz.questions.length)}
           </p>
-          <div role="progressbar" aria-label="Questions answered" aria-valuemin={0} aria-valuemax={quiz.questions.length} aria-valuenow={Object.keys(choices).length} className="flex h-2 overflow-hidden rounded-pill bg-divider">
+          <div role="progressbar" aria-label={tr.questionsAnswered} aria-valuemin={0} aria-valuemax={quiz.questions.length} aria-valuenow={Object.keys(choices).length} className="flex h-2 overflow-hidden rounded-pill bg-divider">
             <span className="bg-english" style={{ width: `${(Object.keys(choices).length / quiz.questions.length) * 100}%` }} />
           </div>
           {(() => {
             const q = quiz.questions[qIndex]!
             return (
               <div className="flex flex-col gap-4" key={q.id}>
-                <p className="m-0 font-reading text-h3 font-bold">{q.prompt}</p>
-                <div role="radiogroup" aria-label={q.prompt} className="flex flex-col gap-3">
+                <p lang="en-GB" className="m-0 font-reading text-h3 font-bold">{q.prompt}</p>
+                <div lang="en-GB" role="radiogroup" aria-label={q.prompt} className="flex flex-col gap-3">
                   {q.options.map((o, i) => (
                     <AnswerTile
                       key={i}
@@ -431,15 +433,15 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
           {error ? <ActionError message={error.message} reference={error.reference} /> : null}
           <div className="flex items-center justify-between gap-3">
             <Button variant="secondary" icon="arrow-left" disabled={qIndex === 0} onClick={() => setQIndex((i) => i - 1)}>
-              Back
+              {t.common.back}
             </Button>
             {qIndex < quiz.questions.length - 1 ? (
               <Button variant="primary" iconAfter="arrow-right" disabled={choices[quiz.questions[qIndex]!.id] === undefined} onClick={() => setQIndex((i) => i + 1)}>
-                Next question
+                {tr.nextQuestion}
               </Button>
             ) : (
               <Button variant="primary" loading={busy} disabled={Object.keys(choices).length < quiz.questions.length} onClick={() => void sendQuiz()}>
-                Check my answers
+                {tr.checkAnswers}
               </Button>
             )}
           </div>
@@ -451,30 +453,42 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
           {result ? (
             <>
               <h2 id="rtitle" className="m-0 text-h1 font-bold">
-                You got {result.correct} of {result.total}
+                {tr.score(result.correct, result.total)}
               </h2>
               <div className="flex flex-wrap items-center gap-3">
-                {result.xp > 0 ? <XpPill xp={result.xp} size="L" countUp /> : <span className="text-body text-fg-muted">No new XP this time. You already earned XP for this chapter.</span>}
+                {result.xp > 0 ? <XpPill xp={result.xp} size="L" countUp /> : <span className="text-body text-fg-muted">{tr.noNewXp}</span>}
                 {result.bookXp > 0 ? <XpPill xp={result.bookXp} size="L" /> : null}
               </div>
               {result.bookFinished ? (
-                <p className="m-0 rounded-card border-2 border-success bg-success-50 p-4 text-body-lg font-bold">You finished {data.bookTitle}. It is on your shelf now.</p>
+                <p className="m-0 rounded-card border-2 border-success bg-success-50 p-4 text-body-lg font-bold">
+                  {tr.finishedBook}
+                  <span lang="en-GB">{data.bookTitle}</span>
+                  {tr.finishedBookTail}
+                </p>
               ) : null}
               <ol className="m-0 flex list-none flex-col gap-3 p-0">
                 {result.review.map((r, n) => {
                   const ok = r.chosen === r.answer
                   return (
                     <li key={r.questionId} className={cx('flex flex-col gap-1.5 rounded-card border-2 p-4', ok ? 'border-success bg-success-50' : 'border-warn bg-surface')}>
-                      <p className="m-0 font-reading text-body-lg font-bold">
+                      <p lang="en-GB" className="m-0 font-reading text-body-lg font-bold">
                         {n + 1}. {r.prompt}
                       </p>
                       <p className="m-0 inline-flex items-center gap-1.5 text-body font-bold">
                         <UiIcon name={ok ? 'check' : 'not-yet'} size={16} strokeWidth={3} />
-                        {ok ? 'Correct' : 'Not yet'}
+                        {ok ? tr.correct : tr.notYet}
                       </p>
-                      {!ok ? <p className="m-0 text-body">Your answer: {r.chosen >= 0 ? r.options[r.chosen] : 'no answer'}</p> : null}
-                      <p className="m-0 text-body">The answer: {r.options[r.answer]}</p>
-                      <p className="m-0 text-body text-fg-muted">{r.why}</p>
+                      {!ok ? (
+                        <p className="m-0 text-body">
+                          {tr.yourAnswer} {r.chosen >= 0 ? <span lang="en-GB">{r.options[r.chosen]}</span> : tr.noAnswer}
+                        </p>
+                      ) : null}
+                      <p className="m-0 text-body">
+                        {tr.theAnswer} <span lang="en-GB">{r.options[r.answer]}</span>
+                      </p>
+                      <p lang="en-GB" className="m-0 text-body text-fg-muted">
+                        {r.why}
+                      </p>
                     </li>
                   )
                 })}
@@ -482,20 +496,27 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
             </>
           ) : (
             <h2 id="rtitle" className="m-0 text-h1 font-bold">
-              {skipped?.bookFinished ? `You finished ${data.bookTitle}` : 'Chapter done'}
+              {skipped?.bookFinished ? (
+                <>
+                  {tr.finishedBook}
+                  <span lang="en-GB">{data.bookTitle}</span>
+                </>
+              ) : (
+                tr.chapterDone
+              )}
             </h2>
           )}
           <div className="flex flex-wrap gap-3">
             {(result?.nextHref ?? skipped?.nextHref ?? data.nextHref) ? (
               <ButtonLink href={(result?.nextHref ?? skipped?.nextHref ?? data.nextHref)!} variant="primary" iconAfter="arrow-right">
-                Next chapter
+                {tr.nextChapter}
               </ButtonLink>
             ) : null}
             <ButtonLink href={data.bookHref} variant="secondary">
-              Back to the book
+              {tr.backToBook}
             </ButtonLink>
             <ButtonLink href={data.libraryHref} variant="secondary">
-              Reading Room
+              {t.reading.name}
             </ButtonLink>
           </div>
         </section>

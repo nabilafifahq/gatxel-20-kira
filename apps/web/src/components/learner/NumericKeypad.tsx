@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, type ReactElement } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Keypad angka (papan NumericKeypad). Tombol 64 px dengan angka Andika, juga menerima
@@ -42,7 +43,7 @@ export function NumericKeypad({
   maxLength = 6,
   physicalKeyboard = true,
   size = 'L',
-  label = 'Your answer',
+  label: labelProp,
   showLabel = true,
   className,
 }: {
@@ -62,6 +63,8 @@ export function NumericKeypad({
   showLabel?: boolean
   className?: string
 }): ReactElement {
+  const dict = useT()
+  const label = labelProp ?? dict.widgets.shared.yourAnswer
   const outputId = useId()
   const valueRef = useRef(value)
   const onChangeRef = useRef(onChange)
@@ -114,7 +117,7 @@ export function NumericKeypad({
       : 'cursor-pointer border-border bg-surface text-fg enabled:hover:-translate-y-px enabled:active:translate-y-0.5 active:bg-lilac',
   )
 
-  const keyLabel = (k: KeypadKey) => (k === 'clear' ? 'Clear' : k === 'del' ? 'Delete' : k === 'dot' ? 'Decimal point' : k === 'sign' ? 'Minus sign' : k)
+  const keyLabel = (k: KeypadKey) => (k === 'clear' ? dict.widgets.shared.clear : k === 'del' ? dict.widgets.keypad.delete : k === 'dot' ? dict.widgets.keypad.decimalPoint : k === 'sign' ? dict.widgets.keypad.minusSign : k)
 
   return (
     <div className={cx('flex w-full flex-col gap-2.5', size === 'L' ? 'max-w-[360px]' : 'max-w-[358px]', className)}>
@@ -152,7 +155,7 @@ export function NumericKeypad({
             onClick={() => press(k)}
             className={cx(keyBase, k === 'clear' ? 'text-body font-extrabold' : k === 'del' ? 'bg-lavender' : 'font-numbers text-[30px]')}
           >
-            {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? 'Clear' : k}
+            {k === 'del' ? <UiIcon name="backspace" size={28} /> : k === 'clear' ? dict.widgets.shared.clear : k}
           </button>
         ))}
       </div>

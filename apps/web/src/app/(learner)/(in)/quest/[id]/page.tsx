@@ -12,7 +12,7 @@ export default async function QuestIntroPage({ params }: { params: Promise<{ id:
   const actor = await pageActor(['learner'])
   const { id } = await params
   if (!z.string().uuid().safeParse(id).success) notFound()
-  const data = await load(() => inOrg(orgCtx(actor), (tx) => questIntroDTO(tx, orgCtx(actor), actor.userId, id)))
+  const data = await load(() => inOrg(orgCtx(actor), (tx) => questIntroDTO(tx, orgCtx(actor), actor.userId, id, actor.uiLang)))
   if ('redirect' in data) redirect(data.redirect)
   if ('locked' in data) redirect('/today')
   return <QuestIntroScreen data={data} />
