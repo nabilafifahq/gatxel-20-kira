@@ -5,7 +5,7 @@ import { fetchClips, requestClips, ttsStatus } from './tts-client'
 import { isSfxMuted } from './sfx'
 
 /**
- * Suara pembawa acara Quiz Arena (gaya quizhost). Hanya memutar klip Qwen yang sudah dibuat lewat /tts/<kunci>.mp3.
+ * Suara pembawa acara Quiz Arena (gaya quizhost). Hanya memutar klip suara yang sudah dibuat lewat /tts/<kunci>.mp3.
  * Bila layanan suara mati, klip belum ada, atau jaringan gagal, tidak ada bunyi sama sekali: suara perangkat tidak
  * dipakai di sini. Klip yang belum ada diminta dibuat supaya siap lain kali. Mengikuti tombol senyap efek suara.
  */
@@ -42,6 +42,7 @@ export function hostSay(text: string, delayMs = 0): void {
       if (delayMs > 0) await new Promise((r) => window.setTimeout(r, delayMs))
       if (token !== my || isSfxMuted()) return
       if (current) current.pause()
+      window.dispatchEvent(new CustomEvent('kira:host-start')) // bacaan soal berhenti: tidak ada bunyi di atas pembawa acara
       const url = URL.createObjectURL(blob)
       const audio = new Audio(url)
       current = audio

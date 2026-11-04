@@ -75,7 +75,7 @@ function Reader({ chapter, onClose, last }: { chapter: Chapter; onClose: (earned
             <TapWords text={page.text} />
           </p>
           <div className="flex flex-wrap items-center gap-3">
-            <ReadAloudButton text={page.text} subject="english" style="narrator" />
+            <ReadAloudButton text={page.text} subject="english" style="teacher" />
             <span className="ml-auto text-small font-bold tabular-nums" aria-live="polite">
               {s.page(i + 1, chapter.pages.length)}
             </span>

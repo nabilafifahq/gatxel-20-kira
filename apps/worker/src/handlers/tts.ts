@@ -4,12 +4,12 @@ import { findContentDir, loadContent } from '@kira/content/load'
 import { loadSpelling } from '@kira/content/spelling'
 import { spellingSpeechClips } from '@kira/content/speech'
 import { itemSchema } from '@kira/content/schema'
-import { isClipText, isTtsStyle, TTS_STYLE_MODEL, type TtsClipRequest } from '@kira/core/tts'
+import { isClipText, isTtsStyle, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 import { tables, withOrg } from '@kira/db'
 import { PostponeError, abortError, whenWib } from '../errors'
 import { createTtsClient } from '../tts/client'
-import { bookClips, dedupe, dictionaryClips, itemClips, repoClips } from '../tts/collect'
-import { clipKey, hasClip, writeClip } from '../tts/store'
+import { bookClips, dedupe, dictionaryClips, globalClipKeys, itemClips, repoClips, worldClips } from '../tts/collect'
+import { clipKey, hasClip, PUBLIC_SCOPE, readServedVersion, writeClip, type ClipScope } from '../tts/store'
 import type { Handler, HandlerCtx } from './types'
 
 /**
@@ -50,55 +50,72 @@ async function touchJob(h: HandlerCtx, patch: Record<string, unknown> = {}): Pro
   )
 }
 
-/** Buat klip yang belum ada. Mengembalikan angka ringkasan dan alasan berhenti bila berhenti lebih awal. */
-export async function generate(h: HandlerCtx, clips: TtsClipRequest[], opts: { heartbeat: boolean }): Promise<Totals> {
+/** Klip yang dibuat. `orgId` terisi bila klip milik satu org (soal org): disimpan di folder keluarga, bukan publik. */
+export type ClipJob = TtsClipRequest & { orgId?: string }
+const scopeOf = (c: ClipJob): ClipScope => (c.orgId ? { kind: 'org', orgId: c.orgId } : PUBLIC_SCOPE)
+
+/** Klip per panggilan /batch. Layanan membaginya lagi ke beberapa proses mesin. */
+const BATCH_SIZE = 32
+
+/**
+ * Buat klip yang belum ada. Bisa dilanjutkan: klip yang sudah ada dilewati. Mengembalikan angka ringkasan dan
+ * alasan berhenti bila berhenti lebih awal.
+ */
+export async function generate(h: HandlerCtx, clips: ClipJob[], opts: { heartbeat: boolean; version?: string }): Promise<Totals> {
+  const version = opts.version ?? TTS_VOICE_VERSION
   const url = h.env.TTS_URL
   const dataDir = h.env.KIRA_DATA_DIR
   const t: Totals = { total: clips.length, existing: 0, generated: 0, failed: 0, remaining: 0, stoppedBy: null, avgMs: null, device: null }
-  const todo: TtsClipRequest[] = []
+  const todo: ClipJob[] = []
   for (const c of clips) {
-    if (await hasClip(dataDir, clipKey(c.text, c.style))) t.existing++
+    if (await hasClip(dataDir, clipKey(c.text, c.style, version), scopeOf(c))) t.existing++
     else todo.push(c)
   }
-  // Satu model pada satu waktu di GPU: kerjakan semua klip satu model dulu supaya layanan jarang bertukar model.
-  todo.sort((a, b) => (TTS_STYLE_MODEL[a.style] === TTS_STYLE_MODEL[b.style] ? 0 : TTS_STYLE_MODEL[a.style] === 'design' ? -1 : 1))
   t.remaining = todo.length
   if (todo.length === 0 || !url) return t
 
   const client = createTtsClient(url, h.env.KIRA_INTERNAL_TOKEN)
   let beat = Date.now()
   let consecutiveFailures = 0
-  let genMsSum = 0
-  for (const c of todo) {
+  const started = Date.now()
+  for (let at = 0; at < todo.length && !t.stoppedBy; at += BATCH_SIZE) {
     if (h.signal.aborted) throw abortError()
-    const res = await client.synthesize(c.text, c.style, h.signal)
-    if (res.ok) {
-      await writeClip(dataDir, clipKey(c.text, c.style), res.audio)
-      t.generated++
-      t.remaining--
-      genMsSum += res.genMs
-      t.device = res.device
-      consecutiveFailures = 0
-    } else if (res.code === 'gpu_oom' || res.code === 'unavailable') {
-      t.stoppedBy = res.code
-      h.log.warn('pembuatan suara berhenti', { reason: res.code, detail: res.detail, generated: t.generated, remaining: t.remaining })
-      break
-    } else {
-      t.failed++
-      consecutiveFailures++
-      h.log.warn('klip gagal dibuat', { detail: res.detail, text: c.text.slice(0, 60), style: c.style })
-      if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) {
-        t.stoppedBy = 'failing'
+    const group = todo.slice(at, at + BATCH_SIZE)
+    const res = await client.synthesizeBatch(group, h.signal)
+    if (!res.ok) {
+      if (res.code === 'gpu_oom' || res.code === 'unavailable') {
+        t.stoppedBy = res.code
+        h.log.warn('pembuatan suara berhenti', { reason: res.code, detail: res.detail, generated: t.generated, remaining: t.remaining })
         break
       }
+      t.failed += group.length
+      consecutiveFailures += group.length
+      h.log.warn('potongan klip gagal dibuat', { detail: res.detail, clips: group.length })
+      if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) t.stoppedBy = 'failing'
+      continue
     }
+    t.device = res.device
+    for (const [k, item] of res.items.entries()) {
+      const c = group[k]!
+      if (item.ok) {
+        await writeClip(dataDir, clipKey(c.text, c.style, version), item.audio, scopeOf(c))
+        t.generated++
+        t.remaining--
+        consecutiveFailures = 0
+      } else {
+        t.failed++
+        consecutiveFailures++
+        h.log.warn('klip gagal dibuat', { detail: item.detail, text: c.text.slice(0, 60), style: c.style })
+      }
+    }
+    if (consecutiveFailures >= MAX_CONSECUTIVE_FAILURES) t.stoppedBy = 'failing'
     if (opts.heartbeat && Date.now() - beat >= HEARTBEAT_MS) {
       beat = Date.now()
       await touchJob(h)
-      h.log.info('suara berjalan', { generated: t.generated, remaining: t.remaining, avgGenMs: Math.round(genMsSum / Math.max(1, t.generated)) })
+      h.log.info('suara berjalan', { generated: t.generated, remaining: t.remaining, clipsPerSecond: Number((t.generated / Math.max(1, (Date.now() - started) / 1000)).toFixed(2)) })
     }
   }
-  t.avgMs = t.generated > 0 ? Math.round(genMsSum / t.generated) : null
+  t.avgMs = t.generated > 0 ? Math.round((Date.now() - started) / t.generated) : null
   return t
 }
 
@@ -115,17 +132,17 @@ const batchPayload = z
   })
   .passthrough()
 
-async function orgClips(h: HandlerCtx, only?: readonly string[]): Promise<TtsClipRequest[]> {
+async function orgClips(h: HandlerCtx, only?: readonly string[]): Promise<ClipJob[]> {
   const rows = await withOrg(h.db, h.org, (tx) =>
     tx
       .select({ body: tables.orgItem.body })
       .from(tables.orgItem)
       .where(and(eq(tables.orgItem.orgId, h.org.orgId), isNull(tables.orgItem.retiredAt), ...(only ? [inArray(tables.orgItem.id, [...only])] : []))),
   )
-  const out: TtsClipRequest[] = []
+  const out: ClipJob[] = []
   for (const r of rows) {
     const parsed = itemSchema.safeParse(r.body)
-    if (parsed.success) out.push(...itemClips(parsed.data))
+    if (parsed.success) out.push(...itemClips(parsed.data).map((c) => ({ ...c, orgId: h.org.orgId })))
   }
   return out
 }
@@ -140,18 +157,21 @@ export const ttsBatchHandler: Handler = {
     // Soal org yang baru masuk (pembaruan mingguan): hanya klipnya, tanpa menghitung ulang seluruh konten repo.
     const scoped = batchPayload.safeParse(h.job.payload)
     const refs = scoped.success ? (scoped.data.refs ?? []) : []
-    let clips: TtsClipRequest[]
+    let clips: ClipJob[]
     if (refs.length > 0) {
-      clips = dedupe(await orgClips(h, refs.map((r) => r.slice('org:'.length)))).filter((c) => isClipText(c.text))
+      clips = dedupe<ClipJob>(await orgClips(h, refs.map((r) => r.slice('org:'.length)))).filter((c) => isClipText(c.text))
     } else {
       const { index, errors } = loadContent()
       if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
       const spelling = loadSpelling(findContentDir())
       const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-      clips = dedupe([...repoClips(index), ...spellingClips, ...dictionaryClips(), ...bookClips(), ...(await orgClips(h))]).filter((c) => isClipText(c.text))
+      clips = dedupe<ClipJob>([...repoClips(index), ...spellingClips, ...dictionaryClips(), ...bookClips(), ...worldClips(), ...(await orgClips(h))]).filter((c) => isClipText(c.text))
     }
-    h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length })
-    const t = await generate(h, clips, { heartbeat: true })
+    // Versi yang dibuat = versi layanan (backend dan nama suaranya). Bila berbeda dari versi yang disajikan, ini set calon:
+    // ia dibuat penuh, diperiksa gerbang mutu, lalu dipromosikan dengan pnpm tts:promote. Anak tetap mendengar versi lama.
+    const version = health.voiceVersion ?? TTS_VOICE_VERSION
+    h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length, version, served: await readServedVersion(h.env.KIRA_DATA_DIR) })
+    const t = await generate(h, clips, { heartbeat: true, version })
     h.log.info('batch suara selesai', { ...t })
 
     if (t.stoppedBy === 'gpu_oom' || t.stoppedBy === 'unavailable') {
@@ -177,9 +197,22 @@ export const ttsClipHandler: Handler = {
     const parsed = clipPayload.safeParse(h.job.payload)
     if (!parsed.success) return { skipped: 'Isi job tidak valid.' }
     if (!h.env.TTS_URL) return { skipped: 'TTS_URL belum diisi.' }
-    const clips = dedupe(parsed.data.clips.flatMap((c) => (isTtsStyle(c.style) && isClipText(c.text) ? [{ text: c.text, style: c.style }] : [])))
+    // Klip sesuai permintaan hanya dibuat bila layanan memakai suara yang SEDANG disajikan. Bila tidak, dilewati:
+    // anak tidak boleh mendengar dua suara di antara pertanyaan (suara perangkat dipakai sampai klipnya ada).
+    const served = await readServedVersion(h.env.KIRA_DATA_DIR)
+    const health = await createTtsClient(h.env.TTS_URL, h.env.KIRA_INTERNAL_TOKEN).health(h.signal)
+    if (!health.ok) return { skipped: 'Layanan suara tidak terjangkau' }
+    if ((health.voiceVersion ?? TTS_VOICE_VERSION) !== served) return { skipped: `Layanan memakai suara ${health.voiceVersion ?? '?'}, yang disajikan ${served}` }
+    // Teks konten bersama dibuat publik. Teks lain (soal milik org) hanya untuk org pemintanya.
+    const global = globalClipKeys(served)
+    const clips = dedupe<ClipJob>(
+      parsed.data.clips.flatMap((c): ClipJob[] => {
+        if (!isTtsStyle(c.style) || !isClipText(c.text)) return []
+        return global.has(ttsKeyInput(c.text, c.style, served)) ? [{ text: c.text, style: c.style }] : [{ text: c.text, style: c.style, orgId: h.org.orgId }]
+      }),
+    )
     if (clips.length === 0) return { skipped: 'Tidak ada teks yang layak dibacakan.' }
-    const t = await generate(h, clips, { heartbeat: false })
+    const t = await generate(h, clips, { heartbeat: false, version: served })
     // GPU penuh atau layanan mati: dilewati tanpa coba lagi. Layar learner sudah memakai suara tablet dan akan meminta lagi.
     if (t.stoppedBy) return { ...t, skipped: t.stoppedBy === 'gpu_oom' ? 'GPU penuh' : t.stoppedBy === 'unavailable' ? 'Layanan suara tidak terjangkau' : 'Gagal berulang' }
     return t

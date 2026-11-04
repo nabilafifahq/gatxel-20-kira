@@ -1157,17 +1157,17 @@
       "skill": "s5.dissolving",
       "type": "story",
       "difficulty": 3,
-      "prompt": "Sam stirred sugar into 100 ml of water at different temperatures until no more would dissolve. At 10 °C, 3 spoons dissolved. At 30 °C, 5 spoons. At 50 °C, 7 spoons. At 70 °C, 9 spoons.",
+      "prompt": "Sam stirred sugar into 100 ml of water at different temperatures until no more would dissolve. At 10 °C, 3 big scoops dissolved. At 30 °C, 5 big scoops. At 50 °C, 7 big scoops. At 70 °C, 9 big scoops.",
       "parts": [
         {
           "type": "numeric",
-          "prompt": "How many spoons dissolved at 50 °C?",
+          "prompt": "How many big scoops dissolved at 50 °C?",
           "answer": 7,
           "tolerance": 0
         },
         {
           "type": "numeric",
-          "prompt": "How many more spoons dissolved at 70 °C than at 10 °C?",
+          "prompt": "How many more big scoops dissolved at 70 °C than at 10 °C?",
           "answer": 6,
           "tolerance": 0
         },
@@ -1195,7 +1195,7 @@
               "text": "The temperature"
             },
             {
-              "text": "The spoons dissolved"
+              "text": "The big scoops dissolved"
             },
             {
               "text": "The volume of water"
@@ -1207,9 +1207,9 @@
       "hints": [
         "Find 50 °C in the text.",
         "9 take away 3.",
-        "Look at how the spoons change."
+        "Look at how the big scoops change."
       ],
-      "explanation": "7 spoons at 50 °C. 9 - 3 = 6. Warmer water dissolves more. The volume of water stays the same.",
+      "explanation": "7 big scoops at 50 °C. 9 - 3 = 6. Warmer water dissolves more. The volume of water stays the same.",
       "tags": [
         "investigation"
       ]

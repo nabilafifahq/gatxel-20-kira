@@ -77,11 +77,11 @@ describe('konten repo', () => {
     expect(clips.some((c) => c.text === TTS_EXAMINER_INTRO && c.style === 'teacher')).toBe(true)
     expect(clips.some((c) => c.text === TTS_BEE_PRAISE)).toBe(true)
   })
-  it('bacaan cerita memakai pencerita', () => {
+  it('bacaan cerita memakai suara utama', () => {
     const story = [...index.passages.values()].find((p) => p.kind === 'story' && p.lang === 'en-GB')!
     const clips = passageClips(story)
     expect(clips.length).toBeGreaterThan(0)
-    expect(clips.every((c) => c.style === 'narrator')).toBe(true)
+    expect(clips.every((c) => c.style === 'teacher')).toBe(true)
   })
 })
 
@@ -93,9 +93,9 @@ describe('klien layanan suara', () => {
     expect(r.ok && r.device).toBe('cuda:0')
     const [url, init] = f.mock.calls[0] as unknown as [string, RequestInit]
     expect(url).toBe('http://tts:8000/synthesize')
-    const body = JSON.parse(String(init.body)) as { style: string; segments: { kind: string }[]; seed: number; format: string }
+    const body = JSON.parse(String(init.body)) as { style: string; segments: { kind: string }[]; seed?: number; format: string }
     expect(body).toMatchObject({ style: 'teacher', format: 'mp3' })
-    expect(Number.isInteger(body.seed)).toBe(true)
+    expect(body.seed).toBeUndefined() // suara tetap: tidak ada benih yang memutar suara
     expect(body.segments).toHaveLength(1)
   })
   it('GPU penuh dikenali dari 503', async () => {
@@ -137,17 +137,68 @@ describe('simpanan klip dan generate', () => {
   it('hanya membuat klip yang belum ada', async () => {
     dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
     await writeClip(dir, clipKey('One.', 'teacher'), Buffer.from('x'))
-    const f = vi.fn(async () => new Response(new Uint8Array(500).fill(1), { status: 200, headers: { 'x-kira-device': 'cpu', 'x-kira-gen-ms': '10' } }))
+    const f = vi.fn(async (_url: string, init: RequestInit) => {
+      const n = (JSON.parse(String(init.body)) as { clips: unknown[] }).clips.length
+      const mp3 = Buffer.alloc(500, 1).toString('base64')
+      return new Response(JSON.stringify({ device: 'cpu', results: Array.from({ length: n }, () => ({ ok: true, mp3, ms: 10 })) }), { status: 200 })
+    })
     vi.stubGlobal('fetch', f)
     const t = await generate(ctx(dir), [{ text: 'One.', style: 'teacher' }, { text: 'Two.', style: 'teacher' }], { heartbeat: false })
     expect(t).toMatchObject({ total: 2, existing: 1, generated: 1, remaining: 0, stoppedBy: null })
     expect(f).toHaveBeenCalledTimes(1)
+    expect((JSON.parse(String(f.mock.calls[0]![1].body)) as { clips: unknown[] }).clips).toHaveLength(1)
     expect(await hasClip(dir, clipKey('Two.', 'teacher'))).toBe(true)
+  })
+  it('klip org disimpan di folder keluarga, bukan publik', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    const orgId = '11111111-1111-4111-8111-111111111111'
+    const mp3 = Buffer.alloc(500, 1).toString('base64')
+    vi.stubGlobal('fetch', async () => new Response(JSON.stringify({ device: 'cpu', results: [{ ok: true, mp3, ms: 1 }] }), { status: 200 }))
+    await generate(ctx(dir), [{ text: 'Only for one family.', style: 'teacher', orgId }], { heartbeat: false })
+    const key = clipKey('Only for one family.', 'teacher')
+    expect(await hasClip(dir, key)).toBe(false)
+    expect(await hasClip(dir, key, { kind: 'org', orgId })).toBe(true)
+    expect((await readFile(join(dir, 'tts', 'private', orgId, `${key}.mp3`))).length).toBe(500)
   })
   it('berhenti dengan tenang saat GPU penuh dan melaporkan sisa', async () => {
     dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
     vi.stubGlobal('fetch', async () => new Response(JSON.stringify({ error: 'gpu_oom' }), { status: 503 }))
     const t = await generate(ctx(dir), [{ text: 'A one.', style: 'teacher' }, { text: 'A two.', style: 'teacher' }], { heartbeat: false })
     expect(t).toMatchObject({ generated: 0, remaining: 2, stoppedBy: 'gpu_oom' })
+  })
+})
+
+describe('versi suara yang disajikan', () => {
+  let dir = ''
+  afterEach(async () => {
+    if (dir) await rm(dir, { recursive: true, force: true })
+  })
+  it('tanpa penunjuk memakai versi kode; penunjuk dipindah atomik dan hanya versi valid diterima', async () => {
+    const { readServedVersion, writeServedVersion } = await import('../src/tts/store')
+    const { TTS_VOICE_VERSION } = await import('@kira/core/tts')
+    dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    expect(await readServedVersion(dir)).toBe(TTS_VOICE_VERSION)
+    await writeServedVersion(dir, 'oa-gatxel-female')
+    expect(await readServedVersion(dir)).toBe('oa-gatxel-female')
+    await expect(writeServedVersion(dir, '../etc')).rejects.toThrow()
+    expect(await readServedVersion(dir)).toBe('oa-gatxel-female')
+  })
+  it('versi berbeda menghasilkan kunci berbeda untuk teks dan peran yang sama', () => {
+    expect(clipKey('Hello.', 'teacher', 'k1')).not.toBe(clipKey('Hello.', 'teacher', 'oa-gatxel-female'))
+    expect(clipKey('Hello.', 'teacher')).toBe(clipKey('Hello.', 'teacher', 'k1'))
+  })
+  it('generate menulis klip di bawah kunci versi yang diminta, bukan versi lain', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    const mp3 = Buffer.alloc(500, 1).toString('base64')
+    vi.stubGlobal('fetch', async () => new Response(JSON.stringify({ device: 'remote', results: [{ ok: true, mp3, ms: 1 }] }), { status: 200 }))
+    const h = {
+      env: { TTS_URL: 'http://tts:8000', KIRA_DATA_DIR: dir, KIRA_INTERNAL_TOKEN: 'x'.repeat(40) },
+      log: { info() {}, warn() {}, error() {}, child() { return this } },
+      signal: new AbortController().signal,
+    } as unknown as HandlerCtx
+    await generate(h, [{ text: 'Versioned.', style: 'teacher' }], { heartbeat: false, version: 'oa-test' })
+    expect(await hasClip(dir, clipKey('Versioned.', 'teacher', 'oa-test'))).toBe(true)
+    expect(await hasClip(dir, clipKey('Versioned.', 'teacher', 'k1'))).toBe(false)
+    vi.unstubAllGlobals()
   })
 })
