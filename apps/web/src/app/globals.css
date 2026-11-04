@@ -150,6 +150,10 @@
     outline: 3px solid var(--color-fg);
     outline-offset: 3px;
   }
+  /* Chromium dan WebView menggambar outline hitam pada elemen SVG yang fokus, juga saat hanya diketuk. */
+  svg :focus:not(:focus-visible) {
+    outline: none;
+  }
   [data-area='console'] :focus-visible,
   [data-area='family'] :focus-visible,
   [data-area='public'] :focus-visible {

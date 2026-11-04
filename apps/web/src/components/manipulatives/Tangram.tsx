@@ -134,7 +134,8 @@ export function Tangram({
                   aria-label={`${tt.placeAria(i + 1, slots.length)}${pl ? tt.holds(tt.pieceNames[type!]) : dict.widgets.shared.empty}${selected !== null && !pl ? tt.ariaPlaceChosen : ''}`}
                   onClick={() => putIn(i)}
                   onKeyDown={(e) => onKey(e, () => putIn(i))}
-                  className={cx(!locked && 'cursor-pointer')}
+                  // Grup ini ada di dalam scale(unit): outline biasa ikut membesar menutupi papan, jadi fokus keyboard memakai garis tepi.
+                  className={cx('outline-none [&:focus-visible>path:first-child]:stroke-fg [&:focus-visible>path:first-child]:[stroke-width:0.14]', !locked && 'cursor-pointer')}
                 >
                   <path d={path(slot)} className={cx('fill-bg', selected !== null && !pl && !locked ? 'stroke-fg' : 'stroke-border')} strokeWidth={0.06} strokeDasharray="0.18 0.14" strokeLinejoin="round" />
                   {piece && type ? (

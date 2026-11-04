@@ -10,7 +10,10 @@ export async function GET(req: Request) {
   if (isPrefetch(req)) return prefetchRefused()
   const actor = await getActor()
   if (!actor || actor.role !== 'learner') return seeOther('/')
-  const q = Object.fromEntries(new URL(req.url).searchParams)
+  // Navigasi klien Next menambah _rsc ke alamat. Skema DAL strict menolaknya, jadi semua tile berakhir di "few".
+  const params = new URL(req.url).searchParams
+  params.delete('_rsc')
+  const q = Object.fromEntries(params)
   try {
     const r = await inOrg(orgCtx(actor), (tx) => startFreePractice(tx, orgCtx(actor), actor.userId, q))
     if ('id' in r) return seeOther(`/run/${r.id}`)

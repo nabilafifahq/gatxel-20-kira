@@ -30,7 +30,7 @@ const XP_DAILY_CAP = 20
 
 export type CardDTO = { id: string; front: string; back: string; say: string | null; figure: FigureSpec | null }
 export type DeckRow = { id: string; subject: 'math' | 'english' | 'science'; grade: number; title: string; total: number; known: number; due: number; personal: boolean }
-export type CardsHubDTO = { shell: LearnerShell; mode: 'cards' | 'vocab'; decks: DeckRow[] }
+export type CardsHubDTO = { shell: LearnerShell; mode: 'cards' | 'vocab'; grade: number; decks: DeckRow[] }
 export type CardSessionDTO = {
   shell: LearnerShell
   mode: 'cards' | 'vocab'
@@ -74,9 +74,17 @@ export async function cardsHubDTO(tx: Tx, learnerId: string, mode: 'cards' | 'vo
     const p = await personalDeckFor(tx, learnerId)
     if (p && p.cards.length > 0) all.unshift({ id: PERSONAL_DECK_ID, title: p.title, subject: 'english', grade: learner.grade, cards: p.cards, backLang: p.backLang, personal: true })
   }
+  // Satu query untuk semua dek: ada 295 dek, jadi query per dek membuat halaman ini sangat lambat.
+  const states = await tx.select({ deckId: flashcardState.deckId, cardId: flashcardState.cardId, card: flashcardState.card, dueAt: flashcardState.dueAt }).from(flashcardState).where(eq(flashcardState.learnerId, learnerId))
+  const byDeck = new Map<string, Map<string, { card: CardState; dueAt: Date }>>()
+  for (const r of states) {
+    const m = byDeck.get(r.deckId) ?? new Map<string, { card: CardState; dueAt: Date }>()
+    m.set(r.cardId, { card: r.card as CardState, dueAt: r.dueAt })
+    byDeck.set(r.deckId, m)
+  }
   const rows: DeckRow[] = []
   for (const d of all) {
-    const st = await statesOf(tx, learnerId, d.id)
+    const st = byDeck.get(d.id) ?? new Map<string, { card: CardState; dueAt: Date }>()
     let known = 0
     let due = 0
     for (const c of d.cards) {
@@ -89,7 +97,7 @@ export async function cardsHubDTO(tx: Tx, learnerId: string, mode: 'cards' | 'vo
   }
   // Kelas anak lebih dulu, lalu kelas yang dekat dengan kelasnya.
   rows.sort((a, b) => Number(b.personal) - Number(a.personal) || Math.abs(a.grade - learner.grade) - Math.abs(b.grade - learner.grade) || a.subject.localeCompare(b.subject) || a.title.localeCompare(b.title))
-  return { shell: await learnerShell(tx, learner), mode, decks: rows }
+  return { shell: await learnerShell(tx, learner), mode, grade: learner.grade, decks: rows }
 }
 
 export async function cardSessionDTO(tx: Tx, learnerId: string, deckId: string, mode: 'cards' | 'vocab'): Promise<CardSessionDTO> {
