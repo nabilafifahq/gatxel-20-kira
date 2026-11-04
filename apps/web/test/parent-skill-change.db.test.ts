@@ -318,4 +318,30 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', () => {
     await expect(planner.upsertSlot(TA(), { ...base, fromAuto: undefined, slotId, skillId: q.skill_id as string })).rejects.toMatchObject({ code: 'conflict' })
     expect((await questOf(a3, 'math', 'latihan')).skill_id).toBe(skillId)
   })
+
+  it('kontrol hari ini yang lain tetap jalan untuk Latihan otomatis: jumlah soal dan sesi opsional tambahan', async () => {
+    const C = await import('@/server/dal/parent-control')
+    const lat = await questOf(a2, 'math', 'latihan')
+    await owner`insert into guardian_link (org_id, guardian_id, learner_id) values (${orgA}, ${gA}, ${a2})`
+    try {
+      const change = await C.parentSetQuestionCount(PA(), { questId: lat.id as string, questionCount: 12 })
+      expect(change).toMatchObject({ today: true, regenerated: 1 })
+      expect(await questOf(a2, 'math', 'latihan')).toMatchObject({ skill_id: lat.skill_id, kind: 'daily' })
+      const added = await C.parentAddOptional(PA(), { learnerId: a2, subject: 'math', session: 'latihan' })
+      expect(added).toMatchObject({ today: true, created: 1 })
+      const rows = await owner`select kind, skill_id from quest where learner_id = ${a2} and date = ${today} and subject = 'math' and session = 'latihan' order by kind`
+      expect(rows).toEqual([{ kind: 'daily', skill_id: lat.skill_id }, { kind: 'extra', skill_id: lat.skill_id }])
+      // Sesi tambahan itu juga bisa diganti pelajarannya, tanpa mengubah sesi wajib.
+      const extra = (await owner`select id from quest where learner_id = ${a2} and date = ${today} and subject = 'math' and session = 'latihan' and kind = 'extra'`)[0]!
+      const opts = await P.parentSkillOptions(PA(), { questId: extra.id as string })
+      const pick = opts.topics.flatMap((x) => x.skills).find((x) => x.id !== lat.skill_id)!
+      await P.parentChangeSessionSkill(PA(), { questId: extra.id as string, skillId: pick.id })
+      expect((await owner`select skill_id from quest where id = ${extra.id as string}`)[0]!.skill_id).toBe(pick.id)
+      expect((await questOf(a2, 'math', 'latihan')).skill_id).toBe(lat.skill_id)
+    } finally {
+      await owner`delete from guardian_link where guardian_id = ${gA} and learner_id = ${a2}`
+      await owner`delete from plan_slot where learner_id = ${a2}`
+      await openToday(a2, orgA)
+    }
+  })
 })

@@ -42,7 +42,7 @@ export function ChangeSkill({ questId, label, disabled, onNote }: { questId: str
   const current = data?.currentSkillId ?? null
   return (
     <>
-      <Button variant="secondary" disabled={disabled} onClick={() => void show()} aria-haspopup="dialog">
+      <Button variant="secondary" className="self-start" disabled={disabled} onClick={() => void show()} aria-haspopup="dialog">
         Ganti pelajaran
       </Button>
       <Dialog
@@ -75,7 +75,7 @@ export function ChangeSkill({ questId, label, disabled, onNote }: { questId: str
               key={t.id}
               name={`pelajaran-${questId}`}
               legend={t.label}
-              layout="tiles"
+              layout="stack"
               value={picked}
               onChange={setPicked}
               options={t.skills.map((s) => ({ value: s.id, label: s.id === current ? `${s.title} (sekarang)` : s.title, description: s.titleEn }))}
