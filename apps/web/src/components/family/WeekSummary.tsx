@@ -37,12 +37,12 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
   return (
     <div className="flex flex-col gap-[22px]">
       {s.firstWeek ? (
-        <div role="status" className="rounded-control border-2 border-math bg-math-50 px-4 py-3.5 text-body">
+        <div role="status" className="rounded-control border-2 border-fg bg-math-50 px-4 py-3.5 text-body">
           Ini minggu pertama {s.learnerName} di Kira. Ringkasan lengkap muncul Senin depan, setelah 7 hari data.
         </div>
       ) : null}
 
-      <section aria-label="Ringkasan" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-4">
+      <section aria-label="Ringkasan" className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-4">
         <div className="flex items-start gap-3">
           <ConsoleIcon name="clock" size={22} className="mt-0.5" />
           <p className="m-0 text-body font-semibold">{studyLine(s)}</p>
@@ -58,7 +58,7 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
         <H id="ws-naik" className={hcls}>
           Naik minggu ini
         </H>
-        <ul className="m-0 list-none rounded-card border border-divider bg-surface px-4 py-0">
+        <ul className="m-0 list-none rounded-card bg-surface shadow-soft px-4 py-0">
           {s.skillsUp.length === 0 ? (
             <li className="py-3.5 text-body text-fg-muted">{s.firstWeek ? 'Belum ada pembanding. Minggu ini menjadi titik awal.' : 'Belum ada skill yang naik bintang minggu ini.'}</li>
           ) : (
@@ -81,7 +81,7 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
         <H id="ws-ulang" className={hcls}>
           Perlu diulang
         </H>
-        <ul className="m-0 list-none rounded-card border border-divider bg-surface px-4 py-0">
+        <ul className="m-0 list-none rounded-card bg-surface shadow-soft px-4 py-0">
           {s.skillsToRepeat.length === 0 ? (
             <li className="py-3.5 text-body text-fg-muted">{s.firstWeek ? 'Belum ada. Datanya belum sampai satu minggu.' : 'Tidak ada skill yang perlu diulang minggu ini.'}</li>
           ) : (
@@ -114,7 +114,7 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
           <H id="ws-catatan" className={hcls}>
             Catatan tutor
           </H>
-          <blockquote className="m-0 rounded-card border border-divider bg-surface px-4 py-3.5">
+          <blockquote className="m-0 rounded-card bg-surface shadow-soft px-4 py-3.5">
             <p className="m-0 text-body whitespace-pre-line">{s.tutorNote}</p>
           </blockquote>
         </section>
@@ -125,7 +125,7 @@ export function WeekSummary({ summary: s, compact, headingLevel = 2 }: { summary
           <H id="ws-lomba" className={hcls}>
             Lomba berikutnya
           </H>
-          <div className="flex items-start gap-3 rounded-card border border-divider bg-surface px-4 py-3">
+          <div className="flex items-start gap-3 rounded-card bg-surface shadow-soft px-4 py-3">
             <ConsoleIcon name="trophy" size={20} className="mt-0.5" />
             <div className="flex flex-col">
               <span className="text-body font-bold">{s.nextCompetition.name}</span>

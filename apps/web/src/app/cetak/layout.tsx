@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '../globals.css'
+import './print-legacy.css'
 
 export const metadata: Metadata = { title: 'Cetak, Kira', robots: { index: false, follow: false } }
 

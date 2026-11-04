@@ -63,7 +63,7 @@ export function AudioPlayer({ src, label }: { src: string; label: string }) {
   const frac = duration > 0 ? time / duration : 0
   return (
     <div className="flex flex-col gap-1.5">
-      <div className="flex items-center gap-3.5 rounded-control border border-divider bg-bg px-3.5 py-3">
+      <div className="flex items-center gap-3.5 rounded-control bg-lavender px-3.5 py-3">
         <button
           type="button"
           onClick={toggle}

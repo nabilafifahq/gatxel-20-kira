@@ -58,8 +58,8 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
       </header>
 
       {card ? (
-        <section aria-label={`Step ${step + 1} of ${data.cards.length}`} className="flex max-w-[720px] flex-col gap-4 rounded-card border border-divider bg-surface p-6">
-          <p className="m-0 text-body font-bold text-mental">
+        <section aria-label={`Step ${step + 1} of ${data.cards.length}`} className="flex max-w-[720px] flex-col gap-4 rounded-card bg-surface shadow-soft p-6">
+          <p className="m-0 text-body font-bold text-fg">
             Step {step + 1} of {data.cards.length}
           </p>
           <h2 className="m-0 text-h2 font-bold">{card.title}</h2>
@@ -67,7 +67,7 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
           {card.example ? (
             <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
               {card.example.map((e) => (
-                <li key={e} className="rounded-control border-2 border-mental bg-mental-50 px-4 py-2 font-display text-h2 font-semibold tabular-nums">
+                <li key={e} className="rounded-control border-2 border-fg bg-mental-50 px-4 py-2 font-display text-h2 font-semibold tabular-nums">
                   {e}
                 </li>
               ))}

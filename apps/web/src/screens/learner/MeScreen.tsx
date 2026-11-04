@@ -164,7 +164,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
             <MusicToggle />
           </div>
         </div>
-        <div className="flex w-full items-center gap-5 rounded-card border border-divider bg-surface px-6 py-3.5 lg:ml-auto lg:w-auto">
+        <div className="flex w-full items-center gap-5 rounded-card bg-surface shadow-soft px-6 py-3.5 lg:ml-auto lg:w-auto">
           <div className="flex flex-col">
             <span className="text-body font-semibold text-fg-muted">Level</span>
             <span className="font-display text-display leading-none font-semibold tabular-nums">{data.level}</span>
@@ -179,7 +179,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
       </header>
 
       {data.tracks ? (
-        <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7">
+        <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-tracks" className="m-0 text-h2 font-bold">
             XP and levels
           </h2>
@@ -196,7 +196,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
       ) : null}
 
       {data.accessories && actions.changeAccessory ? (
-        <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
+        <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-accessories" className="m-0 text-h2 font-bold">
             Accessories
           </h2>
@@ -242,7 +242,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
       {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
 
       <div className="flex flex-1 flex-col gap-6 lg:flex-row">
-        <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-[1.15]">
+        <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-[1.15]">
           <div className="flex items-center gap-3">
             <h2 id="me-badges" className="m-0 text-h2 font-bold">
               Badges
@@ -273,7 +273,7 @@ function MeBody({ data, actions }: { data: MeDTO; actions: MeActions }): ReactEl
           )}
         </section>
 
-        <section aria-labelledby="me-calendar" className="flex min-w-0 flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-7 lg:flex-1">
+        <section aria-labelledby="me-calendar" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-1">
           <div className="flex flex-wrap items-baseline gap-3">
             <h2 id="me-calendar" className="m-0 text-h2 font-bold">
               {data.monthLabel}

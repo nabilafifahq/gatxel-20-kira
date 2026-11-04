@@ -186,7 +186,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
       <div className="flex min-h-0 flex-1 flex-col gap-6 px-4 pb-7 md:px-8 lg:flex-row">
         <section aria-label="Lesson player" className="flex min-w-0 flex-col gap-3 lg:flex-[1.7]">
           {finished ? (
-            <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card border border-divider bg-surface px-6 py-10 text-center">
+            <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card bg-surface shadow-soft px-6 py-10 text-center">
               <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-white', style.solid)}>
                 <UiIcon name="check" size={52} />
               </span>
@@ -232,7 +232,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
               isLast={at >= total - 1}
             />
           ) : part ? (
-            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card border border-divider bg-surface p-6 md:min-h-[380px]">
+            <div className="paper-grid relative flex min-h-[300px] flex-1 items-center justify-center overflow-hidden rounded-card bg-surface shadow-soft p-6 md:min-h-[380px]">
               <div key={at} className="motion-fade flex w-full max-w-[520px] flex-col items-center gap-4 starting:opacity-0">
                 {part.step.figure ? (
                   <div className="w-full">
@@ -283,7 +283,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
           ) : null}
         </section>
 
-        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card border border-divider bg-surface p-5.5 lg:flex-1">
+        <aside aria-labelledby="lesson-parts" className="flex min-w-0 flex-col gap-3 rounded-card bg-surface shadow-soft p-5.5 lg:flex-1">
           <h2 id="lesson-parts" className="m-0 text-h3 font-bold">
             In this lesson
           </h2>

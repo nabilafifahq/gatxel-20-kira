@@ -115,7 +115,7 @@ function ScaledBar({ value, target }: { value: number; target: number }): ReactE
 
 function NoteBox({ children }: { children: string }): ReactElement {
   return (
-    <div className="flex items-start gap-3 rounded-control border border-divider bg-bg px-4 py-3.5">
+    <div className="flex items-start gap-3 rounded-control bg-lavender px-4 py-3.5">
       <UiIcon name="info" size={24} className="mt-0.5 flex-none" />
       <p className="m-0 text-body-lg">{children}</p>
     </div>
@@ -155,7 +155,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
       </header>
 
       <div className="grid flex-1 grid-cols-1 gap-4 px-4 md:gap-6 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.25fr)]">
-        <section aria-labelledby="score-label" className="flex min-w-0 flex-col gap-4.5 rounded-card border border-divider bg-surface p-5 md:p-8">
+        <section aria-labelledby="score-label" className="flex min-w-0 flex-col gap-4.5 rounded-card bg-surface shadow-soft p-5 md:p-8">
           <span id="score-label" className="text-body-lg font-bold">
             {data.scoreLabel}
           </span>
@@ -220,7 +220,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
           </div>
         </section>
 
-        <section aria-labelledby="questions-title" className="flex min-w-0 flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-8">
+        <section aria-labelledby="questions-title" className="flex min-w-0 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <h2 id="questions-title" className="m-0 text-h2 font-bold">
               {esmo ? 'By topic' : 'Questions'}
@@ -272,7 +272,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
       </div>
 
       {data.retry ? (
-        <section aria-label="Try again" className="mx-4 mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-divider bg-surface p-5 md:mx-8 md:mt-6">
+        <section aria-label="Try again" className="mx-4 mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card bg-surface shadow-soft p-5 md:mx-8 md:mt-6">
           <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-1">
             <p className="m-0 text-body-lg font-bold">
               {data.retry.isRetry ? `Try ${data.retry.retryNo + 1}. Your first try counts for your report: ${data.retry.official}.` : data.retry.best ? `Your best so far: ${data.retry.best}.` : 'You can try this session again.'}

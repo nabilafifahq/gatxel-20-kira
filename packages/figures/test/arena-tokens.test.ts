@@ -2,7 +2,7 @@
 import { describe, expect, it } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { BG, KNOWLEDGE, KNOWLEDGE_50, MATH, MENTAL, MENTAL_50, WHITE } from '../src/palette'
+import { BG, INK, KNOWLEDGE, KNOWLEDGE_50, MATH, MENTAL, MENTAL_50, WHITE } from '../src/palette'
 
 function channel(c: number): number {
   const s = c / 255
@@ -32,23 +32,21 @@ function deltaE(a: string, b: string): number {
 }
 
 describe('token arena: kontras WCAG AA', () => {
-  it('ungu Quick Maths terbaca di atas putih, kanvas, dan latar tipis (teks 4,5:1)', () => {
-    expect(contrast(MENTAL, WHITE)).toBeGreaterThanOrEqual(4.5)
-    expect(contrast(MENTAL, BG)).toBeGreaterThanOrEqual(4.5)
-    expect(contrast(MENTAL, MENTAL_50)).toBeGreaterThanOrEqual(4.5)
+  it('teks Deep Grape terbaca di atas isi Quick Maths (Lilac) untuk teks besar tebal (3:1)', () => {
+    expect(contrast(INK, MENTAL)).toBeGreaterThanOrEqual(3)
+    expect(contrast(INK, WHITE)).toBeGreaterThanOrEqual(4.5)
+    expect(contrast(INK, BG)).toBeGreaterThanOrEqual(4.5)
   })
-  it('biru Quiz Arena terbaca di atas putih, kanvas, dan latar tipis (teks 4,5:1)', () => {
-    expect(contrast(KNOWLEDGE, WHITE)).toBeGreaterThanOrEqual(4.5)
-    expect(contrast(KNOWLEDGE, BG)).toBeGreaterThanOrEqual(4.5)
-    expect(contrast(KNOWLEDGE, KNOWLEDGE_50)).toBeGreaterThanOrEqual(4.5)
+  it('teks Deep Grape terbaca di atas isi Quiz Arena (Sky Blue) dan latar tipis (4,5:1)', () => {
+    expect(contrast(INK, KNOWLEDGE)).toBeGreaterThanOrEqual(4.5)
+    expect(contrast(INK, KNOWLEDGE_50)).toBeGreaterThanOrEqual(4.5)
+    expect(contrast(INK, MENTAL_50)).toBeGreaterThanOrEqual(4.5)
   })
-  it('teks putih di atas warna arena terbaca (tombol terisi)', () => {
-    expect(contrast(WHITE, MENTAL)).toBeGreaterThanOrEqual(4.5)
-    expect(contrast(WHITE, KNOWLEDGE)).toBeGreaterThanOrEqual(4.5)
+  it('isi Quiz Arena jelas berbeda dari isi Quick Maths', () => {
+    expect(deltaE(KNOWLEDGE, MENTAL)).toBeGreaterThan(30)
   })
-  it('biru Quiz Arena jelas berbeda dari biru Math dan dari ungu', () => {
-    expect(deltaE(KNOWLEDGE, MATH)).toBeGreaterThan(25)
-    expect(deltaE(KNOWLEDGE, MENTAL)).toBeGreaterThan(20)
+  it('Quiz Arena memakai Sky Blue yang sama dengan Math; bedanya ikon, label, dan layar', () => {
+    expect(KNOWLEDGE).toBe(MATH)
   })
   it('globals.css memakai nilai yang sama dengan palette.ts', () => {
     const css = readFileSync(fileURLToPath(new URL('../../../apps/web/src/app/globals.css', import.meta.url)), 'utf8').toLowerCase()

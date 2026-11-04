@@ -12,9 +12,9 @@ import type { WidgetProps } from './types'
  */
 
 const FOCUS: Record<WidgetProps['subject'], string> = {
-  math: 'focus-visible:border-math',
-  english: 'focus-visible:border-english',
-  science: 'focus-visible:border-science',
+  math: 'focus-visible:border-fg',
+  english: 'focus-visible:border-fg',
+  science: 'focus-visible:border-fg',
 }
 const TINT: Record<WidgetProps['subject'], string> = { math: 'bg-math-50', english: 'bg-english-50', science: 'bg-science-50' }
 

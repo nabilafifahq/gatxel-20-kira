@@ -91,7 +91,7 @@ export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pi
       {overlay}
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          <UiIcon name="globe" size={36} className="text-knowledge" />
+          <UiIcon name="globe" size={36} className="text-fg" />
           <h1 className="m-0 text-h1 font-bold">Quiz Arena</h1>
         </div>
         <p className="m-0 max-w-[640px] text-body-lg text-fg-muted">Flags, capitals, animals, space and more. Every quiz is new, and you earn blue XP.</p>
@@ -109,7 +109,7 @@ export function QuizHubScreen({ data, actions }: { data: QuizHubDTO; actions: Pi
       ) : null}
       {error ? <ActionError message={error.message} reference={error.reference} /> : null}
 
-      <section aria-label="Mixed quiz" className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface p-5">
+      <section aria-label="Mixed quiz" className="flex flex-wrap items-center gap-3 rounded-card bg-surface shadow-soft p-5">
         <div className="flex min-w-0 flex-1 flex-col">
           <h2 className="m-0 text-h2 font-bold">Surprise me</h2>
           <p className="m-0 text-body text-fg-muted">Questions from every topic, all mixed up.{data.speedBest > 0 ? ` Your best speed quiz: ${data.speedBest} right.` : ''}</p>

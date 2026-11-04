@@ -64,7 +64,7 @@ export function QuestIntroScreen({
       <main className="flex flex-1 items-start justify-center px-4 pb-10 md:items-center md:px-8 md:pb-14">
         <section
           aria-labelledby="quest-title"
-          className="flex w-full max-w-[960px] flex-col gap-6 rounded-card border border-divider bg-surface p-5 sm:p-8 md:flex-row md:gap-10 md:p-10"
+          className="flex w-full max-w-[960px] flex-col gap-6 rounded-card bg-surface shadow-soft p-5 sm:p-8 md:flex-row md:gap-10 md:p-10"
         >
           <span
             aria-hidden="true"

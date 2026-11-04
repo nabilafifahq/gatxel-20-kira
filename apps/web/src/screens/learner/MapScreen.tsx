@@ -145,7 +145,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
           </div>
         </div>
       ) : (
-        <p className="m-0 rounded-card border border-divider bg-surface p-6 text-body-lg">
+        <p className="m-0 rounded-card bg-surface shadow-soft p-6 text-body-lg">
           The {SUBJECT_NAME[subject]} map is not ready yet. Your tutor adds the chapters for Grade {data.grade}.
         </p>
       )}
@@ -154,7 +154,7 @@ export function MapScreen({ data }: { data: MapDTO }): ReactElement {
         <section
           aria-label="Selected skill"
           aria-live="polite"
-          className="sticky bottom-21 z-10 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card border border-divider bg-surface px-4 py-3 md:static md:px-5 md:py-4"
+          className="sticky bottom-21 z-10 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card bg-surface shadow-soft px-4 py-3 md:static md:px-5 md:py-4"
         >
           <div className="flex min-w-0 flex-1 flex-col">
             <span className="text-h3 font-bold">{sel.title}</span>

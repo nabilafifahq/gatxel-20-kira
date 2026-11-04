@@ -31,7 +31,7 @@ export function FixItScreen({ data }: { data: FixItDTO }): ReactElement {
       </header>
 
       {data.canStart ? (
-        <section aria-label="What is waiting" className="flex flex-col gap-3.5 rounded-card border border-divider bg-surface p-4 md:p-5.5">
+        <section aria-label="What is waiting" className="flex flex-col gap-3.5 rounded-card bg-surface shadow-soft p-4 md:p-5.5">
           <p className="m-0 text-body-lg">
             Each session has up to {data.sessionSize} questions. You get hints and feedback, so this is the time to learn from them.
           </p>

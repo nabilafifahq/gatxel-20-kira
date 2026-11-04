@@ -1,48 +1,50 @@
 # DESIGN.md
 
-Proyek: Kira. Versi 0.2, 12 Oktober 2026. Pemilik: Nabila.
-Setiap warna, font, radius, jarak, bayangan, dan kurva easing di kode merujuk token di file ini. Token yang sama ada di `apps/web/src/app/globals.css` (blok `@theme`) dan `packages/figures/src/palette.ts`, dan diperiksa oleh `scripts/check-copy.mjs` (hex di luar daftar ini ditolak).
+Proyek: Kira. Versi 1.0 (Brand Kit v1.0), November 2026. Pemilik: Nabila.
+Setiap warna, font, radius, jarak, bayangan, dan kurva easing di kode merujuk token di file ini. Token yang sama ada di `apps/web/src/app/globals.css` (blok `@theme`) dan `packages/figures/src/palette.ts`, dan diperiksa oleh `scripts/check-copy.mjs` (hex di luar daftar ini ditolak). Sumber visual: papan Brand Kit v1.0 di kanvas desain Kira.
 
-Perubahan dari 0.1: skala jenjang kelas 1 sampai 6 (bagian 3a), token `--review`, fokus learner dan konsol dipisah, komponen dibangun dengan elemen HTML asli tanpa pustaka komponen.
+Perubahan dari 0.2: palet enam warna (Kira Lilac, Soft Lavender, Butter Yellow, Sky Blue, Cloud White, Deep Grape), huruf Fredoka, Nunito, dan Baloo 2, kartu putih dengan satu bayangan lembut tanpa garis, radius 20, tombol primary Lilac. Larangan bayangan dan token garis lama dicabut. Aturan aksesibilitas, gerak, dan suara tidak berubah. Papan cetak (paper, kunci, LJK) tetap memakai gaya lama (bagian 4, tabel cetak).
 
 ## 1. What this is
 
-**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (kurikulum Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses di https://kira.gatxel.com lewat Cloudflare Tunnel.
-**Who uses it:** Syakira (Grade 2) di tablet sepulang sekolah, 45 sampai 60 menit sehari. Nabila sebagai tutor di laptop dan HP. Mama di HP untuk laporan dan persetujuan. Sepupu lain bisa ditambahkan sebagai learner berikutnya.
-**The one action:** learner menyelesaikan tiga Daily Quest hari ini tanpa dibantu.
-**Language:** layar learner en-GB (`<html lang="en-GB">`). Konsol tutor, halaman orang tua, dan halaman hukum id-ID (`<html lang="id">`). Soal ESMO Math boleh berbahasa Indonesia dengan tombol Terms.
+**Product:** Website belajar harian Math, English, Science untuk anak SD kelas 1 sampai 6 (mengacu pada kerangka Cambridge Primary), dengan konsol tutor dan halaman orang tua. Berjalan di server rumah, diakses di https://kira.gatxel.com lewat Cloudflare Tunnel.
+**Who uses it:** anak SD kelas 1 sampai 6 di tablet dan HP sepulang sekolah, 45 sampai 60 menit sehari. Orang tua di HP untuk laporan dan pengaturan. Tutor di laptop dan HP.
+**The one action:** learner menyelesaikan Daily Quest hari ini tanpa dibantu.
+**Language:** layar learner en-GB dan Indonesia (`<html lang>` mengikuti pilihan). Konsol tutor, halaman orang tua, dan halaman hukum id-ID. Soal ESMO Math boleh berbahasa Indonesia dengan tombol Terms.
 
 ## 2. The aesthetic
 
-**Direction:** buku latihan yang hidup. Permukaan putih seperti kertas di atas kanvas biru keabuan yang dingin, garis tinta tegas, pill nomor soal dan aksen mapel yang sama dengan kertas cetak. Ilustrasi datar bergaris tinta 2px. Area kerja Math boleh memakai pola kertas berpetak 8px.
+**Direction:** teman belajar kecil yang ajaib. Hangat, ceria, dan tetap tepercaya untuk orang tua. Latar Cloud White, kartu putih dengan bayangan lembut, panel Soft Lavender, garis kontrol Deep Grape 2px, bentuk membulat, ilustrasi datar bergaris Deep Grape 2,5px berujung bulat. Maskot Kira adalah bintang kuning yang ceria; ia muncul di momen penting (sapaan, jawaban benar, quest selesai, layar kosong).
+**Kata kunci merek:** suka bermain, ceria, ramah, mudah didekati, penasaran, menyemangati, kreatif.
 **One strong decision per screen:**
-- Today: perhentian quest yang aktif dua kali lebih besar dari dua lainnya.
-- Runner: teks soal dengan font baca Andika; elemen lain tenang.
-- Hasil: skor dalam Mohave 64px.
-- Konsol tutor: daftar Perlu perhatian di paling atas, sebelum angka apa pun.
-**Explicitly not this:** gradien ungu ke indigo, palet krem atau beige, strip warna di sisi kiri kartu, ikon di atas judul kartu, tiga kartu identik sejajar, baris metrik besar di hero, label kicker, emoji sebagai ikon atau navigasi, glassmorphism, easing memantul, titik berdenyut, ikon api untuk streak, hati atau nyawa, maskot burung hijau, konfeti di setiap jawaban benar, suara yang tidak bisa dimatikan.
+- Today: perhentian quest yang aktif dua kali lebih besar dari lainnya.
+- Runner: teks soal besar dan tenang; elemen lain mengalah.
+- Hasil: skor Baloo 2 64px dengan bintang.
+- Konsol tutor: daftar Perlu perhatian di paling atas.
+**Explicitly not this:** gradien, glassmorphism, tema gelap, warna di luar palet, emoji sebagai ikon atau navigasi, easing memantul, titik berdenyut, ikon api untuk streak, hati atau nyawa, maskot burung hijau, konfeti di setiap jawaban benar, suara yang tidak bisa dimatikan, bayangan lebih dari satu jenis, kartu yang memakai bayangan dan garis sekaligus.
 
 ## 3. Type
 
 | Token | Value | Used for |
 |---|---|---|
-| `--font-body` | Plus Jakarta Sans, Segoe UI, system-ui, sans-serif | UI, tombol, konsol tutor |
-| `--font-reading` | Andika, Verdana, sans-serif | Teks soal dan bacaan di layar learner |
-| `--font-display` | Mohave, Arial Narrow, sans-serif | Skor, timer, angka streak, judul pendek |
+| `--font-display` | Fredoka, Nunito, system-ui, sans-serif | Judul halaman, bagian, kartu, label penting |
+| `--font-body` | Nunito, system-ui, sans-serif | Paragraf, navigasi, label form, tombol |
+| `--font-reading` | Nunito, system-ui, sans-serif | Teks soal dan bacaan di layar learner |
+| `--font-numbers` | Baloo 2, Nunito, system-ui, sans-serif | Skor, poin, XP, progres, timer, angka keypad |
 
-Override: teks soal memakai Andika karena dirancang SIL untuk pembaca pemula (a dan g satu tingkat, I, l, dan 1 mudah dibedakan). Semua font berlisensi OFL dan di-host sendiri lewat `@fontsource`, tanpa permintaan ke Google Fonts.
+Ketiganya berlisensi SIL OFL 1.1 dan di-host sendiri di `apps/web/public/fonts` (satu berkas variabel Latin per keluarga, lisensi `OFL-*.txt` di folder yang sama). Tanpa permintaan ke Google Fonts.
 
 | Token | Size / line-height | Used for |
 |---|---|---|
-| `--text-display` | 64 / 68, Mohave 600 | Skor di halaman hasil |
-| `--text-h1` | 32 / 40, 700 | Judul layar |
-| `--text-h2` | 24 / 32, 700 | Judul bagian, judul quest aktif |
-| `--text-question` | per jenjang, lihat 3a | Teks soal (Andika) |
+| `--text-display` | 64 / 68, Baloo 2 | Skor di halaman hasil |
+| `--text-h1` | 32 / 40, Fredoka 600 | Judul layar |
+| `--text-h2` | 24 / 32, Fredoka 600 | Judul bagian, judul quest aktif |
+| `--text-question` | per jenjang, lihat 3a | Teks soal (Nunito) |
 | `--text-body-lg` | 18 / 29 | Isi di layar learner |
 | `--text-body` | 16 / 26 | Isi di konsol tutor |
 | `--text-small` | 14 / 22 | Keterangan; tidak dipakai di layar learner |
 
-Angka di tabel, timer, dan skor memakai `font-variant-numeric: tabular-nums`.
+Isi minimal 16px, teks soal 19 sampai 26px sesuai jenjang. Angka di tabel, timer, dan skor memakai `font-variant-numeric: tabular-nums`.
 
 ## 3a. Skala jenjang
 
@@ -56,53 +58,72 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | Kata per baris instruksi | paling banyak 12 | paling banyak 16 | paling banyak 20 |
 | Figur | hampir di setiap soal | saat soal membutuhkan | diagram, tabel, grafik |
 | Kotak kerja | tidak ada | opsional | ada di soal uraian |
-| Target sentuh | 44px, ubin jawaban 56px | sama | sama |
+| Target sentuh | 56px | sama | sama |
 
 ## 4. Color
 
 | Token | Value | Used for |
 |---|---|---|
-| `--bg` | #F5F8FC | Kanvas |
-| `--surface` | #FFFFFF | Kartu, area soal |
-| `--fg` | #14202E | Teks utama, 15:1 |
-| `--fg-muted` | #4A5A6E | Teks sekunder, 6,6:1 |
-| `--border` | #7A8899 | Batas kontrol dan ubin jawaban, 3,4:1 |
-| `--divider` | #D3DCE6 | Garis pemisah dekoratif saja |
-| `--math` | #1F6FB2 | Aksen Math, 5,0:1 |
-| `--english` | #B4442F | Aksen English, 5,2:1 |
-| `--science` | #2E7D4F | Aksen Science, 4,7:1 |
-| `--math-50` | #E7F0F9 | Latar tipis Math |
-| `--english-50` | #FAECE8 | Latar tipis English |
-| `--science-50` | #E7F3EC | Latar tipis Science |
-| `--mental` | #7A3EB0 | Aksen Quick Maths dan XP Hitung Cepat (ungu), 6,7:1 di atas putih, 5,7:1 di atas `--mental-50` |
-| `--knowledge` | #27409E | Aksen Quiz Arena dan XP Pengetahuan (biru tua), 9,1:1 di atas putih, 7,7:1 di atas `--knowledge-50`; berbeda dari `--math` (selisih warna 30 pada CIELAB) |
-| `--mental-50` | #F2EAF8 | Latar tipis Quick Maths |
-| `--knowledge-50` | #E8ECF9 | Latar tipis Quiz Arena |
-| `--accent` | var(--math) | Fokus dan tautan di konsol |
-| `--success` | #2E7D4F | Correct, selalu dengan ikon centang dan teks |
-| `--warn` | #B54708 | Not yet, selalu dengan ikon dan teks, 5,1:1 |
-| `--warn-50` | #FDF1E7 | Latar tipis Not yet |
-| `--star` | #F2B10E | Isi bintang dan rantai streak; tidak untuk teks |
-| `--danger` | #B42318 | Aksi hapus dan error di konsol, 6,2:1 |
-| `--danger-50` | #FCEBEA | Latar tipis error |
-| `--review` | #A3B1C2 | Skill perlu review di peta panas, selalu dengan teks |
+| `--color-lilac` | #B99AEF | Tombol primary, sorotan, status aktif, progres belajar, mapel English |
+| `--color-lavender` | #E9DDFB | Permukaan kedua, panel, tombol secondary, pemisah |
+| `--color-yellow` | #FFE69A | Hadiah, bintang, XP, pencapaian, tombol aksen, mapel Science |
+| `--color-sky` | #9DD8F7 | Info, petunjuk, ilustrasi, mapel Math |
+| `--color-cloud` (`--color-bg`) | #FFFCF5 | Latar utama aplikasi |
+| `--color-surface` | #FFFFFF | Kartu dan input |
+| `--color-grape` (`--color-fg`) | #6546A5 | Semua teks, judul, ikon, garis kontrol, cincin fokus |
+| `--color-success` | #2E7D4F | Ikon dan garis jawaban benar; teks hijau hanya di atas putih |
+| `--color-danger` | #B42318 | Hapus dan error di layar dewasa; bukan untuk jawaban anak |
 
-Tiga jalur XP punya warna bar sendiri: XP Belajar memakai `--star`, XP Hitung Cepat memakai `--mental`, XP Pengetahuan memakai `--knowledge`. Warna selalu ditemani label dan angka level, tidak pernah menjadi satu-satunya penanda. `--mental` dan `--knowledge` dipakai untuk teks, garis, dan isi tombol (teks putih di atasnya lolos 4,5:1); `--mental-50` dan `--knowledge-50` hanya latar. Kontras dan jarak warna dijaga oleh `packages/figures/test/arena-tokens.test.ts`.
+Alias semantik (semuanya menunjuk ke enam warna di atas): `--fg`, `--fg-muted`, `--border`, `--accent`, `--warn` = Deep Grape; `--divider`, `--*-50`, `--warn-50` = Soft Lavender; `--math`, `--knowledge`, `--review` = Sky Blue; `--english`, `--mental` = Kira Lilac; `--science`, `--star` = Butter Yellow; `--success-50`, `--danger-50` = putih.
+
+Pasangan kontras (rasio dihitung dari nilai di atas):
+
+| Pasangan | Rasio | Dipakai untuk |
+|---|---|---|
+| Grape di atas Cloud White | 6,89:1 | Semua teks |
+| Grape di atas Soft Lavender | 5,45:1 | Semua teks |
+| Grape di atas Butter Yellow | 5,73:1 | Semua teks |
+| Grape di atas Sky Blue | 4,57:1 | Semua teks |
+| Putih di atas Deep Grape | 7,06:1 | Semua teks |
+| Grape di atas Kira Lilac | 3,00:1 | Teks 19px tebal atau 24px ke atas |
+| Cloud White di atas Kira Lilac | 2,29:1 | Jangan untuk teks |
+| Soft Lavender di atas Cloud White | 1,27:1 | Hanya pemisah, bukan batas kontrol |
+
+Aturan warna: Kira Lilac adalah warna utama merek. Butter Yellow dan Sky Blue hanya aksen, tidak pernah untuk teks. Semua teks, ikon, dan garis kontrol memakai Deep Grape. Status selalu memakai warna, ikon, dan teks sekaligus. Mapel: Math Sky Blue, English Kira Lilac, Science Butter Yellow, selalu dengan ikon dan nama mapel. Not yet memakai ikon, garis putus, dan kalimat penyemangat, tanpa merah. Tanpa gradien, glassmorphism, tema gelap, atau warna di luar palet.
+
+Tiga jalur XP: XP Belajar Butter Yellow, XP Hitung Cepat (Quick Maths) Kira Lilac, XP Pengetahuan (Quiz Arena) Sky Blue. Keduanya dibedakan oleh ikon (bolt dan globe), label, dan angka level, tidak pernah oleh warna saja. Kontras dan jarak warna dijaga oleh `packages/figures/test/arena-tokens.test.ts`.
 
 Dark mode: tidak di v1. Setiap tema tambahan menggandakan uji kontras.
+
+**Papan cetak (gaya lama, hanya di bawah `data-area="print"`, berkas `app/cetak/print-legacy.css`).** Kertas dan tinta tetap seperti sebelumnya supaya cetakan tidak berubah:
+
+| Token cetak | Value |
+|---|---|
+| fg / bg | #14202E / #F5F8FC |
+| fg-muted / border / divider | #4A5A6E / #7A8899 / #D3DCE6 |
+| math / math-50 | #1F6FB2 / #E7F0F9 |
+| english / english-50 | #B4442F / #FAECE8 |
+| science (hijau) / science-50 | #2E7D4F / #E7F3EC |
+| warn / warn-50 | #B54708 / #FDF1E7 |
+| star / review / danger-50 | #F2B10E / #A3B1C2 / #FCEBEA |
 
 ## 5. Shape and space
 
 | Token | Value |
 |---|---|
-| `--radius-card` | 16px |
-| `--radius-control` | 12px |
-| `--radius-pill` | 9999px, hanya chip dan pill nomor soal |
+| `--radius-sm` | 8px |
+| `--radius-md` | 12px (input) |
+| `--radius-control` | 16px (tombol, ubin jawaban) |
+| `--radius-card` | 20px |
+| `--radius-xl` | 24px (wadah besar, lembar umpan balik) |
+| `--radius-pill` | 9999px, chip, pill nomor soal, lencana |
+| `--shadow-soft` | 0 4px 16px rgba(101, 70, 165, 0.10) |
 | `--space-base` | 4px |
 
 Ritme: 8 di dalam baris, 16 antarblok, 24 di dalam kartu, 48 antarbagian layar.
-Elevation: border, tanpa bayangan (`--shadow-1: none`). Kartu 1px `--divider`, ubin jawaban 2px `--border`, ubin terpilih 3px warna mapel.
-Fokus: layar learner outline 3px `--fg` jarak 2px; konsol outline 3px `--accent` jarak 2px. Elemen fokus tidak tertutup header lengket (`scroll-margin-top` sama dengan tinggi header).
+Elevation: satu bayangan saja, `--shadow-soft`. Pilih bayangan atau garis, tidak keduanya. Kartu: putih, bayangan, tanpa garis. Panel: Soft Lavender, tanpa bayangan dan garis. Garis 1px Soft Lavender hanya untuk pemisah dan tabel. Tombol, input, dan ubin jawaban bergaris 2px Deep Grape; terpilih memakai isi Lilac, garis 3px, dan tanda centang.
+Fokus: outline 3px Deep Grape berjarak 3px; input menambah lingkar Lilac. Elemen fokus tidak tertutup header lengket (`scroll-margin-top` sama dengan tinggi header).
+Tombol: primary Lilac dengan teks Grape 20px tebal dan garis 2px Grape; secondary Lavender; accent Butter Yellow; ghost bergaris bawah; danger putih dengan garis dan teks merah (layar dewasa saja). Tinggi 56px di layar learner, 48px di konsol. State: hover naik 1px, pressed turun 2px, disabled Lavender dengan teks Grape 55 persen.
 
 ## 6. Motion
 
@@ -166,7 +187,7 @@ Semua gerak hanya `transform` dan `opacity` (kecuali cincin timer di 6a), memaka
 | Bintang kombo yang tumbuh | `ComboStars` | Benar beruntun, tingkat 1 sampai 3 |
 | "+XP" naik ke arah bar | `XpFly` | Jawaban benar di runner |
 | Bar XP terisi mulus | `kira-bar-fill` (skala X) | Today, Me, hasil |
-| Momen naik level layar penuh, warna jalur | `LevelUpOverlay` | Naik level (belajar kuning, Quick Maths ungu, Quiz biru tua), hilang sendiri |
+| Momen naik level layar penuh, warna jalur | `LevelUpOverlay` | Naik level (belajar kuning, Quick Maths lilac, Quiz biru muda), hilang sendiri |
 | Lencana: kartu berputar masuk dan kilau | `BadgeReveal` | Lencana baru di hasil |
 | Angka hitung naik | `CountUp` | Skor dan XP di hasil |
 | Garis jalur Today terisi, sesi aktif bercahaya | `kira-path-fill`, `kira-active-glow` | Today (cahaya muncul sekali, tidak berdenyut) |
@@ -204,7 +225,7 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 - Hasil dan pembahasan: skor, lalu daftar soal; setiap soal membuka jawaban learner, kunci, penjelasan, dan SolutionPlayer.
 - Konsol tutor: Perlu perhatian, status hari ini per mapel, tren mingguan.
 - Halaman cetak: header paper, petunjuk, bagian soal, footer kode dan nomor halaman.
-- Quick Maths (`/quick-maths`, nada `--mental`): misi harian, pilihan permainan, pengaturan, pelajaran strategi, statistik. Ronde: angka soal Mohave besar, keypad 64px di kanan pada tablet, sempoa virtual yang hanya diketuk (tanpa seret).
+- Quick Maths (`/quick-maths`, nada `--mental`): misi harian, pilihan permainan, pengaturan, pelajaran strategi, statistik. Ronde: angka soal Baloo 2 besar, keypad 64px di kanan pada tablet, sempoa virtual yang hanya diketuk (tanpa seret).
 - Quiz Arena (`/quiz-arena`, nada `--knowledge`): dua belas topik dengan bar kemajuan, halaman topik dengan tiga mode (Learn, Quiz, Speed quiz), ronde dengan pilihan jawaban yang selalu diacak. Gambar hanya dari berkas sendiri (bendera `public/flags`, ikon dan planet `@kira/figures`), tanpa emoji.
 - Today dan Me menampilkan tiga bar XP (Belajar, Quick Maths, Quiz) dengan level masing-masing. Aksesori avatar didapat dari level jalur dan dipakai dari Me; teksnya selalu "Earn", bukan kata terlarang GTX.
 
@@ -220,4 +241,4 @@ Tested with no horizontal scroll and no text overflow at: 320, 375, 414, 768, 82
 
 ## 12. Accessibility floor
 
-WCAG 2.2 AA. Body 4.5:1, large text and UI borders 3:1. Target 44px di layar learner dan 24px di konsol; ubin jawaban minimal 56px tinggi. Keyboard operable, focus never obscured by a sticky header, `autocomplete` set, paste never blocked. Setiap soal punya tombol baca suara, setiap widget seret punya alternatif ketuk, setiap video ber-caption.
+WCAG 2.2 AA. Body 4.5:1, large text and UI borders 3:1. Teks di atas Kira Lilac hanya 19px tebal ke atas. Target sentuh 56px di layar learner dan 48px di layar dewasa; ubin jawaban minimal 56px tinggi. Keyboard operable, focus never obscured by a sticky header, `autocomplete` set, paste never blocked. Setiap soal punya tombol baca suara, setiap widget seret punya alternatif ketuk, setiap video ber-caption.

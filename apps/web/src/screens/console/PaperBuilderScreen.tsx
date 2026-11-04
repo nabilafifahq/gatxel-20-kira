@@ -303,7 +303,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
 
       <div className="flex flex-wrap items-start gap-6">
         {/* Bank soal */}
-        <section aria-labelledby="pilih-soal" className="flex min-w-0 flex-[1_1_340px] flex-col gap-3.5 rounded-card border border-divider bg-surface p-5 max-sm:p-4">
+        <section aria-labelledby="pilih-soal" className="flex min-w-0 flex-[1_1_340px] flex-col gap-3.5 rounded-card bg-surface shadow-soft p-5 max-sm:p-4">
           <div className="flex flex-wrap items-center gap-2">
             <h2 id="pilih-soal" className="m-0 mr-auto text-h3 font-bold">
               Pilih dari bank soal
@@ -427,7 +427,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
         </section>
 
         {/* Isi paper */}
-        <section aria-labelledby="isi-paper" className="flex min-w-0 flex-[1.3_1_400px] flex-col gap-3.5 rounded-card border border-divider bg-surface p-5 max-sm:p-4">
+        <section aria-labelledby="isi-paper" className="flex min-w-0 flex-[1.3_1_400px] flex-col gap-3.5 rounded-card bg-surface shadow-soft p-5 max-sm:p-4">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
             <h2 id="isi-paper" className="m-0 text-h3 font-bold">
               Isi paper
@@ -528,7 +528,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
         </section>
 
         {/* Pratinjau cetak */}
-        <aside aria-labelledby="pratinjau" className="flex min-w-0 flex-[0.9_1_280px] flex-col gap-3.5 rounded-card border border-divider bg-surface p-5 max-sm:p-4">
+        <aside aria-labelledby="pratinjau" className="flex min-w-0 flex-[0.9_1_280px] flex-col gap-3.5 rounded-card bg-surface shadow-soft p-5 max-sm:p-4">
           <h2 id="pratinjau" className="m-0 text-h3 font-bold">
             Pratinjau cetak
           </h2>
@@ -556,7 +556,7 @@ export function PaperBuilderScreen({ data, actions }: PaperBuilderScreenProps) {
           <h2 id="paper-tersimpan" className="m-0 text-h2 font-bold max-sm:text-h3">
             Paper tersimpan
           </h2>
-          <ul className="m-0 list-none overflow-hidden rounded-card border border-divider bg-surface p-0">
+          <ul className="m-0 list-none overflow-hidden rounded-card bg-surface shadow-soft p-0">
             {data.papers.map((p) => (
               <li key={p.id} className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-divider px-5 py-3.5 last:border-b-0 max-sm:px-4">
                 <span className={cx('inline-flex h-7 items-center rounded-pill border px-2.5 text-small font-bold tabular', SUBJECT_BORDER[p.subject])}>{p.code}</span>

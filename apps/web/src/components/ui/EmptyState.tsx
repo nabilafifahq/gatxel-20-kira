@@ -36,7 +36,7 @@ export function EmptyState({
       role="status"
       className={cx(
         'flex flex-col items-center justify-center text-center',
-        learner ? 'gap-3 rounded-card border-2 border-dashed border-border bg-surface p-8' : 'gap-2.5 rounded-card border border-divider bg-surface p-8',
+        learner ? 'gap-3 rounded-card bg-lavender p-8' : 'gap-2.5 rounded-card bg-surface p-8 shadow-soft',
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function EmptyState({
       {filters && filters.length > 0 ? (
         <ul aria-label={learner ? 'Filters' : 'Filter aktif'} className="m-0 flex list-none flex-wrap justify-center gap-1.5 p-0">
           {filters.map((f) => (
-            <li key={f} className="inline-flex h-7.5 items-center rounded-pill border border-border bg-surface px-2.5 text-small font-semibold">
+            <li key={f} className="inline-flex h-7.5 items-center rounded-pill border-2 border-border bg-surface px-2.5 text-small font-semibold">
               {f}
             </li>
           ))}

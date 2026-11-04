@@ -25,9 +25,9 @@ export type SubjectStyle = {
 }
 
 export const SUBJECT_STYLE: Record<QuestSubject, SubjectStyle> = {
-  math: { text: 'text-math', solid: 'bg-math', tint: 'bg-math-50', border: 'border-math', fill: 'fill-math', bar: 'bg-math', ring: 'outline-math' },
-  english: { text: 'text-english', solid: 'bg-english', tint: 'bg-english-50', border: 'border-english', fill: 'fill-english', bar: 'bg-english', ring: 'outline-english' },
-  science: { text: 'text-science', solid: 'bg-science', tint: 'bg-science-50', border: 'border-science', fill: 'fill-science', bar: 'bg-science', ring: 'outline-science' },
+  math: { text: 'text-fg', solid: 'bg-math', tint: 'bg-math-50', border: 'border-fg', fill: 'fill-math', bar: 'bg-math', ring: 'outline-fg' },
+  english: { text: 'text-fg', solid: 'bg-english', tint: 'bg-english-50', border: 'border-fg', fill: 'fill-english', bar: 'bg-english', ring: 'outline-fg' },
+  science: { text: 'text-fg', solid: 'bg-science', tint: 'bg-science-50', border: 'border-fg', fill: 'fill-science', bar: 'bg-science', ring: 'outline-fg' },
   bonus: { text: 'text-fg', solid: 'bg-star', tint: 'bg-surface', border: 'border-fg', fill: 'fill-star', bar: 'bg-star', ring: 'outline-fg' },
 }
 

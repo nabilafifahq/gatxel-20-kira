@@ -115,7 +115,7 @@ function Cell({
   const extra = shown.filter((s) => !s.required)
   if (day.rest) {
     return (
-      <div className="flex h-full min-h-24 items-center gap-1.5 rounded-control border border-divider bg-bg px-2.5 text-small font-semibold text-fg-muted">
+      <div className="flex h-full min-h-24 items-center gap-1.5 rounded-control bg-lavender px-2.5 text-small font-semibold text-fg-muted">
         <ConsoleIcon name="moon" size={16} />
         Istirahat
       </div>
@@ -219,7 +219,7 @@ export function WeekPlannerGrid({ days, slots, screenLimitMin, onAdd, onEdit, on
   return (
     <>
       {/* Tablet dan layar lebar: tabel 7 hari kali 3 mapel */}
-      <div role="region" aria-labelledby="jadwal-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface p-4 max-md:hidden">
+      <div role="region" aria-labelledby="jadwal-cap" tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft p-4 max-md:hidden">
         <table className="w-full min-w-[1200px] table-fixed border-separate border-spacing-2">
           <caption id="jadwal-cap" className="visually-hidden">
             Jadwal minggu ini, 7 hari kali 3 mapel
@@ -280,7 +280,7 @@ export function WeekPlannerGrid({ days, slots, screenLimitMin, onAdd, onEdit, on
       {/* HP: daftar per hari */}
       <ol className="m-0 flex list-none flex-col gap-3 p-0 md:hidden" aria-label="Jadwal minggu ini per hari">
         {days.map((d) => (
-          <li key={d.date} className="flex flex-col gap-2.5 rounded-card border border-divider bg-surface p-4">
+          <li key={d.date} className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft p-4">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="m-0 mr-auto text-body font-bold">{d.label}</h3>
               {d.rest ? null : <TemplateButton day={d} onClick={() => onTemplate(d.date)} />}

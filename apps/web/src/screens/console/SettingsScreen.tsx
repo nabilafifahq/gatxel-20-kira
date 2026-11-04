@@ -342,7 +342,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
             <p className="m-0 text-body text-fg-muted">Buka Kira di tablet anak, masuk sebagai orang dewasa, lalu pilih Daftarkan perangkat ini.</p>
           </Card>
         ) : (
-          <div role="region" aria-labelledby="perangkat-cap" tabIndex={0} className="relative overflow-x-auto rounded-card border border-divider bg-surface">
+          <div role="region" aria-labelledby="perangkat-cap" tabIndex={0} className="relative overflow-x-auto rounded-card bg-surface shadow-soft">
             <table className="w-full min-w-[760px] border-collapse text-body">
               <caption id="perangkat-cap" className="visually-hidden">
                 Perangkat terdaftar

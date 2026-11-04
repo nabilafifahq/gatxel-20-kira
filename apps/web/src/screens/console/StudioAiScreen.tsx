@@ -128,7 +128,7 @@ function DraftReview({ d, actions, onDone }: { d: AiDraftDTO; actions: StudioAiA
   }
 
   return (
-    <section aria-labelledby="tinjau-draf" className="flex min-w-0 flex-[2_1_480px] flex-col gap-4 rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+    <section aria-labelledby="tinjau-draf" className="flex min-w-0 flex-[2_1_480px] flex-col gap-4 rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
       <div className="flex flex-col gap-0.5">
         <h2 id="tinjau-draf" className="m-0 text-h2 font-bold max-sm:text-h3">
           {DRAFT_KIND[d.kind] ?? d.kind}
@@ -152,8 +152,8 @@ function DraftReview({ d, actions, onDone }: { d: AiDraftDTO; actions: StudioAiA
               <ItemStatic item={{ ...d.compareTo.item, prompt: '' }} variant="screen" />
             </div>
           ) : null}
-          <div className={cx('flex min-w-0 flex-col gap-2 rounded-control border-2 border-math p-3.5', !d.compareTo && 'md:col-span-2')}>
-            <span className="text-small font-bold text-math">Draf</span>
+          <div className={cx('flex min-w-0 flex-col gap-2 rounded-control border-2 border-fg p-3.5', !d.compareTo && 'md:col-span-2')}>
+            <span className="text-small font-bold text-fg">Draf</span>
             {diff ? (
               <p lang={d.item.lang} className="m-0 font-reading text-body-lg">
                 <Marked parts={diff.right} side="right" />
@@ -339,7 +339,7 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
 
       <div className="flex flex-wrap items-start gap-6">
         <div className="flex min-w-0 flex-[1_1_300px] flex-col gap-6">
-          <section aria-labelledby="minta-draf" className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5 max-sm:p-4">
+          <section aria-labelledby="minta-draf" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5 max-sm:p-4">
             <h2 id="minta-draf" className="m-0 text-h3 font-bold">
               Minta draf
             </h2>
@@ -414,13 +414,13 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
             {data.jobs.length === 0 ? (
               <p className="m-0 text-body text-fg-muted">Belum ada job.</p>
             ) : (
-              <ul className="m-0 list-none rounded-card border border-divider bg-surface px-4 py-0">
+              <ul className="m-0 list-none rounded-card bg-surface shadow-soft px-4 py-0">
                 {data.jobs.map((j) => {
                   const st = JOB_STATUS[j.status]
                   return (
                     <li key={j.id} className="flex flex-col gap-1 border-b border-divider py-3 last:border-b-0">
                       <span className="flex flex-wrap items-center gap-2">
-                        <span className="text-small font-bold text-math">{DRAFT_KIND[j.kind] ?? j.kind}</span>
+                        <span className="text-small font-bold text-fg">{DRAFT_KIND[j.kind] ?? j.kind}</span>
                         <StatusText tone={st.tone} icon={st.icon} className="ml-auto text-small">
                           {st.label}
                         </StatusText>
@@ -462,7 +462,7 @@ export function StudioAiScreen({ data, actions }: StudioAiScreenProps) {
                       )}
                     >
                       <span className="flex flex-wrap items-center gap-2">
-                        <span className="text-small font-bold text-math">{DRAFT_KIND[d.kind] ?? d.kind}</span>
+                        <span className="text-small font-bold text-fg">{DRAFT_KIND[d.kind] ?? d.kind}</span>
                         <Pill tone={st.tone} className="ml-auto">
                           {st.label}
                         </Pill>

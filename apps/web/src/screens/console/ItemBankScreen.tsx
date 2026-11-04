@@ -181,7 +181,7 @@ export function ItemBankScreen({ data }: ItemBankScreenProps) {
         }
       />
 
-      <section aria-label="Filter" className="grid gap-4 rounded-card border border-divider bg-surface px-5 py-4 sm:grid-cols-2 lg:grid-cols-4 max-sm:px-4">
+      <section aria-label="Filter" className="grid gap-4 rounded-card bg-surface shadow-soft px-5 py-4 sm:grid-cols-2 lg:grid-cols-4 max-sm:px-4">
         <TextField
           label={f.q ? 'Cari teks soal (1)' : 'Cari teks soal'}
           type="search"
@@ -334,7 +334,7 @@ export function ItemBankScreen({ data }: ItemBankScreenProps) {
             />
           </div>
 
-          <aside aria-label="Pratinjau soal" aria-live="polite" className="flex min-w-0 flex-[1_1_340px] flex-col gap-3.5 rounded-card border border-divider bg-surface px-6 py-5 max-sm:px-4">
+          <aside aria-label="Pratinjau soal" aria-live="polite" className="flex min-w-0 flex-[1_1_340px] flex-col gap-3.5 rounded-card bg-surface shadow-soft px-6 py-5 max-sm:px-4">
             {p ? (
               <>
                 <div className="flex flex-wrap items-center gap-2">

@@ -58,7 +58,7 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
           </div>
         </section>
 
-        <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card border border-divider bg-surface p-5 md:p-8 lg:flex-[1.05]">
+        <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card bg-surface shadow-soft p-5 md:p-8 lg:flex-[1.05]">
           <h2 id="done-quests" className="m-0 mb-2 text-h2 font-bold">
             Today&apos;s sessions
           </h2>
@@ -90,7 +90,7 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
               )
             })}
           </ul>
-          <div className="mt-3 flex items-start gap-3 rounded-control border border-divider bg-bg px-4 py-3.5">
+          <div className="mt-3 flex items-start gap-3 rounded-control bg-lavender px-4 py-3.5">
             <UiIcon name="sun" size={24} className="mt-0.5 flex-none" />
             <p className="m-0 text-body-lg">{data.tomorrow}</p>
           </div>

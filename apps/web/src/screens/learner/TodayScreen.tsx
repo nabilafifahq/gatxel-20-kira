@@ -122,7 +122,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
           }
         />
 
-        <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card border border-divider bg-surface px-3 py-3.5 sm:px-4 md:hidden">
+        <section aria-label="Streak" className="flex flex-col gap-2.5 rounded-card bg-surface shadow-soft px-3 py-3.5 sm:px-4 md:hidden">
           <div className="flex items-center justify-between gap-3">
             <StreakCount current={streak.current} layout="inline" />
             <FreezePill count={streak.freezes} className="h-8" />
@@ -133,7 +133,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
         {data.progress.total > 0 && data.variant !== 'rest-day' ? <Progress data={data} /> : null}
 
         {data.tracks ? (
-          <section aria-label="Your levels" className="rounded-card border border-divider bg-surface px-4 py-3.5 md:px-6">
+          <section aria-label="Your levels" className="rounded-card bg-surface shadow-soft px-4 py-3.5 md:px-6">
             <XpTrackBars tracks={data.tracks} variant="compact" />
           </section>
         ) : null}
@@ -170,7 +170,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
         {data.chest ? <DailyChest chest={data.chest} avatar={data.shell.avatar} accessory={data.shell.accessory ?? null} background={data.shell.background ?? null} actions={chestActions} /> : null}
 
         {extras.length > 0 ? (
-          <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card border border-divider bg-surface px-4 py-5 md:px-6">
+          <section aria-labelledby="today-extra" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft px-4 py-5 md:px-6">
             <div className="flex flex-col gap-1">
               <h2 id="today-extra" className="m-0 text-h2 font-bold">
                 Extra today
@@ -188,7 +188,7 @@ export function TodayScreen({ data, doneHref = LEARNER_ROUTES.doneToday, chestAc
             {data.nextCompetition ? (
               <section
                 aria-label="Next competition"
-                className="flex h-16 min-w-0 flex-1 items-center gap-3 rounded-card border border-divider bg-surface px-4 md:h-18 md:gap-4 md:px-6"
+                className="flex h-16 min-w-0 flex-1 items-center gap-3 rounded-card bg-surface shadow-soft px-4 md:h-18 md:gap-4 md:px-6"
               >
                 <UiIcon name="trophy" size={28} className="h-6 w-6 flex-none md:h-7 md:w-7" />
                 <div className="flex min-w-0 flex-col">

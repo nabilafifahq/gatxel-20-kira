@@ -70,7 +70,7 @@ function SubjectColumn({ col, actions }: { col: Column; actions: EsmoActions }):
         : 'Not started yet.'
 
   return (
-    <section aria-labelledby={`esmo-${col.subject}`} className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-6">
+    <section aria-labelledby={`esmo-${col.subject}`} className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-6">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         <h2 id={`esmo-${col.subject}`} className="m-0">
           <SubjectChip subject={col.subject} size="M" label={col.name} />
@@ -154,7 +154,7 @@ export function EsmoScreen({ data, actions, backHref = LEARNER_ROUTES.today }: {
           <p className="m-0 text-body-lg text-fg-muted">{started ? 'Practice packs and a mock test for each subject.' : 'Start with Practice 1.'}</p>
         </div>
         {data.finalDate || data.daysToGo !== null ? (
-          <div className="flex h-18 w-full flex-none items-center gap-3.5 rounded-card border border-divider bg-surface px-5 lg:w-auto">
+          <div className="flex h-18 w-full flex-none items-center gap-3.5 rounded-card bg-surface shadow-soft px-5 lg:w-auto">
             <UiIcon name="trophy" size={28} className="flex-none" />
             <div className="flex min-w-0 flex-1 flex-col">
               <span className="text-body text-fg-muted">Final</span>
@@ -176,7 +176,7 @@ export function EsmoScreen({ data, actions, backHref = LEARNER_ROUTES.today }: {
         ))}
       </div>
 
-      <footer className="mt-auto flex items-center gap-3.5 rounded-card border border-divider bg-surface px-5 py-4">
+      <footer className="mt-auto flex items-center gap-3.5 rounded-card bg-surface shadow-soft px-5 py-4">
         <UiIcon name="info" size={24} className="flex-none" />
         <span className="text-body-lg">Wrong answers do not take points off in these packs. Answer every question, even when you have to guess.</span>
       </footer>

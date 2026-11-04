@@ -142,7 +142,7 @@ function Grader({
   }
 
   return (
-    <section aria-labelledby="judul-nilai" className="flex min-w-0 flex-[2_1_560px] flex-col gap-[18px] rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+    <section aria-labelledby="judul-nilai" className="flex min-w-0 flex-[2_1_560px] flex-col gap-[18px] rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
       <div className="flex flex-col gap-1">
         <div className="flex flex-wrap items-center gap-2.5">
           <h2 id="judul-nilai" className="m-0 text-h2 font-bold max-sm:text-h3">
@@ -198,7 +198,7 @@ function Grader({
         ) : null}
         {g.mediaKind == null || (g.mediaKind === 'image' && !g.mediaUrl) ? (
           g.answerText ? (
-            <p lang={g.item.lang} className="m-0 rounded-control border border-divider bg-bg px-4 py-3.5 font-reading text-h2 leading-[34px] whitespace-pre-line">
+            <p lang={g.item.lang} className="m-0 rounded-control bg-lavender px-4 py-3.5 font-reading text-h2 leading-[34px] whitespace-pre-line">
               {g.answerText}
             </p>
           ) : (
@@ -213,7 +213,7 @@ function Grader({
       </div>
 
       {ai ? (
-        <div className="flex flex-col gap-2.5 rounded-control border-2 border-math bg-math-50 px-[18px] py-4">
+        <div className="flex flex-col gap-2.5 rounded-control border-2 border-fg bg-math-50 px-[18px] py-4">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="text-body font-bold">
               Saran nilai dari Claude: {ai.scores.reduce((a, b) => a + b, 0)} dari {max}
@@ -237,7 +237,7 @@ function Grader({
           <div className="flex flex-wrap gap-2">
             <Button
               variant="secondary"
-              className="border-math"
+              className="border-fg"
               onClick={() => {
                 setScores(g.rubric.map((_, i) => ai.scores[i] ?? 0))
                 if (!feedback.trim()) setFeedback(ai.feedback)
@@ -251,7 +251,7 @@ function Grader({
           <span className="text-small text-fg-muted">Saran hanya mengisi rubrik. Nilai baru tersimpan setelah Simpan nilai, dan setiap kriteria tetap bisa diubah.</span>
         </div>
       ) : canAskAi ? (
-        <div className="flex flex-wrap items-center gap-3 rounded-control border border-divider bg-bg px-4 py-3">
+        <div className="flex flex-wrap items-center gap-3 rounded-control bg-lavender px-4 py-3">
           <ConsoleIcon name="sparkle" size={20} />
           <span className="min-w-0 flex-[1_1_240px] text-body">
             {aiRequested ? 'Saran sedang dibuat. Muat ulang halaman ini dalam satu atau dua menit.' : 'Minta saran nilai dari Claude. Jawaban dikirim tanpa nama learner.'}
@@ -294,7 +294,7 @@ function Grader({
                       className="size-5 flex-none cursor-pointer accent-fg"
                     />
                     <span className="text-body font-bold tabular">{v} poin</span>
-                    {ai && ai.scores[ci] === v ? <span className="ml-auto text-small font-semibold text-math">saran AI</span> : null}
+                    {ai && ai.scores[ci] === v ? <span className="ml-auto text-small font-semibold text-fg">saran AI</span> : null}
                   </label>
                 )
               })}
@@ -423,7 +423,7 @@ export function InboxScreen({ data, actions }: InboxScreenProps) {
               filter={data.filter}
             />
           ) : (
-            <section className="flex min-w-0 flex-[2_1_560px] flex-col items-center gap-2 rounded-card border border-divider bg-surface p-8 text-center">
+            <section className="flex min-w-0 flex-[2_1_560px] flex-col items-center gap-2 rounded-card bg-surface shadow-soft p-8 text-center">
               <p className="m-0 text-body-lg font-bold">Pilih jawaban di daftar untuk mulai menilai.</p>
             </section>
           )}

@@ -64,7 +64,7 @@ export function AuthCard({ children, labelledBy }: { children: ReactNode; labell
   return (
     <section
       aria-labelledby={labelledBy}
-      className="flex w-full max-w-[440px] flex-col gap-5 rounded-card border border-divider bg-surface p-8 max-sm:p-5"
+      className="flex w-full max-w-[440px] flex-col gap-5 rounded-card bg-surface shadow-soft p-8 max-sm:p-5"
     >
       {children}
     </section>

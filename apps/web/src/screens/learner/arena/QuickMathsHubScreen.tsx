@@ -46,7 +46,7 @@ function Chips<T extends string | number>({ label, value, options, onChange, dis
             onClick={() => onChange(o.id)}
             className={cx(
               'min-h-11 min-w-11 cursor-pointer rounded-control border-2 px-4 text-body font-bold',
-              on ? 'border-3 border-mental bg-mental-50 text-mental' : 'border-border bg-surface text-fg hover:border-fg',
+              on ? 'border-3 border-fg bg-mental-50 text-fg' : 'border-border bg-surface text-fg hover:border-fg',
               disabled && 'cursor-not-allowed opacity-60',
             )}
           >
@@ -60,7 +60,7 @@ function Chips<T extends string | number>({ label, value, options, onChange, dis
 
 function Card({ title, id, children, className }: { title: string; id?: string; children: ReactNode; className?: string }): ReactElement {
   return (
-    <section id={id} aria-labelledby={id ? `${id}-h` : undefined} aria-label={id ? undefined : title} className={cx('flex min-w-0 scroll-mt-6 flex-col gap-3 rounded-card border border-divider bg-surface p-5 md:p-6', className)}>
+    <section id={id} aria-labelledby={id ? `${id}-h` : undefined} aria-label={id ? undefined : title} className={cx('flex min-w-0 scroll-mt-6 flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-6', className)}>
       <h2 id={id ? `${id}-h` : undefined} className="m-0 text-h2 font-bold">
         {title}
       </h2>
@@ -208,7 +208,7 @@ export function QuickMathsHubScreen({ data, actions }: { data: QmHubDTO; actions
       {counting ? <CountdownOverlay onGo={() => void launch(counting.key, counting.input)} onDone={() => setCounting(null)} /> : null}
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          <UiIcon name="bolt" size={36} className="text-mental" />
+          <UiIcon name="bolt" size={36} className="text-fg" />
           <h1 className="m-0 text-h1 font-bold">Quick Maths</h1>
         </div>
         <p className="m-0 max-w-[640px] text-body-lg text-fg-muted">Fast sums, any time. You earn purple XP and Quick Maths levels.</p>

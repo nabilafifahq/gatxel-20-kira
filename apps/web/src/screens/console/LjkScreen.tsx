@@ -128,7 +128,7 @@ export function LjkScreen({ data, actions }: LjkScreenProps) {
 
           {sel ? (
             <section aria-labelledby="judul-lembar" className="flex flex-col gap-3">
-              <div className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface px-4 py-3">
+              <div className="flex flex-wrap items-center gap-3 rounded-card bg-surface shadow-soft px-4 py-3">
                 <div className="flex min-w-0 flex-1 flex-col">
                   <h2 id="judul-lembar" className="m-0 text-body font-bold">
                     {sel.title}, {sel.learnerName}

@@ -52,7 +52,7 @@ export function ChestCollection({
   return (
     <section
       aria-labelledby="me-chest"
-      className="flex flex-col gap-4 rounded-card border border-divider bg-surface p-5 md:p-7"
+      className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7"
     >
       <div className="flex flex-wrap items-baseline gap-x-4">
         <h2 id="me-chest" className="m-0 text-h2 font-bold">

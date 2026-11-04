@@ -246,7 +246,7 @@ function LearnerCard({
   const st = statusOf(l)
   const hid = `learner-${l.id}`
   return (
-    <article aria-labelledby={hid} className="flex min-w-0 flex-col gap-4 rounded-card border border-divider bg-surface p-6 max-sm:p-4">
+    <article aria-labelledby={hid} className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-6 max-sm:p-4">
       <div className="flex flex-wrap items-center gap-3">
         <Avatar name={l.avatar} size={56} className="flex-none" />
         <div className="flex min-w-0 flex-[1_1_140px] flex-col">

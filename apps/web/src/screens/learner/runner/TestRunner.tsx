@@ -289,7 +289,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
       ) : null}
 
       <div className="relative flex min-h-0 flex-1 flex-col gap-4 px-4 md:px-8 lg:flex-row lg:gap-6">
-        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card border border-divider bg-surface p-4 md:p-8 lg:flex-[1.15]">
+        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:flex-[1.15]">
           <QuestionView
             key={item.ref}
             item={item}

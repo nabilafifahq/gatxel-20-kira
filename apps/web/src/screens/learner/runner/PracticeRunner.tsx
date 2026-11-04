@@ -257,7 +257,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
       <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
         {header}
         <main className="flex flex-1 items-center justify-center px-4 pb-8 md:px-8">
-          <section aria-label="Quest done" className="flex max-w-[560px] flex-col items-center gap-4 rounded-card border border-divider bg-surface px-8 py-10 text-center">
+          <section aria-label="Quest done" className="flex max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
             <span className={cx('flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg text-white', subject === 'math' ? 'bg-math' : subject === 'english' ? 'bg-english' : 'bg-science')}>
               <UiIcon name="check" size={60} />
             </span>
@@ -324,7 +324,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
       {header}
       {syncState ? <OfflineBanner state={syncState} pendingCount={queue.pending} variant="banner" className="mx-4 mb-2.5 md:hidden" /> : null}
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
-        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card border border-divider bg-surface p-4 md:p-8 lg:col-start-1 lg:row-start-1">
+        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:col-start-1 lg:row-start-1">
           <QuestionView
             key={item.ref}
             item={item}

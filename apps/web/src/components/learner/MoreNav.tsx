@@ -28,7 +28,7 @@ export function MoreNav({ items, current }: { items: readonly MoreItem[]; curren
         onClick={() => setOpen(true)}
         className={cx(
           'relative flex min-w-0 flex-1 cursor-pointer flex-col items-center justify-center gap-0.5 rounded-control border-2 bg-transparent px-0.5 text-center text-body leading-5',
-          inside ? 'border-fg bg-bg font-bold text-fg' : 'border-transparent font-semibold text-fg-muted',
+          inside ? 'border-fg bg-lilac font-extrabold text-fg' : 'border-transparent font-bold text-fg',
         )}
       >
         <UiIcon name="more" size={24} />
@@ -47,7 +47,7 @@ export function MoreNav({ items, current }: { items: readonly MoreItem[]; curren
                   onClick={() => setOpen(false)}
                   className={cx(
                     'flex min-h-14 items-center gap-3 rounded-control border-2 px-4 text-body-lg no-underline',
-                    on ? 'border-fg bg-bg font-bold text-fg' : 'border-divider font-semibold text-fg hover:border-fg',
+                    on ? 'border-fg bg-lilac font-extrabold text-fg' : 'border-lavender bg-lavender font-bold text-fg hover:border-fg',
                   )}
                 >
                   <UiIcon name={n.icon} size={26} />

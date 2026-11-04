@@ -93,7 +93,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
   const player = q.solution && q.solution.length > 0 ? q.solution : null
   const showFigure = !player && q.item.figure
   return (
-    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card border border-divider bg-surface p-5 md:p-7">
+    <section aria-labelledby={`review-q-${q.position}`} className="flex min-w-0 flex-1 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-7">
       <div className="flex items-start gap-3.5">
         <span className={cx('mt-px inline-flex h-8.5 min-w-11 flex-none items-center justify-center rounded-pill px-3 text-body-lg font-bold text-white tabular-nums', style.solid)}>
           {q.position}
@@ -144,7 +144,7 @@ function QuestionDetail({ q, data, onNext, isLast }: { q: ReviewQuestionDTO; dat
             </div>
           ) : null}
           {q.tip ? (
-            <div className="flex items-start gap-2.5 rounded-control border border-divider bg-bg px-3.5 py-3">
+            <div className="flex items-start gap-2.5 rounded-control bg-lavender px-3.5 py-3">
               <UiIcon name="hint" size={22} className="mt-0.5 flex-none" />
               <div className="flex flex-col">
                 <span className="text-body font-bold">Tip</span>

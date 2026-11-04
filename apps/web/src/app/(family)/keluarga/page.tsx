@@ -17,7 +17,7 @@ export default async function FamilyHomePage({ searchParams }: { searchParams: P
     return (
       <FamilyShell shell={shell} active="home">
         <h1 className="m-0 text-h2 font-bold">Ringkasan minggu</h1>
-        <p role="status" className="m-0 rounded-card border border-divider bg-surface p-4 text-body">
+        <p role="status" className="m-0 rounded-card bg-surface shadow-soft p-4 text-body">
           Akun ini belum tertaut ke anak mana pun, jadi belum ada ringkasan. Minta tutor mengirim undangan yang menyertakan nama anak, lalu ringkasan
           mingguan muncul di sini.
         </p>
