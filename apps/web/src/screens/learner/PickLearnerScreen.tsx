@@ -38,28 +38,21 @@ export function PickLearnerScreen({
         <ul aria-label={`Learners on ${data.deviceName}`} className="m-0 grid w-full max-w-[560px] list-none grid-cols-2 gap-4 p-0 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-6">
           {learners.map((l) => (
             <li key={l.id} className="flex">
-              {l.doneToday ? (
-                <div role="group" aria-label={`${l.name}, done for today`} className={`${CARD} border-dashed border-border bg-bg`}>
-                  <Avatar name={l.avatar} size={120} className="h-20 w-20 sm:h-30 sm:w-30" />
-                  <span className="flex flex-col items-center">
-                    <span className="text-h2 font-bold break-words">{l.name}</span>
-                    <span className="inline-flex items-center gap-1.5 text-body font-bold">
-                      <UiIcon name="moon" size={18} className="hidden sm:block" />
-                      Done for today
-                    </span>
-                    <span className="text-body text-fg-muted">Back tomorrow</span>
-                  </span>
-                </div>
-              ) : (
                 <Link
                   href={pinHref(l.id)}
-                  aria-label={`${l.name}, Grade ${l.grade}${l.locked ? ', locked for a short break' : ''}`}
+                  aria-label={`${l.name}, Grade ${l.grade}${l.doneToday ? ', done for today' : ''}${l.locked ? ', locked for a short break' : ''}`}
                   className={`${CARD} relative border-border bg-surface text-fg no-underline transition-transform duration-150 ease-kira hover:border-fg active:scale-97`}
                 >
                   <Avatar name={l.avatar} size={120} title={avatarLabel(l.avatar)} className="h-20 w-20 sm:h-30 sm:w-30" />
                   <span className="flex flex-col items-center">
                     <span className="text-h2 font-bold break-words">{l.name}</span>
                     <span className="text-body font-semibold text-fg-muted">Grade {l.grade}</span>
+                    {l.doneToday ? (
+                      <span className="inline-flex items-center gap-1.5 text-body font-bold">
+                        <UiIcon name="moon" size={18} />
+                        Done for today
+                      </span>
+                    ) : null}
                   </span>
                   {l.locked ? (
                     <span className="absolute top-3 right-3 inline-flex h-8 items-center gap-1 rounded-pill border-2 border-fg bg-surface px-2.5 text-small font-bold">
@@ -68,7 +61,6 @@ export function PickLearnerScreen({
                     </span>
                   ) : null}
                 </Link>
-              )}
             </li>
           ))}
           <li className="flex">
