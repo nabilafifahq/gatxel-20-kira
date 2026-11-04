@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { getActor } from '@/server/auth/actor'
 import { mediaForViewer } from '@/server/dal/media-rows'
 import { readStored } from '@/server/media'
+import { throttleResponse } from '@/server/auth/ratelimit'
 
 export const dynamic = 'force-dynamic'
 
@@ -10,6 +11,8 @@ export const dynamic = 'force-dynamic'
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const actor = await getActor()
   if (!actor) return new NextResponse('Masuk dulu', { status: 401 })
+  const limited = await throttleResponse('media-get', 600, actor.userId)
+  if (limited) return limited
   const { id } = await params
   if (!z.string().uuid().safeParse(id).success) return new NextResponse('Tidak ditemukan', { status: 404 })
   const m = await mediaForViewer(actor, id)

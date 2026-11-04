@@ -1,7 +1,8 @@
 import 'server-only'
 import { redirect } from 'next/navigation'
 import type { OrgContext } from '@kira/db/client'
-import { forbidden, unauthenticated } from '../errors'
+import { AppError, forbidden, unauthenticated } from '../errors'
+import { throttleIp } from './ratelimit'
 import { getSession, type SessionInfo } from './session'
 
 export type Role = 'tutor' | 'guardian' | 'learner'
@@ -21,6 +22,15 @@ export async function requireActor(opts: { roles?: Role[] } = {}): Promise<Actor
   const actor = await getSession()
   if (!actor) throw unauthenticated()
   if (opts.roles && !opts.roles.includes(actor.role)) throw forbidden()
+  // Batas longgar per akun untuk semua Server Action tulis: anak sungguhan tidak pernah menyentuhnya
+  // (15 aksi per detik), tetapi skrip yang membanjiri server berhenti.
+  try {
+    await throttleIp(`u:${actor.role}`, actor.role === 'learner' ? 900 : 300, actor.userId)
+  } catch (e) {
+    if (e instanceof AppError && e.code === 'rate-limited' && actor.role === 'learner')
+      throw new AppError('rate-limited', 'Slow down a little. Try again in a moment.', undefined, e.retryAfter)
+    throw e
+  }
   return actor
 }
 

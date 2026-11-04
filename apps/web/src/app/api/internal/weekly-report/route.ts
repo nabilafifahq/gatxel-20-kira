@@ -7,6 +7,8 @@ import { deliverWeekReport, safeErrorText } from '@/server/dal/console-report'
 import { env } from '@/server/env'
 import { newReference } from '@/server/errors'
 import { log } from '@/server/log'
+import { viaCloudflare } from '@/lib/https-redirect'
+import { throttleResponse } from '@/server/auth/ratelimit'
 
 export const dynamic = 'force-dynamic'
 
@@ -39,6 +41,10 @@ function problem(status: number, title: string, detail: string, requestId: strin
 
 export async function POST(req: Request) {
   const requestId = newReference()
+  // Hanya worker di jaringan Docker yang boleh memanggil. Permintaan yang membawa header Cloudflare berasal dari internet: pura-pura tidak ada.
+  if (viaCloudflare(req.headers)) return new NextResponse(null, { status: 404, headers: { 'Cache-Control': 'no-store' } })
+  const limited = await throttleResponse('internal', 120)
+  if (limited) return limited
   const expected = env().KIRA_INTERNAL_TOKEN
   if (!expected) {
     log.warn('endpoint internal dipanggil tanpa KIRA_INTERNAL_TOKEN', { requestId })

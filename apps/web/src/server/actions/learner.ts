@@ -23,7 +23,7 @@ const pinSchema = z.object({ learnerId: z.string().uuid(), pin: z.array(z.enum(P
 
 export async function submitPinAction(learnerId: string, pin: PinPicture[]): Promise<ActionResult<{ redirectTo: string }>> {
   try {
-    await throttleIp('pin', 60)
+    await throttleIp('pin', 240)
     const input = pinSchema.parse({ learnerId, pin })
     const device = await getDevice()
     if (!device) throw new AppError('forbidden', 'This tablet is not set up for Kira yet. Ask a grown-up.')
@@ -52,6 +52,7 @@ export async function saveAnswerAction(p: AnswerPayload): Promise<ActionResult<A
     'saveAnswer',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('save-answer', 600, actor.userId)
       const input = answerPayloadSchema.parse(p)
       return inOrg(orgCtx(actor), (tx) => saveAnswer(tx, orgCtx(actor), actor.userId, input as AnswerPayload))
     },
@@ -64,6 +65,7 @@ export async function submitAttemptAction(attemptId: string, clientId: string): 
     'submitAttempt',
     async () => {
       const actor = await requireLearner()
+      await throttleIp('submit', 120, actor.userId)
       const id = z.string().uuid().parse(attemptId)
       z.string().min(1).max(64).parse(clientId)
       return inOrg(orgCtx(actor), (tx) => submitAttempt(tx, orgCtx(actor), actor.userId, id))

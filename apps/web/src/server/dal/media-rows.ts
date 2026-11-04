@@ -1,5 +1,5 @@
 import 'server-only'
-import { and, eq, isNull } from 'drizzle-orm'
+import { and, eq, gt, isNull, sql } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
@@ -59,4 +59,15 @@ export async function mediaForViewer(actor: Actor, id: string): Promise<{ path: 
     tx.select({ path: tables.media.path, mime: tables.media.mime }).from(tables.media).where(and(eq(tables.media.id, id), isNull(tables.media.deletedAt))).limit(1),
   )
   return rows[0] ?? null
+}
+
+/** Jumlah dan total ukuran berkas yang diunggah akun ini dalam 24 jam terakhir. */
+export async function mediaUsageLastDay(actor: Actor): Promise<{ files: number; bytes: number }> {
+  const rows = await inOrg(orgCtx(actor), (tx) =>
+    tx
+      .select({ files: sql<number>`count(*)::int`, bytes: sql<number>`coalesce(sum(${tables.media.size}), 0)::bigint` })
+      .from(tables.media)
+      .where(and(eq(tables.media.createdBy, actor.userId), gt(tables.media.createdAt, new Date(Date.now() - 86_400_000)))),
+  )
+  return { files: Number(rows[0]?.files ?? 0), bytes: Number(rows[0]?.bytes ?? 0) }
 }

@@ -111,6 +111,7 @@ export async function inviteMemberAction(input: { email: string; role: 'tutor' |
   return runAction('inviteMember', async () => {
     const actor = await requireTutor()
     const data = inviteSchema.parse(input)
+    await throttleIp('invite-member', 10, actor.userId)
     const ctx = orgCtx(actor)
     const orgName = await inOrg(ctx, async (tx) => {
       await assertLearnersInOrg(tx, data.learnerIds)

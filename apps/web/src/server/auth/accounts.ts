@@ -31,10 +31,10 @@ export async function orgCount(): Promise<number> {
 
 /**
  * Login password. Akun tidak dikenal dan password salah menghasilkan pesan dan waktu yang sama.
- * Kegagalan dihitung per email (bukan per IP); setelah 100 kegagalan dalam 15 menit email itu dikunci 15 menit.
+ * Kegagalan dihitung per email (bukan per IP); setelah 20 kegagalan dalam 15 menit email itu dikunci 15 menit.
  */
 export async function loginWithPassword(emailRaw: string, password: string): Promise<{ id: string; orgId: string; role: 'tutor' | 'guardian' | 'learner' }> {
-  await throttleIp('login', 30)
+  await throttleIp('login', 120)
   const email = normaliseEmail(emailRaw)
   const key = `email:${sha256hex(email)}`
   const failures = await recentFailures(key)

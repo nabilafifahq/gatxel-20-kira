@@ -14,6 +14,7 @@ export class AppError extends Error {
     readonly code: 'unauthenticated' | 'forbidden' | 'not-found' | 'invalid' | 'conflict' | 'rate-limited' | 'locked' | 'unavailable',
     readonly userMessage: string,
     readonly fieldErrors?: Record<string, string>,
+    readonly retryAfter?: number,
   ) {
     super(userMessage)
     this.name = 'AppError'

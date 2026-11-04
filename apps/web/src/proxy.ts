@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { httpsRedirectTarget } from '@/lib/https-redirect'
 
 /**
  * CSP ber-nonce untuk semua halaman (GTX-ENG-001, aplikasi terautentikasi).
@@ -6,6 +7,9 @@ import { NextResponse, type NextRequest } from 'next/server'
  * style-src memakai 'unsafe-inline' karena atribut style dari React tidak bisa diberi nonce.
  */
 export function proxy(request: NextRequest) {
+  const redirect = httpsRedirectTarget(request.headers, request.nextUrl.pathname + request.nextUrl.search, process.env.NODE_ENV === 'production')
+  if (redirect) return NextResponse.redirect(redirect, 308)
+  if (request.nextUrl.pathname.startsWith('/api/')) return NextResponse.next()
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const dev = process.env.NODE_ENV !== 'production'
   // upgrade-insecure-requests hanya bila Kira memang dibuka lewat https (Cloudflare Tunnel). Di http://localhost
@@ -39,7 +43,7 @@ export function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: '/((?!api|_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
+      source: '/((?!_next/static|_next/image|favicon.ico|icons|sounds|sw.js|manifest.webmanifest|fonts).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },
