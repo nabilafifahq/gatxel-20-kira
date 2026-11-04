@@ -22,7 +22,7 @@ all	0	fact	content/coach/english.json e-ww-c	parents told to add -ed to run, whi
 all	0	fact	content/coach/science.json s-be-b	nobody eats decomposers (false, many animals eat fungi) => why decomposers matter for soil and plants	minor
 all	0	fact	content/coach/math.json m-gg-c	which shape has the smallest perimeter for area 24 (a circle would beat every rectangle) => which rectangle	minor
 all	0	lang	content/coach/english.json e-wc-a	kirim sisanya secara lisan => ucapkan	minor
-all	0	open	packages/content/src/walkthrough.ts	derived steps split inside numbers (176 written items plus generators) and show an authored option letter on shuffled options (4,621 items). Tested patch in usulan-perbaikan-walkthrough.diff, needs the integrator because app code was out of scope	serious
+all	0	open	packages/content/src/walkthrough.ts	derived steps split inside numbers (176 written items plus generators) and show an authored option letter on shuffled options (4,621 items). Tested patch in usulan-perbaikan-kode.diff, needs the integrator because app code was out of scope	serious
 all	0	open	packages/content/src/knowledge/data/nature.ts and culture.ts	Quiz Arena facts read, none false. Two small wordings left because the file is code: toward should be towards in the gravity card, Ha Long Bay has about 2,000 islands where the card says thousands	minor
 all	0	open	derived steps for choice items with picture options	11 shuffled items whose options are pictures still show a bare letter after the patch	minor
 math	1-5	step	m1.oly-word-puzzles.014, m3.oly-counting.007, m3.oly-money.004, m3.oly-money.007, m3.oly-number-puzzles.006, m3.oly-word-problems.009, m4.oly-number-puzzles.002, m5.oly-geometry.006, m5.oly-geometry.007	highlight lit a digit inside a bigger number, such as 2 in 25 m or Rp3 in Rp3.500 => highlight names the right words	minor
@@ -30,10 +30,12 @@ math	2	amb	m2.oly-coding.040	Bat keyed, but Penguin is the only one that cannot 
 math	2	amb	m2.oly-esmo.013	Persegi keyed, but Persegi panjang also true of a square => replaced by Segi lima	serious
 science	6	fact	s6.photosynthesis.021	table showed a bean in the dark at 3 cm, real seedlings in the dark grow tall and pale => table counts new leaves	serious
 english	6	fact	e6.p.sea-turtle-journeys, e6.p.bamboo-wonder-grass	one hatchling in a thousand and as strong as steel were not certain figures => a few hatchlings, very hard to snap	minor
-all	0	open	apps/web/src/components/learner/SolutionPlayer.tsx	the highlight takes the first match, so 3 lights inside 34 on about 30 items and generators. Tested helper is in usulan-perbaikan-walkthrough.diff	minor
+all	0	open	apps/web/src/components/learner/SolutionPlayer.tsx	the highlight takes the first match, so 3 lights inside 34 on about 30 items and generators. Tested helper is in usulan-perbaikan-kode.diff	minor
 math	3	step	m3.oly-logic.020, m3.oly-logic.021	hint said to find a line with one empty box, these grids have none => the line with the fewest empty boxes	minor
 science	2	amb	s2.life-cycles.043	prompt said a caterpillar has six legs while other items say many legs => small, long animal	minor
 science	3	amb	s3.skeletons.023	leg bones keyed Supports, Helps us move also true => card removed	serious
 science	4	amb	s4.food-chains.022	asked which animals, three options are not animals => what loses its food first	minor
 science	5	fact	s5.dissolving.702	3 to 9 spoons saturating 100 ml is far below real sugar solubility => big scoops	minor
 english	6	fact	e6.fact-opinion-voice-theme.001, e6.language-viewpoint.026, flashcard capital	Jakarta as capital can stop being true as the move to Nusantara proceeds, and capital is not always the main city => Jakarta is on the island of Java, the government city, Tokyo	minor
+math	6	open	packages/content/src/math/g6.ts m6.multiply-divide-powers-of-ten level 5	wrong key from a generator: What is 0.09 x 1,000 / 100 is keyed 9, the answer is 0.9, every seed of this variant is 10 times too big. One line fix in usulan-perbaikan-kode.diff, needs the integrator because code was out of scope	serious
+all	0	open	generator templates	about 60 wording patterns such as 1 ones, 1 children, A octagon, a oval, A eighth, Not Not even. List in generator-kata.txt	minor
