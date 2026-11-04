@@ -7,6 +7,7 @@ import type { ActionResult } from '@/lib/dto'
 import type { PlacementAnswerResultDTO, PlacementEntryDTO, PlacementStepDTO } from '@/lib/dto-placement'
 import { Button, ButtonLink } from '@/components/ui/Button'
 import { UiIcon } from '@/components/ui/icons'
+import { useMediaQuery } from '@/components/learner/hooks'
 import { Mascot } from '@/components/learner/Mascot'
 import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
@@ -43,6 +44,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
   const [done, setDone] = useState<Extract<PlacementAnswerResultDTO, { done: true }> | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
+  const narrow = useMediaQuery('(max-width: 639px)')
   const [value, setValue] = useState<unknown | null>(null)
   useEffect(() => primeSfx(), [])
 
@@ -180,12 +182,12 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
 
   return (
     <div data-jenjang={step.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
-      <header className="flex items-center gap-3 px-4 py-3 md:px-8">
+      <header className="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3 md:px-8">
         <SubjectChip subject={step.subject} size="S" label={`${step.subjectLabel} starting point`} />
-        <div role="img" aria-label="Rough progress" className="flex h-2.5 min-w-0 flex-1 overflow-hidden rounded-pill bg-divider">
+        <div role="img" aria-label="Rough progress" className="flex h-2.5 min-w-0 flex-1 overflow-hidden rounded-pill bg-divider max-sm:order-last max-sm:basis-full">
           <span className="bg-fg transition-[width] duration-300 motion-reduce:transition-none" style={{ width: `${progress}%` }} />
         </div>
-        <Link href="/today" className="inline-flex h-11 flex-none items-center gap-1 px-2 text-body font-bold">
+        <Link href="/today" className="inline-flex h-11 flex-none items-center gap-1 px-2 text-body font-bold max-sm:ml-auto">
           <UiIcon name="close" size={20} />
           Stop for now
         </Link>
@@ -210,12 +212,12 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
           {error}
         </p>
       ) : null}
-      <footer className="sticky bottom-0 z-10 flex items-center gap-3 bg-bg px-4 py-3 md:px-8">
-        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} />
-        <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto">
+      <footer className="sticky bottom-0 z-10 flex items-center gap-2 bg-bg px-4 py-3 sm:gap-3 md:px-8">
+        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} compact={narrow} />
+        <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto max-sm:min-w-0 max-sm:flex-1 max-sm:px-2 max-sm:text-body-lg">
           I&apos;m not sure
         </Button>
-        <Button onClick={() => void submit(false)} disabled={!complete || busy} loading={busy} iconAfter="arrow-right">
+        <Button onClick={() => void submit(false)} disabled={!complete || busy} loading={busy} iconAfter="arrow-right" className="max-sm:min-w-0 max-sm:flex-1 max-sm:px-2 max-sm:text-body-lg">
           Next
         </Button>
       </footer>
