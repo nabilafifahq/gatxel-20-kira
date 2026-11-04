@@ -11,9 +11,9 @@ Apakah materi Kira mengikuti kurikulum Cambridge? Sebagian besar untuk Math dan 
 | Math (0096) | 288 | 202 (70%) | 242 (84%) |
 | Science, bagian isi (0097, tanpa Thinking and Working Scientifically dan Science in Context) | 185 | 135 (73%) | 162 (88%) |
 | Science, seluruh kerangka | 311 | 135 | 186 (60%) |
-| English (0058) | 580 | 165 (28%) | 228 (39%) |
+| English (0058) | 580 | 240 (41%) | 303 (52%) |
 
-Angka ini sudah termasuk 20 skill baru yang ditulis malam ini (bagian 6). Sebelum skill baru, yang tercakup penuh atau sebagian: Math 78% (224 dari 288), Science isi 66% (122 dari 185) dan English 39% (228 dari 580).
+Angka ini sudah termasuk 20 skill baru yang ditulis malam ini (bagian 6) dan 15 skill English kelas 4 sampai 6 dari agen konten (bagian 5). Sebelum itu, yang tercakup penuh atau sebagian: Math 78% (224 dari 288), Science isi 66% (122 dari 185) dan English 39% (228 dari 580).
 
 Catatan penting soal cara membaca angka: ini pemetaan di tingkat skill, dari judul dan pernyataan "I can" setiap skill, bukan audit soal demi soal. "Penuh" berarti tujuan skill sesuai dengan sasaran. Itu belum membuktikan semua soal di skill itu menguji sasaran pada kedalaman dan usia yang sama dengan Cambridge.
 
@@ -53,9 +53,9 @@ Kolom "penuh" dan "penuh atau sebagian" adalah jumlah sasaran. Untuk Science han
 | English | 1 | 90 | 21 | 40 | 44% |
 | English | 2 | 99 | 31 | 48 | 48% |
 | English | 3 | 102 | 21 | 31 | 30% |
-| English | 4 | 104 | 27 | 32 | 31% |
-| English | 5 | 93 | 30 | 34 | 37% |
-| English | 6 | 92 | 35 | 43 | 47% |
+| English | 4 | 104 | 66 | 71 | 68% |
+| English | 5 | 93 | 43 | 47 | 51% |
+| English | 6 | 92 | 58 | 66 | 72% |
 
 Science TWS dan SIC: tahap 1 sampai 6 punya 12, 18, 21, 25, 25 dan 25 sasaran, dan hanya 2, 4, 5, 5, 3 dan 5 yang tersentuh.
 
@@ -66,11 +66,11 @@ Daftar lengkap kode ada di `gaps` pada `cambridge-map.json`, dengan catatan pend
 - Math (46 sasaran tanpa skill): tahap 1 ada 8 (misalnya mengenali jumlah tanpa menghitung, nol, memperkirakan), tahap 2 ada 12 (pembulatan ke puluhan, simetri putar, refleksi, percobaan peluang), tahap 3 ada 9, tahap 4 ada 3, tahap 5 ada 11, tahap 6 ada 3. Sisa terbesar: menyusun penyelidikan data (4Ss.01, 5Ss.01, 6Ss.01), percobaan peluang dan simulasi tahap 2 sampai 5, estimasi di tahap 1 sampai 3, dan refleksi bangun datar tahap 2 dan 3.
 - Science isi (23 sasaran tanpa skill): sebagian besar di tahap 1 sampai 3: listrik dan magnet tahap 1, mengapung dan tenggelam, proses hidup tumbuhan dan hewan, campuran, pengukuran gaya dengan neraca pegas, Bumi sebagai sumber bahan. Tahap 6 menyisakan pubertas dan sistem reproduksi (6Bp.01, 6Bs.03), sengaja tidak ditulis malam ini: kerangka memuatnya, tetapi bahasa yang tepat untuk anak dan orang tua Indonesia perlu keputusan pemilik dulu.
 - Science TWS dan SIC: hampir kosong. Ini celah terbesar kedua setelah English. Perlu skill tentang pertanyaan ilmiah, jenis penyelidikan, risiko dan keselamatan, model, dan ilmu dalam kehidupan sehari-hari.
-- English (352 sasaran tanpa skill dari 580): terbesar di tahap 3 dan 4 (71 dan 72). Celah utama:
+- English (277 sasaran tanpa skill dari 580, setelah skill agen konten): terbesar di tahap 3 dan 2 (71 dan 51). Celah utama (yang tersisa kini terutama di tahap 1 sampai 3):
   - Membaca: beragam genre dan jenis teks nonfiksi (Ri.01 sampai Ri.05), makna tersurat dan tersirat dengan dasar bukti, membaca cepat dan memindai (Ri.13), sudut pandang (Ri.17), apresiasi dan pilihan buku (Ra).
   - Menulis: perencanaan dan penulisan kreatif (Wc), skrip drama, struktur teks dan paragraf (Ws), strategi ejaan (Ww.06 sampai Ww.10), kosakata (Wv), penyajian dan catatan (Wp).
   - Berbicara dan menyimak: hampir semua sasaran SLm, SLg, SLp dan SLr di luar materi Cambridge Young Learners. Soal ini membutuhkan penilai manusia.
-- Agen konten (pilot/konten) menutup sebagian celah English kelas 4 sampai 6. Skill baru dari agen itu perlu dipetakan ulang setelah penggabungan (tambah entri di `cambridge-map.json`, jalankan `pnpm tsx packages/content/scripts/cambridge-map.ts --write`). `content:check` gagal selama ada skill tanpa entri.
+- Agen konten (pilot/konten) menutup sebagian celah English kelas 4 sampai 6 dengan 15 skill baru (`e4.spelling-strategies`, `e4.speech-punctuation`, `e4.skim-scan`, `e4.genres-purpose`, `e4.story-craft`, `e5.apostrophes`, `e5.pronouns-nouns`, `e5.adverbs-phrases`, `e5.text-types`, `e5.skim-scan`, `e6.genres-text-types`, `e6.fact-opinion-voice-theme`, `e6.skim-scan`, `e6.spelling-strategies`, `e6.clauses-word-classes`). Semuanya sudah dipetakan dan angka di atas dihitung ulang setelah penggabungan. Celah English yang tersisa paling besar di tahap 3 (71) dan 2 (51).
 
 ## 6. Skill baru malam ini (20 skill, 431 soal)
 
@@ -104,7 +104,7 @@ Boleh, setelah laporan ini:
 Tidak boleh:
 
 - Kata "resmi", "tersertifikasi", "terakreditasi", "disetujui" atau "didukung" Cambridge, dan memakai logo Cambridge. Kira tidak punya hubungan resmi dengan Cambridge.
-- "Mengikuti kurikulum Cambridge" tanpa keterangan, atau "mencakup seluruh kurikulum". English baru 39% dan TWS Science hampir kosong.
+- "Mengikuti kurikulum Cambridge" tanpa keterangan, atau "mencakup seluruh kurikulum". English baru 52% dan TWS Science hampir kosong.
 - Menyebut "kelas X Cambridge" untuk skill di daftar bagian 7.
 - Mengiklankan jalur visa atau persiapan ujian Cambridge (Checkpoint, IGCSE). Kira belum dipetakan ke ujian itu.
 - Soal Cambridge Young Learners, Olimpiade dan lomba adalah pengayaan Kira dan tidak dihitung sebagai cakupan kerangka.
