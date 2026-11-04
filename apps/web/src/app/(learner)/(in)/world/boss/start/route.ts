@@ -18,7 +18,7 @@ export async function GET(req: Request) {
     if (!parsed.success) return seeOther('/world/boss')
     const id = await inOrg(orgCtx(actor), (tx) => startBossSession(tx, orgCtx(actor), actor.userId, parsed.data.b))
     return seeOther(`/run/${id}`)
-  } catch (e) { console.error("BOSSDEBUG", e);
+  } catch {
     return seeOther('/world/boss')
   }
 }

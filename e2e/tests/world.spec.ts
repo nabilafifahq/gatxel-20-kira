@@ -125,6 +125,23 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, bos, pial
   await page.goto('/world/boss/start?b=aurora')
   await waitForPath(page, (p) => p === '/world/boss')
 
+  // Hasil: menang memberi momen kartu, kalah menawarkan tanding ulang dan tidak mengurangi apa pun.
+  const items = att!.items as object[]
+  const [won] = await sql`insert into attempt (org_id, learner_id, kind, mode, subject, title, ref_id, items, status, submitted_at, score_raw, score_max, result) values (${org}, ${aisha}, 'test', 'latihan', 'math', 'Clickerclaw', 'boss:2026-01-05:clickerclaw:1', ${sql.json(items as never)}, 'submitted', now(), ${items.length}, ${items.length}, ${sql.json({ boss: { won: true, stars: 10, cardId: 'bs-clickerclaw' } } as never)}) returning id`
+  await page.goto(`/world/boss/result/${won!.id}`)
+  await expect(page.getByRole('heading', { level: 1, name: 'You beat Clickerclaw!' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'A new rare card!' })).toBeVisible()
+  await expectNoSeriousA11y(page, 'Hasil menang')
+  await noHorizontalScroll(page)
+  await shot('boss-win')
+  const [lost] = await sql`insert into attempt (org_id, learner_id, kind, mode, subject, title, ref_id, items, status, submitted_at, score_raw, score_max, result) values (${org}, ${aisha}, 'test', 'latihan', 'math', 'Clickerclaw', 'boss:2026-01-05:clickerclaw:2', ${sql.json(items as never)}, 'submitted', now(), 1, ${items.length}, ${sql.json({ boss: { won: false, stars: 0, cardId: null } } as never)}) returning id`
+  await page.goto(`/world/boss/result/${lost!.id}`)
+  await expect(page.getByRole('link', { name: 'Friendly rematch' })).toBeVisible()
+  await expect(page.getByText('Nothing was lost')).toBeVisible()
+  await expectNoSeriousA11y(page, 'Hasil kalah')
+  await noHorizontalScroll(page)
+  await shot('boss-lose')
+
   // Ruang piala: medali dari orang tua dan segel streak.
   await page.goto('/world/trophies')
   await expect(page.getByRole('heading', { level: 1, name: 'Trophy room' })).toBeVisible()
