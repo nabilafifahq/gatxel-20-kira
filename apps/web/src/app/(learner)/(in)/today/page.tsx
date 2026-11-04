@@ -7,7 +7,7 @@ import { FirstRunTips } from '@/components/learner/FirstRunTips'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
 import { tracksFor, xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
-import { isFeatureOn } from '@/server/dal/learner-features'
+import { isFeatureOnTx } from '@/server/dal/learner-features'
 import { worldPeek } from '@/server/dal/kira-world'
 import { jakartaDate } from '@kira/core'
 import { cachedToday } from '@/server/today-cache'
@@ -32,7 +32,7 @@ export default async function TodayPage() {
   // Bintang dunia dan kartu penempatan berubah di luar jalur sesi, jadi dibaca segar tiap kunjungan (di luar cache).
   const { world, placement, firstRun } = await load(() =>
     inOrg(orgCtx(actor), async (tx) => ({
-      world: (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null,
+      world: (await isFeatureOnTx(tx, actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null,
       placement: await placementCard(tx, orgCtx(actor), actor.userId),
       firstRun: await firstRunPending(tx, actor.userId),
     })),

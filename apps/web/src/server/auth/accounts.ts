@@ -255,22 +255,38 @@ export async function changePassword(user: { userId: string; sessionId: string; 
 }
 
 /** Akun learner baru: identitas di skema auth, profil belajar di skema publik. Belum aktif sampai ada persetujuan orang tua. */
-export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[]; uiLang?: UiLang }): Promise<string> {
+/** Bagian auth akun learner: baris akun dan PIN. Dipanggil di luar transaksi, karena memakai pool auth dan Argon2. */
+export async function createLearnerAuth(orgId: string, input: { name: string; pin: string[]; uiLang?: UiLang }): Promise<string> {
   const [user] = await authDb()
     .insert(userAccount)
-    .values({ orgId: ctx.orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim(), ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
+    .values({ orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim(), ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
     .returning({ id: userAccount.id })
   try {
     await setPin(user!.id, input.pin)
-    await inOrg({ orgId: ctx.orgId, userId: ctx.userId, role: 'tutor' }, async (tx) => {
-      await tx.insert(tables.learnerProfile).values({ userId: user!.id, orgId: ctx.orgId, name: input.name.trim(), grade: input.grade, avatar: input.avatar, active: false })
-      await auditTx(tx, { orgId: ctx.orgId, userId: ctx.userId, role: 'tutor' }, 'learner.created', user!.id)
-    })
   } catch (e) {
-    await authDb().delete(userAccount).where(eq(userAccount.id, user!.id))
+    await removeLearnerAuth(user!.id)
     throw e
   }
   return user!.id
+}
+
+/** Hapus baris akun bila langkah berikutnya gagal, supaya tidak ada akun tanpa profil. */
+export async function removeLearnerAuth(userId: string): Promise<void> {
+  await authDb().delete(userAccount).where(eq(userAccount.id, userId))
+}
+
+export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[]; uiLang?: UiLang }): Promise<string> {
+  const id = await createLearnerAuth(ctx.orgId, input)
+  try {
+    await inOrg({ orgId: ctx.orgId, userId: ctx.userId, role: 'tutor' }, async (tx) => {
+      await tx.insert(tables.learnerProfile).values({ userId: id, orgId: ctx.orgId, name: input.name.trim(), grade: input.grade, avatar: input.avatar, active: false })
+      await auditTx(tx, { orgId: ctx.orgId, userId: ctx.userId, role: 'tutor' }, 'learner.created', id)
+    })
+  } catch (e) {
+    await removeLearnerAuth(id)
+    throw e
+  }
+  return id
 }
 
 export async function learnerUiPrefs(userIds: string[], orgId: string): Promise<Map<string, { uiLang: UiLang; uiLangSwitch: boolean }>> {

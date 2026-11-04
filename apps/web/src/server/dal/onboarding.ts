@@ -4,7 +4,7 @@ import { tables } from '@kira/db'
 import type { AvatarName, PinPicture } from '@/lib/dto'
 import type { Actor } from '../auth/actor'
 import { orgCtx } from '../auth/actor'
-import { createLearnerAccount } from '../auth/accounts'
+import { createLearnerAuth, removeLearnerAuth } from '../auth/accounts'
 import { isFamilyOwner, withFamilyAdmin } from '../auth/parent'
 import { auditTx } from '../audit'
 import { env } from '../env'
@@ -63,29 +63,37 @@ export async function addChild(actor: Actor, input: { name: string; grade: numbe
   const max = env().KIRA_MAX_LEARNERS_PER_FAMILY
   const name = input.name.trim()
   if (!(await isFamilyOwner(actor))) throw forbidden('Hanya pemilik keluarga yang bisa menambah anak dari sini. Minta tutor menambahkan anak.')
-  return withFamilyAdmin(actor, async (tx, scope) => {
-    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-learners:${actor.orgId}`}))`)
-    const mine = await tx
-      .select({ id: learnerProfile.userId, name: learnerProfile.name })
-      .from(learnerProfile)
-      .innerJoin(guardianLink, eq(guardianLink.learnerId, learnerProfile.userId))
-      .where(and(eq(guardianLink.guardianId, actor.userId), isNull(learnerProfile.deletedAt)))
-    if (mine.length >= max) throw conflict(`Satu keluarga bisa punya sampai ${max} anak di Kira. Hapus akun salah satu anak lewat halaman Privasi bila ingin menukar.`)
-    if (mine.some((m) => m.name.trim().toLowerCase() === name.toLowerCase())) {
-      const msg = `Nama ${name} sudah dipakai anak lain. Pakai nama lain supaya mudah dibedakan di tablet.`
-      throw invalid(msg, { name: msg })
-    }
-    const learnerId = await createLearnerAccount({ orgId: actor.orgId, userId: actor.userId }, { name, grade: input.grade, avatar: input.avatar, pin: input.pin, uiLang: input.uiLang })
-    const ctx = orgCtx(actor)
-    await scope.elevate(async () => {
-      await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId })
-      await applyDefaultPreset(tx, ctx, learnerId)
-      // Anak baru langsung memakai jalur rekomendasi. Orang tua yang pergi sebelum memilih tetap mendapat isi yang masuk akal.
-      await saveFeatureMap(tx, actor.orgId, learnerId, recommendationFor(input.grade).features)
+  // Akun auth dan PIN (Argon2) dibuat sebelum transaksi: memakai pool lain dan butuh waktu, jadi tidak boleh memegang kunci dan sambungan.
+  const learnerId = await createLearnerAuth(actor.orgId, { name, pin: input.pin, ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
+  try {
+    return await withFamilyAdmin(actor, async (tx, scope) => {
+      await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-learners:${actor.orgId}`}))`)
+      const mine = await tx
+        .select({ id: learnerProfile.userId, name: learnerProfile.name })
+        .from(learnerProfile)
+        .innerJoin(guardianLink, eq(guardianLink.learnerId, learnerProfile.userId))
+        .where(and(eq(guardianLink.guardianId, actor.userId), isNull(learnerProfile.deletedAt)))
+      if (mine.length >= max) throw conflict(`Satu keluarga bisa punya sampai ${max} anak di Kira. Hapus akun salah satu anak lewat halaman Privasi bila ingin menukar.`)
+      if (mine.some((m) => m.name.trim().toLowerCase() === name.toLowerCase())) {
+        const msg = `Nama ${name} sudah dipakai anak lain. Pakai nama lain supaya mudah dibedakan di tablet.`
+        throw invalid(msg, { name: msg })
+      }
+      const ctx = orgCtx(actor)
+      await scope.elevate(async () => {
+        await tx.insert(learnerProfile).values({ userId: learnerId, orgId: actor.orgId, name, grade: input.grade, avatar: input.avatar, active: false })
+        await auditTx(tx, { orgId: actor.orgId, userId: actor.userId, role: 'tutor' }, 'learner.created', learnerId)
+        await tx.insert(guardianLink).values({ orgId: actor.orgId, guardianId: actor.userId, learnerId })
+        await applyDefaultPreset(tx, ctx, learnerId)
+        // Anak baru langsung memakai jalur rekomendasi. Orang tua yang pergi sebelum memilih tetap mendapat isi yang masuk akal.
+        await saveFeatureMap(tx, actor.orgId, learnerId, recommendationFor(input.grade).features)
+      })
+      await auditTx(tx, ctx, 'guardian.linked', learnerId, { guardianId: actor.userId, via: 'onboarding' })
+      return learnerId
     })
-    await auditTx(tx, ctx, 'guardian.linked', learnerId, { guardianId: actor.userId, via: 'onboarding' })
-    return learnerId
-  })
+  } catch (e) {
+    await removeLearnerAuth(learnerId)
+    throw e
+  }
 }
 
 /** Simpan pilihan persetujuan satu anak. Hanya tujuan yang berubah yang dicatat. Mengaktifkan anak bila belajar disetujui. */

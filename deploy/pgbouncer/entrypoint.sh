@@ -13,7 +13,8 @@ cat > "$dir/userlist.txt" <<EOL
 EOL
 cat > "$dir/pgbouncer.ini" <<EOL
 [databases]
-kira = host=db port=5432 dbname=kira
+# connect_query: transaksi web yang menganggur diputus setelah 15 detik (web tidak pernah menunggu selama itu di dalam transaksi). Worker dan cadangan langsung ke db, tetap 60 detik dari flag Postgres.
+kira = host=db port=5432 dbname=kira connect_query='set idle_in_transaction_session_timeout=15000'
 
 [pgbouncer]
 listen_addr = 0.0.0.0
