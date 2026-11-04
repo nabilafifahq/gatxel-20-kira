@@ -159,7 +159,7 @@ export function SettingsScreen({ data, actions, registerPasskey }: SettingsScree
     setLimitError(null)
     const r = await saveLimits.run({ learnerId: learner.id, screenLimitMin: m, restWeekdays: cur.rest, reviewEnabled: cur.review })
     if (r.ok && saveSound) await saveSound({ learnerId: learner.id, soundEnabled: cur.sound, musicEnabled: cur.music })
-    if (r.ok) toast({ tone: 'success', title: `Batas ${learner.name} tersimpan.`, body: 'Berlaku mulai besok.' })
+    if (r.ok) toast({ tone: 'success', title: `Batas ${learner.name} tersimpan.`, body: 'Berlaku langsung, juga untuk hari ini.' })
   }
 
   async function doChangePassword() {
