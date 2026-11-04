@@ -434,7 +434,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             {answering && st.hintsUsed > 0 ? <HintList hints={hints} opened={st.hintsUsed} contentLang={item.lang} /> : null}
           </QuestionView>
         </section>
-        <section aria-label={tp.yourAnswer} tabIndex={0} className="relative flex min-h-0 flex-col overflow-y-auto py-1 focus-visible:outline-3 focus-visible:outline-fg lg:col-start-2 lg:row-start-1">
+        <section aria-label={tp.yourAnswer} tabIndex={0} className="relative flex min-h-0 flex-col overflow-x-hidden overflow-y-auto py-1 focus-visible:outline-3 focus-visible:outline-fg lg:col-start-2 lg:row-start-1">
           <RunnerCorner shell={data.shell} phase={st.phase} streak={streak} xp={st.xp} nonce={`${item.ref}-${st.attemptNo}`} />
           <div className={cx('m-auto flex w-full flex-col items-center gap-3.5 max-md:[&>*>*>p:first-child]:pr-12', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
             <Widget
