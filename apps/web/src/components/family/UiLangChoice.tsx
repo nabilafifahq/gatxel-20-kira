@@ -7,7 +7,7 @@ const LEGEND = 'Bahasa tampilan anak'
 const HINT = 'Berlaku untuk tombol, petunjuk, dan pesan di layar anak. Soal dan pelajaran tetap memakai bahasa aslinya, kebanyakan bahasa Inggris.'
 
 /** Pilihan bahasa tampilan anak, dipakai di onboarding, tambah anak, dan pengaturan anak. */
-export function UiLangChoice({ name, value, onChange, disabled }: { name: string; value: UiLang; onChange: (v: UiLang) => void; disabled?: boolean }) {
+export function UiLangChoice({ name, value, onChange, disabled, required }: { name: string; value: UiLang; onChange: (v: UiLang) => void; disabled?: boolean; required?: boolean }) {
   return (
     <RadioGroup
       name={name}
@@ -16,6 +16,7 @@ export function UiLangChoice({ name, value, onChange, disabled }: { name: string
       value={value}
       onChange={onChange}
       layout="row"
+      required={required}
       options={[
         { value: 'id', label: 'Bahasa Indonesia', disabled },
         { value: 'en', label: 'English', disabled },

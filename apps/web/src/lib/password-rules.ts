@@ -16,6 +16,14 @@ const MESSAGES: Record<(typeof PASSWORD_RULES)[number]['key'], string> = {
   symbol: 'Tambahkan paling sedikit satu simbol, misalnya ! @ # $ % &.',
 }
 
+/** Pemeriksaan isian di browser: kosong, terlalu panjang, lalu syarat password. */
+export function passwordInputProblem(pw: string): string | null {
+  const n = [...pw].length
+  if (n === 0) return 'Isi password dulu.'
+  if (n > PASSWORD_MAX) return `Password paling panjang ${PASSWORD_MAX} karakter. Sekarang ${n} karakter.`
+  return passwordRuleProblem(pw)
+}
+
 /** Pesan untuk syarat pertama yang belum terpenuhi, atau null bila semua terpenuhi. */
 export function passwordRuleProblem(password: string): string | null {
   const missing = PASSWORD_RULES.find((r) => !r.test(password))

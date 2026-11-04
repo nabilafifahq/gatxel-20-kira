@@ -5,7 +5,7 @@ import { Icon } from '@kira/figures'
 import type { PinPicture } from '@/lib/dto'
 import { Button } from './Button'
 import { cx } from './cx'
-import { FieldError } from './Field'
+import { FieldError, RequiredMark } from './Field'
 
 /**
  * Pemilih PIN gambar untuk learner (4 dari 9 gambar, berurutan, boleh berulang).
@@ -37,12 +37,14 @@ export function PinChooser({
   value,
   onChange,
   error,
+  required,
   legend = 'PIN gambar',
   hint = 'Pilih 4 gambar berurutan. Gambar yang sama boleh dipakai lebih dari sekali.',
 }: {
   value: PinPicture[]
   onChange: (next: PinPicture[]) => void
   error?: string | null
+  required?: boolean
   legend?: string
   hint?: string
 }) {
@@ -53,9 +55,14 @@ export function PinChooser({
   return (
     <fieldset
       className="m-0 flex min-w-0 flex-col gap-3 border-0 p-0"
+      tabIndex={error ? -1 : undefined}
+      data-problem={error ? 'true' : undefined}
       aria-describedby={[`${gid}-hint`, error ? `${gid}-error` : null].filter(Boolean).join(' ')}
     >
-      <legend className="mb-1.5 p-0 text-small font-bold">{legend}</legend>
+      <legend className="mb-1.5 p-0 text-small font-bold">
+        {legend}
+        {required ? <RequiredMark /> : null}
+      </legend>
       <span id={`${gid}-hint`} className="-mt-2 text-small text-fg-muted">
         {hint}
       </span>

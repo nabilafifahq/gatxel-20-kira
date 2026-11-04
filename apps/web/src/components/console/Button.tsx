@@ -16,14 +16,14 @@ export type ButtonSize = 'M' | 'S'
 
 const BASE =
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-control font-extrabold no-underline select-none ' +
-  'kira-press transition-transform duration-150 ease-kira enabled:hover:-translate-y-px max-sm:h-auto max-sm:max-w-full max-sm:py-2 max-sm:whitespace-normal max-sm:text-center'
+  'kira-press transition-transform duration-150 ease-kira enabled:not-aria-disabled:hover:-translate-y-px max-sm:h-auto max-sm:max-w-full max-sm:py-2 max-sm:whitespace-normal max-sm:text-center'
 
 const SIZE: Record<ButtonSize, string> = {
   M: 'h-12 min-h-12 px-5 text-body',
   S: 'h-9 min-h-9 px-4 text-small',
 }
 
-const DISABLED = 'disabled:border-0 disabled:bg-lavender disabled:text-fg/55 aria-disabled:border-0 aria-disabled:bg-lavender aria-disabled:text-fg/55'
+const DISABLED = 'disabled:border-0 disabled:bg-lavender disabled:text-fg/55 aria-disabled:border-0 aria-disabled:bg-lavender aria-disabled:text-fg/55 aria-disabled:hover:text-fg/55'
 
 const DANGER_TONE: Partial<Record<ButtonVariant, string>> = {
   secondary: 'border-2 border-danger bg-surface text-danger hover:text-danger ' + DISABLED,
@@ -49,13 +49,18 @@ type CommonProps = {
   icon?: ConsoleIconName
   iconAfter?: ConsoleIconName
   loading?: boolean
+  /**
+   * Isian wajib belum lengkap: tampak abu-abu lewat aria-disabled tetapi tetap bisa diketuk,
+   * supaya form bisa menjelaskan yang kurang. Berbeda dari `disabled` yang tidak menanggapi apa pun.
+   */
+  incomplete?: boolean
   children?: ReactNode
 }
 
 export type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { variant = 'secondary', size = 'M', tone, icon, iconAfter, loading = false, className, children, type, onClick, disabled, ...rest },
+  { variant = 'secondary', size = 'M', tone, icon, iconAfter, loading = false, incomplete = false, className, children, type, onClick, disabled, ...rest },
   ref,
 ) {
   const iconSize = size === 'S' ? 16 : 18
@@ -63,8 +68,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <button
       ref={ref}
       type={type ?? 'button'}
-      className={cx(buttonClass(variant, size, undefined, tone), loading && 'cursor-progress', !loading && !disabled && 'cursor-pointer', disabled && 'cursor-not-allowed', className)}
+      className={cx(buttonClass(variant, size, undefined, tone), loading && 'cursor-progress', !loading && !disabled && !incomplete && 'cursor-pointer', (disabled || incomplete) && !loading && 'cursor-not-allowed', className)}
       aria-busy={loading || undefined}
+      aria-disabled={incomplete || undefined}
       disabled={disabled}
       onClick={(e) => {
         if (loading) {
