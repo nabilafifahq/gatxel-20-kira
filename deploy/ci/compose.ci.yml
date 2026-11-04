@@ -14,3 +14,6 @@ services:
   web:
     deploy:
       replicas: 2
+    environment:
+      # Tes e2e mengubah database langsung (di luar Server Action), jadi cache layar Today dimatikan.
+      KIRA_TODAY_CACHE: "off"

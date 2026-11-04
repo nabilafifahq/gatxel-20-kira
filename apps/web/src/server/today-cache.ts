@@ -29,7 +29,9 @@ async function versions(learnerId: string, orgId: string): Promise<{ lv: string;
   return { cached: null, lv: String(localVer.get(lverKey(learnerId)) ?? 0), ov: String(localVer.get(overKey(orgId)) ?? 0) }
 }
 
+/** KIRA_TODAY_CACHE=off mematikan cache (CI e2e mengubah database langsung di luar Server Action). */
 export async function cachedToday<T>(who: { userId: string; orgId: string }, date: string, compute: () => Promise<T>): Promise<T> {
+  if (process.env.KIRA_TODAY_CACHE === 'off') return compute()
   const { lv, ov, cached } = await versions(who.userId, who.orgId)
   const valid = (e: Entry) => e.lv === lv && e.ov === ov && e.date === date
   if (cached) {
