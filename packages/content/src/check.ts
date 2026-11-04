@@ -234,7 +234,7 @@ function equalsValue(given: string, accepted: string, mode: 'fraction' | 'any'):
 
 /**
  * Isian teks cocok dengan jawaban yang diterima: sama setelah dirapikan, koordinat yang sama, spasi di sekitar
- * garis pecahan diabaikan, atau angka yang sama ditulis lain (.9, 0,9, 1,200). Jawaban pecahan dan angka berakhiran
+ * garis pecahan dan titik dua diabaikan, waktu tanpa titik dua, atau angka yang sama ditulis lain (.9, 0,9, 1,200). Jawaban pecahan dan angka berakhiran
  * nol seperti 3.50 tetap harus sama persis, karena bentuknya bisa jadi yang ditanyakan.
  */
 function textMatches(given: string, accepted: string, caseSensitive: boolean): boolean {
@@ -244,8 +244,11 @@ function textMatches(given: string, accepted: string, caseSensitive: boolean): b
   if (g === a) return true
   const c = coordForm(accepted)
   if (c !== null && c === coordForm(given)) return true
-  const slash = (s: string) => s.replace(/\s*[/⁄]\s*/g, '/')
-  if (slash(g) === slash(a)) return true
+  const tight = (s: string) => s.replace(/\s*⁄\s*/g, '/').replace(/\s*([/:])\s*/g, '$1')
+  if (tight(g) === tight(a)) return true
+  // Waktu tanpa titik dua: 1120 untuk 11:20.
+  const time = /^(\d{1,2}):(\d{2})$/.exec(a)
+  if (time && /^\d{3,4}$/.test(g) && Number(g) === Number(`${time[1]}${time[2]}`)) return true
   if (g.includes('/') || !/^-?\d+(?:\.\d*[1-9])?$/.test(a)) return false
   return parseNumberCandidates(g).some((v) => close(v, Number(a), 0))
 }
