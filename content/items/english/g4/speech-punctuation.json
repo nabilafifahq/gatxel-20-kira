@@ -1,0 +1,512 @@
+{
+  "skill": "e4.speech-punctuation",
+  "items": [
+    {
+      "id": "e4.speech-punctuation.001",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which mark goes at the end of this sentence?\nWhere did you put my shoes___",
+      "options": [
+        {
+          "text": "a full stop",
+          "why": "A full stop ends a statement. This sentence asks something."
+        },
+        {
+          "text": "an exclamation mark",
+          "why": "An exclamation mark shows surprise. This sentence asks something."
+        },
+        {
+          "text": "a question mark"
+        },
+        {
+          "text": "a comma",
+          "why": "A comma does not end a sentence."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Is the sentence telling, asking or shouting?",
+        "Questions need a special mark at the end.",
+        "Look at the first word: Where."
+      ],
+      "explanation": "The sentence asks a question, so it ends with a question mark."
+    },
+    {
+      "id": "e4.speech-punctuation.002",
+      "skill": "e4.speech-punctuation",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the sentences by the mark they need at the end.",
+      "groups": [
+        "Full stop",
+        "Question mark",
+        "Exclamation mark"
+      ],
+      "items": [
+        {
+          "text": "My cat is asleep",
+          "group": 0
+        },
+        {
+          "text": "We walked to the market",
+          "group": 0
+        },
+        {
+          "text": "Where is the bus stop",
+          "group": 1
+        },
+        {
+          "text": "Can you hear that noise",
+          "group": 1
+        },
+        {
+          "text": "What a huge wave",
+          "group": 2
+        },
+        {
+          "text": "Hooray, we won the game",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Decide if each sentence tells, asks or shows strong feeling.",
+        "Sentences that begin with Where or Can are usually questions.",
+        "Start with What a huge wave. Is it a calm fact or a loud feeling?"
+      ],
+      "explanation": "Statements end with a full stop, questions end with a question mark and sentences showing strong feeling can end with an exclamation mark."
+    },
+    {
+      "id": "e4.speech-punctuation.003",
+      "skill": "e4.speech-punctuation",
+      "type": "tiles",
+      "difficulty": 1,
+      "prompt": "Put the words in order. End with the right mark.",
+      "answer": "What a beautiful rainbow!",
+      "distractors": [
+        "are"
+      ],
+      "hints": [
+        "The sentence shows strong feeling.",
+        "It starts with What a.",
+        "The word with the mark at the end goes last."
+      ],
+      "explanation": "The sentence shows surprise, so it ends with an exclamation mark."
+    },
+    {
+      "id": "e4.speech-punctuation.004",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is punctuated correctly?",
+      "options": [
+        {
+          "text": "“Where is my hat?” asked Dad."
+        },
+        {
+          "text": "“Where is my hat,” asked Dad.",
+          "why": "This is a question, so it needs a question mark instead of a comma."
+        },
+        {
+          "text": "“Where is my hat”? asked Dad.",
+          "why": "The question mark belongs inside the speech marks."
+        },
+        {
+          "text": "“Where is my hat?”. asked Dad.",
+          "why": "There should not be a full stop after the speech marks here."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Dad is asking a question.",
+        "The mark that shows a question belongs with the spoken words.",
+        "Check where the question mark is: inside or outside the speech marks?"
+      ],
+      "explanation": "The question mark is part of the words Dad says, so it goes inside the closing speech marks. Asked Dad is not a new sentence."
+    },
+    {
+      "id": "e4.speech-punctuation.005",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sekar says something. Then Kofi replies. What should the writer do when Kofi starts to speak?",
+      "options": [
+        {
+          "text": "write Kofi's words on the same line without speech marks",
+          "why": "Each speaker needs speech marks around their own words."
+        },
+        {
+          "text": "use capital letters for all of Kofi's words",
+          "why": "Capital letters are only needed at the start."
+        },
+        {
+          "text": "put a comma before Kofi's words",
+          "why": "A comma does not show a new speaker."
+        },
+        {
+          "text": "start a new line for Kofi's words"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about how a play or a story shows who is talking.",
+        "A new speaker means a change.",
+        "The writer starts a new line each time."
+      ],
+      "explanation": "We start a new line for each new speaker. This helps the reader see who is talking."
+    },
+    {
+      "id": "e4.speech-punctuation.006",
+      "skill": "e4.speech-punctuation",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Put the words in order. Use the comma in the right place.",
+      "answer": "“Let’s go,” said Kofi.",
+      "distractors": [
+        "and"
+      ],
+      "hints": [
+        "The spoken words come first.",
+        "The comma goes before the closing speech mark.",
+        "Kofi is the last word."
+      ],
+      "explanation": "The spoken words are first, with a comma inside the closing speech marks. Then the reporting clause said Kofi finishes the sentence."
+    },
+    {
+      "id": "e4.speech-punctuation.007",
+      "skill": "e4.speech-punctuation",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Put the words in order to make a correct sentence.",
+      "answer": "Amara said, “We can start now.”",
+      "distractors": [
+        "then"
+      ],
+      "hints": [
+        "The sentence begins with the speaker.",
+        "A comma goes after said.",
+        "The spoken words end with a full stop inside the speech marks."
+      ],
+      "explanation": "When we name the speaker first, we put a comma after said. The spoken words follow in speech marks and end with a full stop inside."
+    },
+    {
+      "id": "e4.speech-punctuation.008",
+      "skill": "e4.speech-punctuation",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the parts in order to make split speech.",
+      "items": [
+        "“Please,”",
+        "said Ines,",
+        "“close the window.”"
+      ],
+      "hints": [
+        "Split speech has a speaker in the middle.",
+        "There is a comma after each part before the speech marks.",
+        "Which part opens the sentence with a speech mark?"
+      ],
+      "explanation": "The sentence reads: “Please,” said Ines, “close the window.” Her words are split by the words said Ines."
+    },
+    {
+      "id": "e4.speech-punctuation.009",
+      "skill": "e4.speech-punctuation",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the sentences that are punctuated correctly.",
+      "options": [
+        {
+          "text": "“I like your drawing,” said Wulan."
+        },
+        {
+          "text": "Bayu asked, “Can I borrow your ruler?”"
+        },
+        {
+          "text": "“Time to go” said Mum.",
+          "why": "A comma is missing before the closing speech marks."
+        },
+        {
+          "text": "“Where are we going?”, asked Leo.",
+          "why": "A comma should not follow a question mark."
+        },
+        {
+          "text": "Yuki shouted, “Catch the ball!”"
+        },
+        {
+          "text": "“Well done.” said Dad.",
+          "why": "After speech marks, the comma replaces the full stop when the speaker follows."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Check each sentence one by one.",
+        "When the speaker comes after the speech, a comma, ? or ! goes inside the closing marks.",
+        "A sentence cannot have a question mark and a comma together."
+      ],
+      "explanation": "The correct sentences use a comma, question mark or exclamation mark inside the speech marks. The others have a missing comma or a mark in the wrong place."
+    },
+    {
+      "id": "e4.speech-punctuation.010",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is punctuated correctly?",
+      "options": [
+        {
+          "text": "“I am tired,” said Leo “but I will finish.”",
+          "why": "A comma is missing after said Leo."
+        },
+        {
+          "text": "“I am tired,” said Leo, “but I will finish.”"
+        },
+        {
+          "text": "“I am tired” said Leo, “but I will finish.”",
+          "why": "A comma is missing inside the first closing speech mark."
+        },
+        {
+          "text": "“I am tired,” said Leo. “but I will finish.”",
+          "why": "A full stop would start a new sentence, but but carries on the first one."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The speaker interrupts one sentence.",
+        "After said Leo, the sentence carries on.",
+        "Check for a comma after the first piece of speech and after the speaker."
+      ],
+      "explanation": "The speech is one sentence that is split in two. The second part carries on, so it begins with a small letter: but."
+    },
+    {
+      "id": "e4.speech-punctuation.011",
+      "skill": "e4.speech-punctuation",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Choose the right mark for each gap.\nMum said___ “Yes, after your homework___”",
+      "gaps": [
+        {
+          "options": [
+            ",",
+            ".",
+            "!"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            ".",
+            ",",
+            ";"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The first gap comes after the speaker, before the speech marks.",
+        "A comma joins the speaker to the spoken words.",
+        "The spoken words end with a sentence mark inside the speech marks."
+      ],
+      "explanation": "A comma comes after said when the speaker comes first. The spoken sentence ends with a full stop inside the speech marks."
+    },
+    {
+      "id": "e4.speech-punctuation.012",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence needs a question mark at the end?",
+      "options": [
+        {
+          "text": "Ask Mum where the key is",
+          "why": "This is a command, so it needs a full stop."
+        },
+        {
+          "text": "Do you know where the key is"
+        },
+        {
+          "text": "I wonder where the key is",
+          "why": "This tells us what someone thinks, so it needs a full stop."
+        },
+        {
+          "text": "Tell me where the key is",
+          "why": "This is a command, so it needs a full stop."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for a sentence that asks something directly.",
+        "Questions often begin with words like do, can, where or why.",
+        "Which sentence waits for someone to answer?"
+      ],
+      "explanation": "Do you know where the key is asks a direct question. The other sentences tell or ask in a different way, so they end with full stops."
+    },
+    {
+      "id": "e4.speech-punctuation.013",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence should end with an exclamation mark?",
+      "options": [
+        {
+          "text": "The sun rose over the hills",
+          "why": "This is a calm statement."
+        },
+        {
+          "text": "I will bake a cake tomorrow",
+          "why": "This is a plain statement."
+        },
+        {
+          "text": "The cake is on the table",
+          "why": "This is a plain statement."
+        },
+        {
+          "text": "What a gigantic cake"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "An exclamation mark shows strong feeling.",
+        "Which sentence shows surprise or wonder?",
+        "Read each one with a loud, surprised voice."
+      ],
+      "explanation": "What a gigantic cake shows surprise, so it can end with an exclamation mark. The others simply tell us facts."
+    },
+    {
+      "id": "e4.speech-punctuation.014",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the best way to write this with correct punctuation?\nmum asked can you pass the salt",
+      "options": [
+        {
+          "text": "Mum asked, “Can you pass the salt?”"
+        },
+        {
+          "text": "Mum asked “can you pass the salt.”",
+          "why": "The spoken words need a capital letter and a question mark."
+        },
+        {
+          "text": "Mum asked, “Can you pass the salt.”",
+          "why": "This asks a question, so it needs a question mark."
+        },
+        {
+          "text": "Mum asked, “Can you pass the salt”?",
+          "why": "The question mark belongs inside the speech marks."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look for names, spoken words and a question.",
+        "Spoken words start with a capital letter.",
+        "Decide which end mark the spoken words need."
+      ],
+      "explanation": "A comma follows asked. The question starts with a capital and ends with a question mark inside the speech marks."
+    },
+    {
+      "id": "e4.speech-punctuation.015",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence asks Grandma to join in the eating?",
+      "options": [
+        {
+          "text": "Let’s eat Grandma.",
+          "why": "Without a comma this sounds as if Grandma is the meal."
+        },
+        {
+          "text": "Let’s, eat Grandma.",
+          "why": "The comma is in the wrong place."
+        },
+        {
+          "text": "Let’s eat, Grandma."
+        },
+        {
+          "text": "Lets eat Grandma.",
+          "why": "Lets has no apostrophe, and the sentence still has no comma."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Commas can change the meaning of a sentence.",
+        "Who is being spoken to?",
+        "A comma goes before the name of the person we are talking to."
+      ],
+      "explanation": "A comma before Grandma shows that we are speaking to her. Without the comma, the sentence says we are going to eat her!"
+    },
+    {
+      "id": "e4.speech-punctuation.016",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which list is punctuated correctly?",
+      "options": [
+        {
+          "text": "I packed a towel a hat, sunscreen and a book.",
+          "why": "A comma is missing after towel."
+        },
+        {
+          "text": "I packed, a towel, a hat, sunscreen and a book.",
+          "why": "There should not be a comma after packed."
+        },
+        {
+          "text": "I packed a towel, a hat, sunscreen and a book."
+        },
+        {
+          "text": "I packed a towel, a hat, sunscreen, and, a book.",
+          "why": "Too many commas break up the list."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "In a list, commas separate the items.",
+        "The last two items are joined with and.",
+        "Check that the comma is not after packed."
+      ],
+      "explanation": "We use commas to separate the things in a list. The last two items are joined by and, so there is no comma before it here."
+    },
+    {
+      "id": "e4.speech-punctuation.017",
+      "skill": "e4.speech-punctuation",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the sentences. Are they punctuated correctly?",
+      "groups": [
+        "Correct",
+        "Needs fixing"
+      ],
+      "items": [
+        {
+          "text": "“Run!” shouted Tom.",
+          "group": 0
+        },
+        {
+          "text": "Putri asked, “Is it time?”",
+          "group": 0
+        },
+        {
+          "text": "“Hello,” said Rangga.",
+          "group": 0
+        },
+        {
+          "text": "“Is it time” asked Putri.",
+          "group": 1
+        },
+        {
+          "text": "Rangga said “Hello.”",
+          "group": 1
+        },
+        {
+          "text": "“Run.” shouted Tom.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Look at the mark just before the closing speech marks.",
+        "If the speaker comes before the speech, a comma follows said or asked.",
+        "If the speaker comes after the speech, the mark goes inside the closing marks."
+      ],
+      "explanation": "The correct sentences use a comma, question mark or exclamation mark inside the closing speech marks, or a comma after said. The others miss a mark or use the wrong one."
+    }
+  ]
+}

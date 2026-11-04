@@ -1,0 +1,41 @@
+{
+  "skill": "m4.money-decimals",
+  "items": [
+    {
+      "id": "m4.money-decimals.001",
+      "skill": "m4.money-decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Leo buys a book for $6.75 and a pen for $1.85. He pays with a $10 note. How many dollars change does he get?",
+      "answer": 1.4,
+      "allowDecimal": true,
+      "hints": [
+        "Add the two prices first.",
+        "$6.75 + $1.85.",
+        "Take your total away from $10."
+      ],
+      "explanation": "6.75 + 1.85 = 8.60. Then 10 - 8.60 = 1.40, so Leo gets $1.40 change.",
+      "tags": [
+        "word-problem"
+      ]
+    },
+    {
+      "id": "m4.money-decimals.002",
+      "skill": "m4.money-decimals",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Muffins cost $2.40 each. Amara buys 3 muffins and pays with $10. How many dollars change does she get?",
+      "answer": 2.8,
+      "allowDecimal": true,
+      "hints": [
+        "Find the cost of 3 muffins.",
+        "3 × 2.40.",
+        "Subtract the cost from 10."
+      ],
+      "explanation": "3 × 2.40 = 7.20. Then 10 - 7.20 = 2.80, so Amara gets $2.80 change.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

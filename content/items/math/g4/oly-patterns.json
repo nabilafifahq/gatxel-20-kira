@@ -464,6 +464,188 @@
         "timo"
       ],
       "expectedSeconds": 240
+    },
+    {
+      "id": "m4.oly-patterns.010",
+      "skill": "m4.oly-patterns",
+      "difficulty": 3,
+      "prompt": "Look at the numbers 1, 2, 4, 7, 11, 16. Each time the jump gets bigger by 1. What number comes next?",
+      "hints": [
+        "Write the jumps between the numbers.",
+        "The jumps are 1, 2, 3, 4, 5.",
+        "The next jump is 6."
+      ],
+      "explanation": "The jumps are 1, 2, 3, 4 and 5, so the next jump is 6. 16 + 6 = 22.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 22
+    },
+    {
+      "id": "m4.oly-patterns.011",
+      "skill": "m4.oly-patterns",
+      "difficulty": 4,
+      "prompt": "A pattern repeats these four shapes: triangle, circle, square, circle. Which shape is the 30th?",
+      "hints": [
+        "Find how many shapes make one repeat.",
+        "The pattern repeats every 4 shapes. Divide 30 by 4.",
+        "30 ÷ 4 is 7 remainder 2. Which shape is second in the group?"
+      ],
+      "explanation": "The group of 4 shapes repeats. 30 = 7 × 4 + 2, so the 30th shape is the second in the group, which is a circle.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "circle"
+        },
+        {
+          "text": "triangle",
+          "why": "The triangle is in position 1, 5, 9, ... which are 1 more than a multiple of 4. 30 is not."
+        },
+        {
+          "text": "square",
+          "why": "The square is in position 3, 7, 11, ... which are 3 more than a multiple of 4. 30 is not."
+        },
+        {
+          "text": "star",
+          "why": "There is no star in the pattern."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The pattern repeats every 4 shapes, so we can work out any position."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.oly-patterns.012",
+      "skill": "m4.oly-patterns",
+      "difficulty": 4,
+      "prompt": "Add up the first 12 odd numbers: 1 + 3 + 5 + ... Look for a pattern in the first few sums. What is the total?",
+      "hints": [
+        "Work out 1, then 1 + 3, then 1 + 3 + 5.",
+        "The sums are 1, 4, 9, 16, ...",
+        "These are square numbers. The 12th odd number sum is 12 × 12."
+      ],
+      "explanation": "The sum of the first 2 odd numbers is 4, of 3 is 9, of 4 is 16. The sum of the first n odd numbers is n × n. So for 12, it is 144.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 144
+    },
+    {
+      "id": "m4.oly-patterns.013",
+      "skill": "m4.oly-patterns",
+      "difficulty": 4,
+      "prompt": "A row of squares is made from matchsticks. One square uses 4 matchsticks. Two joined squares use 7. Three use 10. How many matchsticks make a row of 12 squares?",
+      "hints": [
+        "Find how many sticks each new square adds.",
+        "Each new square adds 3 sticks.",
+        "Start with 4 and add 3 eleven more times."
+      ],
+      "explanation": "The first square needs 4 sticks and each of the 11 extra squares needs 3 more. 4 + 11 × 3 = 37 matchsticks.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 37
+    },
+    {
+      "id": "m4.oly-patterns.014",
+      "skill": "m4.oly-patterns",
+      "difficulty": 5,
+      "prompt": "Write the digits 1, 2, 3, 4, 5, 6 again and again: 123456123456... What is the sum of the first 50 digits?",
+      "hints": [
+        "Add the digits in one group of 6.",
+        "One group of 1 to 6 makes 21.",
+        "50 = 8 groups of 6 plus 2 extra digits."
+      ],
+      "explanation": "Each full group of six digits adds up to 21. There are 8 full groups (48 digits), which give 168. The next two digits are 1 and 2, so 168 + 3 = 171.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "type": "numeric",
+      "answer": 171
+    },
+    {
+      "id": "m4.oly-patterns.015",
+      "skill": "m4.oly-patterns",
+      "difficulty": 3,
+      "prompt": "A staircase has 1 block in step 1, 2 blocks in step 2, 3 in step 3, and so on. How many blocks are in a staircase with 9 steps?",
+      "hints": [
+        "Write the number of blocks in each step.",
+        "Add 1 + 2 + 3 + ... + 9.",
+        "Pair 1 with 9, 2 with 8, and so on."
+      ],
+      "explanation": "Pairs make 10: 1 + 9, 2 + 8, 3 + 7 and 4 + 6, and 5 is left. 4 × 10 + 5 = 45 blocks.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "numeric",
+      "answer": 45
+    },
+    {
+      "id": "m4.oly-patterns.016",
+      "skill": "m4.oly-patterns",
+      "difficulty": 4,
+      "prompt": "Day 1 of a camp is a Monday. The camp lasts 100 days. What day of the week is day 100?",
+      "hints": [
+        "The days repeat every 7 days.",
+        "Count how many days pass from day 1 to day 100.",
+        "99 ÷ 7 is 14 remainder 1."
+      ],
+      "explanation": "Day 100 is 99 days after day 1. 99 = 14 × 7 + 1, so the day is 1 day after Monday, which is Tuesday.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Monday",
+          "why": "Day 99 is a Monday since 98 is 14 weeks later, so day 100 is one day further."
+        },
+        {
+          "text": "Tuesday"
+        },
+        {
+          "text": "Wednesday",
+          "why": "Day 100 is 99 days after day 1, which is 14 weeks plus 1 day, not 2 days."
+        },
+        {
+          "text": "Thursday",
+          "why": "Day 100 is only 1 day past a whole number of weeks."
+        },
+        {
+          "text": "Sunday",
+          "why": "Sunday is the day before Monday, which is the wrong direction."
+        }
+      ],
+      "answer": 1
     }
   ]
 }

@@ -1,0 +1,73 @@
+{
+  "skill": "m5.coordinates-transformations",
+  "items": [
+    {
+      "id": "m5.coordinates-transformations.001",
+      "skill": "m5.coordinates-transformations",
+      "difficulty": 4,
+      "prompt": "Point A is at (2, 3). It moves 4 squares right and 2 squares down. Then it is reflected in the y-axis. Write the final coordinates, like (1, 2).",
+      "hints": [
+        "Do the translation first.",
+        "Right adds to the x number. Down takes away from the y number.",
+        "A reflection in the y-axis changes the sign of the x number."
+      ],
+      "explanation": "After the move A is at (2 + 4, 3 - 2) = (6, 1). Reflecting in the y-axis changes (6, 1) to (-6, 1).",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "(-6,1)",
+            "(-6, 1)",
+            "-6,1",
+            "-6, 1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m5.coordinates-transformations.002",
+      "skill": "m5.coordinates-transformations",
+      "difficulty": 4,
+      "prompt": "Three corners of a rectangle are at (1, 1), (5, 1) and (5, 4). Where is the fourth corner?",
+      "hints": [
+        "Draw the three points on a grid.",
+        "The fourth corner is above (1, 1) and level with (5, 4).",
+        "It has the same x number as (1, 1) and the same y number as (5, 4)."
+      ],
+      "explanation": "The fourth corner shares the x number 1 with (1, 1) and the y number 4 with (5, 4). It is at (1, 4).",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "(4, 1)",
+          "why": "This does not have the x number of the left side and the y number of the top."
+        },
+        {
+          "text": "(4, 5)",
+          "why": "The corners of a rectangle share their x numbers and y numbers with the other corners."
+        },
+        {
+          "text": "(1, 4)"
+        },
+        {
+          "text": "(5, 5)",
+          "why": "This is not in line with the left side or the bottom of the rectangle."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.coordinates-transformations.003",
+      "skill": "m5.coordinates-transformations",
+      "difficulty": 4,
+      "prompt": "A rectangle has corners at (1, 2), (6, 2), (6, 5) and (1, 5). What is its area, in square units?",
+      "hints": [
+        "Find the length of the bottom side.",
+        "The bottom side goes from x = 1 to x = 6.",
+        "Find the height, then multiply."
+      ],
+      "explanation": "The width is 6 - 1 = 5 units and the height is 5 - 2 = 3 units. The area is 5 × 3 = 15 square units.",
+      "type": "numeric",
+      "answer": 15
+    }
+  ]
+}

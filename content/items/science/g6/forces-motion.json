@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "In a tug of war, both teams pull on the rope with a force of 400 N. What happens to the rope?",
       "options": [
-        { "text": "It moves towards the team on the left.", "why": "Both teams pull equally hard, so neither side wins." },
-        { "text": "It does not move, because the forces are balanced." },
-        { "text": "It moves upwards.", "why": "Both forces are sideways and equal, so the rope stays still." },
-        { "text": "It speeds up towards the team on the right.", "why": "Neither force is bigger, so the rope does not start to move." }
+        {
+          "text": "It moves towards the team on the left.",
+          "why": "Both teams pull equally hard, so neither side wins."
+        },
+        {
+          "text": "It does not move, because the forces are balanced."
+        },
+        {
+          "text": "It moves upwards.",
+          "why": "Both forces are sideways and equal, so the rope stays still."
+        },
+        {
+          "text": "It speeds up towards the team on the right.",
+          "why": "Neither force is bigger, so the rope does not start to move."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -27,14 +38,22 @@
       "type": "text",
       "difficulty": 1,
       "prompt": "When the forces on an object are equal in size and act in opposite directions, the forces are ___.",
-      "blanks": [{ "answers": ["balanced"] }],
+      "blanks": [
+        {
+          "answers": [
+            "balanced"
+          ]
+        }
+      ],
       "hints": [
         "Think about a seesaw with the same weight on each side.",
         "Equal and opposite forces cancel each other out.",
         "The word starts with the letter b."
       ],
       "explanation": "Equal forces acting in opposite directions are balanced. Balanced forces do not change how an object moves.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.forces-motion.003",
@@ -50,7 +69,10 @@
         "Subtract the smaller force from the larger force."
       ],
       "explanation": "The forces are opposite, so the resultant force is 500 N − 350 N = 150 N. The rope moves towards Team A, which pulls harder.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.forces-motion.004",
@@ -59,10 +81,21 @@
       "difficulty": 2,
       "prompt": "A boat floats without moving on a calm lake. Which two forces are balanced?",
       "options": [
-        { "text": "air resistance and friction", "why": "The boat is not moving, so these forces are not acting much." },
-        { "text": "gravity and magnetism", "why": "Magnetism is not acting on the boat." },
-        { "text": "the push of the wind and upthrust", "why": "Wind pushes sideways and upthrust pushes up. Balanced forces act in opposite directions." },
-        { "text": "the boat's weight pulling down and upthrust from the water pushing up" }
+        {
+          "text": "air resistance and friction",
+          "why": "The boat is not moving, so these forces are not acting much."
+        },
+        {
+          "text": "gravity and magnetism",
+          "why": "Magnetism is not acting on the boat."
+        },
+        {
+          "text": "the push of the wind and upthrust",
+          "why": "Wind pushes sideways and upthrust pushes up. Balanced forces act in opposite directions."
+        },
+        {
+          "text": "the boat's weight pulling down and upthrust from the water pushing up"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -71,7 +104,9 @@
         "Name the force that pulls everything down, then the force that water pushes up with."
       ],
       "explanation": "Gravity pulls the boat down with its weight, and the water pushes it up with an equal upthrust. These forces are balanced, so the boat floats without sinking or rising.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.forces-motion.005",
@@ -79,16 +114,43 @@
       "type": "sort",
       "difficulty": 4,
       "prompt": "Sort these into balanced forces and unbalanced forces.",
-      "groups": ["Balanced forces", "Unbalanced forces"],
+      "groups": [
+        "Balanced forces",
+        "Unbalanced forces"
+      ],
       "items": [
-        { "text": "a book lying still on a shelf", "group": 0 },
-        { "text": "a car going straight at a steady speed", "group": 0 },
-        { "text": "a lamp hanging still from a ceiling", "group": 0 },
-        { "text": "a parachutist falling at a steady speed", "group": 0 },
-        { "text": "a car speeding up from traffic lights", "group": 1 },
-        { "text": "a football being kicked", "group": 1 },
-        { "text": "a bicycle slowing down", "group": 1 },
-        { "text": "a bus turning a corner", "group": 1 }
+        {
+          "text": "a book lying still on a shelf",
+          "group": 0
+        },
+        {
+          "text": "a car going straight at a steady speed",
+          "group": 0
+        },
+        {
+          "text": "a lamp hanging still from a ceiling",
+          "group": 0
+        },
+        {
+          "text": "a parachutist falling at a steady speed",
+          "group": 0
+        },
+        {
+          "text": "a car speeding up from traffic lights",
+          "group": 1
+        },
+        {
+          "text": "a football being kicked",
+          "group": 1
+        },
+        {
+          "text": "a bicycle slowing down",
+          "group": 1
+        },
+        {
+          "text": "a bus turning a corner",
+          "group": 1
+        }
       ],
       "hints": [
         "Balanced forces mean no change: still things stay still, and moving things keep the same speed and direction.",
@@ -96,7 +158,10 @@
         "For each one, ask whether its speed or direction is changing."
       ],
       "explanation": "Objects that stay still, or move at a steady speed in a straight line, have balanced forces. Speeding up, slowing down or changing direction, like a bus turning, needs unbalanced forces.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.forces-motion.006",
@@ -105,10 +170,21 @@
       "difficulty": 3,
       "prompt": "A shopping trolley is already moving. The push forwards is 30 N and friction backwards is 30 N. What happens to the trolley?",
       "options": [
-        { "text": "It slows down and stops.", "why": "The forces are balanced, so nothing changes its speed. It would slow down only if friction were bigger." },
-        { "text": "It speeds up.", "why": "It would speed up only if the push were bigger than friction." },
-        { "text": "It keeps moving at the same speed." },
-        { "text": "It moves backwards.", "why": "Neither force is bigger, so its direction does not change." }
+        {
+          "text": "It slows down and stops.",
+          "why": "The forces are balanced, so nothing changes its speed. It would slow down only if friction were bigger."
+        },
+        {
+          "text": "It speeds up.",
+          "why": "It would speed up only if the push were bigger than friction."
+        },
+        {
+          "text": "It keeps moving at the same speed."
+        },
+        {
+          "text": "It moves backwards.",
+          "why": "Neither force is bigger, so its direction does not change."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -117,7 +193,9 @@
         "Decide whether the forces are balanced. Then think about the trolley's speed."
       ],
       "explanation": "The forces are balanced, so there is no resultant force to change the trolley's motion. It keeps moving at the same speed in the same direction.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.forces-motion.007",
@@ -126,10 +204,21 @@
       "difficulty": 2,
       "prompt": "A toy car is being pushed along the floor. Which change would make it speed up?",
       "options": [
-        { "text": "Push harder, so the push is bigger than friction." },
-        { "text": "Push with less force than friction.", "why": "Then friction would be bigger, so the car would slow down." },
-        { "text": "Make the push exactly equal to friction.", "why": "Balanced forces keep the speed the same." },
-        { "text": "Put the car on a rougher floor.", "why": "A rougher floor gives more friction, which slows the car down." }
+        {
+          "text": "Push harder, so the push is bigger than friction."
+        },
+        {
+          "text": "Push with less force than friction.",
+          "why": "Then friction would be bigger, so the car would slow down."
+        },
+        {
+          "text": "Make the push exactly equal to friction.",
+          "why": "Balanced forces keep the speed the same."
+        },
+        {
+          "text": "Put the car on a rougher floor.",
+          "why": "A rougher floor gives more friction, which slows the car down."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -147,11 +236,26 @@
       "prompt": "A box is pushed to the right with a force of 20 N. Friction acts on it with a force of 5 N. Draw the box with labelled force arrows, and say what happens to it.",
       "rubric": {
         "criteria": [
-          { "label": "Draws an arrow pointing right, labelled 20 N", "points": 1 },
-          { "label": "Draws an arrow pointing left, labelled 5 N", "points": 1 },
-          { "label": "Makes the 20 N arrow longer than the 5 N arrow", "points": 2 },
-          { "label": "Starts both arrows on the box", "points": 1 },
-          { "label": "Says the forces are unbalanced, so the box speeds up", "points": 1 }
+          {
+            "label": "Draws an arrow pointing right, labelled 20 N",
+            "points": 1
+          },
+          {
+            "label": "Draws an arrow pointing left, labelled 5 N",
+            "points": 1
+          },
+          {
+            "label": "Makes the 20 N arrow longer than the 5 N arrow",
+            "points": 2
+          },
+          {
+            "label": "Starts both arrows on the box",
+            "points": 1
+          },
+          {
+            "label": "Says the forces are unbalanced, so the box speeds up",
+            "points": 1
+          }
         ]
       },
       "background": "grid",
@@ -160,7 +264,9 @@
         "A bigger force gets a longer arrow."
       ],
       "explanation": "The 20 N push to the right is bigger than the 5 N friction to the left. The forces are unbalanced, with a resultant of 15 N to the right, so the box speeds up.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.forces-motion.009",
@@ -169,10 +275,21 @@
       "difficulty": 5,
       "prompt": "A ball is thrown straight up. At the very top, it stops for a moment. Which force acts on it at that moment?",
       "options": [
-        { "text": "no force at all", "why": "Gravity never switches off. That is why the ball falls back down." },
-        { "text": "gravity, pulling it down" },
-        { "text": "an upward force left over from the throw", "why": "The push from the hand stops as soon as the ball leaves it." },
-        { "text": "balanced forces holding it still", "why": "If the forces were balanced, the ball would stay at the top." }
+        {
+          "text": "no force at all",
+          "why": "Gravity never switches off. That is why the ball falls back down."
+        },
+        {
+          "text": "gravity, pulling it down"
+        },
+        {
+          "text": "an upward force left over from the throw",
+          "why": "The push from the hand stops as soon as the ball leaves it."
+        },
+        {
+          "text": "balanced forces holding it still",
+          "why": "If the forces were balanced, the ball would stay at the top."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -181,7 +298,10 @@
         "Ask whether the hand can still push the ball once it has let go."
       ],
       "explanation": "At the top, the ball is not moving, so there is no air resistance, and only gravity acts on it. This unbalanced pull makes the ball fall straight back down.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
     },
     {
       "id": "s6.forces-motion.010",
@@ -198,11 +318,941 @@
       ],
       "explanation": "The forces to the left add up to 25 N + 10 N = 35 N. The resultant force is 40 N − 35 N = 5 N to the right, so the crate speeds up to the right.",
       "solution": [
-        { "say": "Add the two forces that pull to the left.", "show": "25 N + 10 N = 35 N" },
-        { "say": "Compare the left total with the force to the right, and find the difference.", "show": "40 N − 35 N = 5 N" },
-        { "say": "The bigger force is to the right, so the resultant is 5 N to the right.", "show": "5 N to the right" }
+        {
+          "say": "Add the two forces that pull to the left.",
+          "show": "25 N + 10 N = 35 N"
+        },
+        {
+          "say": "Compare the left total with the force to the right, and find the difference.",
+          "show": "40 N − 35 N = 5 N"
+        },
+        {
+          "say": "The bigger force is to the right, so the resultant is 5 N to the right.",
+          "show": "5 N to the right"
+        }
       ],
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.forces-motion.011",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Rangga runs 120 m in 20 seconds at a steady pace. What is his speed in metres per second?",
+      "answer": 6,
+      "unit": "m/s",
+      "hints": [
+        "Speed tells you how far something goes in one unit of time.",
+        "Use speed = distance divided by time.",
+        "Divide 120 by 20."
+      ],
+      "explanation": "Speed = distance ÷ time = 120 m ÷ 20 s = 6 m/s."
+    },
+    {
+      "id": "s6.forces-motion.012",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A cyclist rides at a steady 4 m/s for 15 seconds. How far does she go?",
+      "answer": 60,
+      "unit": "m",
+      "hints": [
+        "The speed tells you the distance in each second.",
+        "Use distance = speed × time.",
+        "Multiply 4 by 15."
+      ],
+      "explanation": "Distance = speed × time = 4 m/s × 15 s = 60 m."
+    },
+    {
+      "id": "s6.forces-motion.013",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A toy boat moves across a pond at 5 m/s. The pond is 150 m long. How many seconds does it take to cross?",
+      "answer": 30,
+      "unit": "s",
+      "hints": [
+        "Think about how many 5 m steps fit in 150 m.",
+        "Use time = distance divided by speed.",
+        "Divide 150 by 5."
+      ],
+      "explanation": "Time = distance ÷ speed = 150 m ÷ 5 m/s = 30 s."
+    },
+    {
+      "id": "s6.forces-motion.014",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A bus travels 90 km in 1.5 hours. What is its average speed in kilometres per hour?",
+      "answer": 60,
+      "unit": "km/h",
+      "allowDecimal": true,
+      "hints": [
+        "Average speed is the total distance divided by the total time.",
+        "Be careful: the time is not a whole number of hours.",
+        "Work out how far the bus goes in 1 hour: divide 90 by 1.5."
+      ],
+      "explanation": "Average speed = 90 km ÷ 1.5 h = 60 km/h."
+    },
+    {
+      "id": "s6.forces-motion.015",
+      "skill": "s6.forces-motion",
+      "type": "table",
+      "difficulty": 3,
+      "caption": "A trolley moving at a steady speed",
+      "prompt": "Amara timed a trolley. The trolley moved at a steady speed. Complete the table.",
+      "head": [
+        "Time (s)",
+        "Distance (m)"
+      ],
+      "rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "12"
+        ],
+        [
+          "4",
+          "24"
+        ],
+        [
+          "6",
+          ""
+        ],
+        [
+          "8",
+          "48"
+        ],
+        [
+          "10",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "36"
+          ]
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "answers": [
+            "60"
+          ]
+        }
+      ],
+      "hints": [
+        "Steady speed means the distance grows by the same amount each second.",
+        "Find the distance in 2 seconds, then keep adding it.",
+        "The trolley goes 12 m every 2 seconds."
+      ],
+      "explanation": "The trolley goes 6 m every second. After 6 s it has gone 36 m and after 10 s it has gone 60 m."
+    },
+    {
+      "id": "s6.forces-motion.016",
+      "skill": "s6.forces-motion",
+      "type": "table",
+      "difficulty": 3,
+      "caption": "A spring being stretched",
+      "prompt": "Hadi hung weights on a spring and measured its stretch. Complete the table.",
+      "head": [
+        "Force (N)",
+        "Stretch (cm)"
+      ],
+      "rows": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "4",
+          "6"
+        ],
+        [
+          "6",
+          ""
+        ],
+        [
+          "8",
+          "12"
+        ],
+        [
+          "10",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "9"
+          ]
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "answers": [
+            "15"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for the pattern between the force and the stretch.",
+        "Each 2 N makes the spring stretch the same extra amount.",
+        "2 N stretches it 3 cm, so 6 N is three lots of 2 N."
+      ],
+      "explanation": "Every 2 N adds 3 cm of stretch. 6 N gives 9 cm and 10 N gives 15 cm."
+    },
+    {
+      "id": "s6.forces-motion.017",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Kofi slides an ice hockey puck across very smooth, slippery ice. Friction is almost zero. After one push, what will the puck do?",
+      "options": [
+        {
+          "text": "Slow down at once, because there is no force pushing it.",
+          "why": "Without friction nothing slows it down."
+        },
+        {
+          "text": "Keep moving in a straight line at nearly the same speed."
+        },
+        {
+          "text": "Speed up, because nothing is stopping it.",
+          "why": "A moving object only speeds up if there is an unbalanced force in its direction of motion."
+        },
+        {
+          "text": "Stop after a short time, because the push gets used up.",
+          "why": "A push is not stored inside the puck and used up."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Objects slow down because of a force, not because time passes.",
+        "What force normally slows things down?",
+        "If the forces on the puck are balanced, what does it do?"
+      ],
+      "explanation": "With almost no friction there is no unbalanced force. A moving object keeps going at the same speed in a straight line."
+    },
+    {
+      "id": "s6.forces-motion.018",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A skydiver opens her parachute and slows down. Which statement explains this?",
+      "options": [
+        {
+          "text": "Gravity gets weaker when the parachute opens.",
+          "why": "Gravity stays the same. Another force changes."
+        },
+        {
+          "text": "Her weight has become smaller.",
+          "why": "The parachute does not change her weight."
+        },
+        {
+          "text": "The air resistance pushing up becomes larger than her weight, so the forces are unbalanced upwards."
+        },
+        {
+          "text": "The parachute pulls her up like a rope.",
+          "why": "Nothing is pulling her up. The air is pushing against the parachute."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Slowing down means the forces are unbalanced.",
+        "Which force is made bigger by a large parachute?",
+        "Compare the upward force with the downward force."
+      ],
+      "explanation": "The large parachute catches a lot of air, so air resistance pushing upwards becomes bigger than the weight. The skydiver slows down until the forces balance again."
+    },
+    {
+      "id": "s6.forces-motion.019",
+      "skill": "s6.forces-motion",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "A crate is dragged to the right at a steady speed. Tap the arrow that shows the friction force.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 170,
+            "w": 320,
+            "h": 90,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 130,
+            "y": 110,
+            "w": 60,
+            "h": 60,
+            "r": 4,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 140,
+            "x2": 250,
+            "y2": 140,
+            "tone": "science",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                250,
+                140
+              ],
+              [
+                239.2,
+                145.2
+              ],
+              [
+                239.2,
+                134.8
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 130,
+            "y1": 150,
+            "x2": 70,
+            "y2": 150,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                70,
+                150
+              ],
+              [
+                80.8,
+                144.8
+              ],
+              [
+                80.8,
+                155.2
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 140,
+            "x2": 160,
+            "y2": 215,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                160,
+                215
+              ],
+              [
+                154.8,
+                204.2
+              ],
+              [
+                165.2,
+                204.2
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A crate on a floor with three arrows. One arrow points right from the crate, one points left from the crate, and one points straight down from the middle of the crate."
+      },
+      "regions": [
+        {
+          "label": "arrow pointing left",
+          "x": 31.3,
+          "y": 57.7,
+          "w": 20,
+          "h": 14
+        },
+        {
+          "label": "arrow pointing right",
+          "x": 68.8,
+          "y": 53.8,
+          "w": 20,
+          "h": 14
+        },
+        {
+          "label": "arrow pointing down",
+          "x": 50,
+          "y": 71.2,
+          "w": 12,
+          "h": 24
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Friction acts against the way the object moves.",
+        "The crate moves to the right.",
+        "Find the arrow that points the opposite way to the movement."
+      ],
+      "explanation": "Friction opposes motion. The crate moves right, so friction acts to the left."
+    },
+    {
+      "id": "s6.forces-motion.020",
+      "skill": "s6.forces-motion",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this picture of a skydiver.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                85,
+                100
+              ],
+              [
+                100,
+                60
+              ],
+              [
+                130,
+                38
+              ],
+              [
+                160,
+                32
+              ],
+              [
+                190,
+                38
+              ],
+              [
+                220,
+                60
+              ],
+              [
+                235,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 90,
+            "y1": 100,
+            "x2": 160,
+            "y2": 175,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 230,
+            "y1": 100,
+            "x2": 160,
+            "y2": 175,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 100,
+            "x2": 160,
+            "y2": 175,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 185,
+            "r": 10,
+            "tone": "ink",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 195,
+            "x2": 160,
+            "y2": 235,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 215,
+            "y1": 150,
+            "x2": 215,
+            "y2": 90,
+            "tone": "warn",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                215,
+                90
+              ],
+              [
+                220.2,
+                100.8
+              ],
+              [
+                209.8,
+                100.8
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 105,
+            "y1": 140,
+            "x2": 105,
+            "y2": 200,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                105,
+                200
+              ],
+              [
+                99.8,
+                189.2
+              ],
+              [
+                110.2,
+                189.2
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A person hangs below a wide dome shape on strings. A long arrow points up on the right side of the person. Another arrow points down on the left side."
+      },
+      "labels": [
+        "parachute",
+        "air resistance",
+        "weight"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 15.4
+        },
+        {
+          "x": 67.2,
+          "y": 44.2
+        },
+        {
+          "x": 32.8,
+          "y": 65.4
+        }
+      ],
+      "extraLabels": [
+        "friction"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "Air resistance pushes against the parachute, upwards.",
+        "The downward arrow shows the pull of gravity."
+      ],
+      "explanation": "The wide dome is the parachute. The upward arrow is air resistance and the downward arrow is the skydiver's weight."
+    },
+    {
+      "id": "s6.forces-motion.021",
+      "skill": "s6.forces-motion",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 forces that can act on an object without touching it.",
+      "options": [
+        {
+          "text": "friction"
+        },
+        {
+          "text": "gravity"
+        },
+        {
+          "text": "magnetic force"
+        },
+        {
+          "text": "air resistance"
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "hints": [
+        "Some forces need contact between two surfaces.",
+        "Think of a magnet pulling a paperclip from a distance.",
+        "Friction and air resistance both need touching."
+      ],
+      "explanation": "Gravity and magnetic force act at a distance. Friction and air resistance only act when things touch."
+    },
+    {
+      "id": "s6.forces-motion.022",
+      "skill": "s6.forces-motion",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these moving things in order, from the slowest to the fastest.",
+      "items": [
+        "A: 24 m in 12 s",
+        "B: 40 m in 10 s",
+        "C: 90 m in 15 s",
+        "D: 70 m in 10 s"
+      ],
+      "hints": [
+        "Work out the speed of each one.",
+        "Divide each distance by its time.",
+        "A is 2 m/s. Now find the others."
+      ],
+      "explanation": "A is 2 m/s, B is 4 m/s, C is 6 m/s and D is 7 m/s."
+    },
+    {
+      "id": "s6.forces-motion.023",
+      "skill": "s6.forces-motion",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each force to an example.",
+      "pairs": [
+        [
+          "friction",
+          "Brakes slow a bicycle wheel"
+        ],
+        [
+          "gravity",
+          "An apple falls from a tree"
+        ],
+        [
+          "upthrust",
+          "A wooden block floats on water"
+        ],
+        [
+          "air resistance",
+          "A feather drifts slowly down"
+        ]
+      ],
+      "hints": [
+        "Think about which force is acting in each picture.",
+        "Upthrust pushes up from water.",
+        "Gravity always pulls objects down."
+      ],
+      "explanation": "Brakes use friction, falling is caused by gravity, floating needs upthrust and a feather is slowed by air resistance."
+    },
+    {
+      "id": "s6.forces-motion.024",
+      "skill": "s6.forces-motion",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "When the forces on an object are ___, the object can change its speed, its ___ or its shape.",
+      "gaps": [
+        {
+          "options": [
+            "unbalanced",
+            "balanced",
+            "equal"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "direction",
+            "colour",
+            "mass"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Balanced forces do not change how something moves.",
+        "What kind of forces cause a change?",
+        "A moving ball can change in speed, or turn to go another way."
+      ],
+      "explanation": "Unbalanced forces change the motion of an object. It can speed up, slow down or change direction."
+    },
+    {
+      "id": "s6.forces-motion.025",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The table shows the distance of a rolling ball from its start. What does it tell you about the forces on the ball?",
+      "options": [
+        {
+          "text": "The forces are unbalanced, because the ball is moving.",
+          "why": "Moving does not mean unbalanced. Look at how the speed changes."
+        },
+        {
+          "text": "The forces are balanced, because the ball moves the same distance each second."
+        },
+        {
+          "text": "There are no forces at all on the ball.",
+          "why": "Gravity and the ground's push still act. They are just balanced."
+        },
+        {
+          "text": "The forces are unbalanced, because the ball is speeding up.",
+          "why": "The distance per second is steady, so the speed is not changing."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Work out how far the ball moves in each second.",
+        "If the distance each second is the same, the speed is steady.",
+        "Steady speed in a straight line means what for the forces?"
+      ],
+      "explanation": "The ball moves 3 m every second, so its speed is steady. A steady speed in a straight line means the forces are balanced.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Time (s)",
+          "Distance (m)"
+        ],
+        "rows": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "3"
+          ],
+          [
+            "2",
+            "6"
+          ],
+          [
+            "3",
+            "9"
+          ],
+          [
+            "4",
+            "12"
+          ]
+        ],
+        "alt": "A table of time and distance for a ball. The distance goes 0, 3, 6, 9, 12 metres at 0, 1, 2, 3, 4 seconds."
+      }
+    },
+    {
+      "id": "s6.forces-motion.026",
+      "skill": "s6.forces-motion",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A lorry's engine pushes it forward with 900 N. Friction is 350 N and air resistance is 250 N, both backwards. What is the resultant force forwards, in newtons?",
+      "answer": 300,
+      "unit": "N",
+      "hints": [
+        "Add the forces that act in the same direction first.",
+        "Add the two backward forces, then take them away from the forward force.",
+        "350 + 250 gives the total backward force."
+      ],
+      "explanation": "Backward forces total 350 + 250 = 600 N. The resultant is 900 − 600 = 300 N forwards."
+    },
+    {
+      "id": "s6.forces-motion.027",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Citra rolls the same toy car down a ramp onto four different surfaces and measures how far it goes. Which surface has the most friction?",
+      "options": [
+        {
+          "text": "Carpet"
+        },
+        {
+          "text": "Smooth tiles",
+          "why": "The car goes furthest on tiles, so there is little friction there."
+        },
+        {
+          "text": "Wooden floor",
+          "why": "The car goes further on wood than on carpet, so wood has less friction."
+        },
+        {
+          "text": "Rubber mat",
+          "why": "The car stops sooner on carpet than on the rubber mat."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "More friction stops the car sooner.",
+        "Look for the surface where the car travels the shortest distance.",
+        "Compare the numbers in the table."
+      ],
+      "explanation": "The car travels the shortest distance on carpet, so carpet exerts the biggest friction force.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Surface",
+          "Distance (cm)"
+        ],
+        "rows": [
+          [
+            "Smooth tiles",
+            "210"
+          ],
+          [
+            "Wooden floor",
+            "160"
+          ],
+          [
+            "Rubber mat",
+            "95"
+          ],
+          [
+            "Carpet",
+            "60"
+          ]
+        ],
+        "alt": "A table showing how far a toy car rolled: smooth tiles 210 cm, wooden floor 160 cm, rubber mat 95 cm and carpet 60 cm."
+      }
+    },
+    {
+      "id": "s6.forces-motion.028",
+      "skill": "s6.forces-motion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "An astronaut has a mass of 60 kg on Earth. On the Moon, gravity is weaker. Which statement is correct on the Moon?",
+      "options": [
+        {
+          "text": "Her mass and her weight are both smaller.",
+          "why": "Mass is the amount of matter. It does not change."
+        },
+        {
+          "text": "Her mass is still 60 kg, but her weight is smaller."
+        },
+        {
+          "text": "Her mass is smaller but her weight is the same.",
+          "why": "Her weight depends on gravity, so it changes."
+        },
+        {
+          "text": "Her mass and weight are both the same.",
+          "why": "Weight is a force. It depends on the pull of gravity."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Mass is how much matter there is. Weight is a force.",
+        "Which of the two depends on how strong gravity is?",
+        "The astronaut is made of the same stuff on the Moon."
+      ],
+      "explanation": "Mass is the amount of matter and does not change. Weight is the pull of gravity on that mass, so it is smaller on the Moon."
+    },
+    {
+      "id": "s6.forces-motion.029",
+      "skill": "s6.forces-motion",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Forces are measured in a unit called the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "newton",
+            "newtons",
+            "n"
+          ]
+        }
+      ],
+      "hints": [
+        "A newtonmeter is used to measure forces.",
+        "The unit is named after a famous scientist who studied gravity.",
+        "One of these is about the weight of a small apple."
+      ],
+      "explanation": "Forces are measured in newtons (N)."
+    },
+    {
+      "id": "s6.forces-motion.030",
+      "skill": "s6.forces-motion",
+      "type": "sort",
+      "difficulty": 4,
+      "prompt": "Sort each example by what is happening to its speed.",
+      "groups": [
+        "Speeding up",
+        "Slowing down",
+        "Steady speed"
+      ],
+      "items": [
+        {
+          "text": "A rocket lifting off",
+          "group": 0
+        },
+        {
+          "text": "A cyclist braking",
+          "group": 1
+        },
+        {
+          "text": "Car cruising at 80 km/h, straight road",
+          "group": 2
+        },
+        {
+          "text": "A ball rolling to a stop on grass",
+          "group": 1
+        },
+        {
+          "text": "A skydiver just after jumping",
+          "group": 0
+        },
+        {
+          "text": "Skydiver with open parachute, steady",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Steady speed means the forces are balanced.",
+        "Ask whether the push or the resisting force is bigger.",
+        "A skydiver changes at different stages of a jump."
+      ],
+      "explanation": "Speeding up needs a bigger forward force. Slowing down needs a bigger backward force. Steady speed means balanced forces."
     }
   ]
 }

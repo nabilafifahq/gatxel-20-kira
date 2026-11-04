@@ -1,0 +1,82 @@
+{
+  "skill": "e5.skim-scan",
+  "title": "Skimming and scanning",
+  "steps": [
+    {
+      "say": "Skimming is reading quickly to get the main idea. Look at headings and first lines.",
+      "show": "skim = the gist"
+    },
+    {
+      "say": "Scanning is looking quickly for one word, name or number.",
+      "show": "scan = one fact"
+    },
+    {
+      "say": "Use a contents page, an index or a timetable to find information fast.",
+      "show": "contents, index, timetable"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.skim-scan.901",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You want to find the price in a leaflet. What do you do?",
+      "options": [
+        {
+          "text": "skim for the main idea",
+          "why": "You need an exact number."
+        },
+        {
+          "text": "scan for a number and the word price"
+        },
+        {
+          "text": "read every word slowly",
+          "why": "This is too slow for a single fact."
+        },
+        {
+          "text": "look at the pictures only",
+          "why": "Pictures may not show the price."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "You need one exact fact.",
+        "Look for the word price.",
+        "Move your eyes quickly over the page."
+      ],
+      "explanation": "Scanning helps you find a specific fact fast."
+    },
+    {
+      "id": "e5.skim-scan.902",
+      "skill": "e5.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which part of a book tells you which page a chapter starts on?",
+      "options": [
+        {
+          "text": "the glossary",
+          "why": "The glossary explains hard words."
+        },
+        {
+          "text": "the contents page"
+        },
+        {
+          "text": "the title page",
+          "why": "The title page shows the name of the book."
+        },
+        {
+          "text": "the blurb",
+          "why": "The blurb is a short description of the book."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the front of the book.",
+        "It lists chapters and page numbers.",
+        "Which part shows chapter names in order?"
+      ],
+      "explanation": "The contents page lists chapters and the pages they start on."
+    }
+  ]
+}

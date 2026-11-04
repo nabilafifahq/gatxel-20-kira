@@ -8,11 +8,26 @@
       "difficulty": 1,
       "prompt": "Match each simple machine to an example.",
       "pairs": [
-        ["lever", "a crowbar lifting a heavy stone"],
-        ["pulley", "a bucket raised from a well on a rope"],
-        ["ramp (inclined plane)", "a sloping plank for pushing a cart up"],
-        ["gears", "toothed wheels on a bicycle"],
-        ["wheel and axle", "a doorknob turning a latch"]
+        [
+          "lever",
+          "a crowbar lifting a heavy stone"
+        ],
+        [
+          "pulley",
+          "a bucket raised from a well on a rope"
+        ],
+        [
+          "ramp (inclined plane)",
+          "a sloping plank for pushing a cart up"
+        ],
+        [
+          "gears",
+          "toothed wheels on a bicycle"
+        ],
+        [
+          "wheel and axle",
+          "a doorknob turning a latch"
+        ]
       ],
       "hints": [
         "Each simple machine makes a job easier in its own way.",
@@ -20,7 +35,9 @@
         "Start with the pulley. Think about a rope running over a wheel at the top of a well."
       ],
       "explanation": "A crowbar is a lever and a well bucket uses a pulley. A sloping plank is a ramp, a bicycle uses gears, and a doorknob is a wheel and axle.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.002",
@@ -29,10 +46,21 @@
       "difficulty": 1,
       "prompt": "On a seesaw, what is the point in the middle that it turns on called?",
       "options": [
-        { "text": "the load", "why": "The load is the weight that is being lifted." },
-        { "text": "the effort", "why": "The effort is the force you put in." },
-        { "text": "the pivot" },
-        { "text": "the axle", "why": "An axle is the rod in the centre of a wheel." }
+        {
+          "text": "the load",
+          "why": "The load is the weight that is being lifted."
+        },
+        {
+          "text": "the effort",
+          "why": "The effort is the force you put in."
+        },
+        {
+          "text": "the pivot"
+        },
+        {
+          "text": "the axle",
+          "why": "An axle is the rod in the centre of a wheel."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -41,7 +69,9 @@
         "Cross out the words for the forces."
       ],
       "explanation": "The pivot, also called the fulcrum, is the fixed point that a lever turns on. On a seesaw, it is the support in the middle.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.003",
@@ -50,10 +80,21 @@
       "difficulty": 2,
       "prompt": "Dimas uses a long metal bar to lift a heavy rock. The pivot is a small stone near the rock. Where should he push to need the least effort?",
       "options": [
-        { "text": "right next to the pivot", "why": "Pushing close to the pivot needs a much bigger effort." },
-        { "text": "at the end furthest from the pivot" },
-        { "text": "on the rock itself", "why": "The rock is the load. Push on the other end of the bar." },
-        { "text": "in the middle of the bar", "why": "That works, but pushing further from the pivot needs even less effort." }
+        {
+          "text": "right next to the pivot",
+          "why": "Pushing close to the pivot needs a much bigger effort."
+        },
+        {
+          "text": "at the end furthest from the pivot"
+        },
+        {
+          "text": "on the rock itself",
+          "why": "The rock is the load. Push on the other end of the bar."
+        },
+        {
+          "text": "in the middle of the bar",
+          "why": "That works, but pushing further from the pivot needs even less effort."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -62,7 +103,9 @@
         "Compare pushing close to the small stone with pushing far from it."
       ],
       "explanation": "Pushing at the end furthest from the pivot gives the biggest turning effect, so less effort is needed. This is why long levers make heavy loads easier to lift.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.004",
@@ -71,10 +114,21 @@
       "difficulty": 2,
       "prompt": "How does a single pulley at the top of a well help you lift a bucket of water?",
       "options": [
-        { "text": "It makes the bucket weigh less.", "why": "The bucket's weight does not change. The pulley changes the direction of your pull." },
-        { "text": "It lifts the bucket by itself.", "why": "You still have to pull the rope. A machine does not do the work for you." },
-        { "text": "It halves the force you need.", "why": "A single fixed pulley does not reduce the force. It only changes its direction." },
-        { "text": "It lets you pull down to lift the bucket up, which is easier." }
+        {
+          "text": "It makes the bucket weigh less.",
+          "why": "The bucket's weight does not change. The pulley changes the direction of your pull."
+        },
+        {
+          "text": "It lifts the bucket by itself.",
+          "why": "You still have to pull the rope. A machine does not do the work for you."
+        },
+        {
+          "text": "It halves the force you need.",
+          "why": "A single fixed pulley does not reduce the force. It only changes its direction."
+        },
+        {
+          "text": "It lets you pull down to lift the bucket up, which is easier."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -83,7 +137,10 @@
         "Ask whether a single pulley changes the size of the force or only its direction."
       ],
       "explanation": "A single fixed pulley changes the direction of your force: you pull down and the bucket goes up. Pulling down is easier because you can use your body weight.",
-      "tags": ["osn-sd", "imso"]
+      "tags": [
+        "osn-sd",
+        "imso"
+      ]
     },
     {
       "id": "s6.simple-machines.005",
@@ -92,10 +149,21 @@
       "difficulty": 3,
       "prompt": "Gear A turns clockwise. Its teeth mesh with the teeth of gear B. Which way does gear B turn?",
       "options": [
-        { "text": "anticlockwise" },
-        { "text": "clockwise", "why": "Meshing teeth push each other the opposite way." },
-        { "text": "It does not turn.", "why": "Gear A's teeth push on gear B's teeth, so gear B must turn." },
-        { "text": "back and forth", "why": "Gear B turns smoothly in one direction, the opposite way to gear A." }
+        {
+          "text": "anticlockwise"
+        },
+        {
+          "text": "clockwise",
+          "why": "Meshing teeth push each other the opposite way."
+        },
+        {
+          "text": "It does not turn.",
+          "why": "Gear A's teeth push on gear B's teeth, so gear B must turn."
+        },
+        {
+          "text": "back and forth",
+          "why": "Gear B turns smoothly in one direction, the opposite way to gear A."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -104,7 +172,10 @@
         "Picture the teeth where the gears meet, and follow which way gear A pushes them."
       ],
       "explanation": "When two gears mesh, the teeth push each other, so the second gear turns the opposite way. Gear B turns anticlockwise.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.006",
@@ -120,7 +191,10 @@
         "Work out how many lots of 10 teeth are in 30 teeth."
       ],
       "explanation": "One turn of the big gear moves 30 teeth, and the small gear needs 10 teeth for one turn. So it turns 30 ÷ 10 = 3 times.",
-      "tags": ["imso", "osn-sd"]
+      "tags": [
+        "imso",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.007",
@@ -129,20 +203,38 @@
       "difficulty": 3,
       "prompt": "Choose all the tools that use a lever.",
       "options": [
-        { "text": "scissors" },
-        { "text": "a bottle opener" },
-        { "text": "a wheelbarrow" },
-        { "text": "a ramp", "why": "A ramp is an inclined plane. It has no pivot." },
-        { "text": "a flagpole rope over a wheel", "why": "A rope over a wheel is a pulley." }
+        {
+          "text": "scissors"
+        },
+        {
+          "text": "a bottle opener"
+        },
+        {
+          "text": "a wheelbarrow"
+        },
+        {
+          "text": "a ramp",
+          "why": "A ramp is an inclined plane. It has no pivot."
+        },
+        {
+          "text": "a flagpole rope over a wheel",
+          "why": "A rope over a wheel is a pulley."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "A lever is a bar that turns on a pivot.",
         "Look for the pivot in each tool.",
         "Start with scissors. Find the screw that the two blades turn on."
       ],
       "explanation": "Scissors, bottle openers and wheelbarrows all turn on a pivot, so they are levers. A ramp is an inclined plane, and a flagpole uses a pulley.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.008",
@@ -159,11 +251,23 @@
       ],
       "explanation": "The left side has a turning effect of 6 × 20 = 120. The right side needs 4 × distance = 120, so the distance is 120 ÷ 4 = 30 cm.",
       "solution": [
-        { "say": "Find the turning effect on the left: the force times its distance from the pivot.", "show": "6 N × 20 cm = 120" },
-        { "say": "The right side must have the same turning effect. Divide by the 4 N force.", "show": "120 ÷ 4 = 30" },
-        { "say": "The 4 N weight must hang 30 cm to the right of the pivot.", "show": "30 cm" }
+        {
+          "say": "Find the turning effect on the left: the force times its distance from the pivot.",
+          "show": "6 N × 20 cm = 120"
+        },
+        {
+          "say": "The right side must have the same turning effect. Divide by the 4 N force.",
+          "show": "120 ÷ 4 = 30"
+        },
+        {
+          "say": "The 4 N weight must hang 30 cm to the right of the pivot.",
+          "show": "30 cm"
+        }
       ],
-      "tags": ["imso", "osn-sd"]
+      "tags": [
+        "imso",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.009",
@@ -172,10 +276,21 @@
       "difficulty": 3,
       "prompt": "Workers push the same heavy box into a truck. Which ramp needs the smallest push?",
       "options": [
-        { "text": "a short ramp with a steep slope", "why": "A steep ramp needs a bigger push, even though the distance is shorter." },
-        { "text": "no ramp: lifting the box straight up", "why": "Lifting straight up needs the biggest force, equal to the box's whole weight." },
-        { "text": "a long ramp with a gentle slope" },
-        { "text": "a ramp covered in sand", "why": "Sand adds friction, which makes pushing harder." }
+        {
+          "text": "a short ramp with a steep slope",
+          "why": "A steep ramp needs a bigger push, even though the distance is shorter."
+        },
+        {
+          "text": "no ramp: lifting the box straight up",
+          "why": "Lifting straight up needs the biggest force, equal to the box's whole weight."
+        },
+        {
+          "text": "a long ramp with a gentle slope"
+        },
+        {
+          "text": "a ramp covered in sand",
+          "why": "Sand adds friction, which makes pushing harder."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -184,7 +299,9 @@
         "Compare a gentle ramp with lifting the box straight up."
       ],
       "explanation": "A long, gentle ramp needs the smallest push, but you must push the box further. Simple machines trade a smaller force for a longer distance.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.simple-machines.010",
@@ -200,7 +317,746 @@
         "Multiply the 1 m lift by that number."
       ],
       "explanation": "The effort is 4 times smaller than the load, so the rope must be pulled 4 times as far. To lift the load 1 m, the builder pulls 4 m of rope.",
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.simple-machines.011",
+      "skill": "s6.simple-machines",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of this lever.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 30,
+            "y": 140,
+            "w": 260,
+            "h": 10,
+            "r": 2,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                160,
+                150
+              ],
+              [
+                140,
+                190
+              ],
+              [
+                180,
+                190
+              ]
+            ],
+            "closed": true,
+            "tone": "muted",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 45,
+            "y": 100,
+            "w": 40,
+            "h": 40,
+            "r": 3,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 70,
+            "x2": 260,
+            "y2": 135,
+            "tone": "science",
+            "width": 5
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                260,
+                135
+              ],
+              [
+                254.8,
+                124.2
+              ],
+              [
+                265.2,
+                124.2
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A long flat plank rests on a small triangle under its middle. A square block sits on the left end. A downward arrow points at the right end."
+      },
+      "labels": [
+        "pivot",
+        "load",
+        "effort"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 67.3
+        },
+        {
+          "x": 20.3,
+          "y": 46.2
+        },
+        {
+          "x": 81.3,
+          "y": 38.5
+        }
+      ],
+      "extraLabels": [
+        "gear"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The load is the thing you want to move.",
+        "The pivot is the fixed point that the lever turns on."
+      ],
+      "explanation": "The lever turns on the pivot. The block on the left is the load, and the arrow shows the effort pushing down on the right."
+    },
+    {
+      "id": "s6.simple-machines.012",
+      "skill": "s6.simple-machines",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Workers must raise a crate to the same height using one of these ramps. Tap the ramp that needs the smallest effort force.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 60,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                15,
+                200
+              ],
+              [
+                55,
+                200
+              ],
+              [
+                55,
+                120
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                100,
+                200
+              ],
+              [
+                190,
+                200
+              ],
+              [
+                190,
+                120
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                200,
+                200
+              ],
+              [
+                310,
+                200
+              ],
+              [
+                310,
+                120
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "text",
+            "x": 40,
+            "y": 228,
+            "text": "A",
+            "size": 18,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 145,
+            "y": 228,
+            "text": "B",
+            "size": 18,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 255,
+            "y": 228,
+            "text": "C",
+            "size": 18,
+            "tone": "ink"
+          }
+        ],
+        "alt": "Three ramps labelled A, B and C stand side by side on the ground. All three rise to the same height. Their lengths along the ground are different."
+      },
+      "regions": [
+        {
+          "label": "ramp A",
+          "x": 12.5,
+          "y": 63.5,
+          "w": 14,
+          "h": 30
+        },
+        {
+          "label": "ramp B",
+          "x": 46.9,
+          "y": 67.3,
+          "w": 24,
+          "h": 26
+        },
+        {
+          "label": "ramp C",
+          "x": 81.3,
+          "y": 67.3,
+          "w": 28,
+          "h": 26
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "A longer, gentler slope needs less push but a longer distance.",
+        "All three ramps reach the same height.",
+        "Find the ramp with the longest sloping surface."
+      ],
+      "explanation": "Ramp C is the longest and the gentlest. You push over a longer distance, so you need a smaller force."
+    },
+    {
+      "id": "s6.simple-machines.013",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A lever balances on a pivot. A 40 N weight hangs 30 cm to the left of the pivot. Another weight hangs 20 cm to the right. How heavy must the right weight be?",
+      "answer": 60,
+      "unit": "N",
+      "hints": [
+        "For balance, force × distance on the left equals force × distance on the right.",
+        "Work out force × distance for the left side first.",
+        "Left side: 40 × 30. Divide it by 20 to find the right weight."
+      ],
+      "explanation": "Left side: 40 N × 30 cm = 1200. Right side: weight × 20 cm must also be 1200, so the weight is 60 N."
+    },
+    {
+      "id": "s6.simple-machines.014",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Maya balances a 5 N weight 24 cm from the pivot with an 8 N weight on the other side. How far is the 8 N weight from the pivot?",
+      "answer": 15,
+      "unit": "cm",
+      "hints": [
+        "The turning effects on both sides must be equal.",
+        "Multiply the first weight by its distance.",
+        "5 × 24 = 120. Which distance times 8 gives 120?"
+      ],
+      "explanation": "5 N × 24 cm = 120. For 8 N to give 120 it needs to be 120 ÷ 8 = 15 cm from the pivot."
+    },
+    {
+      "id": "s6.simple-machines.015",
+      "skill": "s6.simple-machines",
+      "type": "table",
+      "difficulty": 4,
+      "caption": "A lever kept balanced",
+      "prompt": "Leo kept a lever balanced and changed the effort and its distance from the pivot. Complete the table.",
+      "head": [
+        "Effort (N)",
+        "Distance from pivot (cm)"
+      ],
+      "rows": [
+        [
+          "60",
+          "10"
+        ],
+        [
+          "30",
+          "20"
+        ],
+        [
+          "20",
+          "30"
+        ],
+        [
+          "",
+          "40"
+        ],
+        [
+          "10",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 0,
+          "answers": [
+            "15"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "60"
+          ]
+        }
+      ],
+      "hints": [
+        "The effort times the distance stays the same every time.",
+        "Multiply the numbers in the first row.",
+        "60 × 10 = 600. Find what × 40 gives 600, and 10 × what gives 600."
+      ],
+      "explanation": "Effort × distance is always 600. At 40 cm the effort is 15 N, and for an effort of 10 N the distance is 60 cm."
+    },
+    {
+      "id": "s6.simple-machines.016",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Gear A has 12 teeth and turns clockwise. Its teeth mesh with gear B, which has 36 teeth. Compared with gear A, how does gear B turn?",
+      "options": [
+        {
+          "text": "Faster, in the same direction.",
+          "why": "A bigger gear is slower and meshing gears turn in opposite directions."
+        },
+        {
+          "text": "Slower, in the opposite direction."
+        },
+        {
+          "text": "Slower, in the same direction.",
+          "why": "Gears that mesh push each other the opposite way round."
+        },
+        {
+          "text": "Faster, in the opposite direction.",
+          "why": "The gear with more teeth turns more slowly."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Meshing gears turn in opposite directions.",
+        "The gear with more teeth goes round fewer times.",
+        "B has three times as many teeth as A."
+      ],
+      "explanation": "Meshing gears turn opposite ways. B has more teeth, so it makes fewer turns than A and turns more slowly."
+    },
+    {
+      "id": "s6.simple-machines.017",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Gear A has 15 teeth and turns 12 times. It drives gear B, which has 20 teeth. How many times does gear B turn?",
+      "answer": 9,
+      "hints": [
+        "Count the total teeth that pass the meeting point.",
+        "In 12 turns, gear A moves 12 × 15 teeth past that point.",
+        "Divide the total number of teeth by the 20 teeth on gear B."
+      ],
+      "explanation": "Gear A moves 12 × 15 = 180 teeth. Gear B has 20 teeth, so it turns 180 ÷ 20 = 9 times."
+    },
+    {
+      "id": "s6.simple-machines.018",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dimas pushes a barrel up to a platform 1 m high. He can use a ramp 2 m long or a ramp 4 m long. What is the difference?",
+      "options": [
+        {
+          "text": "The 4 m ramp needs a smaller push, but he pushes over a longer distance."
+        },
+        {
+          "text": "The 4 m ramp needs a bigger push but a shorter distance.",
+          "why": "A longer ramp is gentler, so it needs a smaller push."
+        },
+        {
+          "text": "Both ramps need the same push, because the height is the same.",
+          "why": "The slope is different, so the force is different."
+        },
+        {
+          "text": "The 4 m ramp needs less push and a shorter distance.",
+          "why": "There is no ramp that makes you push less over a shorter path."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A gentle slope is easier to push up.",
+        "What do you give up when the ramp is longer?",
+        "Compare the force and the distance for each ramp."
+      ],
+      "explanation": "A longer ramp is gentler, so it needs a smaller force. The cost is that the barrel must move a longer distance."
+    },
+    {
+      "id": "s6.simple-machines.019",
+      "skill": "s6.simple-machines",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A 120 N crate must be raised 0.5 m using a smooth ramp that is 2 m long. Ignoring friction, what effort force is needed?",
+      "answer": 30,
+      "unit": "N",
+      "hints": [
+        "The ramp trades distance for force.",
+        "Work done lifting straight up equals force × height.",
+        "120 × 0.5 = 60. Share that over the 2 m of ramp."
+      ],
+      "explanation": "Lifting straight up takes 120 × 0.5 = 60 (N × m). Over 2 m of ramp the effort is 60 ÷ 2 = 30 N."
+    },
+    {
+      "id": "s6.simple-machines.020",
+      "skill": "s6.simple-machines",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort these tools and objects by the type of simple machine they use.",
+      "groups": [
+        "Lever",
+        "Ramp",
+        "Pulley"
+      ],
+      "items": [
+        {
+          "text": "crowbar",
+          "group": 0
+        },
+        {
+          "text": "scissors",
+          "group": 0
+        },
+        {
+          "text": "bottle opener",
+          "group": 0
+        },
+        {
+          "text": "wheelchair slope",
+          "group": 1
+        },
+        {
+          "text": "playground slide",
+          "group": 1
+        },
+        {
+          "text": "plank to a truck",
+          "group": 1
+        },
+        {
+          "text": "flagpole rope",
+          "group": 2
+        },
+        {
+          "text": "crane hoist",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "A lever turns around a pivot.",
+        "A ramp is a slope and a pulley uses a rope over a wheel.",
+        "Start with the objects that have a rope."
+      ],
+      "explanation": "A crowbar, scissors and a bottle opener turn on a pivot. A slope is a ramp. A rope over a wheel is a pulley."
+    },
+    {
+      "id": "s6.simple-machines.021",
+      "skill": "s6.simple-machines",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "All these ramps rise to the same height. Order them from the one needing the least effort to the one needing the most.",
+      "items": [
+        "Ramp 8 m long",
+        "Ramp 5 m long",
+        "Ramp 3 m long",
+        "Ramp 2 m long"
+      ],
+      "hints": [
+        "A longer ramp is gentler.",
+        "Gentler slopes need less effort.",
+        "Start with the longest ramp."
+      ],
+      "explanation": "For the same height, a longer ramp needs less force. So the 8 m ramp needs the least and the 2 m ramp needs the most."
+    },
+    {
+      "id": "s6.simple-machines.022",
+      "skill": "s6.simple-machines",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each part of a lever to its meaning.",
+      "pairs": [
+        [
+          "pivot",
+          "the fixed point the lever turns on"
+        ],
+        [
+          "effort",
+          "the force you apply to the lever"
+        ],
+        [
+          "load",
+          "the object the lever moves"
+        ],
+        [
+          "lever",
+          "a bar that turns on a pivot"
+        ]
+      ],
+      "hints": [
+        "The word load means something heavy to carry.",
+        "Which part stays still while the bar turns?",
+        "You supply the effort."
+      ],
+      "explanation": "The pivot does not move. You apply the effort, the load is moved and the bar is the lever."
+    },
+    {
+      "id": "s6.simple-machines.023",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Sekar says: \"A lever lets me do the same job with a smaller force, so it saves me from doing any work.\" What is the best reply?",
+      "options": [
+        {
+          "text": "She is right, because the force is smaller so the job is easier in every way.",
+          "why": "The force is smaller but there is a cost."
+        },
+        {
+          "text": "She is wrong, because levers need a bigger force.",
+          "why": "A lever can reduce the force you need."
+        },
+        {
+          "text": "She is partly right: the force is smaller, but she moves her end a longer distance."
+        },
+        {
+          "text": "She is wrong, because levers only work with a pulley.",
+          "why": "A lever works on its own with a pivot."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the long end of a see-saw.",
+        "What do you gain and what do you give up?",
+        "Compare how far each end of the lever moves."
+      ],
+      "explanation": "A lever can make the force smaller, but the end you push moves a longer distance. The job is easier to do, not free."
+    },
+    {
+      "id": "s6.simple-machines.024",
+      "skill": "s6.simple-machines",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Rangga uses a crowbar to lift a rock. Choose 2 changes that make the job easier.",
+      "options": [
+        {
+          "text": "Move the pivot closer to the rock"
+        },
+        {
+          "text": "Use a shorter bar"
+        },
+        {
+          "text": "Push down further from the pivot"
+        },
+        {
+          "text": "Push down closer to the pivot"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "The bigger the distance from the pivot to the effort, the smaller the force you need.",
+        "Think about which distance you want longer and which shorter.",
+        "Make the effort distance longer or the load distance shorter."
+      ],
+      "explanation": "Moving the pivot nearer the rock shortens the load side. Pushing further from the pivot lengthens the effort side. Both mean less force."
+    },
+    {
+      "id": "s6.simple-machines.025",
+      "skill": "s6.simple-machines",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A wheel with teeth that fits into another wheel with teeth is called a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "gear",
+            "cog"
+          ]
+        }
+      ],
+      "hints": [
+        "Bicycles use these to turn the back wheel.",
+        "They are in clocks and machines.",
+        "It is a three-letter word."
+      ],
+      "explanation": "A wheel with teeth is a gear. Meshing gears pass on movement."
+    },
+    {
+      "id": "s6.simple-machines.026",
+      "skill": "s6.simple-machines",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A lever turns on a fixed point called the ___. The force you apply is the ___, and the thing being moved is the ___.",
+      "gaps": [
+        {
+          "options": [
+            "pivot",
+            "load",
+            "ramp"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "load",
+            "effort",
+            "pulley"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "load",
+            "gear",
+            "pivot"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Each gap names a different part of the lever.",
+        "The effort is what you provide.",
+        "The first gap is the point the bar turns around."
+      ],
+      "explanation": "A lever turns on a pivot. You apply the effort to move the load."
+    },
+    {
+      "id": "s6.simple-machines.027",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Putri measured the effort needed to pull a 20 N trolley up to the same height on ramps of different lengths. What does her evidence suggest about a 6 m ramp?",
+      "options": [
+        {
+          "text": "It will need no effort at all.",
+          "why": "Friction and the trolley's weight still need some effort."
+        },
+        {
+          "text": "It will need more than 8 N, because longer ramps are harder.",
+          "why": "The table shows longer ramps need less effort."
+        },
+        {
+          "text": "It will need less than 4.5 N, but still more than 0 N."
+        },
+        {
+          "text": "It will need exactly 4.5 N, the same as the 4 m ramp.",
+          "why": "The effort keeps falling as the ramp gets longer."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the trend in the table as the ramp gets longer.",
+        "The effort falls, but is there a limit?",
+        "Compare the 4 m effort with what a 6 m ramp would probably need."
+      ],
+      "explanation": "The effort falls as the ramp gets longer, so a 6 m ramp should need less than 4.5 N. It can never reach zero because the trolley still has weight and friction.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Ramp length (m)",
+          "Effort (N)"
+        ],
+        "rows": [
+          [
+            "1",
+            "12"
+          ],
+          [
+            "2",
+            "7"
+          ],
+          [
+            "4",
+            "4.5"
+          ]
+        ],
+        "alt": "A table of ramp length and effort. A 1 m ramp needed 12 newtons, a 2 m ramp needed 7 newtons and a 4 m ramp needed 4.5 newtons."
+      }
+    },
+    {
+      "id": "s6.simple-machines.028",
+      "skill": "s6.simple-machines",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A wheelbarrow carries heavy soil. It is a lever. Where is its pivot?",
+      "options": [
+        {
+          "text": "At the handles where you lift.",
+          "why": "The handles are where you apply the effort."
+        },
+        {
+          "text": "In the load of soil.",
+          "why": "The soil is the load."
+        },
+        {
+          "text": "At the axle of the wheel at the front."
+        },
+        {
+          "text": "At the legs at the back.",
+          "why": "The legs rest on the ground but are not the pivot."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The pivot is the point the lever turns around.",
+        "When you lift the handles, what stays on the ground?",
+        "Think about the wheel at the front."
+      ],
+      "explanation": "When you lift the handles, the barrow turns around the wheel axle at the front. That makes the axle the pivot."
     }
   ]
 }

@@ -1,0 +1,456 @@
+{
+  "skill": "e5.apostrophes",
+  "items": [
+    {
+      "id": "e5.apostrophes.001",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is the correct short form of \"do not\"?",
+      "options": [
+        {
+          "text": "dont'",
+          "why": "The apostrophe goes where the letter o is missing, not at the end."
+        },
+        {
+          "text": "do'nt",
+          "why": "The apostrophe must sit in the place of the missing o, which is after the n."
+        },
+        {
+          "text": "don't"
+        },
+        {
+          "text": "d'ont",
+          "why": "The apostrophe is in the wrong place, so the word looks odd."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which letter disappears when the two words join?",
+        "The apostrophe takes the place of the missing letter.",
+        "Join do and not, then take out the o from not."
+      ],
+      "explanation": "In \"do not\" the o of not is missing, so we write don't. The apostrophe sits where the o was."
+    },
+    {
+      "id": "e5.apostrophes.002",
+      "skill": "e5.apostrophes",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Write the short form of \"she is\" using an apostrophe.",
+      "blanks": [
+        {
+          "answers": [
+            "she's",
+            "she’s"
+          ]
+        }
+      ],
+      "hints": [
+        "Two words become one word.",
+        "The apostrophe replaces a missing letter.",
+        "Which letter does is lose?"
+      ],
+      "explanation": "She is becomes she's. The apostrophe takes the place of the letter i."
+    },
+    {
+      "id": "e5.apostrophes.003",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "One dog owns the bowl. Which sentence is correct?",
+      "options": [
+        {
+          "text": "The dogs bowl was empty.",
+          "why": "Without an apostrophe it is not clear that the bowl belongs to the dog."
+        },
+        {
+          "text": "The dog's bowl was empty."
+        },
+        {
+          "text": "The dogs' bowl was empty.",
+          "why": "This shows more than one dog owns the bowl."
+        },
+        {
+          "text": "The dog is bowl was empty.",
+          "why": "The words are not joined into a possessive form."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Who owns the bowl, one dog or many?",
+        "For one owner, add an apostrophe and s.",
+        "Write the owner, then add 's."
+      ],
+      "explanation": "For a single owner we add an apostrophe and s: the dog's bowl."
+    },
+    {
+      "id": "e5.apostrophes.004",
+      "skill": "e5.apostrophes",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "___ a shame that the old tree has lost ___ leaves.",
+      "gaps": [
+        {
+          "options": [
+            "It's",
+            "Its"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "it's",
+            "its"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "One gap means \"it is\". The other shows belonging.",
+        "Try saying \"it is\" in each gap.",
+        "Its with no apostrophe shows that something belongs to it."
+      ],
+      "explanation": "It's is short for it is. Its with no apostrophe means belonging to it, like his or her."
+    },
+    {
+      "id": "e5.apostrophes.005",
+      "skill": "e5.apostrophes",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build the sentence.",
+      "answer": "That is Kofi's new football.",
+      "distractors": [
+        "Kofis",
+        "its"
+      ],
+      "hints": [
+        "Find the name of the owner.",
+        "The apostrophe goes between the name and the s.",
+        "Start with the word That."
+      ],
+      "explanation": "Kofi owns the football, so we write Kofi's with an apostrophe and s."
+    },
+    {
+      "id": "e5.apostrophes.006",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The bags belong to two girls. Which phrase is correct?",
+      "options": [
+        {
+          "text": "the girl's bags",
+          "why": "This shows only one girl."
+        },
+        {
+          "text": "the girls bags",
+          "why": "The apostrophe is missing, so belonging is not shown."
+        },
+        {
+          "text": "the girls's bags",
+          "why": "The plural girls already ends in s, so an extra s is not added."
+        },
+        {
+          "text": "the girls' bags"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "How many owners are there?",
+        "For a plural noun that ends in s, add the apostrophe after the s.",
+        "Write girls first, then think about where the apostrophe goes."
+      ],
+      "explanation": "The plural girls already ends in s, so we only add an apostrophe after it: the girls' bags."
+    },
+    {
+      "id": "e5.apostrophes.007",
+      "skill": "e5.apostrophes",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by what the apostrophe does.",
+      "groups": [
+        "Belonging",
+        "Missing letters"
+      ],
+      "items": [
+        {
+          "text": "Wulan's bike",
+          "group": 0
+        },
+        {
+          "text": "can't",
+          "group": 1
+        },
+        {
+          "text": "the teacher's desk",
+          "group": 0
+        },
+        {
+          "text": "we've",
+          "group": 1
+        },
+        {
+          "text": "the children's toys",
+          "group": 0
+        },
+        {
+          "text": "they'd gone",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Ask yourself: does it show who owns something?",
+        "Short forms like can't join two words and leave out letters.",
+        "Try replacing the phrase with two full words."
+      ],
+      "explanation": "Wulan's bike, the teacher's desk and the children's toys show who owns something. Can't, we've and they'd have missing letters."
+    },
+    {
+      "id": "e5.apostrophes.008",
+      "skill": "e5.apostrophes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Fix the mistake. The childrens toys were all over the floor. Write the correct form of childrens, with its apostrophe.",
+      "blanks": [
+        {
+          "answers": [
+            "children's",
+            "children’s"
+          ]
+        }
+      ],
+      "hints": [
+        "The toys belong to the children.",
+        "Children is a plural that does not end in s.",
+        "For irregular plurals like this, add apostrophe and s."
+      ],
+      "explanation": "Children is an irregular plural that does not end in s, so we add 's: children's toys."
+    },
+    {
+      "id": "e5.apostrophes.009",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses its or it's correctly?",
+      "options": [
+        {
+          "text": "The cat licked it's paws.",
+          "why": "It's means it is, so this does not make sense."
+        },
+        {
+          "text": "Its going to rain soon.",
+          "why": "Its with no apostrophe cannot mean it is."
+        },
+        {
+          "text": "I think it's time to go home."
+        },
+        {
+          "text": "The robot lost it's way.",
+          "why": "Belonging uses its, with no apostrophe."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try replacing the word with \"it is\".",
+        "If \"it is\" fits, you need the apostrophe.",
+        "Read each sentence with \"it is\" in the gap."
+      ],
+      "explanation": "It's means it is. In \"it is time to go home\" the short form works, so it's is right."
+    },
+    {
+      "id": "e5.apostrophes.010",
+      "skill": "e5.apostrophes",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the short forms.",
+      "head": [
+        "Two words",
+        "Short form"
+      ],
+      "rows": [
+        [
+          "I will",
+          "I'll"
+        ],
+        [
+          "they are",
+          ""
+        ],
+        [
+          "would not",
+          ""
+        ],
+        [
+          "it has",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "they're",
+            "they’re"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "wouldn't",
+            "wouldn’t"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "it's",
+            "it’s"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at which letters are left out.",
+        "Join the two words and put the apostrophe where letters vanish.",
+        "Start with they are: which letter does are lose?"
+      ],
+      "explanation": "They are becomes they're, would not becomes wouldn't, and it has becomes it's."
+    },
+    {
+      "id": "e5.apostrophes.011",
+      "skill": "e5.apostrophes",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the sentences with correct apostrophes.",
+      "options": [
+        {
+          "text": "The babies' cots are in the next room."
+        },
+        {
+          "text": "The men's team won the match."
+        },
+        {
+          "text": "We saw three bird's in the tree.",
+          "why": "Plural birds does not need an apostrophe, because nothing belongs to it."
+        },
+        {
+          "text": "Its been a long day.",
+          "why": "Its been means it has been, so it needs it's."
+        },
+        {
+          "text": "James's hat blew away."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Check each sentence for an owner or missing letters.",
+        "Plural nouns not ending in s take 's. Plural nouns ending in s take s'.",
+        "Ask: is there a real owner or a missing letter?"
+      ],
+      "explanation": "The babies' cots and the men's team show belonging correctly, and James's hat is also fine. The other two sentences use apostrophes incorrectly."
+    },
+    {
+      "id": "e5.apostrophes.012",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In which sentence does the apostrophe show missing letters, not belonging?",
+      "options": [
+        {
+          "text": "Mum's car is blue.",
+          "why": "Here the apostrophe shows that the car belongs to Mum."
+        },
+        {
+          "text": "The team's coach smiled.",
+          "why": "Here the apostrophe shows that the coach belongs to the team."
+        },
+        {
+          "text": "Mum's gone to the market."
+        },
+        {
+          "text": "The farmers' field is wet.",
+          "why": "Here the apostrophe shows that the field belongs to the farmers."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try swapping the word with \"is\" or \"has\".",
+        "If the short form can be written out as two words, letters are missing.",
+        "Test: could \"Mum's\" be \"Mum has\"?"
+      ],
+      "explanation": "\"Mum's gone\" means \"Mum has gone\", so the apostrophe stands for missing letters. The other three show who owns something."
+    },
+    {
+      "id": "e5.apostrophes.013",
+      "skill": "e5.apostrophes",
+      "type": "story",
+      "difficulty": 4,
+      "prompt": "Citra read a sign at the school gate. It said: \"Please leave your bikes' by the wall. Its not allowed to block the gate.\" She wanted to fix the two mistakes.",
+      "parts": [
+        {
+          "type": "mcq",
+          "prompt": "Which word wrongly has an apostrophe?",
+          "options": [
+            {
+              "text": "bikes'"
+            },
+            {
+              "text": "Please",
+              "why": "No apostrophe belongs in this word."
+            },
+            {
+              "text": "wall",
+              "why": "This word is fine as it is."
+            },
+            {
+              "text": "gate",
+              "why": "This word is fine as it is."
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "type": "text",
+          "prompt": "Write the correct form of \"Its\" at the start of the second sentence.",
+          "answers": [
+            "It's",
+            "It’s"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for a plural noun that is not an owner.",
+        "Read the second sentence with \"it is\" in it.",
+        "A plain plural does not need an apostrophe."
+      ],
+      "explanation": "Bikes is a plain plural, so it needs no apostrophe. \"It is not allowed\" needs the short form It's."
+    },
+    {
+      "id": "e5.apostrophes.014",
+      "skill": "e5.apostrophes",
+      "type": "text",
+      "difficulty": 5,
+      "prompt": "The hats belong to all the pupils in the class. Complete the phrase: the ___ hats.",
+      "blanks": [
+        {
+          "answers": [
+            "pupils'",
+            "pupils’"
+          ]
+        }
+      ],
+      "hints": [
+        "There is more than one owner.",
+        "The plural pupils already ends in s.",
+        "Add only the apostrophe."
+      ],
+      "explanation": "The plural pupils ends in s, so we add an apostrophe after it: the pupils' hats."
+    }
+  ]
+}

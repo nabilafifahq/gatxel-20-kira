@@ -2,151 +2,886 @@
   "skill": "e4.prefixes",
   "items": [
     {
-      "id": "e4.prefixes.001", "skill": "e4.prefixes", "type": "mcq", "difficulty": 1,
+      "id": "e4.prefixes.001",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "The prefix pre- means before. What does preheat mean?",
       "options": [
-        { "text": "heat again", "why": "Again is the meaning of re-." },
-        { "text": "heat before" },
-        { "text": "not heat", "why": "Not is the meaning of un- or dis-." },
-        { "text": "heat wrongly", "why": "Wrongly is the meaning of mis-." }
+        {
+          "text": "heat again",
+          "why": "Again is the meaning of re-."
+        },
+        {
+          "text": "heat before"
+        },
+        {
+          "text": "not heat",
+          "why": "Not is the meaning of un- or dis-."
+        },
+        {
+          "text": "heat wrongly",
+          "why": "Wrongly is the meaning of mis-."
+        }
       ],
       "answer": 1,
-      "hints": ["Look at the two parts of the word.", "Cover pre- and read what is left.", "Put the meaning of pre- together with heat."],
+      "hints": [
+        "Look at the two parts of the word.",
+        "Cover pre- and read what is left.",
+        "Put the meaning of pre- together with heat."
+      ],
       "explanation": "Pre- means before. To preheat an oven means to heat it before you start cooking.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.002", "skill": "e4.prefixes", "type": "mcq", "difficulty": 1,
+      "id": "e4.prefixes.002",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "The prefix mis- means wrongly. What does misspell mean?",
       "options": [
-        { "text": "spell again", "why": "Again is the meaning of re-." },
-        { "text": "spell before", "why": "Before is the meaning of pre-." },
-        { "text": "spell wrongly" },
-        { "text": "never spell", "why": "Mis- means wrongly, not never." }
+        {
+          "text": "spell again",
+          "why": "Again is the meaning of re-."
+        },
+        {
+          "text": "spell before",
+          "why": "Before is the meaning of pre-."
+        },
+        {
+          "text": "spell wrongly"
+        },
+        {
+          "text": "never spell",
+          "why": "Mis- means wrongly, not never."
+        }
       ],
       "answer": 2,
-      "hints": ["Find the prefix at the start of the word.", "Cover mis- and read what is left.", "Put the meaning of mis- together with spell."],
+      "hints": [
+        "Find the prefix at the start of the word.",
+        "Cover mis- and read what is left.",
+        "Put the meaning of mis- together with spell."
+      ],
       "explanation": "Mis- means wrongly, so misspell means spell a word wrongly.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.003", "skill": "e4.prefixes", "type": "text", "difficulty": 2,
+      "id": "e4.prefixes.003",
+      "skill": "e4.prefixes",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Add mis- or pre- to counted.\nTom ___ the eggs, so he thought there were seven, not six.",
-      "blanks": [{ "answers": ["miscounted"] }],
-      "hints": ["Did Tom get the right number?", "Which prefix means wrongly?", "Write the prefix, then the whole word counted."],
+      "blanks": [
+        {
+          "answers": [
+            "miscounted"
+          ]
+        }
+      ],
+      "hints": [
+        "Did Tom get the right number?",
+        "Which prefix means wrongly?",
+        "Write the prefix, then the whole word counted."
+      ],
       "explanation": "Tom counted wrongly, so he miscounted. Mis- means wrongly."
     },
     {
-      "id": "e4.prefixes.004", "skill": "e4.prefixes", "type": "match", "difficulty": 2,
+      "id": "e4.prefixes.004",
+      "skill": "e4.prefixes",
+      "type": "match",
+      "difficulty": 2,
       "prompt": "Match each word to its meaning.",
-      "pairs": [["preview", "see before"], ["mishear", "hear wrongly"], ["prepay", "pay before"], ["misbehave", "behave badly"], ["preschool", "a school before primary school"]],
-      "hints": ["Find the prefix in each word.", "Pre- means before. Mis- means wrongly or badly.", "Start with prepay. Which meaning has before in it and is about money?"],
+      "pairs": [
+        [
+          "preview",
+          "see before"
+        ],
+        [
+          "mishear",
+          "hear wrongly"
+        ],
+        [
+          "prepay",
+          "pay before"
+        ],
+        [
+          "misbehave",
+          "behave badly"
+        ],
+        [
+          "preschool",
+          "a school before primary school"
+        ]
+      ],
+      "hints": [
+        "Find the prefix in each word.",
+        "Pre- means before. Mis- means wrongly or badly.",
+        "Start with prepay. Which meaning has before in it and is about money?"
+      ],
       "explanation": "Pre- means before, so prepay means pay before. Mis- means wrongly or badly, so misbehave means behave badly."
     },
     {
-      "id": "e4.prefixes.005", "skill": "e4.prefixes", "type": "sort", "difficulty": 3,
+      "id": "e4.prefixes.005",
+      "skill": "e4.prefixes",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Sort the words. Which prefix makes a real word?",
-      "groups": ["pre-", "mis-", "un-", "dis-"],
-      "items": [
-        { "text": "heat", "group": 0 }, { "text": "view", "group": 0 },
-        { "text": "spell", "group": 1 }, { "text": "behave", "group": 1 },
-        { "text": "fair", "group": 2 }, { "text": "lucky", "group": 2 },
-        { "text": "agree", "group": 3 }, { "text": "obey", "group": 3 }
+      "groups": [
+        "pre-",
+        "mis-",
+        "un-",
+        "dis-"
       ],
-      "hints": ["Say each word with each prefix in front of it.", "Only one of these prefixes makes a real word each time.", "Start with spell. Is it prespell, misspell, unspell or disspell?"],
+      "items": [
+        {
+          "text": "heat",
+          "group": 0
+        },
+        {
+          "text": "view",
+          "group": 0
+        },
+        {
+          "text": "spell",
+          "group": 1
+        },
+        {
+          "text": "behave",
+          "group": 1
+        },
+        {
+          "text": "fair",
+          "group": 2
+        },
+        {
+          "text": "lucky",
+          "group": 2
+        },
+        {
+          "text": "agree",
+          "group": 3
+        },
+        {
+          "text": "obey",
+          "group": 3
+        }
+      ],
+      "hints": [
+        "Say each word with each prefix in front of it.",
+        "Only one of these prefixes makes a real word each time.",
+        "Start with spell. Is it prespell, misspell, unspell or disspell?"
+      ],
       "explanation": "We say preheat and preview, misspell and misbehave, unfair and unlucky, disagree and disobey."
     },
     {
-      "id": "e4.prefixes.006", "skill": "e4.prefixes", "type": "mcq", "difficulty": 2,
+      "id": "e4.prefixes.006",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "Before the film, our teacher showed us a short ___ so we knew what it was about.",
       "options": [
-        { "text": "preview" },
-        { "text": "misview", "why": "Misview is not a word." },
-        { "text": "unview", "why": "Unview is not a word." },
-        { "text": "disview", "why": "Disview is not a word." }
+        {
+          "text": "preview"
+        },
+        {
+          "text": "misview",
+          "why": "Misview is not a word."
+        },
+        {
+          "text": "unview",
+          "why": "Unview is not a word."
+        },
+        {
+          "text": "disview",
+          "why": "Disview is not a word."
+        }
       ],
       "answer": 0,
-      "hints": ["The teacher showed it before the film.", "Which prefix means before?", "Try each prefix in front of view. Which one is a word you have heard?"],
+      "hints": [
+        "The teacher showed it before the film.",
+        "Which prefix means before?",
+        "Try each prefix in front of view. Which one is a word you have heard?"
+      ],
       "explanation": "Pre- means before. A preview is a short look at something before you see all of it.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.007", "skill": "e4.prefixes", "type": "mcq", "difficulty": 3,
+      "id": "e4.prefixes.007",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Kemal ___ the question, so his answer was about the wrong thing.",
       "options": [
-        { "text": "reread", "why": "Reread means read again. That would help him get it right!" },
-        { "text": "preread", "why": "Preread is not a word we use." },
-        { "text": "unread", "why": "Unread means not read yet." },
-        { "text": "misread" }
+        {
+          "text": "reread",
+          "why": "Reread means read again. That would help him get it right!"
+        },
+        {
+          "text": "preread",
+          "why": "Preread is not a word we use."
+        },
+        {
+          "text": "unread",
+          "why": "Unread means not read yet."
+        },
+        {
+          "text": "misread"
+        }
       ],
       "answer": 3,
-      "hints": ["What went wrong with Kemal's answer?", "He read the question, but not in the right way.", "Which prefix means wrongly?"],
+      "hints": [
+        "What went wrong with Kemal's answer?",
+        "He read the question, but not in the right way.",
+        "Which prefix means wrongly?"
+      ],
       "explanation": "Misread means read wrongly. Kemal misread the question, so his answer was about the wrong thing.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.008", "skill": "e4.prefixes", "type": "text", "difficulty": 2,
+      "id": "e4.prefixes.008",
+      "skill": "e4.prefixes",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Add mis- or pre- to behave.\nPlease do not ___ in the library.",
-      "blanks": [{ "answers": ["misbehave"] }],
-      "hints": ["How should you act in a library?", "You need a word that means behave badly.", "Which prefix means wrongly or badly?"],
+      "blanks": [
+        {
+          "answers": [
+            "misbehave"
+          ]
+        }
+      ],
+      "hints": [
+        "How should you act in a library?",
+        "You need a word that means behave badly.",
+        "Which prefix means wrongly or badly?"
+      ],
       "explanation": "Misbehave means behave badly. Mis- means wrongly or badly."
     },
     {
-      "id": "e4.prefixes.009", "skill": "e4.prefixes", "type": "multi", "difficulty": 4,
+      "id": "e4.prefixes.009",
+      "skill": "e4.prefixes",
+      "type": "multi",
+      "difficulty": 4,
       "prompt": "Choose all the words where pre- means before.",
       "options": [
-        { "text": "preheat" },
-        { "text": "pretty", "why": "Pre is just part of pretty. Tty is not a word." },
-        { "text": "preview" },
-        { "text": "press", "why": "Press is one whole word. Ss is not a word." },
-        { "text": "prehistoric" },
-        { "text": "prey", "why": "Prey is an animal hunted by another. Y is not a word." }
+        {
+          "text": "preheat"
+        },
+        {
+          "text": "pretty",
+          "why": "Pre is just part of pretty. Tty is not a word."
+        },
+        {
+          "text": "preview"
+        },
+        {
+          "text": "press",
+          "why": "Press is one whole word. Ss is not a word."
+        },
+        {
+          "text": "prehistoric"
+        },
+        {
+          "text": "prey",
+          "why": "Prey is an animal hunted by another. Y is not a word."
+        }
       ],
-      "answers": [0, 2, 4],
-      "hints": ["Cover pre at the start of each word.", "Is the rest a real word?", "If it is, check that before makes sense with it."],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Cover pre at the start of each word.",
+        "Is the rest a real word?",
+        "If it is, check that before makes sense with it."
+      ],
       "explanation": "Preheat means heat before, preview means see before, and prehistoric means before history was written down. In pretty, press and prey, pre is just part of the word."
     },
     {
-      "id": "e4.prefixes.010", "skill": "e4.prefixes", "type": "mcq", "difficulty": 4,
+      "id": "e4.prefixes.010",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Ella ___ her keys and could not find them anywhere.",
       "options": [
-        { "text": "replaced", "why": "Replaced means put back, or swapped for a new one." },
-        { "text": "misplaced" },
-        { "text": "preplaced", "why": "Preplaced is not a word we use." },
-        { "text": "displaced", "why": "Displaced means pushed out of its place. We need a word for lost." }
+        {
+          "text": "replaced",
+          "why": "Replaced means put back, or swapped for a new one."
+        },
+        {
+          "text": "misplaced"
+        },
+        {
+          "text": "preplaced",
+          "why": "Preplaced is not a word we use."
+        },
+        {
+          "text": "displaced",
+          "why": "Displaced means pushed out of its place. We need a word for lost."
+        }
       ],
       "answer": 1,
-      "hints": ["What happened to Ella's keys?", "She put them somewhere, but in the wrong place.", "Which prefix means wrongly?"],
+      "hints": [
+        "What happened to Ella's keys?",
+        "She put them somewhere, but in the wrong place.",
+        "Which prefix means wrongly?"
+      ],
       "explanation": "Misplaced means put in the wrong place and lost. Mis- means wrongly.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.011", "skill": "e4.prefixes", "type": "mcq", "difficulty": 3,
+      "id": "e4.prefixes.011",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which word has a prefix that means wrongly?",
       "options": [
-        { "text": "mist", "why": "Mist is one whole word. T is not a word." },
-        { "text": "miss", "why": "Miss is one whole word." },
-        { "text": "mishear" },
-        { "text": "mister", "why": "Mister is one whole word. Ter is not a word." }
+        {
+          "text": "mist",
+          "why": "Mist is one whole word. T is not a word."
+        },
+        {
+          "text": "miss",
+          "why": "Miss is one whole word."
+        },
+        {
+          "text": "mishear"
+        },
+        {
+          "text": "mister",
+          "why": "Mister is one whole word. Ter is not a word."
+        }
       ],
       "answer": 2,
-      "hints": ["Cover mis at the start of each word.", "Is the rest a real word?", "If the rest is a word, does wrongly make sense with it?"],
+      "hints": [
+        "Cover mis at the start of each word.",
+        "Is the rest a real word?",
+        "If the rest is a word, does wrongly make sense with it?"
+      ],
       "explanation": "Mishear is mis + hear, and it means hear wrongly. In mist, miss and mister, the letters mis are just part of the word.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.prefixes.012", "skill": "e4.prefixes", "type": "mcq", "difficulty": 5,
+      "id": "e4.prefixes.012",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Which word is spelt correctly?",
       "options": [
-        { "text": "misspell" },
-        { "text": "mispell", "why": "Keep all of mis- and all of spell: mis + spell." },
-        { "text": "misspel", "why": "Spell ends with a double l." },
-        { "text": "misppell", "why": "There is only one p in spell." }
+        {
+          "text": "misspell"
+        },
+        {
+          "text": "mispell",
+          "why": "Keep all of mis- and all of spell: mis + spell."
+        },
+        {
+          "text": "misspel",
+          "why": "Spell ends with a double l."
+        },
+        {
+          "text": "misppell",
+          "why": "There is only one p in spell."
+        }
       ],
       "answer": 0,
-      "hints": ["Think about the two parts of the word.", "Write the prefix, then the root word, without dropping any letters.", "Count the letter s where the two parts join."],
+      "hints": [
+        "Think about the two parts of the word.",
+        "Write the prefix, then the root word, without dropping any letters.",
+        "Count the letter s where the two parts join."
+      ],
       "explanation": "Mis + spell = misspell. The prefix keeps its s and spell keeps its s, so there are two s letters together.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e4.prefixes.013",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "The prefix un- usually means not. What does unhappy mean?",
+      "options": [
+        {
+          "text": "very happy",
+          "why": "Un- does not make a word stronger. It turns it round."
+        },
+        {
+          "text": "happy again",
+          "why": "Again is a different prefix, re-."
+        },
+        {
+          "text": "not happy"
+        },
+        {
+          "text": "happy before",
+          "why": "Before is a different prefix, pre-."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at the start of the word.",
+        "Un- changes the meaning to the opposite idea.",
+        "Say the prefix meaning, then the root word."
+      ],
+      "explanation": "Un- means not, so unhappy means not happy."
+    },
+    {
+      "id": "e4.prefixes.014",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word means to build something again?",
+      "options": [
+        {
+          "text": "rebuild"
+        },
+        {
+          "text": "unbuild",
+          "why": "Unbuild is not a word. Un- would mean not."
+        },
+        {
+          "text": "misbuild",
+          "why": "Mis- means wrongly, not again."
+        },
+        {
+          "text": "disbuild",
+          "why": "Disbuild is not a real word."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which prefix means again?",
+        "Think of re- as a replay button.",
+        "Put each prefix in front of build and check it makes sense."
+      ],
+      "explanation": "Re- means again, so rebuild means to build again."
+    },
+    {
+      "id": "e4.prefixes.015",
+      "skill": "e4.prefixes",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The knot was very tight, so Hadi tried to ___ it.",
+      "gaps": [
+        {
+          "options": [
+            "retie",
+            "untie",
+            "mistie",
+            "pretie"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Did Hadi want to make the knot or undo it?",
+        "Un- can mean to undo something.",
+        "Say the sentence with each word and listen."
+      ],
+      "explanation": "Untie means to undo a knot. Un- here means to reverse an action."
+    },
+    {
+      "id": "e4.prefixes.016",
+      "skill": "e4.prefixes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add re- to read.\nMaya liked the story so much that she ___ it twice.",
+      "blanks": [
+        {
+          "answers": [
+            "reread"
+          ]
+        }
+      ],
+      "hints": [
+        "Which prefix gives the idea of again?",
+        "Write the prefix first.",
+        "Write re-, then read, with no space or hyphen."
+      ],
+      "explanation": "Reread means to read again. Re- means again."
+    },
+    {
+      "id": "e4.prefixes.017",
+      "skill": "e4.prefixes",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each prefix to its meaning.",
+      "pairs": [
+        [
+          "un-",
+          "not"
+        ],
+        [
+          "re-",
+          "again"
+        ],
+        [
+          "mis-",
+          "wrongly"
+        ],
+        [
+          "pre-",
+          "before"
+        ],
+        [
+          "dis-",
+          "the opposite of"
+        ]
+      ],
+      "hints": [
+        "Think of one word for each prefix.",
+        "Unlucky, replay and misspell can help you.",
+        "Start with pre-. Think of preheat."
+      ],
+      "explanation": "Un- means not, re- means again, mis- means wrongly, pre- means before and dis- means the opposite of."
+    },
+    {
+      "id": "e4.prefixes.018",
+      "skill": "e4.prefixes",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by the prefix that makes a real word.",
+      "groups": [
+        "un-",
+        "in-",
+        "dis-"
+      ],
+      "items": [
+        {
+          "text": "safe",
+          "group": 0
+        },
+        {
+          "text": "well",
+          "group": 0
+        },
+        {
+          "text": "correct",
+          "group": 1
+        },
+        {
+          "text": "visible",
+          "group": 1
+        },
+        {
+          "text": "like",
+          "group": 2
+        },
+        {
+          "text": "appear",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Try each prefix with each word.",
+        "Say the new word aloud. Does it sound real?",
+        "Start with appear. Is it unappear, inappear or disappear?"
+      ],
+      "explanation": "We say unsafe and unwell, incorrect and invisible, dislike and disappear."
+    },
+    {
+      "id": "e4.prefixes.019",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In which word is un- a prefix meaning not?",
+      "options": [
+        {
+          "text": "uncle",
+          "why": "Uncle is one whole word. Cle is not a word."
+        },
+        {
+          "text": "unit",
+          "why": "Unit is one whole word. It is not about not."
+        },
+        {
+          "text": "unhappy"
+        },
+        {
+          "text": "until",
+          "why": "Until is a different word. Til is not a word."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Cover un- and read the rest.",
+        "Is the rest a real word?",
+        "Then check that not makes sense with it."
+      ],
+      "explanation": "Happy is a real word and un- makes it mean not happy. In the other words, un is just part of the word."
+    },
+    {
+      "id": "e4.prefixes.020",
+      "skill": "e4.prefixes",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build a sentence. Use the word that means heat again.",
+      "answer": "Dad will reheat the soup.",
+      "distractors": [
+        "unheat",
+        "misheat"
+      ],
+      "alternatives": [],
+      "hints": [
+        "Look for the word that fits the soup.",
+        "Which prefix means again?",
+        "Start with the first word that begins with a capital letter."
+      ],
+      "explanation": "Re- means again, so reheat means to heat again."
+    },
+    {
+      "id": "e4.prefixes.021",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word is spelt correctly and means not possible?",
+      "options": [
+        {
+          "text": "impossible"
+        },
+        {
+          "text": "inpossible",
+          "why": "Before p, in- changes to im-."
+        },
+        {
+          "text": "unpossible",
+          "why": "Unpossible is not a real word."
+        },
+        {
+          "text": "dispossible",
+          "why": "Dispossible is not a real word."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the letter that comes after the prefix.",
+        "Some prefixes change before certain letters.",
+        "Say each word. Which one is a word you have heard?"
+      ],
+      "explanation": "Impossible uses im- because the next letter is p. Im- means not."
+    },
+    {
+      "id": "e4.prefixes.022",
+      "skill": "e4.prefixes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Add dis- to appear.\nThe magician made the rabbit ___.",
+      "blanks": [
+        {
+          "answers": [
+            "disappear"
+          ]
+        }
+      ],
+      "hints": [
+        "Which prefix means the opposite of?",
+        "Join the prefix to appear.",
+        "Check that you keep both p letters."
+      ],
+      "explanation": "Disappear means to go out of sight. Dis- means the opposite of, and appear keeps both p letters."
+    },
+    {
+      "id": "e4.prefixes.023",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses a prefix wrongly?",
+      "options": [
+        {
+          "text": "Please recheck your answers.",
+          "why": "This one is fine. Recheck means check again."
+        },
+        {
+          "text": "He mislaid his glasses.",
+          "why": "This one is fine. Mislaid means put in the wrong place."
+        },
+        {
+          "text": "I disagree with you.",
+          "why": "This one is fine. Disagree means not agree."
+        },
+        {
+          "text": "The plan was unpossible."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read each sentence slowly.",
+        "Which word do you never hear?",
+        "Say the root word and the prefix together."
+      ],
+      "explanation": "We say impossible, not unpossible. The other prefixed words are real."
+    },
+    {
+      "id": "e4.prefixes.024",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "In which word does un- mean to undo, not not?",
+      "options": [
+        {
+          "text": "unkind",
+          "why": "Here un- means not kind."
+        },
+        {
+          "text": "unfair",
+          "why": "Here un- means not fair."
+        },
+        {
+          "text": "untie"
+        },
+        {
+          "text": "unsafe",
+          "why": "Here un- means not safe."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Some un- words describe an action.",
+        "Which word is something you do?",
+        "Check which word is a verb."
+      ],
+      "explanation": "Untie is an action that reverses tying. In the other words, un- just means not."
+    },
+    {
+      "id": "e4.prefixes.025",
+      "skill": "e4.prefixes",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words where re- means again.",
+      "options": [
+        {
+          "text": "rewind"
+        },
+        {
+          "text": "real",
+          "why": "Re is just part of real. Al is not a word."
+        },
+        {
+          "text": "restart"
+        },
+        {
+          "text": "reason",
+          "why": "Re is just part of reason. Ason is not a word."
+        },
+        {
+          "text": "recycle"
+        },
+        {
+          "text": "remember",
+          "why": "Remember is a whole word. It does not mean member again."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Cover re- and look at what is left.",
+        "Is the rest a real word that fits?",
+        "Then check that again makes sense."
+      ],
+      "explanation": "Rewind is wind again, restart is start again and recycle is use again. In real, reason and remember, re- is not a prefix meaning again."
+    },
+    {
+      "id": "e4.prefixes.026",
+      "skill": "e4.prefixes",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Add mis- or re- to read.\nKofi ___ the sign at first. Then he ___ it slowly and understood.",
+      "blanks": [
+        {
+          "answers": [
+            "misread"
+          ]
+        },
+        {
+          "answers": [
+            "reread"
+          ]
+        }
+      ],
+      "hints": [
+        "Did Kofi understand the sign at first?",
+        "Wrongly is mis-. Again is re-.",
+        "Fill the first gap, then the second."
+      ],
+      "explanation": "Kofi read the sign wrongly, so he misread it. Then he read it again, so he reread it."
+    },
+    {
+      "id": "e4.prefixes.027",
+      "skill": "e4.prefixes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which two words use different prefixes that both mean not?",
+      "options": [
+        {
+          "text": "rewind and replay",
+          "why": "These use the same prefix, re-, and it means again."
+        },
+        {
+          "text": "unsafe and impossible"
+        },
+        {
+          "text": "misspell and misread",
+          "why": "These use the same prefix, mis-, and it means wrongly."
+        },
+        {
+          "text": "preview and prepay",
+          "why": "These use the same prefix, pre-, and it means before."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the pair with two different prefixes.",
+        "Then check each one means not.",
+        "Cross out the pairs that repeat a prefix."
+      ],
+      "explanation": "Un- and im- both mean not. The other pairs use the same prefix twice."
+    },
+    {
+      "id": "e4.prefixes.028",
+      "skill": "e4.prefixes",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Spell the word that means to go out of sight.",
+      "word": "disappear",
+      "sentence": "The rabbit began to disappear into the hat.",
+      "hints": [
+        "It starts with a prefix.",
+        "The root has two p letters.",
+        "Say it in three parts: dis, ap, pear."
+      ],
+      "explanation": "Disappear is dis- plus appear. Keep both p letters from appear."
+    },
+    {
+      "id": "e4.prefixes.029",
+      "skill": "e4.prefixes",
+      "type": "spell",
+      "difficulty": 5,
+      "prompt": "Spell the word that means not needed.",
+      "word": "unnecessary",
+      "sentence": "It is unnecessary to take an umbrella today.",
+      "hints": [
+        "It starts with the prefix un-.",
+        "The root word has one c and two s letters.",
+        "Say the root in parts: nec, es, sary."
+      ],
+      "explanation": "Unnecessary is un- plus necessary. Necessary has one c and two s letters."
     }
   ]
 }

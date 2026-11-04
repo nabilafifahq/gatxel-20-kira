@@ -1,0 +1,89 @@
+{
+  "skill": "m6.factors-multiples-primes",
+  "items": [
+    {
+      "id": "m6.factors-multiples-primes.001",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 3,
+      "prompt": "Hadi says, \"51 is a prime number.\" Which fact shows that Hadi is wrong?",
+      "hints": [
+        "A prime number has exactly two factors: 1 and itself.",
+        "To show it is not prime, find another factor.",
+        "Try dividing 51 by 3."
+      ],
+      "explanation": "51 ÷ 3 = 17, so 51 = 3 × 17. It has more than two factors, so it is not prime.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "51 = 3 × 17"
+        },
+        {
+          "text": "51 is an odd number",
+          "why": "Many prime numbers are odd, so this does not prove anything."
+        },
+        {
+          "text": "51 is more than 50",
+          "why": "Prime numbers can be bigger than 50 too."
+        },
+        {
+          "text": "51 is not in the 7 times table",
+          "why": "Not being a multiple of 7 does not stop a number being composite."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.factors-multiples-primes.002",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 4,
+      "prompt": "Which shows 180 written as a product of prime factors?",
+      "hints": [
+        "Keep splitting until every factor is prime.",
+        "180 = 2 × 90 and 90 = 2 × 45.",
+        "45 = 3 × 15 and 15 = 3 × 5."
+      ],
+      "explanation": "180 = 2 × 2 × 3 × 3 × 5, because 4 × 9 × 5 = 180. All the factors are prime.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2 × 3 × 5 × 6",
+          "why": "6 is not prime. It can be split into 2 × 3."
+        },
+        {
+          "text": "2 × 2 × 3 × 3 × 5"
+        },
+        {
+          "text": "2 × 2 × 2 × 3 × 5",
+          "why": "This multiplies to 120, not 180."
+        },
+        {
+          "text": "2 × 9 × 10",
+          "why": "9 and 10 are not prime numbers."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m6.factors-multiples-primes.003",
+      "skill": "m6.factors-multiples-primes",
+      "difficulty": 4,
+      "prompt": "A floor measures 60 cm by 84 cm. Nabil covers it with square tiles, with no cutting and no gaps. What is the longest possible side length of a tile in cm?",
+      "hints": [
+        "The tile side must fit exactly into both 60 and 84.",
+        "Look for common factors of 60 and 84.",
+        "You want the greatest common factor."
+      ],
+      "explanation": "The common factors of 60 and 84 include 1, 2, 3, 4, 6 and 12. The greatest is 12, so the tile side is 12 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 12
+    }
+  ]
+}

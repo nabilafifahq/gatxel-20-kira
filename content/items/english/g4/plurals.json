@@ -2,135 +2,906 @@
   "skill": "e4.plurals",
   "items": [
     {
-      "id": "e4.plurals.001", "skill": "e4.plurals", "type": "mcq", "difficulty": 1,
+      "id": "e4.plurals.001",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 1,
       "prompt": "One leaf, two ___.",
-      "figure": { "kind": "objects", "items": [{ "icon": "leaf", "count": 2 }], "alt": "Two green leaves." },
+      "figure": {
+        "kind": "objects",
+        "items": [
+          {
+            "icon": "leaf",
+            "count": 2
+          }
+        ],
+        "alt": "Two green leaves."
+      },
       "options": [
-        { "text": "leafs", "why": "Leaf changes its f to v before adding -es." },
-        { "text": "leaves" },
-        { "text": "leafes", "why": "The f changes to v before the ending." },
-        { "text": "leavs", "why": "This is missing the e." }
+        {
+          "text": "leafs",
+          "why": "Leaf changes its f to v before adding -es."
+        },
+        {
+          "text": "leaves"
+        },
+        {
+          "text": "leafes",
+          "why": "The f changes to v before the ending."
+        },
+        {
+          "text": "leavs",
+          "why": "This is missing the e."
+        }
       ],
       "answer": 1,
-      "hints": ["Leaf ends in f.", "Many words ending in f change the f to v and add -es.", "Think of half and halves."],
+      "hints": [
+        "Leaf ends in f.",
+        "Many words ending in f change the f to v and add -es.",
+        "Think of half and halves."
+      ],
       "explanation": "Leaf ends in f, so we change the f to v and add -es: leaves.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.plurals.002", "skill": "e4.plurals", "type": "text", "difficulty": 1,
+      "id": "e4.plurals.002",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 1,
       "prompt": "One shelf, three ___.",
-      "blanks": [{ "answers": ["shelves"] }],
-      "hints": ["Shelf ends in f.", "Change the f to v.", "Then add the same ending as in leaves."],
+      "blanks": [
+        {
+          "answers": [
+            "shelves"
+          ]
+        }
+      ],
+      "hints": [
+        "Shelf ends in f.",
+        "Change the f to v.",
+        "Then add the same ending as in leaves."
+      ],
       "explanation": "Shelf changes f to v and adds -es: shelves."
     },
     {
-      "id": "e4.plurals.003", "skill": "e4.plurals", "type": "match", "difficulty": 2,
+      "id": "e4.plurals.003",
+      "skill": "e4.plurals",
+      "type": "match",
+      "difficulty": 2,
       "prompt": "Match each word to its plural.",
-      "pairs": [["child", "children"], ["mouse", "mice"], ["tooth", "teeth"], ["foot", "feet"], ["person", "people"]],
-      "hints": ["These words change in other ways to make a plural.", "Say each one aloud: one child, two ...", "Start with foot. What do you call two of them?"],
+      "pairs": [
+        [
+          "child",
+          "children"
+        ],
+        [
+          "mouse",
+          "mice"
+        ],
+        [
+          "tooth",
+          "teeth"
+        ],
+        [
+          "foot",
+          "feet"
+        ],
+        [
+          "person",
+          "people"
+        ]
+      ],
+      "hints": [
+        "These words change in other ways to make a plural.",
+        "Say each one aloud: one child, two ...",
+        "Start with foot. What do you call two of them?"
+      ],
       "explanation": "These are irregular plurals. They change inside the word or become a new word, like child and children."
     },
     {
-      "id": "e4.plurals.004", "skill": "e4.plurals", "type": "text", "difficulty": 2,
+      "id": "e4.plurals.004",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "Write the plural of loaf.\nThe baker took six ___ of bread out of the oven.",
-      "blanks": [{ "answers": ["loaves"] }],
-      "hints": ["Loaf ends in f.", "Words like leaf and loaf change the f.", "Change the f to v, then add the ending."],
+      "blanks": [
+        {
+          "answers": [
+            "loaves"
+          ]
+        }
+      ],
+      "hints": [
+        "Loaf ends in f.",
+        "Words like leaf and loaf change the f.",
+        "Change the f to v, then add the ending."
+      ],
       "explanation": "Loaf ends in f, so it becomes loaves."
     },
     {
-      "id": "e4.plurals.005", "skill": "e4.plurals", "type": "sort", "difficulty": 3,
+      "id": "e4.plurals.005",
+      "skill": "e4.plurals",
+      "type": "sort",
+      "difficulty": 3,
       "prompt": "Sort the words by how they make their plural.",
-      "groups": ["Change f or fe to -ves", "Just add -s"],
-      "items": [
-        { "text": "wolf", "group": 0 }, { "text": "half", "group": 0 }, { "text": "life", "group": 0 }, { "text": "calf", "group": 0 },
-        { "text": "roof", "group": 1 }, { "text": "chef", "group": 1 }, { "text": "cliff", "group": 1 }, { "text": "giraffe", "group": 1 }
+      "groups": [
+        "Change f or fe to -ves",
+        "Just add -s"
       ],
-      "hints": ["Say each plural aloud.", "Do you hear a v sound in the plural?", "Start with roof. Do we say roofs or rooves today?"],
+      "items": [
+        {
+          "text": "wolf",
+          "group": 0
+        },
+        {
+          "text": "half",
+          "group": 0
+        },
+        {
+          "text": "life",
+          "group": 0
+        },
+        {
+          "text": "calf",
+          "group": 0
+        },
+        {
+          "text": "roof",
+          "group": 1
+        },
+        {
+          "text": "chef",
+          "group": 1
+        },
+        {
+          "text": "cliff",
+          "group": 1
+        },
+        {
+          "text": "giraffe",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Say each plural aloud.",
+        "Do you hear a v sound in the plural?",
+        "Start with roof. Do we say roofs or rooves today?"
+      ],
       "explanation": "Wolf, half, life and calf change to -ves. Roof, chef, cliff and giraffe just add -s."
     },
     {
-      "id": "e4.plurals.006", "skill": "e4.plurals", "type": "mcq", "difficulty": 2,
+      "id": "e4.plurals.006",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 2,
       "prompt": "There are many ___ in the farmer's field.",
       "options": [
-        { "text": "sheeps", "why": "Sheep stays the same for one or many." },
-        { "text": "sheepes", "why": "There is no -es. The word never changes." },
-        { "text": "shoop", "why": "Shoop is not a word." },
-        { "text": "sheep" }
+        {
+          "text": "sheeps",
+          "why": "Sheep stays the same for one or many."
+        },
+        {
+          "text": "sheepes",
+          "why": "There is no -es. The word never changes."
+        },
+        {
+          "text": "shoop",
+          "why": "Shoop is not a word."
+        },
+        {
+          "text": "sheep"
+        }
       ],
       "answer": 3,
-      "hints": ["Some animals have the same word for one and for many.", "Think of one fish, two fish.", "Which word does not change at all?"],
+      "hints": [
+        "Some animals have the same word for one and for many.",
+        "Think of one fish, two fish.",
+        "Which word does not change at all?"
+      ],
       "explanation": "Sheep is the same in the singular and the plural: one sheep, many sheep.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.plurals.007", "skill": "e4.plurals", "type": "mcq", "difficulty": 3,
+      "id": "e4.plurals.007",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 3,
       "prompt": "Which plural is spelt correctly?",
       "options": [
-        { "text": "tomatoes" },
-        { "text": "tomatos", "why": "Tomato needs -es at the end." },
-        { "text": "tomatoe", "why": "This is missing the s." },
-        { "text": "tomatoies", "why": "Tomato does not end in y." }
+        {
+          "text": "tomatoes"
+        },
+        {
+          "text": "tomatos",
+          "why": "Tomato needs -es at the end."
+        },
+        {
+          "text": "tomatoe",
+          "why": "This is missing the s."
+        },
+        {
+          "text": "tomatoies",
+          "why": "Tomato does not end in y."
+        }
       ],
       "answer": 0,
-      "hints": ["Tomato ends in o.", "Some words ending in o add -es.", "Think of potato and potatoes."],
+      "hints": [
+        "Tomato ends in o.",
+        "Some words ending in o add -es.",
+        "Think of potato and potatoes."
+      ],
       "explanation": "Tomato adds -es: tomatoes. Potato and hero do the same.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.plurals.008", "skill": "e4.plurals", "type": "text", "difficulty": 3,
+      "id": "e4.plurals.008",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 3,
       "prompt": "Write the plural of goose.\nA family of ___ walked across the road.",
-      "blanks": [{ "answers": ["geese"] }],
-      "hints": ["Goose has an irregular plural.", "Think of tooth and teeth.", "Change the oo sound in the middle."],
+      "blanks": [
+        {
+          "answers": [
+            "geese"
+          ]
+        }
+      ],
+      "hints": [
+        "Goose has an irregular plural.",
+        "Think of tooth and teeth.",
+        "Change the oo sound in the middle."
+      ],
       "explanation": "Goose has an irregular plural, geese, just like tooth becomes teeth."
     },
     {
-      "id": "e4.plurals.009", "skill": "e4.plurals", "type": "mcq", "difficulty": 4,
+      "id": "e4.plurals.009",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 4,
       "prompt": "Which sentence has every plural spelt correctly?",
       "options": [
-        { "text": "The childs put the loaves on the shelfs.", "why": "Child becomes children, and shelf becomes shelves." },
-        { "text": "The children put the loafs on the shelves.", "why": "Loaf becomes loaves." },
-        { "text": "The childrens put the loaves on the shelves.", "why": "Children is already plural. It does not need an s." },
-        { "text": "The children put the loaves on the shelves." }
+        {
+          "text": "The childs put the loaves on the shelfs.",
+          "why": "Child becomes children, and shelf becomes shelves."
+        },
+        {
+          "text": "The children put the loafs on the shelves.",
+          "why": "Loaf becomes loaves."
+        },
+        {
+          "text": "The childrens put the loaves on the shelves.",
+          "why": "Children is already plural. It does not need an s."
+        },
+        {
+          "text": "The children put the loaves on the shelves."
+        }
       ],
       "answer": 3,
-      "hints": ["There are three plurals in each sentence.", "Check the plural of child, then loaf, then shelf.", "Remember that some plurals do not end in s at all."],
+      "hints": [
+        "There are three plurals in each sentence.",
+        "Check the plural of child, then loaf, then shelf.",
+        "Remember that some plurals do not end in s at all."
+      ],
       "explanation": "Child becomes children, loaf becomes loaves and shelf becomes shelves.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
     },
     {
-      "id": "e4.plurals.010", "skill": "e4.plurals", "type": "text", "difficulty": 4,
+      "id": "e4.plurals.010",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 4,
       "prompt": "Write the plurals of calf and pony.\nTwo ___ and three ___ ate grass in the field.",
-      "blanks": [{ "answers": ["calves"] }, { "answers": ["ponies"] }],
-      "hints": ["You need two plurals.", "Calf ends in f. Pony ends in a consonant and y.", "Do calf first. What happens to the f?"],
+      "blanks": [
+        {
+          "answers": [
+            "calves"
+          ]
+        },
+        {
+          "answers": [
+            "ponies"
+          ]
+        }
+      ],
+      "hints": [
+        "You need two plurals.",
+        "Calf ends in f. Pony ends in a consonant and y.",
+        "Do calf first. What happens to the f?"
+      ],
       "explanation": "Calf changes f to v: calves. Pony changes y to i and adds -es: ponies."
     },
     {
-      "id": "e4.plurals.011", "skill": "e4.plurals", "type": "multi", "difficulty": 4,
+      "id": "e4.plurals.011",
+      "skill": "e4.plurals",
+      "type": "multi",
+      "difficulty": 4,
       "prompt": "Choose all the words that are the same in the singular and the plural.",
       "options": [
-        { "text": "sheep" },
-        { "text": "goat", "why": "One goat, two goats." },
-        { "text": "fish" },
-        { "text": "cow", "why": "One cow, two cows." },
-        { "text": "deer" }
+        {
+          "text": "sheep"
+        },
+        {
+          "text": "goat",
+          "why": "One goat, two goats."
+        },
+        {
+          "text": "fish"
+        },
+        {
+          "text": "cow",
+          "why": "One cow, two cows."
+        },
+        {
+          "text": "deer"
+        }
       ],
-      "answers": [0, 2, 4],
-      "hints": ["Say each word with one and then with two.", "Does the word change at all?", "Try sheep: one sheep, two ...?"],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Say each word with one and then with two.",
+        "Does the word change at all?",
+        "Try sheep: one sheep, two ...?"
+      ],
       "explanation": "Sheep, fish and deer stay the same: one deer, two deer. Goat and cow add -s."
     },
     {
-      "id": "e4.plurals.012", "skill": "e4.plurals", "type": "mcq", "difficulty": 5,
+      "id": "e4.plurals.012",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 5,
       "prompt": "Which word breaks the -ves rule and just adds -s?",
       "options": [
-        { "text": "loaf", "why": "Loaf becomes loaves." },
-        { "text": "half", "why": "Half becomes halves." },
-        { "text": "roof" },
-        { "text": "wolf", "why": "Wolf becomes wolves." }
+        {
+          "text": "loaf",
+          "why": "Loaf becomes loaves."
+        },
+        {
+          "text": "half",
+          "why": "Half becomes halves."
+        },
+        {
+          "text": "roof"
+        },
+        {
+          "text": "wolf",
+          "why": "Wolf becomes wolves."
+        }
       ],
       "answer": 2,
-      "hints": ["All four words end in f.", "Say each plural aloud.", "Listen for a v sound. Which plural keeps an f sound instead?"],
+      "hints": [
+        "All four words end in f.",
+        "Say each plural aloud.",
+        "Listen for a v sound. Which plural keeps an f sound instead?"
+      ],
       "explanation": "Roof just adds -s: roofs. Loaf, half and wolf change f to v and add -es.",
-      "tags": ["iklc"]
+      "tags": [
+        "iklc"
+      ]
+    },
+    {
+      "id": "e4.plurals.013",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "One child, two ___.",
+      "options": [
+        {
+          "text": "childs",
+          "why": "Child is an irregular noun. It does not take -s."
+        },
+        {
+          "text": "children"
+        },
+        {
+          "text": "childrens",
+          "why": "Children is already plural. Do not add -s."
+        },
+        {
+          "text": "childen",
+          "why": "Check the letters in the middle: there is an r."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "This noun does not follow the usual -s rule.",
+        "Think of a word you say about a class.",
+        "Say: one child, two ..."
+      ],
+      "explanation": "The plural of child is children. It is an irregular plural."
+    },
+    {
+      "id": "e4.plurals.014",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "One baby, many ___.",
+      "options": [
+        {
+          "text": "babys",
+          "why": "Baby ends in y after a consonant, so y changes."
+        },
+        {
+          "text": "babyes",
+          "why": "We do not keep y and add -es."
+        },
+        {
+          "text": "babis",
+          "why": "Babis misses the letters ie."
+        },
+        {
+          "text": "babies"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the last letter of baby.",
+        "The letter before y is a consonant.",
+        "Change y to i and add -es."
+      ],
+      "explanation": "Baby ends in y after a consonant, so y changes to i and we add -es: babies."
+    },
+    {
+      "id": "e4.plurals.015",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the plural of box.\nThe shop had three big ___ of apples.",
+      "blanks": [
+        {
+          "answers": [
+            "boxes"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at how box ends.",
+        "Words ending in x need more than -s.",
+        "Add -es."
+      ],
+      "explanation": "Words that end in x, s, sh or ch add -es: boxes."
+    },
+    {
+      "id": "e4.plurals.016",
+      "skill": "e4.plurals",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The farmer has two ___ and five ___ in the barn.",
+      "gaps": [
+        {
+          "options": [
+            "sheep",
+            "sheeps",
+            "sheepes"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "mouses",
+            "mice",
+            "mices"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "One of these nouns stays the same.",
+        "The other changes its vowels.",
+        "Think of a shy animal and a woolly animal."
+      ],
+      "explanation": "Sheep stays the same in the plural. Mouse changes to mice."
+    },
+    {
+      "id": "e4.plurals.017",
+      "skill": "e4.plurals",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its plural.",
+      "pairs": [
+        [
+          "man",
+          "men"
+        ],
+        [
+          "woman",
+          "women"
+        ],
+        [
+          "tooth",
+          "teeth"
+        ],
+        [
+          "foot",
+          "feet"
+        ],
+        [
+          "mouse",
+          "mice"
+        ]
+      ],
+      "hints": [
+        "These do not follow the add -s rule.",
+        "The vowels change.",
+        "Start with tooth. Think of oo."
+      ],
+      "explanation": "These are irregular plurals. The vowels change instead of adding -s."
+    },
+    {
+      "id": "e4.plurals.018",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the plural of church.\nThe two ___ in the village are very old.",
+      "blanks": [
+        {
+          "answers": [
+            "churches"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the last two letters of church.",
+        "Words ending in ch add more than -s.",
+        "Add -es."
+      ],
+      "explanation": "Church ends in ch, so we add -es: churches."
+    },
+    {
+      "id": "e4.plurals.019",
+      "skill": "e4.plurals",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the words by how they make their plural.",
+      "groups": [
+        "Add -s",
+        "Change y to ies",
+        "Add -es"
+      ],
+      "items": [
+        {
+          "text": "toy",
+          "group": 0
+        },
+        {
+          "text": "day",
+          "group": 0
+        },
+        {
+          "text": "city",
+          "group": 1
+        },
+        {
+          "text": "story",
+          "group": 1
+        },
+        {
+          "text": "bus",
+          "group": 2
+        },
+        {
+          "text": "dish",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Look at the letter before y in toy and city.",
+        "A vowel before y means we just add -s.",
+        "Start with dish. Is it dishs or dishes?"
+      ],
+      "explanation": "Toy and day have a vowel before y, so they add -s. City and story change y to ies. Bus and dish add -es."
+    },
+    {
+      "id": "e4.plurals.020",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which pair is correct?",
+      "options": [
+        {
+          "text": "photo → photoes",
+          "why": "Photo is short for photograph and only needs -s."
+        },
+        {
+          "text": "piano → pianoes",
+          "why": "Piano only needs -s."
+        },
+        {
+          "text": "tomato → tomatoes"
+        },
+        {
+          "text": "zoo → zooes",
+          "why": "Zoo ends in two o letters and only needs -s."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Some words ending in o add -es, and some only add -s.",
+        "Think of food words for -es.",
+        "Check each one by saying it aloud."
+      ],
+      "explanation": "Tomato adds -es. Photo, piano and zoo only add -s."
+    },
+    {
+      "id": "e4.plurals.021",
+      "skill": "e4.plurals",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Spell the plural of woman.",
+      "word": "women",
+      "sentence": "The women walked to the market together.",
+      "hints": [
+        "This plural does not end in s.",
+        "Only the vowel in the middle changes.",
+        "Change the a to e."
+      ],
+      "explanation": "The plural of woman is women. The vowel changes."
+    },
+    {
+      "id": "e4.plurals.022",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence has a plural mistake?",
+      "options": [
+        {
+          "text": "The sheeps ate grass all morning."
+        },
+        {
+          "text": "Two deer drank at the river.",
+          "why": "Deer stays the same in the plural. This one is fine."
+        },
+        {
+          "text": "Three mice ran away.",
+          "why": "Mice is the correct plural of mouse. This one is fine."
+        },
+        {
+          "text": "Four men sat down.",
+          "why": "Men is the correct plural of man. This one is fine."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about which nouns do not take -s.",
+        "One animal in the sentences stays the same.",
+        "Check the animal words first."
+      ],
+      "explanation": "Sheep stays the same in the plural, so sheeps is wrong."
+    },
+    {
+      "id": "e4.plurals.023",
+      "skill": "e4.plurals",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the plurals that are spelt correctly.",
+      "options": [
+        {
+          "text": "monkeys"
+        },
+        {
+          "text": "babys",
+          "why": "Baby changes y to ies."
+        },
+        {
+          "text": "tomatoes"
+        },
+        {
+          "text": "wolfs",
+          "why": "Wolf changes f to ves."
+        },
+        {
+          "text": "lives"
+        },
+        {
+          "text": "dishs",
+          "why": "Dish needs -es."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "Look at the end of each singular word.",
+        "A vowel before y just adds -s.",
+        "Words ending in f or fe often change to ves."
+      ],
+      "explanation": "Monkeys, tomatoes and lives are correct. Babys, wolfs and dishs need ies, ves and es."
+    },
+    {
+      "id": "e4.plurals.024",
+      "skill": "e4.plurals",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a sentence about farm animals. Use two irregular plurals.",
+      "answer": "The two geese chased three mice.",
+      "distractors": [
+        "gooses",
+        "mouses"
+      ],
+      "alternatives": [
+        "The three geese chased two mice."
+      ],
+      "hints": [
+        "It starts with The.",
+        "Both animals change their spelling.",
+        "Put the number words before the animals."
+      ],
+      "explanation": "Geese and mice are irregular plurals."
+    },
+    {
+      "id": "e4.plurals.025",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write the plurals of wife and tomato.\nThe ___ bought ten ___ at the market.",
+      "blanks": [
+        {
+          "answers": [
+            "wives"
+          ]
+        },
+        {
+          "answers": [
+            "tomatoes"
+          ]
+        }
+      ],
+      "hints": [
+        "Fill the first gap, then the second.",
+        "Wife ends in fe and changes.",
+        "Change f to v and add -es for wife. Add -es for tomato."
+      ],
+      "explanation": "Wife changes to wives, and tomato takes -es."
+    },
+    {
+      "id": "e4.plurals.026",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which pair of words both change f to v in the plural?",
+      "options": [
+        {
+          "text": "roof, cliff",
+          "why": "Roofs and cliffs just add -s."
+        },
+        {
+          "text": "wolf, calf"
+        },
+        {
+          "text": "chef, chief",
+          "why": "Chefs and chiefs just add -s."
+        },
+        {
+          "text": "leaf, roof",
+          "why": "Leaf changes, but roof just adds -s."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Say each plural aloud.",
+        "Only some f words change.",
+        "Check roof first. It is a surprise."
+      ],
+      "explanation": "Wolves and calves change f to v. Roofs, cliffs, chefs and chiefs just add -s."
+    },
+    {
+      "id": "e4.plurals.027",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write the plural of half.\nThe cake was cut into two ___.",
+      "blanks": [
+        {
+          "answers": [
+            "halves"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at how half ends.",
+        "Many words ending in f change.",
+        "Change f to v and add -es."
+      ],
+      "explanation": "Half changes f to v and adds -es: halves."
+    },
+    {
+      "id": "e4.plurals.028",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word ends in s but is NOT a plural?",
+      "options": [
+        {
+          "text": "boys",
+          "why": "Boys is plural. It means more than one boy."
+        },
+        {
+          "text": "cats",
+          "why": "Cats is plural. It means more than one cat."
+        },
+        {
+          "text": "bus"
+        },
+        {
+          "text": "dishes",
+          "why": "Dishes is plural. It means more than one dish."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about meaning, not just spelling.",
+        "A plural means more than one.",
+        "Which word names just one thing?"
+      ],
+      "explanation": "Bus is singular. It names one vehicle even though it ends in s."
+    },
+    {
+      "id": "e4.plurals.029",
+      "skill": "e4.plurals",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence is about only one animal?",
+      "options": [
+        {
+          "text": "The fish is swimming."
+        },
+        {
+          "text": "The sheep are in the field.",
+          "why": "Are shows there is more than one sheep."
+        },
+        {
+          "text": "The deer were running.",
+          "why": "Were shows there is more than one deer."
+        },
+        {
+          "text": "The mice were hiding.",
+          "why": "Mice is already plural."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Some nouns look the same as singular and plural.",
+        "Look at the verb after the noun.",
+        "Is, was, are or were?"
+      ],
+      "explanation": "Is shows one. Sheep and deer stay the same, so the verb tells us the number."
+    },
+    {
+      "id": "e4.plurals.030",
+      "skill": "e4.plurals",
+      "type": "text",
+      "difficulty": 5,
+      "prompt": "Write the plurals of leaf and roof.\nAutumn ___ covered the ___ of the houses.",
+      "blanks": [
+        {
+          "answers": [
+            "leaves"
+          ]
+        },
+        {
+          "answers": [
+            "roofs"
+          ]
+        }
+      ],
+      "hints": [
+        "Fill the gaps in order.",
+        "Both words end in f, but only one changes.",
+        "Leaf changes to ves. Roof just adds s."
+      ],
+      "explanation": "Leaf changes to leaves. Roof is an exception and just adds -s: roofs."
     }
   ]
 }

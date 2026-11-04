@@ -1,0 +1,70 @@
+{
+  "skill": "m5.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m5.fractions-of-amounts.001",
+      "skill": "m5.fractions-of-amounts",
+      "difficulty": 3,
+      "prompt": "A bicycle costs Rp64.000 at a market stall. Citra pays 3/8 of the price as a deposit. How much is the deposit, in rupiah?",
+      "hints": [
+        "Divide the price into 8 equal parts.",
+        "Rp64.000 ÷ 8 gives one eighth.",
+        "Then multiply by 3."
+      ],
+      "explanation": "One eighth of 64,000 is 8,000. Three eighths is 3 × 8,000 = 24,000. The deposit is Rp24.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 24000
+    },
+    {
+      "id": "m5.fractions-of-amounts.002",
+      "skill": "m5.fractions-of-amounts",
+      "difficulty": 4,
+      "prompt": "Putri has Rp120.000. She spends 1/4 on books and 2/5 of the money that is left on food. How much money does she have left, in rupiah?",
+      "hints": [
+        "Find 1/4 of 120,000 first and take it away.",
+        "Then find 2/5 of the remaining money, not of 120,000.",
+        "Take the food money from the remaining money."
+      ],
+      "explanation": "1/4 of 120,000 is 30,000, leaving 90,000. 2/5 of 90,000 is 36,000. 90,000 - 36,000 = 54,000, so Putri has Rp54.000 left.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 54000
+    },
+    {
+      "id": "m5.fractions-of-amounts.003",
+      "skill": "m5.fractions-of-amounts",
+      "difficulty": 4,
+      "prompt": "Which is bigger, 3/4 of 80 or 2/3 of 99?",
+      "hints": [
+        "Work out both amounts before you compare.",
+        "Divide 80 by 4 and multiply by 3.",
+        "Divide 99 by 3 and multiply by 2."
+      ],
+      "explanation": "3/4 of 80 = 60 and 2/3 of 99 = 66. So 2/3 of 99 is bigger.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3/4 of 80",
+          "why": "3/4 of 80 is 60. 2/3 of 99 is 66, which is bigger."
+        },
+        {
+          "text": "They are equal",
+          "why": "Work each one out. They give different amounts."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "The fractions can be found exactly, so we can compare the two amounts."
+        },
+        {
+          "text": "2/3 of 99"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

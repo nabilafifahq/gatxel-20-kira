@@ -1,0 +1,64 @@
+{
+  "skill": "m4.sequences",
+  "items": [
+    {
+      "id": "m4.sequences.001",
+      "skill": "m4.sequences",
+      "difficulty": 3,
+      "prompt": "The sequence 5, 11, 17, 23 continues in the same way. What is the 8th term?",
+      "hints": [
+        "Find the rule first.",
+        "The numbers go up by 6.",
+        "Keep adding 6 until you reach the 8th term."
+      ],
+      "explanation": "The rule is add 6. The terms are 5, 11, 17, 23, 29, 35, 41, 47. The 8th term is 47.",
+      "type": "numeric",
+      "answer": 47
+    },
+    {
+      "id": "m4.sequences.002",
+      "skill": "m4.sequences",
+      "difficulty": 3,
+      "prompt": "Which number is in the sequence 4, 9, 14, 19, ...?",
+      "hints": [
+        "Find the rule first.",
+        "The sequence goes up by 5.",
+        "Look at the last digit of each term."
+      ],
+      "explanation": "The sequence goes up by 5, so every term ends in 4 or 9. Only 64 fits.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "52",
+          "why": "52 ends in 2. Terms in this sequence end in 4 or 9."
+        },
+        {
+          "text": "64"
+        },
+        {
+          "text": "56",
+          "why": "56 ends in 6. Terms in this sequence end in 4 or 9."
+        },
+        {
+          "text": "70",
+          "why": "70 ends in 0. Terms in this sequence end in 4 or 9."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "m4.sequences.003",
+      "skill": "m4.sequences",
+      "difficulty": 4,
+      "prompt": "Look at the sequence 2, 5, 10, 17, 26. The differences between the terms are 3, 5, 7 and 9. What is the next term?",
+      "hints": [
+        "Look at how the differences change.",
+        "The differences go up by 2 each time.",
+        "The next difference is 11."
+      ],
+      "explanation": "The differences are 3, 5, 7, 9, so the next difference is 11. 26 + 11 = 37.",
+      "type": "numeric",
+      "answer": 37
+    }
+  ]
+}

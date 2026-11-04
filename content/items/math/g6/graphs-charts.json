@@ -1,0 +1,67 @@
+{
+  "skill": "m6.graphs-charts",
+  "items": [
+    {
+      "id": "m6.graphs-charts.001",
+      "skill": "m6.graphs-charts",
+      "difficulty": 3,
+      "prompt": "A pie chart shows how 240 pupils travel to school. The sector for cycling has an angle of 60°. How many pupils cycle?",
+      "hints": [
+        "The whole pie is 360°.",
+        "60° is 60/360 of the pie, which is 1/6.",
+        "Find 1/6 of 240."
+      ],
+      "explanation": "60/360 = 1/6 and 1/6 of 240 is 40 pupils.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 40
+    },
+    {
+      "id": "m6.graphs-charts.002",
+      "skill": "m6.graphs-charts",
+      "difficulty": 4,
+      "prompt": "A pie chart shows how 480 pupils voted for a school trip. The sector for the zoo has an angle of 105°. How many pupils voted for the zoo?",
+      "hints": [
+        "Write the fraction of the pie: 105 out of 360.",
+        "Simplify, or find how many votes one degree stands for.",
+        "480 ÷ 360 = 4/3 votes per degree."
+      ],
+      "explanation": "480 × 105 ÷ 360 = 140. So 140 pupils voted for the zoo.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 140
+    },
+    {
+      "id": "m6.graphs-charts.003",
+      "skill": "m6.graphs-charts",
+      "difficulty": 4,
+      "prompt": "The heights of 28 pupils in cm are grouped like this: 140 to 149: 6 pupils, 150 to 159: 11 pupils, 160 to 169: 8 pupils, 170 to 179: 3 pupils. Which group contains the median height?",
+      "hints": [
+        "With 28 pupils, the median is between the 14th and 15th pupils.",
+        "Count the pupils group by group: 6, then 6 + 11.",
+        "Which group do the 14th and 15th pupils fall in?"
+      ],
+      "explanation": "After the first group there are 6 pupils, and after the second group there are 17. The 14th and 15th pupils are in the second group, 150 to 159.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "150 to 159"
+        },
+        {
+          "text": "140 to 149",
+          "why": "Only 6 pupils are in this group, so the middle pupils are not here."
+        },
+        {
+          "text": "160 to 169",
+          "why": "The first two groups already hold 17 pupils, more than half."
+        },
+        {
+          "text": "170 to 179",
+          "why": "This is the tallest group with only 3 pupils."
+        }
+      ],
+      "answer": 0
+    }
+  ]
+}

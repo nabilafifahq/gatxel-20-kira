@@ -1,0 +1,87 @@
+{
+  "skill": "m5.place-value-millions",
+  "items": [
+    {
+      "id": "m5.place-value-millions.001",
+      "skill": "m5.place-value-millions",
+      "difficulty": 3,
+      "prompt": "The village library has 405,060 books in its online catalogue. What is the value of the digit 5 in this number?",
+      "hints": [
+        "Write the number in a place value chart.",
+        "Name each place from the left: hundred thousands, ten thousands, thousands.",
+        "Find the column that holds the 5."
+      ],
+      "explanation": "In 405,060 the digits are 4 hundred thousands, 0 ten thousands, 5 thousands, 0 hundreds, 6 tens and 0 ones. The 5 is worth 5,000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "5,000"
+        },
+        {
+          "text": "500",
+          "why": "The 5 is not in the hundreds place. The hundreds place holds a 0."
+        },
+        {
+          "text": "50,000",
+          "why": "The ten thousands place holds a 0. The 5 sits one place to the right of it."
+        },
+        {
+          "text": "5",
+          "why": "That is the digit itself. Its value depends on the place it sits in."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.place-value-millions.002",
+      "skill": "m5.place-value-millions",
+      "difficulty": 4,
+      "prompt": "A festival sells 2 hundred thousands, 14 ten thousands, 9 thousands and 30 ones of snack coupons. How many coupons is that altogether?",
+      "hints": [
+        "Change each group into an ordinary number first.",
+        "14 ten thousands is 140,000.",
+        "Add 200,000 + 140,000 + 9,000 + 30."
+      ],
+      "explanation": "200,000 + 140,000 + 9,000 + 30 = 349,030 coupons.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 349030
+    },
+    {
+      "id": "m5.place-value-millions.003",
+      "skill": "m5.place-value-millions",
+      "difficulty": 4,
+      "prompt": "Joko writes \"three hundred and four thousand and twelve\" as 340,012. Which number should he have written?",
+      "hints": [
+        "Say the number in two parts: the thousands part, then the rest.",
+        "The thousands part is \"three hundred and four\".",
+        "Write 304 and then the last three digits for \"twelve\"."
+      ],
+      "explanation": "Three hundred and four thousand is 304,000. Adding twelve gives 304,012, with a 0 in the hundreds place.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "340,012",
+          "why": "Joko put the 4 in the ten thousands place. \"Four thousand\" means the 4 is in the thousands place."
+        },
+        {
+          "text": "304,012"
+        },
+        {
+          "text": "300,412",
+          "why": "This reads as three hundred thousand, four hundred and twelve."
+        },
+        {
+          "text": "304,120",
+          "why": "This reads as three hundred and four thousand, one hundred and twenty."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

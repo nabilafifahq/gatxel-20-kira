@@ -531,6 +531,779 @@
         "Each question should split a group into smaller groups."
       ],
       "explanation": "A good key splits the animals step by step. For example, ask: Does it have feathers? Then ask: Does it have legs?"
+    },
+    {
+      "id": "s4.classification-keys.013",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which group of animals has feathers?",
+      "options": [
+        {
+          "text": "birds"
+        },
+        {
+          "text": "fish",
+          "why": "Fish have scales, not feathers."
+        },
+        {
+          "text": "mammals",
+          "why": "Most mammals have fur or hair."
+        },
+        {
+          "text": "reptiles",
+          "why": "Reptiles have dry scaly skin."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about a chicken or an owl.",
+        "Feathers help these animals fly.",
+        "They also lay eggs with hard shells."
+      ],
+      "explanation": "Birds are the only animals with feathers."
+    },
+    {
+      "id": "s4.classification-keys.014",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which group of animals breathes underwater using gills?",
+      "options": [
+        {
+          "text": "birds",
+          "why": "Birds breathe air with lungs."
+        },
+        {
+          "text": "mammals",
+          "why": "Mammals breathe air with lungs, even whales and dolphins."
+        },
+        {
+          "text": "reptiles",
+          "why": "Reptiles breathe air with lungs."
+        },
+        {
+          "text": "fish"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Gills take oxygen from water.",
+        "Think about animals that live only in water.",
+        "These animals also have fins and scales."
+      ],
+      "explanation": "Fish have gills to take oxygen from the water."
+    },
+    {
+      "id": "s4.classification-keys.015",
+      "skill": "s4.classification-keys",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the animals into the correct group.",
+      "groups": [
+        "Reptile",
+        "Amphibian",
+        "Mammal"
+      ],
+      "items": [
+        {
+          "text": "crocodile",
+          "group": 0
+        },
+        {
+          "text": "gecko",
+          "group": 0
+        },
+        {
+          "text": "frog",
+          "group": 1
+        },
+        {
+          "text": "newt",
+          "group": 1
+        },
+        {
+          "text": "dolphin",
+          "group": 2
+        },
+        {
+          "text": "tiger",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Reptiles have dry scaly skin.",
+        "Amphibians have smooth, damp skin.",
+        "Mammals feed milk to their babies, even in the sea."
+      ],
+      "explanation": "A dolphin is a mammal even though it lives in water. Frogs, toads and newts are amphibians. Crocodiles and geckos are reptiles."
+    },
+    {
+      "id": "s4.classification-keys.016",
+      "skill": "s4.classification-keys",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the animal that has no backbone.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "bird",
+            "x": 20,
+            "y": 60,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 110,
+            "y": 60,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 200,
+            "y": 60,
+            "size": 64
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 290,
+            "y": 60,
+            "size": 64
+          }
+        ],
+        "alt": "Four animals in a row: a bird, a fish, a snail and a frog."
+      },
+      "regions": [
+        {
+          "label": "bird",
+          "x": 14.4,
+          "y": 51,
+          "w": 20,
+          "h": 40
+        },
+        {
+          "label": "fish",
+          "x": 39.4,
+          "y": 51,
+          "w": 20,
+          "h": 40
+        },
+        {
+          "label": "snail",
+          "x": 64.4,
+          "y": 51,
+          "w": 20,
+          "h": 40
+        },
+        {
+          "label": "frog",
+          "x": 89.4,
+          "y": 51,
+          "w": 20,
+          "h": 40
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "An animal with a backbone is a vertebrate.",
+        "Fish, birds and frogs all have a backbone.",
+        "Look for the soft animal with a shell."
+      ],
+      "explanation": "A snail has no backbone, so it is an invertebrate."
+    },
+    {
+      "id": "s4.classification-keys.017",
+      "skill": "s4.classification-keys",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parts of this insect.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 135,
+            "y1": 115,
+            "x2": 105,
+            "y2": 175,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 120,
+            "x2": 150,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 165,
+            "y1": 115,
+            "x2": 195,
+            "y2": 175,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "ellipse",
+            "cx": 260,
+            "cy": 100,
+            "rx": 55,
+            "ry": 34,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 100,
+            "rx": 34,
+            "ry": 26,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 70,
+            "cy": 100,
+            "r": 28,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 52,
+            "y1": 78,
+            "x2": 36,
+            "y2": 52,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 84,
+            "y1": 78,
+            "x2": 96,
+            "y2": 52,
+            "tone": "ink",
+            "width": 3
+          }
+        ],
+        "alt": "Side view of an insect with three body sections in a row. A round head with two thin feelers is on the left, a middle section has three legs, and a long oval back section is on the right."
+      },
+      "labels": [
+        "head",
+        "thorax",
+        "abdomen",
+        "leg"
+      ],
+      "spots": [
+        {
+          "x": 19.4,
+          "y": 50
+        },
+        {
+          "x": 41.7,
+          "y": 50
+        },
+        {
+          "x": 72.2,
+          "y": 50
+        },
+        {
+          "x": 29.2,
+          "y": 84
+        }
+      ],
+      "extraLabels": [
+        "shell"
+      ],
+      "hints": [
+        "An insect has three body sections in a line.",
+        "The first section holds the eyes and feelers.",
+        "The legs are joined to the middle section."
+      ],
+      "explanation": "An insect has a head, a thorax and an abdomen. It also has six legs joined to the thorax."
+    },
+    {
+      "id": "s4.classification-keys.018",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Look at the Venn diagram. A butterfly has wings and 6 legs. Where does it go?",
+      "figure": {
+        "kind": "venn",
+        "sets": [
+          "Has wings",
+          "Has 6 legs"
+        ],
+        "items": [
+          {
+            "text": "bird",
+            "region": "a"
+          },
+          {
+            "text": "bee",
+            "region": "both"
+          },
+          {
+            "text": "ant",
+            "region": "b"
+          },
+          {
+            "text": "snail",
+            "region": "none"
+          }
+        ],
+        "alt": "Venn diagram with two circles, has wings and has 6 legs. Bird is in has wings only. Bee is where the circles overlap. Ant is in has 6 legs only. Snail is outside both circles."
+      },
+      "options": [
+        {
+          "text": "where the circles overlap"
+        },
+        {
+          "text": "in has wings only",
+          "why": "It also has 6 legs, so it belongs in both circles."
+        },
+        {
+          "text": "in has 6 legs only",
+          "why": "It also has wings, so it belongs in both circles."
+        },
+        {
+          "text": "outside both circles",
+          "why": "It has both features, so it cannot be outside."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check each circle one at a time.",
+        "Does a butterfly have wings? Does it have 6 legs?",
+        "If both are yes, where does it go?"
+      ],
+      "explanation": "A butterfly has wings and 6 legs, so it goes in the overlap with the bee."
+    },
+    {
+      "id": "s4.classification-keys.019",
+      "skill": "s4.classification-keys",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Fill in the table with yes or no.",
+      "caption": "Animal features",
+      "head": [
+        "Animal",
+        "Backbone",
+        "Wings"
+      ],
+      "rows": [
+        [
+          "Eagle",
+          "yes",
+          "yes"
+        ],
+        [
+          "Beetle",
+          "",
+          "yes"
+        ],
+        [
+          "Shark",
+          "yes",
+          ""
+        ],
+        [
+          "Earthworm",
+          "",
+          "no"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "no"
+          ]
+        }
+      ],
+      "hints": [
+        "Sharks have a backbone but no wings.",
+        "A beetle has no backbone.",
+        "Use yes or no in each blank."
+      ],
+      "explanation": "A beetle has no backbone. A shark has a backbone but no wings. An earthworm has no backbone."
+    },
+    {
+      "id": "s4.classification-keys.020",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Pia says, \"A whale is a fish because it lives in the sea.\" Which fact shows it is a mammal?",
+      "options": [
+        {
+          "text": "It lives in the sea",
+          "why": "Many animals live in the sea. Where it lives does not decide its group."
+        },
+        {
+          "text": "It has a tail",
+          "why": "Fish and many other animals have tails too."
+        },
+        {
+          "text": "It breathes air and feeds its babies milk"
+        },
+        {
+          "text": "It is very big",
+          "why": "Size does not decide the group."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Where an animal lives does not tell you its group.",
+        "Look at how it breathes and feeds its young.",
+        "Fish have gills. Does a whale?"
+      ],
+      "explanation": "A whale breathes air with lungs and feeds its young on milk. These are features of mammals."
+    },
+    {
+      "id": "s4.classification-keys.021",
+      "skill": "s4.classification-keys",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The questions in a key can be answered with yes or ___.",
+      "blanks": [
+        {
+          "answers": [
+            "no"
+          ]
+        }
+      ],
+      "hints": [
+        "A key uses two possible answers.",
+        "It is the opposite of yes.",
+        "It has two letters."
+      ],
+      "explanation": "Each question in a key has two answers: yes or no."
+    },
+    {
+      "id": "s4.classification-keys.022",
+      "skill": "s4.classification-keys",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these animals in order from fewest legs to most legs.",
+      "items": [
+        "snake",
+        "bird",
+        "dog",
+        "ant",
+        "spider"
+      ],
+      "hints": [
+        "Start with the animal that has no legs.",
+        "A bird has two legs and a dog has four.",
+        "An ant has six legs and a spider has eight."
+      ],
+      "explanation": "A snake has 0 legs, a bird 2, a dog 4, an ant 6 and a spider 8."
+    },
+    {
+      "id": "s4.classification-keys.023",
+      "skill": "s4.classification-keys",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A class finds 3 spiders, 5 beetles, 4 sparrows, 2 frogs and 6 worms. How many have no backbone?",
+      "answer": 14,
+      "hints": [
+        "Spiders, beetles and worms have no backbone.",
+        "Sparrows and frogs have a backbone.",
+        "Add the three groups with no backbone."
+      ],
+      "explanation": "3 + 5 + 6 = 14 animals with no backbone."
+    },
+    {
+      "id": "s4.classification-keys.024",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the key. An animal has 6 legs and no wings. What is it?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to five small animals",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 3",
+            "go to 2"
+          ],
+          [
+            "2. Does it have a shell?",
+            "snail",
+            "earthworm"
+          ],
+          [
+            "3. Does it have 6 legs?",
+            "go to 4",
+            "spider"
+          ],
+          [
+            "4. Does it have wings?",
+            "bee",
+            "ant"
+          ]
+        ],
+        "alt": "A key. Question 1: Does it have legs? Yes go to 3, no go to 2. Question 2: Does it have a shell? Yes snail, no earthworm. Question 3: Does it have 6 legs? Yes go to 4, no spider. Question 4: Does it have wings? Yes bee, no ant."
+      },
+      "options": [
+        {
+          "text": "bee",
+          "why": "A bee has wings."
+        },
+        {
+          "text": "ant"
+        },
+        {
+          "text": "spider",
+          "why": "A spider has 8 legs, not 6."
+        },
+        {
+          "text": "earthworm",
+          "why": "An earthworm has no legs."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Start at question 1.",
+        "Yes to legs sends you to question 3.",
+        "Follow the answers about 6 legs and then wings."
+      ],
+      "explanation": "Legs: yes (go to 3). 6 legs: yes (go to 4). Wings: no. The animal is an ant."
+    },
+    {
+      "id": "s4.classification-keys.025",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Mia uses the key on a butterfly (6 legs and wings). What does the key say, and what does this show?",
+      "figure": {
+        "kind": "table",
+        "caption": "Key to five small animals",
+        "head": [
+          "Question",
+          "Yes",
+          "No"
+        ],
+        "rows": [
+          [
+            "1. Does it have legs?",
+            "go to 3",
+            "go to 2"
+          ],
+          [
+            "2. Does it have a shell?",
+            "snail",
+            "earthworm"
+          ],
+          [
+            "3. Does it have 6 legs?",
+            "go to 4",
+            "spider"
+          ],
+          [
+            "4. Does it have wings?",
+            "bee",
+            "ant"
+          ]
+        ],
+        "alt": "A key. Question 1: Does it have legs? Yes go to 3, no go to 2. Question 2: Does it have a shell? Yes snail, no earthworm. Question 3: Does it have 6 legs? Yes go to 4, no spider. Question 4: Does it have wings? Yes bee, no ant."
+      },
+      "options": [
+        {
+          "text": "It says ant, so the key is correct",
+          "why": "A butterfly has wings, so the key does not send it to ant."
+        },
+        {
+          "text": "It says bee, so the key needs another question"
+        },
+        {
+          "text": "It says spider, so the key is correct",
+          "why": "A butterfly has 6 legs, so the key does not send it to spider."
+        },
+        {
+          "text": "It says snail, so the key is correct",
+          "why": "A butterfly has legs and no shell, so the key does not send it to snail."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Follow the key with a butterfly.",
+        "Check what name you reach at the end.",
+        "Ask whether a butterfly really is that animal."
+      ],
+      "explanation": "The key ends at bee because it has no question that separates a bee from a butterfly. A good key needs a new question."
+    },
+    {
+      "id": "s4.classification-keys.026",
+      "skill": "s4.classification-keys",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 features that all insects have.",
+      "options": [
+        {
+          "text": "six legs"
+        },
+        {
+          "text": "three body sections"
+        },
+        {
+          "text": "a pair of feelers"
+        },
+        {
+          "text": "eight legs",
+          "why": "Eight legs is a feature of spiders."
+        },
+        {
+          "text": "a backbone",
+          "why": "Insects have no backbone."
+        },
+        {
+          "text": "fur",
+          "why": "Insects have hard outer cases, not fur."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about an ant, a bee and a beetle.",
+        "Count their legs and body sections.",
+        "Insects have no backbone and no fur."
+      ],
+      "explanation": "All insects have six legs, three body sections and a pair of feelers."
+    },
+    {
+      "id": "s4.classification-keys.027",
+      "skill": "s4.classification-keys",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each animal to its group.",
+      "pairs": [
+        [
+          "whale",
+          "mammal"
+        ],
+        [
+          "frog",
+          "amphibian"
+        ],
+        [
+          "gecko",
+          "reptile"
+        ],
+        [
+          "penguin",
+          "bird"
+        ]
+      ],
+      "hints": [
+        "A penguin cannot fly but it has feathers.",
+        "A gecko has dry scaly skin.",
+        "A frog starts life in water."
+      ],
+      "explanation": "A whale is a mammal, a frog is an amphibian, a gecko is a reptile and a penguin is a bird."
+    },
+    {
+      "id": "s4.classification-keys.028",
+      "skill": "s4.classification-keys",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A key is a set of ___ that helps us to name a living thing. Each answer leads to another ___ or to a name.",
+      "gaps": [
+        {
+          "options": [
+            "questions",
+            "pictures",
+            "seeds"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "question",
+            "leaf",
+            "shell"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "A key is made of questions.",
+        "The word for the second gap is also a thing we ask.",
+        "Pick the same word, but singular."
+      ],
+      "explanation": "A key is a set of questions. Each answer leads to the next question or to the name of the living thing."
+    },
+    {
+      "id": "s4.classification-keys.029",
+      "skill": "s4.classification-keys",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Citra makes a key for leaves. Which question is best for her key?",
+      "options": [
+        {
+          "text": "Is the leaf pretty?",
+          "why": "People may not agree on what is pretty, so it is hard to answer."
+        },
+        {
+          "text": "Is the leaf green?",
+          "why": "Almost every leaf is green, so it does not split the leaves."
+        },
+        {
+          "text": "Do I like the leaf?",
+          "why": "This is about opinion, not a feature of the leaf."
+        },
+        {
+          "text": "Is the edge of the leaf smooth?"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A good key question has a clear answer.",
+        "It should split the group into two parts.",
+        "Choose a feature you can see and check."
+      ],
+      "explanation": "A good question can be checked by looking, and it splits the leaves into two groups. Smooth or not is clear."
     }
   ]
 }

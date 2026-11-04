@@ -1,0 +1,543 @@
+{
+  "skill": "e6.clauses-word-classes",
+  "items": [
+    {
+      "id": "e6.clauses-word-classes.001",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which group of words is a main clause?",
+      "options": [
+        {
+          "text": "because it was funny",
+          "why": "It starts with because and cannot stand alone."
+        },
+        {
+          "text": "when the bell rang",
+          "why": "It starts with when and cannot stand alone."
+        },
+        {
+          "text": "although it rained",
+          "why": "Although makes this depend on another clause."
+        },
+        {
+          "text": "She laughed loudly"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A main clause can stand alone as a sentence.",
+        "Subordinate clauses begin with words like because, when and although.",
+        "Which group makes sense on its own?"
+      ],
+      "explanation": "A main clause has a subject and a verb and makes sense by itself. The others need another clause."
+    },
+    {
+      "id": "e6.clauses-word-classes.002",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which is the main clause in this sentence?\n\nAlthough it was raining, Joko cycled to school.",
+      "options": [
+        {
+          "text": "Although it was raining",
+          "why": "This clause depends on the main clause."
+        },
+        {
+          "text": "it was raining",
+          "why": "This is only part of the subordinate clause."
+        },
+        {
+          "text": "Joko cycled to school"
+        },
+        {
+          "text": "Joko cycled",
+          "why": "This is missing the end of the main clause."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the clause that could be a sentence alone.",
+        "Although signals the dependent clause.",
+        "Cover the Although part and read what is left."
+      ],
+      "explanation": "Joko cycled to school makes sense on its own. Although it was raining depends on it."
+    },
+    {
+      "id": "e6.clauses-word-classes.003",
+      "skill": "e6.clauses-word-classes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Type the word that begins the subordinate clause. Citra stayed inside because it was raining.",
+      "blanks": [
+        {
+          "answers": [
+            "because"
+          ]
+        }
+      ],
+      "hints": [
+        "A subordinate clause begins with a conjunction.",
+        "Citra stayed inside is the main clause.",
+        "Which word starts the second part?"
+      ],
+      "explanation": "Because begins the subordinate clause, which gives the reason."
+    },
+    {
+      "id": "e6.clauses-word-classes.004",
+      "skill": "e6.clauses-word-classes",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the subordinate clauses in this sentence.\n\nWhen the storm passed, Leo, who had been hiding, came out because he heard singing.",
+      "options": [
+        {
+          "text": "When the storm passed"
+        },
+        {
+          "text": "who had been hiding"
+        },
+        {
+          "text": "because he heard singing"
+        },
+        {
+          "text": "Leo came out",
+          "why": "This is the main clause."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "A subordinate clause cannot stand alone.",
+        "Look for when, who and because.",
+        "The main clause is Leo came out."
+      ],
+      "explanation": "Three clauses depend on the main clause Leo came out: one about time, one about who, and one giving a reason."
+    },
+    {
+      "id": "e6.clauses-word-classes.005",
+      "skill": "e6.clauses-word-classes",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each group of words into main or subordinate clauses.",
+      "groups": [
+        "Main clause",
+        "Subordinate clause"
+      ],
+      "items": [
+        {
+          "text": "the rain stopped",
+          "group": 0
+        },
+        {
+          "text": "Mei sang",
+          "group": 0
+        },
+        {
+          "text": "the bus arrived",
+          "group": 0
+        },
+        {
+          "text": "although he was tired",
+          "group": 1
+        },
+        {
+          "text": "unless you hurry",
+          "group": 1
+        },
+        {
+          "text": "while we ate lunch",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A main clause can stand alone.",
+        "Subordinate clauses begin with words such as although, unless, while.",
+        "Which groups could be full sentences?"
+      ],
+      "explanation": "The first three can stand alone. The last three begin with a conjunction and need a main clause."
+    },
+    {
+      "id": "e6.clauses-word-classes.006",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A writer uses a very short sentence after several long ones: \"The door closed.\" What effect does this have?",
+      "options": [
+        {
+          "text": "It creates a sudden pause and builds tension"
+        },
+        {
+          "text": "It slows the story with extra detail",
+          "why": "A short sentence has little detail, so it does not slow the story with description."
+        },
+        {
+          "text": "It gives the reader a list of facts",
+          "why": "It gives only one event."
+        },
+        {
+          "text": "It shows the writer ran out of ideas",
+          "why": "Writers choose short sentences for effect."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about how it sounds after long sentences.",
+        "A short sentence stands out.",
+        "It makes the reader stop."
+      ],
+      "explanation": "A short sentence after long ones stands out. It can create tension or surprise."
+    },
+    {
+      "id": "e6.clauses-word-classes.007",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: \"The mist drifted slowly over the quiet river, curling around the old boats and fading into the reeds.\" What effect does the long sentence create?",
+      "options": [
+        {
+          "text": "Speed and panic",
+          "why": "Long, flowing sentences feel slow, not fast."
+        },
+        {
+          "text": "A slow, calm mood"
+        },
+        {
+          "text": "A sudden shock",
+          "why": "A shock would need a short sentence."
+        },
+        {
+          "text": "A list of instructions",
+          "why": "There are no steps or commands."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Read it aloud and notice the pace.",
+        "The sentence keeps flowing, with several parts.",
+        "Calm words such as drifted and quiet help."
+      ],
+      "explanation": "The long sentence and gentle verbs make the pace slow and the mood calm."
+    },
+    {
+      "id": "e6.clauses-word-classes.008",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which set of sentences best builds speed and panic?",
+      "options": [
+        {
+          "text": "The golden light spread across the quiet valley as the village woke slowly.",
+          "why": "Long, calm sentences slow the pace."
+        },
+        {
+          "text": "Run. Duck. Jump. Go!"
+        },
+        {
+          "text": "It was a long and winding road that led to the old house.",
+          "why": "This is a long sentence that slows the pace."
+        },
+        {
+          "text": "The children walked home, chatting about school and supper.",
+          "why": "This is a calm scene."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Short sentences make the pace quick.",
+        "Which choice has the shortest sentences?",
+        "Think about a chase."
+      ],
+      "explanation": "A string of short, sharp sentences gives the feeling of speed and panic."
+    },
+    {
+      "id": "e6.clauses-word-classes.009",
+      "skill": "e6.clauses-word-classes",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each word by its word class.",
+      "groups": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
+      "items": [
+        {
+          "text": "harbour",
+          "group": 0
+        },
+        {
+          "text": "teacher",
+          "group": 0
+        },
+        {
+          "text": "explore",
+          "group": 1
+        },
+        {
+          "text": "decide",
+          "group": 1
+        },
+        {
+          "text": "golden",
+          "group": 2
+        },
+        {
+          "text": "ancient",
+          "group": 2
+        },
+        {
+          "text": "quietly",
+          "group": 3
+        },
+        {
+          "text": "swiftly",
+          "group": 3
+        }
+      ],
+      "hints": [
+        "Nouns name things. Verbs show action. Adjectives describe nouns. Adverbs often end in ly.",
+        "Try the word in a sentence.",
+        "Start with swiftly: does it describe how someone moves?"
+      ],
+      "explanation": "Harbour and teacher are nouns, explore and decide are verbs, golden and ancient are adjectives, and quietly and swiftly are adverbs."
+    },
+    {
+      "id": "e6.clauses-word-classes.010",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In the sentence below, what word class is quickly?\n\nThe tiny frog leapt quickly.",
+      "options": [
+        {
+          "text": "Adjective",
+          "why": "An adjective describes a noun. Quickly describes the verb leapt."
+        },
+        {
+          "text": "Noun",
+          "why": "It does not name a thing."
+        },
+        {
+          "text": "Adverb"
+        },
+        {
+          "text": "Verb",
+          "why": "It does not show an action by itself."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Ask: what does the word tell us?",
+        "It tells how the frog leapt.",
+        "Words that tell how, when or where an action happens are adverbs."
+      ],
+      "explanation": "Quickly tells how the frog leapt, so it is an adverb."
+    },
+    {
+      "id": "e6.clauses-word-classes.011",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses the word light as a verb?",
+      "options": [
+        {
+          "text": "The light is bright.",
+          "why": "Here light is a noun."
+        },
+        {
+          "text": "The box is light.",
+          "why": "Here light is an adjective."
+        },
+        {
+          "text": "Please light the candle."
+        },
+        {
+          "text": "A light breeze blew.",
+          "why": "Here light describes breeze, so it is an adjective."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A verb shows an action.",
+        "Ask what job the word does in each sentence.",
+        "Which one is an instruction to do something?"
+      ],
+      "explanation": "In Please light the candle, light is the action word, so it is a verb."
+    },
+    {
+      "id": "e6.clauses-word-classes.012",
+      "skill": "e6.clauses-word-classes",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each word class to its purpose.",
+      "pairs": [
+        [
+          "Noun",
+          "names a person, place or thing"
+        ],
+        [
+          "Verb",
+          "shows an action or state"
+        ],
+        [
+          "Adjective",
+          "describes a noun"
+        ],
+        [
+          "Adverb",
+          "tells how, when or where"
+        ],
+        [
+          "Conjunction",
+          "joins words or clauses"
+        ],
+        [
+          "Preposition",
+          "shows where or when something is"
+        ]
+      ],
+      "hints": [
+        "Each class does a different job.",
+        "Conjunctions join. Prepositions show position.",
+        "Start with noun: what does it name?"
+      ],
+      "explanation": "Each class has a job: nouns name, verbs act, adjectives describe nouns, adverbs describe verbs, conjunctions join and prepositions show position."
+    },
+    {
+      "id": "e6.clauses-word-classes.013",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In the sentence below, what word class is under?\n\nThe cat hid under the bed.",
+      "options": [
+        {
+          "text": "Conjunction",
+          "why": "A conjunction joins words or clauses. Under links the cat's position to the bed."
+        },
+        {
+          "text": "Adjective",
+          "why": "Under does not describe a noun."
+        },
+        {
+          "text": "Verb",
+          "why": "It is not an action."
+        },
+        {
+          "text": "Preposition"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Ask what the word shows.",
+        "It shows where the cat hid.",
+        "Words that show position before a noun are prepositions."
+      ],
+      "explanation": "Under shows where the cat hid in relation to the bed, so it is a preposition."
+    },
+    {
+      "id": "e6.clauses-word-classes.014",
+      "skill": "e6.clauses-word-classes",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Type the pronoun that replaces Amara and Tom. ___ are playing chess.",
+      "blanks": [
+        {
+          "answers": [
+            "They",
+            "they"
+          ]
+        }
+      ],
+      "hints": [
+        "A pronoun takes the place of a noun.",
+        "Amara and Tom are more than one person.",
+        "Which pronoun means more than one person?"
+      ],
+      "explanation": "They replaces Amara and Tom, so it is a pronoun."
+    },
+    {
+      "id": "e6.clauses-word-classes.015",
+      "skill": "e6.clauses-word-classes",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a complex sentence.",
+      "answer": "Although she was tired, Putri finished her essay.",
+      "distractors": [
+        "because",
+        "but"
+      ],
+      "alternatives": [],
+      "hints": [
+        "A complex sentence has a main clause and a subordinate clause.",
+        "The subordinate clause comes first and ends with a comma.",
+        "Start with Although."
+      ],
+      "explanation": "Although she was tired is the subordinate clause. Putri finished her essay is the main clause."
+    },
+    {
+      "id": "e6.clauses-word-classes.016",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the main clause?\n\nBecause the road was flooded, which meant a long detour, Dad decided to wait at the cafe.",
+      "options": [
+        {
+          "text": "Because the road was flooded",
+          "why": "This is a subordinate clause starting with because."
+        },
+        {
+          "text": "which meant a long detour",
+          "why": "This is a subordinate clause starting with which."
+        },
+        {
+          "text": "Dad decided",
+          "why": "This is incomplete without the rest of the clause."
+        },
+        {
+          "text": "Dad decided to wait at the cafe"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the clause that can stand alone.",
+        "Cross out the clauses beginning with because and which.",
+        "What is left is the main clause."
+      ],
+      "explanation": "Dad decided to wait at the cafe can stand alone. The other two depend on it."
+    },
+    {
+      "id": "e6.clauses-word-classes.017",
+      "skill": "e6.clauses-word-classes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: \"Hadi, who sat at the back, waved.\" What is the clause who sat at the back?",
+      "options": [
+        {
+          "text": "A main clause",
+          "why": "It cannot stand alone because who needs Hadi."
+        },
+        {
+          "text": "A subordinate clause that adds detail about Hadi"
+        },
+        {
+          "text": "A complete sentence",
+          "why": "It is not a sentence by itself."
+        },
+        {
+          "text": "An adverb",
+          "why": "A clause has a subject and a verb. An adverb is a single word."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Could who sat at the back be a sentence alone?",
+        "It starts with the relative pronoun who.",
+        "It adds extra information about Hadi."
+      ],
+      "explanation": "The clause depends on the main clause and tells us more about Hadi. It is a subordinate (relative) clause."
+    }
+  ]
+}

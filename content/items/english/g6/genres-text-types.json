@@ -1,0 +1,631 @@
+{
+  "skill": "e6.genres-text-types",
+  "items": [
+    {
+      "id": "e6.genres-text-types.001",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which of these is a non-fiction book?",
+      "options": [
+        {
+          "text": "A guide to Indonesian volcanoes"
+        },
+        {
+          "text": "A play about a magic drum",
+          "why": "A play with a made-up plot is fiction."
+        },
+        {
+          "text": "A tale about a talking tiger",
+          "why": "This is an invented story, so it is fiction."
+        },
+        {
+          "text": "A poem collection about the moon",
+          "why": "Poems can be made up, so this book is not a book of facts."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Non-fiction gives true information.",
+        "Ask yourself: could the book be about real things you can check?",
+        "Look for the title that sounds like a guide or a fact book."
+      ],
+      "explanation": "A guide to volcanoes gives facts about real places. The other books are made-up stories, plays or poems."
+    },
+    {
+      "id": "e6.genres-text-types.002",
+      "skill": "e6.genres-text-types",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort each book into fiction or non-fiction.",
+      "groups": [
+        "Fiction",
+        "Non-fiction"
+      ],
+      "items": [
+        {
+          "text": "A fantasy about a dragon school",
+          "group": 0
+        },
+        {
+          "text": "A mystery about a lost key",
+          "group": 0
+        },
+        {
+          "text": "A space adventure story",
+          "group": 0
+        },
+        {
+          "text": "A guide to growing chillies",
+          "group": 1
+        },
+        {
+          "text": "A biography of a scientist",
+          "group": 1
+        },
+        {
+          "text": "A report on river pollution",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Fiction is made up. Non-fiction is about real things.",
+        "A biography tells the true story of a real person.",
+        "Start with the guide to growing chillies. Is it made up?"
+      ],
+      "explanation": "Fantasy, mystery and space adventure books are invented stories. A guide, a biography and a report give true information."
+    },
+    {
+      "id": "e6.genres-text-types.003",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A library arranges its fiction shelves by the author's surname. Where would you look for a novel by Tom Rivera?",
+      "options": [
+        {
+          "text": "Under R, for Rivera"
+        },
+        {
+          "text": "Under N, for novel",
+          "why": "Novel is the type of book, not the author's name."
+        },
+        {
+          "text": "Under T, for Tom",
+          "why": "The shelves use the surname, not the first name."
+        },
+        {
+          "text": "In the non-fiction section by subject number",
+          "why": "Fiction is not sorted by subject number."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Fiction shelves use the author's family name.",
+        "Find the surname first, then its first letter.",
+        "Rivera is the surname."
+      ],
+      "explanation": "Fiction books are shelved by the first letter of the author's surname, so a book by Tom Rivera sits under R."
+    },
+    {
+      "id": "e6.genres-text-types.004",
+      "skill": "e6.genres-text-types",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each fiction genre to its typical feature.",
+      "pairs": [
+        [
+          "Mystery",
+          "clues and a puzzle to solve"
+        ],
+        [
+          "Fantasy",
+          "magic and imaginary worlds"
+        ],
+        [
+          "Science fiction",
+          "future technology or space travel"
+        ],
+        [
+          "Historical fiction",
+          "invented characters in a real past time"
+        ],
+        [
+          "Fable",
+          "a short story with a lesson at the end"
+        ]
+      ],
+      "hints": [
+        "Think about what you would expect to find in each kind of story.",
+        "A fable always ends with a moral.",
+        "Start with mystery. What does the detective hunt for?"
+      ],
+      "explanation": "Each genre has features readers expect. A mystery has clues, fantasy has magic, science fiction has future ideas, historical fiction is set in the past and a fable teaches a lesson."
+    },
+    {
+      "id": "e6.genres-text-types.005",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the extract. Which genre is it most likely to be?\n\nThe lamp flickered. Nadia counted the muddy footprints again: three sets, but only two people had been home. Someone else had been in the study.",
+      "options": [
+        {
+          "text": "Mystery"
+        },
+        {
+          "text": "Science fiction",
+          "why": "There is no future technology or space in the extract."
+        },
+        {
+          "text": "Fable",
+          "why": "A fable has talking animals and a moral, not clues and footprints."
+        },
+        {
+          "text": "Historical fiction",
+          "why": "Nothing here tells us the story is set in a real past time."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what Nadia is doing.",
+        "Footprints and an unexplained visitor are clues.",
+        "Which genre is built around a puzzle to solve?"
+      ],
+      "explanation": "Counting footprints and finding a hidden visitor are clues. These are typical of a mystery."
+    },
+    {
+      "id": "e6.genres-text-types.006",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the extract. Which genre is it most likely to be?\n\nBy the year 2150, the school bus drifted above the clouds on silent magnetic rails. Orla's homework was marked by the ship's computer before she sat down.",
+      "options": [
+        {
+          "text": "Science fiction"
+        },
+        {
+          "text": "Fantasy",
+          "why": "Fantasy usually has magic. This extract uses machines of the future."
+        },
+        {
+          "text": "Historical fiction",
+          "why": "The story is set in the future, not the past."
+        },
+        {
+          "text": "Fable",
+          "why": "There is no moral or talking animal here."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Check the year in the extract.",
+        "Look at the machines: magnetic rails and a ship's computer.",
+        "Is the setting in the past, the present or the future?"
+      ],
+      "explanation": "The future date and the invented technology show this is science fiction."
+    },
+    {
+      "id": "e6.genres-text-types.007",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which line would you find in a playscript?",
+      "options": [
+        {
+          "text": "Maya opened the door and asked, \"Is anyone there?\"",
+          "why": "This is a story sentence with speech marks."
+        },
+        {
+          "text": "Dear Maya, I opened the door today.",
+          "why": "This is the start of a letter."
+        },
+        {
+          "text": "1. Open the door slowly.",
+          "why": "Numbered steps belong to instructions."
+        },
+        {
+          "text": "MAYA: (opening the door) Is anyone there?"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A playscript is written for actors to speak.",
+        "Look for a character's name and words in brackets.",
+        "Playscripts show who speaks, then what they say."
+      ],
+      "explanation": "A playscript lists the speaker's name, then the words, with stage directions in brackets. It has no speech marks."
+    },
+    {
+      "id": "e6.genres-text-types.008",
+      "skill": "e6.genres-text-types",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The instructions in brackets that tell actors how to move or speak are called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "stage directions",
+            "stage direction"
+          ]
+        }
+      ],
+      "hints": [
+        "They are not spoken aloud.",
+        "They tell the actor what to do on stage.",
+        "Two words: where actors perform, and what they are told to do."
+      ],
+      "explanation": "Stage directions tell actors how to move, speak and enter or leave the stage. Actors do not say them aloud."
+    },
+    {
+      "id": "e6.genres-text-types.009",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which features most often belong to a poem?",
+      "options": [
+        {
+          "text": "Lines grouped into stanzas, sometimes with rhyme or rhythm"
+        },
+        {
+          "text": "Speech marks and a narrator throughout",
+          "why": "Speech marks are common in stories. Poems often arrange words in lines instead."
+        },
+        {
+          "text": "Numbered steps and a list of materials",
+          "why": "These are features of instructions."
+        },
+        {
+          "text": "Headings, a glossary and an index",
+          "why": "These are features of an information book."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Poems are usually shaped by lines, not paragraphs.",
+        "A group of lines in a poem has a special name.",
+        "Think about rhythm and rhyme."
+      ],
+      "explanation": "Poems are written in lines and stanzas. Many use rhyme, rhythm or repeated sounds."
+    },
+    {
+      "id": "e6.genres-text-types.010",
+      "skill": "e6.genres-text-types",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the parts of a non-fiction book in the order a reader usually meets them.",
+      "items": [
+        "Title page",
+        "Contents page",
+        "Chapters",
+        "Glossary",
+        "Index"
+      ],
+      "hints": [
+        "The reader meets the front of the book first.",
+        "Contents come before chapters. Glossary and index come at the back.",
+        "The index is usually the very last section."
+      ],
+      "explanation": "We meet the title page, then the contents, then the chapters. The glossary and index are at the back, with the index last."
+    },
+    {
+      "id": "e6.genres-text-types.011",
+      "skill": "e6.genres-text-types",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each sentence by the type of text it comes from.",
+      "groups": [
+        "Instructions",
+        "Report",
+        "Persuasive advert"
+      ],
+      "items": [
+        {
+          "text": "Fold the paper in half.",
+          "group": 0
+        },
+        {
+          "text": "Next, add two cups of water.",
+          "group": 0
+        },
+        {
+          "text": "Penguins are flightless birds.",
+          "group": 1
+        },
+        {
+          "text": "Whales are mammals.",
+          "group": 1
+        },
+        {
+          "text": "Buy now and save big!",
+          "group": 2
+        },
+        {
+          "text": "Do not miss our huge sale!",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think about the purpose of each sentence.",
+        "Instructions tell you what to do. A report states facts. An advert tries to make you buy.",
+        "Start with the sentences that give an order, such as fold."
+      ],
+      "explanation": "Instructions give commands, a report states facts and an advert tries to persuade the reader."
+    },
+    {
+      "id": "e6.genres-text-types.012",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence would belong in a balanced written argument?",
+      "options": [
+        {
+          "text": "Homework is awful, so ban it now!",
+          "why": "This is one-sided and shouts. A balanced argument gives both sides."
+        },
+        {
+          "text": "Yesterday I did my homework and then ate rice.",
+          "why": "This tells what happened. It does not discuss both sides."
+        },
+        {
+          "text": "First, find a quiet desk and open your book.",
+          "why": "This is an instruction, not an argument."
+        },
+        {
+          "text": "Some people say homework builds good habits, but others argue it takes time from sleep and play."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A balanced argument looks at more than one side.",
+        "Find the sentence with words such as some people say and others argue.",
+        "Rule out commands and recounts first."
+      ],
+      "explanation": "A balanced argument gives viewpoints for and against, often with words like but and however."
+    },
+    {
+      "id": "e6.genres-text-types.013",
+      "skill": "e6.genres-text-types",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each text type to its main purpose.",
+      "pairs": [
+        [
+          "Recount",
+          "to tell what happened"
+        ],
+        [
+          "Explanation",
+          "to show how or why something works"
+        ],
+        [
+          "Instructions",
+          "to tell the reader how to do something"
+        ],
+        [
+          "Persuasive text",
+          "to make the reader think or act a certain way"
+        ],
+        [
+          "Report",
+          "to give facts about a topic"
+        ]
+      ],
+      "hints": [
+        "Think about why a writer would choose each type.",
+        "Instructions use commands. A recount uses the past tense.",
+        "Start with report: it is full of facts."
+      ],
+      "explanation": "Each text type has its own purpose, and the language and layout are chosen to fit it."
+    },
+    {
+      "id": "e6.genres-text-types.014",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A leaflet says: \"Only YOU can stop litter! Join our clean-up on Saturday at 9 a.m. Bring gloves.\" What is the main purpose of this text?",
+      "options": [
+        {
+          "text": "To entertain readers with a made-up story",
+          "why": "There is no story or characters in the leaflet."
+        },
+        {
+          "text": "To explain how litter breaks down in soil",
+          "why": "The leaflet does not explain any science."
+        },
+        {
+          "text": "To persuade readers to take part in an action"
+        },
+        {
+          "text": "To report scientific data about waste",
+          "why": "No data or results are given."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at what the leaflet asks the reader to do.",
+        "Notice the strong word YOU and the time and place.",
+        "Is it telling a story, giving facts or asking for action?"
+      ],
+      "explanation": "The leaflet speaks to the reader directly and asks them to join an event. Its purpose is to persuade people to act."
+    },
+    {
+      "id": "e6.genres-text-types.015",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A page about coral reefs has a labelled diagram of a reef with a caption. What does the diagram add that the paragraph may not?",
+      "options": [
+        {
+          "text": "The writer's opinion about reefs",
+          "why": "A diagram shows information. It does not give an opinion."
+        },
+        {
+          "text": "A quick picture of the parts and where they are, with labels"
+        },
+        {
+          "text": "A story about a diver",
+          "why": "The diagram is part of an information text, not a story."
+        },
+        {
+          "text": "Proof that the text is fiction",
+          "why": "A labelled diagram is a feature of non-fiction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what a picture can show quickly.",
+        "Labels name parts. A caption explains the picture.",
+        "Which choice talks about showing parts and places?"
+      ],
+      "explanation": "A labelled diagram shows the parts and their positions clearly, which can be hard to explain in words alone."
+    },
+    {
+      "id": "e6.genres-text-types.016",
+      "skill": "e6.genres-text-types",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the features you would expect in a non-fiction information text.",
+      "options": [
+        {
+          "text": "Headings and subheadings"
+        },
+        {
+          "text": "A plot twist at the end",
+          "why": "A plot twist belongs to a story."
+        },
+        {
+          "text": "A glossary of hard words"
+        },
+        {
+          "text": "Dialogue between two characters",
+          "why": "Dialogue is a feature of stories and playscripts."
+        },
+        {
+          "text": "An index"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "An information text helps readers find facts.",
+        "Think about how a reader finds a topic or word.",
+        "Cross out features that belong to stories."
+      ],
+      "explanation": "Headings, a glossary and an index help readers find and understand facts. A plot twist and dialogue belong to fiction."
+    },
+    {
+      "id": "e6.genres-text-types.017",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Amara has only read animal adventure stories. Which book would widen her reading the most?",
+      "options": [
+        {
+          "text": "A new animal adventure by a different author",
+          "why": "It is still the same genre, so it does not widen her reading much."
+        },
+        {
+          "text": "The next book in the same animal series",
+          "why": "This is more of the same."
+        },
+        {
+          "text": "A book of poems about the sea"
+        },
+        {
+          "text": "A longer animal adventure with more chapters",
+          "why": "It is still an animal adventure."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Widening means trying something different.",
+        "Check the genre and the form of each book.",
+        "Which choice is not a story about animals?"
+      ],
+      "explanation": "A book of sea poems has a different form and subject, so it contrasts most with her usual reading."
+    },
+    {
+      "id": "e6.genres-text-types.018",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence gives a personal response to a poem and says why?",
+      "options": [
+        {
+          "text": "The poem has four stanzas.",
+          "why": "This is a fact about the poem, not a personal response."
+        },
+        {
+          "text": "I loved the poem because the word \"whispering\" made the wind sound alive."
+        },
+        {
+          "text": "The poet wrote it in 1950.",
+          "why": "This is a fact about the poet, not a response."
+        },
+        {
+          "text": "The poem is about the wind.",
+          "why": "This says what the poem is about. It does not say what you feel."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A personal response says what you think or feel.",
+        "A good response gives a reason.",
+        "Look for I loved or I liked, plus because."
+      ],
+      "explanation": "A personal response gives your feeling and a reason, ideally pointing to the writer's language."
+    },
+    {
+      "id": "e6.genres-text-types.019",
+      "skill": "e6.genres-text-types",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a sentence about poems.",
+      "answer": "Poems are divided into stanzas.",
+      "distractors": [
+        "scenes",
+        "chapters"
+      ],
+      "alternatives": [],
+      "hints": [
+        "A poem is made of groups of lines.",
+        "The groups of lines have a special name.",
+        "Start with the word Poems."
+      ],
+      "explanation": "The groups of lines in a poem are called stanzas, just as stories are divided into chapters."
+    },
+    {
+      "id": "e6.genres-text-types.020",
+      "skill": "e6.genres-text-types",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A text has a first-person \"I\", a date for every entry and invented adventures of a made-up pirate. Which description fits best?",
+      "options": [
+        {
+          "text": "A true autobiography",
+          "why": "An autobiography tells the writer's real life. The pirate here is made up."
+        },
+        {
+          "text": "An information report on pirates",
+          "why": "A report would give facts, not a made-up pirate's adventures."
+        },
+        {
+          "text": "A fiction story told as diary entries"
+        },
+        {
+          "text": "A set of instructions",
+          "why": "Instructions would tell the reader what to do."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check two things: is it real, and what form does it have?",
+        "Dates and I show the diary form.",
+        "Invented events mean the content is fiction."
+      ],
+      "explanation": "The form is a diary, but the pirate and the adventures are invented, so it is fiction written in diary form."
+    }
+  ]
+}

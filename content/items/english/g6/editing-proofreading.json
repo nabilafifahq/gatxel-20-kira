@@ -335,6 +335,674 @@
       "tags": [
         "checkpoint"
       ]
+    },
+    {
+      "id": "e6.editing-proofreading.011",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sentence is written correctly?",
+      "options": [
+        {
+          "text": "Tomorrow is sunday.",
+          "why": "Days of the week begin with a capital letter."
+        },
+        {
+          "text": "Tomorrow are Monday.",
+          "why": "The verb should be is."
+        },
+        {
+          "text": "Tomorrow is Monday."
+        },
+        {
+          "text": "Is tomorrow Monday.",
+          "why": "A question needs a question mark, and this is meant as a statement."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check the capital letters.",
+        "Days of the week are special names.",
+        "Look at the first letter and at the day name."
+      ],
+      "explanation": "A sentence starts with a capital letter and ends with a full stop, and the day name Monday also needs a capital letter."
+    },
+    {
+      "id": "e6.editing-proofreading.012",
+      "skill": "e6.editing-proofreading",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "One word is spelt wrongly. Write it correctly. The libary is closed on Sundays.",
+      "blanks": [
+        {
+          "answers": [
+            "library"
+          ]
+        }
+      ],
+      "hints": [
+        "Say the word slowly.",
+        "Library has two r letters.",
+        "The word ends in -ary."
+      ],
+      "explanation": "The correct spelling is library."
+    },
+    {
+      "id": "e6.editing-proofreading.013",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which phrase uses the apostrophe correctly?",
+      "options": [
+        {
+          "text": "the children’s toys"
+        },
+        {
+          "text": "the childrens toys",
+          "why": "The apostrophe is missing."
+        },
+        {
+          "text": "the childrens’ toys",
+          "why": "Children is already plural, so the apostrophe goes before the s."
+        },
+        {
+          "text": "the children’s’ toys",
+          "why": "There is an extra apostrophe."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Children is an irregular plural.",
+        "The toys belong to the children.",
+        "Put the apostrophe after children, then add s."
+      ],
+      "explanation": "Children does not end in s, so we add apostrophe s: children’s."
+    },
+    {
+      "id": "e6.editing-proofreading.014",
+      "skill": "e6.editing-proofreading",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "___ going to bring ___ books to the library, and I will meet them ___.",
+      "gaps": [
+        {
+          "options": [
+            "They’re",
+            "Their",
+            "There"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "they’re",
+            "their",
+            "there"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "they’re",
+            "their",
+            "there"
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "They’re means they are.",
+        "Their shows ownership. There shows a place.",
+        "Read the sentence with they are in the first gap."
+      ],
+      "explanation": "They’re means they are, their shows that the books belong to them, and there shows a place."
+    },
+    {
+      "id": "e6.editing-proofreading.015",
+      "skill": "e6.editing-proofreading",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the sentences by the kind of mistake each one has.",
+      "groups": [
+        "Spelling",
+        "Punctuation",
+        "Grammar"
+      ],
+      "items": [
+        {
+          "text": "I recieved a letter.",
+          "group": 0
+        },
+        {
+          "text": "The beutiful bird sang.",
+          "group": 0
+        },
+        {
+          "text": "Where are my shoes.",
+          "group": 1
+        },
+        {
+          "text": "He asked, can we go?",
+          "group": 1
+        },
+        {
+          "text": "She don’t like fish.",
+          "group": 2
+        },
+        {
+          "text": "They was happy.",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Spelling is about the letters in a word.",
+        "Punctuation is about marks like full stops and capital letters.",
+        "Grammar is about using the right verb or word form."
+      ],
+      "explanation": "Recieved and beutiful are misspelt. A question needs a question mark, and speech needs a capital letter. She don’t and they was use the wrong verb forms."
+    },
+    {
+      "id": "e6.editing-proofreading.016",
+      "skill": "e6.editing-proofreading",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "One verb is wrong. Write the correct verb. Kofi has gave his ticket to the guard.",
+      "blanks": [
+        {
+          "answers": [
+            "given"
+          ]
+        }
+      ],
+      "hints": [
+        "Has needs a certain form of the verb.",
+        "Think of has eaten, has taken.",
+        "The past participle of give is needed."
+      ],
+      "explanation": "After has, we use the past participle. The past participle of give is given."
+    },
+    {
+      "id": "e6.editing-proofreading.017",
+      "skill": "e6.editing-proofreading",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build the correct sentence. Use the cards.",
+      "answer": "Last week the class visited the botanic gardens.",
+      "distractors": [
+        "visit",
+        "weeks"
+      ],
+      "hints": [
+        "The sentence is about the past.",
+        "Choose the past form of visit.",
+        "The time phrase comes first."
+      ],
+      "explanation": "Last week tells us the past, so the verb is visited. The cards visit and weeks do not fit."
+    },
+    {
+      "id": "e6.editing-proofreading.018",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which is the best way to correct this sentence? The bus was late we waited for an hour.",
+      "options": [
+        {
+          "text": "The bus was late, we waited for an hour.",
+          "why": "A comma alone cannot join two full sentences."
+        },
+        {
+          "text": "The bus was late we waited, for an hour.",
+          "why": "The comma is in the wrong place."
+        },
+        {
+          "text": "The bus was late, so we waited for an hour."
+        },
+        {
+          "text": "The bus was late and, we waited for an hour.",
+          "why": "The comma comes in the wrong place."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "This sentence has two complete ideas stuck together.",
+        "You can use a full stop or a comma with a joining word.",
+        "Look for the option that adds a joining word."
+      ],
+      "explanation": "Two complete sentences need a full stop or a joining word. A comma plus so fixes the run-on sentence."
+    },
+    {
+      "id": "e6.editing-proofreading.019",
+      "skill": "e6.editing-proofreading",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Three words are misspelt: enviroment, protecsion and recylce. Write them correctly. The ___ needs our ___, so we must ___.",
+      "blanks": [
+        {
+          "answers": [
+            "environment"
+          ]
+        },
+        {
+          "answers": [
+            "protection"
+          ]
+        },
+        {
+          "answers": [
+            "recycle"
+          ]
+        }
+      ],
+      "hints": [
+        "Say each word slowly in syllables.",
+        "Environment has the letters n-m in the middle. Recycle starts with re-.",
+        "Protection ends in -tion."
+      ],
+      "explanation": "The correct spellings are environment, protection and recycle."
+    },
+    {
+      "id": "e6.editing-proofreading.020",
+      "skill": "e6.editing-proofreading",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Read: Last saturday, we go to the zoo. The monkeys was playing and there babies climbed the trees. Choose all the errors.",
+      "options": [
+        {
+          "text": "zoo needs a capital letter",
+          "why": "Zoo here is a common noun and needs no capital."
+        },
+        {
+          "text": "trees should be tree",
+          "why": "Trees is correct because there are many."
+        },
+        {
+          "text": "was should be were"
+        },
+        {
+          "text": "go should be went"
+        },
+        {
+          "text": "there should be their"
+        },
+        {
+          "text": "saturday needs a capital letter"
+        }
+      ],
+      "answers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "hints": [
+        "There are four errors in this paragraph.",
+        "Check days of the week, verbs and homophones.",
+        "Last tells you that the story is in the past."
+      ],
+      "explanation": "Saturday needs a capital, go should be went, monkeys were, and their shows that the babies belong to the monkeys."
+    },
+    {
+      "id": "e6.editing-proofreading.021",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which is the best corrected version? Their was a loud crash in the kitchen, we ran in.",
+      "options": [
+        {
+          "text": "There was a loud crash in the kitchen, so we ran in."
+        },
+        {
+          "text": "Their was a loud crash in the kitchen. We ran in.",
+          "why": "Their is still the wrong word."
+        },
+        {
+          "text": "There was a loud crash in the kitchen, we ran in.",
+          "why": "The comma still joins two sentences without a joining word."
+        },
+        {
+          "text": "They’re was a loud crash in the kitchen so we ran in.",
+          "why": "They’re means they are and does not fit here."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Two mistakes need fixing.",
+        "One is a homophone and one is a comma problem.",
+        "There is used to say something exists."
+      ],
+      "explanation": "There was fixes the homophone. Adding so after the comma joins the two sentences correctly."
+    },
+    {
+      "id": "e6.editing-proofreading.022",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "The books that Mum bought for Hadi and I are on the table.",
+          "why": "After for, the correct pronoun is me."
+        },
+        {
+          "text": "The books that Mum bought for Hadi and me is on the table.",
+          "why": "Books is plural, so the verb should be are."
+        },
+        {
+          "text": "The books that Mum buyed for Hadi and me are on the table.",
+          "why": "The past tense of buy is bought."
+        },
+        {
+          "text": "The books that Mum bought for Hadi and me are on the table."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check the pronoun, the verb form, and agreement.",
+        "Remove Hadi and to test the pronoun.",
+        "Books is plural."
+      ],
+      "explanation": "Me is correct after for, bought is the past tense of buy, and are agrees with the plural books."
+    },
+    {
+      "id": "e6.editing-proofreading.023",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence has been edited correctly? Original: Its a shame that the dog hurt it’s paw.",
+      "options": [
+        {
+          "text": "Its a shame that the dog hurt its paw.",
+          "why": "The first its should be it’s, meaning it is."
+        },
+        {
+          "text": "It’s a shame that the dog hurt its paw."
+        },
+        {
+          "text": "It’s a shame that the dog hurt it’s paw.",
+          "why": "The second it’s should be its, meaning belonging to it."
+        },
+        {
+          "text": "Its a shame that the dog hurt it’s paw.",
+          "why": "This keeps both mistakes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "There are two mistakes.",
+        "One means it is. The other shows belonging.",
+        "Try replacing each with it is to see which one is right."
+      ],
+      "explanation": "It’s means it is, so It’s a shame is correct. Its (no apostrophe) shows belonging to the dog, so its paw is correct."
+    },
+    {
+      "id": "e6.editing-proofreading.024",
+      "skill": "e6.editing-proofreading",
+      "type": "multi",
+      "difficulty": 5,
+      "prompt": "Read: The childrens’ playground, which is in the park, are open every day, it’s gates close at six. Choose all the errors.",
+      "options": [
+        {
+          "text": "childrens’ should be children’s"
+        },
+        {
+          "text": "are should be is"
+        },
+        {
+          "text": "it’s should be its"
+        },
+        {
+          "text": "which should be that",
+          "why": "Which is correct in a non-defining clause."
+        },
+        {
+          "text": "There is a comma splice after day."
+        },
+        {
+          "text": "park should be parks",
+          "why": "The park is singular and correct."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "hints": [
+        "There are four errors.",
+        "Check the apostrophes, the verb agreement, and the comma.",
+        "Playground is singular."
+      ],
+      "explanation": "Children’s is the correct possessive, the playground is singular so is, the comma splice needs a full stop or joining word, and its shows belonging."
+    },
+    {
+      "id": "e6.editing-proofreading.025",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word completes the sentence? There are ___ apples in the basket than yesterday.",
+      "options": [
+        {
+          "text": "less",
+          "why": "Apples can be counted, so use fewer."
+        },
+        {
+          "text": "much",
+          "why": "Much is for things you cannot count."
+        },
+        {
+          "text": "fewer"
+        },
+        {
+          "text": "little",
+          "why": "Little is for things you cannot count."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Can you count apples one by one?",
+        "Use fewer for things you can count.",
+        "Use less for amounts."
+      ],
+      "explanation": "Apples are countable, so we use fewer. We use less with amounts we cannot count."
+    },
+    {
+      "id": "e6.editing-proofreading.026",
+      "skill": "e6.editing-proofreading",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "We drank ___ water and ate ___ biscuits at the camp.",
+      "gaps": [
+        {
+          "options": [
+            "less",
+            "fewer"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "less",
+            "fewer"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Water cannot be counted. Biscuits can.",
+        "Use less for water.",
+        "Use fewer for biscuits."
+      ],
+      "explanation": "Water is uncountable, so we say less water. Biscuits are countable, so we say fewer biscuits."
+    },
+    {
+      "id": "e6.editing-proofreading.027",
+      "skill": "e6.editing-proofreading",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each noun by the word it needs.",
+      "groups": [
+        "less",
+        "fewer"
+      ],
+      "items": [
+        {
+          "text": "sugar",
+          "group": 0
+        },
+        {
+          "text": "traffic",
+          "group": 0
+        },
+        {
+          "text": "rice",
+          "group": 0
+        },
+        {
+          "text": "coins",
+          "group": 1
+        },
+        {
+          "text": "mistakes",
+          "group": 1
+        },
+        {
+          "text": "children",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Can you count it in ones?",
+        "Uncountable nouns use less. Countable nouns use fewer.",
+        "Start with coins: can you count them?"
+      ],
+      "explanation": "Sugar, traffic and rice are uncountable, so they use less. Coins, mistakes and children are countable, so they use fewer."
+    },
+    {
+      "id": "e6.editing-proofreading.028",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "There isn't many milk left.",
+          "why": "Milk is uncountable, so use much."
+        },
+        {
+          "text": "There isn't much milk left."
+        },
+        {
+          "text": "There isn't few milk left.",
+          "why": "Few is for countable nouns."
+        },
+        {
+          "text": "There isn't fewer milk left.",
+          "why": "Fewer is for countable nouns."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is milk countable?",
+        "Much goes with uncountable nouns.",
+        "Cross out many and few for milk."
+      ],
+      "explanation": "Milk is uncountable, so we say much milk."
+    },
+    {
+      "id": "e6.editing-proofreading.029",
+      "skill": "e6.editing-proofreading",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose the two sentences with correct grammar.",
+      "options": [
+        {
+          "text": "How many stickers do you have?"
+        },
+        {
+          "text": "How much stickers do you have?",
+          "why": "Stickers can be counted, so use many."
+        },
+        {
+          "text": "We have less time than we thought."
+        },
+        {
+          "text": "We have fewer time than we thought.",
+          "why": "Time is treated as an amount here, so use less."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Check whether each noun is countable.",
+        "Stickers are countable. Time is an amount.",
+        "Many for countable, much and less for amounts."
+      ],
+      "explanation": "Many goes with countable stickers. Less goes with time as an amount."
+    },
+    {
+      "id": "e6.editing-proofreading.030",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "The trip took fewer than ten minutes.",
+          "why": "Time is treated as an amount here, so use less."
+        },
+        {
+          "text": "The trip took less than ten minutes."
+        },
+        {
+          "text": "The trip took few than ten minutes.",
+          "why": "Few than is not correct English."
+        },
+        {
+          "text": "The trip took lesser than ten minutes.",
+          "why": "Lesser is not used in this way."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Time, money and distance are usually treated as amounts.",
+        "Compare: less than ten minutes.",
+        "Cross out the choices that are not real comparisons."
+      ],
+      "explanation": "We treat time as an amount, so we say less than ten minutes."
+    },
+    {
+      "id": "e6.editing-proofreading.031",
+      "skill": "e6.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Proofread: \"Fewer sugar is needed in the recipe.\" What is the best correction?",
+      "options": [
+        {
+          "text": "Fewer sugar are needed",
+          "why": "The verb is fixed but the quantifier is still wrong."
+        },
+        {
+          "text": "Less sugar is needed"
+        },
+        {
+          "text": "Fewest sugar is needed",
+          "why": "Fewest is not the right word."
+        },
+        {
+          "text": "Fewer sugars is needed",
+          "why": "Sugars changes the meaning and is still wrong."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Is sugar countable?",
+        "Uncountable nouns take less.",
+        "The verb can stay singular."
+      ],
+      "explanation": "Sugar is uncountable, so we say less sugar."
     }
   ]
 }

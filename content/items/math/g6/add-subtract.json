@@ -1,0 +1,76 @@
+{
+  "skill": "m6.add-subtract",
+  "items": [
+    {
+      "id": "m6.add-subtract.001",
+      "skill": "m6.add-subtract",
+      "difficulty": 3,
+      "prompt": "A school raised Rp1.245.600 on Monday and Rp2.378.450 on Tuesday. The target is Rp5.000.000. How many rupiah more does it need?",
+      "hints": [
+        "Add the two days first.",
+        "Rp1.245.600 + Rp2.378.450 = Rp3.624.050.",
+        "Take that total away from the target."
+      ],
+      "explanation": "Two days raised Rp3.624.050. The school still needs 5.000.000 − 3.624.050 = Rp1.375.950.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 1375950
+    },
+    {
+      "id": "m6.add-subtract.002",
+      "skill": "m6.add-subtract",
+      "difficulty": 3,
+      "prompt": "Kofi has a pole 12.35 m long. He cuts off a piece 4.8 m long and another piece 3.675 m long. How long is the pole that is left, in metres?",
+      "hints": [
+        "Add the two pieces first.",
+        "Line up the decimal points: 4.800 + 3.675.",
+        "Take the total from 12.350."
+      ],
+      "explanation": "The pieces add up to 8.475 m. Then 12.35 − 8.475 = 3.875 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 3.875
+    },
+    {
+      "id": "m6.add-subtract.003",
+      "skill": "m6.add-subtract",
+      "difficulty": 4,
+      "prompt": "Which is the best estimate for 49,876 − 20,124?",
+      "hints": [
+        "Round both numbers to the nearest 10,000 or 1,000.",
+        "49,876 is close to 50,000 and 20,124 is close to 20,000.",
+        "Now subtract the rounded numbers."
+      ],
+      "explanation": "49,876 rounds to 50,000 and 20,124 rounds to 20,000. 50,000 − 20,000 = 30,000.",
+      "tags": [
+        "estimation"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "70,000",
+          "why": "That is what you get if you add instead of subtract."
+        },
+        {
+          "text": "20,000",
+          "why": "You may have rounded the first number down too much. 49,876 is almost 50,000."
+        },
+        {
+          "text": "3,000",
+          "why": "This has the wrong number of digits. Both numbers have five digits and the answer is close to 30,000."
+        },
+        {
+          "text": "30,000"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

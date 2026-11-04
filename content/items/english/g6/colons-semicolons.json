@@ -327,6 +327,417 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e6.colons-semicolons.011",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 1,
+      "prompt": "Which sentence uses a colon correctly to introduce a list?",
+      "hints": [
+        "A colon comes after a complete first part.",
+        "The list comes after the colon.",
+        "Find the sentence where Pack these things is a full statement before the mark."
+      ],
+      "explanation": "A colon follows a complete clause and introduces what comes next, such as a list.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Pack: a torch, a map and a hat.",
+          "why": "The words before a colon should make a full sentence. Pack on its own is too short."
+        },
+        {
+          "text": "Pack these things: a torch, a map and a hat."
+        },
+        {
+          "text": "Pack these things; a torch, a map and a hat.",
+          "why": "A semicolon does not introduce a list. A colon does."
+        },
+        {
+          "text": "Pack these things, a torch: a map and a hat.",
+          "why": "The colon is in the middle of the list. It belongs before the list."
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "e6.colons-semicolons.012",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 1,
+      "prompt": "Put the cards in order to make a sentence with a list. The list is milk, eggs and rice.",
+      "hints": [
+        "The colon comes after the first part of the sentence.",
+        "The words after the colon are a list.",
+        "Start with I bought."
+      ],
+      "explanation": "The colon follows the complete clause I bought three things and introduces the list.",
+      "type": "tiles",
+      "answer": "I bought three things: milk, eggs and rice.",
+      "distractors": [
+        "bread",
+        "tea"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.colons-semicolons.013",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 2,
+      "prompt": "She had one rule ___ always be kind. Dewi loves swimming ___ her brother prefers running.",
+      "hints": [
+        "The first gap introduces an explanation of the rule.",
+        "The second gap joins two related complete sentences.",
+        "A colon explains. A semicolon links."
+      ],
+      "explanation": "A colon introduces the explanation of the rule. A semicolon joins two closely linked clauses.",
+      "type": "cloze",
+      "gaps": [
+        {
+          "options": [
+            ":",
+            ";",
+            ","
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            ":",
+            ";",
+            ","
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.014",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 2,
+      "prompt": "Which sentence uses a semicolon correctly?",
+      "hints": [
+        "A semicolon joins two parts that could each be a sentence.",
+        "Cover one side with your finger. Does the other side still make sense alone?",
+        "Look for the sentence where both halves can stand alone."
+      ],
+      "explanation": "A semicolon joins two complete, related clauses. Both The sky grew dark and A storm was coming can stand alone.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "The sky grew dark; because a storm was coming.",
+          "why": "The part after a semicolon should be able to stand alone. Because a storm was coming cannot."
+        },
+        {
+          "text": "When the sky grew dark; we went inside.",
+          "why": "The part before a semicolon should be able to stand alone. When the sky grew dark cannot."
+        },
+        {
+          "text": "The sky grew dark; a storm was coming."
+        },
+        {
+          "text": "The sky grew dark; and then.",
+          "why": "The part after the semicolon is not a complete sentence."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.colons-semicolons.015",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 2,
+      "prompt": "Write the name of the punctuation mark that belongs in the gap. Kofi had one wish ___ to see the sea.",
+      "hints": [
+        "The words after the gap explain the wish.",
+        "Which mark introduces an explanation?",
+        "It looks like two dots, one above the other."
+      ],
+      "explanation": "The colon introduces an explanation of the wish.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "colon",
+            ":"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.016",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 2,
+      "prompt": "Write the missing punctuation mark. The rain stopped ___ the sun came out.",
+      "hints": [
+        "There are two complete sentences that belong together.",
+        "A full stop would separate them. Which mark joins them more gently?",
+        "It looks like a full stop with a comma under it."
+      ],
+      "explanation": "A semicolon joins two closely related clauses: The rain stopped; the sun came out.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            ";",
+            "semicolon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.017",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 3,
+      "prompt": "Match each sentence to the job of its punctuation.",
+      "hints": [
+        "Look at the mark and at what comes after it.",
+        "A list or explanation after a colon. Two full clauses with a semicolon.",
+        "Start with the sentence that has the semicolon."
+      ],
+      "explanation": "Colons introduce lists and explanations. Semicolons join clauses that are closely related.",
+      "type": "match",
+      "pairs": [
+        [
+          "Bring these: a hat, a map and a torch.",
+          "The colon introduces a list"
+        ],
+        [
+          "I have one rule: be kind.",
+          "The colon introduces an explanation"
+        ],
+        [
+          "Rani sang; Bima played the drum.",
+          "The semicolon joins two related clauses"
+        ]
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.018",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 3,
+      "prompt": "Put the cards in order to make a correct sentence.",
+      "hints": [
+        "A semicolon joins two clauses that could be sentences.",
+        "The first clause is short.",
+        "Start with It was late."
+      ],
+      "explanation": "It was late and The shops had already closed are two related sentences, joined by a semicolon.",
+      "type": "tiles",
+      "answer": "It was late; the shops had already closed.",
+      "distractors": [
+        "and",
+        "because"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.colons-semicolons.019",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 3,
+      "prompt": "Which sentence is punctuated correctly?",
+      "hints": [
+        "Check what comes before each mark.",
+        "My favourite fruits are is not a full sentence on its own.",
+        "Try reading each version without the colon or semicolon."
+      ],
+      "explanation": "Do not put a colon straight after a verb like are. The sentence is complete without a colon.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "My favourite fruits are: mangoes, pineapples and bananas.",
+          "why": "The words before a colon should be a complete sentence. Are cannot end one."
+        },
+        {
+          "text": "My favourite fruits: are mangoes, pineapples and bananas.",
+          "why": "The colon is in the wrong place. It cuts the verb from its subject."
+        },
+        {
+          "text": "My favourite fruits are; mangoes, pineapples and bananas.",
+          "why": "A semicolon should join two complete clauses. This one does not."
+        },
+        {
+          "text": "My favourite fruits are mangoes, pineapples and bananas."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.colons-semicolons.020",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 3,
+      "prompt": "Choose all the sentences with correct punctuation.",
+      "hints": [
+        "Check that the words before a colon make a full sentence.",
+        "Check that a semicolon has a complete clause on both sides.",
+        "Look at what follows each semicolon."
+      ],
+      "explanation": "Each correct sentence has a full clause before the mark. Semicolons also need a full clause after them.",
+      "type": "multi",
+      "options": [
+        {
+          "text": "The trip had one rule: stay together."
+        },
+        {
+          "text": "Amara plays the piano; Tom plays the drums."
+        },
+        {
+          "text": "There are three planets I like: Mars, Venus and Saturn."
+        },
+        {
+          "text": "I like: apples, pears and plums.",
+          "why": "A colon needs a complete sentence before it. I like is not complete."
+        },
+        {
+          "text": "We went to the park; and played football.",
+          "why": "The part after the semicolon cannot stand alone."
+        },
+        {
+          "text": "Bayu was tired; because he ran.",
+          "why": "The part after the semicolon cannot stand alone."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.021",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 3,
+      "prompt": "Write the two missing marks. The recipe needs three things ___ flour, eggs and milk ___ it is very simple.",
+      "hints": [
+        "The first gap introduces a list.",
+        "The second gap joins two related clauses.",
+        "The first is a colon and the second is a semicolon."
+      ],
+      "explanation": "A colon introduces the list and a semicolon joins the two related clauses.",
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            ":",
+            "colon"
+          ]
+        },
+        {
+          "answers": [
+            ";",
+            "semicolon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6.colons-semicolons.022",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 4,
+      "prompt": "Which sentence is punctuated and worded correctly?",
+      "hints": [
+        "Two full clauses are joined by however.",
+        "Which mark can join two full clauses, with however and a comma after it?",
+        "Check each sentence for extra words and for the mark before however."
+      ],
+      "explanation": "A semicolon joins the two clauses, and however is followed by a comma.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rani wanted to go swimming; because it was too cold.",
+          "why": "The part after a semicolon should stand alone, and because makes it incomplete here."
+        },
+        {
+          "text": "Rani wanted to go swimming, but however, it was too cold.",
+          "why": "But and however do the same job, so one is enough. A comma also cannot join full clauses with however."
+        },
+        {
+          "text": "Rani wanted to go swimming; however, it was too cold."
+        },
+        {
+          "text": "Rani wanted to go swimming: it was too cold, however.",
+          "why": "A colon introduces a list or an explanation. It does not join contrasting clauses like this."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "e6.colons-semicolons.023",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 4,
+      "prompt": "Which sentence punctuates this list best?",
+      "hints": [
+        "Each item already has a comma inside it.",
+        "Use a stronger mark between whole items.",
+        "Group each town with its province."
+      ],
+      "explanation": "When list items have commas inside, semicolons separate the items so the reader can see them clearly.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Our class visited Bogor, West Java, Malang, East Java and Medan, North Sumatra.",
+          "why": "The commas make it hard to tell where one place ends and the next begins."
+        },
+        {
+          "text": "Our class visited: Bogor, West Java; Malang, East Java; and Medan, North Sumatra.",
+          "why": "A colon should not follow a verb like visited."
+        },
+        {
+          "text": "Our class visited Bogor; West Java, Malang; East Java and Medan; North Sumatra.",
+          "why": "The semicolons are in the wrong places. They split each place from its province."
+        },
+        {
+          "text": "Our class visited Bogor, West Java; Malang, East Java; and Medan, North Sumatra."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "e6.colons-semicolons.024",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 4,
+      "prompt": "Put the cards in order to make a correct sentence.",
+      "hints": [
+        "A semicolon joins two clauses.",
+        "However sits inside commas.",
+        "Start with Rani loves science."
+      ],
+      "explanation": "The semicolon joins the clauses, and however is set off with commas.",
+      "type": "tiles",
+      "answer": "Rani loves science; her brother, however, prefers art.",
+      "distractors": [
+        "but",
+        "and"
+      ],
+      "alternatives": []
+    },
+    {
+      "id": "e6.colons-semicolons.025",
+      "skill": "e6.colons-semicolons",
+      "difficulty": 5,
+      "prompt": "Which sentence would be better with a semicolon instead of a colon?",
+      "hints": [
+        "A colon explains or lists. A semicolon links two equal clauses.",
+        "Which sentence has two clauses that are equally important?",
+        "Check which sentence does not explain or list anything after the mark."
+      ],
+      "explanation": "Dewi loves art and Wulan prefers music are equal, related clauses, so a semicolon suits them better.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Dewi loves art: Wulan prefers music."
+        },
+        {
+          "text": "She had one aim: to win.",
+          "why": "The colon introduces what the aim is, so it is the correct mark."
+        },
+        {
+          "text": "Remember: bring your coat.",
+          "why": "The colon introduces the thing to remember, so it is correct."
+        },
+        {
+          "text": "Pack three things: a hat, a coat and a map.",
+          "why": "The colon introduces a list, so it is correct."
+        }
+      ],
+      "answer": 0
     }
   ]
 }

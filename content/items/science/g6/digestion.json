@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "Which teeth are best for grinding and chewing food?",
       "options": [
-        { "text": "incisors", "why": "Incisors are the sharp, flat front teeth for biting and cutting." },
-        { "text": "canines", "why": "Canines are pointed teeth for gripping and tearing." },
-        { "text": "molars" },
-        { "text": "milk teeth", "why": "Milk teeth are a child's first set of teeth, and they include all three types." }
+        {
+          "text": "incisors",
+          "why": "Incisors are the sharp, flat front teeth for biting and cutting."
+        },
+        {
+          "text": "canines",
+          "why": "Canines are pointed teeth for gripping and tearing."
+        },
+        {
+          "text": "molars"
+        },
+        {
+          "text": "milk teeth",
+          "why": "Milk teeth are a child's first set of teeth, and they include all three types."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -20,7 +31,9 @@
         "Run your tongue over your back teeth and feel how wide they are."
       ],
       "explanation": "Molars are wide, flat teeth at the back of the mouth that grind and chew food. Incisors bite and cut, and canines grip and tear.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.digestion.002",
@@ -28,17 +41,47 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort these organs into the digestive system and other body systems.",
-      "groups": ["Digestive system", "Another body system"],
+      "groups": [
+        "Digestive system",
+        "Another body system"
+      ],
       "items": [
-        { "text": "stomach", "group": 0 },
-        { "text": "oesophagus", "group": 0 },
-        { "text": "small intestine", "group": 0 },
-        { "text": "large intestine", "group": 0 },
-        { "text": "mouth", "group": 0 },
-        { "text": "lungs", "group": 1 },
-        { "text": "heart", "group": 1 },
-        { "text": "brain", "group": 1 },
-        { "text": "windpipe", "group": 1 }
+        {
+          "text": "stomach",
+          "group": 0
+        },
+        {
+          "text": "oesophagus",
+          "group": 0
+        },
+        {
+          "text": "small intestine",
+          "group": 0
+        },
+        {
+          "text": "large intestine",
+          "group": 0
+        },
+        {
+          "text": "mouth",
+          "group": 0
+        },
+        {
+          "text": "lungs",
+          "group": 1
+        },
+        {
+          "text": "heart",
+          "group": 1
+        },
+        {
+          "text": "brain",
+          "group": 1
+        },
+        {
+          "text": "windpipe",
+          "group": 1
+        }
       ],
       "hints": [
         "The digestive system is the long tube that food passes through.",
@@ -46,7 +89,9 @@
         "Start with the organs in your chest that move air and blood."
       ],
       "explanation": "Food passes through the mouth, oesophagus, stomach and intestines, so they are part of the digestive system. The lungs, heart, brain and windpipe belong to other body systems.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.digestion.003",
@@ -54,14 +99,24 @@
       "type": "order",
       "difficulty": 2,
       "prompt": "Put these parts of the digestive system in the order that food passes through them.",
-      "items": ["mouth", "oesophagus", "stomach", "small intestine", "large intestine", "rectum"],
+      "items": [
+        "mouth",
+        "oesophagus",
+        "stomach",
+        "small intestine",
+        "large intestine",
+        "rectum"
+      ],
       "hints": [
         "Food enters at the top of the digestive system, and waste leaves at the bottom.",
         "A tube from the mouth leads down to a stretchy bag that churns food.",
         "Start with the mouth. Then think about the tube that food is swallowed into."
       ],
       "explanation": "Food goes from the mouth down the oesophagus to the stomach, then into the small intestine and the large intestine. Waste is stored in the rectum until it leaves the body.",
-      "tags": ["checkpoint", "osn-sd"]
+      "tags": [
+        "checkpoint",
+        "osn-sd"
+      ]
     },
     {
       "id": "s6.digestion.004",
@@ -70,11 +125,26 @@
       "difficulty": 2,
       "prompt": "Match each organ to its main job.",
       "pairs": [
-        ["mouth", "teeth chew food and saliva wets it"],
-        ["oesophagus", "muscles squeeze food down to the stomach"],
-        ["stomach", "churns food with acid and digestive juices"],
-        ["small intestine", "digested food passes into the blood"],
-        ["large intestine", "water is taken back into the body"]
+        [
+          "mouth",
+          "teeth chew food and saliva wets it"
+        ],
+        [
+          "oesophagus",
+          "muscles squeeze food down to the stomach"
+        ],
+        [
+          "stomach",
+          "churns food with acid and digestive juices"
+        ],
+        [
+          "small intestine",
+          "digested food passes into the blood"
+        ],
+        [
+          "large intestine",
+          "water is taken back into the body"
+        ]
       ],
       "hints": [
         "Follow the food from the top: chewing, swallowing, churning, absorbing and drying out.",
@@ -82,7 +152,9 @@
         "Start with the mouth. Think about what your teeth and saliva do."
       ],
       "explanation": "The mouth chews and wets food, the oesophagus squeezes it down, and the stomach churns it with acid. The small intestine absorbs digested food into the blood, and the large intestine takes back water.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.digestion.005",
@@ -91,10 +163,21 @@
       "difficulty": 3,
       "prompt": "Where does most digested food pass into the blood?",
       "options": [
-        { "text": "stomach", "why": "The stomach mixes and breaks down food. Most food passes into the blood later, further along the gut." },
-        { "text": "large intestine", "why": "The large intestine mainly takes back water." },
-        { "text": "oesophagus", "why": "The oesophagus is a tube that moves food to the stomach." },
-        { "text": "small intestine" }
+        {
+          "text": "stomach",
+          "why": "The stomach mixes and breaks down food. Most food passes into the blood later, further along the gut."
+        },
+        {
+          "text": "large intestine",
+          "why": "The large intestine mainly takes back water."
+        },
+        {
+          "text": "oesophagus",
+          "why": "The oesophagus is a tube that moves food to the stomach."
+        },
+        {
+          "text": "small intestine"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -103,7 +186,9 @@
         "Cross out the parts that only move food along or take back water."
       ],
       "explanation": "Most digested food passes through the wall of the small intestine into the blood. The small intestine is very long and folded, which gives a huge surface for absorbing food.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.digestion.006",
@@ -119,7 +204,9 @@
         "Count how many lots of 1.5 m fit into 6 m."
       ],
       "explanation": "6 ÷ 1.5 = 4, so the small intestine is about four times longer. Its great length gives plenty of time and surface for food to be absorbed.",
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
     },
     {
       "id": "s6.digestion.007",
@@ -128,10 +215,21 @@
       "difficulty": 3,
       "prompt": "Why is it good to eat foods with fibre, such as vegetables and brown rice?",
       "options": [
-        { "text": "Fibre helps food and waste move through the intestines." },
-        { "text": "Fibre gives us most of our energy.", "why": "Most of our energy comes from carbohydrates such as starch and sugar, and from fats." },
-        { "text": "Fibre builds strong muscles.", "why": "Protein helps the body build and repair muscles." },
-        { "text": "Fibre is absorbed in the stomach.", "why": "Fibre is not digested or absorbed. It passes through the gut and helps it work well." }
+        {
+          "text": "Fibre helps food and waste move through the intestines."
+        },
+        {
+          "text": "Fibre gives us most of our energy.",
+          "why": "Most of our energy comes from carbohydrates such as starch and sugar, and from fats."
+        },
+        {
+          "text": "Fibre builds strong muscles.",
+          "why": "Protein helps the body build and repair muscles."
+        },
+        {
+          "text": "Fibre is absorbed in the stomach.",
+          "why": "Fibre is not digested or absorbed. It passes through the gut and helps it work well."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -148,10 +246,21 @@
       "difficulty": 4,
       "prompt": "Rina chews a piece of plain bread for two minutes without swallowing. It starts to taste sweet. Why?",
       "options": [
-        { "text": "Her teeth add sugar to the bread.", "why": "Teeth only break food into smaller pieces. They do not add sugar." },
-        { "text": "Saliva breaks down some starch in the bread into sugar." },
-        { "text": "The bread melts in her warm mouth.", "why": "Bread does not melt. A digestive juice in saliva changes it." },
-        { "text": "Warm food always tastes sweet.", "why": "Warmth alone does not make food sweet. Saliva makes sugar from starch." }
+        {
+          "text": "Her teeth add sugar to the bread.",
+          "why": "Teeth only break food into smaller pieces. They do not add sugar."
+        },
+        {
+          "text": "Saliva breaks down some starch in the bread into sugar."
+        },
+        {
+          "text": "The bread melts in her warm mouth.",
+          "why": "Bread does not melt. A digestive juice in saliva changes it."
+        },
+        {
+          "text": "Warm food always tastes sweet.",
+          "why": "Warmth alone does not make food sweet. Saliva makes sugar from starch."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -160,7 +269,11 @@
         "Ask what saliva could turn the starch into, if the bread now tastes sweet."
       ],
       "explanation": "Saliva contains an enzyme that breaks starch down into sugar. Chewing for a long time gives it time to work, so the bread begins to taste sweet.",
-      "tags": ["iksc", "imso", "checkpoint"]
+      "tags": [
+        "iksc",
+        "imso",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.digestion.009",
@@ -170,10 +283,22 @@
       "prompt": "Draw and label the digestive system: mouth, oesophagus, stomach, small intestine, large intestine and rectum.",
       "rubric": {
         "criteria": [
-          { "label": "Draws the organs in the correct order from top to bottom", "points": 2 },
-          { "label": "Labels at least five organs correctly", "points": 2 },
-          { "label": "Shows the small intestine as a long, folded tube", "points": 1 },
-          { "label": "Uses straight label lines that point to each organ", "points": 1 }
+          {
+            "label": "Draws the organs in the correct order from top to bottom",
+            "points": 2
+          },
+          {
+            "label": "Labels at least five organs correctly",
+            "points": 2
+          },
+          {
+            "label": "Shows the small intestine as a long, folded tube",
+            "points": 1
+          },
+          {
+            "label": "Uses straight label lines that point to each organ",
+            "points": 1
+          }
         ]
       },
       "background": "blank",
@@ -182,7 +307,9 @@
         "The small intestine is coiled up, and the large intestine goes around it like a frame."
       ],
       "explanation": "Food passes from the mouth down the oesophagus to the stomach, then through the small and large intestines to the rectum. The small intestine is long and folded, and the large intestine frames it.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.digestion.010",
@@ -191,10 +318,21 @@
       "difficulty": 5,
       "prompt": "In a model of the gut, Fatimah squeezes mashed banana along a stocking with her hands. Which part of digestion does the squeezing show?",
       "options": [
-        { "text": "teeth biting and cutting food", "why": "The model has no teeth. Squeezing shows food being pushed along a tube." },
-        { "text": "saliva wetting the food", "why": "Wetting would need a liquid to be added. The squeezing shows movement." },
-        { "text": "digested food passing into the blood", "why": "That would be shown by liquid seeping out through the stocking." },
-        { "text": "muscles in the gut wall pushing food along" }
+        {
+          "text": "teeth biting and cutting food",
+          "why": "The model has no teeth. Squeezing shows food being pushed along a tube."
+        },
+        {
+          "text": "saliva wetting the food",
+          "why": "Wetting would need a liquid to be added. The squeezing shows movement."
+        },
+        {
+          "text": "digested food passing into the blood",
+          "why": "That would be shown by liquid seeping out through the stocking."
+        },
+        {
+          "text": "muscles in the gut wall pushing food along"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -203,7 +341,1059 @@
         "Ask what moves food along the real gut, where there are no hands."
       ],
       "explanation": "The hands squeezing the stocking model the muscles in the gut wall. These muscles squeeze in waves to push food along the oesophagus and intestines.",
-      "tags": ["iksc", "checkpoint"]
+      "tags": [
+        "iksc",
+        "checkpoint"
+      ]
+    },
+    {
+      "id": "s6.digestion.011",
+      "skill": "s6.digestion",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the main parts of the digestive system.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 400,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 55,
+            "y": 5,
+            "w": 190,
+            "h": 390,
+            "r": 60,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 25,
+            "rx": 24,
+            "ry": 10,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 36,
+            "x2": 150,
+            "y2": 165,
+            "tone": "ink",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 190,
+            "rx": 42,
+            "ry": 24,
+            "rot": 20,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                168,
+                212
+              ],
+              [
+                130,
+                238
+              ],
+              [
+                178,
+                252
+              ],
+              [
+                125,
+                268
+              ],
+              [
+                178,
+                284
+              ],
+              [
+                130,
+                300
+              ],
+              [
+                165,
+                316
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 325,
+            "x2": 100,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 224,
+            "x2": 222,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 222,
+            "y1": 224,
+            "x2": 222,
+            "y2": 325,
+            "tone": "muted",
+            "width": 11
+          }
+        ],
+        "alt": "A simple drawing of the body from top to bottom: a small mouth at the top, a long thin tube running down to a bean-shaped bag, a narrow tube coiled in zigzags below it, and a wider tube forming a square frame around the coils."
+      },
+      "labels": [
+        "mouth",
+        "oesophagus",
+        "stomach",
+        "small intestine",
+        "large intestine"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 6.3
+        },
+        {
+          "x": 50,
+          "y": 25
+        },
+        {
+          "x": 59.3,
+          "y": 47.5
+        },
+        {
+          "x": 50.7,
+          "y": 68.8
+        },
+        {
+          "x": 74,
+          "y": 72.5
+        }
+      ],
+      "extraLabels": [
+        "windpipe"
+      ],
+      "hints": [
+        "Follow the path of food from the top to the bottom.",
+        "The coiled tube is narrow and long. The wide tube forms a frame around it.",
+        "Start with the bean-shaped bag, which comes straight after the long thin tube."
+      ],
+      "explanation": "Food goes from the mouth down the oesophagus to the stomach. It then passes through the small intestine and the large intestine."
+    },
+    {
+      "id": "s6.digestion.012",
+      "skill": "s6.digestion",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the part where most digested food passes into the blood.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 400,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 55,
+            "y": 5,
+            "w": 190,
+            "h": 390,
+            "r": 60,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 25,
+            "rx": 24,
+            "ry": 10,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 36,
+            "x2": 150,
+            "y2": 165,
+            "tone": "ink",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 190,
+            "rx": 42,
+            "ry": 24,
+            "rot": 20,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                168,
+                212
+              ],
+              [
+                130,
+                238
+              ],
+              [
+                178,
+                252
+              ],
+              [
+                125,
+                268
+              ],
+              [
+                178,
+                284
+              ],
+              [
+                130,
+                300
+              ],
+              [
+                165,
+                316
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 325,
+            "x2": 100,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 224,
+            "x2": 222,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 222,
+            "y1": 224,
+            "x2": 222,
+            "y2": 325,
+            "tone": "muted",
+            "width": 11
+          }
+        ],
+        "alt": "A simple drawing of the body from top to bottom: a small mouth at the top, a long thin tube running down to a bean-shaped bag, a narrow tube coiled in zigzags below it, and a wider tube forming a square frame around the coils."
+      },
+      "regions": [
+        {
+          "label": "mouth",
+          "x": 50,
+          "y": 6.3,
+          "w": 16.7,
+          "h": 9
+        },
+        {
+          "label": "oesophagus",
+          "x": 50,
+          "y": 25,
+          "w": 13.3,
+          "h": 15
+        },
+        {
+          "label": "stomach",
+          "x": 58.3,
+          "y": 47.5,
+          "w": 30,
+          "h": 14
+        },
+        {
+          "label": "small intestine",
+          "x": 50.7,
+          "y": 68.8,
+          "w": 26.7,
+          "h": 22.5
+        },
+        {
+          "label": "large intestine",
+          "x": 74,
+          "y": 72.5,
+          "w": 13.3,
+          "h": 25
+        }
+      ],
+      "answers": [
+        3
+      ],
+      "hints": [
+        "Think about which part is the longest.",
+        "Nutrients need a long, narrow tube with lots of time to pass through the wall.",
+        "Look for the coiled tube, not the wide one."
+      ],
+      "explanation": "Most nutrients pass through the wall of the small intestine into the blood. It is long and coiled, which gives plenty of time and space for this."
+    },
+    {
+      "id": "s6.digestion.013",
+      "skill": "s6.digestion",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part where food is squeezed and mixed with acid.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 400,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 55,
+            "y": 5,
+            "w": 190,
+            "h": 390,
+            "r": 60,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 25,
+            "rx": 24,
+            "ry": 10,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 36,
+            "x2": 150,
+            "y2": 165,
+            "tone": "ink",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 190,
+            "rx": 42,
+            "ry": 24,
+            "rot": 20,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                168,
+                212
+              ],
+              [
+                130,
+                238
+              ],
+              [
+                178,
+                252
+              ],
+              [
+                125,
+                268
+              ],
+              [
+                178,
+                284
+              ],
+              [
+                130,
+                300
+              ],
+              [
+                165,
+                316
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 325,
+            "x2": 100,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 224,
+            "x2": 222,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 222,
+            "y1": 224,
+            "x2": 222,
+            "y2": 325,
+            "tone": "muted",
+            "width": 11
+          }
+        ],
+        "alt": "A simple drawing of the body from top to bottom: a small mouth at the top, a long thin tube running down to a bean-shaped bag, a narrow tube coiled in zigzags below it, and a wider tube forming a square frame around the coils."
+      },
+      "regions": [
+        {
+          "label": "mouth",
+          "x": 50,
+          "y": 6.3,
+          "w": 16.7,
+          "h": 9
+        },
+        {
+          "label": "oesophagus",
+          "x": 50,
+          "y": 25,
+          "w": 13.3,
+          "h": 15
+        },
+        {
+          "label": "stomach",
+          "x": 58.3,
+          "y": 47.5,
+          "w": 30,
+          "h": 14
+        },
+        {
+          "label": "small intestine",
+          "x": 50.7,
+          "y": 68.8,
+          "w": 26.7,
+          "h": 22.5
+        },
+        {
+          "label": "large intestine",
+          "x": 74,
+          "y": 72.5,
+          "w": 13.3,
+          "h": 25
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "This part is a stretchy bag.",
+        "The muscles in its wall churn the food.",
+        "It is the bean-shaped bag below the long thin tube."
+      ],
+      "explanation": "The stomach churns food and mixes it with acid and juices. The acid also kills many germs that are swallowed with the food."
+    },
+    {
+      "id": "s6.digestion.014",
+      "skill": "s6.digestion",
+      "type": "hotspot",
+      "difficulty": 4,
+      "prompt": "Tap the part where water is taken back from the leftover food.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 400,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 55,
+            "y": 5,
+            "w": 190,
+            "h": 390,
+            "r": 60,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "ellipse",
+            "cx": 150,
+            "cy": 25,
+            "rx": 24,
+            "ry": 10,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 36,
+            "x2": 150,
+            "y2": 165,
+            "tone": "ink",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 175,
+            "cy": 190,
+            "rx": 42,
+            "ry": 24,
+            "rot": 20,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                168,
+                212
+              ],
+              [
+                130,
+                238
+              ],
+              [
+                178,
+                252
+              ],
+              [
+                125,
+                268
+              ],
+              [
+                178,
+                284
+              ],
+              [
+                130,
+                300
+              ],
+              [
+                165,
+                316
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 325,
+            "x2": 100,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 100,
+            "y1": 224,
+            "x2": 222,
+            "y2": 224,
+            "tone": "muted",
+            "width": 11
+          },
+          {
+            "t": "line",
+            "x1": 222,
+            "y1": 224,
+            "x2": 222,
+            "y2": 325,
+            "tone": "muted",
+            "width": 11
+          }
+        ],
+        "alt": "A simple drawing of the body from top to bottom: a small mouth at the top, a long thin tube running down to a bean-shaped bag, a narrow tube coiled in zigzags below it, and a wider tube forming a square frame around the coils."
+      },
+      "regions": [
+        {
+          "label": "mouth",
+          "x": 50,
+          "y": 6.3,
+          "w": 16.7,
+          "h": 9
+        },
+        {
+          "label": "oesophagus",
+          "x": 50,
+          "y": 25,
+          "w": 13.3,
+          "h": 15
+        },
+        {
+          "label": "stomach",
+          "x": 58.3,
+          "y": 47.5,
+          "w": 30,
+          "h": 14
+        },
+        {
+          "label": "small intestine",
+          "x": 50.7,
+          "y": 68.8,
+          "w": 26.7,
+          "h": 22.5
+        },
+        {
+          "label": "large intestine",
+          "x": 74,
+          "y": 72.5,
+          "w": 13.3,
+          "h": 25
+        }
+      ],
+      "answers": [
+        4
+      ],
+      "hints": [
+        "Most food has already been taken into the blood before this part.",
+        "What is left is mostly water and fibre.",
+        "It is the wide tube, not the coiled one."
+      ],
+      "explanation": "The large intestine takes water back from the leftover food. What remains is solid waste that leaves the body."
+    },
+    {
+      "id": "s6.digestion.015",
+      "skill": "s6.digestion",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Name the organ for each job.",
+      "head": [
+        "Organ",
+        "Job"
+      ],
+      "rows": [
+        [
+          "",
+          "Carries food down"
+        ],
+        [
+          "Stomach",
+          "Churns food, adds acid"
+        ],
+        [
+          "",
+          "Absorbs nutrients"
+        ],
+        [
+          "",
+          "Takes water from waste"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 0,
+          "answers": [
+            "oesophagus",
+            "esophagus",
+            "gullet",
+            "food pipe"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "answers": [
+            "small intestine",
+            "the small intestine"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "answers": [
+            "large intestine",
+            "the large intestine"
+          ]
+        }
+      ],
+      "hints": [
+        "Use each job to decide which part of the gut it matches.",
+        "Do the easy ones first, then use up the remaining organs.",
+        "Absorbing nutrients needs the long coiled tube."
+      ],
+      "explanation": "The oesophagus carries food down. The small intestine absorbs nutrients and the large intestine takes back water."
+    },
+    {
+      "id": "s6.digestion.016",
+      "skill": "s6.digestion",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the journey of a bite of bread in order.",
+      "items": [
+        "Teeth chew the bread",
+        "Saliva softens it",
+        "It is swallowed down the oesophagus",
+        "The stomach churns it with acid",
+        "Nutrients pass into the blood in the small intestine",
+        "Leftover waste leaves the body"
+      ],
+      "hints": [
+        "Start with what happens before you swallow.",
+        "Think about where the nutrients go, then what is left over.",
+        "The first step uses your teeth."
+      ],
+      "explanation": "Food is chewed and softened, swallowed, churned, and digested. Nutrients are absorbed in the small intestine, and the waste leaves last."
+    },
+    {
+      "id": "s6.digestion.017",
+      "skill": "s6.digestion",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "The ___ squeezes food and mixes it with acid. Digested nutrients pass into the ___ in the small intestine. Water is taken back in the ___ intestine.",
+      "gaps": [
+        {
+          "options": [
+            "tongue",
+            "stomach",
+            "heart"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "bones",
+            "lungs",
+            "blood"
+          ],
+          "answer": 2
+        },
+        {
+          "options": [
+            "large",
+            "small"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Read the whole sentence before choosing.",
+        "Match each sentence to one part of the gut.",
+        "Water is taken from waste at the very end of the gut."
+      ],
+      "explanation": "The stomach churns food with acid. Nutrients pass into the blood in the small intestine, and the large intestine takes back water."
+    },
+    {
+      "id": "s6.digestion.018",
+      "skill": "s6.digestion",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The tube that carries swallowed food from the mouth to the stomach is called the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "oesophagus",
+            "esophagus",
+            "gullet",
+            "food pipe",
+            "foodpipe"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a long muscular tube.",
+        "It starts after the mouth.",
+        "The name begins with the letter o."
+      ],
+      "explanation": "The oesophagus squeezes swallowed food down to the stomach."
+    },
+    {
+      "id": "s6.digestion.019",
+      "skill": "s6.digestion",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "In this example, food stays 4 hours in the stomach, 5 hours in the small intestine and 18 hours in the large intestine. How many hours is that in total?",
+      "answer": 27,
+      "hints": [
+        "Add the time spent in each part.",
+        "Three numbers to add.",
+        "Add the first two, then the last."
+      ],
+      "explanation": "4 + 5 + 18 = 27 hours.",
+      "unit": "hours"
+    },
+    {
+      "id": "s6.digestion.020",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence about digestion is correct?",
+      "options": [
+        {
+          "text": "Food turns into blood in the stomach.",
+          "why": "Blood is not made from food in the stomach. Nutrients pass into the blood later."
+        },
+        {
+          "text": "Drinks and food go down different tubes.",
+          "why": "Both food and drink travel down the oesophagus."
+        },
+        {
+          "text": "Food is broken into tiny pieces so nutrients can pass into the blood."
+        },
+        {
+          "text": "Everything you eat is used by the body, so nothing leaves.",
+          "why": "Some of the food cannot be digested. It leaves the body as waste."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about why food must be broken down.",
+        "Nutrients need to be small enough to pass through a wall.",
+        "Cross out any option that says nothing leaves the body."
+      ],
+      "explanation": "Digestion breaks food into tiny pieces. These small nutrients can pass through the gut wall into the blood."
+    },
+    {
+      "id": "s6.digestion.021",
+      "skill": "s6.digestion",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 jobs of the stomach.",
+      "options": [
+        {
+          "text": "Churns food"
+        },
+        {
+          "text": "Mixes food with acid"
+        },
+        {
+          "text": "Makes saliva",
+          "why": "Saliva is made near the mouth, not in the stomach."
+        },
+        {
+          "text": "Absorbs most nutrients",
+          "why": "Most nutrients are absorbed in the small intestine."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "Think about what the stomach wall can do.",
+        "Check each option against the right organ.",
+        "Saliva belongs to the mouth."
+      ],
+      "explanation": "The stomach churns food and adds acid. Saliva is made in the mouth, and most nutrients are absorbed in the small intestine."
+    },
+    {
+      "id": "s6.digestion.022",
+      "skill": "s6.digestion",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each tooth or organ to its job.",
+      "pairs": [
+        [
+          "incisor",
+          "bites and cuts"
+        ],
+        [
+          "canine",
+          "grips and tears"
+        ],
+        [
+          "molar",
+          "grinds and crushes"
+        ],
+        [
+          "tongue",
+          "moves food and helps swallowing"
+        ]
+      ],
+      "hints": [
+        "Think about the shape of each tooth.",
+        "Sharp and flat means cutting, pointed means tearing.",
+        "Molars are wide with bumpy tops."
+      ],
+      "explanation": "Each tooth has a shape that suits its job. The tongue moves food around and helps you swallow."
+    },
+    {
+      "id": "s6.digestion.023",
+      "skill": "s6.digestion",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort these events by where they happen.",
+      "groups": [
+        "Mouth",
+        "Stomach",
+        "Intestines"
+      ],
+      "items": [
+        {
+          "text": "Teeth chew food",
+          "group": 0
+        },
+        {
+          "text": "Saliva softens food",
+          "group": 0
+        },
+        {
+          "text": "Muscles churn food",
+          "group": 1
+        },
+        {
+          "text": "Acid kills many germs",
+          "group": 1
+        },
+        {
+          "text": "Nutrients pass into blood",
+          "group": 2
+        },
+        {
+          "text": "Water is taken back",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Three places on the journey of food.",
+        "Start with what you can feel when you eat.",
+        "Absorbing and water recovery happen last."
+      ],
+      "explanation": "Chewing and saliva happen in the mouth. Churning and acid are in the stomach. Absorbing nutrients and water happens in the intestines."
+    },
+    {
+      "id": "s6.digestion.024",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Citra drops a whole sugar cube into warm water. Bayu drops a crushed cube into the same amount of warm water. His dissolves in 20 seconds and hers in 90 seconds. Which part of digestion does this help explain?",
+      "options": [
+        {
+          "text": "Acid in the stomach kills germs.",
+          "why": "Acid is not part of this test. Only the size of the pieces changed."
+        },
+        {
+          "text": "Chewing breaks food into small pieces, which helps it break down faster."
+        },
+        {
+          "text": "The large intestine takes back water.",
+          "why": "Water is not being removed in this test."
+        },
+        {
+          "text": "The oesophagus moves food by squeezing.",
+          "why": "Squeezing is not shown in this test."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at what was different between the two cubes.",
+        "Only the size of the pieces changed.",
+        "Relate crushed pieces to chewed food."
+      ],
+      "explanation": "Small pieces dissolve faster than large lumps. Chewing makes small pieces so the rest of digestion can work faster."
+    },
+    {
+      "id": "s6.digestion.025",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A patient has a shorter small intestine than most people. Which problem is most likely?",
+      "options": [
+        {
+          "text": "Food cannot be swallowed.",
+          "why": "Swallowing uses the mouth and oesophagus, not the small intestine."
+        },
+        {
+          "text": "Teeth cannot grind food.",
+          "why": "Teeth are in the mouth, which is a different part."
+        },
+        {
+          "text": "Less digested food can pass into the blood."
+        },
+        {
+          "text": "Food cannot be mixed with acid.",
+          "why": "The stomach mixes food with acid."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the job of the small intestine.",
+        "A shorter tube gives less time and less wall.",
+        "Which function does the small intestine do that others do not?"
+      ],
+      "explanation": "The small intestine absorbs nutrients. If it is shorter, less food can pass into the blood."
+    },
+    {
+      "id": "s6.digestion.026",
+      "skill": "s6.digestion",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The chart shows the lengths of three parts of an adult gut. Why is it useful that the small intestine is so long?",
+      "options": [
+        {
+          "text": "It gives more wall and more time for nutrients to pass into the blood."
+        },
+        {
+          "text": "It lets food be chewed for longer.",
+          "why": "Chewing happens in the mouth, not in the intestine."
+        },
+        {
+          "text": "It stores more acid for the stomach.",
+          "why": "Acid is made in the stomach wall, not stored in the small intestine."
+        },
+        {
+          "text": "It lets the body drink more water.",
+          "why": "Drinking uses the mouth. The intestine does not do this."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the height of the tallest bar first.",
+        "A longer tube has a larger wall.",
+        "Think about what passes through the wall of the small intestine."
+      ],
+      "explanation": "The small intestine is the longest part, about 600 cm. A long tube gives a large wall and plenty of time for nutrients to pass into the blood.",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Oesophagus",
+          "Small intestine",
+          "Large intestine"
+        ],
+        "values": [
+          25,
+          600,
+          150
+        ],
+        "step": 100,
+        "yLabel": "Length (cm)",
+        "alt": "Bar chart of gut lengths in centimetres: oesophagus 25, small intestine 600, large intestine 150."
+      }
     }
   ]
 }

@@ -319,6 +319,1142 @@
         "reading"
       ],
       "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.011",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What did Bayu do after he struck each bar with the mallet?",
+      "passage": "e5.p.the-gamelan-lesson",
+      "options": [
+        {
+          "text": "He struck the next bar at once.",
+          "why": "Bayu was taught to stop the sound first, so the next note stayed clear."
+        },
+        {
+          "text": "He pressed his other hand on the bar."
+        },
+        {
+          "text": "He put the mallet down.",
+          "why": "He kept the mallet. His other hand did the stopping."
+        },
+        {
+          "text": "He looked at Pak Hadi.",
+          "why": "The story does not say he looked up after each note."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Go back to the second paragraph.",
+        "Look for what Bayu did with his other hand.",
+        "Find the sentence that begins He struck each bar."
+      ],
+      "explanation": "Bayu struck a bar and then pressed his other hand on it to stop the sound, so the next note would not sound muddy.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.retrieval-inference.012",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did the drummer give a tiny nod?",
+      "passage": "e5.p.the-gamelan-lesson",
+      "options": [
+        {
+          "text": "He wanted Bayu to keep playing."
+        },
+        {
+          "text": "He was cross that Bayu had made a mistake.",
+          "why": "The nod was kind. The drummer was helping, not scolding."
+        },
+        {
+          "text": "He wanted Bayu to play faster.",
+          "why": "Nobody asked Bayu to speed up. Pak Hadi wanted steady playing."
+        },
+        {
+          "text": "He was counting the beat for the singers.",
+          "why": "The nod was aimed at Bayu, and the singers are not mentioned here."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the sentence that explains the nod.",
+        "Read the words that follow the word nod.",
+        "Ask what Bayu needed to hear after his mistake."
+      ],
+      "explanation": "The nod meant Carry on. It told Bayu that one mistake was fine and he should keep playing.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.013",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these places is NOT named as a home of wild Komodo dragons?",
+      "passage": "e5.p.komodo-dragons",
+      "options": [
+        {
+          "text": "Bali"
+        },
+        {
+          "text": "Rinca",
+          "why": "Rinca is named in the first paragraph as one of the dragons’ homes."
+        },
+        {
+          "text": "Gili Motang",
+          "why": "Gili Motang is named in the first paragraph."
+        },
+        {
+          "text": "the west coast of Flores",
+          "why": "The first paragraph says dragons live in parts of the west coast of Flores."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The places are listed in the first paragraph.",
+        "Check each option against that list.",
+        "Three of the four places are named. Find the one that is not."
+      ],
+      "explanation": "The first paragraph names Komodo, Rinca, Gili Motang and part of the west coast of Flores. Bali is not mentioned.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.014",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why are young Komodo dragons safer in trees?",
+      "passage": "e5.p.komodo-dragons",
+      "options": [
+        {
+          "text": "Trees are the only place where insects live.",
+          "why": "The text says young dragons hunt insects in trees, but it does not say that insects live nowhere else."
+        },
+        {
+          "text": "Young dragons cannot walk on the ground.",
+          "why": "The text never says this. It says adults can be a danger to them."
+        },
+        {
+          "text": "Rangers feed them in the trees.",
+          "why": "Rangers count and watch the dragons. They do not feed them."
+        },
+        {
+          "text": "Adult dragons sometimes eat smaller dragons."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the sentence that begins Life up high.",
+        "Think about who else lives on the ground.",
+        "Think about what could happen to a small dragon near a big one."
+      ],
+      "explanation": "Life up in the trees keeps young dragons away from adults, which sometimes eat smaller dragons.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 80
+    },
+    {
+      "id": "e5.retrieval-inference.015",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The short rains in Nairobi arrive in ___.",
+      "passage": "e5.p.a-letter-from-nairobi",
+      "blanks": [
+        {
+          "answers": [
+            "November",
+            "november"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the second paragraph of the letter.",
+        "The letter gives two rainy seasons, long and short.",
+        "Find the words the short rains arrive in."
+      ],
+      "explanation": "Amara writes that the short rains arrive in November, which is the month she is writing in.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.retrieval-inference.016",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Why did Amara’s father carry her little brother on his shoulders?",
+      "passage": "e5.p.a-letter-from-nairobi",
+      "options": [
+        {
+          "text": "The road was flooded and the little boy would have got wet."
+        },
+        {
+          "text": "The bus had broken down.",
+          "why": "The bus could not get through the water. It had not broken down."
+        },
+        {
+          "text": "The boy was too tired to walk.",
+          "why": "The letter does not say he was tired. It says the road was flooded."
+        },
+        {
+          "text": "The boy wanted to be funny.",
+          "why": "Amara found it funny, but the reason for carrying him was the water."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the sentence where the father carries him.",
+        "Notice the words across the flooded road.",
+        "Think about what happens to a small child who walks through deep water."
+      ],
+      "explanation": "The road was flooded. Carrying her brother kept him out of the water.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.017",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Why did Aoi start smiling again in the queue?",
+      "passage": "e5.p.snow-festival-diary",
+      "options": [
+        {
+          "text": "Her gloves had dried.",
+          "why": "Her gloves were wet at the start, but the diary does not say they dried."
+        },
+        {
+          "text": "She tried the hot corn soup."
+        },
+        {
+          "text": "She saw a snow castle.",
+          "why": "The castle was seen on Friday by Yuki’s class."
+        },
+        {
+          "text": "Dad built her a snow rabbit.",
+          "why": "The rabbit was built afterwards, after the soup."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the Saturday entry.",
+        "Find the sentence that begins Then she took one sip.",
+        "What did she sip?"
+      ],
+      "explanation": "Aoi had been complaining, but after one sip of the soup she was smiling again.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 55
+    },
+    {
+      "id": "e5.retrieval-inference.018",
+      "skill": "e5.retrieval-inference",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build a true sentence about the snow rabbit.",
+      "passage": "e5.p.snow-festival-diary",
+      "answer": "The snow rabbit lost its nose.",
+      "distractors": [
+        "melted",
+        "ears"
+      ],
+      "hints": [
+        "The rabbit was built on Saturday.",
+        "What happened when the sun came out?",
+        "Start with The."
+      ],
+      "explanation": "In the afternoon the sun came out and the rabbit began to lose its nose.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.019",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "The narrow wooden boats at the market are called ___.",
+      "passage": "e5.p.floating-market-visit",
+      "blanks": [
+        {
+          "answers": [
+            "jukung",
+            "jukungs"
+          ]
+        }
+      ],
+      "hints": [
+        "Look in the section called What we saw.",
+        "The word is in the second paragraph of that section.",
+        "Find the words boats called."
+      ],
+      "explanation": "The report calls the narrow wooden boats jukung.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.retrieval-inference.020",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the statements that the report supports.",
+      "passage": "e5.p.floating-market-visit",
+      "options": [
+        {
+          "text": "Traders sell more than one kind of goods."
+        },
+        {
+          "text": "Customers also travel in boats."
+        },
+        {
+          "text": "The market stays open all day.",
+          "why": "The report says the boats begin to leave by about nine o’clock."
+        },
+        {
+          "text": "The market started because of good roads.",
+          "why": "The report says the market grew up because there were no good roads."
+        },
+        {
+          "text": "The traders’ hats protect them from the sun and rain."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Check each statement against the report.",
+        "Look for the words that prove each one.",
+        "Two statements are the opposite of what the report says."
+      ],
+      "explanation": "Boats carry fruit, rice and cakes. Customers paddle their own boats, and the hats protect from sun and rain. The market ends by about nine, and it grew up because roads were poor.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 100
+    },
+    {
+      "id": "e5.retrieval-inference.021",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "In Poem B, why does the farmer stand in the field with his arms open?",
+      "passage": "e5.p.two-rain-poems",
+      "options": [
+        {
+          "text": "He is trying to catch a bird.",
+          "why": "Nothing in the poem mentions a bird."
+        },
+        {
+          "text": "He is angry at the sky.",
+          "why": "He has waited a long time, but he does not act angry. He lets the water find him."
+        },
+        {
+          "text": "He is relieved and happy that the rain has finally come."
+        },
+        {
+          "text": "He is looking for his lost cows.",
+          "why": "The cows stand beside the dry canal, and nobody is lost."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the forty days of dry sky.",
+        "He does not run for shelter, as most people would.",
+        "What feeling makes someone open their arms?"
+      ],
+      "explanation": "After forty empty days, the rain is welcome. Opening his arms and letting the water find him shows joy and relief.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.022",
+      "skill": "e5.retrieval-inference",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "In Poem B, Grandmother stops sweeping because she can ___ the rain coming.",
+      "passage": "e5.p.two-rain-poems",
+      "gaps": [
+        {
+          "options": [
+            "smell",
+            "see",
+            "hear"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Read the third stanza of Poem B.",
+        "Find the word after Then, far off, a.",
+        "Cool stone. Wet earth. Which sense notices these?"
+      ],
+      "explanation": "The poem says far off, a smell. Grandmother smells the rain before it arrives.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.retrieval-inference.023",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Kofi says fish can be left with an ___ for a weekend.",
+      "passage": "e5.p.the-class-pet-debate",
+      "blanks": [
+        {
+          "answers": [
+            "automatic feeder",
+            "feeder",
+            "an automatic feeder"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the part where Kofi talks about weekends.",
+        "Look for the words fish can be left with.",
+        "The phrase has two words and comes before the word feeder."
+      ],
+      "explanation": "Kofi says fish can be left with an automatic feeder for a weekend.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 55
+    },
+    {
+      "id": "e5.retrieval-inference.024",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does cooking the wood chips in a tank dissolve?",
+      "passage": "e5.p.from-tree-to-notebook",
+      "options": [
+        {
+          "text": "the bark of the tree",
+          "why": "The bark is peeled off earlier, before the chips are cooked."
+        },
+        {
+          "text": "the bleach in the pulp",
+          "why": "Bleach is added later, to make white paper."
+        },
+        {
+          "text": "the screen in the machine",
+          "why": "The screen is part of the machine and is not dissolved."
+        },
+        {
+          "text": "the sticky glue that holds the wood together"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the third paragraph.",
+        "Find the words which dissolve.",
+        "The glue is what holds the wood together."
+      ],
+      "explanation": "The cooking dissolves the sticky glue that holds the wood together, leaving soft fibres called pulp.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 50
+    },
+    {
+      "id": "e5.retrieval-inference.025",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why can paper not be recycled forever?",
+      "passage": "e5.p.from-tree-to-notebook",
+      "options": [
+        {
+          "text": "The fibres get shorter and weaker each time."
+        },
+        {
+          "text": "Used paper is not collected.",
+          "why": "The text says used paper is collected and sorted."
+        },
+        {
+          "text": "New trees are always needed to start.",
+          "why": "The text says recycling pulp needs no new trees for that part of the process."
+        },
+        {
+          "text": "Recycled paper cannot be made into pulp.",
+          "why": "Used paper is mixed with water to make pulp."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the last paragraph.",
+        "Look for what happens to the fibres every time paper is recycled.",
+        "Think about why recycled paper feels rougher."
+      ],
+      "explanation": "Each time paper is recycled, the fibres become shorter and weaker, so they can only be reused a few times.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 85
+    },
+    {
+      "id": "e5.retrieval-inference.026",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Read the notice.\n\nLibrary opening times: Monday to Friday, 9 am to 5 pm. Saturday, 9 am to 1 pm. Closed on Sundays.\n\nWhen does the library close on Saturday?",
+      "options": [
+        {
+          "text": "1 pm"
+        },
+        {
+          "text": "5 pm",
+          "why": "This is the closing time from Monday to Friday."
+        },
+        {
+          "text": "9 am",
+          "why": "This is the time the library opens, not when it closes."
+        },
+        {
+          "text": "It is closed all day.",
+          "why": "The library is closed on Sundays, not Saturdays."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Find the word Saturday in the notice.",
+        "Look at the time after the word to.",
+        "Opening time comes first and closing time comes second."
+      ],
+      "explanation": "The notice says Saturday, 9 am to 1 pm, so the library closes at 1 pm.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.027",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Read the sign.\n\nSwimming pool rules: Children under eight must swim with an adult. Walk, do not run. No food on the poolside.\n\nChildren under eight must swim with ___.",
+      "blanks": [
+        {
+          "answers": [
+            "an adult",
+            "adult",
+            "a adult"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the first rule on the sign.",
+        "The rule is about children under eight.",
+        "Find the words must swim with."
+      ],
+      "explanation": "The first rule says children under eight must swim with an adult.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.028",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Tom came in with a dripping umbrella. His boots left puddles on the mat, and he rubbed his cold hands together.\n\nWhat was the weather most likely like outside?",
+      "options": [
+        {
+          "text": "hot and dry",
+          "why": "A dripping umbrella and cold hands do not fit a hot, dry day."
+        },
+        {
+          "text": "windy but dry",
+          "why": "The umbrella was dripping, so it had been raining."
+        },
+        {
+          "text": "cold and rainy"
+        },
+        {
+          "text": "sunny with clouds",
+          "why": "Sunshine would not leave an umbrella dripping and puddles on the mat."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at what Tom is carrying and what drips from it.",
+        "Think about what makes an umbrella wet.",
+        "Cold hands give a clue about the temperature."
+      ],
+      "explanation": "The dripping umbrella and puddles show that it was raining, and his cold hands show that it was chilly.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.029",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Rangga looked in his pockets for the third time. Then he lifted the sofa cushions and opened his school bag again. \"Mum, have you seen my bus pass?\" he called.\n\nWhat can we tell from this?",
+      "options": [
+        {
+          "text": "Rangga has just bought a new bus pass.",
+          "why": "He is searching for it, so it is missing, not new."
+        },
+        {
+          "text": "Rangga has lost his bus pass and has already searched in several places."
+        },
+        {
+          "text": "Rangga does not want to go to school.",
+          "why": "He is looking for his pass so he can travel. The text does not say that he wants to stay home."
+        },
+        {
+          "text": "Rangga’s mum has taken the bus pass.",
+          "why": "He only asks whether she has seen it. We do not know she took it."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Count the places Rangga has looked.",
+        "He asks his mum a question. What does the question tell you?",
+        "Do not decide more than the clues show."
+      ],
+      "explanation": "He searched pockets, cushions and his bag, then asked his mum. He has lost the pass and cannot find it.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.030",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Read the forecast.\n\nMonday: sunny. Tuesday: showers in the morning, clear later. Wednesday: heavy rain all day. Thursday: cloudy but dry. Friday: thunderstorms.\n\nChoose all the days with no rain forecast.",
+      "options": [
+        {
+          "text": "Monday"
+        },
+        {
+          "text": "Tuesday",
+          "why": "Showers are forecast for Tuesday morning."
+        },
+        {
+          "text": "Wednesday",
+          "why": "Heavy rain is forecast all day."
+        },
+        {
+          "text": "Thursday"
+        },
+        {
+          "text": "Friday",
+          "why": "Thunderstorms usually bring rain."
+        }
+      ],
+      "answers": [
+        0,
+        3
+      ],
+      "hints": [
+        "Check each day one at a time.",
+        "Words such as showers, rain and thunderstorms mean rain.",
+        "Cloudy but dry means no rain."
+      ],
+      "explanation": "Only Monday (sunny) and Thursday (cloudy but dry) have no rain. The other days all mention showers, rain or thunderstorms.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 80
+    },
+    {
+      "id": "e5.retrieval-inference.031",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Bus 12 leaves the station at 07:15 and bus 14 leaves at 07:40. Both buses take 25 minutes to reach the school.\n\nAt what time does bus 14 reach the school? Write it like this: 07:55.",
+      "blanks": [
+        {
+          "answers": [
+            "08:05",
+            "8:05",
+            "8.05",
+            "08.05"
+          ]
+        }
+      ],
+      "hints": [
+        "You need the leaving time of bus 14.",
+        "Add the journey time to the leaving time.",
+        "Add 20 minutes first to reach 08:00, then the last 5."
+      ],
+      "explanation": "Bus 14 leaves at 07:40. 20 minutes later it is 08:00, and 5 more minutes make 08:05.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 60
+    },
+    {
+      "id": "e5.retrieval-inference.032",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Ines stared at the empty cake plate. Her little brother was licking chocolate from his fingers and looking at the ceiling.\n\nWhat has probably happened?",
+      "options": [
+        {
+          "text": "The cake was never baked.",
+          "why": "The plate had chocolate on it, so there was a cake."
+        },
+        {
+          "text": "Ines has eaten the cake.",
+          "why": "Ines is staring at the plate. The chocolate is on her brother’s fingers."
+        },
+        {
+          "text": "The cake has been given away.",
+          "why": "The brother’s sticky fingers point to him, not to a visitor."
+        },
+        {
+          "text": "Her brother has eaten the cake."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look at the clues about the brother.",
+        "Chocolate on the fingers is an important clue.",
+        "Why would he look at the ceiling?"
+      ],
+      "explanation": "The chocolate on his fingers and his guilty look at the ceiling suggest that he ate the cake.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.033",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "From the top of the lighthouse, Hadi counted three fishing boats. Two of them were turning back towards the harbour. \"The wind has changed,\" said his uncle, and he began to close the shutters.\n\nWhat does the uncle’s action suggest?",
+      "options": [
+        {
+          "text": "A storm may be coming."
+        },
+        {
+          "text": "It is time for dinner.",
+          "why": "Nothing in the text mentions food or time."
+        },
+        {
+          "text": "The third boat is lost.",
+          "why": "The text does not say that a boat is lost."
+        },
+        {
+          "text": "Hadi is not allowed upstairs.",
+          "why": "Hadi is already at the top. The shutters are for the wind."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about why boats go back to harbour.",
+        "Why would someone close shutters when the wind changes?",
+        "Join the three clues together."
+      ],
+      "explanation": "Boats turning back, a changing wind and shutters being closed all point to bad weather arriving.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.034",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "I grew up on a small island. I learned to swim before I could read, and I was ten years old when I first saw a train.\n\nChoose all the things we can tell from this.",
+      "options": [
+        {
+          "text": "The writer lives or lived near the sea."
+        },
+        {
+          "text": "The writer learned to swim at a young age."
+        },
+        {
+          "text": "The writer’s family is rich.",
+          "why": "There is nothing about money in the text."
+        },
+        {
+          "text": "The writer dislikes trains.",
+          "why": "The writer says only that they first saw a train at ten."
+        },
+        {
+          "text": "Trains were not common near the writer’s home."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "Only choose what the words support.",
+        "An island is surrounded by sea.",
+        "Think about what it means to see a train for the first time at ten."
+      ],
+      "explanation": "An island home means the sea is nearby, and the writer learned to swim early. Seeing a first train at ten suggests trains were rare. Money and dislike are not mentioned.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 80
+    },
+    {
+      "id": "e5.retrieval-inference.035",
+      "skill": "e5.retrieval-inference",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Read: The cheetah is the fastest land animal. It can reach about 100 kilometres an hour, but only for a short sprint.\n\nBuild a true sentence.",
+      "answer": "Cheetahs run fast only in short sprints.",
+      "distractors": [
+        "always",
+        "slowly"
+      ],
+      "hints": [
+        "Use the last part of the text.",
+        "Cheetahs are fast, but not for long.",
+        "Start with Cheetahs."
+      ],
+      "explanation": "The text says a cheetah reaches its top speed only for a short sprint.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.036",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Everyone at the table stopped talking when Grandfather put down his spoon. \"Who,\" he said quietly, \"has been in my garden?\" Wulan studied her shoes. Bayu suddenly became very interested in the ceiling.\n\nWhat can we tell about Wulan and Bayu?",
+      "options": [
+        {
+          "text": "They are bored by the conversation.",
+          "why": "Both look away at once when the question is asked, which suggests worry."
+        },
+        {
+          "text": "They probably know something about the garden and feel guilty."
+        },
+        {
+          "text": "They are Grandfather’s neighbours.",
+          "why": "The text says Grandfather, so they are probably his grandchildren, and being neighbours is not mentioned."
+        },
+        {
+          "text": "They want to help Grandfather.",
+          "why": "Their looking away is the opposite of offering help."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Notice what they both do when the question is asked.",
+        "People look away when they feel uncomfortable.",
+        "Match their actions to a feeling."
+      ],
+      "explanation": "When Grandfather asks his question, both children look away, which is how people behave when they feel guilty.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.037",
+      "skill": "e5.retrieval-inference",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Read the text.\n\nHadi arrived at school an hour early. He kept looking at the clock and biting his nails. Today the science competition results would be announced.\n\nSort each statement.",
+      "groups": [
+        "Stated in the text",
+        "Has to be worked out"
+      ],
+      "items": [
+        {
+          "text": "Hadi arrived early.",
+          "group": 0
+        },
+        {
+          "text": "The results are announced today.",
+          "group": 0
+        },
+        {
+          "text": "Hadi is nervous.",
+          "group": 1
+        },
+        {
+          "text": "He kept looking at the clock.",
+          "group": 0
+        },
+        {
+          "text": "Hadi cares about the result.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Stated means the words are in the text.",
+        "Worked out means you use clues to decide.",
+        "The text never names Hadi’s feelings."
+      ],
+      "explanation": "The text states his early arrival, the clock and the announcement. It never says he is nervous or cares, so we infer those from his actions.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 90
+    },
+    {
+      "id": "e5.retrieval-inference.038",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dewi had practised her speech twenty times. At the front of the class her voice shook and her paper rattled. Then she saw Ibu Citra smile.\n\nHow did Dewi feel before she began?",
+      "options": [
+        {
+          "text": "nervous"
+        },
+        {
+          "text": "bored",
+          "why": "Bored people do not shake or rattle paper."
+        },
+        {
+          "text": "angry",
+          "why": "Nothing in the text shows anger."
+        },
+        {
+          "text": "sleepy",
+          "why": "A shaking voice is a sign of nerves, not tiredness."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at what her voice and paper do.",
+        "Think about how people feel when they speak to a class.",
+        "Practising twenty times shows she cares."
+      ],
+      "explanation": "A shaking voice and a rattling paper are signs of nerves.",
+      "tags": [
+        "reading"
+      ],
+      "expectedSeconds": 70
+    },
+    {
+      "id": "e5.retrieval-inference.039",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Citra is very shy. She never speaks in class. Her teacher asks her to read aloud tomorrow. What is she most likely to do tonight?",
+      "options": [
+        {
+          "text": "Dance on the table.",
+          "why": "This does not match a shy character."
+        },
+        {
+          "text": "Practise reading quietly because she feels nervous."
+        },
+        {
+          "text": "Ask to read three times.",
+          "why": "A shy child is unlikely to ask for more."
+        },
+        {
+          "text": "Forget about it completely.",
+          "why": "The text shows it is a big event for her."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what Citra is like.",
+        "Use clues about her personality.",
+        "What would a shy person do before a big task?"
+      ],
+      "explanation": "The clues show Citra is shy, so she will most likely practise quietly and feel nervous."
+    },
+    {
+      "id": "e5.retrieval-inference.040",
+      "skill": "e5.retrieval-inference",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the sentences.",
+      "groups": [
+        "Fact",
+        "Opinion"
+      ],
+      "items": [
+        {
+          "text": "The Earth orbits the Sun.",
+          "group": 0
+        },
+        {
+          "text": "Durian is the tastiest fruit.",
+          "group": 1
+        },
+        {
+          "text": "Jakarta is a city in Indonesia.",
+          "group": 0
+        },
+        {
+          "text": "Football is more fun than chess.",
+          "group": 1
+        },
+        {
+          "text": "Spiders have eight legs.",
+          "group": 0
+        },
+        {
+          "text": "Rainy days are boring.",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "A fact can be checked.",
+        "An opinion tells what someone feels or thinks.",
+        "Words like best and boring are often opinions."
+      ],
+      "explanation": "Facts can be checked. Opinions show what a person thinks or feels."
+    },
+    {
+      "id": "e5.retrieval-inference.041",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: \"The Rainbow Cafe opens at 8 a.m. and serves forty kinds of juice. Its mango juice is the most delicious drink in town. Free refills cost nothing on Mondays.\" Which sentence is an opinion?",
+      "options": [
+        {
+          "text": "The Rainbow Cafe opens at 8 a.m.",
+          "why": "You can check the opening time."
+        },
+        {
+          "text": "Its mango juice is the most delicious drink in town."
+        },
+        {
+          "text": "The cafe serves forty kinds of juice.",
+          "why": "You can count the kinds of juice."
+        },
+        {
+          "text": "Free refills cost nothing on Mondays.",
+          "why": "You can check this offer."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An opinion cannot be proved.",
+        "Look for words that judge, like best or most delicious.",
+        "Which sentence tells what someone feels?"
+      ],
+      "explanation": "\"Most delicious\" is a feeling and cannot be proved, so it is an opinion."
+    },
+    {
+      "id": "e5.retrieval-inference.042",
+      "skill": "e5.retrieval-inference",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the statements that are facts.",
+      "options": [
+        {
+          "text": "Blue whales are the largest animals on Earth."
+        },
+        {
+          "text": "Whales are majestic and beautiful.",
+          "why": "Majestic and beautiful describe feelings, so this is an opinion."
+        },
+        {
+          "text": "Whales breathe air through blowholes."
+        },
+        {
+          "text": "Everyone should visit a whale park.",
+          "why": "Should shows what someone thinks."
+        },
+        {
+          "text": "Some whales can dive for more than an hour."
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "A fact can be checked in a book or by a scientist.",
+        "Opinions use words like beautiful, best or should.",
+        "Check each statement and ask: could I prove it?"
+      ],
+      "explanation": "Facts can be checked. Words such as majestic and should show opinions."
+    },
+    {
+      "id": "e5.retrieval-inference.043",
+      "skill": "e5.retrieval-inference",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Leo checked the sky again. The kite string was frayed where it had rubbed against the fence, but he told himself it would hold. The wind was getting stronger. What is most likely to happen next?",
+      "options": [
+        {
+          "text": "The string will snap and the kite will fly away."
+        },
+        {
+          "text": "The wind will stop completely.",
+          "why": "The text says the wind is getting stronger."
+        },
+        {
+          "text": "The kite will turn into a bird.",
+          "why": "This is not likely in the story."
+        },
+        {
+          "text": "Leo will fix the string.",
+          "why": "He has just decided it will hold."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Use clues from the text to predict.",
+        "What two things are putting the string at risk?",
+        "A frayed string plus a stronger wind leads to what?"
+      ],
+      "explanation": "A frayed string and a stronger wind are clues that the string will break."
+    },
+    {
+      "id": "e5.retrieval-inference.044",
+      "skill": "e5.retrieval-inference",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Which word shows an opinion in this sentence? Cats are clearly the best pets.",
+      "blanks": [
+        {
+          "answers": [
+            "best",
+            "clearly",
+            "the best"
+          ]
+        }
+      ],
+      "hints": [
+        "An opinion tells what someone thinks.",
+        "Look for a word that judges.",
+        "Find the word that compares cats with other pets."
+      ],
+      "explanation": "Best (and clearly) show the writer's opinion, because they cannot be proved."
     }
   ]
 }

@@ -1,0 +1,67 @@
+{
+  "skill": "m4.factors-multiples",
+  "items": [
+    {
+      "id": "m4.factors-multiples.001",
+      "skill": "m4.factors-multiples",
+      "difficulty": 4,
+      "prompt": "How many numbers are factors of both 24 and 36?",
+      "hints": [
+        "List the factors of 24 first.",
+        "The factors of 36 are 1, 2, 3, 4, 6, 9, 12, 18, 36.",
+        "Pick the numbers in both lists."
+      ],
+      "explanation": "The factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24. The common factors with 36 are 1, 2, 3, 4, 6 and 12. That is 6 numbers.",
+      "type": "numeric",
+      "answer": 6
+    },
+    {
+      "id": "m4.factors-multiples.002",
+      "skill": "m4.factors-multiples",
+      "difficulty": 3,
+      "prompt": "What is the smallest number that is a multiple of both 6 and 8?",
+      "hints": [
+        "List the multiples of 8: 8, 16, 24, ...",
+        "Check each one to see if 6 goes into it.",
+        "Which is the first multiple of 8 that 6 divides exactly?"
+      ],
+      "explanation": "The multiples of 8 are 8, 16, 24. 24 is also 4 × 6, so 24 is the first number in both lists.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "12",
+          "why": "12 is a multiple of 6 but not of 8."
+        },
+        {
+          "text": "14",
+          "why": "14 is the sum of 6 and 8. It is not a multiple of either."
+        },
+        {
+          "text": "48",
+          "why": "48 is a multiple of both, but it is not the smallest."
+        },
+        {
+          "text": "24"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m4.factors-multiples.003",
+      "skill": "m4.factors-multiples",
+      "difficulty": 3,
+      "prompt": "A red light flashes every 4 seconds and a blue light flashes every 6 seconds. They flash together at 0 seconds. After how many seconds do they next flash together?",
+      "hints": [
+        "Write the times each light flashes.",
+        "Red: 4, 8, 12, ... Blue: 6, 12, ...",
+        "Find the first time in both lists."
+      ],
+      "explanation": "Red flashes at 4, 8, 12. Blue flashes at 6, 12. The first match is 12 seconds.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 12
+    }
+  ]
+}

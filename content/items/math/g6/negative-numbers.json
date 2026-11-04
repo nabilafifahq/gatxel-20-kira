@@ -1,0 +1,76 @@
+{
+  "skill": "m6.negative-numbers",
+  "items": [
+    {
+      "id": "m6.negative-numbers.001",
+      "skill": "m6.negative-numbers",
+      "difficulty": 3,
+      "prompt": "The freezer in the canteen is at −18°C. The kitchen is at 27°C. How many degrees warmer is the kitchen than the freezer?",
+      "hints": [
+        "Find the distance between the two temperatures.",
+        "From −18 up to 0 is 18 degrees.",
+        "Then from 0 up to 27 is another 27 degrees."
+      ],
+      "explanation": "18 + 27 = 45. The kitchen is 45 degrees warmer.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "degrees",
+      "type": "numeric",
+      "answer": 45
+    },
+    {
+      "id": "m6.negative-numbers.002",
+      "skill": "m6.negative-numbers",
+      "difficulty": 4,
+      "prompt": "A diver is at −35 m. She rises 12 m, then dives down 20 m. What is her new position in metres?",
+      "hints": [
+        "Rising means adding. Diving down means subtracting.",
+        "−35 + 12 first.",
+        "Then take away 20 from your answer."
+      ],
+      "explanation": "−35 + 12 = −23. Then −23 − 20 = −43. She is at −43 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "allowNegative": true,
+      "type": "numeric",
+      "answer": -43
+    },
+    {
+      "id": "m6.negative-numbers.003",
+      "skill": "m6.negative-numbers",
+      "difficulty": 4,
+      "prompt": "Maya works out −8 − (−3) and gets −11. What is the correct answer?",
+      "hints": [
+        "Subtracting a negative number is the same as adding a positive.",
+        "So −8 − (−3) is the same as −8 + 3.",
+        "Start at −8 on a number line and move 3 to the right."
+      ],
+      "explanation": "Taking away −3 is the same as adding 3. −8 + 3 = −5.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "−11",
+          "why": "Subtracting a negative number is the same as adding its opposite."
+        },
+        {
+          "text": "5",
+          "why": "The answer is below zero because you start at −8 and move up only 3."
+        },
+        {
+          "text": "−5"
+        },
+        {
+          "text": "11",
+          "why": "Both the sign and the size are wrong here."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

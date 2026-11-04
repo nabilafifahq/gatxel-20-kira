@@ -1,0 +1,84 @@
+{
+  "skill": "m4.equivalent-fractions",
+  "items": [
+    {
+      "id": "m4.equivalent-fractions.001",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 2,
+      "prompt": "3/5 = ?/20. What number goes in place of the question mark?",
+      "hints": [
+        "How do you get from 5 to 20?",
+        "5 × 4 = 20.",
+        "Do the same to the top number."
+      ],
+      "explanation": "The bottom number is multiplied by 4, so the top must be too. 3 × 4 = 12, so 3/5 = 12/20.",
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m4.equivalent-fractions.002",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 2,
+      "prompt": "Which fraction is equal to 2/3?",
+      "hints": [
+        "An equal fraction is multiplied the same way on the top and bottom.",
+        "Try × 2.",
+        "2 × 2 and 3 × 2."
+      ],
+      "explanation": "2/3 = (2 × 2)/(3 × 2) = 4/6. Both numbers are multiplied by 2.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3/4",
+          "why": "Adding 1 to the top and bottom does not keep the fraction equal."
+        },
+        {
+          "text": "2/6",
+          "why": "Only the bottom was multiplied. The top must be multiplied too."
+        },
+        {
+          "text": "4/6"
+        },
+        {
+          "text": "4/9",
+          "why": "Multiplying the top by 2 and the bottom by 3 does not keep it equal."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m4.equivalent-fractions.003",
+      "skill": "m4.equivalent-fractions",
+      "difficulty": 4,
+      "prompt": "Maya eats 3/8 of a pizza. Leo eats 1/2 of an identical pizza. Who eats more?",
+      "hints": [
+        "Make the bottom numbers the same.",
+        "What is 1/2 in eighths?",
+        "Compare 3/8 and 4/8."
+      ],
+      "explanation": "1/2 = 4/8. Since 4/8 is more than 3/8, Leo eats more.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Maya",
+          "why": "3/8 is smaller than 4/8, which is the same as 1/2."
+        },
+        {
+          "text": "They eat the same amount",
+          "why": "3/8 and 1/2 are different. 1/2 is 4/8."
+        },
+        {
+          "text": "We cannot tell",
+          "why": "We can compare them by writing both with 8 as the bottom number."
+        },
+        {
+          "text": "Leo"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

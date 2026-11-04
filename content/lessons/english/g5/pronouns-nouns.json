@@ -1,0 +1,86 @@
+{
+  "skill": "e5.pronouns-nouns",
+  "title": "Pronouns and nouns",
+  "steps": [
+    {
+      "say": "A pronoun stands in for a noun. It must be clear who or what it means.",
+      "show": "Kofi told Leo, \"You won.\""
+    },
+    {
+      "say": "A possessive pronoun can stand alone. Mine, yours, hers, ours and theirs are examples.",
+      "show": "The bag is mine."
+    },
+    {
+      "say": "An abstract noun names an idea or feeling. You cannot touch it.",
+      "show": "kindness, freedom, bravery"
+    },
+    {
+      "say": "Use fewer for things you can count and less for things you cannot count.",
+      "show": "fewer chairs, less water"
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.pronouns-nouns.901",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word can stand alone as a possessive pronoun?",
+      "options": [
+        {
+          "text": "our",
+          "why": "Our needs a noun after it."
+        },
+        {
+          "text": "ours"
+        },
+        {
+          "text": "we",
+          "why": "We is a subject pronoun."
+        },
+        {
+          "text": "us",
+          "why": "Us is not a possessive pronoun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A possessive pronoun can end a sentence.",
+        "Try \"That seat is ___.\"",
+        "Think about ownership."
+      ],
+      "explanation": "Ours can stand alone: That seat is ours."
+    },
+    {
+      "id": "e5.pronouns-nouns.902",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "There are less pencils on the desk.",
+          "why": "Pencils can be counted, so use fewer."
+        },
+        {
+          "text": "There is fewer water in the jug.",
+          "why": "Water is not counted, so use less."
+        },
+        {
+          "text": "We have fewer chairs than last year."
+        },
+        {
+          "text": "I drank fewer juice.",
+          "why": "Juice is not counted, so use less."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Can you count the thing one by one?",
+        "Fewer goes with countable nouns.",
+        "Chairs can be counted."
+      ],
+      "explanation": "Chairs are countable, so fewer is correct."
+    }
+  ]
+}

@@ -346,6 +346,758 @@
       "tags": [
         "checkpoint"
       ]
+    },
+    {
+      "id": "e6.formal-informal.011",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which message would you send to a close friend?",
+      "options": [
+        {
+          "text": "I would be most grateful if you could confirm your attendance.",
+          "why": "This is very formal for a friend."
+        },
+        {
+          "text": "Hey! Are you coming to my party on Saturday?"
+        },
+        {
+          "text": "Dear Sir, I am writing to invite you to an event.",
+          "why": "This sounds like a letter to a stranger or an official."
+        },
+        {
+          "text": "Your presence is requested at a social gathering.",
+          "why": "This is formal and stiff for a friend."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A friend is someone you know well.",
+        "Informal writing is relaxed and friendly.",
+        "Which sentence sounds like a message you would send quickly?"
+      ],
+      "explanation": "With a close friend you can use a friendly, relaxed tone. The other sentences are too formal."
+    },
+    {
+      "id": "e6.formal-informal.012",
+      "skill": "e6.formal-informal",
+      "type": "sort",
+      "difficulty": 1,
+      "prompt": "Sort the sentences by where you would use them.",
+      "groups": [
+        "Text to a friend",
+        "Email to a headteacher"
+      ],
+      "items": [
+        {
+          "text": "See you at 5. Can’t wait!",
+          "group": 0
+        },
+        {
+          "text": "May I request permission?",
+          "group": 1
+        },
+        {
+          "text": "lol that was so funny",
+          "group": 0
+        },
+        {
+          "text": "Thank you for your time.",
+          "group": 1
+        },
+        {
+          "text": "Yours sincerely, Citra Dewi",
+          "group": 1
+        },
+        {
+          "text": "ok cool, tmrw then",
+          "group": 0
+        }
+      ],
+      "hints": [
+        "Formal writing is polite and complete.",
+        "Informal writing can be short and use slang.",
+        "Start with Yours sincerely. Who would you write that to?"
+      ],
+      "explanation": "Short, relaxed phrases and slang are for friends. Polite, complete phrases and sign-offs suit a headteacher."
+    },
+    {
+      "id": "e6.formal-informal.013",
+      "skill": "e6.formal-informal",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Dear Mrs Putri, I am writing to ask about the school trip. Yours ___. Dear Sir or Madam, I wish to complain. Yours ___.",
+      "gaps": [
+        {
+          "options": [
+            "sincerely",
+            "faithfully",
+            "truly"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "sincerely",
+            "faithfully",
+            "truly"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The ending depends on how the letter begins.",
+        "A named person goes with one ending and Sir or Madam goes with another.",
+        "Think about whether the writer knows the name of the reader."
+      ],
+      "explanation": "Use Yours sincerely when you know the name. Use Yours faithfully after Dear Sir or Madam."
+    },
+    {
+      "id": "e6.formal-informal.014",
+      "skill": "e6.formal-informal",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each informal word to a more formal word.",
+      "pairs": [
+        [
+          "chat",
+          "discuss"
+        ],
+        [
+          "sorry",
+          "apologise"
+        ],
+        [
+          "tell",
+          "inform"
+        ],
+        [
+          "about",
+          "approximately"
+        ],
+        [
+          "show",
+          "demonstrate"
+        ],
+        [
+          "enough",
+          "sufficient"
+        ]
+      ],
+      "hints": [
+        "Formal words are often longer and more exact.",
+        "Think of a word you would see in an official letter.",
+        "Start with sorry. What verb means to say sorry formally?"
+      ],
+      "explanation": "Each formal word has the same meaning as its informal partner but sounds more polite and serious."
+    },
+    {
+      "id": "e6.formal-informal.015",
+      "skill": "e6.formal-informal",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build a polite formal request. Use the cards.",
+      "answer": "I would be grateful for your help.",
+      "distractors": [
+        "gonna",
+        "wanna"
+      ],
+      "hints": [
+        "Formal writing avoids slang words like gonna.",
+        "Start with I.",
+        "The phrase would be grateful is polite."
+      ],
+      "explanation": "I would be grateful for your help is a polite, formal way to ask. Gonna and wanna are informal."
+    },
+    {
+      "id": "e6.formal-informal.016",
+      "skill": "e6.formal-informal",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the parts of a formal email in order.",
+      "items": [
+        "Subject: Request to borrow the school hall",
+        "Dear Mr Hadi,",
+        "I am writing to ask whether our class may borrow the school hall.",
+        "We need it on Friday from 1 pm to 3 pm for a rehearsal.",
+        "I would be grateful if you could reply by Monday.",
+        "Yours sincerely, Citra"
+      ],
+      "hints": [
+        "A formal email starts with a subject line and a greeting.",
+        "State the purpose before the details.",
+        "The closing request comes just before the sign-off."
+      ],
+      "explanation": "A formal email has a subject, a greeting, the purpose, the details, a polite closing request and a sign-off."
+    },
+    {
+      "id": "e6.formal-informal.017",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence is the best formal version of this message? Can you tell me when the bus leaves? Thanks!",
+      "options": [
+        {
+          "text": "Can u tell me when the bus goes? Thx.",
+          "why": "Text-speak is not suitable for formal writing."
+        },
+        {
+          "text": "Tell me when the bus leaves.",
+          "why": "This is too blunt and has no polite words."
+        },
+        {
+          "text": "Could you please inform me what time the bus departs? Thank you."
+        },
+        {
+          "text": "What time is the bus gonna leave?",
+          "why": "Gonna is slang and the sentence is not polite enough."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Formal writing is polite and complete.",
+        "Look for a polite question with careful words.",
+        "Avoid slang like gonna and shortened words like thx."
+      ],
+      "explanation": "Could you please inform me and Thank you are polite and complete. The word departs is more formal than leaves."
+    },
+    {
+      "id": "e6.formal-informal.018",
+      "skill": "e6.formal-informal",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table. Write formal or informal.",
+      "head": [
+        "Feature",
+        "Which register?"
+      ],
+      "rows": [
+        [
+          "contractions (don’t)",
+          ""
+        ],
+        [
+          "slang (cool, awesome)",
+          ""
+        ],
+        [
+          "polite openings",
+          ""
+        ],
+        [
+          "many exclamation marks",
+          ""
+        ],
+        [
+          "full sentences",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "informal"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "informal"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "formal"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "informal"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "formal"
+          ]
+        }
+      ],
+      "hints": [
+        "Informal writing sounds like talking.",
+        "Formal writing is careful and polite.",
+        "Slang and many exclamation marks are relaxed."
+      ],
+      "explanation": "Contractions, slang and many exclamation marks make writing informal. Polite openings and full sentences are formal."
+    },
+    {
+      "id": "e6.formal-informal.019",
+      "skill": "e6.formal-informal",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write one formal word to replace kids. Parents should bring their kids to the meeting.",
+      "blanks": [
+        {
+          "answers": [
+            "children",
+            "pupils",
+            "students"
+          ]
+        }
+      ],
+      "hints": [
+        "Kids is an informal word.",
+        "A formal notice would use a more standard word.",
+        "What word do teachers use for young people at school?"
+      ],
+      "explanation": "Children is the standard formal word for kids."
+    },
+    {
+      "id": "e6.formal-informal.020",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read this email. Which line is wrongly informal? (1) Dear Mr Hadi, (2) I am writing to ask about the school library. (3) Anyway, thanks a bunch, bye! (4) Yours sincerely, Wulan",
+      "options": [
+        {
+          "text": "line 1",
+          "why": "Dear Mr Hadi is a correct formal greeting."
+        },
+        {
+          "text": "line 2",
+          "why": "This is a formal opening that states the purpose."
+        },
+        {
+          "text": "line 3"
+        },
+        {
+          "text": "line 4",
+          "why": "Yours sincerely is a correct formal sign-off."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check each line for slang or casual words.",
+        "Match the tone of each line to a formal email.",
+        "Look for the line that sounds like a text to a friend."
+      ],
+      "explanation": "Anyway, thanks a bunch and bye are casual. A formal email should end with a polite closing sentence instead."
+    },
+    {
+      "id": "e6.formal-informal.021",
+      "skill": "e6.formal-informal",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the phrases suitable for a formal email to a museum.",
+      "options": [
+        {
+          "text": "I would like to enquire about school visits."
+        },
+        {
+          "text": "I look forward to hearing from you."
+        },
+        {
+          "text": "Thanks a million!",
+          "why": "This is too chatty for a formal email."
+        },
+        {
+          "text": "Could you please confirm the opening times?"
+        },
+        {
+          "text": "Hope you’re good!",
+          "why": "This is a casual greeting for a friend."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Formal phrases are polite and clear.",
+        "Casual greetings and slang do not belong in a formal email.",
+        "Check which phrases a teacher would be happy to see in an official letter."
+      ],
+      "explanation": "Would like to enquire, could you please confirm and I look forward to hearing from you are polite and formal. The other two are casual."
+    },
+    {
+      "id": "e6.formal-informal.022",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which notice gives the same information in a register suitable for a town council board?",
+      "options": [
+        {
+          "text": "Residents are advised that the car park will be closed on Saturday for repairs."
+        },
+        {
+          "text": "Heads up! The car park’s shut on Saturday coz of repairs.",
+          "why": "Heads up and coz are informal."
+        },
+        {
+          "text": "Hey everyone, no parking Saturday, sorry!",
+          "why": "This is friendly and chatty, not formal."
+        },
+        {
+          "text": "The car park is gonna be closed Saturday for fixing.",
+          "why": "Gonna is slang."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about who will read this notice.",
+        "Formal notices use careful words and passive phrases.",
+        "Residents are advised sounds official."
+      ],
+      "explanation": "Formal notices use complete sentences, careful vocabulary and no slang. This one does that."
+    },
+    {
+      "id": "e6.formal-informal.023",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Maya is leaving a note for her classmate Leo about homework. Which note has the best register?",
+      "options": [
+        {
+          "text": "Dear Leo, I hereby inform you that the mathematics assignment is located on page 12.",
+          "why": "This is far too formal for a note between classmates."
+        },
+        {
+          "text": "Leo, the maths homework is on page 12. See you tomorrow!"
+        },
+        {
+          "text": "yo homework is p12 lol",
+          "why": "This is too casual and unclear."
+        },
+        {
+          "text": "To whom it may concern, the homework is on page 12.",
+          "why": "This is a formal opening and does not fit a note to a friend."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The best register is not always the most formal one.",
+        "Think about who the reader is.",
+        "Pick the note that is friendly but still clear and complete."
+      ],
+      "explanation": "A note between classmates should be friendly and clear. Very formal language would sound odd, and slang would be too casual and unclear."
+    },
+    {
+      "id": "e6.formal-informal.024",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which email opening is both formal and clear about its purpose?",
+      "options": [
+        {
+          "text": "Dear Sir or Madam, I am writing about the thing from last week.",
+          "why": "It is formal but unclear, so the reader cannot tell the purpose."
+        },
+        {
+          "text": "Hi there, I want to know about swimming.",
+          "why": "It is clear but too casual."
+        },
+        {
+          "text": "To the swimming person, please reply to me.",
+          "why": "It is neither polite nor formal."
+        },
+        {
+          "text": "Dear Sir or Madam, I am writing to enquire about membership of your swimming club."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A good formal opening has two jobs: be polite and say why you are writing.",
+        "Check each option for both jobs.",
+        "One option is formal but vague."
+      ],
+      "explanation": "It uses a polite greeting and clearly states the purpose: to enquire about club membership."
+    },
+    {
+      "id": "e6.formal-informal.025",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "You are writing a report on volcanoes. Which word names the molten rock that is still under the ground?",
+      "options": [
+        {
+          "text": "crater",
+          "why": "A crater is the bowl-shaped opening at the top of a volcano."
+        },
+        {
+          "text": "ash",
+          "why": "Ash is tiny pieces of rock thrown out by an eruption."
+        },
+        {
+          "text": "lava",
+          "why": "Lava is molten rock after it has reached the surface."
+        },
+        {
+          "text": "magma"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Specialist words make a report accurate.",
+        "Think about where the rock is: under the ground or on top.",
+        "One word is used before an eruption, one after."
+      ],
+      "explanation": "Magma is molten rock below the surface. Once it flows out of a volcano it is called lava."
+    },
+    {
+      "id": "e6.formal-informal.026",
+      "skill": "e6.formal-informal",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each topic word into the topic it belongs to.",
+      "groups": [
+        "Weather",
+        "Space",
+        "Sea"
+      ],
+      "items": [
+        {
+          "text": "drizzle",
+          "group": 0
+        },
+        {
+          "text": "humidity",
+          "group": 0
+        },
+        {
+          "text": "orbit",
+          "group": 1
+        },
+        {
+          "text": "galaxy",
+          "group": 1
+        },
+        {
+          "text": "tide",
+          "group": 2
+        },
+        {
+          "text": "reef",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think of a sentence for each word.",
+        "Orbit and galaxy are found far above the Earth.",
+        "Drizzle is a kind of light rain."
+      ],
+      "explanation": "Specialist words belong to a topic: drizzle and humidity to weather, orbit and galaxy to space, tide and reef to the sea."
+    },
+    {
+      "id": "e6.formal-informal.027",
+      "skill": "e6.formal-informal",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Water vapour cools and turns back into liquid water. This is called ___.",
+      "gaps": [
+        {
+          "options": [
+            "evaporation",
+            "condensation",
+            "erosion",
+            "germination"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The vapour is changing from gas to liquid.",
+        "Evaporation goes the other way.",
+        "Think of drops forming on a cold glass."
+      ],
+      "explanation": "Condensation is the change of a gas into a liquid. Evaporation is the opposite change."
+    },
+    {
+      "id": "e6.formal-informal.028",
+      "skill": "e6.formal-informal",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each specialist word to its meaning.",
+      "pairs": [
+        [
+          "habitat",
+          "the place where an animal lives"
+        ],
+        [
+          "predator",
+          "an animal that hunts others"
+        ],
+        [
+          "prey",
+          "an animal that is hunted"
+        ],
+        [
+          "nocturnal",
+          "active at night"
+        ],
+        [
+          "herbivore",
+          "an animal that eats only plants"
+        ]
+      ],
+      "hints": [
+        "Each word belongs to the topic of animals.",
+        "Herbi is about plants. Noct is about night.",
+        "Start with predator and prey: who hunts whom?"
+      ],
+      "explanation": "These words help us write about animals accurately."
+    },
+    {
+      "id": "e6.formal-informal.029",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which verb creates the strongest picture? The waves ___ against the cliffs in the storm.",
+      "options": [
+        {
+          "text": "touched",
+          "why": "This is too gentle for a storm."
+        },
+        {
+          "text": "went",
+          "why": "This is a weak, general verb."
+        },
+        {
+          "text": "hammered"
+        },
+        {
+          "text": "were",
+          "why": "This does not show any action."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A storm is loud and strong.",
+        "Choose the verb that shows force.",
+        "Which verb could make the reader hear the sound?"
+      ],
+      "explanation": "Hammered gives a strong picture of waves hitting the cliffs hard. The other verbs are gentle or vague."
+    },
+    {
+      "id": "e6.formal-informal.030",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A thesaurus lists these words for walk: stroll, trudge, march, wander. Which fits a tired hiker at the end of a long day?",
+      "options": [
+        {
+          "text": "stroll",
+          "why": "Stroll is a relaxed, pleasant walk."
+        },
+        {
+          "text": "march",
+          "why": "March is quick and firm, like a soldier."
+        },
+        {
+          "text": "trudge"
+        },
+        {
+          "text": "wander",
+          "why": "Wander means to go without a plan or a direction."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about how a tired person walks.",
+        "Look for a slow, heavy word.",
+        "Say each word in a sentence about the hiker."
+      ],
+      "explanation": "Trudge means to walk slowly with heavy steps, which suits a tired hiker."
+    },
+    {
+      "id": "e6.formal-informal.031",
+      "skill": "e6.formal-informal",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Putri finds the word luminous while reading and wants to use it in her own writing. What is the best way to record it?",
+      "options": [
+        {
+          "text": "Underline it in the book and move on",
+          "why": "She may forget the meaning and not use it."
+        },
+        {
+          "text": "Write it in a word log with its meaning and a sentence of her own"
+        },
+        {
+          "text": "Copy the whole page",
+          "why": "This does not highlight the word or its meaning."
+        },
+        {
+          "text": "Memorise the first letter only",
+          "why": "This will not help her use the word."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A good record helps you remember and use the word.",
+        "Include the meaning and an example.",
+        "Which choice keeps the meaning and shows how to use it?"
+      ],
+      "explanation": "Recording the word, its meaning and a sentence of her own helps her use it later."
+    },
+    {
+      "id": "e6.formal-informal.032",
+      "skill": "e6.formal-informal",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose the two synonyms for ancient.",
+      "options": [
+        {
+          "text": "aged"
+        },
+        {
+          "text": "antique"
+        },
+        {
+          "text": "brand-new",
+          "why": "This is the opposite of ancient."
+        },
+        {
+          "text": "recent",
+          "why": "This means not long ago, so it is the opposite."
+        }
+      ],
+      "answers": [
+        0,
+        1
+      ],
+      "hints": [
+        "A synonym has a similar meaning.",
+        "Ancient means very old.",
+        "Cross out the words that mean new."
+      ],
+      "explanation": "Aged and antique both mean old. Brand-new and recent are opposites."
+    },
+    {
+      "id": "e6.formal-informal.033",
+      "skill": "e6.formal-informal",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these words in order from the weakest to the strongest feeling.",
+      "items": [
+        "pleased",
+        "happy",
+        "delighted",
+        "overjoyed"
+      ],
+      "hints": [
+        "All the words describe being glad.",
+        "Think of the size of the feeling.",
+        "Pleased is the mildest."
+      ],
+      "explanation": "The words rise in strength: pleased, happy, delighted, overjoyed."
     }
   ]
 }

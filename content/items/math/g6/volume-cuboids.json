@@ -1,0 +1,73 @@
+{
+  "skill": "m6.volume-cuboids",
+  "items": [
+    {
+      "id": "m6.volume-cuboids.001",
+      "skill": "m6.volume-cuboids",
+      "difficulty": 3,
+      "prompt": "A water tank is a cuboid 40 cm long, 25 cm wide and 30 cm high. How many litres of water can it hold when it is full? (1 litre = 1,000 cm³)",
+      "hints": [
+        "Find the volume in cubic centimetres first.",
+        "40 × 25 × 30.",
+        "Divide by 1,000 to get litres."
+      ],
+      "explanation": "The volume is 40 × 25 × 30 = 30,000 cm³. Divided by 1,000, that is 30 litres.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "litres",
+      "type": "numeric",
+      "answer": 30
+    },
+    {
+      "id": "m6.volume-cuboids.002",
+      "skill": "m6.volume-cuboids",
+      "difficulty": 4,
+      "prompt": "A fish tank has a base 60 cm by 40 cm. It holds 48 litres of water. How deep is the water in centimetres? (1 litre = 1,000 cm³)",
+      "hints": [
+        "Change litres to cm³ first.",
+        "48 litres = 48,000 cm³.",
+        "Volume = base area × depth. Divide by the base area."
+      ],
+      "explanation": "The water is 48,000 cm³. The base area is 60 × 40 = 2,400 cm². The depth is 48,000 ÷ 2,400 = 20 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 20
+    },
+    {
+      "id": "m6.volume-cuboids.003",
+      "skill": "m6.volume-cuboids",
+      "difficulty": 4,
+      "prompt": "How many cubes with sides of 2 cm fit exactly inside a box that is 10 cm long, 6 cm wide and 4 cm high?",
+      "hints": [
+        "Find the volume of the box and the volume of one cube.",
+        "Box: 10 × 6 × 4 = 240 cm³.",
+        "Cube: 2 × 2 × 2 = 8 cm³. How many cubes?"
+      ],
+      "explanation": "The box holds 240 cm³ and each cube takes 8 cm³. 240 ÷ 8 = 30 cubes. Along the box that is 5 × 3 × 2 = 30 too.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "240",
+          "why": "This is the volume of the box in cm³, not the number of cubes."
+        },
+        {
+          "text": "60",
+          "why": "You divided by 4 instead of 8. Each cube has volume 2 × 2 × 2."
+        },
+        {
+          "text": "30"
+        },
+        {
+          "text": "120",
+          "why": "You divided by 2 instead of 8. Each cube has volume 2 × 2 × 2."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

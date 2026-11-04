@@ -1,0 +1,75 @@
+{
+  "skill": "m5.perimeter-area",
+  "items": [
+    {
+      "id": "m5.perimeter-area.001",
+      "skill": "m5.perimeter-area",
+      "difficulty": 3,
+      "prompt": "A rectangular garden is 12 m long and 8 m wide. A square corner of 4 m by 3 m is cut out for a shed, making an L shape. What is the area of the L shape, in square metres?",
+      "hints": [
+        "Find the area of the whole rectangle first.",
+        "Find the area of the cut-out part.",
+        "Take the small area from the large area."
+      ],
+      "explanation": "The rectangle is 12 × 8 = 96 m². The cut-out is 4 × 3 = 12 m². 96 - 12 = 84 m².",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 84
+    },
+    {
+      "id": "m5.perimeter-area.002",
+      "skill": "m5.perimeter-area",
+      "difficulty": 4,
+      "prompt": "A rectangular pond has a perimeter of 36 m. Its length is twice its width. What is the area of the pond, in square metres?",
+      "hints": [
+        "The perimeter is 2 lengths plus 2 widths.",
+        "If the width is w, the length is 2w. So the perimeter is 6w.",
+        "36 ÷ 6 gives the width."
+      ],
+      "explanation": "The perimeter is 2w + 2(2w) = 6w, so 6w = 36 and w = 6 m. The length is 12 m. The area is 6 × 12 = 72 m².",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 72
+    },
+    {
+      "id": "m5.perimeter-area.003",
+      "skill": "m5.perimeter-area",
+      "difficulty": 4,
+      "prompt": "Dewi has 24 m of fencing for a rectangular pen. The sides are whole numbers of metres. What is the greatest area she can make?",
+      "hints": [
+        "Half of 24 m is the length plus the width.",
+        "List pairs that add to 12.",
+        "Work out the area of each pair."
+      ],
+      "explanation": "Length plus width is 12 m. The pairs 2 and 10, 4 and 8, 5 and 7 give 20, 32 and 35. The square 6 and 6 gives 36 m², which is the greatest.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "35 m²",
+          "why": "A 5 m by 7 m pen uses 24 m of fence, but a 6 m by 6 m pen has a bigger area."
+        },
+        {
+          "text": "32 m²",
+          "why": "A 4 m by 8 m pen uses 24 m of fence, but it is not the greatest area."
+        },
+        {
+          "text": "36 m²"
+        },
+        {
+          "text": "20 m²",
+          "why": "A 2 m by 10 m pen uses 24 m of fence, but it has a small area."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

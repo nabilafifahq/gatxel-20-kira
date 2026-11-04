@@ -1,0 +1,67 @@
+{
+  "skill": "m5.statistics",
+  "items": [
+    {
+      "id": "m5.statistics.001",
+      "skill": "m5.statistics",
+      "difficulty": 3,
+      "prompt": "The scores in a game are 12, 7, 9, 12, 15, 9 and 12. What is the range of the scores?",
+      "hints": [
+        "The range is the difference between the biggest and the smallest.",
+        "Find the biggest score and the smallest score.",
+        "Subtract the smallest from the biggest."
+      ],
+      "explanation": "The biggest score is 15 and the smallest is 7. 15 - 7 = 8.",
+      "type": "numeric",
+      "answer": 8
+    },
+    {
+      "id": "m5.statistics.002",
+      "skill": "m5.statistics",
+      "difficulty": 4,
+      "prompt": "Four tests have a mean score of 80. Rangga wants a mean of 82 over five tests. What score does he need in the fifth test?",
+      "hints": [
+        "The mean times the number of tests gives the total.",
+        "Find the total for four tests, then the total needed for five.",
+        "The fifth score is the difference between the two totals."
+      ],
+      "explanation": "Four tests total 80 × 4 = 320. Five tests need a total of 82 × 5 = 410. The fifth score is 410 - 320 = 90.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 90
+    },
+    {
+      "id": "m5.statistics.003",
+      "skill": "m5.statistics",
+      "difficulty": 4,
+      "prompt": "Kofi finds the median of 6, 2, 9, 4, 7 and says it is 9, the middle number in the list. What is the correct median?",
+      "hints": [
+        "Put the numbers in order, smallest first.",
+        "The median is the middle value.",
+        "There are 5 numbers, so the middle is the 3rd."
+      ],
+      "explanation": "In order the numbers are 2, 4, 6, 7, 9. The middle one is 6.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "9",
+          "why": "The list must be put in order before you find the middle value."
+        },
+        {
+          "text": "5.6",
+          "why": "This is the mean, not the median."
+        },
+        {
+          "text": "4",
+          "why": "This is the second smallest. The middle of five numbers is the third in order."
+        },
+        {
+          "text": "6"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

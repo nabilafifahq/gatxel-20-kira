@@ -1,0 +1,41 @@
+{
+  "skill": "m4.perimeter-area",
+  "items": [
+    {
+      "id": "m4.perimeter-area.001",
+      "skill": "m4.perimeter-area",
+      "difficulty": 4,
+      "prompt": "A rectangular room is 9 m long and has an area of 63 square metres. What is its perimeter in metres?",
+      "hints": [
+        "Find the width first.",
+        "9 × ? = 63.",
+        "Perimeter is 2 lengths plus 2 widths."
+      ],
+      "explanation": "The width is 63 ÷ 9 = 7 m. The perimeter is 9 + 7 + 9 + 7 = 32 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 32
+    },
+    {
+      "id": "m4.perimeter-area.002",
+      "skill": "m4.perimeter-area",
+      "difficulty": 4,
+      "prompt": "A yard is a rectangle 10 m long and 6 m wide. A 4 m by 3 m rectangular pond is cut out of one corner. How many square metres of the yard are left for grass?",
+      "hints": [
+        "Find the area of the whole yard.",
+        "Find the area of the pond.",
+        "Subtract."
+      ],
+      "explanation": "The yard has area 10 × 6 = 60 square metres. The pond has area 4 × 3 = 12 square metres. 60 - 12 = 48 square metres.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 48
+    }
+  ]
+}

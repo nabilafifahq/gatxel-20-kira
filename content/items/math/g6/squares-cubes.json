@@ -1,0 +1,73 @@
+{
+  "skill": "m6.squares-cubes",
+  "items": [
+    {
+      "id": "m6.squares-cubes.001",
+      "skill": "m6.squares-cubes",
+      "difficulty": 3,
+      "prompt": "A square courtyard has an area of 196 square metres. What is its perimeter in metres?",
+      "hints": [
+        "Find the side length first.",
+        "The side length is the square root of 196.",
+        "14 × 14 = 196. Then use the side four times."
+      ],
+      "explanation": "The side is √196 = 14 m. The perimeter is 4 × 14 = 56 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 56
+    },
+    {
+      "id": "m6.squares-cubes.002",
+      "skill": "m6.squares-cubes",
+      "difficulty": 4,
+      "prompt": "A cube-shaped box has a volume of 343 cubic centimetres. A cube has 12 edges. How many centimetres do all 12 edges add up to?",
+      "hints": [
+        "Find the edge length of the cube.",
+        "What number multiplied by itself three times gives 343?",
+        "7 × 7 × 7 = 343. Now count 12 edges."
+      ],
+      "explanation": "The edge is 7 cm because 7 × 7 × 7 = 343. The 12 edges add up to 12 × 7 = 84 cm.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 84
+    },
+    {
+      "id": "m6.squares-cubes.003",
+      "skill": "m6.squares-cubes",
+      "difficulty": 5,
+      "prompt": "Between which two whole numbers does √200 lie?",
+      "hints": [
+        "Find squares near 200.",
+        "14 × 14 = 196.",
+        "15 × 15 = 225. Where does 200 fit?"
+      ],
+      "explanation": "14² = 196 is below 200 and 15² = 225 is above 200. So √200 is between 14 and 15.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "13 and 14",
+          "why": "13 × 13 = 169 and 14 × 14 = 196. Both are below 200."
+        },
+        {
+          "text": "15 and 16",
+          "why": "15 × 15 = 225 is already above 200."
+        },
+        {
+          "text": "14 and 15"
+        },
+        {
+          "text": "100 and 101",
+          "why": "This is 200 ÷ 2. A square root is much smaller than half."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

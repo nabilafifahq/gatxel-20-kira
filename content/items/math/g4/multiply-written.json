@@ -1,0 +1,39 @@
+{
+  "skill": "m4.multiply-written",
+  "items": [
+    {
+      "id": "m4.multiply-written.001",
+      "skill": "m4.multiply-written",
+      "difficulty": 3,
+      "prompt": "A factory makes 347 pencils every hour. How many pencils does it make in 6 hours?",
+      "hints": [
+        "Multiply the ones, then the tens, then the hundreds.",
+        "300 × 6, 40 × 6 and 7 × 6.",
+        "1,800 + 240 + 42."
+      ],
+      "explanation": "300 × 6 = 1,800, 40 × 6 = 240 and 7 × 6 = 42. Adding gives 2,082 pencils.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 2082
+    },
+    {
+      "id": "m4.multiply-written.002",
+      "skill": "m4.multiply-written",
+      "difficulty": 4,
+      "prompt": "A ticket for a school play costs Rp4.750. Kofi buys 8 tickets. How many rupiah does he pay in total?",
+      "hints": [
+        "Split Rp4.750 into 4.000 and 750.",
+        "8 × 4.000 and 8 × 750.",
+        "Add the two answers."
+      ],
+      "explanation": "8 × 4,000 = 32,000 and 8 × 750 = 6,000. The total is Rp38.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 38000
+    }
+  ]
+}

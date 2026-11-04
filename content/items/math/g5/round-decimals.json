@@ -1,0 +1,68 @@
+{
+  "skill": "m5.round-decimals",
+  "items": [
+    {
+      "id": "m5.round-decimals.001",
+      "skill": "m5.round-decimals",
+      "difficulty": 3,
+      "prompt": "A ribbon is 4.65 m long. Sekar rounds the length to the nearest tenth of a metre. What does she write?",
+      "hints": [
+        "Look at the hundredths digit.",
+        "The hundredths digit is 5.",
+        "A 5 rounds up."
+      ],
+      "explanation": "The hundredths digit is 5, so we round the tenths digit up. 4.65 rounds to 4.7 m.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "m",
+      "type": "numeric",
+      "answer": 4.7
+    },
+    {
+      "id": "m5.round-decimals.002",
+      "skill": "m5.round-decimals",
+      "difficulty": 4,
+      "prompt": "A number rounds to 3.5 when rounded to one decimal place. Which number could it be?",
+      "hints": [
+        "The number must be close to 3.5.",
+        "Numbers from 3.45 up to just below 3.55 round to 3.5.",
+        "Check the hundredths digit of each choice."
+      ],
+      "explanation": "3.46 has hundredths digit 6, so it rounds up from 3.4 to 3.5. The other choices round to 3.4 or 3.6.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3.39",
+          "why": "This rounds down to 3.4."
+        },
+        {
+          "text": "3.55",
+          "why": "The hundredths digit is 5, so this rounds up to 3.6."
+        },
+        {
+          "text": "3.46"
+        },
+        {
+          "text": "3.56",
+          "why": "This rounds up to 3.6."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.round-decimals.003",
+      "skill": "m5.round-decimals",
+      "difficulty": 4,
+      "prompt": "What is the smallest number with two decimal places that rounds to 2.6 when rounded to one decimal place?",
+      "hints": [
+        "The number rounds up from 2.5 to 2.6.",
+        "Which hundredths digit makes a number round up?",
+        "Try 2.54 and 2.55."
+      ],
+      "explanation": "2.54 rounds down to 2.5, but 2.55 rounds up to 2.6. So the smallest is 2.55.",
+      "type": "numeric",
+      "answer": 2.55
+    }
+  ]
+}

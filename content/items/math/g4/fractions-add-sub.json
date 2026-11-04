@@ -1,0 +1,39 @@
+{
+  "skill": "m4.fractions-add-sub",
+  "items": [
+    {
+      "id": "m4.fractions-add-sub.001",
+      "skill": "m4.fractions-add-sub",
+      "difficulty": 2,
+      "prompt": "A tank is 7/12 full. Then 4/12 of the tank is used. The tank is now ?/12 full. What is the missing top number?",
+      "hints": [
+        "The bottom numbers are the same.",
+        "Only subtract the top numbers.",
+        "7 - 4."
+      ],
+      "explanation": "Subtract the top numbers and keep the bottom number the same. 7/12 - 4/12 = 3/12.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m4.fractions-add-sub.002",
+      "skill": "m4.fractions-add-sub",
+      "difficulty": 4,
+      "prompt": "Ines uses 3/8 of a ribbon for a gift and 2/8 of it for a card. The part of the ribbon left is ?/8 of the whole. What is the missing top number?",
+      "hints": [
+        "Write 1 whole as a fraction with 8 on the bottom.",
+        "1 whole = 8/8.",
+        "Add the pieces used first."
+      ],
+      "explanation": "She uses 3/8 + 2/8 = 5/8. The whole is 8/8, so 8/8 - 5/8 = 3/8 is left.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3
+    }
+  ]
+}

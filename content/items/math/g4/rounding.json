@@ -1,0 +1,67 @@
+{
+  "skill": "m4.rounding",
+  "items": [
+    {
+      "id": "m4.rounding.001",
+      "skill": "m4.rounding",
+      "difficulty": 2,
+      "prompt": "A stadium holds 12,486 people. A reporter rounds this to the nearest 100. What number does the reporter write?",
+      "hints": [
+        "Look at the tens digit.",
+        "The tens digit is 8, so round up.",
+        "12,486 is between 12,400 and 12,500."
+      ],
+      "explanation": "The tens digit is 8, which is 5 or more, so we round up to 12,500.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 12500
+    },
+    {
+      "id": "m4.rounding.002",
+      "skill": "m4.rounding",
+      "difficulty": 4,
+      "prompt": "Which of these numbers rounds to 7,000 when rounded to the nearest 1,000?",
+      "hints": [
+        "Look at the hundreds digit each time.",
+        "A hundreds digit of 5 or more rounds up.",
+        "Find which number rounds up to 7,000 or down to 7,000."
+      ],
+      "explanation": "6,500 has a hundreds digit of 5, so it rounds up to 7,000. 6,499 rounds down to 6,000, and the other two round up to 8,000.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "6,499",
+          "why": "The hundreds digit is 4, so this rounds down to 6,000."
+        },
+        {
+          "text": "7,500",
+          "why": "The hundreds digit is 5, so this rounds up to 8,000."
+        },
+        {
+          "text": "7,501",
+          "why": "This is more than halfway to 8,000, so it rounds to 8,000."
+        },
+        {
+          "text": "6,500"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m4.rounding.003",
+      "skill": "m4.rounding",
+      "difficulty": 4,
+      "prompt": "Bayu rounds the number 3,6_4 to the nearest 100 and gets 3,700. What is the smallest digit that could go in the blank?",
+      "hints": [
+        "Rounding to the nearest 100 depends on the tens digit.",
+        "To get 3,700 the number must round up.",
+        "Which tens digit is the first to round up?"
+      ],
+      "explanation": "To round up to 3,700 the tens digit must be 5 or more. The smallest such digit is 5.",
+      "type": "numeric",
+      "answer": 5
+    }
+  ]
+}

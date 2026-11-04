@@ -1,0 +1,68 @@
+{
+  "skill": "m6.probability",
+  "items": [
+    {
+      "id": "m6.probability.001",
+      "skill": "m6.probability",
+      "difficulty": 3,
+      "prompt": "A bag has 5 red, 3 blue and 2 green counters. One counter is taken without looking. What is the probability, as a percentage, that it is NOT blue? Give the number only.",
+      "hints": [
+        "There are 10 counters in all.",
+        "Count the counters that are not blue.",
+        "Write the fraction, then change it to a percentage."
+      ],
+      "explanation": "7 of the 10 counters are not blue. 7/10 = 70%.",
+      "tags": [],
+      "unit": "%",
+      "type": "numeric",
+      "answer": 70
+    },
+    {
+      "id": "m6.probability.002",
+      "skill": "m6.probability",
+      "difficulty": 4,
+      "prompt": "The chance of rain on any day in a town is 0.35. About how many rainy days would you expect in 40 days?",
+      "hints": [
+        "Multiply the chance by the number of days.",
+        "0.35 × 40.",
+        "0.35 × 4 = 1.4, so 0.35 × 40 is ten times bigger."
+      ],
+      "explanation": "The expected number is 0.35 × 40 = 14 rainy days.",
+      "tags": [],
+      "type": "numeric",
+      "answer": 14
+    },
+    {
+      "id": "m6.probability.003",
+      "skill": "m6.probability",
+      "difficulty": 5,
+      "prompt": "Two fair dice are rolled and their scores are added. What is the probability that the total is 7?",
+      "hints": [
+        "List all pairs of dice scores that add to 7.",
+        "(1,6), (2,5), (3,4) and their reverses.",
+        "There are 36 equally likely pairs in total."
+      ],
+      "explanation": "The pairs are (1,6), (2,5), (3,4), (4,3), (5,2) and (6,1), which is 6 pairs out of 36. 6/36 = 1/6.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "1/12",
+          "why": "There are more ways than 3. Remember that 2 and 5 is different from 5 and 2."
+        },
+        {
+          "text": "1/6"
+        },
+        {
+          "text": "7/36",
+          "why": "7 is the total, not the number of ways. Count the pairs."
+        },
+        {
+          "text": "1/36",
+          "why": "That is the chance of one particular pair, not all pairs."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

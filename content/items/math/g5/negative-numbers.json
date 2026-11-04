@@ -1,0 +1,73 @@
+{
+  "skill": "m5.negative-numbers",
+  "items": [
+    {
+      "id": "m5.negative-numbers.001",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "A lift starts at floor -2, a basement. It goes up 7 floors, then down 4 floors, then up 1 floor. Which floor does it reach?",
+      "hints": [
+        "Use a number line and start at -2.",
+        "Going up adds, going down takes away.",
+        "-2 + 7 first."
+      ],
+      "explanation": "-2 + 7 = 5, then 5 - 4 = 1, then 1 + 1 = 2. The lift reaches floor 2.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 2
+    },
+    {
+      "id": "m5.negative-numbers.002",
+      "skill": "m5.negative-numbers",
+      "difficulty": 3,
+      "prompt": "At the top of a mountain it is -4°C. In the town below it is 5°C. How many degrees warmer is the town?",
+      "hints": [
+        "Draw a number line from -4 to 5.",
+        "Count the steps from -4 to 0.",
+        "Then count the steps from 0 to 5."
+      ],
+      "explanation": "From -4 to 0 is 4 degrees and from 0 to 5 is 5 degrees. 4 + 5 = 9 degrees warmer.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "9"
+        },
+        {
+          "text": "1",
+          "why": "You found 5 - 4. The mountain is below zero, so you must cross zero."
+        },
+        {
+          "text": "4",
+          "why": "That is only the distance from the mountain temperature to zero."
+        },
+        {
+          "text": "-9",
+          "why": "The town is warmer, so the difference is not negative."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m5.negative-numbers.003",
+      "skill": "m5.negative-numbers",
+      "difficulty": 4,
+      "prompt": "Hadi owes his sister Rp15.000, which we write as -Rp15.000. He gives her Rp40.000, then borrows Rp35.000. How much does he owe now, in rupiah?",
+      "hints": [
+        "Write -15,000 and add the 40,000 he gives.",
+        "-15,000 + 40,000 is the new balance.",
+        "Borrowing 35,000 takes the balance down again."
+      ],
+      "explanation": "-15,000 + 40,000 = 25,000, so he is in credit. Then 25,000 - 35,000 = -10,000. He owes Rp10.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 10000
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "skill": "m6.percentages",
+  "items": [
+    {
+      "id": "m6.percentages.001",
+      "skill": "m6.percentages",
+      "difficulty": 3,
+      "prompt": "A phone costs Rp1.800.000. The shop gives a 15% discount. What is the sale price in rupiah?",
+      "hints": [
+        "Find 10% and 5% of Rp1.800.000.",
+        "10% is 180.000 and 5% is 90.000.",
+        "Take the discount from the price."
+      ],
+      "explanation": "15% of 1.800.000 is 270.000. So the sale price is 1.800.000 − 270.000 = Rp1.530.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 1530000
+    },
+    {
+      "id": "m6.percentages.002",
+      "skill": "m6.percentages",
+      "difficulty": 5,
+      "prompt": "After a 20% rise, a bag of rice costs Rp54.000. What did the bag cost before the rise, in rupiah?",
+      "hints": [
+        "Rp54.000 is 120% of the old price.",
+        "Find 10% of the old price: 54.000 ÷ 12.",
+        "The old price is 100%, which is 10 of those parts."
+      ],
+      "explanation": "120% of the old price is 54.000, so 10% is 4.500. Then 100% is 45.000, and the old price was Rp45.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "rupiah",
+      "type": "numeric",
+      "answer": 45000
+    },
+    {
+      "id": "m6.percentages.003",
+      "skill": "m6.percentages",
+      "difficulty": 4,
+      "prompt": "A jacket costs Rp100.000. The price goes up by 10%, then the new price goes down by 10%. What is the final price?",
+      "hints": [
+        "Do the rise first: find 110% of Rp100.000.",
+        "After the rise the price is Rp110.000.",
+        "Now take 10% of Rp110.000 away."
+      ],
+      "explanation": "After the rise it is Rp110.000. 10% of that is Rp11.000, so the final price is Rp99.000.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "Rp100.000",
+          "why": "The 10% fall is taken from a bigger amount, so it takes off more than the rise added."
+        },
+        {
+          "text": "Rp99.000"
+        },
+        {
+          "text": "Rp101.000",
+          "why": "The fall is not 10% of the old price. It is 10% of the higher price."
+        },
+        {
+          "text": "Rp90.000",
+          "why": "This ignores the rise. The two changes are done one after the other."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

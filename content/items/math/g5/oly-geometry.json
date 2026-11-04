@@ -487,6 +487,278 @@
         "timo"
       ],
       "expectedSeconds": 180
+    },
+    {
+      "id": "m5.oly-geometry.010",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A square has a perimeter of 36 cm. What is its area in cm²?",
+      "hints": [
+        "A square has four equal sides.",
+        "Divide the perimeter by 4 to find the side.",
+        "Multiply the side by itself."
+      ],
+      "explanation": "Each side is 36 ÷ 4 = 9 cm. The area is 9 × 9 = 81 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "36",
+          "why": "That is the perimeter. Area is the side length times itself."
+        },
+        {
+          "text": "64",
+          "why": "That is a square with sides of 8 cm. Find the side by dividing 36 by 4."
+        },
+        {
+          "text": "72",
+          "why": "You multiplied 36 by 2. Find the side length first."
+        },
+        {
+          "text": "81"
+        },
+        {
+          "text": "144",
+          "why": "That is a square with sides of 12 cm. Divide the perimeter by 4."
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m5.oly-geometry.011",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "What is the size of each angle inside a regular octagon, in degrees?",
+      "hints": [
+        "Split the octagon into triangles from one corner.",
+        "An octagon makes 6 triangles.",
+        "Each triangle has 180°. Divide the total by 8 angles."
+      ],
+      "explanation": "6 triangles make 6 × 180 = 1080°. A regular octagon has 8 equal angles, so each is 1080 ÷ 8 = 135°.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "108",
+          "why": "That is the angle in a regular pentagon."
+        },
+        {
+          "text": "120",
+          "why": "That is the angle in a regular hexagon."
+        },
+        {
+          "text": "135"
+        },
+        {
+          "text": "140",
+          "why": "That is the angle in a regular nonagon."
+        },
+        {
+          "text": "144",
+          "why": "That is the angle in a regular decagon."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-geometry.012",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A rectangle is 12 cm long and 8 cm wide. A triangle has the 12 cm side as its base. Its top corner is on the opposite side. What is the area of the triangle in cm²?",
+      "hints": [
+        "Draw the rectangle and the triangle.",
+        "The base is 12 cm. The height is the width of the rectangle.",
+        "The area of a triangle is half of base × height."
+      ],
+      "explanation": "The triangle has base 12 cm and height 8 cm. Its area is 12 × 8 ÷ 2 = 48 cm², half of the rectangle.",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "24",
+          "why": "That is half of the triangle area. The height of the triangle is the full 8 cm."
+        },
+        {
+          "text": "36",
+          "why": "Check the height. The triangle goes right across the rectangle."
+        },
+        {
+          "text": "48"
+        },
+        {
+          "text": "64",
+          "why": "Check the base and height: 12 and 8, then halve."
+        },
+        {
+          "text": "96",
+          "why": "That is the area of the rectangle. A triangle is half of that."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-geometry.013",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A square of side 10 cm has its four corners cut off. Each cut removes a right-angled triangle with two equal sides of 3 cm. What is the area of the shape that is left, in cm²?",
+      "hints": [
+        "Find the area of the whole square.",
+        "Find the area of one cut-off triangle.",
+        "Four triangles are removed."
+      ],
+      "explanation": "Each triangle has area 3 × 3 ÷ 2 = 4.5 cm². Four triangles make 18 cm². The shape that is left has area 100 - 18 = 82 cm².",
+      "tags": [
+        "olympiad",
+        "ikmc",
+        "keep-order"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "mcq",
+      "options": [
+        {
+          "text": "64",
+          "why": "You may have cut off whole squares of 3 cm by 3 cm. Each cut is a triangle, half of a square."
+        },
+        {
+          "text": "72",
+          "why": "Check the area of each triangle. It is 3 × 3 ÷ 2."
+        },
+        {
+          "text": "82"
+        },
+        {
+          "text": "91",
+          "why": "You took off only one triangle. There are four corners."
+        },
+        {
+          "text": "96",
+          "why": "You took off 4 cm² altogether. Each triangle is 4.5 cm²."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m5.oly-geometry.014",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A 3 by 3 by 3 cube is painted red on the outside. It is then cut into 27 small cubes. How many small cubes have exactly two red faces?",
+      "hints": [
+        "Cubes in the corners have three red faces.",
+        "Cubes with two red faces are on the edges, but not at the corners.",
+        "A cube has 12 edges."
+      ],
+      "explanation": "Each of the 12 edges has 3 small cubes. The 2 at the ends are corners. So 1 middle cube on each edge has exactly two red faces: 12 cubes.",
+      "tags": [
+        "olympiad",
+        "sasmo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "type": "numeric",
+      "answer": 12
+    },
+    {
+      "id": "m5.oly-geometry.015",
+      "skill": "m5.oly-geometry",
+      "difficulty": 3,
+      "prompt": "A rectangle 20 cm by 12 cm is cut into 4 equal rectangles by one cut across the middle each way. What is the perimeter of one small rectangle, in cm?",
+      "hints": [
+        "Find the length and width of one small rectangle.",
+        "Each side of the big rectangle is halved.",
+        "Add the sides all the way around."
+      ],
+      "explanation": "The small rectangles are 10 cm by 6 cm. The perimeter is 10 + 6 + 10 + 6 = 32 cm.",
+      "tags": [
+        "olympiad",
+        "seamo"
+      ],
+      "points": 3,
+      "expectedSeconds": 150,
+      "unit": "cm",
+      "type": "numeric",
+      "answer": 32
+    },
+    {
+      "id": "m5.oly-geometry.016",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "An isosceles triangle has two equal angles. Each of these equal angles is twice as big as the third angle. What is the size of the third angle, in degrees?",
+      "hints": [
+        "Let the third angle be one part.",
+        "Each equal angle is two parts.",
+        "The angles add up to 180°. How many parts is that?"
+      ],
+      "explanation": "The angles are 1 part, 2 parts and 2 parts, which is 5 parts in total. 180 ÷ 5 = 36, so the third angle is 36°.",
+      "tags": [
+        "olympiad",
+        "kmnr"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "unit": "°",
+      "type": "numeric",
+      "answer": 36
+    },
+    {
+      "id": "m5.oly-geometry.017",
+      "skill": "m5.oly-geometry",
+      "difficulty": 4,
+      "prompt": "A garden is 10 m long and 8 m wide. A path 1 m wide goes all the way around the outside of the garden. What is the area of the path, in square metres?",
+      "hints": [
+        "The garden with the path is bigger on every side.",
+        "The new length and width are each 2 m more.",
+        "Find the area of the bigger rectangle and take away the garden."
+      ],
+      "explanation": "With the path the rectangle is 12 m by 10 m, area 120 m². The garden is 10 × 8 = 80 m². The path is 120 - 80 = 40 m².",
+      "tags": [
+        "olympiad",
+        "hkimo"
+      ],
+      "points": 4,
+      "expectedSeconds": 180,
+      "unit": "m²",
+      "type": "numeric",
+      "answer": 40
+    },
+    {
+      "id": "m5.oly-geometry.018",
+      "skill": "m5.oly-geometry",
+      "difficulty": 5,
+      "prompt": "A square of side 8 cm is cut into two rectangles by one straight cut. One rectangle has a perimeter of 28 cm. What is the area of the other rectangle, in cm²?",
+      "hints": [
+        "A cut parallel to a side makes two rectangles, each 8 cm long.",
+        "Let one rectangle have width w. Its perimeter is 2 × (8 + w).",
+        "2 × (8 + w) = 28 gives w. The other width is 8 - w."
+      ],
+      "explanation": "Both rectangles are 8 cm long. 2 × (8 + w) = 28 gives w = 6. The other rectangle has width 8 - 6 = 2 and area 8 × 2 = 16 cm².",
+      "tags": [
+        "olympiad",
+        "timo"
+      ],
+      "points": 5,
+      "expectedSeconds": 210,
+      "unit": "cm²",
+      "type": "numeric",
+      "answer": 16
     }
   ]
 }

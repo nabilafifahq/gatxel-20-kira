@@ -1,0 +1,49 @@
+{
+  "skill": "m4.timetables",
+  "items": [
+    {
+      "id": "m4.timetables.001",
+      "skill": "m4.timetables",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the timetable. How many minutes does the bus take to go from Bukit stop to Taman stop?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Stop",
+          "Time"
+        ],
+        "rows": [
+          [
+            "Terminal",
+            "07:15"
+          ],
+          [
+            "Bukit",
+            "07:42"
+          ],
+          [
+            "Pasar",
+            "08:20"
+          ],
+          [
+            "Taman",
+            "08:55"
+          ]
+        ],
+        "alt": "Bus timetable. Terminal 07:15, Bukit 07:42, Pasar 08:20, Taman 08:55."
+      },
+      "answer": 73,
+      "unit": "minutes",
+      "hints": [
+        "Find the time at each stop.",
+        "From 07:42 to 08:42 is 60 minutes.",
+        "Add the minutes from 08:42 to 08:55."
+      ],
+      "explanation": "From 07:42 to 08:42 is 60 minutes, and 08:42 to 08:55 is 13 more minutes. The trip takes 73 minutes.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "skill": "e6.fact-opinion-voice-theme",
+  "title": "Fact, opinion, voice and theme",
+  "steps": [
+    {
+      "say": "A fact can be checked and proved. An opinion tells what someone thinks or feels.",
+      "show": "Fact: A week has seven days. Opinion: Mondays are the worst."
+    },
+    {
+      "say": "Words such as best, worst, beautiful and should often show an opinion."
+    },
+    {
+      "say": "A writer's voice shares the real author's views. A narrator's voice tells a made-up story."
+    },
+    {
+      "say": "Explicit meaning is stated in the words. Implicit meaning is worked out from clues."
+    },
+    {
+      "say": "A theme is the big idea. A writer may state it, or show it through what characters do."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.fact-opinion-voice-theme.901",
+      "skill": "e6.fact-opinion-voice-theme",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is an opinion?",
+      "options": [
+        {
+          "text": "The lake is 12 metres deep.",
+          "why": "Depth can be measured."
+        },
+        {
+          "text": "The lake is the loveliest place to swim."
+        },
+        {
+          "text": "The lake is in the north.",
+          "why": "Where it is can be checked."
+        },
+        {
+          "text": "The lake is a freshwater lake.",
+          "why": "This can be checked."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An opinion cannot be proved.",
+        "Look for a word of judgement.",
+        "Check the word loveliest."
+      ],
+      "explanation": "Loveliest is a judgement that people can disagree about, so it is an opinion."
+    }
+  ]
+}

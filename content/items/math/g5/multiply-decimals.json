@@ -1,0 +1,71 @@
+{
+  "skill": "m5.multiply-decimals",
+  "items": [
+    {
+      "id": "m5.multiply-decimals.001",
+      "skill": "m5.multiply-decimals",
+      "difficulty": 3,
+      "prompt": "One bag of rice has a mass of 3.6 kg. What is the mass of 7 bags, in kg?",
+      "hints": [
+        "Multiply 36 by 7 first.",
+        "36 × 7 = 252.",
+        "Put the decimal point back: 3.6 has one decimal place."
+      ],
+      "explanation": "36 × 7 = 252. 3.6 has one decimal place, so 3.6 × 7 = 25.2 kg.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "kg",
+      "type": "numeric",
+      "answer": 25.2
+    },
+    {
+      "id": "m5.multiply-decimals.002",
+      "skill": "m5.multiply-decimals",
+      "difficulty": 4,
+      "prompt": "Each dance costume needs 4.5 m of ribbon. Ribbon costs Rp3.000 for each metre. How much do 8 costumes cost in ribbon, in rupiah?",
+      "hints": [
+        "Find the metres of ribbon for 8 costumes first.",
+        "4.5 × 8 = 36.",
+        "Multiply the metres by Rp3.000."
+      ],
+      "explanation": "4.5 × 8 = 36 m. 36 × 3,000 = 108,000, so the ribbon costs Rp108.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 108000
+    },
+    {
+      "id": "m5.multiply-decimals.003",
+      "skill": "m5.multiply-decimals",
+      "difficulty": 4,
+      "prompt": "What is 6.9 × 4?",
+      "hints": [
+        "Estimate first: 6.9 is close to 7.",
+        "7 × 4 = 28, so the answer is a little less than 28.",
+        "Work out 69 × 4 and place the decimal point."
+      ],
+      "explanation": "69 × 4 = 276. Since 6.9 has one decimal place, the answer is 27.6. This is a little less than 28, as estimated.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "2.76",
+          "why": "The decimal point is in the wrong place. 6.9 is nearly 7, and 7 × 4 is 28."
+        },
+        {
+          "text": "27.6"
+        },
+        {
+          "text": "276",
+          "why": "The decimal point is missing. 6.9 is nearly 7, and 7 × 4 is 28."
+        },
+        {
+          "text": "24.6",
+          "why": "You forgot to carry when multiplying 9 × 4. 9 × 4 = 36."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

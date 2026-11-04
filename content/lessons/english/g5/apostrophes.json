@@ -1,0 +1,86 @@
+{
+  "skill": "e5.apostrophes",
+  "title": "Apostrophes",
+  "steps": [
+    {
+      "say": "An apostrophe can take the place of missing letters. Do not becomes don't.",
+      "show": "do not = don't"
+    },
+    {
+      "say": "An apostrophe and s show who owns something. One owner takes 's.",
+      "show": "the dog's bowl"
+    },
+    {
+      "say": "A plural that ends in s takes only the apostrophe after it.",
+      "show": "the girls' bags"
+    },
+    {
+      "say": "Its with no apostrophe shows belonging. It's means it is or it has.",
+      "show": "It's a shame it lost its leaves."
+    }
+  ],
+  "check": [
+    {
+      "id": "e5.apostrophes.901",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which phrase shows that the hat belongs to one boy?",
+      "options": [
+        {
+          "text": "the boy's hat"
+        },
+        {
+          "text": "the boys hat",
+          "why": "There is no apostrophe to show belonging."
+        },
+        {
+          "text": "the boys' hat",
+          "why": "This shows the hat belongs to more than one boy."
+        },
+        {
+          "text": "the boy is hat",
+          "why": "This is not the correct form."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "How many owners are there?",
+        "One owner takes apostrophe and s.",
+        "Write the owner first."
+      ],
+      "explanation": "One boy owns the hat, so we write the boy's hat."
+    },
+    {
+      "id": "e5.apostrophes.902",
+      "skill": "e5.apostrophes",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is correct?",
+      "options": [
+        {
+          "text": "Its a lovely day.",
+          "why": "Its with no apostrophe cannot mean it is."
+        },
+        {
+          "text": "The bird fed it's chicks.",
+          "why": "Belonging uses its, with no apostrophe."
+        },
+        {
+          "text": "It's a lovely day."
+        },
+        {
+          "text": "Its' a lovely day.",
+          "why": "The apostrophe does not go after the s."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Try swapping in \"it is\".",
+        "If it fits, use the apostrophe.",
+        "Read the sentence aloud with \"it is\"."
+      ],
+      "explanation": "It's means it is, so It's a lovely day is correct."
+    }
+  ]
+}

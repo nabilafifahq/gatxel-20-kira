@@ -1,0 +1,71 @@
+{
+  "skill": "m6.rounding",
+  "items": [
+    {
+      "id": "m6.rounding.001",
+      "skill": "m6.rounding",
+      "difficulty": 3,
+      "prompt": "Wulan buys items that cost Rp18.750, Rp32.400 and Rp9.480. Round each price to the nearest Rp1.000, then add. What is her estimate in rupiah?",
+      "hints": [
+        "Round each price on its own first.",
+        "Look at the hundreds digit of each price.",
+        "Rp18.750 rounds to Rp19.000."
+      ],
+      "explanation": "Rp18.750 rounds up to Rp19.000, Rp32.400 rounds down to Rp32.000 and Rp9.480 rounds down to Rp9.000. The total is Rp60.000.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 60000
+    },
+    {
+      "id": "m6.rounding.002",
+      "skill": "m6.rounding",
+      "difficulty": 4,
+      "prompt": "Which of these numbers does NOT round to 3.5 when rounded to 1 decimal place?",
+      "hints": [
+        "Look at the hundredths digit each time.",
+        "A digit of 5 or more makes the tenths digit go up by one.",
+        "Check each one: which rounds to 3.4 or 3.6 instead?"
+      ],
+      "explanation": "3.55 has a hundredths digit of 5, so it rounds up to 3.6. The other three all round to 3.5.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3.45",
+          "why": "The hundredths digit is 5, so it rounds up to 3.5."
+        },
+        {
+          "text": "3.46",
+          "why": "The hundredths digit is 6, so it rounds up to 3.5."
+        },
+        {
+          "text": "3.54",
+          "why": "The hundredths digit is 4, so it rounds down to 3.5."
+        },
+        {
+          "text": "3.55"
+        }
+      ],
+      "answer": 3
+    },
+    {
+      "id": "m6.rounding.003",
+      "skill": "m6.rounding",
+      "difficulty": 4,
+      "prompt": "A rectangular field is 48.7 m long and 31.2 m wide. Round each length to the nearest 10 m, then multiply. What is the estimated area in square metres?",
+      "hints": [
+        "Round the length first.",
+        "48.7 is closest to 50, and 31.2 is closest to 30.",
+        "Multiply the two rounded lengths."
+      ],
+      "explanation": "48.7 rounds to 50 and 31.2 rounds to 30. 50 × 30 = 1,500 square metres.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 1500
+    }
+  ]
+}

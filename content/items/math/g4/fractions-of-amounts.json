@@ -1,0 +1,53 @@
+{
+  "skill": "m4.fractions-of-amounts",
+  "items": [
+    {
+      "id": "m4.fractions-of-amounts.001",
+      "skill": "m4.fractions-of-amounts",
+      "difficulty": 2,
+      "prompt": "A basket has 36 apples. 3/4 of them are red. How many apples are red?",
+      "hints": [
+        "Find 1/4 of 36 first.",
+        "36 ÷ 4 = 9.",
+        "Now multiply by 3."
+      ],
+      "explanation": "1/4 of 36 is 9. So 3/4 of 36 is 3 × 9 = 27.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 27
+    },
+    {
+      "id": "m4.fractions-of-amounts.002",
+      "skill": "m4.fractions-of-amounts",
+      "difficulty": 4,
+      "prompt": "Wulan has Rp48.000. She spends 1/3 on a book and 1/4 on lunch. How many rupiah does she have left?",
+      "hints": [
+        "Find each fraction of 48.000.",
+        "1/3 of 48.000 is 16.000.",
+        "1/4 of 48.000 is 12.000."
+      ],
+      "explanation": "The book costs 16,000 and lunch costs 12,000. 48,000 - 16,000 - 12,000 = 20,000. She has Rp20.000 left.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 20000
+    },
+    {
+      "id": "m4.fractions-of-amounts.003",
+      "skill": "m4.fractions-of-amounts",
+      "difficulty": 5,
+      "prompt": "2/5 of a number is 18. What is the whole number?",
+      "hints": [
+        "Find what 1/5 of the number is.",
+        "2 fifths is 18.",
+        "Now find 5 fifths."
+      ],
+      "explanation": "2/5 is 18, so 1/5 is 9. The whole number is 5 × 9 = 45.",
+      "type": "numeric",
+      "answer": 45
+    }
+  ]
+}

@@ -313,6 +313,396 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.editing-proofreading.011",
+      "skill": "e5.editing-proofreading",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "One word is wrong. Write it correctly. The childrens played in the park.",
+      "blanks": [
+        {
+          "answers": [
+            "children"
+          ]
+        }
+      ],
+      "hints": [
+        "Child is a special plural.",
+        "It does not take an s.",
+        "Think of the plural of man."
+      ],
+      "explanation": "The plural of child is children, so \"childrens\" is wrong."
+    },
+    {
+      "id": "e5.editing-proofreading.012",
+      "skill": "e5.editing-proofreading",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "___ going to bring ___ coats to the party because it is cold.",
+      "gaps": [
+        {
+          "options": [
+            "Their",
+            "They're",
+            "There"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "they're",
+            "their",
+            "there"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "One word means \"they are\".",
+        "One word shows that coats belong to them.",
+        "Say the sentence with \"they are\" in the first gap."
+      ],
+      "explanation": "\"They're\" means they are, and \"their\" shows ownership of the coats."
+    },
+    {
+      "id": "e5.editing-proofreading.013",
+      "skill": "e5.editing-proofreading",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each mistake by its type.",
+      "groups": [
+        "Spelling",
+        "Punctuation",
+        "Grammar"
+      ],
+      "items": [
+        {
+          "text": "It was definately a good idea.",
+          "group": 0
+        },
+        {
+          "text": "Where are you going.",
+          "group": 1
+        },
+        {
+          "text": "I seen the film yesterday.",
+          "group": 2
+        },
+        {
+          "text": "We saw a dolphin at the beech.",
+          "group": 0
+        },
+        {
+          "text": "Mum bought milk eggs and rice.",
+          "group": 1
+        },
+        {
+          "text": "The boys was late for school.",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Spelling errors are wrong letters or wrong word.",
+        "Punctuation errors are missing marks.",
+        "Grammar errors are wrong verb forms."
+      ],
+      "explanation": "Definately and beech are spelling mistakes, a missing question mark or commas is punctuation, and \"I seen\" or \"boys was\" is grammar."
+    },
+    {
+      "id": "e5.editing-proofreading.014",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read: Last Saturday, Kofi and his dad go to the market. They bought fresh fish and a bunch of bananas. Kofi carried the bag home. Which sentence has a tense error?",
+      "options": [
+        {
+          "text": "Sentence 1"
+        },
+        {
+          "text": "Sentence 2",
+          "why": "\"They bought\" is correctly in the past tense."
+        },
+        {
+          "text": "Sentence 3",
+          "why": "\"Kofi carried\" is correctly in the past tense."
+        },
+        {
+          "text": "There is no error.",
+          "why": "Check the verbs again, one of them is wrong."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Last Saturday tells us it is past.",
+        "Check each verb.",
+        "Which verb is still in the present?"
+      ],
+      "explanation": "\"Go\" should be \"went\" because the paragraph is about last Saturday."
+    },
+    {
+      "id": "e5.editing-proofreading.015",
+      "skill": "e5.editing-proofreading",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Proofread: yesterday we visit the museum with our class. It was verry big, and the guide showed us dinosaur bones. Choose all the mistakes.",
+      "options": [
+        {
+          "text": "\"yesterday\" needs a capital letter"
+        },
+        {
+          "text": "\"visit\" should be \"visited\""
+        },
+        {
+          "text": "\"verry\" should be \"very\""
+        },
+        {
+          "text": "\"guide\" needs a capital letter"
+        },
+        {
+          "text": "\"bones\" should be \"bone\""
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Check the start of the sentence.",
+        "Yesterday tells you the tense.",
+        "Check each word spelling."
+      ],
+      "explanation": "The sentence needs a capital letter, past tense \"visited\" and correct spelling \"very\"."
+    },
+    {
+      "id": "e5.editing-proofreading.016",
+      "skill": "e5.editing-proofreading",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the word that should replace \"a\" in this sentence. Wulan put a hat, a bottle and a umbrella in her bag.",
+      "blanks": [
+        {
+          "answers": [
+            "an"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the sound at the start of umbrella.",
+        "We say \"an\" before a vowel sound.",
+        "The error is in the last item."
+      ],
+      "explanation": "Umbrella starts with a vowel sound, so we say \"an umbrella\"."
+    },
+    {
+      "id": "e5.editing-proofreading.017",
+      "skill": "e5.editing-proofreading",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the steps for proofreading in a sensible order.",
+      "items": [
+        "Read your writing aloud slowly.",
+        "Underline words that look or sound wrong.",
+        "Check the underlined words in a dictionary.",
+        "Write the corrections neatly.",
+        "Read it once more to check."
+      ],
+      "hints": [
+        "You must find mistakes before fixing them.",
+        "Checking comes before correcting.",
+        "Final reading goes last."
+      ],
+      "explanation": "First find the problems, then check them, correct them, and finally read again."
+    },
+    {
+      "id": "e5.editing-proofreading.018",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which change makes this paragraph better? Amara was happy. Amara was happy because it was her birthday. Amara was happy to see her friends.",
+      "options": [
+        {
+          "text": "Replace each \"Amara was happy\" with \"Amara was glad\".",
+          "why": "This swaps one word for another but keeps the repeating."
+        },
+        {
+          "text": "Join the ideas: Amara was happy because it was her birthday and she saw her friends."
+        },
+        {
+          "text": "Delete every sentence.",
+          "why": "This removes all the information."
+        },
+        {
+          "text": "Add \"very\" before \"happy\" each time.",
+          "why": "This keeps the repeating."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look for repeated words.",
+        "Good editing joins ideas.",
+        "Which option removes repeating while keeping the meaning?"
+      ],
+      "explanation": "Joining the ideas removes repeated words and keeps all the information."
+    },
+    {
+      "id": "e5.editing-proofreading.019",
+      "skill": "e5.editing-proofreading",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build the correct sentence. The coats belong to the children.",
+      "answer": "Their coats were hanging by the door.",
+      "distractors": [
+        "There"
+      ],
+      "hints": [
+        "Choose the word that shows belonging.",
+        "Their means belonging to them.",
+        "The sentence begins with that word."
+      ],
+      "explanation": "\"Their\" shows that the coats belong to them. \"There\" is a place."
+    },
+    {
+      "id": "e5.editing-proofreading.020",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence is fully correct?",
+      "options": [
+        {
+          "text": "The girl's bags were in the teachers room.",
+          "why": "The first apostrophe is wrong for more than one girl, and teachers' needs one."
+        },
+        {
+          "text": "The girls' bags were in the teachers' room."
+        },
+        {
+          "text": "The girls bags were in the teacher's room.",
+          "why": "The apostrophe is missing in girls', and teacher's means one teacher."
+        },
+        {
+          "text": "The girl's bags were in the teachers' room.",
+          "why": "Girl's means one girl."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Check whether each owner is one or many.",
+        "Plural owners put the apostrophe after the s.",
+        "Both owners here are plural."
+      ],
+      "explanation": "The bags belong to several girls and the room belongs to several teachers, so both need s'."
+    },
+    {
+      "id": "e5.editing-proofreading.021",
+      "skill": "e5.editing-proofreading",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is spelt wrongly? The hotel offered comfortable accomodation near the beach.",
+      "options": [
+        {
+          "text": "hotel",
+          "why": "Hotel is spelt correctly."
+        },
+        {
+          "text": "comfortable",
+          "why": "Comfortable is spelt correctly."
+        },
+        {
+          "text": "accomodation"
+        },
+        {
+          "text": "beach",
+          "why": "Beach is spelt correctly."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Three words are right and one is wrong.",
+        "Check double letters.",
+        "Accommodation has two c and two m."
+      ],
+      "explanation": "The correct spelling is accommodation, with double c and double m."
+    },
+    {
+      "id": "e5.editing-proofreading.022",
+      "skill": "e5.editing-proofreading",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Write the correct spelling of each wrong word.",
+      "head": [
+        "Wrong word",
+        "Correct word"
+      ],
+      "rows": [
+        [
+          "recieve",
+          ""
+        ],
+        [
+          "wich",
+          ""
+        ],
+        [
+          "thier",
+          ""
+        ],
+        [
+          "untill",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "receive"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "which"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "their"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "until"
+          ]
+        }
+      ],
+      "hints": [
+        "Remember \"i before e except after c\".",
+        "Say each word slowly.",
+        "Until has only one l."
+      ],
+      "explanation": "The correct spellings are receive, which, their and until."
+    },
+    {
+      "id": "e5.editing-proofreading.023",
+      "skill": "e5.editing-proofreading",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many mistakes are in this sentence? dewi and her freind walked too the shop",
+      "answer": 4,
+      "hints": [
+        "Check capital letters, spelling, homophones and the end.",
+        "Count each type once.",
+        "The sentence has no full stop."
+      ],
+      "explanation": "There are four mistakes: Dewi needs a capital, freind should be friend, too should be to, and a full stop is missing."
     }
   ]
 }

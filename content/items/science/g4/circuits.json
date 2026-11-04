@@ -421,6 +421,937 @@
         "Put the switch anywhere in the loop."
       ],
       "explanation": "The battery, bulb and switch must form one complete loop. When the switch closes, the bulb lights."
+    },
+    {
+      "id": "s4.circuits.013",
+      "skill": "s4.circuits",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A circuit with no gaps is called a ___ circuit.",
+      "blanks": [
+        {
+          "answers": [
+            "complete",
+            "closed"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about a loop with nothing missing.",
+        "The word describes a loop that is not broken.",
+        "The bulb lights only in this kind of circuit."
+      ],
+      "explanation": "A circuit with no gaps is complete, or closed. Electricity can flow all the way round it."
+    },
+    {
+      "id": "s4.circuits.014",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which power source is safe to use for circuit experiments at school?",
+      "options": [
+        {
+          "text": "A wall socket",
+          "why": "Mains electricity is dangerous and must never be used for experiments."
+        },
+        {
+          "text": "A small battery"
+        },
+        {
+          "text": "A power line outside",
+          "why": "Power lines carry far too much electricity."
+        },
+        {
+          "text": "A wet cable",
+          "why": "Water and electricity together are dangerous."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about what is safe for children.",
+        "Experiments use a very small amount of electricity.",
+        "Choose the one that you can hold in your hand."
+      ],
+      "explanation": "Small batteries give a safe amount of electricity. Mains sockets and power lines can hurt you."
+    },
+    {
+      "id": "s4.circuits.015",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ines says the bulb uses up all the electricity, so none goes back to the battery. Which is correct?",
+      "options": [
+        {
+          "text": "She is right, the bulb stores the electricity.",
+          "why": "A bulb does not store electricity."
+        },
+        {
+          "text": "She is right, only the first wire carries electricity.",
+          "why": "Electricity flows in every part of a complete loop."
+        },
+        {
+          "text": "She is wrong, electricity is not used up, it flows round the whole loop."
+        },
+        {
+          "text": "She is wrong, the battery only pushes at the start.",
+          "why": "The battery keeps pushing all the time the circuit is complete."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the shape of a circuit.",
+        "Does anything leave the loop?",
+        "The bulb changes the energy into light and heat."
+      ],
+      "explanation": "Electricity flows round the whole loop and is not used up. The bulb changes the energy it gets into light and heat."
+    },
+    {
+      "id": "s4.circuits.016",
+      "skill": "s4.circuits",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the circuit.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 138,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 40,
+            "x2": 260,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 60,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 180,
+            "x2": 120,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 180,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "rect",
+            "x": 44,
+            "y": 85,
+            "w": 32,
+            "h": 60,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 78,
+            "text": "+",
+            "size": 16,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 40,
+            "r": 20,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 40,
+            "x2": 170,
+            "y2": 40,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 40,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 180,
+            "r": 5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 200,
+            "cy": 180,
+            "r": 5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 180,
+            "x2": 200,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          }
+        ],
+        "alt": "A rectangular loop of wire. A battery is on the left side and a bulb is in the middle of the top wire. A closed switch is in the bottom wire."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The bulb is the part that makes light.",
+        "The switch is in the bottom wire."
+      ],
+      "explanation": "The battery pushes the electricity, the bulb gives light and the switch opens and closes the loop. The wire joins them.",
+      "labels": [
+        "battery",
+        "bulb",
+        "switch",
+        "wire"
+      ],
+      "spots": [
+        {
+          "x": 18.8,
+          "y": 52.3
+        },
+        {
+          "x": 50,
+          "y": 18.2
+        },
+        {
+          "x": 50,
+          "y": 81.8
+        },
+        {
+          "x": 81.3,
+          "y": 50
+        }
+      ]
+    },
+    {
+      "id": "s4.circuits.017",
+      "skill": "s4.circuits",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "This circuit is switched off. Tap the part that stops it working.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 138,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 40,
+            "x2": 260,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 60,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 180,
+            "x2": 120,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 180,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "rect",
+            "x": 44,
+            "y": 85,
+            "w": 32,
+            "h": 60,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 78,
+            "text": "+",
+            "size": 16,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 40,
+            "r": 20,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 40,
+            "x2": 170,
+            "y2": 40,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 40,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 180,
+            "r": 5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 200,
+            "cy": 180,
+            "r": 5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 180,
+            "x2": 190,
+            "y2": 150,
+            "tone": "ink",
+            "width": 4
+          }
+        ],
+        "alt": "A rectangular loop of wire. A battery is on the left side and a bulb is in the middle of the top wire. The switch in the bottom wire has its lever lifted away from the second contact."
+      },
+      "hints": [
+        "Look for a gap in the loop.",
+        "Only one part can be opened by hand.",
+        "Look at the bottom wire."
+      ],
+      "explanation": "The lever of the switch is lifted, so there is a gap in the loop. The electricity cannot flow, so the bulb is off.",
+      "regions": [
+        {
+          "label": "battery",
+          "x": 18.8,
+          "y": 52.3,
+          "w": 15.6,
+          "h": 36.4
+        },
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 18.2,
+          "w": 17.5,
+          "h": 25.5
+        },
+        {
+          "label": "switch",
+          "x": 50,
+          "y": 77.3,
+          "w": 31.3,
+          "h": 27.3
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s4.circuits.018",
+      "skill": "s4.circuits",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "The bulb will not light. Tap the place where the wire is broken.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 138,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 182,
+            "y1": 40,
+            "x2": 260,
+            "y2": 40,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 40,
+            "x2": 60,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 60,
+            "y1": 180,
+            "x2": 120,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 200,
+            "y1": 180,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "rect",
+            "x": 44,
+            "y": 85,
+            "w": 32,
+            "h": 60,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 78,
+            "text": "+",
+            "size": 16,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 40,
+            "r": 20,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 40,
+            "x2": 170,
+            "y2": 40,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 40,
+            "x2": 260,
+            "y2": 92,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 260,
+            "y1": 130,
+            "x2": 260,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 180,
+            "x2": 200,
+            "y2": 180,
+            "tone": "ink",
+            "width": 4
+          }
+        ],
+        "alt": "A rectangular loop of wire. A battery is on the left side and a bulb is in the middle of the top wire. The wire on the right side has a gap in the middle. The switch is closed."
+      },
+      "hints": [
+        "The switch is closed, so look elsewhere.",
+        "Follow the wire all the way round.",
+        "Look at the right side."
+      ],
+      "explanation": "There is a gap in the wire on the right side. The loop is not complete, so the bulb stays off.",
+      "regions": [
+        {
+          "label": "battery",
+          "x": 18.8,
+          "y": 52.3,
+          "w": 15.6,
+          "h": 36.4
+        },
+        {
+          "label": "bulb",
+          "x": 50,
+          "y": 18.2,
+          "w": 17.5,
+          "h": 25.5
+        },
+        {
+          "label": "switch",
+          "x": 50,
+          "y": 77.3,
+          "w": 31.3,
+          "h": 27.3
+        },
+        {
+          "label": "broken wire",
+          "x": 81.3,
+          "y": 50.5,
+          "w": 13.8,
+          "h": 27.3
+        }
+      ],
+      "answers": [
+        3
+      ]
+    },
+    {
+      "id": "s4.circuits.019",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "This circuit has a battery, a buzzer and a closed switch. What happens when the switch is opened?",
+      "options": [
+        {
+          "text": "The buzzer gets louder.",
+          "why": "An open switch cuts off the electricity."
+        },
+        {
+          "text": "The buzzer stays the same.",
+          "why": "The gap stops the electricity everywhere in the loop."
+        },
+        {
+          "text": "The buzzer stops."
+        },
+        {
+          "text": "The battery fills up with electricity.",
+          "why": "A battery does not store extra electricity when the loop is open."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "What does an open switch make?",
+        "Think about the loop.",
+        "Is the loop still complete?"
+      ],
+      "explanation": "An open switch makes a gap, so the circuit is not complete. The electricity stops and the buzzer is silent.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "buzzer",
+          "switch-closed"
+        ],
+        "alt": "A circuit with a battery, a buzzer and a closed switch in one loop."
+      }
+    },
+    {
+      "id": "s4.circuits.020",
+      "skill": "s4.circuits",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "A doorbell has a button that works like a switch. Put the steps in order.",
+      "items": [
+        "Someone presses the button.",
+        "The circuit is now complete.",
+        "Electricity flows to the buzzer.",
+        "The buzzer makes a sound."
+      ],
+      "hints": [
+        "Start with what a person does.",
+        "The button closes a gap.",
+        "A complete circuit lets electricity flow."
+      ],
+      "explanation": "Pressing the button closes the gap, so the circuit is complete. Then electricity flows and the buzzer sounds."
+    },
+    {
+      "id": "s4.circuits.021",
+      "skill": "s4.circuits",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 changes that make a bulb dimmer in a simple circuit.",
+      "options": [
+        {
+          "text": "Add a second bulb in the same loop"
+        },
+        {
+          "text": "Use a shorter wire"
+        },
+        {
+          "text": "Use a weaker battery"
+        },
+        {
+          "text": "Turn the bulb upside down"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about how much electricity reaches each bulb.",
+        "Sharing a battery between two bulbs gives each one less.",
+        "A weaker battery pushes less."
+      ],
+      "explanation": "Two bulbs share the battery in one loop, so each is dimmer. A weaker battery also pushes less electricity."
+    },
+    {
+      "id": "s4.circuits.022",
+      "skill": "s4.circuits",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each part by its job in a circuit.",
+      "groups": [
+        "Gives energy",
+        "Uses energy",
+        "Controls the circuit"
+      ],
+      "items": [
+        {
+          "text": "battery",
+          "group": 0
+        },
+        {
+          "text": "bulb",
+          "group": 1
+        },
+        {
+          "text": "buzzer",
+          "group": 1
+        },
+        {
+          "text": "motor",
+          "group": 1
+        },
+        {
+          "text": "switch",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "The battery is the energy source.",
+        "Some parts change electricity into light, sound or movement.",
+        "The switch decides if the loop is open or closed."
+      ],
+      "explanation": "The battery gives energy. The bulb, buzzer and motor use it to make light, sound and movement. The switch controls the loop."
+    },
+    {
+      "id": "s4.circuits.023",
+      "skill": "s4.circuits",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Maya adds batteries one at a time and scores the bulb brightness out of 10. Complete the table.",
+      "head": [
+        "Batteries",
+        "Brightness"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "4"
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "4",
+          "8"
+        ],
+        [
+          "5",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "6"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "10"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at how the brightness changes each time.",
+        "It goes up by the same amount each time.",
+        "Brightness goes up by 2 for each battery."
+      ],
+      "explanation": "The brightness goes up by 2 for each battery added. So 3 batteries give 6 and 5 batteries give 10."
+    },
+    {
+      "id": "s4.circuits.024",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Tom joins two wires to the same end of a battery. The other ends go to a bulb. The bulb is off. Why?",
+      "options": [
+        {
+          "text": "The bulb is too big for the battery.",
+          "why": "The size of the bulb is not the problem."
+        },
+        {
+          "text": "Electricity cannot flow from both wires at once.",
+          "why": "Electricity can flow in the wires, but only in a loop."
+        },
+        {
+          "text": "Both wires are on the same end, so the loop never reaches the other end of the battery."
+        },
+        {
+          "text": "The wires are the wrong colour.",
+          "why": "The colour of a wire does not matter."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at where each wire touches the battery.",
+        "A battery has two ends.",
+        "The loop must go from one end to the other end."
+      ],
+      "explanation": "A circuit must go from one end of the battery, through the bulb, to the other end. With both wires on one end there is no complete loop."
+    },
+    {
+      "id": "s4.circuits.025",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Leo tests if more batteries make a bulb brighter. What must he keep the same?",
+      "options": [
+        {
+          "text": "The number of batteries",
+          "why": "That is the thing he changes."
+        },
+        {
+          "text": "The brightness of the bulb",
+          "why": "That is what he measures."
+        },
+        {
+          "text": "The same type of bulb and wires"
+        },
+        {
+          "text": "The day of the week",
+          "why": "The day does not affect the bulb, and it is not something he controls here."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Name what Leo changes and what he measures.",
+        "Everything else should stay fixed.",
+        "Choose the thing that could change the brightness if it was different."
+      ],
+      "explanation": "Leo changes the number of batteries and measures brightness. He keeps the bulb and wires the same so the test is fair."
+    },
+    {
+      "id": "s4.circuits.026",
+      "skill": "s4.circuits",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A toy torch needs 2 batteries to work. Dewi has 7 batteries. How many torches can she make work?",
+      "answer": 3,
+      "hints": [
+        "Each torch uses 2 batteries.",
+        "Share 7 batteries into pairs.",
+        "Count how many full pairs there are."
+      ],
+      "explanation": "7 batteries make 3 pairs with 1 left over. The odd battery is not enough for a torch, so 3 torches work."
+    },
+    {
+      "id": "s4.circuits.027",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "In this circuit diagram drawn with symbols, will the bulb be lit?",
+      "options": [
+        {
+          "text": "Yes, the battery is in the circuit.",
+          "why": "A battery alone does not light the bulb if the switch makes a gap."
+        },
+        {
+          "text": "No, the open switch makes a gap."
+        },
+        {
+          "text": "Yes, bulbs always light.",
+          "why": "A bulb lights only when electricity flows."
+        },
+        {
+          "text": "No, there is no wire.",
+          "why": "There is a wire joining the parts."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the switch symbol.",
+        "Is it open or closed?",
+        "A gap stops the electricity."
+      ],
+      "explanation": "The symbol shows an open switch, so there is a gap. The circuit is incomplete and the bulb is off.",
+      "figure": {
+        "kind": "circuit",
+        "parts": [
+          "battery",
+          "bulb",
+          "switch-open"
+        ],
+        "symbols": true,
+        "alt": "A circuit diagram using symbols: a battery, a bulb and an open switch in one loop."
+      }
+    },
+    {
+      "id": "s4.circuits.028",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Three bulbs share one loop. Rina unscrews the middle bulb. What happens to the other two?",
+      "options": [
+        {
+          "text": "They stay lit because they still touch the battery.",
+          "why": "Touching the battery is not enough. The loop must be complete."
+        },
+        {
+          "text": "They get brighter because they have more electricity.",
+          "why": "Without a complete loop there is no flow at all."
+        },
+        {
+          "text": "They both go out because the loop is broken."
+        },
+        {
+          "text": "Only the one next to the battery stays lit.",
+          "why": "Electricity flows round the whole loop, so all stop together."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the loop.",
+        "Unscrewing a bulb makes a gap.",
+        "All parts in one loop depend on each other."
+      ],
+      "explanation": "The three bulbs are in one loop. Taking one out makes a gap, so electricity stops and all go out."
+    },
+    {
+      "id": "s4.circuits.029",
+      "skill": "s4.circuits",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A torch light flickers when Sekar wiggles the battery. What is the most likely cause?",
+      "options": [
+        {
+          "text": "A loose connection that keeps breaking the loop."
+        },
+        {
+          "text": "The bulb is too bright.",
+          "why": "A bulb that is too bright would not flicker when moved."
+        },
+        {
+          "text": "The electricity is used up.",
+          "why": "Electricity is not used up."
+        },
+        {
+          "text": "The torch is too cold.",
+          "why": "Cold does not make it flicker when you wiggle the battery."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The flicker happens when she moves it.",
+        "Movement can change a contact.",
+        "The loop keeps going on and off."
+      ],
+      "explanation": "A loose contact keeps making and breaking the loop. When the loop breaks, the light goes out for a moment."
     }
   ]
 }

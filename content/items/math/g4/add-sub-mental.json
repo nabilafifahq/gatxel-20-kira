@@ -1,0 +1,36 @@
+{
+  "skill": "m4.add-sub-mental",
+  "items": [
+    {
+      "id": "m4.add-sub-mental.001",
+      "skill": "m4.add-sub-mental",
+      "difficulty": 3,
+      "prompt": "Work out 4,998 + 3,457 in your head.",
+      "hints": [
+        "4,998 is very close to a round number.",
+        "Add 5,000 instead, then fix it.",
+        "5,000 + 3,457 = 8,457. You added 2 too many."
+      ],
+      "explanation": "4,998 is 2 less than 5,000. So 5,000 + 3,457 = 8,457, and taking off 2 leaves 8,455.",
+      "type": "numeric",
+      "answer": 8455
+    },
+    {
+      "id": "m4.add-sub-mental.002",
+      "skill": "m4.add-sub-mental",
+      "difficulty": 3,
+      "prompt": "A bus has 58 seats. At the first stop 27 people get on. At the next stop 14 get off and 19 get on. How many seats are empty now?",
+      "hints": [
+        "Work out how many people are on the bus.",
+        "27 - 14 + 19 people are on the bus.",
+        "Take that number away from 58."
+      ],
+      "explanation": "27 - 14 = 13, and 13 + 19 = 32 people are on the bus. 58 - 32 = 26 seats are empty.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 26
+    }
+  ]
+}

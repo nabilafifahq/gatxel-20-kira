@@ -1,0 +1,70 @@
+{
+  "skill": "m5.multiply-written",
+  "items": [
+    {
+      "id": "m5.multiply-written.001",
+      "skill": "m5.multiply-written",
+      "difficulty": 3,
+      "prompt": "A nursery sends 3,284 saplings to each of 7 villages. How many saplings is that altogether?",
+      "hints": [
+        "Multiply the ones first, then the tens.",
+        "Carry the extra tens, hundreds and thousands.",
+        "3,284 × 7 can be split into 3,000 × 7 + 284 × 7."
+      ],
+      "explanation": "3,284 × 7 = 22,988 saplings.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 22988
+    },
+    {
+      "id": "m5.multiply-written.002",
+      "skill": "m5.multiply-written",
+      "difficulty": 4,
+      "prompt": "There are 38 buses. Each bus carries 45 passengers on a trip and makes 2 trips a day. How many passengers do the buses carry in one day?",
+      "hints": [
+        "Find the passengers on one trip for all buses.",
+        "38 × 45 first.",
+        "Then multiply by 2 trips."
+      ],
+      "explanation": "38 × 45 = 1,710 passengers on one trip. With 2 trips that is 1,710 × 2 = 3,420.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 3420
+    },
+    {
+      "id": "m5.multiply-written.003",
+      "skill": "m5.multiply-written",
+      "difficulty": 3,
+      "prompt": "Which is the best estimate for 39 × 61?",
+      "hints": [
+        "Round each number to the nearest ten.",
+        "39 is close to 40 and 61 is close to 60.",
+        "Work out 4 × 6 and then think about the zeros."
+      ],
+      "explanation": "39 is about 40 and 61 is about 60. 40 × 60 = 2,400.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "240",
+          "why": "You multiplied 40 × 6 and forgot that 61 is about 60, not 6."
+        },
+        {
+          "text": "24,000",
+          "why": "This is ten times too big. 40 × 60 is 2,400."
+        },
+        {
+          "text": "2,400"
+        },
+        {
+          "text": "100",
+          "why": "You added the numbers. The problem asks for 39 times 61."
+        }
+      ],
+      "answer": 2
+    }
+  ]
+}

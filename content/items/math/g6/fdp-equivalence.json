@@ -1,0 +1,71 @@
+{
+  "skill": "m6.fdp-equivalence",
+  "items": [
+    {
+      "id": "m6.fdp-equivalence.001",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 3,
+      "prompt": "Which is the largest: 0.6, 5/8, 62% or 3/5?",
+      "hints": [
+        "Change every number to a decimal.",
+        "5/8 = 5 ÷ 8.",
+        "Compare 0.600, 0.620 and your answer for 5/8."
+      ],
+      "explanation": "5/8 = 0.625, 62% = 0.62, and 0.6 = 3/5 = 0.6. The largest is 5/8.",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "5/8"
+        },
+        {
+          "text": "0.6",
+          "why": "0.6 is 0.600, which is smaller than 0.625."
+        },
+        {
+          "text": "62%",
+          "why": "62% is 0.62, which is just under 0.625."
+        },
+        {
+          "text": "3/5",
+          "why": "3/5 is 0.6, smaller than 5/8."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m6.fdp-equivalence.002",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 4,
+      "prompt": "Write 7/40 as a percentage. Give the number only, without the % sign.",
+      "hints": [
+        "Change the fraction to a decimal first.",
+        "7 ÷ 40 = 0.175.",
+        "Multiply the decimal by 100."
+      ],
+      "explanation": "7 ÷ 40 = 0.175 and 0.175 × 100 = 17.5, so 7/40 is 17.5%.",
+      "tags": [],
+      "unit": "%",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 17.5
+    },
+    {
+      "id": "m6.fdp-equivalence.003",
+      "skill": "m6.fdp-equivalence",
+      "difficulty": 4,
+      "prompt": "Write 0.045 as a percentage. Give the number only, without the % sign.",
+      "hints": [
+        "A percentage is a number out of 100.",
+        "Multiply by 100 by moving each digit two places left.",
+        "0.045 becomes 4.5."
+      ],
+      "explanation": "0.045 × 100 = 4.5, so 0.045 is 4.5%.",
+      "tags": [],
+      "unit": "%",
+      "allowDecimal": true,
+      "type": "numeric",
+      "answer": 4.5
+    }
+  ]
+}

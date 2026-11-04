@@ -1,0 +1,66 @@
+{
+  "skill": "m5.angles",
+  "items": [
+    {
+      "id": "m5.angles.001",
+      "skill": "m5.angles",
+      "difficulty": 3,
+      "prompt": "Three angles meet on a straight line. Two of them are 65° and 48°. What is the third angle, in degrees?",
+      "hints": [
+        "Angles on a straight line add up to 180°.",
+        "Add the two angles you know.",
+        "Take that total from 180."
+      ],
+      "explanation": "65 + 48 = 113. 180 - 113 = 67°.",
+      "unit": "°",
+      "type": "numeric",
+      "answer": 67
+    },
+    {
+      "id": "m5.angles.002",
+      "skill": "m5.angles",
+      "difficulty": 3,
+      "prompt": "In an isosceles triangle, each of the two equal base angles is 70°. What is the angle at the top, in degrees?",
+      "hints": [
+        "The angles in a triangle add up to 180°.",
+        "Both base angles are 70°.",
+        "Take both base angles from 180."
+      ],
+      "explanation": "70 + 70 = 140. 180 - 140 = 40°.",
+      "unit": "°",
+      "type": "numeric",
+      "answer": 40
+    },
+    {
+      "id": "m5.angles.003",
+      "skill": "m5.angles",
+      "difficulty": 4,
+      "prompt": "What is the angle between the hands of a clock at 4 o'clock?",
+      "hints": [
+        "The clock face is a full turn of 360°.",
+        "There are 12 hours, so each hour gap is the same angle.",
+        "Find 360 ÷ 12 and count 4 gaps."
+      ],
+      "explanation": "Each hour gap on a clock is 360 ÷ 12 = 30°. At 4 o'clock the hands are 4 gaps apart, so the angle is 4 × 30 = 120°.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "90°",
+          "why": "That is the angle at 3 o'clock. At 4 o'clock the hour hand is one hour further."
+        },
+        {
+          "text": "60°",
+          "why": "That is the angle at 2 o'clock (or 10 o'clock)."
+        },
+        {
+          "text": "150°",
+          "why": "That is the angle at 5 o'clock."
+        },
+        {
+          "text": "120°"
+        }
+      ],
+      "answer": 3
+    }
+  ]
+}

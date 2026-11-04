@@ -374,6 +374,619 @@
         "iksc",
         "olympiad"
       ]
+    },
+    {
+      "id": "s4.solids-liquids-gases.012",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which state of matter keeps its own shape?",
+      "options": [
+        {
+          "text": "solid"
+        },
+        {
+          "text": "liquid",
+          "why": "A liquid takes the shape of its container."
+        },
+        {
+          "text": "gas",
+          "why": "A gas spreads out to fill its container."
+        },
+        {
+          "text": "water vapour",
+          "why": "Water vapour is a gas, so it spreads out."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about a stone in a bowl.",
+        "The shape does not change when you move it.",
+        "A liquid and a gas both change shape."
+      ],
+      "explanation": "A solid keeps its own shape wherever you put it."
+    },
+    {
+      "id": "s4.solids-liquids-gases.013",
+      "skill": "s4.solids-liquids-gases",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the liquid.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "bread",
+            "x": 30,
+            "y": 40,
+            "size": 70
+          },
+          {
+            "t": "icon",
+            "icon": "milk",
+            "x": 145,
+            "y": 40,
+            "size": 70
+          },
+          {
+            "t": "icon",
+            "icon": "cookie",
+            "x": 260,
+            "y": 40,
+            "size": 70
+          }
+        ],
+        "alt": "Three kitchen things: bread on the left, a carton of milk in the middle and a cookie on the right."
+      },
+      "regions": [
+        {
+          "label": "bread",
+          "x": 18,
+          "y": 50,
+          "w": 20,
+          "h": 45
+        },
+        {
+          "label": "milk",
+          "x": 50,
+          "y": 50,
+          "w": 20,
+          "h": 45
+        },
+        {
+          "label": "cookie",
+          "x": 82,
+          "y": 50,
+          "w": 20,
+          "h": 45
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "A liquid flows and can be poured.",
+        "You drink it from a carton.",
+        "Bread and cookies are solids."
+      ],
+      "explanation": "Milk flows and can be poured, so it is a liquid. Bread and a cookie are solids."
+    },
+    {
+      "id": "s4.solids-liquids-gases.014",
+      "skill": "s4.solids-liquids-gases",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label what is inside the closed bottle. Air is a gas you cannot see.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 120,
+            "y": 40,
+            "w": 160,
+            "h": 240,
+            "r": 10,
+            "tone": "ink",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 124,
+            "y": 130,
+            "w": 152,
+            "h": 146,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 200,
+            "cy": 255,
+            "rx": 36,
+            "ry": 20,
+            "tone": "muted",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 150,
+            "y": 20,
+            "w": 100,
+            "h": 22,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A closed bottle with a red cap. The bottom half is full of blue water with a grey stone resting at the bottom. The top half looks empty."
+      },
+      "labels": [
+        "gas (air)",
+        "liquid (water)",
+        "solid (stone)"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 28.3
+        },
+        {
+          "x": 40,
+          "y": 61.7
+        },
+        {
+          "x": 50,
+          "y": 86
+        }
+      ],
+      "extraLabels": [
+        "steam"
+      ],
+      "hints": [
+        "The stone is hard and keeps its shape.",
+        "The water flows and fills the bottom.",
+        "The top part is not empty. Air fills it."
+      ],
+      "explanation": "The stone is a solid, the water is a liquid and the air in the top is a gas."
+    },
+    {
+      "id": "s4.solids-liquids-gases.015",
+      "skill": "s4.solids-liquids-gases",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table. Use the words solid, liquid, gas, yes or no.",
+      "caption": "Squashing materials",
+      "head": [
+        "Material",
+        "State",
+        "Easy to squash?"
+      ],
+      "rows": [
+        [
+          "Wood",
+          "solid",
+          "no"
+        ],
+        [
+          "Milk",
+          "liquid",
+          ""
+        ],
+        [
+          "Air",
+          "",
+          "yes"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "no"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "gas"
+          ]
+        }
+      ],
+      "hints": [
+        "A gas can be squashed into a smaller space.",
+        "Milk is a liquid and is hard to squash.",
+        "Air is a gas."
+      ],
+      "explanation": "Wood and milk are hard to squash. Air is a gas and is easy to squash."
+    },
+    {
+      "id": "s4.solids-liquids-gases.016",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at the syringe results. What do they show?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Syringe holds",
+          "Start (ml)",
+          "After pushing (ml)"
+        ],
+        "rows": [
+          [
+            "Air",
+            "10",
+            "4"
+          ],
+          [
+            "Water",
+            "10",
+            "10"
+          ]
+        ],
+        "alt": "Table of two sealed syringes. Air started at 10 ml and was pushed to 4 ml. Water started at 10 ml and stayed at 10 ml."
+      },
+      "options": [
+        {
+          "text": "Water can be squashed more than air",
+          "why": "The water stayed at 10 ml, so it was not squashed."
+        },
+        {
+          "text": "Air and water squash by the same amount",
+          "why": "The air went from 10 ml to 4 ml and the water stayed at 10 ml."
+        },
+        {
+          "text": "Air can be squashed into a smaller space but water cannot"
+        },
+        {
+          "text": "Neither air nor water can be squashed",
+          "why": "The air was squashed from 10 ml to 4 ml."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Compare the start and end for each syringe.",
+        "Which volume got smaller?",
+        "Think about which state can be squashed."
+      ],
+      "explanation": "The air was pushed into a smaller space. The water volume did not change, so a liquid is hard to squash."
+    },
+    {
+      "id": "s4.solids-liquids-gases.017",
+      "skill": "s4.solids-liquids-gases",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A jug holds 750 ml of juice. Dewi pours 3 cups of 150 ml each. How much juice is left?",
+      "answer": 300,
+      "unit": "ml",
+      "hints": [
+        "Find how much juice is poured out altogether.",
+        "Multiply 3 by 150.",
+        "Take that amount away from 750."
+      ],
+      "explanation": "3 x 150 = 450 ml is poured out. 750 - 450 = 300 ml is left."
+    },
+    {
+      "id": "s4.solids-liquids-gases.018",
+      "skill": "s4.solids-liquids-gases",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each material into the correct state.",
+      "groups": [
+        "Solid",
+        "Liquid",
+        "Gas"
+      ],
+      "items": [
+        {
+          "text": "sugar",
+          "group": 0
+        },
+        {
+          "text": "sponge",
+          "group": 0
+        },
+        {
+          "text": "honey",
+          "group": 1
+        },
+        {
+          "text": "ink",
+          "group": 1
+        },
+        {
+          "text": "oxygen",
+          "group": 2
+        },
+        {
+          "text": "helium",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Sugar grains and a sponge both keep their own shape.",
+        "Honey and ink flow.",
+        "Oxygen and helium spread out in the air."
+      ],
+      "explanation": "Sugar and a sponge are solids, honey and ink are liquids, and oxygen and helium are gases."
+    },
+    {
+      "id": "s4.solids-liquids-gases.019",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Dewi squashes a sponge and it changes shape. She says it is not a solid. What is the best reply?",
+      "options": [
+        {
+          "text": "She is right, a sponge is a liquid",
+          "why": "A sponge does not flow or take the shape of a container."
+        },
+        {
+          "text": "It is a solid with air holes, and it springs back to its shape"
+        },
+        {
+          "text": "She is right, a sponge is a gas",
+          "why": "A sponge does not spread out to fill a space."
+        },
+        {
+          "text": "A sponge is not a material",
+          "why": "A sponge is made of a material and it is a solid object."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A liquid flows. Does a sponge flow?",
+        "A sponge returns to its shape after being squeezed.",
+        "Think about the tiny holes full of air."
+      ],
+      "explanation": "A sponge keeps its shape and goes back to it when you let go. The air in its holes squashes, but the sponge is a solid."
+    },
+    {
+      "id": "s4.solids-liquids-gases.020",
+      "skill": "s4.solids-liquids-gases",
+      "type": "match",
+      "difficulty": 1,
+      "prompt": "Match each state to an example in the kitchen.",
+      "pairs": [
+        [
+          "solid",
+          "a wooden spoon"
+        ],
+        [
+          "liquid",
+          "cooking oil"
+        ],
+        [
+          "gas",
+          "air in a balloon"
+        ]
+      ],
+      "hints": [
+        "A spoon keeps its shape.",
+        "Cooking oil can be poured.",
+        "A balloon is filled with air."
+      ],
+      "explanation": "A wooden spoon is a solid, cooking oil is a liquid and air in a balloon is a gas."
+    },
+    {
+      "id": "s4.solids-liquids-gases.021",
+      "skill": "s4.solids-liquids-gases",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 properties of liquids.",
+      "options": [
+        {
+          "text": "flows and can be poured"
+        },
+        {
+          "text": "keeps its own shape",
+          "why": "Only a solid keeps its own shape."
+        },
+        {
+          "text": "takes the shape of its container"
+        },
+        {
+          "text": "is easy to squash into a smaller space",
+          "why": "That is a property of a gas."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about pouring juice into a glass.",
+        "The juice changes shape but stays the same amount.",
+        "Choose the two properties that fit pouring."
+      ],
+      "explanation": "A liquid flows and takes the shape of its container."
+    },
+    {
+      "id": "s4.solids-liquids-gases.022",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A sealed syringe holds 10 ml of air. Maya pushes the plunger until it reads 5 ml. What has happened to the air?",
+      "options": [
+        {
+          "text": "Half of the air has disappeared",
+          "why": "The syringe is sealed, so no air can escape."
+        },
+        {
+          "text": "The air has turned into a liquid",
+          "why": "Squashing does not change air into a liquid here."
+        },
+        {
+          "text": "The air has turned into a solid",
+          "why": "Squashing air does not make it solid."
+        },
+        {
+          "text": "The same air is squashed into a smaller space"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The syringe is sealed.",
+        "Air cannot get in or out.",
+        "Think about what changes: the amount of air or the space it takes up."
+      ],
+      "explanation": "No air escaped because the syringe is sealed. The air is squashed so it takes up less space."
+    },
+    {
+      "id": "s4.solids-liquids-gases.023",
+      "skill": "s4.solids-liquids-gases",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "A material that flows and takes the shape of its container is a ___.",
+      "blanks": [
+        {
+          "answers": [
+            "liquid"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about water in a cup.",
+        "It is not a solid or a gas.",
+        "The word starts with the letter l."
+      ],
+      "explanation": "A liquid flows and takes the shape of its container."
+    },
+    {
+      "id": "s4.solids-liquids-gases.024",
+      "skill": "s4.solids-liquids-gases",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A solid keeps its own ___. A gas spreads out to fill all the ___ it can.",
+      "gaps": [
+        {
+          "options": [
+            "shape",
+            "colour",
+            "smell"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "space",
+            "water",
+            "weight"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Think about a stone and a balloon.",
+        "A stone does not change its form.",
+        "A gas fills the whole container."
+      ],
+      "explanation": "A solid keeps its shape. A gas spreads out to fill all the space it can."
+    },
+    {
+      "id": "s4.solids-liquids-gases.025",
+      "skill": "s4.solids-liquids-gases",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these in order, from hardest to squash to easiest to squash.",
+      "items": [
+        "brick",
+        "water",
+        "air"
+      ],
+      "hints": [
+        "A gas is the easiest to squash.",
+        "A solid is the hardest to squash.",
+        "A liquid is in the middle."
+      ],
+      "explanation": "A brick is a solid and is very hard to squash. Water is hard to squash. Air is easy to squash."
+    },
+    {
+      "id": "s4.solids-liquids-gases.026",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A football has a mass of 410 g. After it is pumped with air, its mass is 425 g. What does this show?",
+      "options": [
+        {
+          "text": "Air has mass"
+        },
+        {
+          "text": "Air has no mass",
+          "why": "The football got heavier, so the air must have mass."
+        },
+        {
+          "text": "Air is lighter than nothing",
+          "why": "The football got heavier, not lighter."
+        },
+        {
+          "text": "The ball grew by itself",
+          "why": "A ball cannot add mass on its own. The mass came from the air."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Compare the two masses.",
+        "What was added to the ball?",
+        "Subtract 410 from 425."
+      ],
+      "explanation": "The extra 15 g comes from the air pumped in, so air has mass."
+    },
+    {
+      "id": "s4.solids-liquids-gases.027",
+      "skill": "s4.solids-liquids-gases",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The chart shows the mass of 100 ml of each liquid. Which liquid has the most mass?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Honey",
+          "Oil",
+          "Water",
+          "Milk"
+        ],
+        "values": [
+          142,
+          92,
+          100,
+          103
+        ],
+        "step": 20,
+        "yLabel": "Mass of 100 ml (g)",
+        "alt": "Bar chart of the mass of 100 ml of each liquid. Honey 142 g, oil 92 g, water 100 g, milk 103 g."
+      },
+      "options": [
+        {
+          "text": "water",
+          "why": "Water is 100 g, which is less than honey."
+        },
+        {
+          "text": "oil",
+          "why": "Oil is the lightest here at 92 g."
+        },
+        {
+          "text": "milk",
+          "why": "Milk is 103 g, which is less than honey."
+        },
+        {
+          "text": "honey"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Look for the tallest bar.",
+        "The volume is the same for each liquid.",
+        "The tallest bar has the most mass."
+      ],
+      "explanation": "Honey has the tallest bar, 142 g for 100 ml. Different liquids can have different masses for the same volume."
     }
   ]
 }

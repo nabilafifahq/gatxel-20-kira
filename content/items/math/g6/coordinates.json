@@ -1,0 +1,75 @@
+{
+  "skill": "m6.coordinates",
+  "items": [
+    {
+      "id": "m6.coordinates.001",
+      "skill": "m6.coordinates",
+      "difficulty": 3,
+      "prompt": "Point A is at (−3, 2) and point B is at (4, 2). How many units apart are A and B?",
+      "hints": [
+        "The y-coordinates are the same, so the line is horizontal.",
+        "Count from −3 to 0, then from 0 to 4.",
+        "Add the two distances."
+      ],
+      "explanation": "From −3 to 0 is 3 units and from 0 to 4 is 4 units. The distance is 3 + 4 = 7 units.",
+      "tags": [],
+      "unit": "units",
+      "type": "numeric",
+      "answer": 7
+    },
+    {
+      "id": "m6.coordinates.002",
+      "skill": "m6.coordinates",
+      "difficulty": 4,
+      "prompt": "Three corners of a rectangle are at (−2, −1), (3, −1) and (3, 4). What are the coordinates of the fourth corner?",
+      "hints": [
+        "Opposite sides of a rectangle are parallel to the axes here.",
+        "The fourth corner shares an x-coordinate with (−2, −1).",
+        "It shares a y-coordinate with (3, 4)."
+      ],
+      "explanation": "The corner above (−2, −1) and beside (3, 4) has the x-coordinate −2 and y-coordinate 4. It is at (−2, 4).",
+      "tags": [],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "(−2, 3)",
+          "why": "The fourth corner must be level with (3, 4), so its y-coordinate is 4."
+        },
+        {
+          "text": "(4, −2)",
+          "why": "The coordinates are swapped and do not match the rectangle."
+        },
+        {
+          "text": "(−2, 4)"
+        },
+        {
+          "text": "(3, −2)",
+          "why": "This is not in line with the other corners."
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "m6.coordinates.003",
+      "skill": "m6.coordinates",
+      "difficulty": 5,
+      "prompt": "The points P(−4, −3) and Q(6, 5) are the two ends of a straight line. What are the coordinates of the middle point of the line? Write them like (2, 3).",
+      "hints": [
+        "The middle value of two numbers is their average.",
+        "x: (−4 + 6) ÷ 2.",
+        "y: (−3 + 5) ÷ 2."
+      ],
+      "explanation": "x: (−4 + 6) ÷ 2 = 1. y: (−3 + 5) ÷ 2 = 1. The middle point is (1, 1).",
+      "tags": [],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "(1, 1)",
+            "(1,1)"
+          ]
+        }
+      ]
+    }
+  ]
+}

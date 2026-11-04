@@ -1,0 +1,89 @@
+{
+  "skill": "m6.add-subtract-fractions",
+  "items": [
+    {
+      "id": "m6.add-subtract-fractions.001",
+      "skill": "m6.add-subtract-fractions",
+      "difficulty": 3,
+      "prompt": "Dewi walks 3/4 km to the market and then 5/6 km to school. How many kilometres does she walk altogether? Write a mixed number such as 2 1/3.",
+      "hints": [
+        "Change both fractions to twelfths.",
+        "3/4 = 9/12 and 5/6 = 10/12.",
+        "Add them, then write the answer as a mixed number."
+      ],
+      "explanation": "3/4 = 9/12 and 5/6 = 10/12. Together 19/12, which is 1 7/12 km.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "1 7/12",
+            "19/12",
+            "1 and 7/12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.add-subtract-fractions.002",
+      "skill": "m6.add-subtract-fractions",
+      "difficulty": 4,
+      "prompt": "Pak Joko has 5 1/3 kg of rice. He uses 2 3/4 kg. How many kilograms are left? Write a mixed number such as 2 1/3.",
+      "hints": [
+        "Use a common denominator of 12.",
+        "5 1/3 = 5 4/12 and 2 3/4 = 2 9/12.",
+        "4/12 is smaller than 9/12, so borrow 1 from the 5."
+      ],
+      "explanation": "5 4/12 = 4 16/12. Then 4 16/12 − 2 9/12 = 2 7/12 kg.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "text",
+      "blanks": [
+        {
+          "answers": [
+            "2 7/12",
+            "31/12",
+            "2 and 7/12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6.add-subtract-fractions.003",
+      "skill": "m6.add-subtract-fractions",
+      "difficulty": 4,
+      "prompt": "Leo works out 2/3 + 1/4 and writes 3/7. What is the correct answer?",
+      "hints": [
+        "Fractions can only be added when they have the same denominator.",
+        "The lowest common denominator of 3 and 4 is 12.",
+        "2/3 = 8/12 and 1/4 = 3/12."
+      ],
+      "explanation": "2/3 = 8/12 and 1/4 = 3/12. Adding gives 11/12.",
+      "tags": [
+        "error-analysis"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "3/7",
+          "why": "He added the tops and the bottoms. The parts must be the same size before adding."
+        },
+        {
+          "text": "11/12"
+        },
+        {
+          "text": "3/12",
+          "why": "The denominator is right, but the tops must be changed to twelfths first."
+        },
+        {
+          "text": "1/2",
+          "why": "This is 3/6, which also adds tops and bottoms in a different way."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "skill": "e4.speech-punctuation",
+  "title": "Speech marks and end marks",
+  "steps": [
+    {
+      "say": "Every sentence ends with a full stop, a question mark or an exclamation mark.",
+      "show": ".  ?  !"
+    },
+    {
+      "say": "Speech marks go around the exact words someone says.",
+      "show": "“Come here,” said Dad."
+    },
+    {
+      "say": "A comma, question mark or exclamation mark goes inside the closing speech marks.",
+      "show": "“Where is my hat?” asked Dad."
+    },
+    {
+      "say": "When the speaker comes first, put a comma after said. The spoken words start with a capital.",
+      "show": "Dad said, “It is time to go.”"
+    },
+    {
+      "say": "When a speaker interrupts, the second part carries on with a small letter.",
+      "show": "“Please,” said Ines, “close the window.”"
+    }
+  ],
+  "check": [
+    {
+      "id": "e4.speech-punctuation.901",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence is punctuated correctly?",
+      "options": [
+        {
+          "text": "“Come in,” said Mum."
+        },
+        {
+          "text": "“Come in” said Mum.",
+          "why": "A comma is missing before the closing speech marks."
+        },
+        {
+          "text": "“Come in”, said Mum.",
+          "why": "The comma goes inside the speech marks."
+        },
+        {
+          "text": "Come in, “said Mum.”",
+          "why": "The speech marks are in the wrong place."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What are the spoken words?",
+        "Where does the comma go?",
+        "Check that only the spoken words are in the speech marks."
+      ],
+      "explanation": "The comma goes inside the closing speech marks, and said Mum stays outside."
+    },
+    {
+      "id": "e4.speech-punctuation.902",
+      "skill": "e4.speech-punctuation",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence needs a question mark?",
+      "options": [
+        {
+          "text": "Tell me the time",
+          "why": "This is a command, so it needs a full stop."
+        },
+        {
+          "text": "I wonder what the time is",
+          "why": "This is a statement, so it needs a full stop."
+        },
+        {
+          "text": "What a lovely day",
+          "why": "This shows strong feeling, so it can end with an exclamation mark."
+        },
+        {
+          "text": "Do you know the time"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "A question waits for an answer.",
+        "Questions often begin with do, can, what or where.",
+        "Look for the sentence that asks directly."
+      ],
+      "explanation": "Do you know the time asks a direct question, so it needs a question mark."
+    }
+  ]
+}

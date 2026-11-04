@@ -1,0 +1,67 @@
+{
+  "skill": "m4.coordinates",
+  "items": [
+    {
+      "id": "m4.coordinates.001",
+      "skill": "m4.coordinates",
+      "difficulty": 3,
+      "prompt": "Point A is at (3, 5). It moves 4 squares right and 2 squares down. What are the coordinates of its new position?",
+      "hints": [
+        "The first number tells how far across.",
+        "Right adds to the first number. Down takes away from the second.",
+        "3 + 4 and 5 - 2."
+      ],
+      "explanation": "Right 4 makes x = 3 + 4 = 7. Down 2 makes y = 5 - 2 = 3. The new position is (7, 3).",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "(7, 3)"
+        },
+        {
+          "text": "(7, 7)",
+          "why": "Moving down makes the y-coordinate smaller."
+        },
+        {
+          "text": "(5, 9)",
+          "why": "The first number is right and left, and the second is up and down."
+        },
+        {
+          "text": "(1, 7)",
+          "why": "Moving right adds to the x-coordinate."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.coordinates.002",
+      "skill": "m4.coordinates",
+      "difficulty": 3,
+      "prompt": "ABCD is a rectangle. A is at (1, 1), B is at (5, 1) and C is at (5, 4). What are the coordinates of D?",
+      "hints": [
+        "Sketch the three points on a grid.",
+        "D is above A and next to C.",
+        "D has the same x as A and the same y as C."
+      ],
+      "explanation": "In a rectangle, D has the same x-coordinate as A (1) and the same y-coordinate as C (4). So D is (1, 4).",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "(4, 1)",
+          "why": "D is above A, so the y-coordinate is not 1."
+        },
+        {
+          "text": "(1, 4)"
+        },
+        {
+          "text": "(5, 5)",
+          "why": "D must line up with A and C."
+        },
+        {
+          "text": "(4, 5)",
+          "why": "The sides of a rectangle are straight across and up and down."
+        }
+      ],
+      "answer": 1
+    }
+  ]
+}

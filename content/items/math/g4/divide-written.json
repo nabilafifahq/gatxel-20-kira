@@ -1,0 +1,73 @@
+{
+  "skill": "m4.divide-written",
+  "items": [
+    {
+      "id": "m4.divide-written.001",
+      "skill": "m4.divide-written",
+      "difficulty": 3,
+      "prompt": "Citra shares 250 beads equally among 8 friends. How many does each friend get, and how many beads are left?",
+      "hints": [
+        "Use multiplication to check your answer.",
+        "30 × 8 = 240. How many beads are left after that?",
+        "Share the leftover beads again."
+      ],
+      "explanation": "31 × 8 = 248, and 250 - 248 = 2. Each friend gets 31 beads and 2 are left over.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "mcq",
+      "options": [
+        {
+          "text": "31 each, 2 left"
+        },
+        {
+          "text": "32 each, 6 left",
+          "why": "32 × 8 = 256, which is more than 250."
+        },
+        {
+          "text": "30 each, 10 left",
+          "why": "A remainder of 10 is too big. It is more than 8, so another bead can go to each friend."
+        },
+        {
+          "text": "31 each, 8 left",
+          "why": "31 × 8 = 248, so only 2 are left, not 8."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.divide-written.002",
+      "skill": "m4.divide-written",
+      "difficulty": 2,
+      "prompt": "Packs of 6 cards are made from 432 cards. How many packs can be made?",
+      "hints": [
+        "Think of 432 as 420 and 12.",
+        "420 ÷ 6 and 12 ÷ 6.",
+        "70 + 2."
+      ],
+      "explanation": "420 ÷ 6 = 70 and 12 ÷ 6 = 2. So 432 ÷ 6 = 72 packs.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 72
+    },
+    {
+      "id": "m4.divide-written.003",
+      "skill": "m4.divide-written",
+      "difficulty": 4,
+      "prompt": "A ferry carries 9 cars on each trip. There are 100 cars waiting. How many trips are needed to carry all the cars?",
+      "hints": [
+        "Divide 100 by 9.",
+        "11 trips carry 99 cars.",
+        "What happens to the last car?"
+      ],
+      "explanation": "100 ÷ 9 is 11 remainder 1. The last car needs another trip, so 12 trips are needed.",
+      "tags": [
+        "word-problem"
+      ],
+      "type": "numeric",
+      "answer": 12
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "skill": "e6.spelling-strategies",
+  "title": "Spelling rules and strategies",
+  "steps": [
+    {
+      "say": "After a short vowel, the /j/ sound is spelled dge and the /ch/ sound is spelled tch.",
+      "show": "badge, fridge, match, catch"
+    },
+    {
+      "say": "After a long vowel or a consonant, we write ge and ch instead.",
+      "show": "page, huge, beach, bench"
+    },
+    {
+      "say": "When you add a suffix, the root word may change. Drop the silent e, change y to i, or double the last letter.",
+      "show": "make, making. happy, happiness. stop, stopping."
+    },
+    {
+      "say": "Some rules have exceptions. I before e, except after c, but not in weird or seize."
+    },
+    {
+      "say": "Use strategies: split the word into syllables, find a related word or make a memory sentence. Check in a dictionary and keep a spelling log."
+    }
+  ],
+  "check": [
+    {
+      "id": "e6.spelling-strategies.901",
+      "skill": "e6.spelling-strategies",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which word is spelled correctly?",
+      "options": [
+        {
+          "text": "ledg",
+          "why": "The word needs the silent e after dge."
+        },
+        {
+          "text": "ledge"
+        },
+        {
+          "text": "lej",
+          "why": "The /j/ sound after a short vowel is dge."
+        },
+        {
+          "text": "leje",
+          "why": "The /j/ sound after a short vowel is dge."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The vowel is short.",
+        "Use dge after a short vowel.",
+        "Say it: l-e-dge."
+      ],
+      "explanation": "After the short vowel e, the /j/ sound is written dge. The word is ledge."
+    }
+  ]
+}

@@ -1,0 +1,523 @@
+{
+  "skill": "e4.skim-scan",
+  "items": [
+    {
+      "id": "e4.skim-scan.001",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "What does it mean to skim a text?",
+      "options": [
+        {
+          "text": "to read every word slowly and carefully",
+          "why": "That is close reading. Skimming is quicker."
+        },
+        {
+          "text": "to look only for one number or name",
+          "why": "That is scanning, not skimming."
+        },
+        {
+          "text": "to look quickly to get the general idea"
+        },
+        {
+          "text": "to copy the text into your notebook",
+          "why": "Skimming is about looking, not copying."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think of a stone skimming across water.",
+        "You move quickly over the surface.",
+        "Skimming gives the big picture, not every detail."
+      ],
+      "explanation": "Skimming means looking quickly through a text, such as the title, headings and first lines, to see what it is mostly about."
+    },
+    {
+      "id": "e4.skim-scan.002",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "You need the price of a ticket in a leaflet. What is the best way to find it?",
+      "options": [
+        {
+          "text": "scan the text for numbers and the word Rp"
+        },
+        {
+          "text": "read the whole leaflet word for word",
+          "why": "This takes too long when you only need one fact."
+        },
+        {
+          "text": "read only the title",
+          "why": "The title is unlikely to give the price."
+        },
+        {
+          "text": "read the last sentence only",
+          "why": "The price may not be in the last sentence."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "You know exactly what you are looking for.",
+        "Move your eyes over the page without reading everything.",
+        "Prices are numbers, so look for them."
+      ],
+      "explanation": "Scanning means moving your eyes over a text to find one fact, such as a number or a name."
+    },
+    {
+      "id": "e4.skim-scan.003",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read the leaflet.\n\nKenari Island Boat Trips\nBoats leave the harbour at 8.30 am, 11.00 am and 2.15 pm every day except Monday. The trip takes 40 minutes. Tickets: adults Rp45.000, children under 12 Rp25.000. Babies travel free. Snorkels can be hired for Rp15.000. Call to book a seat.\n\nWhat time is the last boat of the day?",
+      "options": [
+        {
+          "text": "8.30 am",
+          "why": "This is the first boat, not the last."
+        },
+        {
+          "text": "11.00 am",
+          "why": "This is the second boat. There is a later one."
+        },
+        {
+          "text": "2.15 pm"
+        },
+        {
+          "text": "40 minutes",
+          "why": "This is how long the trip takes, not a time of day."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find the sentence about times.",
+        "There are three times in the sentence.",
+        "Which of the three comes latest in the day?"
+      ],
+      "explanation": "The boats leave at 8.30 am, 11.00 am and 2.15 pm. The last boat leaves at 2.15 pm."
+    },
+    {
+      "id": "e4.skim-scan.004",
+      "skill": "e4.skim-scan",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Read the leaflet.\n\nKenari Island Boat Trips\nBoats leave the harbour at 8.30 am, 11.00 am and 2.15 pm every day except Monday. The trip takes 40 minutes. Tickets: adults Rp45.000, children under 12 Rp25.000. Babies travel free. Snorkels can be hired for Rp15.000. Call to book a seat.\n\nOn which day of the week are there no boat trips?",
+      "blanks": [
+        {
+          "answers": [
+            "Monday",
+            "on Monday",
+            "mondays"
+          ]
+        }
+      ],
+      "hints": [
+        "Scan for the word except.",
+        "The day comes straight after it.",
+        "Look at the first sentence of the leaflet."
+      ],
+      "explanation": "The leaflet says boats leave every day except Monday."
+    },
+    {
+      "id": "e4.skim-scan.005",
+      "skill": "e4.skim-scan",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Read the leaflet.\n\nKenari Island Boat Trips\nBoats leave the harbour at 8.30 am, 11.00 am and 2.15 pm every day except Monday. The trip takes 40 minutes. Tickets: adults Rp45.000, children under 12 Rp25.000. Babies travel free. Snorkels can be hired for Rp15.000. Call to book a seat.\n\nA family has 2 adults and 2 children aged 8 and 10. They hire 1 snorkel. How much do they pay in Rupiah?",
+      "answer": 155000,
+      "hints": [
+        "Scan for the prices of adults, children and snorkels.",
+        "Both children are under 12.",
+        "Work out adults and children first, then add the snorkel."
+      ],
+      "explanation": "Two adults cost Rp90.000 and two children cost Rp50.000. Adding the snorkel hire of Rp15.000 gives Rp155.000."
+    },
+    {
+      "id": "e4.skim-scan.006",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Skim this diary entry.\n\nSaturday 14 June\nToday was the best day of my holiday! Mum woke me at six and we walked to the beach before anyone else was there. I found three shells and a tiny crab, and Dad taught me to skim stones. After lunch we flew kites until the wind dropped. I did not want the day to end.\n\nWhat is the entry mostly about?",
+      "options": [
+        {
+          "text": "how to skim stones",
+          "why": "Skimming stones is only one small detail."
+        },
+        {
+          "text": "learning to fly a kite",
+          "why": "Kites are mentioned, but the entry covers the whole day."
+        },
+        {
+          "text": "a day when everything went wrong",
+          "why": "The writer says it was the best day."
+        },
+        {
+          "text": "a happy day on holiday at the beach"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Read the first and last sentences.",
+        "Look for the writer's feeling about the day.",
+        "Which choice covers the whole entry, not one part?"
+      ],
+      "explanation": "The writer says it was the best day of the holiday and describes the beach, shells, stones and kites. The main idea is a happy day at the beach."
+    },
+    {
+      "id": "e4.skim-scan.007",
+      "skill": "e4.skim-scan",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Read the paragraph.\n\nOwls are birds of prey that hunt at night. Their large eyes help them see in the dark. Their soft feathers let them fly almost silently, so food never hears them coming. An owl can also turn its head nearly all the way round, so it can watch for food without moving its body.\n\nChoose 3 key phrases that show how owls are good night hunters.",
+      "options": [
+        {
+          "text": "large eyes"
+        },
+        {
+          "text": "soft feathers"
+        },
+        {
+          "text": "birds of prey",
+          "why": "This names the kind of bird but does not show how it hunts."
+        },
+        {
+          "text": "turn its head nearly all the way round"
+        },
+        {
+          "text": "without moving its body",
+          "why": "This tells why the head turn helps, but it is not a feature of the owl itself."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Look for body features, not general words.",
+        "Each feature should help the owl see, move or listen.",
+        "Find the phrase about eyes first."
+      ],
+      "explanation": "Large eyes help owls see in the dark. Soft feathers make their flight silent. A turning head lets them watch for food. These are the key phrases."
+    },
+    {
+      "id": "e4.skim-scan.008",
+      "skill": "e4.skim-scan",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Read the steps.\nTo make banana pancakes, first mash two bananas in a bowl. Next, stir in one egg and a cup of flour. Heat a pan, then pour in a spoonful of batter. Turn the pancake over when bubbles appear. Finally, slide it onto a plate.\nPut the steps in order.",
+      "items": [
+        "mash the bananas",
+        "stir in the egg and flour",
+        "pour batter into the hot pan",
+        "turn it over when bubbles appear",
+        "slide it onto a plate"
+      ],
+      "hints": [
+        "Look for words like first, next, then and finally.",
+        "You need a batter before you can pour it.",
+        "The first step is the first thing in the text."
+      ],
+      "explanation": "The text uses first, next, then and finally to show the order of the steps."
+    },
+    {
+      "id": "e4.skim-scan.009",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the news report.\n\nCemara School wins reading prize\nPupils at Cemara Primary have won a national prize for reading 4,200 books in one term. Head teacher Ibu Ratna said the children read every day before lessons. “It helped them to feel calm,” she said. The school will spend the Rp10.000.000 prize on beanbags and a reading tent.\n\nWhich fact is stated directly in the report?",
+      "options": [
+        {
+          "text": "The pupils love reading more than any other lesson.",
+          "why": "The report does not say this."
+        },
+        {
+          "text": "The children read every day before lessons."
+        },
+        {
+          "text": "Ibu Ratna is proud of her school.",
+          "why": "This might be true, but the report does not say it."
+        },
+        {
+          "text": "The reading tent has already been built.",
+          "why": "The report says the school will spend the prize on a tent. It has not been built yet."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "An explicit fact is written in the text.",
+        "Find the sentence with the head teacher's name.",
+        "Check each choice against the exact words."
+      ],
+      "explanation": "The text says the children read every day before lessons. The other statements are guesses or are not in the report."
+    },
+    {
+      "id": "e4.skim-scan.010",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read the news report.\n\nCemara School wins reading prize\nPupils at Cemara Primary have won a national prize for reading 4,200 books in one term. Head teacher Ibu Ratna said the children read every day before lessons. “It helped them to feel calm,” she said. The school will spend the Rp10.000.000 prize on beanbags and a reading tent.\n\nWhat will the school buy with the prize?",
+      "options": [
+        {
+          "text": "books for each pupil",
+          "why": "The prize is for reading books, but it will be spent on something else."
+        },
+        {
+          "text": "beanbags and a reading tent"
+        },
+        {
+          "text": "a new building",
+          "why": "The report does not mention a new building."
+        },
+        {
+          "text": "Rp10.000.000 of snacks",
+          "why": "Rp10.000.000 is the size of the prize, not what is bought."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Scan for the word spend.",
+        "The answer comes just after the amount.",
+        "Be careful: the amount is not what they buy."
+      ],
+      "explanation": "The last sentence says the school will spend the prize on beanbags and a reading tent."
+    },
+    {
+      "id": "e4.skim-scan.011",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "A fact sheet about giant tortoises has the headings: Where they live, What they eat, How long they live, Dangers. Under which heading would you find out about leaves and grass?",
+      "options": [
+        {
+          "text": "Where they live",
+          "why": "This would tell you the places, not the food."
+        },
+        {
+          "text": "What they eat"
+        },
+        {
+          "text": "How long they live",
+          "why": "This would tell you about age."
+        },
+        {
+          "text": "Dangers",
+          "why": "This would tell you about threats."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Headings tell you what each section is about.",
+        "Leaves and grass are things tortoises put in their mouths.",
+        "Which heading is about food?"
+      ],
+      "explanation": "Leaves and grass are food, so the section called What they eat is the place to look."
+    },
+    {
+      "id": "e4.skim-scan.012",
+      "skill": "e4.skim-scan",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Read the paragraph.\n\nThe red panda lives in the cool mountain forests of Asia. It eats mostly bamboo leaves, but it also eats fruit and eggs. It sleeps in trees during the day and is most active at dusk. A red panda is about the size of a house cat.\n\nComplete the notes.",
+      "head": [
+        "Question",
+        "Note"
+      ],
+      "rows": [
+        [
+          "Where does it live?",
+          ""
+        ],
+        [
+          "What does it mostly eat?",
+          ""
+        ],
+        [
+          "When is it most active?",
+          ""
+        ],
+        [
+          "How big is it?",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "mountain forests",
+            "forests",
+            "cool mountain forests",
+            "mountain forests of Asia"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "bamboo",
+            "bamboo leaves"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "dusk"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "house cat",
+            "size of a house cat",
+            "like a house cat",
+            "a house cat"
+          ]
+        }
+      ],
+      "hints": [
+        "Scan the paragraph for each question word.",
+        "Write a short note, not a whole sentence.",
+        "Start with where. Look for the word lives."
+      ],
+      "explanation": "Notes use key words from the text. The red panda lives in mountain forests, eats bamboo, is active at dusk and is the size of a house cat."
+    },
+    {
+      "id": "e4.skim-scan.013",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the paragraph.\n\nThe red panda lives in the cool mountain forests of Asia. It eats mostly bamboo leaves, but it also eats fruit and eggs. It sleeps in trees during the day and is most active at dusk. A red panda is about the size of a house cat.\n\nWhich notes record the main points best?",
+      "options": [
+        {
+          "text": "The red panda lives in the cool mountain forests of Asia and eats mostly bamboo leaves.",
+          "why": "This copies whole sentences. Notes should be short."
+        },
+        {
+          "text": "red panda: nice animal, I like it",
+          "why": "This gives an opinion, not facts from the text."
+        },
+        {
+          "text": "animals eat food",
+          "why": "This is too general and has no facts from the text."
+        },
+        {
+          "text": "red panda: mountain forests, bamboo, active at dusk, size of cat"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Good notes are short and use key words.",
+        "They should contain facts from the text.",
+        "Cross out the choice that copies sentences and the choice with an opinion."
+      ],
+      "explanation": "Good notes use a few key words to record the facts. They do not copy whole sentences or add opinions."
+    },
+    {
+      "id": "e4.skim-scan.014",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Read the library notice.\n\nTown library\nOpen Tuesday to Friday 9 am to 5 pm and Saturday 9 am to 1 pm. Closed on Sunday and Monday. Story time for children is on Wednesday at 4 pm. Craft club meets on Saturday at 10 am. Books can be borrowed for 14 days.\n\nA child wants to go to story time. When should she go?",
+      "options": [
+        {
+          "text": "Wednesday at 4 pm"
+        },
+        {
+          "text": "Saturday at 10 am",
+          "why": "This is craft club, not story time."
+        },
+        {
+          "text": "Sunday at 1 pm",
+          "why": "The library is closed on Sunday."
+        },
+        {
+          "text": "Tuesday at 9 am",
+          "why": "This is when the library opens, not story time."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Scan for the words story time.",
+        "The day and time come after the words is on.",
+        "Do not mix it up with craft club."
+      ],
+      "explanation": "The notice says story time for children is on Wednesday at 4 pm."
+    },
+    {
+      "id": "e4.skim-scan.015",
+      "skill": "e4.skim-scan",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Read the library notice.\n\nTown library\nOpen Tuesday to Friday 9 am to 5 pm and Saturday 9 am to 1 pm. Closed on Sunday and Monday. Story time for children is on Wednesday at 4 pm. Craft club meets on Saturday at 10 am. Books can be borrowed for 14 days.\n\nSekar borrows a book on a Tuesday. On which day of the week should she return it?",
+      "options": [
+        {
+          "text": "Monday",
+          "why": "The library is closed on Mondays."
+        },
+        {
+          "text": "Wednesday",
+          "why": "14 days is exactly two weeks, not two weeks and a day."
+        },
+        {
+          "text": "Tuesday"
+        },
+        {
+          "text": "Saturday",
+          "why": "Saturday is only 4 days after Tuesday."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Find how many days a book can be kept.",
+        "14 days is two weeks.",
+        "Count on from Tuesday by seven days, then seven more."
+      ],
+      "explanation": "A book can be borrowed for 14 days, which is exactly two weeks. Two weeks after a Tuesday is a Tuesday, and the library is open then."
+    },
+    {
+      "id": "e4.skim-scan.016",
+      "skill": "e4.skim-scan",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each job. Is it best done by skimming or by scanning?",
+      "groups": [
+        "Skimming",
+        "Scanning"
+      ],
+      "items": [
+        {
+          "text": "Find out what a book is about",
+          "group": 0
+        },
+        {
+          "text": "Decide if an article is worth reading",
+          "group": 0
+        },
+        {
+          "text": "Look at the headings and first lines",
+          "group": 0
+        },
+        {
+          "text": "Find the date of the school fair",
+          "group": 1
+        },
+        {
+          "text": "Find the name of the chef",
+          "group": 1
+        },
+        {
+          "text": "Find the phone number on a leaflet",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Skimming is for the big picture. Scanning is for one small fact.",
+        "A date, a name and a number are small facts.",
+        "Start with the phone number job."
+      ],
+      "explanation": "Skim when you want the general idea. Scan when you hunt for a particular fact such as a date, a name or a number."
+    }
+  ]
+}

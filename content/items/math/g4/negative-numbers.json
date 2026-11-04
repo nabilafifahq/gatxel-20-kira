@@ -1,0 +1,72 @@
+{
+  "skill": "m4.negative-numbers",
+  "items": [
+    {
+      "id": "m4.negative-numbers.001",
+      "skill": "m4.negative-numbers",
+      "difficulty": 3,
+      "prompt": "At 6 a.m. a mountain town is -3°C. By noon it is 11 degrees warmer. By evening it falls by 5 degrees. What is the evening temperature in °C?",
+      "hints": [
+        "Do the two changes in order.",
+        "-3 plus 11 first.",
+        "Then take away 5 from your answer."
+      ],
+      "explanation": "-3 + 11 = 8. Then 8 - 5 = 3. The evening temperature is 3°C.",
+      "tags": [
+        "word-problem"
+      ],
+      "unit": "°C",
+      "type": "numeric",
+      "answer": 3
+    },
+    {
+      "id": "m4.negative-numbers.002",
+      "skill": "m4.negative-numbers",
+      "difficulty": 2,
+      "prompt": "Which temperature is the coldest?",
+      "hints": [
+        "Think of a thermometer going down below zero.",
+        "The further below zero, the colder.",
+        "Compare -7 and -2 on a number line."
+      ],
+      "explanation": "-7°C is 7 degrees below zero, which is further below zero than -2°C. So it is coldest.",
+      "type": "mcq",
+      "options": [
+        {
+          "text": "-7°C"
+        },
+        {
+          "text": "-2°C",
+          "why": "This is warmer than -7°C. It is closer to zero."
+        },
+        {
+          "text": "0°C",
+          "why": "Zero is warmer than any negative temperature."
+        },
+        {
+          "text": "3°C",
+          "why": "This is above zero, so it is the warmest."
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "m4.negative-numbers.003",
+      "skill": "m4.negative-numbers",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A diver is at -12 m. She swims up 5 m, then down 9 m. What is her position now? Write it as a number.",
+      "answer": -16,
+      "allowNegative": true,
+      "hints": [
+        "Up makes the number bigger. Down makes it smaller.",
+        "-12 + 5 first.",
+        "-7 take away 9 gives a number further below zero."
+      ],
+      "explanation": "-12 + 5 = -7. Then -7 - 9 = -16. She is at -16 m.",
+      "tags": [
+        "word-problem"
+      ]
+    }
+  ]
+}
