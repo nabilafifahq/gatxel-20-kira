@@ -39,7 +39,7 @@ export type Deck = z.infer<typeof deckSchema>
 
 export type FlashcardProblem = { file: string; message: string }
 
-const BANNED = /[—–]|\b(unlock\w*|leverag\w*|seamless\w*|delv\w*)\b/i
+const BANNED = new RegExp(String.raw`[\u2014\u2013]|\b(unlock\w*|leverag\w*|seamless\w*|delv\w*)\b`, 'i')
 
 function walk(dir: string): string[] {
   if (!existsSync(dir)) return []

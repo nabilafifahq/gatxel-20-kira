@@ -125,7 +125,6 @@ function Done({ session, results, onAgain }: { session: CardSessionDTO; results:
   // Simpan sekali begitu layar ini tampil.
   useEffect(() => {
     void save()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <section aria-live="polite" className="flex flex-col items-start gap-4 rounded-card border border-divider bg-surface p-6">
