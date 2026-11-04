@@ -1,7 +1,7 @@
 'use client'
 
 import type { ReactElement } from 'react'
-import { normaliseText } from '@kira/content/check'
+import { clozeForm } from '@kira/content/check'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { asTexts } from './answers'
@@ -88,7 +88,7 @@ export function ClozePrompt({ item, value, onChange, disabled = false, feedback 
               chosen={texts[i] ?? ''}
               onPick={(t) => set(i, t)}
               disabled={disabled || !!feedback}
-              state={feedback && key ? (normaliseText(texts[i] ?? '', false) === normaliseText(key[i] ?? '', false) ? 'correct' : 'not-yet') : feedback ? (feedback === 'correct' ? 'correct' : null) : null}
+              state={feedback && key ? (clozeForm(texts[i] ?? '') === clozeForm(key[i] ?? '') ? 'correct' : 'not-yet') : feedback ? (feedback === 'correct' ? 'correct' : null) : null}
               subject={subject}
             />
           ) : i < parts.length - 1 ? (

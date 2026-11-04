@@ -154,6 +154,9 @@ export function normaliseText(s: string, caseSensitive: boolean): string {
   return caseSensitive ? t : t.toLowerCase()
 }
 
+/** Bentuk banding isian cloze. Tanda baca saja (".", "!", "?") tidak boleh habis dipangkas, karena itu jawabannya. */
+export const clozeForm = (s: string) => normaliseText(s, false) || s.normalize('NFKC').trim()
+
 const close = (a: number, b: number, tol: number) => Math.abs(a - b) <= tol + 1e-9
 
 /** Kalimat dari kartu: kata dipisah satu spasi, tanda kutip lurus. Huruf besar dan tanda baca tetap dihitung. */
@@ -280,7 +283,7 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
     }
     case 'cloze': {
       const texts = strings(a.texts)
-      const right = key.answers.filter((ans, i) => normaliseText(texts[i] ?? '', false) !== '' && normaliseText(texts[i] ?? '', false) === normaliseText(ans, false)).length
+      const right = key.answers.filter((ans, i) => clozeForm(texts[i] ?? '') !== '' && clozeForm(texts[i] ?? '') === clozeForm(ans)).length
       return verdict(right === key.answers.length, right / key.answers.length)
     }
     case 'hotspot': {
