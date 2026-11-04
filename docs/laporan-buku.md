@@ -67,7 +67,7 @@ Agen terpisah membaca 12 buku kelas 3 sampai 6. Setiap soal dijawab dari teks le
 - Jawaban yang berbeda dari kunci: 0.
 - Kunci diubah: 0. Id buku, bab, dan soal juga tidak berubah.
 - Fakta diperbaiki: 3.
-- Suntingan lain: 33, yaitu 18 kalimat teks, 1 judul bab, 5 kalimat soal, 4 pilihan jawaban, dan 5 penjelasan yang ikut menyesuaikan.
+- Suntingan lain: 32, yaitu 17 kalimat teks, 1 judul bab, 5 kalimat soal, 3 pilihan jawaban, dan 6 penjelasan.
 
 Fakta yang diperbaiki:
 
