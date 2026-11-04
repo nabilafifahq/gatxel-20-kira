@@ -13,6 +13,7 @@ const ready = Boolean(ownerUrl && appUrl && authUrl)
 const PASSWORD = 'Kalimat-panjang-2026!'
 const OTHER_PASSWORD = 'Password-orang-lain-2026!'
 const NEW_PASSWORD = 'Password-baru-pemilik-2026!'
+const NEW_NAME = 'Ibu Pengisi Baru'
 
 describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
   const owner = ready ? postgres(ownerUrl!, { max: 2, onnotice: () => {} }) : (null as never)
@@ -88,20 +89,23 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
   describe('pendaftaran kedua untuk email yang masih menunggu', () => {
     const signUp = (email: string, name: string, password: string) => svc.startSignup({ name, email, password, consent: true, ipHash: 'x' })
 
-    /** Tautan bertanda: tanpa password baru tidak terjadi apa-apa, password lemah ditolak, lalu password baru mematikan yang lain. */
+    /** Tautan bertanda: tanpa isian baru tidak terjadi apa-apa, isian lemah ditolak, lalu nama dan password baru menggantikan yang tersimpan. */
     async function activateWithNewPassword(email: string, norm: string, token: string, deadPasswords: string[]) {
       expect((await svc.verifySignup(token)).status).toBe('needs-password')
       expect(await svc.signupTokenState(token)).toBe('needs-password')
       expect(await seats(norm)).toBe(0)
       expect(await accountHash(email)).toBeUndefined()
-      await expect(svc.verifySignup(token, 'Pendek-1!')).rejects.toThrow(/13 karakter/)
+      await expect(svc.verifySignup(token, { name: NEW_NAME, password: 'Pendek-1!' })).rejects.toThrow(/13 karakter/)
+      await expect(svc.verifySignup(token, { name: ' A ', password: NEW_PASSWORD })).rejects.toThrow(/nama orang tua/)
       expect(await accountHash(email)).toBeUndefined()
-      expect((await svc.verifySignup(token, NEW_PASSWORD)).status).toBe('ok')
+      expect((await svc.verifySignup(token, { name: `  ${NEW_NAME} `, password: NEW_PASSWORD })).status).toBe('ok')
       expect(await seats(norm)).toBe(1)
+      const [account] = await owner`select u.name as account_name, m.name as profile_name from auth.user_account u join member_profile m on m.user_id = u.id where lower(u.email) = ${email}`
+      expect(account).toMatchObject({ account_name: NEW_NAME, profile_name: NEW_NAME })
       const hash = await accountHash(email)
       expect(await matches(hash, NEW_PASSWORD)).toBe(true)
       for (const dead of deadPasswords) expect(await matches(hash, dead)).toBe(false)
-      expect((await svc.verifySignup(token, NEW_PASSWORD)).status).toBe('invalid')
+      expect((await svc.verifySignup(token, { name: NEW_NAME, password: NEW_PASSWORD })).status).toBe('invalid')
     }
 
     it('pemilik dulu, lalu orang lain: data tersimpan utuh, tautan lama mati, tautan baru meminta password baru', async () => {
@@ -183,11 +187,13 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
       expect(await matches(await accountHash(email), PASSWORD)).toBe(true)
     })
 
-    it('password baru diabaikan pada tautan tanpa tanda', async () => {
+    it('nama dan password baru diabaikan pada tautan tanpa tanda', async () => {
       const email = `tujuh.ganda.${run}@gmail.com`
       await signUp(email, 'Ibu Tujuh', PASSWORD)
-      expect((await svc.verifySignup(await latestToken(email), OTHER_PASSWORD)).status).toBe('ok')
+      expect((await svc.verifySignup(await latestToken(email), { name: NEW_NAME, password: OTHER_PASSWORD })).status).toBe('ok')
       expect(await matches(await accountHash(email), PASSWORD)).toBe(true)
+      const [account] = await owner`select name from auth.user_account where lower(email) = ${email}`
+      expect(account!.name).toBe('Ibu Tujuh')
     })
 
     it('pendaftar yang sudah kedaluwarsa ditimpa utuh tanpa tanda', async () => {

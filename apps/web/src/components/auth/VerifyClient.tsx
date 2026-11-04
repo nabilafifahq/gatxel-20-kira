@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { Button } from '@/components/console/Button'
+import { TextField } from '@/components/console/Field'
 import { InlineAlert } from '@/components/console/Feedback'
 import { PasswordField, passwordProblem } from '@/components/console/PasswordField'
 import { useAction } from '@/components/console/useAction'
@@ -13,19 +14,23 @@ import { verifySignupAction } from '@/server/actions/signup'
 /**
  * Konfirmasi email. Browser langsung mengonfirmasi setelah halaman terbuka, lalu masuk ke langkah tambah anak.
  * Token dipakai lewat Server Action, jadi pemindai email dan pratinjau tautan tanpa JavaScript tidak memakainya.
- * Bila ada pendaftaran lain dengan password berbeda, akun baru aktif setelah pemegang tautan membuat password baru.
+ * Bila ada pendaftaran lain dengan password berbeda, akun baru aktif setelah pemegang tautan mengisi nama dan password
+ * baru. Kolom nama mulai kosong, karena nama yang tersimpan bisa berasal dari orang lain.
  */
 export function VerifyClient({ token, valid, needsPassword }: { token: string; valid: boolean; needsPassword: boolean }) {
   const verify = useAction(verifySignupAction)
   const [outcome, setOutcome] = useState<'full' | 'invalid' | 'taken' | null>(valid ? null : 'invalid')
   const [askPassword, setAskPassword] = useState(needsPassword)
+  const [name, setName] = useState('')
+  const [nameError, setNameError] = useState<string | null>(null)
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState<string | null>(null)
   const started = useRef(false)
 
-  async function confirm(newPassword?: string) {
-    const r = await verify.run({ token, ...(newPassword === undefined ? {} : { password: newPassword }) })
+  async function confirm(replacement?: { name: string; password: string }) {
+    const r = await verify.run({ token, ...replacement })
     if (!r.ok) {
+      if (r.fieldErrors?.name) setNameError(r.fieldErrors.name)
       if (r.fieldErrors?.password) setPasswordError(r.fieldErrors.password)
       return
     }
@@ -40,11 +45,13 @@ export function VerifyClient({ token, valid, needsPassword }: { token: string; v
     void confirm()
   }, [])
 
-  async function submitPassword(e: FormEvent<HTMLFormElement>) {
+  async function submitReplacement(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const nameProblem = name.trim().length < 2 ? 'Tulis nama Anda, paling sedikit 2 huruf.' : null
     const problem = passwordProblem(password)
+    setNameError(nameProblem)
     setPasswordError(problem)
-    if (!problem) await confirm(password)
+    if (!nameProblem && !problem) await confirm({ name: name.trim(), password })
   }
 
   if (outcome === 'full') return <WaitlistFull />
@@ -86,9 +93,21 @@ export function VerifyClient({ token, valid, needsPassword }: { token: string; v
           <h1 id="vf-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
             Buat password baru
           </h1>
-          <p className="m-0 text-body text-fg-muted">Ada lebih dari satu pendaftaran dengan email ini, jadi password yang diisi saat mendaftar tidak dipakai. Buat password baru untuk mengaktifkan akun Anda.</p>
+          <p className="m-0 text-body text-fg-muted">Ada lebih dari satu pendaftaran dengan email ini, jadi nama dan password yang diisi saat mendaftar tidak dipakai. Isi nama Anda dan buat password baru untuk mengaktifkan akun.</p>
         </div>
-        <form method="post" noValidate onSubmit={submitPassword} className="flex flex-col gap-5">
+        <form method="post" noValidate onSubmit={submitReplacement} className="flex flex-col gap-5">
+          <TextField
+            name="name"
+            label="Nama orang tua"
+            autoComplete="name"
+            value={name}
+            error={nameError}
+            className="h-12!"
+            onChange={(e) => {
+              setName(e.target.value)
+              if (nameError) setNameError(null)
+            }}
+          />
           <PasswordField
             name="new-password"
             label="Password baru"
@@ -102,7 +121,7 @@ export function VerifyClient({ token, valid, needsPassword }: { token: string; v
               if (passwordError) setPasswordError(null)
             }}
           />
-          {verify.error && !verify.error.fieldErrors?.password ? (
+          {verify.error && !verify.error.fieldErrors ? (
             <InlineAlert tone="danger" title={verify.error.message} reference={verify.error.reference}>
               Coba lagi. Bila tautan sudah tidak berlaku, daftar lagi dari halaman depan.
             </InlineAlert>

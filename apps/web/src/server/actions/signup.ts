@@ -43,13 +43,13 @@ export type VerifyResult = { status: 'ok'; redirectTo: string } | { status: 'ful
 
 /**
  * Dipanggil browser setelah halaman konfirmasi terbuka, jadi pemindai email tanpa JavaScript tidak memakai tautan.
- * Password hanya dipakai untuk pendaftar bertanda conflict, lewat langkah Buat password baru.
+ * Nama dan password hanya dipakai untuk pendaftar bertanda conflict, lewat langkah Buat password baru.
  */
-export async function verifySignupAction(input: { token: string; password?: string }): Promise<ActionResult<VerifyResult>> {
+export async function verifySignupAction(input: { token: string; name?: string; password?: string }): Promise<ActionResult<VerifyResult>> {
   return runAction('verifySignup', async () => {
-    const data = z.object({ token: z.string().min(20).max(100), password: z.string().max(128).optional() }).strict().parse(input)
+    const data = z.object({ token: z.string().min(20).max(100), name: z.string().trim().max(120).optional(), password: z.string().max(128).optional() }).strict().parse(input)
     await throttleIp('signup-verify', 10)
-    const r = await verifySignup(data.token, data.password)
+    const r = await verifySignup(data.token, data.name !== undefined && data.password !== undefined ? { name: data.name, password: data.password } : undefined)
     if (r.status !== 'ok') return { status: r.status }
     await startSession({ id: r.userId, orgId: r.orgId, kind: 'adult' })
     await audit({ orgId: r.orgId, userId: r.userId, role: 'guardian' }, 'login.signup', r.userId)

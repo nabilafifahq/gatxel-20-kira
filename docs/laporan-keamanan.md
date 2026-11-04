@@ -387,14 +387,12 @@ Pendaftaran kedua untuk email yang masih menunggu tidak menimpa password atau na
 
 - Password sama: dianggap kirim ulang, dan tautannya tetap langsung aktif.
 - Password berbeda: baris diberi tanda `conflict` dan token diputar. Tanda dipasang walau jeda satu menit atau batas email menahan email baru, jadi tautan yang sudah terkirim juga ikut berhenti mengaktifkan akun langsung. Tanda tidak bisa dicabut dengan mengulang password yang tersimpan.
-- Tautan bertanda membuka langkah "Buat password baru" dengan daftar centang. Password baru dipasang di transaksi yang sama dengan pembuatan akun (`kira_verify_signup`), jadi semua password dari formulir daftar mati, termasuk password orang lain yang mendaftar lebih dulu atau sesudahnya.
+- Tautan bertanda membuka langkah "Buat password baru" dengan kolom nama wajib dan daftar centang. Kolom nama mulai kosong dan nama tersimpan tidak pernah dikirim ke browser, karena bisa berasal dari orang lain. Nama dan password baru dipasang di transaksi yang sama dengan pembuatan akun (`kira_verify_signup`), jadi isian formulir daftar tidak ikut ke akun, termasuk isian orang lain yang mendaftar lebih dulu atau sesudahnya.
 - Jawaban publik dan waktunya sama di semua cabang: `startSignup` selalu menghitung satu hash dan satu verifikasi Argon2, dan aksinya dibungkus `evenTime`.
 
 Risiko sisa, tingkat sedang: **orang menekan tautan yang tidak pernah dia minta, saat hanya ada satu pendaftaran.** Seseorang mendaftar dengan email orang lain memakai password miliknya sendiri. Bila pemilik email menekan tautan itu, akun aktif dengan password si pendaftar dan pemilik email langsung masuk. Anak yang kemudian ditambahkan bisa dilihat oleh orang yang memegang password itu. Pemindai tautan yang menjalankan JavaScript bisa melakukan klik semacam ini tanpa pemilik email, dan untuk pendaftaran asli akibatnya pengguna melihat "Tautan ini sudah tidak berlaku" walau akunnya aktif dan tetap bisa masuk dengan passwordnya.
 
 Yang meredam: email konfirmasi memuat "Kalau bukan Anda, abaikan email ini.", dan setelah aktif pemilik email menerima "Akun Kira Anda aktif" dengan kalimat "Kalau bukan Anda yang mendaftar, atur ulang password lewat Lupa password dan hubungi kami". Lupa password mengganti password dan mencabut semua sesi. Pendaftaran dibatasi 6 per menit per IP, 5 email verifikasi per alamat per jam, dan Turnstile bila dipasang.
-
-Hal kecil yang tersisa: bila orang lain mendaftar lebih dulu, nama yang dia isi tetap menjadi nama akun setelah pemilik email membuat password baru. Orang tua belum punya layar untuk mengganti namanya sendiri, jadi penggantiannya lewat bantuan.
 
 ### Aturan password
 

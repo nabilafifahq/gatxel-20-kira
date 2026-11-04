@@ -92,7 +92,7 @@ async function rotateAndSend(row: PendingSignup): Promise<void> {
 /**
  * Pendaftaran kedua untuk email yang masih menunggu. Password dan nama yang tersimpan tidak pernah ditimpa, karena
  * tidak ada cara mengetahui pendaftar mana pemilik email. Password sama: sama dengan kirim ulang. Password berbeda: baris
- * diberi tanda supaya tautan meminta password baru. Tanda dipasang sebelum pemeriksaan jeda dan batas email, karena
+ * diberi tanda supaya tautan meminta nama dan password baru. Tanda dipasang sebelum pemeriksaan jeda dan batas email, karena
  * tautan yang sudah terkirim juga harus berhenti mengaktifkan akun dengan password tersimpan. Tanda tidak pernah dicabut:
  * mengulang password yang tersimpan tidak membuktikan apa pun.
  */
@@ -191,22 +191,26 @@ export type VerifyOutcome = { status: 'ok'; userId: string; orgId: string } | { 
 /**
  * Verifikasi token: buat keluarga dan ambil kursi sekaligus, di bawah kunci database.
  * Keputusan pemilik untuk pilot: tautan di email cukup, tanpa memasukkan password lagi. Pengecualiannya pendaftar
- * bertanda conflict: pemegang tautan membuat password baru, dan password itu dipasang di transaksi yang sama dengan
- * pembuatan akun, jadi semua password dari formulir daftar mati. Risiko sisa ada di docs/laporan-keamanan.md.
+ * bertanda conflict: pemegang tautan mengisi nama dan password baru, dan keduanya dipasang di transaksi yang sama dengan
+ * pembuatan akun, jadi isian formulir daftar, milik siapa pun, tidak ikut ke akun. Nama tersimpan tidak pernah dikirim
+ * ke browser, karena bisa berasal dari orang lain. Risiko sisa ada di docs/laporan-keamanan.md.
  */
-export async function verifySignup(token: string, newPassword?: string): Promise<VerifyOutcome> {
+export async function verifySignup(token: string, replacement?: { name: string; password: string }): Promise<VerifyOutcome> {
   if (token.length < 20 || token.length > 100) return { status: 'invalid' }
   const tokenHash = sha256hex(token)
-  const row = (await authDb().select({ email: signup.email, name: signup.name, conflict: signup.conflict }).from(signup).where(and(eq(signup.tokenHash, tokenHash), sql`${signup.expiresAt} > now()`)).limit(1))[0]
+  const row = (await authDb().select({ email: signup.email, conflict: signup.conflict }).from(signup).where(and(eq(signup.tokenHash, tokenHash), sql`${signup.expiresAt} > now()`)).limit(1))[0]
   if (!row) return { status: 'invalid' }
   let newHash: string | null = null
+  let newName: string | null = null
   if (row.conflict) {
-    if (newPassword === undefined) return { status: 'needs-password' }
-    const problem = await passwordProblem(newPassword, { email: row.email, name: row.name })
+    if (!replacement) return { status: 'needs-password' }
+    newName = replacement.name.trim()
+    if (newName.length < 2 || newName.length > 80) throw invalid('Tulis nama orang tua, 2 sampai 80 huruf.', { name: 'Tulis nama orang tua, 2 sampai 80 huruf.' })
+    const problem = await passwordProblem(replacement.password, { email: row.email, name: newName })
     if (problem) throw invalid(problem, { password: problem })
-    newHash = await hashSecret(newPassword)
+    newHash = await hashSecret(replacement.password)
   }
-  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${tokenHash}, ${env().KIRA_BETA_SEATS}, ${newHash}::text)`)
+  const rows = await authDb().execute(sql`select status, user_id, org_id from kira_verify_signup(${tokenHash}, ${env().KIRA_BETA_SEATS}, ${newHash}::text, ${newName}::text)`)
   const r = (rows as unknown as { status: string; user_id: string | null; org_id: string | null }[])[0]
   if (r?.status === 'ok' && r.user_id && r.org_id) {
     await sendActivated(row.email)

@@ -219,7 +219,7 @@ test.describe('pendaftaran orang tua', () => {
     await expect(page.getByText('Nara').first()).toBeVisible()
   })
 
-  test('pendaftaran ganda: tautan meminta password baru, password lama mati, dan akun aktif dikabari', async ({ page }) => {
+  test('pendaftaran ganda: tautan meminta nama dan password baru, isian lama tidak dipakai, dan akun aktif dikabari', async ({ page }) => {
     const other = `kira.ganda.${run}@gmail.com`
     const before = await seatsFree()
     await fillSignup(page, other)
@@ -232,18 +232,27 @@ test.describe('pendaftaran orang tua', () => {
     await expect(page.getByRole('heading', { name: 'Buat password baru' })).toBeVisible()
     await expect(page.getByRole('list', { name: 'Syarat password' })).toBeVisible()
     expect(await seatsFree()).toBe(before)
+    // Nama tersimpan bisa berasal dari orang lain: kolomnya mulai kosong, nama itu tidak tampil dan tidak ikut di halaman.
+    const name = page.getByLabel('Nama orang tua')
+    await expect(name).toHaveValue('')
+    expect(await page.content()).not.toContain('Ibu Uji Daftar')
     const field = page.getByLabel('Password baru', { exact: true })
     const activate = page.getByRole('button', { name: 'Aktifkan akun' })
+    // Nama wajib diisi, dan password lemah ditolak.
     await expect(async () => {
       await field.fill('Pendek-1!')
       await activate.click()
-      await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible({ timeout: 1000 })
+      await expect(page.getByText('Tulis nama Anda, paling sedikit 2 huruf.').first()).toBeVisible({ timeout: 1000 })
     }).toPass()
+    await expect(page.getByText('Password paling sedikit 13 karakter.').first()).toBeVisible()
     expect(await seatsFree()).toBe(before)
+    await name.fill('Ibu Pengisi Baru')
     await field.fill(NEW_PASSWORD)
     await activate.click()
     await expect(page).toHaveURL(/\/mulai/, { timeout: 45_000 })
     expect(await seatsFree()).toBe(before - 1)
+    const [account] = await db()`select name from auth.user_account where lower(email) = ${other}`
+    expect(account!.name).toBe('Ibu Pengisi Baru')
     await mailTo(other, 'Akun Kira Anda aktif')
 
     await page.context().clearCookies()
