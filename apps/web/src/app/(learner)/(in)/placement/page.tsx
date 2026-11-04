@@ -14,5 +14,5 @@ export default async function PlacementPage({ searchParams }: { searchParams: Pr
   const { subject } = await searchParams
   const actor = await pageActor(['learner'])
   const entry = await load(() => inOrg(orgCtx(actor), (tx) => placementEntry(tx, orgCtx(actor), actor.userId, subject ?? null)))
-  return <PlacementScreen entry={entry} actions={{ answer: answerPlacementAction, skip: skipPlacementAction }} />
+  return <PlacementScreen key={subject ?? 'all'} entry={entry} actions={{ answer: answerPlacementAction, skip: skipPlacementAction }} />
 }
