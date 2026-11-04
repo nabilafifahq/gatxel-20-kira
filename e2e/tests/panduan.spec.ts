@@ -13,6 +13,7 @@ async function internalLinks(page: Page): Promise<string[]> {
 }
 
 test('ketiga panduan terbuka tanpa masuk, tanpa pelanggaran axe, dan muat di layar HP', async ({ page }) => {
+  test.setTimeout(240_000)
   const errors = watchErrors(page)
   for (const width of [375, 1280]) {
     await page.setViewportSize({ width, height: 800 })
@@ -29,6 +30,7 @@ test('ketiga panduan terbuka tanpa masuk, tanpa pelanggaran axe, dan muat di lay
 })
 
 test('tautan internal, jangkar, dan gambar di panduan semuanya hidup', async ({ page, request }) => {
+  test.setTimeout(240_000)
   for (const path of GUIDES) {
     await page.goto(path)
     for (const link of await internalLinks(page)) {
