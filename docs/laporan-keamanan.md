@@ -4,7 +4,7 @@ Tanggal: 4 sampai 5 November 2026. Cabang: `pilot/aman`. Pemeriksa: agen "aman" 
 
 ## Ringkasan
 
-Uji tembus internal terbaru ada di bagian "Uji tembus internal, 5 November 2026" di akhir laporan ini. Beberapa risiko sisa di bagian 4 sudah berubah di sana.
+Uji tembus internal terbaru ada di bagian "Uji tembus internal, 5 November 2026" di akhir laporan ini. Beberapa risiko sisa di bagian 4 sudah berubah di sana. Dua keputusan pemilik tentang pendaftaran dan password, dengan risiko sisanya, ada di bagian "Keputusan pemilik: konfirmasi email dan aturan password" di paling akhir.
 
 - Tidak ada temuan **kritis**. Satu temuan **tinggi** ditemukan dan diperbaiki: alamat IP klien diambil dari `X-Forwarded-For` entri pertama, yang bisa dipalsukan penyerang sehingga semua batas laju per IP bisa dilewati.
 - Perbaikan lain: HTTP biasa dialihkan ke HTTPS, `/api/internal/*` tidak terlihat dari internet, MCP mati secara bawaan, batas laju di semua rute tulis, kunci akun setelah 20 kegagalan (dulu 100), unggahan dibersihkan dari EXIF dan dibatasi per peran dan per hari, token atur ulang password diklaim secara atomik, cadangan per jam dengan salinan terenkripsi dan skrip uji pemulihan.
@@ -374,3 +374,29 @@ Tiga nilai `.env` produksi yang perlu dipastikan: `KIRA_VALKEY_PASSWORD` terisi 
 ### Cara mengulang
 
 `apps/web/test/uji-tembus.db.test.ts` (Postgres), `apps/web/test/hardening.test.ts`, `apps/web/test/email-policy.test.ts`, dan blok `uji tembus 5 November` di `e2e/tests/security-input.spec.ts`. sqlmap: `docs/keamanan/sqlmap2.py`.
+
+## Keputusan pemilik: konfirmasi email dan aturan password
+
+Tanggal: 5 November 2026, commit `b2fd7f7b`. Dua perubahan ini permintaan pemilik dan sudah berjalan di produksi. Keduanya menurunkan perlindungan yang dicatat di atas, jadi risikonya ditulis di sini.
+
+### Tautan konfirmasi langsung mengaktifkan akun
+
+Dulu halaman konfirmasi meminta password yang dibuat saat mendaftar, dan langkah itu menahan pre-hijack. Sekarang browser memanggil `verifySignupAction` begitu halaman terbuka, akun dibuat, lalu pengguna langsung masuk ke `/mulai` (`components/auth/VerifyClient.tsx`, `verifySignup(token)` di `server/signup/service.ts`). Token tetap 32 byte acak, disimpan sebagai hash, berlaku 24 jam, dan sekali pakai. Permintaan tanpa JavaScript tidak memakai token.
+
+Risiko sisa, tingkat sedang:
+
+1. **Pre-hijack lewat tautan yang tidak diminta.** Seseorang mendaftar dengan email orang lain memakai password miliknya sendiri. Bila pemilik email menekan tautan itu, akun aktif dengan password si pendaftar dan pemilik email langsung masuk tanpa tahu. Anak yang kemudian ditambahkan bisa dilihat oleh orang yang memegang password itu.
+2. **Bentuk lain dari risiko yang sama.** `startSignup` menimpa password dan token pendaftar yang belum dikonfirmasi, setelah jeda satu menit. Bila orang lain mendaftar dengan email yang sama di antara pendaftaran asli dan klik pemilik email, tautan pertama mati, dan tautan di email terbaru mengaktifkan akun dengan password orang lain. Korban di sini memang sedang menunggu email, jadi kalimat "abaikan email ini" tidak menolongnya.
+3. **Pemindai tautan yang menjalankan JavaScript** bisa memakai token tanpa klik manusia. Akibatnya kursi terpakai, dan pengguna melihat "Tautan ini sudah tidak berlaku" walau akunnya aktif. Dia tetap bisa masuk dengan passwordnya. Untuk pendaftaran palsu, akun aktif tanpa klik pemilik email.
+
+Yang meredam: email konfirmasi memuat "Kalau bukan Anda, abaikan email ini.", pendaftaran dibatasi 6 per menit per IP, 5 email per alamat per jam, dan Turnstile bila dipasang. Pemilik email yang passwordnya tidak cocok bisa memakai Lupa password, yang mengganti password dan mencabut semua sesi. Tidak ada pemberitahuan ke pemilik email bahwa akunnya baru aktif.
+
+Bila risiko ini ingin ditutup: minta password dibuat sesudah tautan ditekan, atau kembalikan langkah password di halaman konfirmasi.
+
+### Aturan password
+
+Password orang dewasa yang baru: minimal 13 karakter, dengan huruf kapital, angka, dan simbol (`apps/web/src/lib/password-rules.ts`, dipakai browser dan `passwordProblem` di server). Ini keputusan pemilik dan menyimpang dari `docs/standards/gtx/references/security-gates.md` bagian S-06, yang meminta minimal 15 karakter sebagai faktor tunggal dan melarang aturan komposisi.
+
+Yang tetap mengikuti standar: Argon2id m=19456, t=2, p=1, cek HaveIBeenPwned, paste tidak diblokir, tanpa rotasi paksa. Aturan baru hanya diperiksa saat password dibuat atau diganti, jadi password lama tetap bisa dipakai masuk.
+
+Risiko sisa, tingkat rendah: aturan komposisi mendorong pola yang mudah ditebak, misalnya kata dengan huruf awal kapital dan akhiran `2026!`, dan batas bawahnya dua karakter lebih pendek dari standar. Karena itu `KIRA_HIBP=on` di produksi menjadi penyaring utama, dan batas masuk per email menahan tebakan.

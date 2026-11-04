@@ -152,7 +152,7 @@ Kalau PowerShell menolak skrip, jalankan langkah 6 di bagian 1.
 ## 7. Setup pertama
 
 1. Dari laptop mana pun, buka `https://kira.gatxel.com/setup`.
-2. Isi token setup (`KIRA_SETUP_TOKEN`), nama keluarga, nama tutor, email, dan password minimal 15 karakter. Halaman ini hanya bisa dipakai saat database masih kosong.
+2. Isi token setup (`KIRA_SETUP_TOKEN`), nama keluarga, nama tutor, email, dan password minimal 13 karakter dengan huruf kapital, angka, dan simbol. Halaman ini hanya bisa dipakai saat database masih kosong.
 3. Konsol terbuka di halaman Learner. Tambahkan learner (nama panggilan, grade, avatar, PIN 4 gambar) dan isi email orang tua untuk mengirim undangan. Tanpa SMTP, tautan undangan tampil di layar dan di Laporan, kotak keluar.
 4. Learner baru aktif setelah ada persetujuan orang tua: orang tua menerima undangan lalu menyetujui di halaman Privasi, atau tutor mencatat persetujuan tertulis di halaman Learner.
 5. Pasang passkey di Pengaturan supaya tutor bisa masuk tanpa mengetik password.
