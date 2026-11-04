@@ -92,6 +92,7 @@ export function FeedbackSheet({
 }): ReactElement {
   const canWatch = (solution?.length ?? 0) > 0 || hasSolution
   const [howOpen, setHowOpen] = useState(false)
+  const [lessonOpen, setLessonOpen] = useState(false)
   const good = kind === 'correct' || kind === 'sent' || kind === 'saved'
 
   let title: ReactNode = 'Correct'
