@@ -4574,7 +4574,7 @@ const vennCarroll4: Generator = {
   skill: 'm4.venn-carroll',
   levels: [1, 2, 3, 4, 5],
   generate({ rng, level }) {
-    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} and ${b.test(n) ? '' : 'not '}${b.pred}`
+    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} ${!a.test(n) && b.test(n) ? 'but is' : 'and'} ${b.test(n) ? '' : 'not '}${b.pred}`
     const regionText = (r: string, a: NumRule, b: NumRule) =>
       r === 'a' ? `In the ${lc(a.name)} circle only` : r === 'b' ? `In the ${lc(b.name)} circle only` : r === 'both' ? 'In both circles' : 'Outside both circles'
     const emptyVenn = (a: NumRule, b: NumRule): Fig => ({ kind: 'venn', sets: [a.name, b.name], items: [], alt: `An empty Venn diagram with circles for ${lc(a.name)} and ${lc(b.name)}.` })
@@ -4786,7 +4786,7 @@ const chance4: Generator = {
         prompt: `How likely is this? ${e.text}`,
         ...choice(e.w),
         hints: ['Think about every way it could turn out.', 'Could it never happen? Must it happen?', 'If it could happen, is it more likely, less likely, or just as likely as not?'],
-        explanation: `${e.text.replace(/\.$/, '')}: this is ${lc(e.w)}. ${CHANCE5_WHY[e.w]}`,
+        explanation: `${e.text.replace(/\.$/, '')}: this is ${e.w === 'Even chance' ? 'an even chance' : lc(e.w)}. ${CHANCE5_WHY[e.w]}`,
       }
     }
 

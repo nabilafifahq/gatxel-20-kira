@@ -3919,7 +3919,7 @@ const shapes2d3: Generator = {
         prompt: `${r.clue} What shape am I?`,
         ...textChoice(rng, r.a, r.wrong.map(([v, w]) => ({ value: v!, why: w! }))),
         hints: ['Read one clue at a time.', 'Cross out the shapes that do not match the first clue.', 'Now check the second clue for the shapes that are left.'],
-        explanation: `${cap(art(r.a))} matches every clue: ${r.clue.replace(/^I have /, '').replace(/\.$/, '').replace(/ I /g, ' it ').replace(/My /g, 'its ')}.`,
+        explanation: `${cap(art(r.a))} matches every clue: ${r.clue.replace(/^I have /, '').replace(/\.$/, '').replace(/ I /g, ' it ').replace(/\. My /g, ', and its ').replace(/My /g, 'its ')}.`,
       }
     }
 
@@ -4045,7 +4045,7 @@ const shapes3d3: Generator = {
         figure: { kind: 'solid', solid: q.s, alt: `A picture of a ${q.s}.` },
         answer: q.a,
         hints: [q.ask === 'flat faces' ? 'A flat face could sit flat on a table.' : 'A vertex is a pointed corner.', `Picture ${q.s === 'cylinder' ? 'a tin of soup' : q.s === 'cone' ? 'an ice cream cone' : 'a ball'}.`, q.ask === 'flat faces' ? 'Look at the top and the bottom of the shape.' : 'Run your finger over the shape. Is there anywhere sharp?'],
-        explanation: `${q.why} So it has ${q.a === 1 ? `1 ${q.ask === 'vertices' ? 'vertex' : q.ask === 'faces' ? 'face' : 'edge'}` : `${q.a} ${q.ask}`}.`,
+        explanation: `${q.why} So it has ${q.a === 1 ? `1 ${q.ask === 'vertices' ? 'vertex' : q.ask.replace(/s$/, '')}` : `${q.a} ${q.ask}`}.`,
       }
     }
 
@@ -4933,7 +4933,7 @@ const vennCarroll3: Generator = {
   generate({ rng, level }) {
     const regionText = (r: string, a: NumRule, b: NumRule) =>
       r === 'a' ? `In the ${lc(a.name)} circle only` : r === 'b' ? `In the ${lc(b.name)} circle only` : r === 'both' ? 'In both circles' : 'Outside both circles'
-    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} and ${b.test(n) ? '' : 'not '}${b.pred}`
+    const facts = (n: number, a: NumRule, b: NumRule) => `${n} is ${a.test(n) ? '' : 'not '}${a.pred} ${!a.test(n) && b.test(n) ? 'but is' : 'and'} ${b.test(n) ? '' : 'not '}${b.pred}`
 
     const where = (): GeneratedItem => {
       const [a, b] = rulePair(rng)
@@ -5018,7 +5018,7 @@ const vennCarroll3: Generator = {
         },
         ...numChoice(rng, moved, rng.sample(all.filter((x) => x !== moved), 3).map((x) => ({ value: x, why: `${x} fits both rules for its box.` })), { spread: [] }),
         hints: ['Each box has two rules: one from its column and one from its row.', 'Check every number against both rules for its box.', 'Start with the top left box.'],
-        explanation: `${moved} is ${a.test(moved) ? '' : 'not '}${a.pred} and ${b.test(moved) ? '' : 'not '}${b.pred}, so it belongs in the box for ${a.test(moved) ? lc(a.short) : `not ${lc(a.short)}`} and ${b.test(moved) ? lc(b.short) : `not ${lc(b.short)}`}.`,
+        explanation: `${moved} is ${a.test(moved) ? '' : 'not '}${a.pred} ${!a.test(moved) && b.test(moved) ? 'but is' : 'and'} ${b.test(moved) ? '' : 'not '}${b.pred}, so it belongs in the box for ${a.test(moved) ? lc(a.short) : `not ${lc(a.short)}`} and ${b.test(moved) ? lc(b.short) : `not ${lc(b.short)}`}.`,
       }
     }
 
