@@ -147,8 +147,8 @@
           "id": "q6",
           "prompt": "What does the root do?",
           "options": [
-            "It sings",
-            "It sleeps",
+            "It sings and makes a sound",
+            "It sleeps and does not grow",
             "It holds the plant and drinks water"
           ],
           "answer": 2,
@@ -159,7 +159,7 @@
     {
       "id": "c3",
       "title": "A Little Plant",
-      "text": "Now a green shoot goes up. It goes up to the sun. Two small leaves open. The leaves are green and soft.\n\nThe little plant needs water and sun. Every day it grows a little more. After some weeks the rice plant is tall.\n\nPak Joko smiles. \"My seeds are now plants,\" he says.",
+      "text": "Now a green shoot goes up. It goes up to the sun. One thin leaf opens. Then one more opens. The leaves are green and soft.\n\nThe little plant needs water and sun. Every day it grows a little more. After some weeks the rice plant is tall.\n\nPak Joko smiles. \"My seeds are now plants,\" he says.",
       "questions": [
         {
           "id": "q1",
@@ -174,14 +174,14 @@
         },
         {
           "id": "q2",
-          "prompt": "How many small leaves open first?",
+          "prompt": "How many leaves open first?",
           "options": [
             "One",
             "Three",
             "Two"
           ],
-          "answer": 2,
-          "why": "Two small leaves open."
+          "answer": 0,
+          "why": "One thin leaf opens. Then one more opens."
         },
         {
           "id": "q3",
