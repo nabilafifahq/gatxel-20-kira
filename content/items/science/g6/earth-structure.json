@@ -327,6 +327,673 @@
         "iksc",
         "imso"
       ]
+    },
+    {
+      "id": "s6.earth-structure.011",
+      "skill": "s6.earth-structure",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the layers of the Earth in this cross-section.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 130,
+            "r": 120,
+            "tone": "muted",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 130,
+            "r": 108,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 130,
+            "r": 68,
+            "tone": "star",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 130,
+            "r": 34,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A circle cut open to show four layers. A thin outer ring, then a thick layer, then a thinner layer, and a small solid circle at the centre."
+      },
+      "labels": [
+        "crust",
+        "mantle",
+        "outer core",
+        "inner core"
+      ],
+      "spots": [
+        {
+          "x": 24.7,
+          "y": 18.8
+        },
+        {
+          "x": 69.4,
+          "y": 26.2
+        },
+        {
+          "x": 29.7,
+          "y": 50
+        },
+        {
+          "x": 57.8,
+          "y": 50
+        }
+      ],
+      "extraLabels": [
+        "atmosphere"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The crust is the thin layer at the outside.",
+        "The inner core is the small ball at the very centre."
+      ],
+      "explanation": "From the outside: the thin crust, the thick mantle, the liquid outer core and the solid inner core."
+    },
+    {
+      "id": "s6.earth-structure.012",
+      "skill": "s6.earth-structure",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the place inside the volcano where the magma collects before an eruption.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 200,
+            "w": 320,
+            "h": 60,
+            "tone": "muted",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                60,
+                200
+              ],
+              [
+                160,
+                70
+              ],
+              [
+                260,
+                200
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                145,
+                78
+              ],
+              [
+                175,
+                78
+              ],
+              [
+                168,
+                92
+              ],
+              [
+                152,
+                92
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 92,
+            "x2": 160,
+            "y2": 205,
+            "tone": "ink",
+            "width": 6
+          },
+          {
+            "t": "ellipse",
+            "cx": 160,
+            "cy": 228,
+            "rx": 60,
+            "ry": 22,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A cross-section of a cone-shaped volcano on the ground. A dark dip is at the top, a thin channel runs down the middle, and a large oval pocket lies underground at the bottom."
+      },
+      "regions": [
+        {
+          "label": "crater at the top",
+          "x": 50,
+          "y": 30.8,
+          "w": 20,
+          "h": 14
+        },
+        {
+          "label": "tube through the middle",
+          "x": 50,
+          "y": 57.7,
+          "w": 14,
+          "h": 30
+        },
+        {
+          "label": "pocket underground",
+          "x": 50,
+          "y": 87.7,
+          "w": 40,
+          "h": 18
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Magma is molten rock under the ground.",
+        "It collects before it rises.",
+        "Find the large space below the surface."
+      ],
+      "explanation": "Magma collects in the magma chamber deep under the volcano. It rises up the vent and erupts from the crater."
+    },
+    {
+      "id": "s6.earth-structure.013",
+      "skill": "s6.earth-structure",
+      "type": "table",
+      "difficulty": 3,
+      "caption": "Plates moving at 2 cm a year",
+      "prompt": "A tectonic plate moves about 2 cm every year. Complete the table.",
+      "head": [
+        "Time (years)",
+        "Movement (cm)"
+      ],
+      "rows": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "10",
+          "20"
+        ],
+        [
+          "50",
+          ""
+        ],
+        [
+          "100",
+          ""
+        ],
+        [
+          "1000",
+          "2000"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "100"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "200"
+          ]
+        }
+      ],
+      "hints": [
+        "The plate moves the same amount every year.",
+        "Multiply the number of years by the yearly movement.",
+        "For 50 years, work out 50 × 2."
+      ],
+      "explanation": "Movement is years × 2 cm. So 50 years gives 100 cm and 100 years gives 200 cm."
+    },
+    {
+      "id": "s6.earth-structure.014",
+      "skill": "s6.earth-structure",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A plate moves 3 cm each year. How far does it move in one million years? Give your answer in kilometres.",
+      "answer": 30,
+      "unit": "km",
+      "hints": [
+        "First find the distance in centimetres.",
+        "There are 100 cm in a metre and 1000 m in a kilometre.",
+        "3 cm × 1 000 000 = 3 000 000 cm. Now change it to kilometres."
+      ],
+      "explanation": "3 cm × 1 000 000 = 3 000 000 cm = 30 000 m = 30 km."
+    },
+    {
+      "id": "s6.earth-structure.015",
+      "skill": "s6.earth-structure",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Seismic waves from an earthquake travel at 6 km/s. A town is 120 km from the epicentre. How many seconds do the waves take to reach it?",
+      "answer": 20,
+      "unit": "s",
+      "hints": [
+        "Time = distance ÷ speed.",
+        "Check that the units match: km and km/s.",
+        "Divide 120 by 6."
+      ],
+      "explanation": "Time = 120 km ÷ 6 km/s = 20 s."
+    },
+    {
+      "id": "s6.earth-structure.016",
+      "skill": "s6.earth-structure",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "A seismograph station 270 km from an earthquake records the waves arriving after 45 seconds. What is the speed of the waves in kilometres per second?",
+      "answer": 6,
+      "unit": "km/s",
+      "hints": [
+        "Speed tells you how far something moves each second.",
+        "Use speed = distance ÷ time.",
+        "Divide 270 by 45."
+      ],
+      "explanation": "Speed = 270 km ÷ 45 s = 6 km/s."
+    },
+    {
+      "id": "s6.earth-structure.017",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "What instrument records the shaking of the ground during an earthquake?",
+      "options": [
+        {
+          "text": "A thermometer",
+          "why": "A thermometer measures temperature."
+        },
+        {
+          "text": "A barometer",
+          "why": "A barometer measures air pressure."
+        },
+        {
+          "text": "A seismograph"
+        },
+        {
+          "text": "A newtonmeter",
+          "why": "A newtonmeter measures forces, not ground shaking."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The word seismic is about earthquakes.",
+        "The instrument draws a wiggly line when the ground moves.",
+        "Choose the tool made for the ground, not the air or temperature."
+      ],
+      "explanation": "A seismograph records the vibrations of the ground. Scientists use it to find out how strong an earthquake was."
+    },
+    {
+      "id": "s6.earth-structure.018",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Fossils of the same freshwater reptile were found in South America and in Africa, which are now separated by the Atlantic Ocean. What does this evidence support?",
+      "options": [
+        {
+          "text": "The reptile could swim across the whole ocean.",
+          "why": "A freshwater animal could not cross a salt-water ocean."
+        },
+        {
+          "text": "The two continents were once joined together."
+        },
+        {
+          "text": "The fossils were carried across by the wind.",
+          "why": "Wind cannot carry large fossils across an ocean."
+        },
+        {
+          "text": "The continents have never moved.",
+          "why": "The fossil evidence points to movement."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A freshwater animal could not cross a salty ocean.",
+        "What must have been true about the land when the animal lived?",
+        "Link this to the idea of continental drift."
+      ],
+      "explanation": "Because a freshwater reptile could not cross the ocean, the lands must have been joined when it lived. This supports the idea that continents move."
+    },
+    {
+      "id": "s6.earth-structure.019",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Most of the world's volcanoes and earthquakes happen in a ring around the Pacific Ocean. Why?",
+      "options": [
+        {
+          "text": "Plates meet and move against each other there."
+        },
+        {
+          "text": "The Pacific Ocean is the deepest ocean, so it is hottest.",
+          "why": "Depth does not explain the ring. Plate boundaries do."
+        },
+        {
+          "text": "The Moon's pull is strongest over the Pacific.",
+          "why": "The Moon does not cause earthquakes."
+        },
+        {
+          "text": "Volcanoes grow where it rains the most.",
+          "why": "Rain does not make volcanoes."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about the tectonic plates.",
+        "Which places have the most plate movement?",
+        "Plate edges are where plates collide, pull apart or slide."
+      ],
+      "explanation": "The ring follows the edges of several tectonic plates. Where plates push, pull apart or slide, earthquakes and volcanoes are common."
+    },
+    {
+      "id": "s6.earth-structure.020",
+      "skill": "s6.earth-structure",
+      "type": "multi",
+      "difficulty": 1,
+      "prompt": "Choose all the layers that are inside the Earth.",
+      "options": [
+        {
+          "text": "crust"
+        },
+        {
+          "text": "mantle"
+        },
+        {
+          "text": "atmosphere"
+        },
+        {
+          "text": "outer core"
+        },
+        {
+          "text": "inner core"
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "hints": [
+        "The atmosphere is not inside.",
+        "The Earth has four layers from the surface to the centre.",
+        "Pick the four layers of rock and metal."
+      ],
+      "explanation": "The Earth has four layers: crust, mantle, outer core and inner core. The atmosphere is the air around it."
+    },
+    {
+      "id": "s6.earth-structure.021",
+      "skill": "s6.earth-structure",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each hazard by what can cause it.",
+      "groups": [
+        "Earthquake only",
+        "Volcano only",
+        "Either one"
+      ],
+      "items": [
+        {
+          "text": "ground shaking",
+          "group": 0
+        },
+        {
+          "text": "cracked roads",
+          "group": 0
+        },
+        {
+          "text": "lava flow",
+          "group": 1
+        },
+        {
+          "text": "ash cloud",
+          "group": 1
+        },
+        {
+          "text": "tsunami",
+          "group": 2
+        },
+        {
+          "text": "landslide",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Some hazards can come from both.",
+        "A tsunami starts when the sea floor moves.",
+        "Lava and ash come from the volcano."
+      ],
+      "explanation": "Shaking and cracks come from earthquakes. Lava and ash come from volcanoes. Tsunamis and landslides can follow either."
+    },
+    {
+      "id": "s6.earth-structure.022",
+      "skill": "s6.earth-structure",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps that make a tsunami in order.",
+      "items": [
+        "An earthquake moves the sea floor",
+        "A huge amount of water is pushed up",
+        "Waves spread out across the ocean",
+        "The waves slow down and rise near the coast",
+        "Water floods the land"
+      ],
+      "hints": [
+        "Start with the cause.",
+        "Waves travel before they reach land.",
+        "The last step is what the people on the coast see."
+      ],
+      "explanation": "A moving sea floor pushes up water, which makes waves. The waves rise near the coast and flood the land."
+    },
+    {
+      "id": "s6.earth-structure.023",
+      "skill": "s6.earth-structure",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each word to its meaning.",
+      "pairs": [
+        [
+          "magma",
+          "molten rock under the ground"
+        ],
+        [
+          "lava",
+          "molten rock that has reached the surface"
+        ],
+        [
+          "epicentre",
+          "the point on the surface above where an earthquake starts"
+        ],
+        [
+          "tectonic plate",
+          "a huge slab of the Earth's crust"
+        ]
+      ],
+      "hints": [
+        "The difference between magma and lava is where the rock is.",
+        "Epicentre means above the centre of the shaking.",
+        "Plates make up the Earth's crust."
+      ],
+      "explanation": "Magma is underground and lava is on the surface. The epicentre is the surface point above the start of an earthquake."
+    },
+    {
+      "id": "s6.earth-structure.024",
+      "skill": "s6.earth-structure",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Tectonic plates can push ___ each other, pull ___ from each other, or slide past each other.",
+      "gaps": [
+        {
+          "options": [
+            "towards",
+            "away",
+            "over"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "away",
+            "towards",
+            "into"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Think about what happens at a plate boundary.",
+        "Pushing together is the opposite of pulling apart.",
+        "Plates collide when they move towards each other."
+      ],
+      "explanation": "At plate boundaries, plates collide, pull away or slide past. These movements cause earthquakes and volcanoes."
+    },
+    {
+      "id": "s6.earth-structure.025",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Why do scientists use readings from several seismograph stations to find the epicentre of an earthquake?",
+      "options": [
+        {
+          "text": "One station is enough to find the exact place.",
+          "why": "A single station can only tell how far away the earthquake was."
+        },
+        {
+          "text": "Each station shows how far away the earthquake was, and the distances together point to one place."
+        },
+        {
+          "text": "More stations make the earthquake weaker.",
+          "why": "Stations only record. They do not change the earthquake."
+        },
+        {
+          "text": "Stations stop the earthquake from happening.",
+          "why": "Stations only measure."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One station gives only a distance, not a direction.",
+        "Imagine drawing a circle around each station.",
+        "Where would the circles meet?"
+      ],
+      "explanation": "One station gives only the distance. With several stations, the circles of possible places cross at the epicentre."
+    },
+    {
+      "id": "s6.earth-structure.026",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The Mid-Atlantic Ridge is where two plates are slowly pulling apart under the ocean. What do scientists expect to happen there?",
+      "options": [
+        {
+          "text": "Old crust sinks and the ocean gets narrower.",
+          "why": "That happens where plates push together."
+        },
+        {
+          "text": "New crust forms from rising magma and the Atlantic Ocean slowly gets wider."
+        },
+        {
+          "text": "The sea floor stays the same for ever.",
+          "why": "The plates are moving, so it changes."
+        },
+        {
+          "text": "The two continents crash into each other.",
+          "why": "The plates are moving apart there, not together."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "What fills the gap when plates move apart?",
+        "Magma rises from the mantle.",
+        "Magma cools to make new rock."
+      ],
+      "explanation": "As the plates pull apart, magma rises to fill the gap and cools into new crust. The ocean slowly widens."
+    },
+    {
+      "id": "s6.earth-structure.027",
+      "skill": "s6.earth-structure",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which layer of the Earth do we live on?",
+      "options": [
+        {
+          "text": "The mantle",
+          "why": "The mantle is deep below our feet."
+        },
+        {
+          "text": "The inner core",
+          "why": "The inner core is at the centre of the Earth."
+        },
+        {
+          "text": "The outer core",
+          "why": "The outer core is far beneath the crust."
+        },
+        {
+          "text": "The crust"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "It is the layer at the very outside.",
+        "Roads, houses and the sea floor sit on it.",
+        "It is the thinnest layer."
+      ],
+      "explanation": "We live on the crust, the thin rocky layer at the surface."
+    },
+    {
+      "id": "s6.earth-structure.028",
+      "skill": "s6.earth-structure",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Melted rock found below the Earth's surface is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "magma"
+          ]
+        }
+      ],
+      "hints": [
+        "When it erupts it gets a different name.",
+        "It is found in a magma chamber.",
+        "It is the rock in a volcano before it erupts."
+      ],
+      "explanation": "Magma is molten rock under the ground. When it erupts onto the surface, it is called lava."
     }
   ]
 }

@@ -436,6 +436,787 @@
       "tags": [
         "osn-sd"
       ]
+    },
+    {
+      "id": "s4.pitch-and-volume.013",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which sound has a high pitch?",
+      "options": [
+        {
+          "text": "A lion roaring",
+          "why": "A roar is a low pitch."
+        },
+        {
+          "text": "A bird tweeting"
+        },
+        {
+          "text": "A bass drum",
+          "why": "A bass drum is low."
+        },
+        {
+          "text": "Thunder",
+          "why": "Thunder rumbles low."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "High pitch means a high note.",
+        "Think of a squeak or whistle.",
+        "Birds make tiny, high sounds."
+      ],
+      "explanation": "A bird tweet is high pitched. Roars, bass drums and thunder are low."
+    },
+    {
+      "id": "s4.pitch-and-volume.014",
+      "skill": "s4.pitch-and-volume",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A short, tight string makes a ___ pitch than a long, loose string.",
+      "blanks": [
+        {
+          "answers": [
+            "higher",
+            "high"
+          ]
+        }
+      ],
+      "hints": [
+        "Short strings vibrate faster.",
+        "Think about the top notes of a guitar.",
+        "Higher or lower?"
+      ],
+      "explanation": "Short, tight strings vibrate faster, so the pitch is higher."
+    },
+    {
+      "id": "s4.pitch-and-volume.015",
+      "skill": "s4.pitch-and-volume",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the bar that plays the lowest note.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 180,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 25,
+            "y": 15,
+            "w": 50,
+            "h": 85,
+            "r": 4,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 95,
+            "y": 15,
+            "w": 50,
+            "h": 130,
+            "r": 4,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 165,
+            "y": 15,
+            "w": 50,
+            "h": 60,
+            "r": 4,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 235,
+            "y": 15,
+            "w": 50,
+            "h": 105,
+            "r": 4,
+            "tone": "science",
+            "fill": "light"
+          }
+        ],
+        "alt": "A xylophone with four bars of different lengths side by side: the second bar is longest, the fourth is next, the first is shorter and the third is the shortest."
+      },
+      "hints": [
+        "Long bars vibrate slowly.",
+        "Slow vibrations make a lower note.",
+        "Find the longest bar."
+      ],
+      "explanation": "The longest bar vibrates slowest, so it plays the lowest note.",
+      "regions": [
+        {
+          "label": "first bar",
+          "x": 15.6,
+          "y": 31.7,
+          "w": 15.6,
+          "h": 47.2
+        },
+        {
+          "label": "second bar",
+          "x": 37.5,
+          "y": 44.4,
+          "w": 15.6,
+          "h": 72.2
+        },
+        {
+          "label": "third bar",
+          "x": 59.4,
+          "y": 25,
+          "w": 15.6,
+          "h": 33.3
+        },
+        {
+          "label": "fourth bar",
+          "x": 81.3,
+          "y": 37.2,
+          "w": 15.6,
+          "h": 58.3
+        }
+      ],
+      "answers": [
+        1
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.016",
+      "skill": "s4.pitch-and-volume",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the parts of the guitar.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 84,
+            "w": 30,
+            "h": 32,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "rect",
+            "x": 20,
+            "y": 92,
+            "w": 170,
+            "h": 16,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 230,
+            "cy": 100,
+            "rx": 70,
+            "ry": 60,
+            "rot": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 235,
+            "cy": 100,
+            "r": 18,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 20,
+            "y1": 97,
+            "x2": 290,
+            "y2": 97,
+            "tone": "ink",
+            "width": 1.5
+          },
+          {
+            "t": "line",
+            "x1": 20,
+            "y1": 100,
+            "x2": 290,
+            "y2": 100,
+            "tone": "ink",
+            "width": 1.5
+          },
+          {
+            "t": "line",
+            "x1": 20,
+            "y1": 103,
+            "x2": 290,
+            "y2": 103,
+            "tone": "ink",
+            "width": 1.5
+          }
+        ],
+        "alt": "A guitar lying on its side. The head with tuning pegs is on the left, a long neck runs to the right, and a round body with a dark sound hole is on the right."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The neck is the long thin part.",
+        "The sound hole is the dark circle."
+      ],
+      "explanation": "Strings run from the tuning pegs along the neck over the sound hole. The body helps make the sound bigger.",
+      "labels": [
+        "tuning peg",
+        "neck",
+        "sound hole",
+        "body"
+      ],
+      "spots": [
+        {
+          "x": 4.7,
+          "y": 50
+        },
+        {
+          "x": 32.8,
+          "y": 50
+        },
+        {
+          "x": 73.4,
+          "y": 50
+        },
+        {
+          "x": 71.9,
+          "y": 22.5
+        }
+      ]
+    },
+    {
+      "id": "s4.pitch-and-volume.017",
+      "skill": "s4.pitch-and-volume",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Dewi changes the length of a plucked string. She ranks the pitch from 1 (lowest) to 4 (highest). Complete the table.",
+      "head": [
+        "Length of string (cm)",
+        "Pitch rank"
+      ],
+      "rows": [
+        [
+          "40",
+          "1"
+        ],
+        [
+          "30",
+          "2"
+        ],
+        [
+          "20",
+          ""
+        ],
+        [
+          "10",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "3"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "4"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at the first two rows.",
+        "Shorter strings sound higher.",
+        "The rank goes up by 1 each time the string gets 10 cm shorter."
+      ],
+      "explanation": "Each shorter string vibrates faster. The pitch rank goes up by 1 each time, so 20 cm gives 3 and 10 cm gives 4."
+    },
+    {
+      "id": "s4.pitch-and-volume.018",
+      "skill": "s4.pitch-and-volume",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Ear defenders reduce noise by 25 dB. A drill makes 105 dB. How loud is the noise reaching the ears?",
+      "answer": 80,
+      "unit": "dB",
+      "hints": [
+        "Reduce means take away.",
+        "Start with the loud noise.",
+        "Take 25 away from 105."
+      ],
+      "explanation": "105 take away 25 is 80. The noise reaching the ears is 80 dB."
+    },
+    {
+      "id": "s4.pitch-and-volume.019",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Raka plucks a rubber band gently and then harder. What changes?",
+      "options": [
+        {
+          "text": "The pitch gets higher.",
+          "why": "Plucking harder does not change the speed of vibration much."
+        },
+        {
+          "text": "The sound gets louder."
+        },
+        {
+          "text": "The rubber band gets longer.",
+          "why": "Length stays the same."
+        },
+        {
+          "text": "Nothing changes.",
+          "why": "Harder plucking makes bigger vibrations."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Plucking harder gives a bigger movement.",
+        "Bigger vibrations change one thing.",
+        "Is it pitch or volume?"
+      ],
+      "explanation": "A harder pluck makes bigger vibrations, so the sound is louder. The pitch stays about the same."
+    },
+    {
+      "id": "s4.pitch-and-volume.020",
+      "skill": "s4.pitch-and-volume",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort each sound by its pitch.",
+      "groups": [
+        "High pitch",
+        "Low pitch"
+      ],
+      "items": [
+        {
+          "text": "whistle",
+          "group": 0
+        },
+        {
+          "text": "mosquito buzz",
+          "group": 0
+        },
+        {
+          "text": "bird tweet",
+          "group": 0
+        },
+        {
+          "text": "foghorn",
+          "group": 1
+        },
+        {
+          "text": "bass drum",
+          "group": 1
+        },
+        {
+          "text": "thunder rumble",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "High pitch is a thin, squeaky sound.",
+        "Low pitch is a deep sound.",
+        "Imagine each one."
+      ],
+      "explanation": "Whistles, mosquitoes and birds make high notes. Foghorns, bass drums and thunder make deep notes."
+    },
+    {
+      "id": "s4.pitch-and-volume.021",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan blows a recorder. When she covers more holes, the note gets lower. Why?",
+      "options": [
+        {
+          "text": "The air column inside becomes longer, so it vibrates more slowly."
+        },
+        {
+          "text": "The air gets colder.",
+          "why": "Temperature is not the main reason."
+        },
+        {
+          "text": "The recorder gets louder.",
+          "why": "Volume is not the same as pitch."
+        },
+        {
+          "text": "The holes make the air vibrate faster.",
+          "why": "Covering holes makes it slower."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "More covered holes make a longer tube of vibrating air.",
+        "Long means slow.",
+        "Slower vibrations mean a lower note."
+      ],
+      "explanation": "Covering holes makes the vibrating air column longer. Longer columns vibrate more slowly and make lower notes."
+    },
+    {
+      "id": "s4.pitch-and-volume.022",
+      "skill": "s4.pitch-and-volume",
+      "type": "table",
+      "difficulty": 5,
+      "prompt": "A ruler hangs over a table edge and is twanged. Complete the table with vibrations in 1 second.",
+      "head": [
+        "Overhang (cm)",
+        "Vibrations in 1 second"
+      ],
+      "rows": [
+        [
+          "5",
+          "72"
+        ],
+        [
+          "10",
+          "36"
+        ],
+        [
+          "15",
+          ""
+        ],
+        [
+          "20",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "24"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "18"
+          ]
+        }
+      ],
+      "hints": [
+        "72 and 36: the overhang doubled and the vibrations halved.",
+        "Multiply overhang by vibrations for the first row.",
+        "The product stays the same, 360."
+      ],
+      "explanation": "Overhang × vibrations is always 360. So 15 cm gives 360 ÷ 15 = 24 and 20 cm gives 360 ÷ 20 = 18."
+    },
+    {
+      "id": "s4.pitch-and-volume.023",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A ruler overhangs by 6, 12, 18 and 24 cm. It vibrates 60, 30, 20 and 15 times in a second. What do the results show?",
+      "options": [
+        {
+          "text": "The longer the overhang, the higher the pitch.",
+          "why": "More vibrations a second means a higher pitch, and the longer overhang had fewer."
+        },
+        {
+          "text": "The longer the overhang, the fewer the vibrations, so the lower the pitch."
+        },
+        {
+          "text": "Overhang does not change the pitch.",
+          "why": "The vibrations changed a lot."
+        },
+        {
+          "text": "Shorter overhangs are quieter.",
+          "why": "The results show the pitch, not the loudness."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at how the vibrations change.",
+        "Fewer vibrations a second is a lower pitch.",
+        "Compare 6 cm with 24 cm."
+      ],
+      "explanation": "As the overhang gets longer, the ruler vibrates fewer times in a second. Fewer vibrations mean a lower pitch.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Overhang (cm)",
+          "Vibrations in 1 second"
+        ],
+        "rows": [
+          [
+            "6",
+            "60"
+          ],
+          [
+            "12",
+            "30"
+          ],
+          [
+            "18",
+            "20"
+          ],
+          [
+            "24",
+            "15"
+          ]
+        ],
+        "alt": "Table: overhang 6 cm gives 60 vibrations, 12 cm gives 30, 18 cm gives 20 and 24 cm gives 15."
+      }
+    },
+    {
+      "id": "s4.pitch-and-volume.024",
+      "skill": "s4.pitch-and-volume",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 ways to make a guitar sound louder.",
+      "options": [
+        {
+          "text": "Pluck the string harder"
+        },
+        {
+          "text": "Make the string shorter"
+        },
+        {
+          "text": "Use an amplifier"
+        },
+        {
+          "text": "Tighten the string"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Louder means bigger vibrations.",
+        "Shorter and tighter strings change pitch.",
+        "Think of hitting harder and adding power."
+      ],
+      "explanation": "A harder pluck and an amplifier both make the sound louder. Shortening or tightening a string changes the pitch."
+    },
+    {
+      "id": "s4.pitch-and-volume.025",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which instrument usually plays the lowest notes?",
+      "options": [
+        {
+          "text": "Piccolo",
+          "why": "A piccolo is small and plays very high notes."
+        },
+        {
+          "text": "Flute",
+          "why": "A flute plays higher notes."
+        },
+        {
+          "text": "Violin",
+          "why": "A violin plays higher notes than a tuba."
+        },
+        {
+          "text": "Tuba"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Large instruments have long air columns or strings.",
+        "Long means slow vibrations.",
+        "Which one is biggest?"
+      ],
+      "explanation": "The tuba is big and has a long tube. Long tubes vibrate slowly, so it plays low notes."
+    },
+    {
+      "id": "s4.pitch-and-volume.026",
+      "skill": "s4.pitch-and-volume",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each change to its effect on the sound.",
+      "pairs": [
+        [
+          "shorter string",
+          "higher pitch"
+        ],
+        [
+          "longer string",
+          "lower pitch"
+        ],
+        [
+          "bigger vibrations",
+          "louder sound"
+        ],
+        [
+          "smaller vibrations",
+          "quieter sound"
+        ]
+      ],
+      "hints": [
+        "Length changes pitch.",
+        "Size of vibrations changes volume.",
+        "Short is high, long is low."
+      ],
+      "explanation": "Shorter strings vibrate faster and sound higher. Bigger vibrations make a louder sound."
+    },
+    {
+      "id": "s4.pitch-and-volume.027",
+      "skill": "s4.pitch-and-volume",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "Faster vibrations make a ___ pitch. Bigger vibrations make a ___ sound.",
+      "gaps": [
+        {
+          "options": [
+            "higher",
+            "lower"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "louder",
+            "quieter"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Pitch depends on how fast.",
+        "Volume depends on how big.",
+        "Fast vibrations sound squeaky."
+      ],
+      "explanation": "Pitch goes with the speed of the vibrations and volume goes with their size."
+    },
+    {
+      "id": "s4.pitch-and-volume.028",
+      "skill": "s4.pitch-and-volume",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put these sounds in order from quietest to loudest.",
+      "items": [
+        "whisper",
+        "classroom chat",
+        "motorbike",
+        "jet engine"
+      ],
+      "hints": [
+        "Think about how far away you can hear each one.",
+        "A whisper is about 30 dB.",
+        "A jet engine is the loudest."
+      ],
+      "explanation": "A whisper is quietest and a jet engine is loudest. Chatting and a motorbike are in between."
+    },
+    {
+      "id": "s4.pitch-and-volume.029",
+      "skill": "s4.pitch-and-volume",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Two guitar strings are the same length and tension. One is thin and one is thick. Which gives the higher note?",
+      "options": [
+        {
+          "text": "The thick string",
+          "why": "A thick string vibrates more slowly."
+        },
+        {
+          "text": "The thin string"
+        },
+        {
+          "text": "Both the same",
+          "why": "Thickness does change the pitch."
+        },
+        {
+          "text": "The one that is plucked harder",
+          "why": "Plucking harder changes volume, not pitch."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Heavy things move more slowly.",
+        "Slow vibrations are low notes.",
+        "Which string is lighter?"
+      ],
+      "explanation": "A thin string is lighter and vibrates faster, so it gives a higher note."
+    },
+    {
+      "id": "s4.pitch-and-volume.030",
+      "skill": "s4.pitch-and-volume",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "A ruler is twanged over a table edge. Tap the part that vibrates.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 160,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 100,
+            "w": 200,
+            "h": 60,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 60,
+            "y": 88,
+            "w": 200,
+            "h": 12,
+            "r": 0,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "icon",
+            "icon": "hand",
+            "x": 70,
+            "y": 28,
+            "size": 48
+          }
+        ],
+        "alt": "A table on the left. A ruler lies flat on it and sticks out over the edge. A hand holds the part of the ruler that is on the table."
+      },
+      "hints": [
+        "The held part cannot move much.",
+        "The free end is the part that moves.",
+        "Look past the table edge."
+      ],
+      "explanation": "The part sticking out over the edge is free to move, so it vibrates and makes the sound.",
+      "regions": [
+        {
+          "label": "held part",
+          "x": 40.6,
+          "y": 58.8,
+          "w": 43.8,
+          "h": 12.5
+        },
+        {
+          "label": "overhanging part",
+          "x": 71.9,
+          "y": 58.8,
+          "w": 18.8,
+          "h": 12.5
+        },
+        {
+          "label": "table",
+          "x": 31.3,
+          "y": 84.4,
+          "w": 46.9,
+          "h": 31.3
+        }
+      ],
+      "answers": [
+        1
+      ]
     }
   ]
 }

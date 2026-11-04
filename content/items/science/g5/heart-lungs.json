@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "Which organ pumps blood around your body?",
       "options": [
-        { "text": "lungs", "why": "The lungs take oxygen from the air. They do not pump blood." },
-        { "text": "stomach", "why": "The stomach breaks down food. It does not pump blood." },
-        { "text": "heart" },
-        { "text": "brain", "why": "The brain controls the body, but it does not pump blood." }
+        {
+          "text": "lungs",
+          "why": "The lungs take oxygen from the air. They do not pump blood."
+        },
+        {
+          "text": "stomach",
+          "why": "The stomach breaks down food. It does not pump blood."
+        },
+        {
+          "text": "heart"
+        },
+        {
+          "text": "brain",
+          "why": "The brain controls the body, but it does not pump blood."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -28,10 +39,22 @@
       "difficulty": 1,
       "prompt": "Match each part of the body to its job.",
       "pairs": [
-        ["heart", "pumps blood around the body"],
-        ["lungs", "take oxygen from the air into the blood"],
-        ["blood vessels", "carry blood to every part of the body"],
-        ["ribs", "protect the heart and lungs"]
+        [
+          "heart",
+          "pumps blood around the body"
+        ],
+        [
+          "lungs",
+          "take oxygen from the air into the blood"
+        ],
+        [
+          "blood vessels",
+          "carry blood to every part of the body"
+        ],
+        [
+          "ribs",
+          "protect the heart and lungs"
+        ]
       ],
       "hints": [
         "Each part has one main job. Some move blood, one takes in air and one protects.",
@@ -47,10 +70,21 @@
       "difficulty": 2,
       "prompt": "What do veins do?",
       "options": [
-        { "text": "carry blood away from the heart", "why": "That is the job of arteries." },
-        { "text": "carry blood back to the heart" },
-        { "text": "pump blood around the body", "why": "Pumping is the job of the heart. Veins are tubes." },
-        { "text": "carry air into the lungs", "why": "Air reaches the lungs through the windpipe, not through blood vessels." }
+        {
+          "text": "carry blood away from the heart",
+          "why": "That is the job of arteries."
+        },
+        {
+          "text": "carry blood back to the heart"
+        },
+        {
+          "text": "pump blood around the body",
+          "why": "Pumping is the job of the heart. Veins are tubes."
+        },
+        {
+          "text": "carry air into the lungs",
+          "why": "Air reaches the lungs through the windpipe, not through blood vessels."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -67,16 +101,43 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Sort these parts into the circulatory system or the breathing system.",
-      "groups": ["Circulatory system", "Breathing system"],
+      "groups": [
+        "Circulatory system",
+        "Breathing system"
+      ],
       "items": [
-        { "text": "heart", "group": 0 },
-        { "text": "artery", "group": 0 },
-        { "text": "vein", "group": 0 },
-        { "text": "blood", "group": 0 },
-        { "text": "lungs", "group": 1 },
-        { "text": "windpipe", "group": 1 },
-        { "text": "nose", "group": 1 },
-        { "text": "diaphragm", "group": 1 }
+        {
+          "text": "heart",
+          "group": 0
+        },
+        {
+          "text": "artery",
+          "group": 0
+        },
+        {
+          "text": "vein",
+          "group": 0
+        },
+        {
+          "text": "blood",
+          "group": 0
+        },
+        {
+          "text": "lungs",
+          "group": 1
+        },
+        {
+          "text": "windpipe",
+          "group": 1
+        },
+        {
+          "text": "nose",
+          "group": 1
+        },
+        {
+          "text": "diaphragm",
+          "group": 1
+        }
       ],
       "hints": [
         "The circulatory system moves blood. The breathing system moves air.",
@@ -100,11 +161,22 @@
       ],
       "explanation": "There are four lots of 15 seconds in a minute, so 18 × 4 = 72 beats per minute. Each beat you feel is one squeeze of the heart.",
       "solution": [
-        { "say": "One minute has 60 seconds. 60 divided by 15 is 4, so a minute has four 15-second blocks.", "show": "60 ÷ 15 = 4" },
-        { "say": "Wayan felt 18 beats in one block. Multiply by 4 to find the beats in a whole minute.", "show": "18 × 4 = 72" },
-        { "say": "His pulse rate is 72 beats per minute.", "show": "72 beats per minute" }
+        {
+          "say": "One minute has 60 seconds. 60 divided by 15 is 4, so a minute has four 15-second blocks.",
+          "show": "60 ÷ 15 = 4"
+        },
+        {
+          "say": "Wayan felt 18 beats in one block. Multiply by 4 to find the beats in a whole minute.",
+          "show": "18 × 4 = 72"
+        },
+        {
+          "say": "His pulse rate is 72 beats per minute.",
+          "show": "72 beats per minute"
+        }
       ],
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.heart-lungs.006",
@@ -114,8 +186,16 @@
       "prompt": "The bar chart shows Citra's heart rate at rest, after walking and after running. Why is it highest after running?",
       "figure": {
         "kind": "bars",
-        "categories": ["At rest", "After walking", "After running"],
-        "values": [80, 100, 145],
+        "categories": [
+          "At rest",
+          "After walking",
+          "After running"
+        ],
+        "values": [
+          80,
+          100,
+          145
+        ],
         "axisMax": 160,
         "step": 20,
         "yLabel": "Heart rate (beats per minute)",
@@ -123,10 +203,21 @@
         "alt": "Bar chart of Citra's heart rate: at rest 80, after walking 100 and after running 145 beats per minute."
       },
       "options": [
-        { "text": "A tired heart beats more slowly.", "why": "The chart shows the heart rate going up after running, so the heart did not slow down." },
-        { "text": "Running uses less energy than walking.", "why": "Running uses more energy than walking, so the muscles need more oxygen." },
-        { "text": "The lungs stop working while you run.", "why": "The lungs keep working. You breathe faster and deeper when you run." },
-        { "text": "Running muscles need more oxygen, so the heart pumps faster." }
+        {
+          "text": "A tired heart beats more slowly.",
+          "why": "The chart shows the heart rate going up after running, so the heart did not slow down."
+        },
+        {
+          "text": "Running uses less energy than walking.",
+          "why": "Running uses more energy than walking, so the muscles need more oxygen."
+        },
+        {
+          "text": "The lungs stop working while you run.",
+          "why": "The lungs keep working. You breathe faster and deeper when you run."
+        },
+        {
+          "text": "Running muscles need more oxygen, so the heart pumps faster."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -135,7 +226,9 @@
         "Ask yourself what the heart must do if the muscles need more oxygen quickly."
       ],
       "explanation": "Running muscles use a lot of energy, so they need more oxygen. The heart beats faster to carry more oxygen-rich blood to them.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.heart-lungs.007",
@@ -144,10 +237,21 @@
       "difficulty": 3,
       "prompt": "In the lungs, which gas passes from the air into the blood?",
       "options": [
-        { "text": "carbon dioxide", "why": "Carbon dioxide moves the other way, from the blood into the lungs, and you breathe it out." },
-        { "text": "nitrogen", "why": "Most of the air is nitrogen, but your body does not use it, so you breathe it back out." },
-        { "text": "oxygen" },
-        { "text": "water vapour", "why": "You breathe out some water vapour. The gas your blood takes in is a different one." }
+        {
+          "text": "carbon dioxide",
+          "why": "Carbon dioxide moves the other way, from the blood into the lungs, and you breathe it out."
+        },
+        {
+          "text": "nitrogen",
+          "why": "Most of the air is nitrogen, but your body does not use it, so you breathe it back out."
+        },
+        {
+          "text": "oxygen"
+        },
+        {
+          "text": "water vapour",
+          "why": "You breathe out some water vapour. The gas your blood takes in is a different one."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -156,7 +260,9 @@
         "Cross out the waste gas first. Then cross out the gas your body does not use."
       ],
       "explanation": "Oxygen passes from the air in the lungs into the blood. At the same time, carbon dioxide passes from the blood into the lungs and is breathed out.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.heart-lungs.008",
@@ -164,14 +270,24 @@
       "type": "order",
       "difficulty": 4,
       "prompt": "Put the parts in order to show the path oxygen takes from the air to your leg muscles.",
-      "items": ["nose", "windpipe", "lungs", "heart", "arteries", "leg muscles"],
+      "items": [
+        "nose",
+        "windpipe",
+        "lungs",
+        "heart",
+        "arteries",
+        "leg muscles"
+      ],
       "hints": [
         "Oxygen starts in the air outside your body and ends in your leg muscles.",
         "First follow the air into your body. Then follow the blood that picks up the oxygen.",
         "Air goes in through your nose first. Decide which tube it goes down next."
       ],
       "explanation": "Air goes through the nose and down the windpipe into the lungs, where oxygen enters the blood. The blood goes to the heart, which pumps it through arteries to the muscles.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.heart-lungs.009",
@@ -180,10 +296,21 @@
       "difficulty": 4,
       "prompt": "How is the air you breathe out different from the air you breathe in?",
       "options": [
-        { "text": "It has less oxygen and more carbon dioxide." },
-        { "text": "It has no oxygen at all.", "why": "Breathed-out air still has some oxygen, just less than before." },
-        { "text": "It is only carbon dioxide.", "why": "Most breathed-out air is nitrogen. It also has some oxygen and more carbon dioxide than before." },
-        { "text": "It has more oxygen than breathed-in air.", "why": "Your body takes oxygen out of the air, so less is left." }
+        {
+          "text": "It has less oxygen and more carbon dioxide."
+        },
+        {
+          "text": "It has no oxygen at all.",
+          "why": "Breathed-out air still has some oxygen, just less than before."
+        },
+        {
+          "text": "It is only carbon dioxide.",
+          "why": "Most breathed-out air is nitrogen. It also has some oxygen and more carbon dioxide than before."
+        },
+        {
+          "text": "It has more oxygen than breathed-in air.",
+          "why": "Your body takes oxygen out of the air, so less is left."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -192,7 +319,9 @@
         "Picture one breath going in and coming out. Decide which gas goes down and which goes up."
       ],
       "explanation": "Your blood takes some oxygen from each breath and adds carbon dioxide. So breathed-out air has less oxygen and more carbon dioxide, but it still contains some oxygen.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.heart-lungs.010",
@@ -201,10 +330,21 @@
       "difficulty": 5,
       "prompt": "Climbers high on a mountain breathe faster, even when they are resting. Which is the best explanation?",
       "options": [
-        { "text": "Gravity is stronger high up, so breathing is harder.", "why": "Gravity is very slightly weaker high up, and it does not change how fast you breathe." },
-        { "text": "Cold air makes the lungs smaller.", "why": "Your lungs stay the same size. The problem is what each breath contains." },
-        { "text": "The air is warmer, so the body needs to cool down.", "why": "Air high on a mountain is colder than air lower down." },
-        { "text": "Each breath holds less oxygen, so they breathe faster to get enough." }
+        {
+          "text": "Gravity is stronger high up, so breathing is harder.",
+          "why": "Gravity is very slightly weaker high up, and it does not change how fast you breathe."
+        },
+        {
+          "text": "Cold air makes the lungs smaller.",
+          "why": "Your lungs stay the same size. The problem is what each breath contains."
+        },
+        {
+          "text": "The air is warmer, so the body needs to cool down.",
+          "why": "Air high on a mountain is colder than air lower down."
+        },
+        {
+          "text": "Each breath holds less oxygen, so they breathe faster to get enough."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -213,7 +353,697 @@
         "Compare one breath at the beach with one breath on a high mountain. Decide which holds more oxygen."
       ],
       "explanation": "High up, the air is thinner, so each breath contains less oxygen. The body breathes faster, and the heart beats faster, to take in and carry enough oxygen.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.heart-lungs.011",
+      "skill": "s5.heart-lungs",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the organs in the chest.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 22,
+            "r": 16,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 55,
+            "w": 180,
+            "h": 195,
+            "r": 40,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 38,
+            "x2": 160,
+            "y2": 100,
+            "tone": "ink",
+            "width": 7
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 100,
+            "x2": 112,
+            "y2": 128,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 100,
+            "x2": 208,
+            "y2": 128,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 155,
+            "rx": 32,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 215,
+            "cy": 155,
+            "rx": 32,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 160,
+            "cy": 170,
+            "rx": 18,
+            "ry": 23,
+            "rot": 15,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A drawing of the chest. A tube runs down from the neck and splits to two large spongy organs, one on each side, with a smaller dark red organ between them in the lower middle."
+      },
+      "labels": [
+        "windpipe",
+        "lung",
+        "heart"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 26.2
+        },
+        {
+          "x": 28,
+          "y": 57.7
+        },
+        {
+          "x": 50,
+          "y": 66.2
+        }
+      ],
+      "extraLabels": [
+        "stomach",
+        "brain"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The tube from the neck carries air down into the chest.",
+        "The two big spongy organs fill with air."
+      ],
+      "explanation": "The windpipe carries air down to the lungs. The heart sits between the lungs and pumps blood."
+    },
+    {
+      "id": "s5.heart-lungs.012",
+      "skill": "s5.heart-lungs",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the two organs where oxygen passes from the air into the blood.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 160,
+            "cy": 22,
+            "r": 16,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 70,
+            "y": 55,
+            "w": 180,
+            "h": 195,
+            "r": 40,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 38,
+            "x2": 160,
+            "y2": 100,
+            "tone": "ink",
+            "width": 7
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 100,
+            "x2": 112,
+            "y2": 128,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 100,
+            "x2": 208,
+            "y2": 128,
+            "tone": "ink",
+            "width": 5
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 155,
+            "rx": 32,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 215,
+            "cy": 155,
+            "rx": 32,
+            "ry": 52,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 160,
+            "cy": 170,
+            "rx": 18,
+            "ry": 23,
+            "rot": 15,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A drawing of the chest. A tube runs down from the neck and splits to two large spongy organs, one on each side, with a smaller dark red organ between them in the lower middle."
+      },
+      "regions": [
+        {
+          "label": "left lung",
+          "x": 32.8,
+          "y": 57.7,
+          "w": 24,
+          "h": 36
+        },
+        {
+          "label": "heart",
+          "x": 50,
+          "y": 66.2,
+          "w": 12,
+          "h": 18
+        },
+        {
+          "label": "right lung",
+          "x": 67.2,
+          "y": 57.7,
+          "w": 24,
+          "h": 36
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Oxygen comes from the air you breathe in.",
+        "Think about which organs fill with air.",
+        "Look for the two organs that are the same shape."
+      ],
+      "explanation": "Oxygen passes into the blood in the lungs. The heart only pumps the blood around."
+    },
+    {
+      "id": "s5.heart-lungs.013",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Where on your body can you easily feel your pulse?",
+      "options": [
+        {
+          "text": "On your wrist"
+        },
+        {
+          "text": "On the top of your head",
+          "why": "There are no large blood vessels near the surface of your head to feel."
+        },
+        {
+          "text": "On your knee",
+          "why": "A knee is mostly bone, so the pulse is hard to find there."
+        },
+        {
+          "text": "On your ear lobe",
+          "why": "An ear lobe has only tiny blood vessels, so you cannot feel a beat."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Your pulse is the beat of blood pushed along by the heart.",
+        "Look for a place where a large blood vessel runs close to the skin.",
+        "Doctors often press two fingers on the inside of the arm, near the hand."
+      ],
+      "explanation": "The pulse can be felt where a large blood vessel is close to the skin, such as the wrist or the side of the neck."
+    },
+    {
+      "id": "s5.heart-lungs.014",
+      "skill": "s5.heart-lungs",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Multiply the beats counted in 15 seconds by 4 to find the beats in 1 minute. Complete the table.",
+      "head": [
+        "Activity",
+        "Beats in 15 seconds",
+        "Beats in 1 minute"
+      ],
+      "rows": [
+        [
+          "Resting",
+          "18",
+          "72"
+        ],
+        [
+          "Walking",
+          "24",
+          ""
+        ],
+        [
+          "Running",
+          "36",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "96"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "144"
+          ]
+        }
+      ],
+      "hints": [
+        "There are four lots of 15 seconds in one minute.",
+        "Look at the first row to see how the working goes.",
+        "Work out 24 x 4 first."
+      ],
+      "explanation": "24 x 4 = 96 and 36 x 4 = 144, so the pulse rate rises as the activity gets harder."
+    },
+    {
+      "id": "s5.heart-lungs.015",
+      "skill": "s5.heart-lungs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Amara counts her breaths for one minute during four activities. How many more breaths per minute does she take when sprinting than when sitting?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Sitting",
+          "Walking",
+          "Jogging",
+          "Sprinting"
+        ],
+        "values": [
+          16,
+          24,
+          38,
+          52
+        ],
+        "axisMax": 60,
+        "step": 10,
+        "yLabel": "Breaths per minute",
+        "tone": "science",
+        "alt": "Bar chart of Amara's breaths per minute: sitting 16, walking 24, jogging 38, sprinting 52."
+      },
+      "answer": 36,
+      "unit": "breaths",
+      "hints": [
+        "Read the height of the sitting bar and the sprinting bar.",
+        "You are asked how many more, so compare the two numbers.",
+        "Subtract the smaller reading from the larger reading."
+      ],
+      "explanation": "Sprinting is 52 breaths per minute and sitting is 16. 52 - 16 = 36 more breaths."
+    },
+    {
+      "id": "s5.heart-lungs.016",
+      "skill": "s5.heart-lungs",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Dewi runs a race. Choose all the changes that happen in her body.",
+      "options": [
+        {
+          "text": "Her heart beats faster."
+        },
+        {
+          "text": "She breathes faster and deeper."
+        },
+        {
+          "text": "Her muscles use more oxygen."
+        },
+        {
+          "text": "Her lungs get smaller."
+        },
+        {
+          "text": "Her heart stops for a short rest."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about what her muscles need during hard exercise.",
+        "Three of these help to get more oxygen to the muscles.",
+        "Check each choice: could the body survive it while running?"
+      ],
+      "explanation": "Working muscles need more oxygen. The heart beats faster and she breathes faster and deeper to supply it. The lungs do not shrink and the heart never stops."
+    },
+    {
+      "id": "s5.heart-lungs.017",
+      "skill": "s5.heart-lungs",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Blood carries oxygen to the muscles. On its way back, blood carries the waste gas called ___ to the lungs.",
+      "blanks": [
+        {
+          "answers": [
+            "carbon dioxide",
+            "carbon-dioxide",
+            "co2"
+          ]
+        }
+      ],
+      "hints": [
+        "Muscles make a waste gas when they release energy.",
+        "You breathe this gas out.",
+        "It has two words and appears in fizzy drinks."
+      ],
+      "explanation": "Muscles make carbon dioxide as a waste gas. Blood carries it to the lungs and you breathe it out."
+    },
+    {
+      "id": "s5.heart-lungs.018",
+      "skill": "s5.heart-lungs",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "When Hadi sprints, his muscles need more ___. His heart beats ___ and he breathes ___.",
+      "gaps": [
+        {
+          "options": [
+            "oxygen",
+            "nitrogen",
+            "soil"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "faster",
+            "more slowly",
+            "not at all"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "deeper",
+            "less often",
+            "only through his skin"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Think about what blood delivers to working muscles.",
+        "Hard exercise means the body must speed up its delivery.",
+        "Read each sentence aloud with each choice and see which makes sense."
+      ],
+      "explanation": "Working muscles need more oxygen, so the heart beats faster and breathing gets deeper."
+    },
+    {
+      "id": "s5.heart-lungs.019",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Tom wants to find out if jogging for longer raises pulse rate more. Which plan is a fair test?",
+      "options": [
+        {
+          "text": "Three different children jog for 30 s, 60 s and 90 s and compare their pulse.",
+          "why": "Different children have different resting pulses, so you cannot tell whether time caused the change."
+        },
+        {
+          "text": "One child jogs for 60 s, but at a faster speed each time.",
+          "why": "Speed is changing as well as something else, so the test is not fair."
+        },
+        {
+          "text": "The same person jogs for 30 s, 60 s and 90 s. Count the pulse for 15 s straight after each, resting in between."
+        },
+        {
+          "text": "One child jogs for 30 s, 60 s and 90 s but the pulse is counted at different times after stopping.",
+          "why": "The pulse falls quickly after exercise, so the counting time must be kept the same."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "In a fair test you change only one thing.",
+        "Decide what to change, what to measure and what to keep the same.",
+        "Check each plan for a second thing that also changes."
+      ],
+      "explanation": "Time jogging is the only thing changed. The same person, the same counting time and rests between tests keep the test fair."
+    },
+    {
+      "id": "s5.heart-lungs.020",
+      "skill": "s5.heart-lungs",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Yuki counts 21 beats in 15 seconds at rest. After star jumps she counts 39 beats in 15 seconds. How many more beats per minute is her pulse after star jumps?",
+      "answer": 72,
+      "unit": "beats",
+      "hints": [
+        "Find the difference in 15 seconds first.",
+        "Change the difference for 15 seconds to a whole minute.",
+        "39 - 21 gives the extra beats in 15 seconds. How many 15 seconds are in a minute?"
+      ],
+      "explanation": "The extra beats in 15 seconds are 39 - 21 = 18. There are four lots of 15 seconds in a minute, so 18 x 4 = 72."
+    },
+    {
+      "id": "s5.heart-lungs.021",
+      "skill": "s5.heart-lungs",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each statement into the gas it is about.",
+      "groups": [
+        "Oxygen",
+        "Carbon dioxide"
+      ],
+      "items": [
+        {
+          "text": "Passes from the lungs into the blood",
+          "group": 0
+        },
+        {
+          "text": "Needed by muscles to release energy",
+          "group": 0
+        },
+        {
+          "text": "More of it in air you breathe in",
+          "group": 0
+        },
+        {
+          "text": "A waste gas made by the body",
+          "group": 1
+        },
+        {
+          "text": "Carried by the blood back to the lungs",
+          "group": 1
+        },
+        {
+          "text": "More of it in air you breathe out",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "One gas is used up by the body, the other is made by it.",
+        "Think about which gas you need and which you get rid of.",
+        "Start with the waste gas."
+      ],
+      "explanation": "Oxygen goes into the blood and is used by the muscles. Carbon dioxide is the waste gas, so there is more of it in the air you breathe out."
+    },
+    {
+      "id": "s5.heart-lungs.022",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "The table shows Maya's pulse after she stopped running. Which sentence describes the pattern?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Minutes after stopping",
+          "Pulse (beats per minute)"
+        ],
+        "rows": [
+          [
+            "0",
+            "150"
+          ],
+          [
+            "1",
+            "122"
+          ],
+          [
+            "2",
+            "104"
+          ],
+          [
+            "3",
+            "92"
+          ],
+          [
+            "4",
+            "84"
+          ],
+          [
+            "5",
+            "78"
+          ]
+        ],
+        "alt": "Table of Maya's pulse after running: 0 minutes 150, 1 minute 122, 2 minutes 104, 3 minutes 92, 4 minutes 84, 5 minutes 78 beats per minute."
+      },
+      "options": [
+        {
+          "text": "It fell quickly at first, then more slowly."
+        },
+        {
+          "text": "It fell by the same amount every minute.",
+          "why": "Look at the drops: 28, 18, 12, 8, 6. They are not equal."
+        },
+        {
+          "text": "It stayed high for five minutes.",
+          "why": "The pulse went down every minute."
+        },
+        {
+          "text": "It rose for two minutes and then fell.",
+          "why": "The first reading is the highest one."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Work out how much the pulse fell each minute.",
+        "Compare the first drop with the last drop.",
+        "The drops are 150 to 122, 122 to 104, and so on."
+      ],
+      "explanation": "The pulse fell by 28, 18, 12, 8 and 6 beats each minute. The drops get smaller, so it fell quickly at first and then more slowly."
+    },
+    {
+      "id": "s5.heart-lungs.023",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Kofi runs every day and Leo does not. Kofi's resting pulse is 58 and Leo's is 76. Which is the best explanation?",
+      "options": [
+        {
+          "text": "Kofi's heart is smaller, so it works more slowly.",
+          "why": "Exercise makes the heart muscle stronger, not smaller and weaker."
+        },
+        {
+          "text": "Kofi's lungs make more blood at rest.",
+          "why": "Lungs do not make blood. They take in oxygen."
+        },
+        {
+          "text": "Leo's heart is pumping blood to fewer places in his body.",
+          "why": "Blood goes to every part of the body in both people."
+        },
+        {
+          "text": "Kofi's heart muscle is stronger, so each beat pumps more blood and fewer beats are needed."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The heart is a muscle. What happens to muscles that are used often?",
+        "Think about how much blood each beat pumps.",
+        "If each beat moves more blood, how many beats are needed?"
+      ],
+      "explanation": "Regular exercise strengthens the heart muscle. A stronger heart pumps more blood with each beat, so it can beat more slowly when resting."
+    },
+    {
+      "id": "s5.heart-lungs.024",
+      "skill": "s5.heart-lungs",
+      "type": "order",
+      "difficulty": 4,
+      "prompt": "Put these steps in order to show how blood picks up oxygen and delivers it.",
+      "items": [
+        "Blood with little oxygen returns to the heart in veins",
+        "The heart pumps this blood to the lungs",
+        "The blood picks up oxygen in the lungs",
+        "Oxygen-rich blood returns to the heart",
+        "The heart pumps it through arteries to the muscles"
+      ],
+      "hints": [
+        "The blood must collect oxygen before it can deliver it.",
+        "The heart is the pump at the start and in the middle of the journey.",
+        "Start with blood that has already been round the body."
+      ],
+      "explanation": "Blood returns to the heart and is pumped to the lungs for oxygen. It comes back to the heart and is pumped out to the muscles."
+    },
+    {
+      "id": "s5.heart-lungs.025",
+      "skill": "s5.heart-lungs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which tube carries air from your nose and mouth down to your lungs?",
+      "options": [
+        {
+          "text": "The artery",
+          "why": "Arteries carry blood, not air."
+        },
+        {
+          "text": "The windpipe"
+        },
+        {
+          "text": "The vein",
+          "why": "Veins carry blood back to the heart, not air."
+        },
+        {
+          "text": "The food pipe",
+          "why": "The food pipe carries food to the stomach."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Air and blood travel in different tubes.",
+        "The tube you need is in your neck and is kept open by rings of strong material.",
+        "Only one of the tubes is kept open by strong rings so it never squashes shut."
+      ],
+      "explanation": "The windpipe carries air from the nose and mouth to the lungs."
     }
   ]
 }

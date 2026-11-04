@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "What unit is weight measured in?",
       "options": [
-        { "text": "kilograms (kg)", "why": "Kilograms measure mass, the amount of matter in an object." },
-        { "text": "newtons (N)" },
-        { "text": "metres (m)", "why": "Metres measure length." },
-        { "text": "litres (l)", "why": "Litres measure volume, the space a liquid takes up." }
+        {
+          "text": "kilograms (kg)",
+          "why": "Kilograms measure mass, the amount of matter in an object."
+        },
+        {
+          "text": "newtons (N)"
+        },
+        {
+          "text": "metres (m)",
+          "why": "Metres measure length."
+        },
+        {
+          "text": "litres (l)",
+          "why": "Litres measure volume, the space a liquid takes up."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -28,10 +39,22 @@
       "difficulty": 1,
       "prompt": "Match each word to its meaning.",
       "pairs": [
-        ["mass", "the amount of matter in an object"],
-        ["weight", "the pull of gravity on an object"],
-        ["gravity", "the force that pulls objects towards the Earth"],
-        ["forcemeter", "a tool that measures forces in newtons"]
+        [
+          "mass",
+          "the amount of matter in an object"
+        ],
+        [
+          "weight",
+          "the pull of gravity on an object"
+        ],
+        [
+          "gravity",
+          "the force that pulls objects towards the Earth"
+        ],
+        [
+          "forcemeter",
+          "a tool that measures forces in newtons"
+        ]
       ],
       "hints": [
         "Two of these words are often mixed up in everyday talk: mass and weight.",
@@ -54,7 +77,9 @@
         "Multiply the number of kilograms by 10."
       ],
       "explanation": "Each kilogram weighs about 10 N, so 3 kg weighs about 3 × 10 = 30 N.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.mass-weight.004",
@@ -63,10 +88,21 @@
       "difficulty": 2,
       "prompt": "Why does a ball fall back down after you throw it up?",
       "options": [
-        { "text": "Gravity pulls it towards the Earth." },
-        { "text": "Air pushes it down.", "why": "Air resistance slows the ball, but it is gravity that pulls it back down." },
-        { "text": "The ball runs out of force.", "why": "Objects do not carry force inside them. Gravity keeps pulling down on the ball the whole time." },
-        { "text": "The spinning Earth throws it down.", "why": "The Earth's spin does not make things fall." }
+        {
+          "text": "Gravity pulls it towards the Earth."
+        },
+        {
+          "text": "Air pushes it down.",
+          "why": "Air resistance slows the ball, but it is gravity that pulls it back down."
+        },
+        {
+          "text": "The ball runs out of force.",
+          "why": "Objects do not carry force inside them. Gravity keeps pulling down on the ball the whole time."
+        },
+        {
+          "text": "The spinning Earth throws it down.",
+          "why": "The Earth's spin does not make things fall."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -82,16 +118,43 @@
       "type": "sort",
       "difficulty": 3,
       "prompt": "Sort each statement into mass or weight.",
-      "groups": ["Mass", "Weight"],
+      "groups": [
+        "Mass",
+        "Weight"
+      ],
       "items": [
-        { "text": "measured in kilograms", "group": 0 },
-        { "text": "the amount of matter in an object", "group": 0 },
-        { "text": "stays the same on the Moon", "group": 0 },
-        { "text": "found with a pan balance", "group": 0 },
-        { "text": "measured in newtons", "group": 1 },
-        { "text": "is a force", "group": 1 },
-        { "text": "gets smaller on the Moon", "group": 1 },
-        { "text": "measured with a forcemeter", "group": 1 }
+        {
+          "text": "measured in kilograms",
+          "group": 0
+        },
+        {
+          "text": "the amount of matter in an object",
+          "group": 0
+        },
+        {
+          "text": "stays the same on the Moon",
+          "group": 0
+        },
+        {
+          "text": "found with a pan balance",
+          "group": 0
+        },
+        {
+          "text": "measured in newtons",
+          "group": 1
+        },
+        {
+          "text": "is a force",
+          "group": 1
+        },
+        {
+          "text": "gets smaller on the Moon",
+          "group": 1
+        },
+        {
+          "text": "measured with a forcemeter",
+          "group": 1
+        }
       ],
       "hints": [
         "Mass is how much matter there is. Weight is how hard gravity pulls on it.",
@@ -99,7 +162,9 @@
         "Start with the units: kilograms for one and newtons for the other."
       ],
       "explanation": "Mass is the amount of matter, measured in kilograms with a balance, and it stays the same everywhere. Weight is a force, measured in newtons with a forcemeter, and it is smaller on the Moon.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.mass-weight.006",
@@ -108,10 +173,21 @@
       "difficulty": 3,
       "prompt": "A box of tools has a mass of 12 kg on Earth. What is its mass on the Moon?",
       "options": [
-        { "text": "about 2 kg", "why": "Gravity on the Moon is about one sixth of Earth's, but that changes the weight, not the mass." },
-        { "text": "0 kg", "why": "The box is still made of the same matter, so its mass is not zero." },
-        { "text": "12 kg" },
-        { "text": "72 kg", "why": "Mass does not grow when you go to the Moon." }
+        {
+          "text": "about 2 kg",
+          "why": "Gravity on the Moon is about one sixth of Earth's, but that changes the weight, not the mass."
+        },
+        {
+          "text": "0 kg",
+          "why": "The box is still made of the same matter, so its mass is not zero."
+        },
+        {
+          "text": "12 kg"
+        },
+        {
+          "text": "72 kg",
+          "why": "Mass does not grow when you go to the Moon."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -120,7 +196,10 @@
         "Ask whether anything was taken out of the box on the way."
       ],
       "explanation": "Mass is the amount of matter, and the box has the same matter on the Moon, so its mass is still 12 kg. Its weight is smaller there, because the Moon's gravity is weaker.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.mass-weight.007",
@@ -136,7 +215,9 @@
         "Divide the rock's weight on Earth by 6."
       ],
       "explanation": "One sixth of 60 N is 60 ÷ 6 = 10 N. The rock's mass stays the same, but the Moon pulls on it less.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.mass-weight.008",
@@ -147,12 +228,27 @@
       "figure": {
         "kind": "table",
         "caption": "Pull of gravity on 1 kg",
-        "head": ["Place", "Pull on 1 kg"],
+        "head": [
+          "Place",
+          "Pull on 1 kg"
+        ],
         "rows": [
-          ["Earth", "10 N"],
-          ["Moon", "1.6 N"],
-          ["Mars", "3.7 N"],
-          ["Jupiter", "25 N"]
+          [
+            "Earth",
+            "10 N"
+          ],
+          [
+            "Moon",
+            "1.6 N"
+          ],
+          [
+            "Mars",
+            "3.7 N"
+          ],
+          [
+            "Jupiter",
+            "25 N"
+          ]
         ],
         "alt": "Table of the pull of gravity on 1 kg: Earth 10 N, Moon 1.6 N, Mars 3.7 N and Jupiter 25 N."
       },
@@ -164,7 +260,9 @@
         "Multiply the pull on 1 kg on Mars by 10."
       ],
       "explanation": "On Mars, each kilogram weighs about 3.7 N. So 10 kg weighs 10 × 3.7 N = 37 N.",
-      "tags": ["imso"]
+      "tags": [
+        "imso"
+      ]
     },
     {
       "id": "s5.mass-weight.009",
@@ -173,10 +271,21 @@
       "difficulty": 4,
       "prompt": "Kemal says his school bag has a weight of 5 kg. How would a scientist correct him?",
       "options": [
-        { "text": "Its weight is 5 N.", "why": "On Earth, the weight in newtons is about 10 times the mass in kilograms." },
-        { "text": "Its mass is 50 N.", "why": "Mass is measured in kilograms, not newtons." },
-        { "text": "Its weight is 5 kg on the Moon too.", "why": "Weight is measured in newtons, and it is smaller on the Moon." },
-        { "text": "Its mass is 5 kg, and its weight is about 50 N." }
+        {
+          "text": "Its weight is 5 N.",
+          "why": "On Earth, the weight in newtons is about 10 times the mass in kilograms."
+        },
+        {
+          "text": "Its mass is 50 N.",
+          "why": "Mass is measured in kilograms, not newtons."
+        },
+        {
+          "text": "Its weight is 5 kg on the Moon too.",
+          "why": "Weight is measured in newtons, and it is smaller on the Moon."
+        },
+        {
+          "text": "Its mass is 5 kg, and its weight is about 50 N."
+        }
       ],
       "answer": 3,
       "hints": [
@@ -185,7 +294,10 @@
         "First decide whether 5 kg is a mass or a weight."
       ],
       "explanation": "Kilograms measure mass, so the bag has a mass of 5 kg. Its weight on Earth is about 5 × 10 = 50 N.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.mass-weight.010",
@@ -194,10 +306,21 @@
       "difficulty": 5,
       "prompt": "A bag of marbles hangs from a forcemeter. On Earth, the forcemeter reads 6 N. What would the same forcemeter read on the Moon?",
       "options": [
-        { "text": "6 N, because the mass is the same", "why": "The mass stays the same, but the Moon pulls on it less, so the spring stretches less." },
-        { "text": "about 1 N" },
-        { "text": "36 N", "why": "The Moon's gravity is weaker than Earth's, so the reading goes down." },
-        { "text": "0 N, because the Moon has no gravity", "why": "The Moon does have gravity. It is about one sixth as strong as Earth's." }
+        {
+          "text": "6 N, because the mass is the same",
+          "why": "The mass stays the same, but the Moon pulls on it less, so the spring stretches less."
+        },
+        {
+          "text": "about 1 N"
+        },
+        {
+          "text": "36 N",
+          "why": "The Moon's gravity is weaker than Earth's, so the reading goes down."
+        },
+        {
+          "text": "0 N, because the Moon has no gravity",
+          "why": "The Moon does have gravity. It is about one sixth as strong as Earth's."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -206,7 +329,878 @@
         "Work out one sixth of the reading on Earth."
       ],
       "explanation": "The forcemeter measures weight. The Moon pulls about one sixth as hard, so the reading falls to about 6 ÷ 6 = 1 N, even though the mass of the marbles has not changed.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.mass-weight.011",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 1,
+      "prompt": "A bag of flour has a mass of 2.5 kg. What is its mass in grams?",
+      "answer": 2500,
+      "unit": "g",
+      "hints": [
+        "1 kg is the same as 1000 g.",
+        "Multiply the kilograms by 1000.",
+        "2 kg is 2000 g. Now add the half."
+      ],
+      "explanation": "2.5 x 1000 = 2500, so the bag has a mass of 2500 g."
+    },
+    {
+      "id": "s5.mass-weight.012",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Gravity pulls on each 1 kg with a force of about 10 N. What is the weight of a 4.5 kg pumpkin in newtons?",
+      "answer": 45,
+      "unit": "N",
+      "hints": [
+        "Weight is a force, so it is measured in newtons.",
+        "Multiply the mass in kg by 10.",
+        "4.5 x 10 is the same as moving the digits one place."
+      ],
+      "explanation": "4.5 kg x 10 N for each kg = 45 N."
+    },
+    {
+      "id": "s5.mass-weight.013",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A rock hangs from a forcemeter that reads 80 N on Earth. About 10 N pulls on each kilogram. What is the mass of the rock in kg?",
+      "answer": 8,
+      "unit": "kg",
+      "hints": [
+        "Work backwards from the weight.",
+        "Divide the weight by the pull on each kilogram.",
+        "How many 10s fit into 80?"
+      ],
+      "explanation": "80 N divided by 10 N for each kg gives a mass of 8 kg."
+    },
+    {
+      "id": "s5.mass-weight.014",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the table. What would a 4 kg backpack weigh on Jupiter, in newtons?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Place",
+          "Pull on each 1 kg (N)"
+        ],
+        "rows": [
+          [
+            "Earth",
+            "10"
+          ],
+          [
+            "Moon",
+            "1.6"
+          ],
+          [
+            "Jupiter",
+            "25"
+          ]
+        ],
+        "alt": "Table of gravity strength: Earth pulls 10 N on each kilogram, the Moon 1.6 N and Jupiter 25 N."
+      },
+      "answer": 100,
+      "unit": "N",
+      "hints": [
+        "Find Jupiter in the table.",
+        "Weight = mass in kg x the pull on each kg.",
+        "Multiply 4 by the number in the Jupiter row."
+      ],
+      "explanation": "Jupiter pulls 25 N on each kilogram, so 4 x 25 = 100 N."
+    },
+    {
+      "id": "s5.mass-weight.015",
+      "skill": "s5.mass-weight",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Layla hangs masses on a forcemeter. Gravity pulls about 10 N on each 1000 g. Complete the table.",
+      "head": [
+        "Mass (g)",
+        "Weight (N)"
+      ],
+      "rows": [
+        [
+          "100",
+          "1"
+        ],
+        [
+          "200",
+          "2"
+        ],
+        [
+          "300",
+          ""
+        ],
+        [
+          "450",
+          "4.5"
+        ],
+        [
+          "",
+          "8"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "3"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "answers": [
+            "800"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for the pattern between grams and newtons.",
+        "Every 100 g adds 1 N.",
+        "For 8 N, work out how many 100 g steps make 8."
+      ],
+      "explanation": "Each 100 g has a weight of 1 N. So 300 g weighs 3 N and 8 N belongs to 800 g."
+    },
+    {
+      "id": "s5.mass-weight.016",
+      "skill": "s5.mass-weight",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parts of the forcemeter.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 300,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 14,
+            "r": 8,
+            "tone": "ink",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 22,
+            "x2": 120,
+            "y2": 30,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "rect",
+            "x": 100,
+            "y": 30,
+            "w": 40,
+            "h": 140,
+            "r": 0,
+            "tone": "ink",
+            "fill": "none"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                120,
+                32
+              ],
+              [
+                108,
+                42
+              ],
+              [
+                132,
+                52
+              ],
+              [
+                108,
+                62
+              ],
+              [
+                132,
+                72
+              ],
+              [
+                108,
+                82
+              ],
+              [
+                132,
+                92
+              ],
+              [
+                120,
+                100
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 100,
+            "x2": 120,
+            "y2": 185,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 125,
+            "x2": 150,
+            "y2": 125,
+            "tone": "warn",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 50,
+            "x2": 160,
+            "y2": 50,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 75,
+            "x2": 160,
+            "y2": 75,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 100,
+            "x2": 160,
+            "y2": 100,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 125,
+            "x2": 160,
+            "y2": 125,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 150,
+            "x2": 160,
+            "y2": 150,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 185,
+            "y": 55,
+            "text": "0",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 185,
+            "y": 80,
+            "text": "1",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 185,
+            "y": 105,
+            "text": "2",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 185,
+            "y": 130,
+            "text": "3",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 185,
+            "y": 155,
+            "text": "4",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "icon",
+            "icon": "stone",
+            "x": 98,
+            "y": 200,
+            "size": 44
+          },
+          {
+            "t": "text",
+            "x": 120,
+            "y": 270,
+            "text": "mass",
+            "size": 14,
+            "tone": "muted",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "A forcemeter: a long tube with a spring inside, a red pointer line beside the tube and a numbered scale 0 to 4 on the right. A rock hangs from the hook at the bottom."
+      },
+      "labels": [
+        "spring",
+        "scale",
+        "pointer",
+        "load"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 16.7
+        },
+        {
+          "x": 77.1,
+          "y": 25
+        },
+        {
+          "x": 55.8,
+          "y": 41.7
+        },
+        {
+          "x": 50,
+          "y": 75
+        }
+      ],
+      "extraLabels": [
+        "magnet"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The pointer shows the reading on the numbers.",
+        "The spring stretches when something pulls on it."
+      ],
+      "explanation": "The load stretches the spring. The pointer moves along the scale to show the size of the force in newtons."
+    },
+    {
+      "id": "s5.mass-weight.017",
+      "skill": "s5.mass-weight",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "An apple falls from a tree. Tap the arrow that shows the direction of the pull of gravity on it.",
+      "figure": {
+        "kind": "scene",
+        "width": 240,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "apple",
+            "x": 100,
+            "y": 100,
+            "size": 40
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 85,
+            "x2": 120,
+            "y2": 40,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                50
+              ],
+              [
+                120,
+                34
+              ],
+              [
+                130,
+                50
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 120,
+            "y1": 155,
+            "x2": 120,
+            "y2": 200,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                190
+              ],
+              [
+                120,
+                206
+              ],
+              [
+                130,
+                190
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 85,
+            "y1": 120,
+            "x2": 40,
+            "y2": 120,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                50,
+                110
+              ],
+              [
+                34,
+                120
+              ],
+              [
+                50,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 155,
+            "y1": 120,
+            "x2": 200,
+            "y2": 120,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                190,
+                110
+              ],
+              [
+                206,
+                120
+              ],
+              [
+                190,
+                130
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "An apple in the middle with four arrows pointing away from it: up, down, left and right."
+      },
+      "regions": [
+        {
+          "label": "up",
+          "x": 50,
+          "y": 16.7,
+          "w": 20.8,
+          "h": 20.8
+        },
+        {
+          "label": "down",
+          "x": 50,
+          "y": 83.3,
+          "w": 20.8,
+          "h": 20.8
+        },
+        {
+          "label": "left",
+          "x": 16.7,
+          "y": 50,
+          "w": 20.8,
+          "h": 20.8
+        },
+        {
+          "label": "right",
+          "x": 83.3,
+          "y": 50,
+          "w": 20.8,
+          "h": 20.8
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "Gravity pulls things towards the centre of the Earth.",
+        "Think about which way the apple moves when it drops.",
+        "The apple falls towards the ground."
+      ],
+      "explanation": "Gravity pulls objects down, towards the centre of the Earth. This is why the apple falls."
+    },
+    {
+      "id": "s5.mass-weight.018",
+      "skill": "s5.mass-weight",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each mass in grams to the same mass in kilograms.",
+      "pairs": [
+        [
+          "2000 g",
+          "2 kg"
+        ],
+        [
+          "500 g",
+          "0.5 kg"
+        ],
+        [
+          "250 g",
+          "0.25 kg"
+        ],
+        [
+          "3500 g",
+          "3.5 kg"
+        ]
+      ],
+      "hints": [
+        "Divide grams by 1000 to get kilograms.",
+        "500 g is half of 1000 g.",
+        "Work out the easy pair, 2000 g, first."
+      ],
+      "explanation": "There are 1000 g in 1 kg, so divide the grams by 1000 to change them into kilograms."
+    },
+    {
+      "id": "s5.mass-weight.019",
+      "skill": "s5.mass-weight",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "On the Moon, an astronaut has the same mass as on Earth but a smaller ___.",
+      "blanks": [
+        {
+          "answers": [
+            "weight"
+          ]
+        }
+      ],
+      "hints": [
+        "One of these changes with gravity and one does not.",
+        "The quantity that changes is a force.",
+        "It is measured in newtons."
+      ],
+      "explanation": "Mass stays the same everywhere. Weight is a force, and the Moon pulls less strongly than the Earth."
+    },
+    {
+      "id": "s5.mass-weight.020",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "A pack of rice says \"Net weight 500 g\". What would a scientist say 500 g measures?",
+      "options": [
+        {
+          "text": "Its mass"
+        },
+        {
+          "text": "Its weight in newtons",
+          "why": "Weight is a force and is measured in newtons, not in grams."
+        },
+        {
+          "text": "Its size",
+          "why": "Grams do not measure size."
+        },
+        {
+          "text": "The pull of the Moon",
+          "why": "Grams are a unit of mass, not of a pull."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the unit, grams.",
+        "Grams and kilograms measure how much matter is in something.",
+        "Newtons are the unit for forces."
+      ],
+      "explanation": "Grams measure mass. Shops often say weight when they mean mass."
+    },
+    {
+      "id": "s5.mass-weight.021",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Dewi stands on a bathroom scale and the reading is 35 kg. What does this reading tell us about Dewi?",
+      "options": [
+        {
+          "text": "Her mass"
+        },
+        {
+          "text": "Her weight in newtons",
+          "why": "Newtons measure weight. The reading is in kilograms."
+        },
+        {
+          "text": "The strength of gravity",
+          "why": "Gravity is measured in newtons for each kilogram, not in kilograms."
+        },
+        {
+          "text": "Her height",
+          "why": "A scale does not measure height."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Look at the unit on the reading.",
+        "Kilograms are used for mass.",
+        "Weight would be written in newtons."
+      ],
+      "explanation": "A reading in kilograms is a mass. Her weight would be about 350 N."
+    },
+    {
+      "id": "s5.mass-weight.022",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A pupil on the Moon uses a balance to compare a rock with 600 g of standard masses. The pans balance. What would the rock read if she brought it back to Earth and did the same?",
+      "options": [
+        {
+          "text": "100 g, because the rock is lighter on the Moon.",
+          "why": "Mass does not change. A balance compares masses."
+        },
+        {
+          "text": "600 g, because the mass of the rock has not changed."
+        },
+        {
+          "text": "3600 g, because gravity on Earth is six times stronger.",
+          "why": "Gravity changes the weight, not the mass."
+        },
+        {
+          "text": "It cannot be measured on Earth.",
+          "why": "A balance works on Earth."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Does a balance measure a force or compare masses?",
+        "Gravity pulls on both pans in the same way.",
+        "Think about what stays the same when the rock moves."
+      ],
+      "explanation": "A balance compares two masses, so it gives the same answer anywhere. The rock keeps a mass of 600 g."
+    },
+    {
+      "id": "s5.mass-weight.023",
+      "skill": "s5.mass-weight",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these is not a force?",
+      "options": [
+        {
+          "text": "Weight",
+          "why": "Weight is the pull of gravity on an object, so it is a force."
+        },
+        {
+          "text": "A push",
+          "why": "A push is a force."
+        },
+        {
+          "text": "The pull of gravity",
+          "why": "Gravity pulls, so it is a force."
+        },
+        {
+          "text": "Mass"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Forces are pushes or pulls.",
+        "Weight is a pull from gravity.",
+        "Which word describes an amount of matter?"
+      ],
+      "explanation": "Mass is the amount of matter in an object. It is not a push or a pull, so it is not a force."
+    },
+    {
+      "id": "s5.mass-weight.024",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A box holds 12 apples. Each apple has a mass of 150 g. What is the mass of all the apples in kilograms?",
+      "answer": 1.8,
+      "unit": "kg",
+      "allowDecimal": true,
+      "hints": [
+        "First find the total in grams.",
+        "Multiply 12 by 150, then change grams to kilograms.",
+        "12 x 150 = 1800. How many kilograms is that?"
+      ],
+      "explanation": "12 x 150 g = 1800 g. Dividing by 1000 gives 1.8 kg."
+    },
+    {
+      "id": "s5.mass-weight.025",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "An empty crate has a mass of 2 kg. Layla puts in 6 books of 800 g each. About 10 N pulls on each kg. What is the weight of the full crate in newtons?",
+      "answer": 68,
+      "unit": "N",
+      "hints": [
+        "You need the total mass first.",
+        "Change 800 g to kilograms, then add everything.",
+        "Total mass = 2 + 6 x 0.8. Then multiply by 10."
+      ],
+      "explanation": "The books are 6 x 0.8 = 4.8 kg. Total mass is 6.8 kg and the weight is 6.8 x 10 = 68 N."
+    },
+    {
+      "id": "s5.mass-weight.026",
+      "skill": "s5.mass-weight",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Mass is measured in ___. Weight is a ___ and is measured with a ___.",
+      "gaps": [
+        {
+          "options": [
+            "kilograms",
+            "newtons"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "force",
+            "mass"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "thermometer",
+            "forcemeter",
+            "stopwatch"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Mass and weight use different units.",
+        "Weight is the pull of gravity.",
+        "A forcemeter has a spring inside."
+      ],
+      "explanation": "Mass is in kilograms. Weight is a force in newtons, measured with a forcemeter."
+    },
+    {
+      "id": "s5.mass-weight.027",
+      "skill": "s5.mass-weight",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "A spring stretches 3 cm when a 2 N weight hangs from it, and 6 cm with 4 N. The pattern stays the same. How far does it stretch with 5 N?",
+      "answer": 7.5,
+      "unit": "cm",
+      "allowDecimal": true,
+      "hints": [
+        "Look at how much the spring stretches for each 1 N.",
+        "Double the force gives double the stretch.",
+        "Find the stretch for 1 N, then multiply by 5."
+      ],
+      "explanation": "2 N gives 3 cm, so 1 N gives 1.5 cm. Then 5 N stretches the spring 5 x 1.5 = 7.5 cm."
+    },
+    {
+      "id": "s5.mass-weight.028",
+      "skill": "s5.mass-weight",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these masses in order, smallest first.",
+      "items": [
+        "90 g",
+        "0.5 kg",
+        "750 g",
+        "1.2 kg"
+      ],
+      "hints": [
+        "Change them all to the same unit first.",
+        "Grams are easier to compare.",
+        "0.5 kg is 500 g and 1.2 kg is 1200 g."
+      ],
+      "explanation": "In grams the masses are 90, 500, 750 and 1200, so that is the order from smallest to largest."
+    },
+    {
+      "id": "s5.mass-weight.029",
+      "skill": "s5.mass-weight",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the true statements about mass and weight.",
+      "options": [
+        {
+          "text": "Mass is measured in kilograms."
+        },
+        {
+          "text": "Weight is a force."
+        },
+        {
+          "text": "Your mass is smaller on the Moon.",
+          "why": "Your mass is the same everywhere. Only your weight changes."
+        },
+        {
+          "text": "A forcemeter measures weight."
+        },
+        {
+          "text": "Weight is measured in grams.",
+          "why": "Weight is measured in newtons. Grams measure mass."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        3
+      ],
+      "hints": [
+        "Remember which quantity changes with gravity.",
+        "Check each unit carefully.",
+        "Newtons go with forces."
+      ],
+      "explanation": "Mass is in kilograms, weight is a force measured in newtons, and a forcemeter measures weight. Mass does not change on the Moon."
     }
   ]
 }

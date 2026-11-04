@@ -468,6 +468,2358 @@
         "iksc",
         "imso"
       ]
+    },
+    {
+      "id": "s6.graphs-evidence.011",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Read the graph. What was the temperature of the water at 10 minutes?",
+      "answer": 50,
+      "hints": [
+        "Find 10 on the horizontal axis.",
+        "Go up to the point, then across.",
+        "Read the value on the vertical axis."
+      ],
+      "explanation": "At 10 minutes the point is at 50 °C.",
+      "unit": "°C",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 280,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 180,
+            "y": 18,
+            "text": "Cooling water",
+            "size": 15
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 56,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 56,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 56,
+            "y": 251,
+            "text": "0",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 112.80000000000001,
+            "y1": 232,
+            "x2": 112.80000000000001,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 112.80000000000001,
+            "y": 251,
+            "text": "5",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 169.60000000000002,
+            "y1": 232,
+            "x2": 169.60000000000002,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 169.60000000000002,
+            "y": 251,
+            "text": "10",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 226.4,
+            "y1": 232,
+            "x2": 226.4,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 226.4,
+            "y": 251,
+            "text": "15",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 283.20000000000005,
+            "y1": 232,
+            "x2": 283.20000000000005,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 283.20000000000005,
+            "y": 251,
+            "text": "20",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 340,
+            "y1": 232,
+            "x2": 340,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 340,
+            "y": 251,
+            "text": "25",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 232,
+            "x2": 56,
+            "y2": 232,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 236,
+            "text": "0",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 196,
+            "x2": 56,
+            "y2": 196,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 200,
+            "text": "20",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 196,
+            "x2": 340,
+            "y2": 196,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 160,
+            "x2": 56,
+            "y2": 160,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 164,
+            "text": "40",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 160,
+            "x2": 340,
+            "y2": 160,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 124,
+            "x2": 56,
+            "y2": 124,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 128,
+            "text": "60",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 124,
+            "x2": 340,
+            "y2": 124,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 88,
+            "x2": 56,
+            "y2": 88,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 92,
+            "text": "80",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 88,
+            "x2": 340,
+            "y2": 88,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 52,
+            "x2": 56,
+            "y2": 52,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 56,
+            "text": "100",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 340,
+            "y2": 52,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 272,
+            "text": "Time (minutes)",
+            "size": 13
+          },
+          {
+            "t": "text",
+            "x": 8,
+            "y": 40,
+            "text": "Temperature (°C)",
+            "size": 13,
+            "anchor": "start"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                56,
+                88
+              ],
+              [
+                112.80000000000001,
+                120.4
+              ],
+              [
+                169.60000000000002,
+                142
+              ],
+              [
+                226.4,
+                156.4
+              ],
+              [
+                283.20000000000005,
+                163.6
+              ],
+              [
+                340,
+                167.2
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 56,
+            "cy": 88,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.80000000000001,
+            "cy": 120.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 169.60000000000002,
+            "cy": 142,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 226.4,
+            "cy": 156.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 283.20000000000005,
+            "cy": 163.6,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 340,
+            "cy": 167.2,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph titled Cooling water. The horizontal axis is time in minutes from 0 to 25 and the vertical axis is temperature in degrees Celsius from 0 to 100. Six points are joined by a line that falls steeply at first and then flattens."
+      }
+    },
+    {
+      "id": "s6.graphs-evidence.012",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Look at the graph. Between which times did the water cool the fastest?",
+      "options": [
+        {
+          "text": "20 to 25 minutes",
+          "why": "The line is nearly flat there, so it cooled slowly."
+        },
+        {
+          "text": "10 to 15 minutes",
+          "why": "It cooled less here than at the start."
+        },
+        {
+          "text": "0 to 5 minutes"
+        },
+        {
+          "text": "15 to 20 minutes",
+          "why": "The line is flatter here."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The steepest part of the line shows the biggest change.",
+        "Compare the fall in each 5 minute step.",
+        "Check the first step."
+      ],
+      "explanation": "The water cooled by 18 °C in the first 5 minutes, which is the steepest part of the line.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 280,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 180,
+            "y": 18,
+            "text": "Cooling water",
+            "size": 15
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 56,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 56,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 56,
+            "y": 251,
+            "text": "0",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 112.80000000000001,
+            "y1": 232,
+            "x2": 112.80000000000001,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 112.80000000000001,
+            "y": 251,
+            "text": "5",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 169.60000000000002,
+            "y1": 232,
+            "x2": 169.60000000000002,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 169.60000000000002,
+            "y": 251,
+            "text": "10",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 226.4,
+            "y1": 232,
+            "x2": 226.4,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 226.4,
+            "y": 251,
+            "text": "15",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 283.20000000000005,
+            "y1": 232,
+            "x2": 283.20000000000005,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 283.20000000000005,
+            "y": 251,
+            "text": "20",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 340,
+            "y1": 232,
+            "x2": 340,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 340,
+            "y": 251,
+            "text": "25",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 232,
+            "x2": 56,
+            "y2": 232,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 236,
+            "text": "0",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 196,
+            "x2": 56,
+            "y2": 196,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 200,
+            "text": "20",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 196,
+            "x2": 340,
+            "y2": 196,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 160,
+            "x2": 56,
+            "y2": 160,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 164,
+            "text": "40",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 160,
+            "x2": 340,
+            "y2": 160,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 124,
+            "x2": 56,
+            "y2": 124,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 128,
+            "text": "60",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 124,
+            "x2": 340,
+            "y2": 124,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 88,
+            "x2": 56,
+            "y2": 88,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 92,
+            "text": "80",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 88,
+            "x2": 340,
+            "y2": 88,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 52,
+            "x2": 56,
+            "y2": 52,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 56,
+            "text": "100",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 340,
+            "y2": 52,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 272,
+            "text": "Time (minutes)",
+            "size": 13
+          },
+          {
+            "t": "text",
+            "x": 8,
+            "y": 40,
+            "text": "Temperature (°C)",
+            "size": 13,
+            "anchor": "start"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                56,
+                88
+              ],
+              [
+                112.80000000000001,
+                120.4
+              ],
+              [
+                169.60000000000002,
+                142
+              ],
+              [
+                226.4,
+                156.4
+              ],
+              [
+                283.20000000000005,
+                163.6
+              ],
+              [
+                340,
+                167.2
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 56,
+            "cy": 88,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.80000000000001,
+            "cy": 120.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 169.60000000000002,
+            "cy": 142,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 226.4,
+            "cy": 156.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 283.20000000000005,
+            "cy": 163.6,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 340,
+            "cy": 167.2,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph titled Cooling water. The horizontal axis is time in minutes from 0 to 25 and the vertical axis is temperature in degrees Celsius from 0 to 100. Six points are joined by a line that falls steeply at first and then flattens."
+      }
+    },
+    {
+      "id": "s6.graphs-evidence.013",
+      "skill": "s6.graphs-evidence",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the point that looks anomalous in the plant growth graph.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 280,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 30,
+            "x2": 56,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 56,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 56,
+            "y": 251,
+            "text": "0",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 103.33333333333333,
+            "y1": 232,
+            "x2": 103.33333333333333,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 103.33333333333333,
+            "y": 251,
+            "text": "1",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 150.66666666666666,
+            "y1": 232,
+            "x2": 150.66666666666666,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 150.66666666666666,
+            "y": 251,
+            "text": "2",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 198,
+            "y1": 232,
+            "x2": 198,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 251,
+            "text": "3",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 245.33333333333331,
+            "y1": 232,
+            "x2": 245.33333333333331,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 245.33333333333331,
+            "y": 251,
+            "text": "4",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 292.6666666666667,
+            "y1": 232,
+            "x2": 292.6666666666667,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 292.6666666666667,
+            "y": 251,
+            "text": "5",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 340,
+            "y1": 232,
+            "x2": 340,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 340,
+            "y": 251,
+            "text": "6",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 232,
+            "x2": 56,
+            "y2": 232,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 236,
+            "text": "0",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 181.5,
+            "x2": 56,
+            "y2": 181.5,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 185.5,
+            "text": "5",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 181.5,
+            "x2": 340,
+            "y2": 181.5,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 131,
+            "x2": 56,
+            "y2": 131,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 135,
+            "text": "10",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 131,
+            "x2": 340,
+            "y2": 131,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 80.5,
+            "x2": 56,
+            "y2": 80.5,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 84.5,
+            "text": "15",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 80.5,
+            "x2": 340,
+            "y2": 80.5,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 30,
+            "x2": 56,
+            "y2": 30,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 34,
+            "text": "20",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 30,
+            "x2": 340,
+            "y2": 30,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 272,
+            "text": "Day",
+            "size": 13
+          },
+          {
+            "t": "text",
+            "x": 8,
+            "y": 18,
+            "text": "Height (cm)",
+            "size": 13,
+            "anchor": "start"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                103.33333333333333,
+                201.7
+              ],
+              [
+                150.66666666666666,
+                171.4
+              ],
+              [
+                198,
+                141.1
+              ],
+              [
+                245.33333333333331,
+                40.10000000000002
+              ],
+              [
+                292.6666666666667,
+                80.5
+              ],
+              [
+                340,
+                50.19999999999999
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 103.33333333333333,
+            "cy": 201.7,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150.66666666666666,
+            "cy": 171.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 198,
+            "cy": 141.1,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 245.33333333333331,
+            "cy": 40.10000000000002,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 292.6666666666667,
+            "cy": 80.5,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 340,
+            "cy": 50.19999999999999,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of plant height against day. The horizontal axis is the day from 0 to 6 and the vertical axis is height in centimetres from 0 to 20. Points rise in a steady pattern from day 1, but one point is far higher than the points on each side of it."
+      },
+      "regions": [
+        {
+          "label": "day 2",
+          "x": 41.9,
+          "y": 61.2,
+          "w": 8.3,
+          "h": 10.7
+        },
+        {
+          "label": "day 4",
+          "x": 68.1,
+          "y": 14.3,
+          "w": 8.3,
+          "h": 10.7
+        },
+        {
+          "label": "day 6",
+          "x": 94.4,
+          "y": 17.9,
+          "w": 8.3,
+          "h": 10.7
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "An anomalous result does not fit the pattern.",
+        "The other points rise by about the same amount each day.",
+        "One point is much higher than its neighbours."
+      ],
+      "explanation": "The point on day 4 is far above the steady pattern, so it is anomalous."
+    },
+    {
+      "id": "s6.graphs-evidence.014",
+      "skill": "s6.graphs-evidence",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the graph.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 280,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 180,
+            "y": 18,
+            "text": "Cooling water",
+            "size": 15
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 56,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 56,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 56,
+            "y": 251,
+            "text": "0",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 112.80000000000001,
+            "y1": 232,
+            "x2": 112.80000000000001,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 112.80000000000001,
+            "y": 251,
+            "text": "5",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 169.60000000000002,
+            "y1": 232,
+            "x2": 169.60000000000002,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 169.60000000000002,
+            "y": 251,
+            "text": "10",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 226.4,
+            "y1": 232,
+            "x2": 226.4,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 226.4,
+            "y": 251,
+            "text": "15",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 283.20000000000005,
+            "y1": 232,
+            "x2": 283.20000000000005,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 283.20000000000005,
+            "y": 251,
+            "text": "20",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 340,
+            "y1": 232,
+            "x2": 340,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 340,
+            "y": 251,
+            "text": "25",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 232,
+            "x2": 56,
+            "y2": 232,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 236,
+            "text": "0",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 196,
+            "x2": 56,
+            "y2": 196,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 200,
+            "text": "20",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 196,
+            "x2": 340,
+            "y2": 196,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 160,
+            "x2": 56,
+            "y2": 160,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 164,
+            "text": "40",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 160,
+            "x2": 340,
+            "y2": 160,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 124,
+            "x2": 56,
+            "y2": 124,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 128,
+            "text": "60",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 124,
+            "x2": 340,
+            "y2": 124,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 88,
+            "x2": 56,
+            "y2": 88,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 92,
+            "text": "80",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 88,
+            "x2": 340,
+            "y2": 88,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 52,
+            "x2": 56,
+            "y2": 52,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 56,
+            "text": "100",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 52,
+            "x2": 340,
+            "y2": 52,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 272,
+            "text": "Time (minutes)",
+            "size": 13
+          },
+          {
+            "t": "text",
+            "x": 8,
+            "y": 40,
+            "text": "Temperature (°C)",
+            "size": 13,
+            "anchor": "start"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                56,
+                88
+              ],
+              [
+                112.80000000000001,
+                120.4
+              ],
+              [
+                169.60000000000002,
+                142
+              ],
+              [
+                226.4,
+                156.4
+              ],
+              [
+                283.20000000000005,
+                163.6
+              ],
+              [
+                340,
+                167.2
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 56,
+            "cy": 88,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.80000000000001,
+            "cy": 120.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 169.60000000000002,
+            "cy": 142,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 226.4,
+            "cy": 156.4,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 283.20000000000005,
+            "cy": 163.6,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 340,
+            "cy": 167.2,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph titled Cooling water. The horizontal axis is time in minutes from 0 to 25 and the vertical axis is temperature in degrees Celsius from 0 to 100. Six points are joined by a line that falls steeply at first and then flattens."
+      },
+      "labels": [
+        "graph title",
+        "x axis label",
+        "y axis label",
+        "plotted point"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 6.4
+        },
+        {
+          "x": 55.6,
+          "y": 97.1
+        },
+        {
+          "x": 16.7,
+          "y": 14.3
+        },
+        {
+          "x": 47.1,
+          "y": 50.7
+        }
+      ],
+      "extraLabels": [
+        "key"
+      ],
+      "hints": [
+        "The title tells you what the graph is about.",
+        "Axis labels say what is measured and the unit.",
+        "A plotted point is shown by a dot."
+      ],
+      "explanation": "The title says what the graph is about, the axis labels say what was measured, and each dot is a plotted point."
+    },
+    {
+      "id": "s6.graphs-evidence.015",
+      "skill": "s6.graphs-evidence",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Read the graph and complete the table.",
+      "head": [
+        "Day",
+        "Height (cm)"
+      ],
+      "rows": [
+        [
+          "1",
+          "4"
+        ],
+        [
+          "2",
+          ""
+        ],
+        [
+          "3",
+          "11"
+        ],
+        [
+          "4",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "7"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "14"
+          ]
+        }
+      ],
+      "hints": [
+        "Find the day on the horizontal axis.",
+        "Go up to the point.",
+        "Read across to the height scale."
+      ],
+      "explanation": "On day 2 the height was 7 cm and on day 4 it was 14 cm.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 280,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 30,
+            "x2": 56,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 2,
+            "tone": "ink"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 56,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 56,
+            "y": 251,
+            "text": "0",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 112.80000000000001,
+            "y1": 232,
+            "x2": 112.80000000000001,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 112.80000000000001,
+            "y": 251,
+            "text": "1",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 169.60000000000002,
+            "y1": 232,
+            "x2": 169.60000000000002,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 169.60000000000002,
+            "y": 251,
+            "text": "2",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 226.4,
+            "y1": 232,
+            "x2": 226.4,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 226.4,
+            "y": 251,
+            "text": "3",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 283.20000000000005,
+            "y1": 232,
+            "x2": 283.20000000000005,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 283.20000000000005,
+            "y": 251,
+            "text": "4",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 340,
+            "y1": 232,
+            "x2": 340,
+            "y2": 237,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 340,
+            "y": 251,
+            "text": "5",
+            "size": 11
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 232,
+            "x2": 56,
+            "y2": 232,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 236,
+            "text": "0",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 232,
+            "x2": 340,
+            "y2": 232,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 181.5,
+            "x2": 56,
+            "y2": 181.5,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 185.5,
+            "text": "5",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 181.5,
+            "x2": 340,
+            "y2": 181.5,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 131,
+            "x2": 56,
+            "y2": 131,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 135,
+            "text": "10",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 131,
+            "x2": 340,
+            "y2": 131,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 80.5,
+            "x2": 56,
+            "y2": 80.5,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 84.5,
+            "text": "15",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 80.5,
+            "x2": 340,
+            "y2": 80.5,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "line",
+            "x1": 51,
+            "y1": 30,
+            "x2": 56,
+            "y2": 30,
+            "width": 1.5,
+            "tone": "ink"
+          },
+          {
+            "t": "text",
+            "x": 48,
+            "y": 34,
+            "text": "20",
+            "size": 11,
+            "anchor": "end"
+          },
+          {
+            "t": "line",
+            "x1": 56,
+            "y1": 30,
+            "x2": 340,
+            "y2": 30,
+            "width": 1,
+            "tone": "muted"
+          },
+          {
+            "t": "text",
+            "x": 198,
+            "y": 272,
+            "text": "Day",
+            "size": 13
+          },
+          {
+            "t": "text",
+            "x": 8,
+            "y": 18,
+            "text": "Height (cm)",
+            "size": 13,
+            "anchor": "start"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                56,
+                211.8
+              ],
+              [
+                112.80000000000001,
+                191.6
+              ],
+              [
+                169.60000000000002,
+                161.3
+              ],
+              [
+                226.4,
+                120.89999999999999
+              ],
+              [
+                283.20000000000005,
+                90.60000000000002
+              ],
+              [
+                340,
+                80.5
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 56,
+            "cy": 211.8,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.80000000000001,
+            "cy": 191.6,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 169.60000000000002,
+            "cy": 161.3,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 226.4,
+            "cy": 120.89999999999999,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 283.20000000000005,
+            "cy": 90.60000000000002,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 340,
+            "cy": 80.5,
+            "r": 4,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of a bean seedling. The horizontal axis is the day from 0 to 5 and the vertical axis is height in centimetres from 0 to 20. The line climbs from the left to the right and levels off a little at the end."
+      }
+    },
+    {
+      "id": "s6.graphs-evidence.016",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which of these is best shown on a bar chart?",
+      "options": [
+        {
+          "text": "the temperature of water every minute",
+          "why": "Change over time suits a line graph."
+        },
+        {
+          "text": "the height of a plant each day",
+          "why": "Change over time suits a line graph."
+        },
+        {
+          "text": "the number of pupils choosing each pet"
+        },
+        {
+          "text": "the distance a car travels each second",
+          "why": "This is a continuous measure."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Bar charts show separate categories.",
+        "Line graphs show change over time.",
+        "Which one counts different groups?"
+      ],
+      "explanation": "Pets are separate categories, so a bar chart suits them. Changes over time are shown with line graphs."
+    },
+    {
+      "id": "s6.graphs-evidence.017",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A bean plant is 6 cm tall on day 2 and 14 cm tall on day 4. It grows at a steady rate. How tall will it be on day 3?",
+      "answer": 10,
+      "hints": [
+        "Find the height halfway between the two.",
+        "Work out the change between day 2 and day 4.",
+        "Add half the change to 6."
+      ],
+      "explanation": "The plant grows 8 cm in 2 days, so 4 cm per day. 6 + 4 = 10 cm.",
+      "unit": "cm"
+    },
+    {
+      "id": "s6.graphs-evidence.018",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Omar hangs masses on a spring. Which pattern do the results show?",
+      "options": [
+        {
+          "text": "The length doubles each time.",
+          "why": "10, 12, 14 is not doubling."
+        },
+        {
+          "text": "The length goes up by 2 cm for each extra 50 g."
+        },
+        {
+          "text": "The length goes up by 2 cm for each extra 100 g.",
+          "why": "Check the mass step again. Each row adds 50 g, not 100 g."
+        },
+        {
+          "text": "The length stays the same.",
+          "why": "The length changes."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Find the change between each pair.",
+        "Check the mass step and the length step.",
+        "Compare the same steps."
+      ],
+      "explanation": "Each 50 g added makes the spring 2 cm longer.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Mass (g)",
+          "Length (cm)"
+        ],
+        "rows": [
+          [
+            "0",
+            "10"
+          ],
+          [
+            "50",
+            "12"
+          ],
+          [
+            "100",
+            "14"
+          ],
+          [
+            "150",
+            "16"
+          ],
+          [
+            "200",
+            "18"
+          ]
+        ],
+        "alt": "Table of spring length. 0 g gives 10 cm, 50 g gives 12 cm, 100 g gives 14 cm, 150 g gives 16 cm and 200 g gives 18 cm."
+      }
+    },
+    {
+      "id": "s6.graphs-evidence.019",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Rina tests three paper towels once each. Towel A soaks up 20 ml, B 35 ml and C 28 ml. Which conclusion is supported?",
+      "options": [
+        {
+          "text": "Towel B is the best for every spill.",
+          "why": "Only one liquid and one test was done."
+        },
+        {
+          "text": "Towel A is the worst brand there is.",
+          "why": "Only three towels were tested."
+        },
+        {
+          "text": "In this test, towel B soaked up the most water."
+        },
+        {
+          "text": "Towel C will always soak up 28 ml.",
+          "why": "Results may change if repeated."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Only claim what the data show.",
+        "Compare the three numbers.",
+        "Beware of words like always or every."
+      ],
+      "explanation": "The table shows only that B soaked up the most in this one test. The test cannot support bigger claims."
+    },
+    {
+      "id": "s6.graphs-evidence.020",
+      "skill": "s6.graphs-evidence",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Joko rolls a toy car down a ramp to see if ramp height changes the distance. Choose 3 things to keep the same.",
+      "options": [
+        {
+          "text": "The car"
+        },
+        {
+          "text": "The floor surface"
+        },
+        {
+          "text": "The way the car is released"
+        },
+        {
+          "text": "The height of the ramp",
+          "why": "This is the one thing he is changing."
+        },
+        {
+          "text": "The distance the car rolls",
+          "why": "This is what he measures."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Only one thing is changed.",
+        "The rest are controlled.",
+        "The height is the variable."
+      ],
+      "explanation": "He changes the ramp height, measures the distance, and keeps everything else the same."
+    },
+    {
+      "id": "s6.graphs-evidence.021",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Putri times how long a cube melts and gets 41 s once. What is the best way to make her result more reliable?",
+      "options": [
+        {
+          "text": "Choose the time that looks the nicest.",
+          "why": "This is not scientific."
+        },
+        {
+          "text": "Repeat the test several times and find the average."
+        },
+        {
+          "text": "Use a bigger cube each time.",
+          "why": "Changing the cube makes the test unfair."
+        },
+        {
+          "text": "Ask a friend what they think.",
+          "why": "A friend's opinion is not evidence."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "One result might be a mistake.",
+        "More results help you spot odd ones.",
+        "Repeat and average."
+      ],
+      "explanation": "Repeating the test several times and averaging gives more reliable results than a single reading."
+    },
+    {
+      "id": "s6.graphs-evidence.022",
+      "skill": "s6.graphs-evidence",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Five trials of the bubble count are 12, 14, 13, 31, 13. The 31 is anomalous. What is the mean of the other four?",
+      "answer": 13,
+      "hints": [
+        "Leave out the anomalous result.",
+        "Add the four results.",
+        "Divide by 4."
+      ],
+      "explanation": "12 + 14 + 13 + 13 = 52. 52 ÷ 4 = 13."
+    },
+    {
+      "id": "s6.graphs-evidence.023",
+      "skill": "s6.graphs-evidence",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps of a fair investigation in order.",
+      "items": [
+        "Ask a question",
+        "Make a prediction",
+        "Plan a fair test",
+        "Measure and record the results",
+        "Draw a graph",
+        "Write a conclusion"
+      ],
+      "hints": [
+        "You ask before you plan.",
+        "Collect data before drawing.",
+        "The conclusion is last."
+      ],
+      "explanation": "Scientists ask a question, predict, plan a fair test, measure, show the data and then conclude."
+    },
+    {
+      "id": "s6.graphs-evidence.024",
+      "skill": "s6.graphs-evidence",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each type of variable to the example in a test on light and plant growth.",
+      "pairs": [
+        [
+          "the variable you change",
+          "amount of light"
+        ],
+        [
+          "the variable you measure",
+          "height of the plant"
+        ],
+        [
+          "a variable kept the same",
+          "size of the pot"
+        ],
+        [
+          "a result that does not fit",
+          "a plant 40 cm taller than the rest"
+        ]
+      ],
+      "hints": [
+        "Which one does Putri change?",
+        "Which one gives the data?",
+        "Which one must stay fixed?"
+      ],
+      "explanation": "The test changes the light, measures the height and keeps the pot the same. A result that does not fit is anomalous."
+    },
+    {
+      "id": "s6.graphs-evidence.025",
+      "skill": "s6.graphs-evidence",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "A result that does not fit the pattern of the other results is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "anomalous",
+            "an anomaly",
+            "anomaly",
+            "anomalous result"
+          ]
+        }
+      ],
+      "hints": [
+        "It is odd one out.",
+        "It could be a mistake in measuring.",
+        "The word starts with a."
+      ],
+      "explanation": "A result that does not fit the pattern is anomalous."
+    },
+    {
+      "id": "s6.graphs-evidence.026",
+      "skill": "s6.graphs-evidence",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "In a school, pupils with bigger shoes also have higher reading scores. A pupil says big feet make you a better reader. What is the most likely reason for the pattern?",
+      "options": [
+        {
+          "text": "Big feet help brains work.",
+          "why": "There is no link like this."
+        },
+        {
+          "text": "Reading makes feet grow.",
+          "why": "Reading does not change the size of feet."
+        },
+        {
+          "text": "Older pupils have bigger feet and have also had more time to learn to read."
+        },
+        {
+          "text": "It is just chance, so it cannot be explained.",
+          "why": "There is a likely third factor."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Both things might depend on something else.",
+        "Think about who has bigger feet.",
+        "Age affects both."
+      ],
+      "explanation": "Age affects both shoe size and reading. A pattern between two things does not prove one causes the other."
     }
   ]
 }

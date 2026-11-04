@@ -351,6 +351,1290 @@
         "iksc",
         "imso"
       ]
+    },
+    {
+      "id": "s5.friction-resistance.011",
+      "skill": "s5.friction-resistance",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Rani drags a box to the right across a rough floor. Label the three forces on the box.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 220,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 140,
+            "w": 320,
+            "h": 80,
+            "r": 0,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 110,
+            "y": 80,
+            "w": 100,
+            "h": 60,
+            "r": 0,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 110,
+            "x2": 282,
+            "y2": 110,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                276,
+                102
+              ],
+              [
+                290,
+                110
+              ],
+              [
+                276,
+                118
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 128,
+            "x2": 38,
+            "y2": 128,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                44,
+                120
+              ],
+              [
+                30,
+                128
+              ],
+              [
+                44,
+                136
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 110,
+            "x2": 160,
+            "y2": 192,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                152,
+                186
+              ],
+              [
+                160,
+                200
+              ],
+              [
+                168,
+                186
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A box rests on the floor. A long arrow points right from the box. A shorter arrow points left along the floor from the box. Another arrow points straight down from the middle of the box."
+      },
+      "labels": [
+        "pull",
+        "friction",
+        "weight"
+      ],
+      "spots": [
+        {
+          "x": 79.7,
+          "y": 50
+        },
+        {
+          "x": 21.9,
+          "y": 58.2
+        },
+        {
+          "x": 50,
+          "y": 80.9
+        }
+      ],
+      "extraLabels": [
+        "air resistance"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "Friction acts against the way the box moves.",
+        "Weight is the pull of gravity, so it acts downwards."
+      ],
+      "explanation": "Rani pulls to the right. Friction pushes back against the movement, and weight pulls the box down."
+    },
+    {
+      "id": "s5.friction-resistance.012",
+      "skill": "s5.friction-resistance",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parachute. The up arrow shows the force of the air on the canopy. The down arrow shows the pull of gravity.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 260,
+        "shapes": [
+          {
+            "t": "poly",
+            "points": [
+              [
+                110,
+                70
+              ],
+              [
+                130,
+                35
+              ],
+              [
+                160,
+                25
+              ],
+              [
+                190,
+                35
+              ],
+              [
+                210,
+                70
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 70,
+            "x2": 160,
+            "y2": 170,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 70,
+            "x2": 160,
+            "y2": 170,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 160,
+            "y1": 70,
+            "x2": 160,
+            "y2": 170,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "rect",
+            "x": 140,
+            "y": 170,
+            "w": 40,
+            "h": 40,
+            "r": 0,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 250,
+            "y1": 150,
+            "x2": 250,
+            "y2": 78,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                242,
+                84
+              ],
+              [
+                250,
+                70
+              ],
+              [
+                258,
+                84
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 70,
+            "y1": 70,
+            "x2": 70,
+            "y2": 142,
+            "tone": "warn",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                62,
+                136
+              ],
+              [
+                70,
+                150
+              ],
+              [
+                78,
+                136
+              ]
+            ],
+            "closed": true,
+            "tone": "warn",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A parachute with a curved canopy at the top, three strings meeting at a block hanging below. An arrow beside the parachute points up and another points down."
+      },
+      "labels": [
+        "canopy",
+        "string",
+        "load",
+        "air resistance",
+        "weight"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 17.3
+        },
+        {
+          "x": 42.2,
+          "y": 46.2
+        },
+        {
+          "x": 50,
+          "y": 73.1
+        },
+        {
+          "x": 78.1,
+          "y": 42.3
+        },
+        {
+          "x": 21.9,
+          "y": 42.3
+        }
+      ],
+      "extraLabels": [
+        "friction on ground"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The upward force slows the fall, and it comes from the air.",
+        "The downward arrow is the pull of gravity on the load."
+      ],
+      "explanation": "The canopy catches air. Air resistance pushes up and weight pulls down. A big canopy means more air resistance."
+    },
+    {
+      "id": "s5.friction-resistance.013",
+      "skill": "s5.friction-resistance",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the shoe sole that will grip best on a wet floor.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 5,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 165,
+            "y": 5,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 5,
+            "y": 125,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 165,
+            "y": 125,
+            "w": 150,
+            "h": 110,
+            "r": 0,
+            "tone": "muted",
+            "fill": "none"
+          },
+          {
+            "t": "rect",
+            "x": 35,
+            "y": 22,
+            "w": 90,
+            "h": 50,
+            "r": 20,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 195,
+            "y": 22,
+            "w": 90,
+            "h": 50,
+            "r": 20,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 35,
+            "y": 142,
+            "w": 90,
+            "h": 50,
+            "r": 20,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "rect",
+            "x": 195,
+            "y": 142,
+            "w": 90,
+            "h": 50,
+            "r": 20,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 215,
+            "y1": 28,
+            "x2": 215,
+            "y2": 66,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 235,
+            "y1": 28,
+            "x2": 235,
+            "y2": 66,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 255,
+            "y1": 28,
+            "x2": 255,
+            "y2": 66,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 150,
+            "x2": 50,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 62,
+            "y1": 150,
+            "x2": 62,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 74,
+            "y1": 150,
+            "x2": 74,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 86,
+            "y1": 150,
+            "x2": 86,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 98,
+            "y1": 150,
+            "x2": 98,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 150,
+            "x2": 110,
+            "y2": 184,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 215,
+            "y1": 148,
+            "x2": 215,
+            "y2": 186,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 255,
+            "y1": 148,
+            "x2": 255,
+            "y2": 186,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 98,
+            "text": "Smooth sole",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 240,
+            "y": 98,
+            "text": "Three shallow lines",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 80,
+            "y": 218,
+            "text": "Many deep grooves",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 240,
+            "y": 218,
+            "text": "Two shallow lines",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "Four shoe soles. Top left: a smooth sole. Top right: a sole with three shallow lines. Bottom left: a sole with many deep grooves. Bottom right: a sole with two shallow lines."
+      },
+      "regions": [
+        {
+          "label": "smooth",
+          "x": 25,
+          "y": 25,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "three shallow lines",
+          "x": 75,
+          "y": 25,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "many deep grooves",
+          "x": 25,
+          "y": 75,
+          "w": 43.8,
+          "h": 41.7
+        },
+        {
+          "label": "two shallow lines",
+          "x": 75,
+          "y": 75,
+          "w": 43.8,
+          "h": 41.7
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Grip comes from friction between the sole and the floor.",
+        "Water makes floors slippery, so the water must be able to escape.",
+        "Look for the sole that has the most deep channels."
+      ],
+      "explanation": "Deep grooves push water out of the way, so more of the sole touches the floor. This gives more friction."
+    },
+    {
+      "id": "s5.friction-resistance.014",
+      "skill": "s5.friction-resistance",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "The three shapes are pushed through water from left to right. Tap the shape that has the least water resistance.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 30,
+            "y": 50,
+            "w": 60,
+            "h": 100,
+            "r": 0,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                130,
+                50
+              ],
+              [
+                130,
+                150
+              ],
+              [
+                200,
+                100
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                235,
+                100
+              ],
+              [
+                270,
+                80
+              ],
+              [
+                310,
+                100
+              ],
+              [
+                270,
+                120
+              ]
+            ],
+            "closed": true,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "line",
+            "x1": 10,
+            "y1": 25,
+            "x2": 52,
+            "y2": 25,
+            "tone": "science",
+            "width": 4
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                46,
+                17
+              ],
+              [
+                60,
+                25
+              ],
+              [
+                46,
+                33
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 185,
+            "text": "A",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 165,
+            "y": 185,
+            "text": "B",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 272,
+            "y": 185,
+            "text": "C",
+            "size": 14,
+            "tone": "ink",
+            "anchor": "middle"
+          }
+        ],
+        "alt": "Three solid shapes of similar size are held in water that flows from the left. A is a tall rectangle with a flat front. B is a triangle with a flat front facing the flow. C is a long diamond with a pointed front."
+      },
+      "regions": [
+        {
+          "label": "rectangle",
+          "x": 18.8,
+          "y": 50,
+          "w": 21.9,
+          "h": 55
+        },
+        {
+          "label": "triangle",
+          "x": 51.6,
+          "y": 50,
+          "w": 21.9,
+          "h": 55
+        },
+        {
+          "label": "pointed shape",
+          "x": 85,
+          "y": 50,
+          "w": 24.4,
+          "h": 55
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "A streamlined shape lets water slip past it.",
+        "Water resistance is large where a flat face pushes against the water.",
+        "Look for the shape with a pointed front and a narrow body."
+      ],
+      "explanation": "A pointed, narrow shape pushes less water out of the way, so it has less water resistance."
+    },
+    {
+      "id": "s5.friction-resistance.015",
+      "skill": "s5.friction-resistance",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Bayu rolls a toy car down a ramp onto four surfaces. Work out the mean distance for each surface and complete the table.",
+      "head": [
+        "Surface",
+        "Trial 1 (cm)",
+        "Trial 2 (cm)",
+        "Mean (cm)"
+      ],
+      "rows": [
+        [
+          "Sandpaper",
+          "30",
+          "34",
+          "32"
+        ],
+        [
+          "Carpet",
+          "52",
+          "56",
+          ""
+        ],
+        [
+          "Wood",
+          "88",
+          "92",
+          ""
+        ],
+        [
+          "Glass",
+          "130",
+          "126",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 3,
+          "answers": [
+            "54"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "answers": [
+            "90"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "answers": [
+            "128"
+          ]
+        }
+      ],
+      "hints": [
+        "The mean is the middle value of two readings added together.",
+        "Add the two trials, then divide by 2.",
+        "Carpet: 52 + 56 = 108. Now halve it."
+      ],
+      "explanation": "Carpet: (52 + 56) / 2 = 54. Wood: (88 + 92) / 2 = 90. Glass: (130 + 126) / 2 = 128."
+    },
+    {
+      "id": "s5.friction-resistance.016",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Bayu tests ice next. Using the table, which result is most likely?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Surface",
+          "Mean distance (cm)"
+        ],
+        "rows": [
+          [
+            "Sandpaper",
+            "32"
+          ],
+          [
+            "Carpet",
+            "54"
+          ],
+          [
+            "Wood",
+            "90"
+          ],
+          [
+            "Glass",
+            "128"
+          ]
+        ],
+        "alt": "Table of mean distances a toy car rolled: sandpaper 32 cm, carpet 54 cm, wood 90 cm, glass 128 cm."
+      },
+      "options": [
+        {
+          "text": "Less than 32 cm, because ice is cold.",
+          "why": "Cold does not stop a car. Friction decides how far it rolls."
+        },
+        {
+          "text": "More than 128 cm, because ice has even less friction than glass."
+        },
+        {
+          "text": "About 54 cm, because ice is a solid.",
+          "why": "Wood and glass are solids too, and they gave very different distances."
+        },
+        {
+          "text": "The same as glass, because both are smooth.",
+          "why": "Ice is usually even smoother and gives less friction."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the pattern: smoother surfaces give longer rolls.",
+        "Friction is least on the smoothest surfaces.",
+        "Is ice smoother or rougher than glass?"
+      ],
+      "explanation": "The smoother the surface, the less friction and the further the car rolls. Ice is very smooth, so it should roll furthest."
+    },
+    {
+      "id": "s5.friction-resistance.017",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Wira drops parachutes of different widths from the same height with the same load. Which conclusion fits the bar chart?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "10 cm",
+          "20 cm",
+          "30 cm",
+          "40 cm"
+        ],
+        "values": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "axisMax": 8,
+        "step": 1,
+        "yLabel": "Fall time (s)",
+        "tone": "science",
+        "alt": "Bar chart of fall time for parachutes with canopy widths: 10 cm falls for 2 seconds, 20 cm for 4 seconds, 30 cm for 5 seconds and 40 cm for 7 seconds."
+      },
+      "options": [
+        {
+          "text": "The wider the canopy, the longer the parachute takes to fall."
+        },
+        {
+          "text": "The wider the canopy, the faster the parachute falls.",
+          "why": "The wider canopies have longer bars, so they took more time and fell more slowly."
+        },
+        {
+          "text": "The width of the canopy makes no difference.",
+          "why": "The bars get taller as the width grows, so width matters."
+        },
+        {
+          "text": "Heavier loads fall for longer.",
+          "why": "The load was kept the same in this test, so we cannot say."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Read the fall time for each width.",
+        "A longer fall time means a slower fall.",
+        "Compare the 10 cm bar with the 40 cm bar."
+      ],
+      "explanation": "Wide canopies catch more air and have more air resistance, so they fall more slowly and take longer."
+    },
+    {
+      "id": "s5.friction-resistance.018",
+      "skill": "s5.friction-resistance",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Use the bar chart. How many seconds longer did the 40 cm parachute take to land than the 10 cm parachute?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "10 cm",
+          "20 cm",
+          "30 cm",
+          "40 cm"
+        ],
+        "values": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "axisMax": 8,
+        "step": 1,
+        "yLabel": "Fall time (s)",
+        "tone": "science",
+        "alt": "Bar chart of fall time for parachutes with canopy widths: 10 cm falls for 2 seconds, 20 cm for 4 seconds, 30 cm for 5 seconds and 40 cm for 7 seconds."
+      },
+      "answer": 5,
+      "unit": "s",
+      "hints": [
+        "Read the two bars.",
+        "Subtract the smaller time from the larger time.",
+        "The 40 cm bar is at 7 seconds."
+      ],
+      "explanation": "7 s - 2 s = 5 s longer."
+    },
+    {
+      "id": "s5.friction-resistance.019",
+      "skill": "s5.friction-resistance",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Tom pulls a sled across snow with a forcemeter. The sled moves at a steady speed and the reading is 15 N. How big is the friction force on the sled?",
+      "answer": 15,
+      "unit": "N",
+      "hints": [
+        "Steady speed means the forces are balanced.",
+        "The friction force must cancel the pull.",
+        "The two forces are equal in size."
+      ],
+      "explanation": "At a steady speed the pull and the friction are balanced, so the friction is also 15 N."
+    },
+    {
+      "id": "s5.friction-resistance.020",
+      "skill": "s5.friction-resistance",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "The force of water pushing against a boat as it moves forward is called water ___.",
+      "blanks": [
+        {
+          "answers": [
+            "resistance"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about the force that slows the boat down.",
+        "A similar force from air is called air resistance.",
+        "It starts with the letter r."
+      ],
+      "explanation": "Water resistance is the force that water exerts against anything moving through it."
+    },
+    {
+      "id": "s5.friction-resistance.021",
+      "skill": "s5.friction-resistance",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Order these surfaces from the most friction to the least friction.",
+      "items": [
+        "Rough sandpaper",
+        "Rubber doormat",
+        "Smooth wooden floor",
+        "Wet ice"
+      ],
+      "hints": [
+        "Rough surfaces grip more.",
+        "Water on a smooth surface makes it very slippery.",
+        "Sandpaper is the roughest on the list."
+      ],
+      "explanation": "Rougher surfaces have more friction. Wet ice has the least."
+    },
+    {
+      "id": "s5.friction-resistance.022",
+      "skill": "s5.friction-resistance",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each design to the reason for it.",
+      "pairs": [
+        [
+          "Spikes on running shoes",
+          "More grip with the ground"
+        ],
+        [
+          "Oil on a door hinge",
+          "Less friction between metal parts"
+        ],
+        [
+          "Smooth shape of a bullet train",
+          "Less air resistance"
+        ],
+        [
+          "Brake pads on a bicycle",
+          "Friction slows the wheel"
+        ]
+      ],
+      "hints": [
+        "Decide if the design adds or reduces friction.",
+        "Oil makes surfaces slide past each other.",
+        "Think about what moves through air."
+      ],
+      "explanation": "Spikes and brake pads use friction. Oil and a smooth shape reduce friction and air resistance."
+    },
+    {
+      "id": "s5.friction-resistance.023",
+      "skill": "s5.friction-resistance",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort each example by the kind of force that slows things down.",
+      "groups": [
+        "Friction between solids",
+        "Air resistance",
+        "Water resistance"
+      ],
+      "items": [
+        {
+          "text": "Car tyres on a road",
+          "group": 0
+        },
+        {
+          "text": "A leaf floating slowly down",
+          "group": 1
+        },
+        {
+          "text": "A swimmer in a pool",
+          "group": 2
+        },
+        {
+          "text": "Rubbing your hands",
+          "group": 0
+        },
+        {
+          "text": "A cyclist leaning forward",
+          "group": 1
+        },
+        {
+          "text": "A fish swimming",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Ask what the moving object is touching.",
+        "Air is a gas that moves around things.",
+        "Water resistance acts on things that move through water."
+      ],
+      "explanation": "Two solids rubbing cause friction. Moving through air gives air resistance, and moving through water gives water resistance."
+    },
+    {
+      "id": "s5.friction-resistance.024",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A heavy book rests on a sloping board and does not slide down. What is stopping it?",
+      "options": [
+        {
+          "text": "Nothing, because there is no friction when something is not moving.",
+          "why": "Friction can act on things that are still. It stops the book from starting to slide."
+        },
+        {
+          "text": "Air resistance pushing the book up the slope",
+          "why": "Air resistance only acts when something moves through the air."
+        },
+        {
+          "text": "The mass of the book is too small",
+          "why": "A bigger mass would still be held by friction up to a point."
+        },
+        {
+          "text": "Friction between the book and the board"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The book wants to slide down because of gravity.",
+        "Something must act up the slope.",
+        "Which force acts between two touching surfaces?"
+      ],
+      "explanation": "Friction acts between the book and the board and stops it from sliding. Friction can act even when nothing moves."
+    },
+    {
+      "id": "s5.friction-resistance.025",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ines rubs her hands together quickly and they get warm. Why?",
+      "options": [
+        {
+          "text": "Her hands make heat from nothing.",
+          "why": "Heat does not appear from nothing. It comes from the movement."
+        },
+        {
+          "text": "Air resistance cools her hands, then warms them.",
+          "why": "Air resistance is not the main reason here."
+        },
+        {
+          "text": "Friction between her hands changes movement energy into heat."
+        },
+        {
+          "text": "Gravity pulls her hands together.",
+          "why": "Gravity does not warm hands."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Rubbing causes a force between surfaces.",
+        "This force also makes heat.",
+        "Brakes get hot for the same reason."
+      ],
+      "explanation": "Friction between moving surfaces makes them warm. This is also why brakes get hot."
+    },
+    {
+      "id": "s5.friction-resistance.026",
+      "skill": "s5.friction-resistance",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose all the changes that would help a toy boat move faster through water.",
+      "options": [
+        {
+          "text": "Make the front of the hull pointed."
+        },
+        {
+          "text": "Make the hull smoother."
+        },
+        {
+          "text": "Add a flat board at the front.",
+          "why": "A flat board pushes against the water and slows the boat."
+        },
+        {
+          "text": "Make the boat wider and blunter.",
+          "why": "A wide blunt shape has more water resistance."
+        },
+        {
+          "text": "Sand the bottom so it is less rough."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "hints": [
+        "You want less water resistance.",
+        "Smooth and pointed shapes slip through water more easily.",
+        "Cross out ideas that push against more water."
+      ],
+      "explanation": "A pointed, smooth hull has less resistance, so the boat moves faster."
+    },
+    {
+      "id": "s5.friction-resistance.027",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hadi tests how far a car rolls on four floor types. He also uses a steeper ramp for the wood floor. What is wrong with this test?",
+      "options": [
+        {
+          "text": "He used four floor types, but should use two.",
+          "why": "You can test many surfaces. The problem is something else that changed."
+        },
+        {
+          "text": "The height of the ramp changed, so it is not a fair test."
+        },
+        {
+          "text": "He measured distance, and should measure time.",
+          "why": "Distance is a good measurement for this question."
+        },
+        {
+          "text": "Nothing, because a steeper ramp is better for wood.",
+          "why": "Only the surface should change."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Only one thing should change in a fair test.",
+        "Read what Hadi changed other than the floor.",
+        "Which variable should be kept the same?"
+      ],
+      "explanation": "Only the surface should change. A steeper ramp gives the car a faster start, so the results cannot be compared."
+    },
+    {
+      "id": "s5.friction-resistance.028",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Putri cycles at a steady speed. She then crouches low over the handlebars and pedals just as hard. What happens?",
+      "options": [
+        {
+          "text": "She speeds up, because crouching reduces air resistance."
+        },
+        {
+          "text": "She slows down, because crouching makes her heavier.",
+          "why": "Crouching does not change her mass."
+        },
+        {
+          "text": "Nothing changes, because pedalling is the same.",
+          "why": "The air resistance changes with her shape."
+        },
+        {
+          "text": "She stops, because the friction in the tyres rises.",
+          "why": "Crouching does not change the friction in the tyres much."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "What force pushes against a cyclist as she moves forward?",
+        "A smaller shape meets less air.",
+        "Her pedalling force stays the same."
+      ],
+      "explanation": "Crouching makes her smaller, so less air pushes against her. With less air resistance, she speeds up."
+    },
+    {
+      "id": "s5.friction-resistance.029",
+      "skill": "s5.friction-resistance",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "A space capsule returning to Earth gets extremely hot and needs a heat shield. What causes the heat?",
+      "options": [
+        {
+          "text": "The cold of space heating the metal.",
+          "why": "Space is cold. It does not heat the capsule."
+        },
+        {
+          "text": "Gravity squeezing the capsule.",
+          "why": "Gravity pulls but does not make heat like this."
+        },
+        {
+          "text": "The Moon reflecting heat.",
+          "why": "The Moon is not the reason."
+        },
+        {
+          "text": "Air resistance, because the capsule rubs against air at very high speed."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Think about what happens when two things rub together.",
+        "The capsule moves very fast through the air.",
+        "Which force acts on something moving through air?"
+      ],
+      "explanation": "The capsule is very fast, so air resistance is very large. This friction turns movement energy into a lot of heat."
     }
   ]
 }

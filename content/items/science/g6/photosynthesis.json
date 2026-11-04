@@ -8,10 +8,21 @@
       "difficulty": 1,
       "prompt": "Where does most photosynthesis happen in a plant?",
       "options": [
-        { "text": "roots", "why": "Roots are in the dark soil. They take in water and minerals." },
-        { "text": "flowers", "why": "Flowers are for making seeds." },
-        { "text": "leaves" },
-        { "text": "seeds", "why": "Seeds store food for a new plant. They do not make food." }
+        {
+          "text": "roots",
+          "why": "Roots are in the dark soil. They take in water and minerals."
+        },
+        {
+          "text": "flowers",
+          "why": "Flowers are for making seeds."
+        },
+        {
+          "text": "leaves"
+        },
+        {
+          "text": "seeds",
+          "why": "Seeds store food for a new plant. They do not make food."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -20,7 +31,9 @@
         "Cross out the parts that are underground or used for making seeds."
       ],
       "explanation": "Most photosynthesis happens in the leaves, which are green and spread out to catch light. The green substance chlorophyll in leaves traps light energy.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.002",
@@ -29,21 +42,42 @@
       "difficulty": 1,
       "prompt": "Choose 3 things that a plant needs to make its own food.",
       "options": [
-        { "text": "light" },
-        { "text": "water" },
-        { "text": "carbon dioxide" },
-        { "text": "soil", "why": "Soil holds the plant and gives it water and minerals, but the food is made in the leaves." },
-        { "text": "oxygen", "why": "Oxygen is given out by photosynthesis. It is not needed to make the food." },
-        { "text": "sugar", "why": "Sugar is the food that the plant makes." }
+        {
+          "text": "light"
+        },
+        {
+          "text": "water"
+        },
+        {
+          "text": "carbon dioxide"
+        },
+        {
+          "text": "soil",
+          "why": "Soil holds the plant and gives it water and minerals, but the food is made in the leaves."
+        },
+        {
+          "text": "oxygen",
+          "why": "Oxygen is given out by photosynthesis. It is not needed to make the food."
+        },
+        {
+          "text": "sugar",
+          "why": "Sugar is the food that the plant makes."
+        }
       ],
-      "answers": [0, 1, 2],
+      "answers": [
+        0,
+        1,
+        2
+      ],
       "hints": [
         "Photosynthesis uses a gas from the air, a liquid from the soil and energy from the Sun.",
         "One gas goes into the leaves and another comes out. Choose the one that goes in.",
         "Cross out the food the plant makes and the gas it gives out."
       ],
       "explanation": "Plants need light, water and carbon dioxide to make food by photosynthesis. They make sugar and give out oxygen.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.003",
@@ -52,10 +86,21 @@
       "difficulty": 2,
       "prompt": "Which gas do plants give out when they make food in sunlight?",
       "options": [
-        { "text": "carbon dioxide", "why": "Plants take in carbon dioxide to make food." },
-        { "text": "nitrogen", "why": "Photosynthesis does not make nitrogen." },
-        { "text": "helium", "why": "Helium is a gas used in balloons. Plants do not make it." },
-        { "text": "oxygen" }
+        {
+          "text": "carbon dioxide",
+          "why": "Plants take in carbon dioxide to make food."
+        },
+        {
+          "text": "nitrogen",
+          "why": "Photosynthesis does not make nitrogen."
+        },
+        {
+          "text": "helium",
+          "why": "Helium is a gas used in balloons. Plants do not make it."
+        },
+        {
+          "text": "oxygen"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -72,11 +117,26 @@
       "difficulty": 2,
       "prompt": "Match each part of a plant to its job in making food.",
       "pairs": [
-        ["roots", "take in water from the soil"],
-        ["stem", "carries water up to the leaves"],
-        ["leaves", "catch light and make food"],
-        ["tiny holes in leaves", "let carbon dioxide in and oxygen out"],
-        ["chlorophyll", "the green substance that traps light"]
+        [
+          "roots",
+          "take in water from the soil"
+        ],
+        [
+          "stem",
+          "carries water up to the leaves"
+        ],
+        [
+          "leaves",
+          "catch light and make food"
+        ],
+        [
+          "tiny holes in leaves",
+          "let carbon dioxide in and oxygen out"
+        ],
+        [
+          "chlorophyll",
+          "the green substance that traps light"
+        ]
       ],
       "hints": [
         "Follow the water from the soil to the leaves.",
@@ -84,7 +144,9 @@
         "Start with the roots. Think about where they are."
       ],
       "explanation": "Roots take in water, the stem carries it up, and leaves use light to make food. Tiny holes in the leaves let gases in and out, and green chlorophyll traps the light.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.005",
@@ -93,10 +155,21 @@
       "difficulty": 3,
       "prompt": "Many people think plants get their food from the soil. Which statement is correct?",
       "options": [
-        { "text": "Plants suck ready-made food out of the soil.", "why": "Soil gives water and minerals, but no ready-made food." },
-        { "text": "Plants make their food in their leaves, using light, water and carbon dioxide." },
-        { "text": "Plants get their food from rain.", "why": "Rain gives water, which is only one of the things needed to make food." },
-        { "text": "Plants eat insects that live in the soil.", "why": "A few plants, such as pitcher plants, trap insects for minerals, but they still make their own food." }
+        {
+          "text": "Plants suck ready-made food out of the soil.",
+          "why": "Soil gives water and minerals, but no ready-made food."
+        },
+        {
+          "text": "Plants make their food in their leaves, using light, water and carbon dioxide."
+        },
+        {
+          "text": "Plants get their food from rain.",
+          "why": "Rain gives water, which is only one of the things needed to make food."
+        },
+        {
+          "text": "Plants eat insects that live in the soil.",
+          "why": "A few plants, such as pitcher plants, trap insects for minerals, but they still make their own food."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -105,7 +178,10 @@
         "Cross out every choice where the plant takes ready-made food from somewhere else."
       ],
       "explanation": "Plants make their own food by photosynthesis in their leaves. The soil gives water and minerals, which keep the plant healthy, but not ready-made food.",
-      "tags": ["iksc", "checkpoint"]
+      "tags": [
+        "iksc",
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.006",
@@ -113,14 +189,22 @@
       "type": "text",
       "difficulty": 3,
       "prompt": "The green substance in leaves that traps light energy is called ___.",
-      "blanks": [{ "answers": ["chlorophyll"] }],
+      "blanks": [
+        {
+          "answers": [
+            "chlorophyll"
+          ]
+        }
+      ],
       "hints": [
         "It gives leaves their green colour.",
         "It is found inside the cells of leaves and green stems.",
         "It starts with the same letters as the word chlorine."
       ],
       "explanation": "Chlorophyll is the green substance in leaves. It traps light energy so the plant can make food by photosynthesis.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.007",
@@ -131,20 +215,46 @@
       "figure": {
         "kind": "table",
         "caption": "Bubbles from pondweed",
-        "head": ["Lamp distance (cm)", "Bubbles per minute"],
+        "head": [
+          "Lamp distance (cm)",
+          "Bubbles per minute"
+        ],
         "rows": [
-          ["10", "40"],
-          ["20", "22"],
-          ["30", "12"],
-          ["40", "6"]
+          [
+            "10",
+            "40"
+          ],
+          [
+            "20",
+            "22"
+          ],
+          [
+            "30",
+            "12"
+          ],
+          [
+            "40",
+            "6"
+          ]
         ],
         "alt": "Table of results: lamp at 10 cm, 40 bubbles per minute; at 20 cm, 22; at 30 cm, 12; at 40 cm, 6."
       },
       "options": [
-        { "text": "The closer the lamp, the more oxygen the pondweed makes." },
-        { "text": "The further away the lamp, the more oxygen the pondweed makes.", "why": "The number of bubbles falls as the lamp moves away." },
-        { "text": "Light makes no difference to the pondweed.", "why": "The number of bubbles changes a lot as the lamp moves." },
-        { "text": "The pondweed stops making oxygen at 40 cm.", "why": "There are still 6 bubbles a minute at 40 cm." }
+        {
+          "text": "The closer the lamp, the more oxygen the pondweed makes."
+        },
+        {
+          "text": "The further away the lamp, the more oxygen the pondweed makes.",
+          "why": "The number of bubbles falls as the lamp moves away."
+        },
+        {
+          "text": "Light makes no difference to the pondweed.",
+          "why": "The number of bubbles changes a lot as the lamp moves."
+        },
+        {
+          "text": "The pondweed stops making oxygen at 40 cm.",
+          "why": "There are still 6 bubbles a minute at 40 cm."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -153,7 +263,10 @@
         "Compare the bubbles at 10 cm with the bubbles at 40 cm."
       ],
       "explanation": "The pondweed makes 40 bubbles a minute at 10 cm but only 6 at 40 cm. More light means faster photosynthesis, so more oxygen is made.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
     },
     {
       "id": "s6.photosynthesis.008",
@@ -163,10 +276,22 @@
       "prompt": "A plant is left in a dark cupboard for two weeks. Its leaves turn yellow and it becomes weak. Explain why.",
       "rubric": {
         "criteria": [
-          { "label": "Says the plant had no light", "points": 1 },
-          { "label": "Explains that plants need light to make food by photosynthesis", "points": 2 },
-          { "label": "Links the yellow leaves or weakness to having no food", "points": 2 },
-          { "label": "Uses scientific words such as photosynthesis or chlorophyll", "points": 1 }
+          {
+            "label": "Says the plant had no light",
+            "points": 1
+          },
+          {
+            "label": "Explains that plants need light to make food by photosynthesis",
+            "points": 2
+          },
+          {
+            "label": "Links the yellow leaves or weakness to having no food",
+            "points": 2
+          },
+          {
+            "label": "Uses scientific words such as photosynthesis or chlorophyll",
+            "points": 1
+          }
         ]
       },
       "minWords": 25,
@@ -182,7 +307,9 @@
         "Ask what a plant uses light for."
       ],
       "explanation": "Without light, the plant cannot make food by photosynthesis, so it uses up its stored food and grows weak. Its leaves turn yellow because chlorophyll is not made in the dark.",
-      "tags": ["checkpoint"]
+      "tags": [
+        "checkpoint"
+      ]
     },
     {
       "id": "s6.photosynthesis.009",
@@ -191,10 +318,21 @@
       "difficulty": 5,
       "prompt": "In the 1600s, Jan van Helmont grew a willow tree in a pot for five years. The tree gained about 75 kg, but the soil lost only about 60 g. Where did most of the new mass come from?",
       "options": [
-        { "text": "the soil", "why": "The soil lost only about 60 g, which is far too little to explain 75 kg." },
-        { "text": "sunlight turned into wood", "why": "Light gives the energy, but light itself has no mass to add to the tree." },
-        { "text": "water and carbon dioxide, used to make food" },
-        { "text": "the clay pot", "why": "The pot did not change during the five years." }
+        {
+          "text": "the soil",
+          "why": "The soil lost only about 60 g, which is far too little to explain 75 kg."
+        },
+        {
+          "text": "sunlight turned into wood",
+          "why": "Light gives the energy, but light itself has no mass to add to the tree."
+        },
+        {
+          "text": "water and carbon dioxide, used to make food"
+        },
+        {
+          "text": "the clay pot",
+          "why": "The pot did not change during the five years."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -203,7 +341,10 @@
         "Think about what a plant uses to make food, apart from energy from light."
       ],
       "explanation": "The soil lost only 60 g, so it cannot explain the extra 75 kg. Most of the tree's new mass was made from water and carbon dioxide from the air, joined together using light energy.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
     },
     {
       "id": "s6.photosynthesis.010",
@@ -212,10 +353,21 @@
       "difficulty": 5,
       "prompt": "A leaf has green parts and white parts. After a day in sunlight, it is tested with iodine, which turns blue-black where there is starch. Which parts turn blue-black?",
       "options": [
-        { "text": "only the white parts", "why": "The white parts have no chlorophyll, so they cannot make food." },
-        { "text": "the whole leaf", "why": "Only the parts with chlorophyll can make sugar, which is stored as starch." },
-        { "text": "no part of the leaf", "why": "The green parts made food in the sunlight and stored it as starch." },
-        { "text": "only the green parts" }
+        {
+          "text": "only the white parts",
+          "why": "The white parts have no chlorophyll, so they cannot make food."
+        },
+        {
+          "text": "the whole leaf",
+          "why": "Only the parts with chlorophyll can make sugar, which is stored as starch."
+        },
+        {
+          "text": "no part of the leaf",
+          "why": "The green parts made food in the sunlight and stored it as starch."
+        },
+        {
+          "text": "only the green parts"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -224,7 +376,1023 @@
         "Ask which parts of this leaf contain chlorophyll."
       ],
       "explanation": "Only the green parts have chlorophyll, so only they can make sugar and store it as starch. The iodine turns blue-black only where the leaf was green.",
-      "tags": ["checkpoint", "imso"]
+      "tags": [
+        "checkpoint",
+        "imso"
+      ]
+    },
+    {
+      "id": "s6.photosynthesis.011",
+      "skill": "s6.photosynthesis",
+      "type": "label",
+      "difficulty": 1,
+      "prompt": "Label the parts of the plant.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 380,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 300,
+            "w": 300,
+            "h": 80,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 8,
+            "size": 52
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 120,
+            "tone": "science",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 200,
+            "rx": 40,
+            "ry": 16,
+            "rot": -25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 195,
+            "cy": 170,
+            "rx": 40,
+            "ry": 16,
+            "rot": 25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 22,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 8,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 110,
+            "y2": 348,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 192,
+            "y2": 352,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 366,
+            "tone": "ink",
+            "width": 3
+          }
+        ],
+        "alt": "A drawing of a plant growing in soil with a sun in the top corner. A yellow flower sits on top of an upright green stalk, two green leaves grow out to the sides, and thin roots spread down into the soil."
+      },
+      "labels": [
+        "flower",
+        "leaf",
+        "stem",
+        "roots"
+      ],
+      "spots": [
+        {
+          "x": 50,
+          "y": 25
+        },
+        {
+          "x": 65,
+          "y": 44.7
+        },
+        {
+          "x": 50,
+          "y": 68.9
+        },
+        {
+          "x": 50,
+          "y": 89.5
+        }
+      ],
+      "extraLabels": [
+        "fruit"
+      ],
+      "hints": [
+        "The part with petals is at the top.",
+        "Roots grow underground.",
+        "The stem holds the plant upright."
+      ],
+      "explanation": "The flower is at the top, the leaves grow from the stem, and the roots are underground."
+    },
+    {
+      "id": "s6.photosynthesis.012",
+      "skill": "s6.photosynthesis",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the part of the plant that takes in water from the soil.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 380,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 300,
+            "w": 300,
+            "h": 80,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 8,
+            "size": 52
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 120,
+            "tone": "science",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 200,
+            "rx": 40,
+            "ry": 16,
+            "rot": -25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 195,
+            "cy": 170,
+            "rx": 40,
+            "ry": 16,
+            "rot": 25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 22,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 8,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 110,
+            "y2": 348,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 192,
+            "y2": 352,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 366,
+            "tone": "ink",
+            "width": 3
+          }
+        ],
+        "alt": "A drawing of a plant growing in soil with a sun in the top corner. A yellow flower sits on top of an upright green stalk, two green leaves grow out to the sides, and thin roots spread down into the soil."
+      },
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25,
+          "w": 18.7,
+          "h": 13.2
+        },
+        {
+          "label": "left leaf",
+          "x": 35,
+          "y": 52.6,
+          "w": 28,
+          "h": 13.7
+        },
+        {
+          "label": "right leaf",
+          "x": 65,
+          "y": 44.7,
+          "w": 28,
+          "h": 13.7
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 68.9,
+          "w": 11.3,
+          "h": 15.8
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.5,
+          "w": 30,
+          "h": 13.2
+        }
+      ],
+      "answers": [
+        4
+      ],
+      "hints": [
+        "Look at what is underground.",
+        "Water must enter from the soil.",
+        "Roots are thin and spread out."
+      ],
+      "explanation": "Roots take in water from the soil. The stem then carries it up to the leaves."
+    },
+    {
+      "id": "s6.photosynthesis.013",
+      "skill": "s6.photosynthesis",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "Tap the 2 parts where most food is made.",
+      "figure": {
+        "kind": "scene",
+        "width": 300,
+        "height": 380,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 300,
+            "w": 300,
+            "h": 80,
+            "tone": "warn",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 10,
+            "y": 8,
+            "size": 52
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 120,
+            "tone": "science",
+            "width": 8
+          },
+          {
+            "t": "ellipse",
+            "cx": 105,
+            "cy": 200,
+            "rx": 40,
+            "ry": 16,
+            "rot": -25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 195,
+            "cy": 170,
+            "rx": 40,
+            "ry": 16,
+            "rot": 25,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 22,
+            "tone": "star",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 150,
+            "cy": 95,
+            "r": 8,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 110,
+            "y2": 348,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 192,
+            "y2": 352,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 300,
+            "x2": 150,
+            "y2": 366,
+            "tone": "ink",
+            "width": 3
+          }
+        ],
+        "alt": "A drawing of a plant growing in soil with a sun in the top corner. A yellow flower sits on top of an upright green stalk, two green leaves grow out to the sides, and thin roots spread down into the soil."
+      },
+      "regions": [
+        {
+          "label": "flower",
+          "x": 50,
+          "y": 25,
+          "w": 18.7,
+          "h": 13.2
+        },
+        {
+          "label": "left leaf",
+          "x": 35,
+          "y": 52.6,
+          "w": 28,
+          "h": 13.7
+        },
+        {
+          "label": "right leaf",
+          "x": 65,
+          "y": 44.7,
+          "w": 28,
+          "h": 13.7
+        },
+        {
+          "label": "stem",
+          "x": 50,
+          "y": 68.9,
+          "w": 11.3,
+          "h": 15.8
+        },
+        {
+          "label": "roots",
+          "x": 50,
+          "y": 89.5,
+          "w": 30,
+          "h": 13.2
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "hints": [
+        "Which parts are green?",
+        "Food making needs light and the green substance chlorophyll.",
+        "The flat green parts catch the most light."
+      ],
+      "explanation": "Photosynthesis happens mostly in the leaves. They are green with chlorophyll and are flat so they catch light."
+    },
+    {
+      "id": "s6.photosynthesis.014",
+      "skill": "s6.photosynthesis",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "All three plants have the same size and soil. Tap the plant that can make the most food.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 250,
+        "shapes": [
+          {
+            "t": "text",
+            "x": 60,
+            "y": 20,
+            "text": "A",
+            "size": 20
+          },
+          {
+            "t": "text",
+            "x": 180,
+            "y": 20,
+            "text": "B",
+            "size": 20
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 20,
+            "text": "C",
+            "size": 20
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 34,
+            "y": 30,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 34,
+            "y": 100,
+            "size": 52
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 190,
+            "text": "sunny window",
+            "size": 12
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 208,
+            "text": "watered daily",
+            "size": 12
+          },
+          {
+            "t": "rect",
+            "x": 128,
+            "y": 30,
+            "w": 104,
+            "h": 150,
+            "r": 8,
+            "tone": "ink",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 154,
+            "y": 100,
+            "size": 52
+          },
+          {
+            "t": "text",
+            "x": 180,
+            "y": 190,
+            "text": "dark cupboard",
+            "size": 12
+          },
+          {
+            "t": "text",
+            "x": 180,
+            "y": 208,
+            "text": "watered daily",
+            "size": 12
+          },
+          {
+            "t": "icon",
+            "icon": "sun",
+            "x": 274,
+            "y": 30,
+            "size": 50
+          },
+          {
+            "t": "icon",
+            "icon": "plant",
+            "x": 274,
+            "y": 100,
+            "size": 52
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 190,
+            "text": "sunny window",
+            "size": 12
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 208,
+            "text": "never watered",
+            "size": 12
+          }
+        ],
+        "alt": "Three potted plants. Plant A stands in a sunny window and is watered daily. Plant B is inside a dark cupboard and is watered daily. Plant C stands in a sunny window but is never watered."
+      },
+      "regions": [
+        {
+          "label": "plant A",
+          "x": 16.7,
+          "y": 50,
+          "w": 27.8,
+          "h": 52
+        },
+        {
+          "label": "plant B",
+          "x": 50,
+          "y": 50,
+          "w": 27.8,
+          "h": 52
+        },
+        {
+          "label": "plant C",
+          "x": 83.3,
+          "y": 50,
+          "w": 27.8,
+          "h": 52
+        }
+      ],
+      "answers": [
+        0
+      ],
+      "hints": [
+        "Photosynthesis needs light, water and carbon dioxide.",
+        "Check which plants miss something.",
+        "B has no light and C has no water."
+      ],
+      "explanation": "Plant A has light and water, so it can photosynthesise. B has no light and C has no water."
+    },
+    {
+      "id": "s6.photosynthesis.015",
+      "skill": "s6.photosynthesis",
+      "type": "table",
+      "difficulty": 2,
+      "prompt": "Complete the table: is each substance used or made in photosynthesis?",
+      "head": [
+        "Substance",
+        "Used or made?"
+      ],
+      "rows": [
+        [
+          "Carbon dioxide",
+          ""
+        ],
+        [
+          "Oxygen",
+          ""
+        ],
+        [
+          "Water",
+          ""
+        ],
+        [
+          "Glucose (sugar)",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 0,
+          "col": 1,
+          "answers": [
+            "used",
+            "used up"
+          ]
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "made"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "used",
+            "used up"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "made"
+          ]
+        }
+      ],
+      "hints": [
+        "Photosynthesis makes food.",
+        "Sugar and a gas are made.",
+        "Water and carbon dioxide go in."
+      ],
+      "explanation": "Carbon dioxide and water are used. Glucose and oxygen are made."
+    },
+    {
+      "id": "s6.photosynthesis.016",
+      "skill": "s6.photosynthesis",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put these events of photosynthesis in order.",
+      "items": [
+        "Sunlight shines on a leaf",
+        "Chlorophyll traps the light energy",
+        "Water and carbon dioxide are used",
+        "Glucose is made",
+        "Oxygen is given out"
+      ],
+      "hints": [
+        "The first step needs the Sun.",
+        "Light energy is used to join water and carbon dioxide.",
+        "Food is made before the gas is released."
+      ],
+      "explanation": "Chlorophyll traps light. The energy is used to turn water and carbon dioxide into glucose, and oxygen is released."
+    },
+    {
+      "id": "s6.photosynthesis.017",
+      "skill": "s6.photosynthesis",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Plants use ___ energy, water and carbon dioxide to make ___. They give out ___.",
+      "gaps": [
+        {
+          "options": [
+            "light",
+            "sound",
+            "heat"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "oxygen",
+            "glucose",
+            "soil"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "carbon dioxide",
+            "oxygen",
+            "sugar"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Which energy does the plant use?",
+        "Sugar is the food plants make.",
+        "Plants give out a gas we need to breathe."
+      ],
+      "explanation": "Plants use light energy to make glucose, which is their food, and they release oxygen."
+    },
+    {
+      "id": "s6.photosynthesis.018",
+      "skill": "s6.photosynthesis",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Plants take in the gas carbon ___ from the air to make food.",
+      "blanks": [
+        {
+          "answers": [
+            "dioxide",
+            "carbon dioxide"
+          ]
+        }
+      ],
+      "hints": [
+        "It is a gas in the air.",
+        "People breathe it out.",
+        "The word ends in -oxide."
+      ],
+      "explanation": "Plants take in carbon dioxide from the air and use it to make food."
+    },
+    {
+      "id": "s6.photosynthesis.019",
+      "skill": "s6.photosynthesis",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Hadi counts 14 oxygen bubbles from pondweed in 2 minutes under a lamp. If the rate stays the same, how many bubbles will there be in 10 minutes?",
+      "answer": 70,
+      "hints": [
+        "Find how many 2 minute periods are in 10 minutes.",
+        "There are 5 groups of 2 minutes.",
+        "Multiply 14 by 5."
+      ],
+      "explanation": "10 minutes is 5 lots of 2 minutes. 14 × 5 = 70 bubbles."
+    },
+    {
+      "id": "s6.photosynthesis.020",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Rangga seals a healthy green plant in a clear jar and puts it in bright light for the whole day. Which prediction about the jar is best?",
+      "options": [
+        {
+          "text": "The carbon dioxide will increase because the plant makes it.",
+          "why": "In light, the plant uses carbon dioxide to make food."
+        },
+        {
+          "text": "The oxygen will fall to zero.",
+          "why": "Plants give out oxygen in the light."
+        },
+        {
+          "text": "The carbon dioxide will fall because the plant uses it to make food."
+        },
+        {
+          "text": "Nothing changes because plants only need soil.",
+          "why": "Plants need light and carbon dioxide, not food from soil."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about what the plant takes in.",
+        "Bright light makes photosynthesis go faster.",
+        "Which gas is used up in photosynthesis?"
+      ],
+      "explanation": "In bright light, the plant uses carbon dioxide to make food, so the amount in the jar falls."
+    },
+    {
+      "id": "s6.photosynthesis.021",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Dewi grew three bean plants for 14 days. The table shows the results. Which conclusion do the results support?",
+      "options": [
+        {
+          "text": "All plants die in the dark within 14 days.",
+          "why": "Plant 3 is alive and 3 cm tall. The data do not show it died."
+        },
+        {
+          "text": "Beans always grow taller than other plants.",
+          "why": "No other plants were tested."
+        },
+        {
+          "text": "In this test, the plants with more light grew taller."
+        },
+        {
+          "text": "Plants do not need water.",
+          "why": "Water was not changed in this test."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look at which variable was changed.",
+        "Only use what the data show.",
+        "Compare height with the amount of light."
+      ],
+      "explanation": "Height went up as light went up: 3 cm, 9 cm, 18 cm. The test did not look at water or other plants.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Plant",
+          "Light",
+          "Height (cm)"
+        ],
+        "rows": [
+          [
+            "1",
+            "Full sun",
+            "18"
+          ],
+          [
+            "2",
+            "Shade",
+            "9"
+          ],
+          [
+            "3",
+            "Dark",
+            "3"
+          ]
+        ],
+        "alt": "Table: plant 1 in full sun is 18 cm, plant 2 in shade is 9 cm, plant 3 in the dark is 3 cm tall."
+      }
+    },
+    {
+      "id": "s6.photosynthesis.022",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Putri wants to find out if light affects how well bean plants grow. What should she change and what should she keep the same?",
+      "options": [
+        {
+          "text": "Change the amount of water and light. Keep the pot size the same.",
+          "why": "She should change only one thing, or she will not know which caused any difference."
+        },
+        {
+          "text": "Change the amount of light. Keep the type of plant, water and pot size the same."
+        },
+        {
+          "text": "Change the pot size. Keep the light the same.",
+          "why": "Pot size is not what she wants to test."
+        },
+        {
+          "text": "Change the type of plant. Keep the light the same.",
+          "why": "Different plants would not be a fair comparison for light."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A fair test changes only one thing.",
+        "Her question is about light.",
+        "List the things that must be the same."
+      ],
+      "explanation": "Light is the one thing to change. The other things, like plant type, water and pot size, must stay the same so the test is fair."
+    },
+    {
+      "id": "s6.photosynthesis.023",
+      "skill": "s6.photosynthesis",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 3 things that happen in a leaf in sunlight.",
+      "options": [
+        {
+          "text": "Chlorophyll traps light energy"
+        },
+        {
+          "text": "Carbon dioxide is used to make glucose"
+        },
+        {
+          "text": "Oxygen is released"
+        },
+        {
+          "text": "Minerals from the soil are turned into sugar",
+          "why": "Sugar is made from carbon dioxide and water, not from soil minerals."
+        },
+        {
+          "text": "The leaf only gives out carbon dioxide",
+          "why": "In light the leaf releases oxygen as it makes food."
+        }
+      ],
+      "answers": [
+        0,
+        1,
+        2
+      ],
+      "hints": [
+        "Think about the three things a plant needs.",
+        "Sugar is made from gas and water.",
+        "Cross out anything about plants getting food from soil."
+      ],
+      "explanation": "Chlorophyll traps light and carbon dioxide and water make glucose. Oxygen is released. The sugar is not made from soil."
+    },
+    {
+      "id": "s6.photosynthesis.024",
+      "skill": "s6.photosynthesis",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort these by their part in photosynthesis.",
+      "groups": [
+        "Plant takes in",
+        "Plant makes",
+        "Not used to make food"
+      ],
+      "items": [
+        {
+          "text": "Light energy",
+          "group": 0
+        },
+        {
+          "text": "Water",
+          "group": 0
+        },
+        {
+          "text": "Carbon dioxide",
+          "group": 0
+        },
+        {
+          "text": "Glucose",
+          "group": 1
+        },
+        {
+          "text": "Oxygen",
+          "group": 1
+        },
+        {
+          "text": "Ready-made food from soil",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Three groups.",
+        "Inputs go in, products come out.",
+        "Plants do not take ready-made food from soil."
+      ],
+      "explanation": "Plants take in light, water and carbon dioxide. They make glucose and oxygen. Soil does not provide ready-made food."
+    },
+    {
+      "id": "s6.photosynthesis.025",
+      "skill": "s6.photosynthesis",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Hadi counts bubbles from pondweed at 10 cm from a lamp: 24, 26, 25, 41, 25. What should he do about the 41?",
+      "options": [
+        {
+          "text": "Add it in because every result counts.",
+          "why": "A result far from the others may be a mistake and can spoil the average."
+        },
+        {
+          "text": "Treat it as anomalous, check or repeat it, and leave it out of the average."
+        },
+        {
+          "text": "Change all the other results to 41.",
+          "why": "Results must never be changed to match another one."
+        },
+        {
+          "text": "Stop the experiment, as it has failed.",
+          "why": "One odd result does not mean the whole experiment failed."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Compare 41 with the other four numbers.",
+        "A result that does not fit is anomalous.",
+        "Think about repeating the count."
+      ],
+      "explanation": "41 is far from the others, so it is anomalous. Repeat it and leave it out of the average."
+    },
+    {
+      "id": "s6.photosynthesis.026",
+      "skill": "s6.photosynthesis",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each observation to the best explanation.",
+      "pairs": [
+        [
+          "Leaves turn yellow in a dark cupboard",
+          "No light, so little chlorophyll and no food"
+        ],
+        [
+          "Bubbles rise from pondweed in light",
+          "Oxygen is released by photosynthesis"
+        ],
+        [
+          "A leaf covered with foil is pale",
+          "The covered part got no light to make food"
+        ],
+        [
+          "Plants grow in water with no soil",
+          "They get minerals from water and make food from light"
+        ]
+      ],
+      "hints": [
+        "Think about what the plant needs.",
+        "Light is needed to keep chlorophyll and make food.",
+        "Plants make their own food, they do not take it from soil."
+      ],
+      "explanation": "Each observation links to light, chlorophyll or the gases of photosynthesis. Plants make their own food using light."
     }
   ]
 }

@@ -408,6 +408,625 @@
         "Use the word because to link each feature to its use."
       ],
       "explanation": "A good answer links each feature to a problem in the habitat. For example, a polar bear's thick fur keeps it warm in the freezing Arctic."
+    },
+    {
+      "id": "s4.habitats.013",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which habitat is very hot and dry, with little rain?",
+      "options": [
+        {
+          "text": "pond",
+          "why": "A pond is full of water."
+        },
+        {
+          "text": "desert"
+        },
+        {
+          "text": "rainforest",
+          "why": "A rainforest gets a lot of rain."
+        },
+        {
+          "text": "river bank",
+          "why": "A river bank is wet because it is next to water."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about where a camel can live.",
+        "Look for the place with the least water.",
+        "Sand and few plants are clues."
+      ],
+      "explanation": "A desert gets very little rain, so it is hot and dry."
+    },
+    {
+      "id": "s4.habitats.014",
+      "skill": "s4.habitats",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the living things in the pond habitat. One label is not in the picture.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 360,
+            "h": 240,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "ellipse",
+            "cx": 190,
+            "cy": 150,
+            "rx": 150,
+            "ry": 70,
+            "tone": "math",
+            "fill": "light"
+          },
+          {
+            "t": "icon",
+            "icon": "frog",
+            "x": 30,
+            "y": 40,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "duck",
+            "x": 150,
+            "y": 60,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "fish",
+            "x": 230,
+            "y": 140,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "grass",
+            "x": 40,
+            "y": 150,
+            "size": 56
+          }
+        ],
+        "alt": "A pond with a frog on the bank at top left, a duck on the water in the middle, a fish in the water at lower right and a clump of grass at lower left."
+      },
+      "labels": [
+        "frog",
+        "duck",
+        "fish",
+        "grass"
+      ],
+      "spots": [
+        {
+          "x": 16.1,
+          "y": 28.3
+        },
+        {
+          "x": 49.4,
+          "y": 36.7
+        },
+        {
+          "x": 71.7,
+          "y": 70
+        },
+        {
+          "x": 18.9,
+          "y": 74.2
+        }
+      ],
+      "extraLabels": [
+        "snake"
+      ],
+      "hints": [
+        "The animal on the bank has long back legs.",
+        "Look for the bird that swims.",
+        "The plant has thin green blades."
+      ],
+      "explanation": "The pond has a frog, a duck, a fish and some grass. There is no snake in the picture."
+    },
+    {
+      "id": "s4.habitats.015",
+      "skill": "s4.habitats",
+      "type": "hotspot",
+      "difficulty": 3,
+      "prompt": "A fox has thick white fur and small ears. Tap the habitat where it lives.",
+      "figure": {
+        "kind": "scene",
+        "width": 400,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "desert",
+            "x": 30,
+            "y": 60,
+            "size": 80
+          },
+          {
+            "t": "icon",
+            "icon": "forest",
+            "x": 160,
+            "y": 60,
+            "size": 80
+          },
+          {
+            "t": "icon",
+            "icon": "arctic",
+            "x": 290,
+            "y": 60,
+            "size": 80
+          }
+        ],
+        "alt": "Three habitats side by side. On the left is a desert, in the middle is a forest and on the right is a snowy arctic."
+      },
+      "regions": [
+        {
+          "label": "desert",
+          "x": 17.5,
+          "y": 50,
+          "w": 20,
+          "h": 40
+        },
+        {
+          "label": "forest",
+          "x": 50,
+          "y": 50,
+          "w": 20,
+          "h": 40
+        },
+        {
+          "label": "arctic",
+          "x": 82.5,
+          "y": 50,
+          "w": 20,
+          "h": 40
+        }
+      ],
+      "answers": [
+        2
+      ],
+      "hints": [
+        "Thick white fur keeps an animal warm.",
+        "White fur is hard to see against snow.",
+        "Which habitat is cold and snowy?"
+      ],
+      "explanation": "Thick white fur keeps the fox warm and hides it in the snow. It is suited to the cold arctic."
+    },
+    {
+      "id": "s4.habitats.016",
+      "skill": "s4.habitats",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Hadi puts 20 woodlice in a choice chamber. Fill in the missing number.",
+      "caption": "Choice chamber results",
+      "head": [
+        "Part of the chamber",
+        "Woodlice at 10 min"
+      ],
+      "rows": [
+        [
+          "Dark and damp",
+          "11"
+        ],
+        [
+          "Dark and dry",
+          "3"
+        ],
+        [
+          "Light and damp",
+          "4"
+        ],
+        [
+          "Light and dry",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "2"
+          ]
+        }
+      ],
+      "hints": [
+        "All the numbers add up to 20.",
+        "Add up the three numbers you can see.",
+        "Take that total away from 20."
+      ],
+      "explanation": "11 + 3 + 4 = 18, and 20 - 18 = 2. So 2 woodlice were in the light and dry part."
+    },
+    {
+      "id": "s4.habitats.017",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Look at the woodlice results. Which conclusion is best?",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Part of the chamber",
+          "Woodlice at 10 min"
+        ],
+        "rows": [
+          [
+            "Dark and damp",
+            "11"
+          ],
+          [
+            "Dark and dry",
+            "3"
+          ],
+          [
+            "Light and damp",
+            "4"
+          ],
+          [
+            "Light and dry",
+            "2"
+          ]
+        ],
+        "alt": "Table of where 20 woodlice were after 10 minutes. Dark and damp 11, dark and dry 3, light and damp 4, light and dry 2."
+      },
+      "options": [
+        {
+          "text": "Woodlice prefer light, dry places",
+          "why": "Light and dry had the fewest woodlice."
+        },
+        {
+          "text": "Woodlice only live in dark places",
+          "why": "Some woodlice were in light places, so \"only\" is too strong."
+        },
+        {
+          "text": "Woodlice do not care where they are",
+          "why": "Most woodlice were in one part, so they do show a preference."
+        },
+        {
+          "text": "Woodlice prefer dark, damp places"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Find the part with the most woodlice.",
+        "Find the part with the fewest.",
+        "Say what the busiest part has in common."
+      ],
+      "explanation": "Most woodlice (11 of 20) were in the dark and damp part, and the fewest were in the light and dry part."
+    },
+    {
+      "id": "s4.habitats.018",
+      "skill": "s4.habitats",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "A class counts minibeasts in three places. How many more are under the log than on the path?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Under a log",
+          "Open grass",
+          "Paved path"
+        ],
+        "values": [
+          18,
+          9,
+          2
+        ],
+        "step": 2,
+        "yLabel": "Minibeasts",
+        "alt": "Bar chart of minibeasts found. Under a log 18, open grass 9, paved path 2."
+      },
+      "answer": 16,
+      "hints": [
+        "Find both bars on the chart.",
+        "Read the number at the top of each bar.",
+        "Subtract the smaller number from the bigger one."
+      ],
+      "explanation": "The log has 18 and the path has 2. 18 - 2 = 16."
+    },
+    {
+      "id": "s4.habitats.019",
+      "skill": "s4.habitats",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Hadi tests if woodlice prefer light or dark. Choose 2 things he must keep the same.",
+      "options": [
+        {
+          "text": "how damp both sides are"
+        },
+        {
+          "text": "how bright each side is",
+          "why": "This is the thing Hadi changes on purpose, so it cannot stay the same."
+        },
+        {
+          "text": "how long he leaves the woodlice"
+        },
+        {
+          "text": "the number of woodlice found on each side",
+          "why": "This is what he measures, so it is expected to change."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Only one thing should change: light or dark.",
+        "Other conditions must be fair.",
+        "Pick the two things that are not changed or measured."
+      ],
+      "explanation": "Dampness and the time must be the same so that only light and dark can explain the result."
+    },
+    {
+      "id": "s4.habitats.020",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "A new road is built through the middle of a forest. What is the biggest problem for small animals?",
+      "options": [
+        {
+          "text": "They cannot cross safely to find food and mates"
+        },
+        {
+          "text": "The trees grow faster",
+          "why": "A road does not make trees grow faster."
+        },
+        {
+          "text": "The forest gets more rain",
+          "why": "A road does not bring more rain."
+        },
+        {
+          "text": "The animals get too much food",
+          "why": "A road does not add food. It can take food places away."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "A road splits the forest into two parts.",
+        "Think about what animals need in each part.",
+        "Think about crossing a busy road."
+      ],
+      "explanation": "A road splits the habitat. Animals may be stopped from reaching food, shelter and mates on the other side."
+    },
+    {
+      "id": "s4.habitats.021",
+      "skill": "s4.habitats",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each feature to how it helps the animal.",
+      "pairs": [
+        [
+          "webbed feet on a duck",
+          "push through water to swim"
+        ],
+        [
+          "thick fat on a seal",
+          "keeps it warm in cold water"
+        ],
+        [
+          "wide feet on a camel",
+          "stop it sinking into sand"
+        ],
+        [
+          "long sticky tongue on a frog",
+          "catches insects"
+        ]
+      ],
+      "hints": [
+        "Think about where each animal lives.",
+        "Webbed feet push against water.",
+        "Thick fat keeps the heat in."
+      ],
+      "explanation": "Each feature suits the habitat: swimming, staying warm, walking on sand, and catching insects."
+    },
+    {
+      "id": "s4.habitats.022",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan says, \"If the pond dries up, the fish will adapt in a few days.\" What is wrong with this?",
+      "options": [
+        {
+          "text": "Fish do not need water to live",
+          "why": "Fish breathe with gills and need water to live."
+        },
+        {
+          "text": "Fish adapt faster than other animals",
+          "why": "Adapting takes many generations, even for fish."
+        },
+        {
+          "text": "Fish need water and cannot change that quickly"
+        },
+        {
+          "text": "The pond cannot dry up",
+          "why": "Ponds can dry up in hot weather."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Adaptations are features built up over a very long time.",
+        "A single animal cannot grow new features quickly.",
+        "Think about what a fish needs to breathe."
+      ],
+      "explanation": "Living things become suited to a habitat over many generations. A fish needs water, so it cannot cope if the pond dries up."
+    },
+    {
+      "id": "s4.habitats.023",
+      "skill": "s4.habitats",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "An animal that is active at night is called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "nocturnal"
+          ]
+        }
+      ],
+      "hints": [
+        "An owl and a bat are good examples.",
+        "It sounds like the word night.",
+        "It starts with the letter n."
+      ],
+      "explanation": "Nocturnal animals are active at night and rest in the day."
+    },
+    {
+      "id": "s4.habitats.024",
+      "skill": "s4.habitats",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Rubbish is dumped in a pond. Put the events in order.",
+      "items": [
+        "Rubbish is dumped in the pond",
+        "The water gets dirty and cloudy",
+        "Water plants get less light",
+        "Fewer animals can live in the pond"
+      ],
+      "hints": [
+        "Start with the rubbish arriving.",
+        "Dirty water blocks sunlight.",
+        "The animals are the last to be affected."
+      ],
+      "explanation": "Rubbish makes the water dirty, plants get less light, and then fewer animals can live in the pond."
+    },
+    {
+      "id": "s4.habitats.025",
+      "skill": "s4.habitats",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which animal is best suited to wade in shallow water and catch fish?",
+      "options": [
+        {
+          "text": "a bird with short legs and a short wide beak",
+          "why": "Short legs would get wet in deep water, and a short beak cannot reach fish."
+        },
+        {
+          "text": "a mammal with thick fur and short legs",
+          "why": "Thick fur gets heavy in water and short legs cannot wade."
+        },
+        {
+          "text": "a bird with long legs and a long thin beak"
+        },
+        {
+          "text": "a lizard with sticky toes for climbing",
+          "why": "Sticky toes help on trees, not in water."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Long legs keep the body above the water.",
+        "A long, thin beak can reach into the water.",
+        "Match the features to what the animal does."
+      ],
+      "explanation": "Long legs let a wading bird stand in water and a long thin beak helps it grab fish."
+    },
+    {
+      "id": "s4.habitats.026",
+      "skill": "s4.habitats",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "A camel has wide feet to walk on soft ___ and long eyelashes to keep out blown ___.",
+      "gaps": [
+        {
+          "options": [
+            "sand",
+            "mud",
+            "snow"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "rain",
+            "dust",
+            "snow"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Think about a desert.",
+        "Wide feet spread the weight.",
+        "Eyelashes protect the eyes."
+      ],
+      "explanation": "Camels have wide feet to walk on soft sand and long eyelashes to keep out blown dust."
+    },
+    {
+      "id": "s4.habitats.027",
+      "skill": "s4.habitats",
+      "type": "multi",
+      "difficulty": 2,
+      "prompt": "Choose 2 features that help a duck live on a pond.",
+      "options": [
+        {
+          "text": "webbed feet"
+        },
+        {
+          "text": "thick woolly coat",
+          "why": "A woolly coat would soak up water and get heavy."
+        },
+        {
+          "text": "waterproof oily feathers"
+        },
+        {
+          "text": "long claws for climbing trees",
+          "why": "A duck swims. It does not climb trees."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Think about swimming.",
+        "Think about staying dry.",
+        "Choose the two features that suit water."
+      ],
+      "explanation": "Webbed feet push against water and oily feathers keep the duck dry."
+    },
+    {
+      "id": "s4.habitats.028",
+      "skill": "s4.habitats",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Each snail picture stands for 4 animals. How many animals are in the pond survey altogether?",
+      "figure": {
+        "kind": "pictogram",
+        "rows": [
+          {
+            "label": "Snails",
+            "count": 3
+          },
+          {
+            "label": "Tadpoles",
+            "count": 5
+          },
+          {
+            "label": "Beetles",
+            "count": 2
+          }
+        ],
+        "icon": "snail",
+        "key": 4,
+        "alt": "Pictogram of pond animals. Snails 3 pictures, tadpoles 5 pictures, beetles 2 pictures. Each picture means 4 animals."
+      },
+      "answer": 40,
+      "hints": [
+        "Count all the pictures first.",
+        "Each picture is 4 animals.",
+        "Multiply the number of pictures by 4."
+      ],
+      "explanation": "There are 3 + 5 + 2 = 10 pictures. 10 x 4 = 40 animals."
     }
   ]
 }

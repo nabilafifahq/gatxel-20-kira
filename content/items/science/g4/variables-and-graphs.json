@@ -580,6 +580,1411 @@
         "iksc",
         "olympiad"
       ]
+    },
+    {
+      "id": "s4.variables-and-graphs.013",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In a fair test, how many things do you change on purpose?",
+      "options": [
+        {
+          "text": "None",
+          "why": "You change one thing to see what happens."
+        },
+        {
+          "text": "One"
+        },
+        {
+          "text": "Two or more",
+          "why": "Changing more than one thing makes it hard to know the cause."
+        },
+        {
+          "text": "All of them",
+          "why": "Everything else must stay the same."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about finding out the cause.",
+        "If you change many things, which one caused it?",
+        "Change just one."
+      ],
+      "explanation": "A fair test changes one thing only. Then you can tell what caused any difference."
+    },
+    {
+      "id": "s4.variables-and-graphs.014",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 2,
+      "prompt": "Bean seedlings grew in different amounts of light. How many centimetres taller was the seedling in the sun than the one in the shade?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Dark",
+          "Shade",
+          "Sun"
+        ],
+        "values": [
+          3,
+          6,
+          10
+        ],
+        "step": 2,
+        "yLabel": "Height (cm)",
+        "alt": "Bar chart of seedling height: dark 3 cm, shade 6 cm, sun 10 cm."
+      },
+      "answer": 4,
+      "unit": "cm",
+      "hints": [
+        "Read the height of the shade bar.",
+        "Read the height of the sun bar.",
+        "Take the smaller number away from the bigger one."
+      ],
+      "explanation": "The sun seedling was 10 cm and the shade seedling was 6 cm. 10 take away 6 is 4 cm."
+    },
+    {
+      "id": "s4.variables-and-graphs.015",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Ali rolls a toy car down a ramp at four heights. How much further did it go from 30 cm than from 10 cm?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "10 cm",
+          "20 cm",
+          "30 cm",
+          "40 cm"
+        ],
+        "values": [
+          40,
+          85,
+          120,
+          160
+        ],
+        "step": 20,
+        "yLabel": "Distance (cm)",
+        "alt": "Bar chart of distance rolled for ramp heights: 10 cm gives 40, 20 cm gives 85, 30 cm gives 120, 40 cm gives 160 centimetres."
+      },
+      "answer": 80,
+      "unit": "cm",
+      "hints": [
+        "Find the bar for the 10 cm ramp.",
+        "Find the bar for the 30 cm ramp.",
+        "Subtract the shorter distance from the longer."
+      ],
+      "explanation": "From 30 cm the car rolled 120 cm and from 10 cm it rolled 40 cm. 120 take away 40 is 80 cm."
+    },
+    {
+      "id": "s4.variables-and-graphs.016",
+      "skill": "s4.variables-and-graphs",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table. Each week the bean plant grows the same amount.",
+      "head": [
+        "Week",
+        "Height (cm)"
+      ],
+      "rows": [
+        [
+          "1",
+          "4"
+        ],
+        [
+          "2",
+          "8"
+        ],
+        [
+          "3",
+          ""
+        ],
+        [
+          "4",
+          "16"
+        ],
+        [
+          "5",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "12"
+          ]
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "answers": [
+            "20"
+          ]
+        }
+      ],
+      "hints": [
+        "Find how much it grows each week.",
+        "Look at week 1 and week 2.",
+        "It grows 4 cm each week."
+      ],
+      "explanation": "The plant grows 4 cm each week. So week 3 is 12 cm and week 5 is 20 cm."
+    },
+    {
+      "id": "s4.variables-and-graphs.017",
+      "skill": "s4.variables-and-graphs",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the point on the graph that shows the water temperature after 10 minutes.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 20,
+            "x2": 50,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 200,
+            "x2": 300,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 50,
+            "y": 217,
+            "text": "0",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 112.5,
+            "y": 217,
+            "text": "5",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 217,
+            "text": "10",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 237.5,
+            "y": 217,
+            "text": "15",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 217,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 204,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 144,
+            "text": "40",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 84,
+            "text": "60",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 24,
+            "text": "80",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 236,
+            "text": "Time (min)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 12,
+            "text": "Temp (°C)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                50,
+                20
+              ],
+              [
+                112.5,
+                68
+              ],
+              [
+                175,
+                104
+              ],
+              [
+                237.5,
+                128
+              ],
+              [
+                300,
+                140
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 50,
+            "cy": 20,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.5,
+            "cy": 68,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 175,
+            "cy": 104,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 237.5,
+            "cy": 128,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 300,
+            "cy": 140,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of hot water cooling. Time in minutes is on the bottom axis from 0 to 20. Temperature in degrees Celsius is on the side axis. Points are joined by a line that starts at 80 degrees and curves down: 0 min 80, 5 min 64, 10 min 52, 15 min 44, 20 min 40."
+      },
+      "hints": [
+        "Find 10 on the bottom axis.",
+        "Go up to the line.",
+        "Tap the dot above 10."
+      ],
+      "explanation": "At 10 minutes the dot is at 52 °C.",
+      "regions": [
+        {
+          "label": "0 minutes",
+          "x": 15.6,
+          "y": 8.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "5 minutes",
+          "x": 35.2,
+          "y": 28.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "10 minutes",
+          "x": 54.7,
+          "y": 43.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "15 minutes",
+          "x": 74.2,
+          "y": 53.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "20 minutes",
+          "x": 93.8,
+          "y": 58.3,
+          "w": 12.5,
+          "h": 16.7
+        }
+      ],
+      "answers": [
+        2
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.018",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "A plant grew 3 cm each week: 3, 6, 9, 12 cm. What height will it be in week 5?",
+      "answer": 15,
+      "unit": "cm",
+      "hints": [
+        "Find the steady rise.",
+        "The plant adds the same each week.",
+        "Add 3 to the week 4 height."
+      ],
+      "explanation": "The plant gains 3 cm each week. Week 4 was 12 cm, so week 5 is 15 cm."
+    },
+    {
+      "id": "s4.variables-and-graphs.019",
+      "skill": "s4.variables-and-graphs",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the steps of a fair test in order.",
+      "items": [
+        "Ask a question",
+        "Make a prediction",
+        "Plan what to change, measure and keep the same",
+        "Do the test and record the results",
+        "Write a conclusion"
+      ],
+      "hints": [
+        "Start with what you want to find out.",
+        "You plan before you do.",
+        "The conclusion comes last."
+      ],
+      "explanation": "A fair test starts with a question and a prediction. We plan, do the test and record, then write a conclusion."
+    },
+    {
+      "id": "s4.variables-and-graphs.020",
+      "skill": "s4.variables-and-graphs",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Zara tests if the size of a parachute changes how long it takes to fall. Sort each item.",
+      "groups": [
+        "What she changes",
+        "What she measures",
+        "What she keeps the same"
+      ],
+      "items": [
+        {
+          "text": "size of the parachute",
+          "group": 0
+        },
+        {
+          "text": "time to fall",
+          "group": 1
+        },
+        {
+          "text": "height of the drop",
+          "group": 2
+        },
+        {
+          "text": "mass of the toy",
+          "group": 2
+        },
+        {
+          "text": "type of cloth",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "She chooses the size.",
+        "She uses a timer to find out the result.",
+        "The rest should not change."
+      ],
+      "explanation": "Zara changes the size and measures the time. Height, mass and cloth stay the same so the test is fair."
+    },
+    {
+      "id": "s4.variables-and-graphs.021",
+      "skill": "s4.variables-and-graphs",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 ways to make the results of a test more reliable.",
+      "options": [
+        {
+          "text": "Repeat the test 3 times"
+        },
+        {
+          "text": "Change two things at once"
+        },
+        {
+          "text": "Use the average of the results"
+        },
+        {
+          "text": "Do the test once only"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "One result could be a mistake.",
+        "More results give a better picture.",
+        "Averages use several results."
+      ],
+      "explanation": "Repeating a test and finding the average reduces the effect of mistakes. Changing two things or testing once makes the results less reliable."
+    },
+    {
+      "id": "s4.variables-and-graphs.022",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Maya changes both the height of the ramp and the floor surface. The car goes further. What can she say?",
+      "options": [
+        {
+          "text": "The ramp height caused it.",
+          "why": "It could be the floor surface instead."
+        },
+        {
+          "text": "The floor caused it.",
+          "why": "It could be the ramp height instead."
+        },
+        {
+          "text": "She cannot tell which change caused it."
+        },
+        {
+          "text": "Both caused the same amount.",
+          "why": "There is no way to know that from one test."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "She changed two things.",
+        "Which one made the difference?",
+        "A fair test changes one thing only."
+      ],
+      "explanation": "When two things change together, we cannot tell which one caused the result. The test is not fair."
+    },
+    {
+      "id": "s4.variables-and-graphs.023",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which chart is best for comparing the distance rolled by cars on four different floor surfaces?",
+      "options": [
+        {
+          "text": "Line graph",
+          "why": "A line graph is best for changes over time."
+        },
+        {
+          "text": "Bar chart"
+        },
+        {
+          "text": "A map",
+          "why": "A map does not show amounts."
+        },
+        {
+          "text": "A tally of colours",
+          "why": "This is not about the measurements."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The surfaces are separate groups.",
+        "Each group has its own amount.",
+        "Bars are good for comparing groups."
+      ],
+      "explanation": "The surfaces are separate categories, so a bar chart compares them well. A line graph suits measurements that change over time."
+    },
+    {
+      "id": "s4.variables-and-graphs.024",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 4,
+      "prompt": "Hadi drops a ball three times. The bounces are 42 cm, 45 cm and 48 cm. What is the mean bounce?",
+      "answer": 45,
+      "unit": "cm",
+      "hints": [
+        "Add the three bounces.",
+        "Then divide by how many there are.",
+        "42 + 45 + 48 = 135."
+      ],
+      "explanation": "42 + 45 + 48 = 135. 135 divided by 3 is 45 cm."
+    },
+    {
+      "id": "s4.variables-and-graphs.025",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Parachute size and fall time are in the table. Which result looks wrong and should be tested again?",
+      "options": [
+        {
+          "text": "Small, 3.1 s",
+          "why": "This fits the pattern: the smallest parachute falls fastest here."
+        },
+        {
+          "text": "Medium, 3.9 s",
+          "why": "This fits the pattern."
+        },
+        {
+          "text": "Large, 2.0 s"
+        },
+        {
+          "text": "Extra large, 5.2 s",
+          "why": "This fits the pattern."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a pattern: bigger parachute, longer fall.",
+        "Which one does not fit?",
+        "A fall time that gets shorter breaks the pattern."
+      ],
+      "explanation": "The times rise as the parachute grows, except the large parachute at 2.0 s, which is shorter. It should be tested again.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Parachute",
+          "Fall time (s)"
+        ],
+        "rows": [
+          [
+            "small",
+            "3.1"
+          ],
+          [
+            "medium",
+            "3.9"
+          ],
+          [
+            "large",
+            "2.0"
+          ],
+          [
+            "extra large",
+            "5.2"
+          ]
+        ],
+        "alt": "Table of fall times: small 3.1 s, medium 3.9 s, large 2.0 s, extra large 5.2 s."
+      }
+    },
+    {
+      "id": "s4.variables-and-graphs.026",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "When you draw a line graph, which variable goes on the horizontal axis?",
+      "options": [
+        {
+          "text": "The one you measure",
+          "why": "The measured result goes up the side."
+        },
+        {
+          "text": "The one you change"
+        },
+        {
+          "text": "The one you keep the same",
+          "why": "This is not plotted."
+        },
+        {
+          "text": "The title",
+          "why": "The title goes at the top."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Think about which one you control.",
+        "The result you measure goes up.",
+        "The thing you change goes along the bottom."
+      ],
+      "explanation": "The thing you change goes along the bottom, and the thing you measure goes up the side."
+    },
+    {
+      "id": "s4.variables-and-graphs.027",
+      "skill": "s4.variables-and-graphs",
+      "type": "label",
+      "difficulty": 3,
+      "prompt": "Label the parts of the line graph.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 20,
+            "x2": 50,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 200,
+            "x2": 300,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 50,
+            "y": 217,
+            "text": "0",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 112.5,
+            "y": 217,
+            "text": "5",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 217,
+            "text": "10",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 237.5,
+            "y": 217,
+            "text": "15",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 217,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 204,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 144,
+            "text": "40",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 84,
+            "text": "60",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 24,
+            "text": "80",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 236,
+            "text": "Time (min)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 12,
+            "text": "Temp (°C)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                50,
+                20
+              ],
+              [
+                112.5,
+                68
+              ],
+              [
+                175,
+                104
+              ],
+              [
+                237.5,
+                128
+              ],
+              [
+                300,
+                140
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 50,
+            "cy": 20,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.5,
+            "cy": 68,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 175,
+            "cy": 104,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 237.5,
+            "cy": 128,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 300,
+            "cy": 140,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of hot water cooling. Time in minutes is on the bottom axis from 0 to 20. Temperature in degrees Celsius is on the side axis. Points are joined by a line that starts at 80 degrees and curves down: 0 min 80, 5 min 64, 10 min 52, 15 min 44, 20 min 40."
+      },
+      "hints": [
+        "Tap a label, then tap its number.",
+        "The axes are the two straight lines.",
+        "A dot shows one measurement."
+      ],
+      "explanation": "The side axis shows the measurement and the bottom axis shows time. Each dot is one result and the line joins them.",
+      "labels": [
+        "vertical axis",
+        "horizontal axis",
+        "data point",
+        "joining line"
+      ],
+      "extraLabels": [
+        "bar"
+      ],
+      "spots": [
+        {
+          "x": 15.6,
+          "y": 25
+        },
+        {
+          "x": 74.2,
+          "y": 83.3
+        },
+        {
+          "x": 35.2,
+          "y": 28.3
+        },
+        {
+          "x": 64.4,
+          "y": 48.3
+        }
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.028",
+      "skill": "s4.variables-and-graphs",
+      "type": "hotspot",
+      "difficulty": 4,
+      "prompt": "Tap the first point where the water is cooler than 50 °C.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 20,
+            "x2": 50,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 200,
+            "x2": 300,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 50,
+            "y": 217,
+            "text": "0",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 112.5,
+            "y": 217,
+            "text": "5",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 217,
+            "text": "10",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 237.5,
+            "y": 217,
+            "text": "15",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 217,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 204,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 144,
+            "text": "40",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 84,
+            "text": "60",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 24,
+            "text": "80",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 236,
+            "text": "Time (min)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 12,
+            "text": "Temp (°C)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                50,
+                20
+              ],
+              [
+                112.5,
+                68
+              ],
+              [
+                175,
+                104
+              ],
+              [
+                237.5,
+                128
+              ],
+              [
+                300,
+                140
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 50,
+            "cy": 20,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.5,
+            "cy": 68,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 175,
+            "cy": 104,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 237.5,
+            "cy": 128,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 300,
+            "cy": 140,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of hot water cooling. Time in minutes is on the bottom axis from 0 to 20. Temperature in degrees Celsius is on the side axis. Points are joined by a line that starts at 80 degrees and curves down: 0 min 80, 5 min 64, 10 min 52, 15 min 44, 20 min 40."
+      },
+      "hints": [
+        "Read the temperature at each dot.",
+        "Find the first one that is less than 50.",
+        "52 is not less than 50."
+      ],
+      "explanation": "At 10 minutes the water is 52 °C, which is above 50. At 15 minutes it is 44 °C, the first point below 50.",
+      "regions": [
+        {
+          "label": "0 minutes",
+          "x": 15.6,
+          "y": 8.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "5 minutes",
+          "x": 35.2,
+          "y": 28.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "10 minutes",
+          "x": 54.7,
+          "y": 43.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "15 minutes",
+          "x": 74.2,
+          "y": 53.3,
+          "w": 12.5,
+          "h": 16.7
+        },
+        {
+          "label": "20 minutes",
+          "x": 93.8,
+          "y": 58.3,
+          "w": 12.5,
+          "h": 16.7
+        }
+      ],
+      "answers": [
+        3
+      ]
+    },
+    {
+      "id": "s4.variables-and-graphs.029",
+      "skill": "s4.variables-and-graphs",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Use the cooling graph. By how many degrees did the water cool between 5 and 10 minutes?",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 20,
+            "x2": 50,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 50,
+            "y1": 200,
+            "x2": 300,
+            "y2": 200,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "text",
+            "x": 50,
+            "y": 217,
+            "text": "0",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 112.5,
+            "y": 217,
+            "text": "5",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 217,
+            "text": "10",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 237.5,
+            "y": 217,
+            "text": "15",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 300,
+            "y": 217,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 204,
+            "text": "20",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 144,
+            "text": "40",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 84,
+            "text": "60",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 38,
+            "y": 24,
+            "text": "80",
+            "size": 11,
+            "tone": "ink",
+            "anchor": "end"
+          },
+          {
+            "t": "text",
+            "x": 175,
+            "y": 236,
+            "text": "Time (min)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "text",
+            "x": 60,
+            "y": 12,
+            "text": "Temp (°C)",
+            "size": 12,
+            "tone": "ink",
+            "anchor": "middle"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                50,
+                20
+              ],
+              [
+                112.5,
+                68
+              ],
+              [
+                175,
+                104
+              ],
+              [
+                237.5,
+                128
+              ],
+              [
+                300,
+                140
+              ]
+            ],
+            "closed": false,
+            "tone": "science",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 50,
+            "cy": 20,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 112.5,
+            "cy": 68,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 175,
+            "cy": 104,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 237.5,
+            "cy": 128,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 300,
+            "cy": 140,
+            "r": 4,
+            "tone": "science",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A line graph of hot water cooling. Time in minutes is on the bottom axis from 0 to 20. Temperature in degrees Celsius is on the side axis. Points are joined by a line that starts at 80 degrees and curves down: 0 min 80, 5 min 64, 10 min 52, 15 min 44, 20 min 40."
+      },
+      "answer": 12,
+      "unit": "°C",
+      "hints": [
+        "Read the temperature at 5 minutes.",
+        "Read the temperature at 10 minutes.",
+        "Subtract the smaller one from the bigger one."
+      ],
+      "explanation": "At 5 minutes it was 64 °C and at 10 minutes it was 52 °C. 64 take away 52 is 12 °C."
+    },
+    {
+      "id": "s4.variables-and-graphs.030",
+      "skill": "s4.variables-and-graphs",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Sugar dissolves in cold water in 90 s. It takes 55 s in warm water and 20 s in hot water. Which water dissolves it fastest?",
+      "options": [
+        {
+          "text": "Cold",
+          "why": "Cold took the longest."
+        },
+        {
+          "text": "Warm",
+          "why": "Warm was quicker than cold but not the quickest."
+        },
+        {
+          "text": "Hot"
+        },
+        {
+          "text": "They are the same",
+          "why": "The times are different."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for the smallest time.",
+        "Less time means faster.",
+        "Compare the three numbers."
+      ],
+      "explanation": "Hot water took only 20 seconds, the shortest time. So it dissolves sugar fastest."
+    },
+    {
+      "id": "s4.variables-and-graphs.031",
+      "skill": "s4.variables-and-graphs",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "In a fair test we change one thing and keep the other things the ___.",
+      "blanks": [
+        {
+          "answers": [
+            "same"
+          ]
+        }
+      ],
+      "hints": [
+        "Think of the opposite of different.",
+        "Everything else must not change.",
+        "The word has four letters."
+      ],
+      "explanation": "To make a test fair, only one thing changes. All the others stay the same."
     }
   ]
 }

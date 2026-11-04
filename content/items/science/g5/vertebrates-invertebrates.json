@@ -7,18 +7,51 @@
       "type": "sort",
       "difficulty": 1,
       "prompt": "Sort the animals into vertebrates and invertebrates.",
-      "groups": ["Vertebrate (has a backbone)", "Invertebrate (no backbone)"],
+      "groups": [
+        "Vertebrate (has a backbone)",
+        "Invertebrate (no backbone)"
+      ],
       "items": [
-        { "text": "frog", "group": 0 },
-        { "text": "snake", "group": 0 },
-        { "text": "owl", "group": 0 },
-        { "text": "whale", "group": 0 },
-        { "text": "shark", "group": 0 },
-        { "text": "spider", "group": 1 },
-        { "text": "snail", "group": 1 },
-        { "text": "crab", "group": 1 },
-        { "text": "earthworm", "group": 1 },
-        { "text": "butterfly", "group": 1 }
+        {
+          "text": "frog",
+          "group": 0
+        },
+        {
+          "text": "snake",
+          "group": 0
+        },
+        {
+          "text": "owl",
+          "group": 0
+        },
+        {
+          "text": "whale",
+          "group": 0
+        },
+        {
+          "text": "shark",
+          "group": 0
+        },
+        {
+          "text": "spider",
+          "group": 1
+        },
+        {
+          "text": "snail",
+          "group": 1
+        },
+        {
+          "text": "crab",
+          "group": 1
+        },
+        {
+          "text": "earthworm",
+          "group": 1
+        },
+        {
+          "text": "butterfly",
+          "group": 1
+        }
       ],
       "hints": [
         "A vertebrate has a backbone inside its body. An invertebrate has none.",
@@ -34,10 +67,21 @@
       "difficulty": 1,
       "prompt": "What does every vertebrate have?",
       "options": [
-        { "text": "wings", "why": "Only some vertebrates, such as birds and bats, have wings." },
-        { "text": "a backbone" },
-        { "text": "fur", "why": "Only mammals have fur or hair." },
-        { "text": "six legs", "why": "Six legs is a feature of insects, which are invertebrates." }
+        {
+          "text": "wings",
+          "why": "Only some vertebrates, such as birds and bats, have wings."
+        },
+        {
+          "text": "a backbone"
+        },
+        {
+          "text": "fur",
+          "why": "Only mammals have fur or hair."
+        },
+        {
+          "text": "six legs",
+          "why": "Six legs is a feature of insects, which are invertebrates."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -54,11 +98,26 @@
       "difficulty": 2,
       "prompt": "Match each vertebrate group to its features.",
       "pairs": [
-        ["fish", "gills, fins and scales"],
-        ["amphibians", "moist skin, with young that live in water"],
-        ["reptiles", "dry, scaly skin and leathery eggs"],
-        ["birds", "feathers, a beak and wings"],
-        ["mammals", "hair or fur, and they feed young on milk"]
+        [
+          "fish",
+          "gills, fins and scales"
+        ],
+        [
+          "amphibians",
+          "moist skin, with young that live in water"
+        ],
+        [
+          "reptiles",
+          "dry, scaly skin and leathery eggs"
+        ],
+        [
+          "birds",
+          "feathers, a beak and wings"
+        ],
+        [
+          "mammals",
+          "hair or fur, and they feed young on milk"
+        ]
       ],
       "hints": [
         "Each group has one or two features that no other group has.",
@@ -73,14 +132,25 @@
       "type": "text",
       "difficulty": 2,
       "prompt": "A Komodo dragon has dry, scaly skin and lays eggs with leathery shells. Which vertebrate group does it belong to?",
-      "blanks": [{ "answers": ["reptiles", "reptile", "a reptile", "the reptiles"] }],
+      "blanks": [
+        {
+          "answers": [
+            "reptiles",
+            "reptile",
+            "a reptile",
+            "the reptiles"
+          ]
+        }
+      ],
       "hints": [
         "Look at the clues: dry skin, scales and leathery eggs.",
         "Amphibians have moist skin, so this group must be a different one.",
         "Think of other animals with dry, scaly skin, such as geckos and crocodiles. Name their group."
       ],
       "explanation": "The Komodo dragon is a reptile, and it is the largest lizard in the world. Reptiles have dry, scaly skin and most lay eggs with leathery shells on land.",
-      "tags": ["osn-sd"]
+      "tags": [
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.vertebrates-invertebrates.005",
@@ -89,10 +159,21 @@
       "difficulty": 3,
       "prompt": "Why is a spider not an insect?",
       "options": [
-        { "text": "It has no backbone.", "why": "Insects have no backbone either, so this does not tell them apart." },
-        { "text": "It can make silk.", "why": "Some insects, such as silkworm caterpillars, make silk too." },
-        { "text": "It has eight legs and two main body parts." },
-        { "text": "It is smaller than most insects.", "why": "Size does not decide the group. Many spiders are bigger than many insects." }
+        {
+          "text": "It has no backbone.",
+          "why": "Insects have no backbone either, so this does not tell them apart."
+        },
+        {
+          "text": "It can make silk.",
+          "why": "Some insects, such as silkworm caterpillars, make silk too."
+        },
+        {
+          "text": "It has eight legs and two main body parts."
+        },
+        {
+          "text": "It is smaller than most insects.",
+          "why": "Size does not decide the group. Many spiders are bigger than many insects."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -101,7 +182,9 @@
         "Cross out any feature that spiders and insects both share."
       ],
       "explanation": "Insects have six legs and three main body parts. Spiders have eight legs and two main body parts, so they belong to a different group called arachnids.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.vertebrates-invertebrates.006",
@@ -111,16 +194,48 @@
       "prompt": "Which box of the Carroll diagram should a snail go in?",
       "figure": {
         "kind": "carroll",
-        "cols": ["Has a backbone", "No backbone"],
-        "rows": ["Has legs", "No legs"],
-        "cells": [["frog", "eagle"], ["ant", "crab"], ["snake"], ["earthworm"]],
+        "cols": [
+          "Has a backbone",
+          "No backbone"
+        ],
+        "rows": [
+          "Has legs",
+          "No legs"
+        ],
+        "cells": [
+          [
+            "frog",
+            "eagle"
+          ],
+          [
+            "ant",
+            "crab"
+          ],
+          [
+            "snake"
+          ],
+          [
+            "earthworm"
+          ]
+        ],
         "alt": "Carroll diagram. Columns: has a backbone, no backbone. Rows: has legs, no legs. Backbone and legs: frog, eagle. No backbone with legs: ant, crab. Backbone with no legs: snake. No backbone and no legs: earthworm."
       },
       "options": [
-        { "text": "has a backbone and has legs", "why": "A snail has no bones at all and moves on one muscular foot." },
-        { "text": "no backbone and has legs", "why": "A snail moves on one muscular foot, which is not a leg." },
-        { "text": "has a backbone and no legs", "why": "A snail has a soft body with no bones, so it has no backbone." },
-        { "text": "no backbone and no legs" }
+        {
+          "text": "has a backbone and has legs",
+          "why": "A snail has no bones at all and moves on one muscular foot."
+        },
+        {
+          "text": "no backbone and has legs",
+          "why": "A snail moves on one muscular foot, which is not a leg."
+        },
+        {
+          "text": "has a backbone and no legs",
+          "why": "A snail has a soft body with no bones, so it has no backbone."
+        },
+        {
+          "text": "no backbone and no legs"
+        }
       ],
       "answer": 3,
       "hints": [
@@ -137,21 +252,43 @@
       "difficulty": 3,
       "prompt": "Choose all the mammals.",
       "options": [
-        { "text": "bat" },
-        { "text": "dolphin" },
-        { "text": "penguin", "why": "A penguin has feathers and lays eggs. It is a bird that cannot fly." },
-        { "text": "orangutan" },
-        { "text": "whale shark", "why": "A whale shark breathes with gills and has fins. It is the biggest fish in the sea." },
-        { "text": "sea turtle", "why": "A sea turtle has dry, scaly skin and lays eggs on beaches. It is a reptile." }
+        {
+          "text": "bat"
+        },
+        {
+          "text": "dolphin"
+        },
+        {
+          "text": "penguin",
+          "why": "A penguin has feathers and lays eggs. It is a bird that cannot fly."
+        },
+        {
+          "text": "orangutan"
+        },
+        {
+          "text": "whale shark",
+          "why": "A whale shark breathes with gills and has fins. It is the biggest fish in the sea."
+        },
+        {
+          "text": "sea turtle",
+          "why": "A sea turtle has dry, scaly skin and lays eggs on beaches. It is a reptile."
+        }
       ],
-      "answers": [0, 1, 3],
+      "answers": [
+        0,
+        1,
+        3
+      ],
       "hints": [
         "Mammals have hair or fur and feed their young on milk.",
         "Some mammals fly and some swim, so do not judge by where an animal lives.",
         "Check each animal for hair and milk. Start with the ones that live in the sea."
       ],
       "explanation": "Bats, dolphins and orangutans have hair and feed their young on milk, so they are mammals. Penguins are birds, whale sharks are fish and sea turtles are reptiles.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.vertebrates-invertebrates.008",
@@ -160,10 +297,21 @@
       "difficulty": 4,
       "prompt": "Scientists find an animal with a backbone and moist skin with no scales. Its young hatch from eggs in a pond and breathe with gills. Which group is it in?",
       "options": [
-        { "text": "amphibians" },
-        { "text": "fish", "why": "Young fish have gills too, but fish have scales. Moist skin with no scales points to another group." },
-        { "text": "reptiles", "why": "Reptiles have dry, scaly skin and lay their eggs on land." },
-        { "text": "mammals", "why": "Mammals have hair and feed their young on milk." }
+        {
+          "text": "amphibians"
+        },
+        {
+          "text": "fish",
+          "why": "Young fish have gills too, but fish have scales. Moist skin with no scales points to another group."
+        },
+        {
+          "text": "reptiles",
+          "why": "Reptiles have dry, scaly skin and lay their eggs on land."
+        },
+        {
+          "text": "mammals",
+          "why": "Mammals have hair and feed their young on milk."
+        }
       ],
       "answer": 0,
       "hints": [
@@ -172,7 +320,10 @@
         "Cross out the groups with dry skin, scales or fur."
       ],
       "explanation": "Moist skin without scales, eggs laid in water and young with gills are features of amphibians. Frogs, toads and salamanders are amphibians.",
-      "tags": ["iksc", "osn-sd"]
+      "tags": [
+        "iksc",
+        "osn-sd"
+      ]
     },
     {
       "id": "s5.vertebrates-invertebrates.009",
@@ -181,10 +332,21 @@
       "difficulty": 4,
       "prompt": "Which two animals are in the same vertebrate group?",
       "options": [
-        { "text": "a bat and an eagle", "why": "A bat is a mammal with fur. An eagle is a bird with feathers." },
-        { "text": "a penguin and an ostrich" },
-        { "text": "a whale and a shark", "why": "A whale is a mammal that breathes air. A shark is a fish with gills." },
-        { "text": "a turtle and a frog", "why": "A turtle is a reptile with dry, scaly skin. A frog is an amphibian." }
+        {
+          "text": "a bat and an eagle",
+          "why": "A bat is a mammal with fur. An eagle is a bird with feathers."
+        },
+        {
+          "text": "a penguin and an ostrich"
+        },
+        {
+          "text": "a whale and a shark",
+          "why": "A whale is a mammal that breathes air. A shark is a fish with gills."
+        },
+        {
+          "text": "a turtle and a frog",
+          "why": "A turtle is a reptile with dry, scaly skin. A frog is an amphibian."
+        }
       ],
       "answer": 1,
       "hints": [
@@ -193,7 +355,9 @@
         "Check each pair in turn. Write the group of each animal next to its name."
       ],
       "explanation": "Penguins and ostriches both have feathers, beaks and wings and lay hard-shelled eggs, so both are birds, even though neither can fly.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s5.vertebrates-invertebrates.010",
@@ -203,22 +367,54 @@
       "prompt": "A platypus has fur, feeds its young on milk and lays eggs. Where does it go in this Venn diagram?",
       "figure": {
         "kind": "venn",
-        "sets": ["Lays eggs", "Has a backbone"],
+        "sets": [
+          "Lays eggs",
+          "Has a backbone"
+        ],
         "items": [
-          { "text": "butterfly", "region": "a" },
-          { "text": "snail", "region": "a" },
-          { "text": "crocodile", "region": "both" },
-          { "text": "hen", "region": "both" },
-          { "text": "cat", "region": "b" },
-          { "text": "cow", "region": "b" }
+          {
+            "text": "butterfly",
+            "region": "a"
+          },
+          {
+            "text": "snail",
+            "region": "a"
+          },
+          {
+            "text": "crocodile",
+            "region": "both"
+          },
+          {
+            "text": "hen",
+            "region": "both"
+          },
+          {
+            "text": "cat",
+            "region": "b"
+          },
+          {
+            "text": "cow",
+            "region": "b"
+          }
         ],
         "alt": "Venn diagram with two circles: lays eggs, and has a backbone. Butterfly and snail are only in lays eggs. Crocodile and hen are in the overlap. Cat and cow are only in has a backbone."
       },
       "options": [
-        { "text": "only in the circle for laying eggs", "why": "A platypus is a mammal, so it has a backbone as well." },
-        { "text": "only in the circle for having a backbone", "why": "A platypus is unusual because it lays eggs, so it also belongs in the other circle." },
-        { "text": "in the overlap of both circles" },
-        { "text": "outside both circles", "why": "A platypus has a backbone and lays eggs, so it belongs inside the circles." }
+        {
+          "text": "only in the circle for laying eggs",
+          "why": "A platypus is a mammal, so it has a backbone as well."
+        },
+        {
+          "text": "only in the circle for having a backbone",
+          "why": "A platypus is unusual because it lays eggs, so it also belongs in the other circle."
+        },
+        {
+          "text": "in the overlap of both circles"
+        },
+        {
+          "text": "outside both circles",
+          "why": "A platypus has a backbone and lays eggs, so it belongs inside the circles."
+        }
       ],
       "answer": 2,
       "hints": [
@@ -227,7 +423,851 @@
         "Write yes or no for each circle. Then find the region that matches your two answers."
       ],
       "explanation": "A platypus is a mammal, so it has a backbone, and it is one of very few mammals that lay eggs. It belongs in the overlap, with the crocodile and the hen.",
-      "tags": ["iksc", "imso"]
+      "tags": [
+        "iksc",
+        "imso"
+      ]
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.011",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "label",
+      "difficulty": 2,
+      "prompt": "Label the three body parts of this insect and one of its legs.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 240,
+        "shapes": [
+          {
+            "t": "line",
+            "x1": 62,
+            "y1": 100,
+            "x2": 38,
+            "y2": 56,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 78,
+            "y1": 100,
+            "x2": 96,
+            "y2": 52,
+            "tone": "ink",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 125,
+            "y1": 138,
+            "x2": 100,
+            "y2": 205,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 140,
+            "y1": 142,
+            "x2": 140,
+            "y2": 210,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "line",
+            "x1": 155,
+            "y1": 138,
+            "x2": 185,
+            "y2": 205,
+            "tone": "ink",
+            "width": 3
+          },
+          {
+            "t": "circle",
+            "cx": 70,
+            "cy": 120,
+            "r": 22,
+            "tone": "science",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 140,
+            "cy": 120,
+            "rx": 30,
+            "ry": 24,
+            "tone": "english",
+            "fill": "solid"
+          },
+          {
+            "t": "ellipse",
+            "cx": 235,
+            "cy": 120,
+            "rx": 52,
+            "ry": 28,
+            "tone": "warn",
+            "fill": "solid"
+          },
+          {
+            "t": "circle",
+            "cx": 62,
+            "cy": 114,
+            "r": 3,
+            "tone": "ink",
+            "fill": "solid"
+          }
+        ],
+        "alt": "A side drawing of an insect. It has three separate body sections in a row: a small round one at the left with two thin feelers, a middle one with three thin jointed limbs underneath, and a large oval one on the right."
+      },
+      "labels": [
+        "head",
+        "thorax",
+        "abdomen",
+        "leg"
+      ],
+      "spots": [
+        {
+          "x": 19.4,
+          "y": 50
+        },
+        {
+          "x": 38.9,
+          "y": 50
+        },
+        {
+          "x": 65.3,
+          "y": 50
+        },
+        {
+          "x": 38.9,
+          "y": 85.4
+        }
+      ],
+      "extraLabels": [
+        "tail",
+        "backbone"
+      ],
+      "hints": [
+        "Tap a label, then tap its number.",
+        "An insect has three body sections and six legs.",
+        "The legs are attached to the middle section."
+      ],
+      "explanation": "An insect has a head, a thorax and an abdomen. The six legs are joined to the thorax."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.012",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "hotspot",
+      "difficulty": 1,
+      "prompt": "Tap the vertebrate.",
+      "figure": {
+        "kind": "scene",
+        "width": 320,
+        "height": 140,
+        "shapes": [
+          {
+            "t": "icon",
+            "icon": "spider",
+            "x": 30,
+            "y": 40,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "lizard",
+            "x": 132,
+            "y": 40,
+            "size": 56
+          },
+          {
+            "t": "icon",
+            "icon": "snail",
+            "x": 234,
+            "y": 40,
+            "size": 56
+          }
+        ],
+        "alt": "Three animals in a row: a spider on the left, a lizard in the middle and a snail on the right."
+      },
+      "regions": [
+        {
+          "label": "spider",
+          "x": 18.1,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        },
+        {
+          "label": "lizard",
+          "x": 50,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        },
+        {
+          "label": "snail",
+          "x": 81.9,
+          "y": 48.6,
+          "w": 24,
+          "h": 48
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "A vertebrate has a backbone inside its body.",
+        "A spider and a snail have no bones inside.",
+        "The animal with scaly skin has a skeleton inside."
+      ],
+      "explanation": "A lizard has a backbone, so it is a vertebrate. A spider and a snail have no backbone."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.013",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the animals into their vertebrate groups.",
+      "groups": [
+        "Mammals",
+        "Birds",
+        "Reptiles"
+      ],
+      "items": [
+        {
+          "text": "bat",
+          "group": 0
+        },
+        {
+          "text": "whale",
+          "group": 0
+        },
+        {
+          "text": "owl",
+          "group": 1
+        },
+        {
+          "text": "penguin",
+          "group": 1
+        },
+        {
+          "text": "snake",
+          "group": 2
+        },
+        {
+          "text": "crocodile",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Think about fur, feathers and scales.",
+        "A bat can fly but is not a bird. Check its body covering.",
+        "Penguins have feathers and lay eggs."
+      ],
+      "explanation": "Bats and whales feed their young milk, so they are mammals. Owls and penguins have feathers. Snakes and crocodiles have dry scales."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.014",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which animal has no backbone?",
+      "options": [
+        {
+          "text": "Earthworm"
+        },
+        {
+          "text": "Frog",
+          "why": "A frog has a backbone, so it is a vertebrate."
+        },
+        {
+          "text": "Goldfish",
+          "why": "A goldfish has a backbone inside its body."
+        },
+        {
+          "text": "Pigeon",
+          "why": "A pigeon has a backbone and feathers."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Invertebrates have no bones inside.",
+        "Think of soft-bodied animals.",
+        "Choose the animal that is not a fish, amphibian, reptile, bird or mammal."
+      ],
+      "explanation": "An earthworm has no backbone, so it is an invertebrate."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.015",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "The table shows four small animals. Choose both insects.",
+      "figure": {
+        "kind": "table",
+        "head": [
+          "Animal",
+          "Legs",
+          "Body parts"
+        ],
+        "rows": [
+          [
+            "Ant",
+            "6",
+            "3"
+          ],
+          [
+            "Spider",
+            "8",
+            "2"
+          ],
+          [
+            "Beetle",
+            "6",
+            "3"
+          ],
+          [
+            "Centipede",
+            "30",
+            "many"
+          ]
+        ],
+        "alt": "Table: ant has 6 legs and 3 body parts; spider 8 legs and 2 body parts; beetle 6 legs and 3 body parts; centipede 30 legs and many body parts."
+      },
+      "options": [
+        {
+          "text": "Ant"
+        },
+        {
+          "text": "Spider"
+        },
+        {
+          "text": "Beetle"
+        },
+        {
+          "text": "Centipede"
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Insects have a fixed number of legs and body parts.",
+        "An insect has six legs and three body parts.",
+        "Cross out animals with the wrong number of legs."
+      ],
+      "explanation": "Insects have six legs and three body parts. Ants and beetles match. Spiders and centipedes do not."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.016",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Frogs, toads and newts belong to the vertebrate group called ___.",
+      "blanks": [
+        {
+          "answers": [
+            "amphibians",
+            "amphibian"
+          ]
+        }
+      ],
+      "hints": [
+        "These animals begin life in water and live on land as adults.",
+        "Their skin is smooth and moist.",
+        "The word starts with am."
+      ],
+      "explanation": "Frogs, toads and newts are amphibians. They have moist skin and their young live in water."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.017",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "numeric",
+      "difficulty": 3,
+      "prompt": "Rangga counts the animals in a pond. How many invertebrates does he count?",
+      "figure": {
+        "kind": "bars",
+        "categories": [
+          "Fish",
+          "Frogs",
+          "Snails",
+          "Beetles",
+          "Worms"
+        ],
+        "values": [
+          8,
+          5,
+          12,
+          7,
+          3
+        ],
+        "axisMax": 12,
+        "step": 2,
+        "yLabel": "Number counted",
+        "tone": "science",
+        "alt": "Bar chart of animals counted in a pond: fish 8, frogs 5, snails 12, beetles 7, worms 3."
+      },
+      "answer": 22,
+      "hints": [
+        "Decide which of the five groups have no backbone.",
+        "Fish and frogs have backbones.",
+        "Add the three invertebrate bars together."
+      ],
+      "explanation": "The invertebrates are snails (12), beetles (7) and worms (3). 12 + 7 + 3 = 22."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.018",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each animal to its vertebrate group.",
+      "pairs": [
+        [
+          "bat",
+          "mammal"
+        ],
+        [
+          "penguin",
+          "bird"
+        ],
+        [
+          "cobra",
+          "reptile"
+        ],
+        [
+          "shark",
+          "fish"
+        ],
+        [
+          "toad",
+          "amphibian"
+        ]
+      ],
+      "hints": [
+        "Think about the skin or body covering of each animal.",
+        "A shark has gills and fins.",
+        "A toad starts life as a tadpole."
+      ],
+      "explanation": "A bat has fur and feeds milk. A penguin has feathers. A cobra has dry scales. A shark has gills and fins. A toad has moist skin."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.019",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Wulan says a whale is a fish because it lives in the sea. Which fact shows she is wrong?",
+      "options": [
+        {
+          "text": "A whale is larger than most fish.",
+          "why": "Size does not decide the group. Some fish are huge."
+        },
+        {
+          "text": "A whale swims faster than a fish.",
+          "why": "Speed does not decide the group."
+        },
+        {
+          "text": "A whale breathes air with lungs and feeds its young on milk."
+        },
+        {
+          "text": "A whale lives in deeper water than fish.",
+          "why": "Where an animal lives does not decide its group."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Think about the features of each vertebrate group, not where an animal lives.",
+        "Fish take oxygen from the water with gills.",
+        "Which feature of mammals does a whale share?"
+      ],
+      "explanation": "Living in the sea does not make an animal a fish. A whale has lungs, is warm-blooded and feeds milk to its young, so it is a mammal."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.020",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "cloze",
+      "difficulty": 4,
+      "prompt": "A spider has ___ legs and ___ body parts, so it is not an insect.",
+      "gaps": [
+        {
+          "options": [
+            "eight",
+            "six",
+            "ten"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "two",
+            "three",
+            "four"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Insects have six legs.",
+        "Count the legs on a spider.",
+        "A spider has a head joined to its chest, and a separate abdomen."
+      ],
+      "explanation": "A spider has eight legs and two body parts. Insects have six legs and three body parts."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.021",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the animals in order from the fewest legs to the most legs.",
+      "items": [
+        "snake",
+        "bird",
+        "cow",
+        "ant",
+        "spider",
+        "crab"
+      ],
+      "hints": [
+        "Count the legs of each animal.",
+        "One animal has no legs.",
+        "Start with the animal that moves without legs."
+      ],
+      "explanation": "A snake has 0 legs, a bird 2, a cow 4, an ant 6, a spider 8 and a crab 10."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.022",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Use the key. 1a: has feathers, so it is a bird. 1b: no feathers, go to 2. 2a: has fur and feeds young on milk, so it is a mammal. 2b: no fur, go to 3. 3a: dry scales, so it is a reptile. 3b: smooth, moist skin, so it is an amphibian. A newt has no feathers, no fur and smooth, moist skin. What is it?",
+      "options": [
+        {
+          "text": "Amphibian"
+        },
+        {
+          "text": "Reptile",
+          "why": "A reptile has dry scales. The newt has moist skin."
+        },
+        {
+          "text": "Mammal",
+          "why": "A mammal has fur. The newt has none."
+        },
+        {
+          "text": "Bird",
+          "why": "A bird has feathers. The newt has none."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Follow the key one question at a time.",
+        "The first two questions get a no.",
+        "Check what the key says about moist skin."
+      ],
+      "explanation": "The newt has no feathers and no fur, so the key goes to question 3. Its skin is smooth and moist, so it is an amphibian."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.023",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "multi",
+      "difficulty": 5,
+      "prompt": "A scientist finds a new animal with a backbone that lays eggs in water. Its young have gills. Choose 2 facts that show it is an amphibian and not a fish.",
+      "options": [
+        {
+          "text": "It has a backbone."
+        },
+        {
+          "text": "It lays eggs in water."
+        },
+        {
+          "text": "As an adult it breathes with lungs."
+        },
+        {
+          "text": "Its skin is smooth and moist with no scales."
+        },
+        {
+          "text": "Its young have gills."
+        }
+      ],
+      "answers": [
+        2,
+        3
+      ],
+      "hints": [
+        "Look for facts that fish do not share.",
+        "Fish also have a backbone, lay eggs in water and have gills.",
+        "Think about what changes when an amphibian becomes an adult."
+      ],
+      "explanation": "Fish have backbones, lay eggs in water and have gills. Only amphibians breathe with lungs as adults and have moist skin with no scales."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.024",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "hotspot",
+      "difficulty": 2,
+      "prompt": "Tap the backbone of the fish.",
+      "figure": {
+        "kind": "scene",
+        "width": 360,
+        "height": 200,
+        "shapes": [
+          {
+            "t": "ellipse",
+            "cx": 180,
+            "cy": 100,
+            "rx": 120,
+            "ry": 55,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "poly",
+            "points": [
+              [
+                295,
+                100
+              ],
+              [
+                350,
+                60
+              ],
+              [
+                350,
+                140
+              ]
+            ],
+            "closed": true,
+            "tone": "science",
+            "fill": "light"
+          },
+          {
+            "t": "circle",
+            "cx": 88,
+            "cy": 92,
+            "r": 5,
+            "tone": "ink",
+            "fill": "solid"
+          },
+          {
+            "t": "line",
+            "x1": 110,
+            "y1": 100,
+            "x2": 290,
+            "y2": 100,
+            "tone": "ink",
+            "width": 6
+          },
+          {
+            "t": "line",
+            "x1": 130,
+            "y1": 100,
+            "x2": 124,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 130,
+            "y1": 100,
+            "x2": 124,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 100,
+            "x2": 144,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 150,
+            "y1": 100,
+            "x2": 144,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 170,
+            "y1": 100,
+            "x2": 164,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 170,
+            "y1": 100,
+            "x2": 164,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 100,
+            "x2": 184,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 190,
+            "y1": 100,
+            "x2": 184,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 100,
+            "x2": 204,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 210,
+            "y1": 100,
+            "x2": 204,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 230,
+            "y1": 100,
+            "x2": 224,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 230,
+            "y1": 100,
+            "x2": 224,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 250,
+            "y1": 100,
+            "x2": 244,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 250,
+            "y1": 100,
+            "x2": 244,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 270,
+            "y1": 100,
+            "x2": 264,
+            "y2": 72,
+            "tone": "muted",
+            "width": 2
+          },
+          {
+            "t": "line",
+            "x1": 270,
+            "y1": 100,
+            "x2": 264,
+            "y2": 128,
+            "tone": "muted",
+            "width": 2
+          }
+        ],
+        "alt": "An X-ray style drawing of a fish showing the bones inside its body. The head with an eye is on the left and the tail fin is on the right."
+      },
+      "regions": [
+        {
+          "label": "head",
+          "x": 16.7,
+          "y": 50,
+          "w": 18,
+          "h": 40
+        },
+        {
+          "label": "backbone",
+          "x": 55.6,
+          "y": 50,
+          "w": 36,
+          "h": 22
+        },
+        {
+          "label": "tail",
+          "x": 90.3,
+          "y": 50,
+          "w": 16,
+          "h": 40
+        }
+      ],
+      "answers": [
+        1
+      ],
+      "hints": [
+        "The backbone runs along the middle of the body.",
+        "It is made of many small bones joined in a row.",
+        "Look for the long dark line with small bones on each side."
+      ],
+      "explanation": "The backbone is a row of joined bones along the middle of the fish. Animals with a backbone are vertebrates."
+    },
+    {
+      "id": "s5.vertebrates-invertebrates.025",
+      "skill": "s5.vertebrates-invertebrates",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "How many legs does an insect have?",
+      "options": [
+        {
+          "text": "Six"
+        },
+        {
+          "text": "Four",
+          "why": "Four legs is typical of mammals like a cat, not insects."
+        },
+        {
+          "text": "Eight",
+          "why": "Eight legs is a spider, which is not an insect."
+        },
+        {
+          "text": "Ten",
+          "why": "Ten legs is typical of a crab, not an insect."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think of an ant.",
+        "Count how many legs are on each side, then double it.",
+        "Three legs on each side."
+      ],
+      "explanation": "Insects have six legs and three body parts."
     }
   ]
 }
