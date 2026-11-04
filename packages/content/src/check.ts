@@ -95,7 +95,7 @@ export function keyOf(item: Item): AnswerKey {
     case 'numeric':
       return { type: 'numeric', answer: item.answer, tolerance: item.tolerance, ...(item.acceptAlt ? { acceptAlt: item.acceptAlt } : {}) }
     case 'text':
-      return { type: 'text', blanks: item.blanks.map((b) => ({ answers: b.answers, caseSensitive: b.caseSensitive, ...equivalence(item, b.answers[0]) })) }
+      return { type: 'text', blanks: item.blanks.map((b) => ({ answers: b.answers, caseSensitive: b.caseSensitive, ...equivalence(item, b.answers) })) }
     case 'order':
       return { type: 'order', length: item.items.length }
     case 'match':
@@ -218,8 +218,8 @@ function fractionValue(raw: string): number | null {
  * Soal generator yang tidak meminta bentuk tertentu menerima pecahan senilai, misalnya 22/48 untuk 11/24.
  * Bila soal meminta pecahan, desimal tetap ditolak kecuali tercantum di jawaban yang diterima.
  */
-function equivalence(item: Item, first: string | undefined): { equiv?: 'fraction' | 'any' } {
-  if (!item.id.startsWith('gen:') || first === undefined || fractionValue(first) === null) return {}
+function equivalence(item: Item, answers: readonly string[]): { equiv?: 'fraction' | 'any' } {
+  if (!item.id.startsWith('gen:') || !answers.some((a) => fractionValue(a) !== null)) return {}
   if (/simplest|lowest terms|improper|mixed number/i.test(item.prompt)) return {}
   return { equiv: /fraction/i.test(item.prompt) ? 'fraction' : 'any' }
 }
@@ -334,7 +334,7 @@ export function checkAnswer(key: AnswerKey, answer: unknown): CheckResult {
       key.blanks.forEach((b, i) => {
         const given = typeof texts[i] === 'string' ? (texts[i] as string) : ''
         if (b.answers.some((ans) => textMatches(given, ans, b.caseSensitive))) right++
-        else if (b.equiv && b.answers[0] !== undefined && equalsValue(given, b.answers[0], b.equiv)) right++
+        else if (b.equiv && b.answers.some((ans) => b.equiv !== undefined && equalsValue(given, ans, b.equiv))) right++
       })
       return verdict(right === key.blanks.length, right / key.blanks.length)
     }

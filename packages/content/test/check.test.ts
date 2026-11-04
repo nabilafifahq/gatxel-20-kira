@@ -144,3 +144,12 @@ describe('bentuk waktu pada isian teks', () => {
     expect(checkAnswer(key, { texts: ['112'] }).status).toBe('wrong')
   })
 })
+
+describe('pecahan senilai untuk jawaban bilangan bulat', () => {
+  it('12/2 diterima bila 6 dan 18/3 diterima', () => {
+    const key = keyOf({ id: 'gen:m5.add-subtract-fractions:4:abc', skill: 'm5.add-subtract-fractions', difficulty: 4, type: 'text', prompt: 'Work out 1 1/2 + 4 1/2.', hints: ['a', 'b', 'c'], explanation: 'x', tags: [], source: 'kira-original', blanks: [{ answers: ['6', '18/3'], caseSensitive: false }] } as never)
+    expect(checkAnswer(key, { texts: ['12/2'] }).status).toBe('correct')
+    expect(checkAnswer(key, { texts: ['6'] }).status).toBe('correct')
+    expect(checkAnswer(key, { texts: ['13/2'] }).status).toBe('wrong')
+  })
+})
