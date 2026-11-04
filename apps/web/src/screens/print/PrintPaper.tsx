@@ -53,6 +53,7 @@ function TitleBlock({ data }: { data: PrintPaperDTO }) {
               ? `${totalMarks(data)} marks in total. Keep this page away from the learner's copy.`
               : `Grade ${data.grade}. About ${data.minutes} minutes.`}
           </p>
+          {data.cheer && !data.withKey ? <p className="m-0 text-body font-semibold">{data.cheer}</p> : null}
         </div>
         {!data.withKey ? (
           <div className="flex flex-none flex-col items-end gap-2 text-body font-semibold">
@@ -122,7 +123,7 @@ function keyRowHeight(q: Q): number {
 
 export function PrintPaper({ data }: { data: PrintPaperDTO }) {
   const all = data.sections.flatMap((s) => s.items)
-  const titleH = 38 + 4 + 24 + GAP
+  const titleH = 38 + 4 + 24 + GAP + (data.cheer && !data.withKey ? 24 : 0)
   const instrH = !data.withKey && data.instructions.length ? Math.ceil(data.instructions.join(' ').length / 80) * 24 + 26 + GAP : 0
   const capacity = INNER - HEADER - FOOTER
 
@@ -132,21 +133,21 @@ export function PrintPaper({ data }: { data: PrintPaperDTO }) {
     const pages = paginate(blocks, capacity - titleH - 46, capacity - 46, 0)
     // catatan "After marking" di halaman terakhir
     const lastUsed = pages[pages.length - 1]!.reduce((a, b) => a + b.height, 0)
-    const needExtra = lastUsed + noteH > capacity - 46 - (pages.length === 1 ? titleH : 0)
+    const needExtra = !data.keyLabel && lastUsed + noteH > capacity - 46 - (pages.length === 1 ? titleH : 0)
     const total = pages.length + (needExtra ? 1 : 0)
     return (
       <div className="print-stack">
         <PrintStyles />
         <PrintToolbar note={`Kunci jawaban ${data.code}`} />
         {pages.map((p, i) => (
-          <PrintSheet key={i} code={data.code} label="Answer key, for the tutor" accent={null} page={i + 1} pages={total} footerLabel={`${data.code}, answer key`}>
+          <PrintSheet key={i} code={data.code} label={data.keyLabel ?? 'Answer key, for the tutor'} accent={null} page={i + 1} pages={total} footerLabel={`${data.code}, answer key`}>
             {i === 0 ? <TitleBlock data={data} /> : null}
             <KeyTable rows={p.flatMap((b) => (b.kind === 'item' ? [b.data] : []))} />
-            {i === pages.length - 1 && !needExtra ? <AfterMarking /> : null}
+            {i === pages.length - 1 && !needExtra && !data.keyLabel ? <AfterMarking /> : null}
           </PrintSheet>
         ))}
         {needExtra ? (
-          <PrintSheet code={data.code} label="Answer key, for the tutor" accent={null} page={total} pages={total} footerLabel={`${data.code}, answer key`}>
+          <PrintSheet code={data.code} label={data.keyLabel ?? 'Answer key, for the tutor'} accent={null} page={total} pages={total} footerLabel={`${data.code}, answer key`}>
             <AfterMarking />
           </PrintSheet>
         ) : null}

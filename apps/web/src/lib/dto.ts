@@ -950,6 +950,10 @@ export type PrintPaperDTO = {
   date: string | null
   sections: { title: string; items: { number: number; item: ClientItem; answerText?: string; explanation?: string }[] }[]
   withKey: boolean
+  /** Label kunci pengganti "Answer key, for the tutor" (lembar kerja orang tua). Bila ada, catatan "After marking" tidak dicetak. */
+  keyLabel?: string
+  /** Satu kalimat penyemangat en-GB di bawah judul. */
+  cheer?: string
 }
 
 export type PrintLjkDTO = {

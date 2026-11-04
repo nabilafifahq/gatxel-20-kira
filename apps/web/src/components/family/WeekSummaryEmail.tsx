@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { BG, DIVIDER, INK, LILAC, MATH_50, MUTED, WHITE } from '@kira/figures/palette'
 import type { WeekSummaryDTO } from '@/lib/dto'
+import type { CoachDTO } from '@/lib/dto-coach'
 import { dateId } from '@/components/console/format'
 import { renderStaticMarkup } from './staticMarkup'
 import { arenaParagraph, emailSubject, questLine, starsLine, studyLine, SUBJECT_NAME } from './summaryText'
@@ -21,6 +22,9 @@ export type WeekSummaryEmailOptions = {
   reportUrl?: string
   privacyUrl?: string
   controller?: string
+  /** Pelatih Orang Tua: kegiatan rumah mingguan dari data nyata. Dilewati bila kosong. */
+  coach?: CoachDTO | null
+  coachUrl?: string
 }
 
 const FONT = "Nunito, 'Segoe UI', Arial, sans-serif"
@@ -56,6 +60,49 @@ function List({ items }: { items: ReactNode[] }) {
         ))}
       </tbody>
     </table>
+  )
+}
+
+function CoachEmailSection({ coach, url }: { coach: CoachDTO; url?: string }) {
+  return (
+    <>
+      <H2>Pelatih minggu ini: 10 menit di rumah</H2>
+      {coach.note ? <p style={p({ color: MUTED, paddingBottom: 10 })}>{coach.note}</p> : null}
+      {coach.weak.length ? (
+        <List
+          items={coach.weak.map((w) => (
+            <>
+              <strong>{w.title}</strong>, {w.subjectLabel}. {w.plain} {w.accuracyLine}
+              {w.activity ? (
+                <>
+                  <br />
+                  <strong>Coba: {w.activity.title}.</strong> Siapkan {w.activity.materials.join(', ')}. {w.activity.steps.join(' ')} Pertanyaan untuk anak: {w.activity.ask}
+                </>
+              ) : null}
+            </>
+          ))}
+        />
+      ) : coach.starter ? (
+        <p style={p()}>
+          <strong>Coba dulu: {coach.starter.title}.</strong> Siapkan {coach.starter.materials.join(', ')}. {coach.starter.steps.join(' ')}
+        </p>
+      ) : null}
+      {coach.strength ? (
+        <p style={p({ paddingTop: 6 })}>
+          <strong>Yang patut dipuji:</strong> {coach.strength.title}, {coach.strength.subjectLabel}.
+        </p>
+      ) : null}
+      <p style={p({ background: MATH_50, borderRadius: 12, padding: '14px 16px', marginTop: 8 })}>
+        <strong>Kalimat untuk anak:</strong> {coach.praise}
+      </p>
+      {url ? (
+        <p style={p({ paddingTop: 8 })}>
+          <a href={url} style={{ color: MATH, fontWeight: 700 }}>
+            Lihat semua kegiatan dan lembar kerja
+          </a>
+        </p>
+      ) : null}
+    </>
   )
 }
 
@@ -142,6 +189,11 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
                             </p>
                           </Row>
                         ) : null}
+                        {opts.coach ? (
+                          <Row>
+                            <CoachEmailSection coach={opts.coach} url={opts.coachUrl} />
+                          </Row>
+                        ) : null}
                         {opts.reportUrl ? (
                           <Row>
                             <a
@@ -193,6 +245,20 @@ export function EmailBody({ s, opts }: { s: WeekSummaryDTO; opts: WeekSummaryEma
   )
 }
 
+function coachText(c: CoachDTO, url?: string): string[] {
+  const out: string[] = ['PELATIH MINGGU INI: 10 MENIT DI RUMAH']
+  if (c.note) out.push(c.note)
+  for (const w of c.weak) {
+    out.push(`- ${w.title}, ${w.subjectLabel}. ${w.plain} ${w.accuracyLine}`)
+    if (w.activity) out.push(`  Coba: ${w.activity.title}. Siapkan ${w.activity.materials.join(', ')}. ${w.activity.steps.join(' ')} Pertanyaan untuk anak: ${w.activity.ask}`)
+  }
+  if (!c.weak.length && c.starter) out.push(`Coba dulu: ${c.starter.title}. Siapkan ${c.starter.materials.join(', ')}. ${c.starter.steps.join(' ')}`)
+  if (c.strength) out.push(`Yang patut dipuji: ${c.strength.title}, ${c.strength.subjectLabel}.`)
+  out.push(`Kalimat untuk anak: ${c.praise}`)
+  if (url) out.push(`Lihat semua kegiatan dan lembar kerja: ${url}`)
+  return out
+}
+
 function textVersion(s: WeekSummaryDTO, opts: WeekSummaryEmailOptions): string {
   const lines: string[] = [emailSubject(s), s.weekLabel, '']
   if (s.firstWeek) lines.push(`Ini minggu pertama ${s.learnerName} di Kira. Ringkasan lengkap datang Senin depan, setelah 7 hari data.`, '')
@@ -206,6 +272,7 @@ function textVersion(s: WeekSummaryDTO, opts: WeekSummaryEmailOptions): string {
   if (arena) lines.push('', 'ARENA', arena)
   if (s.tutorNote) lines.push('', 'CATATAN TUTOR', s.tutorNote)
   if (s.nextCompetition) lines.push('', 'LOMBA BERIKUTNYA', `${s.nextCompetition.name}: ${dateId(s.nextCompetition.date, true)}.`)
+  if (opts.coach) lines.push('', ...coachText(opts.coach, opts.coachUrl))
   if (opts.reportUrl) lines.push('', `Buka laporan lengkap: ${opts.reportUrl}`)
   lines.push('', '--', `Email ini dikirim karena persetujuan laporan kemajuan lewat email aktif. Atur di halaman Privasi keluarga${opts.privacyUrl ? `: ${opts.privacyUrl}` : ' di Kira'}.`)
   if (opts.controller) lines.push(opts.controller)

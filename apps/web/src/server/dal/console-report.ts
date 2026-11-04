@@ -13,6 +13,7 @@ import { origin } from '../env'
 import { invalid, notFound } from '../errors'
 import { auditTx } from '../audit'
 import { hasConsent } from './consent'
+import { coachFor } from './coach'
 import { accuracyPct, shortDateId, skillTitle, SUBJECT_ID_LABEL, SUBJECT_ORDER, thisWeekStart } from './console-common'
 import { shellIn } from './console-shell'
 import { streakFor } from './learner-core'
@@ -269,7 +270,9 @@ export async function deliverWeekReport(
     const emails = await guardianEmails(tx, input.learnerId)
     const summary = (await weekSummaryData(tx, input.learnerId, monday, input.mode === 'manual' ? { note: input.note ?? null } : {})).dto
     const [o] = await tx.select({ name: org.name }).from(org).where(eq(org.id, ctx.orgId)).limit(1)
-    return { summary, consent, emails, orgName: o?.name ?? 'Kira' }
+    // Pelatih Orang Tua ikut di email. Gagal membaca pelatih tidak boleh menggagalkan laporan.
+    const coach = await tx.transaction((sp) => coachFor(sp, input.learnerId, monday)).catch(() => null)
+    return { summary, consent, emails, orgName: o?.name ?? 'Kira', coach }
   })
   if ('skipped' in prep) return { queued: 0, skipped: prep.skipped }
   if (!prep.consent) {
@@ -287,6 +290,8 @@ export async function deliverWeekReport(
   const mail = renderWeekSummaryEmail(prep.summary, {
     reportUrl: `${base}/keluarga?learner=${encodeURIComponent(input.learnerId)}&minggu=${monday}`,
     privacyUrl: `${base}/keluarga/privasi?learner=${encodeURIComponent(input.learnerId)}`,
+    coach: prep.coach,
+    coachUrl: `${base}/keluarga/pelatih?learner=${encodeURIComponent(input.learnerId)}`,
     controller: legalName ? `Kira, dikelola ${legalName}` : `Kira ${prep.orgName}`,
   })
   let queued = 0

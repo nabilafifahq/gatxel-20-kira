@@ -20,7 +20,7 @@ export function FamilyShell({
   children,
 }: {
   shell: ConsoleShell
-  active: 'home' | 'week' | 'privacy'
+  active: 'home' | 'week' | 'coach' | 'sheet' | 'report' | 'privacy'
   learnerName?: string
   children: ReactNode
 }) {
@@ -29,6 +29,9 @@ export function FamilyShell({
   const nav = [
     { key: 'home', label: 'Anak saya', href: FAMILY_ROUTES.home, icon: 'learners' as const },
     { key: 'week', label: 'Minggu ini', href: `${FAMILY_ROUTES.week}${q}`, icon: 'report' as const },
+    { key: 'coach', label: 'Pelatih', href: `${FAMILY_ROUTES.coach}${q}`, icon: 'sparkle' as const },
+    { key: 'sheet', label: 'Lembar kerja', href: `${FAMILY_ROUTES.sheet}${q}`, icon: 'printer' as const },
+    { key: 'report', label: 'Rapor', href: `${FAMILY_ROUTES.report}${q}`, icon: 'paper' as const },
     { key: 'privacy', label: 'Privasi', href: `${FAMILY_ROUTES.privacy}${q}`, icon: 'shield' as const },
   ]
   return (
@@ -51,7 +54,7 @@ export function FamilyShell({
               </span>
             ) : null}
           </div>
-          <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 px-2">
+          <nav aria-label="Halaman keluarga" className="mx-auto flex max-w-[720px] gap-1 overflow-x-auto px-2">
             {nav.map((n) => {
               const on = n.key === active
               return (
@@ -60,7 +63,7 @@ export function FamilyShell({
                   href={n.href}
                   aria-current={on ? 'page' : undefined}
                   className={cx(
-                    '-mb-px inline-flex h-11 items-center gap-2 border-0 border-b-3 px-3 text-body text-fg no-underline hover:text-fg',
+                    '-mb-px inline-flex h-11 flex-none items-center gap-2 whitespace-nowrap border-0 border-b-3 px-3 text-body text-fg no-underline hover:text-fg',
                     on ? 'border-fg font-extrabold' : 'border-transparent font-semibold text-fg-muted',
                   )}
                 >
