@@ -97,7 +97,7 @@ function CoachEmailSection({ coach, url }: { coach: CoachDTO; url?: string }) {
       </p>
       {url ? (
         <p style={p({ paddingTop: 8 })}>
-          <a href={url} style={{ color: MATH, fontWeight: 700 }}>
+          <a href={url} style={{ color: INK, fontWeight: 700, textDecoration: 'underline' }}>
             Lihat semua kegiatan dan lembar kerja
           </a>
         </p>
