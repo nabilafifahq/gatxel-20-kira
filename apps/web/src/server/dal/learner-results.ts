@@ -13,6 +13,7 @@ import { learnerShell, loadLearner, markerFor } from './learner-core'
 import { xpBarFor } from './learner-xpbar'
 import { exitFor, latestByPosition, loadAttempt, presentationSeed, type AttemptItem } from './learner-runner'
 import { worldPeek } from './kira-world'
+import { isFeatureOnTx } from './learner-features'
 import { familyOf, retryInfo, scoreOf, scoreText } from './learner-session'
 
 const { response } = tables
@@ -181,7 +182,7 @@ export async function resultsDTO(tx: Tx, learnerId: string, attemptId: string): 
     timeUsedSec: result.timeUsedSec ?? a.elapsedS,
     timeLimitSec: a.timeLimitS,
     xp: a.xp,
-    ...(result.world ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
+    ...(result.world && (await isFeatureOnTx(tx, learnerId, 'kira-world')) ? { world: { ...result.world, pet: (await worldPeek(tx, learnerId).catch(() => null))?.pet ?? null } } : {}),
     newBadges: result.newBadges ?? [],
     questions,
     strongest: strongest ? { topic: strongest.label, line: `${strongest.right} of ${strongest.total} right` } : null,

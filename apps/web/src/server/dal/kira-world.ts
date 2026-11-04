@@ -46,7 +46,7 @@ import { loadQuizState } from './arena-state'
 import { subjectOfSkill } from './content'
 import { learnerShell, loadLearner, skillStates, streakFor } from './learner-core'
 import { autoSkill, buildQuestItems, type AttemptItem } from './learner-session'
-import { isFeatureOn } from './learner-features'
+import { isFeatureOn, isFeatureOnTx } from './learner-features'
 import type { LearnerShell } from '@/lib/dto'
 import type { AlbumDTO, BossDTO, MedalDTO, PetDTO, ShopDTO, StarsDTO, StoryDTO, TrophyDTO, WorldHubDTO, WorldSessionGain } from '@/lib/dto-world'
 
@@ -114,7 +114,7 @@ async function countToday(tx: Tx, learnerId: string, reason: string, date: IsoDa
 
 /** Bintang untuk sesi wajib yang selesai. Dipanggil dari penyelesaian sesi. */
 export async function awardSessionStars(tx: Tx, learnerId: string, input: { attemptId: string; required: boolean; perfect: boolean; retry: boolean; date: IsoDate }): Promise<WorldSessionGain> {
-  if (!input.required) return { stars: 0, cards: [] }
+  if (!input.required || !(await isFeatureOnTx(tx, learnerId, 'kira-world'))) return { stars: 0, cards: [] }
   const s = sessionStars({ perfect: input.perfect, retry: input.retry })
   let stars = 0
   if (s.base > 0) stars += await grantStars(tx, learnerId, s.base, 'session', `session:${input.attemptId}`, input.date)
@@ -125,12 +125,14 @@ export async function awardSessionStars(tx: Tx, learnerId: string, input: { atte
 
 /** Bab Reading yang selesai: menurun per hari. */
 export async function awardReadingStars(tx: Tx, learnerId: string, attemptId: string, date: IsoDate): Promise<number> {
+  if (!(await isFeatureOnTx(tx, learnerId, 'kira-world'))) return 0
   const n = await countToday(tx, learnerId, 'reading', date)
   return grantStars(tx, learnerId, diminishing(READING_STARS_BY_COUNT, n), 'reading', `reading:${attemptId}`, date)
 }
 
 /** Drill (Quick Maths, Quiz Arena) yang selesai: menurun per hari. */
 export async function awardDrillStars(tx: Tx, learnerId: string, roundId: string, date: IsoDate): Promise<number> {
+  if (!(await isFeatureOnTx(tx, learnerId, 'kira-world'))) return 0
   const n = await countToday(tx, learnerId, 'drill', date)
   const got = await grantStars(tx, learnerId, diminishing(DRILL_STARS_BY_COUNT, n), 'drill', `drill:${roundId}`, date)
   if (got > 0) await syncCards(tx, learnerId)
