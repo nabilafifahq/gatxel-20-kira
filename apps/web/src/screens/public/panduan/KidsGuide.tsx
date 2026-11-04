@@ -196,7 +196,7 @@ const STOPS: Stop[] = [
         <UiIcon name="lock" size={88} />
       </span>
     ),
-    lines: ['PIN dan password itu rahasia.', 'Jangan beri tahu teman.', 'Jangan beri tahu orang yang tidak kamu kenal.', 'Ada yang membuatmu takut? Beri tahu orang dewasa.', 'Kamu tidak akan dimarahi karena bercerita.'],
+    lines: ['PIN dan password itu rahasia.', 'Jangan beri tahu teman.', 'Jangan beri tahu orang yang tidak kamu kenal.', 'Ada yang membuatmu takut? Beri tahu orang dewasa.', 'Bercerita itu selalu boleh.'],
   },
 ]
 
