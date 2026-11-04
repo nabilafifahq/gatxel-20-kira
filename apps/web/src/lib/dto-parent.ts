@@ -25,6 +25,8 @@ export type ParentChildCard = {
   xp: number
   level: number
   tracks: XpTrackDTO[]
+  /** Ruang Baca: menit membaca dan buku yang selesai (migrasi 0018). */
+  reading?: { minutesToday: number; minutesWeek: number; booksFinished: number; reading: string | null }
   /** Anak belum aktif karena persetujuan orang tua belum diberikan. */
   active: boolean
   href: string

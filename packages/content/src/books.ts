@@ -34,7 +34,7 @@ export const BOOK_GENRE_LABEL: Record<BookGenre, string> = {
 /** Gambar sampul sederhana yang digambar packages/figures (BookCover). */
 export const BOOK_MOTIFS = ['kite', 'boat', 'tree', 'star', 'fish', 'house', 'mountain', 'bird', 'rocket', 'leaf'] as const
 export type BookMotif = (typeof BOOK_MOTIFS)[number]
-export const BOOK_TINTS = ['math', 'english', 'science', 'review', 'success', 'accent'] as const
+export const BOOK_TINTS = ['math', 'english', 'science', 'mental', 'knowledge', 'warn'] as const
 export type BookTint = (typeof BOOK_TINTS)[number]
 
 const text = (max: number) => z.string().trim().min(1).max(max)
@@ -79,7 +79,7 @@ export const WORDS_PER_PAGE: Record<number, number> = { 1: 24, 2: 38, 3: 56, 4: 
 
 /** Jumlah bab dan kata per bab yang diizinkan per kelas. */
 export const BOOK_RULES: Record<number, { chapters: [number, number]; words: [number, number] }> = {
-  1: { chapters: [3, 4], words: [50, 150] },
+  1: { chapters: [3, 4], words: [40, 150] },
   2: { chapters: [3, 4], words: [90, 240] },
   3: { chapters: [5, 6], words: [150, 340] },
   4: { chapters: [5, 6], words: [210, 420] },

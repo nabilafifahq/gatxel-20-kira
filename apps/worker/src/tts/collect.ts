@@ -1,5 +1,7 @@
 import type { ContentIndex } from '@kira/content/load'
 import type { Item } from '@kira/content/schema'
+import { bookSpeechClips, loadBooks } from '@kira/content/books'
+import { findContentDir } from '@kira/content/load'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips } from '@kira/content/speech'
 import { TTS_FIXED_LINES, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 
@@ -23,6 +25,11 @@ export function repoClips(index: ContentIndex): TtsClipRequest[] {
   }
   for (const p of index.passages.values()) out.push(...passageSpeechClips(p))
   return out
+}
+
+/** Kalimat buku Ruang Baca (content/books), suara pencerita, satu klip per kalimat. */
+export function bookClips(dir: string = findContentDir()): TtsClipRequest[] {
+  return loadBooks(dir).books.flatMap((b) => bookSpeechClips(b))
 }
 
 /** Buang klip kembar (teks dan gaya sama). Urutan pertama dipertahankan. */

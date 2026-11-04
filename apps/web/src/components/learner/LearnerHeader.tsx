@@ -23,6 +23,7 @@ const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string }
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
   { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions },
   { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english },
+  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading },
   { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths },
   { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },

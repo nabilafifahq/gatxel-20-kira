@@ -1032,3 +1032,69 @@ export const LEARNER_SCOPED_TABLES = [
   'arena_session', 'arena_state', 'daily_chest',
   'paper_pick',
 ] as const
+
+// ---------------------------------------------------------------------------
+// Ruang Baca (migrasi 0018)
+
+/** Kemajuan per buku: bab dan kalimat terakhir (untuk melanjutkan), selesai bila finished_at terisi. */
+export const bookProgress = pgTable(
+  'book_progress',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    orgId: orgId(),
+    chapterId: text('chapter_id').notNull(),
+    sentenceIdx: integer('sentence_idx').notNull().default(0),
+    startedAt: ts('started_at').notNull().defaultNow(),
+    updatedAt: ts('updated_at').notNull().defaultNow(),
+    finishedAt: ts('finished_at'),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.bookId] })],
+)
+
+/** Bab yang selesai dibaca dan kuisnya dikerjakan. XP hanya sekali per bab. */
+export const bookChapter = pgTable(
+  'book_chapter',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    chapterId: text('chapter_id').notNull(),
+    orgId: orgId(),
+    quizCount: integer('quiz_count').notNull().default(0),
+    bestCorrect: integer('best_correct').notNull().default(0),
+    bestTotal: integer('best_total').notNull().default(0),
+    xp: integer('xp').notNull().default(0),
+    doneAt: ts('done_at').notNull().defaultNow(),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.bookId, t.chapterId] })],
+)
+
+/** Kuis bab: soal dipilih server (tanpa soal kembar antar kuis), dinilai server saat dikumpulkan. */
+export const bookQuiz = pgTable(
+  'book_quiz',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    learnerId: uuid('learner_id').notNull(),
+    bookId: text('book_id').notNull(),
+    chapterId: text('chapter_id').notNull(),
+    orgId: orgId(),
+    questionIds: text('question_ids').array().notNull(),
+    createdAt: createdAt(),
+    submittedAt: ts('submitted_at'),
+    correct: integer('correct'),
+  },
+  (t) => [index('book_quiz_learner_idx').on(t.learnerId, t.bookId, t.chapterId, t.createdAt)],
+)
+
+/** Detik membaca per hari (Asia/Jakarta). */
+export const readingDay = pgTable(
+  'reading_day',
+  {
+    learnerId: uuid('learner_id').notNull(),
+    date: date('date').notNull(),
+    orgId: orgId(),
+    seconds: integer('seconds').notNull().default(0),
+    lastAt: ts('last_at'),
+  },
+  (t) => [primaryKey({ columns: [t.learnerId, t.date] })],
+)

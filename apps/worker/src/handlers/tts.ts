@@ -8,7 +8,7 @@ import { isClipText, isTtsStyle, TTS_STYLE_MODEL, type TtsClipRequest } from '@k
 import { tables, withOrg } from '@kira/db'
 import { PostponeError, abortError, whenWib } from '../errors'
 import { createTtsClient } from '../tts/client'
-import { dedupe, itemClips, repoClips } from '../tts/collect'
+import { bookClips, dedupe, itemClips, repoClips } from '../tts/collect'
 import { clipKey, hasClip, writeClip } from '../tts/store'
 import type { Handler, HandlerCtx } from './types'
 
@@ -148,7 +148,7 @@ export const ttsBatchHandler: Handler = {
       if (errors.length > 0) h.log.warn('konten punya error, soal yang rusak dilewati', { count: errors.length })
       const spelling = loadSpelling(findContentDir())
       const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-      clips = dedupe([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
+      clips = dedupe([...repoClips(index), ...spellingClips, ...bookClips(), ...(await orgClips(h))]).filter((c) => isClipText(c.text))
     }
     h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length })
     const t = await generate(h, clips, { heartbeat: true })

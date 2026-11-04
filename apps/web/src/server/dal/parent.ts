@@ -1,4 +1,5 @@
 import 'server-only'
+import { readingSummary } from './reading-room'
 import { and, desc, eq, gte, inArray, isNull, ne, sql } from 'drizzle-orm'
 import { jakartaDate, levelForXp, weekStart, type IsoDate } from '@kira/core'
 import { answerText, MANUAL_TYPES } from '@kira/content'
@@ -110,6 +111,7 @@ export async function childCard(tx: Tx, learner: LearnerRow, today: IsoDate): Pr
     xp,
     level: levelForXp(xp),
     tracks: await xpTracksDTO(tx, learner.userId),
+    reading: await readingSummary(tx, learner.userId, today),
     active: learner.active,
     href: `/keluarga/anak/${learner.userId}`,
   }
