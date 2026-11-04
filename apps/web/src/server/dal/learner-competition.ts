@@ -1,6 +1,7 @@
 import 'server-only'
 import { and, asc, desc, eq, gte, isNull, like } from 'drizzle-orm'
 import { createRng, daysBetween, formatDateEn, jakartaDate, type PresetRules } from '@kira/core'
+import { olympiadOn } from '@kira/core/features'
 import { tables } from '@kira/db'
 import { GENERATORS, genRef, newSeed } from '@kira/content/math'
 import { isPaperType, type Item, type Preset } from '@kira/content'
@@ -10,6 +11,7 @@ import { invalid, notFound } from '../errors'
 import { content, preset, presets, skillsFor } from './content'
 import { guardAttemptItems } from './session-guard'
 import { learnerShell, loadLearner, type LearnerRow } from './learner-core'
+import { featureMapFor } from './learner-features'
 
 const { attempt, orgItem, competitionEvent } = tables
 
@@ -36,7 +38,8 @@ function eligible(p: Preset, learner: LearnerRow): boolean {
 
 export async function competitionPickDTO(tx: Tx, learnerId: string): Promise<CompetitionPickDTO> {
   const learner = await loadLearner(tx, learnerId)
-  const list = presets().filter((p) => !p.id.startsWith('esmo-practice') && eligible(p, learner))
+  const features = await featureMapFor(tx, learnerId)
+  const list = presets().filter((p) => !p.id.startsWith('esmo-practice') && eligible(p, learner) && olympiadOn(features, p.subject))
   const last = await tx
     .select({ refId: attempt.refId, scaled: attempt.scoreScaled, raw: attempt.scoreRaw, max: attempt.scoreMax, at: attempt.submittedAt })
     .from(attempt)
@@ -62,7 +65,7 @@ export async function competitionPickDTO(tx: Tx, learnerId: string): Promise<Com
 export async function competitionIntroDTO(tx: Tx, learnerId: string, presetId: string): Promise<CompetitionIntroDTO> {
   const learner = await loadLearner(tx, learnerId)
   const p = preset(presetId)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), p.subject)) throw notFound()
   return {
     shell: await learnerShell(tx, learner),
     presetId: p.id,
@@ -123,7 +126,7 @@ export async function pickSimulationItems(tx: Tx, learner: LearnerRow, p: Preset
 export async function startSimulation(tx: Tx, ctx: OrgContext, learnerId: string, presetId: string): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const p = preset(presetId)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), p.subject)) throw notFound()
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -185,6 +188,7 @@ export async function esmoPacks(tx: Tx, learner: LearnerRow): Promise<Pack[]> {
 export async function esmoDTO(tx: Tx, learnerId: string): Promise<EsmoDTO> {
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
+  const features = await featureMapFor(tx, learnerId)
   const packs = await esmoPacks(tx, learner)
   const atts = await tx
     .select({ id: attempt.id, refId: attempt.refId, status: attempt.status, scaled: attempt.scoreScaled, kind: attempt.kind })
@@ -222,14 +226,14 @@ export async function esmoDTO(tx: Tx, learnerId: string): Promise<EsmoDTO> {
     finalName: f?.name ?? 'ESMO final',
     finalDate: f?.date && !f.estimate ? formatDateEn(f.date, true) : null,
     daysToGo: f?.date && !f.estimate ? daysBetween(today, f.date) : null,
-    columns: [column('math'), column('english')],
+    columns: (['math', 'english'] as const).filter((s) => olympiadOn(features, s)).map(column),
   }
 }
 
 export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, packId: string): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const pack = (await esmoPacks(tx, learner)).find((p) => p.id === packId)
-  if (!pack) throw notFound()
+  if (!pack || !olympiadOn(await featureMapFor(tx, learnerId), pack.subject)) throw notFound()
   const open = await tx
     .select({ id: attempt.id })
     .from(attempt)
@@ -258,7 +262,7 @@ export async function startEsmoPack(tx: Tx, ctx: OrgContext, learnerId: string, 
 export async function startEsmoMock(tx: Tx, ctx: OrgContext, learnerId: string, subject: 'math' | 'english'): Promise<string> {
   const learner = await loadLearner(tx, learnerId)
   const p = preset(`esmo-${subject}-2026`)
-  if (!p) throw notFound()
+  if (!p || !olympiadOn(await featureMapFor(tx, learnerId), subject)) throw notFound()
   const packs = (await esmoPacks(tx, learner)).filter((x) => x.subject === subject)
   const rng = createRng(`${learnerId}:esmo-mock:${Date.now()}`)
   const refs = rng.shuffle(packs.flatMap((x) => x.refs)).slice(0, p.rules.questionCount)

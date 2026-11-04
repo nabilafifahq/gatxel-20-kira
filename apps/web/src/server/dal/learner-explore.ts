@@ -1,6 +1,7 @@
 import 'server-only'
-import { and, asc, eq, gte, lte, sql } from 'drizzle-orm'
+import { and, asc, eq, gte, inArray, lte, sql } from 'drizzle-orm'
 import { addDays, ARENA_BADGES, BADGES, createRng, formatDateEn, jakartaDate, levelProgress, weekday, type IsoDate } from '@kira/core'
+import { activeSubjects, skillAllowed } from '@kira/core/features'
 import { tables } from '@kira/db'
 import { AVATARS, type AvatarName } from '@kira/figures/spec'
 import type { CorrectionBookDTO, LessonDTO, MapDTO, MapSkillDTO, MeDTO, Subject } from '@/lib/dto'
@@ -8,7 +9,8 @@ import type { OrgContext, Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, promptPreview, resolveItems, skill, skillsFor, strandName, toClient } from './content'
 import { guardAttemptItems } from './session-guard'
-import { accessoryDTOs, trackDTOs } from './arena-tracks'
+import { accessoryDTOs, trackDTOs, tracksFor } from './arena-tracks'
+import { featureMapFor } from './learner-features'
 import { trackTotals } from './arena-state'
 import { badgesOf, learnerShell, loadLearner, skillStates, streakFor, totalXp, type LearnerRow } from './learner-core'
 import { completeLinkedSession } from './learner-session'
@@ -24,8 +26,11 @@ export async function mapDTO(tx: Tx, learnerId: string, selected: Subject | null
   const today = jakartaDate()
   const todays = await tx.select({ skillId: quest.skillId }).from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, today)))
   const todaySkills = new Set(todays.map((t) => t.skillId))
-  const subjects = SUBJECT_ORDER.map((subject) => {
-    const list = skillsFor(subject, learner.grade)
+  // Mapel yang dimatikan orang tua tidak muncul di peta. Skill olimpiade mengikuti saklar Olimpiade mapelnya.
+  const features = await featureMapFor(tx, learnerId)
+  const active = activeSubjects(features)
+  const subjects = SUBJECT_ORDER.filter((s) => active.includes(s)).map((subject) => {
+    const list = skillsFor(subject, learner.grade).filter((s) => skillAllowed(features, subject, s.strand))
     const gate = (id: string) => states.get(id)?.gate ?? 'new'
     const chapters = new Map<string, MapSkillDTO[]>()
     for (const s of list) {
@@ -58,7 +63,8 @@ export async function mapDTO(tx: Tx, learnerId: string, selected: Subject | null
     }
     return { subject, chapters: [...chapters.entries()].map(([title, skills]) => ({ title, skills })) }
   })
-  return { shell: await learnerShell(tx, learner), grade: learner.grade, subjects, selectedSubject: selected ?? 'math' }
+  const selectedSubject = selected && active.includes(selected) ? selected : (subjects[0]?.subject ?? 'math')
+  return { shell: await learnerShell(tx, learner), grade: learner.grade, subjects, selectedSubject }
 }
 
 export async function meDTO(tx: Tx, learnerId: string): Promise<MeDTO> {
@@ -83,6 +89,7 @@ export async function meDTO(tx: Tx, learnerId: string): Promise<MeDTO> {
   }
   const monthName = formatDateEn(first).split(' ').slice(1).join(' ')
   const totals = await trackTotals(tx, learnerId)
+  const features = await featureMapFor(tx, learnerId)
   return {
     shell: await learnerShell(tx, learner, today),
     level: lp.level,
@@ -94,8 +101,8 @@ export async function meDTO(tx: Tx, learnerId: string): Promise<MeDTO> {
       const got = awarded.get(b.id)
       return { id: b.id, title: b.title, description: b.description, earnedAt: got ? got.awardedAt.toISOString() : null, isNew: Boolean(got && !got.seen), ...('glyph' in b ? { glyph: b.glyph } : {}) }
     }),
-    tracks: trackDTOs(totals),
-    accessories: accessoryDTOs(totals),
+    tracks: tracksFor(trackDTOs(totals), features),
+    accessories: accessoryDTOs(totals, features),
     monthLabel: monthName,
     calendar: cells,
     streakLine: streak.current > 0 ? `${streak.current} day streak. Best: ${streak.best}.` : 'Finish today’s quests to start a streak.',
@@ -111,12 +118,13 @@ export async function correctionBookDTO(tx: Tx, learnerId: string): Promise<Corr
   const learner = await loadLearner(tx, learnerId)
   const today = jakartaDate()
   const end = new Date(Date.parse(`${today}T23:59:59+07:00`))
-  const due = await tx
+  const features = await featureMapFor(tx, learnerId)
+  const allDue = await tx
     .select()
     .from(reviewCard)
     .where(and(eq(reviewCard.learnerId, learnerId), eq(reviewCard.retired, false), lte(reviewCard.dueAt, end)))
     .orderBy(asc(reviewCard.dueAt))
-    .limit(30)
+  const due = allDue.filter((d) => skillAllowed(features, d.subject as Subject, skill(d.skillId)?.strand)).slice(0, 30)
   const resolved = await resolveItems(tx, due.map((d) => d.itemRef))
   const groups = SUBJECT_ORDER.map((s) => {
     const n = due.filter((d) => d.subject === s).length
@@ -125,7 +133,7 @@ export async function correctionBookDTO(tx: Tx, learnerId: string): Promise<Corr
   const upcoming = await tx
     .select({ day: sql<string>`to_char(${reviewCard.dueAt} at time zone 'Asia/Jakarta', 'YYYY-MM-DD')`, n: sql<number>`count(*)::int` })
     .from(reviewCard)
-    .where(and(eq(reviewCard.learnerId, learnerId), eq(reviewCard.retired, false), gte(reviewCard.dueAt, end)))
+    .where(and(eq(reviewCard.learnerId, learnerId), eq(reviewCard.retired, false), gte(reviewCard.dueAt, end), inArray(reviewCard.subject, activeSubjects(features))))
     .groupBy(sql`1`)
     .orderBy(sql`1`)
     .limit(2)
@@ -155,12 +163,13 @@ export async function startReviewSession(tx: Tx, ctx: OrgContext, learnerId: str
     .limit(1)
   if (open[0]) return open[0].id
   const end = new Date(Date.parse(`${today}T23:59:59+07:00`))
-  const due = await tx
+  const features = await featureMapFor(tx, learnerId)
+  const allDue = await tx
     .select()
     .from(reviewCard)
     .where(and(eq(reviewCard.learnerId, learnerId), eq(reviewCard.retired, false), lte(reviewCard.dueAt, end)))
     .orderBy(asc(reviewCard.dueAt))
-    .limit(10)
+  const due = allDue.filter((d) => skillAllowed(features, d.subject as Subject, skill(d.skillId)?.strand)).slice(0, 10)
   if (due.length === 0) throw invalid('No review cards today.')
   const resolved = await resolveItems(tx, due.map((d) => d.itemRef))
   const dueItems = due
@@ -179,6 +188,7 @@ export async function startReviewSession(tx: Tx, ctx: OrgContext, learnerId: str
 export async function startPractice(tx: Tx, ctx: OrgContext, learnerId: string, skillId: string): Promise<string> {
   const sk = skill(skillId)
   if (!sk) throw notFound()
+  if (!skillAllowed(await featureMapFor(tx, learnerId), sk.subject, sk.strand)) throw notFound()
   const learner = await loadLearner(tx, learnerId)
   const items = await buildQuestItems(tx, ctx, learner, {
     skillId,
@@ -201,6 +211,7 @@ export async function lessonDTO(tx: Tx, learnerId: string, skillId: string, then
   const l = lesson(skillId)
   const sk = skill(skillId)
   if (!l || !sk) throw notFound('Pelajaran belum ada untuk skill ini.')
+  if (!skillAllowed(await featureMapFor(tx, learnerId), sk.subject, sk.strand)) throw notFound('Pelajaran ini sedang dimatikan.')
   const minutes = Math.max(2, Math.round((l.steps.length * 20 + l.check.length * 45) / 60))
   return {
     shell: await learnerShell(tx, learner),

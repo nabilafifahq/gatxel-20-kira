@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { activeSubjects, effectiveOn, FEATURE_GROUPS, FEATURE_KEYS, featureOn, olympiadOn, presetMap, sessionAllowed } from '../src/features'
+import { activeSubjects, effectiveOn, FEATURE_GROUPS, FEATURE_KEYS, featureOn, olympiadOn, presetMap, sessionAllowed, skillAllowed } from '../src/features'
 
 describe('saklar fitur', () => {
   it('semua kunci ada di tepat satu kelompok tampilan', () => {
@@ -34,5 +34,19 @@ describe('saklar fitur', () => {
     expect(presetMap('lengkap')).toEqual({})
     expect(presetMap('fokus-sekolah')['olympiad-math']).toBe(false)
     expect(presetMap('olimpiade')['quiz-arena']).toBe(false)
+  })
+})
+
+describe('skillAllowed dan alat peraga', () => {
+  it('mapel mati menutup semua skillnya, strand Oly juga butuh saklar Olimpiade', () => {
+    expect(skillAllowed({ math: false }, 'math', 'Num')).toBe(false)
+    expect(skillAllowed({ 'olympiad-science': false }, 'science', 'Oly')).toBe(false)
+    expect(skillAllowed({ 'olympiad-science': false }, 'science', 'Bio')).toBe(true)
+    expect(skillAllowed({}, 'science', 'Oly')).toBe(true)
+    expect(skillAllowed({}, 'math', undefined)).toBe(true)
+  })
+  it('Math mati ikut mematikan alat peraga Math', () => {
+    expect(effectiveOn({ math: false }, 'manipulatives')).toBe(false)
+    expect(effectiveOn({}, 'manipulatives')).toBe(true)
   })
 })

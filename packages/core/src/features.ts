@@ -87,6 +87,7 @@ export const FEATURE_NEEDS: Partial<Record<FeatureKey, FeatureKey>> = {
   'olympiad-science': 'science',
   'drill-math': 'math',
   'mental-math': 'math',
+  manipulatives: 'math',
 }
 
 /** Menyala setelah memperhitungkan ketergantungan. Vocab dan flashcards berdiri sendiri. */
@@ -94,6 +95,12 @@ export function effectiveOn(map: FeatureMap, key: FeatureKey): boolean {
   if (!featureOn(map, key)) return false
   const need = FEATURE_NEEDS[key]
   return need ? featureOn(map, need) : true
+}
+
+/** Apakah satu skill boleh dibuka: mapelnya menyala, dan skill olimpiade (strand Oly) juga butuh saklar Olimpiade mapelnya. */
+export function skillAllowed(map: FeatureMap, subject: FeatureSubject, strand: string | null | undefined): boolean {
+  if (!featureOn(map, subject)) return false
+  return strand === 'Oly' ? olympiadOn(map, subject) : true
 }
 
 const SESSION_FEATURE: Record<string, FeatureKey | undefined> = {

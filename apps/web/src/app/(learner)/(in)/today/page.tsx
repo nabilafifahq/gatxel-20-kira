@@ -4,7 +4,7 @@ import { inOrg } from '@/server/db'
 import { orgCtx, pageActor } from '@/server/auth/actor'
 import { ensureStarted } from '@/server/dal/learner-entry'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
-import { xpTracksDTO } from '@/server/dal/arena-tracks'
+import { tracksFor, xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
 import { isFeatureOn } from '@/server/dal/learner-features'
 import { worldPeek } from '@/server/dal/kira-world'
@@ -20,7 +20,7 @@ export default async function TodayPage() {
   const { data, urls, placement, world } = await load(() =>
     inOrg(orgCtx(actor), async (tx) => {
       const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-      const data = { ...today, tracks: await xpTracksDTO(tx, actor.userId), chest: await chestDTO(tx, actor.userId, today) }
+      const data = { ...today, tracks: tracksFor(await xpTracksDTO(tx, actor.userId), today.shell.features ?? {}), chest: await chestDTO(tx, actor.userId, today) }
       const world = (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null
       return { data, world, urls: await offlineUrlsForToday(tx, actor.userId), placement: await placementCard(tx, orgCtx(actor), actor.userId) }
     }),

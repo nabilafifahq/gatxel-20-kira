@@ -185,12 +185,16 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
           </h2>
           <XpTrackBars tracks={data.tracks} />
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
-              Quick Maths
-            </ButtonLink>
-            <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
-              Quiz Arena
-            </ButtonLink>
+            {data.tracks.some((t) => t.track === 'hitung') ? (
+              <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
+                Quick Maths
+              </ButtonLink>
+            ) : null}
+            {data.tracks.some((t) => t.track === 'pengetahuan') ? (
+              <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
+                Quiz Arena
+              </ButtonLink>
+            ) : null}
           </div>
         </section>
       ) : null}
@@ -211,7 +215,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
           <h2 id="me-accessories" className="m-0 text-h2 font-bold">
             Accessories
           </h2>
-          <p className="m-0 text-body-lg text-fg-muted">Earn accessories by reaching levels in Learning, Quick Maths and Quiz.</p>
+          <p className="m-0 text-body-lg text-fg-muted">Earn accessories by reaching new levels.</p>
           <div role="radiogroup" aria-label="Accessories" className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             <button
               type="button"

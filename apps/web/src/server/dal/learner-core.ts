@@ -30,13 +30,14 @@ import {
   type DayRecord,
   type IsoDate,
 } from '@kira/core'
+import { skillAllowed, type FeatureSubject } from '@kira/core/features'
 import { tables } from '@kira/db'
 import type { Item } from '@kira/content'
 import type { Jenjang, LearnerShell, StreakDTO, AvatarName } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { notFound } from '../errors'
 import { awardArenaBadges } from './arena-badges'
-import { gradeOfSkill, subjectOfSkill } from './content'
+import { gradeOfSkill, skill, subjectOfSkill } from './content'
 
 import { featureMapFor } from './learner-features'
 
@@ -63,10 +64,13 @@ export async function totalXp(tx: Tx, learnerId: string, track: XpTrack = 'belaj
 export async function dueReviewCount(tx: Tx, learnerId: string, today: IsoDate): Promise<number> {
   const endOfDay = new Date(Date.parse(`${today}T23:59:59+07:00`))
   const rows = await tx
-    .select({ n: sql<number>`count(*)::int` })
+    .select({ subject: reviewCardT.subject, skillId: reviewCardT.skillId })
     .from(reviewCardT)
     .where(and(eq(reviewCardT.learnerId, learnerId), eq(reviewCardT.retired, false), lte(reviewCardT.dueAt, endOfDay)))
-  return rows[0]?.n ?? 0
+  if (rows.length === 0) return 0
+  // Kartu mapel yang dimatikan orang tua tidak dihitung: angka di menu Review sama dengan isi halamannya.
+  const features = await featureMapFor(tx, learnerId)
+  return rows.filter((r) => skillAllowed(features, r.subject as FeatureSubject, skill(r.skillId)?.strand)).length
 }
 
 export async function learnerShell(tx: Tx, learner: LearnerRow, today: IsoDate = jakartaDate()): Promise<LearnerShell> {
