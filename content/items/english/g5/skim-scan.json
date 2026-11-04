@@ -343,7 +343,8 @@
       "prompt": "Skim this notice. What is it mostly about?\n\"Garden club notice. Our garden club meets every Wednesday in Room 6. We plant beans, water the seedlings and learn how compost helps soil. Members take home vegetables to share. Come and see how food grows, and bring a hat for the sunny days.\"",
       "options": [
         {
-          "text": "how to cook vegetables"
+          "text": "how to cook vegetables",
+          "why": "The notice does not talk about cooking."
         },
         {
           "text": "a club where children grow plants and learn about soil"
@@ -357,7 +358,7 @@
           "why": "Room 6 is only where the club meets."
         }
       ],
-      "answer": 0,
+      "answer": 1,
       "hints": [
         "Skimming means reading to get the big idea.",
         "Look at the first and last sentences.",
