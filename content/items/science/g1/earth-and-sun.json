@@ -143,18 +143,48 @@
       "explanation": "The Sun gives light and warmth. Plants need light to grow, and animals need plants for food."
     },
     {
-      "id": "s1.earth-and-sun.012", "skill": "s1.earth-and-sun", "type": "mcq", "difficulty": 5,
-      "prompt": "The Sun is a star. Why does it look brighter than other stars?",
-      "figure": { "kind": "icons", "items": [{ "icon": "sun", "label": "Sun" }, { "icon": "star", "label": "other stars" }], "alt": "The bright Sun and some small, faint stars." },
+      "id": "s1.earth-and-sun.012",
+      "skill": "s1.earth-and-sun",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "The Sun is a star. Why does it look bigger and brighter than the stars at night?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "sun",
+            "label": "Sun"
+          },
+          {
+            "icon": "star",
+            "label": "other stars"
+          }
+        ],
+        "alt": "The bright Sun and some small, faint stars."
+      },
       "options": [
-        { "text": "Other stars are tiny lights.", "why": "Other stars are huge too. They are much further away." },
-        { "text": "It is much closer to Earth than other stars." },
-        { "text": "Only the Sun is hot.", "why": "All stars are very hot balls of gas." }
+        {
+          "text": "Other stars are tiny lights.",
+          "why": "Other stars are huge too. They are just much further away."
+        },
+        {
+          "text": "It is much closer to Earth than the other stars."
+        },
+        {
+          "text": "Only the Sun is hot.",
+          "why": "All stars are hot."
+        }
       ],
       "answer": 1,
-      "hints": ["Remember what happens to things that are far away.", "Other stars are suns too, but where are they?", "Compare how far away the Sun is with the night stars."],
+      "hints": [
+        "Remember what happens to things that are far away.",
+        "Other stars are suns too, but where are they?",
+        "Compare how far away the Sun is with the night stars."
+      ],
       "explanation": "The Sun is the closest star to Earth. Other stars are so far away that they look like tiny dots of light.",
-      "tags": ["iksc"]
+      "tags": [
+        "iksc"
+      ]
     },
     {
       "id": "s1.earth-and-sun.013",
@@ -387,15 +417,15 @@
           "group": 0
         },
         {
-          "text": "the Moon",
-          "group": 1
-        },
-        {
           "text": "stars",
           "group": 1
         },
         {
-          "text": "lights on in houses",
+          "text": "a dark sky",
+          "group": 1
+        },
+        {
+          "text": "bedtime",
           "group": 1
         }
       ],
@@ -404,7 +434,7 @@
         "Stars are seen in the dark.",
         "A rainbow needs sunlight."
       ],
-      "explanation": "The Sun, a blue sky and a rainbow are seen in the day. The Moon and stars are seen at night."
+      "explanation": "The Sun, a blue sky and a rainbow are seen in the day. Stars, a dark sky and bedtime belong to the night."
     },
     {
       "id": "s1.earth-and-sun.021",
@@ -557,10 +587,10 @@
           "row": 1,
           "col": 1,
           "answers": [
-            "the Moon",
-            "Moon",
+            "the moon",
             "moon",
-            "the moon"
+            "the moon and stars",
+            "moon and stars"
           ]
         }
       ],
@@ -598,11 +628,14 @@
           "type": "text",
           "prompt": "What does Putri see at night?",
           "answers": [
-            "the Moon and stars",
-            "moon and stars",
             "the moon and stars",
+            "moon and stars",
+            "the moon and the stars",
+            "moon and the stars",
+            "the moon",
             "moon",
-            "stars"
+            "stars",
+            "the stars"
           ],
           "caseSensitive": false
         }

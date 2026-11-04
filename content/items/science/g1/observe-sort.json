@@ -307,7 +307,7 @@
       ],
       "items": [
         {
-          "text": "apple",
+          "text": "raspberry",
           "group": 0
         },
         {
@@ -327,7 +327,7 @@
           "group": 1
         },
         {
-          "text": "sweetcorn",
+          "text": "pineapple",
           "group": 1
         }
       ],
@@ -336,7 +336,7 @@
         "Strawberries are red.",
         "Look for the colour."
       ],
-      "explanation": "Apples, strawberries and cherries are red. Bananas, lemons and sweetcorn are yellow."
+      "explanation": "Raspberries, strawberries and cherries are red. Bananas, lemons and pineapples are yellow."
     },
     {
       "id": "s1.observe-sort.019",
@@ -527,15 +527,15 @@
       "items": [
         "mouse",
         "cat",
-        "dog",
-        "horse"
+        "horse",
+        "elephant"
       ],
       "hints": [
         "A mouse is tiny.",
-        "A horse is big.",
-        "A cat is smaller than a dog."
+        "An elephant is huge.",
+        "A cat is smaller than a horse."
       ],
-      "explanation": "A mouse is the shortest. A cat is longer, a dog is longer still and a horse is the longest."
+      "explanation": "A mouse is the shortest. A cat is longer, a horse is longer still and an elephant is the longest."
     },
     {
       "id": "s1.observe-sort.025",
@@ -623,7 +623,7 @@
       "skill": "s1.observe-sort",
       "type": "table",
       "difficulty": 1,
-      "prompt": "Copy the numbers into the table. Book 3, pencil 2, desk 10.",
+      "prompt": "Copy the numbers into the table. Book 2, pencil 1, desk 6.",
       "head": [
         "Object",
         "Hand spans"
@@ -647,21 +647,21 @@
           "row": 0,
           "col": 1,
           "answers": [
-            "3"
+            "2"
           ]
         },
         {
           "row": 1,
           "col": 1,
           "answers": [
-            "2"
+            "1"
           ]
         },
         {
           "row": 2,
           "col": 1,
           "answers": [
-            "10"
+            "6"
           ]
         }
       ],
@@ -670,7 +670,7 @@
         "Book is first.",
         "Write each number in its row."
       ],
-      "explanation": "The book is 3 hand spans, the pencil is 2 and the desk is 10."
+      "explanation": "The book is 2 hand spans, the pencil is 1 and the desk is 6."
     },
     {
       "id": "s1.observe-sort.029",
@@ -847,7 +847,7 @@
       "skill": "s1.observe-sort",
       "type": "mcq",
       "difficulty": 2,
-      "prompt": "A cat, a dog and a rabbit are in one group. Which animal also belongs?",
+      "prompt": "A cat, a dog and a rabbit all have fur. Which animal also has fur?",
       "options": [
         {
           "text": "a snake",
@@ -867,11 +867,11 @@
       ],
       "answer": 3,
       "hints": [
-        "Look at what covers them.",
-        "They have fur.",
-        "Count the legs."
+        "Look at what covers each animal.",
+        "Some animals have feathers or scales.",
+        "Which animal is covered in fur?"
       ],
-      "explanation": "Cats, dogs, rabbits and cows have fur and four legs.",
+      "explanation": "Cats, dogs, rabbits and cows all have fur.",
       "tags": [
         "iksc",
         "ksnr",
@@ -919,14 +919,14 @@
       "skill": "s1.observe-sort",
       "type": "numeric",
       "difficulty": 3,
-      "prompt": "3 dogs and 2 birds stand in a garden. How many legs are there?",
-      "answer": 16,
+      "prompt": "2 dogs and 1 bird stand in a garden. How many legs are there?",
+      "answer": 10,
       "hints": [
         "A dog has 4 legs.",
         "A bird has 2 legs.",
-        "Add the dogs' legs and the birds' legs."
+        "Add the dogs' legs and the bird's legs."
       ],
-      "explanation": "A dog has 4 legs, so 3 dogs have 12 legs. A bird has 2 legs, so 2 birds have 4 legs. 12 + 4 = 16.",
+      "explanation": "A dog has 4 legs, so 2 dogs have 8 legs. A bird has 2 legs. 8 + 2 = 10.",
       "tags": [
         "iksc",
         "ksnr",

@@ -62,11 +62,36 @@
       "explanation": "Clear glass is see-through, so we can see through a window. Wood and brick are not see-through."
     },
     {
-      "id": "s1.material-properties.006", "skill": "s1.material-properties", "type": "text", "difficulty": 2,
+      "id": "s1.material-properties.006",
+      "skill": "s1.material-properties",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "You can pull a rubber band to make it longer. It is ___.",
-      "figure": { "kind": "icons", "items": [{ "icon": "rubber-band", "label": "rubber band" }], "alt": "A rubber band." },
-      "blanks": [{ "answers": ["stretchy", "elastic"] }],
-      "hints": ["Think about what happens when you pull a rubber band.", "It gets longer, then goes back when you let go.", "The word starts with str."],
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "rubber-band",
+            "label": "rubber band"
+          }
+        ],
+        "alt": "A rubber band."
+      },
+      "blanks": [
+        {
+          "answers": [
+            "stretchy",
+            "elastic",
+            "stretchable",
+            "flexible"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about what happens when you pull a rubber band.",
+        "It gets longer, then goes back when you let go.",
+        "The word starts with str."
+      ],
       "explanation": "A rubber band is stretchy. It gets longer when we pull it and goes back when we let go."
     },
     {
@@ -475,7 +500,7 @@
       "prompt": "Choose all the bendy things.",
       "options": [
         {
-          "text": "a plastic straw"
+          "text": "a pipe cleaner"
         },
         {
           "text": "a rubber band"
@@ -498,9 +523,9 @@
       "hints": [
         "Bendy things can change shape.",
         "Stones do not bend.",
-        "A straw bends."
+        "A pipe cleaner bends."
       ],
-      "explanation": "A rubber band, a plastic straw and wool can bend. A brick and a stone are hard."
+      "explanation": "A rubber band, a pipe cleaner and wool can bend. A brick and a stone are hard."
     },
     {
       "id": "s1.material-properties.024",
@@ -632,21 +657,26 @@
           "row": 1,
           "col": 1,
           "answers": [
-            "hard"
+            "hard",
+            "rough",
+            "heavy"
           ]
         },
         {
           "row": 2,
           "col": 1,
           "answers": [
-            "see-through"
+            "see-through",
+            "see through",
+            "transparent",
+            "clear"
           ]
         }
       ],
       "hints": [
         "A stone is not soft.",
         "You can see through glass.",
-        "The word has a hyphen."
+        "A window is made of it."
       ],
       "explanation": "A sponge is soft and a stone is hard. Glass is see-through and a mirror is shiny."
     },
@@ -869,27 +899,29 @@
       "prompt": "Order from the softest to the hardest.",
       "items": [
         "cotton wool",
-        "sponge",
+        "eraser",
         "wooden block",
         "stone"
       ],
       "hints": [
         "Which one squashes the most?",
-        "You can squash a sponge.",
+        "You can press an eraser a little.",
         "A stone does not squash."
       ],
-      "explanation": "Cotton wool is the softest. A sponge is soft, a wooden block is hard and a stone is the hardest."
+      "explanation": "Cotton wool is the softest. An eraser is a little soft, a wooden block is hard and a stone is the hardest."
     },
     {
       "id": "s1.material-properties.032",
       "skill": "s1.material-properties",
       "type": "text",
       "difficulty": 2,
-      "prompt": "A mirror is smooth and ___.",
+      "prompt": "A mirror is smooth and ___, so you can see yourself in it.",
       "blanks": [
         {
           "answers": [
-            "shiny"
+            "shiny",
+            "reflective",
+            "shining"
           ]
         }
       ],
@@ -1006,7 +1038,7 @@
       "skill": "s1.material-properties",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "A paper boat and a plastic boat float for an hour. Which one is still dry inside?",
+      "prompt": "Water is splashed on a paper boat and a plastic boat. Which one stays dry?",
       "options": [
         {
           "text": "the paper boat",

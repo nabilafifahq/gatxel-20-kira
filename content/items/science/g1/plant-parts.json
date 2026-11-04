@@ -38,9 +38,9 @@
       "id": "s1.plant-parts.004", "skill": "s1.plant-parts", "type": "order", "difficulty": 2,
       "prompt": "Order the parts of a sunflower from the bottom to the top.",
       "figure": { "kind": "icons", "items": [{ "icon": "flower", "label": "sunflower" }], "alt": "A tall sunflower growing in soil." },
-      "items": ["roots", "stem", "leaves", "flower"],
-      "hints": ["Start at the soil and move up.", "Which part is under the ground?", "Put the roots first, then think about what grows out of the soil."],
-      "explanation": "The roots are under the soil. The stem grows up from them, the leaves grow on the stem and the big flower is at the top."
+      "items": ["roots", "stem", "flower"],
+      "hints": ["Start at the soil and move up.", "Which part is under the ground?", "Put the roots first. The flower is at the very top."],
+      "explanation": "The roots are under the soil. The stem grows up from them and the big flower is at the top."
     },
     {
       "id": "s1.plant-parts.005", "skill": "s1.plant-parts", "type": "text", "difficulty": 2,
@@ -53,7 +53,6 @@
     {
       "id": "s1.plant-parts.006", "skill": "s1.plant-parts", "type": "sort", "difficulty": 3,
       "prompt": "Where does this food grow? Sort the cards.",
-      "figure": { "kind": "icons", "items": [{ "icon": "carrot", "label": "carrot" }, { "icon": "apple", "label": "apple" }, { "icon": "banana", "label": "banana" }], "alt": "A carrot, an apple and a banana." },
       "groups": ["Under the soil", "Above the soil"],
       "items": [
         { "text": "carrot", "group": 0 },
@@ -358,24 +357,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
-          "w": 23.8,
-          "h": 21.5
+          "x": 66.9,
+          "y": 47.3,
+          "w": 22,
+          "h": 24
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 64.6,
+          "y": 55.4,
           "w": 12.5,
-          "h": 28.5
+          "h": 35
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
+          "y": 85,
           "w": 25,
-          "h": 19.2
+          "h": 25
         }
       ],
       "answers": [
@@ -532,24 +531,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
-          "w": 23.8,
-          "h": 21.5
+          "x": 66.9,
+          "y": 47.3,
+          "w": 22,
+          "h": 24
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 64.6,
+          "y": 55.4,
           "w": 12.5,
-          "h": 28.5
+          "h": 35
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
+          "y": 85,
           "w": 25,
-          "h": 19.2
+          "h": 25
         }
       ],
       "answers": [
@@ -1271,10 +1270,14 @@
         },
         {
           "type": "text",
-          "prompt": "What grows after the shoot comes up?",
+          "prompt": "What opens after the shoot comes up?",
           "answers": [
             "leaves",
-            "leaf"
+            "leaf",
+            "green leaves",
+            "the leaves",
+            "a leaf",
+            "more leaves"
           ],
           "caseSensitive": false
         }
@@ -1431,24 +1434,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
-          "w": 23.8,
-          "h": 21.5
+          "x": 66.9,
+          "y": 47.3,
+          "w": 22,
+          "h": 24
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
+          "y": 55.4,
           "w": 12.5,
-          "h": 28.5
+          "h": 35
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
+          "y": 85,
           "w": 25,
-          "h": 19.2
+          "h": 25
         }
       ],
       "answers": [
@@ -1606,24 +1609,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
-          "w": 23.8,
-          "h": 21.5
+          "x": 66.9,
+          "y": 47.3,
+          "w": 22,
+          "h": 24
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
+          "y": 55.4,
           "w": 12.5,
-          "h": 28.5
+          "h": 35
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
+          "y": 85,
           "w": 25,
-          "h": 19.2
+          "h": 25
         }
       ],
       "answers": [
@@ -1781,24 +1784,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
-          "w": 23.8,
-          "h": 21.5
+          "x": 66.9,
+          "y": 47.3,
+          "w": 22,
+          "h": 24
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
+          "y": 55.4,
           "w": 12.5,
-          "h": 28.5
+          "h": 35
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
+          "y": 85,
           "w": 25,
-          "h": 19.2
+          "h": 25
         }
       ],
       "answers": [
@@ -2145,7 +2148,10 @@
         {
           "answers": [
             "roots",
-            "root"
+            "root",
+            "the roots",
+            "the root",
+            "a root"
           ]
         }
       ],
@@ -2226,7 +2232,7 @@
       "skill": "s1.plant-parts",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "Count the parts above the soil: 3 leaves, 2 flowers, 1 stem.",
+      "prompt": "A plant has 3 leaves, 2 flowers and 1 stem above the soil. How many parts are above the soil in all?",
       "answer": 6,
       "hints": [
         "Count the leaves first.",

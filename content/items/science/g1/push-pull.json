@@ -65,22 +65,22 @@
       "id": "s1.push-pull.006", "skill": "s1.push-pull", "type": "multi", "difficulty": 3,
       "prompt": "Choose all the actions that are pulls.",
       "options": [
-        { "text": "opening a curtain" },
+        { "text": "pulling open a drawer" },
         { "text": "kicking a ball", "why": "Kicking moves the ball away from you, so it is a push." },
         { "text": "taking a book off a shelf" },
         { "text": "pressing a key", "why": "Pressing moves the key down, away from your finger. It is a push." },
         { "text": "tugging a rope" }
       ],
       "answers": [0, 2, 4],
-      "hints": ["A pull brings something towards you.", "Act out each one.", "Start with the curtain. Which way does your hand move?"],
-      "explanation": "Opening a curtain, taking a book off a shelf and tugging a rope are pulls. Kicking and pressing are pushes."
+      "hints": ["A pull brings something towards you.", "Act out each one.", "Start with the drawer. Which way does your hand move?"],
+      "explanation": "Pulling open a drawer, taking a book off a shelf and tugging a rope are pulls. Kicking and pressing are pushes."
     },
     {
       "id": "s1.push-pull.007", "skill": "s1.push-pull", "type": "mcq", "difficulty": 2,
       "prompt": "Putu is on a swing. How can his friend make it go higher?",
       "options": [
         { "text": "push it harder" },
-        { "text": "pull it down", "why": "Pulling the swing down would slow it." },
+        { "text": "push it more gently", "why": "A gentler push makes the swing go less high." },
         { "text": "stop pushing", "why": "Without pushes, the swing slows down and stops." }
       ],
       "answer": 0,
@@ -104,12 +104,12 @@
       "id": "s1.push-pull.009", "skill": "s1.push-pull", "type": "mcq", "difficulty": 3,
       "prompt": "A ball is rolling towards you. How can you stop it?",
       "options": [
-        { "text": "shout at it", "why": "Shouting cannot push the ball." },
-        { "text": "look at it", "why": "Looking does not push or pull the ball." },
+        { "text": "blow on it", "why": "A puff of air is too weak to stop a rolling ball." },
+        { "text": "push it the way it is going", "why": "That would make it roll faster, not stop." },
         { "text": "push against it with your hand" }
       ],
       "answer": 2,
-      "hints": ["Forces can stop things moving.", "Which choice uses a push or a pull?", "Picture catching a rolling ball. What do your hands do?"],
+      "hints": ["Forces can stop things moving.", "Which choice uses a push or a pull to stop it?", "Picture catching a rolling ball. What do your hands do?"],
       "explanation": "Pushes and pulls can stop moving things. Putting your hand against the ball pushes on it and stops it."
     },
     {
@@ -375,7 +375,7 @@
           "group": 0
         },
         {
-          "text": "close a door",
+          "text": "push a swing",
           "group": 0
         },
         {
@@ -391,16 +391,16 @@
           "group": 1
         },
         {
-          "text": "pull a rope",
+          "text": "open a drawer",
           "group": 1
         }
       ],
       "hints": [
         "A push moves things away.",
         "A pull moves things closer.",
-        "Start with the rope."
+        "Start with the swing."
       ],
-      "explanation": "Kicking, closing and pressing are pushes. Zipping open and pulling are pulls."
+      "explanation": "Kicking, pushing a swing and pressing are pushes. Opening a zip, pulling a wagon and opening a drawer are pulls."
     },
     {
       "id": "s1.push-pull.021",
@@ -444,17 +444,17 @@
       "difficulty": 3,
       "prompt": "Order the pushes from the smallest to the biggest.",
       "items": [
-        "tapping a key",
-        "pushing a swing",
-        "pushing a shopping trolley",
+        "pressing a doorbell",
+        "pushing a toy car",
+        "pushing a heavy box",
         "pushing a stuck car"
       ],
       "hints": [
-        "A key is very light.",
-        "A car is heavy.",
-        "The swing is in the middle."
+        "A doorbell needs a tiny push.",
+        "A toy car is light.",
+        "A stuck car is very heavy."
       ],
-      "explanation": "Tapping a key needs a tiny push. A stuck car needs the biggest push."
+      "explanation": "Pressing a doorbell needs a tiny push. A stuck car needs the biggest push."
     },
     {
       "id": "s1.push-pull.023",
@@ -505,7 +505,7 @@
           ""
         ],
         [
-          "close a door",
+          "push a swing",
           ""
         ],
         [
@@ -531,10 +531,10 @@
       ],
       "hints": [
         "Does it come towards you?",
-        "Closing sends the door away.",
+        "A swing is sent away from you.",
         "Kick is a push."
       ],
-      "explanation": "Kicking and closing are pushes. Opening a drawer and pulling a rope are pulls."
+      "explanation": "Kicking and pushing a swing are pushes. Opening a drawer and pulling a rope are pulls."
     },
     {
       "id": "s1.push-pull.025",
@@ -781,8 +781,8 @@
           "why": "It will not move by itself."
         },
         {
-          "text": "blow on it",
-          "why": "Blowing is too weak."
+          "text": "push it softly",
+          "why": "A soft push is too weak for a heavy box."
         }
       ],
       "answer": 0,
