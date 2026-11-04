@@ -8,7 +8,7 @@ import type { ReactNode } from 'react'
 import type { ConsoleShell } from '@/lib/dto'
 import { cx } from '@/components/console/cx'
 import { ConsoleIcon } from '@/components/console/icons'
-import { CONSOLE_ROUTES, FAMILY_ROUTES } from '@/components/console/routes'
+import { CONSOLE_ROUTES, FAMILY_ROUTES, PUBLIC_ROUTES } from '@/components/console/routes'
 import { ToastProvider } from '@/components/console/Toast'
 
 /**
