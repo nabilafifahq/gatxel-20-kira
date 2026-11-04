@@ -22,9 +22,12 @@ export function CompetitionPickScreen({ data }: { data: CompetitionPickDTO }): R
         <p className="m-0 text-body-lg text-fg-muted">{t.intro}</p>
       </header>
       {data.presets.length === 0 ? (
-        <p className="m-0 rounded-card border-2 border-dashed border-border bg-surface p-8 text-center text-body-lg">
-          {t.empty}
-        </p>
+        <div className="flex flex-col items-center gap-4 rounded-card border-2 border-dashed border-border bg-surface p-8 text-center">
+          <p className="m-0 text-body-lg">{t.empty}</p>
+          <ButtonLink href="/practice" variant="secondary">
+            {t.emptyCta}
+          </ButtonLink>
+        </div>
       ) : (
         <div className="@container">
         <ul className="m-0 grid list-none grid-cols-1 items-stretch gap-5 p-0 @xl:grid-cols-2 @4xl:grid-cols-3">

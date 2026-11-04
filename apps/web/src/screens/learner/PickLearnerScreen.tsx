@@ -44,19 +44,6 @@ export function PickLearnerScreen({
         <ul aria-label={t.shell.pick.learnersOn(data.deviceName)} className="m-0 grid w-full max-w-[560px] list-none grid-cols-2 gap-4 p-0 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-6">
           {learners.map((l) => (
             <li key={l.id} className="flex">
-              {l.doneToday ? (
-                <div role="group" aria-label={t.shell.pick.doneLabel(l.name)} className={`${CARD} border-dashed border-border bg-bg`}>
-                  <Avatar name={l.avatar} size={120} className="h-20 w-20 sm:h-30 sm:w-30" />
-                  <span className="flex flex-col items-center">
-                    <span className="text-h2 font-bold break-words">{l.name}</span>
-                    <span className="inline-flex items-center gap-1.5 text-body font-bold">
-                      <UiIcon name="moon" size={18} className="hidden sm:block" />
-                      {t.shell.pick.doneForToday}
-                    </span>
-                    <span className="text-body text-fg-muted">{t.shell.pick.backTomorrow}</span>
-                  </span>
-                </div>
-              ) : (
                 <Link
                   href={pinHref(l.id)}
                   aria-label={l.locked ? t.shell.pick.cardLabelLocked(l.name, l.grade) : t.shell.pick.cardLabel(l.name, l.grade)}
@@ -66,6 +53,12 @@ export function PickLearnerScreen({
                   <span className="flex flex-col items-center">
                     <span className="text-h2 font-bold break-words">{l.name}</span>
                     <span className="text-body font-semibold text-fg-muted">{t.common.grade(l.grade)}</span>
+{l.doneToday ? (
+                      <span className="inline-flex items-center gap-1.5 text-body font-bold">
+                        <UiIcon name="moon" size={18} />
+                        {t.shell.pick.doneForToday}
+                      </span>
+                    ) : null}
                   </span>
                   {l.locked ? (
                     <span className="absolute top-3 right-3 inline-flex h-8 items-center gap-1 rounded-pill border-2 border-fg bg-surface px-2.5 text-small font-bold">
@@ -74,7 +67,6 @@ export function PickLearnerScreen({
                     </span>
                   ) : null}
                 </Link>
-              )}
             </li>
           ))}
           <li className="flex">

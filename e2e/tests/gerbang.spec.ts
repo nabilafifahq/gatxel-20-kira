@@ -283,7 +283,7 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
     await expect(page.getByRole('heading', { name: 'Fitur yang dipakai' })).toBeVisible()
 
     await page.goto('/keluarga/minggu')
-    await db()`insert into quest (org_id, learner_id, date, subject, session, kind, mode, title, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'daily', 'latihan', 'Latihan', 'done', 0)`
+    await db()`insert into quest (org_id, learner_id, date, subject, session, mode, title, kind, status, seq) values (${f.orgId}, ${f.childIds[0]!}, ${new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10)}, 'math', 'latihan', 'latihan', 'Sesi', 'daily', 'done', 0)`
     await page.goto('/keluarga')
     await expect(page.getByRole('heading', { name: /Halo/ })).toBeVisible()
     await expect(page.getByTestId('first-run-checklist')).toHaveCount(0)
@@ -295,6 +295,8 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
 test('tips pertama anak: bisa dilewati, tidak menahan anak, dan hanya muncul sekali', async ({ page, context }) => {
   const f = await ownerFamily([{ name: 'Dewi', grade: 2 }])
   const child = f.childIds[0]!
+  // Anak baru mulai dengan tampilan Indonesia; spek ini memeriksa teks Inggris.
+  await db()`update auth.user_account set ui_lang = 'en' where id = ${child}`
   await db()`insert into consent_event (org_id, learner_id, guardian_id, recorded_by, purpose, granted, notice_version, method) values (${f.orgId}, ${child}, ${f.parentId}, ${f.parentId}, 'learning', true, '2026-10-12', 'in-app')`
   const who = await learnerSession(child, f.orgId, f.parentId)
   await asUser(context, who)

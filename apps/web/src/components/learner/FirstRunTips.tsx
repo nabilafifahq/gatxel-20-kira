@@ -2,15 +2,9 @@
 
 import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
-import { useT } from '@/lib/i18n/client'
 import { KiraStar } from '@/components/ui/KiraStar'
 import { markFirstRunAction } from '@/server/actions/first-run'
-
-const TIPS: { key: 'start' | 'stars' | 'listen'; icon: UiIconName }[] = [
-  { key: 'start', icon: 'play' },
-  { key: 'stars', icon: 'star' },
-  { key: 'listen', icon: 'speaker' },
-]
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Walkthrough pertama anak di Today: kartu kecil, bukan dialog, jadi halaman di belakangnya tetap bisa diketuk.
@@ -27,9 +21,8 @@ export function FirstRunTips(): ReactElement | null {
     void markFirstRunAction().catch(() => undefined)
   }, [])
   if (!open) return null
-  const total = TIPS.length
-  const tipDef = TIPS[i]!
-  const tip = T[tipDef.key]
+  const total = T.tips.length
+  const tip = T.tips[i]!
   const last = i === total - 1
   return (
     <aside
@@ -42,7 +35,7 @@ export function FirstRunTips(): ReactElement | null {
         <div className="flex min-w-0 flex-1 flex-col" aria-live="polite">
           <span className="text-small font-bold">{T.stepOf(i + 1, total)}</span>
           <h2 className="m-0 flex items-center gap-2 text-h3 font-bold">
-            <UiIcon name={tipDef.icon} size={20} />
+            <UiIcon name={tip.icon as UiIconName} size={20} />
             {tip.title}
           </h2>
           <p className="m-0 text-body">{tip.body}</p>

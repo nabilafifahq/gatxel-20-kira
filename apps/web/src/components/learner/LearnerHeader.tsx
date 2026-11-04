@@ -83,7 +83,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         aria-label={t.shell.navUi.main}
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <Link href={LEARNER_ROUTES.today} aria-label="Kira" className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
+        <Link href={LEARNER_ROUTES.today} aria-label={t.shell.logoLabel} className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
           <KiraLogo size={36} stacked />
         </Link>
         {items.map((n) => {
@@ -145,12 +145,13 @@ export function LearnerFrame({
   children: ReactNode
   className?: string
 }): ReactElement {
+  const t = useT()
   return (
     <div data-jenjang={shell.jenjang} className="min-h-svh bg-bg text-fg md:flex">
       <LearnerNav shell={shell} current={current} />
       <div className="flex min-h-svh min-w-0 flex-1 flex-col pb-[calc(76px+var(--safe-bottom))] md:pb-0">
         <div className="pt-safe border-b border-divider bg-surface md:hidden">
-          <Link href={LEARNER_ROUTES.today} aria-label="Kira" className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
+          <Link href={LEARNER_ROUTES.today} aria-label={t.shell.logoLabel} className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
             <KiraLogo size={28} />
           </Link>
         </div>
