@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
+import { ChildEntryLink } from '@/components/auth/ChildEntryLink'
 import { LoginClient } from '@/components/auth/LoginClient'
 import { SignupClient } from '@/components/auth/SignupClient'
 import { WaitlistForm } from '@/components/auth/WaitlistForm'
@@ -96,6 +97,7 @@ export function AuthGateway({
           <HeroPanel seats={seats} claim={claim} />
           <section aria-label="Akun Kira" className="flex justify-center px-4 pt-5 pb-8 md:items-center md:px-8 md:py-10">
             <div id="form-akun" className="flex w-full max-w-[420px] flex-col gap-5">
+              <ChildEntryLink />
               <SegmentedControl
                 semantic="tabs"
                 label="Daftar atau masuk"

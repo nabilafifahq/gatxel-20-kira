@@ -65,7 +65,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Berikan akses ke anak',
     body: (
       <>
-        Di tablet atau HP anak, buka Kira dan masuk dengan akun Ayah/Bunda sekali saja, lalu tekan <L>Mulai belajar sebagai anak</L>. Perangkat lain bisa ditambah lewat <L>Daftarkan perangkat ini</L> di halaman Keluarga. Akun orang tua keluar otomatis dari perangkat itu. Beri tahu anak urutan empat gambarnya.
+        Di tablet atau HP anak, buka Kira, tekan <L>Masuk sebagai anak</L>, lalu ketik <L>Kode keluarga</L> yang ada di halaman Keluarga. Anak memilih namanya dan menekan PIN gambar, dan perangkat itu tersimpan. Kalau sedang memegang perangkat anak, Ayah/Bunda juga bisa masuk sekali lalu menekan <L>Mulai belajar sebagai anak</L> atau <L>Daftarkan perangkat ini</L>. Daftar perangkat ada di halaman Keluarga, dan setiap perangkat bisa dicabut dari sana. Beri tahu anak urutan empat gambarnya.
       </>
     ),
   },
@@ -73,7 +73,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Pasang aplikasi',
     body: (
       <>
-        Perangkat Android bisa memakai aplikasi Kira. iPad dan iPhone memakai Safari. Langkahnya ada di <A href="/panduan/aplikasi">panduan aplikasi</A>.
+        Perangkat Android bisa memakai aplikasi Kira. iPad dan iPhone memakai Safari, dengan kode keluarga yang sama. Langkahnya ada di <A href="/panduan/aplikasi">panduan aplikasi</A>.
       </>
     ),
   },

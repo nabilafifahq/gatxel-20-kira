@@ -85,6 +85,10 @@ export function PickLearnerScreen({
           </li>
         </ul>
         <p className="m-0 max-w-[480px] text-center text-body text-fg-muted">{t.shell.pick.everyoneOwn}</p>
+        {/* Pindah halaman penuh: /masuk/anak memakai CSP halaman masuk. */}
+        <a href="/masuk/anak?lain=1" className="inline-flex min-h-11 items-center text-body font-semibold text-fg underline underline-offset-3">
+          {t.shell.pick.otherChild}
+        </a>
       </main>
       <SiteFooter area="learner" />
     </div>

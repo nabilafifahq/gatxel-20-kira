@@ -129,7 +129,7 @@ function LoginForm({
         <H id="masuk-judul" className="m-0 text-h1 font-bold max-sm:text-h2">
           Masuk
         </H>
-        <p className="m-0 text-body text-fg-muted">Untuk tutor dan orang tua. Anak masuk dengan PIN gambar di tablet.</p>
+        <p className="m-0 text-body text-fg-muted">Untuk tutor dan orang tua. Anak memakai tombol Masuk sebagai anak.</p>
       </div>
       {n ? (
         <InlineAlert tone={n.tone} title={n.title} live={n.tone === 'danger' ? 'alert' : 'status'}>

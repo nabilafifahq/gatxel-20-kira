@@ -14,6 +14,7 @@ import { InlineAlert } from '@/components/console/Feedback'
 import { PIN_LABEL, PinChooser, pinProblem } from '@/components/console/PinChooser'
 import { FAMILY_ROUTES } from '@/components/console/routes'
 import { useAction } from '@/components/console/useAction'
+import { FamilyCodeCard, familyCodeMessage } from '@/components/family/FamilyCodeCard'
 import { FeatureChecklist } from '@/components/family/FeatureChecklist'
 import { AccountMenu } from '@/components/ui/AccountMenu'
 import { UiIcon } from '@/components/ui/icons'
@@ -52,7 +53,7 @@ const stepHref = (n: OnboardingStep) => `/mulai?langkah=${n}`
  * Langkah ada di alamat (?langkah=), jadi tombol kembali dan muat ulang benar; server yang menentukan langkah yang boleh dibuka.
  * Melewati langkah jalur memakai jalur rekomendasi, jadi tidak pernah buntu.
  */
-export function Onboarding({ state, step, customChild }: { state: OnboardingState; step: OnboardingStep; customChild: OnboardingChild | null }) {
+export function Onboarding({ state, step, customChild, familyCode = null }: { state: OnboardingState; step: OnboardingStep; customChild: OnboardingChild | null; familyCode?: string | null }) {
   const [pins, setPins] = useState<Record<string, PinPicture[]>>({})
   const reached = naturalStep(state.children)
   return (
@@ -67,7 +68,7 @@ export function Onboarding({ state, step, customChild }: { state: OnboardingStat
           {step === 1 ? <StepChildren state={state} onPin={(id, pin) => setPins((p) => ({ ...p, [id]: pin }))} pins={pins} /> : null}
           {step === 2 && customChild ? <StepCustom child={customChild} all={state.children} /> : null}
           {step === 2 && !customChild ? <StepPath state={state} /> : null}
-          {step === 3 ? <StepLogin state={state} pins={pins} /> : null}
+          {step === 3 ? <StepLogin state={state} pins={pins} familyCode={familyCode} /> : null}
         </div>
       </div>
     </PublicFrame>
@@ -300,7 +301,7 @@ function StepCustom({ child, all }: { child: OnboardingChild; all: OnboardingChi
   )
 }
 
-function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<string, PinPicture[]> }) {
+function StepLogin({ state, pins, familyCode }: { state: OnboardingState; pins: Record<string, PinPicture[]>; familyCode: string | null }) {
   const open = useAction(registerDeviceAction)
   const [copied, setCopied] = useState<'copied' | 'shared' | 'failed' | null>(null)
   const activeIds = state.children.filter((c) => c.active).map((c) => c.id)
@@ -312,6 +313,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
   }
 
   function shareText() {
+    if (familyCode) return familyCodeMessage(window.location.origin, familyCode).replace('untuk anak', `untuk ${names}`)
     return `Cara masuk Kira untuk ${names}: buka ${window.location.origin} di tablet atau HP anak. Orang tua masuk sekali, lalu tekan Mulai belajar sebagai anak. Setelah itu anak memilih namanya dan menekan PIN gambar.`
   }
 
@@ -345,14 +347,16 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
         <h1 id="langkah-3" className="m-0 text-h1 font-bold max-sm:text-h2">
           Cara anak masuk
         </h1>
-        <p className="m-0 text-body-lg text-fg-muted">Anak tidak butuh email atau password. Yang dibutuhkan hanya tablet atau HP, namanya, dan PIN gambar.</p>
+        <p className="m-0 text-body-lg text-fg-muted">Anak tidak butuh email atau password. Yang dibutuhkan hanya tablet atau HP, kode keluarga, namanya, dan PIN gambar.</p>
       </header>
+
+      <FamilyCodeCard code={familyCode} />
 
       <ol className="m-0 flex list-none flex-col gap-3 rounded-card bg-surface p-5 shadow-soft">
         {[
-          'Buka Kira di tablet atau HP anak, lewat browser atau aplikasi.',
-          'Masuk dengan akun orang tua sekali saja, lalu tekan Mulai belajar sebagai anak di halaman ini.',
-          'Anak memilih namanya dan menekan PIN gambar. Selesai.',
+          'Buka Kira di tablet atau HP anak, lewat browser atau aplikasi. Di iPhone dan iPad, pakai Safari.',
+          'Tekan Masuk sebagai anak, lalu ketik kode keluarga di atas.',
+          'Anak memilih namanya dan menekan PIN gambar. Perangkat itu tersimpan, jadi berikutnya anak tinggal memilih nama dan PIN.',
         ].map((t, i) => (
           <li key={t} className="flex items-start gap-3">
             <span aria-hidden="true" className="inline-flex size-8 flex-none items-center justify-center rounded-pill bg-lilac font-numbers text-body font-bold">
@@ -405,7 +409,7 @@ function StepLogin({ state, pins }: { state: OnboardingState; pins: Record<strin
         <Button variant="primary" disabled={activeIds.length === 0} loading={open.pending} onClick={openForChild} className="h-12 w-full">
           Mulai belajar sebagai anak
         </Button>
-        <p className="m-0 text-small text-fg-muted">Perangkat ini menjadi perangkat anak, dan Anda keluar dari akun orang tua di sini. Masuk lagi kapan saja dari perangkat Anda sendiri.</p>
+        <p className="m-0 text-small text-fg-muted">Sedang memegang perangkat anak? Tombol ini menjadikan perangkat ini perangkat anak tanpa kode, dan Anda keluar dari akun orang tua di sini. Masuk lagi kapan saja dari perangkat Anda sendiri.</p>
         <ButtonLink href={FAMILY_ROUTES.home} variant="secondary" className="h-12 w-full">
           Buka dashboard
         </ButtonLink>

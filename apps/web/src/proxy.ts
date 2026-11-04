@@ -8,7 +8,7 @@ import { accessLogLine } from '@/lib/access-log'
  * style-src memakai 'unsafe-inline' karena atribut style dari React tidak bisa diberi nonce.
  */
 /** Halaman auth publik yang boleh memuat Cloudflare Turnstile (hanya bila dikonfigurasi). Area learner tidak pernah. */
-const TURNSTILE_PATHS = [/^\/$/, /^\/beranda$/, /^\/daftar(\/|$)/, /^\/masuk$/, /^\/reset(\/|$)/, /^\/feedback$/]
+const TURNSTILE_PATHS = [/^\/$/, /^\/beranda$/, /^\/daftar(\/|$)/, /^\/masuk$/, /^\/masuk\/anak$/, /^\/reset(\/|$)/, /^\/feedback$/]
 const SESSION_COOKIE = '__Host-kira.session'
 const DEVICE_COOKIE = '__Host-kira.device'
 

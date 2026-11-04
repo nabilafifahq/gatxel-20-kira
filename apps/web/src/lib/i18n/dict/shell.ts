@@ -71,6 +71,28 @@ const en = {
     addLearner: 'Add a learner',
     grownUpsOnly: 'Grown-ups only',
     everyoneOwn: 'Everyone has their own stars, streak and secret pictures.',
+    otherChild: 'Name not here? Use the family code',
+  },
+
+  /** Anak masuk di browser dengan kode keluarga. */
+  kode: {
+    title: 'Sign in with your family code',
+    intro: 'Ask your parent for the code, then type it here.',
+    label: 'Family code',
+    next: 'Next',
+    checking: 'Checking...',
+    tooShort: 'The code has 8 letters and numbers. Check it again.',
+    finishCheck: 'Finish the safety check below first.',
+    wrong: 'That code does not match yet. Read it again slowly, or ask your parent for help.',
+    slowDown: 'Slow down a little. Wait one minute, then try again.',
+    noServer: 'Kira cannot reach the server. Check the internet, then try again.',
+    whereToFind: 'Your parent can find the code on their Kira page.',
+    tapName: 'Tap your name.',
+    namesLabel: 'Names in this family',
+    noChildrenTitle: 'Your name is not here yet',
+    noChildrenBody: 'Ask your parent to add you in Kira first. After that, come back and type the code again.',
+    otherCode: 'Type a different code',
+    expired: 'That code can no longer be used. Go back and type the family code again.',
   },
 
   pin: {
@@ -536,6 +558,27 @@ const id: typeof en = {
     addLearner: 'Tambah anak',
     grownUpsOnly: 'Khusus orang dewasa',
     everyoneOwn: 'Setiap anak punya bintang, streak, dan gambar rahasianya sendiri.',
+    otherChild: 'Namamu belum ada? Pakai kode keluarga',
+  },
+
+  kode: {
+    title: 'Masuk dengan kode keluarga',
+    intro: 'Minta kodenya ke orang tuamu, lalu ketik di sini.',
+    label: 'Kode keluarga',
+    next: 'Lanjut',
+    checking: 'Memeriksa...',
+    tooShort: 'Kodenya 8 huruf dan angka. Coba periksa lagi, ya.',
+    finishCheck: 'Selesaikan dulu pemeriksaan keamanan di bawah.',
+    wrong: 'Kodenya belum cocok. Baca lagi pelan-pelan, atau minta bantuan orang tuamu.',
+    slowDown: 'Pelan-pelan dulu, ya. Tunggu satu menit, lalu coba lagi.',
+    noServer: 'Kira belum tersambung ke server. Periksa internet, lalu coba lagi.',
+    whereToFind: 'Orang tuamu bisa melihat kodenya di halaman Kira mereka.',
+    tapName: 'Ketuk namamu.',
+    namesLabel: 'Nama di keluarga ini',
+    noChildrenTitle: 'Namamu belum ada di sini',
+    noChildrenBody: 'Minta orang tuamu menambahkan namamu di Kira dulu, ya. Setelah itu, kembali ke sini dan ketik kodenya lagi.',
+    otherCode: 'Ketik kode lain',
+    expired: 'Kode itu sudah tidak bisa dipakai. Kembali, lalu ketik kode keluarga lagi.',
   },
 
   pin: {
