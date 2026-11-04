@@ -125,7 +125,7 @@ test.describe('pendaftaran orang tua', () => {
     await page.getByText('Izin tambahan, boleh nanti').click()
     const boxes = page.getByRole('form', { name: 'Tambah anak' }).getByRole('checkbox')
     for (let i = 0; i < (await boxes.count()); i++) await expect(boxes.nth(i)).not.toBeChecked()
-    await page.getByRole('checkbox', { name: /Belajar di Kira/ }).check()
+    await page.getByRole('checkbox', { name: /Saya orang tua atau wali/ }).check()
     await page.getByRole('button', { name: 'Tambahkan anak' }).click()
     await expect(page.getByText('Nara', { exact: true }).first()).toBeVisible()
     await page.getByRole('link', { name: 'Lanjut pilih jalur' }).click()

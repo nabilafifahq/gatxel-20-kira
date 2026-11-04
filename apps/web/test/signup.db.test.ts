@@ -72,6 +72,42 @@ describe.skipIf(!ready)('pendaftaran dan daftar tunggu', () => {
     expect(u).toMatchObject({ role: 'guardian', kind: 'adult', email_norm: `ibu${run}@gmail.com` })
   })
 
+  it('email kabar: bawaan tidak berlangganan, di pendaftar dan di akun', async () => {
+    const email = `bawaan.${run}@gmail.com`
+    await svc.startSignup({ name: 'Ibu Bawaan', email, password: PASSWORD, consent: true, ipHash: 'x' })
+    const [p] = await owner`select marketing_opt_in, marketing_opt_in_at from auth.signup where lower(email) = ${email}`
+    expect(p).toMatchObject({ marketing_opt_in: false, marketing_opt_in_at: null })
+    const token = tokenOf((await mailTo(email, 'signup-verify'))!.text as string, '/daftar/konfirmasi/')
+    expect((await svc.verifySignup(token)).status).toBe('ok')
+    const [u] = await owner`select marketing_opt_in, marketing_opt_in_at, marketing_token from auth.user_account where lower(email) = ${email}`
+    expect(u).toMatchObject({ marketing_opt_in: false, marketing_opt_in_at: null, marketing_token: null })
+    expect(await count(owner`select count(*)::int as n from audit_log where action = 'marketing.opted-in' and meta->>'via' = 'signup' and actor_id in (select id from auth.user_account where lower(email) = ${email})`)).toBe(0)
+  })
+
+  it('email kabar: yang mencentang tersimpan dengan waktu, ikut ke akun, dan tautan berhenti menghentikannya', async () => {
+    const email = `kabar.${run}@gmail.com`
+    await svc.startSignup({ name: 'Ibu Kabar', email, password: PASSWORD, consent: true, marketing: true, ipHash: 'x' })
+    const [p] = await owner`select marketing_opt_in, marketing_opt_in_at from auth.signup where lower(email) = ${email}`
+    expect(p!.marketing_opt_in).toBe(true)
+    expect(p!.marketing_opt_in_at).toBeTruthy()
+    const token = tokenOf((await mailTo(email, 'signup-verify'))!.text as string, '/daftar/konfirmasi/')
+    const ok = await svc.verifySignup(token)
+    expect(ok.status).toBe('ok')
+    const [u] = await owner`select id, marketing_opt_in, marketing_opt_in_at, marketing_notice_version, marketing_token from auth.user_account where lower(email) = ${email}`
+    expect(u!.marketing_opt_in).toBe(true)
+    expect(new Date(u!.marketing_opt_in_at).getTime()).toBe(new Date(p!.marketing_opt_in_at).getTime())
+    expect(u!.marketing_notice_version).toBeTruthy()
+    expect(u!.marketing_token).toMatch(/^[A-Za-z0-9_-]{20,100}$/)
+    expect(await count(owner`select count(*)::int as n from audit_log where action = 'marketing.opted-in' and actor_id = ${u!.id}`)).toBe(1)
+    expect(await svc.unsubscribeByToken(u!.marketing_token)).toBe('account')
+    expect(await svc.unsubscribeByToken(u!.marketing_token)).toBe('account')
+    const [off] = await owner`select marketing_opt_in, marketing_withdrawn_at, marketing_opt_in_at from auth.user_account where id = ${u!.id}`
+    expect(off!.marketing_opt_in).toBe(false)
+    expect(off!.marketing_withdrawn_at).toBeTruthy()
+    expect(off!.marketing_opt_in_at).toBeTruthy()
+    expect(await svc.unsubscribeByToken('tidak-dikenal-sama-sekali-000000')).toBeNull()
+  })
+
   it('email yang sudah punya akun: jawaban sama, tidak ada pendaftar baru, pemilik dikabari', async () => {
     const variant = `i.bu.${run}+x@gmail.com`
     await expect(svc.startSignup({ name: 'Ibu Lain', email: variant, password: PASSWORD, consent: true, ipHash: 'x' })).resolves.toBeUndefined()
