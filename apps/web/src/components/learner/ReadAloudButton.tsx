@@ -42,7 +42,7 @@ export function ReadAloudButton({
   labels?: { idle: string; busy: string }
   className?: string
 }): ReactElement | null {
-  const { status, toggle } = useSpeech(lang)
+  const { status, toggle, problem } = useSpeech(lang)
   const noteId = useId()
   const t = useT()
   const reading = status === 'reading'
@@ -79,6 +79,10 @@ export function ReadAloudButton({
       {off ? (
         <span id={noteId} className={cx('text-body text-fg-muted', showNote ? '' : 'visually-hidden')}>
           {t.widgets.shared.noVoice}
+        </span>
+      ) : problem ? (
+        <span role="status" className="text-body text-fg-muted">
+          {problem === 'failed' ? t.widgets.shared.audioFailed : t.widgets.shared.audioNotReady}
         </span>
       ) : null}
     </span>

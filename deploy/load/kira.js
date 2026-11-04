@@ -160,6 +160,7 @@ function runSession(w, s, opts) {
   }
   if (n === 0) return false
   for (let p = 1; p <= n; p++) {
+    if (!fast) audioFetch(w, CLIPS_PER_QUESTION)
     if (!fast) think(lim ? 3 : 4, lim ? 9 : 12)
     action(
       'saveAnswerAction',
@@ -184,6 +185,7 @@ function answerAttempt(w, runId, tags) {
   while ((m = re.exec(text)) !== null) types.push(m[1])
   if (types.length === 0) return false
   for (let p = 1; p <= types.length; p++) {
+    audioFetch(w, CLIPS_PER_QUESTION)
     think(3, 10)
     action(
       'saveAnswerAction',
@@ -226,23 +228,11 @@ function audioFetch(w, count) {
   for (let i = 0; i < count; i++) clipGet(w, '/tts/' + (clips.length ? clips[Math.floor(Math.random() * clips.length)] : '0'.repeat(64)) + '.mp3')
 }
 
-// Alur peramban (TtsRuntime dan sw.js): tanya /api/tts/today, lalu service worker menyimpan semua klip hari itu satu per satu, kecuali yang sudah tersimpan.
-// Saat diputar, klip dibaca dari simpanan perangkat. Tiap VU punya simpanannya sendiri, seperti satu tablet.
-const stored = {}
-function clipPrecache(w) {
-  const r = http.get(BASE + '/api/tts/today', { headers: headers(w.cookie), tags: { name: 'tts_today' } })
-  if (r.status !== 200) return
-  let urls
-  try {
-    urls = r.json('urls') || []
-  } catch {
-    return
-  }
-  for (const u of urls.slice(0, 600)) {
-    if (stored[u]) continue
-    stored[u] = true
-    clipGet(w, u)
-  }
+// Alur peramban: /api/tts/today hanya memberi status. Klip diambil saat soalnya tampil: tombol baca memuat klip soal ini, dan soal berikutnya dipramuat.
+// Diukur di peramban sungguhan: sekitar 12 klip untuk dua soal pertama. Kunci acak dari klip sungguhan, jadi ukuran berkasnya nyata.
+const CLIPS_PER_QUESTION = Number(__ENV.CLIPS_PER_QUESTION || 6)
+function ttsStatusCheck(w) {
+  http.get(BASE + '/api/tts/today', { headers: headers(w.cookie), tags: { name: 'tts_today' } })
 }
 
 function pickSession(sessions, kind) {
@@ -280,7 +270,7 @@ function sessionScenario(kind) {
   const w = who()
   const r = todayView(w)
   heartbeat(w)
-  clipPrecache(w)
+  ttsStatusCheck(w)
   let sessions = parseToday(r.body)
   let s = pickSession(sessions, kind)
   // Tes dan Paper terkunci sampai Latihan mapel itu selesai: selesaikan Latihan dulu tanpa jeda (tanda prep_).

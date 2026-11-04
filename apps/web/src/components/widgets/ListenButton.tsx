@@ -40,14 +40,14 @@ export function ListenButton({
   /** Mode tanpa umpan balik: klip belum ada. */
   missing?: boolean
 }): ReactElement {
-  const { status, toggle, playKeys, stop } = useSpeech(lang)
+  const { status, toggle, playKeys, stop, problem } = useSpeech(lang)
   const [played, setPlayed] = useState(false)
   const [loadFailed, setLoadFailed] = useState(false)
   const noteId = useId()
   const t = useT()
   const playing = status === 'reading'
   const off = missing || (clips === undefined && status === 'unavailable')
-  const note = missing ? t.widgets.shared.audioNotReady : off ? t.widgets.shared.noVoice : loadFailed ? t.widgets.shared.audioFailed : null
+  const note = missing || problem === 'missing' ? t.widgets.shared.audioNotReady : off ? t.widgets.shared.noVoice : loadFailed || problem === 'failed' ? t.widgets.shared.audioFailed : null
   return (
     <span className={cx('inline-flex flex-wrap items-center gap-2.5', className)}>
       <button
