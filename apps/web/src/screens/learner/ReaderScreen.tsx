@@ -123,7 +123,7 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
         }
         setCur(next)
       },
-      { style: 'narrator' },
+      { style: 'teacher' },
     )
     return () => stop()
   }, [playing, cur, replay, phase, flat, pageOf, speak, stop])

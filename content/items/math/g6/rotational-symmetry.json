@@ -55,7 +55,7 @@
         "It matches itself after a half turn.",
         "It does not match after a quarter turn."
       ],
-      "explanation": "A parallelogram has order 2."
+      "explanation": "It looks the same after a half turn and a full turn, so its order is 2."
     },
     {
       "id": "m6.rotational-symmetry.005",
@@ -115,7 +115,7 @@
         },
         {
           "text": "a rectangle",
-          "why": "A rectangle has order 2."
+          "why": "A rectangle has order 2, or order 4 if it is a square."
         }
       ],
       "answer": 1,
@@ -135,14 +135,14 @@
       "options": [
         {
           "text": "a rectangle",
-          "why": "A rectangle has order 2."
+          "why": "A rectangle looks the same after a half turn, so its order is at least 2."
         },
         {
           "text": "an isosceles triangle that is not equilateral"
         },
         {
           "text": "a parallelogram",
-          "why": "A parallelogram has order 2."
+          "why": "A parallelogram looks the same after a half turn, so its order is at least 2."
         }
       ],
       "answer": 1,
@@ -185,7 +185,7 @@
       "skill": "m6.rotational-symmetry",
       "difficulty": 3,
       "type": "mcq",
-      "prompt": "A shape looks the same after a quarter turn. What is the order of rotational symmetry?",
+      "prompt": "The smallest turn that makes a shape look the same is a quarter turn. What is the order of rotational symmetry?",
       "options": [
         {
           "text": "2",
@@ -288,7 +288,7 @@
           "group": 0
         },
         {
-          "text": "rectangle",
+          "text": "rectangle (not a square)",
           "group": 1
         },
         {
@@ -309,7 +309,7 @@
         "Order 2 matches after a half turn.",
         "Triangle has 3, square has 4."
       ],
-      "explanation": "A kite and F have order 1, a rectangle and H have order 2, and a triangle and square have orders 3 and 4."
+      "explanation": "A kite and F have order 1, a non-square rectangle and H have order 2, and an equilateral triangle and a square have orders 3 and 4."
     },
     {
       "id": "m6.rotational-symmetry.015",
@@ -346,7 +346,7 @@
       "skill": "m6.rotational-symmetry",
       "difficulty": 4,
       "type": "numeric",
-      "prompt": "A shape matches itself after each turn of 180 degrees. What is its order of rotational symmetry?",
+      "prompt": "A shape first matches itself after a turn of 180 degrees. What is its order of rotational symmetry?",
       "answer": 2,
       "hints": [
         "Divide 360 by the matching turn.",
@@ -495,7 +495,7 @@
       "skill": "m6.rotational-symmetry",
       "difficulty": 2,
       "type": "text",
-      "prompt": "A shape that looks the same after a half turn has rotational symmetry of order ___.",
+      "prompt": "A shape that first looks the same after a half turn has rotational symmetry of order ___.",
       "blanks": [
         {
           "answers": [
@@ -509,7 +509,7 @@
         "360 ÷ 180.",
         "It matches two times in a full turn."
       ],
-      "explanation": "A half-turn match means order 2."
+      "explanation": "A first match at a half turn means order 2."
     },
     {
       "id": "m6.rotational-symmetry.801",

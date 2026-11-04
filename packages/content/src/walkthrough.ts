@@ -148,6 +148,13 @@ function questionMark(prompt: string): string | null {
   return tok.length >= 8 && prompt.includes(tok) ? tok : null
 }
 
+/** Opsi diacak saat tampil kecuali soal lomba, jadi huruf opsi di kunci hanya berlaku bila urutannya tetap. */
+const KEEP_ORDER = new Set(['keep-order', 'esmo', 'ikmc', 'sasmo'])
+function shownKey(item: Item, key: string): string {
+  if (item.type !== 'mcq' && item.type !== 'multi') return key
+  return item.tags.some((t) => KEEP_ORDER.has(t)) ? key : key.replace(/(^|; )[A-F]\. /g, '$1')
+}
+
 /** Penjelasan "mengapa" dari penjelasan yang sudah ada. Null bila soal tidak cocok. */
 export function deriveSteps(item: Item): SolutionStep[] | null {
   if (MANUAL.has(item.type)) return null
@@ -178,7 +185,7 @@ export function deriveSteps(item: Item): SolutionStep[] | null {
     const w = item.options.map((o, i) => ({ o, i })).find(({ o, i }) => !right.includes(i) && o.why && o.text)
     if (w && steps.length < 6) steps.push({ say: clip(`Not ${w.o.text}. ${w.o.why}`, 220) })
   }
-  steps.push({ say: 'So the answer is:', show: key })
+  steps.push({ say: 'So the answer is:', show: shownKey(item, key) })
   return steps.length >= 2 && steps.length <= 8 ? steps : null
 }
 
@@ -195,7 +202,7 @@ export function withWalkthrough<T extends Item>(item: T): T {
       } catch {
         key = ''
       }
-      if (key && key.length <= 118) return { ...item, solution: [...solution, { say: 'So the answer is:', show: key }] }
+      if (key && key.length <= 118) return { ...item, solution: [...solution, { say: 'So the answer is:', show: shownKey(item, key) }] }
     }
     return full
   }

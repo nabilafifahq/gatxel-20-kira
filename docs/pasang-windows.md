@@ -260,13 +260,13 @@ Next.js merilis pembaruan keamanan setiap bulan. Repo memakai Dependabot dengan 
 
 ## 15. Suara bahasa Inggris (TTS, opsional)
 
-Kira bisa membacakan soal, pelajaran, dan bacaan bahasa Inggris dengan suara Qwen3-TTS 1.7B (Apache-2.0) yang berjalan di PC ini. Tanpa layanan ini tombol baca suara memakai suara bawaan tablet, dan semuanya tetap jalan. Layanan `tts` tidak ikut `docker compose up` biasa: ia ada di profil `tts`, jadi PC tanpa GPU tidak membangun atau menjalankannya.
+Kira bisa membacakan soal, pelajaran, dan bacaan bahasa Inggris dengan suara Kokoro-82M (Apache-2.0) yang berjalan di PC ini. Satu suara tetap per peran: perempuan Inggris Britania untuk soal, pelajaran, dan cerita; suara yang sama dengan kecepatan lain untuk pembawa acara kuis dan dikte; satu suara kedua hanya untuk dialog dua pembicara. Klip memuat versi suara di kuncinya, jadi klip dari suara lama tidak pernah disajikan. Tanpa layanan ini tombol baca suara memakai suara bawaan tablet, dan semuanya tetap jalan. Layanan `tts` tidak ikut `docker compose up` biasa: ia ada di profil `tts`, jadi PC tanpa GPU tidak membangun atau menjalankannya.
 
 | Layanan | Isi |
 |---|---|
-| `tts` | Python 3.12 dengan `qwen-tts`. Hanya di jaringan internal Docker tanpa internet, tanpa port ke host. Model dimuat saat ada permintaan pertama dan dibongkar setelah 10 menit tidak dipakai, jadi memori GPU kembali penuh. |
-| `tts-fetch` | Sekali jalan: mengunduh bobot model (sekitar 9 GB) ke volume `kira-tts-models`. Profil `tts-setup`. |
-| `worker` | Job `tts.batch` membuat semua suara English yang belum ada (sekitar 10.000 klip), job `tts.clip` membuat suara untuk konten baru. Klip disimpan di `<KIRA_HOST_DATA>\tts\<sha256>.mp3`. |
+| `tts` | Python 3.12 dengan `kokoro`, beberapa proses mesin sejajar (`TTS_WORKERS`, bawaan 3). Hanya di jaringan internal Docker tanpa internet, tanpa port ke host. Model dimuat saat ada permintaan pertama dan dibongkar setelah 10 menit tidak dipakai, jadi memori GPU kembali penuh. |
+| `tts-fetch` | Sekali jalan: mengunduh bobot model (sekitar 400 MB, termasuk Whisper untuk pemeriksa mutu) ke volume `kira-tts-models`. Profil `tts-setup`. |
+| `worker` | Job `tts.batch` membuat semua suara English yang belum ada (sekitar 21.000 klip, sekitar 8 klip per detik di RTX 5070 Ti), job `tts.clip` membuat suara untuk konten baru. Klip disimpan di `<KIRA_HOST_DATA>\tts\<sha256>.mp3`. |
 
 Syarat: driver NVIDIA terbaru di Windows (Docker Desktop dengan WSL 2 sudah meneruskan GPU ke kontainer), ruang disk sekitar 15 GB untuk image dan bobot model. Cek GPU terlihat oleh Docker: `docker run --rm --gpus all nvidia/cuda:12.8.0-base-ubuntu22.04 nvidia-smi`.
 
@@ -319,11 +319,71 @@ Syarat: driver NVIDIA terbaru di Windows (Docker Desktop dengan WSL 2 sudah mene
 
 ### Bila GPU dipakai program lain
 
-Layanan memeriksa memori GPU yang kosong sebelum memuat model. Bila kurang dari `TTS_MIN_FREE_MIB` (bawaan 7000 MiB), model tidak dimuat dan tidak ada program lain yang terganggu. Batch lalu menunggu satu jam dan mencoba lagi (sampai 36 kali), klip permintaan learner dilewati, dan tablet memakai suara bawaannya. Cek pemakaian GPU dengan `nvidia-smi`. Isi `TTS_OOM_FALLBACK=cpu` bila klip permintaan boleh dibuat di CPU saat GPU penuh.
+Layanan memeriksa memori GPU yang kosong sebelum memuat model. Bila kurang dari `TTS_MIN_FREE_MIB` (bawaan 1500 MiB), model tidak dimuat dan tidak ada program lain yang terganggu. Batch lalu menunggu satu jam dan mencoba lagi (sampai 36 kali), klip permintaan learner dilewati, dan tablet memakai suara bawaannya. Cek pemakaian GPU dengan `nvidia-smi`. Isi `TTS_OOM_FALLBACK=cpu` bila klip permintaan boleh dibuat di CPU saat GPU penuh.
 
 ### Mematikan atau mengganti suara
 
-Hapus `COMPOSE_PROFILES`, `COMPOSE_FILE`, dan `TTS_URL` dari `.env`, lalu `docker compose up -d`. Klip yang sudah ada tetap dipakai bila `TTS_URL` diisi lagi. Untuk membuat ulang semua suara (misalnya setelah mengubah `deploy/tts/styles.json`), hapus folder `tts` di folder data lalu jalankan `tts-batch` lagi. Gaya suara, pilihan 2 sampai 3 suara per gaya, dan nada pujian, pertanyaan, dan perintah ada di `deploy/tts/styles.json`.
+Hapus `COMPOSE_PROFILES`, `COMPOSE_FILE`, dan `TTS_URL` dari `.env`, lalu `docker compose up -d`. Klip yang sudah ada tetap dipakai bila `TTS_URL` diisi lagi. Untuk membuat ulang semua suara (misalnya setelah mengubah `deploy/tts/styles.json`), hapus folder `tts` di folder data lalu jalankan `tts-batch` lagi. Suara dan kecepatan tiap peran ada di `deploy/tts/styles.json`; bila diubah, naikkan `voiceVersion` di sana dan `TTS_VOICE_VERSION` di `packages/core/src/tts.ts` supaya semua kunci klip baru.
+
+### Membuat dan memeriksa ulang semua klip (tanpa worker)
+
+Untuk regenerasi massal (misalnya setelah konten digabung), jalankan dari root repo dengan layanan `tts` yang terjangkau (alamat dan token internal Anda):
+
+```
+pnpm tts:generate -- --data-dir D:kira-data --url http://127.0.0.1:8000 --token <KIRA_INTERNAL_TOKEN> --concurrency 3
+```
+
+Perintah ini bisa dilanjutkan: klip yang sudah ada dilewati, jadi Ctrl+C lalu jalankan lagi hanya membuat sisanya. Ia juga menulis `ttsmanifest.jsonl` (kunci, peran, teks). Gerbang mutu `deploy/tts/check_clips.py` memeriksa durasi, puncak dan clipping, hening, nada F0 (lompatan suara), dan kecocokan Whisper dengan teks, menulis CSV, membuat ulang sekali klip yang gagal, dan menulis daftar yang masih gagal:
+
+```
+docker run --rm --gpus all --network host -v D:kira-data	ts:/data -v kira-tts-models:/models -e HF_HUB_OFFLINE=1 --entrypoint python kira-tts:latest check_clips.py --dir /data --report /data/report.csv --url http://127.0.0.1:8000 --token <KIRA_INTERNAL_TOKEN>
+```
+
+Ini juga bisa dilanjutkan (klip yang sudah diperiksa dan tidak berubah dilewati; `--force` memeriksa ulang semua).
+
+### Mengganti suara (backend lain, misalnya suara AI Gatxel)
+
+Layanan `tts` punya dua backend: `TTS_BACKEND=kokoro` (bawaan, di GPU lokal) dan `TTS_BACKEND=openai-compatible` (memanggil `POST <TTS_BASE_URL>/audio/speech`, format OpenAI, misalnya Open WebUI). Variabel untuk layanan `tts`:
+
+| Variabel | Arti |
+|---|---|
+| `TTS_BACKEND` | `kokoro` atau `openai-compatible` |
+| `TTS_BASE_URL` | mis. `http://host.docker.internal:3000/api/v1` (dari kontainer, `127.0.0.1` adalah kontainer itu sendiri, bukan PC) |
+| `TTS_API_KEY` | token Bearer Open WebUI (jangan ditulis di berkas yang masuk git) |
+| `TTS_MODEL` | nama model, bawaan `tts-1` |
+| `TTS_VOICE` | nama suara utama |
+| `TTS_VOICE_SECOND` | suara kedua untuk dialog dua pembicara (kosong: pakai suara utama) |
+| `TTS_VOICE_VERSION` | opsional; bawaan `oa-<nama suara>`. Versi masuk ke kunci klip |
+| `TTS_WORKERS` | banyak permintaan sejajar ke backend |
+
+Hanya satu suara yang didengar anak pada satu waktu. Penunjuk `<data>/tts/served-version.txt` menentukan versi yang disajikan; selama set baru belum lengkap dan lulus gerbang, versi lama tetap disajikan, juga untuk klip baru sesuai permintaan (job `tts.clip` dilewati bila layanan memakai suara yang berbeda dari yang disajikan, dan tablet memakai suara perangkat sampai klipnya ada). Urutannya:
+
+1. Uji kecepatan lebih dulu, tanpa mengubah apa pun. Langsung ke backend, 50 kalimat, dan perkiraan apakah 21.000 klip selesai sebelum pukul 06.00 WIB:
+
+   ```
+   docker run --rm --entrypoint python -v <repo>\deploy\tts:/app/tts:ro -w /app/tts kira-tts:latest speedtest.py --backend openai-compatible --base-url http://host.docker.internal:3000/api/v1 --api-key <KUNCI> --voice <NAMA> --concurrency 4
+   ```
+
+2. Jalankan layanan calon di port lain dengan variabel di atas (kontainer terpisah, mis. `-p 127.0.0.1:18770:8000`), lalu buat set penuh: `pnpm tts:generate -- --data-dir <data> --url http://127.0.0.1:18770 --token <KIRA_INTERNAL_TOKEN> --concurrency 4`. Versi diambil dari layanan itu sendiri (`/health`), jadi klipnya bernama lain dan tidak menimpa suara yang sedang disajikan.
+3. Periksa dengan `check_clips.py` (lihat di atas; `--manifest` bawaan `manifest.jsonl` adalah set terakhir yang dibuat).
+4. Pindahkan penunjuk bila lulus: `pnpm tts:promote -- --data-dir <data> --version <versi> --report <laporan.csv>`. Perintah ini menolak bila ada klip yang belum ada atau tingkat lulus di bawah 99%. Browser membaca versi baru dari `/api/tts/today` dan web dalam 5 detik; semua perangkat berpindah bersamaan.
+5. Kembali ke Kokoro kapan saja: `pnpm tts:promote -- --data-dir <data> --version k1 --report <laporan Kokoro>` (klipnya tetap ada di disk).
+
+### Suara pilot: Piper (en_US-lessac-medium) dan suara id dari server Gatxel
+
+Suara standar pilot adalah suara `en` server suara Gatxel, yaitu model Piper publik **en_US-lessac-medium**. Layanan `tts` menjalankannya sendiri di CPU (`TTS_BACKEND=piper`, model dan parameter sama, jadi suaranya sama dan tidak ada ganti jenis kelamin), sehingga server Gatxel yang dipakai bersama tidak dibebani. Versi suara di kunci klip: `piper-lessac-medium`.
+
+- **Bahasa menentukan suara, tidak pernah ditebak.** Peran `indonesian` (kamus, arti kata) dibuat lewat API Gatxel dengan suara `id` (id_ID-gatxel-medium). Semua peran Inggris (`teacher`, `quizhost`, `dictation`, `second`) memakai `en`. Teks Inggris tidak pernah dikirim ke `id` (hasilnya tak terbaca), dan sebaliknya.
+- Variabel: `TTS_BACKEND=piper`, `TTS_WORKERS=8` (proses sejajar, satu utas ONNX tiap proses), `TTS_PIPER_MODEL` (opsional; bawaan dicari di volume `/models`). Untuk peran Indonesia: `TTS_BASE_URL=http://host.docker.internal:3000/api/v1`, `TTS_API_KEY`, `TTS_VOICE=en`, `TTS_VOICE_ID=id`, `TTS_MODEL=piper`, dan bila perlu `TTS_REQUEST_PAUSE=0.2` (detik, jeda antar permintaan supaya layanan bersama tidak jenuh).
+- Unduh model: `docker compose --profile tts-setup run --rm tts-fetch python fetch_models.py piper`.
+- Lisensi: data latih model Lessac dan Gatxel berlisensi riset. Pilot gratis dan tidak komersial; ganti model sebelum penggunaan komersial.
+
+**Mengganti model nanti**: (1) pasang backend/suara baru lewat variabel di atas (atau tambahkan kelas sintesis di `deploy/tts/remote.py`); (2) set `TTS_VOICE_VERSION` baru (mis. `gatxel-2`); (3) `pnpm tts:generate` ke folder yang sama membuat hanya klip bernama baru, tanpa menyentuh yang disajikan; (4) `check_clips.py`; (5) `pnpm tts:promote`. Tidak ada perubahan kode web atau worker, dan versi lama tetap di disk untuk kembali.
+
+**Regenerasi bertahap saat konten masuk**: kunci klip adalah sha256 dari versi suara, peran, dan teks. Konten baru atau berubah berarti kunci baru, dan `pnpm tts:generate` (atau job `tts.batch` malam) hanya membuat kunci yang belum ada; teks yang sama dilewati. Jalankan lagi setelah tiap gelombang konten, lalu `check_clips.py` (hanya klip baru yang diperiksa) dan `pnpm tts:promote` setelah set lengkap lulus. Selama itu anak tetap mendengar versi yang disajikan.
+
+**Tanpa panggilan TTS langsung**: semua jalur anak (soal, pelajaran, kamus, kartu kilat, buku, cerita, album, bos, kuis) memutar berkas klip statis lewat `/tts/<kunci>.mp3`. Layanan `tts` dan server Gatxel tidak pernah dipanggil saat anak memakai aplikasi; klip yang belum ada hanya memicu job `tts.clip` di antrean worker dan, sampai jadi, suara perangkat.
+
 
 ### Masalah yang sering muncul
 

@@ -106,6 +106,8 @@ test('lampiran terlalu besar dan PNG palsu ditolak dengan pesan jelas', async ({
   await expect(page.getByRole('alert').filter({ hasText: 'PNG, JPG, PDF, atau MP4' }).first()).toBeVisible()
   await expect(page.getByLabel('Subjek')).toHaveValue(subject)
   expect(await ticket(subject)).toBeUndefined()
+  await page.getByRole('button', { name: 'Hapus lampiran' }).click()
+  await expect(page.getByRole('alert').filter({ hasText: 'PNG, JPG, PDF, atau MP4' })).toHaveCount(0)
 
   // Tanpa formulir: server sendiri menolak berkas di atas 5 MB dan kolom yang tidak dikenal.
   const big = await request.post(`${baseURL}/api/feedback`, {
@@ -178,4 +180,15 @@ test('akun anak melihat ajakan meminta bantuan orang tua, tanpa formulir atau un
   })
   expect(res.status()).toBe(403)
   expect(await ticket(`Dari anak ${run}`)).toBeUndefined()
+})
+
+test('berhenti satu klik dari header email bekerja tanpa sesi', async ({ request, baseURL }) => {
+  const token = `uji${run}${randomBytes(16).toString('hex')}`
+  const email = `kabar.${run}@gmail.com`
+  await db()`insert into auth.waitlist (email, email_norm, token, source, consent_text, confirmed_at) values (${email}, ${email}, ${token}, 'form', 'uji', now())`
+  const res = await request.post(`${baseURL}/api/kabar/berhenti/${token}`, { form: { 'List-Unsubscribe': 'One-Click' } })
+  expect(res.status()).toBe(200)
+  const [row] = await db()`select unsubscribed_at from auth.waitlist where token = ${token}`
+  expect(row!.unsubscribed_at).toBeTruthy()
+  expect((await request.post(`${baseURL}/api/kabar/berhenti/tidak-dikenal-${run}-aaaaaaaaaa`)).status()).toBe(404)
 })

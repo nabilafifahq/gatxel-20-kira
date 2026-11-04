@@ -214,7 +214,7 @@ export function PlacementScreen({ entry, actions }: { entry: PlacementEntryDTO; 
         </p>
       ) : null}
       <footer className="sticky bottom-0 z-10 flex items-center gap-2 bg-bg sm:gap-3 px-4 py-3 md:px-8">
-        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} />
+        <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={step.subject} showNote={false} compact={narrow} />
         <Button variant="secondary" onClick={() => void submit(true)} disabled={busy} className="ml-auto">
           {copy.notSure}
         </Button>

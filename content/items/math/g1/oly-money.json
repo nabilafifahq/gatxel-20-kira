@@ -113,9 +113,6 @@
         },
         {
           "say": "Rp500 + Rp500 = Rp1.000.",
-          "mark": [
-            "Rp500"
-          ],
           "anim": {
             "k": "combine",
             "a": 500,
@@ -123,7 +120,10 @@
             "b": 500,
             "r": 1000,
             "cur": "Rp"
-          }
+          },
+          "mark": [
+            "Rp500"
+          ]
         },
         {
           "say": "So the answer is:",
@@ -161,10 +161,6 @@
         },
         {
           "say": "Tia has Rp1.000 - Rp600 = Rp400 left.",
-          "mark": [
-            "Rp1.000",
-            "Rp600"
-          ],
           "anim": {
             "k": "bar",
             "parts": [
@@ -178,7 +174,11 @@
             ],
             "total": 1000,
             "cur": "Rp"
-          }
+          },
+          "mark": [
+            "Rp1.000",
+            "Rp600"
+          ]
         },
         {
           "say": "So the answer is:",
