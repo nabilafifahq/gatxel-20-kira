@@ -68,11 +68,11 @@ export async function familyPlan(sql: postgres.Sql, emailRaw: string): Promise<F
   const remove: Record<string, number> = {}
   const keep: Record<string, number> = {}
   for (const table of await orgTables(sql)) {
-    const [row] = await sql.unsafe<{ n: number }[]>(`select count(*)::int as n from ${table} where org_id = $1`, [f.orgId])
+    const [row] = await sql<{ n: number }[]>`select count(*)::int as n from ${sql(table)} where org_id = ${f.orgId}`
     if (row!.n > 0) (RETAINED_TABLES.has(table) ? keep : remove)[table] = row!.n
   }
   for (const table of ['auth.device', 'auth.invite', 'auth.mcp_token', 'auth.session', 'auth.user_account']) {
-    const [row] = await sql.unsafe<{ n: number }[]>(`select count(*)::int as n from ${table} where org_id = $1`, [f.orgId])
+    const [row] = await sql<{ n: number }[]>`select count(*)::int as n from ${sql(table)} where org_id = ${f.orgId}`
     if (row!.n > 0) remove[table] = row!.n
   }
   const [tickets] = await sql<{ n: number }[]>`select count(*)::int as n from support_ticket where account_id = ${f.parentId} or sender_email = ${f.email}`
@@ -133,7 +133,7 @@ export async function familyDelete(sql: postgres.Sql, emailRaw: string, confirmO
     }
     const media = await tx<{ path: string }[]>`select path from media where org_id = ${f.orgId} and path is not null`
     const users = await tx<{ id: string }[]>`select id from auth.user_account where org_id = ${f.orgId}`
-    for (const table of tables) await tx.unsafe(`delete from ${table} where org_id = $1`, [f.orgId])
+    for (const table of tables) await tx`delete from ${tx(table)} where org_id = ${f.orgId}`
     await tx`delete from auth.webauthn_challenge where user_id = any(${users.map((u) => u.id)}::uuid[])`
     await tx`delete from auth.device where org_id = ${f.orgId}`
     await tx`delete from auth.invite where org_id = ${f.orgId}`
