@@ -147,7 +147,7 @@ const en = {
     result: 'Result',
     energy: (pct: number) => `${pct}% energy`,
     energyOf: (name: string) => `${name} energy`,
-    energyShort: (pct: number) => `${pct}% energy`,
+    energyShort: (pct: number) => `${pct}%`,
     youBeat: (name: string) => `You beat ${name}!`,
     soClose: 'So close! Rematch?',
     score: (right: number, total: number) => `${right} of ${total} right.`,
@@ -162,7 +162,7 @@ const en = {
     seeCards: 'See my cards',
     backToToday: 'Back to Today',
     noEnergy: (name: string) => `${name} has no energy left! Finish your last questions to see your prize.`,
-    barIntro: (intro: string) => `${intro} Right answers power your attacks. A wrong answer costs nothing.`,
+    barIntro: (intro: string) => `${intro} Right answers are your attacks.`,
   },
   pet: {
     title: 'Your friend',
