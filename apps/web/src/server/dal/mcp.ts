@@ -151,7 +151,7 @@ export type McpDeps = {
   origin: string
   authenticate(token: string | null): Promise<McpAuth | null>
   /** 0 bila boleh, selain itu jumlah detik sebelum boleh mencoba lagi. */
-  rateLimit(tokenId: string): number
+  rateLimit(tokenId: string): number | Promise<number>
   callTool(auth: McpAuth, name: ToolName, args: unknown): Promise<ToolResult>
   /** Catat error tool yang tidak terduga; mengembalikan kode referensi. */
   onToolError(e: unknown, tool: ToolName): string
@@ -189,7 +189,7 @@ export async function handleMcpPost(req: { headers: Headers; body: string }, dep
   const auth = await deps.authenticate(bearer)
   if (!auth) return rpcError(null, -32001, 'Unauthorized.', 401, { 'WWW-Authenticate': 'Bearer' })
 
-  const wait = deps.rateLimit(auth.tokenId)
+  const wait = await deps.rateLimit(auth.tokenId)
   if (wait > 0) {
     return rpcError(null, -32000, `Too many requests: the limit is 60 per minute for each token. Try again in ${wait} second${wait === 1 ? '' : 's'}.`, 429, { 'Retry-After': String(wait) })
   }

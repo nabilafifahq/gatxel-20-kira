@@ -7,8 +7,8 @@ import { CHEST_ACCESSORY_IDS, CHEST_BACKGROUNDS } from '@kira/core'
 import type { ActionResult } from '@/lib/dto'
 import type { ChestRewardDTO } from '@/lib/dto-motion'
 import { inOrg } from '../db'
-import { orgCtx, requireLearner } from '../auth/actor'
-import { runAction } from '../errors'
+import { localFailure, orgCtx, requireLearner } from '../auth/actor'
+import { runAction as runBase } from '../errors'
 import { systemCtx } from '../audit'
 import { applyAccessory } from '../dal/arena-tracks'
 import { todayDTO } from '../dal/learner-today'
@@ -18,6 +18,10 @@ import { applyBackground, assertChestOwned, openChestTx } from '../dal/learner-m
  * Peti hadiah harian. Setiap action: requireLearner() lebih dulu, lalu Zod .strict(). Syarat "semua sesi wajib
  * selesai" dan "satu peti per hari" dicek di server (openChestTx), bukan di layar.
  */
+
+async function runAction<T>(context: string, fn: () => Promise<T>, lang?: 'id' | 'en-GB'): Promise<ActionResult<T>> {
+  return localFailure(await runBase(context, fn, lang))
+}
 
 const noInput = z.object({}).strict()
 
@@ -33,7 +37,7 @@ export async function openChestAction(
       const ctx = orgCtx(actor)
       return inOrg(ctx, async (tx) => {
         const today = await todayDTO(tx, ctx, actor.userId)
-        return openChestTx(tx, actor.orgId, actor.userId, today)
+        return openChestTx(tx, actor.orgId, actor.userId, today, undefined, actor.uiLang)
       })
     },
     'en-GB',
@@ -66,11 +70,11 @@ export async function equipChestRewardAction(input: {
       const actor = await requireLearner()
       const data = equip.parse(input)
       if (data.id !== null)
-        await inOrg(orgCtx(actor), (tx) => assertChestOwned(tx, actor.userId, data.kind, data.id as string))
+        await inOrg(orgCtx(actor), (tx) => assertChestOwned(tx, actor.userId, data.kind, data.id as string, actor.uiLang))
       await inOrg(systemCtx(actor.orgId), (tx) =>
         data.kind === 'accessory'
           ? applyAccessory(tx, actor.userId, data.id as AccessoryId | null)
-          : applyBackground(tx, actor.userId, data.id),
+          : applyBackground(tx, actor.userId, data.id, actor.uiLang),
       )
       return undefined
     },

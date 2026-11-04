@@ -1,7 +1,10 @@
+'use client'
+
 import type { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react'
 import type { Subject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Ubin jawaban (papan AnswerTile). Tinggi minimal 56 px (72 px untuk teks soal).
@@ -12,6 +15,7 @@ import { UiIcon } from '@/components/ui/icons'
 export type AnswerTileState = 'default' | 'selected' | 'correct' | 'not-yet' | 'dimmed' | 'disabled'
 
 export function TileBadge({ kind, className }: { kind: 'correct' | 'not-yet'; className?: string }): ReactElement {
+  const t = useT().runner
   return (
     <span
       className={cx(
@@ -21,7 +25,7 @@ export function TileBadge({ kind, className }: { kind: 'correct' | 'not-yet'; cl
       )}
     >
       <UiIcon name={kind === 'correct' ? 'check' : 'not-yet'} size={16} />
-      {kind === 'correct' ? 'Correct' : 'Not yet'}
+      {kind === 'correct' ? t.correct : t.notYet}
     </span>
   )
 }

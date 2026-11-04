@@ -8,7 +8,7 @@ import { attributionLine, canAutoFetch, type Registry, type Source } from '@kira
 import { tables, withOrg, type Db } from '@kira/db'
 import type { AiProvider } from '../ai/types'
 import { reviewKeys, SOLVE_BATCH, type ReviewInput } from '../ai/solve'
-import { listOrgIds, workerCtx } from '../db'
+import { listSourcingOrgIds, workerCtx } from '../db'
 import type { Env } from '../env'
 import { isAbortError } from '../errors'
 import type { Logger } from '../log'
@@ -120,7 +120,7 @@ export async function runWeeklySourcing(deps: SourcingDeps, slotAt: Date, signal
   const budget: Budget = { left: deps.env.AI_WEEKLY_CONTENT_JOBS, used: 0 }
   const week = weekStart(jakartaDate(slotAt))
   const results: OrgResult[] = []
-  for (const orgId of deps.onlyOrgIds ?? (await listOrgIds(deps.client))) {
+  for (const orgId of deps.onlyOrgIds ?? (await listSourcingOrgIds(deps.client))) {
     if (signal.aborted) break
     results.push(await runOrg(deps, ai, loaded, budget, week, signal, orgId))
   }

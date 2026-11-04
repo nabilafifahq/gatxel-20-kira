@@ -2,6 +2,7 @@
 
 import { refresh, revalidatePath } from 'next/cache'
 import type { ActionResult, PlanChangeResult } from '@/lib/dto'
+import type { ParentSkillChangeResult, ParentSkillOptionsDTO } from '@/lib/dto-parent'
 import { requireParent } from '../auth/parent'
 import { runAction } from '../errors'
 import {
@@ -16,10 +17,12 @@ import {
   parentSaveFeatures,
   parentSaveLimits,
   parentSaveSound,
+  parentSaveUiLang,
   parentSetQuestionCount,
   parentSetSessionRequired,
   parentUnlock,
 } from '../dal/parent-control'
+import { parentChangeSessionSkill, parentSkillOptions } from '../dal/parent-skill-change'
 import { parentSchemas as S } from './parent-schemas'
 
 /**
@@ -102,6 +105,25 @@ export async function parentSetQuestionCountAction(input: unknown): Promise<Acti
   })
 }
 
+/** Daftar pilihan Ganti pelajaran, dimuat saat dialog dibuka supaya halaman anak tetap ringan. */
+export async function parentSkillOptionsAction(input: unknown): Promise<ActionResult<ParentSkillOptionsDTO>> {
+  return runAction('parentSkillOptions', async () => {
+    const actor = await requireParent()
+    const data = S.quest.parse(input)
+    return parentSkillOptions(actor, data)
+  })
+}
+
+export async function parentChangeSessionSkillAction(input: unknown): Promise<ActionResult<ParentSkillChangeResult>> {
+  return runAction('parentChangeSessionSkill', async () => {
+    const actor = await requireParent()
+    const data = S.sessionSkill.parse(input)
+    const r = await parentChangeSessionSkill(actor, data)
+    after(r.change)
+    return r
+  })
+}
+
 export async function parentSaveLimitsAction(input: unknown): Promise<ActionResult> {
   return runAction('parentSaveLimits', async () => {
     const actor = await requireParent()
@@ -147,6 +169,16 @@ export async function parentEditChildAction(input: unknown): Promise<ActionResul
     await parentEditChild(actor, data)
     refresh()
     return undefined
+  })
+}
+
+export async function parentSaveUiLangAction(input: unknown): Promise<ActionResult<null>> {
+  return runAction('parentSaveUiLang', async () => {
+    const actor = await requireParent()
+    const data = S.uiLang.parse(input)
+    await parentSaveUiLang(actor, data)
+    after(null)
+    return null
   })
 }
 

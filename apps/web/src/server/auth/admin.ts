@@ -3,6 +3,7 @@ import { and, desc, eq, gt, isNull } from 'drizzle-orm'
 import { tables } from '@kira/db'
 import { authDb } from '../db'
 import { randomToken, sha256hex } from './crypto'
+import { invalidateDeviceSessions } from './session'
 
 /**
  * Query skema auth untuk konsol (perangkat, undangan, token MCP).
@@ -33,6 +34,7 @@ export async function revokeDevice(orgId: string, deviceId: string): Promise<boo
     .set({ revokedAt: new Date() })
     .where(and(eq(device.id, deviceId), eq(device.orgId, orgId), isNull(device.revokedAt)))
     .returning({ id: device.id })
+  if (rows.length > 0) await invalidateDeviceSessions(deviceId)
   return rows.length > 0
 }
 

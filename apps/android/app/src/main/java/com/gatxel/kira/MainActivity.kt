@@ -238,6 +238,9 @@ class MainActivity : ComponentActivity() {
         view.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
+            // Klip suara dan suara pembawa kuis diputar setelah unduhan selesai, di luar ketukan anak. Bawaan WebView
+            // menolak play() itu, lalu bacaan jatuh ke suara perangkat dan suaranya berganti. Hanya origin Kira yang dimuat.
+            mediaPlaybackRequiresUserGesture = false
             allowFileAccess = false
             allowContentAccess = false
             mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW

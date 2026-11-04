@@ -20,6 +20,12 @@ export function connectWorkerDb(url: string): WorkerDb {
   return createDb(url, { name: 'worker', max: 5 })
 }
 
+/** Org yang ikut pembaruan sumber soal mingguan (org.settings.weeklySourcing = true; lihat migrasi 0015). */
+export async function listSourcingOrgIds(client: postgres.Sql): Promise<string[]> {
+  const rows = await client<{ id: string }[]>`select id from kira_list_sourcing_orgs()`
+  return rows.map((r) => r.id)
+}
+
 /** Daftar org lewat fungsi definer (RLS kira_worker tidak membolehkan membaca tabel org langsung). */
 export async function listOrgIds(client: postgres.Sql): Promise<string[]> {
   const rows = await client<{ id: string }[]>`select id from kira_list_orgs()`

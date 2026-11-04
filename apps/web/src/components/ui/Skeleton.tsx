@@ -1,4 +1,7 @@
+'use client'
+
 import type { ReactElement } from 'react'
+import { useT } from '@/lib/i18n/client'
 import { cx } from './cx'
 
 /**
@@ -11,8 +14,9 @@ export function Skeleton({ className }: { className?: string }): ReactElement {
 
 /** Kerangka layar learner: rel kiri di tablet, sapaan, bar progres, dan tiga kartu. */
 export function LearnerSkeleton(): ReactElement {
+  const t = useT()
   return (
-    <div role="status" aria-busy="true" aria-label="Loading" className="min-h-svh bg-bg md:flex">
+    <div role="status" aria-busy="true" aria-label={t.shell.ui.loading} className="min-h-svh bg-bg md:flex">
       <div aria-hidden="true" className="hidden h-svh w-26 flex-none bg-surface shadow-soft md:block" />
       <div className="flex min-w-0 flex-1 flex-col gap-6 px-4 pt-5 pb-28 md:px-10 md:pt-8 md:pb-8 md:pl-8">
         <div className="flex items-center gap-4">

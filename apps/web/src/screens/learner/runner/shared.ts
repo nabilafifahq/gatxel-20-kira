@@ -1,5 +1,6 @@
 import type { ClientItem } from '@kira/content/present'
 import type { RunnerDTO, RunnerItem, SavedResponse } from '@/lib/dto'
+import type { Dict } from '@/lib/i18n'
 
 /** Fungsi unggah media untuk widget bicara dan gambar (di luar RunnerActions). */
 export type RunnerUpload = (
@@ -28,19 +29,6 @@ export function hintsOf(item: ClientItem): string[] {
   return item.hints ?? []
 }
 
-export function testWord(kind: RunnerDTO['kind']): string {
-  switch (kind) {
-    case 'test':
-      return 'test'
-    case 'simulation':
-      return 'mock test'
-    case 'paper':
-      return 'paper'
-    case 'quest':
-      return 'quest'
-    case 'review':
-      return 'review'
-    default:
-      return 'answers'
-  }
+export function testWord(kind: RunnerDTO['kind'], t: Dict['runner']): string {
+  return t.test.words[kind]
 }

@@ -15,6 +15,13 @@ describe('skema aksi orang tua', () => {
     expect(() => S.addChild.parse({ name: 'Ayu', grade: 2, avatar: 'fox', pin: ['sun', 'moon', 'star', 'cat'], guardianId: id })).toThrow()
   })
 
+  it('ganti pelajaran: id sesi UUID, id skill berbentuk benar, kolom asing ditolak', () => {
+    expect(S.sessionSkill.parse({ questId: id, skillId: 'm2.place-value' })).toBeTruthy()
+    expect(() => S.sessionSkill.parse({ questId: 'x', skillId: 'm2.place-value' })).toThrow()
+    expect(() => S.sessionSkill.parse({ questId: id, skillId: "m2.place-value'; drop table quest" })).toThrow()
+    expect(() => S.sessionSkill.parse({ questId: id, skillId: 'm2.place-value', learnerId: id })).toThrow()
+  })
+
   it('menolak id yang bukan UUID', () => {
     expect(() => S.unlock.parse({ learnerId: 'abc' })).toThrow()
     expect(() => S.quest.parse({ questId: '1' })).toThrow()

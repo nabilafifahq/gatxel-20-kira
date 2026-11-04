@@ -5,6 +5,7 @@ import { tables } from '@kira/db'
 import type { SolutionStep } from '@kira/content/schema'
 import { clashKeys, type Item } from '@kira/content'
 import type { RunnerItem } from '@/lib/dto'
+import { getT } from '@/lib/i18n/server'
 import type { Tx } from '../db'
 import { invalid, notFound } from '../errors'
 import { lesson, poolForSkill, resolveItems, toClient } from './content'
@@ -26,18 +27,21 @@ export type RemedialLesson = { title: string; steps: SolutionStep[] }
 
 type Guarded = { a: Awaited<ReturnType<typeof loadAttempt>>; slot: AttemptItem; all: AttemptItem[] }
 
+/** Pesan error ke anak, hanya dibaca di jalur error. */
+const errors = async () => (await getT()).lessons.errors
+
 /** Syarat: attempt milik learner dan masih jalan, mode latihan, soalnya sudah dijawab salah, dan bukan soal saudara. */
 async function guard(tx: Tx, learnerId: string, attemptId: string, position: number): Promise<Guarded> {
   const a = await loadAttempt(tx, learnerId, attemptId)
-  if (a.status !== 'in_progress') throw invalid('This quest is already handed in.')
-  if (!modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid('Extra help is for practice only.')
+  if (a.status !== 'in_progress') throw invalid((await errors()).questHandedIn)
+  if (!modeShowsFeedback(a.mode as Mode) || ['tes', 'simulasi', 'kertas', 'kilat'].includes(a.mode)) throw invalid((await errors()).extraPracticeOnly)
   const all = (a.items as AttemptItem[]) ?? []
   const slot = all.find((i) => i.position === position)
-  if (!slot) throw notFound('That question is not in this quest.')
-  if (slot.remedialOf !== undefined) throw invalid('This question is already the extra one.')
+  if (!slot) throw notFound((await errors()).notInQuest)
+  if (slot.remedialOf !== undefined) throw invalid((await errors()).alreadyExtra)
   const rows = await tx.select().from(response).where(eq(response.attemptId, a.id))
   const latest = latestByPosition(rows).get(position)
-  if (!latest || latest.status !== 'wrong') throw invalid('Extra help opens after a question is missed.')
+  if (!latest || latest.status !== 'wrong') throw invalid((await errors()).extraAfterMiss)
   return { a, slot, all }
 }
 
@@ -101,12 +105,12 @@ export async function walkthroughFor(tx: Tx, learnerId: string, attemptId: strin
   const a = await loadAttempt(tx, learnerId, attemptId)
   const all = (a.items as AttemptItem[]) ?? []
   const slot = all.find((i) => i.position === position)
-  if (!slot) throw notFound('That question is not in this quest.')
+  if (!slot) throw notFound((await errors()).notInQuest)
   if (a.status === 'in_progress') {
     const hidden = ['tes', 'simulasi', 'kertas'].includes(a.mode)
-    if (hidden || !modeShowsFeedback(a.mode as Mode) || a.mode === 'kilat') throw invalid('The steps open after you hand in.')
+    if (hidden || !modeShowsFeedback(a.mode as Mode) || a.mode === 'kilat') throw invalid((await errors()).stepsAfterHandIn)
     const rows = await tx.select().from(response).where(eq(response.attemptId, a.id))
-    if (!latestByPosition(rows).has(position)) throw invalid('Answer the question first.')
+    if (!latestByPosition(rows).has(position)) throw invalid((await errors()).answerFirst)
   }
   const item = (await resolveItems(tx, [slot.ref])).get(slot.ref)
   return item?.solution ?? null

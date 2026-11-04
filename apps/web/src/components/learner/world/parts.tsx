@@ -16,7 +16,7 @@ const TABS = [
   { href: '/world/shop', label: 'Star Shop', key: 'shop' },
   { href: '/world/cards', label: 'Cards', key: 'cards' },
   { href: '/world/story', label: 'Story', key: 'story' },
-  { href: '/world/boss', label: 'Puzzle Robot', key: 'boss' },
+  { href: '/world/boss', label: 'Bosses', key: 'boss' },
   { href: '/world/trophies', label: 'Trophies', key: 'trophies' },
 ] as const
 export type WorldTab = (typeof TABS)[number]['key']
@@ -90,7 +90,7 @@ export type CardFace = Pick<CardDTO, 'id' | 'no' | 'name' | 'rarity' | 'art' | '
 
 /** Kartu koleksi. Epic dan legendary berkilau holografik. `back` menampilkan sisi belakang bernomor. */
 export function CollectCard({ card, total, back = false, big = false, className }: { card: CardFace; total: number; back?: boolean; big?: boolean; className?: string }): ReactElement {
-  const no = `${String(card.no).padStart(2, '0')} / ${total}`
+  const no = `${String(card.no).padStart(3, '0')} / ${total}`
   const shiny = !back && (card.rarity === 'epic' || card.rarity === 'legendary')
   if (back) {
     return (
@@ -98,7 +98,7 @@ export function CollectCard({ card, total, back = false, big = false, className 
         <span className="text-small font-bold tracking-wide uppercase">Kira cards</span>
         <span className="flex flex-col items-center gap-1">
           <UiIcon name="cards" size={big ? 56 : 40} strokeWidth={2} />
-          <span className="font-display text-h1 leading-none font-bold tabular-nums">{String(card.no).padStart(2, '0')}</span>
+          <span className="font-display text-h1 leading-none font-bold tabular-nums">{String(card.no).padStart(3, '0')}</span>
         </span>
         <span className="text-small font-bold tabular-nums">{no}</span>
       </div>

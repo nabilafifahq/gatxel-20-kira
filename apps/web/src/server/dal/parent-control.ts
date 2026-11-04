@@ -15,10 +15,15 @@ import { resetPin, unlockLearner, updateLearner } from './console-learners'
 import { resetStreakTx, saveDayRulesTx } from './console-day-rules'
 import { plannerDTO, removeSession, setSessionRequired, upsertSlot } from './console-planner'
 import { updateLearnerLimitsTx } from './console-settings'
+import { loadLearner, skillStates } from './learner-core'
 import { updateLearnerSoundTx } from './learner-motion'
+import { autoSkill } from './learner-session'
+import { placementStartGrade } from './placement-grade'
 import { resolveItems } from './content'
 import { saveFeaturesTx } from './learner-features'
 import type { FeatureMap } from '@kira/core/features'
+import type { UiLang } from '@/lib/i18n/lang'
+import { setLearnerUiPrefs } from '../auth/accounts'
 
 /**
  * Aksi orang tua atas anaknya. Setiap fungsi memeriksa guardian_link lebih dulu (`ownChild`), lalu memakai
@@ -56,10 +61,10 @@ export async function parentResetStreak(actor: Actor, input: { learnerId: string
 }
 
 /** Sesi hari ini yang dituju: dicari dari id sesi (quest), dan hanya bila anaknya tertaut ke orang tua ini. */
-async function targetOf(actor: Actor, questId: string): Promise<{ learnerId: string; slotId: string | null; subject: Subject; session: SessionType }> {
+async function targetOf(actor: Actor, questId: string): Promise<{ learnerId: string; slotId: string | null; subject: Subject; session: SessionType; skillId: string | null }> {
   return withFamilyAdmin(actor, async (tx, scope) => {
     const [q] = await tx
-      .select({ learnerId: quest.learnerId, slotId: quest.planSlotId, subject: quest.subject, session: quest.session, date: quest.date })
+      .select({ learnerId: quest.learnerId, slotId: quest.planSlotId, subject: quest.subject, session: quest.session, date: quest.date, skillId: quest.skillId })
       .from(quest)
       .where(eq(quest.id, questId))
       .limit(1)
@@ -67,7 +72,7 @@ async function targetOf(actor: Actor, questId: string): Promise<{ learnerId: str
     await scope.assertParentOf(q.learnerId)
     if (q.date !== jakartaDate()) throw conflict('Sesi ini bukan sesi hari ini. Muat ulang halaman.')
     if (!CORE.includes(q.session as SessionType)) throw invalid('Hanya Latihan, Tes, dan Paper yang bisa diatur dari sini.')
-    return { learnerId: q.learnerId, slotId: q.slotId, subject: q.subject as Subject, session: q.session as SessionType }
+    return { learnerId: q.learnerId, slotId: q.slotId, subject: q.subject as Subject, session: q.session as SessionType, skillId: q.skillId }
   })
 }
 
@@ -85,16 +90,30 @@ export async function parentRemoveSession(actor: Actor, input: { questId: string
 
 const DEFAULT_COUNT = { latihan: 10, tes: 8 } as const
 
+/** Latihan butuh satu pelajaran: pakai pelajaran Latihan hari ini di mapel itu, atau pilihan Kira bila belum ada. Orang tua bisa menggantinya. */
+async function latihanSkillFor(actor: Actor, learnerId: string, subject: Subject): Promise<string | null> {
+  return withFamilyAdmin(actor, async (tx, scope) => {
+    await scope.assertParentOf(learnerId)
+    const today = jakartaDate()
+    const rows = await tx.select({ skillId: quest.skillId, kind: quest.kind }).from(quest).where(and(eq(quest.learnerId, learnerId), eq(quest.date, today), eq(quest.subject, subject), eq(quest.session, 'latihan')))
+    const current = rows.filter((r) => r.skillId).sort((a, b) => Number(b.kind === 'daily') - Number(a.kind === 'daily'))[0]?.skillId
+    if (current) return current
+    const learner = await loadLearner(tx, learnerId)
+    return autoSkill(learner, subject, await skillStates(tx, learnerId), `${learnerId}:${today}:${subject}`, await placementStartGrade(tx, learner, subject))?.id ?? null
+  })
+}
+
 /** Tambah sesi opsional hari ini (paling banyak 10 sesi tambahan; server menolak yang ke-11). */
 export async function parentAddOptional(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<PlanChangeResult> {
   await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async () => undefined)
+  const skillId = input.session === 'latihan' ? await latihanSkillFor(actor, input.learnerId, input.subject) : null
   return upsertSlot(asStaff(actor), {
     learnerId: input.learnerId,
     date: jakartaDate(),
     subject: input.subject,
     session: input.session,
     required: false,
-    skillId: null,
+    skillId,
     mode: input.session === 'tes' ? 'tes' : 'latihan',
     questionCount: input.session === 'paper' ? 10 : DEFAULT_COUNT[input.session],
     paperKind: input.session === 'paper' ? 'mini' : null,
@@ -119,7 +138,8 @@ export async function parentSetQuestionCount(actor: Actor, input: { questId: str
     subject: t.subject,
     session: t.session,
     required: slot.required,
-    skillId: slot.skillId,
+    // Latihan otomatis belum punya slot: pelajarannya tetap yang sudah dipilih untuk hari ini.
+    skillId: slot.skillId ?? (t.session === 'latihan' ? t.skillId : null),
     mode: slot.mode === 'tes' ? 'tes' : 'latihan',
     questionCount: input.questionCount,
     paperKind: null,
@@ -158,7 +178,13 @@ export async function parentEditChild(actor: Actor, input: { learnerId: string; 
  * Tambah anak oleh orang tua sendiri. Satu implementasi dengan onboarding (/mulai): batas per keluarga
  * KIRA_MAX_LEARNERS_PER_FAMILY, kunci per org, preset Seimbang, dan anak aktif setelah persetujuan di halaman Privasi.
  */
-export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[] }): Promise<{ learnerId: string }> {
+/** Bahasa tampilan anak dan izin anak menggantinya sendiri. Sesi anak membacanya lagi di request berikutnya. */
+export async function parentSaveUiLang(actor: Actor, input: { learnerId: string; uiLang: UiLang; uiLangSwitch: boolean }): Promise<void> {
+  await ownChild(actor, input.learnerId, 'uilang', { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch }, async () => undefined)
+  await setLearnerUiPrefs(input.learnerId, actor.orgId, { uiLang: input.uiLang, uiLangSwitch: input.uiLangSwitch })
+}
+
+export async function parentAddChild(actor: Actor, input: { name: string; grade: number; avatar: AvatarName; pin: PinPicture[]; uiLang?: UiLang }): Promise<{ learnerId: string }> {
   return { learnerId: await addChild(actor, input) }
 }
 

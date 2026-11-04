@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactElement } from 'react'
 import type { AvatarName, XpBarDTO } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
+import { useLang, useT } from '@/lib/i18n/client'
 import { confettiFor, starsFor, xpBarView } from './celebration-logic'
 import { Confetti } from './Confetti'
 import { LevelUpOverlay } from './LevelUpOverlay'
@@ -54,8 +55,10 @@ export function SessionCelebration({
   hasNewBadge?: boolean
   className?: string
 }): ReactElement | null {
+  const t = useT()
+  const lang = useLang()
   const stars = starsFor({ right, total, pending })
-  const bar = xpBar ? xpBarView(xpBar) : null
+  const bar = xpBar ? xpBarView(xpBar, lang) : null
   const reduce = useReducedMotion()
   const [play, setPlay] = useState(false)
   const [confetti, setConfetti] = useState(false)
@@ -92,7 +95,7 @@ export function SessionCelebration({
 
   if (stars === null) return null
 
-  const label = `${stars} of 3 stars`
+  const label = t.shell.stars(stars)
   return (
     <div className={cx('flex flex-wrap items-center gap-x-5 gap-y-3 rounded-control bg-lavender p-4', className)}>
       {confetti ? <Confetti onDone={() => setConfetti(false)} /> : null}
@@ -115,7 +118,7 @@ export function SessionCelebration({
         {bar ? (
           <div className="flex flex-col gap-1.5">
             <div className="flex flex-wrap items-baseline justify-between gap-x-3 text-body font-semibold">
-              <span>{bar.leveledUp ? `Level ${bar.level}. You levelled up!` : `Level ${bar.level}`}</span>
+              <span>{bar.leveledUp ? t.shell.levelUp.levelUpLine(bar.level) : `Level ${bar.level}`}</span>
               <span className="tabular-nums text-fg-muted">{bar.line}</span>
             </div>
             <span role="img" aria-label={bar.line} className="flex h-3 overflow-hidden rounded-control bg-divider">

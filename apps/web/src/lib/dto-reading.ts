@@ -21,11 +21,14 @@ export type BookCardDTO = {
   href: string
 }
 
+/** Tempat lanjut membaca. Teksnya dibuat layar lewat t.reading.resumeLabel, mengikuti bahasa tampilan. */
+export type ResumeLabelDTO = { kind: 'start' | 'again' | 'chapter'; n: number; total: number }
+
 export type ReadingLibraryDTO = {
   shell: LearnerShell
   grade: number
   books: BookCardDTO[]
-  continueBook: (BookCardDTO & { resumeLabel: string }) | null
+  continueBook: (BookCardDTO & { resumeLabel: ResumeLabelDTO }) | null
   minutesToday: number
   minutesWeek: number
   booksFinished: number
@@ -38,7 +41,7 @@ export type BookDetailDTO = {
   book: BookCardDTO
   chapters: BookChapterRowDTO[]
   resumeHref: string
-  resumeLabel: string
+  resumeLabel: ResumeLabelDTO
 }
 
 export type ReaderPageDTO = { sentences: { text: string; paragraph: number; index: number }[] }

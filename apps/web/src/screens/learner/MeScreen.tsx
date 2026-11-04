@@ -6,6 +6,7 @@ import { jakartaDate } from '@kira/core/time'
 import type { AccessoryId } from '@kira/core'
 import type { AvatarName, MeActions, MeDTO } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
+import { LangSwitch } from '@/components/learner/LangSwitch'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { ToastProvider, useToast } from '@/components/ui/Toast'
@@ -17,6 +18,7 @@ import { MusicToggle } from '@/components/learner/MusicToggle'
 import { ChestCollection } from '@/components/learner/ChestCollection'
 import { DayGlyph, dayStatusWord } from '@/components/learner/StreakChain'
 import { XpTrackBars } from '@/components/learner/arena/XpTrackBars'
+import { useLang, useT } from '@/lib/i18n/client'
 import { ActionError } from './common'
 
 /**
@@ -24,8 +26,6 @@ import { ActionError } from './common'
  * DTO kalender belum menandai hari ini; layar memakai status `today` atau tanggal
  * Asia/Jakarta perangkat.
  */
-
-const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 function AvatarDialog({
   open,
@@ -42,6 +42,8 @@ function AvatarDialog({
   onSaved: (a: AvatarName) => void
   actions: MeActions
 }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   const [choice, setChoice] = useState<AvatarName>(current)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<{ message: string; reference: string } | null>(null)
@@ -60,7 +62,7 @@ function AvatarDialog({
         onClose()
       } else setError({ message: res.message, reference: res.reference })
     } catch {
-      setError({ message: 'Your new avatar was not saved. Check the internet and try again.', reference: 'KRA-ME-NET' })
+      setError({ message: t.shell.me.avatarNotSaved, reference: 'KRA-ME-NET' })
     } finally {
       setBusy(false)
     }
@@ -70,20 +72,20 @@ function AvatarDialog({
     <Dialog
       open={open}
       onClose={onClose}
-      title="Choose your avatar"
+      title={t.shell.me.chooseAvatar}
       size="md"
       footer={
         <>
           <Button variant="secondary" onClick={onClose}>
-            Cancel
+            {t.common.cancel}
           </Button>
           <Button onClick={() => void save()} loading={busy} data-autofocus>
-            Save avatar
+            {t.shell.me.saveAvatar}
           </Button>
         </>
       }
     >
-      <div role="radiogroup" aria-label="Avatars" className="grid grid-cols-4 gap-3">
+      <div role="radiogroup" aria-label={t.shell.me.avatars} className="grid grid-cols-4 gap-3">
         {avatars.map((a) => {
           const on = a === choice
           return (
@@ -92,7 +94,7 @@ function AvatarDialog({
               type="button"
               role="radio"
               aria-checked={on}
-              aria-label={avatarLabel(a)}
+              aria-label={avatarLabel(a, lang)}
               onClick={() => setChoice(a)}
               className={cx(
                 'flex aspect-square cursor-pointer items-center justify-center rounded-card bg-surface p-1.5',
@@ -109,7 +111,9 @@ function AvatarDialog({
   )
 }
 
-function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; myWords: boolean }): ReactElement {
+function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: MeActions; myWords: boolean; langSwitch: boolean }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   const toast = useToast()
   const [avatar, setAvatar] = useState<AvatarName>(data.shell.avatar)
   const [accessory, setAccessory] = useState<string | null>(data.shell.accessory ?? null)
@@ -120,7 +124,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
   const shell = { ...data.shell, avatar, accessory }
   const earned = data.badges.filter((b) => b.earnedAt !== null)
   const pct = data.xpLevelSpan > 0 ? Math.min(100, Math.round((data.xpIntoLevel / data.xpLevelSpan) * 100)) : 0
-  const xpLine = `${data.xpIntoLevel} of ${data.xpLevelSpan} XP to level ${data.level + 1}`
+  const xpLine = t.shell.xpToLevel(data.xpIntoLevel, data.xpLevelSpan, data.level + 1)
   const todayIso = jakartaDate()
   const changeAccessory = async (next: AccessoryId | null) => {
     if (!actions.changeAccessory || accessoryBusy || next === accessory) return
@@ -129,10 +133,10 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
       const res = await actions.changeAccessory(next)
       if (res.ok) {
         setAccessory(next)
-        toast({ kind: 'success', title: next ? 'Accessory saved' : 'Accessory taken off' })
+        toast({ kind: 'success', title: next ? t.shell.me.accessorySaved : t.shell.me.accessoryOff })
       } else toast({ kind: 'error', title: res.message })
     } catch {
-      toast({ kind: 'error', title: 'Your accessory was not saved. Check the internet and try again.' })
+      toast({ kind: 'error', title: t.shell.me.accessoryNotSaved })
     } finally {
       setAccessoryBusy(false)
     }
@@ -142,7 +146,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
   return (
     <LearnerFrame shell={shell} current="me" className="flex flex-col gap-6">
       <header className="flex flex-wrap items-center gap-5">
-        <Avatar name={avatar} accessory={accessory} background={data.shell.background ?? null} size={96} title={avatarLabel(avatar)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
+        <Avatar name={avatar} accessory={accessory} background={data.shell.background ?? null} size={96} title={avatarLabel(avatar, lang)} className="h-20 w-20 flex-none md:h-24 md:w-24" />
         <div className="flex min-w-0 flex-col items-start gap-1.5">
           <h1 className="m-0 text-h1 font-bold break-words">{data.shell.name}</h1>
           <div className="flex flex-wrap gap-2">
@@ -154,11 +158,11 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
                 setPicking(true)
               }}
             >
-              Change avatar
+              {t.shell.me.changeAvatar}
             </Button>
             {/* Tablet bersama: anak lain bisa masuk setelah sesi ini diakhiri. */}
             <ButtonLink href={LEARNER_ROUTES.switchLearner} variant="secondary" size="M" prefetch={false}>
-              Switch learner
+              {t.shell.me.switchLearner}
             </ButtonLink>
             <SoundToggle />
             <MusicToggle />
@@ -167,7 +171,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
         </div>
         <div className="flex w-full items-center gap-5 rounded-card bg-surface shadow-soft px-6 py-3.5 lg:ml-auto lg:w-auto">
           <div className="flex flex-col">
-            <span className="text-body font-semibold text-fg-muted">Level</span>
+            <span className="text-body font-semibold text-fg-muted">{t.shell.me.level}</span>
             <span className="font-numbers text-display leading-none font-semibold tabular-nums">{data.level}</span>
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 lg:w-65 lg:flex-none">
@@ -182,15 +186,15 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
       {data.tracks ? (
         <section aria-labelledby="me-tracks" className="flex flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-tracks" className="m-0 text-h2 font-bold">
-            XP and levels
+            {t.shell.me.xpAndLevels}
           </h2>
           <XpTrackBars tracks={data.tracks} />
           <div className="flex flex-wrap gap-3">
             <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
-              Quick Maths
+              {t.shell.nav['quick-maths']}
             </ButtonLink>
             <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
-              Quiz Arena
+              {t.shell.nav['quiz-arena']}
             </ButtonLink>
           </div>
         </section>
@@ -199,21 +203,27 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
       {myWords ? (
         <section aria-labelledby="me-words" className="flex flex-wrap items-center gap-3 rounded-card border border-divider bg-surface p-5 md:p-7">
           <h2 id="me-words" className="m-0 min-w-0 flex-1 text-h2 font-bold">
-            My words
+            {t.shell.me.myWords}
           </h2>
           <ButtonLink href={LEARNER_ROUTES.myWords} variant="secondary" size="M" icon="book">
-            Open my words
+            {t.shell.me.openMyWords}
           </ButtonLink>
+        </section>
+      ) : null}
+
+      {langSwitch ? (
+        <section className="rounded-card border border-divider bg-surface p-5 md:p-7">
+          <LangSwitch />
         </section>
       ) : null}
 
       {data.accessories && actions.changeAccessory ? (
         <section aria-labelledby="me-accessories" className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-5 md:p-7">
           <h2 id="me-accessories" className="m-0 text-h2 font-bold">
-            Accessories
+            {t.shell.me.accessories}
           </h2>
-          <p className="m-0 text-body-lg text-fg-muted">Earn accessories by reaching levels in Learning, Quick Maths and Quiz.</p>
-          <div role="radiogroup" aria-label="Accessories" className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          <p className="m-0 text-body-lg text-fg-muted">{t.shell.me.accessoriesLine}</p>
+          <div role="radiogroup" aria-label={t.shell.me.accessories} className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             <button
               type="button"
               role="radio"
@@ -223,7 +233,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
               className={cx('flex min-h-32 cursor-pointer flex-col items-center justify-center gap-1 rounded-control p-2 text-center', accessory === null ? 'border-3 border-fg bg-bg' : 'border-2 border-border bg-surface hover:border-fg')}
             >
               <Avatar name={avatar} size={64} />
-              <span className="text-body font-bold">None</span>
+              <span className="text-body font-bold">{t.shell.me.noAccessory}</span>
             </button>
             {data.accessories.map((a) => (
               <button
@@ -251,13 +261,13 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
         </section>
       ) : null}
 
-      <section aria-label="Kira World" className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
-        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <h2 className="m-0 text-h3 font-bold">Kira World</h2>
-          <p className="m-0 text-body text-fg-muted">Your friend, Star Shop, card album, story, Puzzle Robot and trophies.</p>
+      <section aria-label={t.shell.nav.world} className="flex flex-wrap items-center gap-3.5 rounded-card border-2 border-fg bg-surface p-4">
+        <div className="flex min-w-0 flex-1 basis-56 flex-col gap-0.5">
+          <h2 className="m-0 text-h3 font-bold">{t.shell.nav.world}</h2>
+          <p className="m-0 text-body text-fg-muted">{t.shell.me.worldLine}</p>
         </div>
         <ButtonLink href={LEARNER_ROUTES.world} prefetch={false} iconAfter="arrow-right">
-          Open Kira World
+          {t.shell.me.openWorld}
         </ButtonLink>
       </section>
       {data.collection ? <ChestCollection collection={data.collection} avatar={avatar} accessory={accessory} background={data.shell.background ?? null} equip={actions.equipChest} /> : null}
@@ -266,11 +276,11 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
         <section aria-labelledby="me-badges" className="flex min-w-0 flex-col gap-4 rounded-card bg-surface shadow-soft p-5 md:p-7 lg:flex-[1.15]">
           <div className="flex items-center gap-3">
             <h2 id="me-badges" className="m-0 text-h2 font-bold">
-              Badges
+              {t.shell.me.badges}
             </h2>
             {data.badges.length > 0 ? (
               <span className="ml-auto text-body font-bold tabular-nums">
-                {earned.length} of {data.badges.length}
+                {t.shell.xOfY(earned.length, data.badges.length)}
               </span>
             ) : null}
           </div>
@@ -285,10 +295,10 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
           ) : (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 rounded-control border-2 border-dashed border-border p-8 text-center">
               <Avatar name={avatar} size={72} />
-              <p className="m-0 text-h3 font-bold">Your badges will show up here.</p>
-              <p className="m-0 text-body-lg text-fg-muted">Finish your first quest to get the first one.</p>
+              <p className="m-0 text-h3 font-bold">{t.shell.me.noBadgesTitle}</p>
+              <p className="m-0 text-body-lg text-fg-muted">{t.shell.me.noBadgesLine}</p>
               <ButtonLink href={LEARNER_ROUTES.today} iconAfter="arrow-right" className="mt-1">
-                Go to Today
+                {t.shell.goToToday}
               </ButtonLink>
             </div>
           )}
@@ -302,11 +312,11 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
             <span className="text-body font-bold sm:ml-auto">{data.streakLine}</span>
           </div>
           <div aria-hidden="true" className="grid grid-cols-7 gap-1.5 text-center text-body font-semibold text-fg-muted">
-            {WEEKDAYS.map((d) => (
+            {t.shell.me.weekdays.map((d) => (
               <span key={d}>{d}</span>
             ))}
           </div>
-          <ol aria-label={`${data.monthLabel}, streak calendar`} className="m-0 grid list-none grid-cols-7 gap-1.5 p-0">
+          <ol aria-label={t.shell.me.streakCalendar(data.monthLabel)} className="m-0 grid list-none grid-cols-7 gap-1.5 p-0">
             {data.calendar.map((c) => {
               if (!c.inMonth) return <li key={c.date} aria-hidden="true" className="h-13.5" />
               const today = isToday(c)
@@ -315,7 +325,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
               return (
                 <li
                   key={c.date}
-                  aria-label={`${c.day}${today ? ', today' : ''}, ${c.status === 'none' ? 'no quests' : dayStatusWord(c.status)}`}
+                  aria-label={`${c.day}${today ? t.shell.streak.todaySuffix : ''}, ${c.status === 'none' ? t.shell.me.noQuests : dayStatusWord(c.status, lang)}`}
                   aria-current={today ? 'date' : undefined}
                   className={cx('flex h-13.5 flex-col items-center justify-center gap-0.5 rounded-control', today && 'bg-math-50')}
                 >
@@ -341,19 +351,19 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
           <div aria-hidden="true" className="mt-auto flex flex-wrap gap-4 pt-2 text-body font-semibold text-fg-muted">
             <span className="inline-flex items-center gap-1.5">
               <DayGlyph status="complete" size={18} />
-              Done
+              {t.common.done}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <DayGlyph status="rest" size={18} />
-              Rest day
+              {t.shell.me.legendRest}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <DayGlyph status="freeze" size={18} />
-              Freeze used
+              {t.shell.me.legendFreeze}
             </span>
             <span className="inline-flex items-center gap-1.5">
               <DayGlyph status="missed" size={18} />
-              Missed
+              {t.shell.me.legendMissed}
             </span>
           </div>
         </section>
@@ -368,17 +378,17 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
         actions={actions}
         onSaved={(a) => {
           setAvatar(a)
-          toast({ kind: 'success', title: 'Avatar saved' })
+          toast({ kind: 'success', title: t.shell.me.avatarSaved })
         }}
       />
     </LearnerFrame>
   )
 }
 
-export function MeScreen({ data, actions, myWords = false }: { data: MeDTO; actions: MeActions; myWords?: boolean }): ReactElement {
+export function MeScreen({ data, actions, myWords = false, langSwitch = false }: { data: MeDTO; actions: MeActions; myWords?: boolean; langSwitch?: boolean }): ReactElement {
   return (
     <ToastProvider area="learner">
-      <MeBody data={data} actions={actions} myWords={myWords} />
+      <MeBody data={data} actions={actions} myWords={myWords} langSwitch={langSwitch} />
     </ToastProvider>
   )
 }

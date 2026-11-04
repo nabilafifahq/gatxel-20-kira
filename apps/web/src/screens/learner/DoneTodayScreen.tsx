@@ -1,15 +1,17 @@
+'use client'
+
 import type { ReactElement } from 'react'
 import type { DoneTodayDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { KiraStar } from '@/components/ui/KiraStar'
 import { UiIcon } from '@/components/ui/icons'
-import { plural } from '@/components/learner/format'
 import { LEARNER_ROUTES } from '@/components/learner/routes'
 import { StreakChain } from '@/components/learner/StreakChain'
 import { SubjectIcon } from '@/components/learner/SubjectIcon'
-import { SUBJECT_NAME, SUBJECT_STYLE } from '@/components/learner/subject'
+import { SUBJECT_STYLE, subjectName } from '@/components/learner/subject'
 import { XpPill } from '@/components/learner/XpPill'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * L14 Selesai hari ini (papan SelesaiHariIni, SelesaiBatasWaktu). Ringkasan hari ini dan
@@ -17,15 +19,16 @@ import { XpPill } from '@/components/learner/XpPill'
  * karena DTO belum membawa penanda berhenti; nama hari diambil dari rantai streak.
  */
 
-const SCORE = /^(\d+ (out )?of \d+|Done)$/
+const SCORE = /^(\d+ ((out )?of|dari) \d+|Done|Selesai)$/
 
 export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { data: DoneTodayDTO; todayHref?: string }): ReactElement {
+  const t = useT()
   const limit = data.variant === 'time-limit'
-  const day = data.streak.week.find((d) => d.isToday)?.longLabel ?? 'Today'
+  const day = data.streak.week.find((d) => d.isToday)?.longLabel ?? t.shell.nav.today
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex h-18 flex-none items-center gap-4 px-4 md:h-22 md:px-8">
-        <IconLink href={todayHref} icon="close" label="Close and go to Today" />
+        <IconLink href={todayHref} icon="close" label={t.shell.done.closeLabel} />
         <span className="text-body-lg font-bold">{day}</span>
       </header>
 
@@ -52,14 +55,14 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
             <XpPill xp={data.xpToday} size="L" />
             <span className="inline-flex h-11 items-center gap-2 rounded-pill border-2 border-border bg-surface pr-4 pl-3 text-body-lg font-bold tabular-nums">
               <UiIcon name="clock" size={22} />
-              {plural(data.minutesToday, 'minute', 'minutes')}
+              {t.shell.minutes(data.minutesToday)}
             </span>
           </div>
         </section>
 
         <section aria-labelledby="done-quests" className="flex min-w-0 flex-col gap-2 rounded-card bg-surface shadow-soft p-5 md:p-8 lg:flex-[1.05]">
           <h2 id="done-quests" className="m-0 mb-2 text-h2 font-bold">
-            Today&apos;s sessions
+            {t.shell.done.sessionsTitle}
           </h2>
           <ul className="m-0 flex list-none flex-col p-0">
             {data.quests.map((q, i) => {
@@ -72,10 +75,10 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
                   </span>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <span className="text-body-lg font-bold">
-                      {SUBJECT_NAME[q.subject]} {q.session.toLowerCase()}
-                      {q.required ? '' : ', extra'}
+                      {t.shell.sessionName(subjectName(q.subject, t), q.session)}
+                      {q.required ? '' : t.shell.done.extra}
                     </span>
-                    <span className="text-body text-fg-muted">{q.title}</span>
+                    <span lang="en-GB" className="text-body text-fg-muted">{q.title}</span>
                   </div>
                   {done ? (
                     <span className="inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums">
@@ -99,11 +102,11 @@ export function DoneTodayScreen({ data, todayHref = LEARNER_ROUTES.today }: { da
       <footer className="flex flex-none flex-wrap items-center gap-3 px-4 py-5 md:h-24 md:px-8 md:py-0">
         {data.answersHref ? (
           <ButtonLink href={data.answersHref} variant="secondary">
-            See today&apos;s answers
+            {t.shell.done.seeAnswers}
           </ButtonLink>
         ) : null}
         <ButtonLink href={todayHref} iconAfter="arrow-right" className="ml-auto">
-          Back to Today
+          {t.shell.backToToday}
         </ButtonLink>
       </footer>
     </div>

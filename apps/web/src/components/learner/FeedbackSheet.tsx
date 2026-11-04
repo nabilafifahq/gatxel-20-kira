@@ -9,7 +9,9 @@ import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { UiIcon } from '@/components/ui/icons'
 import { KiraStar } from '@/components/ui/KiraStar'
+import { useT } from '@/lib/i18n/client'
 import { SolutionPlayer } from './SolutionPlayer'
+import type { SpeechLang } from './speech'
 import { XpPill } from './XpPill'
 
 /**
@@ -45,6 +47,7 @@ export type RemedialProps = {
 export function FeedbackSheet({
   kind,
   subject,
+  contentLang = 'en-GB',
   xp = 0,
   hintsUsed = 0,
   secondTry = false,
@@ -66,6 +69,8 @@ export function FeedbackSheet({
 }: {
   kind: FeedbackKind
   subject: Subject
+  /** Bahasa isi soal (penjelasan, jawaban, hint), untuk atribut lang. */
+  contentLang?: SpeechLang
   xp?: number
   hintsUsed?: number
   secondTry?: boolean
@@ -94,11 +99,13 @@ export function FeedbackSheet({
   const [howOpen, setHowOpen] = useState(false)
   const [lessonOpen, setLessonOpen] = useState(false)
   const good = kind === 'correct' || kind === 'sent' || kind === 'saved'
+  const dict = useT()
+  const t = dict.runner.feedback
 
-  let title: ReactNode = 'Correct'
-  if (kind === 'not-yet' || kind === 'revealed') title = 'Not yet'
-  if (kind === 'sent') title = 'Sent to your tutor'
-  if (kind === 'saved') title = 'Saved'
+  let title: ReactNode = dict.runner.correct
+  if (kind === 'not-yet' || kind === 'revealed') title = dict.runner.notYet
+  if (kind === 'sent') title = t.sent
+  if (kind === 'saved') title = t.saved
 
   return (
     <div
@@ -120,50 +127,48 @@ export function FeedbackSheet({
 
       {kind === 'correct' && (hintsUsed > 0 || secondTry) ? (
         <p className="m-0 text-body text-fg-muted">
-          {hintsUsed > 0
-            ? `You used ${hintsUsed} ${hintsUsed === 1 ? 'hint' : 'hints'} on this one.`
-            : 'Right on the second try.'}
+          {hintsUsed > 0 ? t.hintsUsed(hintsUsed) : t.secondTry}
         </p>
       ) : null}
 
-      {kind === 'sent' ? <p className="m-0 text-body-lg">Your tutor will look at it and give you stars. Keep going with your quest.</p> : null}
-      {kind === 'saved' ? <p className="m-0 text-body-lg">Your answer is saved. You will see if it is right on the results page.</p> : null}
+      {kind === 'sent' ? <p className="m-0 text-body-lg">{t.sentBody}</p> : null}
+      {kind === 'saved' ? <p className="m-0 text-body-lg">{t.savedBody}</p> : null}
 
       {kind === 'not-yet' && hint ? (
         <div className="flex items-start gap-3 rounded-control bg-sky p-4">
           <UiIcon name="hint" size={24} className="mt-0.5" />
           <div className="flex flex-col gap-0.5">
             <div className="text-body font-bold">{hint.label}</div>
-            <p className="m-0 font-reading text-h3">{hint.text}</p>
+            <p lang={contentLang} className="m-0 font-reading text-h3">{hint.text}</p>
           </div>
         </div>
       ) : null}
 
-      {kind === 'not-yet' && !hint ? <p className="m-0 text-body-lg">Look at the question again, then try once more.</p> : null}
+      {kind === 'not-yet' && !hint ? <p className="m-0 text-body-lg">{t.lookAgain}</p> : null}
 
       {kind === 'revealed' && answerText ? (
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span className="text-body font-semibold text-fg-muted">The answer</span>
-          <span className="font-reading text-h2 font-bold">{answerText}</span>
+          <span className="text-body font-semibold text-fg-muted">{t.theAnswer}</span>
+          <span lang={contentLang} className="font-reading text-h2 font-bold">{answerText}</span>
         </div>
       ) : null}
 
-      {kind === 'correct' && explanation ? <p className="m-0 font-reading text-h3">{explanation}</p> : null}
+      {kind === 'correct' && explanation ? <p lang={contentLang} className="m-0 font-reading text-h3">{explanation}</p> : null}
 
       {kind === 'revealed' && explanation ? (
         <div className={cx('flex flex-col gap-0.5 rounded-control px-4 py-3.5', 'bg-lavender')}>
-          <div className="text-body font-bold">How to solve it</div>
-          <p className="m-0 font-reading text-h3">{explanation}</p>
+          <div className="text-body font-bold">{t.howToSolve}</div>
+          <p lang={contentLang} className="m-0 font-reading text-h3">{explanation}</p>
         </div>
       ) : null}
 
       {kind === 'revealed' && fixItNote ? (
-        <p className="m-0 rounded-control bg-bg px-4 py-3 text-body font-semibold">This one is tricky. It is now in Fix-it, so you can practise it again later.</p>
+        <p className="m-0 rounded-control bg-bg px-4 py-3 text-body font-semibold">{t.fixItNote}</p>
       ) : null}
 
       {kind === 'revealed' && remedial ? (
         <div className="flex flex-col gap-2.5 rounded-control border border-divider bg-bg p-4" data-testid="remedial-panel">
-          <div className="text-body font-bold">Let us fix this one</div>
+          <div className="text-body font-bold">{t.letsFix}</div>
           {!remedial.watched && canWatch ? (
             <Button
               variant="secondary"
@@ -173,12 +178,12 @@ export function FeedbackSheet({
                 setHowOpen(true)
               }}
             >
-              Watch how it works
+              {t.watchHow}
             </Button>
           ) : null}
           {remedial.watched && remedial.lesson === undefined ? (
             <Button variant="secondary" icon="hint" loading disabled>
-              Getting a quick lesson
+              {t.gettingLesson}
             </Button>
           ) : null}
           {remedial.watched && !remedial.lessonDone && remedial.lesson ? (
@@ -191,16 +196,16 @@ export function FeedbackSheet({
                 setLessonOpen(true)
               }}
             >
-              One quick lesson
+              {t.oneLesson}
             </Button>
           ) : null}
           {(remedial.watched && (remedial.lessonDone || remedial.lesson === null)) || (!canWatch && !remedial.watched) ? (
             remedial.canTry ? (
               <Button loading={remedial.loading} onClick={remedial.onTry}>
-                Try one like it
+                {t.tryLikeIt}
               </Button>
             ) : (
-              <p className="m-0 text-body text-fg-muted">Great, you have seen how it works. Keep going.</p>
+              <p className="m-0 text-body text-fg-muted">{t.seenHow}</p>
             )
           ) : null}
         </div>
@@ -216,7 +221,7 @@ export function FeedbackSheet({
       <div className="flex flex-wrap justify-end gap-3">
         {kind === 'not-yet' && onShowHint ? (
           <Button variant="secondary" icon="hint" onClick={onShowHint}>
-            {showHintLabel ?? 'Show hint'}
+            {showHintLabel ?? t.showHint}
           </Button>
         ) : null}
         {kind === 'revealed' && canWatch && !remedial ? (
@@ -227,7 +232,7 @@ export function FeedbackSheet({
               setHowOpen(true)
             }}
           >
-            Show me how
+            {t.showMeHow}
           </Button>
         ) : null}
         <Button autoFocus iconAfter={primary.icon} onClick={primary.onClick}>
@@ -242,7 +247,7 @@ export function FeedbackSheet({
             setHowOpen(false)
             remedial?.onWatched()
           }}
-          title="Show me how"
+          title={t.showMeHow}
           size="lg"
           footer={
             <Button
@@ -252,15 +257,15 @@ export function FeedbackSheet({
                 remedial?.onWatched()
               }}
             >
-              Close
+              {dict.common.close}
             </Button>
           }
         >
           {solution && solution.length > 0 ? (
-            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} />
+            <SolutionPlayer steps={solution} subject={subject} prompt={prompt} figure={figure} lang={contentLang} />
           ) : (
             <p className="m-0 text-body-lg" role="status">
-              Getting the steps ready.
+              {t.gettingSteps}
             </p>
           )}
         </Dialog>
@@ -272,7 +277,7 @@ export function FeedbackSheet({
             setLessonOpen(false)
             remedial.onLessonDone()
           }}
-          title={remedial.lesson.title}
+          title={<span lang={contentLang}>{remedial.lesson.title}</span>}
           size="lg"
           footer={
             <Button
@@ -282,11 +287,11 @@ export function FeedbackSheet({
                 remedial.onLessonDone()
               }}
             >
-              Close
+              {dict.common.close}
             </Button>
           }
         >
-          <SolutionPlayer steps={remedial.lesson.steps} subject={subject} label="Quick lesson" />
+          <SolutionPlayer steps={remedial.lesson.steps} subject={subject} label={t.quickLesson} />
         </Dialog>
       ) : null}
     </div>

@@ -2,7 +2,7 @@
 
 import type { ActionResult } from '@/lib/dto'
 import { inOrg } from '../db'
-import { runAction } from '../errors'
+import { runLearnerAction as runAction } from './learner-run'
 import { orgCtx, requireLearner } from '../auth/actor'
 import { finishCards } from '../dal/flashcards'
 
@@ -14,6 +14,5 @@ export async function finishCardsAction(input: unknown): Promise<ActionResult<{ 
       const actor = await requireLearner()
       return inOrg(orgCtx(actor), (tx) => finishCards(tx, orgCtx(actor), actor.userId, input))
     },
-    'en-GB',
   )
 }

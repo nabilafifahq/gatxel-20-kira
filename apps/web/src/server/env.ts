@@ -12,6 +12,10 @@ const schema = z.object({
   KIRA_RP_NAME: z.string().min(1).default('Kira'),
   DATABASE_URL_APP: z.string().startsWith('postgres'),
   DATABASE_URL_AUTH: z.string().startsWith('postgres'),
+  KIRA_POOL_APP: z.coerce.number().int().min(1).max(100).default(15),
+  KIRA_POOL_AUTH: z.coerce.number().int().min(1).max(100).default(8),
+  /** Alamat Valkey (redis://:password@valkey:6379) untuk pembatas laju dan cache sesi bersama. Kosong: memori proses. */
+  KIRA_VALKEY_URL: z.string().optional(),
   KIRA_SECRET: z.string().min(32, 'KIRA_SECRET minimal 32 karakter'),
   KIRA_SETUP_TOKEN: z.string().min(12).optional(),
   KIRA_DATA_DIR: z.string().min(1),

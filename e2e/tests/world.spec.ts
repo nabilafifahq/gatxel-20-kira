@@ -5,8 +5,8 @@ test.afterAll(closeDb)
 
 const SHOTS = process.env.E2E_SHOTS
 
-/** Kira World: bintang, teman, toko, album, cerita, Puzzle Robot, dan ruang piala. */
-test('Kira World: telur menetas, beri camilan, belanja, album, cerita, robot, piala', async ({ page }) => {
+/** Kira World: bintang, teman, toko, album, cerita, tantangan bos, dan ruang piala. */
+test('Kira World: telur menetas, beri camilan, belanja, album, cerita, bos, piala', async ({ page }) => {
   const sql = db()
   const org = await seedOrgId()
   const aisha = await learnerId('Aisha')
@@ -58,7 +58,7 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, robot, pi
   await expectNoSeriousA11y(page, 'Toko Bintang')
   await noHorizontalScroll(page)
   await shot('shop')
-  await page.getByRole('button', { name: 'Buy Bow for 12 stars' }).click()
+  await page.getByRole('button', { name: 'Buy Bow for 9 stars' }).click()
   await expect(page.getByRole('button', { name: 'Wear' }).first()).toBeVisible()
   const [owned] = await sql`select count(*)::int as n from world_item where learner_id = ${aisha} and item_id = 'pet-bow'`
   expect(owned!.n).toBe(1)
@@ -75,25 +75,55 @@ test('Kira World: telur menetas, beri camilan, belanja, album, cerita, robot, pi
   await expect(page.getByRole('heading', { level: 1, name: 'Kira and the Lost Library' })).toBeVisible()
   await shot('story-list')
   await page.getByRole('button', { name: /The Dark Lamp/ }).click()
-  await expect(page.getByText('Page 1 of 5')).toBeVisible()
+  await expect(page.getByText('Page 1 of 12')).toBeVisible()
   await shot('story-page')
-  for (let i = 0; i < 4; i++) await page.getByRole('button', { name: 'Turn the page' }).click()
+  for (let i = 0; i < 11; i++) await page.getByRole('button', { name: 'Turn the page' }).click()
   await expect(page.getByText(/Next time:/)).toBeVisible()
+  await expect(page.getByText('A new scrap of the note')).toBeVisible()
   await expectNoSeriousA11y(page, 'Cerita')
   await noHorizontalScroll(page)
+  await shot('story-end')
+  // Selesai bab: kartu kenangan, lalu sobekan surat tersimpan.
+  await page.getByRole('button', { name: 'Finish chapter' }).click()
+  await expect(page.getByRole('dialog').getByText('Lumi')).toBeVisible()
+  await shot('story-card')
+  await page.getByRole('dialog').getByRole('button', { name: 'Close' }).first().click()
+  await expect(page.getByText('1 of 8 scraps')).toBeVisible()
+  await expect(page.getByText('Bring home the six big books.')).toBeVisible()
+  const [card] = await sql`select count(*)::int as n from world_card where learner_id = ${aisha} and card_id = 'st-lumi'`
+  expect(card!.n).toBe(1)
 
-  // Puzzle Robot: halaman lawan, lalu runner dengan bar energi.
+  // Tantangan bos: 3 lawan datang lebih dulu, lalu runner dengan bar tenaga.
   await page.goto('/world/boss')
-  await expect(page.getByRole('heading', { level: 1, name: 'Puzzle Robot' })).toBeVisible()
-  await expectNoSeriousA11y(page, 'Puzzle Robot')
+  await expect(page.getByRole('heading', { level: 1, name: 'Boss challenge' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Clickerclaw/ })).toBeVisible()
+  await expect(page.getByText('A new challenger').first()).toBeVisible()
+  await expectNoSeriousA11y(page, 'Tantangan bos')
   await noHorizontalScroll(page)
   await shot('boss')
+  await page.getByRole('button', { name: /Clickerclaw/ }).click()
+  await expect(page.getByText('The counting crab')).toBeVisible()
   await page.getByRole('link', { name: 'Start the challenge' }).click()
   await waitForPath(page, (p) => p.startsWith('/run/'))
-  await expect(page.getByRole('progressbar', { name: 'Robot energy' })).toBeVisible()
-  const [att] = await sql`select jsonb_array_length(items) as n, ref_id from attempt where learner_id = ${aisha} and ref_id like 'boss:%' order by created_at desc limit 1`
+  await expect(page.getByRole('progressbar', { name: 'Clickerclaw energy' })).toBeVisible()
+  const [att] = await sql`select jsonb_array_length(items) as n, ref_id, items from attempt where learner_id = ${aisha} and ref_id like 'boss:%' order by created_at desc limit 1`
+  expect(att!.ref_id).toContain(':clickerclaw:')
   expect(att!.n).toBeGreaterThanOrEqual(5)
+  const refs = (att!.items as { ref: string }[]).map((i) => i.ref)
+  expect(new Set(refs).size).toBe(refs.length)
+  await noHorizontalScroll(page)
   await shot('boss-run')
+
+  // Saklar orang tua: Math mati berarti lawan Math tidak ditawarkan dan tidak bisa dimulai lewat alamatnya.
+  await sql`insert into learner_feature (org_id, learner_id, key, enabled) values (${org}, ${aisha}, 'math', false) on conflict (learner_id, key) do update set enabled = false`
+  await page.goto('/world/boss')
+  await expect(page.getByRole('button', { name: /Clickerclaw/ })).toHaveCount(0)
+  await page.goto('/world/boss/start?b=clickerclaw')
+  await waitForPath(page, (p) => p === '/world/boss')
+  await sql`delete from learner_feature where learner_id = ${aisha} and key = 'math'`
+  // Lawan yang belum datang juga tidak bisa dimulai lewat alamatnya.
+  await page.goto('/world/boss/start?b=aurora')
+  await waitForPath(page, (p) => p === '/world/boss')
 
   // Ruang piala: medali dari orang tua dan segel streak.
   await page.goto('/world/trophies')

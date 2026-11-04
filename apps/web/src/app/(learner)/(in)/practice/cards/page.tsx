@@ -5,9 +5,12 @@ import { orgCtx, pageActor } from '@/server/auth/actor'
 import { cardsHubDTO } from '@/server/dal/flashcards'
 import { gateFeature } from '@/server/feature-gate'
 import { load } from '@/server/page'
+import { getT } from '@/lib/i18n/server'
 
 export const dynamic = 'force-dynamic'
-export const metadata: Metadata = { title: 'Flashcards' }
+export async function generateMetadata(): Promise<Metadata> {
+  return { title: (await getT()).reading.cards.flashcards }
+}
 
 export default async function CardsPage({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
   const actor = await pageActor(['learner'])

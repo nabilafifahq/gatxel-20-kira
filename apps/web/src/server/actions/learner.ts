@@ -5,8 +5,9 @@ import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
 import { tables } from '@kira/db'
 import type { ActionResult, AnswerPayload, AnswerResult, AvatarName, PinPicture, RemedialLessonDTO, RunnerItem, SolutionStepDTO } from '@/lib/dto'
 import { inOrg } from '../db'
-import { AppError, newReference, notFound, runAction, toFailure } from '../errors'
-import { orgCtx, requireActor, requireLearner } from '../auth/actor'
+import { getT } from '@/lib/i18n/server'
+import { AppError, newReference, notFound, runAction as runBase, toFailure } from '../errors'
+import { localFailure, orgCtx, requireActor, requireLearner } from '../auth/actor'
 import { getDevice, touchDevice } from '../auth/device'
 import { checkPin } from '../auth/pin'
 import { endCurrentSession, startSession } from '../auth/session'
@@ -20,6 +21,10 @@ import { addRemedialItem, remedialLesson, walkthroughFor } from '../dal/remedial
 import { startEsmoMock, startEsmoPack, startSimulation } from '../dal/learner-competition'
 import { audit } from '../audit'
 
+async function runAction<T>(context: string, fn: () => Promise<T>, lang?: 'id' | 'en-GB'): Promise<ActionResult<T>> {
+  return localFailure(await runBase(context, fn, lang))
+}
+
 const pinSchema = z.object({ learnerId: z.string().uuid(), pin: z.array(z.enum(PIN_PICTURES)).length(4) }).strict()
 
 export async function submitPinAction(learnerId: string, pin: PinPicture[]): Promise<ActionResult<{ redirectTo: string }>> {
@@ -27,24 +32,24 @@ export async function submitPinAction(learnerId: string, pin: PinPicture[]): Pro
     await throttleIp('pin', 240)
     const input = pinSchema.parse({ learnerId, pin })
     const device = await getDevice()
-    if (!device) throw new AppError('forbidden', 'This tablet is not set up for Kira yet. Ask a grown-up.')
+    if (!device) throw new AppError('forbidden', (await getT()).shell.pin.notSetUp)
     const learner = await learnerOrgFor(device, input.learnerId)
-    if (!learner) throw notFound('Ask a grown-up to check your account.')
-    if (!learner.active) throw new AppError('forbidden', 'Your account is nearly ready. Ask a grown-up to finish setting it up.')
+    if (!learner) throw notFound((await getT()).shell.pin.checkAccount)
+    if (!learner.active) throw new AppError('forbidden', (await getT()).shell.pin.nearlyReady)
     const result = await checkPin(input.learnerId, input.pin)
     if (!result.ok) {
       const reference = newReference()
       if (result.reason === 'locked') {
         await audit({ orgId: device.orgId, userId: input.learnerId, role: 'learner' }, 'pin.locked', input.learnerId)
-        return { ok: false, message: 'Too many tries. Time for a short break.', reference, fieldErrors: { lockedUntil: result.lockedUntil.toISOString() } }
+        return { ok: false, message: (await getT()).shell.pin.lockedMessage, reference, fieldErrors: { lockedUntil: result.lockedUntil.toISOString() } }
       }
-      return { ok: false, message: 'Those pictures are not quite right. Try again.', reference, fieldErrors: { attemptsLeft: String(result.attemptsLeft) } }
+      return { ok: false, message: (await getT()).shell.pin.wrongMessage, reference, fieldErrors: { attemptsLeft: String(result.attemptsLeft) } }
     }
     await startSession({ id: input.learnerId, orgId: device.orgId, kind: 'learner' }, device.id)
     await touchDevice(device.id)
     return { ok: true, data: { redirectTo: '/today' } }
   } catch (e) {
-    return toFailure(e, 'submitPin', 'en-GB')
+    return localFailure(toFailure(e, 'submitPin', 'en-GB'))
   }
 }
 

@@ -1,8 +1,11 @@
+'use client'
+
 import type { ReactElement, ReactNode } from 'react'
 import type { QuestSubject } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { SubjectIcon } from './SubjectIcon'
-import { SUBJECT_NAME, SUBJECT_STYLE } from './subject'
+import { SUBJECT_STYLE, subjectName } from './subject'
 
 /**
  * Chip mapel (papan SubjectChip). Ikon mapel, border warna mapel, label --fg.
@@ -27,12 +30,13 @@ export function SubjectChip({
   label?: ReactNode
   className?: string
 }): ReactElement {
+  const t = useT()
   const s = SIZES[size]
   const style = SUBJECT_STYLE[subject]
   return (
     <span className={cx('inline-flex flex-none items-center rounded-pill bg-surface text-fg whitespace-nowrap', s.box, style.border, className)}>
       <SubjectIcon subject={subject} size={s.icon - 4} className={cx('box-content rounded-pill p-0.5', style.solid)} />
-      {label ?? SUBJECT_NAME[subject]}
+      {label ?? subjectName(subject, t)}
     </span>
   )
 }

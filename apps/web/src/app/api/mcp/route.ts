@@ -3,7 +3,8 @@ import { env, origin } from '@/server/env'
 import { newReference } from '@/server/errors'
 import { log } from '@/server/log'
 import { readTextCapped } from '@/server/http'
-import { createRateLimiter, handleMcpPost } from '@/server/dal/mcp'
+import { takeToken } from '@/server/limiter'
+import { handleMcpPost } from '@/server/dal/mcp'
 import { authenticateMcpToken, callKiraTool } from '@/server/dal/mcp-tools'
 
 export const dynamic = 'force-dynamic'
@@ -14,8 +15,8 @@ export const dynamic = 'force-dynamic'
  */
 
 const MAX_BODY = 512 * 1024
-const g = globalThis as unknown as { __kiraMcpLimiter?: (key: string) => number }
-const limiter = (g.__kiraMcpLimiter ??= createRateLimiter(60))
+/** 60 per menit per token, dibagi semua replika lewat Valkey (cadangan di memori). */
+const limiter = (tokenId: string) => takeToken(`mcp:${tokenId}`, 60)
 
 function disabled(): NextResponse | null {
   return env().KIRA_MCP === 'on' ? null : new NextResponse(null, { status: 404, headers: { 'Cache-Control': 'no-store' } })

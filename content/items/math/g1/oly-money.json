@@ -103,7 +103,33 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "Two coins of Rp500 make how many rupiah?"
+          ]
+        },
+        {
+          "say": "Rp500 + Rp500 = Rp1.000.",
+          "mark": [
+            "Rp500"
+          ],
+          "anim": {
+            "k": "combine",
+            "a": 500,
+            "op": "+",
+            "b": 500,
+            "r": 1000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "1000 rupiah"
+        }
+      ]
     },
     {
       "id": "m1.oly-money.004",
@@ -125,7 +151,40 @@
         "kmnr"
       ],
       "points": 4,
-      "expectedSeconds": 120
+      "expectedSeconds": 120,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah does she have left?"
+          ]
+        },
+        {
+          "say": "Tia has Rp1.000 - Rp600 = Rp400 left.",
+          "mark": [
+            "Rp1.000",
+            "Rp600"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 600
+              },
+              {
+                "v": 400,
+                "q": true
+              }
+            ],
+            "total": 1000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "400 rupiah"
+        }
+      ]
     },
     {
       "id": "m1.oly-money.005",

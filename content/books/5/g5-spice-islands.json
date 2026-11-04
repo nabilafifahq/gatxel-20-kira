@@ -4,7 +4,7 @@
   "title": "The Spice Islands",
   "kind": "nonfiction",
   "genre": "places",
-  "blurb": "Cloves and nutmeg were once worth more than gold. How did tiny islands in Indonesia change the world?",
+  "blurb": "Cloves and nutmeg once sent ships across oceans and started wars. How did tiny islands in Indonesia change the world?",
   "cover": {
     "motif": "boat",
     "tint": "warn"
@@ -13,474 +13,594 @@
     {
       "id": "c1",
       "title": "The Smell of Fortune",
-      "text": "Open a kitchen cupboard and you may find small jars of cinnamon, pepper, cloves and nutmeg. We sprinkle them on food without thinking much about them. Yet for hundreds of years, these spices were among the most valuable goods in the world.\n\nA spice is a part of a plant, such as a seed, a bark, a bud or a root, that we use to give flavour or fragrance. Before there were refrigerators, spices also helped people to hide the taste of food that was not fresh, and some were used as medicine.\n\nMany spices come from the warm, wet lands near the equator. This is why the story of spices is so closely tied to the islands of Southeast Asia, where the sun is strong and the rain falls almost every month.",
+      "text": "Open a kitchen cupboard and you may find small jars of cinnamon, pepper, cloves and nutmeg. We sprinkle them on food without thinking much about them. Yet for hundreds of years, these spices were among the most valuable goods in the world. Ships crossed oceans for them, and wars were fought over them.\n\nA spice is a part of a plant, such as a seed, a piece of bark, a bud or a root, that we use to give flavour or fragrance. Cinnamon is the bark of a tree. A peppercorn is a dried berry.\n\nPeople wanted spices for many reasons. They gave food a rich taste and filled a room with sweet smells, and some were used as medicine. In Europe, wealthy families served spiced food at feasts to show how rich they were. In China long ago, officials at the emperor's court held cloves in their mouths to sweeten their breath before they spoke to him.\n\nYou may have heard that people used spices to hide the taste of bad meat. Many historians doubt this. Spices often cost far more than meat, so anyone who could afford them could also afford fresh food.\n\nMany spices come from the warm, wet lands near the equator. This is why the story of spices is so closely tied to the islands of Southeast Asia. There, the sun is strong and the rain falls almost every month. A clove tree would never survive a cold European winter. So people in the cold north could not simply grow their own. They had to buy spices from far away, at a very high price.\n\nThat is where this story begins, with a small, sweet-smelling bud on a faraway island and with people on the other side of the world who would do almost anything to get it.",
       "questions": [
         {
           "id": "q1",
           "prompt": "What is a spice, according to the text?",
           "options": [
-            "A kind of meat",
             "A part of a plant used for flavour or fragrance",
-            "A kind of salt",
-            "A type of sugar"
+            "A kind of salt that is dug out of the ground",
+            "A kind of medicine that is made in a kitchen",
+            "A sweet food that is made from dried fruit"
           ],
-          "answer": 1,
-          "why": "A spice is a part of a plant, such as a seed, bark, bud or root, used for flavour or fragrance."
+          "answer": 0,
+          "why": "A spice is a part of a plant, such as a seed, a piece of bark, a bud or a root, that we use to give flavour or fragrance."
         },
         {
           "id": "q2",
-          "prompt": "Which of these is named as a spice?",
+          "prompt": "Which part of a plant is cinnamon?",
           "options": [
-            "Rice",
-            "Sugar",
-            "Salt",
-            "Cloves"
+            "A flower bud",
+            "The bark of a tree",
+            "A dried berry",
+            "A long root"
           ],
-          "answer": 3,
-          "why": "The text names cinnamon, pepper, cloves and nutmeg."
+          "answer": 1,
+          "why": "Cinnamon is the bark of a tree."
         },
         {
           "id": "q3",
-          "prompt": "Why did people use spices before refrigerators?",
+          "prompt": "Why did wealthy families in Europe serve spiced food at feasts?",
           "options": [
-            "To keep food cold",
-            "To make food heavier",
-            "To hide the taste of food that was not fresh",
-            "To make food blue"
+            "To help their guests fall asleep",
+            "To make the feast last longer",
+            "To hide the taste of bad food",
+            "To show how rich they were"
           ],
-          "answer": 2,
-          "why": "Spices helped people hide the taste of food that was not fresh."
+          "answer": 3,
+          "why": "In Europe, wealthy families served spiced food at feasts to show how rich they were."
         },
         {
           "id": "q4",
-          "prompt": "What else were some spices used for?",
+          "prompt": "What did officials at the Chinese emperor's court use cloves for?",
           "options": [
-            "Building houses",
-            "Medicine",
-            "Making paper",
-            "Washing clothes"
+            "To pay for the food that they ate at the palace",
+            "To flavour the tea that they gave to the emperor",
+            "To sweeten their breath before speaking to him",
+            "To keep themselves awake at long meetings"
           ],
-          "answer": 1,
-          "why": "Some were used as medicine."
+          "answer": 2,
+          "why": "They held cloves in their mouths to sweeten their breath before they spoke to him."
         },
         {
           "id": "q5",
-          "prompt": "Where do many spices grow?",
+          "prompt": "Why do many historians doubt that spices were used to hide the taste of bad meat?",
           "options": [
-            "In cold countries",
-            "In deserts",
-            "In the Arctic",
-            "In warm, wet lands near the equator"
+            "Meat could be kept fresh for many months back then",
+            "Nobody in Europe ate any meat at all in those days",
+            "Spices have no taste at all when they are cooked",
+            "People who could afford spices could also afford fresh food"
           ],
           "answer": 3,
-          "why": "Many spices come from warm, wet lands near the equator."
+          "why": "The text says spices often cost far more than meat, so anyone who could afford them could also afford fresh food."
         },
         {
           "id": "q6",
-          "prompt": "What is the main idea of this chapter?",
+          "prompt": "Why could people in northern Europe not simply grow their own cloves?",
           "options": [
-            "Spices have been very valuable and connect to Southeast Asia",
-            "Spices are always cheap",
-            "Spices come only from kitchens",
-            "Spices are harmful"
+            "Clove trees could not survive the cold winters",
+            "There was not enough room on their farms",
+            "The kings there would not allow clove trees",
+            "They did not know how to plant any seeds"
           ],
           "answer": 0,
-          "why": "The text says spices were among the most valuable goods and are tied to Southeast Asia."
+          "why": "A clove tree would never survive a cold European winter, so they could not simply grow their own."
+        },
+        {
+          "id": "q7",
+          "prompt": "What is the main idea of this chapter?",
+          "options": [
+            "Spices are found in Europe and were sold from there to Asia",
+            "Spices have always been cheap and easy to grow in most countries",
+            "Spices were once so valued that people went to great lengths for them",
+            "Spices are mostly used today to keep meat fresh for a long time"
+          ],
+          "answer": 2,
+          "why": "The chapter says spices were among the most valuable goods, and ends by saying people would do almost anything to get them."
         }
       ]
     },
     {
       "id": "c2",
       "title": "Islands of Spice",
-      "text": "Two of the most precious spices came from a handful of small islands in eastern Indonesia. Cloves grew naturally on a few islands in Maluku, such as Ternate and Tidore. These islands are the peaks of old volcanoes, and clove trees love the rich soil and the humid air. A clove is the dried flower bud of the tree, and it is picked before it opens.\n\nNutmeg grew on the Banda Islands, a tiny group of islands south of Maluku. The nutmeg tree gives two spices. The seed inside the fruit is nutmeg, and the red net that wraps around the seed is called mace.\n\nFor a long time, these trees did not grow in any other place on Earth. This made the spices rare, and rare things are expensive.",
+      "text": "Two of the most precious spices came from a handful of small islands in eastern Indonesia, in the part of the country now called Maluku. Old maps call them the Spice Islands.\n\nCloves grew naturally on a few islands in the north of Maluku, such as Ternate and Tidore. These two islands are really the tops of volcanoes rising out of the sea, and clove trees love the rich soil and the humid air. A clove is the dried flower bud of the tree, and it is picked before it opens. Pickers spread the buds on mats in the sun until they turn dark brown. The English name comes from an old French word for a nail, because a dried clove looks like a tiny nail.\n\nNutmeg grew on the Banda Islands, a tiny group far to the south of Ternate and Tidore, in the deep Banda Sea. The nutmeg tree gives two spices. Its fruit looks a little like a small peach, and it splits open when it is ripe. The seed inside the fruit is nutmeg, and the red net that wraps around the seed is called mace.\n\nFor a long time, these trees did not grow in any other place on Earth. This made the spices rare, and rare things are expensive. Most buyers in Europe had no idea where the spices came from, and the traders had good reason not to tell them.\n\nThe people of these islands looked after the trees for generations. The sultans of Ternate and Tidore grew rich and powerful from the clove trade, and the two islands were great rivals. The Banda Islands were too small to grow much rice, so Bandanese merchants traded their nutmeg for rice and cloth from other islands. They were skilled traders, and they knew exactly what their spice was worth.",
       "questions": [
         {
           "id": "q1",
           "prompt": "Where did cloves grow naturally?",
           "options": [
+            "On the coast of Papua",
             "On the island of Bali",
-            "In Sumatra",
-            "On a few islands in Maluku",
-            "In Papua"
+            "In the middle of Sumatra",
+            "On a few islands in the north of Maluku"
           ],
-          "answer": 2,
-          "why": "Cloves grew naturally on a few islands in Maluku, such as Ternate and Tidore."
+          "answer": 3,
+          "why": "Cloves grew naturally on a few islands in the north of Maluku, such as Ternate and Tidore."
         },
         {
           "id": "q2",
           "prompt": "What is a clove?",
           "options": [
-            "A seed",
+            "A piece of the dried bark",
+            "The dried seed of the fruit",
             "The dried flower bud of the tree",
-            "The bark",
-            "The root"
+            "A slice of the dried root"
           ],
-          "answer": 1,
-          "why": "A clove is the dried flower bud of the tree."
+          "answer": 2,
+          "why": "A clove is the dried flower bud of the tree, and it is picked before it opens."
         },
         {
           "id": "q3",
-          "prompt": "Why do clove trees grow well on these islands?",
+          "prompt": "Where does the English word clove come from?",
           "options": [
-            "The soil is sandy",
-            "There is no rain",
-            "The volcanic soil is rich and the air is humid",
-            "The air is cold"
+            "The name of an island in Maluku",
+            "An old French word for a nail",
+            "The name of the sultan of Ternate",
+            "An old Malay word for a tree"
           ],
-          "answer": 2,
-          "why": "The islands are old volcano peaks with rich soil and humid air."
+          "answer": 1,
+          "why": "The English name comes from an old French word for a nail, because a dried clove looks like a tiny nail."
         },
         {
           "id": "q4",
-          "prompt": "Where did nutmeg grow?",
+          "prompt": "Where are the Banda Islands, compared with Ternate and Tidore?",
           "options": [
-            "On the Banda Islands",
-            "On Java",
-            "On Ternate",
-            "On Borneo"
+            "Far to the south",
+            "Far to the north",
+            "Far to the west, in Java",
+            "Just next door"
           ],
           "answer": 0,
-          "why": "Nutmeg grew on the Banda Islands."
+          "why": "The Banda Islands are a tiny group far to the south of Ternate and Tidore."
         },
         {
           "id": "q5",
           "prompt": "What is mace?",
           "options": [
-            "The seed of the clove",
-            "The shell of the nutmeg",
-            "A kind of cinnamon",
+            "The soft flesh of the nutmeg fruit",
+            "A kind of cinnamon from Banda",
+            "The hard shell of the clove bud",
             "The red net around the nutmeg seed"
           ],
           "answer": 3,
-          "why": "The red net that wraps around the seed is called mace."
+          "why": "The seed inside the fruit is nutmeg, and the red net that wraps around the seed is called mace."
         },
         {
           "id": "q6",
-          "prompt": "Why were the spices expensive?",
+          "prompt": "Why did Bandanese merchants trade nutmeg for rice?",
           "options": [
-            "They were easy to find",
-            "They were poisonous",
-            "The trees grew in very few places, so they were rare",
-            "They were sold by kings only"
+            "Rice was needed to keep the nutmeg dry on long voyages",
+            "Their islands were too small to grow much rice",
+            "The sultans of Ternate had told them to buy rice",
+            "Rice was much more valuable than nutmeg at that time"
+          ],
+          "answer": 1,
+          "why": "The Banda Islands were too small to grow much rice, so Bandanese merchants traded their nutmeg for rice and cloth."
+        },
+        {
+          "id": "q7",
+          "prompt": "Why did traders have \"good reason not to tell\" buyers where the spices came from?",
+          "options": [
+            "The islands were thought to be full of very dangerous animals",
+            "The sultans wanted to keep all of the spices for their own feasts",
+            "If buyers knew, they could go there themselves and cut out the traders",
+            "The traders did not know where the spices came from themselves"
           ],
           "answer": 2,
-          "why": "For a long time, the trees grew nowhere else, making the spices rare and expensive."
+          "why": "The traders earned money by standing between the islands and the buyers. A buyer who knew the source would no longer need them."
         }
       ]
     },
     {
       "id": "c3",
       "title": "Along the Sea Roads",
-      "text": "The spices did not stay on the islands. Local traders carried them in small boats to ports on Java, Sumatra and Malay Peninsula. From there, merchants from India, Arabia and China bought them and shipped them west and north.\n\nThese voyages depended on the monsoon, a seasonal wind that changes direction every year. For about half the year, the wind blows from one side. Then it turns and blows from the opposite side. Sailors learned to travel with the wind in one direction and return with the wind on the way back.\n\nBy the time the spices reached Europe, they had passed through many hands. Each trader added a little to the price. A pinch of pepper in a London kitchen cost many times more than it did at the port where it was loaded.",
+      "text": "The spices did not stay on the islands. Local traders carried them in their boats to ports on Java, Sumatra and the Malay Peninsula. From there, merchants from India, Arabia and China bought them and shipped them west and north. Melaka, on the Malay Peninsula, became one of the greatest of these ports. One Portuguese visitor wrote that eighty-four languages could be heard in its streets.\n\nThese voyages depended on the monsoon, a seasonal wind that changes direction during the year. For about half the year, the wind blows from one side. Then it turns and blows from the opposite side. Sailors learned to sail out with one wind and come home with the other. A ship that missed the turn of the wind might wait in port for months.\n\nSo the ports filled with sailors who were waiting, trading and learning each other's words. Many of them used Malay as a shared language of trade. Much later, that language grew into Bahasa Indonesia.\n\nGoods were only part of what travelled along these sea roads. New words, new foods and new beliefs came too. Islam, for example, reached many island ports with Muslim traders and teachers, and it became the faith of many people there.\n\nBy the time the spices reached Europe, they had passed through many hands. Ships took them across the Indian Ocean, and camels and boats carried them on to ports such as Alexandria in Egypt. There, merchants from Venice bought them and sold them across Europe. Each trader added a little to the price. A pinch of pepper in a London kitchen cost many times more than it did at the port where it was loaded.\n\nRulers in Europe looked at these prices and began to wonder if there was another way to reach the spices.",
       "questions": [
         {
           "id": "q1",
           "prompt": "Where did local traders take the spices first?",
           "options": [
+            "To the court of the emperor of China",
             "To ports on Java, Sumatra and the Malay Peninsula",
-            "Directly to Europe",
-            "To the North Pole",
-            "To the desert"
+            "To the markets of Venice and other cities in Europe",
+            "To the port of Alexandria in the north of Egypt"
           ],
-          "answer": 0,
-          "why": "Local traders carried them to ports on Java, Sumatra and the Malay Peninsula."
+          "answer": 1,
+          "why": "Local traders carried them in their boats to ports on Java, Sumatra and the Malay Peninsula."
         },
         {
           "id": "q2",
-          "prompt": "Which merchants bought spices at the ports?",
+          "prompt": "What does the Portuguese visitor's remark tell us about Melaka?",
           "options": [
-            "From Africa and Australia only",
-            "From Canada",
-            "From India, Arabia and China",
-            "From Brazil"
+            "Everybody who lived in Melaka was a language teacher",
+            "Portuguese was the main language spoken in its streets",
+            "People from a great many places met and traded there",
+            "It was a very quiet place where few ships ever stopped"
           ],
           "answer": 2,
-          "why": "Merchants from India, Arabia and China bought them."
+          "why": "He wrote that eighty-four languages could be heard in its streets, so people must have come from many different lands."
         },
         {
           "id": "q3",
           "prompt": "What is the monsoon?",
           "options": [
-            "A kind of ship",
-            "A seasonal wind that changes direction",
-            "A storm at sea",
-            "A strong current"
+            "A sea current that always flows towards the same coast",
+            "A kind of large ship that carried spices across the sea",
+            "A heavy storm that strikes the same island each week",
+            "A seasonal wind that changes direction during the year"
           ],
-          "answer": 1,
-          "why": "The monsoon is a seasonal wind that changes direction every year."
+          "answer": 3,
+          "why": "These voyages depended on the monsoon, a seasonal wind that changes direction during the year."
         },
         {
           "id": "q4",
-          "prompt": "How did sailors use the monsoon?",
+          "prompt": "Why might a ship have to wait in port for months?",
           "options": [
-            "They waited for a calm sea",
-            "They travelled with the wind one way and returned when it changed direction",
-            "They rowed against it",
-            "They avoided it"
+            "It had missed the turn of the wind",
+            "Its captain had to go home to Europe",
+            "Its spices had not finished drying",
+            "Its crew had to learn a new language"
           ],
-          "answer": 1,
-          "why": "Sailors travelled with the wind in one direction and returned when it blew from the opposite side."
+          "answer": 0,
+          "why": "A ship that missed the turn of the wind might wait in port for months."
         },
         {
           "id": "q5",
-          "prompt": "Why were spices so expensive in Europe?",
+          "prompt": "What did Malay later grow into?",
           "options": [
-            "Each trader on the way added to the price",
-            "They were mixed with gold",
-            "They were heavy",
-            "They were taxed by the sea"
+            "Arabic",
+            "Portuguese",
+            "Bahasa Indonesia",
+            "Javanese"
           ],
-          "answer": 0,
-          "why": "Each trader added a little to the price."
+          "answer": 2,
+          "why": "Many used Malay as a shared language of trade. Much later, that language grew into Bahasa Indonesia."
         },
         {
           "id": "q6",
-          "prompt": "Which word best describes the spice trade at this time?",
+          "prompt": "What else travelled along the sea roads, besides goods?",
           "options": [
-            "Short and simple",
-            "Long and shared by many people",
-            "Secret and small",
-            "Slow and silent"
+            "New winds, new tides and new seasons",
+            "New mountains, new rivers and new islands",
+            "New kings, new flags and new borders",
+            "New words, new foods and new beliefs"
+          ],
+          "answer": 3,
+          "why": "New words, new foods and new beliefs came too."
+        },
+        {
+          "id": "q7",
+          "prompt": "Where did merchants from Venice buy spices?",
+          "options": [
+            "At ports such as Alexandria in Egypt",
+            "At the port of Melaka on the Malay Peninsula",
+            "On the Banda Islands in the deep Banda Sea",
+            "At markets in the middle of London"
+          ],
+          "answer": 0,
+          "why": "Camels and boats carried them on to ports such as Alexandria in Egypt. There, merchants from Venice bought them."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why would rulers in Europe want \"another way to reach the spices\"?",
+          "options": [
+            "They had forgotten the way to the old ports of Egypt",
+            "They wanted to avoid paying all the traders along the old route",
+            "They thought the sea roads were too crowded with boats",
+            "They wanted to stop people from eating spices altogether"
           ],
           "answer": 1,
-          "why": "The spices passed through many hands before reaching Europe."
+          "why": "The chapter explains that each trader added to the price. The rulers look at the prices, so they are looking for a cheaper way."
         }
       ]
     },
     {
       "id": "c4",
       "title": "Ships from Far Away",
-      "text": "In 1512, ships from Portugal reached the Banda Islands. The Portuguese wanted to buy spices directly, without the many traders in between. This was a big change, because Europeans had never before sailed so far east by sea, and the voyage took many months. Later, other European sailors followed. In 1602, a group of Dutch merchants started a powerful company called the Dutch East India Company, known as the VOC. It had its own ships, its own soldiers and its own rules.\n\nThe VOC wanted to control the whole spice trade. It forced the local people to sell only to the company, at low prices. It also fought wars to take control of the islands. Life on the islands changed for ever, and many people suffered because of this. Their story is an important part of Indonesian history.",
+      "text": "At the end of the 1400s, Portuguese sailors found a way around the south of Africa and into the Indian Ocean. In 1511, they captured Melaka. Then, in 1512, ships from Portugal reached the Banda Islands. The Portuguese wanted to buy spices directly, without the many traders in between. This was a big change, because European ships had never before come so far east, and the voyage from Portugal took many months.\n\nSpain came too. In 1521, two ships from the expedition of Ferdinand Magellan reached Tidore and loaded cloves. Magellan himself had been killed on the way. Only one ship, the Victoria, reached Spain again, after sailing around the whole world. The cloves it carried were worth a fortune, enough to cover much of the cost of the voyage.\n\nThe islanders did not simply accept these newcomers. In 1575, the people of Ternate, led by Sultan Baabullah, drove the Portuguese out of their fort after a long siege.\n\nIn 1602, a group of Dutch merchants started a powerful company called the Dutch East India Company, known by its Dutch initials as the VOC. It had its own ships, its own soldiers and its own rules. It could even make treaties and fight wars.\n\nThe VOC wanted to control the whole spice trade. It forced the local people to sell only to the company, at low prices. The people of Banda had sold to whoever they liked for centuries, and many of them refused. In 1621, on the orders of its governor, the company's soldiers attacked the islands. Thousands of people were killed, enslaved or forced to flee. Some escaped by boat to the Kei Islands, where their descendants still speak the Banda language today.\n\nLife on the islands changed for ever, and many people suffered because of this. Their story is an important part of Indonesian history.",
       "questions": [
         {
           "id": "q1",
           "prompt": "In which year did Portuguese ships reach the Banda Islands?",
           "options": [
-            "1512",
-            "1402",
             "1602",
-            "1712"
+            "1511",
+            "1521",
+            "1512"
           ],
-          "answer": 0,
-          "why": "In 1512, ships from Portugal reached the Banda Islands."
+          "answer": 3,
+          "why": "Then, in 1512, ships from Portugal reached the Banda Islands."
         },
         {
           "id": "q2",
-          "prompt": "Why did the Portuguese come directly to the islands?",
+          "prompt": "Why did the Portuguese want to come directly to the islands?",
           "options": [
-            "They wanted to build houses",
-            "They wanted gold",
-            "They wanted to buy spices without the traders in between",
-            "They were lost"
+            "To escape from a war that had started in Portugal",
+            "To teach the islanders how to grow more rice",
+            "To buy spices without the many traders in between",
+            "To find a safe place to build their big ships"
           ],
           "answer": 2,
           "why": "The Portuguese wanted to buy spices directly, without the many traders in between."
         },
         {
           "id": "q3",
-          "prompt": "What was the VOC?",
+          "prompt": "What made the voyage of the Victoria so remarkable?",
           "options": [
-            "A kind of spice",
-            "A powerful Dutch company",
-            "A local king",
-            "A school"
+            "It was the first ship ever to reach the Banda Islands",
+            "It sailed around the whole world and came home with cloves",
+            "It carried Ferdinand Magellan safely back to Spain",
+            "It carried enough nutmeg to pay for a new Spanish fleet"
           ],
           "answer": 1,
-          "why": "In 1602, Dutch merchants started the Dutch East India Company, known as the VOC."
+          "why": "Only the Victoria reached Spain again, after sailing around the whole world, and the cloves it carried were worth a fortune."
         },
         {
           "id": "q4",
-          "prompt": "What did the VOC want to control?",
+          "prompt": "What happened in Ternate in 1575?",
           "options": [
-            "All the schools",
-            "The weather",
-            "The roads",
-            "The whole spice trade"
+            "Sultan Baabullah and his people drove out the Portuguese",
+            "Sultan Baabullah sold the whole island to the Dutch",
+            "The Portuguese made Sultan Baabullah their new governor",
+            "The people of Ternate moved away to the Kei Islands"
           ],
-          "answer": 3,
-          "why": "The VOC wanted to control the whole spice trade."
+          "answer": 0,
+          "why": "In 1575, the people of Ternate, led by Sultan Baabullah, drove the Portuguese out of their fort."
         },
         {
           "id": "q5",
-          "prompt": "How did the VOC treat the local people?",
+          "prompt": "How was the VOC different from an ordinary group of merchants?",
           "options": [
-            "It paid them very high prices",
-            "It gave them free ships",
-            "It forced them to sell only to the company at low prices",
-            "It asked them to leave"
+            "It had soldiers and could make treaties and fight wars",
+            "It bought spices only from the people who lived on Java",
+            "It was run by the sultans of Ternate and Tidore together",
+            "It paid higher prices than anyone else in the whole trade"
           ],
-          "answer": 2,
-          "why": "It forced local people to sell only to the company, at low prices."
+          "answer": 0,
+          "why": "It had its own ships, soldiers and rules, and it could make treaties and fight wars. An ordinary group of merchants only buys and sells."
         },
         {
           "id": "q6",
-          "prompt": "Which sentence matches the end of the chapter?",
+          "prompt": "Why did the people of Banda refuse the VOC's demand?",
           "options": [
-            "Nothing changed on the islands",
-            "Life on the islands changed and many people suffered",
-            "The islands became empty",
-            "The islands became rich"
+            "They wanted to leave the islands and go to live in Europe",
+            "They already had an agreement to sell only to Portugal",
+            "They did not grow any nutmeg on their islands at that time",
+            "They had sold freely to anyone they liked for centuries"
+          ],
+          "answer": 3,
+          "why": "The people of Banda had sold to whoever they liked for centuries, and many of them refused."
+        },
+        {
+          "id": "q7",
+          "prompt": "What happened to many people of Banda after the attack of 1621?",
+          "options": [
+            "They became wealthy by selling their nutmeg to the VOC",
+            "They were killed, enslaved or forced to flee",
+            "They were invited to go and live in the Netherlands",
+            "They were given land and well-paid jobs in the company"
           ],
           "answer": 1,
-          "why": "Life on the islands changed for ever, and many people suffered."
+          "why": "The text says thousands of people were killed, enslaved or forced to flee."
+        },
+        {
+          "id": "q8",
+          "prompt": "Why do some people in the Kei Islands speak the Banda language today?",
+          "options": [
+            "Their teachers came from Banda to set up new schools",
+            "The VOC made it the official language of the Kei Islands",
+            "Their ancestors escaped there from Banda long ago",
+            "They learned it recently because they trade with Banda"
+          ],
+          "answer": 2,
+          "why": "Some escaped by boat to the Kei Islands, where their descendants still speak the Banda language today."
         }
       ]
     },
     {
       "id": "c5",
       "title": "A Tiny Island and a Big Deal",
-      "text": "In the 1600s, the Netherlands and England competed for the spice islands. One of the places they fought over was Run, a very small island in the Banda group. Run was only about three kilometres long, but it was covered in nutmeg trees.\n\nIn 1667, the two countries signed an agreement called the Treaty of Breda. England gave up its claim to Run. In exchange, the Dutch gave up their claim to a place in North America called New Amsterdam. Today, New Amsterdam is known as New York City, and the part where the Dutch had settled is called Manhattan. It is one of the busiest places in the world.\n\nBack then, people thought the Dutch had made a good bargain. A tiny island with nutmeg trees seemed more valuable than a big piece of land.",
+      "text": "In the 1600s, the Netherlands and England competed for the spice islands. One of the places they fought over was Run, a very small island in the Banda group. Run was only about three kilometres long, but it was covered in nutmeg trees. It was the last place in Banda where the English had a foothold. For nearly four years, a small group of English sailors held out there against the Dutch, until their captain, Nathaniel Courthope, was killed in 1620. The Dutch took control of Run, but England went on claiming it.\n\nNow travel to the other side of the world. In North America, Dutch settlers had built a small trading town on an island called Manhattan, on land where the Lenape people had long lived. The Dutch called the town New Amsterdam. In 1664, English ships sailed in and took it without a fight, and they gave it a new name: New York.\n\nSo each country now held something the other one wanted. In 1667, the two countries signed an agreement called the Treaty of Breda. England gave up its claim to Run. In exchange, the Dutch gave up their claim to New Amsterdam. Today, New Amsterdam is known as New York City, and the part where the Dutch had settled is still called Manhattan. It is one of the busiest places in the world.\n\nBack then, people thought the Dutch had made a good bargain. A tiny island with nutmeg trees seemed more valuable than a big piece of land. Nutmeg made fortunes, while New Amsterdam was a muddy little town of about fifteen hundred people.\n\nToday, Run is still small and quiet, and Manhattan has more than a million and a half people. Nobody in 1667 could have guessed that. And nobody asked the people of Run, or the Lenape, what they wanted.",
       "questions": [
         {
           "id": "q1",
           "prompt": "What was Run?",
           "options": [
-            "A large island in Java",
+            "A large island to the north of Java",
+            "A town built by the Dutch on Manhattan",
             "A very small island in the Banda group",
-            "A ship",
-            "A kind of nutmeg"
+            "A ship that carried nutmeg to Europe"
           ],
-          "answer": 1,
+          "answer": 2,
           "why": "Run was a very small island in the Banda group."
         },
         {
           "id": "q2",
           "prompt": "About how long was Run?",
           "options": [
-            "Thirty kilometres",
             "Three hundred metres",
             "Three kilometres",
+            "Thirty kilometres",
             "Three hundred kilometres"
           ],
-          "answer": 2,
+          "answer": 1,
           "why": "Run was only about three kilometres long."
         },
         {
           "id": "q3",
-          "prompt": "In which year was the Treaty of Breda signed?",
+          "prompt": "Why did Run matter so much to the English?",
           "options": [
-            "1512",
-            "1602",
-            "1667",
-            "1750"
+            "It was their last foothold in Banda",
+            "It was where the King of England was born",
+            "It was the only island with fresh water",
+            "It was the largest of the Banda Islands"
           ],
-          "answer": 2,
-          "why": "In 1667, the two countries signed the Treaty of Breda."
+          "answer": 0,
+          "why": "It was the last place in Banda where the English had a foothold."
         },
         {
           "id": "q4",
-          "prompt": "What did England give up?",
+          "prompt": "How did New Amsterdam get the name New York?",
           "options": [
-            "Its claim to Run",
-            "Its claim to Java",
-            "Its ships",
-            "Its spices"
+            "The Dutch settlers chose it to please the English",
+            "The Lenape people gave it that name long ago",
+            "The Treaty of Breda gave it a new name in 1667",
+            "English ships took it in 1664 and renamed it"
           ],
-          "answer": 0,
-          "why": "England gave up its claim to Run."
+          "answer": 3,
+          "why": "In 1664, English ships sailed in and took it without a fight, and they gave it a new name: New York."
         },
         {
           "id": "q5",
-          "prompt": "What did the Dutch give up?",
+          "prompt": "What did the Treaty of Breda settle?",
           "options": [
-            "Their claim to Banda",
-            "Their claim to Ternate",
-            "Their claim to New Amsterdam in North America",
-            "Their ships"
+            "England and the Dutch agreed to share Run and New Amsterdam equally",
+            "England gave up its claim to New York, and the Dutch gave up theirs to Run",
+            "England bought Run from the Dutch for a large sum of money",
+            "England gave up its claim to Run, and the Dutch gave up theirs to New Amsterdam"
           ],
-          "answer": 2,
-          "why": "The Dutch gave up their claim to New Amsterdam."
+          "answer": 3,
+          "why": "England gave up its claim to Run. In exchange, the Dutch gave up their claim to New Amsterdam."
         },
         {
           "id": "q6",
-          "prompt": "Why did people think the Dutch made a good bargain?",
+          "prompt": "Why did people then think the Dutch had made a good bargain?",
           "options": [
-            "Manhattan was empty",
-            "A tiny island with nutmeg trees seemed more valuable than a big piece of land",
-            "Run was very big",
-            "New York was a city"
+            "Nutmeg made fortunes, and New Amsterdam was a muddy little town",
+            "Manhattan had no people on it and was far too cold to farm",
+            "Run was much bigger than Manhattan and had better farmland",
+            "The English had already cut down all the trees on Manhattan"
+          ],
+          "answer": 0,
+          "why": "Nutmeg made fortunes, while New Amsterdam was a muddy little town of about fifteen hundred people."
+        },
+        {
+          "id": "q7",
+          "prompt": "What does the comparison of Run and Manhattan today suggest?",
+          "options": [
+            "Small islands always become more valuable than big ones",
+            "What seems most valuable at one time may not stay so",
+            "Nutmeg is worth much more today than it was back then",
+            "The English made a very bad bargain in the year 1667"
           ],
           "answer": 1,
-          "why": "Back then, people thought a tiny island with nutmeg trees seemed more valuable."
+          "why": "Run is still small and quiet, and Manhattan has grown huge. The text adds that nobody in 1667 could have guessed that."
+        },
+        {
+          "id": "q8",
+          "prompt": "Who had no say in the deal, according to the last sentence?",
+          "options": [
+            "The English and the Dutch rulers",
+            "The sailors of Nathaniel Courthope",
+            "The people of Run and the Lenape",
+            "The merchants of New Amsterdam"
+          ],
+          "answer": 2,
+          "why": "The last sentence says nobody asked the people of Run, or the Lenape, what they wanted."
         }
       ]
     },
     {
       "id": "c6",
       "title": "Spices Today",
-      "text": "The Dutch tried to keep the nutmeg and clove trees only on their own islands. But it was not possible to guard every seed for ever. In the 1700s and 1800s, seedlings were taken to other warm places, such as Mauritius, the Caribbean and Zanzibar. Once the trees grew elsewhere, spices became cheaper.\n\nToday, spices are not treasures but everyday goods. Indonesia is still one of the biggest producers of nutmeg and cloves in the world. In Indonesian kitchens, people use cloves, nutmeg and many other spices in dishes such as soto and rendang.\n\nClove oil is still used in some medicines for the teeth, too. The story of spices reminds us that things that seem small can have a big influence on history. It began with a tiny bud and a small island.",
+      "text": "The Dutch tried to keep the nutmeg and clove trees only on their own islands. The company's patrol boats cut down clove trees on other islands, and nutmeg seeds sold abroad were treated so that they could not grow. But it was not possible to guard every seed for ever. Even the birds were against them, because pigeons ate nutmeg fruit and dropped the seeds on other islands.\n\nIn the 1700s and 1800s, seedlings were taken to other warm places, such as Mauritius, the Caribbean and Zanzibar. In about 1770, a French official called Pierre Poivre had clove and nutmeg seedlings smuggled to Mauritius. His family name, Poivre, is the French word for pepper. Later, Zanzibar became famous for cloves. The Caribbean island of Grenada grew so much nutmeg that a small picture of a nutmeg appears on its flag today.\n\nOnce the trees grew elsewhere, spices became cheaper. The VOC, once so powerful, ran into huge debts and was closed down at the end of 1799.\n\nToday, you can buy spices cheaply in any market. Indonesia is still one of the biggest producers of nutmeg and cloves in the world. In Indonesian kitchens, people use cloves, nutmeg and many other spices in dishes such as soto and rendang. Visitors can still walk through the nutmeg groves of Banda, under tall trees planted long ago to give them shade.\n\nClove oil is still used in some medicines for the teeth, too. The story of spices reminds us that things that seem small can have a big influence on history. It began with a tiny bud and a small island. It carried new languages and new beliefs across the sea, and it brought great suffering as well. So the next time you smell a bowl of soto, remember how far that smell has travelled.",
       "questions": [
         {
           "id": "q1",
-          "prompt": "Why were seedlings taken to other places?",
+          "prompt": "How did the VOC try to stop other places from growing nutmeg?",
           "options": [
-            "So that the trees could grow elsewhere",
-            "To feed the animals",
-            "To close the islands",
-            "To sell the islands"
+            "By giving away free nutmeg to people in other lands",
+            "By treating the seeds it sold so that they could not grow",
+            "By asking the birds to stay away from the fruit",
+            "By paying other countries to plant only coffee trees"
           ],
-          "answer": 0,
-          "why": "The seedlings were taken to other warm places so trees grew elsewhere."
+          "answer": 1,
+          "why": "Nutmeg seeds sold abroad were treated so that they could not grow."
         },
         {
           "id": "q2",
-          "prompt": "What happened to spice prices once the trees grew elsewhere?",
+          "prompt": "How did pigeons work against the Dutch plan?",
           "options": [
-            "They became higher",
-            "They became cheaper",
-            "They stayed the same",
-            "They became secret"
+            "They carried messages to the other traders on other islands",
+            "They ate all of the young clove buds before they could open",
+            "They ate nutmeg fruit and dropped the seeds on other islands",
+            "They damaged the company's patrol boats with their droppings"
           ],
-          "answer": 1,
-          "why": "Once the trees grew elsewhere, spices became cheaper."
+          "answer": 2,
+          "why": "Pigeons ate nutmeg fruit and dropped the seeds on other islands."
         },
         {
           "id": "q3",
-          "prompt": "Which country is still among the biggest producers of nutmeg and cloves?",
+          "prompt": "What did Pierre Poivre do?",
           "options": [
-            "Mauritius",
-            "Netherlands",
-            "Indonesia",
-            "England"
+            "He started the Dutch East India Company",
+            "He wrote a book about the pepper trade",
+            "He sailed all the way around the world",
+            "He had seedlings smuggled to Mauritius"
           ],
-          "answer": 2,
-          "why": "Indonesia is still one of the biggest producers of nutmeg and cloves."
+          "answer": 3,
+          "why": "In about 1770, Pierre Poivre had clove and nutmeg seedlings smuggled to Mauritius."
         },
         {
           "id": "q4",
-          "prompt": "Which dishes are named in the text?",
+          "prompt": "What does the picture on Grenada's flag tell us?",
           "options": [
-            "Pizza and pasta",
-            "Soto and rendang",
-            "Sushi and noodles",
-            "Burgers and chips"
+            "Nutmeg has been very important to that island",
+            "The people of Grenada do not grow nutmeg now",
+            "Grenada was the first home of the nutmeg tree",
+            "Grenada was once ruled by the Banda Islands"
           ],
-          "answer": 1,
-          "why": "People use spices in dishes such as soto and rendang."
+          "answer": 0,
+          "why": "The text says Grenada grew so much nutmeg that a small picture of a nutmeg appears on its flag. A flag shows what a country values."
         },
         {
           "id": "q5",
-          "prompt": "What does \"Today, spices are not treasures but everyday goods\" mean?",
+          "prompt": "What happened to spice prices once the trees grew elsewhere?",
           "options": [
-            "Spices are rare",
-            "Spices are not used",
-            "Spices are common and easy to buy",
-            "Spices are only for kings"
+            "They became cheaper",
+            "They became higher",
+            "They became a secret",
+            "They stayed the same"
           ],
-          "answer": 2,
-          "why": "Spices are now everyday goods, not rare treasures."
+          "answer": 0,
+          "why": "Once the trees grew elsewhere, spices became cheaper."
         },
         {
           "id": "q6",
+          "prompt": "Why might the VOC have lost its power after other places began growing spices?",
+          "options": [
+            "Its ships had all been sold to traders in Zanzibar",
+            "It no longer had control of something that was rare",
+            "Its leaders had decided to give the islands back",
+            "Its soldiers had all gone home to the Netherlands"
+          ],
+          "answer": 1,
+          "why": "The company's power came from controlling rare spices. Once trees grew elsewhere, spices became cheaper, and the company ran into debt and was closed."
+        },
+        {
+          "id": "q7",
+          "prompt": "Which country is still among the biggest producers of nutmeg and cloves?",
+          "options": [
+            "Mauritius",
+            "England",
+            "Indonesia",
+            "The Netherlands"
+          ],
+          "answer": 2,
+          "why": "Indonesia is still one of the biggest producers of nutmeg and cloves in the world."
+        },
+        {
+          "id": "q8",
           "prompt": "What is the main message of the book?",
           "options": [
-            "Small things such as spices can have a big influence on history",
-            "Spices are bad for health",
-            "Only Europeans used spices",
-            "The islands are no longer important"
+            "Spices have always been bad for people who eat too many",
+            "Only people from Europe have ever used spices in their food",
+            "The Spice Islands are no longer important to anyone at all",
+            "Small things such as spices can have a big influence on history"
           ],
-          "answer": 0,
-          "why": "The final sentence says that things that seem small can have a big influence on history."
+          "answer": 3,
+          "why": "The last chapter says things that seem small can have a big influence on history, and that it began with a tiny bud and a small island."
         }
       ]
     }

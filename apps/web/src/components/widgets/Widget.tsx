@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import type { ReactElement } from 'react'
 import { TapSound } from '@/components/learner/TapSound'
+import { useT } from '@/lib/i18n/client'
 import { ClockWidget } from './ClockWidget'
 import { ClozeWidget } from './ClozeWidget'
 import { DrawWidget } from './DrawWidget'
@@ -29,7 +30,8 @@ import { WriteWidget } from './WriteWidget'
 
 /** Alat peraga dimuat sendiri-sendiri saat soalnya muncul, supaya bundel halaman soal tetap kecil. */
 function Loading(): ReactElement {
-  return <div role="status" aria-label="Loading the tool" className="h-48 w-full animate-pulse rounded-card border border-divider bg-surface" />
+  const t = useT()
+  return <div role="status" aria-label={t.widgets.shared.loadingTool} className="h-48 w-full animate-pulse rounded-card border border-divider bg-surface" />
 }
 const LOAD = {
   blocks: () => import('./BlocksWidget').then((m) => m.BlocksWidget),

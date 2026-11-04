@@ -1,6 +1,9 @@
+'use client'
+
 import type { ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
+import { useLang, useT } from '@/lib/i18n/client'
 import { shortDate } from './format'
 
 /**
@@ -65,12 +68,14 @@ export function BadgeTile({
   glyph?: string
   className?: string
 }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   const earned = earnedAt !== null
-  const when = earned ? shortDate(earnedAt) : null
+  const when = earned ? shortDate(earnedAt, lang) : null
   return (
     <div
       role="img"
-      aria-label={earned ? `${title}, earned ${when}${isNew ? ', new' : ''}` : `${title}, locked. ${description}`}
+      aria-label={earned ? (isNew ? t.shell.badgeTile.earnedNew(title, when ?? '') : t.shell.badgeTile.earned(title, when ?? '')) : t.shell.badgeTile.locked(title, description)}
       className={cx(
         'relative flex flex-col items-center gap-1.5 rounded-control px-2 pt-3.5 pb-3 text-center',
         earned ? 'border border-divider bg-surface' : 'border-2 border-dashed border-border bg-bg',
@@ -89,7 +94,7 @@ export function BadgeTile({
       <span className="text-body leading-5 font-bold">{title}</span>
       <span className="text-body leading-5 text-fg-muted">{earned ? when : description}</span>
       {isNew && earned ? (
-        <span className="absolute -top-3 right-2 inline-flex h-6 items-center rounded-pill bg-fg px-2.5 text-small font-bold text-white">New</span>
+        <span className="absolute -top-3 right-2 inline-flex h-6 items-center rounded-pill bg-fg px-2.5 text-small font-bold text-white">{t.shell.badgeTile.isNew}</span>
       ) : null}
     </div>
   )

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { useOnline } from '@/components/learner/hooks'
+import { useT } from '@/lib/i18n/client'
 import { asMedia } from './answers'
 import type { WidgetProps } from './types'
 
@@ -52,6 +53,7 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
   const cameraRef = useRef<HTMLInputElement>(null)
   const galleryRef = useRef<HTMLInputElement>(null)
   const urlRef = useRef<string | null>(null)
+  const t = useT()
 
   useEffect(() => {
     return () => {
@@ -72,7 +74,7 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
     const blob = await prepare(file)
     if (!blob) {
       setPhase('failed')
-      setMessage('This photo could not be read. Try the camera, or choose a different photo.')
+      setMessage(t.widgets.photo.unreadable)
       return
     }
     if (urlRef.current) URL.revokeObjectURL(urlRef.current)
@@ -81,7 +83,7 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
     const res = await onUpload(blob, 'image')
     if (!res) {
       setPhase('failed')
-      setMessage('The photo did not send. Check your connection and try again. If it keeps failing, ask a grown-up about photos.')
+      setMessage(t.widgets.photo.failed)
       return
     }
     setPhase('ready')
@@ -91,27 +93,27 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
   return (
     <div className="flex w-full flex-col gap-4">
       <p className="m-0 text-body font-semibold text-fg-muted" aria-live="polite">
-        {sent ? 'Your photo is ready. Send it to your tutor.' : 'Take a photo of your answer on paper.'}
+        {sent ? t.widgets.photo.ready : t.widgets.photo.instruction}
       </p>
       {preview ? (
         // Foto dari perangkat sendiri (blob), bukan aset luar.
-        <img src={preview} alt="Your photo of the answer" className="max-h-[50svh] w-full max-w-[420px] rounded-control border-2 border-border bg-surface object-contain" />
+        <img src={preview} alt={t.widgets.photo.alt} className="max-h-[50svh] w-full max-w-[420px] rounded-control border-2 border-border bg-surface object-contain" />
       ) : sent ? (
         <p className="m-0 inline-flex items-center gap-2 text-body-lg font-bold">
           <UiIcon name="check" size={22} className="text-success" />
-          Photo saved
+          {t.widgets.photo.saved}
         </p>
       ) : null}
       <div className="flex flex-wrap gap-3">
         <Button icon="camera" loading={busy} disabled={off || busy} onClick={() => cameraRef.current?.click()}>
-          {sent ? 'Take another photo' : 'Take a photo'}
+          {sent ? t.widgets.photo.takeAnother : t.widgets.photo.take}
         </Button>
         <Button variant="secondary" disabled={off || busy} onClick={() => galleryRef.current?.click()}>
-          Choose a photo
+          {t.widgets.photo.choose}
         </Button>
         {onSkip && !sent ? (
           <Button variant="quiet" onClick={onSkip}>
-            Skip this one
+            {t.widgets.shared.skipThisOne}
           </Button>
         ) : null}
       </div>
@@ -119,12 +121,12 @@ export function PhotoWidget({ value, onChange, disabled = false, onUpload, onSki
       <input ref={galleryRef} type="file" accept="image/*" className="hidden" tabIndex={-1} aria-hidden="true" onChange={(e) => void take(e)} />
       {!online ? (
         <p role="status" className="m-0 text-body-lg">
-          You are offline. Photos need the internet. Skip this one for now, or try again when you are back online.
+          {t.widgets.photo.offline}
         </p>
       ) : null}
       {unavailable ? (
         <p role="status" className="m-0 text-body-lg">
-          Photos are not available on this screen.
+          {t.widgets.photo.unavailable}
         </p>
       ) : null}
       {phase === 'failed' ? (

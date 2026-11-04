@@ -3,6 +3,8 @@
 import { useEffect, useState, type ReactElement } from 'react'
 import type { Anim } from '@kira/content/anim'
 import type { Subject } from '@/lib/dto'
+import { dictFor, type Dict } from '@/lib/i18n'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * Panggung gambar bergerak untuk pembahasan (SolutionPlayer). Dimuat malas (next/dynamic) supaya runner
@@ -46,22 +48,20 @@ export function useProgress(ms: number, reduced: boolean): number {
 }
 
 /** Kalimat untuk pembaca layar. */
-export function describeAnim(a: Anim): string {
+export function describeAnim(a: Anim, t: Dict['runner']['anim'] = dictFor('en').runner.anim): string {
   switch (a.k) {
-    case 'combine': {
-      const word = { '+': 'plus', '-': 'minus', '×': 'times', '÷': 'divided by' }[a.op]
-      return `${fmt(a.a)} ${word} ${fmt(a.b)} equals ${fmt(a.r)}.`
-    }
+    case 'combine':
+      return t.combine(fmt(a.a), t.ops[a.op], fmt(a.b), fmt(a.r))
     case 'column':
-      return `Column ${a.op === '+' ? 'addition' : a.op === '-' ? 'subtraction' : 'multiplication'}: ${fmt(a.a)} ${a.op} ${fmt(a.b)} equals ${fmt(a.r)}.`
+      return t.column(a.op === '+' ? t.columnAdd : a.op === '-' ? t.columnSub : t.columnMul, fmt(a.a), a.op, fmt(a.b), fmt(a.r))
     case 'bar':
-      return `Bar model: ${a.parts.map((p) => fmt(p.v)).join(', ')} make ${fmt(a.total)} in all.`
+      return t.bar(a.parts.map((p) => fmt(p.v)).join(', '), fmt(a.total))
     case 'line':
-      return `Number line: start at ${fmt(a.start)} and make ${a.jumps.length} ${a.jumps.length === 1 ? 'jump' : 'jumps'}.`
+      return t.line(fmt(a.start), a.jumps.length)
     case 'seq':
-      return `Numbers one after another: ${a.items.join(', ')}.`
+      return t.seq(a.items.join(', '))
     case 'lines':
-      return `Working: ${a.lines.join('. ')}.`
+      return t.lines(a.lines.join('. '))
   }
 }
 
@@ -341,10 +341,11 @@ function Lines({ a, t }: { a: Extract<Anim, { k: 'lines' }>; t: number }): React
 const DURATION: Record<Anim['k'], number> = { combine: 1500, column: 2600, bar: 2200, line: 2200, seq: 2000, lines: 2400 }
 
 export default function AnimStage({ anim, subject, reduced }: { anim: Anim; subject: Subject; reduced: boolean }): ReactElement {
+  const animWords = useT().runner.anim
   const t = useProgress(DURATION[anim.k], reduced)
   const tone = TONE[subject]
   return (
-    <svg viewBox="0 0 360 190" role="img" aria-label={describeAnim(anim)} className="block h-auto w-full max-w-[380px] select-none">
+    <svg viewBox="0 0 360 190" role="img" aria-label={describeAnim(anim, animWords)} className="block h-auto w-full max-w-[380px] select-none">
       {anim.k === 'combine' ? <Combine a={anim} t={t} tone={tone} /> : null}
       {anim.k === 'column' ? <Column a={anim} t={t} tone={tone} /> : null}
       {anim.k === 'bar' ? <Bar a={anim} t={t} tone={tone} /> : null}

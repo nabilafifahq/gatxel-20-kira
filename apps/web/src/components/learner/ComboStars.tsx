@@ -2,6 +2,7 @@
 
 import type { CSSProperties, ReactElement } from 'react'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { StarGlyph } from './StreakChain'
 
 /**
@@ -23,6 +24,7 @@ export function ComboStars({
   streak: number
   className?: string
 }): ReactElement | null {
+  const t = useT().runner.combo
   const level = comboLevel(streak)
   if (level === 0) return null
   const sizes = [20, 26, 32]
@@ -30,7 +32,7 @@ export function ComboStars({
     <span
       key={level}
       role="status"
-      aria-label={`${streak} in a row`}
+      aria-label={t.inARow(streak)}
       className={cx('inline-flex items-end gap-0.5', className)}
     >
       {Array.from({ length: level }, (_, i) => (
@@ -43,7 +45,7 @@ export function ComboStars({
           <StarGlyph filled size={sizes[Math.min(i + (level - 1), 2)]!} />
         </span>
       ))}
-      <span className="ml-1.5 text-body font-bold tabular-nums">{streak} in a row</span>
+      <span className="ml-1.5 text-body font-bold tabular-nums">{t.inARow(streak)}</span>
     </span>
   )
 }

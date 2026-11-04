@@ -72,8 +72,18 @@ export function isNextControlFlow(e: unknown): boolean {
 
 export async function runAction<T>(context: string, fn: () => Promise<T>, lang: 'id' | 'en-GB' = 'id'): Promise<ActionResult<T>> {
   try {
-    return { ok: true, data: await fn() }
+    const data = await fn()
+    // Cache layar Today dan sejenisnya kedaluwarsa setelah aksi yang mengubah data (tidak menunggu, tidak melempar).
+    await import('./today-cache').then((m) => m.afterActionSuccess()).catch(() => {})
+    return { ok: true, data }
   } catch (e) {
-    return toFailure(e, context, lang)
+    const failure = toFailure(e, context, lang)
+    // Area anak: pesan umum mengikuti bahasa tampilan anak. AppError sudah membawa teksnya sendiri.
+    if (lang === 'en-GB' && !(e instanceof AppError)) {
+      const { getT } = await import('@/lib/i18n/server')
+      const t = await getT().catch(() => null)
+      if (t) failure.message = e instanceof z.ZodError ? t.common.errors.invalid : t.common.errors.generic
+    }
+    return failure
   }
 }
