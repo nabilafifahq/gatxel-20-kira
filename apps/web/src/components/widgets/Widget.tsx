@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import type { ReactElement } from 'react'
 import { TapSound } from '@/components/learner/TapSound'
 import { ClockWidget } from './ClockWidget'
@@ -25,6 +26,16 @@ import { TextWidget } from './TextWidget'
 import { TilesWidget } from './TilesWidget'
 import type { WidgetProps } from './types'
 import { WriteWidget } from './WriteWidget'
+
+/** Alat peraga dimuat sendiri-sendiri saat soalnya muncul, supaya bundel halaman soal tetap kecil. */
+function Loading(): ReactElement {
+  return <div role="status" aria-label="Loading the tool" className="h-48 w-full animate-pulse rounded-card border border-divider bg-surface" />
+}
+const BlocksWidget = dynamic(() => import('./BlocksWidget').then((m) => m.BlocksWidget), { loading: Loading })
+const FractionBarWidget = dynamic(() => import('./FractionBarWidget').then((m) => m.FractionBarWidget), { loading: Loading })
+const BarModelWidget = dynamic(() => import('./BarModelWidget').then((m) => m.BarModelWidget), { loading: Loading })
+const TangramWidget = dynamic(() => import('./TangramWidget').then((m) => m.TangramWidget), { loading: Loading })
+const GeoboardWidget = dynamic(() => import('./GeoboardWidget').then((m) => m.GeoboardWidget), { loading: Loading })
 
 /** Pilih widget sesuai ClientItem.type. Key berdasarkan ref supaya state widget tidak bocor antarsoal. */
 export function Widget(props: WidgetProps): ReactElement {
@@ -84,5 +95,15 @@ function WidgetByType(props: WidgetProps): ReactElement {
       return <TableWidget key={k} {...props} />
     case 'grid':
       return <GridWidget key={k} {...props} />
+    case 'blocks':
+      return <BlocksWidget key={k} {...props} />
+    case 'fractionbar':
+      return <FractionBarWidget key={k} {...props} />
+    case 'barmodel':
+      return <BarModelWidget key={k} {...props} />
+    case 'tangram':
+      return <TangramWidget key={k} {...props} />
+    case 'geoboard':
+      return <GeoboardWidget key={k} {...props} />
   }
 }

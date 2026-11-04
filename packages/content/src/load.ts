@@ -4,6 +4,7 @@ import { validateRules } from '@kira/core/scoring'
 import { z } from 'zod'
 import { flattenGrid, gridRulesOk, gridValues, sizeAllowed, solveGrid } from './grid'
 import { GENERATORS, generateUncached, genRef } from './math'
+import { analysePegs, geoOk, PIECE_TYPES, tangramProblems, type Pt } from './manip'
 import {
   catalogSchema,
   itemFileSchema,
@@ -115,6 +116,7 @@ function textsOf(item: Item): string[] {
   if (item.type === 'cloze') for (const g of item.gaps) t.push(...g.options)
   if (item.type === 'hotspot') t.push(...item.regions.map((r) => r.label))
   if (item.type === 'label') t.push(...item.labels, ...item.extraLabels)
+  if (item.type === 'barmodel') t.push(...item.bars.map((b) => b.label), ...item.extraLabels, item.unitName ?? '')
   if (item.type === 'table') {
     t.push(item.caption ?? '', ...item.head, ...item.rows.flat())
     for (const b of item.blanks) t.push(...b.answers)
@@ -220,6 +222,62 @@ function newTypeProblems(item: Item): string[] {
           if (cell === '' && !seen.has(`${r}:${c}`)) p.push(`Sel (${r}, ${c}) kosong tetapi tidak ada di blanks`)
         }),
       )
+      break
+    }
+    case 'blocks': {
+      const { start, target } = item
+      const val = (b: { h: number; t: number; o: number }) => b.h * 100 + b.t * 10 + b.o
+      if (item.places === 'to' && (target.h > 0 || start.h > 0)) p.push('Papan puluhan dan satuan tidak boleh memakai ratusan')
+      if (item.exact) {
+        if (start.h === target.h && start.t === target.t && start.o === target.o) p.push('Susunan awal sudah sama dengan target')
+        if (val(start) !== val(target) && !item.prompt) p.push('Target persis tanpa tukar butuh penjelasan')
+      } else if (val(start) === val(target)) p.push('Nilai awal sudah sama dengan target')
+      if (target.o > 9 && !item.exact) p.push('Target sebaiknya ditulis dalam susunan baku (satuan di bawah 10)')
+      if (item.exact && val(start) === val(target) && target.o > 9) p.push('Susunan target persis tidak boleh punya 10 satuan atau lebih')
+      break
+    }
+    case 'fractionbar': {
+      if (item.targets.length !== item.rows.length) p.push('targets harus sebanyak rows')
+      item.rows.forEach((r, i) => {
+        const t = item.targets[i]
+        if (t && t.num > t.den) p.push(`Batang ${i + 1}: pecahan lebih dari 1`)
+        const den = r.den ?? t?.den
+        if (r.locked !== undefined && r.den === undefined) p.push(`Batang ${i + 1}: locked butuh den`)
+        if (r.locked !== undefined && r.den !== undefined && r.locked > r.den) p.push(`Batang ${i + 1}: locked lebih besar dari den`)
+        if (r.den === undefined && !item.targets[i] && !item.relation) p.push(`Batang ${i + 1} tidak punya target`)
+        if (t && r.den !== undefined && (t.num * r.den) % t.den !== 0) p.push(`Batang ${i + 1}: target tidak bisa diarsir dengan ${r.den} bagian`)
+        if (t && r.den === undefined && item.exactSplit && !item.splits.includes(t.den)) p.push(`Batang ${i + 1}: pembagian ${t.den} tidak ada di splits`)
+        if (t && r.den === undefined && !item.exactSplit && !item.splits.some((s) => (t.num * s) % t.den === 0)) p.push(`Batang ${i + 1}: tidak ada pembagian yang bisa mewakili target`)
+        if (den === undefined) return
+      })
+      if (item.relation) {
+        if (item.rows.length < 2) p.push('relation butuh minimal 2 batang')
+        else if (item.targets[0] || item.targets[1]) p.push('relation tidak dipakai bersama target di batang 1 dan 2')
+        else if (item.rows[0]!.locked === undefined && item.rows[1]!.locked === undefined) p.push('relation butuh satu batang yang dikunci')
+      }
+      if (!item.relation && item.targets.every((t) => t === null)) p.push('Tidak ada target maupun relation')
+      if (new Set(item.splits).size !== item.splits.length) p.push('splits kembar')
+      break
+    }
+    case 'barmodel': {
+      const labels = [...item.bars.map((b) => b.label), ...item.extraLabels]
+      if (dup(labels)) p.push('Label bar kembar')
+      if (item.kind === 'partwhole' && item.bars.length < 2) p.push('Bagian-utuh butuh minimal 2 bagian')
+      if (item.kind === 'compare' && item.bars.length < 2) p.push('Perbandingan butuh minimal 2 batang')
+      break
+    }
+    case 'tangram': {
+      p.push(...tangramProblems({ pieces: item.pieces, slots: item.slots as unknown as Pt[][] }))
+      if (!item.pieces.every((t) => PIECE_TYPES.includes(t))) p.push('Keping tidak dikenal')
+      break
+    }
+    case 'geoboard': {
+      const info = analysePegs(item.example)
+      if (!info.ok) p.push(`example bukan bentuk yang sah (${info.reason})`)
+      else if (!geoOk(item.rule, info)) p.push('example tidak memenuhi rule')
+      if (item.example.some((q) => q[0] >= item.size || q[1] >= item.size)) p.push('example keluar dari papan')
+      if (Object.keys(item.rule).length === 0) p.push('rule kosong')
+      if (item.rule.perimeter !== undefined && item.rule.rectilinear !== true && item.rule.shape !== 'rectangle' && item.rule.shape !== 'square') p.push('perimeter hanya untuk bentuk bersisi lurus sumbu (rectilinear, persegi panjang, atau persegi)')
       break
     }
     case 'grid': {

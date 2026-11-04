@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { figureSpec } from '@kira/figures/spec'
+import { GEO_SHAPES, PIECE_TYPES } from './manip'
 
 export { ICON_NAMES } from '@kira/figures/spec'
 export type { IconName } from '@kira/figures/spec'
@@ -213,10 +214,62 @@ export const gridItem = z
 /** Jawaban foto: anak memotret jawaban di kertas, tutor menilai dengan rubrik dan saran AI. */
 export const photoItem = z.object({ ...manualBase, type: z.literal('photo'), rubric: rubricSchema }).strict()
 
+/** Alat peraga Math. Semua dinilai di server dari bentuk jawaban terstruktur; lihat manip.ts. */
+const blocksCount = z.number().int().min(0).max(30)
+const blocksTriple = z.object({ h: blocksCount, t: blocksCount, o: blocksCount }).strict()
+/** Balok nilai tempat: anak membangun target dari ratusan, puluhan, dan satuan. exact=true menuntut susunan persis (misalnya hasil tukar 10 satuan menjadi 1 puluhan). */
+export const blocksItem = z
+  .object({ ...base, type: z.literal('blocks'), places: z.enum(['to', 'hto']).default('hto'), start: blocksTriple.default({ h: 0, t: 0, o: 0 }), target: blocksTriple, exact: z.boolean().default(false) })
+  .strict()
+const fractionRow = z.object({ den: z.number().int().min(2).max(12).optional(), locked: z.number().int().min(0).max(12).optional() }).strict()
+/** Batang pecahan: 1 sampai 3 batang. Anak memilih pembagian (kecuali den dikunci) lalu mengarsir. targets[i] adalah nilai yang harus diwakili batang i; relation membandingkan batang 1 dengan batang 2. */
+export const fractionbarItem = z
+  .object({
+    ...base,
+    type: z.literal('fractionbar'),
+    rows: z.array(fractionRow).min(1).max(3),
+    splits: z.array(z.number().int().min(2).max(12)).min(1).max(8).default([2, 3, 4, 5, 6, 8, 10, 12]),
+    targets: z.array(z.object({ num: z.number().int().min(0).max(12), den: z.number().int().min(1).max(12) }).strict().nullable()).min(1).max(3),
+    exactSplit: z.boolean().default(false),
+    relation: z.enum(['lt', 'gt', 'eq']).optional(),
+  })
+  .strict()
+/** Model batang: partwhole (satu batang terbagi bagian) atau compare (batang bertumpuk). Anak menambah batang, memberi label, menambah unit, dan bila unitValue ada, mengisi nilai satu unit. */
+export const barmodelItem = z
+  .object({
+    ...base,
+    type: z.literal('barmodel'),
+    kind: z.enum(['partwhole', 'compare']),
+    bars: z.array(z.object({ label: text(24), units: z.number().int().min(1).max(12) }).strict()).min(1).max(4),
+    extraLabels: z.array(text(24)).max(2).default([]),
+    unitValue: z.number().int().min(1).max(100).optional(),
+    unitName: text(20).optional(),
+  })
+  .strict()
+const peg = z.tuple([z.number().int().min(0).max(40), z.number().int().min(0).max(40)])
+/** Tangram: slots adalah poligon (titik bulat) yang harus diisi, pieces adalah keping yang tersedia. */
+export const tangramItem = z
+  .object({ ...base, type: z.literal('tangram'), pieces: z.array(z.enum(PIECE_TYPES)).min(2).max(7), slots: z.array(z.array(peg).min(3).max(4)).min(2).max(7) })
+  .strict()
+const geoRule = z
+  .object({
+    sides: z.number().int().min(3).max(12).optional(),
+    area: z.number().min(0.5).max(100).optional(),
+    perimeter: z.number().min(2).max(100).optional(),
+    shape: z.enum(GEO_SHAPES).optional(),
+    rectilinear: z.boolean().optional(),
+  })
+  .strict()
+/** Geoboard: anak mengetuk pasak untuk menggambar bentuk tertutup. rule diperiksa di server; example adalah satu jawaban yang benar. */
+export const geoboardItem = z
+  .object({ ...base, type: z.literal('geoboard'), size: z.number().int().min(4).max(8), rule: geoRule, example: z.array(peg).min(3).max(12) })
+  .strict()
+
 export const itemSchema = z.discriminatedUnion('type', [
   mcqItem, multiItem, numericItem, textItem, orderItem, matchItem, sortItem, numberlineItem, clockItem, fractionItem,
   writeItem, speakItem, drawItem,
   storyItem, listenItem, tilesItem, spellItem, clozeItem, hotspotItem, labelItem, tableItem, gridItem, photoItem,
+  blocksItem, fractionbarItem, barmodelItem, tangramItem, geoboardItem,
 ])
 export type Item = z.infer<typeof itemSchema>
 export type ItemInput = z.input<typeof itemSchema>
@@ -240,12 +293,32 @@ export const passageSchema = z
   .strict()
 export type Passage = z.infer<typeof passageSchema>
 
+/** Alat peraga di dalam langkah pelajaran: anak boleh mencoba sendiri sebelum lanjut. Tidak dinilai. */
+export const TOOL_KINDS = ['blocks', 'fractionbar', 'barmodel', 'tangram', 'geoboard'] as const
+export const lessonToolSchema = z
+  .object({
+    kind: z.enum(TOOL_KINDS),
+    /** blocks: susunan awal. */
+    blocks: blocksTriple.optional(),
+    /** fractionbar: jumlah batang dan pembagian awal. */
+    bars: z.number().int().min(1).max(3).optional(),
+    split: z.number().int().min(2).max(12).optional(),
+    /** geoboard: ukuran papan. */
+    size: z.number().int().min(4).max(8).optional(),
+    /** tangram: keping yang disediakan. */
+    pieces: z.array(z.enum(PIECE_TYPES)).min(1).max(7).optional(),
+  })
+  .strict()
+export type LessonTool = z.infer<typeof lessonToolSchema>
+export const lessonStepSchema = solutionStepSchema.extend({ tool: lessonToolSchema.optional() }).strict()
+export type LessonStep = z.infer<typeof lessonStepSchema>
+
 export const lessonSchema = z
   .object({
     skill: z.string().regex(SKILL_ID),
     title: text(60),
-    steps: z.array(solutionStepSchema).min(3).max(10),
-    check: z.array(z.union([mcqItem, numericItem, textItem])).min(1).max(3),
+    steps: z.array(lessonStepSchema).min(3).max(10),
+    check: z.array(z.union([mcqItem, numericItem, textItem, blocksItem, fractionbarItem, barmodelItem, tangramItem, geoboardItem])).min(1).max(3),
   })
   .strict()
 export type Lesson = z.infer<typeof lessonSchema>
