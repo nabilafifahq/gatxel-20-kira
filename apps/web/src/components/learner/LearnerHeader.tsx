@@ -25,12 +25,12 @@ const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; 
   { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
   { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
   { key: 'practice', label: 'Practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
-  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading },
+  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading, features: ['reading-room'] },
   { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
   { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
   { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
-  { key: 'tools', label: 'Maths Tools', icon: 'pencil', href: LEARNER_ROUTES.tools },
-  { key: 'world', label: 'Kira World', icon: 'star', href: LEARNER_ROUTES.world },
+  { key: 'tools', label: 'Maths Tools', icon: 'pencil', href: LEARNER_ROUTES.tools, features: ['manipulatives'] },
+  { key: 'world', label: 'Kira World', icon: 'star', href: LEARNER_ROUTES.world, features: ['kira-world'] },
   { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
