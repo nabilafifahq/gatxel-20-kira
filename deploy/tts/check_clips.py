@@ -55,8 +55,9 @@ EDGE_SILENCE_S = 1.2
 INNER_SILENCE_S = {"teacher": 1.6, "quizhost": 1.6, "second": 1.6, "dictation": 2.4}
 SILENT_RATIO = 0.6
 SILENCE_DB = -45.0
-PHRASE_JUMP_ST = 8.0  # semiton antar frasa dalam satu klip (laki-laki ke perempuan sekitar 10 sampai 12)
-CLIP_DEVIATION_ST = 5.0  # simpangan median F0 klip dari median suara yang sama
+PHRASE_JUMP_ST = 10.5  # semiton antar frasa dalam satu klip: pergantian suara laki-laki/perempuan sekitar 10 sampai 12; intonasi wajar sampai 9
+CLIP_DEVIATION_ST = 8.0  # simpangan median F0 klip dari median suara yang sama; intonasi satu kata bisa +-7, pergantian jenis suara 10 atau lebih
+DEVIATION_MIN_SECONDS = 1.2  # klip lebih pendek (satu kata) tidak punya cukup kontur nada untuk dibandingkan
 ASR_MIN_SCORE = 0.8
 ASR_MIN_SCORE_SHORT = 0.6  # klip 3 sampai 4 kata
 
@@ -92,6 +93,8 @@ def normalise(text: str) -> list[str]:
     """Teks jadi daftar kata huruf kecil: angka jadi kata, tanda baca dan singkatan umum diseragamkan."""
     t = text.lower().replace("’", "'")
     t = re.sub(r"(?<=\d),(?=\d{3}\b)", "", t)
+    t = re.sub(r"\+(?=\d)", "plus ", t)
+    t = re.sub(r"(?<![\w)])-(?=\d)", "minus ", t)
     t = re.sub(r"(\d+)\.(\d+)", lambda m: f"{number_words(int(m.group(1)))} point {' '.join(ONES[int(d)] for d in m.group(2))}", t)
     t = re.sub(r"\d+", lambda m: number_words(int(m.group(0))), t)
     t = re.sub(r"\bmr\b\.?", "mister", t)
@@ -281,7 +284,7 @@ def judge(row: dict[str, Any], text: str) -> list[str]:
         flags.append("hening di tepi")
     if row["inner_sil"] > INNER_SILENCE_S.get(style, 1.6):
         flags.append("jeda terlalu lama")
-    if row["silent_ratio"] > SILENT_RATIO:
+    if row["silent_ratio"] > SILENT_RATIO and secs >= 1.5:
         flags.append("terlalu banyak hening")
     if row.get("phrase_jump_st", 0) > PHRASE_JUMP_ST:
         flags.append(f"lompatan nada {row['phrase_jump_st']} st")
@@ -310,8 +313,11 @@ def voice_deviation(rows: list[dict[str, Any]], voice_of: dict[str, str]) -> Non
         dev = float(r["f0_median"]) - med[v]
         r["f0_dev_st"] = round(dev, 2)
         tag = f"suara beda {round(dev, 1)} st"
-        flags = [f for f in str(r.get("flags", "")).split("; ") if f and not f.startswith("suara beda")]
-        if abs(dev) > CLIP_DEVIATION_ST:
+        # Nilai ambang dihitung ulang dari metrik yang tersimpan, jadi laporan lama ikut memakai ambang saat ini.
+        flags = [f for f in str(r.get("flags", "")).split("; ") if f and not f.startswith("suara beda") and not f.startswith("lompatan nada")]
+        if r.get("phrase_jump_st") not in (None, "") and float(r["phrase_jump_st"]) > PHRASE_JUMP_ST:
+            flags.append(f"lompatan nada {r['phrase_jump_st']} st")
+        if abs(dev) > CLIP_DEVIATION_ST and float(r.get("seconds") or 0) >= DEVIATION_MIN_SECONDS:
             flags.append(tag)
         r["flags"] = "; ".join(flags)
         r["pass"] = "" if flags else "ok"
