@@ -55,7 +55,7 @@ export function worldClips(dir: string = findContentDir()): TtsClipRequest[] {
   for (const ch of STORY) for (const p of ch.pages) texts.push(p.text)
   for (const c of CARDS) texts.push(`${c.name}. ${c.fact}`)
   try {
-    for (const d of loadFlashcards(dir).decks) for (const c of d.cards) texts.push(c.say ?? c.front, c.back)
+    for (const d of loadFlashcards(dir).decks) for (const c of d.cards) texts.push(c.front, c.say ?? c.front, c.back) // Layar membaca depan kartu apa adanya.
   } catch {
     // tanpa dek, tidak ada klip tambahan
   }
