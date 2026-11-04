@@ -1,6 +1,6 @@
 import 'server-only'
 import { createHash } from 'node:crypto'
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import { join } from 'node:path'
 import { isTtsKey, isVoiceVersion, ttsKeyInput, TTS_SERVED_VERSION_FILE, TTS_VOICE_VERSION, type TtsStyleId } from '@kira/core/tts'
@@ -16,9 +16,18 @@ import type { ClipFile } from './tts-serve'
  * <kunci> = sha256 dari versi suara, peran, dan teks (ttsKeyInput). Web hanya membaca.
  */
 
-/** Suara aktif bila alamat layanan tts diisi. Kalau tidak, tablet memakai suara bawaan. */
+/** Layanan pembuat klip diisi: klip baru boleh diminta. Tanpa ini, klip yang sudah ada tetap disajikan (lihat clipsServed). */
 export function ttsEnabled(): boolean {
   return Boolean(env().TTS_URL)
+}
+
+/**
+ * Anak bisa mendengar klip: layanan aktif, atau klip jadi sudah dipromosikan ke folder data (ada penunjuk versi).
+ * Pilot memakai klip jadi tanpa layanan tts, jadi TTS_URL kosong tidak boleh mematikan semua tombol suara.
+ */
+export function clipsServed(): boolean {
+  if (ttsEnabled()) return true
+  return existsSync(join(env().KIRA_DATA_DIR, 'tts', TTS_SERVED_VERSION_FILE))
 }
 
 let served: { at: number; v: string } | null = null
