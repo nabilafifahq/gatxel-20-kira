@@ -48,7 +48,7 @@ export function PrivacyNoticePage({ data }: PrivacyNoticePageProps) {
       title="Kebijakan Privasi"
       meta={`Versi ${meta.version}, berlaku ${effective}. Teks Bahasa Indonesia ini yang berlaku.`}
       toc={TOC}
-      footerNote={`${entity.name}, ${entity.address}`}
+      footerNote={`Pengelola: ${entity.name}`}
     >
       <section aria-label="Ringkasan" className="flex flex-col gap-2 rounded-card border-2 border-fg bg-surface px-6 py-5 max-sm:px-4">
         <p className="m-0 font-bold">Ringkasan</p>

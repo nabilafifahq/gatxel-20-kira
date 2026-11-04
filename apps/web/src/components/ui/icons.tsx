@@ -2,10 +2,13 @@ import type { ReactElement, ReactNode } from 'react'
 import { cx } from './cx'
 
 /**
- * Ikon UI 24 x 24, garis 2 sampai 3 px, warna mengikuti currentColor.
+ * Ikon UI 24 x 24, satu bobot garis (ICON_STROKE), warna mengikuti currentColor.
  * Path diambil dari papan desain Kira. Ikon objek, avatar, dan figur soal
  * ada di @kira/figures, bukan di sini.
  */
+
+/** Satu bobot garis untuk semua ikon di aplikasi, termasuk ConsoleIcon. */
+export const ICON_STROKE = 2.25
 
 type IconDef = { sw: number; d: ReactNode }
 
@@ -451,7 +454,7 @@ export function UiIcon({
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={strokeWidth ?? def.sw}
+      strokeWidth={strokeWidth ?? ICON_STROKE}
       strokeLinecap="round"
       strokeLinejoin="round"
       focusable="false"

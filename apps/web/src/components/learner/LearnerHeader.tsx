@@ -5,6 +5,7 @@ import { Avatar } from '@kira/figures'
 import type { AvatarName, LearnerShell } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import { MoreNav } from './MoreNav'
 import { effectiveOn, type FeatureKey } from '@kira/core/features'
 import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
@@ -76,7 +77,9 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         aria-label="Main"
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <KiraLogo size={36} stacked className="mb-3" />
+        <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
+          <KiraLogo size={36} stacked />
+        </Link>
         {items.map((n) => {
           const on = n.key === current
           return (
@@ -98,7 +101,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
       </nav>
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 rounded-t-xl bg-surface px-4 py-1.5 shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 flex h-[calc(76px+var(--safe-bottom))] gap-2 rounded-t-xl bg-surface px-4 pt-1.5 pb-[calc(6px+var(--safe-bottom))] shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
       >
         {phone.map((n) => {
           const on = n.key === current
@@ -139,7 +142,15 @@ export function LearnerFrame({
   return (
     <div data-jenjang={shell.jenjang} className="min-h-svh bg-bg text-fg md:flex">
       <LearnerNav shell={shell} current={current} />
-      <main className={cx('min-w-0 flex-1 px-4 pt-5 pb-28 md:px-10 md:pt-8 md:pb-8 md:pl-8', className)}>{children}</main>
+      <div className="flex min-h-svh min-w-0 flex-1 flex-col pb-[calc(76px+var(--safe-bottom))] md:pb-0">
+        <div className="pt-safe border-b border-divider bg-surface md:hidden">
+          <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
+            <KiraLogo size={28} />
+          </Link>
+        </div>
+        <main className={cx('min-w-0 flex-1 px-4 pt-5 pb-8 md:px-10 md:pt-8 md:pl-8', className)}>{children}</main>
+        <SiteFooter area="learner" />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,4 @@
 import type { ReactNode } from 'react'
-import { ButtonLink } from '@/components/console/Button'
-import { PUBLIC_ROUTES } from '@/components/console/routes'
 import { PublicFrame } from './PublicFrame'
 
 /**
@@ -29,11 +27,6 @@ export function LegalLayout({
       current={current}
       center={false}
       footerNote={footerNote}
-      headerAction={
-        <ButtonLink href={PUBLIC_ROUTES.login} variant="secondary">
-          Masuk
-        </ButtonLink>
-      }
     >
       {/* HP: judul, daftar isi, isi. Layar lebar: daftar isi di kolom kiri, judul dan isi di kanan. */}
       <div className="grid w-full items-start gap-8 lg:grid-cols-[minmax(0,320px)_minmax(0,760px)]">
@@ -45,7 +38,7 @@ export function LegalLayout({
         </header>
         <nav
           aria-label="Daftar isi"
-          className="flex min-w-0 flex-col gap-1 rounded-card bg-surface shadow-soft p-5 lg:sticky lg:top-6 lg:col-start-1 lg:row-span-2 lg:row-start-1"
+          className="flex min-w-0 flex-col gap-1 rounded-card bg-surface shadow-soft p-5 lg:sticky lg:top-20 lg:col-start-1 lg:row-span-2 lg:row-start-1"
         >
           <span className="pb-1.5 text-small font-bold text-fg-muted">Daftar isi</span>
           {toc.map((t) => (

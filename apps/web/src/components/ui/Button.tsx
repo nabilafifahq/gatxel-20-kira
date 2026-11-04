@@ -14,7 +14,7 @@ export type ButtonSize = 'L' | 'M' | 'S'
 
 const BASE =
   'relative inline-flex items-center justify-center gap-2 rounded-control font-extrabold whitespace-nowrap select-none ' +
-  'transition-transform duration-150 ease-kira enabled:hover:-translate-y-px enabled:active:translate-y-0.5 aria-disabled:cursor-not-allowed ' +
+  'kira-press transition-transform duration-150 ease-kira enabled:hover:-translate-y-px aria-disabled:cursor-not-allowed ' +
   'disabled:cursor-not-allowed aria-busy:cursor-progress cursor-pointer no-underline'
 
 const SIZE: Record<ButtonSize, string> = {

@@ -42,7 +42,7 @@ export function TermsPage({ data }: TermsPageProps) {
         </>
       }
       toc={TOC}
-      footerNote={`${entity.name}, ${entity.address}`}
+      footerNote={`Pengelola: ${entity.name}`}
     >
       <LegalSection id="k-pengelola" title="1. Pengelola">
         <p className="m-0">

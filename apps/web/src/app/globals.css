@@ -65,6 +65,10 @@
   --color-danger-50: #ffffff;
   --color-review: #9dd8f7;
   --color-white: #ffffff;
+  /* Gradien merek (DESIGN.md bagian 4): hanya panel utama halaman depan. Teks putih lolos 4,5:1 di ketiga titik. */
+  --color-hero-start: #5a3bb0;
+  --color-hero-mid: #7a4fd6;
+  --color-hero-end: #3d6fc2;
   --color-transparent: transparent;
   --color-current: currentColor;
 
@@ -106,6 +110,9 @@
   --duration-fast: 150ms;
   --duration-base: 240ms;
   --duration-celebrate: 900ms;
+  --gradient-brand: linear-gradient(150deg, var(--color-hero-start) 0%, var(--color-hero-mid) 55%, var(--color-hero-end) 100%);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
   --question-size: clamp(22px, 1.1rem + 0.8vw, 26px);
   --question-measure: 60ch;
   color-scheme: light;
@@ -187,6 +194,23 @@
   dialog::backdrop {
     background: rgb(101 70 165 / 0.45);
   }
+  /* Rasa iOS: tanpa kilat abu-abu saat ketuk dan tanpa jeda ketuk ganda. Fokus keyboard tetap terlihat. */
+  a,
+  button,
+  summary,
+  label,
+  [role='tab'],
+  [role='radio'],
+  [role='switch'] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  summary {
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
 
 @layer components {
@@ -219,6 +243,16 @@
   }
   .motion-fade {
     transition: opacity var(--duration-base) var(--ease-kira), transform var(--duration-base) var(--ease-kira);
+  }
+  .bg-gradient-brand {
+    background-color: var(--color-hero-start);
+    background-image: var(--gradient-brand);
+  }
+  .pt-safe {
+    padding-top: var(--safe-top);
+  }
+  .pb-safe {
+    padding-bottom: var(--safe-bottom);
   }
 }
 
@@ -1024,5 +1058,80 @@
 @media (prefers-reduced-motion: reduce) {
   .kira-skeleton {
     animation: none !important;
+  }
+}
+
+/*
+ * Sentuhan seperti iOS untuk semua komponen bersama (DESIGN.md bagian 6c). Tekan: mengecil sedikit lewat --ease-kira.
+ * Lembar bawah di HP untuk semua <dialog class="kira-sheet">. Reduced motion: tanpa skala dan tanpa geser.
+ */
+@keyframes kira-sheet-up {
+  from {
+    opacity: 0.6;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes kira-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes kira-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.kira-fade-up {
+  animation: kira-fade-up var(--duration-base) var(--ease-kira) both;
+}
+@media (prefers-reduced-motion: no-preference) {
+  button:active:not(:disabled):not([aria-disabled='true']):not([aria-busy='true']):not([data-no-press]),
+  summary:active,
+  a.kira-press:active {
+    transform: scale(0.97);
+    transition: transform var(--duration-fast) var(--ease-kira);
+  }
+}
+dialog.kira-sheet[open] > .kira-sheet-body {
+  animation: kira-dialog-in var(--duration-base) var(--ease-kira) both;
+}
+@media (max-width: 639.98px) {
+  dialog.kira-sheet[open]:not(.kira-sheet-full) {
+    width: 100%;
+    max-width: 100%;
+    margin: auto 0 0;
+    max-height: calc(100svh - 24px);
+    overflow: hidden;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+  dialog.kira-sheet[open]:not(.kira-sheet-full) > .kira-sheet-body {
+    max-height: calc(100svh - 24px);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding-bottom: max(16px, var(--safe-bottom));
+    animation: kira-sheet-up var(--duration-base) var(--ease-kira) both;
+  }
+  dialog.kira-sheet[open]:not(.kira-sheet-full) > .kira-sheet-body::before {
+    content: '';
+    flex: none;
+    align-self: center;
+    width: 40px;
+    height: 5px;
+    margin-top: 8px;
+    border-radius: var(--radius-pill);
+    background: var(--color-lavender);
   }
 }
