@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { CupArt, MedalArt, SealArt } from '@kira/figures'
+import { BossArt, CupArt, MedalArt, SealArt } from '@kira/figures'
 import type { TrophyDTO } from '@/lib/dto-world'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -54,7 +54,7 @@ export function TrophyScreen({ data }: { data: TrophyDTO }): ReactElement {
           </li>
           <li className="flex items-center gap-3 rounded-card border-2 border-divider p-3">
             <CupArt size={56} tone="var(--color-mental)" />
-            <span className="flex flex-col"><span className="text-h3 font-bold tabular-nums">{data.bossWins}</span><span className="text-small text-fg-muted">Robot wins</span></span>
+            <span className="flex flex-col"><span className="text-h3 font-bold tabular-nums">{data.bossWins}</span><span className="text-small text-fg-muted">Boss wins</span></span>
           </li>
           <li className="flex items-center gap-3 rounded-card border-2 border-divider p-3">
             <CupArt size={56} tone="var(--color-science)" />
@@ -62,6 +62,22 @@ export function TrophyScreen({ data }: { data: TrophyDTO }): ReactElement {
           </li>
         </ul>
         {data.setsComplete.length > 0 ? <p className="m-0 text-body">Complete sets: {data.setsComplete.map((s) => s.name).join(', ')}.</p> : null}
+      </Shelf>
+
+      <Shelf title="Boss hall">
+        {data.bossesBeaten.length === 0 ? (
+          <p className="m-0 text-body-lg text-fg-muted">Every boss you beat comes to stand here.</p>
+        ) : (
+          <ul className="kw-animate m-0 grid list-none grid-cols-3 gap-3 p-0 md:grid-cols-6">
+            {data.bossesBeaten.map((b) => (
+              <li key={b.id} className="flex flex-col items-center gap-1 text-center">
+                <BossArt id={b.id} size={72} title={b.name} />
+                <span className="text-small font-bold">{b.name}</span>
+                <span className="text-small text-fg-muted tabular-nums">{b.wins} {b.wins === 1 ? 'win' : 'wins'}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </Shelf>
 
       <Shelf title="Contest medals">
