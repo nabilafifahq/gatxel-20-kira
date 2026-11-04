@@ -12,7 +12,9 @@ import { signupExistingEmail, signupVerifyEmail, waitlistConfirmEmail, waitlistW
 import { queuePublicMail } from '../dal/outbox'
 import { emailIdentity } from '../email'
 import { emailSendAllowed } from '../auth/ratelimit'
+import { audit } from '../audit'
 import { checkEmail, emailKey } from './email-policy'
+import { TERMS_MESSAGE } from '@/lib/required-rules'
 
 const { signup, userAccount, waitlist } = tables
 
@@ -65,8 +67,8 @@ async function sendAlreadyHaveAccount(to: string): Promise<void> {
  * Pemanggil menampilkan jawaban yang sama apa pun hasilnya, supaya tidak membocorkan email yang sudah terdaftar.
  * Melempar hanya untuk kesalahan yang aman ditampilkan: bentuk, email sekali pakai, password lemah, kursi penuh.
  */
-export async function startSignup(input: { name: string; email: string; password: string; consent: boolean; ipHash: string }): Promise<void> {
-  if (!input.consent) throw invalid('Centang persetujuan untuk melanjutkan.', { consent: 'Centang persetujuan untuk melanjutkan.' })
+export async function startSignup(input: { name: string; email: string; password: string; consent: boolean; marketing?: boolean; ipHash: string }): Promise<void> {
+  if (input.consent !== true) throw invalid(TERMS_MESSAGE, { consent: TERMS_MESSAGE })
   const name = input.name.trim()
   if (name.length < 2 || name.length > 80) throw invalid('Tulis nama orang tua, 2 sampai 80 huruf.', { name: 'Tulis nama orang tua, 2 sampai 80 huruf.' })
   const verdict = await checkEmail(input.email)
@@ -83,6 +85,8 @@ export async function startSignup(input: { name: string; email: string; password
   }
   const token = randomToken(32)
   const now = new Date()
+  // Hanya true yang dihitung setuju. Pilihan terbaru menggantikan pilihan di pendaftaran sebelumnya.
+  const marketing = { marketingOptIn: input.marketing === true, marketingOptInAt: input.marketing === true ? now : null }
   const existing = (await authDb().select({ lastSentAt: signup.lastSentAt }).from(signup).where(eq(signup.emailNorm, verdict.key)).limit(1))[0]
   if (existing && now.getTime() - existing.lastSentAt.getTime() < RESEND_GAP_MS) return
   await authDb()
@@ -97,10 +101,11 @@ export async function startSignup(input: { name: string; email: string; password
       termsVersion: TERMS_VERSION,
       noticeVersion: NOTICE_VERSION,
       ipHash: input.ipHash,
+      ...marketing,
     })
     .onConflictDoUpdate({
       target: signup.emailNorm,
-      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` },
+      set: { email: verdict.email, name, passwordHash, tokenHash: sha256hex(token), expiresAt: new Date(now.getTime() + SIGNUP_TTL_MS), termsVersion: TERMS_VERSION, noticeVersion: NOTICE_VERSION, ipHash: input.ipHash, ...marketing, lastSentAt: now, sentCount: sql`${signup.sentCount} + 1` },
     })
   await sendVerification(verdict.email, token)
 }
@@ -216,4 +221,20 @@ export async function unsubscribeWaitlist(token: string): Promise<boolean> {
     .where(eq(waitlist.token, token))
     .returning({ id: waitlist.id })
   return rows.length > 0
+}
+
+/**
+ * Tautan berhenti di /kabar/berhenti: token daftar tunggu atau token email kabar di akun. Idempotent.
+ * Hanya menghentikan email kabar; laporan belajar dan email akun tidak terpengaruh.
+ */
+export async function unsubscribeByToken(token: string): Promise<'waitlist' | 'account' | null> {
+  if (await unsubscribeWaitlist(token)) return 'waitlist'
+  if (token.length < 20 || token.length > 100) return null
+  const [row] = await authDb().select({ id: userAccount.id, orgId: userAccount.orgId, role: userAccount.role, optIn: userAccount.marketingOptIn }).from(userAccount).where(eq(userAccount.marketingToken, token)).limit(1)
+  if (!row) return null
+  if (row.optIn) {
+    await authDb().update(userAccount).set({ marketingOptIn: false, marketingWithdrawnAt: new Date() }).where(eq(userAccount.id, row.id))
+    await audit({ orgId: row.orgId, userId: row.id, role: row.role === 'tutor' ? 'tutor' : 'guardian' }, 'marketing.withdrawn', row.id, { via: 'link' })
+  }
+  return 'account'
 }

@@ -22,6 +22,7 @@ import {
   parentSetSessionRequired,
   parentUnlock,
 } from '../dal/parent-control'
+import { setMarketingPreference } from '../dal/marketing'
 import { parentChangeSessionSkill, parentPrepareToday, parentSkillOptions } from '../dal/parent-skill-change'
 import { parentSchemas as S } from './parent-schemas'
 
@@ -189,6 +190,15 @@ export async function parentSaveUiLangAction(input: unknown): Promise<ActionResu
     await parentSaveUiLang(actor, data)
     after(null)
     return null
+  })
+}
+
+/** Email kabar produk milik akun sendiri. Tidak ada id di input: sasarannya selalu orang tua yang masuk. */
+export async function setMarketingAction(input: unknown): Promise<ActionResult<{ optIn: boolean }>> {
+  return runAction('setMarketing', async () => {
+    const actor = await requireParent()
+    const data = S.marketing.parse(input)
+    return setMarketingPreference(actor, data.optIn)
   })
 }
 

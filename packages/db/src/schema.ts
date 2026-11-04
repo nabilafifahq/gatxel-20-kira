@@ -67,6 +67,13 @@ export const userAccount = auth.table(
     uiLang: text('ui_lang', { enum: ['id', 'en'] }).notNull().default('id'),
     /** Orang tua mengizinkan anak mengganti bahasa tampilan sendiri. */
     uiLangSwitch: boolean('ui_lang_switch').notNull().default(false),
+    /** Email kabar produk: opsional, bawaan tidak berlangganan. Waktu setuju tetap disimpan sebagai bukti setelah berhenti. */
+    marketingOptIn: boolean('marketing_opt_in').notNull().default(false),
+    marketingOptInAt: ts('marketing_opt_in_at'),
+    marketingWithdrawnAt: ts('marketing_withdrawn_at'),
+    marketingNoticeVersion: text('marketing_notice_version'),
+    /** Token tautan berhenti satu klik. Hanya ada pada akun yang pernah berlangganan. */
+    marketingToken: text('marketing_token'),
   },
   (t) => [
     uniqueIndex('user_account_email_uq').on(sql`lower(${t.email})`).where(sql`${t.email} is not null`),
@@ -86,6 +93,8 @@ export const signup = auth.table('signup', {
   termsVersion: text('terms_version').notNull(),
   noticeVersion: text('notice_version').notNull(),
   ipHash: text('ip_hash'),
+  marketingOptIn: boolean('marketing_opt_in').notNull().default(false),
+  marketingOptInAt: ts('marketing_opt_in_at'),
   sentCount: integer('sent_count').notNull().default(1),
   lastSentAt: ts('last_sent_at').notNull().defaultNow(),
   createdAt: createdAt(),

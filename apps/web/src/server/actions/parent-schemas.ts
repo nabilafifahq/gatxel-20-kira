@@ -3,6 +3,7 @@ import { FEATURE_KEYS } from '@kira/core/features'
 import { SKILL_ID } from '@kira/content/schema'
 import { AVATARS, PIN_PICTURES } from '@kira/figures/spec'
 import { UI_LANGS } from '@/lib/i18n/lang'
+import { GUARDIAN_CONSENT_MESSAGE } from '@/lib/required-rules'
 
 /**
  * Skema Zod strict untuk setiap aksi dashboard orang tua. Dipisah dari berkas 'use server' supaya bisa dites.
@@ -10,6 +11,8 @@ import { UI_LANGS } from '@/lib/i18n/lang'
  */
 
 const id = z.string().uuid('Anak tidak valid. Muat ulang halaman.')
+/** Persetujuan orang tua atau wali saat menambah anak: harus true, selain itu ditolak server. */
+export const guardianConsent = z.literal(true, GUARDIAN_CONSENT_MESSAGE)
 const subject = z.enum(['math', 'english', 'science'])
 const coreSession = z.enum(['latihan', 'tes', 'paper'])
 const level = z.enum(['off', 'optional', 'required'])
@@ -47,7 +50,8 @@ export const parentSchemas = {
   pin: z.object({ learnerId: id, pin }).strict(),
   unlock: z.object({ learnerId: id }).strict(),
   edit: z.object({ learnerId: id, name, grade, avatar: z.enum(AVATARS) }).strict(),
-  addChild: z.object({ name, grade, avatar: z.enum(AVATARS), pin, uiLang: z.enum(UI_LANGS).optional() }).strict(),
+  addChild: z.object({ name, grade, avatar: z.enum(AVATARS), pin, uiLang: z.enum(UI_LANGS).optional(), guardianConsent }).strict(),
+  marketing: z.object({ optIn: z.boolean() }).strict(),
   uiLang: z.object({ learnerId: id, uiLang: z.enum(UI_LANGS), uiLangSwitch: z.boolean() }).strict(),
   markWork: z.object({ responseId: z.string().uuid(), verdict: z.enum(['good', 'again']), feedback: z.string().trim().max(500, 'Catatan paling panjang 500 karakter.') }).strict(),
 }
