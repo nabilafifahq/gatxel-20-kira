@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactElement } from 'react'
+import dynamic from 'next/dynamic'
+import { Fragment, useEffect, useRef, useState, type ReactElement } from 'react'
 import type { SolutionStep } from '@kira/content/schema'
 import { Figure, type FigureSpec } from '@kira/figures'
 import type { Subject } from '@/lib/dto'
@@ -11,50 +12,99 @@ import { useSpeech, type SpeechLang } from './speech'
 import { SUBJECT_STYLE } from './subject'
 
 /**
- * Pemutar langkah pembahasan (papan SolutionPlayer). Tidak pernah diputar otomatis:
- * langkah pertama tampil diam sampai Play diketuk. Back dan Next melompat per langkah,
- * Play again mengulang dari langkah 1. Caption selalu tampil. Dengan reduced motion,
- * setiap langkah tampil sebagai gambar diam dengan tombol Back dan Next.
+ * Pemutar langkah pembahasan (papan SolutionPlayer), sekarang bergerak. Tiap langkah boleh membawa gambar
+ * bergerak (`anim`: angka bergerak, hitung bersusun, model batang, garis bilangan, deret, baris dicentang),
+ * sorotan di kalimat soal (`mark`), atau figur diam. Tidak pernah diputar sendiri: langkah pertama tampil
+ * diam sampai Play diketuk. Play membacakan tiap langkah dengan suara guru yang tetap lalu maju; Pause
+ * menghentikan; Next dan Back melompat; Replay mengulang dari awal. Dengan reduced motion setiap langkah
+ * tampil sebagai gambar diam lengkap dengan tombol Back dan Next. Kode gambar bergerak dimuat malas.
  */
+
+const AnimStage = dynamic(() => import('./AnimStage'), {
+  ssr: false,
+  loading: () => <div aria-hidden="true" className="h-[190px] w-full max-w-[380px]" />,
+})
 
 function dwellMs(step: SolutionStep | undefined): number {
   if (!step) return 2500
-  return Math.max(2800, step.say.length * 70)
+  return Math.max(3200, step.say.length * 70 + (step.anim ? 1200 : 0))
+}
+
+/** Kalimat soal dengan bagian `mark` disorot. Sorotan hanya tampil bila langkah memintanya. */
+function MarkedPrompt({ prompt, marks, reduced }: { prompt: string; marks: readonly string[]; reduced: boolean }): ReactElement {
+  const spans: { text: string; hit: boolean }[] = []
+  let rest = prompt
+  const wanted = [...marks].sort((a, b) => prompt.indexOf(a) - prompt.indexOf(b))
+  for (const m of wanted) {
+    const at = rest.indexOf(m)
+    if (at < 0) continue
+    if (at > 0) spans.push({ text: rest.slice(0, at), hit: false })
+    spans.push({ text: m, hit: true })
+    rest = rest.slice(at + m.length)
+  }
+  if (rest) spans.push({ text: rest, hit: false })
+  return (
+    <p className="m-0 w-full rounded-card border border-divider bg-surface px-3 py-2 text-left font-reading text-body leading-snug">
+      {spans.map((s, i) =>
+        s.hit ? (
+          <mark key={i} className={cx('rounded-sm bg-star px-0.5 font-bold text-fg', !reduced && 'kira-mark')}>
+            {s.text}
+          </mark>
+        ) : (
+          <Fragment key={i}>{s.text}</Fragment>
+        ),
+      )}
+    </p>
+  )
 }
 
 export function SolutionPlayer({
   steps,
   subject,
-  narrate = false,
+  narrate = true,
   lang = 'en-GB',
   reduced: reducedProp,
   className,
   label = 'Solution player',
   figure: fallbackFigure,
+  prompt,
+  onFinished,
 }: {
   steps: SolutionStep[]
   /** Figur soal, dipakai untuk langkah yang tidak membawa figur sendiri. */
   figure?: FigureSpec
   subject: Subject
-  /** Bacakan caption saat diputar. */
+  /** Bacakan caption saat diputar (suara guru yang tetap). */
   narrate?: boolean
   lang?: SpeechLang
   reduced?: boolean
   className?: string
   label?: string
+  /** Teks soal, untuk menampilkan bagian yang disorot. */
+  prompt?: string
+  /** Dipanggil saat langkah terakhir sudah tampil. */
+  onFinished?: () => void
 }): ReactElement {
   const prefersReduced = useReducedMotion()
   const reduced = reducedProp ?? prefersReduced
   const [step, setStep] = useState(0)
   const [playing, setPlaying] = useState(false)
+  const [sound, setSound] = useState(narrate)
   const speech = useSpeech(lang)
   const speechRef = useRef(speech)
+  const finishedRef = useRef(onFinished)
   useEffect(() => {
     speechRef.current = speech
+    finishedRef.current = onFinished
   })
   const total = steps.length
   const current = steps[Math.min(step, Math.max(0, total - 1))]
   const style = SUBJECT_STYLE[subject]
+  const canSpeak = lang === 'en-GB' && speech.status !== 'unavailable'
+
+  useEffect(() => {
+    if (total > 0 && step >= total - 1) finishedRef.current?.()
+  }, [step, total])
 
   // Maju otomatis hanya saat Play aktif.
   useEffect(() => {
@@ -66,10 +116,14 @@ export function SolutionPlayer({
       if (step >= total - 1) setPlaying(false)
       else setStep(step + 1)
     }
-    if (narrate && speechRef.current.status !== 'unavailable' && current) {
-      speechRef.current.speak(current.say, () => {
-        timer = window.setTimeout(advance, 600)
-      })
+    if (sound && canSpeak && current) {
+      speechRef.current.speak(
+        current.say,
+        () => {
+          timer = window.setTimeout(advance, 700)
+        },
+        { style: 'teacher' },
+      )
     } else {
       timer = window.setTimeout(advance, dwellMs(current))
     }
@@ -77,11 +131,12 @@ export function SolutionPlayer({
       cancelled = true
       window.clearTimeout(timer)
     }
-  }, [playing, step, reduced, narrate, total, current])
+  }, [playing, step, reduced, sound, canSpeak, total, current])
 
   useEffect(() => {
     if (!playing) speechRef.current.stop()
   }, [playing])
+  useEffect(() => () => speechRef.current.stop(), [])
 
   if (total === 0 || !current) {
     return <p className="m-0 text-body-lg text-fg-muted">The steps for this question are not ready yet.</p>
@@ -93,18 +148,21 @@ export function SolutionPlayer({
   }
   const atStart = step === 0
   const atEnd = step >= total - 1
+  const figure = (current.figure ?? fallbackFigure) as FigureSpec | undefined
 
   return (
     <div role="region" aria-label={label} className={cx('flex flex-col overflow-hidden rounded-card border border-divider bg-surface', className)}>
       <div className="relative flex min-h-[200px] items-center justify-center bg-bg px-4 pt-5 pb-3">
         <div key={step} className="motion-fade flex w-full flex-col items-center gap-3 starting:opacity-0">
-          {current.figure || fallbackFigure ? (
+          {prompt && current.mark ? <MarkedPrompt prompt={prompt} marks={current.mark} reduced={reduced} /> : null}
+          {current.anim ? <AnimStage anim={current.anim} subject={subject} reduced={reduced} /> : null}
+          {!current.anim && figure ? (
             <div className="w-full max-w-[380px]">
-              <Figure spec={(current.figure ?? fallbackFigure) as FigureSpec} />
+              <Figure spec={figure} />
             </div>
           ) : null}
-          {current.show ? <div className="text-center font-display text-h1 font-semibold tabular-nums">{current.show}</div> : null}
-          {!current.figure && !fallbackFigure && !current.show ? (
+          {current.show && !current.anim ? <div className="text-center font-display text-h1 font-semibold tabular-nums">{current.show}</div> : null}
+          {!current.anim && !figure && !current.show && !current.mark ? (
             <div aria-hidden="true" className="font-display text-display font-semibold text-border tabular-nums">
               {step + 1}
             </div>
@@ -148,6 +206,14 @@ export function SolutionPlayer({
                 }}
               />
               <IconButton icon="skip-next" label="Next step" disabled={atEnd} onClick={() => go(step + 1)} />
+              {canSpeak ? (
+                <IconButton
+                  icon={sound ? 'speaker' : 'speaker-off'}
+                  label={sound ? 'Read aloud is on. Tap to turn it off' : 'Read aloud is off. Tap to turn it on'}
+                  variant="secondary"
+                  onClick={() => setSound((v) => !v)}
+                />
+              ) : null}
               <IconButton
                 icon="replay"
                 label="Play again from the start"
