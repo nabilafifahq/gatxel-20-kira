@@ -677,86 +677,11 @@
       "explanation": "A jellyfish has a soft body and no bones."
     },
     {
-      "id": "s3.skeletons.021",
-      "skill": "s3.skeletons",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "Which of these animals has a backbone inside its body?",
-      "options": [
-        {
-          "text": "a fish"
-        },
-        {
-          "text": "a butterfly",
-          "why": "A butterfly has no backbone."
-        },
-        {
-          "text": "a snail",
-          "why": "A snail has no backbone."
-        },
-        {
-          "text": "a worm",
-          "why": "A worm has no backbone."
-        }
-      ],
-      "answer": 0,
-      "hints": [
-        "It has bones inside.",
-        "Insects have no backbone.",
-        "Think of a fish skeleton."
-      ],
-      "explanation": "A fish has a backbone, so it is a vertebrate."
-    },
-    {
-      "id": "s3.skeletons.022",
-      "skill": "s3.skeletons",
-      "type": "sort",
-      "difficulty": 3,
-      "prompt": "Where is the skeleton? Sort the animals.",
-      "groups": [
-        "Bones inside",
-        "Hard case outside",
-        "No bones"
-      ],
-      "items": [
-        {
-          "text": "dog",
-          "group": 0
-        },
-        {
-          "text": "fish",
-          "group": 0
-        },
-        {
-          "text": "beetle",
-          "group": 1
-        },
-        {
-          "text": "crab",
-          "group": 1
-        },
-        {
-          "text": "jellyfish",
-          "group": 2
-        },
-        {
-          "text": "earthworm",
-          "group": 2
-        }
-      ],
-      "hints": [
-        "A crab has a hard shell.",
-        "A jellyfish is soft.",
-        "A fish has a backbone."
-      ],
-      "explanation": "A dog and a fish have bones inside. A beetle and a crab have a hard case outside. A jellyfish and an earthworm have no bones."
-    },
-    {
       "id": "s3.skeletons.023",
       "skill": "s3.skeletons",
       "type": "sort",
       "difficulty": 3,
-      "prompt": "What does the bone do? Sort the cards.",
+      "prompt": "What is the main job of each part of the skeleton? Sort the cards.",
       "groups": [
         "Protects",
         "Supports",
@@ -980,21 +905,26 @@
           "row": 1,
           "col": 1,
           "answers": [
-            "outside"
+            "outside",
+            "on the outside"
           ]
         },
         {
           "row": 2,
           "col": 1,
           "answers": [
-            "none"
+            "none",
+            "no skeleton",
+            "nothing",
+            "no"
           ]
         },
         {
           "row": 3,
           "col": 1,
           "answers": [
-            "inside"
+            "inside",
+            "on the inside"
           ]
         }
       ],
@@ -1210,22 +1140,22 @@
         {
           "label": "ribs",
           "x": 50,
-          "y": 38.8,
-          "w": 35,
-          "h": 18.8
+          "y": 42.5,
+          "w": 36,
+          "h": 22
         },
         {
           "label": "backbone",
           "x": 50,
-          "y": 58.1,
-          "w": 10,
-          "h": 12.5
+          "y": 58.4,
+          "w": 12,
+          "h": 11.5
         },
         {
           "label": "leg",
-          "x": 58.3,
+          "x": 50,
           "y": 80,
-          "w": 16.7,
+          "w": 30,
           "h": 28.1
         }
       ],
@@ -1357,22 +1287,22 @@
         {
           "label": "ribs",
           "x": 50,
-          "y": 38.8,
-          "w": 35,
-          "h": 18.8
+          "y": 42.5,
+          "w": 36,
+          "h": 22
         },
         {
           "label": "backbone",
           "x": 50,
-          "y": 58.1,
-          "w": 10,
-          "h": 12.5
+          "y": 58.4,
+          "w": 12,
+          "h": 11.5
         },
         {
           "label": "leg",
-          "x": 58.3,
+          "x": 50,
           "y": 80,
-          "w": 16.7,
+          "w": 30,
           "h": 28.1
         }
       ],
@@ -1538,7 +1468,10 @@
           "answers": [
             "ribs",
             "rib cage",
-            "ribcage"
+            "ribcage",
+            "rib",
+            "the ribs",
+            "rib bones"
           ]
         }
       ],

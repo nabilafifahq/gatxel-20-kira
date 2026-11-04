@@ -62,7 +62,9 @@
           "answers": [
             "roots",
             "root",
-            "the roots"
+            "the roots",
+            "root hairs",
+            "root hair"
           ]
         }
       ],
@@ -327,14 +329,14 @@
       "skill": "s3.water-in-plants",
       "type": "mcq",
       "difficulty": 5,
-      "prompt": "Two celery stalks stand in red water. Stalk A has leaves. Stalk B has no leaves. Which turns red higher up first?",
+      "prompt": "Two celery stalks stand in red water on a sunny day. Stalk A has leaves. Stalk B has no leaves. Which turns red higher up first?",
       "options": [
         {
           "text": "Stalk B, because it has fewer parts to fill",
           "why": "Leaves help pull water up. Without them, water rises more slowly."
         },
         {
-          "text": "Stalk A, because water leaving the leaves pulls more water up"
+          "text": "Stalk A, because water leaving the leaves makes more water move up"
         },
         {
           "text": "both at the same speed, because water just soaks up",
@@ -351,7 +353,7 @@
         "Water escapes from leaves into the air.",
         "If water leaves from the top, what happens to the water below it?"
       ],
-      "explanation": "Water escapes from leaves into the air. This pulls more water up the tubes, so the stalk with leaves turns red higher up first.",
+      "explanation": "Water escapes from leaves into the air. As it leaves, more water moves up the tubes to take its place, so the stalk with leaves turns red higher up first.",
       "tags": [
         "iksc",
         "olympiad"
@@ -570,24 +572,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
+          "x": 66.6,
+          "y": 48.5,
           "w": 23.8,
-          "h": 21.5
+          "h": 22
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 64.6,
-          "w": 12.5,
-          "h": 28.5
+          "y": 55.8,
+          "w": 8,
+          "h": 34.6
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
-          "w": 25,
-          "h": 19.2
+          "y": 85,
+          "w": 28,
+          "h": 25.4
         }
       ],
       "answers": [
@@ -1252,24 +1254,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
+          "x": 66.6,
+          "y": 48.5,
           "w": 23.8,
-          "h": 21.5
+          "h": 22
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
-          "w": 12.5,
-          "h": 28.5
+          "y": 55.8,
+          "w": 8,
+          "h": 34.6
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
-          "w": 25,
-          "h": 19.2
+          "y": 85,
+          "w": 28,
+          "h": 25.4
         }
       ],
       "answers": [
@@ -1454,7 +1456,11 @@
         {
           "answers": [
             "leaves",
-            "leaf"
+            "leaf",
+            "the leaves",
+            "stomata",
+            "pores",
+            "tiny holes"
           ]
         }
       ],
@@ -1524,42 +1530,6 @@
         "Look at the leaves."
       ],
       "explanation": "Wilting leaves show that a plant is missing water.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
-    },
-    {
-      "id": "s3.water-in-plants.035",
-      "skill": "s3.water-in-plants",
-      "type": "mcq",
-      "difficulty": 4,
-      "prompt": "Which setup makes a leaf lose water fastest?",
-      "options": [
-        {
-          "text": "shady and still",
-          "why": "It is calm."
-        },
-        {
-          "text": "dark and cold",
-          "why": "It is cool."
-        },
-        {
-          "text": "cool and damp",
-          "why": "The air is already full of water."
-        },
-        {
-          "text": "sunny and windy"
-        }
-      ],
-      "answer": 3,
-      "hints": [
-        "Heat dries things.",
-        "Wind helps too.",
-        "Damp air holds water."
-      ],
-      "explanation": "Warm and windy air dries leaves the fastest.",
       "tags": [
         "iksc",
         "ksnr",

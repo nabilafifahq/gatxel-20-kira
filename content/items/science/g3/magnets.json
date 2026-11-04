@@ -84,7 +84,7 @@
           "group": 0
         },
         {
-          "text": "steel spoon",
+          "text": "iron frying pan",
           "group": 0
         },
         {
@@ -589,24 +589,6 @@
       "type": "mcq",
       "difficulty": 1,
       "prompt": "Which object will a magnet not attract?",
-      "figure": {
-        "kind": "icons",
-        "items": [
-          {
-            "icon": "paperclip",
-            "label": "steel paperclip"
-          },
-          {
-            "icon": "nail",
-            "label": "iron nail"
-          },
-          {
-            "icon": "toothbrush",
-            "label": "plastic comb"
-          }
-        ],
-        "alt": "A steel paperclip, an iron nail and a plastic comb."
-      },
       "options": [
         {
           "text": "a steel paperclip",
@@ -626,7 +608,7 @@
       ],
       "answer": 1,
       "hints": [
-        "Which one is not metal?",
+        "Which one is not a metal?",
         "Magnets pick up iron and steel.",
         "Plastic is not magnetic."
       ],
@@ -846,10 +828,6 @@
           "group": 0
         },
         {
-          "text": "south and north",
-          "group": 0
-        },
-        {
           "text": "north and north",
           "group": 1
         },
@@ -879,7 +857,7 @@
           "text": "a plastic pen"
         },
         {
-          "text": "a steel screw"
+          "text": "an iron washer"
         },
         {
           "text": "an iron nail"
@@ -1080,7 +1058,7 @@
       "skill": "s3.magnets",
       "type": "story",
       "difficulty": 2,
-      "prompt": "Hana has a nail, a coin and a pencil. She holds a magnet near each one. The nail jumps to the magnet. The coin and the pencil do not move.",
+      "prompt": "Hana has a nail, a plastic spoon and a pencil. She holds a magnet near each one. The nail jumps to the magnet. The spoon and the pencil do not move.",
       "parts": [
         {
           "type": "mcq",
@@ -1090,7 +1068,7 @@
               "text": "the nail"
             },
             {
-              "text": "the coin"
+              "text": "the plastic spoon"
             },
             {
               "text": "the pencil"
@@ -1120,7 +1098,7 @@
         "Magnets attract iron.",
         "Which one moved?"
       ],
-      "explanation": "The nail is magnetic because it is made of iron. The coin and pencil are not."
+      "explanation": "The nail is magnetic because it is made of iron. The spoon and pencil are not."
     },
     {
       "id": "s3.magnets.031",
@@ -1311,7 +1289,9 @@
         {
           "answers": [
             "poles",
-            "pole"
+            "pole",
+            "north and south",
+            "north and south poles"
           ]
         }
       ],
@@ -1327,7 +1307,7 @@
       "skill": "s3.magnets",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Mia holds a magnet under a wooden table. A steel pin on top moves. What does this show?",
+      "prompt": "Mia holds a magnet under a wooden table. A paperclip on top moves. What does this show?",
       "options": [
         {
           "text": "Magnetic force can go through a thin table."
@@ -1337,7 +1317,7 @@
           "why": "Wood is not magnetic."
         },
         {
-          "text": "The steel pin moved by itself.",
+          "text": "The paperclip moved by itself.",
           "why": "The magnet made it move."
         },
         {
@@ -1347,11 +1327,11 @@
       ],
       "answer": 0,
       "hints": [
-        "The pin moves without being touched.",
+        "The paperclip moves without being touched.",
         "Wood does not stop magnets.",
         "Thin materials do not stop it."
       ],
-      "explanation": "The magnetic force goes through the wood and moves the pin.",
+      "explanation": "The magnetic force goes through the wood and moves the paperclip.",
       "tags": [
         "iksc",
         "ksnr",
@@ -1382,14 +1362,14 @@
       "skill": "s3.magnets",
       "type": "numeric",
       "difficulty": 2,
-      "prompt": "A heap has 4 steel pins, 3 plastic buttons and 2 wooden sticks. How many does a magnet pick up?",
+      "prompt": "A heap has 4 iron nails, 3 plastic buttons and 2 wooden sticks. How many does a magnet pick up?",
       "answer": 4,
       "hints": [
-        "Which are steel?",
+        "Which are iron?",
         "Plastic and wood are not magnetic.",
-        "Count the pins."
+        "Count the nails."
       ],
-      "explanation": "Only the 4 steel pins are magnetic.",
+      "explanation": "Only the 4 iron nails are magnetic.",
       "tags": [
         "iksc",
         "ksnr",

@@ -544,24 +544,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
+          "x": 66.6,
+          "y": 48.5,
           "w": 23.8,
-          "h": 21.5
+          "h": 22
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 64.6,
-          "w": 12.5,
-          "h": 28.5
+          "y": 55.8,
+          "w": 8,
+          "h": 34.6
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
-          "w": 25,
-          "h": 19.2
+          "y": 85,
+          "w": 28,
+          "h": 25.4
         }
       ],
       "answers": [
@@ -1051,41 +1051,6 @@
       "explanation": "Roots take in water and hold the plant. The stem carries water and holds things up. Leaves make food. Flowers make seeds."
     },
     {
-      "id": "s3.plant-parts.024",
-      "skill": "s3.plant-parts",
-      "type": "multi",
-      "difficulty": 3,
-      "prompt": "Choose all the jobs of the roots.",
-      "options": [
-        {
-          "text": "make food"
-        },
-        {
-          "text": "make seeds"
-        },
-        {
-          "text": "take in nutrients"
-        },
-        {
-          "text": "take in water"
-        },
-        {
-          "text": "hold the plant in the soil"
-        }
-      ],
-      "answers": [
-        2,
-        3,
-        4
-      ],
-      "hints": [
-        "Roots are under the soil.",
-        "They drink.",
-        "Flowers make seeds."
-      ],
-      "explanation": "Roots hold the plant in the soil and take in water and nutrients. Flowers make seeds and leaves make food."
-    },
-    {
       "id": "s3.plant-parts.025",
       "skill": "s3.plant-parts",
       "type": "multi",
@@ -1259,7 +1224,8 @@
           "row": 3,
           "col": 1,
           "answers": [
-            "stem"
+            "stem",
+            "stems"
           ]
         }
       ],
@@ -1298,7 +1264,13 @@
           "prompt": "What do the bees help the flower make?",
           "answers": [
             "seeds",
-            "seed"
+            "seed",
+            "fruit",
+            "fruits",
+            "beans",
+            "bean pods",
+            "pods",
+            "new plants"
           ],
           "caseSensitive": false
         }
@@ -1469,24 +1441,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
+          "x": 66.6,
+          "y": 48.5,
           "w": 23.8,
-          "h": 21.5
+          "h": 22
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
-          "w": 12.5,
-          "h": 28.5
+          "y": 55.8,
+          "w": 8,
+          "h": 34.6
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
-          "w": 25,
-          "h": 19.2
+          "y": 85,
+          "w": 28,
+          "h": 25.4
         }
       ],
       "answers": [
@@ -1644,24 +1616,24 @@
         },
         {
           "label": "leaf",
-          "x": 71.3,
-          "y": 43.8,
+          "x": 66.6,
+          "y": 48.5,
           "w": 23.8,
-          "h": 21.5
+          "h": 22
         },
         {
           "label": "stem",
           "x": 50,
-          "y": 57.7,
-          "w": 12.5,
-          "h": 28.5
+          "y": 55.8,
+          "w": 8,
+          "h": 34.6
         },
         {
           "label": "roots",
           "x": 50,
-          "y": 89.2,
-          "w": 25,
-          "h": 19.2
+          "y": 85,
+          "w": 28,
+          "h": 25.4
         }
       ],
       "answers": [
@@ -1848,7 +1820,10 @@
       "blanks": [
         {
           "answers": [
-            "fruit"
+            "fruit",
+            "fruits",
+            "a fruit",
+            "the fruit"
           ]
         }
       ],

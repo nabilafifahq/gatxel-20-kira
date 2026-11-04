@@ -906,8 +906,8 @@
       "parts": [
         {
           "type": "numeric",
-          "prompt": "How many beats does he count after running?",
-          "answer": 35,
+          "prompt": "How many more beats does he count after running than at rest?",
+          "answer": 15,
           "tolerance": 0,
           "allowNegative": false,
           "allowDecimal": false
@@ -930,11 +930,11 @@
         }
       ],
       "hints": [
-        "Read the last sentence.",
+        "Find the beats at rest and the beats after running.",
         "Compare 20 and 35.",
-        "35 is bigger."
+        "Take 20 away from 35."
       ],
-      "explanation": "Tono counts 35 beats after running. Running makes his pulse go up."
+      "explanation": "Tono counts 35 beats after running and 20 at rest. That is 15 more, so running makes his pulse go up."
     },
     {
       "id": "s3.healthy-living.029",
@@ -1042,7 +1042,9 @@
       "blanks": [
         {
           "answers": [
-            "pulse"
+            "pulse",
+            "heartbeat",
+            "heart beat"
           ]
         }
       ],
@@ -1111,7 +1113,7 @@
         "Resting lowers the pulse.",
         "Skipping raised it."
       ],
-      "explanation": "His pulse is almost back to 70 after 5 minutes of rest. That shows he is fit.",
+      "explanation": "His pulse is almost back to 70 after 5 minutes of rest. That is a good sign.",
       "tags": [
         "iksc",
         "ksnr",

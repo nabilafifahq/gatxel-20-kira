@@ -6,11 +6,11 @@
       "skill": "s3.forces-friction",
       "type": "mcq",
       "difficulty": 1,
-      "prompt": "Which force do you use to open a drawer?",
+      "prompt": "You hold the handle and make a drawer come out towards you. Which force do you use?",
       "options": [
         {
           "text": "a push",
-          "why": "You push to close a drawer. Opening it needs a pull."
+          "why": "A push moves things away from you. The drawer is coming towards you."
         },
         {
           "text": "a pull"
@@ -27,10 +27,10 @@
       "answer": 1,
       "hints": [
         "Think about which way the drawer moves.",
-        "Does the drawer move towards you or away from you?",
+        "The drawer moves towards you.",
         "Moving something towards you is one kind of force."
       ],
-      "explanation": "To open a drawer, you pull it towards you. A pull is a force."
+      "explanation": "To bring a drawer out towards you, you pull it. A pull is a force."
     },
     {
       "id": "s3.forces-friction.002",
@@ -304,7 +304,8 @@
         {
           "answers": [
             "newtons",
-            "newton"
+            "newton",
+            "n"
           ]
         }
       ],
@@ -659,8 +660,8 @@
       "prompt": "A heavy box is harder to push than a light box. Why?",
       "options": [
         {
-          "text": "It has less gravity pulling on it.",
-          "why": "It has more weight."
+          "text": "It has more air pushing against it.",
+          "why": "The air hardly matters for a slow box. The weight pressing on the floor matters more."
         },
         {
           "text": "It has no friction with the floor.",
@@ -737,24 +738,24 @@
           "group": 0
         },
         {
-          "text": "rubbing in machine parts",
+          "text": "a door rubbing on the floor",
           "group": 1
         },
         {
-          "text": "a slippery wet floor",
+          "text": "socks wearing thin at the heel",
           "group": 1
         },
         {
-          "text": "worn-out tyres",
+          "text": "a sledge dragging on rough ground",
           "group": 1
         }
       ],
       "hints": [
-        "Useful friction helps us stop.",
-        "Wet floors are slippery.",
-        "Machines need oil."
+        "Useful friction helps us stop or grip.",
+        "Some rubbing wears things out.",
+        "Some rubbing makes things hard to move."
       ],
-      "explanation": "Brakes, shoe grips and matches need friction. Machine parts rubbing, a wet floor and worn tyres are problems."
+      "explanation": "Brakes, shoe grips and matches need friction. A door that rubs, socks that wear thin and a sledge that drags are problems."
     },
     {
       "id": "s3.forces-friction.024",
@@ -899,25 +900,6 @@
         "Air slows parachutes."
       ],
       "explanation": "Gravity pulls things to the Earth. Friction slows things that rub. Air and water resistance slow things moving through air or water."
-    },
-    {
-      "id": "s3.forces-friction.028",
-      "skill": "s3.forces-friction",
-      "type": "order",
-      "difficulty": 3,
-      "prompt": "Order the surfaces from the least to the most friction.",
-      "items": [
-        "ice",
-        "polished wood",
-        "carpet",
-        "sandpaper"
-      ],
-      "hints": [
-        "Ice is slippery.",
-        "Sandpaper is rough.",
-        "Carpet is rougher than wood."
-      ],
-      "explanation": "Ice has the least friction. Sandpaper has the most."
     },
     {
       "id": "s3.forces-friction.029",
