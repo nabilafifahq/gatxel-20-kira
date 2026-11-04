@@ -2828,7 +2828,7 @@ const primesSquares: Generator = {
           answer: k * k,
           hints: ['Squared means multiplied by itself.', `${k}² means ${k} × ${k}.`, `${k} × ${k - 1} = ${k * (k - 1)}. Add one more ${k}.`],
           explanation: `${k}² = ${k} × ${k} = ${k * k}.`,
-          solution: [{ say: 'A square number is a number multiplied by itself.', figure: { kind: 'grid', rows: Math.min(k, 12), cols: Math.min(k, 12), shaded: [], showUnits: false, alt: `A ${k} by ${k} square grid.` } }, { say: 'Multiply.', show: `${k} × ${k} = ${k * k}` }],
+          solution: [{ say: 'A square number is a number multiplied by itself.', figure: { kind: 'grid', rows: Math.min(k, 12), cols: Math.min(k, 12), shaded: [], showUnits: false, alt: `${cap(anum(k))} ${k} by ${k} square grid.` } }, { say: 'Multiply.', show: `${k} × ${k} = ${k * k}` }],
         })
       }
       const c = k * k
@@ -2931,7 +2931,7 @@ const primesSquares: Generator = {
         ...m,
         hints: ['A square number is a number times the same number.', 'Look for a multiplication with two equal numbers.', 'Check each one: are the two numbers the same?'],
         explanation: `${c} = ${k} × ${k}, so ${c} is a square number.`,
-        solution: [{ say: 'A square can be drawn as a square grid.', figure: { kind: 'grid', rows: k, cols: k, shaded: [], showUnits: false, alt: `A ${k} by ${k} square grid.` } }, { say: 'It has the same number of rows and columns.', show: `${k} × ${k} = ${c}` }],
+        solution: [{ say: 'A square can be drawn as a square grid.', figure: { kind: 'grid', rows: k, cols: k, shaded: [], showUnits: false, alt: `${cap(anum(k))} ${k} by ${k} square grid.` } }, { say: 'It has the same number of rows and columns.', show: `${k} × ${k} = ${c}` }],
       })
     }
 
@@ -2996,7 +2996,7 @@ export function multiplySteps(a: number, b: number): Step[] {
     return [
       { say: `Split ${fmt(big)} by place value.`, show: parts.map(fmt).join(' + ') },
       { say: `Multiply each part by ${small}.`, show: parts.map((p) => `${fmt(p)} × ${small} = ${fmt(p * small)}`).join(', ') },
-      { say: 'Add the parts.', show: `${parts.map((p) => fmt(p * small)).join(' + ')} = ${fmt(big * small)}` },
+      { say: 'Add the parts.', show: eqText(parts.map((p) => fmt(p * small)).join(' + '), fmt(big * small)) },
     ]
   }
   const tens = Math.floor(small / 10) * 10
@@ -3574,10 +3574,10 @@ const compareFractions: Generator = {
       return orderItem({
         prompt: `Put these fractions in order, starting with the ${desc ? 'largest' : 'smallest'}.`,
         items,
-        hints: ['Change any mixed numbers into improper fractions first.', `Then write every fraction in ${denName(L)}.`, `${show(at(fr, 0))} = ${over(at(fr, 0), L)}/${L}.`],
+        hints: ['Change any mixed numbers into improper fractions first.', `Then write every fraction in ${denName(L)}.`, `${eqText(show(fr.find((x) => show(x) !== `${over(x, L)}/${L}`) ?? at(fr, 0)), `${over(fr.find((x) => show(x) !== `${over(x, L)}/${L}`) ?? at(fr, 0), L)}/${L}`)}.`],
         explanation: `In ${denName(L)}: ${asc.map((x) => eqText(show(x), `${over(x, L)}/${L}`)).join(', ')}. So the order is ${items.join(', ')}.`,
         solution: [
-          { say: `Write each one in ${denName(L)}.`, show: fr.map((x) => `${show(x)} = ${over(x, L)}/${L}`).join(', ') },
+          { say: `Write each one in ${denName(L)}.`, show: fr.map((x) => eqText(show(x), `${over(x, L)}/${L}`)).join(', ') },
           { say: 'Compare the numerators.', show: asc.map(show).join(' < ') },
         ],
       })
@@ -4030,7 +4030,7 @@ const addSubtractDecimals: Generator = {
         prompt: `Work out ${fmt(dec(big, 2))} − ${fmt(dec(small, 2))}.`,
         answer: ans,
         decimal: true,
-        hints: ['Line up the decimal points.', 'Give both numbers two decimal places, then subtract column by column.', `Write ${fmt(dec(big, 2))} as ${fx(dec(big, 2), 2)}.`],
+        hints: ['Line up the decimal points.', 'Give both numbers two decimal places, then subtract column by column.', `Write ${fmt(dec(big % 10 === 0 ? big : small, 2))} as ${fx(dec(big % 10 === 0 ? big : small, 2), 2)}.`],
         explanation: `${fx(dec(big, 2), 2)} − ${fx(dec(small, 2), 2)} = ${fmt(ans)}.`,
         solution: [{ say: 'Line up the decimal points.', show: `${fx(dec(big, 2), 2)} − ${fx(dec(small, 2), 2)}` }, ...subColumnSteps(big, small, 2).slice(0, 5)],
       })
@@ -4330,9 +4330,9 @@ const fractionsDecimalsPercentages: Generator = {
       return orderItem({
         prompt: 'Put these in order, starting with the smallest.',
         items: sorted.map((f) => f.text),
-        hints: ['Change every number into a percentage.', 'Then compare the percentages.', `${at(forms, 0).how}.`],
+        hints: ['Change every number into a percentage.', 'Then compare the percentages.', `${(forms.find((f) => !f.text.endsWith('%')) ?? at(forms, 0)).how}.`],
         explanation: `As percentages: ${sorted.map((f) => f.how).join(', ')}.`,
-        solution: [{ say: 'Change each one into a percentage.', show: forms.map((f) => `${f.text} = ${f.v}%`).join(', ') }, { say: 'Order them.', show: sorted.map((f) => f.text).join(' < ') }],
+        solution: [{ say: 'Change each one into a percentage.', show: forms.map((f) => eqText(f.text, `${f.v}%`)).join(', ') }, { say: 'Order them.', show: sorted.map((f) => f.text).join(' < ') }],
       })
     }
     if (rng.chance(0.5)) {
@@ -4860,7 +4860,7 @@ const perimeterArea: Generator = {
           answer: area,
           unit: 'cm²',
           figure: fig,
-          hints: ['Split the shape into two rectangles, or count squares.', `The whole grid rectangle is ${C} cm by ${R} cm. A ${c} cm by ${r} cm piece is missing.`, `${C} × ${R} = ${C * R}.`],
+          hints: ['Split the shape into two rectangles, or count squares.', `The whole grid rectangle is ${C} cm by ${R} cm. ${cap(anum(c))} ${c} cm by ${r} cm piece is missing.`, `${C} × ${R} = ${C * R}.`],
           explanation: `${C} × ${R} = ${C * R} cm². Take away the missing ${c} × ${r} = ${c * r} cm². ${C * R} − ${c * r} = ${area} cm².`,
           solution: [
             { say: 'Find the area of the big rectangle.', show: `${C} × ${R} = ${C * R}`, figure: fig },

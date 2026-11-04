@@ -1989,9 +1989,9 @@ const compareFractions: Generator = {
       return orderItem({
         prompt: `Put these fractions in order, starting with the ${desc ? 'largest' : 'smallest'}.`,
         items,
-        hints: ['Give the fractions a common denominator.', `${L} is a common denominator for all of them.`, `${fs(at(fr, 0))} = ${conv(at(fr, 0))}/${L}.`],
+        hints: ['Give the fractions a common denominator.', `${L} is a common denominator for all of them.`, `${eqText(fs(fr.find((f) => fs(f) !== `${conv(f)}/${L}`) ?? at(fr, 0)), `${conv(fr.find((f) => fs(f) !== `${conv(f)}/${L}`) ?? at(fr, 0))}/${L}`)}.`],
         explanation: `With denominator ${L}: ${asc.map((f) => eqText(fs(f), `${conv(f)}/${L}`)).join(', ')}.`,
-        solution: [{ say: `Change each one into ${L}ths.`, show: fr.map((f) => `${fs(f)} = ${conv(f)}/${L}`).join(', ') }, { say: 'Order the numerators.', show: asc.map(fs).join(' < ') }],
+        solution: [{ say: `Change each one into ${L}ths.`, show: fr.map((f) => eqText(fs(f), `${conv(f)}/${L}`)).join(', ') }, { say: 'Order the numerators.', show: asc.map(fs).join(' < ') }],
         secs: 150,
       })
     }
@@ -2180,7 +2180,7 @@ const multiplyDivideFractions: Generator = {
         answers: [fracAnswers(res, { decimal: true })],
         hints: [`${fs(f)} × ${k} means ${k} lots of ${fs(f)}.`, 'Multiply the numerator by the whole number. Keep the denominator.', `${f.n} × ${k} = ${f.n * k}.`],
         explanation: `${fs(f)} × ${k} = ${f.n * k}/${f.d}${simp(res).d !== f.d || res.n >= f.d ? ` = ${mixed(simp(res))}` : ''}.`,
-        solution: [{ say: 'Multiply the numerator.', show: `${f.n} × ${k} = ${f.n * k}` }, { say: 'Keep the denominator and simplify.', show: `${f.n * k}/${f.d} = ${mixed(simp(res))}` }],
+        solution: [{ say: 'Multiply the numerator.', show: `${f.n} × ${k} = ${f.n * k}` }, { say: 'Keep the denominator and simplify.', show: eqText(`${f.n * k}/${f.d}`, mixed(simp(res))) }],
       })
     }
     if (level === 2) {
