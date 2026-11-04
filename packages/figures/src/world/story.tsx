@@ -153,6 +153,8 @@ export function Kira({ x, y, s = 1, flip = false, read = false, worry = false, s
         </>
       )}
       <path d="M-10 -17L-15 -36q15 -8 30 0L10 -17z" fill={SUCCESS} />
+      <path d="M-11 -35q12 8 21 15" fill="none" strokeWidth="1.800" />
+      <rect x="8" y="-25" width="11" height="12" rx="2.500" fill={LILAC} strokeWidth="1.800" />
       <path d="M-13 -35q13 6 26 0l-2 6q-11 5 -22 0z" fill={DANGER} />
       {read ? (
         <>
@@ -273,6 +275,12 @@ function sceneBody(scene: StorySceneId, has: Show): { sky: string; node: ReactNo
             <Pine x={520} y={252} />
             <Library lit={has('lit')} />
             {has('door') ? <rect x="282" y="172" width="36" height="58" rx="3" fill={INK} /> : null}
+            {has('road') ? (
+              <g fill="none" strokeLinecap="round">
+                <path d="M320 232q120 6 160 26t130 12" stroke={INK} strokeWidth="13" />
+                <path d="M320 232q120 6 160 26t130 12" stroke={WHITE} strokeWidth="8" />
+              </g>
+            ) : null}
             {has('hum') ? (
               <g className="kw-bob">
                 <Note x={395} y={100} />

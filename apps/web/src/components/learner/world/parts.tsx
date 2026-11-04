@@ -10,6 +10,11 @@ import { playSfx } from '../sfx'
 
 /** Bagian bersama layar Kira World. */
 
+/** Cara gulir yang menghormati prefers-reduced-motion. */
+export function scrollMotion(): ScrollBehavior {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+}
+
 const TABS = [
   { href: '/world', label: 'Home', key: 'home' },
   { href: '/world/friend', label: 'Friend', key: 'friend' },

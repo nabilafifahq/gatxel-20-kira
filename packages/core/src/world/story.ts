@@ -97,8 +97,8 @@ export const STORY: readonly StoryChapter[] = [
       p('“I am Lumi,” said a very small voice. “The Big Lamp went out in the night. The books took fright, and off they ran!”', 60, 1.5, 60, 38, 94, 90, { scene: 'inside', show: ['dark'], kira: { x: 42, y: 92 } }),
       p('On the desk lay a scrap of paper. Its edges were full of tiny bites. Kira read it out loud.', 76, 1.7, 86, 40, 71, 90, { scene: 'inside', show: ['dark', 'note'], kira: { x: 58, y: 92, read: true } }),
       p('“Bring home the six big books. The little ones will follow.”', 80, 2.2, 90, 44, 69, 90, { scene: 'inside', show: ['dark', 'note'], kira: { x: 64, y: 92 } }),
-      p('Kira looked at her bag. It was small. She looked at the road. It was long.', 28, 1.1, 66, 30, 8, 88, { kira: { x: 34, y: 90 }, show: ['door'] }),
-      p('She took a deep breath. “One step at a time,” she said. And out she went.', 40, 1, 88, 22, 61, 88, { kira: { x: 72, y: 90 }, show: ['door'] }),
+      p('Kira looked at her bag. It was small. She looked at the road. It was long.', 60, 1.1, 66, 30, 38, 88, { kira: { x: 42, y: 90 }, show: ['door', 'road'] }),
+      p('She took a deep breath. “One step at a time,” she said. And out she went.', 40, 1, 88, 22, 61, 88, { kira: { x: 72, y: 90 }, show: ['door', 'road'] }),
     ],
   },
   {
