@@ -316,6 +316,443 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.complex-sentences.011",
+      "skill": "e5.complex-sentences",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Maya took an umbrella ___ it was raining.",
+      "gaps": [
+        {
+          "options": [
+            "but",
+            "because",
+            "and",
+            "or"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The second part gives a reason.",
+        "Which word joins a reason to the main idea?",
+        "Try each word and see which one makes sense."
+      ],
+      "explanation": "Because introduces the reason. It makes the second part a subordinate clause."
+    },
+    {
+      "id": "e5.complex-sentences.012",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which part is the subordinate clause? We will go to the park if the rain stops.",
+      "options": [
+        {
+          "text": "We will go to the park",
+          "why": "This part can stand alone, so it is the main clause."
+        },
+        {
+          "text": "if the rain stops"
+        },
+        {
+          "text": "the park",
+          "why": "This is only a phrase. It has no verb."
+        },
+        {
+          "text": "will go",
+          "why": "This is only a verb. It is not a whole clause."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "A subordinate clause cannot stand alone as a sentence.",
+        "Look for the conjunction if.",
+        "Which part starts with a word that makes you ask what happens next?"
+      ],
+      "explanation": "If the rain stops needs the main clause to make sense, so it is the subordinate clause."
+    },
+    {
+      "id": "e5.complex-sentences.013",
+      "skill": "e5.complex-sentences",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build the complex sentence.",
+      "answer": "Although she was tired, Putri finished her homework.",
+      "distractors": [
+        "because",
+        "sleepy"
+      ],
+      "hints": [
+        "The sentence starts with a conjunction.",
+        "The comma comes after the subordinate clause.",
+        "Finish with her homework."
+      ],
+      "explanation": "Although she was tired is the subordinate clause. A comma follows it, then the main clause."
+    },
+    {
+      "id": "e5.complex-sentences.014",
+      "skill": "e5.complex-sentences",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the joining words.",
+      "groups": [
+        "Joins two main clauses",
+        "Starts a subordinate clause"
+      ],
+      "items": [
+        {
+          "text": "and",
+          "group": 0
+        },
+        {
+          "text": "but",
+          "group": 0
+        },
+        {
+          "text": "so",
+          "group": 0
+        },
+        {
+          "text": "or",
+          "group": 0
+        },
+        {
+          "text": "because",
+          "group": 1
+        },
+        {
+          "text": "although",
+          "group": 1
+        },
+        {
+          "text": "while",
+          "group": 1
+        },
+        {
+          "text": "unless",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Words like and and but join clauses of equal importance.",
+        "Words that start a clause that cannot stand alone are subordinating.",
+        "Think about whether the clause after the word can stand alone."
+      ],
+      "explanation": "And, but, so and or join main clauses. Because, although, while and unless begin subordinate clauses."
+    },
+    {
+      "id": "e5.complex-sentences.015",
+      "skill": "e5.complex-sentences",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each conjunction to its job.",
+      "pairs": [
+        [
+          "because",
+          "gives a reason"
+        ],
+        [
+          "although",
+          "shows a contrast"
+        ],
+        [
+          "unless",
+          "shows an exception"
+        ],
+        [
+          "until",
+          "shows when something stops"
+        ]
+      ],
+      "hints": [
+        "Think of a sentence with each word.",
+        "Although means in spite of.",
+        "Unless means if not."
+      ],
+      "explanation": "Because gives a reason, although shows contrast, unless means if not, and until shows an end point in time."
+    },
+    {
+      "id": "e5.complex-sentences.016",
+      "skill": "e5.complex-sentences",
+      "type": "order",
+      "difficulty": 2,
+      "prompt": "Put the parts in order to make a complex sentence.",
+      "items": [
+        "Unless you hurry,",
+        "the bus will leave",
+        "without you."
+      ],
+      "hints": [
+        "The first card begins with a capital letter.",
+        "Unless starts the subordinate clause.",
+        "The main clause follows the comma."
+      ],
+      "explanation": "Unless you hurry is the subordinate clause, then the main clause tells what happens."
+    },
+    {
+      "id": "e5.complex-sentences.017",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the conjunction that fits. You will not pass the test ___ you practise.",
+      "options": [
+        {
+          "text": "unless"
+        },
+        {
+          "text": "because",
+          "why": "Because gives a reason, but here we need a condition."
+        },
+        {
+          "text": "while",
+          "why": "While means at the same time."
+        },
+        {
+          "text": "although",
+          "why": "Although shows a contrast and does not fit the meaning."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "The sentence says what must happen to pass.",
+        "It needs a word that means if not.",
+        "Replace the gap with if not and see if the meaning matches."
+      ],
+      "explanation": "Unless means if not. You will not pass if you do not practise."
+    },
+    {
+      "id": "e5.complex-sentences.018",
+      "skill": "e5.complex-sentences",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "head": [
+        "Sentence",
+        "Main clause",
+        "Subordinate clause"
+      ],
+      "rows": [
+        [
+          "Leo sang because he won.",
+          "Leo sang",
+          "because he won"
+        ],
+        [
+          "When it rang, we left.",
+          "",
+          "When it rang"
+        ],
+        [
+          "Citra waited until dark.",
+          "Citra waited",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "we left"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "answers": [
+            "until dark"
+          ]
+        }
+      ],
+      "hints": [
+        "The main clause can stand alone.",
+        "The subordinate clause starts with a conjunction.",
+        "Row 2: take the part after the comma."
+      ],
+      "explanation": "The main clause makes sense alone. The subordinate clause begins with a conjunction."
+    },
+    {
+      "id": "e5.complex-sentences.019",
+      "skill": "e5.complex-sentences",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write one conjunction that shows how long. Tom kept reading ___ his mother called him for dinner.",
+      "blanks": [
+        {
+          "answers": [
+            "until",
+            "till"
+          ]
+        }
+      ],
+      "hints": [
+        "Think about when Tom stopped reading.",
+        "The word shows an end point.",
+        "The conjunction means up to the time that."
+      ],
+      "explanation": "Until shows the time when Tom stopped reading."
+    },
+    {
+      "id": "e5.complex-sentences.020",
+      "skill": "e5.complex-sentences",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "___ Hadi was hungry, he waited ___ his friends arrived.",
+      "gaps": [
+        {
+          "options": [
+            "Because",
+            "Although",
+            "Unless"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "although",
+            "if",
+            "until"
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Read the whole sentence before choosing.",
+        "The first gap shows a contrast with waiting.",
+        "Hungry people usually eat, but Hadi waited, so the first word shows a surprising contrast."
+      ],
+      "explanation": "Although shows contrast. Until shows how long he waited."
+    },
+    {
+      "id": "e5.complex-sentences.021",
+      "skill": "e5.complex-sentences",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 complex sentences.",
+      "options": [
+        {
+          "text": "Kofi laughed, and Yuki smiled.",
+          "why": "This joins two main clauses with and, so it is a compound sentence."
+        },
+        {
+          "text": "Because the road was flooded, we took the train."
+        },
+        {
+          "text": "Amara waited while her brother bought tickets."
+        },
+        {
+          "text": "The cat sat on the mat.",
+          "why": "This has one clause, so it is a simple sentence."
+        },
+        {
+          "text": "I like tea, but my sister likes juice.",
+          "why": "This joins two main clauses with but, so it is a compound sentence."
+        }
+      ],
+      "answers": [
+        1,
+        2
+      ],
+      "hints": [
+        "A complex sentence has a main clause and a subordinate clause.",
+        "Look for because or while.",
+        "Cross out sentences joined by and or but."
+      ],
+      "explanation": "Because and while start subordinate clauses. And and but only join main clauses."
+    },
+    {
+      "id": "e5.complex-sentences.022",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence is NOT a complex sentence?",
+      "options": [
+        {
+          "text": "Although I was tired, I kept walking.",
+          "why": "This has a subordinate clause with although."
+        },
+        {
+          "text": "I kept walking because I wanted to see the sunrise.",
+          "why": "This has a subordinate clause with because."
+        },
+        {
+          "text": "I was tired but I kept walking."
+        },
+        {
+          "text": "When the hill got steeper, I kept walking.",
+          "why": "This has a subordinate clause with when."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Look for a clause that cannot stand alone.",
+        "But joins two equal clauses.",
+        "Check which sentence has no subordinating conjunction."
+      ],
+      "explanation": "But joins two main clauses, so it is a compound sentence. The others each have a subordinate clause."
+    },
+    {
+      "id": "e5.complex-sentences.023",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which one is a sentence fragment?",
+      "options": [
+        {
+          "text": "Although it was late, Rangga kept working.",
+          "why": "This has both a subordinate clause and a main clause."
+        },
+        {
+          "text": "The electricity went out, so we lit candles.",
+          "why": "This has two complete clauses joined by so."
+        },
+        {
+          "text": "Because the electricity went out."
+        },
+        {
+          "text": "We lit candles because the electricity went out.",
+          "why": "This has a main clause first, then a subordinate clause."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A full sentence needs a main clause.",
+        "Which one stops without telling us what happened?",
+        "Look for a sentence that is only a subordinate clause."
+      ],
+      "explanation": "Because the electricity went out leaves us waiting for the main clause, so it is a fragment."
+    },
+    {
+      "id": "e5.complex-sentences.024",
+      "skill": "e5.complex-sentences",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence joins the ideas best? It was raining. We still went to the market. We needed bread.",
+      "options": [
+        {
+          "text": "Although it was raining we needed bread, we went to the market.",
+          "why": "The clauses are mixed up and the meaning is unclear."
+        },
+        {
+          "text": "It was raining, because we went to the market, we needed bread.",
+          "why": "Because does not fit here. The rain was not caused by going to the market."
+        },
+        {
+          "text": "We went to the market although we needed bread because it was raining.",
+          "why": "This says the rain was the reason we needed bread, which changes the meaning."
+        },
+        {
+          "text": "Although it was raining, we went to the market because we needed bread."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check what each sentence says caused what.",
+        "Rain did not cause the need for bread.",
+        "Find the sentence where although shows contrast and because gives the reason for going."
+      ],
+      "explanation": "It shows contrast with although and gives the real reason with because."
     }
   ]
 }

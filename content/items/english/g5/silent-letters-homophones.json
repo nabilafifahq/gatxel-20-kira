@@ -336,6 +336,418 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.silent-letters-homophones.011",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word sounds the same as sun, but means a boy child?",
+      "options": [
+        {
+          "text": "sum",
+          "why": "Sum is an answer to an addition. It sounds different."
+        },
+        {
+          "text": "son"
+        },
+        {
+          "text": "soon",
+          "why": "Soon means in a short time and has a longer sound."
+        },
+        {
+          "text": "sung",
+          "why": "Sung is the past of sing. It ends with ng."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Homophones sound the same but are spelled differently.",
+        "Say sun aloud and listen to each word.",
+        "The word is a family word."
+      ],
+      "explanation": "Son and sun are homophones. A son is a boy child."
+    },
+    {
+      "id": "e5.silent-letters-homophones.012",
+      "skill": "e5.silent-letters-homophones",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "___ going to the beach on Saturday.",
+      "gaps": [
+        {
+          "options": [
+            "They’re",
+            "Their",
+            "There"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Try saying the sentence with they are.",
+        "They’re is short for they are.",
+        "Their shows belonging and there shows a place."
+      ],
+      "explanation": "They’re means they are. Their shows ownership and there shows a place."
+    },
+    {
+      "id": "e5.silent-letters-homophones.013",
+      "skill": "e5.silent-letters-homophones",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Write the silent letter that starts the word. A ___nome lives in the garden.",
+      "blanks": [
+        {
+          "answers": [
+            "g"
+          ]
+        }
+      ],
+      "hints": [
+        "Gnomes are tiny garden figures.",
+        "The first letter is not said.",
+        "Say the word. You hear nome, so a letter is hidden before the n."
+      ],
+      "explanation": "Gnome is said nome. The g is silent."
+    },
+    {
+      "id": "e5.silent-letters-homophones.014",
+      "skill": "e5.silent-letters-homophones",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words by their silent letter.",
+      "groups": [
+        "Silent b",
+        "Silent k",
+        "Silent w"
+      ],
+      "items": [
+        {
+          "text": "climb",
+          "group": 0
+        },
+        {
+          "text": "thumb",
+          "group": 0
+        },
+        {
+          "text": "knock",
+          "group": 1
+        },
+        {
+          "text": "knight",
+          "group": 1
+        },
+        {
+          "text": "wrap",
+          "group": 2
+        },
+        {
+          "text": "wrist",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Say each word slowly and notice the letter you cannot hear.",
+        "Three letters are hiding: b, k and w.",
+        "Climb and thumb end with the same silent letter."
+      ],
+      "explanation": "The b is silent in climb and thumb, the k in knock and knight, and the w in wrap and wrist."
+    },
+    {
+      "id": "e5.silent-letters-homophones.015",
+      "skill": "e5.silent-letters-homophones",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each homophone to its meaning.",
+      "pairs": [
+        [
+          "hear",
+          "listen with your ears"
+        ],
+        [
+          "here",
+          "in this place"
+        ],
+        [
+          "sea",
+          "salty water"
+        ],
+        [
+          "see",
+          "look with your eyes"
+        ]
+      ],
+      "hints": [
+        "Homophones sound the same, so use the meaning.",
+        "Here and there are both places.",
+        "Hear has the word ear inside it."
+      ],
+      "explanation": "Hear has ear in it. Here is a place. Sea is water, and see is what eyes do."
+    },
+    {
+      "id": "e5.silent-letters-homophones.016",
+      "skill": "e5.silent-letters-homophones",
+      "type": "tiles",
+      "difficulty": 3,
+      "prompt": "Build the sentence.",
+      "answer": "There are two books on their desk.",
+      "distractors": [
+        "they’re",
+        "too"
+      ],
+      "hints": [
+        "The sentence starts with a word that tells a place.",
+        "The word for belonging comes before desk.",
+        "Put the number word after are."
+      ],
+      "explanation": "There starts the sentence, two is the number, and their shows the desk belongs to them."
+    },
+    {
+      "id": "e5.silent-letters-homophones.017",
+      "skill": "e5.silent-letters-homophones",
+      "type": "cloze",
+      "difficulty": 3,
+      "prompt": "The twins left ___ lunch boxes at home, so ___ hungry. They hope ___ is a shop nearby.",
+      "gaps": [
+        {
+          "options": [
+            "their",
+            "there",
+            "they’re"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "their",
+            "they’re",
+            "there"
+          ],
+          "answer": 1
+        },
+        {
+          "options": [
+            "there",
+            "their",
+            "they’re"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "Check each gap by trying they are in it.",
+        "Their shows belonging to people.",
+        "There can show a place or be used with is and are."
+      ],
+      "explanation": "The first gap shows belonging (their). The second means they are (they’re). The third is a place (there)."
+    },
+    {
+      "id": "e5.silent-letters-homophones.018",
+      "skill": "e5.silent-letters-homophones",
+      "type": "spell",
+      "difficulty": 3,
+      "prompt": "Spell the word for pens, paper and envelopes.",
+      "word": "stationery",
+      "sentence": "Citra bought stationery for the new school year.",
+      "hints": [
+        "This word is a noun for writing things.",
+        "It ends with ery, like the e in envelope.",
+        "The other word, with ary, means not moving."
+      ],
+      "explanation": "Stationery with an e means paper and pens. Stationary with an a means not moving."
+    },
+    {
+      "id": "e5.silent-letters-homophones.019",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word has a silent letter that is NOT at the start?",
+      "options": [
+        {
+          "text": "gnaw",
+          "why": "The g at the start is silent."
+        },
+        {
+          "text": "wrote",
+          "why": "The w at the start is silent."
+        },
+        {
+          "text": "island"
+        },
+        {
+          "text": "knee",
+          "why": "The k at the start is silent."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check where the silent letter sits in each word.",
+        "Three of the words have a silent letter first.",
+        "Say island: eye-land. Which letter in the middle is missing in the sound?"
+      ],
+      "explanation": "In island the s is silent, in the middle of the word."
+    },
+    {
+      "id": "e5.silent-letters-homophones.020",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses stationary correctly?",
+      "options": [
+        {
+          "text": "Putri bought new stationary for school.",
+          "why": "Stationary means not moving. Pens and paper are stationery."
+        },
+        {
+          "text": "Hadi packed his stationary into a case.",
+          "why": "Stationary means not moving. Pens and paper are stationery."
+        },
+        {
+          "text": "The bus was stationary at the red light."
+        },
+        {
+          "text": "She sells stationary in her shop.",
+          "why": "Stationary means not moving. Pens and paper are stationery."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Stationary with an a means not moving.",
+        "Think: Does the sentence talk about something not moving?",
+        "Look for the sentence about a vehicle waiting."
+      ],
+      "explanation": "Stationary means still. Stationery with an e means writing materials."
+    },
+    {
+      "id": "e5.silent-letters-homophones.021",
+      "skill": "e5.silent-letters-homophones",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the sentences that use the correct homophone.",
+      "options": [
+        {
+          "text": "I herd the bell ring.",
+          "why": "Herd is a group of animals. You hear with your ears, so use heard."
+        },
+        {
+          "text": "Leo ate a piece of cake."
+        },
+        {
+          "text": "The weather is sunny today."
+        },
+        {
+          "text": "Do you no the answer?",
+          "why": "No is the opposite of yes. Use know for knowing something."
+        },
+        {
+          "text": "She threw the ball over the fence."
+        },
+        {
+          "text": "The knight road a horse.",
+          "why": "Road is a path. The past of ride is rode."
+        }
+      ],
+      "answers": [
+        1,
+        2,
+        4
+      ],
+      "hints": [
+        "Check each sentence for a word that sounds right but means something else.",
+        "Three sentences are correct.",
+        "Say what each tricky word should mean, then match it to its spelling."
+      ],
+      "explanation": "Piece of cake, weather, and threw the ball are all correct. The other sentences use the wrong homophone."
+    },
+    {
+      "id": "e5.silent-letters-homophones.022",
+      "skill": "e5.silent-letters-homophones",
+      "type": "text",
+      "difficulty": 4,
+      "prompt": "Write the right homophone of rain for each gap. The old king’s ___ lasted forty years. The rider held the ___ tightly.",
+      "blanks": [
+        {
+          "answers": [
+            "reign"
+          ]
+        },
+        {
+          "answers": [
+            "rein",
+            "reins"
+          ]
+        }
+      ],
+      "hints": [
+        "Both words sound like rain.",
+        "The first word is about being a ruler.",
+        "The second word is a strap on a horse."
+      ],
+      "explanation": "Reign means the time a king rules. A rein is a strap used to steer a horse."
+    },
+    {
+      "id": "e5.silent-letters-homophones.023",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which sentence uses every homophone correctly?",
+      "options": [
+        {
+          "text": "Ines past the shop on her way hear.",
+          "why": "Past should be passed here, and hear should be here."
+        },
+        {
+          "text": "The sail on the boat was to big for the wind.",
+          "why": "To should be too."
+        },
+        {
+          "text": "Citra lent her pencil to a pupil who’s pencil broke.",
+          "why": "Who’s means who is. Use whose to show belonging."
+        },
+        {
+          "text": "Tom threw the whole cake in the bin because it was stale."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Check every tricky word in each sentence.",
+        "Look for past/passed, hear/here, to/too and who’s/whose.",
+        "Only one sentence has no mistakes at all."
+      ],
+      "explanation": "Threw, whole and stale are all correct in the right sentence. The others have wrong homophones."
+    },
+    {
+      "id": "e5.silent-letters-homophones.024",
+      "skill": "e5.silent-letters-homophones",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which pair of words are NOT homophones?",
+      "options": [
+        {
+          "text": "break and brake",
+          "why": "They sound the same."
+        },
+        {
+          "text": "lose and loose"
+        },
+        {
+          "text": "bare and bear",
+          "why": "They sound the same."
+        },
+        {
+          "text": "heal and heel",
+          "why": "They sound the same."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Homophones sound exactly the same.",
+        "Say each pair aloud.",
+        "Listen for the last sound of each word."
+      ],
+      "explanation": "Lose ends with a z sound and loose ends with an s sound, so they sound different."
     }
   ]
 }

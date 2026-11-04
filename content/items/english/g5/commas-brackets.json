@@ -293,6 +293,416 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.commas-brackets.011",
+      "skill": "e5.commas-brackets",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Maya packed a hat ___ a bottle and a towel.",
+      "gaps": [
+        {
+          "options": [
+            "!",
+            "?",
+            ","
+          ],
+          "answer": 2
+        }
+      ],
+      "hints": [
+        "Maya packed three things.",
+        "In a list, we separate the items.",
+        "Look at what comes between \"a hat\" and \"a bottle\"."
+      ],
+      "explanation": "A comma separates items in a list. The last two items are joined by \"and\", so no comma is needed there."
+    },
+    {
+      "id": "e5.commas-brackets.012",
+      "skill": "e5.commas-brackets",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build the sentence. It has extra information about Tom between commas.",
+      "answer": "Tom, my cousin, plays the drums.",
+      "distractors": [
+        "who"
+      ],
+      "hints": [
+        "The extra information is about Tom.",
+        "Commas go before and after the extra information.",
+        "Start with the name, then the extra words."
+      ],
+      "explanation": "\"My cousin\" is extra information about Tom, so it sits between two commas."
+    },
+    {
+      "id": "e5.commas-brackets.013",
+      "skill": "e5.commas-brackets",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Which word should have a comma after it? When the bell rang the children ran outside.",
+      "blanks": [
+        {
+          "answers": [
+            "rang"
+          ]
+        }
+      ],
+      "hints": [
+        "The sentence starts with a \"when\" part.",
+        "A comma separates the opening part from the main part.",
+        "Find where the opening part ends."
+      ],
+      "explanation": "\"When the bell rang\" is the opening part. A comma goes after it, before \"the children ran outside\"."
+    },
+    {
+      "id": "e5.commas-brackets.014",
+      "skill": "e5.commas-brackets",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the sentences by the job of the commas in them.",
+      "groups": [
+        "Comma in a list",
+        "Comma after an opening phrase",
+        "Commas for extra detail"
+      ],
+      "items": [
+        {
+          "text": "We need eggs, flour, sugar and butter.",
+          "group": 0
+        },
+        {
+          "text": "Late in the afternoon, the rain stopped.",
+          "group": 1
+        },
+        {
+          "text": "My teacher, Mr Hadi, plays the guitar.",
+          "group": 2
+        },
+        {
+          "text": "Wulan packed pens, paper and a ruler.",
+          "group": 0
+        },
+        {
+          "text": "After the match, we drank cold water.",
+          "group": 1
+        },
+        {
+          "text": "The mango, still green, fell down.",
+          "group": 2
+        }
+      ],
+      "hints": [
+        "Look at where the commas sit in each sentence.",
+        "Pairs of commas around a phrase mark extra information.",
+        "Check the first words: do they set the scene before the main part?"
+      ],
+      "explanation": "Lists have commas between items, openers have one comma before the main part, and extra information sits between two commas."
+    },
+    {
+      "id": "e5.commas-brackets.015",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses commas correctly to add extra information?",
+      "options": [
+        {
+          "text": "The river, which was very wide flooded the village.",
+          "why": "The second comma is missing after \"wide\"."
+        },
+        {
+          "text": "The river which was very wide, flooded the village.",
+          "why": "The first comma is missing after \"river\"."
+        },
+        {
+          "text": "The river, which was very wide, flooded the village."
+        },
+        {
+          "text": "The, river which was very wide flooded the village.",
+          "why": "The comma is in the wrong place."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "The extra information needs a comma at both ends.",
+        "Take the extra part out: does the sentence still work?",
+        "Check for one comma before \"which\" and one after \"wide\"."
+      ],
+      "explanation": "Extra information needs a comma before and after it. Without it the sentence still makes sense: \"The river flooded the village.\""
+    },
+    {
+      "id": "e5.commas-brackets.016",
+      "skill": "e5.commas-brackets",
+      "type": "match",
+      "difficulty": 3,
+      "prompt": "Match each sentence to the job the punctuation does.",
+      "pairs": [
+        [
+          "Bring pens (blue or black).",
+          "Brackets add a small detail"
+        ],
+        [
+          "Bring pens, paper and glue.",
+          "Commas separate list items"
+        ],
+        [
+          "Bring pens, which are cheap, to school.",
+          "Commas mark extra information"
+        ],
+        [
+          "Before you start, read the rules.",
+          "Comma ends an opening phrase"
+        ]
+      ],
+      "hints": [
+        "Look at which punctuation mark is used.",
+        "Only one sentence has brackets.",
+        "Count how many commas each sentence has and where they sit."
+      ],
+      "explanation": "Brackets hold a small detail, list commas separate items, paired commas wrap extra information, and a single comma ends an opening phrase."
+    },
+    {
+      "id": "e5.commas-brackets.017",
+      "skill": "e5.commas-brackets",
+      "type": "multi",
+      "difficulty": 3,
+      "prompt": "Choose 2 sentences where brackets are used correctly.",
+      "options": [
+        {
+          "text": "Our school (founded in 1980) has a big garden."
+        },
+        {
+          "text": "Our school (founded in 1980 has a big garden)."
+        },
+        {
+          "text": "The kite (a red one) flew over the roof."
+        },
+        {
+          "text": "The kite a red one) flew over the roof."
+        },
+        {
+          "text": "(The kite) a red one flew over the roof."
+        }
+      ],
+      "answers": [
+        0,
+        2
+      ],
+      "hints": [
+        "Brackets come in pairs.",
+        "The words inside should be extra information.",
+        "The sentence must still make sense without the bracketed part."
+      ],
+      "explanation": "Correct brackets enclose only the extra detail, and the rest of the sentence still works without it."
+    },
+    {
+      "id": "e5.commas-brackets.018",
+      "skill": "e5.commas-brackets",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "head": [
+        "Sentence",
+        "Extra information",
+        "Punctuation used"
+      ],
+      "rows": [
+        [
+          "Ann, my aunt, sings.",
+          "my aunt",
+          "commas"
+        ],
+        [
+          "Our pup (so small) ran.",
+          "so small",
+          ""
+        ],
+        [
+          "Raka, who is tall, ran.",
+          "",
+          "commas"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 2,
+          "answers": [
+            "brackets",
+            "bracket"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "who is tall"
+          ]
+        }
+      ],
+      "hints": [
+        "Look for the pair of marks around the extra part.",
+        "The extra information is the part you could remove.",
+        "Row 2 uses a different mark from commas."
+      ],
+      "explanation": "The puppy sentence uses brackets, and in the last sentence the extra information is \"who is tall\"."
+    },
+    {
+      "id": "e5.commas-brackets.019",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Read the play script. Which part should go in brackets?\nDewi: I do not want to go.\nShe looks at the floor.\nBayu: Please come with me.",
+      "options": [
+        {
+          "text": "Dewi: I do not want to go.",
+          "why": "This is what Dewi says, so it is not a stage direction."
+        },
+        {
+          "text": "Bayu: Please come with me.",
+          "why": "This is spoken dialogue."
+        },
+        {
+          "text": "She looks at the floor."
+        },
+        {
+          "text": "Please come",
+          "why": "This is a spoken part and is not an action."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "In a script, some lines are spoken and some tell actors what to do.",
+        "Brackets hold stage directions.",
+        "Which line shows an action, not speech?"
+      ],
+      "explanation": "Stage directions tell the actor what to do. They are written in brackets, so (She looks at the floor.) is the answer."
+    },
+    {
+      "id": "e5.commas-brackets.020",
+      "skill": "e5.commas-brackets",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Write the word that the missing comma should come after. Rangga, who had never swum before jumped into the pool.",
+      "blanks": [
+        {
+          "answers": [
+            "before"
+          ]
+        }
+      ],
+      "hints": [
+        "The first comma is already there.",
+        "Find where the extra information stops.",
+        "The extra part begins with \"who\"."
+      ],
+      "explanation": "The extra information \"who had never swum before\" needs a closing comma after \"before\"."
+    },
+    {
+      "id": "e5.commas-brackets.021",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Citra has more than one brother. Which sentence tells us that Bayu is the one we mean, without saying how many brothers she has?",
+      "options": [
+        {
+          "text": "Citra's brother Bayu is ten."
+        },
+        {
+          "text": "Citra's brother, Bayu, is ten.",
+          "why": "With commas, Bayu is extra information, which suggests she has only one brother."
+        },
+        {
+          "text": "Citra's brother (Bayu) is ten.",
+          "why": "Brackets also show extra information, so this suggests only one brother."
+        },
+        {
+          "text": "Citra's, brother Bayu, is ten.",
+          "why": "The commas are in the wrong places."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Think about whether \"Bayu\" is needed to know which brother.",
+        "Commas make a name extra information.",
+        "Without commas, the name tells us which brother."
+      ],
+      "explanation": "Without commas, \"Bayu\" is needed to say which brother. With commas it would be extra, which suggests she has just one brother."
+    },
+    {
+      "id": "e5.commas-brackets.022",
+      "skill": "e5.commas-brackets",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Kofi's favourite sport ___ football ___ is played all over the world.",
+      "gaps": [
+        {
+          "options": [
+            "(",
+            "!",
+            ","
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            ")",
+            "?",
+            "("
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The word \"football\" is extra information.",
+        "Use brackets, a pair.",
+        "The first mark opens, the second closes."
+      ],
+      "explanation": "Brackets open before \"football\" and close after it, because the sentence still works without the extra word."
+    },
+    {
+      "id": "e5.commas-brackets.023",
+      "skill": "e5.commas-brackets",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Which version is punctuated correctly?",
+      "options": [
+        {
+          "text": "The festival, (which lasts a week), begins in June.",
+          "why": "Brackets and commas together are not needed for the same extra information."
+        },
+        {
+          "text": "The festival (which lasts a week begins in June).",
+          "why": "The bracket closes in the wrong place."
+        },
+        {
+          "text": "The festival which lasts a week, begins in June.",
+          "why": "There is only one comma, so the extra information is not marked."
+        },
+        {
+          "text": "The festival (which lasts a week) begins in June."
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "The extra information must be fully enclosed.",
+        "Do not use two kinds of punctuation for one detail.",
+        "Check where the closing bracket is."
+      ],
+      "explanation": "The bracket pair encloses exactly \"which lasts a week\", and the main sentence works without it: \"The festival begins in June.\""
+    },
+    {
+      "id": "e5.commas-brackets.024",
+      "skill": "e5.commas-brackets",
+      "type": "numeric",
+      "difficulty": 5,
+      "prompt": "How many commas does this sentence need? When the storm ended Tom's uncle who is a fisherman checked his nets boat and ropes.",
+      "answer": 4,
+      "hints": [
+        "Look for an opening phrase, extra information and a list.",
+        "Extra information needs two commas.",
+        "Count: one after the opening, two around the extra part, then the list."
+      ],
+      "explanation": "One after \"ended\", two around \"who is a fisherman\", and one in the list after \"nets\". That makes four."
     }
   ]
 }

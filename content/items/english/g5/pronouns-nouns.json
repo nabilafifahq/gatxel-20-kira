@@ -1,0 +1,481 @@
+{
+  "skill": "e5.pronouns-nouns",
+  "items": [
+    {
+      "id": "e5.pronouns-nouns.001",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "In \"That bag is mine,\" which word is a possessive pronoun?",
+      "options": [
+        {
+          "text": "bag",
+          "why": "This is a noun, the thing that is owned."
+        },
+        {
+          "text": "That",
+          "why": "This points to the bag. It is not the owner word."
+        },
+        {
+          "text": "mine"
+        },
+        {
+          "text": "is",
+          "why": "This is a verb."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Which word tells you who owns the bag?",
+        "A possessive pronoun stands in for the owner and the thing.",
+        "Look for the word that could replace \"my bag\"."
+      ],
+      "explanation": "Mine tells us who owns the bag and stands alone, so it is a possessive pronoun."
+    },
+    {
+      "id": "e5.pronouns-nouns.002",
+      "skill": "e5.pronouns-nouns",
+      "type": "cloze",
+      "difficulty": 1,
+      "prompt": "Dewi and Putri painted the poster. It is ___.",
+      "gaps": [
+        {
+          "options": [
+            "theirs",
+            "their"
+          ],
+          "answer": 0
+        }
+      ],
+      "hints": [
+        "The pronoun comes at the end with no noun after it.",
+        "Their needs a noun after it. Which word can stand alone?",
+        "Try \"It is their poster\" and \"It is theirs\"."
+      ],
+      "explanation": "Theirs stands alone at the end of the sentence. Their must be followed by a noun, like their poster."
+    },
+    {
+      "id": "e5.pronouns-nouns.003",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Which sentence makes clear who won?",
+      "options": [
+        {
+          "text": "Bayu told Leo that he had won.",
+          "why": "He could mean Bayu or Leo."
+        },
+        {
+          "text": "He told him that he had won.",
+          "why": "All three pronouns could refer to either boy."
+        },
+        {
+          "text": "Bayu told Leo, \"You have won.\""
+        },
+        {
+          "text": "Bayu told Leo that they had won.",
+          "why": "They means more than two people, so it is unclear."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Check each pronoun: could it mean two people?",
+        "Clear writing avoids a pronoun with two possible owners.",
+        "Use direct speech or a name instead of he."
+      ],
+      "explanation": "Using direct speech removes the confusion: you clearly means Leo."
+    },
+    {
+      "id": "e5.pronouns-nouns.004",
+      "skill": "e5.pronouns-nouns",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words.",
+      "groups": [
+        "Stands alone",
+        "Goes before a noun"
+      ],
+      "items": [
+        {
+          "text": "ours",
+          "group": 0
+        },
+        {
+          "text": "our",
+          "group": 1
+        },
+        {
+          "text": "yours",
+          "group": 0
+        },
+        {
+          "text": "your",
+          "group": 1
+        },
+        {
+          "text": "theirs",
+          "group": 0
+        },
+        {
+          "text": "their",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Think about whether the word needs a noun after it.",
+        "You can say \"That is ours.\" but not \"That is our.\"",
+        "Say \"___ book\" and \"The book is ___\" to test."
+      ],
+      "explanation": "Ours, yours and theirs can stand alone. Our, your and their need a noun after them."
+    },
+    {
+      "id": "e5.pronouns-nouns.005",
+      "skill": "e5.pronouns-nouns",
+      "type": "text",
+      "difficulty": 2,
+      "prompt": "Complete the sentence with one pronoun. The red umbrella belongs to Hadi, so the red umbrella is ___.",
+      "blanks": [
+        {
+          "answers": [
+            "his"
+          ]
+        }
+      ],
+      "hints": [
+        "One word replaces \"Hadi's\".",
+        "Hadi is a boy.",
+        "Which possessive pronoun means belonging to him?"
+      ],
+      "explanation": "His can stand alone and replaces Hadi's: the umbrella is his."
+    },
+    {
+      "id": "e5.pronouns-nouns.006",
+      "skill": "e5.pronouns-nouns",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "I have ___ coins than you, so I need ___ money.",
+      "gaps": [
+        {
+          "options": [
+            "fewer",
+            "less"
+          ],
+          "answer": 0
+        },
+        {
+          "options": [
+            "fewer",
+            "less"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "Coins can be counted. Money is thought of as an amount.",
+        "Use fewer for things you can count.",
+        "Use less for things you cannot count one by one."
+      ],
+      "explanation": "Fewer goes with countable nouns such as coins. Less goes with uncountable nouns such as money."
+    },
+    {
+      "id": "e5.pronouns-nouns.007",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which word is an abstract noun?",
+      "options": [
+        {
+          "text": "table",
+          "why": "You can touch a table, so it is a concrete noun."
+        },
+        {
+          "text": "bravery"
+        },
+        {
+          "text": "river",
+          "why": "You can see a river, so it is a concrete noun."
+        },
+        {
+          "text": "teacher",
+          "why": "A teacher is a person, so it is a concrete noun."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Abstract nouns name ideas or feelings.",
+        "You cannot touch or see an abstract noun.",
+        "Which word is a quality, not a thing?"
+      ],
+      "explanation": "Bravery is an idea. You cannot touch it, so it is an abstract noun."
+    },
+    {
+      "id": "e5.pronouns-nouns.008",
+      "skill": "e5.pronouns-nouns",
+      "type": "sort",
+      "difficulty": 3,
+      "prompt": "Sort the nouns.",
+      "groups": [
+        "Abstract noun",
+        "Concrete noun"
+      ],
+      "items": [
+        {
+          "text": "kindness",
+          "group": 0
+        },
+        {
+          "text": "bicycle",
+          "group": 1
+        },
+        {
+          "text": "freedom",
+          "group": 0
+        },
+        {
+          "text": "mango",
+          "group": 1
+        },
+        {
+          "text": "honesty",
+          "group": 0
+        },
+        {
+          "text": "window",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Can you touch it or see it?",
+        "Abstract nouns name ideas, feelings or qualities.",
+        "Try the word \"a\" before each noun and ask if you can hold it."
+      ],
+      "explanation": "Kindness, freedom and honesty are ideas. Bicycle, mango and window are things you can touch."
+    },
+    {
+      "id": "e5.pronouns-nouns.009",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Which sentence uses fewer or less correctly?",
+      "options": [
+        {
+          "text": "There were less people at the market.",
+          "why": "People can be counted, so use fewer."
+        },
+        {
+          "text": "There was fewer traffic today.",
+          "why": "Traffic is uncountable, so use less."
+        },
+        {
+          "text": "We have fewer chairs than we need."
+        },
+        {
+          "text": "He ate fewer rice than me.",
+          "why": "Rice is uncountable, so use less."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Is the noun countable or uncountable?",
+        "Fewer goes with things you count one by one.",
+        "Think: can you say \"one chair, two chairs\"?"
+      ],
+      "explanation": "Chairs can be counted, so fewer is right. Traffic and rice are uncountable, so they take less."
+    },
+    {
+      "id": "e5.pronouns-nouns.010",
+      "skill": "e5.pronouns-nouns",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Joko saw Hadi at the gate. He was holding a kite. Joko was the one holding the kite. Which one word replaces \"He\" so the meaning is clear?",
+      "blanks": [
+        {
+          "answers": [
+            "Joko"
+          ]
+        }
+      ],
+      "hints": [
+        "He could mean either boy.",
+        "The best fix is to use a name.",
+        "Which name holds the kite?"
+      ],
+      "explanation": "Replacing He with Joko removes the confusion, so the reader knows who held the kite."
+    },
+    {
+      "id": "e5.pronouns-nouns.011",
+      "skill": "e5.pronouns-nouns",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table of abstract nouns.",
+      "head": [
+        "Adjective",
+        "Abstract noun"
+      ],
+      "rows": [
+        [
+          "kind",
+          "kindness"
+        ],
+        [
+          "brave",
+          ""
+        ],
+        [
+          "wise",
+          ""
+        ],
+        [
+          "free",
+          ""
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 1,
+          "answers": [
+            "bravery"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "wisdom"
+          ]
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "answers": [
+            "freedom"
+          ]
+        }
+      ],
+      "hints": [
+        "Each adjective turns into a noun for the quality.",
+        "Look at the ending: -ness, -ry and -dom are all noun endings.",
+        "Start with brave. Which ending does it take?"
+      ],
+      "explanation": "Brave becomes bravery, wise becomes wisdom and free becomes freedom."
+    },
+    {
+      "id": "e5.pronouns-nouns.012",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "What is unclear about this sentence? Kofi helped Leo carry the boxes, and then he went home.",
+      "options": [
+        {
+          "text": "\"he\" could mean Kofi or Leo"
+        },
+        {
+          "text": "\"boxes\" should be singular",
+          "why": "Boxes is correct because more than one was carried."
+        },
+        {
+          "text": "\"helped\" should be \"help\"",
+          "why": "Helped is right because it happened in the past."
+        },
+        {
+          "text": "\"then\" should be \"than\"",
+          "why": "Then is the correct word for the order of events."
+        }
+      ],
+      "answer": 0,
+      "hints": [
+        "Which word stands in for a person?",
+        "Count the possible people the pronoun could refer to.",
+        "Check what he points back to."
+      ],
+      "explanation": "He could mean either boy. A name such as Kofi or Leo would make it clear."
+    },
+    {
+      "id": "e5.pronouns-nouns.013",
+      "skill": "e5.pronouns-nouns",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the possessive pronouns.",
+      "options": [
+        {
+          "text": "mine"
+        },
+        {
+          "text": "my",
+          "why": "My needs a noun after it, so it is not a possessive pronoun."
+        },
+        {
+          "text": "hers"
+        },
+        {
+          "text": "their",
+          "why": "Their needs a noun after it."
+        },
+        {
+          "text": "theirs"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "hints": [
+        "A possessive pronoun can stand alone.",
+        "Test each one in \"The book is ___.\"",
+        "Which words cannot end the sentence \"The book is ___.\"?"
+      ],
+      "explanation": "Mine, hers and theirs can stand alone. My and their must come before a noun."
+    },
+    {
+      "id": "e5.pronouns-nouns.014",
+      "skill": "e5.pronouns-nouns",
+      "type": "tiles",
+      "difficulty": 4,
+      "prompt": "Build the sentence.",
+      "answer": "The picnic basket is hers, not mine.",
+      "distractors": [
+        "her",
+        "my"
+      ],
+      "hints": [
+        "The sentence has a comma.",
+        "Two possessive pronouns stand alone in it.",
+        "Start with The."
+      ],
+      "explanation": "Hers and mine both stand alone and show who owns the basket."
+    },
+    {
+      "id": "e5.pronouns-nouns.015",
+      "skill": "e5.pronouns-nouns",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which sentence uses a possessive pronoun correctly?",
+      "options": [
+        {
+          "text": "These skates are our.",
+          "why": "Our needs a noun after it. Use ours."
+        },
+        {
+          "text": "The red scarf is her's.",
+          "why": "Possessive pronouns never take an apostrophe."
+        },
+        {
+          "text": "Is that bike yours or theirs?"
+        },
+        {
+          "text": "Those shoes are their.",
+          "why": "Their needs a noun after it. Use theirs."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "Possessive pronouns stand alone and have no apostrophe.",
+        "Check each sentence for a noun after the pronoun.",
+        "Which options end with a correct stand-alone word?"
+      ],
+      "explanation": "Yours and theirs stand alone and have no apostrophe. The other sentences use the wrong form."
+    }
+  ]
+}

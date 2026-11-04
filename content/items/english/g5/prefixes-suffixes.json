@@ -328,6 +328,443 @@
       "tags": [
         "iklc"
       ]
+    },
+    {
+      "id": "e5.prefixes-suffixes.011",
+      "skill": "e5.prefixes-suffixes",
+      "type": "text",
+      "difficulty": 1,
+      "prompt": "Add -ful to the word in brackets. Be ___ on the wet stairs. (care)",
+      "blanks": [
+        {
+          "answers": [
+            "careful"
+          ]
+        }
+      ],
+      "hints": [
+        "The suffix goes on the end of the root word.",
+        "Care plus ful makes a new word.",
+        "Write care, then add the ending -ful."
+      ],
+      "explanation": "Care + ful makes careful, which means taking care."
+    },
+    {
+      "id": "e5.prefixes-suffixes.012",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Which word is made by adding a prefix to a root word?",
+      "options": [
+        {
+          "text": "red",
+          "why": "Red is a whole word. It has no prefix."
+        },
+        {
+          "text": "real",
+          "why": "Real is a root word on its own. The re is not a prefix here."
+        },
+        {
+          "text": "redo"
+        },
+        {
+          "text": "reed",
+          "why": "Reed is a plant. It is not re + ed."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A prefix comes at the start of a word.",
+        "Take the first letters off. Is a smaller real word left?",
+        "Try redo: take off re. Is do a word?"
+      ],
+      "explanation": "Redo is re + do. The prefix re- means again."
+    },
+    {
+      "id": "e5.prefixes-suffixes.013",
+      "skill": "e5.prefixes-suffixes",
+      "type": "cloze",
+      "difficulty": 2,
+      "prompt": "Amara ___ the instructions, so her model did not work.",
+      "gaps": [
+        {
+          "options": [
+            "unread",
+            "misread",
+            "disread",
+            "inread"
+          ],
+          "answer": 1
+        }
+      ],
+      "hints": [
+        "The prefix must change the meaning to wrongly.",
+        "Unread means not yet read. Think about which prefix means wrongly or badly.",
+        "Try each word in the sentence and check that it is a real word."
+      ],
+      "explanation": "Mis- means wrongly. Misread means read wrongly."
+    },
+    {
+      "id": "e5.prefixes-suffixes.014",
+      "skill": "e5.prefixes-suffixes",
+      "type": "tiles",
+      "difficulty": 2,
+      "prompt": "Build the sentence.",
+      "answer": "Please recheck your answers carefully.",
+      "distractors": [
+        "uncheck",
+        "carelessly"
+      ],
+      "hints": [
+        "Start with the word Please.",
+        "Recheck means check again.",
+        "The describing word carefully goes last."
+      ],
+      "explanation": "Recheck is re- + check, so it means check again."
+    },
+    {
+      "id": "e5.prefixes-suffixes.015",
+      "skill": "e5.prefixes-suffixes",
+      "type": "sort",
+      "difficulty": 2,
+      "prompt": "Sort the words by their suffix.",
+      "groups": [
+        "-ness",
+        "-ment"
+      ],
+      "items": [
+        {
+          "text": "kindness",
+          "group": 0
+        },
+        {
+          "text": "darkness",
+          "group": 0
+        },
+        {
+          "text": "happiness",
+          "group": 0
+        },
+        {
+          "text": "movement",
+          "group": 1
+        },
+        {
+          "text": "agreement",
+          "group": 1
+        },
+        {
+          "text": "payment",
+          "group": 1
+        }
+      ],
+      "hints": [
+        "Look at the last letters of each word.",
+        "Both suffixes make nouns.",
+        "Find the cards that end in ness first."
+      ],
+      "explanation": "The suffix -ness joins kind, dark and happy. The suffix -ment joins move, agree and pay."
+    },
+    {
+      "id": "e5.prefixes-suffixes.016",
+      "skill": "e5.prefixes-suffixes",
+      "type": "match",
+      "difficulty": 2,
+      "prompt": "Match each suffix to its meaning.",
+      "pairs": [
+        [
+          "-less",
+          "without"
+        ],
+        [
+          "-ful",
+          "full of"
+        ],
+        [
+          "-able",
+          "can be done"
+        ],
+        [
+          "-er",
+          "a person who does it"
+        ]
+      ],
+      "hints": [
+        "Think of a word you know with each ending.",
+        "Hopeless means without hope.",
+        "Start with -less and -ful, they are opposites."
+      ],
+      "explanation": "Hopeless means without hope, hopeful means full of hope, readable means can be read, and a singer is a person who sings."
+    },
+    {
+      "id": "e5.prefixes-suffixes.017",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Choose the word that fits. The ___ of the new bridge took two years.",
+      "options": [
+        {
+          "text": "constructive",
+          "why": "Constructive is an adjective. It describes something helpful, so it cannot follow The here."
+        },
+        {
+          "text": "construction"
+        },
+        {
+          "text": "constructor",
+          "why": "A constructor is a person. A person cannot be the thing that took two years."
+        },
+        {
+          "text": "construct",
+          "why": "Construct is a verb. We need a noun after The."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "The word after The must be a noun that names a job being done.",
+        "The suffix -tion often makes a noun from a verb.",
+        "Try each word and ask: is it a noun that means the act of building?"
+      ],
+      "explanation": "The suffix -tion turns the verb construct into the noun construction, the act of building."
+    },
+    {
+      "id": "e5.prefixes-suffixes.018",
+      "skill": "e5.prefixes-suffixes",
+      "type": "table",
+      "difficulty": 3,
+      "prompt": "Complete the table.",
+      "head": [
+        "Word",
+        "Prefix",
+        "Root word"
+      ],
+      "rows": [
+        [
+          "misplace",
+          "mis",
+          "place"
+        ],
+        [
+          "",
+          "dis",
+          "agree"
+        ],
+        [
+          "preheat",
+          "",
+          "heat"
+        ]
+      ],
+      "blanks": [
+        {
+          "row": 1,
+          "col": 0,
+          "answers": [
+            "disagree"
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "answers": [
+            "pre"
+          ]
+        }
+      ],
+      "hints": [
+        "Prefix plus root word makes the whole word.",
+        "Read each row from left to right.",
+        "Row 2 has prefix dis and root agree. Put them together."
+      ],
+      "explanation": "Disagree is dis + agree. Preheat is pre + heat."
+    },
+    {
+      "id": "e5.prefixes-suffixes.019",
+      "skill": "e5.prefixes-suffixes",
+      "type": "text",
+      "difficulty": 3,
+      "prompt": "Add -ly to the word full. Write the new word. ___",
+      "blanks": [
+        {
+          "answers": [
+            "fully"
+          ]
+        }
+      ],
+      "hints": [
+        "Full is an adjective. Adding -ly makes an adverb.",
+        "Count how many l letters the new word has.",
+        "Full already ends in ll. One l is dropped before ly."
+      ],
+      "explanation": "Full + ly drops one l, so it is spelled fully."
+    },
+    {
+      "id": "e5.prefixes-suffixes.020",
+      "skill": "e5.prefixes-suffixes",
+      "type": "order",
+      "difficulty": 3,
+      "prompt": "Put the words in the order they are built.",
+      "items": [
+        "comfort",
+        "comfortable",
+        "uncomfortable",
+        "uncomfortably"
+      ],
+      "hints": [
+        "Start with the root word.",
+        "Add the suffix before the prefix.",
+        "Then add the prefix, and last change the ending to -ly."
+      ],
+      "explanation": "Comfort + able = comfortable. Add un- to get uncomfortable. Change the ending to get uncomfortably."
+    },
+    {
+      "id": "e5.prefixes-suffixes.021",
+      "skill": "e5.prefixes-suffixes",
+      "type": "multi",
+      "difficulty": 4,
+      "prompt": "Choose all the words that start with a prefix meaning not.",
+      "options": [
+        {
+          "text": "impossible"
+        },
+        {
+          "text": "rewrite",
+          "why": "Re- means again, not not."
+        },
+        {
+          "text": "irregular"
+        },
+        {
+          "text": "preview",
+          "why": "Pre- means before, not not."
+        },
+        {
+          "text": "illegal"
+        },
+        {
+          "text": "incorrect"
+        }
+      ],
+      "answers": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "hints": [
+        "The prefixes im-, ir-, il- and in- can all mean not.",
+        "Say each word with the meaning not at the start.",
+        "Rule out the words where the prefix means again or before."
+      ],
+      "explanation": "Impossible, irregular, illegal and incorrect all mean not. Re- means again and pre- means before."
+    },
+    {
+      "id": "e5.prefixes-suffixes.022",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Wulan wrote about her ___ when she won the prize. Which spelling is correct?",
+      "options": [
+        {
+          "text": "happyness",
+          "why": "Happy ends in y after a consonant. The y changes to i before -ness."
+        },
+        {
+          "text": "happiness"
+        },
+        {
+          "text": "happinness",
+          "why": "There is only one n before the double s."
+        },
+        {
+          "text": "hapiness",
+          "why": "Keep both p letters from happy."
+        }
+      ],
+      "answer": 1,
+      "hints": [
+        "Look at the last letter of the root word happy.",
+        "A y after a consonant changes to i before most suffixes.",
+        "Change y to i, then add -ness."
+      ],
+      "explanation": "Happy becomes happi- before the suffix, so happy + ness is happiness."
+    },
+    {
+      "id": "e5.prefixes-suffixes.023",
+      "skill": "e5.prefixes-suffixes",
+      "type": "spell",
+      "difficulty": 4,
+      "prompt": "Spell the word that means not necessary.",
+      "word": "unnecessary",
+      "sentence": "It is unnecessary to bring a coat today.",
+      "hints": [
+        "The word starts with the prefix un.",
+        "The root word has one c and two s letters.",
+        "Say un, then spell necessary: n, e, c, e, s, s, a, r, y."
+      ],
+      "explanation": "Unnecessary is un- + necessary. Both the n of un and the n of necessary stay."
+    },
+    {
+      "id": "e5.prefixes-suffixes.024",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "Which word begins with the letters un but does NOT have the prefix un-?",
+      "options": [
+        {
+          "text": "unfair",
+          "why": "Unfair is un- + fair."
+        },
+        {
+          "text": "unwrap",
+          "why": "Unwrap is un- + wrap."
+        },
+        {
+          "text": "uncle"
+        },
+        {
+          "text": "undo",
+          "why": "Undo is un- + do."
+        }
+      ],
+      "answer": 2,
+      "hints": [
+        "A prefix is added to a word you can already say on its own.",
+        "Take off un. Is a real word left?",
+        "Check what is left of each word after taking off un."
+      ],
+      "explanation": "Uncle is not un- + cle. Cle is not a word, so un is not a prefix there."
+    },
+    {
+      "id": "e5.prefixes-suffixes.025",
+      "skill": "e5.prefixes-suffixes",
+      "type": "mcq",
+      "difficulty": 5,
+      "prompt": "Begin plus -ing doubles the n to make beginning. Which word follows the same spelling rule?",
+      "options": [
+        {
+          "text": "visiting",
+          "why": "The stress in visit is on the first part, so the t is not doubled."
+        },
+        {
+          "text": "offering",
+          "why": "The stress in offer is on the first part, so the r is not doubled."
+        },
+        {
+          "text": "happening",
+          "why": "The stress in happen is on the first part, so the n is not doubled."
+        },
+        {
+          "text": "forgetting"
+        }
+      ],
+      "answer": 3,
+      "hints": [
+        "Say each root word and listen for the strong beat.",
+        "The consonant doubles when the last part of the root word is stressed.",
+        "Begin is be-GIN. Which root word also has the strong beat at the end?"
+      ],
+      "explanation": "Forget is for-GET, with the stress at the end, so the t doubles before -ing."
     }
   ]
 }
