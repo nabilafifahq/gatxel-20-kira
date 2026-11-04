@@ -50,11 +50,13 @@ const SESSION_LABEL_ID: Record<string, string> = {
   'english-skill': 'Tugas English',
 }
 
-function statusLabel(s: ParentChildStatus, c: { requiredDone: number; requiredTotal: number; optionalDone: number }): string {
+function statusLabel(s: ParentChildStatus, c: { requiredDone: number; requiredTotal: number; optionalDone: number; optionalTotal: number }): string {
   switch (s) {
     case 'rest':
       return 'Hari istirahat'
     case 'none':
+      // Sesi dibuat saat anak membuka layar Hari Ini. Tanpa sesi sama sekali, anak memang belum membukanya.
+      if (c.optionalTotal === 0) return 'Belum membuka Kira hari ini'
       return c.optionalDone > 0 ? 'Tidak ada sesi wajib hari ini, sudah mencoba sesi opsional' : 'Tidak ada sesi wajib hari ini, streak aman'
     case 'not-started':
       return `Belum mulai, ${c.requiredTotal} sesi wajib menunggu`
