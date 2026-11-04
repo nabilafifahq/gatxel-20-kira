@@ -1,6 +1,7 @@
 import { AAn, fmt, gcd, mcqFrom, NAMES, plural, rupiah } from './helpers'
 import type { Generator } from './types'
 import {
+  eqText,
   addMinutes,
   anum,
   hhmm,
@@ -196,7 +197,7 @@ const placeValue: Generator = {
         return orderItem({
           prompt: `Put these numbers in order, starting with the ${desc ? 'largest' : 'smallest'}.`,
           items,
-          hints: ['Compare the whole numbers first, then tenths, hundredths and thousandths.', 'Write every number with three decimal places before you compare.', `For example, ${fmt(at(vals, 0))} = ${fx(at(vals, 0), 3)}.`],
+          hints: ['Compare the whole numbers first, then tenths, hundredths and thousandths.', 'Write every number with three decimal places before you compare.', vals.some((v) => fmt(v) !== fx(v, 3)) ? `For example, ${fmt(vals.find((v) => fmt(v) !== fx(v, 3))!)} = ${fx(vals.find((v) => fmt(v) !== fx(v, 3))!, 3)}.` : 'Then compare the numbers one digit at a time.'],
           explanation: `With three decimal places: ${vals.map((v) => fx(v, 3)).join(', ')}. In order: ${items.join(', ')}.`,
           solution: [
             { say: 'Give each number three decimal places.', show: vals.map((v) => fx(v, 3)).join(', ') },
@@ -459,7 +460,7 @@ const rounding: Generator = {
         prompt: `A number with three decimal places rounds to ${fx(dec(t1, 1), 1)} to one decimal place. What is the ${smallest ? 'smallest' : 'greatest'} it could be?`,
         answer: ans,
         decimal: true,
-        hints: ['Think about which numbers round to it.', smallest ? `Numbers from halfway below ${fx(dec(t1, 1), 1)} round up to it.` : `Numbers below halfway above ${fx(dec(t1, 1), 1)} round down to it.`, smallest ? `What is halfway between ${fx(dec(t1 - 1, 1), 1)} and ${fx(dec(t1, 1), 1)}?` : `What is halfway between ${fx(dec(t1, 1), 1)} and ${fx(dec(t1 + 1, 1), 1)}?`],
+        hints: ['Think about which numbers round to it.', smallest ? `Numbers from the halfway point below ${fx(dec(t1, 1), 1)} round up to it.` : `Numbers below the halfway point above ${fx(dec(t1, 1), 1)} round down to it.`, smallest ? `What is halfway between ${fx(dec(t1 - 1, 1), 1)} and ${fx(dec(t1, 1), 1)}?` : `What is halfway between ${fx(dec(t1, 1), 1)} and ${fx(dec(t1 + 1, 1), 1)}?`],
         explanation: smallest
           ? `Halfway between ${fx(dec(t1 - 1, 1), 1)} and ${fx(dec(t1, 1), 1)} is ${fx(ans, 3)}, and halfway rounds up. So the smallest is ${fmt(ans)}.`
           : `${fx(dec(t1 * 100 + 50, 3), 3)} would round up, so the greatest with three decimal places is ${fx(ans, 3)}.`,
@@ -1625,7 +1626,7 @@ const addSubtract: Generator = {
         prompt: `Work out ${fmt(dec(add ? A : big, 3))} ${add ? '+' : '−'} ${fmt(dec(add ? B : small, 3))}.`,
         answer: dec(ans, 3),
         decimal: true,
-        hints: ['Line up the decimal points.', 'Fill empty decimal places with zeros so both numbers have three decimal places.', `Write ${fmt(dec(add ? A : big, 3))} as ${fx(dec(add ? A : big, 3), 3)}.`],
+        hints: ['Line up the decimal points.', 'Fill empty decimal places with zeros so both numbers have three decimal places.', A % 10 === 0 ? `Write ${fmt(dec(A, 3))} as ${fx(dec(A, 3), 3)}.` : 'Both numbers already have three decimal places.'],
         explanation: `${fx(dec(add ? A : big, 3), 3)} ${add ? '+' : '−'} ${fx(dec(add ? B : small, 3), 3)} = ${fmt(dec(ans, 3))}.`,
         solution: [{ say: 'Give both numbers three decimal places.', show: `${fx(dec(add ? A : big, 3), 3)} ${add ? '+' : '−'} ${fx(dec(add ? B : small, 3), 3)}` }, { say: 'Work column by column.', show: fmt(dec(ans, 3)) }],
       })
@@ -1694,7 +1695,7 @@ const addSubtract: Generator = {
       const total = sum(runs)
       const target = Math.ceil(total / 1000 + 1) * 1000
       return numItem({
-        prompt: `${name} runs ${runs.map((r) => `${fmt(dec(r, 3))} km`).join(', ')} on three days. How much further must ${name} run to reach ${target / 1000} km in total?`,
+        prompt: `${name} runs ${runs.map((r) => `${fmt(dec(r, 3))} km`).join(', ').replace(/, ([^,]*)$/, ' and $1')} on three days. How much further must ${name} run to reach ${target / 1000} km in total?`,
         answer: dec(target - total, 3),
         decimal: true,
         unit: 'km',
@@ -1838,7 +1839,7 @@ function longDivSteps(n: number, d: number): Step[] {
     steps.push({ say: `${d} × ${fmt(chunk)} = ${fmt(chunk * d)}. ${fmt(rest)} − ${fmt(chunk * d)} = ${fmt(rest - chunk * d)}.` })
     rest -= chunk * d
   })
-  steps.push({ say: `Add the parts: ${chunks.map(fmt).join(' + ')} = ${fmt(q)}${r ? `, remainder ${r}` : ''}.`, show: `${fmt(n)} ÷ ${d} = ${fmt(q)}${r ? ` r ${r}` : ''}` })
+  steps.push({ say: `${chunks.length > 1 ? `Add the parts: ${chunks.map(fmt).join(' + ')} = ${fmt(q)}` : `The answer is ${fmt(q)}`}${r ? `, remainder ${r}` : ''}.`, show: `${fmt(n)} ÷ ${d} = ${fmt(q)}${r ? ` r ${r}` : ''}` })
   return steps.slice(-8)
 }
 
@@ -1970,7 +1971,7 @@ const compareFractions: Generator = {
           fs(c),
           fr.filter((f) => f !== c).map((f) => {
             const LL = lcm(f.d, c.d)
-            return { value: fs(f), why: `With denominator ${LL}: ${fs(f)} = ${over(f, LL)}/${LL} and ${fs(c)} = ${over(c, LL)}/${LL}.` }
+            return { value: fs(f), why: `With denominator ${LL}: ${eqText(fs(f), `${over(f, LL)}/${LL}`)} and ${eqText(fs(c), `${over(c, LL)}/${LL}`)}.` }
           }),
           4,
           (v) => v,
@@ -1979,7 +1980,7 @@ const compareFractions: Generator = {
           prompt: `Which fraction is the ${greatest ? 'greatest' : 'smallest'}?`,
           ...m,
           hints: ['The denominators are different, so compare carefully.', 'Change the fractions so they have a common denominator.', `A common denominator for all of them is ${L}.`],
-          explanation: `With denominator ${L}: ${fr.map((f) => `${fs(f)} = ${conv(f)}/${L}`).join(', ')}. The ${greatest ? 'greatest' : 'smallest'} is ${fs(c)}.`,
+          explanation: `With denominator ${L}: ${fr.map((f) => eqText(fs(f), `${conv(f)}/${L}`)).join(', ')}. The ${greatest ? 'greatest' : 'smallest'} is ${fs(c)}.`,
           solution: [{ say: `Use denominator ${L}.`, show: fr.map((f) => `${conv(f)}/${L}`).join(', ') }, { say: 'Compare the numerators.', show: fs(c) }],
         })
       }
@@ -1989,7 +1990,7 @@ const compareFractions: Generator = {
         prompt: `Put these fractions in order, starting with the ${desc ? 'largest' : 'smallest'}.`,
         items,
         hints: ['Give the fractions a common denominator.', `${L} is a common denominator for all of them.`, `${fs(at(fr, 0))} = ${conv(at(fr, 0))}/${L}.`],
-        explanation: `With denominator ${L}: ${asc.map((f) => `${fs(f)} = ${conv(f)}/${L}`).join(', ')}.`,
+        explanation: `With denominator ${L}: ${asc.map((f) => eqText(fs(f), `${conv(f)}/${L}`)).join(', ')}.`,
         solution: [{ say: `Change each one into ${L}ths.`, show: fr.map((f) => `${fs(f)} = ${conv(f)}/${L}`).join(', ') }, { say: 'Order the numerators.', show: asc.map(fs).join(' < ') }],
         secs: 150,
       })
@@ -2319,7 +2320,7 @@ const decimalsMultiplyDivide: Generator = {
       const total = each * people
       const ctx = rng.pick([
         { s: `${people} friends share ${fmt(dec(total, 1))} litres of juice equally.`, q: 'How much does each friend get, in litres?', unit: 'litres' },
-        { s: `A ${fmt(dec(total, 1))} m rope is cut into ${people} equal pieces.`, q: 'How long is each piece, in metres?', unit: 'm' },
+        { s: `${/^(8|11(\.|$)|18(\.|$))/.test(fmt(dec(total, 1))) ? 'An' : 'A'} ${fmt(dec(total, 1))} m rope is cut into ${people} equal pieces.`, q: 'How long is each piece, in metres?', unit: 'm' },
         { s: `${people} bags of rice weigh ${fmt(dec(total, 1))} kg altogether.`, q: 'How much does one bag weigh, in kg?', unit: 'kg' },
       ])
       return numItem({
@@ -2424,7 +2425,7 @@ const fdpEquivalence: Generator = {
         decimal: true,
         hints: ['Per cent means out of 100.', `Find ${n}/${d} of 100.`, n === 1 ? `Think of 100 split into ${d} equal parts.` : `100 ÷ ${d} = ${fmt(100 / d)}.`],
         explanation: `${n}/${d} × 100 = ${fmt(pctv)}, so ${n}/${d} = ${fmt(pctv)}%.`,
-        solution: [{ say: 'Find what 1/' + d + ' of 100 is.', show: `100 ÷ ${d} = ${fmt(100 / d)}` }, { say: `Multiply by ${n}.`, show: `${fmt(100 / d)} × ${n} = ${fmt(pctv)}` }],
+        solution: [{ say: 'Find what 1/' + d + ' of 100 is.', show: `100 ÷ ${d} = ${fmt(100 / d)}` }, { say: n === 1 ? 'That is the percentage.' : `Multiply by ${n}.`, show: `${fmt(100 / d)} × ${n} = ${fmt(pctv)}` }],
       })
     }
     if (level === 4) {
@@ -2615,7 +2616,7 @@ const ratioProportion: Generator = {
       const money = ctx.includes('Rp')
       const unit = money ? 1000 : 1
       return numItem({
-        prompt: `${n1} and ${n2} ${ctx} in the ratio ${a} : ${b}. How much does ${askSecond ? n2 : n1} get${money ? ', in rupiah' : ''}?`,
+        prompt: `${n1} and ${n2} ${ctx} in the ratio ${a} : ${b}. ${money ? 'How much' : 'How many stickers'} does ${askSecond ? n2 : n1} get${money ? ', in rupiah' : ''}?`,
         answer: (askSecond ? b : a) * k * unit,
         hints: [`There are ${a} + ${b} = ${a + b} equal parts.`, `Find one part: ${money ? rupiah(total * unit) : total} ÷ ${a + b}.`, `One part is ${money ? rupiah(k * unit) : k}.`],
         explanation: `One part is ${money ? rupiah(k * unit) : k}. ${askSecond ? n2 : n1} gets ${askSecond ? b : a} parts: ${money ? rupiah((askSecond ? b : a) * k * unit) : (askSecond ? b : a) * k}.`,
@@ -2690,7 +2691,7 @@ const ratioProportion: Generator = {
       prompt: `In a box, the ratio of red pens to blue pens is ${a} : ${b}. There are ${diff} more blue pens than red pens. How many red pens are there?`,
       answer: a * k,
       hints: [`The difference between the parts is ${b} − ${a} = ${plural(b - a, 'part', 'parts')}.`, `${plural(b - a, 'part', 'parts')} ${b - a === 1 ? 'is' : 'are'} ${plural(diff, 'pen', 'pens')}.`, `One part is ${diff} ÷ ${b - a}.`],
-      explanation: `${plural(b - a, 'part', 'parts')} = ${diff}, so one part = ${k}. Red pens: ${a} × ${k} = ${a * k}.`,
+      explanation: `${b - a === 1 ? `One part = ${diff}` : `${plural(b - a, 'part', 'parts')} = ${diff}, so one part = ${k}`}. Red pens: ${a} × ${k} = ${a * k}.`,
       solution: [{ say: 'Find one part.', show: `${diff} ÷ ${b - a} = ${k}` }, { say: 'Red pens.', show: `${a} × ${k} = ${a * k}` }],
       tags: [WP],
       secs: 150,
@@ -3816,7 +3817,7 @@ const probability: Generator = {
         const pick = rng.int(0, 2)
         const n = counts[pick]!
         const colour = colours[pick]!
-        const bag = `A bag has ${counts[0]} ${colours[0]}, ${counts[1]} ${colours[1]} and ${counts[2]} ${colours[2]} counters.`
+        const bag = `A bag has ${counts[0]} ${colours[0]}, ${counts[1]} ${colours[1]} and ${counts[2]} ${colours[2]} ${counts[2] === 1 ? 'counter' : 'counters'}.`
         return textItem({
           prompt: `${bag} One counter is taken without looking. What is the probability that it is ${colour}? Write it as a fraction.`,
           answers: [fracAnswers({ n, d: total }, { decimal: true })],
@@ -3836,8 +3837,8 @@ const probability: Generator = {
       return textItem({
         prompt: `A fair dice is numbered 1 to 6. What is the probability of rolling ${ev.e}? Write it as a fraction.`,
         answers: [fracAnswers({ n: ev.n, d: 6 }, { decimal: true })],
-        hints: ['Probability = number of ways it can happen ÷ number of possible outcomes.', 'There are 6 possible outcomes.', `List the numbers that give ${ev.e}.`],
-        explanation: `${ev.n} out of 6 outcomes give ${ev.e}, so the probability is ${ev.n}/6${simp({ n: ev.n, d: 6 }).d !== 6 ? ` = ${fs(simp({ n: ev.n, d: 6 }))}` : ''}.`,
+        hints: ['Probability = number of ways it can happen ÷ number of possible outcomes.', 'There are 6 possible outcomes.', `List the outcomes that give ${ev.e}.`],
+        explanation: `${ev.n} out of 6 outcomes ${ev.n === 1 ? 'gives' : 'give'} ${ev.e}, so the probability is ${ev.n}/6${simp({ n: ev.n, d: 6 }).d !== 6 ? ` = ${fs(simp({ n: ev.n, d: 6 }))}` : ''}.`,
         solution: [{ say: 'Count the good outcomes.', show: String(ev.n) }, { say: 'Divide by all the outcomes.', show: `${ev.n}/6` }],
       })
     }
@@ -3882,7 +3883,7 @@ const probability: Generator = {
           prompt: `Two fair coins are tossed. What is the probability of getting ${ask.e}? Write it as a fraction.`,
           answers: [fracAnswers({ n: ask.n, d: 4 }, { decimal: true })],
           hints: ['List all the outcomes: HH, HT, TH, TT.', 'There are 4 equally likely outcomes.', `Count the outcomes that give ${ask.e}.`],
-          explanation: `${ask.n} of the 4 outcomes give ${ask.e}, so the probability is ${ask.n}/4${ask.n === 2 ? ' = 1/2' : ''}.`,
+          explanation: `${ask.n} of the 4 outcomes ${ask.n === 1 ? 'gives' : 'give'} ${ask.e}, so the probability is ${ask.n}/4${ask.n === 2 ? ' = 1/2' : ''}.`,
           solution: [{ say: 'List the outcomes.', show: 'HH, HT, TH, TT' }, { say: 'Count the ones that fit.', show: `${ask.n}/4` }],
         })
       }

@@ -287,6 +287,11 @@ export function simp(f: Frac): Frac {
   return { n: f.n / g, d: f.d / g }
 }
 
+/** Tulis "a = b" untuk penjelasan, cukup "a" bila keduanya sama persis ("13/20 = 13/20" tidak ditulis). */
+export function eqText(a: string, b: string): string {
+  return a === b ? a : `${a} = ${b}`
+}
+
 export function fs(f: Frac): string {
   return `${f.n}/${f.d}`
 }
@@ -1186,7 +1191,7 @@ const compareDecimals: Generator = {
       const ctx = rng.pick([
         { what: 'jumped', unit: 'm', q: 'Who jumped the furthest?', qs: 'Who jumped the shortest distance?' },
         { what: 'ran', unit: 'km', q: 'Who ran the furthest?', qs: 'Who ran the shortest distance?' },
-        { what: 'picked mangoes weighing', unit: 'kg', q: 'Who picked the heaviest bag?', qs: 'Who picked the lightest bag?' },
+        { what: 'picked a bag of mangoes weighing', unit: 'kg', q: 'Who picked the heaviest bag?', qs: 'Who picked the lightest bag?' },
       ] as const)
       const people = pickNames(rng, 4)
       const t = rng.int(3, 8)
@@ -1448,7 +1453,7 @@ const roundDecimals: Generator = {
         ? `${fmt(ans)} has 5 hundredths, so it rounds up to ${fx(target, 1)}. ${fmt(dec(t1 * 10 - 6, 2))} would round down.`
         : `${fmt(ans)} has 4 hundredths, so it rounds down to ${fx(target, 1)}. ${fmt(dec(t1 * 10 + 5, 2))} would round up.`,
       solution: [
-        { say: smallest ? 'Halfway below rounds up.' : 'Anything below halfway above rounds down.', show: smallest ? `${fmt(dec(t1 * 10 - 5, 2))} → ${fx(target, 1)}` : `${fmt(dec(t1 * 10 + 4, 2))} → ${fx(target, 1)}` },
+        { say: smallest ? 'The halfway number below it rounds up.' : 'Numbers below the halfway point above it round down.', show: smallest ? `${fmt(dec(t1 * 10 - 5, 2))} → ${fx(target, 1)}` : `${fmt(dec(t1 * 10 + 4, 2))} → ${fx(target, 1)}` },
         { say: 'Check the next number too.', show: smallest ? `${fmt(dec(t1 * 10 - 6, 2))} → ${fx(dec(t1 - 1, 1), 1)}` : `${fmt(dec(t1 * 10 + 5, 2))} → ${fx(dec(t1 + 1, 1), 1)}` },
       ],
       secs: 120,
@@ -1548,7 +1553,7 @@ const multiplyDivide10: Generator = {
         })
       }
       const hints: Hints = [
-        `Multiplying by ${fmt(ff)} makes ${fmt(n)} ${fmt(ff)} times bigger.`,
+        `Multiplying ${fmt(n)} by ${fmt(ff)} makes it ${fmt(ff)} times bigger.`,
         `Move each digit ${Math.round(Math.log10(ff))} place${ff > 10 ? 's' : ''} to the left.`,
         `The first digit after the point, ${digitsOf(u)[String(u).length - dp]}, moves left of the point.`,
       ]
@@ -3086,7 +3091,7 @@ const multiplyWritten: Generator = {
       const qty = rng.int(3, 9)
       const item = rng.pick(['notebooks', 'water bottles', 'T-shirts', 'tickets'] as const)
       return numItem({
-        prompt: `One of the ${item} costs ${rupiah(price)}. How much do ${qty} ${item} cost, in rupiah?`,
+        prompt: `${cap(item)} cost ${rupiah(price)} each. How much do ${qty} ${item} cost, in rupiah?`,
         answer: price * qty,
         hints: ['The same price is paid several times, so multiply.', `Work out ${fmt(price)} × ${qty}.`, `${fmt(Math.floor(price / 1000) * 1000)} × ${qty} = ${fmt(Math.floor(price / 1000) * 1000 * qty)}.`],
         explanation: `${rupiah(price)} × ${qty} = ${rupiah(price * qty)}.`,
@@ -3139,7 +3144,7 @@ export function divideSteps(n: number, d: number): Step[] {
     steps.push({ say: `${d} × ${fmt(chunk)} = ${fmt(chunk * d)}. Take it away: ${fmt(rest)} − ${fmt(chunk * d)} = ${fmt(rest - chunk * d)}.` })
     rest -= chunk * d
   })
-  steps.push({ say: `Add the parts: ${chunks.map(fmt).join(' + ')} = ${fmt(q)}${r ? `, with ${r} left over` : ''}.`, show: `${fmt(n)} ÷ ${d} = ${fmt(q)}${r ? ` remainder ${r}` : ''}` })
+  steps.push({ say: `${chunks.length > 1 ? `Add the parts: ${chunks.map(fmt).join(' + ')} = ${fmt(q)}` : `The answer is ${fmt(q)}`}${r ? `, with ${r} left over` : ''}.`, show: `${fmt(n)} ÷ ${d} = ${fmt(q)}${r ? ` remainder ${r}` : ''}` })
   return steps
 }
 
@@ -3387,7 +3392,7 @@ const equivalentFractions: Generator = {
           num: fa,
           den: fb,
           hints: [`The ${shape} has ${parts} equal parts.`, `Work out how many parts make 1/${fb}: ${parts} ÷ ${fb}.`, `1/${fb} of the ${shape} is ${k} parts.`],
-          explanation: `1/${fb} is ${k} parts, so ${fa}/${fb} is ${fa * k} parts out of ${parts}. ${fa}/${fb} = ${fa * k}/${parts}.`,
+          explanation: `${fa === 1 ? `1/${fb} is ${fa * k} parts out of ${parts}.` : `1/${fb} is ${k} parts, so ${fa}/${fb} is ${fa * k} parts out of ${parts}.`} ${fa}/${fb} = ${fa * k}/${parts}.`,
           solution: [
             { say: `Split the ${parts} parts into ${fb} equal groups of ${k}.` },
             { say: `Shade ${fa} of those groups.`, show: `${fa}/${fb} = ${fa * k}/${parts}`, figure: fracFig(fa * k, parts, shape) },
@@ -3495,7 +3500,7 @@ const compareFractions: Generator = {
       const m = mcqFrom(
         rng,
         fs(c),
-        fr.filter((x) => x !== c).map((x) => ({ value: fs(x), why: `${fs(x)} = ${over(x, L)}/${L}, which is ${over(x, L) < over(c, L) ? 'less' : 'more'} than ${over(c, L)}/${L}.` })),
+        fr.filter((x) => x !== c).map((x) => ({ value: fs(x), why: `${eqText(fs(x), `${over(x, L)}/${L}`)}, which is ${over(x, L) < over(c, L) ? 'less' : 'more'} than ${over(c, L)}/${L}.` })),
         4,
         (v) => v,
       )
@@ -3510,7 +3515,7 @@ const compareFractions: Generator = {
             return h ? `${fs(h)} = ${over(h, L)}/${L}.` : `Multiply the top and the bottom of each fraction so the denominator is ${L}.`
           })(),
         ],
-        explanation: `In ${denName(L)}: ${fr.map((x) => `${fs(x)} = ${over(x, L)}/${L}`).join(', ')}. The ${greatest ? 'greatest' : 'smallest'} is ${fs(c)}.`,
+        explanation: `In ${denName(L)}: ${fr.map((x) => eqText(fs(x), `${over(x, L)}/${L}`)).join(', ')}. The ${greatest ? 'greatest' : 'smallest'} is ${fs(c)}.`,
         solution: [
           { say: `Change each fraction into ${denName(L)}.`, show: fr.map((x) => `${over(x, L)}/${L}`).join(', ') },
           { say: 'Compare the numerators.', show: fs(c) },
@@ -3569,8 +3574,8 @@ const compareFractions: Generator = {
       return orderItem({
         prompt: `Put these fractions in order, starting with the ${desc ? 'largest' : 'smallest'}.`,
         items,
-        hints: ['Change mixed numbers into improper fractions first.', `Then write every fraction in ${denName(L)}.`, `${show(at(fr, 0))} = ${over(at(fr, 0), L)}/${L}.`],
-        explanation: `In ${denName(L)}: ${asc.map((x) => `${show(x)} = ${over(x, L)}/${L}`).join(', ')}. So the order is ${items.join(', ')}.`,
+        hints: ['Change any mixed numbers into improper fractions first.', `Then write every fraction in ${denName(L)}.`, `${show(at(fr, 0))} = ${over(at(fr, 0), L)}/${L}.`],
+        explanation: `In ${denName(L)}: ${asc.map((x) => eqText(show(x), `${over(x, L)}/${L}`)).join(', ')}. So the order is ${items.join(', ')}.`,
         solution: [
           { say: `Write each one in ${denName(L)}.`, show: fr.map((x) => `${show(x)} = ${over(x, L)}/${L}`).join(', ') },
           { say: 'Compare the numerators.', show: asc.map(show).join(' < ') },
@@ -3610,7 +3615,7 @@ const compareFractions: Generator = {
     const m = mcqFrom(
       rng,
       fs(c),
-      wrong.map((f) => ({ value: fs(f), why: `In ${denName(L2(f))}, ${fs(f)} = ${over(f, L2(f))}/${L2(f)} and ${fs(base)} = ${over(base, L2(f))}/${L2(f)}. It is smaller.` })),
+      wrong.map((f) => ({ value: fs(f), why: `In ${denName(L2(f))}, ${fs(f)} ${fs(f) === `${over(f, L2(f))}/${L2(f)}` ? 'stays' : '='} ${over(f, L2(f))}/${L2(f)} and ${fs(base)} ${fs(base) === `${over(base, L2(f))}/${L2(f)}` ? 'stays' : '='} ${over(base, L2(f))}/${L2(f)}. It is smaller.` })),
       4,
       (v) => v,
     )
@@ -3618,7 +3623,7 @@ const compareFractions: Generator = {
       prompt: `Which fraction is greater than ${fs(base)}?`,
       ...m,
       hints: ['Compare each option with the fraction in the question.', 'Give the two fractions the same denominator before you compare.', `For ${fs(at(wrong, 0))}, use ${denName(L2(at(wrong, 0)))}.`],
-      explanation: `In ${denName(L2(c))}, ${fs(c)} = ${over(c, L2(c))}/${L2(c)} and ${fs(base)} = ${over(base, L2(c))}/${L2(c)}. So ${fs(c)} is greater.`,
+      explanation: `In ${denName(L2(c))}, ${fs(c)} ${fs(c) === `${over(c, L2(c))}/${L2(c)}` ? 'stays' : '='} ${over(c, L2(c))}/${L2(c)} and ${fs(base)} ${fs(base) === `${over(base, L2(c))}/${L2(c)}` ? 'stays' : '='} ${over(base, L2(c))}/${L2(c)}. So ${fs(c)} is greater.`,
       solution: [
         { say: 'Use a common denominator for each pair.' },
         { say: 'Compare the numerators.', show: `${over(c, L2(c))}/${L2(c)} > ${over(base, L2(c))}/${L2(c)}` },
@@ -3859,8 +3864,8 @@ const fractionsOfAmounts: Generator = {
         prompt: `What is ${a}/${d} of ${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big}? Give the answer in ${conv.small}.`,
         answer: a * one,
         unit: conv.small,
-        hints: [`Change ${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} into ${conv.small} first.`, `Then find 1/${d} and multiply by ${a}.`, `${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} = ${fmt(total)} ${conv.small}.`],
-        explanation: `${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} = ${fmt(total)} ${conv.small}. 1/${d} of it is ${fmt(one)}, so ${a}/${d} is ${fmt(a * one)} ${conv.small}.`,
+        hints: [`Change ${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} into ${conv.small} first.`, a === 1 ? `Then find 1/${d}.` : `Then find 1/${d} and multiply by ${a}.`, `${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} = ${fmt(total)} ${conv.small}.`],
+        explanation: `${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} = ${fmt(total)} ${conv.small}. ${a === 1 ? `1/${d} of it is ${fmt(one)} ${conv.small}.` : `1/${d} of it is ${fmt(one)}, so ${a}/${d} is ${fmt(a * one)} ${conv.small}.`}`,
         solution: [
           { say: 'Change the units first.', show: `${qty} ${qty === 1 ? conv.big.replace(/s$/, '') : conv.big} = ${fmt(total)} ${conv.small}` },
           { say: `Find ${a}/${d}.`, show: `${fmt(total)} ÷ ${d} × ${a} = ${fmt(a * one)}` },
@@ -4063,7 +4068,7 @@ const addSubtractDecimals: Generator = {
     const ask = rng.chance(0.5)
     if (ask) {
       return numItem({
-        prompt: `Three parcels weigh ${us.map((u) => `${fmt(dec(u, 2))} kg`).join(', ')}. How much more weight is needed to make ${target / 100} kg altogether?`,
+        prompt: `Three parcels weigh ${us.map((u) => `${fmt(dec(u, 2))} kg`).join(', ').replace(/, ([^,]*)$/, ' and $1')}. How much more weight is needed to make ${target / 100} kg altogether?`,
         answer: dec(target - total, 2),
         decimal: true,
         unit: 'kg',
@@ -4078,7 +4083,7 @@ const addSubtractDecimals: Generator = {
       })
     }
     return numItem({
-      prompt: `Three parcels weigh ${us.map((u) => `${fmt(dec(u, 2))} kg`).join(', ')}. What is their total weight?`,
+      prompt: `Three parcels weigh ${us.map((u) => `${fmt(dec(u, 2))} kg`).join(', ').replace(/, ([^,]*)$/, ' and $1')}. What is their total weight?`,
       answer: dec(total, 2),
       decimal: true,
       unit: 'kg',
@@ -4107,7 +4112,7 @@ const multiplyDecimals: Generator = {
         prompt: `Work out ${fmt(dec(u, 1))} × ${m}.`,
         answer: dec(u * m, 1),
         decimal: true,
-        hints: [`Think of ${fmt(dec(u, 1))} as ${plural(u, 'tenth', 'tenths')}.`, `Multiply ${u} by ${m}, then change the answer back into tenths.`, `${plural(u, 'tenth', 'tenths')} × ${m} gives a number of tenths.`],
+        hints: [`Think of ${fmt(dec(u, 1))} as ${plural(u, 'tenth', 'tenths')}.`, `Multiply ${u} by ${m}, then write the answer as a decimal.`, `${plural(u, 'tenth', 'tenths')} × ${m} gives a number of tenths.`],
         explanation: `${fmt(dec(u, 1))} is ${plural(u, 'tenth', 'tenths')}. ${u} × ${m} = ${u * m}, and ${u * m} tenths = ${fmt(dec(u * m, 1))}.`,
         solution: tenthsSteps(u, m),
       })
@@ -4191,7 +4196,7 @@ const multiplyDecimals: Generator = {
       prompt: `Work out ${fmt(dec(fixedU, 2))} × ${m}.`,
       answer: dec(fixedU * m, 2),
       decimal: true,
-      hints: [`Think of ${fmt(dec(fixedU, 2))} as ${fixedU} hundredths.`, `Work out ${fixedU} × ${m}, then change back to hundredths.`, `${Math.floor(fixedU / 100)} × ${m} = ${Math.floor(fixedU / 100) * m}.`],
+      hints: [`Think of ${fmt(dec(fixedU, 2))} as ${fixedU} hundredths.`, `Work out ${fixedU} × ${m}, then write the answer as a decimal.`, `${Math.floor(fixedU / 100)} × ${m} = ${Math.floor(fixedU / 100) * m}.`],
       explanation: `${fixedU} hundredths × ${m} = ${fixedU * m} hundredths = ${fmt(dec(fixedU * m, 2))}.`,
       solution: [{ say: `${fmt(dec(fixedU, 2))} is ${fixedU} hundredths.` }, { say: 'Multiply.', show: `${fixedU} × ${m} = ${fixedU * m}` }, { say: 'Change back.', show: `${fixedU * m} hundredths = ${fmt(dec(fixedU * m, 2))}` }],
     })
@@ -4483,8 +4488,8 @@ const ratioProportion: Generator = {
         return textItem({
           prompt: `In every packet of ${t} sweets, ${a} ${a === 1 ? 'is' : 'are'} red. What fraction of the sweets are red?`,
           answers: [fracAnswers({ n: a, d: t })],
-          hints: ['Proportion compares a part with the whole.', `The whole packet has ${t} sweets.`, `${a} out of ${t} are red.`],
-          explanation: `${a} out of every ${t} sweets are red, so the fraction is ${a}/${t}${simp({ n: a, d: t }).d !== t ? ` = ${fs(simp({ n: a, d: t }))}` : ''}.`,
+          hints: ['Proportion compares a part with the whole.', `The whole packet has ${t} sweets.`, `${a} out of ${t} ${a === 1 ? 'is' : 'are'} red.`],
+          explanation: `${a} out of every ${t} sweets ${a === 1 ? 'is' : 'are'} red, so the fraction is ${a}/${t}${simp({ n: a, d: t }).d !== t ? ` = ${fs(simp({ n: a, d: t }))}` : ''}.`,
           solution: [{ say: 'Part out of whole.', show: `${a}/${t}` }, { say: 'Simplify if you can.', show: fs(simp({ n: a, d: t })) }],
         })
       }
@@ -5038,7 +5043,7 @@ const angles: Generator = {
       // Tanpa busur, selisih di bawah 20 derajat tidak bisa dibedakan dengan mata, jadi pengecoh sedekat itu diganti.
       const wrong = uniq([d < 90 ? d + 60 : d - 60, 90 === d ? 45 : 90, 180 - d === d ? d + 30 : 180 - d, d < 90 ? d + 100 : Math.max(10, d - 100), d + 60, d - 60, d + 90, d - 40])
         .filter((x) => x > 0 && x < 180 && Math.abs(x - d) >= 20)
-        .map((x) => ({ value: `${x}°`, why: `${x}° is ${angleWithArticle(x)}. This angle is ${d < 90 ? 'less than' : d === 90 ? 'exactly' : 'more than'} 90°.` }))
+        .map((x) => ({ value: `${x}°`, why: (x < 90 && d < 90) || (x > 90 && d > 90) ? `${x}° is ${angleWithArticle(x)} too, but this angle is ${x < d ? 'bigger' : 'smaller'}.` : `${x}° is ${angleWithArticle(x)}. This angle is ${d < 90 ? 'less than' : d === 90 ? 'exactly' : 'more than'} 90°.` }))
       const m = mcqFrom(rng, `${d}°`, wrong, 4, (v) => v)
       return mcqItem({
         prompt: 'Which is the best estimate for the size of this angle?',
@@ -5658,7 +5663,7 @@ const probability: Generator = {
         prompt: `A bag has ${bag}. You take one without looking. How likely is it to be blue?`,
         ...m,
         hints: ['Compare the number of blue counters with the total.', `There are ${t2} counters altogether.`, b2 === 0 ? `None of the ${t2} counters are blue.` : `${b2} of the ${t2} counters ${b2 === 1 ? 'is' : 'are'} blue.`],
-        explanation: `${b2} out of ${t2} counters ${b2 === 1 ? 'is' : 'are'} blue, so picking blue is ${correct}.`,
+        explanation: `${b2} out of ${t2} counters ${b2 === 1 ? 'is' : 'are'} blue, so picking blue is ${correct === 'even chance' ? 'an even chance' : correct}.`,
         solution: [{ say: 'Count the blue counters and all the counters.', show: `${b2} out of ${t2}` }, { say: 'Choose the word.', show: correct }],
       })
     }
@@ -5677,9 +5682,9 @@ const probability: Generator = {
           { value: 'rolling a number less than 3', why: 'Only 1 and 2 are less than 3.' },
         ].filter((o) => o.value !== pick.same && !(pick.e === 'rolling a 1 or a 2' && o.value === 'rolling a number less than 3')))
         return mcqItem({
-          prompt: `A fair dice has the numbers 1 to 6. Which outcome is equally likely as ${pick.e}?`,
+          prompt: `A fair dice has the numbers 1 to 6. Which outcome is as likely as ${pick.e}?`,
           ...m,
-          hints: ['Equally likely means the same chance.', `Count how many numbers on the dice give ${pick.e}.`, 'Now count the numbers for each option.'],
+          hints: ['Equally likely means the same chance.', `Count how many ways there are of ${pick.e}.`, 'Now count the ways for each option.'],
           explanation: `Both ${pick.e} and ${pick.same} can happen in ${pick.ways} ways out of 6, so they are equally likely.`,
           solution: [{ say: 'List the numbers for each event.' }, { say: 'Equal counts mean equally likely.', show: pick.same }],
         })
@@ -5709,7 +5714,7 @@ const probability: Generator = {
       const ask = rng.pick(['red', 'blue'] as const)
       const n = ask === 'red' ? r : b
       return textItem({
-        prompt: `A bag has ${g ? `${r} red, ${b} blue and ${g} green` : `${r} red and ${b} blue`} counters. One counter is taken without looking. What is the probability that it is ${ask}? Write it as a fraction.`,
+        prompt: `A bag has ${g ? `${r} red, ${b} blue and ${g} green` : `${r} red and ${b} blue`} ${(g || b) === 1 ? 'counter' : 'counters'}. One counter is taken without looking. What is the probability that it is ${ask}? Write it as a fraction.`,
         answers: [fracAnswers({ n, d: total }, { decimal: true })],
         hints: ['Probability = number of ways it can happen ÷ total number of outcomes.', `How many counters are there altogether?`, `There ${n === 1 ? 'is' : 'are'} ${plural(n, `${ask} counter`, `${ask} counters`)}.`],
         explanation: `There are ${total} counters and ${n} ${n === 1 ? 'is' : 'are'} ${ask}, so the probability is ${n}/${total}${simp({ n, d: total }).d !== total ? ` = ${fs(simp({ n, d: total }))}` : ''}.`,
