@@ -162,6 +162,7 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
             </ButtonLink>
             <SoundToggle />
             <MusicToggle />
+            <ButtonLink href="/panduan/anak" variant="secondary" size="M" prefetch={false}><span lang="id">Panduan Kira</span></ButtonLink>
           </div>
         </div>
         <div className="flex w-full items-center gap-5 rounded-card bg-surface shadow-soft px-6 py-3.5 lg:ml-auto lg:w-auto">

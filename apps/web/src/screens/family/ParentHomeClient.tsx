@@ -160,6 +160,7 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
           <ButtonLink href="/keluarga/piala" variant="secondary" className="h-12">
             Medali lomba anak
           </ButtonLink>
+          <ButtonLink href="/panduan" variant="secondary" className="h-12">Panduan orang tua</ButtonLink>
         </div>
       </section>
 

@@ -49,7 +49,7 @@ export function Steps({ items, start = 1 }: { items: ReactNode[]; start?: number
 export type Feature = {
   id: string
   title: string
-  icon: UiIconName
+  icon: ReactNode
   tone?: Tone
   what: ReactNode
   /** Contoh anak yang cocok memakai fitur ini. Nama fiktif. */
@@ -64,7 +64,7 @@ export function FeatureCard({ f }: { f: Feature }) {
   return (
     <section id={f.id} aria-labelledby={`${f.id}-judul`} className="flex flex-col gap-4 rounded-card bg-surface p-6 shadow-soft max-sm:p-5">
       <div className="flex items-center gap-3">
-        <IconTile icon={f.icon} tone={f.tone} />
+        <IconTile tone={f.tone}>{f.icon}</IconTile>
         <h3 id={`${f.id}-judul`} className="m-0 text-h3 font-semibold">
           {f.title}
         </h3>
@@ -85,13 +85,13 @@ export function FeatureCard({ f }: { f: Feature }) {
             <p className="m-0">{f.control}</p>
           </div>
         </div>
-        {f.shot ? <Shot {...f.shot} className="mx-auto w-full max-w-[280px] md:max-w-none" /> : null}
+        {f.shot ? <Shot {...f.shot} className="mx-auto w-full max-w-[240px] md:max-w-none" /> : null}
       </div>
     </section>
   )
 }
 
-/** Kepala kelompok fitur. */
+/** Kepala satu kelompok fitur. */
 export function GroupHeading({ id, title, intro }: { id: string; title: string; intro?: ReactNode }) {
   return (
     <div id={id} className="flex flex-col gap-2 pt-8 first:pt-0">

@@ -196,7 +196,7 @@ export function AppGuide({ origin, who, apk }: AppGuideProps) {
             Tanpa memasang apa pun
           </h2>
           <p className="m-0">
-            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai">Mulai dalam 5 menit</Link>.
+            Aplikasi tidak wajib. Kira juga berjalan di browser Android dan di komputer. Langkah sesudah masuk ada di <Link href="/panduan#mulai">Mulai dalam 5 menit</Link>. Ada kendala saat memasang? Tulis di <Link href="/feedback">halaman bantuan</Link>.
           </p>
         </section>
       </div>

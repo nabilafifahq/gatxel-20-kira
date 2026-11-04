@@ -109,7 +109,7 @@ const STOPS: Stop[] = [
         </span>
       </span>
     ),
-    lines: ['Selesaikan sesi. Kamu dapat bintang.', 'Membaca juga dapat bintang.', 'Bintang tidak pernah hilang.', 'Pakai bintang di Toko Bintang.', 'Ada topi, mahkota, dan latar yang cantik.', 'Tidak perlu uang sungguhan.'],
+    lines: ['Selesaikan sesi. Kamu dapat bintang.', 'Membaca juga dapat bintang.', 'Libur? Bintangmu tetap ada.', 'Pakai bintang di Toko Bintang.', 'Ada topi, mahkota, dan latar yang cantik.', 'Tidak perlu uang sungguhan.'],
   },
   {
     id: 'teman',

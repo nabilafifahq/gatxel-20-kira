@@ -45,9 +45,13 @@ export function GuideFrame({ tab, children }: { tab: GuideTab; children: ReactNo
           <Link href="/ketentuan" className="inline-flex min-h-11 items-center font-bold">
             Syarat dan Ketentuan
           </Link>
+          <Link href="/feedback" className="inline-flex min-h-11 items-center font-bold">
+            Bantuan
+          </Link>
           <Link href="/masuk" className="inline-flex min-h-11 items-center font-bold sm:ml-auto">
             Masuk
           </Link>
+          <p className="m-0 w-full text-small">Build by Gatxel @ 2026 Made with Love by GATteam</p>
         </div>
       </footer>
     </div>
