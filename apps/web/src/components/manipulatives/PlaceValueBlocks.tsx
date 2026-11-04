@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactElement } from 'react'
+import type { CSSProperties, ReactElement } from 'react'
 import { BLOCK_MAX, blocksValue, exchangeDown, exchangeUp, type Blocks } from '@kira/content/manip'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -73,7 +73,7 @@ export function PlaceValueBlocks({ value, onChange, disabled = false, feedback =
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${cols.length}, minmax(0, 1fr))` }}>
+      <div className="grid grid-cols-1 gap-3 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]" style={{ '--cols': cols.length } as CSSProperties}>
         {cols.map((p) => {
           const Shape = SHAPE[p]
           const n = value[p]
