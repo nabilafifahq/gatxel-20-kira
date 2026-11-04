@@ -5,7 +5,7 @@
 //   E2E_BASE_URL=http://localhost:3167 DATABASE_URL_OWNER=... CHROMIUM_PATH=... node e2e/panduan-shots.mjs [nama ...]
 //
 // Jangan pernah menjalankan skrip ini terhadap produksi: skrip menulis bintang dan kartu contoh ke database yang ditunjuk.
-/* global document, window, Image, fetch -- dipakai di dalam page.evaluate, yang berjalan di browser */
+/* global document, Image -- dipakai di dalam page.evaluate, yang berjalan di browser */
 import { mkdirSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -31,7 +31,7 @@ mkdirSync(OUT, { recursive: true })
 const org = (await sql`select id from org where name like ${'%__GTX_SEED__%'} order by created_at limit 1`)[0].id
 const learner = async (name) => (await sql`select user_id from learner_profile where org_id = ${org} and name = ${name} limit 1`)[0].user_id
 const aisha = await learner('Aisha')
-const raka = await learner('Raka')
+await learner('Raka')
 
 // Data contoh untuk layar Dunia Kira: bintang, kartu, dan medali fiktif.
 await sql`delete from star_ledger where learner_id = ${aisha} and source like 'panduan:%'`
