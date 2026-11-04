@@ -8,8 +8,8 @@
  *   halaman tersimpan atau halaman offline.
  * - Ganti learner (/bye) atau kembali ke pilihan learner menghapus simpanan halaman.
  * - Halaman offline mengikuti bahasa tampilan anak terakhir (pesan ui-lang dari I18nProvider). Belum ada pesan: Indonesia.
- * - Klip suara bahasa Inggris (/tts/<sha256>.mp3): cache dulu. Klip untuk sesi hari ini disimpan di muka
- *   (pesan precache-audio dari TtsRuntime) supaya suara tetap ada saat internet rumah putus.
+ * - Klip suara bahasa Inggris (/tts/<sha256>.mp3): cache dulu. Klip disimpan saat diambil (soal yang tampil dan soal
+ *   sesudahnya), jadi yang sudah dibuka tetap ada saat internet rumah putus; selebihnya memakai suara perangkat.
  * - Gambar media organisasi (/api/media/<id>, misalnya gambar soal paper): server melarang disimpan (no-store), jadi
  *   hanya yang dirujuk halaman learner yang di-precache yang disimpan, di simpanan pribadi sendiri. Jaringan tetap
  *   dipakai lebih dulu (akses yang dicabut tidak bertahan); simpanan hanya dipakai saat internet putus. Simpanan
@@ -127,27 +127,6 @@ async function audioCacheFirst(request) {
     void trim(AUDIO_CACHE, MAX_AUDIO)
   }
   return res
-}
-
-async function precacheAudio(urls) {
-  const cache = await caches.open(AUDIO_CACHE)
-  for (const raw of urls.slice(0, 600)) {
-    let url
-    try {
-      url = new URL(raw, self.location.origin)
-    } catch {
-      continue
-    }
-    if (url.origin !== self.location.origin || !CLIP.test(url.pathname)) continue
-    if (await cache.match(url.href)) continue
-    try {
-      const res = await fetch(url.href, { credentials: 'same-origin' })
-      if (res.ok && res.type === 'basic') await cache.put(url.href, res)
-    } catch {
-      // offline atau server sibuk: klip berikutnya, sisanya dicoba lagi saat halaman berikutnya dibuka
-    }
-  }
-  await trim(AUDIO_CACHE, MAX_AUDIO)
 }
 
 /** Gambar media: jaringan lebih dulu; simpanan (bila ada) dipakai hanya saat jaringan putus atau server tidak terjangkau. */
@@ -278,9 +257,6 @@ self.addEventListener('message', (event) => {
   if (!data || typeof data !== 'object') return
   if (data.type === 'precache' && Array.isArray(data.urls)) {
     event.waitUntil(precache(data.urls.filter((u) => typeof u === 'string')))
-  }
-  if (data.type === 'precache-audio' && Array.isArray(data.urls)) {
-    event.waitUntil(precacheAudio(data.urls.filter((u) => typeof u === 'string')))
   }
   if (data.type === 'clear-pages') event.waitUntil(clearLearnerCaches())
   if (data.type === 'ui-lang' && (data.lang === 'en' || data.lang === 'id')) event.waitUntil(rememberUiLang(data.lang))
