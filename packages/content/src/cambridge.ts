@@ -110,7 +110,7 @@ export function checkCambridgeMap(dir: string, index: ContentIndex): Problem[] {
   if (JSON.stringify(gaps) !== JSON.stringify(map.gaps)) out.push({ file: rel, message: 'daftar gaps tidak sama dengan hasil hitung ulang, jalankan: pnpm tsx packages/content/scripts/cambridge-map.ts --write' })
   for (const c of Object.keys(map.gapNotes)) if (!Object.values(valid).some((s) => s.has(c))) out.push({ file: rel, message: `gapNotes: kode ${c} tidak dikenal` })
   for (const t of [map.note, ...Object.values(map.gapNotes), ...Object.values(map.skills).map((s) => s.note ?? '')]) {
-    if (/[–—]/.test(t)) out.push({ file: rel, message: 'ada em dash atau en dash' })
+    if (new RegExp("[\u2013\u2014]").test(t)) out.push({ file: rel, message: "ada em dash atau en dash" })
   }
   return out
 }

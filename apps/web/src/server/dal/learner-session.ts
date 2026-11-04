@@ -23,7 +23,7 @@ import {
   type SessionType,
 } from '@kira/core'
 import { tables } from '@kira/db'
-import { genRef, newSeed } from '@kira/content/math'
+import { genRef, instanceSignature, newSeed } from '@kira/content/math'
 import type { Subject } from '@/lib/dto'
 import type { OrgContext, Tx } from '../db'
 import { conflict, notFound } from '../errors'
@@ -81,10 +81,24 @@ export function linkHref(q: Pick<QuestRow, 'session' | 'skillId' | 'config'>): s
 }
 
 /** Ubah kandidat generator tanpa seed menjadi ref lengkap dengan seed baru. */
-function materialise(ref: string, rng: ReturnType<typeof createRng>): string {
+function materialise(ref: string, rng: ReturnType<typeof createRng>, taken: Set<string> = new Set(), seenRefs: ReadonlyMap<string, number> = new Map()): string {
   const m = /^gen:([mes][1-6]\.[a-z0-9-]+):([1-5])$/.exec(ref)
-  return m ? genRef(m[1]!, Number(m[2]) as 1 | 2 | 3 | 4 | 5, newSeed(rng)) : ref
+  if (!m) return ref
+  const make = () => genRef(m[1]!, Number(m[2]) as 1 | 2 | 3 | 4 | 5, newSeed(rng))
+  // Seed baru dicoba ulang sampai instansnya (soal dan jawaban) belum ada di sesi ini dan belum pernah dijawab learner.
+  let out = make()
+  for (let i = 0; i < 40; i++) {
+    const sig = instanceSignature(out)
+    if (!taken.has(sig) && !seenRefs.has(out)) {
+      taken.add(sig)
+      return out
+    }
+    out = make()
+  }
+  taken.add(instanceSignature(out))
+  return out
 }
+
 
 // ---------------------------------------------------------------------------
 // Soal sesi
@@ -181,7 +195,8 @@ export async function buildQuestItems(tx: Tx, ctx: OrgContext, learner: LearnerR
   } else {
     slots = assembleQuest({ mode: input.mode, theta, dueRefs, candidates: withSeen(pool), length: input.length ?? questLength(learner, input.mode), rng })
   }
-  return slots.map((s, i) => ({ ref: materialise(s.ref, rng), section: s.section, position: i + 1, difficulty: s.difficulty }))
+  const taken = new Set<string>()
+  return slots.map((s, i) => ({ ref: materialise(s.ref, rng, taken, seen), section: s.section, position: i + 1, difficulty: s.difficulty }))
 }
 
 /** Pilih skill otomatis untuk satu mapel bila tutor belum merencanakan. */

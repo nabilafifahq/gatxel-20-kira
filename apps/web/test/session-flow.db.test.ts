@@ -404,6 +404,25 @@ describe.skipIf(!ready)('sesi harian', () => {
     expect(refsAssigned).toContain(photo)
   })
 
+  it('tidak mengulang soal tertulis sebelum bank skill habis, lintas sesi dan percobaan', async () => {
+    const base = { skillId: 's2.habitats', subject: 'science' as const, mode: 'latihan' as const, date: WEDNESDAY, style: 'easy' as const, length: 10 }
+    const seenRefs = new Set<string>()
+    for (let round = 0; round < 3; round++) {
+     const [att] = await owner`insert into attempt (org_id, learner_id, kind, mode, subject, title, items, submitted_at, status)
+        values (${orgId}, ${learnerId}, 'quest', 'latihan', 'science', 'Latihan', '[]'::jsonb, now() - interval '40 days', 'submitted') returning id`
+        const items = await run(async (tx) => m.session.buildQuestItems(tx, ctx, await learnerRow(tx), { ...base, seedKey: `norepeat-${round}` }))
+      const refs = items.map((x) => x.ref)
+      expect(new Set(refs).size).toBe(refs.length)
+      for (const r of refs) expect(seenRefs.has(r)).toBe(false)
+      let pos = 1
+      for (const r of refs) {
+        seenRefs.add(r)
+        await owner`insert into response (org_id, attempt_id, learner_id, position, item_ref, skill_id, subject, item_type, difficulty, status, client_id, answered_at)
+          values (${orgId}, ${att!.id}, ${learnerId}, ${pos++}, ${r}, 's2.habitats', 'science', 'mcq', 3, 'correct', ${randomUUID()}, now() - interval '40 days')`
+      }
+    }
+  })
+
   it('Sabtu: satu mapel mengerjakan paper penuh dengan waktu preset, dua lainnya paper mini', async () => {
     const day = await run(async (tx) => m.session.ensureTodayQuests(tx, ctx, await learnerRow(tx), SATURDAY))
     const papers = day.filter((q) => q.session === 'paper')
