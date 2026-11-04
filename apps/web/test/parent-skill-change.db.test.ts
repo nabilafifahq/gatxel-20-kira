@@ -285,6 +285,10 @@ describe.skipIf(!ready)('ganti pelajaran oleh orang tua', { timeout: 120_000 }, 
     const runner = await import('@/server/dal/learner-runner')
     const finish = async (subject: string) => {
       const q = await questOf(b1, subject, 'latihan')
+      // Sesi dihitung bila paling sedikit separuh soalnya dijawab.
+      await owner`insert into response (org_id, learner_id, attempt_id, position, item_ref, skill_id, subject, item_type, difficulty, status, answer, attempt_no, client_id)
+        select ${orgB}, ${b1}, a.id, (it->>'position')::int, it->>'ref', 'uji', 'math', 'mcq', 1, 'wrong', '{}'::jsonb, 1, gen_random_uuid()::text
+        from attempt a, jsonb_array_elements(a.items) it where a.id = ${q.attempt_id as string}`
       await dbm.inOrg(ctx, (tx) => runner.submitAttempt(tx, ctx, b1, q.attempt_id as string))
     }
     const streak = async () => dbm.inOrg(ctx, async (tx) => (await core.streakFor(tx, await core.loadLearner(tx, b1), today)).current)
