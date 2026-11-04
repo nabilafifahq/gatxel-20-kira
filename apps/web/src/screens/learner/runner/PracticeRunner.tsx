@@ -26,6 +26,7 @@ import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
+import { usePreloadNextClips } from '@/components/widgets/usePreloadNextClips'
 import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
 import { useT } from '@/lib/i18n/client'
@@ -106,6 +107,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   useEffect(() => primeSfx(), [])
 
   const item = items[index]
+  usePreloadNextClips(items[index + 1])
   const st = states[index]
   const subject = data.subject
   const englishArea = data.englishArea

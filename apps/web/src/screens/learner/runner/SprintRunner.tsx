@@ -18,6 +18,7 @@ import { Timer } from '@/components/learner/Timer'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
+import { usePreloadNextClips } from '@/components/widgets/usePreloadNextClips'
 import { Widget } from '@/components/widgets/Widget'
 import { useT } from '@/lib/i18n/client'
 import { ExitControl } from './parts'
@@ -61,6 +62,7 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
   const remaining = Math.max(0, limit - elapsed)
   const finished = over || remaining === 0
   const item = items[index]
+  usePreloadNextClips(items[index + 1])
 
   const finish = useCallback(async () => {
     setSubmit({ state: 'busy' })

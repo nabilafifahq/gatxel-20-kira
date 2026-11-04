@@ -146,12 +146,6 @@ export function requestClips(clips: TtsClipRequest[]): void {
   }).catch(() => undefined)
 }
 
-/** Pesan ke service worker: simpan klip hari ini untuk offline. */
-export function precacheClips(urls: string[]): void {
-  if (urls.length === 0 || typeof navigator === 'undefined' || !('serviceWorker' in navigator) || !navigator.onLine) return
-  void navigator.serviceWorker.ready.then((reg) => reg.active?.postMessage({ type: 'precache-audio', urls })).catch(() => undefined)
-}
-
 /** Teks untuk suara bawaan perangkat: semua bagian, masing-masing diakhiri tanda baca supaya ada jeda. */
 export function deviceText(input: string | readonly SpeechPart[]): string {
   const parts = typeof input === 'string' ? [input] : input

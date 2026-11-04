@@ -1,5 +1,4 @@
 import { LearnerRuntime } from '@/components/runtime/LearnerRuntime'
-import { TtsRuntime } from '@/components/runtime/TtsRuntime'
 import { SoundRuntime } from '@/components/learner/SoundRuntime'
 import { PageTransition } from '@/components/learner/PageTransition'
 import { orgCtx, pageActor } from '@/server/auth/actor'
@@ -35,7 +34,6 @@ export default async function LearnerInLayout({ children }: { children: React.Re
     <DictionaryProvider enabled={dictOn} initialSaved={saved}>
       <PageTransition>{children}</PageTransition>
       <LearnerRuntime screenLimitMin={60} />
-      <TtsRuntime />
       <SoundRuntime sfx={policy.sfx} music={policy.music} />
     </DictionaryProvider>
   )

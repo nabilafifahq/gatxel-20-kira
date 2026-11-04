@@ -1,22 +1,18 @@
 import { NextResponse } from 'next/server'
-import { getActor, orgCtx } from '@/server/auth/actor'
+import { getActor } from '@/server/auth/actor'
 import { throttleResponse } from '@/server/auth/ratelimit'
-import { inOrg } from '@/server/db'
-import { existingClipUrls, todayClipPlan } from '@/server/dal/tts'
 import { servedVoiceVersion, ttsEnabled } from '@/server/tts'
 
 export const dynamic = 'force-dynamic'
 
 /**
- * Status suara klip dan alamat klip untuk sesi hari ini (hanya yang sudah ada). Dipakai layar learner:
- * enabled memberi tahu apakah perlu meminta klip baru, urls disimpan service worker untuk offline.
+ * Status suara klip. Dipakai layar learner: enabled memberi tahu apakah perlu meminta klip baru.
+ * urls selalu kosong, hanya untuk halaman lama yang masih terbuka: klip diambil saat soalnya tampil, bukan seluruh sesi di muka.
  */
 export async function GET() {
   const actor = await getActor()
   if (!actor) return NextResponse.json({ error: 'unauthenticated' }, { status: 401 })
   const limited = await throttleResponse('tts-today', 120, actor.userId)
   if (limited) return limited
-  const enabled = ttsEnabled()
-  const urls = enabled && actor.role === 'learner' ? await existingClipUrls(await inOrg(orgCtx(actor), (tx) => todayClipPlan(tx, actor.userId)), actor.orgId) : []
-  return NextResponse.json({ enabled, urls, voiceVersion: servedVoiceVersion() }, { headers: { 'Cache-Control': 'no-store' } })
+  return NextResponse.json({ enabled: ttsEnabled(), urls: [], voiceVersion: servedVoiceVersion() }, { headers: { 'Cache-Control': 'no-store' } })
 }

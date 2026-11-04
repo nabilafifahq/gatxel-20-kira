@@ -18,6 +18,7 @@ import { Timer } from '@/components/learner/Timer'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { WidgetDensityContext } from '@/components/widgets/density'
 import { QuestionView, TermsPanel } from '@/components/widgets/QuestionView'
+import { usePreloadNextClips } from '@/components/widgets/usePreloadNextClips'
 import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
 import { useT } from '@/lib/i18n/client'
@@ -70,6 +71,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
   const elapsed = data.elapsedSec + Math.max(0, Math.floor((now - loadedAt.current) / 1000))
   const remaining = data.timeLimitSec !== null ? Math.max(0, data.timeLimitSec - elapsed) : null
   const item = items[index]
+  usePreloadNextClips(items[index + 1])
   const cur = answers[index]
   const subject = data.subject
   const style = SUBJECT_STYLE[subject]
