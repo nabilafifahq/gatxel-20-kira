@@ -1609,7 +1609,7 @@ const divideWritten4: Generator = {
             { value: String(r), why: `${r} is the number of children left over, not the number of minibuses.` },
           ]),
           hints: [`Work out ${n} ÷ ${d}.`, 'Every child needs a seat. Think about the children left over.', `${q} × ${d} = ${q * d}.`],
-          explanation: `${n} ÷ ${d} = ${q} r ${r}. The ${r} extra children need one more minibus, so ${q + 1} minibuses are needed.`,
+          explanation: `${n} ÷ ${d} = ${q} r ${r}. The ${r === 1 ? '1 extra child needs' : `${r} extra children need`} one more minibus, so ${q + 1} minibuses are needed.`,
           tags: WORD,
         }
       }
@@ -2636,6 +2636,10 @@ const time24: Generator = {
         blanks: [{ answers: answers24(h, m) }],
         hints: ['24-hour times always use four digits.', pm ? 'For p.m. times, add 12 to the hour.' : 'For a.m. times, keep the hour and put a 0 in front if it has one digit.', pm ? `${h - 12} + 12 = ${h}.` : `The hour is ${h}.`],
         explanation: `${ampm(h, m)} is ${hh(h, m)} in 24-hour time.`,
+        solution: [
+          { say: pm ? `For p.m. times, add 12 to the hour. ${h - 12} + 12 = ${h}.` : 'For a.m. times, keep the hour and put a 0 in front if it has one digit.' },
+          { say: `${ampm(h, m)} is ${hh(h, m)} in 24-hour time.`, show: hh(h, m) },
+        ],
       }
     }
 
@@ -2653,6 +2657,10 @@ const time24: Generator = {
         ]),
         hints: ['Hours after 12 are in the afternoon or evening.', 'Take away 12 from the hour and add p.m.', `${h} - 12 = ${h - 12}.`],
         explanation: `${h} - 12 = ${h - 12}, so ${hh(h, m)} is ${ampm(h, m)}`,
+        solution: [
+          { say: `Take away 12 from the hour. ${h} - 12 = ${h - 12}.`, show: `${h} - 12 = ${h - 12}` },
+          { say: `So ${hh(h, m)} is ${ampm(h, m)}`, show: ampm(h, m) },
+        ],
       }
     }
 
@@ -2789,17 +2797,17 @@ const timetables4: Generator = {
     const units = (): GeneratedItem => {
       if (rng.chance(0.5)) {
         const f = rng.pick([
-          { q: (n: number) => `How many seconds are in ${n} minutes?`, per: 60 },
-          { q: (n: number) => `How many minutes are in ${n} hours?`, per: 60 },
-          { q: (n: number) => `How many hours are in ${n} days?`, per: 24 },
-          { q: (n: number) => `How many days are in ${n} weeks?`, per: 7 },
+          { q: (n: number) => `How many seconds are in ${n} minutes?`, per: 60, big: 'minute', small: 'seconds' },
+          { q: (n: number) => `How many minutes are in ${n} hours?`, per: 60, big: 'hour', small: 'minutes' },
+          { q: (n: number) => `How many hours are in ${n} days?`, per: 24, big: 'day', small: 'hours' },
+          { q: (n: number) => `How many days are in ${n} weeks?`, per: 7, big: 'week', small: 'days' },
         ])
         const n = rng.int(3, 8)
         return {
           type: 'numeric',
           prompt: f.q(n),
           answer: n * f.per,
-          hints: [`1 of the bigger unit is ${f.per} of the smaller unit.`, `Multiply ${n} by ${f.per}.`, `2 make ${2 * f.per}. Keep adding ${f.per}.`],
+          hints: [`1 ${f.big} is ${f.per} ${f.small}.`, `Multiply ${n} by ${f.per}.`, `2 ${f.big}s make ${2 * f.per} ${f.small}. Keep adding ${f.per}.`],
           explanation: `${n} × ${f.per} = ${n * f.per}.`,
         }
       }
@@ -4410,7 +4418,7 @@ const dataCharts4: Generator = {
         },
         answer: values[i]!,
         hints: ['Look at the key first.', `Each whole symbol means ${key}.${halves ? ` Half a symbol means ${key / 2}.` : ''}`, `Count the symbols in the ${labels[i]} row.`],
-        explanation: c % 1 ? `${labels[i]} has ${plural(Math.floor(c), 'whole symbol', 'whole symbols')} and a half. ${Math.floor(c)} × ${key} = ${Math.floor(c) * key}, and half a symbol is ${key / 2}. ${Math.floor(c) * key} + ${key / 2} = ${values[i]}.` : `${labels[i]} has ${plural(c, 'symbol', 'symbols')}. ${c} × ${key} = ${values[i]}.`,
+        explanation: c % 1 ? `The ${labels[i]} row has ${plural(Math.floor(c), 'whole symbol', 'whole symbols')} and a half. ${Math.floor(c)} × ${key} = ${Math.floor(c) * key}, and half a symbol is ${key / 2}. ${Math.floor(c) * key} + ${key / 2} = ${values[i]}.` : `The ${labels[i]} row has ${plural(c, 'symbol', 'symbols')}. ${c} × ${key} = ${values[i]}.`,
       }
     }
 
@@ -4800,7 +4808,7 @@ const chance4: Generator = {
         figure: { kind: 'fraction', shape: 'circle', parts, shaded, alt: `A spinner with ${parts} equal parts. ${plural(shaded, 'part is', 'parts are')} shaded.` },
         ...choice(w),
         hints: ['Count the shaded parts and the white parts.', 'Are there more shaded parts, more white parts, or the same number?', `There are ${parts} parts altogether.`],
-        explanation: `${shaded} out of ${parts} parts are shaded, so landing on a shaded part is ${w === 'Even chance' ? 'an even chance' : lc(w)}.`,
+        explanation: `${shaded} out of ${parts} ${shaded === 1 ? 'part is' : 'parts are'} shaded, so landing on a shaded part is ${w === 'Even chance' ? 'an even chance' : lc(w)}.`,
       }
     }
 
@@ -4878,7 +4886,7 @@ const chance4: Generator = {
       return {
         type: 'mcq',
         prompt: 'Which spinner gives an even chance of landing on a shaded part?',
-        ...figChoice(rng, fig(parts / 2), others.map((k) => ({ figure: fig(k), why: `${k} out of ${parts} parts are shaded. That is ${k * 2 < parts ? 'less' : 'more'} than half.` }))),
+        ...figChoice(rng, fig(parts / 2), others.map((k) => ({ figure: fig(k), why: `${k} out of ${parts} ${k === 1 ? 'part is' : 'parts are'} shaded. That is ${k * 2 < parts ? 'less' : 'more'} than half.` }))),
         hints: ['Even chance means half of the spinner is shaded.', `Each spinner has ${parts} parts.`, 'Look for a spinner with the same number of shaded and white parts.'],
         explanation: `${parts / 2} out of ${parts} parts is half, so that spinner gives an even chance.`,
       }
