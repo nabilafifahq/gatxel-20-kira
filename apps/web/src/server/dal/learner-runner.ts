@@ -105,9 +105,14 @@ export function latestByPosition(rows: ResponseRow[]): Map<number, ResponseRow> 
  * Attempt berwaktu selalu mulai pada render pertama: header simpan offline bisa dikirim siapa saja,
  * jadi soal tes berwaktu tidak pernah terkirim tanpa jam berjalan (dan tidak masuk simpanan offline).
  */
-export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true } | { locked: true }> {
+/** Layar hasil attempt ini: tantangan bos punya layar sendiri. */
+function resultHref(a: { id: string; refId: string | null }): string {
+  return a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
+}
+
+export async function runnerDTO(tx: Tx, learnerId: string, attemptId: string, opts: { markOpened?: boolean } = {}): Promise<RunnerDTO | { submitted: true; resultHref: string } | { locked: true }> {
   const a = await loadAttempt(tx, learnerId, attemptId)
-  if (a.status !== 'in_progress') return { submitted: true }
+  if (a.status !== 'in_progress') return { submitted: true, resultHref: resultHref(a) }
   // Tes terbuka setelah Latihan mapel itu selesai; jam Tes tidak boleh mulai sebelumnya.
   if (a.kind === 'quest' && a.mode === 'tes' && !a.retryOf) {
     const q = await questOfAttempt(tx, a)
@@ -368,7 +373,7 @@ export async function submitAttempt(tx: Tx, ctx: OrgContext, learnerId: string, 
   // Kunci baris attempt: kumpul ganda (klik dua kali, sinkron offline bersamaan) menunggu, lalu melihat status sudah selesai.
   await tx.execute(sql`select 1 from attempt where id = ${attemptId} and learner_id = ${learnerId} for update`)
   const a = await loadAttempt(tx, learnerId, attemptId)
-  const redirectTo = a.refId?.startsWith('boss:') ? `/world/boss/result/${a.id}` : `/results/${a.id}`
+  const redirectTo = resultHref(a)
   if (a.status !== 'in_progress') return { redirectTo }
   const learner = await loadLearner(tx, learnerId)
   const date = jakartaDate()
