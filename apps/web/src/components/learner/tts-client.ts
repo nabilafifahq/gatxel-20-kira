@@ -12,6 +12,26 @@ export type TtsStatus = { enabled: boolean; urls: string[]; voiceVersion?: strin
 /** Versi suara yang disajikan server. Diisi dari ttsStatus; kunci klip memakainya. Hanya satu suara pada satu waktu. */
 let voiceVersion = TTS_VOICE_VERSION
 
+const STATUS_KEY = 'kira.tts.status'
+
+function rememberStatus(s: TtsStatus): void {
+  try {
+    localStorage.setItem(STATUS_KEY, JSON.stringify({ enabled: s.enabled, voiceVersion: s.voiceVersion }))
+  } catch {
+    // tanpa penyimpanan: saat offline tombol suara mati
+  }
+}
+
+function lastStatus(): TtsStatus | null {
+  try {
+    const v = JSON.parse(localStorage.getItem(STATUS_KEY) ?? 'null') as { enabled?: unknown; voiceVersion?: unknown } | null
+    if (!v || typeof v.enabled !== 'boolean' || !isVoiceVersion(v.voiceVersion)) return null
+    return { enabled: v.enabled, urls: [], voiceVersion: v.voiceVersion }
+  } catch {
+    return null
+  }
+}
+
 let statusPromise: Promise<TtsStatus | null> | null = null
 let statusAt = 0
 
@@ -20,18 +40,26 @@ export function ttsStatus(): Promise<TtsStatus | null> {
   if (typeof window === 'undefined') return Promise.resolve(null)
   if (statusPromise && Date.now() - statusAt < 60_000) return statusPromise
   statusAt = Date.now()
-  const p: Promise<TtsStatus | null> = fetch('/api/tts/today', { credentials: 'same-origin' })
+  const fresh: Promise<TtsStatus | null> = fetch('/api/tts/today', { credentials: 'same-origin' })
     .then((r) => (r.ok ? (r.json() as Promise<TtsStatus>) : null))
     .then((s) => {
       if (s && isVoiceVersion(s.voiceVersion)) voiceVersion = s.voiceVersion
+      if (s) rememberStatus(s)
       return s
     })
     .catch(() => null)
-  statusPromise = p
   // Hasil sukses disimpan selama halaman terbuka; hasil gagal boleh diulang.
-  void p.then((v) => {
+  void fresh.then((v) => {
     if (v) statusAt = Number.MAX_SAFE_INTEGER
   })
+  // Server tidak terjangkau: pakai status terakhir, supaya klip yang sudah tersimpan tetap diputar dengan kunci versi yang benar.
+  const p = fresh.then((v) => {
+    if (v) return v
+    const last = lastStatus()
+    if (last?.voiceVersion) voiceVersion = last.voiceVersion
+    return last
+  })
+  statusPromise = p
   return p
 }
 

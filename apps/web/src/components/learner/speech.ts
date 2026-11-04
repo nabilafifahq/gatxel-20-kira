@@ -87,11 +87,14 @@ export function useSpeech(lang: SpeechLang): {
   /** Putar klip menurut kuncinya. Tanpa suara perangkat. onFail bila klip tidak ada atau gagal diputar. */
   playKeys: (keys: readonly string[], onFail: () => void) => void
   stop: () => void
+  /** Bacaan terakhir tidak berbunyi: klip gagal dimuat (offline atau server tidak terjangkau) atau belum dibuat. */
+  problem: 'failed' | 'missing' | null
 } {
   const id = useId()
   // null = belum tahu; true = layanan klip aktif di server.
   const [clipsReady, setClipsReady] = useState<boolean | null>(null)
   const [reading, setReading] = useState(false)
+  const [problem, setProblem] = useState<'failed' | 'missing' | null>(null)
   // Musik latar turun selama bacaan berjalan (ducking).
   useEffect(() => {
     duckMusic(id, reading)
@@ -158,10 +161,12 @@ export function useSpeech(lang: SpeechLang): {
         return
       }
       setReading(true)
+      setProblem(null)
       void (async () => {
         const status = await ttsStatus()
         if (token.current !== my) return
         if (!status?.enabled) {
+          setProblem('failed')
           finish()
           return
         }
@@ -171,12 +176,16 @@ export function useSpeech(lang: SpeechLang): {
           playChain(
             set.blobs,
             () => token.current === my,
-            () => finish(),
+            (ok) => {
+              if (!ok) setProblem('failed')
+              finish()
+            },
           )
           return
         }
-        // Ada klip yang belum ada: diam (suara tidak boleh berganti), dan minta worker membuatnya.
+        // Ada klip yang belum ada: diam (suara tidak boleh berganti), dan minta worker membuatnya. Tombol menulis alasannya, supaya tidak terasa rusak.
         if (set.missing.length > 0) requestClips(set.missing)
+        setProblem(set.failed ? 'failed' : 'missing')
         finish()
       })()
     },
@@ -223,5 +232,5 @@ export function useSpeech(lang: SpeechLang): {
   // Tombol disembunyikan/dinonaktifkan bila layanan klip mati, dan selalu untuk teks Indonesia (belum ada klip id).
   const unavailable = lang === 'id' || clipsReady === false
   const status: SpeechStatus = unavailable ? 'unavailable' : reading ? 'reading' : 'idle'
-  return { status, toggle, speak, playKeys, stop }
+  return { status, toggle, speak, playKeys, stop, problem }
 }
