@@ -87,6 +87,7 @@ export function FamilyShell({
           <span className="text-fg-muted">
             {shell.userName}, {shell.orgName}
           </span>
+          <Link href={`${PUBLIC_ROUTES.feedback}?dari=${FAMILY_ROUTES.home}`}>Bantuan</Link>
           <Link href={PUBLIC_ROUTES.privacyNotice}>Kebijakan Privasi</Link>
           <Link href={PUBLIC_ROUTES.terms}>Syarat dan Ketentuan</Link>
           <form method="post" action={CONSOLE_ROUTES.signOut} className="ml-auto">
