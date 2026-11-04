@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { cx } from '@/components/console/cx'
@@ -34,7 +35,7 @@ export function PublicFrame({
             Kira
           </Link>
         ) : (
-          <span className="font-display text-h1 leading-9 font-bold">Kira</span>
+          <KiraLogo size={36} />
         )}
         {headerAction ? <div className="ml-auto">{headerAction}</div> : null}
       </header>

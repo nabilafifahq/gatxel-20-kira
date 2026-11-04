@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactElement, ReactNode } from 'react'
 import { Avatar } from '@kira/figures'
@@ -70,7 +71,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         aria-label="Main"
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <div className="mb-3 font-display text-h1 font-semibold">Kira</div>
+        <KiraLogo size={36} stacked className="mb-3" />
         {items.map((n) => {
           const on = n.key === current
           return (

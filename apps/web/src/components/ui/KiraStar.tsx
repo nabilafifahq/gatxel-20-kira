@@ -45,3 +45,15 @@ export function KiraStar({
     </span>
   )
 }
+
+/** Logo Kira: bintang maskot dan nama dalam Fredoka (jarak kosong minimal seperempat tinggi logo). */
+export function KiraLogo({ size = 32, className, stacked = false }: { size?: number; className?: string; stacked?: boolean }): ReactElement {
+  return (
+    <span className={cx('inline-flex items-center gap-2', stacked && 'flex-col gap-0.5', className)}>
+      <KiraStar size={size} animate={false} />
+      <span className="font-display text-h1 leading-none font-semibold" style={{ fontSize: Math.round(size * 0.9) }}>
+        Kira
+      </span>
+    </span>
+  )
+}

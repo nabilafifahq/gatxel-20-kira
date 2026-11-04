@@ -42,6 +42,9 @@ describe('token arena: kontras WCAG AA', () => {
     expect(contrast(INK, KNOWLEDGE_50)).toBeGreaterThanOrEqual(4.5)
     expect(contrast(INK, MENTAL_50)).toBeGreaterThanOrEqual(4.5)
   })
+  it('latar tipis Quiz Arena (Sky Blue) berbeda dari latar tipis Quick Maths (Lavender)', () => {
+    expect(deltaE(KNOWLEDGE_50, MENTAL_50)).toBeGreaterThan(20)
+  })
   it('isi Quiz Arena jelas berbeda dari isi Quick Maths', () => {
     expect(deltaE(KNOWLEDGE, MENTAL)).toBeGreaterThan(30)
   })

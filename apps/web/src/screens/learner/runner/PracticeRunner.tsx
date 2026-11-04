@@ -258,7 +258,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         {header}
         <main className="flex flex-1 items-center justify-center px-4 pb-8 md:px-8">
           <section aria-label="Quest done" className="flex max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
-            <span className={cx('flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg text-white', subject === 'math' ? 'bg-math' : subject === 'english' ? 'bg-english' : 'bg-science')}>
+            <span className={cx('flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg text-fg', subject === 'math' ? 'bg-math' : subject === 'english' ? 'bg-english' : 'bg-science')}>
               <UiIcon name="check" size={60} />
             </span>
             <h1 className="m-0 font-display text-display font-semibold">Quest done</h1>

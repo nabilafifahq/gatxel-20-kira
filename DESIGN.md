@@ -74,7 +74,7 @@ Atribut `data-jenjang` di root layar learner, diturunkan dari grade learner. War
 | `--color-success` | #2E7D4F | Ikon dan garis jawaban benar; teks hijau hanya di atas putih |
 | `--color-danger` | #B42318 | Hapus dan error di layar dewasa; bukan untuk jawaban anak |
 
-Alias semantik (semuanya menunjuk ke enam warna di atas): `--fg`, `--fg-muted`, `--border`, `--accent`, `--warn` = Deep Grape; `--divider`, `--*-50`, `--warn-50` = Soft Lavender; `--math`, `--knowledge`, `--review` = Sky Blue; `--english`, `--mental` = Kira Lilac; `--science`, `--star` = Butter Yellow; `--success-50`, `--danger-50` = putih.
+Alias semantik (semuanya menunjuk ke enam warna di atas): `--fg`, `--fg-muted`, `--border`, `--accent`, `--warn` = Deep Grape; `--divider`, `--math-50`, `--english-50`, `--science-50`, `--mental-50`, `--warn-50` = Soft Lavender; `--knowledge-50` = Sky Blue (panel Quiz Arena, supaya berbeda dari panel Quick Maths yang Lavender); `--math`, `--knowledge`, `--review` = Sky Blue; `--english`, `--mental` = Kira Lilac; `--science`, `--star` = Butter Yellow; `--success-50`, `--danger-50` = putih.
 
 Pasangan kontras (rasio dihitung dari nilai di atas):
 
@@ -213,7 +213,7 @@ Instruksi learner mengikuti batas kata per jenjang. Jawaban yang salah ditulis N
 
 ## 8. Component library
 
-Locked to: komponen sendiri di `apps/web/src/components`, dibangun dari elemen HTML asli (`button`, `dialog`, `input`) dengan Tailwind v4. Tanpa shadcn/ui dan tanpa pustaka komponen lain. Ikon digambar sendiri di `components/icons.tsx` dengan gaya garis 2px yang sama dengan desain. Ikon mapel dan avatar hewan mengikuti gaya ilustrasi yang sama.
+Locked to: komponen sendiri di `apps/web/src/components`, dibangun dari elemen HTML asli (`button`, `dialog`, `input`) dengan Tailwind v4. Tanpa shadcn/ui dan tanpa pustaka komponen lain. Ikon digambar sendiri di `components/icons.tsx` dengan garis Deep Grape yang sama dengan desain. Maskot merek `KiraStar` (`components/ui/KiraStar.tsx`) adalah bintang kuning ber-wajah; avatar hewan anak tetap ada di header dan Me. Ikon mapel dan avatar hewan mengikuti gaya ilustrasi yang sama.
 
 Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk tempatnya. Versi 1 memakai ketuk saja.
 
@@ -234,6 +234,8 @@ Interaksi seret di widget selalu punya alternatif ketuk: ketuk kartu, lalu ketuk
 Every interactive element ships: default, hover, focus (visible, 3:1), active, disabled, loading.
 Every data region ships: loading, empty, partial, error, success.
 Khusus runner: offline, sinkron tertunda, sisa waktu 1 menit, waktu habis.
+
+Keadaan memuat memakai `Skeleton` (`components/ui/Skeleton.tsx`, blok Soft Lavender yang bernapas lewat opacity) lewat `loading.tsx` per kelompok rute, dengan ukuran yang sama dengan isi supaya tidak ada lompatan tata letak. Keadaan kosong di layar learner memakai `EmptyState` dengan maskot `KiraStar` (mata datar, mulut kecil); layar dewasa memakai kartu putih tanpa maskot.
 
 ## 11. Responsive floor
 

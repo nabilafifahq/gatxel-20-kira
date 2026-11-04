@@ -187,7 +187,7 @@ export function LessonScreen({ data, actions }: { data: LessonDTO; actions: Less
         <section aria-label="Lesson player" className="flex min-w-0 flex-col gap-3 lg:flex-[1.7]">
           {finished ? (
             <div className="flex flex-1 flex-col items-center justify-center gap-4 rounded-card bg-surface shadow-soft px-6 py-10 text-center">
-              <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-white', style.solid)}>
+              <span className={cx('flex h-24 w-24 items-center justify-center rounded-card border-2 border-fg text-fg', style.solid)}>
                 <UiIcon name="check" size={52} />
               </span>
               <h2 className="m-0 font-display text-display font-semibold">Lesson done</h2>

@@ -1,3 +1,4 @@
+import { KiraLogo } from '@/components/ui/KiraStar'
 import type { ReactElement, ReactNode } from 'react'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
@@ -10,7 +11,7 @@ import { LEARNER_ROUTES } from '@/components/learner/routes'
  */
 
 export function Wordmark({ className }: { className?: string }): ReactElement {
-  return <span className={cx('font-display text-h1 font-bold', className)}>Kira</span>
+  return <KiraLogo size={36} className={className} />
 }
 
 /** Bar atas layar Pilih learner dan Masuk anak (papan PilihLearner, MasukAnak). */

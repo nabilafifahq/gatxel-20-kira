@@ -61,7 +61,7 @@ export function QuestStamp({ stop, size = 'L' }: { stop: QuestStopDTO; size?: St
       )
     case 'done':
       return (
-        <span className={cx(box, 'border-2 border-fg', style.solid, bonus ? 'text-fg' : 'text-white')}>
+        <span className={cx(box, 'border-2 border-fg', style.solid, 'text-fg')}>
           <UiIcon name="check" size={36} className={iconClass(size, 'h-7.5 w-7.5', 'h-9 w-9', 'h-7.5 w-7.5 md:h-9 md:w-9')} />
         </span>
       )
