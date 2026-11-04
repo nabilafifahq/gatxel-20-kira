@@ -1128,7 +1128,8 @@ const timesTables: Generator = {
         ...mcqFrom(rng, `${b} × ${a}`, [
           { value: `${a} + ${b}`, why: `${a} + ${b} = ${a + b}, but ${a} × ${b} = ${a * b}.` },
           { value: `${a} × ${a}`, why: `${a} × ${a} = ${a * a}.` },
-          { value: `${b} + ${b}`, why: `${b} + ${b} is only 2 lots of ${b}.` },
+          // a = 2: b + b sama dengan 2 × b, jadi pengecohnya 3 lot agar tidak ada dua jawaban benar.
+          a === 2 ? { value: `${b} + ${b} + ${b}`, why: `${b} + ${b} + ${b} is 3 lots of ${b}.` } : { value: `${b} + ${b}`, why: `${b} + ${b} is only 2 lots of ${b}.` },
           { value: `${b} × ${a + 1}`, why: `${b} × ${a + 1} = ${b * (a + 1)}.` },
         ].filter((d) => d.value !== `${b} × ${a}`)),
         figure: { kind: 'array', rows: a, cols: b, icon: 'dot', alt: `An array of dots with ${a} rows of ${b}.` },
@@ -1459,7 +1460,8 @@ const fractionsShapes: Generator = {
         { value: fracText(p - sh, p), why: `${p - sh} ${p - sh === 1 ? 'part is' : 'parts are'} white. Count the shaded parts.` },
         { value: fracText(sh, p - sh), why: 'The bottom number is all the parts, not just the white ones.' },
         ...rng.shuffle(pool).map((f) => ({ value: f, why: `${f} means ${f.split('/')[0]} of ${f.split('/')[1]} equal parts. This shape has ${p} parts.` })),
-      ].filter((d) => d.value !== correct && !d.value.endsWith('/1'))
+        // 2/4 dan 1/2 sama nilainya: 1/2 dibuang agar tidak ada dua jawaban benar.
+      ].filter((d) => d.value !== correct && !d.value.endsWith('/1') && !(correct === '2/4' && d.value === '1/2'))
       return {
         type: 'mcq',
         prompt: 'What fraction of the shape is shaded?',
@@ -1556,7 +1558,8 @@ const fractionsShapes: Generator = {
         { value: fracText(sh, p), why: `${fracText(sh, p)} is the shaded part. The question asks about the white part.` },
         { value: fracText(p - sh, sh === 0 ? 1 : sh + p - sh === p ? p + 1 : p), why: `This shape has ${p} equal parts.` },
         ...['1/2', '1/3', '2/3', '1/4', '3/4'].map((f) => ({ value: f, why: `Count the white parts and all the parts again.` })),
-      ].filter((d) => d.value !== white))),
+        // Saring 1/2 sesudah kocok agar jumlah tarikan rng tetap sama.
+      ].filter((d) => d.value !== white)).filter((d) => !(white === '2/4' && d.value === '1/2'))),
       hints: ['Not shaded means the white parts.', 'Count all the equal parts. That is the bottom number.', `There are ${p} parts. Count the white ones.`],
       explanation: `${p - sh} of ${p} parts ${p - sh === 1 ? 'is' : 'are'} white, so ${white} is not shaded.`,
     }
