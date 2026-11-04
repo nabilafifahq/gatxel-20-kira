@@ -21,7 +21,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
   return {
     entity: entity(),
     meta: { version: NOTICE_VERSION, effectiveDate: legalEnv('KIRA_LEGAL_EFFECTIVE') ?? '2026-11-05' },
-    storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap hari',
+    storageLocation: 'komputer server di rumah pengelola di Indonesia, di folder data yang dicadangkan setiap jam dan setiap hari',
     purposes: [
       { title: 'Belajar di Kira', description: 'Menyimpan jawaban, skor, dan kemajuan supaya soal berikutnya sesuai kemampuan anak. Lalu lintas ke Kira melewati Cloudflare (Cloudflare Tunnel), termasuk pusat data di luar Indonesia. Wajib untuk memakai Kira.' },
       { title: 'Laporan mingguan lewat email', description: 'Mengirim ringkasan belajar seminggu sekali ke email orang tua.' },
@@ -44,7 +44,7 @@ export function privacyNoticeData(): PrivacyNoticeData {
       { data: 'Cadangan database', detail: 'Salinan seluruh data di atas', purpose: 'Pemulihan bila server rusak', basis: 'Kepentingan sah', retention: '48 cadangan per jam, 14 cadangan harian, dan 8 cadangan mingguan, paling lama 8 minggu' },
     ],
     recipients: [
-      { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server; dan Turnstile di halaman daftar dan masuk bila diaktifkan)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
+      { name: 'Cloudflare, Inc. (Cloudflare Tunnel, jalur HTTPS ke server; dan Turnstile di halaman daftar, masuk, dan bantuan bila diaktifkan)', data: 'Alamat IP dan metadata koneksi. Isi halaman dan jawaban ikut lewat saat diteruskan ke server, tanpa disimpan (Kira meminta Cloudflare tidak menyimpannya)', location: 'Pusat data Cloudflare di banyak negara, sebagian di luar Indonesia', abroad: true },
       { name: 'Anthropic PBC (Claude), hanya untuk keluarga bertutor yang menyetujui Bantuan AI. Tidak dipakai keluarga yang mendaftar sendiri selama beta publik', data: 'Teks soal, jawaban, dan foto jawaban tanpa nama atau identitas anak', location: 'Amerika Serikat', abroad: true },
       { name: 'Penyedia email yang diatur pengelola, bila laporan email disetujui atau Anda mengirim pesan bantuan', data: 'Email orang tua dan isi ringkasan mingguan; isi pesan bantuan beserta lampirannya', location: 'Mengikuti penyedia yang dipilih pengelola', abroad: true },
       { name: 'WhatsApp, hanya bila Anda sendiri memilih chat lewat WhatsApp di halaman Bantuan', data: 'Isi percakapan yang Anda tulis dan nomor Anda. Kira tidak mengirim data apa pun ke WhatsApp', location: 'Mengikuti kebijakan WhatsApp', abroad: true },
