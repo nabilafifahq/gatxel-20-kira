@@ -456,7 +456,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
           )}
         </footer>
         {sheetOpen ? (
-          <div className="fixed inset-x-0 bottom-0 z-30 lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-end lg:pb-6">
+          // Lembar yang lebih tinggi dari layar digulir di dalam dirinya: judul dan kunci tidak terpotong di HP.
+          <div className="fixed inset-x-0 bottom-0 z-30 max-h-svh overflow-y-auto overscroll-contain lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-h-full lg:self-end lg:pb-6">
             <FeedbackSheet
               key={`${item.ref}-${st.phase}`}
               kind={st.phase === 'correct' ? 'correct' : st.phase === 'not-yet' ? 'not-yet' : st.phase === 'revealed' ? 'revealed' : st.phase === 'answered' ? 'saved' : 'sent'}
