@@ -7,7 +7,7 @@ import { ConsoleIcon, Spinner, type ConsoleIconName } from './icons'
 
 /**
  * Tombol konsol (papan Button): M 48px, S 36px.
- * Varian: primary (Lilac), secondary (Lavender), quiet (garis bawah), danger (putih, garis merah).
+ * Varian: primary (Deep Grape, teks putih: konsol memakai teks di bawah 19 px), secondary (Lavender), quiet (garis bawah), danger (putih, garis merah).
  * Loading tetap bisa difokus dan memakai aria-busy; klik diabaikan selama memuat.
  */
 
@@ -31,7 +31,7 @@ const DANGER_TONE: Partial<Record<ButtonVariant, string>> = {
 }
 
 const VARIANT: Record<ButtonVariant, string> = {
-  primary: 'border-2 border-fg bg-lilac text-fg hover:text-fg ' + DISABLED,
+  primary: 'border-2 border-fg bg-fg text-white hover:text-white ' + DISABLED,
   secondary: 'border-2 border-fg bg-lavender text-fg hover:text-fg ' + DISABLED,
   quiet: 'border-0 bg-transparent font-bold text-fg hover:text-fg underline underline-offset-3 decoration-2 ' + DISABLED,
   danger: 'border-2 border-danger bg-surface text-danger hover:text-danger ' + DISABLED,

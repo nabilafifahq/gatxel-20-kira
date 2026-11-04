@@ -41,8 +41,11 @@ const VARIANT: Record<ButtonVariant, string> = {
 
 const ICON_SIZE: Record<ButtonSize, number> = { L: 20, M: 18, S: 16 }
 
+/** Teks di atas Lilac hanya 19 px tebal ke atas (kontras 3:1): ukuran M dan S memakai Deep Grape berteks putih. */
+const PRIMARY_SMALL = 'border-2 border-fg bg-fg text-white ' + DISABLED
+
 export function buttonClasses(variant: ButtonVariant = 'primary', size: ButtonSize = 'L', iconOnly = false, extra?: string): string {
-  return cx(BASE, iconOnly ? ICON_ONLY[size] : SIZE[size], VARIANT[variant], extra)
+  return cx(BASE, iconOnly ? ICON_ONLY[size] : SIZE[size], variant === 'primary' && size !== 'L' ? PRIMARY_SMALL : VARIANT[variant], extra)
 }
 
 type CommonProps = {
