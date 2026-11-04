@@ -6,6 +6,7 @@ import { jakartaDate } from '@kira/core/time'
 import type { AccessoryId } from '@kira/core'
 import type { AvatarName, MeActions, MeDTO } from '@/lib/dto'
 import { Button, ButtonLink } from '@/components/ui/Button'
+import { LangSwitch } from '@/components/learner/LangSwitch'
 import { cx } from '@/components/ui/cx'
 import { Dialog } from '@/components/ui/Dialog'
 import { ToastProvider, useToast } from '@/components/ui/Toast'
@@ -110,7 +111,7 @@ function AvatarDialog({
   )
 }
 
-function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; myWords: boolean }): ReactElement {
+function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: MeActions; myWords: boolean; langSwitch: boolean }): ReactElement {
   const t = useT()
   const lang = useLang()
   const toast = useToast()
@@ -206,6 +207,12 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
           <ButtonLink href={LEARNER_ROUTES.myWords} variant="secondary" size="M" icon="book">
             {t.shell.me.openMyWords}
           </ButtonLink>
+        </section>
+      ) : null}
+
+      {langSwitch ? (
+        <section className="rounded-card border border-divider bg-surface p-5 md:p-7">
+          <LangSwitch />
         </section>
       ) : null}
 
@@ -377,10 +384,10 @@ function MeBody({ data, actions, myWords }: { data: MeDTO; actions: MeActions; m
   )
 }
 
-export function MeScreen({ data, actions, myWords = false }: { data: MeDTO; actions: MeActions; myWords?: boolean }): ReactElement {
+export function MeScreen({ data, actions, myWords = false, langSwitch = false }: { data: MeDTO; actions: MeActions; myWords?: boolean; langSwitch?: boolean }): ReactElement {
   return (
     <ToastProvider area="learner">
-      <MeBody data={data} actions={actions} myWords={myWords} />
+      <MeBody data={data} actions={actions} myWords={myWords} langSwitch={langSwitch} />
     </ToastProvider>
   )
 }

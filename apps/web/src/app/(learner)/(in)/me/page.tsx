@@ -18,5 +18,5 @@ export default async function MePage() {
   )
   await inOrg(orgCtx(actor), (tx) => markBadgesSeen(tx, actor.userId))
   const myWords = await isFeatureOn(actor.userId, 'dictionary')
-  return <MeScreen myWords={myWords} data={data} actions={{ changeAvatar: changeAvatarAction, changeAccessory: changeAccessoryAction, equipChest: equipChestRewardAction }} />
+  return <MeScreen myWords={myWords} langSwitch={Boolean(actor.uiLangSwitch)} data={data} actions={{ changeAvatar: changeAvatarAction, changeAccessory: changeAccessoryAction, equipChest: equipChestRewardAction }} />
 }
