@@ -257,8 +257,10 @@ function Round({ session, onAgain }: { session: CardSessionDTO; onAgain: () => v
           </span>
         </button>
         <div className="flex flex-wrap gap-3">
-          {/* say adalah teks bacaan yang klipnya sudah dibuat. Dek pribadi memakai klip kata dari kamus. */}
-          <ReadAloudButton text={card.say ?? (flipped && backLang === 'en-GB' ? card.back : card.front)} {...(session.deck.personal ? { style: DICT_CLIP_STYLE } : {})} subject="english" showNote={false} />
+          {/* say memuat kata, arti, dan contoh, jadi baru diputar setelah kartu dibalik supaya jawaban tidak terdengar lebih dulu. Dek pribadi memakai klip kata dari kamus. */}
+          {flipped || session.deck.personal ? (
+            <ReadAloudButton text={card.say ?? (flipped && backLang === 'en-GB' ? card.back : card.front)} {...(session.deck.personal ? { style: DICT_CLIP_STYLE } : {})} subject="english" showNote={false} />
+          ) : null}
         </div>
         {flipped ? (
           <div className="flex flex-wrap gap-3">
