@@ -97,7 +97,10 @@ export function AuthGateway({
           <HeroPanel seats={seats} claim={claim} />
           <section aria-label="Akun Kira" className="flex justify-center px-4 pt-5 pb-8 md:items-center md:px-8 md:py-10">
             <div id="form-akun" className="flex w-full max-w-[420px] flex-col gap-5">
-              <ChildEntryLink />
+              {/* Saat mendaftar di HP, form orang tua tetap di layar pertama: pilihan anak turun ke bawah form. */}
+              <div className={mode === 'login' ? undefined : 'max-sm:order-last'}>
+                <ChildEntryLink />
+              </div>
               <SegmentedControl
                 semantic="tabs"
                 label="Daftar atau masuk"

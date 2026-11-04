@@ -355,7 +355,7 @@ function StepLogin({ state, pins, familyCode }: { state: OnboardingState; pins: 
       <ol className="m-0 flex list-none flex-col gap-3 rounded-card bg-surface p-5 shadow-soft">
         {[
           'Buka Kira di tablet atau HP anak, lewat browser atau aplikasi. Di iPhone dan iPad, pakai Safari.',
-          'Tekan Masuk sebagai anak, lalu ketik kode keluarga di atas.',
+          'Tekan Masuk, lalu Masuk sebagai anak, dan ketik kode keluarga di atas.',
           'Anak memilih namanya dan menekan PIN gambar. Perangkat itu tersimpan, jadi berikutnya anak tinggal memilih nama dan PIN.',
         ].map((t, i) => (
           <li key={t} className="flex items-start gap-3">

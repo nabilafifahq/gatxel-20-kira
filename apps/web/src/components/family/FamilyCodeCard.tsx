@@ -12,7 +12,7 @@ type Status = 'copied' | 'shared' | 'failed' | 'rotated' | null
 
 /** Pesan untuk anak atau pengasuh. Dipakai tombol Bagikan di sini dan di langkah Cara anak masuk. */
 export function familyCodeMessage(origin: string, code: string): string {
-  return `Cara masuk Kira untuk anak: buka ${origin} di browser (Safari di iPhone dan iPad), tekan Masuk sebagai anak, ketik kode keluarga ${formatFamilyCode(code)}, pilih nama, lalu tekan PIN gambar.`
+  return `Cara masuk Kira untuk anak: buka ${origin}/masuk/anak di browser (Safari di iPhone dan iPad), ketik kode keluarga ${formatFamilyCode(code)}, pilih nama, lalu tekan PIN gambar.`
 }
 
 /** Kode keluarga dengan tombol salin, bagikan, dan ganti. Untuk orang tua dan tutor. */
@@ -67,7 +67,7 @@ export function FamilyCodeCard({ code: initial }: { code: string | null }) {
       <p data-testid="family-code" className="m-0 font-numbers text-h1 font-bold tracking-widest break-all">
         {formatFamilyCode(code)}
       </p>
-      <p className="m-0 text-body">Anak bisa masuk sendiri di browser atau aplikasi: tekan Masuk sebagai anak, ketik kode ini, pilih nama, lalu tekan PIN gambar. Kode saja tidak cukup untuk membuka akun anak, karena PIN tetap diminta.</p>
+      <p className="m-0 text-body">Anak bisa masuk sendiri di browser atau aplikasi: tekan Masuk, lalu Masuk sebagai anak, ketik kode ini, pilih nama, lalu tekan PIN gambar. Kode saja tidak cukup untuk membuka akun anak, karena PIN tetap diminta.</p>
       <div className="grid gap-2 sm:grid-cols-3">
         <Button variant="secondary" className="h-12" onClick={copy}>
           Salin kode
