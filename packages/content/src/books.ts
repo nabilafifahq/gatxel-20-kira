@@ -80,11 +80,11 @@ export const WORDS_PER_PAGE: Record<number, number> = { 1: 24, 2: 38, 3: 56, 4: 
 /** Jumlah bab dan kata per bab yang diizinkan per kelas. */
 export const BOOK_RULES: Record<number, { chapters: [number, number]; words: [number, number] }> = {
   1: { chapters: [3, 4], words: [40, 150] },
-  2: { chapters: [3, 4], words: [90, 240] },
-  3: { chapters: [5, 6], words: [150, 340] },
-  4: { chapters: [5, 6], words: [210, 420] },
-  5: { chapters: [6, 8], words: [280, 540] },
-  6: { chapters: [6, 8], words: [340, 680] },
+  2: { chapters: [3, 4], words: [75, 240] },
+  3: { chapters: [5, 6], words: [90, 340] },
+  4: { chapters: [5, 6], words: [140, 420] },
+  5: { chapters: [6, 8], words: [190, 540] },
+  6: { chapters: [6, 8], words: [240, 680] },
 }
 
 export const MIN_BOOKS_PER_GRADE = 3
