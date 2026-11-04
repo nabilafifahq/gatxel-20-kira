@@ -133,7 +133,7 @@ export async function familyDelete(sql: postgres.Sql, emailRaw: string, confirmO
     }
     const media = await tx<{ path: string }[]>`select path from media where org_id = ${f.orgId} and path is not null`
     const users = await tx<{ id: string }[]>`select id from auth.user_account where org_id = ${f.orgId}`
-    for (const table of tables) await tx.unsafe(`delete from ${table} where org_id = $1`, [f.orgId])
+    for (const table of tables) await tx`delete from ${tx(table)} where org_id = ${f.orgId}`
     await tx`delete from auth.webauthn_challenge where user_id = any(${users.map((u) => u.id)}::uuid[])`
     await tx`delete from auth.device where org_id = ${f.orgId}`
     await tx`delete from auth.invite where org_id = ${f.orgId}`

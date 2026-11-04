@@ -23,6 +23,8 @@ export default defineConfig([
     '**/out/',
     '**/coverage/',
     '**/test-results/',
+    // Skrip QA manual sekali jalan (browser lepas, bukan bagian CI atau build).
+    'e2e/qa-rapih/',
     '**/playwright-report/',
     '.kira-local/',
     'apps/android/',

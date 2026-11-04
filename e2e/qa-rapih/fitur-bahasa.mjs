@@ -55,7 +55,7 @@ try {
         const text = (await page.locator('main').first().innerText().catch(() => page.locator('body').innerText())).replace(/\s+/g, ' ')
         if (/tutor/i.test(text)) log(false, `${lang} ${s} ${tag}: menyebut tutor`, (text.match(/.{0,50}tutor.{0,50}/i) ?? [''])[0])
         if (/illustrative|mock|dummy|unlock/i.test(text)) log(false, `${lang} ${s} ${tag}: kata terlarang`, (text.match(/.{0,50}(illustrative|mock|dummy|unlock).{0,50}/i) ?? [''])[0])
-        if (/[–—]/.test(text)) log(false, `${lang} ${s} ${tag}: tanda pisah`, (text.match(/.{0,40}[–—].{0,40}/) ?? [''])[0])
+        if (/[\u2013\u2014]/.test(text)) log(false, `${lang} ${s} ${tag}: tanda pisah`, (text.match(/.{0,40}[\u2013\u2014].{0,40}/) ?? [''])[0])
         const small = await page.evaluate(() => [...document.querySelectorAll('main a, main button')].filter((el) => {
           const r = el.getBoundingClientRect()
           return r.width > 0 && r.height > 0 && (r.height < 44 || r.width < 44) && !el.closest('p') && !el.closest('footer')

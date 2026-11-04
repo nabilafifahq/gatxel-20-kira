@@ -152,10 +152,12 @@ export async function newTabletContext(context: BrowserContext): Promise<Page> {
 }
 
 /**
- * Status yang benar untuk /api/internal/*: lewat proxy Caddy (stack Compose) rute ini ditutup dengan 404 persis; langsung ke
- * Next (tanpa proxy) rute ada tetapi menolak tanpa token yang benar dengan 401, atau 503 bila token server belum diatur.
+ * Jawaban yang benar untuk /api/internal/* tanpa token yang sah. Lewat proxy Caddy (stack Compose) rute ini ditutup dengan
+ * 404 kosong (tanpa isi dan tanpa content-type, bukan halaman 404 milik Next); langsung ke Next rute ada dan menolak dengan
+ * 401, atau 503 bila token server belum diatur. Status lain, misalnya 200, 400 atau 500, berarti ada yang terbuka.
  */
-export async function internalStatuses(request: { get(url: string): Promise<{ headers(): Record<string, string> }> }): Promise<number[]> {
-  const server = (await request.get('/api/health')).headers()['server'] ?? ''
-  return /caddy/i.test(server) ? [404] : [401, 503]
+export async function internalClosed(res: { status(): number; text(): Promise<string>; headers(): Record<string, string> }): Promise<boolean> {
+  const status = res.status()
+  if (status === 404) return (await res.text()).length === 0 && !res.headers()['content-type']
+  return status === 401 || status === 503
 }
