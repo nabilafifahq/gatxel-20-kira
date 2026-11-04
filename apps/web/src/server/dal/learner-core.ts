@@ -191,6 +191,8 @@ export async function applyOutcome(
 ): Promise<number> {
   const { learner, item } = input
   if (input.attemptNo === 1 && !input.retry) {
+    // Jawaban paralel pada skill yang sama (dua tab, sinkron offline bersamaan) tidak boleh saling menimpa theta dan kartu koreksi.
+    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${`kira-skill:${learner.userId}:${item.skill}`}))`)
     const rows = await tx
       .select()
       .from(skillState)
