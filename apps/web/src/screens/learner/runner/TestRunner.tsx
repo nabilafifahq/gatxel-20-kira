@@ -169,7 +169,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
 
   // Setelah kumpul manual berhasil, langsung ke halaman hasil.
   useEffect(() => {
-    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.push(submit.redirectTo)
+    if (submit.state === 'done' && phase !== 'timeup' && submit.redirectTo) router.replace(submit.redirectTo)
   }, [submit, phase, router])
 
   if (!item || !cur) {
@@ -424,7 +424,7 @@ export function TestRunner({ data, actions, onUpload }: { data: RunnerDTO; actio
             <Button
               iconAfter="arrow-right"
               loading={submit.state === 'busy'}
-              onClick={() => submit.redirectTo && router.push(submit.redirectTo)}
+              onClick={() => submit.redirectTo && router.replace(submit.redirectTo)}
               data-autofocus
             >
               See my score

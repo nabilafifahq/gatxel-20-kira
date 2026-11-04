@@ -277,7 +277,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     try {
       const res = await actions.submitAttempt(data.attemptId, submitClientId.current)
       if (res.ok) {
-        router.push(res.data.redirectTo || data.doneHref)
+        // replace: tombol kembali tidak membuka lagi runner yang sudah dikumpulkan.
+        router.replace(res.data.redirectTo || data.doneHref)
         return
       }
       setSubmit({ state: 'error', message: res.message, reference: res.reference })
