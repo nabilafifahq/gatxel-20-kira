@@ -1,5 +1,5 @@
 import { isDerivedSolution } from './walkthrough'
-import { clipTextsOf, isClipText, speakableParts, splitClipText, styleForPassageKind, styleForSkill, type SpeakableFields, type TtsClipRequest } from '@kira/core/tts'
+import { clipTextsOf, isClipText, passageClipPlan, speakableParts, splitClipText, styleForSkill, type SpeakableFields, type TtsClipRequest } from '@kira/core/tts'
 import { listenTextOf } from './present'
 import type { Item, Lesson, Passage } from './schema'
 
@@ -75,10 +75,13 @@ export function lessonSpeechClips(lesson: Lesson): TtsClipRequest[] {
   return out
 }
 
+/**
+ * Bacaan dibawakan satu suara utama. Aturan suara kedua: hanya dialog yang secara tegas punya dua pembicara berlabel
+ * (`Nama: kalimat`) yang memakai suara kedua untuk pembicara kedua (lihat dialogueTurns di packages/core/src/tts.ts).
+ */
 export function passageSpeechClips(p: Pick<Passage, 'kind' | 'text' | 'lang'>): TtsClipRequest[] {
   if (p.lang !== 'en-GB') return []
-  const style = styleForPassageKind(p.kind)
-  return splitClipText(p.text).filter(isClipText).map((text) => ({ text, style }))
+  return passageClipPlan(p.kind, p.text)
 }
 
 /** Kata Spelling Bee: kata dan kalimat contohnya, keduanya dengan suara dikte. */

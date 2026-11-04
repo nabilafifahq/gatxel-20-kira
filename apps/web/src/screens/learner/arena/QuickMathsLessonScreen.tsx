@@ -7,9 +7,13 @@ import { Button, ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { LearnerFrame } from '@/components/learner/LearnerHeader'
 import { ActionError } from '@/screens/learner/common'
+import { useT } from '@/lib/i18n/client'
 
 /** Pelajaran strategi singkat: tiga kartu, lalu lima soal latihan yang diperiksa server. */
 export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; actions: Pick<QmActions, 'start'> }): ReactElement {
+  const dict = useT()
+  const qm = dict.arena.qm
+  const t = qm.lesson
   const router = useRouter()
   const [step, setStep] = useState(0)
   const [busy, setBusy] = useState(false)
@@ -38,7 +42,7 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
       if (res.ok) router.push(res.data.redirectTo)
       else setError({ message: res.message, reference: res.reference })
     } catch {
-      setError({ message: 'The practice could not start. Check the internet and try again.', reference: 'KRA-QM-NET' })
+      setError({ message: dict.arena.errors.practiceNet, reference: 'KRA-QM-NET' })
     } finally {
       setBusy(false)
     }
@@ -46,26 +50,26 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
 
   return (
     <LearnerFrame shell={data.shell} current="quick-maths" className="flex flex-col gap-5">
-      <nav aria-label="Breadcrumb">
+      <nav aria-label={dict.arena.breadcrumb}>
         <ButtonLink href={data.backHref} variant="quiet" size="M" icon="arrow-left">
-          Quick Maths
+          {qm.title}
         </ButtonLink>
       </nav>
       <header className="flex flex-col gap-1">
         <h1 className="m-0 text-h1 font-bold">{data.title}</h1>
         <p className="m-0 text-body-lg text-fg-muted">{data.summary}</p>
-        {data.done ? <p className="m-0 text-body font-bold text-success">You have finished this lesson.</p> : null}
+        {data.done ? <p className="m-0 text-body font-bold text-success">{t.finished}</p> : null}
       </header>
 
       {card ? (
-        <section aria-label={`Step ${step + 1} of ${data.cards.length}`} className="flex max-w-[720px] flex-col gap-4 rounded-card bg-surface shadow-soft p-6">
+        <section aria-label={t.stepOf(step + 1, data.cards.length)} className="flex max-w-[720px] flex-col gap-4 rounded-card bg-surface shadow-soft p-6">
           <p className="m-0 text-body font-bold text-fg">
-            Step {step + 1} of {data.cards.length}
+            {t.stepOf(step + 1, data.cards.length)}
           </p>
-          <h2 className="m-0 text-h2 font-bold">{card.title}</h2>
-          <p className="text-question m-0">{card.text}</p>
+          <h2 lang="en-GB" className="m-0 text-h2 font-bold">{card.title}</h2>
+          <p lang="en-GB" className="text-question m-0">{card.text}</p>
           {card.example ? (
-            <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+            <ul lang="en-GB" className="m-0 flex list-none flex-wrap gap-2 p-0">
               {card.example.map((e) => (
                 <li key={e} className="rounded-control border-2 border-fg bg-mental-50 px-4 py-2 font-numbers text-h2 font-semibold tabular-nums">
                   {e}
@@ -81,16 +85,16 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
           <div className="flex flex-wrap gap-3">
             {step > 0 ? (
               <Button variant="secondary" icon="arrow-left" onClick={() => setStep(step - 1)}>
-                Back
+                {dict.common.back}
               </Button>
             ) : null}
             {!last ? (
               <Button iconAfter="arrow-right" onClick={() => setStep(step + 1)}>
-                Next
+                {dict.common.next}
               </Button>
             ) : (
               <Button iconAfter="arrow-right" loading={busy} onClick={() => void tryIt()}>
-                Try it: 5 questions
+                {t.tryIt}
               </Button>
             )}
           </div>
@@ -100,7 +104,7 @@ export function QuickMathsLessonScreen({ data, actions }: { data: QmLessonDTO; a
 
       {data.nextHref ? (
         <ButtonLink href={data.nextHref} variant="quiet" size="M" iconAfter="arrow-right" className="self-start">
-          Next lesson
+          {t.next}
         </ButtonLink>
       ) : null}
     </LearnerFrame>

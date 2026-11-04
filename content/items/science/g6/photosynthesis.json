@@ -1172,14 +1172,14 @@
       "options": [
         {
           "text": "All plants die in the dark within 14 days.",
-          "why": "Plant 3 is alive and 3 cm tall. The data do not show it died."
+          "why": "Plant 3 is alive and has 1 new leaf. The data do not show it died."
         },
         {
-          "text": "Beans always grow taller than other plants.",
+          "text": "Beans always grow more leaves than other plants.",
           "why": "No other plants were tested."
         },
         {
-          "text": "In this test, the plants with more light grew taller."
+          "text": "In this test, the plants with more light grew more new leaves."
         },
         {
           "text": "Plants do not need water.",
@@ -1190,34 +1190,34 @@
       "hints": [
         "Look at which variable was changed.",
         "Only use what the data show.",
-        "Compare height with the amount of light."
+        "Compare the new leaves with the amount of light."
       ],
-      "explanation": "Height went up as light went up: 3 cm, 9 cm, 18 cm. The test did not look at water or other plants.",
+      "explanation": "New leaves went up as light went up: 1, 5, 8. The test did not look at water or other plants.",
       "figure": {
         "kind": "table",
         "head": [
           "Plant",
           "Light",
-          "Height (cm)"
+          "New leaves"
         ],
         "rows": [
           [
             "1",
             "Full sun",
-            "18"
+            "8"
           ],
           [
             "2",
             "Shade",
-            "9"
+            "5"
           ],
           [
             "3",
             "Dark",
-            "3"
+            "1"
           ]
         ],
-        "alt": "Table: plant 1 in full sun is 18 cm, plant 2 in shade is 9 cm, plant 3 in the dark is 3 cm tall."
+        "alt": "Table: plant 1 in full sun has 8 new leaves, plant 2 in shade has 5 and plant 3 in the dark has 1."
       }
     },
     {

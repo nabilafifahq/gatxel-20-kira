@@ -22,7 +22,7 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 
 ## Peta repo
 
-- `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (en-GB), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4. Komponen layar ada di `src/screens`, menerima DTO dari `src/lib/dto.ts`.
+- `apps/web`: Next.js App Router. `src/server/dal` satu-satunya tempat query database. `src/app/(learner)` layar anak (Indonesia dan Inggris, per anak), `src/app/(console)` konsol tutor (id), `src/app/(family)` halaman orang tua (id), `src/app/cetak` halaman cetak A4. Komponen layar ada di `src/screens`, menerima DTO dari `src/lib/dto.ts`.
 - `apps/worker`: proses Node untuk job AI (Claude Code CLI atau endpoint OpenAI-compatible), impor PDF, email, laporan mingguan, retensi, dan penghapusan akun. Cadangan database dijalankan layanan `backup` di Docker Compose.
 - `apps/android`: aplikasi tablet Kotlin (WebView ke https://kira.gatxel.com, jembatan suara `KiraNative`), APK dibangun di GitHub Actions. Lihat `docs/android.md`.
 - `packages/core`: mesin belajar murni (theta, pemilih soal, FSRS, gerbang, XP, level, streak, skor preset lomba, waktu Asia/Jakarta).
@@ -39,7 +39,7 @@ Website belajar Math, English, dan Science untuk anak SD kelas 1 sampai 6 (Cambr
 4. Kunci jawaban mode Tes, Simulasi, dan Kertas tidak pernah dikirim ke client sebelum attempt dikumpulkan. Skor selalu dihitung ulang di server.
 5. Route group `(learner)` tidak memuat skrip pihak ketiga, iframe, font dari luar, atau tautan keluar.
 6. Tidak ada rahasia dengan awalan `NEXT_PUBLIC_`. Modul yang memegang rahasia mengimpor `server-only`.
-7. Bahasa per area tetap: layar learner en-GB, konsol tutor, halaman orang tua, dan halaman publik id. Teks ditulis langsung di komponen layar area itu.
+7. Bahasa per area: konsol tutor, halaman orang tua, dan halaman publik id, teks ditulis langsung di komponen. Layar learner mengikuti `ui_lang` anak (id atau en) lewat kamus bertipe `apps/web/src/lib/i18n/dict`; cara menambah teks ada di `dict/index.ts`. Isi soal dan pelajaran tidak diterjemahkan, dan hanya isi berbahasa Inggris yang dibacakan suara.
 8. Warna, font, radius, dan easing hanya dari token DESIGN.md lewat kelas Tailwind (`bg-surface`, `text-fg-muted`, `rounded-card`, `font-reading`). Nilai arbitrer Tailwind hanya untuk ukuran tata letak, tidak pernah untuk warna atau font. Hex hanya ada di `globals.css` dan `packages/figures/src/palette.ts`.
 9. Tanggal belajar dihitung di Asia/Jakarta lewat `@kira/core/time`.
 10. Data contoh ditandai `__GTX_SEED__` dan tidak pernah masuk ke database produksi.

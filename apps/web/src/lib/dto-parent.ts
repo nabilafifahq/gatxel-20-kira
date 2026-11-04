@@ -1,7 +1,8 @@
 import type { FeatureMap } from '@kira/core/features'
-import type { AvatarName, DayPresetId, DayRulesDTO, Subject, WeekSummaryDTO } from './dto'
+import type { AvatarName, DayPresetId, DayRulesDTO, PlanChangeResult, Subject, WeekSummaryDTO } from './dto'
 import type { ArenaTutorDTO, XpTrackDTO } from './dto-arena'
 import type { ParentPlacementDTO } from './dto-placement'
+import type { UiLang } from './i18n/lang'
 
 /**
  * Dashboard orang tua (/keluarga). Teks untuk orang tua dalam bahasa Indonesia. Semua data dibaca lewat
@@ -62,7 +63,30 @@ export type ParentSessionDTO = {
   attemptId: string | null
   /** Hasil per soal tersedia setelah dikumpulkan. */
   resultHref: string | null
+  /** Pelajaran sesi ini: nama Indonesia dan nama English yang dilihat anak. Kosong untuk Paper dan sesi tanpa skill. */
+  skill: { title: string; titleEn: string } | null
+  /** Judul isi sesi tanpa skill, misalnya nama paper. */
+  contentTitle: string | null
+  /** Tombol Ganti pelajaran ditampilkan. */
+  canChangeSkill: boolean
+  /** Pesan bila pelajaran tidak bisa diganti langsung: sesi selesai, atau sedang dikerjakan. */
+  skillNote: string | null
 }
+
+/** Pilihan untuk Ganti pelajaran satu sesi, dikelompokkan per topik. */
+export type ParentSkillOptionsDTO = {
+  questId: string
+  /** Sesi yang dipilih, misalnya "Latihan Math". */
+  label: string
+  /** Pesan bila sesi ini sedang dikerjakan. */
+  note: string | null
+  /** Sesi yang akan berganti pelajaran, misalnya "Latihan Math dan Tes Math". */
+  appliesTo: string
+  currentSkillId: string | null
+  topics: { id: string; label: string; skills: { id: string; title: string; titleEn: string }[] }[]
+}
+
+export type ParentSkillChangeResult = { change: PlanChangeResult; note: string }
 
 export type ParentSkillDTO = { id: string; title: string; stars: number; mastery: number; state: 'baru' | 'diulang' | 'ditinjau' | 'dikuasai'; answered: number }
 
@@ -98,6 +122,8 @@ export type ParentChildDTO = {
     screenLimitMin: number
     restWeekdays: number[]
     soundEnabled: boolean
+    uiLang: UiLang
+    uiLangSwitch: boolean
     musicEnabled: boolean
     dayPreset: DayPresetId
     features: FeatureMap

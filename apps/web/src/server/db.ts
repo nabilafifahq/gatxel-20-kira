@@ -12,8 +12,9 @@ const g = globalThis as unknown as { __kiraPools?: Pools }
 
 function pools(): Pools {
   if (g.__kiraPools) return g.__kiraPools
-  const app = createDb(env().DATABASE_URL_APP, { name: 'app', max: 15 })
-  const auth = createDb(env().DATABASE_URL_AUTH, { name: 'auth', max: 8 })
+  // Ukuran pool per replika (KIRA_POOL_APP, KIRA_POOL_AUTH). Total sambungan ke PgBouncer = replika x ukuran pool.
+  const app = createDb(env().DATABASE_URL_APP, { name: 'app', max: env().KIRA_POOL_APP })
+  const auth = createDb(env().DATABASE_URL_AUTH, { name: 'auth', max: env().KIRA_POOL_AUTH })
   g.__kiraPools = {
     app: app.db,
     auth: auth.db,

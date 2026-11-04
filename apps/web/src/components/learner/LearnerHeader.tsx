@@ -1,3 +1,5 @@
+'use client'
+
 import { KiraLogo } from '@/components/ui/KiraStar'
 import Link from 'next/link'
 import type { ReactElement, ReactNode } from 'react'
@@ -5,6 +7,9 @@ import { Avatar } from '@kira/figures'
 import type { AvatarName, LearnerShell } from '@/lib/dto'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
+import { dictFor, type Dict, type UiLang } from '@/lib/i18n'
+import { useLang, useT } from '@/lib/i18n/client'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import { MoreNav } from './MoreNav'
 import { effectiveOn, type FeatureKey } from '@kira/core/features'
 import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
@@ -19,19 +24,19 @@ import { LEARNER_ROUTES, type LearnerNavKey } from './routes'
  * Delapan tujuan utama. Rel tablet menampilkan semuanya. Bar bawah di HP hanya memuat PHONE_PRIMARY;
  * sisanya ada di lembar "More" (MoreNav).
  */
-const NAV: { key: LearnerNavKey; label: string; icon: UiIconName; href: string; features?: FeatureKey[] }[] = [
-  { key: 'today', label: 'Today', icon: 'sun', href: LEARNER_ROUTES.today },
-  { key: 'map', label: 'Map', icon: 'map', href: LEARNER_ROUTES.map },
-  { key: 'review', label: 'Review', icon: 'cards', href: LEARNER_ROUTES.review },
-  { key: 'competitions', label: 'Competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
-  { key: 'practice', label: 'Practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
-  { key: 'reading', label: 'Reading Room', icon: 'book', href: LEARNER_ROUTES.reading, features: ['reading-room'] },
-  { key: 'english', label: 'English Skills', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
-  { key: 'quick-maths', label: 'Quick Maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
-  { key: 'quiz-arena', label: 'Quiz Arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
-  { key: 'tools', label: 'Maths Tools', icon: 'pencil', href: LEARNER_ROUTES.tools, features: ['manipulatives'] },
-  { key: 'world', label: 'Kira World', icon: 'star', href: LEARNER_ROUTES.world, features: ['kira-world'] },
-  { key: 'me', label: 'Me', icon: 'person', href: LEARNER_ROUTES.me },
+const NAV: { key: LearnerNavKey; icon: UiIconName; href: string; features?: FeatureKey[] }[] = [
+  { key: 'today', icon: 'sun', href: LEARNER_ROUTES.today },
+  { key: 'map', icon: 'map', href: LEARNER_ROUTES.map },
+  { key: 'review', icon: 'cards', href: LEARNER_ROUTES.review },
+  { key: 'competitions', icon: 'trophy', href: LEARNER_ROUTES.competitions, features: ['olympiad-math', 'olympiad-english', 'olympiad-science'] },
+  { key: 'practice', icon: 'pencil', href: LEARNER_ROUTES.practice },
+  { key: 'reading', icon: 'book', href: LEARNER_ROUTES.reading, features: ['reading-room'] },
+  { key: 'english', icon: 'speaker', href: LEARNER_ROUTES.english, features: ['english-skills'] },
+  { key: 'quick-maths', icon: 'bolt', href: LEARNER_ROUTES.quickMaths, features: ['mental-math'] },
+  { key: 'quiz-arena', icon: 'globe', href: LEARNER_ROUTES.quizArena, features: ['quiz-arena'] },
+  { key: 'tools', icon: 'pencil', href: LEARNER_ROUTES.tools, features: ['manipulatives'] },
+  { key: 'world', icon: 'star', href: LEARNER_ROUTES.world, features: ['kira-world'] },
+  { key: 'me', icon: 'person', href: LEARNER_ROUTES.me },
 ]
 
 const AVATAR_WORD: Record<AvatarName, string> = {
@@ -45,38 +50,42 @@ const AVATAR_WORD: Record<AvatarName, string> = {
   frog: 'Frog',
 }
 
-export function avatarLabel(avatar: AvatarName): string {
-  return `${AVATAR_WORD[avatar]} avatar`
+export function avatarLabel(avatar: AvatarName, lang: UiLang = 'en'): string {
+  return dictFor(lang).shell.avatarLabel(AVATAR_WORD[avatar])
 }
 
 /** Tujuan yang selalu terlihat di bar bawah HP. Review hanya bila learner memakainya. */
 const PHONE_PRIMARY: readonly LearnerNavKey[] = ['today', 'map', 'review', 'me']
 
-function navItems(shell: LearnerShell) {
-  return NAV.filter((n) => (n.key !== 'review' || shell.showReview) && (!n.features || n.features.some((f) => effectiveOn(shell.features ?? {}, f))))
+function navItems(shell: LearnerShell, t: Dict) {
+  return NAV.filter((n) => (n.key !== 'review' || shell.showReview) && (!n.features || n.features.some((f) => effectiveOn(shell.features ?? {}, f)))).map((n) => ({ ...n, label: t.shell.nav[n.key] }))
 }
 
 function ReviewCount({ shell }: { shell: LearnerShell }): ReactElement | null {
+  const t = useT()
   if (shell.dueReviewCount <= 0) return null
   return (
     <span className="absolute -top-2 -right-2 inline-flex h-6 min-w-6 items-center justify-center rounded-pill bg-fg px-1.5 text-small font-bold text-white tabular-nums">
       {shell.dueReviewCount}
-      <span className="visually-hidden"> cards today</span>
+      <span className="visually-hidden">{t.shell.navUi.cardsToday}</span>
     </span>
   )
 }
 
 export function LearnerNav({ shell, current }: { shell: LearnerShell; current: LearnerNavKey | null }): ReactElement {
-  const items = navItems(shell)
+  const t = useT()
+  const items = navItems(shell, t)
   const phone = items.filter((n) => PHONE_PRIMARY.includes(n.key))
   const more = items.filter((n) => !PHONE_PRIMARY.includes(n.key))
   return (
     <>
       <nav
-        aria-label="Main"
+        aria-label={t.shell.navUi.main}
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <KiraLogo size={36} stacked className="mb-3" />
+        <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
+          <KiraLogo size={36} stacked />
+        </Link>
         {items.map((n) => {
           const on = n.key === current
           return (
@@ -97,8 +106,8 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         })}
       </nav>
       <nav
-        aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-30 flex h-19 gap-2 rounded-t-xl bg-surface px-4 py-1.5 shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
+        aria-label={t.shell.navUi.main}
+        className="fixed inset-x-0 bottom-0 z-30 flex h-[calc(76px+var(--safe-bottom))] gap-2 rounded-t-xl bg-surface px-4 pt-1.5 pb-[calc(6px+var(--safe-bottom))] shadow-[0_-4px_16px_rgb(101_70_165/0.1)] md:hidden"
       >
         {phone.map((n) => {
           const on = n.key === current
@@ -108,12 +117,12 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
               href={n.href}
               aria-current={on ? 'page' : undefined}
               className={cx(
-                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 no-underline',
+                'relative flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-control border-2 px-0.5 text-center text-body leading-5 whitespace-nowrap no-underline',
                 on ? 'border-fg bg-lavender font-extrabold text-fg' : 'border-transparent font-bold text-fg',
               )}
             >
               <UiIcon name={n.icon} size={24} />
-              {n.label}
+              {t.shell.navPhone[n.key] ?? n.label}
               {n.key === 'review' ? <ReviewCount shell={shell} /> : null}
             </Link>
           )
@@ -139,7 +148,15 @@ export function LearnerFrame({
   return (
     <div data-jenjang={shell.jenjang} className="min-h-svh bg-bg text-fg md:flex">
       <LearnerNav shell={shell} current={current} />
-      <main className={cx('min-w-0 flex-1 px-4 pt-5 pb-28 md:px-10 md:pt-8 md:pb-8 md:pl-8', className)}>{children}</main>
+      <div className="flex min-h-svh min-w-0 flex-1 flex-col pb-[calc(76px+var(--safe-bottom))] md:pb-0">
+        <div className="pt-safe border-b border-divider bg-surface md:hidden">
+          <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
+            <KiraLogo size={28} />
+          </Link>
+        </div>
+        <main className={cx('min-w-0 flex-1 px-4 pt-5 pb-8 md:px-10 md:pt-8 md:pl-8', className)}>{children}</main>
+        <SiteFooter area="learner" />
+      </div>
     </div>
   )
 }
@@ -161,14 +178,16 @@ export function LearnerHeader({
   avatarSize?: number
   className?: string
 }): ReactElement {
+  const t = useT()
+  const lang = useLang()
   return (
     <header className={cx('flex flex-wrap items-center justify-between gap-x-6 gap-y-4', className)}>
       <div className="flex min-w-0 items-center gap-3 md:gap-4">
         <span className="kira-mascot flex-none">
-          <Avatar name={shell.avatar} accessory={shell.accessory ?? null} background={shell.background ?? null} size={avatarSize} title={avatarLabel(shell.avatar)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
+          <Avatar name={shell.avatar} accessory={shell.accessory ?? null} background={shell.background ?? null} size={avatarSize} title={avatarLabel(shell.avatar, lang)} className="h-12 w-12 flex-none md:h-auto md:w-auto" />
         </span>
         <div className="flex min-w-0 flex-col">
-          <h1 className="m-0 text-h1 font-bold break-words">{title ?? `Hi, ${shell.name}`}</h1>
+          <h1 className="m-0 text-h1 font-bold break-words">{title ?? t.shell.hi(shell.name)}</h1>
           {subline ? <p className="m-0 text-body-lg text-fg-muted">{subline}</p> : null}
         </div>
       </div>

@@ -1,19 +1,22 @@
+'use client'
+
 import Link from 'next/link'
+import { SiteFooter } from '@/components/ui/SiteFooter'
 import type { ReactElement } from 'react'
-import type { ResultQuestion, ResultsDTO } from '@/lib/dto'
+import type { ResultsDTO } from '@/lib/dto'
 import { ButtonLink, IconLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon } from '@/components/ui/icons'
 import { TryAgainButton } from '@/components/runtime/TryAgainButton'
 import { BadgeMedal } from '@/components/learner/BadgeTile'
-import { minutesSeconds, plural } from '@/components/learner/format'
+import { minutesSeconds } from '@/components/learner/format'
 import { WorldGain } from '@/components/learner/world/WorldGain'
 import { SessionCelebration } from '@/components/learner/SessionCelebration'
 import { BadgeReveal } from '@/components/learner/BadgeReveal'
 import { CountUp } from '@/components/learner/CountUp'
 import { SubjectChip } from '@/components/learner/SubjectChip'
-import { SUBJECT_NAME } from '@/components/learner/subject'
 import { XpPill } from '@/components/learner/XpPill'
+import { useT } from '@/lib/i18n/client'
 
 /**
  * L07 Hasil dan L17 Hasil ESMO (papan Hasil, HasilPenuh, HasilRendah, HasilEsmo,
@@ -26,14 +29,8 @@ function questionHref(reviewHref: string, position: number): string {
   return `${reviewHref}${reviewHref.includes('?') ? '&' : '?'}q=${position}`
 }
 
-const MARK_WORD: Record<ResultQuestion['status'], string> = {
-  correct: 'correct',
-  wrong: 'not yet',
-  blank: 'no answer',
-  pending: 'waiting to be looked at',
-}
-
 function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {
+  const tr = useT().runner.results
   const many = data.questions.length > 20
   return (
     <ol className={cx('m-0 grid list-none gap-3 p-0', many ? 'grid-cols-5 sm:grid-cols-8' : 'grid-cols-5')}>
@@ -44,7 +41,7 @@ function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {
           <li key={q.position} className="flex">
             <Link
               href={questionHref(data.reviewHref, q.position)}
-              aria-label={`Question ${q.position}, ${MARK_WORD[q.status]}. See the steps.`}
+              aria-label={tr.questionMark(q.position, tr.marks[q.status])}
               className={cx(
                 'flex w-full items-center justify-center gap-1.5 rounded-control text-h3 font-bold tabular-nums no-underline transition-transform duration-150 ease-kira active:scale-97',
                 many ? 'h-14' : 'h-16',
@@ -65,15 +62,16 @@ function QuestionMarks({ data }: { data: ResultsDTO }): ReactElement {
 }
 
 function TopicRows({ data }: { data: ResultsDTO }): ReactElement {
+  const tr = useT().runner.results
   return (
     <ul className="m-0 flex list-none flex-col p-0">
       {data.byTopic.map((t) => (
         <li
           key={t.label}
-          aria-label={`${t.label}, ${t.right} of ${t.total} right`}
+          aria-label={tr.topicAria(t.label, t.right, t.total)}
           className="grid min-h-13.5 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 border-b border-divider py-2 sm:grid-cols-[176px_minmax(0,1fr)_72px]"
         >
-          <span className="text-body-lg font-bold">{t.label}</span>
+          <span lang="en-GB" className="text-body-lg font-bold">{t.label}</span>
           <span aria-hidden="true" className="col-span-2 row-start-2 flex flex-wrap gap-1 sm:col-span-1 sm:row-start-auto">
             {Array.from({ length: t.total }, (_, k) =>
               k < t.right ? (
@@ -85,9 +83,7 @@ function TopicRows({ data }: { data: ResultsDTO }): ReactElement {
               ),
             )}
           </span>
-          <span className="text-right text-body-lg font-bold tabular-nums">
-            {t.right} of {t.total}
-          </span>
+          <span className="text-right text-body-lg font-bold tabular-nums">{tr.ofTotal(t.right, t.total)}</span>
         </li>
       ))}
     </ul>
@@ -95,12 +91,13 @@ function TopicRows({ data }: { data: ResultsDTO }): ReactElement {
 }
 
 function ScaledBar({ value, target }: { value: number; target: number }): ReactElement {
+  const tr = useT().runner.results
   const v = Math.max(0, Math.min(100, value))
   const t = Math.max(0, Math.min(100, target))
   return (
-    <div role="img" aria-label={`Score ${v} out of 100. Target ${t}.`} className="relative pt-8">
+    <div role="img" aria-label={tr.scaledAria(v, t)} className="relative pt-8">
       <span className="absolute top-0 -translate-x-1/2 text-body font-bold whitespace-nowrap" style={{ left: `${t}%` }}>
-        Target {t}
+        {tr.target(t)}
       </span>
       <div className="flex h-6 overflow-hidden rounded-control bg-divider">
         <div className="bg-math" style={{ width: `${v}%` }} />
@@ -124,31 +121,34 @@ function NoteBox({ children }: { children: string }): ReactElement {
 }
 
 export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
+  const dict = useT()
+  const tr = dict.runner.results
   const esmo = data.scaled !== null
   const badge = data.newBadges[0] ?? null
-  const weakLabel = data.tone === 'full' ? 'Next step' : 'Needs practice'
+  const badgeText = badge ? dict.shell.badges[badge.id] : undefined
+  const weakLabel = data.tone === 'full' ? tr.nextStep : tr.needsPractice
   const usedMin = Math.round(data.timeUsedSec / 60)
   const limitMin = data.timeLimitSec ? Math.round(data.timeLimitSec / 60) : null
   const timeLine = esmo ? (
     <>
       <span className="font-numbers text-h1 font-semibold tabular-nums">{usedMin}</span>
-      <span className="text-body font-semibold">{limitMin ? `of ${limitMin} minutes` : usedMin === 1 ? 'minute' : 'minutes'}</span>
+      <span className="text-body font-semibold">{limitMin ? tr.ofMinutes(limitMin) : tr.minutesWord(usedMin)}</span>
     </>
   ) : (
     <>
       <span className="font-numbers text-h1 font-semibold tabular-nums">{minutesSeconds(data.timeUsedSec)}</span>
-      <span className="text-body font-semibold">{data.timeLimitSec ? `of ${minutesSeconds(data.timeLimitSec)}` : 'time used'}</span>
+      <span className="text-body font-semibold">{data.timeLimitSec ? tr.ofTime(minutesSeconds(data.timeLimitSec)) : tr.timeUsed}</span>
     </>
   )
   const timeAria = esmo
-    ? `${plural(usedMin, 'minute', 'minutes')} used${limitMin ? ` of ${limitMin}` : ''}`
-    : `Time used ${minutesSeconds(data.timeUsedSec)}${data.timeLimitSec ? ` of ${minutesSeconds(data.timeLimitSec)}` : ''}`
+    ? limitMin ? tr.minutesUsedOf(usedMin, limitMin) : tr.minutesUsed(usedMin)
+    : data.timeLimitSec ? tr.timeUsedOfAria(minutesSeconds(data.timeUsedSec), minutesSeconds(data.timeLimitSec)) : tr.timeUsedAria(minutesSeconds(data.timeUsedSec))
 
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex min-h-18 flex-none flex-wrap items-center gap-3 px-4 py-2 md:h-22 md:gap-4 md:px-8 md:py-0">
-        <IconLink href={data.backHref} icon="close" label={`Close. ${data.backLabel}`} />
-        <SubjectChip subject={data.subject} size="M" label={esmo ? `ESMO ${SUBJECT_NAME[data.subject]}` : undefined} />
+        <IconLink href={data.backHref} icon="close" label={tr.close(data.backLabel)} />
+        <SubjectChip subject={data.subject} size="M" label={esmo ? tr.esmoChip(dict.common.subject[data.subject]) : undefined} />
         <div className="flex min-w-0 flex-col">
           <h1 className="m-0 text-body-lg font-bold">{data.title}</h1>
           <span className="text-body text-fg-muted">{data.meta}</span>
@@ -164,7 +164,7 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
             <span className="font-numbers text-display font-semibold tabular-nums">
               <CountUp value={esmo && data.scaled ? data.scaled.value : data.scoreValue} />
             </span>
-            <span className="text-body-lg text-fg-muted">out of {esmo ? 100 : data.scoreMax}</span>
+            <span className="text-body-lg text-fg-muted">{tr.outOf(esmo ? 100 : data.scoreMax)}</span>
           </div>
           {esmo && data.scaled ? <ScaledBar value={data.scaled.value} target={data.scaled.target} /> : null}
           <div className="flex flex-col gap-1">
@@ -203,19 +203,19 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
               </>
             ) : badge ? (
               <BadgeReveal className="flex items-center gap-4">
-                <BadgeMedal id={badge.id} title={badge.title} />
+                <BadgeMedal id={badge.id} title={badgeText?.title ?? badge.title} />
                 <div className="flex min-w-0 flex-col">
-                  <span className="text-body font-semibold text-fg-muted">New badge</span>
-                  <span className="text-h3 font-bold">{badge.title}</span>
-                  <span className="text-body">{badge.description}</span>
+                  <span className="text-body font-semibold text-fg-muted">{tr.newBadge}</span>
+                  <span className="text-h3 font-bold">{badgeText?.title ?? badge.title}</span>
+                  <span className="text-body">{badgeText?.desc ?? badge.description}</span>
                 </div>
               </BadgeReveal>
             ) : (
               <div className="flex items-start gap-3">
                 <UiIcon name="book" size={24} className="mt-0.5 flex-none" />
                 <p className="m-0 text-body-lg">
-                  Every question has steps to look at.
-                  {data.weakest && data.weakest.line ? ` You will see ${data.weakest.topic} again in your next quests.` : ''}
+                  {tr.stepsNote}
+                  {data.weakest && data.weakest.line ? ` ${tr.seeAgain(data.weakest.topic)}` : ''}
                 </p>
               </div>
             )}
@@ -225,21 +225,21 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
         <section aria-labelledby="questions-title" className="flex min-w-0 flex-col gap-5 rounded-card bg-surface shadow-soft p-5 md:p-8">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <h2 id="questions-title" className="m-0 text-h2 font-bold">
-              {esmo ? 'By topic' : 'Questions'}
+              {esmo ? tr.byTopic : tr.questions}
             </h2>
             {esmo ? (
               <div aria-hidden="true" className="ml-auto flex gap-4 text-body font-semibold text-fg-muted">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="h-4.5 w-4.5 rounded-pill bg-success" />
-                  Right
+                  {tr.right}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="h-4.5 w-4.5 rounded-pill border-2 border-warn bg-surface" />
-                  Not yet
+                  {dict.runner.notYet}
                 </span>
               </div>
             ) : (
-              <span className="text-body text-fg-muted sm:ml-auto">Tap a number to see the steps</span>
+              <span className="text-body text-fg-muted sm:ml-auto">{tr.tapNumber}</span>
             )}
           </div>
           {esmo ? (
@@ -251,15 +251,15 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
                 <dl className="m-0 flex flex-col">
                   {data.strongest ? (
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 border-t border-divider py-3.5 sm:grid-cols-[168px_minmax(0,1fr)_auto]">
-                      <dt className="col-span-2 text-body font-semibold text-fg-muted sm:col-span-1">Strongest</dt>
-                      <dd className="m-0 text-h3 font-bold">{data.strongest.topic}</dd>
+                      <dt className="col-span-2 text-body font-semibold text-fg-muted sm:col-span-1">{tr.strongest}</dt>
+                      <dd lang="en-GB" className="m-0 text-h3 font-bold">{data.strongest.topic}</dd>
                       <dd className="m-0 text-body-lg font-bold tabular-nums">{data.strongest.line}</dd>
                     </div>
                   ) : null}
                   {data.weakest ? (
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 border-y border-divider py-3.5 sm:grid-cols-[168px_minmax(0,1fr)_auto]">
                       <dt className="col-span-2 text-body font-semibold text-fg-muted sm:col-span-1">{weakLabel}</dt>
-                      <dd className="m-0 text-h3 font-bold">{data.weakest.topic}</dd>
+                      <dd lang="en-GB" className="m-0 text-h3 font-bold">{data.weakest.topic}</dd>
                       <dd className="m-0 text-body-lg font-bold tabular-nums">{data.weakest.line}</dd>
                     </div>
                   ) : null}
@@ -274,17 +274,17 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
       </div>
 
       {data.retry ? (
-        <section aria-label="Try again" className="mx-4 mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card bg-surface shadow-soft p-5 md:mx-8 md:mt-6">
+        <section aria-label={dict.common.tryAgain} className="mx-4 mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card bg-surface shadow-soft p-5 md:mx-8 md:mt-6">
           <div className="flex min-w-0 flex-[1_1_320px] flex-col gap-1">
             <p className="m-0 text-body-lg font-bold">
-              {data.retry.isRetry ? `Try ${data.retry.retryNo + 1}. Your first try counts for your report: ${data.retry.official}.` : data.retry.best ? `Your best so far: ${data.retry.best}.` : 'You can try this session again.'}
+              {data.retry.isRetry ? tr.retryLine(data.retry.retryNo + 1, data.retry.official) : data.retry.best ? tr.yourBest(data.retry.best) : tr.canRetry}
             </p>
             <p className="m-0 text-body text-fg-muted">
-              {data.retry.isRetry && data.retry.best ? `Best so far: ${data.retry.best}. ` : ''}
+              {data.retry.isRetry && data.retry.best ? `${tr.bestSoFar(data.retry.best)} ` : ''}
               {data.retry.xpNote}
             </p>
           </div>
-          <TryAgainButton attemptId={data.attemptId} label={data.retry.continueOpen ? 'Continue your retry' : 'Try again'} />
+          <TryAgainButton attemptId={data.attemptId} label={data.retry.continueOpen ? tr.continueRetry : dict.common.tryAgain} />
         </section>
       ) : null}
 
@@ -293,9 +293,10 @@ export function ResultsScreen({ data }: { data: ResultsDTO }): ReactElement {
           {data.backLabel}
         </ButtonLink>
         <ButtonLink href={data.reviewHref} iconAfter="arrow-right" className="ml-auto">
-          See the answers
+          {tr.seeAnswers}
         </ButtonLink>
       </footer>
+      <SiteFooter area="learner" />
     </div>
   )
 }

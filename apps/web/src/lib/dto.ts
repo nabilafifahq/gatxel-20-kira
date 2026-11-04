@@ -195,7 +195,8 @@ export type RunnerDTO = {
   /** Sesi English Skills: listening menyembunyikan teks soal, speaking membacakan soal sebagai penguji. */
   englishArea?: 'listening' | 'speaking' | 'writing'
   /** Tantangan Puzzle Robot: runner menampilkan bar lawan. */
-  boss?: boolean
+  /** Id lawan bila ini tantangan bos. */
+  boss?: string
 }
 
 export type AnswerPayload = {

@@ -3,6 +3,8 @@
  * Cincin menyusut halus; warnanya mengikuti sisa waktu (DESIGN.md bagian 6a).
  */
 
+import { dictFor, type Dict } from '@/lib/i18n'
+
 /** Jendela terakhir: angka membesar, cincin menebal, ada bunyi tik tiap detik. */
 export const URGENT_SECONDS = 10
 
@@ -15,13 +17,13 @@ export function formatClock(totalSec: number, pad = false): string {
   return `${pad && m < 10 ? `0${m}` : m}:${r < 10 ? `0${r}` : r}`
 }
 
-export function spokenDuration(totalSec: number): string {
+export function spokenDuration(totalSec: number, t: Dict['runner']['timer'] = dictFor('en').runner.timer): string {
   const s = Math.max(0, Math.floor(totalSec))
   const m = Math.floor(s / 60)
   const r = s % 60
   const parts: string[] = []
-  if (m > 0) parts.push(`${m} ${m === 1 ? 'minute' : 'minutes'}`)
-  if (r > 0 || m === 0) parts.push(`${r} ${r === 1 ? 'second' : 'seconds'}`)
+  if (m > 0) parts.push(t.minutes(m))
+  if (r > 0 || m === 0) parts.push(t.seconds(r))
   return parts.join(' ')
 }
 

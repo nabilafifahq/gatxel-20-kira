@@ -145,7 +145,7 @@ export function bookSpeechClips(book: Book): TtsClipRequest[] {
   const out: TtsClipRequest[] = []
   for (const ch of book.chapters) {
     for (const s of chapterSentences(ch)) {
-      for (const t of splitClipText(s.text)) if (isClipText(t)) out.push({ text: t, style: 'narrator' })
+      for (const t of splitClipText(s.text)) if (isClipText(t)) out.push({ text: t, style: 'teacher' })
     }
   }
   return out

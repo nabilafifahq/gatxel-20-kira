@@ -7,13 +7,13 @@ import { AppError } from '../errors'
 import { pickClientIp } from '@/lib/client-ip'
 import { ipPrefix } from '@/lib/access-log'
 import { log } from '../log'
+import { takeToken } from '../limiter'
 
 /**
  * Pembatas laju. Akun: jeda bertambah setelah 3 kali gagal dalam 15 menit dan
- * akun dikunci 15 menit setelah 20 kali gagal (GTX: kunci akun, bukan IP; jangan 5 kali).
- * IP: ember token di memori untuk menahan banjir permintaan.
+ * akun dikunci 15 menit setelah banyak kali gagal (GTX: kunci akun, bukan IP; jangan 5 kali).
+ * IP: ember token di Valkey (dibagi semua replika web), cadangan di memori bila Valkey mati.
  */
-const buckets = new Map<string, { tokens: number; at: number }>()
 
 export { pickClientIp }
 
@@ -28,20 +28,11 @@ export async function clientIp(): Promise<string | null> {
  */
 export async function throttleIp(action: string, perMinute: number, scope?: string): Promise<void> {
   const ip = (await clientIp()) ?? 'unknown'
-  const key = `${action}:${scope ?? ip}`
-  const now = Date.now()
-  const b = buckets.get(key) ?? { tokens: perMinute, at: now }
-  b.tokens = Math.min(perMinute, b.tokens + ((now - b.at) / 60000) * perMinute)
-  b.at = now
-  if (b.tokens < 1) {
-    buckets.set(key, b)
+  const wait = await takeToken(`ip:${action}:${scope ?? ip}`, perMinute)
+  if (wait > 0) {
     log.warn('keamanan: batas laju terlampaui', { event: 'ratelimit', action, scoped: scope !== undefined, ipPrefix: ipPrefix(ip === 'unknown' ? null : ip) })
-    const retryAfter = Math.max(1, Math.ceil(((1 - b.tokens) / perMinute) * 60))
-    throw new AppError('rate-limited', 'Terlalu banyak percobaan dari perangkat ini. Tunggu satu menit lalu coba lagi.', undefined, retryAfter)
+    throw new AppError('rate-limited', 'Terlalu banyak percobaan dari perangkat ini. Tunggu satu menit lalu coba lagi.', undefined, wait)
   }
-  b.tokens -= 1
-  buckets.set(key, b)
-  if (buckets.size > 5000) buckets.clear()
 }
 
 /** Untuk Route Handler: Response 429 dengan Retry-After bila ember habis, selain itu null. */

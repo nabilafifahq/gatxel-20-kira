@@ -4,11 +4,12 @@ import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { TTS_DEFAULT_STYLE, type TtsStyleId } from '@kira/core/tts'
 import { hasNativeBridge, nativeReady, nativeSpeak, nativeStop, nativeTtsReady } from '@/lib/native'
 import { duckMusic } from './music'
-import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus } from './tts-client'
+import { stopHostVoice } from './host-voice'
+import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus, type SpeechPart } from './tts-client'
 
 /**
  * Baca suara, hanya untuk teks bahasa Inggris (rencana bagian 11.4: teks Indonesia tidak dibacakan).
- * Urutan: klip Qwen3-TTS yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan service worker bila offline),
+ * Urutan: klip Kokoro yang sudah dibuat (/tts/<kunci>.mp3, dari simpanan service worker bila offline),
  * kalau belum ada diminta dibuat worker dan sementara dibacakan suara perangkat. Di APK tablet suara
  * perangkat lewat TextToSpeech Android (jembatan KiraNative, lib/native.ts), di browser lewat Web Speech API.
  * Hanya satu teks dibaca pada satu waktu; tombol lain kembali ke idle.
@@ -17,7 +18,7 @@ import { clipPlan, deviceText, fetchClips, requestClips, ttsStatus } from './tts
 export type SpeechLang = 'en-GB' | 'id'
 export type SpeechStatus = 'idle' | 'reading' | 'unavailable'
 /** Satu teks, atau bagian-bagian berurutan (prompt, lalu tiap opsi) yang masing-masing menjadi klipnya sendiri. */
-export type SpeechInput = string | readonly string[]
+export type SpeechInput = string | readonly SpeechPart[]
 export type SpeakOptions = { style?: TtsStyleId }
 
 const EVENT = 'kira:speech-start'
@@ -35,8 +36,8 @@ function pickVoice(lang: SpeechLang): SpeechSynthesisVoice | null {
 
 let currentAudio: HTMLAudioElement | null = null
 
-/** Hentikan semua bacaan yang sedang berjalan. */
-export function stopSpeech(): void {
+/** Diamkan klip dan suara perangkat, tanpa memberi tahu tombol. */
+function silence(): void {
   if (currentAudio) {
     currentAudio.onended = null
     currentAudio.onerror = null
@@ -50,6 +51,15 @@ export function stopSpeech(): void {
     // Perangkat tanpa Web Speech: tidak ada yang dihentikan.
   }
 }
+
+/** Hentikan semua bacaan yang sedang berjalan, dan semua tombol baca kembali ke idle. */
+export function stopSpeech(): void {
+  silence()
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent(EVENT, { detail: '' }))
+}
+
+// Pembawa acara kuis mulai bicara: bacaan soal berhenti, tidak ada bunyi di atas bunyi lain.
+if (typeof window !== 'undefined') window.addEventListener('kira:host-start', () => stopSpeech())
 
 /**
  * Putar klip berurutan. onDone(true) bila semua selesai atau dihentikan; onDone(false) bila klip pertama tidak
@@ -108,10 +118,6 @@ export function useSpeech(lang: SpeechLang): {
   const token = useRef(0)
 
   useEffect(() => {
-    if (lang === 'id') {
-      setAvailable(false)
-      return
-    }
     let cancelled = false
     let detach: (() => void) | undefined
     const checkWebSpeech = () => {
@@ -141,10 +147,13 @@ export function useSpeech(lang: SpeechLang): {
     } else {
       checkWebSpeech()
     }
-    // Bila suara Qwen aktif di server, tombol tetap hidup walau perangkat tidak punya suara bahasa Inggris.
-    void ttsStatus().then((s) => {
-      if (!cancelled && s?.enabled) setClipsReady(true)
-    })
+    // Bila suara klip aktif di server, tombol tetap hidup walau perangkat tidak punya suara bahasa Inggris.
+    // Teks Indonesia tidak punya klip: selalu suara perangkat.
+    if (lang !== 'id') {
+      void ttsStatus().then((s) => {
+        if (!cancelled && s?.enabled) setClipsReady(true)
+      })
+    }
     return () => {
       cancelled = true
       detach?.()
@@ -183,16 +192,16 @@ export function useSpeech(lang: SpeechLang): {
   const speak = useCallback(
     (input: SpeechInput, onEnd?: () => void, opts?: SpeakOptions) => {
       const my = ++token.current
+      // Tidak ada yang diputar di atas bunyi lain: hentikan bacaan sebelumnya dan suara pembawa acara dulu.
+      stopSpeech()
+      stopHostVoice()
       window.dispatchEvent(new CustomEvent(EVENT, { detail: id }))
+      // Hanya satu suara: klip yang masih berjalan dari tombol lain berhenti dulu.
+      silence()
       const finish = () => {
         if (token.current !== my) return
         setReading(false)
         onEnd?.()
-      }
-      if (lang === 'id') {
-        // Teks Indonesia tidak dibacakan. onEnd tetap dipanggil supaya pemutar langkah tidak menunggu selamanya.
-        window.setTimeout(finish, 0)
-        return
       }
       const text = deviceText(input)
       const speakWeb = () => {
@@ -235,8 +244,8 @@ export function useSpeech(lang: SpeechLang): {
         speakWeb()
       }
 
-      // Klip Qwen lebih dulu. Semua klip harus ada supaya suaranya tidak berganti di tengah kalimat.
-      const plan = clipPlan(input, opts?.style ?? TTS_DEFAULT_STYLE)
+      // Teks Indonesia: suara perangkat (tidak ada klip). Bahasa Inggris: klip dulu; suara perangkat hanya bila klip belum ada.
+      const plan = lang === 'id' ? [] : clipPlan(input, opts?.style ?? TTS_DEFAULT_STYLE)
       if (plan.length === 0) {
         speakDevice()
         return

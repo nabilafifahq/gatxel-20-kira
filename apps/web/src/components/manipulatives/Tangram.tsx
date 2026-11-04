@@ -1,10 +1,11 @@
 'use client'
 
 import { useMemo, useState, type KeyboardEvent, type ReactElement } from 'react'
-import { orient, PIECE_NAME, tangramScore, type PieceType, type Placement, type Pt, type TangramState } from '@kira/content/manip'
+import { orient, tangramScore, type PieceType, type Placement, type Pt, type TangramState } from '@kira/content/manip'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { playSfx } from '@/components/learner/sfx'
+import { useT } from '@/lib/i18n/client'
 import type { ToolProps } from './types'
 
 /**
@@ -36,6 +37,8 @@ export function Tangram({
   pieces,
   slots,
 }: ToolProps<TangramState> & { pieces: PieceType[]; slots: Pt[][] }): ReactElement {
+  const dict = useT()
+  const tt = dict.widgets.tangram
   const locked = disabled || feedback !== null
   const placed: TangramState = value.length === slots.length ? value : slots.map(() => null)
   const [orients, setOrients] = useState<Orient[]>(() => pieces.map(() => ({ rot: 0, flip: false })))
@@ -116,7 +119,7 @@ export function Tangram({
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="paper-grid flex w-full justify-center overflow-hidden rounded-card border border-divider bg-surface p-2">
-        <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={`Tangram board with ${slots.length} places`} className="h-auto w-full" style={{ touchAction: 'manipulation', maxWidth: W }}>
+        <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={tt.boardAria(slots.length)} className="h-auto w-full" style={{ touchAction: 'manipulation', maxWidth: W }}>
           <g transform={`translate(${(pad - box.x) * unit} ${(pad - box.y) * unit}) scale(${unit})`}>
             {slots.map((slot, i) => {
               const pl = placed[i]
@@ -128,10 +131,11 @@ export function Tangram({
                   key={i}
                   role="button"
                   tabIndex={locked ? -1 : 0}
-                  aria-label={`Place ${i + 1} of ${slots.length}, ${pl ? `holds a ${PIECE_NAME[type!]}` : 'empty'}${selected !== null && !pl ? '. Tap to place the chosen piece' : ''}`}
+                  aria-label={`${tt.placeAria(i + 1, slots.length)}${pl ? tt.holds(tt.pieceNames[type!]) : dict.widgets.shared.empty}${selected !== null && !pl ? tt.ariaPlaceChosen : ''}`}
                   onClick={() => putIn(i)}
                   onKeyDown={(e) => onKey(e, () => putIn(i))}
-                  className={cx(!locked && 'cursor-pointer')}
+                  // Grup ini ada di dalam scale(unit): outline biasa ikut membesar menutupi papan, jadi fokus keyboard memakai garis tepi.
+                  className={cx('outline-none [&:focus-visible>path:first-child]:stroke-fg [&:focus-visible>path:first-child]:[stroke-width:0.14]', !locked && 'cursor-pointer')}
                 >
                   <path d={path(slot)} className={cx('fill-bg', selected !== null && !pl && !locked ? 'stroke-fg' : 'stroke-border')} strokeWidth={0.06} strokeDasharray="0.18 0.14" strokeLinejoin="round" />
                   {piece && type ? (
@@ -154,21 +158,21 @@ export function Tangram({
       <div className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="m-0 text-body font-bold">
-            Pieces <span className="font-semibold text-fg-muted">({doneCount} of {slots.length} placed)</span>
+            {tt.pieces} <span className="font-semibold text-fg-muted">{tt.placedCount(doneCount, slots.length)}</span>
           </h3>
           <div className="flex gap-2">
             <Button variant="secondary" size="M" icon="refresh" disabled={locked || selected === null} onClick={turn}>
-              Turn
+              {tt.turn}
             </Button>
             <Button variant="secondary" size="M" disabled={locked || selected === null} onClick={flip}>
-              Flip
+              {tt.flip}
             </Button>
           </div>
         </div>
         {trayPieces.length === 0 ? (
-          <p className="m-0 text-body text-fg-muted">All pieces are on the board. Tap a piece on the board to pick it up again.</p>
+          <p className="m-0 text-body text-fg-muted">{tt.allOnBoard}</p>
         ) : (
-          <div role="group" aria-label="Tray of pieces" className="flex flex-wrap gap-2">
+          <div role="group" aria-label={tt.tray} className="flex flex-wrap gap-2">
             {trayPieces.map(({ t, i }) => {
               const o = orients[i]!
               const pts = orient(t, o.rot, o.flip)
@@ -179,7 +183,7 @@ export function Tangram({
                   key={i}
                   type="button"
                   aria-pressed={on}
-                  aria-label={`${PIECE_NAME[t]}${on ? ', chosen' : ''}${o.rot || o.flip ? `, turned ${o.rot * 90} degrees${o.flip ? ' and flipped' : ''}` : ''}`}
+                  aria-label={`${tt.pieceNames[t]}${on ? tt.ariaChosen : ''}${o.rot || o.flip ? `${tt.ariaTurned(o.rot * 90)}${o.flip ? tt.ariaFlipped : ''}` : ''}`}
                   disabled={locked}
                   onClick={() => pickPiece(i)}
                   className={cx(
@@ -198,7 +202,7 @@ export function Tangram({
       </div>
       <div className="flex justify-end">
         <Button variant="quiet" size="M" disabled={locked || doneCount === 0} onClick={reset}>
-          Start again
+          {dict.widgets.shared.startAgain}
         </Button>
       </div>
     </div>

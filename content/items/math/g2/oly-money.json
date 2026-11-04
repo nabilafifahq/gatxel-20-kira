@@ -368,10 +368,11 @@
           "show": "8.000 - 2.000 = 6.000",
           "anim": {
             "k": "combine",
-            "a": 8,
+            "a": 8000,
             "op": "-",
-            "b": 2,
-            "r": 6
+            "b": 2000,
+            "r": 6000,
+            "cur": "Rp"
           }
         },
         {
@@ -379,10 +380,11 @@
           "show": "6.000 / 2 = 3.000",
           "anim": {
             "k": "combine",
-            "a": 6,
+            "a": 6000,
             "op": "÷",
             "b": 2,
-            "r": 3
+            "r": 3000,
+            "cur": "Rp"
           }
         },
         {
@@ -390,10 +392,11 @@
           "show": "3.000 + 5.000 = 8.000",
           "anim": {
             "k": "combine",
-            "a": 3,
+            "a": 3000,
             "op": "+",
-            "b": 5,
-            "r": 8
+            "b": 5000,
+            "r": 8000,
+            "cur": "Rp"
           }
         }
       ],
@@ -426,7 +429,40 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many more rupiah does she need?"
+          ]
+        },
+        {
+          "say": "Mia needs Rp7.000 - Rp4.500 = Rp2.500 more.",
+          "mark": [
+            "Rp7.000",
+            "Rp4.500"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 4500
+              },
+              {
+                "v": 2500,
+                "q": true
+              }
+            ],
+            "total": 7000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "2500 rupiah"
+        }
+      ]
     },
     {
       "id": "m2.oly-money.010",
@@ -653,7 +689,7 @@
       "id": "m2.oly-money.013",
       "skill": "m2.oly-money",
       "type": "numeric",
-      "difficulty": 5,
+      "difficulty": 3,
       "prompt": "A toy car costs Rp8.000. Kira has three Rp500 coins and two Rp2.000 notes. How many more rupiah does she need?",
       "answer": 2500,
       "tolerance": 0,
@@ -700,14 +736,14 @@
         "kmnr",
         "seamo"
       ],
-      "points": 5,
-      "expectedSeconds": 150
+      "points": 3,
+      "expectedSeconds": 90
     },
     {
       "id": "m2.oly-money.014",
       "skill": "m2.oly-money",
       "type": "numeric",
-      "difficulty": 5,
+      "difficulty": 3,
       "prompt": "Dina pays for 2 books with a Rp10.000 note. Both books cost the same. She gets Rp2.000 change. How many rupiah does one book cost?",
       "answer": 4000,
       "tolerance": 0,
@@ -751,7 +787,7 @@
             "cur": "Rp"
           },
           "mark": [
-            "Rp2"
+            "2 books"
           ]
         }
       ],
@@ -760,14 +796,14 @@
         "kmnr",
         "ikmc"
       ],
-      "points": 5,
-      "expectedSeconds": 150
+      "points": 3,
+      "expectedSeconds": 90
     },
     {
       "id": "m2.oly-money.015",
       "skill": "m2.oly-money",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "How many Rp500 coins make Rp5.000?",
       "answer": 10,
       "tolerance": 0,
@@ -800,14 +836,14 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-money.016",
       "skill": "m2.oly-money",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Mia has 4 coins of Rp500. Sam has 5 coins of Rp200. How many more rupiah does Mia have than Sam?",
       "answer": 1000,
       "tolerance": 0,
@@ -844,7 +880,7 @@
             "cur": "Rp"
           },
           "mark": [
-            "Rp5",
+            "5 coins",
             "Rp200"
           ]
         },
@@ -856,8 +892,8 @@
         "olympiad",
         "kmnr"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     },
     {
       "id": "m2.oly-money.017",
@@ -962,7 +998,40 @@
         "kmnr"
       ],
       "points": 3,
-      "expectedSeconds": 75
+      "expectedSeconds": 75,
+      "solution": [
+        {
+          "say": "Read what the question asks.",
+          "mark": [
+            "How many rupiah is the other note?"
+          ]
+        },
+        {
+          "say": "The other note is Rp7.000 - Rp2.000 = Rp5.000.",
+          "mark": [
+            "Rp7.000",
+            "Rp2.000"
+          ],
+          "anim": {
+            "k": "bar",
+            "parts": [
+              {
+                "v": 2000
+              },
+              {
+                "v": 5000,
+                "q": true
+              }
+            ],
+            "total": 7000,
+            "cur": "Rp"
+          }
+        },
+        {
+          "say": "So the answer is:",
+          "show": "5000 rupiah"
+        }
+      ]
     },
     {
       "id": "m2.oly-money.020",
@@ -1002,7 +1071,7 @@
       "id": "m2.oly-money.021",
       "skill": "m2.oly-money",
       "type": "numeric",
-      "difficulty": 4,
+      "difficulty": 2,
       "prompt": "Rani has the money shown. She wants a toy that costs Rp9.500. How many more rupiah does she need?",
       "figure": {
         "kind": "money",
@@ -1060,8 +1129,8 @@
         "kmnr",
         "sasmo"
       ],
-      "points": 4,
-      "expectedSeconds": 120
+      "points": 3,
+      "expectedSeconds": 75
     }
   ]
 }

@@ -3,6 +3,7 @@
 import type { ReactElement } from 'react'
 import { IconButton } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
+import { useT } from '@/lib/i18n/client'
 import { asClock } from './answers'
 import type { WidgetProps } from './types'
 
@@ -14,8 +15,8 @@ import type { WidgetProps } from './types'
 
 const HAND: Record<WidgetProps['subject'], string> = { math: 'stroke-math', english: 'stroke-english', science: 'stroke-science' }
 
-export function clockLabel(h: number, m: number): string {
-  return `${h}:${m < 10 ? `0${m}` : m}`
+export function clockLabel(h: number, m: number, separator = ':'): string {
+  return `${h}${separator}${m < 10 ? `0${m}` : m}`
 }
 
 /** Koordinat dibulatkan supaya HTML server dan client sama persis (hasil sin dan cos bisa beda di digit akhir). */
@@ -69,6 +70,8 @@ export function ClockWidget({ item, value, onChange, disabled = false, feedback 
   const h = t?.h ?? 12
   const m = t?.m ?? 0
   const locked = disabled || !!feedback
+  const dict = useT()
+  const label = clockLabel(h, m, dict.widgets.clock.timeSeparator)
 
   const setTime = (nh: number, nm: number) => {
     if (locked) return
@@ -95,7 +98,7 @@ export function ClockWidget({ item, value, onChange, disabled = false, feedback 
     <div className="flex w-full flex-col items-center gap-4 sm:flex-row sm:items-center sm:justify-center">
       <div
         role="img"
-        aria-label={t ? `Clock showing ${clockLabel(h, m)}` : 'Clock, not set yet'}
+        aria-label={t ? dict.widgets.clock.showing(label) : dict.widgets.clock.notSet}
         className={cx(
           'rounded-pill p-1',
           feedback === 'correct' ? 'bg-success-50' : feedback === 'not-yet' ? 'bg-warn-50' : 'bg-transparent',
@@ -105,15 +108,15 @@ export function ClockWidget({ item, value, onChange, disabled = false, feedback 
       </div>
       <div className="flex flex-col gap-3">
         <output aria-live="polite" className="text-center font-numbers text-h1 font-semibold tabular-nums">
-          {t ? clockLabel(h, m) : <span className="font-body text-body-lg font-bold text-fg-muted">Set the time</span>}
+          {t ? label : <span className="font-body text-body-lg font-bold text-fg-muted">{dict.widgets.clock.setTime}</span>}
         </output>
         <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2">
-          <IconButton icon="minus" label="Hour back" disabled={locked} onClick={() => setTime(h - 1, m)} />
-          <span className="text-center text-body font-bold">Hour</span>
-          <IconButton icon="plus" label="Hour forward" disabled={locked} onClick={() => setTime(h + 1, m)} />
-          <IconButton icon="minus" label={`Minutes back by ${step}`} disabled={locked} onClick={() => addMinutes(-step)} />
-          <span className="text-center text-body font-bold">Minutes</span>
-          <IconButton icon="plus" label={`Minutes forward by ${step}`} disabled={locked} onClick={() => addMinutes(step)} />
+          <IconButton icon="minus" label={dict.widgets.clock.hourBack} disabled={locked} onClick={() => setTime(h - 1, m)} />
+          <span className="text-center text-body font-bold">{dict.widgets.clock.hour}</span>
+          <IconButton icon="plus" label={dict.widgets.clock.hourForward} disabled={locked} onClick={() => setTime(h + 1, m)} />
+          <IconButton icon="minus" label={dict.widgets.clock.minutesBack(step)} disabled={locked} onClick={() => addMinutes(-step)} />
+          <span className="text-center text-body font-bold">{dict.widgets.clock.minutes}</span>
+          <IconButton icon="plus" label={dict.widgets.clock.minutesForward(step)} disabled={locked} onClick={() => addMinutes(step)} />
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@
       "figure": {
         "kind": "shape",
         "shape": "square",
-        "alt": "A square fence with 4 posts along each side, counting the posts at both corners. Each corner post belongs to two sides."
+        "alt": "A square garden with a fence."
       },
       "options": [
         {
@@ -54,10 +54,7 @@
             "op": "-",
             "b": 4,
             "r": 12
-          },
-          "mark": [
-            "4"
-          ]
+          }
         },
         {
           "say": "Or count 4 corners and 2 middle posts on each side.",
@@ -527,9 +524,62 @@
       "difficulty": 5,
       "prompt": "Six dots are on a circle. Ali joins every dot to every other dot with a straight line. How many lines does he draw?",
       "figure": {
-        "kind": "shape",
-        "shape": "hexagon",
-        "alt": "Six dots spaced evenly around a circle, at the corners of a hexagon."
+        "kind": "scene",
+        "width": 160,
+        "height": 136,
+        "shapes": [
+          {
+            "t": "circle",
+            "cx": 80,
+            "cy": 68,
+            "r": 46,
+            "tone": "math",
+            "fill": "none"
+          },
+          {
+            "t": "circle",
+            "cx": 80,
+            "cy": 22,
+            "r": 5,
+            "tone": "math"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 45,
+            "r": 5,
+            "tone": "math"
+          },
+          {
+            "t": "circle",
+            "cx": 120,
+            "cy": 91,
+            "r": 5,
+            "tone": "math"
+          },
+          {
+            "t": "circle",
+            "cx": 80,
+            "cy": 114,
+            "r": 5,
+            "tone": "math"
+          },
+          {
+            "t": "circle",
+            "cx": 40,
+            "cy": 91,
+            "r": 5,
+            "tone": "math"
+          },
+          {
+            "t": "circle",
+            "cx": 40,
+            "cy": 45,
+            "r": 5,
+            "tone": "math"
+          }
+        ],
+        "alt": "Six dots spaced evenly around a circle."
       },
       "answer": 15,
       "hints": [
@@ -1345,7 +1395,7 @@
             "r": 12
           },
           "mark": [
-            "2"
+            "2 hats"
           ]
         }
       ],
@@ -1733,10 +1783,7 @@
             "op": "+",
             "b": 3,
             "r": 5
-          },
-          "mark": [
-            "2"
-          ]
+          }
         },
         {
           "say": "They are 1+1+1+1, 1+1+2, 1+2+1, 2+1+1 and 2+2."
@@ -1917,7 +1964,7 @@
             "total": 12
           },
           "mark": [
-            "4"
+            "5 pieces"
           ]
         }
       ],

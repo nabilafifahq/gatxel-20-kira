@@ -6,7 +6,9 @@ import { authDb, inOrg } from '../db'
 import { env, origin } from '../env'
 import { AppError, conflict, invalid, notFound } from '../errors'
 import { auditTx, systemCtx } from '../audit'
-import { queueEmail, simpleEmail } from '../dal/outbox'
+import { inviteEmail, passwordResetEmail } from '@kira/core/email-templates'
+import { queueEmail } from '../dal/outbox'
+import { emailIdentity } from '../email'
 import { burnVerify, hashSecret, passwordProblem, verifySecret } from './password'
 import { ACCOUNT_LOCK_AFTER, clientIp, emailSendAllowed, escalatingDelay, recentFailures, recordAttempt, throttleIp } from './ratelimit'
 import { ipPrefix } from '@/lib/access-log'
@@ -15,11 +17,12 @@ import { randomToken, safeEqual, sha256hex } from './crypto'
 import { revokeUserSessions } from './session'
 import { setPin } from './pin'
 import { emailKey } from '../signup/email-policy'
+import type { UiLang } from '@/lib/i18n/lang'
 
 const { userAccount, invite, resetToken, signup } = tables
 
 export const TERMS_VERSION = '2026-11-04'
-export const NOTICE_VERSION = '2026-11-04'
+export const NOTICE_VERSION = '2026-11-05'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 
@@ -126,19 +129,8 @@ export async function createInvite(ctx: { orgId: string; userId: string }, input
     })
     .returning({ id: invite.id })
   const link = `${origin()}/undangan/${token}`
-  const mail = simpleEmail({
-    title: `Undangan ke Kira ${input.orgName}`,
-    lines: [
-      input.role === 'guardian'
-        ? 'Kamu diundang sebagai orang tua di Kira untuk melihat ringkasan belajar mingguan dan mengatur persetujuan data anak.'
-        : 'Kamu diundang sebagai tutor di Kira.',
-      'Tautan ini berlaku 7 hari dan hanya bisa dipakai sekali. Buka tautan ini dari browser di HP atau laptop, tidak perlu memasang aplikasi tambahan.',
-    ],
-    buttonLabel: 'Terima undangan',
-    buttonUrl: link,
-    footer: 'Kalau tidak merasa diundang, abaikan email ini.',
-  })
-  await queueEmail(ctx.orgId, { to: email, subject: `Undangan ke Kira ${input.orgName}`, ...mail, kind: 'invite' })
+  const mail = inviteEmail(emailIdentity(), { url: link, role: input.role, orgName: input.orgName })
+  await queueEmail(ctx.orgId, { to: email, ...mail, kind: 'invite' })
   return { link, inviteId: row!.id }
 }
 
@@ -204,14 +196,8 @@ async function requestPasswordResetInner(emailRaw: string): Promise<void> {
   if (!user) return
   if (!emailSendAllowed('reset', email)) return
   const link = await createResetLink(user.id)
-  const mail = simpleEmail({
-    title: 'Atur ulang password Kira',
-    lines: ['Ada permintaan untuk mengatur ulang password akun Kira dengan email ini.', 'Tautan berlaku 30 menit dan hanya bisa dipakai sekali.'],
-    buttonLabel: 'Atur ulang password',
-    buttonUrl: link,
-    footer: 'Kalau bukan kamu yang meminta, abaikan email ini. Password lama tetap berlaku.',
-  })
-  await queueEmail(user.orgId, { to: email, subject: 'Atur ulang password Kira', ...mail, kind: 'password-reset' })
+  const mail = passwordResetEmail(emailIdentity(), { url: link })
+  await queueEmail(user.orgId, { to: email, ...mail, kind: 'password-reset' })
 }
 
 export async function createResetLink(userId: string): Promise<string> {
@@ -263,10 +249,10 @@ export async function changePassword(user: { userId: string; sessionId: string; 
 }
 
 /** Akun learner baru: identitas di skema auth, profil belajar di skema publik. Belum aktif sampai ada persetujuan orang tua. */
-export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[] }): Promise<string> {
+export async function createLearnerAccount(ctx: { orgId: string; userId: string }, input: { name: string; grade: number; avatar: string; pin: string[]; uiLang?: UiLang }): Promise<string> {
   const [user] = await authDb()
     .insert(userAccount)
-    .values({ orgId: ctx.orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim() })
+    .values({ orgId: ctx.orgId, kind: 'learner', role: 'learner', email: null, name: input.name.trim(), ...(input.uiLang ? { uiLang: input.uiLang } : {}) })
     .returning({ id: userAccount.id })
   try {
     await setPin(user!.id, input.pin)
@@ -279,6 +265,23 @@ export async function createLearnerAccount(ctx: { orgId: string; userId: string 
     throw e
   }
   return user!.id
+}
+
+export async function learnerUiPrefs(userIds: string[], orgId: string): Promise<Map<string, { uiLang: UiLang; uiLangSwitch: boolean }>> {
+  const rows = userIds.length
+    ? await authDb()
+        .select({ id: userAccount.id, uiLang: userAccount.uiLang, uiLangSwitch: userAccount.uiLangSwitch })
+        .from(userAccount)
+        .where(and(inArray(userAccount.id, userIds), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
+    : []
+  return new Map(rows.map((r) => [r.id, { uiLang: r.uiLang, uiLangSwitch: r.uiLangSwitch }]))
+}
+
+export async function setLearnerUiPrefs(userId: string, orgId: string, prefs: { uiLang?: UiLang; uiLangSwitch?: boolean }): Promise<void> {
+  await authDb()
+    .update(userAccount)
+    .set(prefs)
+    .where(and(eq(userAccount.id, userId), eq(userAccount.orgId, orgId), eq(userAccount.kind, 'learner')))
 }
 
 export async function renameUser(userId: string, orgId: string, name: string): Promise<void> {

@@ -2,7 +2,7 @@ import type { ClientItem } from '@kira/content/present'
 import { speakableParts, styleForSkill, type TtsStyleId } from '@kira/core/tts'
 
 /**
- * Bagian soal yang dibacakan, untuk klip suara Qwen: prompt, lalu tiap opsi dengan penanda hurufnya.
+ * Bagian soal yang dibacakan, untuk klip suara klip: prompt, lalu tiap opsi dengan penanda hurufnya.
  * Setiap bagian menjadi klipnya sendiri, jadi urutan opsi yang diacak tidak membuat klip baru. Isinya harus
  * sama dengan packages/content/src/speech.ts (sisi worker). Jenis soal baru yang punya teks bacaan sendiri
  * ditambahkan di kedua tempat itu. `speakableText` (speakable.ts) tetap dipakai sebagai teks cadangan.

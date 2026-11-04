@@ -19,6 +19,7 @@ import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
 import { Widget } from '@/components/widgets/Widget'
+import { useT } from '@/lib/i18n/client'
 import { ExitControl } from './parts'
 import { savedByPosition, sortedItems } from './shared'
 import { newClientId, useAnswerQueue } from './useAnswerQueue'
@@ -32,6 +33,8 @@ const FLASH_MS = 700
 
 export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: RunnerActions }): ReactElement {
   const router = useRouter()
+  const t = useT()
+  const ts = t.runner.sprint
   const items = useMemo(() => sortedItems(data), [data])
   const saved = useMemo(() => savedByPosition(data.saved), [data.saved])
   const [index, setIndex] = useState(() => {
@@ -67,9 +70,9 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
       if (res.ok) setSubmit({ state: 'done', redirectTo: res.data.redirectTo || data.doneHref })
       else setSubmit({ state: 'error', message: res.message, reference: res.reference })
     } catch {
-      setSubmit({ state: 'error', message: 'Your sprint could not be handed in yet.', reference: 'KRA-RUN-NET' })
+      setSubmit({ state: 'error', message: ts.submitFailed, reference: 'KRA-RUN-NET' })
     }
-  }, [actions, data.attemptId, data.doneHref, queue])
+  }, [actions, data.attemptId, data.doneHref, queue, ts])
 
   const done = useRef(false)
   useEffect(() => {
@@ -134,11 +137,11 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
       <header className="flex h-18 flex-none items-center gap-3 px-4 md:h-22 md:gap-4 md:px-8">
-        <ExitControl exitHref={data.exitHref} title="Stop the sprint?" body="Your answers so far are saved." stayLabel="Keep going" leaveLabel="Stop" beforeLeave={() => queue.flush(1500)} />
+        <ExitControl exitHref={data.exitHref} title={ts.exitTitle} body={ts.exitBody} stayLabel={ts.keepGoing} leaveLabel={ts.stop} beforeLeave={() => queue.flush(1500)} />
         <span className="hidden md:inline-flex"><SubjectChip subject={data.subject} size="M" /></span>
         <div className="hidden min-w-0 flex-1 flex-col sm:flex">
           <span className="truncate text-body-lg font-bold">{data.title}</span>
-          <span className="truncate text-body text-fg-muted">Answer as many as you can</span>
+          <span className="truncate text-body text-fg-muted">{ts.subtitle}</span>
         </div>
         {syncState ? (
           <span className="hidden md:inline-flex">
@@ -147,34 +150,32 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
         ) : null}
         <span className="ml-auto inline-flex flex-none items-center gap-2 text-body-lg font-bold tabular-nums sm:ml-0">
           <UiIcon name="check-circle" size={24} className="text-success" />
-          {right} right
+          {ts.right(right)}
         </span>
         <Timer mode="countdown" seconds={remaining} total={limit} compact warnAt={10} />
       </header>
       <main className="flex flex-1 items-start justify-center px-4 pb-8 md:items-center md:px-8">
         {finished ? (
-          <section aria-label="Sprint done" className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
-            <h1 className="kira-pop m-0 font-display text-display font-semibold">{remaining === 0 ? "Time's up" : 'All done'}</h1>
-            <p className="m-0 text-body-lg">
-              You got {right} right in {limit} seconds.
-            </p>
+          <section aria-label={ts.done} className="flex w-full max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
+            <h1 className="kira-pop m-0 font-display text-display font-semibold">{remaining === 0 ? ts.timeUp : ts.allDone}</h1>
+            <p className="m-0 text-body-lg">{ts.summary(right, limit)}</p>
             {xp > 0 ? <XpPill xp={xp} size="L" /> : null}
             {submit.state === 'error' ? (
               <div role="alert" className="flex flex-col items-center gap-2">
                 <p className="m-0 text-body-lg">{submit.message}</p>
-                <p className="m-0 text-body text-fg-muted tabular-nums">Reference {submit.reference}</p>
+                <p className="m-0 text-body text-fg-muted tabular-nums">{t.runner.reference(submit.reference ?? '')}</p>
                 <Button variant="secondary" onClick={() => void finish()}>
-                  Try again
+                  {t.common.tryAgain}
                 </Button>
               </div>
             ) : (
-              <Button iconAfter="arrow-right" loading={submit.state === 'busy'} onClick={() => submit.redirectTo && router.push(submit.redirectTo)}>
-                See my results
+              <Button iconAfter="arrow-right" loading={submit.state === 'busy'} onClick={() => submit.redirectTo && router.replace(submit.redirectTo)}>
+                {ts.seeResults}
               </Button>
             )}
           </section>
         ) : item ? (
-          <section aria-label="Question" className="relative flex w-full max-w-[760px] flex-col gap-6 rounded-card bg-surface shadow-soft p-5 md:flex-row md:items-center md:p-8">
+          <section aria-label={t.runner.question} className="relative flex w-full max-w-[760px] flex-col gap-6 rounded-card bg-surface shadow-soft p-5 md:flex-row md:items-center md:p-8">
             <div className="flex-1">
               {item.type === 'numeric' && !item.figure ? (
                 <p lang={item.lang} aria-live="polite" className="m-0 text-center font-numbers text-display font-semibold tabular-nums">
@@ -188,13 +189,13 @@ export function SprintRunner({ data, actions }: { data: RunnerDTO; actions: Runn
               <RunnerCorner shell={data.shell} phase={flash ?? 'answer'} timed streak={streak} xp={0} nonce={index} className="-top-2" />
               <Widget item={item} value={value} onChange={(v) => !flash && setValue(v)} disabled={!!flash} feedback={flash} subject={data.subject} />
               <Button onClick={check} disabled={!isAnswerComplete(item, value) || !!flash} className="w-full max-w-[360px]">
-                Check
+                {t.common.check}
               </Button>
               <span role="status" className="flex h-7 items-center">
                 {flash ? (
                   <span className={cx('inline-flex h-7 items-center gap-1 rounded-pill px-2.5 text-body font-bold text-white', flash === 'correct' ? 'bg-success' : 'bg-warn')}>
                     <UiIcon name={flash === 'correct' ? 'check' : 'not-yet'} size={16} />
-                    {flash === 'correct' ? 'Correct' : 'Not yet'}
+                    {flash === 'correct' ? t.runner.correct : t.runner.notYet}
                   </span>
                 ) : null}
               </span>

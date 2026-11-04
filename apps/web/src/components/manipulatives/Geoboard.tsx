@@ -5,6 +5,7 @@ import { analysePegs, formatLength, type Peg } from '@kira/content/manip'
 import { Button } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { playSfx } from '@/components/learner/sfx'
+import { useT } from '@/lib/i18n/client'
 import type { ToolProps } from './types'
 
 /**
@@ -17,6 +18,8 @@ export type GeoState = { pegs: Peg[]; closed: boolean }
 const GAP = 52
 
 export function Geoboard({ value, onChange, disabled = false, feedback = null, onMilestone, size }: ToolProps<GeoState> & { size: number }): ReactElement {
+  const t = useT()
+  const len = (x: number) => t.widgets.geoboard.length(formatLength(x))
   const locked = disabled || feedback !== null
   const { pegs, closed } = value
   const info = useMemo(() => (closed ? analysePegs(pegs) : null), [closed, pegs])
@@ -59,20 +62,20 @@ export function Geoboard({ value, onChange, disabled = false, feedback = null, o
 
   const status = !info
     ? pegs.length === 0
-      ? 'Tap a peg to start.'
+      ? t.widgets.geoboard.tapToStart
       : pegs.length < 3
-        ? `${pegs.length} peg${pegs.length === 1 ? '' : 's'} placed. Keep tapping pegs.`
-        : 'Tap the first peg again to close the shape.'
+        ? t.widgets.geoboard.pegsPlaced(pegs.length)
+        : t.widgets.geoboard.closeShape
     : info.ok
-      ? `${info.sides} sides, perimeter ${formatLength(info.perimeter)}, area ${formatLength(info.area)} square units`
+      ? t.widgets.geoboard.summary(info.sides, len(info.perimeter), len(info.area))
       : info.reason === 'cross'
-        ? 'The sides cross each other. Tap Undo and try again.'
-        : 'That shape is flat. Tap Undo and try again.'
+        ? t.widgets.geoboard.cross
+        : t.widgets.geoboard.flat
 
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="flex w-full justify-center overflow-x-auto rounded-card border border-divider bg-surface p-2">
-        <svg viewBox={`0 0 ${W} ${W}`} width={W} height={W} role="group" aria-label={`Geoboard with ${size} by ${size} pegs`} className="h-auto max-w-full flex-none" style={{ touchAction: 'manipulation', minWidth: Math.min(W, 340) }}>
+        <svg viewBox={`0 0 ${W} ${W}`} width={W} height={W} role="group" aria-label={t.widgets.geoboard.boardAria(size)} className="h-auto max-w-full flex-none" style={{ touchAction: 'manipulation', minWidth: Math.min(W, 340) }}>
           {Array.from({ length: size - 1 }, (_, r) =>
             Array.from({ length: size - 1 }, (_, c) => <rect key={`${r}-${c}`} x={px(c)} y={px(r)} width={GAP} height={GAP} className="fill-transparent stroke-divider" strokeWidth={1} />),
           )}
@@ -95,7 +98,7 @@ export function Geoboard({ value, onChange, disabled = false, feedback = null, o
                   key={`${x}-${y}`}
                   role="button"
                   tabIndex={locked || closed ? -1 : 0}
-                  aria-label={`Peg column ${x + 1}, row ${y + 1}${used ? (at === 0 ? ', first peg' : `, peg ${at + 1}`) : ''}`}
+                  aria-label={`${t.widgets.geoboard.pegAria(x + 1, y + 1)}${used ? (at === 0 ? t.widgets.geoboard.ariaFirstPeg : t.widgets.geoboard.ariaPegN(at + 1)) : ''}`}
                   onClick={() => tap(x, y)}
                   onKeyDown={(e) => onKey(e, () => tap(x, y))}
                   className={cx(!locked && !closed && 'cursor-pointer')}
@@ -110,9 +113,9 @@ export function Geoboard({ value, onChange, disabled = false, feedback = null, o
       </div>
       <div className="grid grid-cols-3 gap-2" aria-live="polite">
         {[
-          ['Sides', info?.ok ? String(info.sides) : '-'],
-          ['Perimeter', info?.ok ? formatLength(info.perimeter) : '-'],
-          ['Area', info?.ok ? formatLength(info.area) : '-'],
+          [t.widgets.geoboard.sides, info?.ok ? String(info.sides) : '-'],
+          [t.widgets.geoboard.perimeter, info?.ok ? len(info.perimeter) : '-'],
+          [t.widgets.geoboard.area, info?.ok ? len(info.area) : '-'],
         ].map(([label, v]) => (
           <div key={label} className="flex flex-col items-center rounded-control border border-divider bg-surface py-2">
             <span className="text-small font-semibold text-fg-muted">{label}</span>
@@ -126,10 +129,10 @@ export function Geoboard({ value, onChange, disabled = false, feedback = null, o
         </p>
         <div className="flex gap-2">
           <Button variant="secondary" size="M" icon="undo" disabled={locked || pegs.length === 0} onClick={undo}>
-            Undo
+            {t.widgets.shared.undo}
           </Button>
           <Button variant="secondary" size="M" disabled={locked || pegs.length === 0} onClick={clear}>
-            Clear
+            {t.widgets.shared.clear}
           </Button>
         </div>
       </div>

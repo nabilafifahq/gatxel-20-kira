@@ -2,12 +2,15 @@ import { TodayScreen } from '@/screens/learner'
 import { OfflinePrecache } from '@/components/runtime/OfflinePrecache'
 import { inOrg } from '@/server/db'
 import { orgCtx, pageActor } from '@/server/auth/actor'
-import { ensureStarted } from '@/server/dal/learner-entry'
+import { ensureStarted, firstRunPending } from '@/server/dal/learner-entry'
+import { FirstRunTips } from '@/components/learner/FirstRunTips'
 import { offlineUrlsForToday, todayDTO } from '@/server/dal/learner-today'
 import { tracksFor, xpTracksDTO } from '@/server/dal/arena-tracks'
 import { load } from '@/server/page'
 import { isFeatureOn } from '@/server/dal/learner-features'
 import { worldPeek } from '@/server/dal/kira-world'
+import { jakartaDate } from '@kira/core'
+import { cachedToday } from '@/server/today-cache'
 import { chestDTO } from '@/server/dal/learner-motion'
 import { placementCard } from '@/server/dal/placement'
 import { equipChestRewardAction, openChestAction } from '@/server/actions/chest'
@@ -17,18 +20,28 @@ export const dynamic = 'force-dynamic'
 export default async function TodayPage() {
   const actor = await pageActor(['learner'])
   await ensureStarted(actor.orgId, actor.userId)
-  const { data, urls, placement, world } = await load(() =>
-    inOrg(orgCtx(actor), async (tx) => {
-      const today = await todayDTO(tx, orgCtx(actor), actor.userId)
-      const data = { ...today, tracks: tracksFor(await xpTracksDTO(tx, actor.userId), today.shell.features ?? {}), chest: await chestDTO(tx, actor.userId, today) }
-      const world = (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null
-      return { data, world, urls: await offlineUrlsForToday(tx, actor.userId), placement: await placementCard(tx, orgCtx(actor), actor.userId) }
-    }),
+  const { data, urls } = await load(() =>
+    cachedToday(actor, jakartaDate(), () =>
+      inOrg(orgCtx(actor), async (tx) => {
+        const today = await todayDTO(tx, orgCtx(actor), actor.userId, actor.uiLang)
+        const data = { ...today, tracks: tracksFor(await xpTracksDTO(tx, actor.userId), today.shell.features ?? {}), chest: await chestDTO(tx, actor.userId, today, undefined, actor.uiLang) }
+        return { data, urls: await offlineUrlsForToday(tx, actor.userId) }
+      }),
+    ),
+  )
+  // Bintang dunia dan kartu penempatan berubah di luar jalur sesi, jadi dibaca segar tiap kunjungan (di luar cache).
+  const { world, placement, firstRun } = await load(() =>
+    inOrg(orgCtx(actor), async (tx) => ({
+      world: (await isFeatureOn(actor.userId, 'kira-world')) ? await worldPeek(tx, actor.userId).catch(() => null) : null,
+      placement: await placementCard(tx, orgCtx(actor), actor.userId),
+      firstRun: await firstRunPending(tx, actor.userId),
+    })),
   )
   return (
     <>
       <TodayScreen data={data} world={world} chestActions={{ open: openChestAction, equip: equipChestRewardAction }} placement={placement} />
       <OfflinePrecache urls={urls} />
+      {firstRun ? <FirstRunTips /> : null}
     </>
   )
 }

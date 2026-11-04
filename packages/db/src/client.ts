@@ -13,14 +13,15 @@ export type DbRole = 'app' | 'auth' | 'worker' | 'owner'
  * Koneksi Postgres per role. URL wajib ada; tanpa URL proses berhenti (gagal tertutup).
  * TLS: bila PGSSLROOTCERT diisi, koneksi memakai sslmode verify-full dengan CA lokal.
  */
-export function createDb(url: string | undefined, opts: { max?: number; name: string }): { db: Db; client: postgres.Sql } {
+export function createDb(url: string | undefined, opts: { max?: number; name: string; prepare?: boolean }): { db: Db; client: postgres.Sql } {
   if (!url) throw new Error(`Variabel database untuk ${opts.name} belum diisi`)
   const ca = process.env.PGSSLROOTCERT ? readFileSync(process.env.PGSSLROOTCERT, 'utf8') : undefined
   const client = postgres(url, {
     max: opts.max ?? 10,
     idle_timeout: 30,
     connect_timeout: 10,
-    prepare: true,
+    // Lewat PgBouncer mode transaksi, pernyataan prepared tidak boleh dipakai (KIRA_DB_PREPARE=off).
+    prepare: opts.prepare ?? process.env.KIRA_DB_PREPARE !== 'off',
     connection: { application_name: `kira-${opts.name}` },
     ...(ca ? { ssl: { ca, rejectUnauthorized: true } } : {}),
     onnotice: () => {},

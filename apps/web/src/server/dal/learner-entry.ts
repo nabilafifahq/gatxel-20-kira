@@ -4,7 +4,7 @@ import { jakartaDate } from '@kira/core'
 import { tables } from '@kira/db'
 import { PIN_PICTURES } from '@kira/figures/spec'
 import type { AvatarName, PickLearnerDTO, PinPicture, PinScreenDTO } from '@/lib/dto'
-import { inOrg } from '../db'
+import { inOrg, type Tx } from '../db'
 import { systemCtx } from '../audit'
 import type { DeviceInfo } from '../auth/device'
 import { orgCtx, type Actor } from '../auth/actor'
@@ -81,13 +81,45 @@ export async function learnerOrgFor(device: DeviceInfo, learnerId: string): Prom
 }
 
 /** Isi started_on saat learner pertama kali membuka Today (profil hanya boleh diubah server). */
+// Learner yang sudah punya started_on tidak perlu transaksi lagi (started_on tidak pernah dikosongkan).
+const startedKnown = new Set<string>()
+
 export async function ensureStarted(orgId: string, learnerId: string): Promise<void> {
+  if (startedKnown.has(learnerId)) return
   await inOrg(systemCtx(orgId), (tx) =>
     tx
       .update(learnerProfile)
       .set({ startedOn: jakartaDate() })
       .where(and(eq(learnerProfile.userId, learnerId), isNull(learnerProfile.startedOn))),
   )
+  if (startedKnown.size > 5000) startedKnown.clear()
+  startedKnown.add(learnerId)
+}
+
+/** Anak yang walkthrough-nya sudah selesai, per proses, supaya setiap kunjungan Today tidak menambah query. */
+const firstRunKnown = new Set<string>()
+
+/** True bila walkthrough pertama belum pernah tampil untuk anak ini. */
+export async function firstRunPending(tx: Tx, learnerId: string): Promise<boolean> {
+  if (firstRunKnown.has(learnerId)) return false
+  const [row] = await tx.select({ at: learnerProfile.firstRunDoneAt }).from(learnerProfile).where(eq(learnerProfile.userId, learnerId)).limit(1)
+  if (row?.at) {
+    if (firstRunKnown.size > 5000) firstRunKnown.clear()
+    firstRunKnown.add(learnerId)
+    return false
+  }
+  return Boolean(row)
+}
+
+export async function markFirstRunDone(orgId: string, learnerId: string): Promise<void> {
+  await inOrg(systemCtx(orgId), (tx) =>
+    tx
+      .update(learnerProfile)
+      .set({ firstRunDoneAt: new Date() })
+      .where(and(eq(learnerProfile.userId, learnerId), isNull(learnerProfile.firstRunDoneAt))),
+  )
+  if (firstRunKnown.size > 5000) firstRunKnown.clear()
+  firstRunKnown.add(learnerId)
 }
 
 export async function setLearnerAvatar(orgId: string, learnerId: string, avatar: AvatarName): Promise<void> {

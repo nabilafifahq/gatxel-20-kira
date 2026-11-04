@@ -108,7 +108,13 @@ export default defineConfig([
       '**/*.test.*',
       '**/*.spec.*',
       'e2e/**',
+      'deploy/load/**',
     ],
     rules: { 'no-console': 'off' },
+  },
+  // Skenario k6 berjalan di mesin JavaScript k6 (bukan Node) dengan global sendiri.
+  {
+    files: ['deploy/load/*.js'],
+    languageOptions: { globals: { __ENV: 'readonly', __VU: 'readonly', __ITER: 'readonly', open: 'readonly' } },
   },
 ])

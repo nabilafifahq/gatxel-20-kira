@@ -21,13 +21,14 @@ import { ReadAloudButton } from '@/components/learner/ReadAloudButton'
 import { comboLevel } from '@/components/learner/ComboStars'
 import { RunnerCorner } from '@/components/learner/RunnerCorner'
 import { playSfx, primeSfx } from '@/components/learner/sfx'
-import { useSpeech } from '@/components/learner/speech'
+import { stopSpeech, useSpeech } from '@/components/learner/speech'
 import { SubjectChip } from '@/components/learner/SubjectChip'
 import { XpPill } from '@/components/learner/XpPill'
 import { isAnswerComplete, isManualType } from '@/components/widgets/answers'
 import { QuestionView } from '@/components/widgets/QuestionView'
 import { speakableClipParts, speakableStyle } from '@/components/widgets/speakable-parts'
 import { Widget } from '@/components/widgets/Widget'
+import { useT } from '@/lib/i18n/client'
 import { ExitControl, ReportControl } from './parts'
 import { hintsOf, savedByPosition, sortedItems, type RunnerUpload } from './shared'
 import { newClientId, useAnswerQueue } from './useAnswerQueue'
@@ -79,6 +80,8 @@ function initState(data: RunnerDTO, items: RunnerItem[]): QState[] {
 
 export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; actions: RunnerActions; onUpload?: RunnerUpload }): ReactElement {
   const router = useRouter()
+  const t = useT()
+  const tp = t.runner.practice
   const [items, setItems] = useState<RunnerItem[]>(() => sortedItems(data))
   const [states, setStates] = useState<QState[]>(() => initState(data, sortedItems(data)))
   // Putaran perbaikan (hanya Latihan): per nomor soal yang salah.
@@ -225,6 +228,8 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
 
   const check = useCallback(async () => {
     if (!item || !st || st.phase !== 'answer' || !isAnswerComplete(item, st.value)) return
+    // Bacaan soal berhenti sebelum bunyi benar atau salah, supaya tidak bertumpuk.
+    stopSpeech()
     if (isManualType(item.type)) {
       void send(index, st)
       patch(index, { phase: 'sent', first: st.first ?? 'answered' })
@@ -275,14 +280,15 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
     try {
       const res = await actions.submitAttempt(data.attemptId, submitClientId.current)
       if (res.ok) {
-        router.push(res.data.redirectTo || data.doneHref)
+        // replace: tombol kembali tidak membuka lagi runner yang sudah dikumpulkan.
+        router.replace(res.data.redirectTo || data.doneHref)
         return
       }
       setSubmit({ state: 'error', message: res.message, reference: res.reference })
     } catch {
-      setSubmit({ state: 'error', message: 'Your quest could not be handed in yet.', reference: 'KRA-RUN-NET' })
+      setSubmit({ state: 'error', message: tp.submitFailed, reference: 'KRA-RUN-NET' })
     }
-  }, [actions, data.attemptId, data.doneHref, queue, router])
+  }, [actions, data.attemptId, data.doneHref, queue, router, tp])
 
   const next = useCallback(() => {
     playSfx('tap')
@@ -305,7 +311,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const firstTry = states.filter((s) => s.first === 'correct').length
   const answered = states.filter((s) => DONE.includes(s.phase) && s.phase !== 'skipped').length
   const syncState = !online ? 'offline' : queue.stuck && queue.pending > 0 ? 'pending' : queue.justSynced ? 'synced' : null
-  const savedLine = !online ? `Saved on this ${device}. It will sync when you are back online.` : null
+  const savedLine = !online ? tp.savedOffline(device) : null
 
   const header = (
     <header className="flex h-18 flex-none items-center gap-2.5 px-4 md:h-22 md:gap-4 md:px-8">
@@ -315,12 +321,12 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         segments={segments}
         subject={subject}
         size={phone ? 'S' : 'L'}
-        label={`Quest progress, question ${index + 1} of ${items.length}`}
+        label={tp.progress(index + 1, items.length)}
       />
       <span className="flex-none text-body font-bold tabular-nums md:text-body-lg">
-        {finished ? 'Done' : (
+        {finished ? t.common.done : (
           <>
-            <span className="hidden md:inline">Question {index + 1} of {items.length}</span>
+            <span className="hidden md:inline">{t.runner.questionOf(index + 1, items.length)}</span>
             <span className="md:hidden">
               {index + 1}/{items.length}
             </span>
@@ -341,33 +347,31 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
       <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg">
         {header}
         <main className="flex flex-1 items-center justify-center px-4 pb-8 md:px-8">
-          <section aria-label="Quest done" className="flex max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
+          <section aria-label={tp.questDone} className="flex max-w-[560px] flex-col items-center gap-4 rounded-card bg-surface shadow-soft px-8 py-10 text-center">
             <span className={cx('flex h-28 w-28 items-center justify-center rounded-card border-2 border-fg text-fg', subject === 'math' ? 'bg-math' : subject === 'english' ? 'bg-english' : 'bg-science')}>
               <UiIcon name="check" size={60} />
             </span>
-            <h1 className="m-0 font-display text-display font-semibold">Quest done</h1>
-            <p className="m-0 text-body-lg">
-              You answered {answered} {answered === 1 ? 'question' : 'questions'}. {firstTry} {firstTry === 1 ? 'was' : 'were'} right the first time.
-            </p>
+            <h1 className="m-0 font-display text-display font-semibold">{tp.questDone}</h1>
+            <p className="m-0 text-body-lg">{tp.summary(answered, firstTry)}</p>
             {totalXp > 0 ? <XpPill xp={totalXp} size="L" /> : null}
             {submit.state === 'busy' ? (
               <p role="status" className="m-0 inline-flex items-center gap-2 text-body-lg font-semibold">
                 <UiIcon name="spinner" size={22} />
-                Saving your quest
+                {tp.saving}
               </p>
             ) : null}
             {submit.state === 'error' ? (
               <div role="alert" className="flex flex-col items-center gap-3">
                 <p className="m-0 text-body-lg">
-                  {submit.message} {!online ? `Your answers are safe on this ${device}.` : 'Try again in a moment.'}
+                  {submit.message} {!online ? tp.safeOn(device) : t.runner.tryInAMoment}
                 </p>
-                <p className="m-0 text-body text-fg-muted tabular-nums">Reference {submit.reference}</p>
+                <p className="m-0 text-body text-fg-muted tabular-nums">{t.runner.reference(submit.reference ?? '')}</p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Button variant="secondary" onClick={() => void finish()}>
-                    Try again
+                    {t.common.tryAgain}
                   </Button>
                   <ButtonLink href={data.exitHref} iconAfter="arrow-right">
-                    Back to Today
+                    {tp.backToToday}
                   </ButtonLink>
                 </div>
               </div>
@@ -386,7 +390,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   const canCheck = answering && isAnswerComplete(item, st.value)
   const sheetOpen = st.phase === 'correct' || st.phase === 'not-yet' || st.phase === 'revealed' || st.phase === 'sent' || st.phase === 'answered'
   const isLast = states.every((s, k) => k === index || DONE.includes(s.phase))
-  const nextLabel = isLast ? 'Finish' : 'Next'
+  const nextLabel = isLast ? tp.finish : t.common.next
 
   const openHint = () => {
     if (st.hintsUsed < hints.length) {
@@ -406,10 +410,17 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
   return (
     <div data-jenjang={data.shell.jenjang} className="flex min-h-svh flex-col bg-bg text-fg lg:h-svh lg:overflow-hidden">
       {header}
-      {data.boss ? <BossBar right={states.filter((s) => s.phase === 'correct').length} total={states.length} /> : null}
+      {data.boss ? (
+        <BossBar
+          bossId={data.boss}
+          right={states.filter((s, k) => s.phase === 'correct' && items[k]?.remedialOf === undefined).length}
+          wrong={states.filter((s, k) => s.first === 'not-yet' && items[k]?.remedialOf === undefined).length}
+          total={items.filter((i) => i.remedialOf === undefined).length}
+        />
+      ) : null}
       {syncState ? <OfflineBanner state={syncState} pendingCount={queue.pending} variant="banner" className="mx-4 mb-2.5 md:hidden" /> : null}
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
-        <section aria-label="Question" className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:col-start-1 lg:row-start-1">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-x-6 gap-y-3.5 px-4 max-lg:grid-rows-[auto_1fr_auto] md:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)_auto]">
+        <section aria-label={t.runner.question} className="min-h-0 overflow-y-auto rounded-card bg-surface shadow-soft p-4 md:p-8 lg:col-start-1 lg:row-start-1">
           <QuestionView
             key={item.ref}
             item={item}
@@ -420,12 +431,12 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
             listen={englishArea === 'listening'}
             answer={{ value: st.value, onChange: (v) => answering && patch(index, { value: v }), disabled: !answering, feedback }}
           >
-            {answering && st.hintsUsed > 0 ? <HintList hints={hints} opened={st.hintsUsed} /> : null}
+            {answering && st.hintsUsed > 0 ? <HintList hints={hints} opened={st.hintsUsed} contentLang={item.lang} /> : null}
           </QuestionView>
         </section>
-        <section aria-label="Your answer" tabIndex={0} className="relative flex min-h-0 flex-col overflow-y-auto py-1 focus-visible:outline-3 focus-visible:outline-fg lg:col-start-2 lg:row-start-1">
+        <section aria-label={tp.yourAnswer} tabIndex={0} className="relative flex min-h-0 flex-col overflow-y-auto py-1 focus-visible:outline-3 focus-visible:outline-fg lg:col-start-2 lg:row-start-1">
           <RunnerCorner shell={data.shell} phase={st.phase} streak={streak} xp={st.xp} nonce={`${item.ref}-${st.attemptNo}`} />
-          <div className={cx('m-auto flex w-full flex-col items-center gap-3.5', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
+          <div className={cx('m-auto flex w-full flex-col items-center gap-3.5 max-md:[&>*>*>p:first-child]:pr-12', feedback === 'not-yet' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-nudge', feedback === 'correct' && item.type !== 'mcq' && item.type !== 'multi' && 'kira-pulse')}>
             <Widget
               item={item}
               value={st.value}
@@ -441,7 +452,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
         <footer className="sticky bottom-0 z-10 -mx-4 flex h-21 items-center gap-3 bg-bg px-4 md:-mx-8 md:h-24 md:px-8 lg:static lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:px-0">
           {hints.length > 0 ? <HintButton total={hints.length} opened={st.hintsUsed} onOpen={openHint} disabled={!answering} compact={narrow} /> : null}
           {englishArea === 'listening' ? null : (
-            <ReadAloudButton text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
+            <ReadAloudButton key={item.ref} text={speakableClipParts(item)} style={speakableStyle(item)} lang={item.lang} subject={subject} showNote={false} compact={narrow} />
           )}
           {selfSend ? null : (
             <Button
@@ -451,16 +462,18 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               className="ml-auto min-w-0 flex-1 sm:min-w-35 sm:flex-none md:min-w-50"
               icon={manual ? 'send' : undefined}
             >
-              {manual ? 'Send to tutor' : 'Check'}
+              {manual ? tp.sendToTutor : t.common.check}
             </Button>
           )}
         </footer>
         {sheetOpen ? (
-          <div className="fixed inset-x-0 bottom-0 z-30 lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-end lg:pb-6">
+          // Lembar yang lebih tinggi dari layar digulir di dalam dirinya: judul dan kunci tidak terpotong di HP.
+          <div className="fixed inset-x-0 bottom-0 z-30 max-h-svh overflow-y-auto overscroll-contain lg:relative lg:inset-auto lg:z-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-h-full lg:self-end lg:pb-6">
             <FeedbackSheet
               key={`${item.ref}-${st.phase}`}
               kind={st.phase === 'correct' ? 'correct' : st.phase === 'not-yet' ? 'not-yet' : st.phase === 'revealed' ? 'revealed' : st.phase === 'answered' ? 'saved' : 'sent'}
               subject={subject}
+              contentLang={item.lang}
               xp={st.xp}
               hintsUsed={st.hintsUsed}
               secondTry={st.attemptNo > 1}
@@ -469,9 +482,9 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               solution={item.reveal?.solution ?? (Array.isArray(walk[item.position]) ? (walk[item.position] as SolutionStep[]) : null)}
               hasSolution={Boolean(item.reveal?.hasSolution)}
               onLoadSolution={() => void loadWalk(item.position)}
-              hint={st.phase === 'not-yet' && st.hintsUsed > 0 && hints[st.hintsUsed - 1] ? { label: `Hint ${st.hintsUsed} of ${hints.length}`, text: hints[st.hintsUsed - 1] ?? '' } : null}
+              hint={st.phase === 'not-yet' && st.hintsUsed > 0 && hints[st.hintsUsed - 1] ? { label: t.runner.hints.of(st.hintsUsed, hints.length), text: hints[st.hintsUsed - 1] ?? '' } : null}
               onShowHint={st.phase === 'not-yet' && st.hintsUsed === 0 && hints.length > 0 ? openHint : undefined}
-              showHintLabel={`Show hint ${st.hintsUsed + 1}`}
+              showHintLabel={t.runner.hints.show(st.hintsUsed + 1)}
               savedLine={savedLine}
               className="max-lg:rounded-b-none max-lg:border-x-0 max-lg:border-b-0"
               prompt={item.prompt}
@@ -495,7 +508,7 @@ export function PracticeRunner({ data, actions, onUpload }: { data: RunnerDTO; a
               primary={
                 st.phase === 'not-yet'
                   ? {
-                      label: 'Try again',
+                      label: t.common.tryAgain,
                       onClick: () => {
                         playSfx('tap')
                         patch(index, { phase: 'answer', attemptNo: 2, value: null, startedAt: Date.now() })

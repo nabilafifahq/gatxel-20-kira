@@ -1,5 +1,8 @@
+'use client'
+
 import type { ReactElement } from 'react'
 import type { EnglishCardArea, EnglishCardDTO, EnglishSkillsDTO } from '@/lib/dto-english'
+import { useT } from '@/lib/i18n/client'
 import { ButtonLink } from '@/components/ui/Button'
 import { cx } from '@/components/ui/cx'
 import { UiIcon, type UiIconName } from '@/components/ui/icons'
@@ -20,6 +23,7 @@ const ICON: Record<EnglishCardArea, UiIconName> = {
 }
 
 function Card({ card }: { card: EnglishCardDTO }): ReactElement {
+  const copy = useT().lessons.english
   const style = SUBJECT_STYLE.english
   return (
     <li className="flex flex-col gap-3 rounded-card bg-surface shadow-soft p-6">
@@ -38,7 +42,7 @@ function Card({ card }: { card: EnglishCardDTO }): ReactElement {
         </p>
       ) : null}
       {card.unavailable ? (
-        <p className="m-0 mt-auto rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">Nothing here for your grade yet. Your tutor is adding more.</p>
+        <p className="m-0 mt-auto rounded-control border-2 border-dashed border-border px-4 py-3 text-body text-fg-muted">{copy.nothingForGrade}</p>
       ) : (
         <ButtonLink href={card.href} variant="primary" className="mt-auto w-full">
           {card.cta}
@@ -49,16 +53,17 @@ function Card({ card }: { card: EnglishCardDTO }): ReactElement {
 }
 
 export function EnglishSkillsScreen({ data }: { data: EnglishSkillsDTO }): ReactElement {
+  const copy = useT().lessons.english
   return (
     <LearnerFrame shell={data.shell} current="english" className="flex flex-col gap-6 md:gap-7">
       <header className="flex flex-col gap-1.5">
-        <h1 className="m-0 text-h1 font-bold">English Skills</h1>
+        <h1 className="m-0 text-h1 font-bold">{copy.title}</h1>
         <p className="m-0 text-body-lg text-fg-muted">
-          Listen, speak, write and spell. You are working at {data.levelName} level ({data.cefr}).
+          {copy.subline(data.levelName, data.cefr)}
         </p>
       </header>
 
-      <section aria-label="Cambridge Young Learners levels">
+      <section aria-label={copy.levels('Cambridge Young Learners')}>
         <ol className="m-0 flex list-none flex-wrap gap-3 p-0">
           {data.ladder.map((l) => (
             <li

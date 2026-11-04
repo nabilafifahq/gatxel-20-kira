@@ -4,9 +4,11 @@ import { ACCESSORIES, TRACK_TEXT, accessoryHowToEarn, isAccessoryEarned, trackLe
 import { effectiveOn, type FeatureMap } from '@kira/core/features'
 import { tables } from '@kira/db'
 import type { AccessoryDTO, XpTrackDTO } from '@/lib/dto-arena'
+import type { Dict } from '@/lib/i18n'
 import type { Tx } from '../db'
 import { forbidden } from '../errors'
 import { trackTotals } from './arena-state'
+import { EN_DICT } from './arena-session'
 
 export function trackDTOs(totals: TrackXp): XpTrackDTO[] {
   return trackProgress(totals).map((p) => {
@@ -48,11 +50,11 @@ export function accessoryDTOs(totals: TrackXp, features: FeatureMap = {}): Acces
 }
 
 /** Aksesori hanya boleh dipakai setelah didapat dari level jalur XP. Dipanggil dengan transaksi learner. */
-export async function assertAccessoryEarned(tx: Tx, learnerId: string, accessory: AccessoryId | null): Promise<void> {
+export async function assertAccessoryEarned(tx: Tx, learnerId: string, accessory: AccessoryId | null, t: Dict = EN_DICT): Promise<void> {
   if (accessory === null) return
   const def = ACCESSORIES.find((a) => a.id === accessory)
   const levels = trackLevels(await trackTotals(tx, learnerId))
-  if (!def || !isAccessoryEarned(def, levels)) throw forbidden('You have not earned that one yet.')
+  if (!def || !isAccessoryEarned(def, levels)) throw forbidden(t.arena.errors.notEarned)
 }
 
 /**

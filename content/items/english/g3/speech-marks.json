@@ -301,7 +301,7 @@
         "Find the first word inside the speech marks.",
         "What does the first word of a sentence always need?"
       ],
-      "explanation": "The first spoken word always starts with a capital letter, so my should be My.",
+      "explanation": "The first spoken word starts with a capital letter, so my should be My.",
       "tags": [
         "iklc"
       ]
@@ -425,7 +425,7 @@
         },
         {
           "text": "Come",
-          "why": "These are only the first word."
+          "why": "This is only the first word."
         },
         {
           "text": "Come here"
@@ -490,7 +490,7 @@
         },
         {
           "text": ",",
-          "why": "A comma goes before the closing speech mark only when a sentence is not a question."
+          "why": "A comma goes before the closing speech mark when the speech tells something. Dad is asking."
         }
       ],
       "answer": 2
@@ -525,8 +525,8 @@
       ],
       "explanation": "Sentences with speech marks show spoken words.",
       "groups": [
-        "Has speech",
-        "Has no speech"
+        "Has speech marks",
+        "No speech marks"
       ],
       "items": [
         {
@@ -868,7 +868,7 @@
         "It is inside the marks.",
         "The comma comes after here."
       ],
-      "explanation": "When the spoken words are followed by said, a comma goes inside the speech marks. Example: \"Come here,\" said Dad.",
+      "explanation": "When spoken words that tell something are followed by said, a comma goes inside the speech marks. Example: \"Come here,\" said Dad.",
       "tags": [
         "true-false"
       ],

@@ -1,3 +1,5 @@
+import { PRICE } from './prices'
+
 /** Teman Kira: enam pilihan dari telur, tiga tahap. Tidak pernah sakit, sedih, atau pergi. */
 
 export const PET_KINDS = [
@@ -36,13 +38,13 @@ export function nextStage(sessionsDone: number): { stage: 2 | 3; left: number } 
 
 export type Treat = { id: string; name: string; icon: string; price: number; kind: 'feed' | 'play'; line: string }
 export const TREATS: readonly Treat[] = [
-  { id: 'apple', name: 'Apple', icon: 'apple', price: 2, kind: 'feed', line: 'Crunch crunch. Yum!' },
-  { id: 'strawberry', name: 'Strawberry', icon: 'strawberry', price: 3, kind: 'feed', line: 'So sweet!' },
-  { id: 'cake', name: 'Cake', icon: 'cake', price: 4, kind: 'feed', line: 'Party time!' },
-  { id: 'ice-cream', name: 'Ice cream', icon: 'ice-cream', price: 5, kind: 'feed', line: 'Best day ever!' },
-  { id: 'ball', name: 'Play ball', icon: 'ball', price: 2, kind: 'play', line: 'Catch it!' },
-  { id: 'kite', name: 'Fly a kite', icon: 'kite', price: 3, kind: 'play', line: 'Wheee, up high!' },
-  { id: 'balloon', name: 'Balloons', icon: 'balloon', price: 3, kind: 'play', line: 'Pop pop pop!' },
+  { id: 'apple', name: 'Apple', icon: 'apple', price: PRICE.apple, kind: 'feed', line: 'Crunch crunch. Yum!' },
+  { id: 'strawberry', name: 'Strawberry', icon: 'strawberry', price: PRICE.strawberry, kind: 'feed', line: 'So sweet!' },
+  { id: 'cake', name: 'Cake', icon: 'cake', price: PRICE.cake, kind: 'feed', line: 'Party time!' },
+  { id: 'ice-cream', name: 'Ice cream', icon: 'ice-cream', price: PRICE['ice-cream'], kind: 'feed', line: 'Best day ever!' },
+  { id: 'ball', name: 'Play ball', icon: 'ball', price: PRICE.ball, kind: 'play', line: 'Catch it!' },
+  { id: 'kite', name: 'Fly a kite', icon: 'kite', price: PRICE.kite, kind: 'play', line: 'Wheee, up high!' },
+  { id: 'balloon', name: 'Balloons', icon: 'balloon', price: PRICE.balloon, kind: 'play', line: 'Pop pop pop!' },
 ]
 export function treatById(id: string): Treat | undefined {
   return TREATS.find((t) => t.id === id)
@@ -50,18 +52,18 @@ export function treatById(id: string): Treat | undefined {
 
 /** Kostum teman dan rumah teman dijual di Toko Bintang. */
 export const PET_COSTUMES = [
-  { id: 'pet-bow', name: 'Bow', price: 12 },
-  { id: 'pet-glasses', name: 'Round glasses', price: 15 },
-  { id: 'pet-crown', name: 'Little crown', price: 25 },
+  { id: 'pet-bow', name: 'Bow', price: PRICE['pet-bow'] },
+  { id: 'pet-glasses', name: 'Round glasses', price: PRICE['pet-glasses'] },
+  { id: 'pet-crown', name: 'Little crown', price: PRICE['pet-crown'] },
 ] as const
 export type PetCostumeId = (typeof PET_COSTUMES)[number]['id']
 
 export const PET_HOMES = [
   { id: 'home-meadow', name: 'Meadow nook', price: 0 },
-  { id: 'home-treehouse', name: 'Treehouse', price: 30 },
-  { id: 'home-cave', name: 'Crystal cave', price: 35 },
-  { id: 'home-pond', name: 'Lily pond', price: 30 },
-  { id: 'home-castle', name: 'Cloud castle', price: 45 },
+  { id: 'home-treehouse', name: 'Treehouse', price: PRICE['home-treehouse'] },
+  { id: 'home-cave', name: 'Crystal cave', price: PRICE['home-cave'] },
+  { id: 'home-pond', name: 'Lily pond', price: PRICE['home-pond'] },
+  { id: 'home-castle', name: 'Cloud castle', price: PRICE['home-castle'] },
 ] as const
 export type PetHomeId = (typeof PET_HOMES)[number]['id']
 
