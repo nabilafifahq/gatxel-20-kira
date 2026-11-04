@@ -76,6 +76,7 @@ function who() {
   return { fam, kid, cookie: cookieFor('kid', fam, kid), parent: cookieFor('parent', fam) }
 }
 
+const RUN_LINK = new RegExp('/run/([0-9a-f-]{36})')
 const LABEL = /aria-label="(\w+) (practice|test|paper), ([a-z ]+)\.[^"]*"[^>]*href="\/quest\/([0-9a-f-]{36})"/g
 
 /** Daftar sesi hari ini dari halaman Today: [{subject, session, state, questId, runId}] */
@@ -108,7 +109,12 @@ function runSession(w, s, opts) {
   const fast = opts && opts.fast
   const tag = (n) => (fast ? 'prep_' + n : n)
   const lim = s.session === 'test' || s.session === 'paper'
-  http.get(BASE + '/quest/' + s.questId, { headers: headers(w.cookie, { Accept: 'text/html' }), tags: { name: tag('quest_intro') } })
+  const intro = http.get(BASE + '/quest/' + s.questId, { headers: headers(w.cookie, { Accept: 'text/html' }), tags: { name: tag('quest_intro') } })
+  if (!s.runId) {
+    const mm = RUN_LINK.exec(intro.body.replace(/\\"/g, '"'))
+    if (!mm) return false
+    s.runId = mm[1]
+  }
   const run = http.get(BASE + '/run/' + s.runId, { headers: headers(w.cookie, { Accept: 'text/html' }), tags: { name: tag('run_page') } })
   if (!expect200(run, 'run')) return false
   const text = run.body.replace(/\\"/g, '"')
@@ -155,7 +161,7 @@ function audioFetch(w, count) {
 }
 
 function pickSession(sessions, kind) {
-  const open = sessions.filter((s) => s.runId && (s.state === 'ready' || s.state === 'in progress'))
+  const open = sessions.filter((s) => s.state === 'ready' || s.state === 'in progress')
   const want = kind === 'latihan' ? 'practice' : kind === 'tes' ? 'test' : kind === 'paper' ? 'paper' : null
   const pool = want ? open.filter((s) => s.session === want) : open
   if (pool.length === 0) return null
