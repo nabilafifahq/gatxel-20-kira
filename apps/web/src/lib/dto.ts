@@ -921,11 +921,15 @@ export type { FigureSpec }
 export type LoginScreenProps = {
   next: string | null
   notice: 'locked' | 'reset-done' | 'signed-out' | 'session-expired' | 'invite-accepted' | null
-  passwordLogin(input: { email: string; password: string; next: string | null }): Promise<ActionResult<{ redirectTo: string }>>
+  passwordLogin(input: { email: string; password: string; next: string | null; turnstile?: string }): Promise<ActionResult<{ redirectTo: string }>>
   /** Upacara WebAuthn dijalankan di client oleh pembungkus; layar hanya memanggilnya. */
   passkeyLogin(next: string | null): Promise<ActionResult<{ redirectTo: string }>>
   passkeySupported: boolean
-  requestReset(email: string): Promise<ActionResult>
+  requestReset(email: string, turnstile?: string): Promise<ActionResult>
+  /** Kunci situs Turnstile; null bila Turnstile mati. */
+  turnstileSiteKey?: string | null
+  /** Kirim ulang email konfirmasi untuk pendaftar yang belum mengonfirmasi. */
+  resendVerification?(input: { email: string; turnstile?: string }): Promise<ActionResult>
 }
 
 export type SetupScreenProps = {

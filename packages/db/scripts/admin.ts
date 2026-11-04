@@ -12,6 +12,9 @@ import postgres from 'postgres'
  *   pin-unlock <nama>      buka kunci PIN learner (nama persis seperti di konsol)
  *   tts-batch              jadwalkan job tts.batch (membuat suara bahasa Inggris yang belum ada) untuk setiap org
  *   tts-status             jumlah klip suara yang sudah jadi dan yang masih menunggu, dari job tts.batch terakhir tiap org
+ *   waitlist-count         jumlah daftar tunggu (terkonfirmasi, menunggu konfirmasi, berhenti, sudah diundang) dan sisa kursi
+ *   waitlist-export        cetak CSV daftar tunggu yang terkonfirmasi dan belum berhenti (email, sumber, tanggal)
+ *   waitlist-notify <n>    antrekan undangan kursi untuk n orang tertua di daftar tunggu (dikirim bertahap, 10 per menit)
  *   sourcing-now           jadwalkan pembaruan sumber soal (seperti jadwal Minggu dini hari) sekarang juga untuk setiap org
  *
  * Tidak pernah mencetak password, hash, atau token selain tautan reset yang memang diminta.
@@ -145,6 +148,59 @@ async function ttsStatus(db: postgres.Sql = sql, log: (s: string) => void = cons
   }
 }
 
+
+const SEATS = Number(process.env.KIRA_BETA_SEATS ?? 100)
+
+async function waitlistCount(): Promise<void> {
+  const [w] = await sql`
+    select
+      count(*) filter (where unsubscribed_at is null and confirmed_at is not null)::int as confirmed,
+      count(*) filter (where unsubscribed_at is null and confirmed_at is null)::int as pending,
+      count(*) filter (where unsubscribed_at is not null)::int as unsubscribed,
+      count(*) filter (where invited_at is not null and unsubscribed_at is null)::int as invited,
+      count(*) filter (where converted_at is not null)::int as converted
+    from auth.waitlist`
+  const [s] = await sql`select count(*)::int as taken from auth.beta_seat`
+  console.log(JSON.stringify({ ...w, seatsTotal: SEATS, seatsTaken: s!.taken, seatsFree: Math.max(0, SEATS - (s!.taken as number)) }, null, 2))
+}
+
+const csvCell = (v: unknown) => `"${String(v ?? '').replace(/"/g, '""')}"`
+
+async function waitlistExport(): Promise<void> {
+  const rows = await sql`select email, source, consented_at, confirmed_at, invited_at from auth.waitlist where unsubscribed_at is null and confirmed_at is not null and converted_at is null order by created_at`
+  console.log('email,sumber,setuju_pada,dikonfirmasi_pada,diundang_pada')
+  for (const r of rows) console.log([r.email, r.source, r.consented_at?.toISOString(), r.confirmed_at?.toISOString(), r.invited_at?.toISOString() ?? ''].map(csvCell).join(','))
+}
+
+/** Antrekan undangan ke n orang terlama yang terkonfirmasi, belum berhenti, belum diundang, dan belum punya akun. 10 email per menit. */
+async function waitlistNotify(nRaw: string | undefined): Promise<void> {
+  const n = Number(nRaw)
+  if (!Number.isInteger(n) || n < 1 || n > 1000) throw new Error('Pakai: admin waitlist-notify <jumlah 1 sampai 1000>')
+  const origin = (process.env.KIRA_ORIGIN ?? '').replace(/\/$/, '')
+  if (!origin.startsWith('https://') && !origin.startsWith('http://localhost')) throw new Error('KIRA_ORIGIN belum diisi dengan alamat https Kira.')
+  const [s] = await sql`select count(*)::int as taken from auth.beta_seat`
+  const free = Math.max(0, SEATS - (s!.taken as number))
+  if (free === 0) console.log('Peringatan: tidak ada kursi kosong sekarang. Undangan tetap diantrekan, tetapi pendaftaran masih penuh.')
+  else if (n > free) console.log(`Peringatan: hanya ${free} kursi kosong, sedangkan undangan yang diantrekan ${n}. Yang datang terlambat masuk daftar tunggu lagi.`)
+  const rows = await sql<{ id: string; email: string; token: string }[]>`
+    select id, email, token from auth.waitlist
+    where unsubscribed_at is null and confirmed_at is not null and invited_at is null and converted_at is null
+    order by created_at limit ${n}`
+  let i = 0
+  for (const r of rows) {
+    const unsub = `${origin}/kabar/berhenti/${r.token}`
+    const text = ['Kursi beta Kira dibuka lagi', '', 'Kabar baik: ada kursi beta Kira yang kosong. Daftar sekarang selagi masih ada.', `Daftar: ${origin}/daftar`, '', 'Kamu menerima email ini karena kamu masuk daftar tunggu Kira.', `Berhenti berlangganan: ${unsub}`].join('\n')
+    const html = `<!doctype html><html lang="id"><body style="font-family:Arial,sans-serif;line-height:1.6"><h1 style="font-size:22px">Kursi beta Kira dibuka lagi</h1><p>Kabar baik: ada kursi beta Kira yang kosong. Daftar sekarang selagi masih ada.</p><p><a href="${origin}/daftar" style="display:inline-block;padding:12px 20px;border-radius:12px;background:#14202e;color:#ffffff;text-decoration:none;font-weight:bold">Daftar sekarang</a></p><p style="font-size:14px">Kamu menerima email ini karena kamu masuk daftar tunggu Kira. <a href="${unsub}">Berhenti berlangganan</a></p></body></html>`
+    await sql.begin(async (tx) => {
+      await tx`insert into public_mail (to_addr, subject, html, text, kind, list_unsubscribe, send_after) values (${r.email}, 'Kursi beta Kira dibuka lagi', ${html}, ${text}, 'waitlist-invite', ${`${origin}/api/kabar/berhenti/${r.token}`}, now() + (${Math.floor(i / 10)} * interval '1 minute'))`
+      await tx`update auth.waitlist set invited_at = now() where id = ${r.id}`
+    })
+    i++
+  }
+  await sql`select pg_notify('kira_mail', 'public')`
+  console.log(`${rows.length} undangan diantrekan, dikirim bertahap 10 per menit (selesai sekitar ${Math.ceil(rows.length / 10)} menit).`)
+}
+
 const [cmd, arg] = process.argv.slice(2)
 try {
   if (cmd === 'status') await status()
@@ -153,9 +209,12 @@ try {
   else if (cmd === 'pin-unlock') await pinUnlock(arg)
   else if (cmd === 'tts-batch') await ttsBatch()
   else if (cmd === 'tts-status') await ttsStatus()
+  else if (cmd === 'waitlist-count') await waitlistCount()
+  else if (cmd === 'waitlist-export') await waitlistExport()
+  else if (cmd === 'waitlist-notify') await waitlistNotify(arg)
   else if (cmd === 'sourcing-now') await sourcingNow()
   else {
-    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch | tts-status | sourcing-now')
+    console.log('Perintah: status | reset-link <email> | unlock <email> | pin-unlock <nama learner> | tts-batch | tts-status | sourcing-now | waitlist-count | waitlist-export | waitlist-notify <n>')
     process.exitCode = cmd ? 1 : 0
   }
 } catch (e) {

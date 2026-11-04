@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 import { FamilyShell } from '@/components/family/FamilyShell'
 import { FamilyHomeScreen } from '@/screens/family/FamilyHomeScreen'
 import { pageActor } from '@/server/auth/actor'
+import { isFamilyOwner } from '@/server/auth/parent'
 import { familyHomeDTO } from '@/server/dal/family'
 import { load } from '@/server/page'
 import { spDate, spUuid, type SearchParams } from '@/server/params'
@@ -13,6 +15,8 @@ export default async function FamilyHomePage({ searchParams }: { searchParams: P
   const actor = await pageActor(['guardian', 'tutor'], '/keluarga')
   const sp = await searchParams
   const { shell, home } = await load(() => familyHomeDTO(actor, spUuid(sp, 'learner'), spDate(sp, 'minggu')))
+  // Orang tua yang mendaftar sendiri dan belum menambah anak melanjutkan onboarding.
+  if (!home && actor.role === 'guardian' && (await isFamilyOwner(actor))) redirect('/mulai')
   if (!home) {
     return (
       <FamilyShell shell={shell} active="home">

@@ -12,11 +12,12 @@ import { ACCOUNT_LOCK_AFTER, escalatingDelay, recentFailures, recordAttempt, thr
 import { randomToken, safeEqual, sha256hex } from './crypto'
 import { revokeUserSessions } from './session'
 import { setPin } from './pin'
+import { emailKey } from '../signup/email-policy'
 
-const { userAccount, invite, resetToken } = tables
+const { userAccount, invite, resetToken, signup } = tables
 
-export const TERMS_VERSION = '2026-10-12'
-export const NOTICE_VERSION = '2026-10-14'
+export const TERMS_VERSION = '2026-11-04'
+export const NOTICE_VERSION = '2026-11-04'
 
 const GENERIC_LOGIN_ERROR = 'Email atau password belum cocok. Periksa lagi, atau pakai Lupa password.'
 
@@ -50,7 +51,12 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
     .limit(1)
   const user = rows[0]
   if (!user || !user.hash) {
-    await burnVerify(password)
+    // Pendaftar yang belum konfirmasi email: pesan ramah hanya bila password-nya cocok (tidak membocorkan email).
+    const pending = (await authDb().select({ hash: signup.passwordHash }).from(signup).where(eq(signup.emailNorm, emailKey(email))).limit(1))[0]
+    if (pending && (await verifySecret(pending.hash, password))) {
+      throw new AppError('invalid', 'Email ini belum dikonfirmasi. Buka email dari Kira lalu tekan Konfirmasi email, atau kirim ulang emailnya.', { unverified: email })
+    }
+    if (!pending) await burnVerify(password)
     await recordAttempt(key, false)
     throw invalid(GENERIC_LOGIN_ERROR)
   }
@@ -64,7 +70,7 @@ export async function loginWithPassword(emailRaw: string, password: string): Pro
 }
 
 async function assertEmailFree(email: string): Promise<void> {
-  const rows = await authDb().select({ id: userAccount.id }).from(userAccount).where(sql`lower(${userAccount.email}) = ${email}`).limit(1)
+  const rows = await authDb().select({ id: userAccount.id }).from(userAccount).where(sql`lower(${userAccount.email}) = ${email} or ${userAccount.emailNorm} = ${emailKey(email)}`).limit(1)
   if (rows[0]) throw conflict('Email ini sudah dipakai akun lain. Masuk dengan email itu atau pakai email lain.')
 }
 
@@ -81,7 +87,7 @@ export async function createFirstOrg(input: { setupToken: string; orgName: strin
   const orgId = randomUUID()
   const [user] = await authDb()
     .insert(userAccount)
-    .values({ orgId, kind: 'adult', role: 'tutor', email, name: input.name.trim(), passwordHash: await hashSecret(input.password), passwordChangedAt: new Date() })
+    .values({ orgId, kind: 'adult', role: 'tutor', email, emailNorm: emailKey(email), name: input.name.trim(), passwordHash: await hashSecret(input.password), passwordChangedAt: new Date() })
     .returning({ id: userAccount.id })
   const ctx = { orgId, userId: user!.id, role: 'tutor' as const }
   try {
@@ -149,7 +155,7 @@ export async function acceptInvite(input: { token: string; name: string; passwor
   await assertEmailFree(inv.email)
   const [user] = await authDb()
     .insert(userAccount)
-    .values({ orgId: inv.orgId, kind: 'adult', role: inv.role, email: inv.email, name: input.name.trim(), passwordHash: await hashSecret(input.password), passwordChangedAt: new Date() })
+    .values({ orgId: inv.orgId, kind: 'adult', role: inv.role, email: inv.email, emailNorm: emailKey(inv.email), name: input.name.trim(), passwordHash: await hashSecret(input.password), passwordChangedAt: new Date() })
     .returning({ id: userAccount.id })
   const ctx = { orgId: inv.orgId, userId: user!.id, role: 'tutor' as const }
   try {

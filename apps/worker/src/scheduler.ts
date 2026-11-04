@@ -64,7 +64,8 @@ export async function runRetention(deps: ScheduleDeps): Promise<string> {
       failed++
     }
   }
-  deps.log.info('retensi selesai', { media: rows.length, failedFiles: failed })
+  const purged = await deps.client<{ n: number }[]>`select kira_purge_public() as n`
+  deps.log.info('retensi selesai', { media: rows.length, failedFiles: failed, purgedPublic: purged[0]?.n ?? 0 })
   return `selesai: ${rows.length} berkas media dihapus${failed ? `, ${failed} gagal` : ''}`
 }
 

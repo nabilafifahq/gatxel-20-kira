@@ -33,6 +33,7 @@ export const FAMILY_ROUTES = {
 
 export const PUBLIC_ROUTES = {
   login: '/masuk',
+  signup: '/daftar',
   privacyNotice: '/privasi',
   terms: '/ketentuan',
 } as const

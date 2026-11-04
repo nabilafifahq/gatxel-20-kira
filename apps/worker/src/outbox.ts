@@ -1,4 +1,4 @@
-import { and, asc, eq, lt, notInArray, sql } from 'drizzle-orm'
+import { and, asc, eq, lt, lte, notInArray, sql } from 'drizzle-orm'
 import nodemailer from 'nodemailer'
 import type postgres from 'postgres'
 import { tables, withOrg, type Db } from '@kira/db'
@@ -15,15 +15,16 @@ import type { Logger } from './log'
 
 export const MAX_EMAIL_ATTEMPTS = 5
 const PER_ORG_LIMIT = 50
+const PUBLIC_LIMIT = 100
 
-export type Mailer = { send(mail: { from: string; to: string; subject: string; text: string; html: string }): Promise<void> }
+export type Mailer = { send(mail: { from: string; to: string; subject: string; text: string; html: string; headers?: Record<string, string> }): Promise<void> }
 
 export function smtpMailer(env: Env): Mailer | null {
   if (!env.SMTP_URL) return null
   const transport = nodemailer.createTransport(env.SMTP_URL)
   return {
     async send(mail) {
-      await transport.sendMail({ ...mail, headers: { 'Auto-Submitted': 'auto-generated' } })
+      await transport.sendMail({ ...mail, headers: { 'Auto-Submitted': 'auto-generated', ...mail.headers } })
     },
   }
 }
@@ -100,7 +101,47 @@ export class OutboxSender {
         totals[r]++
       }
     }
+    // Email tanpa org (verifikasi pendaftaran, kabar daftar tunggu).
+    const tried: string[] = []
+    for (let n = 0; n < PUBLIC_LIMIT && !this.stopping; n++) {
+      const r = await this.sendNextPublic(tried)
+      if (r === 'empty') break
+      totals[r]++
+    }
     return totals
+  }
+
+  /** Satu email publik per transaksi, dengan penguncian yang sama seperti email org. Menghormati send_after. */
+  private async sendNextPublic(tried: string[]): Promise<'sent' | 'failed' | 'retry' | 'noSmtp' | 'empty'> {
+    const { db, env, mailer } = this.deps
+    const o = tables.publicMail
+    return db.transaction(async (tx) => {
+      const [mail] = await tx
+        .select({ id: o.id, to: o.toAddr, subject: o.subject, text: o.text, html: o.html, attempts: o.attempts, unsub: o.listUnsubscribe })
+        .from(o)
+        .where(and(eq(o.status, 'queued'), lt(o.attempts, MAX_EMAIL_ATTEMPTS), lte(o.sendAfter, new Date()), tried.length ? notInArray(o.id, tried) : undefined))
+        .orderBy(asc(o.sendAfter))
+        .limit(1)
+        .for('update', { skipLocked: true })
+      if (!mail) return 'empty'
+      tried.push(mail.id)
+      if (!mailer) {
+        await tx.update(o).set({ status: 'no-smtp', lastError: 'SMTP belum diatur.' }).where(eq(o.id, mail.id))
+        return 'noSmtp'
+      }
+      try {
+        const headers = mail.unsub ? { 'List-Unsubscribe': `<${mail.unsub}>`, 'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click' } : undefined
+        await mailer.send({ from: env.SMTP_FROM ?? '', to: mail.to, subject: mail.subject, text: mail.text, html: mail.html, ...(headers ? { headers } : {}) })
+        await tx.update(o).set({ status: 'sent', sentAt: new Date(), attempts: sql`${o.attempts} + 1`, lastError: null }).where(eq(o.id, mail.id))
+        return 'sent'
+      } catch (e) {
+        const attempts = mail.attempts + 1
+        const final = attempts >= MAX_EMAIL_ATTEMPTS
+        await tx.update(o).set({ status: final ? 'failed' : 'queued', attempts, lastError: smtpErrorMessage(e) }).where(eq(o.id, mail.id))
+        this.deps.log.warn('email publik gagal dikirim', { code: (e as { code?: string }).code ?? null, final })
+        return final ? 'failed' : 'retry'
+      }
+    })
   }
 
   /** Satu email per transaksi: baris dikunci (SKIP LOCKED) selama dikirim supaya tidak terkirim dua kali. */

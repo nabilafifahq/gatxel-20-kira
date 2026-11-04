@@ -61,12 +61,53 @@ export const userAccount = auth.table(
     lastLoginAt: ts('last_login_at'),
     createdAt: createdAt(),
     disabledAt: ts('disabled_at'),
+    /** Email ternormalisasi (Gmail tanpa titik dan +tag). Akun lama bernilai null. */
+    emailNorm: text('email_norm'),
   },
   (t) => [
     uniqueIndex('user_account_email_uq').on(sql`lower(${t.email})`).where(sql`${t.email} is not null`),
     index('user_account_org_idx').on(t.orgId),
   ],
 )
+
+/** Pendaftar yang belum memverifikasi email. Bukan akun: tidak bisa masuk. Kedaluwarsa 24 jam. */
+export const signup = auth.table('signup', {
+  id: id(),
+  email: text('email').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  name: text('name').notNull(),
+  passwordHash: text('password_hash').notNull(),
+  tokenHash: text('token_hash').notNull().unique(),
+  expiresAt: ts('expires_at').notNull(),
+  termsVersion: text('terms_version').notNull(),
+  noticeVersion: text('notice_version').notNull(),
+  ipHash: text('ip_hash'),
+  sentCount: integer('sent_count').notNull().default(1),
+  lastSentAt: ts('last_sent_at').notNull().defaultNow(),
+  createdAt: createdAt(),
+})
+
+export const betaSeat = auth.table('beta_seat', {
+  orgId: uuid('org_id').primaryKey(),
+  userId: uuid('user_id').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  takenAt: ts('taken_at').notNull().defaultNow(),
+})
+
+export const waitlist = auth.table('waitlist', {
+  id: id(),
+  email: text('email').notNull(),
+  emailNorm: text('email_norm').notNull().unique(),
+  token: text('token').notNull().unique(),
+  source: text('source', { enum: ['form', 'signup'] }).notNull().default('form'),
+  consentText: text('consent_text').notNull(),
+  consentedAt: ts('consented_at').notNull().defaultNow(),
+  confirmedAt: ts('confirmed_at'),
+  unsubscribedAt: ts('unsubscribed_at'),
+  invitedAt: ts('invited_at'),
+  convertedAt: ts('converted_at'),
+  createdAt: createdAt(),
+})
 
 export const learnerSecret = auth.table('learner_secret', {
   userId: uuid('user_id').primaryKey().references(() => userAccount.id, { onDelete: 'cascade' }),
@@ -779,6 +820,23 @@ export const outboxEmail = pgTable('outbox_email', {
   html: text('html').notNull(),
   text: text('text').notNull(),
   kind: text('kind').notNull(),
+  status: text('status', { enum: ['queued', 'sent', 'failed', 'no-smtp'] }).notNull().default('queued'),
+  attempts: integer('attempts').notNull().default(0),
+  lastError: text('last_error'),
+  createdAt: createdAt(),
+  sentAt: ts('sent_at'),
+})
+
+/** Kotak keluar email yang belum punya org (verifikasi, kabar, undangan kursi). Web menulis, worker mengirim. */
+export const publicMail = pgTable('public_mail', {
+  id: id(),
+  toAddr: text('to_addr').notNull(),
+  subject: text('subject').notNull(),
+  html: text('html').notNull(),
+  text: text('text').notNull(),
+  kind: text('kind').notNull(),
+  listUnsubscribe: text('list_unsubscribe'),
+  sendAfter: ts('send_after').notNull().defaultNow(),
   status: text('status', { enum: ['queued', 'sent', 'failed', 'no-smtp'] }).notNull().default('queued'),
   attempts: integer('attempts').notNull().default(0),
   lastError: text('last_error'),
