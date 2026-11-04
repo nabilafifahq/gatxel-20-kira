@@ -333,6 +333,7 @@ export function ReaderScreen({ data, actions }: { data: ReaderDTO; actions: Acti
                 aria-pressed={playing}
                 disabled={unavailable}
                 onClick={togglePlay}
+                className="max-sm:px-3"
               >
                 {playing ? tr.pause : active ? tr.play : tr.readAlong}
               </Button>

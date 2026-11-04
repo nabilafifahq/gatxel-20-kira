@@ -26,7 +26,21 @@ function roundTo(v: number, step: number, min: number): number {
 }
 
 function fmt(n: number): string {
-  return Number.isInteger(n) ? String(n) : String(Math.round(n * 100) / 100)
+  // Pemisah ribuan sama dengan soal: Mark 320,000 on the number line.
+  return Number.isInteger(n) ? n.toLocaleString('en-GB') : String(Math.round(n * 100) / 100)
+}
+
+/** Lebar kira-kira satu angka per satuan fontSize, dipakai supaya label tidak saling menimpa. */
+const CHAR_EM = 0.56
+
+/** Label besar memakai huruf lebih kecil dan dijarangkan supaya tiap angka tetap terbaca dan tidak terpotong di ujung. */
+function labelLayout(min: number, max: number, step: number, count: number): { every: number; fontSize: number } {
+  const longest = Math.max(fmt(min).length, fmt(max).length, fmt(min + step).length)
+  const fontSize = longest * CHAR_EM * 22 > PAD * 2 ? Math.floor((PAD * 2) / (longest * CHAR_EM)) : 22
+  const byCount = count <= 12 ? 1 : count <= 24 ? 2 : count <= 60 ? 5 : 10
+  const slot = (W - PAD * 2) / Math.max(count, 1)
+  const byWidth = Math.ceil((longest * CHAR_EM * fontSize + 8) / slot)
+  return { every: Math.max(byCount, byWidth), fontSize }
 }
 
 export function NumberLineWidget({ item, value, onChange, disabled = false, feedback = null, subject }: WidgetProps): ReactElement {
@@ -38,7 +52,7 @@ export function NumberLineWidget({ item, value, onChange, disabled = false, feed
   const locked = disabled || !!feedback
   const t = useT()
   const count = Math.round((max - min) / step)
-  const labelEvery = count <= 12 ? 1 : count <= 24 ? 2 : count <= 60 ? 5 : 10
+  const { every: labelEvery, fontSize } = labelLayout(min, max, step, count)
   const xOf = (v: number) => PAD + ((v - min) / (max - min || 1)) * (W - PAD * 2)
 
   const set = (v: number) => {
@@ -101,7 +115,7 @@ export function NumberLineWidget({ item, value, onChange, disabled = false, feed
               <g key={k}>
                 <line x1={x} y1={Y - (major ? 12 : 7)} x2={x} y2={Y + (major ? 12 : 7)} className="stroke-fg" strokeWidth={major ? 3 : 2} />
                 {major ? (
-                  <text x={x} y={Y + 40} textAnchor="middle" className="fill-fg font-reading" fontSize="22">
+                  <text x={x} y={Y + 40} textAnchor="middle" className="fill-fg font-reading" fontSize={fontSize}>
                     {fmt(v)}
                   </text>
                 ) : null}

@@ -211,7 +211,10 @@ describe.skipIf(!ready)('uji tembus: balapan dan logika bisnis', () => {
         keys.set(ref, spoken!.keys)
         for (const k of spoken!.keys) files.push(join(dir, `${k}.mp3`))
       }
-      return { files, keys, items, write: () => Promise.all(files.map((f) => writeFile(f, 'klip uji'))), remove: () => Promise.all(files.map((f) => rm(f, { force: true }))) }
+      return { files, keys, items, write: () => Promise.all(files.map((f) => writeFile(f, 'klip uji'))), remove: async () => {
+        await Promise.all(files.map((f) => rm(f, { force: true })))
+        ;(await import('@/server/tts')).forgetKnownClips()
+      } }
     }
 
     it('hanya kunci klip yang dikirim, kata tidak; jawaban tetap dinilai server', async () => {
