@@ -108,4 +108,11 @@ describe('email dan pengalihan', () => {
       expect(safeNext(bad, '/ok')).toBe('/ok')
     expect(safeNext('/keluarga?x=1', '/ok')).toBe('/keluarga?x=1')
   })
+  it('safeNext menolak karakter yang dibuang browser (uji tembus 5 November)', () => {
+    const backslash = String.fromCharCode(92)
+    for (const bad of ['/\t/evil.example', '/\n/evil.example', '/\r/evil.example', '/./' + backslash + 'evil.example', '/a' + backslash + 'b', '/\u0000x', '/\u007fx'])
+      expect(safeNext(bad, '/ok'), JSON.stringify(bad)).toBe('/ok')
+    // Bentuk yang tetap di dalam Kira (dibaca browser sebagai path biasa) masih boleh.
+    expect(safeNext('/%2F/evil.example', '/ok')).toBe('/%2F/evil.example')
+  })
 })
