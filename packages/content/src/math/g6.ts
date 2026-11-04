@@ -2741,6 +2741,12 @@ const timeTimetables: Generator = {
       const offs = gaps.reduce<number[]>((acc, g, i) => [...acc, i === 0 ? 0 : at(acc, i - 1) + g], [])
       const starts = [0, 1, 2, 3].map((t) => addMinutes(rng.int(6, 7), 0, t * rng.int(35, 50) + rng.int(0, 5) * 5))
       const sorted = [...starts].sort((x, y) => x[0] * 60 + x[1] - (y[0] * 60 + y[1]))
+      // dua kereta dengan jam yang sama membuat dua opsi sama-sama benar
+      for (let i = 1; i < sorted.length; i++) {
+        const [ph, pm] = at(sorted, i - 1)
+        const [ch, cm] = at(sorted, i)
+        if (ch * 60 + cm <= ph * 60 + pm) sorted[i] = addMinutes(ph, pm, 5)
+      }
       const cell = (t: number, sIdx: number) => {
         const [h, m] = addMinutes(at(sorted, t)[0], at(sorted, t)[1], at(offs, sIdx))
         return { h, m, t: hhmm(h, m) }
@@ -2766,9 +2772,11 @@ const timeTimetables: Generator = {
           secs: 120,
         })
       }
-      const t = rng.int(1, 3)
-      const arrive = cell(t, 3)
+      const drawn = rng.int(1, 3)
+      const arrive = cell(drawn, 3)
       const [dh, dm] = addMinutes(arrive.h, arrive.m, rng.int(1, 9))
+      // batas waktu bisa mencapai kereta berikutnya, jadi kunci dibaca dari batas waktu itu
+      const t = [3, 2, 1].find((x) => cell(x, 3).h * 60 + cell(x, 3).m <= dh * 60 + dm) ?? drawn
       const m = mcqFrom(
         rng,
         `Train ${t + 1}`,
@@ -2781,7 +2789,7 @@ const timeTimetables: Generator = {
         ...m,
         figure: fig,
         hints: [`Read the ${at(stations, 3)} row.`, `Find the trains that arrive at or before ${hhmm(dh, dm)}.`, `Pick the one of those that leaves last.`],
-        explanation: `Train ${t + 1} arrives at ${cell(t, 3).t}, before ${hhmm(dh, dm)}.${t < 3 ? ` Train ${t + 2} arrives at ${cell(t + 1, 3).t}, which is too late.` : ''}`,
+        explanation: `Train ${t + 1} arrives at ${cell(t, 3).t}, in time for ${hhmm(dh, dm)}.${t < 3 ? ` Train ${t + 2} arrives at ${cell(t + 1, 3).t}, which is too late.` : ''}`,
         solution: [{ say: `Read the ${at(stations, 3)} row.`, show: [0, 1, 2, 3].map((x) => cell(x, 3).t).join(', ') }, { say: 'Latest one in time.', show: `Train ${t + 1}` }],
         tags: [WP],
         secs: 150,
