@@ -151,6 +151,9 @@ export function ParentHomeClient({ shell, data }: { shell: ConsoleShell; data: P
           <ButtonLink href={FAMILY_ROUTES.privacy} variant="secondary" className="h-12">
             Persetujuan, ekspor, dan hapus data
           </ButtonLink>
+          <ButtonLink href="/keluarga/piala" variant="secondary" className="h-12">
+            Medali lomba anak
+          </ButtonLink>
         </div>
       </section>
 
