@@ -792,6 +792,10 @@ const compareOrder: Generator = {
         ...mcqFrom(rng, correct, all, 3),
         hints: [`Count the ${a.many}. Then count the ${b.many}.`, 'The bigger number means more.', `Count the ${a.many} first and remember the number.`],
         explanation: same ? `There are ${na} ${a.many} and ${nb} ${b.many}. That is the same number.` : `There are ${na} ${a.many} and ${nb} ${b.many}. ${Math.max(na, nb)} is more than ${Math.min(na, nb)}.`,
+        solution: [
+          { say: `There are ${na} ${a.many} and ${nb} ${b.many}.`, figure },
+          { say: same ? 'That is the same number.' : `${Math.max(na, nb)} is more than ${Math.min(na, nb)}.`, show: correct },
+        ],
       }
     }
     if (level === 2) {
@@ -2169,6 +2173,10 @@ const measureCompare: Generator = {
         ...mcqFrom(rng, correct, ds, 3),
         hints: ['Look at which side of the balance goes down.', 'The heavier side goes down. The lighter side goes up.', 'Find the lower side first.'],
         explanation: tilt === 'level' ? 'The balance is level, so the two weigh the same.' : `${cap(lower)} is on the lower side, so it is heavier. ${cap(higher)} is lighter.`,
+        solution: [
+          { say: tilt === 'level' ? 'The balance is level.' : `${cap(lower)} is on the lower side, so it is heavier.` },
+          { say: tilt === 'level' ? 'So the two weigh the same.' : `${cap(higher)} is lighter.`, show: correct },
+        ],
       }
     }
     if (level === 3) {

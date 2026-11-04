@@ -154,9 +154,9 @@ const sequences: Generator = {
         ...(tens ? { figure: tensFig(Math.floor(n / 10), n % 10) } : {}),
         answer: ans,
         hints: tens
-          ? ['Which digit changes when you add or take 10?', `${more ? 'Adding' : 'Taking away'} 10 changes the tens digit. The ones stay the same.`, `${n} has ${tensText(Math.floor(n / 10))}. ${more ? 'Add' : 'Take away'} one ten.`]
+          ? ['Which digit changes when you add or take away 10?', `${more ? 'Adding' : 'Taking away'} 10 changes the tens digit. The ones stay the same.`, `${n} has ${tensText(Math.floor(n / 10))}. ${more ? 'Add' : 'Take away'} one ten.`]
           : [more ? '1 more is the next number when you count.' : '1 less is the number just before.', `Count ${more ? 'on' : 'back'} one from ${n}.`, more ? `Say ${n}. What comes next?` : `Count up to ${n}. What did you say just before it?`],
-        explanation: tens ? `${n} has ${tensText(Math.floor(n / 10))}. ${more ? 'One more ten' : 'One less ten'} makes ${ans}.` : `${step} ${more ? 'more' : 'less'} than ${n} is ${ans}.`,
+        explanation: tens ? `${n} has ${tensText(Math.floor(n / 10))}. ${more ? 'One more ten' : 'One ten less'} makes ${ans}.` : `${step} ${more ? 'more' : 'less'} than ${n} is ${ans}.`,
         solution: [{ say: tens ? `Change the tens digit by 1.` : `Count ${more ? 'on' : 'back'} one.`, show: `${n} ${more ? '+' : '-'} ${step} = ${ans}` }, { say: `The answer is ${ans}.`, show: String(ans) }],
       }
     }
@@ -336,6 +336,10 @@ const placeValue: Generator = {
         exact: false,
         hints: ['The first digit of a 2-digit number tells the tens.', `Add ${tensText(t)}.`, `Then add ${onesText(u)}.`],
         explanation: `${n} is ${tensText(t)} and ${onesText(u)}, because ${t * 10} + ${u} = ${n}.`,
+        solution: [
+          { say: `The ${t} in ${n} means ${tensText(t)}. The ${u} means ${onesText(u)}.` },
+          { say: `Add ${tensText(t)}. Then add ${onesText(u)}.`, show: `${t * 10} + ${u} = ${n}` },
+        ],
         tags: ['manipulative', 'blocks'],
       }
     }
@@ -1002,7 +1006,7 @@ const doublesHalves: Generator = {
         type: 'numeric',
         prompt: `A box has ${n} crayons. Half of them are blue. How many crayons are blue?`,
         answer: n / 2,
-        hints: ['Half means 2 equal groups.', `Find half of ${n}.`, n > 20 ? `Split ${n} into ${Math.floor(n / 10) * 10} and ${n % 10}. Halve each part.` : `Which number doubled makes ${n}?`],
+        hints: ['Half means 2 equal groups.', `Find half of ${n}.`, n > 20 ? (n % 20 === 0 ? `Think in tens. Half of ${n / 10} tens is how many tens?` : n % 10 === 0 ? `Split ${n} into ${n - 10} and 10. Halve each part.` : `Split ${n} into ${Math.floor(n / 10) * 10} and ${n % 10}. Halve each part.`) : `Which number doubled makes ${n}?`],
         explanation: `Half of ${n} is ${n / 2}, because ${n / 2} + ${n / 2} = ${n}.`,
         tags: ['word-problem'],
       }
@@ -1412,7 +1416,7 @@ const money2: Generator = {
       prompt: `What is the smallest number of notes and coins that make ${rupiah(amount)}? Use Rp1.000, Rp2.000, Rp5.000, Rp10.000 and Rp20.000.`,
       answer: pieces,
       hints: ['Use the biggest notes you can.', `Start with the biggest note that is not more than ${rupiah(amount)}.`, `Take that note away. Then do the same with what is left.`],
-      explanation: `${best.map((it) => (it.count === 1 ? rupiah(it.value) : `${it.count} × ${rupiah(it.value)}`)).join(' + ')} = ${rupiah(amount)}. That is ${pieces} notes and coins.`,
+      explanation: `${best.map((it) => (it.count === 1 ? rupiah(it.value) : `${it.count} × ${rupiah(it.value)}`)).join(' + ')} = ${rupiah(amount)}. So the smallest number is ${pieces}.`,
       solution: [{ say: 'Use the biggest notes first.', figure: moneyFig(best) }, { say: 'Count the notes and coins.', show: String(pieces) }],
       tags: ['olympiad'],
     }
@@ -1763,7 +1767,7 @@ const tellingTime: Generator = {
         prompt: `Show ${words} on the clock.`,
         answer: { h, m },
         stepMinutes: 5,
-        hints: [`The word to means before ${nh} o'clock.`, `${60 - m} minutes before the hour, the long hand points to ${m / 5}.`, `The short hand is nearly at ${nh}.`],
+        hints: [`The word "to" means before ${nh} o'clock.`, `${60 - m} minutes before the hour, the long hand points to ${m / 5}.`, `The short hand is nearly at ${nh}.`],
         explanation: `${cap(words)} is ${digital(h, m)}. The long hand points to ${m / 5} and the short hand is nearly at ${nh}.`,
       }
     }
@@ -1775,7 +1779,7 @@ const tellingTime: Generator = {
         { value: digital(nh, m), why: `${nh}:${m} is after ${nh} o'clock.` },
         { value: digital(h, 60 - m), why: `${digital(h, 60 - m)} is ${60 - m} minutes past ${h}.` },
       ]),
-      hints: [`${words} is before ${nh} o'clock.`, `How many minutes past ${h} is ${60 - m} minutes before ${nh}?`, `Work out 60 - ${60 - m}.`],
+      hints: [`${cap(words)} is before ${nh} o'clock.`, `How many minutes past ${h} is ${60 - m} minutes before ${nh}?`, `Work out 60 - ${60 - m}.`],
       explanation: `${60 - m} minutes to ${nh} is ${m} minutes past ${h}, so it is ${digital(h, m)}.`,
     }
   },
@@ -1815,7 +1819,7 @@ const timeDurations: Generator = {
           prompt: u.q,
           answer: u.a,
           hints: ['Think about the units of time you know.', u.hint, 'Count carefully, one at a time.'],
-          explanation: `${u.q.replace('How many ', '').replace(' are there in ', ' in ').replace('?', '')}: ${u.a}.`,
+          explanation: `There are ${u.a} ${u.q.replace('How many ', '').replace(' are there in ', ' in ').replace('?', '')}.`,
         }
       }
       const act = rng.pick(ACTIVITIES)
@@ -2252,7 +2256,7 @@ const symmetry: Generator = {
       figure: { kind: 'shape', shape: pick.shape, ...(tri ? { sideLabels: ['4 cm', '4 cm', '4 cm'] } : {}), alt: tri ? 'A triangle with 3 equal sides of 4 cm.' : `A drawing of ${art(pick.name)} ${pick.name}.` },
       answer: pick.n,
       hints: ['Imagine folding the shape so both halves match.', 'Try a fold down the middle, across the middle and from corner to corner.', 'Count every fold that works.'],
-      explanation: `${cap(art(pick.name))} ${pick.name} has ${pick.n} ${pick.n === 1 ? 'line' : 'lines'} of symmetry: ${pick.note}.`,
+      explanation: `${tri ? 'This triangle' : `${cap(art(pick.name))} ${pick.name}`} has ${pick.n} ${pick.n === 1 ? 'line' : 'lines'} of symmetry: ${pick.note}.`,
       tags: ['olympiad'],
     }
   },
@@ -2899,6 +2903,10 @@ const chance: Generator = {
           ]),
           hints: ['Count each kind in the bag.', 'The kind with more in the bag is more likely.', `Compare ${a} and ${b}.`],
           explanation: `There are ${a} ${A.many} and ${plural(b, B.one, B.many)}. There are ${more ? 'more' : 'fewer'} ${ans}, so you are ${more ? 'more' : 'less'} likely to pick one.`,
+          solution: [
+            { say: `There are ${a} ${A.many} and ${plural(b, B.one, B.many)}.`, figure },
+            { say: `There are ${more ? 'more' : 'fewer'} ${ans}, so you are ${more ? 'more' : 'less'} likely to pick one.`, show: cap(ans) },
+          ],
         }
       }
       const target = rng.pick(['will', 'will not', 'might'] as const)
