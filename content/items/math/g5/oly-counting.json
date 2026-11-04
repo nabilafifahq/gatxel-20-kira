@@ -459,13 +459,13 @@
       "id": "m5.oly-counting.010",
       "skill": "m5.oly-counting",
       "difficulty": 3,
-      "prompt": "Putri has 4 shirts, 3 pairs of shorts and 2 hats. How many different outfits of one shirt, one pair of shorts and one hat can she make?",
+      "prompt": "Putri has 5 shirts, 3 pairs of shorts and 2 hats. How many different outfits of one shirt, one pair of shorts and one hat can she make?",
       "hints": [
         "Pick a shirt first. How many ways to finish the outfit?",
         "For each shirt there are 3 choices of shorts.",
         "Then each of these has 2 hat choices."
       ],
-      "explanation": "There are 4 × 3 × 2 = 24 different outfits.",
+      "explanation": "There are 5 × 3 × 2 = 30 different outfits.",
       "tags": [
         "olympiad",
         "ikmc",
@@ -476,23 +476,23 @@
       "type": "mcq",
       "options": [
         {
-          "text": "9",
-          "why": "You added 4 + 3 + 2. Each choice combines with the others, so multiply."
+          "text": "10",
+          "why": "You added 5 + 3 + 2. Each choice combines with the others, so multiply."
         },
         {
-          "text": "12",
+          "text": "15",
           "why": "You multiplied only two of the three numbers."
         },
         {
-          "text": "18",
-          "why": "Check the multiplication: 4 × 3 × 2."
+          "text": "20",
+          "why": "Check the multiplication: 5 × 3 × 2."
         },
         {
-          "text": "24"
+          "text": "30"
         },
         {
-          "text": "32",
-          "why": "Check which numbers you multiplied. There are 4 shirts, 3 shorts and 2 hats."
+          "text": "36",
+          "why": "Check which numbers you multiplied. There are 5 shirts, 3 shorts and 2 hats."
         }
       ],
       "answer": 3
