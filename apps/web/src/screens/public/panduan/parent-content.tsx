@@ -33,7 +33,7 @@ export const MULAI: { title: string; body: ReactNode }[] = [
     title: 'Daftar',
     body: (
       <>
-        Buka <A href="/daftar">halaman Daftar</A>, isi nama orang tua, email, dan password minimal 13 karakter dengan huruf kapital, angka, dan simbol, centang persetujuan, lalu tekan <L>Daftar</L>.
+        Buka <A href="/daftar">halaman Daftar</A>, isi nama orang tua, email, dan password minimal 12 karakter dengan huruf kapital, angka, dan simbol, centang persetujuan, lalu tekan <L>Daftar</L>.
       </>
     ),
   },
@@ -93,7 +93,7 @@ const AKUN: GuideFeature[] = [
       <>
         Buka <A href="/daftar">halaman Daftar</A>, lalu isi nama orang tua, email, dan password.
       </>,
-      'Buat password paling sedikit 13 karakter dengan huruf kapital, angka, dan simbol. Daftar centang di bawah kolom password menunjukkan yang sudah terpenuhi.',
+      'Buat password paling sedikit 12 karakter dengan huruf kapital, angka, dan simbol. Daftar centang di bawah kolom password menunjukkan yang sudah terpenuhi.',
       <>
         Centang persetujuan, lalu tekan <L>Daftar</L>.
       </>,
