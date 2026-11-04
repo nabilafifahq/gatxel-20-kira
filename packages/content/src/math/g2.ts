@@ -326,6 +326,19 @@ const placeValue: Generator = {
     const t = rng.int(2, 9)
     const u = rng.pick(range(1, 9).filter((x) => x !== t))
     const n = t * 10 + u
+    // Tingkat 2 kadang meminta anak membangun angka dengan balok yang bisa ditukar (alat peraga).
+    if (level === 2 && rng.chance(0.3)) {
+      return {
+        type: 'blocks',
+        places: 'to',
+        prompt: `Show the number ${n} with blocks.`,
+        target: { h: 0, t, o: u },
+        exact: false,
+        hints: ['The first digit of a 2-digit number tells the tens.', `Add ${tensText(t)}.`, `Then add ${onesText(u)}.`],
+        explanation: `${n} is ${tensText(t)} and ${onesText(u)}, because ${t * 10} + ${u} = ${n}.`,
+        tags: ['manipulative', 'blocks'],
+      }
+    }
     if (level === 1) {
       const askTens = rng.chance(0.5)
       if (rng.chance(0.4)) {

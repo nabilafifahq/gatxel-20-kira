@@ -61,9 +61,6 @@ type BlockSpec = {
 }
 
 const B = (h: number, t: number, o: number): Blocks => ({ h, t, o })
-const words = (b: Blocks, places: 'to' | 'hto') =>
-  [places === 'hto' && b.h > 0 ? plural(b.h, 'hundred') : '', b.t > 0 || (places === 'to' && b.t === 0 && b.o === 0) ? plural(b.t, 'ten') : '', b.o > 0 || (b.h === 0 && b.t === 0) ? plural(b.o, 'one') : ''].filter(Boolean).join(' and ')
-
 const blockSpecs: BlockSpec[] = [
   // Kelas 1
   { skill: 'm1.place-value-20', d: 1, places: 'to', prompt: 'Show the number 13 with blocks.', target: B(0, 1, 3), exact: false, hints: ['Think of 13 as one group of ten and some ones.', 'Add 1 ten, then count the ones you still need.', 'You need 1 ten and 3 ones.'], explanation: '13 is 1 ten and 3 ones, because 10 and 3 more make 13.' },
