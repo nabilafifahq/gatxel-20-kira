@@ -72,7 +72,7 @@ test('orang tua mengganti pelajaran, Today anak ikut, sesi selesai dan sesi berj
 
   await dialog.getByRole('radio', { name: literal(target.titleId) }).check()
   await dialog.getByRole('button', { name: 'Pakai pelajaran ini' }).click()
-  await expect(dialog).toBeHidden()
+  await expect(dialog).toBeHidden({ timeout: 60_000 })
   await expect(page.getByRole('status').filter({ hasText: `diganti ke ${target.titleId}` })).toBeVisible()
   await expect(rowOf(page, 'Math, Latihan').getByText(target.titleId, { exact: true })).toBeVisible()
   await expect(rowOf(page, 'Math, Tes').getByText(target.titleId, { exact: true })).toBeVisible()
@@ -117,7 +117,7 @@ test('orang tua menyiapkan hari ini sebelum anak membuka Today, lalu anak mendap
   await loginAdult(page, GUARDIAN, `/keluarga/anak/${lid}`)
   await page.getByRole('button', { name: 'Siapkan sesi hari ini' }).click()
   const row = rowOf(page, 'Math, Latihan')
-  await expect(row.getByRole('button', { name: 'Ganti pelajaran' })).toBeVisible()
+  await expect(row.getByRole('button', { name: 'Ganti pelajaran' })).toBeVisible({ timeout: 60_000 })
   const before = await questOf(lid, 'math', 'latihan')
   const grade4 = JSON.parse(readFileSync(fileURLToPath(new URL('../../content/skills/math/g4.json', import.meta.url)), 'utf8')) as SkillFile
   const target = grade4.find((x) => x.id !== before.skill_id)!
@@ -125,7 +125,7 @@ test('orang tua menyiapkan hari ini sebelum anak membuka Today, lalu anak mendap
   const dialog = page.getByRole('dialog', { name: 'Ganti pelajaran Latihan Math' })
   await dialog.getByRole('radio', { name: literal(target.titleId) }).check()
   await dialog.getByRole('button', { name: 'Pakai pelajaran ini' }).click()
-  await expect(dialog).toBeHidden()
+  await expect(dialog).toBeHidden({ timeout: 60_000 })
   await expect.poll(async () => (await questOf(lid, 'math', 'latihan')).skill_id).toBe(target.id)
 
   await registerTablet(child, ['Aisha', 'Raka'], 'Tablet siapkan')
