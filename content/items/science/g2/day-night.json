@@ -105,7 +105,7 @@
     {
       "id": "s2.day-night.009", "skill": "s2.day-night", "type": "text", "difficulty": 4,
       "prompt": "An animal active at night and asleep in the day is ___.",
-      "blanks": [{ "answers": ["nocturnal"] }],
+      "blanks": [{ "answers": ["nocturnal", "nocturnal animal", "a nocturnal animal", "night animal", "a night animal"] }],
       "hints": ["Owls and bats are like this.", "The word is used in science for night animals.", "It starts with noc and has 9 letters."],
       "explanation": "An animal that is active at night is nocturnal. Owls, bats and fireflies are nocturnal."
     },
@@ -271,7 +271,7 @@
       "hints": [
         "Think about what you see when it is dark.",
         "One is round and bright and one is a tiny light.",
-        "It is not the Sun or a cloud in the day."
+        "It is not the Sun or the rainbow."
       ],
       "explanation": "We see the Moon and the stars at night. The Sun is out in the day.",
       "regions": [
@@ -579,49 +579,6 @@
       "explanation": "Owls hunt at night and sleep in the day. They are nocturnal."
     },
     {
-      "id": "s2.day-night.027",
-      "skill": "s2.day-night",
-      "type": "sort",
-      "difficulty": 3,
-      "prompt": "When is the animal awake? Sort the cards.",
-      "groups": [
-        "Awake at night",
-        "Awake in the day"
-      ],
-      "items": [
-        {
-          "text": "owl",
-          "group": 0
-        },
-        {
-          "text": "bat",
-          "group": 0
-        },
-        {
-          "text": "hedgehog",
-          "group": 0
-        },
-        {
-          "text": "butterfly",
-          "group": 1
-        },
-        {
-          "text": "squirrel",
-          "group": 1
-        },
-        {
-          "text": "hen",
-          "group": 1
-        }
-      ],
-      "hints": [
-        "Bats fly in the dark.",
-        "Butterflies need the Sun.",
-        "Hens go to roost at night."
-      ],
-      "explanation": "Owls, bats and hedgehogs are awake at night. Butterflies, squirrels and hens are awake in the day."
-    },
-    {
       "id": "s2.day-night.028",
       "skill": "s2.day-night",
       "type": "multi",
@@ -661,7 +618,7 @@
       "skill": "s2.day-night",
       "type": "order",
       "difficulty": 1,
-      "prompt": "Put the Sun's day in order.",
+      "prompt": "Put the Sun's day in order, starting with sunrise.",
       "items": [
         "sunrise",
         "midday",
@@ -786,8 +743,8 @@
           "answers": [
             "not in our sky",
             "not visible",
-            "gone",
-            "not in the sky"
+            "hidden",
+            "on the other side"
           ]
         }
       ],
@@ -961,42 +918,6 @@
         "It starts with n."
       ],
       "explanation": "As the Earth spins, one side faces the Sun and has day. The other side has night."
-    },
-    {
-      "id": "s2.day-night.037",
-      "skill": "s2.day-night",
-      "type": "mcq",
-      "difficulty": 2,
-      "prompt": "It is midday in Jakarta. Rina looks at her shadow. How does it look?",
-      "options": [
-        {
-          "text": "long",
-          "why": "The Sun is high, so the shadow is short."
-        },
-        {
-          "text": "it has gone",
-          "why": "The Sun makes a shadow."
-        },
-        {
-          "text": "short"
-        },
-        {
-          "text": "it is twice as tall as she is",
-          "why": "The Sun is high, so the shadow is short."
-        }
-      ],
-      "answer": 2,
-      "hints": [
-        "Where is the Sun at midday?",
-        "High means short.",
-        "Think of a lamp overhead."
-      ],
-      "explanation": "At midday the Sun is high in the sky, so shadows are short.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
     },
     {
       "id": "s2.day-night.038",

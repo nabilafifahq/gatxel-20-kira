@@ -43,10 +43,13 @@
       "explanation": "Plants make their food in their leaves, using light from the Sun. Plants do not eat soil."
     },
     {
-      "id": "s2.plants-grow.004", "skill": "s2.plants-grow", "type": "text", "difficulty": 1,
+      "id": "s2.plants-grow.004",
+      "skill": "s2.plants-grow",
+      "type": "text",
+      "difficulty": 1,
       "prompt": "Roots take in ___ from the soil.",
-      "blanks": [{ "answers": ["water"] }],
-      "hints": ["Think about what you pour on a plant.", "Roots soak something up, a bit like a straw.", "What comes out of a watering can?"],
+      "blanks": [{"answers":["water","nutrients","minerals","goodness","moisture"]}],
+      "hints": ["Think about what you pour on a plant.","Roots soak something up, a bit like a straw.","What comes out of a watering can?"],
       "explanation": "Roots take in water from the soil. The water travels up the stem to the leaves."
     },
     {
@@ -478,30 +481,10 @@
       "skill": "s2.plants-grow",
       "type": "mcq",
       "difficulty": 4,
-      "prompt": "Seeds in a jar stay still on a cold windowsill. Seeds in a warm room grow. What does this show?",
-      "options": [
-        {
-          "text": "Seeds need music to grow.",
-          "why": "The test was about warmth."
-        },
-        {
-          "text": "Seeds need warmth to grow."
-        },
-        {
-          "text": "Seeds do not need water.",
-          "why": "Both jars had water."
-        },
-        {
-          "text": "Seeds like windowsills.",
-          "why": "The room was the difference."
-        }
-      ],
+      "prompt": "Two jars hold the same seeds, the same water and the same light. The seeds in the cold jar stay still. The seeds in the warm jar grow. What does this show?",
+      "options": [{"text":"Seeds need music to grow.","why":"The test was about warmth."},{"text":"Seeds need warmth to grow."},{"text":"Seeds do not need water.","why":"Both jars had water."},{"text":"Seeds like windowsills.","why":"The warmth was the difference."}],
       "answer": 1,
-      "hints": [
-        "What was different?",
-        "Only one thing changed.",
-        "Warm and cold."
-      ],
+      "hints": ["What was different?","Only one thing was different.","Warm and cold."],
       "explanation": "Warmth was the only difference, so the test shows seeds need warmth."
     },
     {
@@ -545,17 +528,8 @@
       "type": "order",
       "difficulty": 3,
       "prompt": "Put the steps of the test in order.",
-      "items": [
-        "Plant 2 beans in pots",
-        "Put one pot in the light and one in the dark",
-        "Water both pots the same",
-        "Measure the plants after a week"
-      ],
-      "hints": [
-        "Plant first.",
-        "Change only one thing.",
-        "Measure last."
-      ],
+      "items": ["Plant 2 beans in pots","Put one pot in the light and one in the dark","Every day, water both pots the same","Measure the plants after a week"],
+      "hints": ["Plant first.","Change only one thing.","Measure last."],
       "explanation": "We plant two beans, change only the light, water both the same and then measure."
     },
     {
@@ -576,37 +550,6 @@
         "The flower is last."
       ],
       "explanation": "A sunflower begins as a seed and grows into a seedling. Then it grows tall and makes a bud that opens into a flower."
-    },
-    {
-      "id": "s2.plants-grow.029",
-      "skill": "s2.plants-grow",
-      "type": "match",
-      "difficulty": 3,
-      "prompt": "Match each problem to what the plant is missing.",
-      "pairs": [
-        [
-          "wilted and drooping",
-          "water"
-        ],
-        [
-          "pale and weak",
-          "light"
-        ],
-        [
-          "not growing in winter",
-          "warmth"
-        ],
-        [
-          "crowded and small",
-          "space"
-        ]
-      ],
-      "hints": [
-        "A wilted plant is thirsty.",
-        "Pale plants miss the Sun.",
-        "Crowded plants need room."
-      ],
-      "explanation": "A droopy plant needs water. A pale plant needs light. A plant stops growing when it is cold, and a crowded plant needs space."
     },
     {
       "id": "s2.plants-grow.030",
@@ -703,37 +646,8 @@
       "type": "story",
       "difficulty": 3,
       "prompt": "Eko plants cress seeds in two pots. Pot A has wet cotton wool. Pot B has dry cotton wool. Both are on a warm shelf. After five days, pot A has green shoots. Pot B has none.",
-      "parts": [
-        {
-          "type": "mcq",
-          "prompt": "Which pot has shoots?",
-          "options": [
-            {
-              "text": "pot B"
-            },
-            {
-              "text": "pot A"
-            },
-            {
-              "text": "both pots"
-            }
-          ],
-          "answer": 1
-        },
-        {
-          "type": "text",
-          "prompt": "What did pot B not have?",
-          "answers": [
-            "water"
-          ],
-          "caseSensitive": false
-        }
-      ],
-      "hints": [
-        "Read the last two sentences.",
-        "What was different between the pots?",
-        "Wet and dry."
-      ],
+      "parts": [{"type":"mcq","prompt":"Which pot has shoots?","options":[{"text":"pot B"},{"text":"pot A"},{"text":"both pots"}],"answer":1},{"type":"text","prompt":"What did pot B not have?","answers":["water","moisture","wet cotton wool","wetness"],"caseSensitive":false}],
+      "hints": ["Read the last two sentences.","What was different between the pots?","Wet and dry."],
       "explanation": "Pot A had water and grew shoots. Pot B was dry, so its seeds did not grow."
     },
     {
@@ -1096,19 +1010,8 @@
       "type": "text",
       "difficulty": 3,
       "prompt": "The first part to grow from a seed is the ___.",
-      "blanks": [
-        {
-          "answers": [
-            "root",
-            "roots"
-          ]
-        }
-      ],
-      "hints": [
-        "It grows down.",
-        "It goes into the soil.",
-        "It starts with r."
-      ],
+      "blanks": [{"answers":["root","roots","radicle"]}],
+      "hints": ["It grows down.","It goes into the soil.","It starts with r."],
       "explanation": "The root grows down first. It takes in water and holds the seed in the soil."
     },
     {

@@ -81,11 +81,42 @@
       "tags": ["iksc"]
     },
     {
-      "id": "s2.habitats.007", "skill": "s2.habitats", "type": "text", "difficulty": 2,
+      "id": "s2.habitats.007",
+      "skill": "s2.habitats",
+      "type": "text",
+      "difficulty": 2,
       "prompt": "A polar bear has thick ___ to keep it warm.",
-      "figure": { "kind": "icons", "items": [{ "icon": "polar-bear", "label": "polar bear" }, { "icon": "arctic", "label": "Arctic" }], "alt": "A polar bear in the icy Arctic." },
-      "blanks": [{ "answers": ["fur", "white fur", "thick fur", "fat", "fur and fat"] }],
-      "hints": ["Look at what covers the polar bear's body.", "It is white and soft, like a warm coat.", "Think about what keeps a cat warm."],
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "polar-bear",
+            "label": "polar bear"
+          },
+          {
+            "icon": "arctic",
+            "label": "Arctic"
+          }
+        ],
+        "alt": "A polar bear in the icy Arctic."
+      },
+      "blanks": [
+        {
+          "answers": [
+            "fur",
+            "white fur",
+            "thick fur",
+            "fat",
+            "fur and fat",
+            "blubber"
+          ]
+        }
+      ],
+      "hints": [
+        "Look at what covers the polar bear's body.",
+        "It is white and soft, like a warm coat.",
+        "Think about what keeps a cat warm."
+      ],
       "explanation": "A polar bear has thick fur and a layer of fat under its skin. They keep it warm in the icy Arctic."
     },
     {
@@ -192,19 +223,52 @@
       "tags": ["iksc"]
     },
     {
-      "id": "s2.habitats.015", "skill": "s2.habitats", "type": "mcq", "difficulty": 3,
-      "prompt": "Orangutans live in rainforests in Sumatra and Borneo. Why do they need the forest?",
-      "figure": { "kind": "icons", "items": [{ "icon": "monkey", "label": "orangutan" }, { "icon": "forest", "label": "rainforest" }], "alt": "An orangutan in a rainforest tree." },
+      "id": "s2.habitats.015",
+      "skill": "s2.habitats",
+      "type": "mcq",
+      "difficulty": 3,
+      "prompt": "Monkeys live in rainforests. Why do they need the forest?",
+      "figure": {
+        "kind": "icons",
+        "items": [
+          {
+            "icon": "monkey",
+            "label": "monkey"
+          },
+          {
+            "icon": "forest",
+            "label": "rainforest"
+          }
+        ],
+        "alt": "A monkey in a rainforest tree."
+      },
       "options": [
-        { "text": "They like cold snow.", "why": "Rainforests are warm and wet, with no snow." },
-        { "text": "They need the sea to swim in.", "why": "Orangutans live in the trees. They do not swim in the sea." },
-        { "text": "Rainforests have no other animals.", "why": "Rainforests are full of many kinds of animals." },
-        { "text": "The trees give them food and shelter." }
+        {
+          "text": "They like cold snow.",
+          "why": "Rainforests are warm and wet, with no snow."
+        },
+        {
+          "text": "They need the sea to swim in.",
+          "why": "Orangutans live in the trees. They do not swim in the sea."
+        },
+        {
+          "text": "Rainforests have no other animals.",
+          "why": "Rainforests are full of many kinds of animals."
+        },
+        {
+          "text": "The trees give them food and shelter."
+        }
       ],
       "answer": 3,
-      "hints": ["Think about what every habitat gives an animal.", "Orangutans eat fruit and sleep in nests high up.", "Ask: where do they find fruit and build their nests?"],
-      "explanation": "The rainforest trees give orangutans fruit to eat and branches to build nests for sleeping. The forest is their habitat.",
-      "tags": ["ksnr"]
+      "hints": [
+        "Think about what every habitat gives an animal.",
+        "Monkeys eat fruit and sleep high up in the branches.",
+        "Ask: where do they find fruit and a safe place to sleep?"
+      ],
+      "explanation": "The rainforest trees give monkeys fruit to eat and branches to climb and sleep in. The forest is their habitat.",
+      "tags": [
+        "ksnr"
+      ]
     },
     {
       "id": "s2.habitats.016", "skill": "s2.habitats", "type": "draw", "difficulty": 3,
@@ -709,7 +773,7 @@
       "prompt": "What happens if a pond dries up?",
       "options": [
         {
-          "text": "The fish and frogs must find a new home or die."
+          "text": "The fish and frogs lose their home and must look for a new one."
         },
         {
           "text": "Nothing changes for the animals.",
@@ -808,7 +872,7 @@
           "group": 2
         },
         {
-          "text": "seagull",
+          "text": "starfish",
           "group": 2
         }
       ],
@@ -817,7 +881,7 @@
         "Woodland has trees.",
         "Seashore is by the sea."
       ],
-      "explanation": "Ducks and frogs live at ponds. Owls and squirrels live in woodland. Crabs and seagulls live by the sea."
+      "explanation": "Ducks and frogs live at ponds. Owls and squirrels live in woodland. Crabs and starfish live by the sea."
     },
     {
       "id": "s2.habitats.033",
@@ -984,7 +1048,10 @@
           "row": 1,
           "col": 1,
           "answers": [
-            "pond"
+            "pond",
+            "a pond",
+            "the pond",
+            "water"
           ]
         },
         {
@@ -992,15 +1059,19 @@
           "col": 1,
           "answers": [
             "rainforest",
-            "forest"
+            "forest",
+            "the rainforest",
+            "jungle"
           ]
         },
         {
           "row": 3,
           "col": 1,
           "answers": [
-            "Arctic",
-            "the Arctic"
+            "arctic",
+            "the arctic",
+            "ice",
+            "north pole"
           ]
         }
       ],
@@ -1422,14 +1493,14 @@
       "skill": "s2.habitats",
       "type": "numeric",
       "difficulty": 4,
-      "prompt": "A pond has 3 ducks, 2 frogs and 4 fish. How many can live out of the water for a while?",
+      "prompt": "A pond has 3 ducks, 2 frogs and 4 fish. How many of them can walk or hop on land?",
       "answer": 5,
       "hints": [
-        "Fish need water all the time.",
-        "Ducks walk on land.",
-        "Frogs can sit on land."
+        "Fish stay in the water.",
+        "Ducks can walk on land.",
+        "Frogs can hop on land."
       ],
-      "explanation": "Ducks and frogs can live on land for a while, but fish cannot. 3 + 2 = 5.",
+      "explanation": "Ducks and frogs can move about on land, but fish cannot. 3 + 2 = 5.",
       "tags": [
         "iksc",
         "ksnr",

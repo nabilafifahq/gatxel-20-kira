@@ -60,11 +60,14 @@
       "explanation": "Soil is made of tiny bits of rock, bits of dead plants and animals, water and air. Plastic, glass and cans are litter that people leave behind."
     },
     {
-      "id": "s2.rocks-soil.005", "skill": "s2.rocks-soil", "type": "text", "difficulty": 1,
+      "id": "s2.rocks-soil.005",
+      "skill": "s2.rocks-soil",
+      "type": "text",
+      "difficulty": 1,
       "prompt": "Plants grow in ___. It has tiny bits of rock, water and air in it.",
-      "figure": { "kind": "icons", "items": [{ "icon": "seedling", "label": "young plant" }, { "icon": "soil", "label": "?" }], "alt": "A young plant growing in brown ground, marked with a question mark." },
-      "blanks": [{ "answers": ["soil", "the soil", "earth", "the ground"] }],
-      "hints": ["Think about what you fill a plant pot with.", "It is brown and you can dig in it.", "Worms live in it too."],
+      "figure": {"kind":"icons","items":[{"icon":"seedling","label":"young plant"},{"icon":"soil","label":"?"}],"alt":"A young plant growing in brown ground, marked with a question mark."},
+      "blanks": [{"answers":["soil","the soil","earth","the ground","ground","mud","dirt"]}],
+      "hints": ["Think about what you fill a plant pot with.","It is brown and you can dig in it.","Worms live in it too."],
       "explanation": "Plants grow in soil. Soil has tiny bits of rock, bits of dead plants, water and air in it."
     },
     {
@@ -481,42 +484,10 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "Are the pieces big or tiny? Sort the cards.",
-      "groups": [
-        "Big pieces",
-        "Tiny pieces"
-      ],
-      "items": [
-        {
-          "text": "boulder",
-          "group": 0
-        },
-        {
-          "text": "pebble",
-          "group": 0
-        },
-        {
-          "text": "large stone",
-          "group": 0
-        },
-        {
-          "text": "sand",
-          "group": 1
-        },
-        {
-          "text": "clay",
-          "group": 1
-        },
-        {
-          "text": "mud",
-          "group": 1
-        }
-      ],
-      "hints": [
-        "A boulder is huge.",
-        "Sand grains are tiny.",
-        "Mud is very fine."
-      ],
-      "explanation": "Boulders, pebbles and stones are big pieces. Sand, clay and mud are tiny pieces."
+      "groups": ["Big pieces","Tiny pieces"],
+      "items": [{"text":"boulder","group":0},{"text":"big rock","group":0},{"text":"large stone","group":0},{"text":"sand","group":1},{"text":"clay","group":1},{"text":"mud","group":1}],
+      "hints": ["A boulder is huge.","Sand grains are tiny.","Mud is very fine."],
+      "explanation": "Boulders, big rocks and large stones are big pieces. Sand, clay and mud are tiny pieces."
     },
     {
       "id": "s2.rocks-soil.027",
@@ -524,42 +495,10 @@
       "type": "sort",
       "difficulty": 3,
       "prompt": "Natural rock or made from rock? Sort the cards.",
-      "groups": [
-        "Natural rock",
-        "Made from rock or soil"
-      ],
-      "items": [
-        {
-          "text": "granite",
-          "group": 0
-        },
-        {
-          "text": "pebble",
-          "group": 0
-        },
-        {
-          "text": "marble block",
-          "group": 0
-        },
-        {
-          "text": "brick",
-          "group": 1
-        },
-        {
-          "text": "concrete",
-          "group": 1
-        },
-        {
-          "text": "glass",
-          "group": 1
-        }
-      ],
-      "hints": [
-        "Natural means no factory.",
-        "Bricks are baked clay.",
-        "Glass is made from sand."
-      ],
-      "explanation": "Granite, pebbles and marble blocks are natural rock. Bricks are made from clay, concrete from stone and sand, and glass from sand."
+      "groups": ["Natural rock","Made from rock or soil"],
+      "items": [{"text":"granite","group":0},{"text":"pebble","group":0},{"text":"limestone","group":0},{"text":"brick","group":1},{"text":"concrete","group":1},{"text":"glass","group":1}],
+      "hints": ["Natural means no factory.","Bricks are baked clay.","Glass is made from sand."],
+      "explanation": "Granite, pebbles and limestone are natural rock. Bricks are made from clay, concrete from stone and sand, and glass from sand."
     },
     {
       "id": "s2.rocks-soil.028",
@@ -637,30 +576,9 @@
       "type": "match",
       "difficulty": 3,
       "prompt": "Match each rock to how we use it.",
-      "pairs": [
-        [
-          "marble",
-          "statues"
-        ],
-        [
-          "granite",
-          "kitchen tops"
-        ],
-        [
-          "slate",
-          "roof tiles"
-        ],
-        [
-          "chalk",
-          "writing on boards"
-        ]
-      ],
-      "hints": [
-        "Chalk is soft.",
-        "Slate splits into thin flat pieces.",
-        "Marble is carved."
-      ],
-      "explanation": "We carve statues from marble and use granite for kitchen tops. Slate makes roof tiles and chalk is for writing."
+      "pairs": [["marble","statues"],["granite","strong building stones"],["slate","roof tiles"],["chalk","writing on boards"]],
+      "hints": ["Chalk is soft.","Slate splits into thin flat pieces.","Marble is carved."],
+      "explanation": "We carve statues from marble and build with strong granite. Slate makes roof tiles and chalk is for writing."
     },
     {
       "id": "s2.rocks-soil.031",
@@ -761,37 +679,8 @@
       "type": "story",
       "difficulty": 3,
       "prompt": "Kai and Lia dig up two soils. The sandy soil is pale and gritty. The clay soil is dark and sticky. They pour water on both. The water goes through the sand quickly. It stays on top of the clay.",
-      "parts": [
-        {
-          "type": "mcq",
-          "prompt": "Which soil lets water through quickly?",
-          "options": [
-            {
-              "text": "clay soil"
-            },
-            {
-              "text": "both soils"
-            },
-            {
-              "text": "sandy soil"
-            }
-          ],
-          "answer": 2
-        },
-        {
-          "type": "text",
-          "prompt": "How does the clay soil feel?",
-          "answers": [
-            "sticky"
-          ],
-          "caseSensitive": false
-        }
-      ],
-      "hints": [
-        "Read the last two sentences.",
-        "Read the third sentence.",
-        "Sand is gritty."
-      ],
+      "parts": [{"type":"mcq","prompt":"Which soil lets water through quickly?","options":[{"text":"clay soil"},{"text":"both soils"},{"text":"sandy soil"}],"answer":2},{"type":"text","prompt":"How does the clay soil feel?","answers":["sticky","claggy","smooth","gooey"],"caseSensitive":false}],
+      "hints": ["Read the last two sentences.","Read the third sentence.","Sand is gritty."],
       "explanation": "Water goes through sandy soil quickly. The clay soil is sticky."
     },
     {
@@ -1034,36 +923,12 @@
       "skill": "s2.rocks-soil",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "Water is poured on three soils. A holds 20 ml. B holds 50 ml. C holds 80 ml. Which drains fastest?",
-      "options": [
-        {
-          "text": "soil B",
-          "why": "It holds more than A."
-        },
-        {
-          "text": "soil A"
-        },
-        {
-          "text": "soil C",
-          "why": "It holds the most."
-        },
-        {
-          "text": "they drain the same",
-          "why": "They hold different amounts."
-        }
-      ],
+      "prompt": "Water is poured on three soils. Soil A holds a little water. Soil B holds some. Soil C holds a lot. Which drains fastest?",
+      "options": [{"text":"soil B","why":"It holds more than A."},{"text":"soil A"},{"text":"soil C","why":"It holds the most."},{"text":"they drain the same","why":"They hold different amounts."}],
       "answer": 1,
-      "hints": [
-        "What does it hold?",
-        "Less held means more drains.",
-        "Pick the smallest number."
-      ],
+      "hints": ["What does each soil hold?","The less it holds, the more drains away.","Pick the soil that holds the least."],
       "explanation": "Soil A holds the least water, so most of the water runs through it.",
-      "tags": [
-        "iksc",
-        "ksnr",
-        "reasoning"
-      ]
+      "tags": ["iksc","ksnr","reasoning"]
     },
     {
       "id": "s2.rocks-soil.041",

@@ -68,7 +68,7 @@
     {
       "id": "s2.changing-materials.006", "skill": "s2.changing-materials", "type": "text", "difficulty": 2,
       "prompt": "Water turns into ice in a freezer. We say the water ___.",
-      "blanks": [{ "answers": ["freezes", "froze", "has frozen", "is freezing", "freeze"] }],
+      "blanks": [{ "answers": ["freezes", "freeze", "froze", "is freezing", "turns to ice", "turns into ice", "becomes solid", "becomes ice"] }],
       "hints": ["The opposite of melting.", "The name of the freezer gives a clue.", "Say it aloud: the freezer makes water ___."],
       "explanation": "When water gets very cold it freezes and becomes solid ice. Melting is the opposite change."
     },
@@ -563,31 +563,31 @@
       "skill": "s2.changing-materials",
       "type": "match",
       "difficulty": 2,
-      "prompt": "Match each material to how we can change its shape.",
+      "prompt": "Match each thing to the change that fits it best.",
       "pairs": [
         [
-          "clay",
-          "squash it"
-        ],
-        [
-          "elastic",
+          "rubber band",
           "stretch it"
         ],
         [
-          "wire",
+          "metal wire",
           "bend it"
         ],
         [
-          "towel",
+          "sponge",
+          "squash it"
+        ],
+        [
+          "wet towel",
           "twist it"
         ]
       ],
       "hints": [
-        "Wire bends.",
-        "Elastic stretches.",
-        "Clay is soft."
+        "A metal wire bends.",
+        "A rubber band stretches.",
+        "A sponge is soft and squashy."
       ],
-      "explanation": "We squash clay, stretch elastic, bend wire and twist a towel."
+      "explanation": "We stretch a rubber band, bend a metal wire, squash a sponge and twist a wet towel to wring out the water."
     },
     {
       "id": "s2.changing-materials.029",
@@ -667,8 +667,9 @@
           "col": 1,
           "answers": [
             "freezes",
-            "freeze",
-            "turns to ice"
+            "turns to ice",
+            "becomes ice",
+            "goes solid"
           ]
         },
         {
@@ -676,9 +677,9 @@
           "col": 1,
           "answers": [
             "goes hard",
-              "cooks",
-              "sets",
-              "gets hard"
+            "gets hard",
+            "hardens",
+            "becomes hard"
           ]
         }
       ],
@@ -718,8 +719,12 @@
           "answers": [
             "the freezer",
             "freezer",
+            "a freezer",
             "cold",
-            "the cold"
+            "the cold",
+            "cooling",
+            "the cold freezer",
+            "cold freezer"
           ],
           "caseSensitive": false
         }
@@ -837,7 +842,10 @@
       "blanks": [
         {
           "answers": [
-            "water"
+            "water",
+            "liquid",
+            "a liquid",
+            "liquid water"
           ]
         }
       ],

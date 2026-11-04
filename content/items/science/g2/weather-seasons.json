@@ -24,19 +24,15 @@
       "explanation": "A raincoat keeps you dry in the rain, a sun hat shades you on hot days, gloves keep hands warm in snow and a windy day is good for kites."
     },
     {
-      "id": "s2.weather-seasons.003", "skill": "s2.weather-seasons", "type": "sort", "difficulty": 2,
+      "id": "s2.weather-seasons.003",
+      "skill": "s2.weather-seasons",
+      "type": "sort",
+      "difficulty": 2,
       "prompt": "Rainy season or dry season? Sort the cards.",
-      "groups": ["Rainy season", "Dry season"],
-      "items": [
-        { "text": "puddles everywhere", "group": 0 },
-        { "text": "rivers are full", "group": 0 },
-        { "text": "frogs croak at night", "group": 0 },
-        { "text": "dusty roads", "group": 1 },
-        { "text": "dry, brown grass", "group": 1 },
-        { "text": "farmers water their fields", "group": 1 }
-      ],
-      "hints": ["Think about what lots of rain does to the land.", "In the dry season, little rain falls for months.", "Start with the puddles. When do you see many of them?"],
-      "explanation": "Puddles, full rivers and croaking frogs come with the rainy season. Dusty roads, dry grass and watering fields happen in the dry season."
+      "groups": ["Rainy season","Dry season"],
+      "items": [{"text":"puddles everywhere","group":0},{"text":"rivers are full","group":0},{"text":"muddy paths","group":0},{"text":"dusty roads","group":1},{"text":"dry, brown grass","group":1},{"text":"farmers water their fields","group":1}],
+      "hints": ["Think about what lots of rain does to the land.","In the dry season, little rain falls for months.","Start with the puddles. When do you see many of them?"],
+      "explanation": "Puddles, full rivers and muddy paths come with the rainy season. Dusty roads, dry grass and watering fields happen in the dry season."
     },
     {
       "id": "s2.weather-seasons.004", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 2,
@@ -165,18 +161,16 @@
       "tags": ["ksnr"]
     },
     {
-      "id": "s2.weather-seasons.014", "skill": "s2.weather-seasons", "type": "mcq", "difficulty": 5,
-      "prompt": "A windsock points the way the wind is going. It points towards the sea. Where is the wind blowing from?",
-      "figure": { "kind": "icons", "items": [{ "icon": "wind", "label": "windsock" }, { "icon": "sea", "label": "sea" }], "alt": "A windsock on the beach pointing towards the sea." },
-      "options": [
-        { "text": "from the sea", "why": "The windsock points where the wind is going, which is towards the sea." },
-        { "text": "from the land" },
-        { "text": "There is no wind.", "why": "A windsock only sticks out when the wind blows." },
-        { "text": "from straight above", "why": "Wind blows across the land and sea, so the windsock sticks out sideways." }
-      ],
-      "answer": 1,
-      "hints": ["The wind fills the windsock and pushes it.", "The sock points where the wind is going.", "If the wind is going towards the sea, where did it start?"],
-      "explanation": "The windsock points towards the sea, so the wind is going towards the sea. That means it is blowing from the land.",
+      "id": "s2.weather-seasons.014",
+      "skill": "s2.weather-seasons",
+      "type": "mcq",
+      "difficulty": 4,
+      "prompt": "A windsock points the way the wind is going. The wind is blowing from the land towards the sea. Which way does the windsock point?",
+      "figure": {"kind":"icons","items":[{"icon":"wind","label":"windsock"},{"icon":"sea","label":"sea"}],"alt":"A windsock on the beach with the sea on one side."},
+      "options": [{"text":"towards the sea"},{"text":"towards the land","why":"The wind is going towards the sea, so the sock points that way."},{"text":"straight up","why":"The sock sticks out sideways when the wind blows."},{"text":"straight down","why":"The sock only hangs down when there is no wind."}],
+      "answer": 0,
+      "hints": ["The wind fills the windsock and pushes it.","The sock points where the wind is going.","The wind is going from the land to the sea."],
+      "explanation": "The wind blows from the land to the sea. The windsock points the way the wind is going, so it points towards the sea.",
       "tags": ["iksc"]
     },
     {
@@ -221,12 +215,8 @@
       "skill": "s2.weather-seasons",
       "type": "spell",
       "difficulty": 2,
-      "prompt": "Listen, then spell the word.",
-      "hints": [
-        "The word has five letters.",
-        "It starts with the letter c.",
-        "It floats in the sky and can bring rain."
-      ],
+      "prompt": "Listen, then spell the word for the grey or white puffy thing in the sky.",
+      "hints": ["The word has five letters.","It starts with the letter c.","It floats in the sky and can bring rain."],
       "explanation": "The word is cloud. Clouds are made of tiny drops of water.",
       "word": "cloud",
       "sentence": "A grey cloud is in the sky."
@@ -237,48 +227,12 @@
       "type": "table",
       "difficulty": 2,
       "prompt": "What should we wear? Fill in the boxes.",
-      "hints": [
-        "Think about the weather in each row.",
-        "You wear this on your head when it is sunny.",
-        "You wear this to stay dry when it rains."
-      ],
+      "hints": ["Think about the weather in each row.","You wear this on your head when it is sunny.","You wear this to stay dry when it rains."],
       "explanation": "We wear a hat in the sun and a raincoat in the rain.",
       "caption": "Weather and clothes",
-      "head": [
-        "Weather",
-        "What to wear"
-      ],
-      "rows": [
-        [
-          "Sunny",
-          ""
-        ],
-        [
-          "Rainy",
-          ""
-        ],
-        [
-          "Cold",
-          "coat"
-        ]
-      ],
-      "blanks": [
-        {
-          "row": 0,
-          "col": 1,
-          "answers": [
-            "hat"
-          ]
-        },
-        {
-          "row": 1,
-          "col": 1,
-          "answers": [
-            "raincoat",
-            "coat"
-          ]
-        }
-      ]
+      "head": ["Weather","What to wear"],
+      "rows": [["Sunny",""],["Rainy",""],["Cold","coat"]],
+      "blanks": [{"row":0,"col":1,"answers":["hat","sun hat","cap","sunglasses"]},{"row":1,"col":1,"answers":["raincoat","coat","umbrella","boots"]}]
     },
     {
       "id": "s2.weather-seasons.020",
@@ -577,42 +531,10 @@
       "type": "sort",
       "difficulty": 2,
       "prompt": "What should we use? Sort the things.",
-      "groups": [
-        "Rainy day",
-        "Sunny day"
-      ],
-      "items": [
-        {
-          "text": "umbrella",
-          "group": 0
-        },
-        {
-          "text": "raincoat",
-          "group": 0
-        },
-        {
-          "text": "rubber boots",
-          "group": 0
-        },
-        {
-          "text": "sun hat",
-          "group": 1
-        },
-        {
-          "text": "sunglasses",
-          "group": 1
-        },
-        {
-          "text": "sun cream",
-          "group": 1
-        }
-      ],
-      "hints": [
-        "Rain makes things wet.",
-        "The Sun is bright and hot.",
-        "Start with the umbrella."
-      ],
-      "explanation": "An umbrella, a raincoat and boots keep us dry. A sun hat, sunglasses and sun cream protect us from the Sun."
+      "groups": ["Rainy day","Sunny day"],
+      "items": [{"text":"rain hat","group":0},{"text":"raincoat","group":0},{"text":"rubber boots","group":0},{"text":"sun hat","group":1},{"text":"sunglasses","group":1},{"text":"sun cream","group":1}],
+      "hints": ["Rain makes things wet.","The Sun is bright and hot.","Start with the raincoat."],
+      "explanation": "A rain hat, a raincoat and boots keep us dry. A sun hat, sunglasses and sun cream protect us from the Sun."
     },
     {
       "id": "s2.weather-seasons.030",
@@ -1115,18 +1037,8 @@
       "type": "text",
       "difficulty": 1,
       "prompt": "Water falling from clouds is called ___.",
-      "blanks": [
-        {
-          "answers": [
-            "rain"
-          ]
-        }
-      ],
-      "hints": [
-        "You need an umbrella.",
-        "It makes puddles.",
-        "It starts with r."
-      ],
+      "blanks": [{"answers":["rain","rainfall","raindrops","precipitation","rain drops"]}],
+      "hints": ["You need an umbrella.","It makes puddles.","It starts with r."],
       "explanation": "Rain is water falling from clouds."
     },
     {

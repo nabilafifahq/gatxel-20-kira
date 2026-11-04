@@ -239,7 +239,7 @@
               "text": "the amount of water"
             },
             {
-              "text": "the colour of the towel"
+              "text": "how many drops each towel soaked up"
             },
             {
               "text": "the kind of towel"
@@ -469,12 +469,12 @@
           "text": "the height he drops the balls from"
         },
         {
-          "text": "which ball he uses",
-          "why": "This is what he changes."
+          "text": "how high each ball bounces",
+          "why": "This is what he measures, so it changes."
         },
         {
-          "text": "the colour of his shirt",
-          "why": "This does not matter."
+          "text": "which ball bounces highest",
+          "why": "This is the result he finds out."
         }
       ],
       "answer": 1,
@@ -857,7 +857,10 @@
         {
           "answers": [
             "prediction",
-            "guess"
+            "guess",
+            "predict",
+            "hypothesis",
+            "predictions"
           ]
         }
       ],
@@ -909,7 +912,7 @@
       "skill": "s2.fair-test",
       "type": "mcq",
       "difficulty": 3,
-      "prompt": "One ice cube sits in the Sun and one in the shade. What must be the same?",
+      "prompt": "Ali puts one ice cube in the Sun and one in the shade. What must be the same?",
       "options": [
         {
           "text": "the size of the ice cubes"
