@@ -158,3 +158,38 @@ describe('simpanan klip dan generate', () => {
     expect(t).toMatchObject({ generated: 0, remaining: 2, stoppedBy: 'gpu_oom' })
   })
 })
+
+describe('versi suara yang disajikan', () => {
+  let dir = ''
+  afterEach(async () => {
+    if (dir) await rm(dir, { recursive: true, force: true })
+  })
+  it('tanpa penunjuk memakai versi kode; penunjuk dipindah atomik dan hanya versi valid diterima', async () => {
+    const { readServedVersion, writeServedVersion } = await import('../src/tts/store')
+    const { TTS_VOICE_VERSION } = await import('@kira/core/tts')
+    dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    expect(await readServedVersion(dir)).toBe(TTS_VOICE_VERSION)
+    await writeServedVersion(dir, 'oa-gatxel-female')
+    expect(await readServedVersion(dir)).toBe('oa-gatxel-female')
+    await expect(writeServedVersion(dir, '../etc')).rejects.toThrow()
+    expect(await readServedVersion(dir)).toBe('oa-gatxel-female')
+  })
+  it('versi berbeda menghasilkan kunci berbeda untuk teks dan peran yang sama', () => {
+    expect(clipKey('Hello.', 'teacher', 'k1')).not.toBe(clipKey('Hello.', 'teacher', 'oa-gatxel-female'))
+    expect(clipKey('Hello.', 'teacher')).toBe(clipKey('Hello.', 'teacher', 'k1'))
+  })
+  it('generate menulis klip di bawah kunci versi yang diminta, bukan versi lain', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'kira-tts-'))
+    const mp3 = Buffer.alloc(500, 1).toString('base64')
+    vi.stubGlobal('fetch', async () => new Response(JSON.stringify({ device: 'remote', results: [{ ok: true, mp3, ms: 1 }] }), { status: 200 }))
+    const h = {
+      env: { TTS_URL: 'http://tts:8000', KIRA_DATA_DIR: dir, KIRA_INTERNAL_TOKEN: 'x'.repeat(40) },
+      log: { info() {}, warn() {}, error() {}, child() { return this } },
+      signal: new AbortController().signal,
+    } as unknown as HandlerCtx
+    await generate(h, [{ text: 'Versioned.', style: 'teacher' }], { heartbeat: false, version: 'oa-test' })
+    expect(await hasClip(dir, clipKey('Versioned.', 'teacher', 'oa-test'))).toBe(true)
+    expect(await hasClip(dir, clipKey('Versioned.', 'teacher', 'k1'))).toBe(false)
+    vi.unstubAllGlobals()
+  })
+})

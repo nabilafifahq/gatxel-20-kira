@@ -43,9 +43,24 @@ export function normalizeTtsText(text: string): string {
   return text.normalize('NFC').replace(/\s+/g, ' ').trim()
 }
 
-/** Masukan yang di-hash sha256 untuk kunci klip. Memuat versi suara. */
-export function ttsKeyInput(text: string, style: TtsStyleId): string {
-  return `${TTS_VOICE_VERSION}\n${style}\n${normalizeTtsText(text)}`
+/**
+ * Versi suara yang boleh dipakai di kunci: huruf kecil, angka, titik, garis. Nama backend dan suara ikut di dalamnya
+ * (mis. k1 untuk Kokoro, oa-gatxel-female untuk suara jarak jauh), jadi dua suara berbeda tidak pernah berbagi kunci.
+ */
+export function isVoiceVersion(v: unknown): v is string {
+  return typeof v === 'string' && /^[a-z0-9][a-z0-9._-]{0,31}$/.test(v)
+}
+
+/**
+ * Berkas penunjuk versi yang DISAJIKAN: KIRA_DATA_DIR/tts/served-version.txt. Hanya satu suara yang didengar anak pada satu
+ * waktu. Penunjuk berpindah secara atomik oleh `pnpm tts:promote`, setelah seluruh set versi baru lulus gerbang mutu. Selama
+ * belum, versi lama yang lengkap tetap disajikan, termasuk untuk klip baru sesuai permintaan. Tanpa berkas: TTS_VOICE_VERSION.
+ */
+export const TTS_SERVED_VERSION_FILE = 'served-version.txt'
+
+/** Masukan yang di-hash sha256 untuk kunci klip. Memuat versi suara (bawaan: versi kode). */
+export function ttsKeyInput(text: string, style: TtsStyleId, version: string = TTS_VOICE_VERSION): string {
+  return `${version}\n${style}\n${normalizeTtsText(text)}`
 }
 
 const KEY_RE = /^[0-9a-f]{64}$/

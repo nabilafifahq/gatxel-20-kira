@@ -18,7 +18,7 @@ export type BatchResult = { ok: true; items: BatchItem[]; device: string } | { o
 export type TtsClient = {
   /** Banyak klip sekaligus (POST /batch): layanan membaginya ke beberapa proses mesin. Tidak pernah melempar. */
   synthesizeBatch(clips: TtsClipRequest[], signal?: AbortSignal): Promise<BatchResult>
-  health(signal?: AbortSignal): Promise<{ ok: boolean; engineLoaded?: boolean; lastDevice?: string }>
+  health(signal?: AbortSignal): Promise<{ ok: boolean; engineLoaded?: boolean; lastDevice?: string; voiceVersion?: string; backend?: string }>
   synthesize(text: string, style: TtsStyleId, signal?: AbortSignal): Promise<SynthResult>
 }
 
@@ -31,7 +31,7 @@ export function createTtsClient(baseUrl: string, token: string, fetchImpl: typeo
       try {
         const res = await fetchImpl(`${base}/health`, { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(5000)]) : AbortSignal.timeout(5000) })
         if (!res.ok) return { ok: false }
-        return (await res.json()) as { ok: boolean; engineLoaded?: boolean; lastDevice?: string }
+        return (await res.json()) as { ok: boolean; engineLoaded?: boolean; lastDevice?: string; voiceVersion?: string; backend?: string }
       } catch {
         return { ok: false }
       }

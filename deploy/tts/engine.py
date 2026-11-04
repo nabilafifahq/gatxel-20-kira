@@ -98,7 +98,35 @@ class Synth:
         return normalise_audio(audio), voice
 
 
+def remote_main(conn: Any) -> None:
+    """Mesin untuk TTS_BACKEND=openai-compatible: tanpa torch dan GPU, hanya permintaan HTTP ke backend."""
+    from remote import RemoteSynth
+
+    synth = RemoteSynth(load_styles())
+    log("mesin jarak jauh mulai")
+    while True:
+        try:
+            req = conn.recv()
+        except EOFError:
+            return
+        if req is None:
+            return
+        started = time.monotonic()
+        results: list[dict[str, Any]] = []
+        for clip in req["clips"]:
+            t0 = time.monotonic()
+            try:
+                audio, voice = synth.one(clip["style"], clip["segments"], int(clip.get("variant", 0)))
+                results.append({"ok": True, "pcm": audio.astype("float32").tobytes(), "sr": SR, "ms": int((time.monotonic() - t0) * 1000), "voice": voice})
+            except Exception as e:  # noqa: BLE001
+                results.append({"ok": False, "error": "failed", "detail": str(e)[:300]})
+        conn.send({"ok": True, "results": results, "device": "remote", "ms": int((time.monotonic() - started) * 1000)})
+
+
 def engine_main(conn: Any) -> None:
+    if os.environ.get("TTS_BACKEND", "kokoro") == "openai-compatible":
+        remote_main(conn)
+        return
     import torch
     # Beberapa proses mesin berjalan sejajar: batasi utas CPU tiap proses supaya tidak saling berebut.
     torch.set_num_threads(int(os.environ.get("TTS_TORCH_THREADS", "2")))

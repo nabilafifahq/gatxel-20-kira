@@ -4,12 +4,12 @@ import { findContentDir, loadContent } from '@kira/content/load'
 import { loadSpelling } from '@kira/content/spelling'
 import { spellingSpeechClips } from '@kira/content/speech'
 import { itemSchema } from '@kira/content/schema'
-import { isClipText, isTtsStyle, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
+import { isClipText, isTtsStyle, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 import { tables, withOrg } from '@kira/db'
 import { PostponeError, abortError, whenWib } from '../errors'
 import { createTtsClient } from '../tts/client'
 import { dedupe, globalClipKeys, itemClips, repoClips } from '../tts/collect'
-import { clipKey, hasClip, PUBLIC_SCOPE, writeClip, type ClipScope } from '../tts/store'
+import { clipKey, hasClip, PUBLIC_SCOPE, readServedVersion, writeClip, type ClipScope } from '../tts/store'
 import type { Handler, HandlerCtx } from './types'
 
 /**
@@ -61,13 +61,14 @@ const BATCH_SIZE = 32
  * Buat klip yang belum ada. Bisa dilanjutkan: klip yang sudah ada dilewati. Mengembalikan angka ringkasan dan
  * alasan berhenti bila berhenti lebih awal.
  */
-export async function generate(h: HandlerCtx, clips: ClipJob[], opts: { heartbeat: boolean }): Promise<Totals> {
+export async function generate(h: HandlerCtx, clips: ClipJob[], opts: { heartbeat: boolean; version?: string }): Promise<Totals> {
+  const version = opts.version ?? TTS_VOICE_VERSION
   const url = h.env.TTS_URL
   const dataDir = h.env.KIRA_DATA_DIR
   const t: Totals = { total: clips.length, existing: 0, generated: 0, failed: 0, remaining: 0, stoppedBy: null, avgMs: null, device: null }
   const todo: ClipJob[] = []
   for (const c of clips) {
-    if (await hasClip(dataDir, clipKey(c.text, c.style), scopeOf(c))) t.existing++
+    if (await hasClip(dataDir, clipKey(c.text, c.style, version), scopeOf(c))) t.existing++
     else todo.push(c)
   }
   t.remaining = todo.length
@@ -97,7 +98,7 @@ export async function generate(h: HandlerCtx, clips: ClipJob[], opts: { heartbea
     for (const [k, item] of res.items.entries()) {
       const c = group[k]!
       if (item.ok) {
-        await writeClip(dataDir, clipKey(c.text, c.style), item.audio, scopeOf(c))
+        await writeClip(dataDir, clipKey(c.text, c.style, version), item.audio, scopeOf(c))
         t.generated++
         t.remaining--
         consecutiveFailures = 0
@@ -166,8 +167,11 @@ export const ttsBatchHandler: Handler = {
       const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
       clips = dedupe<ClipJob>([...repoClips(index), ...spellingClips, ...(await orgClips(h))]).filter((c) => isClipText(c.text))
     }
-    h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length })
-    const t = await generate(h, clips, { heartbeat: true })
+    // Versi yang dibuat = versi layanan (backend dan nama suaranya). Bila berbeda dari versi yang disajikan, ini set calon:
+    // ia dibuat penuh, diperiksa gerbang mutu, lalu dipromosikan dengan pnpm tts:promote. Anak tetap mendengar versi lama.
+    const version = health.voiceVersion ?? TTS_VOICE_VERSION
+    h.log.info('batch suara mulai', { clips: clips.length, scoped: refs.length, version, served: await readServedVersion(h.env.KIRA_DATA_DIR) })
+    const t = await generate(h, clips, { heartbeat: true, version })
     h.log.info('batch suara selesai', { ...t })
 
     if (t.stoppedBy === 'gpu_oom' || t.stoppedBy === 'unavailable') {
@@ -193,16 +197,22 @@ export const ttsClipHandler: Handler = {
     const parsed = clipPayload.safeParse(h.job.payload)
     if (!parsed.success) return { skipped: 'Isi job tidak valid.' }
     if (!h.env.TTS_URL) return { skipped: 'TTS_URL belum diisi.' }
+    // Klip sesuai permintaan hanya dibuat bila layanan memakai suara yang SEDANG disajikan. Bila tidak, dilewati:
+    // anak tidak boleh mendengar dua suara di antara pertanyaan (suara perangkat dipakai sampai klipnya ada).
+    const served = await readServedVersion(h.env.KIRA_DATA_DIR)
+    const health = await createTtsClient(h.env.TTS_URL, h.env.KIRA_INTERNAL_TOKEN).health(h.signal)
+    if (!health.ok) return { skipped: 'Layanan suara tidak terjangkau' }
+    if ((health.voiceVersion ?? TTS_VOICE_VERSION) !== served) return { skipped: `Layanan memakai suara ${health.voiceVersion ?? '?'}, yang disajikan ${served}` }
     // Teks konten bersama dibuat publik. Teks lain (soal milik org) hanya untuk org pemintanya.
-    const global = globalClipKeys()
+    const global = globalClipKeys(served)
     const clips = dedupe<ClipJob>(
       parsed.data.clips.flatMap((c): ClipJob[] => {
         if (!isTtsStyle(c.style) || !isClipText(c.text)) return []
-        return global.has(ttsKeyInput(c.text, c.style)) ? [{ text: c.text, style: c.style }] : [{ text: c.text, style: c.style, orgId: h.org.orgId }]
+        return global.has(ttsKeyInput(c.text, c.style, served)) ? [{ text: c.text, style: c.style }] : [{ text: c.text, style: c.style, orgId: h.org.orgId }]
       }),
     )
     if (clips.length === 0) return { skipped: 'Tidak ada teks yang layak dibacakan.' }
-    const t = await generate(h, clips, { heartbeat: false })
+    const t = await generate(h, clips, { heartbeat: false, version: served })
     // GPU penuh atau layanan mati: dilewati tanpa coba lagi. Layar learner sudah memakai suara tablet dan akan meminta lagi.
     if (t.stoppedBy) return { ...t, skipped: t.stoppedBy === 'gpu_oom' ? 'GPU penuh' : t.stoppedBy === 'unavailable' ? 'Layanan suara tidak terjangkau' : 'Gagal berulang' }
     return t

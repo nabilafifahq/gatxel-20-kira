@@ -1,8 +1,9 @@
 import 'server-only'
 import { createHash } from 'node:crypto'
+import { readFileSync } from 'node:fs'
 import { stat } from 'node:fs/promises'
 import { join } from 'node:path'
-import { isTtsKey, ttsKeyInput, type TtsStyleId } from '@kira/core/tts'
+import { isTtsKey, isVoiceVersion, ttsKeyInput, TTS_SERVED_VERSION_FILE, TTS_VOICE_VERSION, type TtsStyleId } from '@kira/core/tts'
 import { env } from './env'
 import type { ClipFile } from './tts-serve'
 
@@ -20,8 +21,25 @@ export function ttsEnabled(): boolean {
   return Boolean(env().TTS_URL)
 }
 
+let served: { at: number; v: string } | null = null
+
+/** Versi suara yang disajikan (penunjuk di folder klip, dibaca ulang tiap 5 detik). Tanpa berkas: versi kode. */
+export function servedVoiceVersion(): string {
+  const now = Date.now()
+  if (served && now - served.at < 5000) return served.v
+  let v = TTS_VOICE_VERSION
+  try {
+    const raw = readFileSync(join(env().KIRA_DATA_DIR, 'tts', TTS_SERVED_VERSION_FILE), 'utf8').trim()
+    if (isVoiceVersion(raw)) v = raw
+  } catch {
+    // belum ada penunjuk
+  }
+  served = { at: now, v }
+  return v
+}
+
 export function clipKeyOf(text: string, style: TtsStyleId): string {
-  return createHash('sha256').update(ttsKeyInput(text, style)).digest('hex')
+  return createHash('sha256').update(ttsKeyInput(text, style, servedVoiceVersion())).digest('hex')
 }
 
 const ORG_RE = /^[0-9a-f-]{36}$/

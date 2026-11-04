@@ -1,4 +1,4 @@
-import { isClipText, splitClipText, ttsKeyInput, type TtsClipRequest, type TtsStyleId } from '@kira/core/tts'
+import { isClipText, isVoiceVersion, splitClipText, ttsKeyInput, TTS_VOICE_VERSION, type TtsClipRequest, type TtsStyleId } from '@kira/core/tts'
 
 /**
  * Sisi browser suara bahasa Inggris (Kokoro). Teks dipecah menjadi klip dengan aturan yang sama dengan
@@ -7,7 +7,10 @@ import { isClipText, splitClipText, ttsKeyInput, type TtsClipRequest, type TtsSt
  * Semua fungsi di sini tidak pernah melempar: kegagalan berarti pembaca memakai suara bawaan perangkat.
  */
 
-export type TtsStatus = { enabled: boolean; urls: string[] }
+export type TtsStatus = { enabled: boolean; urls: string[]; voiceVersion?: string }
+
+/** Versi suara yang disajikan server. Diisi dari ttsStatus; kunci klip memakainya. Hanya satu suara pada satu waktu. */
+let voiceVersion = TTS_VOICE_VERSION
 
 let statusPromise: Promise<TtsStatus | null> | null = null
 let statusAt = 0
@@ -19,6 +22,10 @@ export function ttsStatus(): Promise<TtsStatus | null> {
   statusAt = Date.now()
   const p: Promise<TtsStatus | null> = fetch('/api/tts/today', { credentials: 'same-origin' })
     .then((r) => (r.ok ? (r.json() as Promise<TtsStatus>) : null))
+    .then((s) => {
+      if (s && isVoiceVersion(s.voiceVersion)) voiceVersion = s.voiceVersion
+      return s
+    })
     .catch(() => null)
   statusPromise = p
   // Hasil sukses disimpan selama halaman terbuka; hasil gagal boleh diulang.
@@ -44,7 +51,7 @@ export async function clipKey(text: string, style: TtsStyleId): Promise<string |
   try {
     const subtle = globalThis.crypto?.subtle
     if (!subtle) return null
-    const digest = await subtle.digest('SHA-256', new TextEncoder().encode(ttsKeyInput(text, style)))
+    const digest = await subtle.digest('SHA-256', new TextEncoder().encode(ttsKeyInput(text, style, voiceVersion)))
     return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('')
   } catch {
     return null

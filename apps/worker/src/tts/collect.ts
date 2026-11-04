@@ -2,7 +2,7 @@ import { findContentDir, loadContent, type ContentIndex } from '@kira/content/lo
 import { loadSpelling } from '@kira/content/spelling'
 import type { Item } from '@kira/content/schema'
 import { itemSpeechClips, lessonSpeechClips, passageSpeechClips, spellingSpeechClips } from '@kira/content/speech'
-import { TTS_FIXED_LINES, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
+import { TTS_FIXED_LINES, TTS_VOICE_VERSION, ttsKeyInput, type TtsClipRequest } from '@kira/core/tts'
 
 /**
  * Kumpulkan semua teks bahasa Inggris yang dibacakan layar learner, dengan gaya yang sama persis
@@ -39,18 +39,20 @@ export function dedupe<T extends TtsClipRequest>(clips: T[]): T[] {
   return out
 }
 
-let globalKeys: Set<string> | null = null
+const globalKeysByVersion = new Map<string, Set<string>>()
 
 /**
  * Masukan kunci (ttsKeyInput) semua klip konten bersama: repo dan kata ejaan. Klip dengan kunci di sini publik;
  * teks lain dianggap milik org yang memintanya.
  */
-export function globalClipKeys(): Set<string> {
+export function globalClipKeys(version: string = TTS_VOICE_VERSION): Set<string> {
+  let globalKeys = globalKeysByVersion.get(version)
   if (!globalKeys) {
     const { index } = loadContent()
     const spelling = loadSpelling(findContentDir())
     const spellingClips = Object.values(spelling.levels).flatMap((words) => spellingSpeechClips(words))
-    globalKeys = new Set([...repoClips(index), ...spellingClips].map((c) => ttsKeyInput(c.text, c.style)))
+    globalKeys = new Set([...repoClips(index), ...spellingClips].map((c) => ttsKeyInput(c.text, c.style, version)))
+    globalKeysByVersion.set(version, globalKeys)
   }
   return globalKeys
 }

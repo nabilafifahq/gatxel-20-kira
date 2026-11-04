@@ -34,11 +34,13 @@ from typing import Any
 
 import engine
 import gpu
+import remote
 
 PORT = int(os.environ.get("TTS_PORT", "8000"))
 TOKEN = os.environ.get("KIRA_INTERNAL_TOKEN", "")
 IDLE_SECONDS = int(os.environ.get("TTS_IDLE_SECONDS", "600"))
-DEVICE = os.environ.get("TTS_DEVICE", "auto")  # auto | cuda | cpu
+BACKEND = remote.backend()  # kokoro | openai-compatible
+DEVICE = os.environ.get("TTS_DEVICE", "auto") if BACKEND == "kokoro" else "remote"  # auto | cuda | cpu
 MIN_FREE_MIB = int(os.environ.get("TTS_MIN_FREE_MIB", "1500"))
 WORKERS = max(1, int(os.environ.get("TTS_WORKERS", "3")))
 BATCH_CHUNK = int(os.environ.get("TTS_BATCH_CHUNK", "8"))
@@ -53,6 +55,7 @@ MAX_TOTAL_CHARS = 1200
 KINDS = {"praise", "question", "instruction", "statement"}
 
 STYLES = engine.load_styles()
+VOICE_VERSION = remote.voice_version(STYLES)
 
 
 def log(msg: str) -> None:
@@ -119,7 +122,7 @@ class EngineHost:
         with self.lock:
             self.requests += 1
             device = "cpu" if time.monotonic() < self.cpu_until else DEVICE
-            if device != "cpu" and not self.loaded():
+            if device not in ("cpu", "remote") and not self.loaded():
                 # GPU dipakai program lain? Jangan muat model dan jangan buat konteks CUDA (lihat gpu.py).
                 free = gpu.gpu_free_mib()
                 if free is not None and free < MIN_FREE_MIB:
@@ -296,8 +299,9 @@ class Handler(BaseHTTPRequestHandler):
         last = max(POOL.hosts, key=lambda h: h.last_used)
         self._json(200, {
             "ok": True,
-            "engine": "kokoro-82m",
-            "voiceVersion": STYLES.get("voiceVersion"),
+            "engine": "kokoro-82m" if BACKEND == "kokoro" else "openai-compatible",
+            "backend": BACKEND,
+            "voiceVersion": VOICE_VERSION,
             "deviceSetting": DEVICE,
             "engineLoaded": POOL.any_loaded(),
             "workers": WORKERS,
@@ -394,7 +398,7 @@ def main() -> None:
     threading.Thread(target=idle_loop, daemon=True).start()
     srv = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     srv.daemon_threads = True
-    log(f"siap di port {PORT} (device={DEVICE}, workers={WORKERS}, idle={IDLE_SECONDS} detik, minFree={MIN_FREE_MIB} MiB)")
+    log(f"siap di port {PORT} (backend={BACKEND}, voiceVersion={VOICE_VERSION}, device={DEVICE}, workers={WORKERS}, idle={IDLE_SECONDS} detik, minFree={MIN_FREE_MIB} MiB)")
     try:
         srv.serve_forever()
     finally:

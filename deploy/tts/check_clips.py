@@ -344,6 +344,9 @@ def main() -> int:
     ap.add_argument("--chunk", type=int, default=256)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--force", action="store_true", help="periksa ulang semua klip")
+    ap.add_argument("--sample", type=int, help="periksa hanya N klip acak (benih tetap); untuk Whisper bila GPU dibagi dan seluruh set terlalu lama")
+    ap.add_argument("--shard", help="i/N: periksa hanya bagian ke-i dari N (jalankan N proses sejajar, masing-masing dengan --report sendiri, lalu gabungkan dengan --prior)")
+    ap.add_argument("--prior", nargs="*", default=[], help="laporan lain yang dipakai sebagai hasil yang sudah ada (menggabungkan bagian)")
     args = ap.parse_args()
 
     manifest = [json.loads(line) for line in open(os.path.join(args.dir, "manifest.jsonl"), encoding="utf-8") if line.strip()]
@@ -355,12 +358,26 @@ def main() -> int:
     voice_of = {k: v["voice"] for k, v in styles["styles"].items()}
 
     done = {} if args.force else read_report(args.report)
+    for other in args.prior:
+        done.update(read_report(other))
+    if args.sample:
+        import random
+
+        random.Random(7).shuffle(manifest)
+        manifest = manifest[: args.sample]
+        by_key = {m["key"]: m for m in manifest}
+    if args.shard:
+        i, n = (int(x) for x in args.shard.split("/"))
+        manifest = [m for k, m in enumerate(manifest) if k % n == i]
+        by_key = {m["key"]: m for m in manifest}
     # Klip yang berkasnya berubah sejak diperiksa harus diperiksa lagi.
     fresh = {k: r for k, r in done.items() if k in by_key and str(int(os.path.getmtime(os.path.join(args.dir, k + ".mp3")))) == r.get("mtime")}
     todo = [m for m in manifest if m["key"] not in fresh]
     log(f"{len(manifest)} klip, {len(fresh)} sudah diperiksa, {len(todo)} diperiksa sekarang")
 
     asr = None if args.no_asr else Asr(args.whisper, "cuda")
+    if args.shard and args.url:
+        args.url = None  # bagian tidak membuat ulang; penggabungan yang melakukannya
     rows_by_key: dict[str, dict[str, Any]] = dict(fresh)
     started = time.time()
     with Pool(args.procs) as pool:

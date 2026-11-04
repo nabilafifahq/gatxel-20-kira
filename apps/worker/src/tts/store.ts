@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
-import { mkdir, rename, rm, stat, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { isTtsKey, ttsKeyInput, type TtsStyleId } from '@kira/core/tts'
+import { isTtsKey, isVoiceVersion, ttsKeyInput, TTS_SERVED_VERSION_FILE, TTS_VOICE_VERSION, type TtsStyleId } from '@kira/core/tts'
 
 /**
  * Klip suara di KIRA_DATA_DIR/tts/<sha256 dari versi suara, peran, dan teks>.mp3. Sama dengan apps/web/src/server/tts.ts.
@@ -20,8 +20,28 @@ export function ttsRoot(dataDir: string): string {
   return join(dataDir, 'tts')
 }
 
-export function clipKey(text: string, style: TtsStyleId): string {
-  return createHash('sha256').update(ttsKeyInput(text, style)).digest('hex')
+export function clipKey(text: string, style: TtsStyleId, version: string = TTS_VOICE_VERSION): string {
+  return createHash('sha256').update(ttsKeyInput(text, style, version)).digest('hex')
+}
+
+/** Versi suara yang sedang disajikan ke anak (penunjuk atomik). Tanpa berkas atau isi tak valid: versi kode. */
+export async function readServedVersion(dataDir: string): Promise<string> {
+  try {
+    const v = (await readFile(join(ttsRoot(dataDir), TTS_SERVED_VERSION_FILE), 'utf8')).trim()
+    return isVoiceVersion(v) ? v : TTS_VOICE_VERSION
+  } catch {
+    return TTS_VOICE_VERSION
+  }
+}
+
+/** Pindahkan penunjuk dengan rename (atomik). Dipakai hanya oleh pnpm tts:promote. */
+export async function writeServedVersion(dataDir: string, version: string): Promise<void> {
+  if (!isVoiceVersion(version)) throw new Error('Versi suara tidak valid')
+  await mkdir(ttsRoot(dataDir), { recursive: true })
+  const dest = join(ttsRoot(dataDir), TTS_SERVED_VERSION_FILE)
+  const tmp = `${dest}.${process.pid}.tmp`
+  await writeFile(tmp, version + '\n', { mode: 0o644 })
+  await rename(tmp, dest)
 }
 
 const ORG_RE = /^[0-9a-f-]{36}$/
