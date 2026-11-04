@@ -190,12 +190,16 @@ function MeBody({ data, actions, myWords, langSwitch }: { data: MeDTO; actions: 
           </h2>
           <XpTrackBars tracks={data.tracks} />
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
-              {t.shell.nav['quick-maths']}
-            </ButtonLink>
-            <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
-              {t.shell.nav['quiz-arena']}
-            </ButtonLink>
+            {data.tracks.some((x) => x.track === 'hitung') ? (
+              <ButtonLink href={LEARNER_ROUTES.quickMaths} variant="secondary" size="M" icon="bolt">
+                {t.shell.nav['quick-maths']}
+              </ButtonLink>
+            ) : null}
+            {data.tracks.some((x) => x.track === 'pengetahuan') ? (
+              <ButtonLink href={LEARNER_ROUTES.quizArena} variant="secondary" size="M" icon="globe">
+                {t.shell.nav['quiz-arena']}
+              </ButtonLink>
+            ) : null}
           </div>
         </section>
       ) : null}

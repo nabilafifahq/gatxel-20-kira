@@ -234,6 +234,8 @@ export async function resetPassword(token: string, password: string): Promise<vo
   // Tautan lain yang masih beredar untuk akun ini ikut hangus.
   await authDb().update(resetToken).set({ usedAt: new Date() }).where(and(eq(resetToken.userId, row.userId), isNull(resetToken.usedAt)))
   await revokeUserSessions(row.userId)
+  // Pesan kunci menyuruh orang tua memakai Lupa password, jadi password baru harus langsung membuka kuncinya.
+  if (row.email) await recordAttempt(`email:${sha256hex(normaliseEmail(row.email))}`, true)
   await inOrg(systemCtx(row.orgId), (tx) => auditTx(tx, systemCtx(row.orgId), 'password.reset', row.userId))
 }
 

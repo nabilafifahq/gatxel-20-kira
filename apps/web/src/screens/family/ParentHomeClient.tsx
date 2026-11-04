@@ -39,7 +39,7 @@ const TONE: Record<ParentChildCard['status'], string> = {
 }
 
 export function ChildCard({ c }: { c: ParentChildCard }) {
-  const pct = c.requiredTotal > 0 ? Math.round((c.requiredDone / c.requiredTotal) * 100) : c.status === 'none' ? 100 : 0
+  const pct = c.requiredTotal > 0 ? Math.round((c.requiredDone / c.requiredTotal) * 100) : c.status === 'none' && c.optionalTotal > 0 ? 100 : 0
   return (
     <article aria-labelledby={`anak-${c.id}`} className="flex flex-col gap-3 rounded-card border border-divider bg-surface p-4">
       <div className="flex items-center gap-3">

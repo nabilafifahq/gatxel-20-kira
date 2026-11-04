@@ -20,8 +20,8 @@ import { updateLearnerSoundTx } from './learner-motion'
 import { autoSkill } from './learner-session'
 import { placementStartGrade } from './placement-grade'
 import { resolveItems } from './content'
-import { saveFeaturesTx } from './learner-features'
-import type { FeatureMap } from '@kira/core/features'
+import { featureMapFor, saveFeaturesTx } from './learner-features'
+import { sessionAllowed, type FeatureMap } from '@kira/core/features'
 import type { UiLang } from '@/lib/i18n/lang'
 import { setLearnerUiPrefs } from '../auth/accounts'
 
@@ -105,7 +105,9 @@ async function latihanSkillFor(actor: Actor, learnerId: string, subject: Subject
 
 /** Tambah sesi opsional hari ini (paling banyak 10 sesi tambahan; server menolak yang ke-11). */
 export async function parentAddOptional(actor: Actor, input: { learnerId: string; subject: Subject; session: 'latihan' | 'tes' | 'paper' }): Promise<PlanChangeResult> {
-  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async () => undefined)
+  await ownChild(actor, input.learnerId, 'session.added', { subject: input.subject, session: input.session }, async (tx) => {
+    if (!sessionAllowed(await featureMapFor(tx, input.learnerId), input.subject, input.session)) throw conflict('Mapel atau jenis sesi ini sedang dimatikan untuk anak ini. Nyalakan dulu di Pengaturan.')
+  })
   const skillId = input.session === 'latihan' ? await latihanSkillFor(actor, input.learnerId, input.subject) : null
   return upsertSlot(asStaff(actor), {
     learnerId: input.learnerId,

@@ -116,6 +116,8 @@ export async function resendVerification(emailRaw: string): Promise<void> {
   }
   const now = new Date()
   if (now.getTime() - row.lastSentAt.getTime() < RESEND_GAP_MS || row.sentCount >= RESEND_MAX) return
+  // Cek batas email sebelum memutar token: tanpa email baru, tautan lama harus tetap berlaku.
+  if (!emailSendAllowed('verify', row.email)) return
   const token = randomToken(32)
   await authDb()
     .update(signup)
