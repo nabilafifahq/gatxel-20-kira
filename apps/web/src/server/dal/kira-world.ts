@@ -760,7 +760,15 @@ export async function startBossSession(tx: Tx, ctx: OrgContext, learnerId: strin
     const subject = def.subjects.filter(on)[i % def.subjects.filter(on).length]!
     await add(subject, [], Math.min(3, questions - items.length), `fill${i}`)
   }
-  const guarded = await guardAttemptItems(tx, items, { seed, mode: 'latihan' })
+  let guarded = await guardAttemptItems(tx, items, { seed, mode: 'latihan' })
+  // Penjaga membuang soal kembar. Isi lagi supaya jumlah soal sama dengan yang tertulis di layar bos.
+  for (let i = 0; i < 4 && guarded.length < questions; i++) {
+    items.length = 0
+    items.push(...guarded)
+    const subjects = def.subjects.filter(on)
+    await add(subjects[i % subjects.length]!, [], questions - items.length, `refill${i}`)
+    guarded = await guardAttemptItems(tx, items, { seed, mode: 'latihan' })
+  }
   if (guarded.length < 5) throw invalid('This boss is still warming up. Try again soon.')
   const [row] = await tx
     .insert(attempt)
