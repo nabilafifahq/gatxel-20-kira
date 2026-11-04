@@ -262,8 +262,9 @@ test('lewati dulu memakai rekomendasi, tidak buntu, dan daftar langkah hilang se
     expect(await pathOf(f.childIds[0]!)).toBe('skipped')
     // Kelas 1: isinya sama dengan rekomendasi.
     const off = (await db()`select key from learner_feature where learner_id = ${f.childIds[0]!} and enabled = false`).map((r) => r.key as string)
-    expect(off).toContain('paper')
+    expect(off).not.toContain('paper')
     expect(off).toContain('quiz-arena')
+    expect(off).toContain('olympiad-math')
 
     // Halaman anak: tautan Pengaturan membuka bagian saklar.
     await page.goto('/keluarga')

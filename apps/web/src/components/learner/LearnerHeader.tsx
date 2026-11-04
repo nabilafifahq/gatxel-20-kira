@@ -77,7 +77,7 @@ export function LearnerNav({ shell, current }: { shell: LearnerShell; current: L
         aria-label="Main"
         className="sticky top-0 hidden h-svh w-26 flex-none flex-col items-center gap-2 bg-surface shadow-soft px-1 overflow-y-auto py-5 md:flex"
       >
-        <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
+        <Link href={LEARNER_ROUTES.today} aria-label="Kira home" className="kira-press mb-3 inline-flex text-fg no-underline hover:text-fg">
           <KiraLogo size={36} stacked />
         </Link>
         {items.map((n) => {
@@ -144,7 +144,7 @@ export function LearnerFrame({
       <LearnerNav shell={shell} current={current} />
       <div className="flex min-h-svh min-w-0 flex-1 flex-col pb-[calc(76px+var(--safe-bottom))] md:pb-0">
         <div className="pt-safe border-b border-divider bg-surface md:hidden">
-          <Link href={LEARNER_ROUTES.today} aria-label="Kira, Today" className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
+          <Link href={LEARNER_ROUTES.today} aria-label="Kira home" className="kira-press flex h-12 items-center px-4 text-fg no-underline hover:text-fg">
             <KiraLogo size={28} />
           </Link>
         </div>
